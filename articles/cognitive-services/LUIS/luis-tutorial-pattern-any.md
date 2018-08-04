@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 58a1871774683e2af66e12a03bdaf8d6bcea831c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237007"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493263"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Tutorial: Melhorar a aplicação com pattern.any entidade
 
@@ -26,7 +26,7 @@ Neste tutorial, utilize a entidade de pattern.any para aumentar a predição de 
 * Criar padrão que utiliza pattern.any
 * Como verificar as melhorias de predição
 
-Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md) gratuita para criar a sua aplicação LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Se não tiver a aplicação de recursos humanos do [padrão de funções](luis-tutorial-pattern-roles.md) tutorial, [importar](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site. A aplicação para importar se encontra no [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) repositório do GitHub.
@@ -108,7 +108,6 @@ A entidade de Pattern.any extrai entidades de comprimento variável. Ela só fun
 
 5. Prepare a aplicação.
 
-
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testar o novo padrão para extração de dados de forma livre
 1. Selecione **testar** a partir da barra superior para abrir o painel de teste. 
 
@@ -123,7 +122,8 @@ A entidade de Pattern.any extrai entidades de comprimento variável. Ela só fun
 4. Fechar o painel de teste, selecionando o **testar** botão no painel de navegação superior.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione as reticências (***...*** ) à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

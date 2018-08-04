@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447966"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492897"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Convergida registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication (pré-visualização pública)
 
@@ -71,10 +71,12 @@ Registos de auditoria para esta nova experiência existem na categoria de métod
 ## <a name="known-issues"></a>Problemas conhecidos
 
 **Método MFA de predefinição está definido para chamada telefónica quando o utilizador se regista telefone usando a mensagem de texto**
-   * Alguns usuários poderão reparar que o seu método MFA de predefinição está definido para chamada telefónica, depois de registar o respetivo número de telefone com a mensagem de texto. Os utilizadores podem resolver este problema ao alterar o método predefinido ao seguir estas instruções. 
+
+   * Alguns usuários poderão reparar que o seu método MFA de predefinição está definido para chamada telefónica, depois de registar o respetivo número de telefone com a mensagem de texto. Os utilizadores podem resolver este problema ao alterar o método predefinido ao seguir as instruções presentes no artigo [gerir as suas informações de segurança (pré-visualização)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **Não é possível aceder a nova experiência de registo depois do administrador desative o método predefinido do utilizador**
-   * Alguns usuários podem não conseguir aceder a nova experiência de registo, se o seu padrão registrado anteriormente método MFA foi desabilitado pelo seu administrador. Eis um cenário de exemplo: 
+
+   * Alguns usuários podem não conseguir aceder a nova experiência de registo, se o seu padrão registrado anteriormente método MFA foi desabilitado pelo seu administrador. Eis um cenário de exemplo:
       1. Anteriormente, o utilizador registado o respetivo número de telefone e definir o método padrão para chamada telefónica.
       2. Administrador desative chamada telefónica como um método de MFA para o inquilino.
       3. Utilizador deve registar durante o início de sessão por terem de se registar um método adicional para cumprir o política da SSPR do inquilino.

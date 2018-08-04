@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1137e7164ac83a2ee0bf05804296aeeb5c3496fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b05512804b35f7df3dfd2899eed975b93d36f951
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437452"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503388"
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Web de node. js do AD introdução da API do Azure
 
 Este artigo demonstra como proteger uma [Restify](http://restify.com/) ponto final de API com [Passport](http://passportjs.org/) utilizando o [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) módulo para lidar com a comunicação com o Azure Active Directory (AAD). 
 
-O âmbito deste tutorial abrange as preocupações relativas ao proteger pontos finais da API. As preocupações de iniciar sessão e manter os tokens de autenticação não são implementadas aqui e são de responsabilidade de um aplicativo cliente. Para obter detalhes que envolvem uma implementação de cliente, reveja [aplicação web de node. js início de sessão e fim de sessão com o Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
+O âmbito deste tutorial abrange as preocupações relativas ao proteger pontos finais da API. As preocupações de iniciar sessão e manter os tokens de autenticação não são implementadas aqui e são de responsabilidade de um aplicativo cliente. Para obter detalhes que envolvem uma implementação de cliente, reveja [aplicação web de node. js início de sessão e fim de sessão com o Azure AD](quickstart-v1-openid-connect-code.md).
 
 O exemplo de código completo associado a este artigo está disponível no [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
@@ -77,7 +77,7 @@ Antes de poder ligar ao Azure Active Directory, terá das seguintes informaçõe
 
 | Nome  | Descrição | Nome da variável no arquivo de configuração |
 | ------------- | ------------- | ------------- |
-| Nome do inquilino  | [Nome do inquilino](active-directory-howto-tenant.md) que pretende utilizar para autenticação | `tenantName`  |
+| Nome do inquilino  | [Nome do inquilino](quickstart-create-new-tenant.md) que pretende utilizar para autenticação | `tenantName`  |
 | ID de Cliente  | ID de cliente é o termo de OAuth utilizado para o AAD _ID da aplicação_. |  `clientID`  |
 
 De resposta do registo no Azure Cloud Shell, copie os `appId` valor e criar um novo ficheiro designado `config.js`. Em seguida, adicione o código a seguir e substitua os valores com os tokens entre parênteses:
@@ -245,4 +245,4 @@ Agora que criou uma API segura, pode implementar um cliente que é capaz de tran
 Conforme mencionado na introdução, tem de implementar um equivalente de cliente ao ligar ao servidor que manipula a iniciar sessão, a terminar sessão e gestão de tokens. Para obter exemplos baseados em código, pode consultar as aplicações de cliente no [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) e [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Para obter um tutorial passo a passo, consulte o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Aplicação web de node. js início de sessão e fim de sessão com o Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md)
+> [Aplicação web de node. js início de sessão e fim de sessão com o Azure AD](quickstart-v1-openid-connect-code.md)

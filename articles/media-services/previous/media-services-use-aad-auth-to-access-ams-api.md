@@ -1,6 +1,6 @@
 ---
-title: Aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure Active Directory | Microsoft Docs
-description: Saiba mais sobre conceitos e os passos para utilizar o Azure Active Directory (Azure AD) para autenticar o acesso à API de serviços de suporte de dados do Azure.
+title: Aceder à API de serviços de multimédia do Azure com a autenticação do Azure Active Directory | Documentos da Microsoft
+description: Saiba mais sobre conceitos e passos para utilizar o Azure Active Directory (Azure AD) para autenticar o acesso à API de serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,145 +13,145 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: a7f20c22b39458134d3dcd42b7e13860c03bad58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790406"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502707"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acesso à API de serviços de multimédia do Azure com a autenticação do Azure AD
  
-A API de serviços de suporte de dados do Azure é uma API RESTful. Pode utilizá-lo para efetuar operações nos recursos de suporte de dados utilizando uma API REST ou ao utilizar SDKs do cliente disponíveis. Media Services do Azure oferece um SDK do cliente de Media Services para Microsoft .NET. Para ser autorizadas a aceder a recursos de Media Services e a API de serviços de suporte de dados, tem primeiro de ser autenticado. 
+API de serviços de multimédia do Azure é uma API RESTful. Pode usá-lo para realizar operações nos recursos de suporte de dados com uma API REST ou através de SDKs de cliente disponíveis. Serviços de multimédia do Azure oferece um SDK do cliente de serviços de multimédia para o Microsoft .NET. Para ficar autorizada a aceder a recursos de serviços de multimédia e a API de serviços de suporte de dados, tem primeiro de ser autenticado. 
 
-Os Media Services suportam [Azure Active Directory (Azure AD)-autenticação com base no](../../active-directory/active-directory-whatis.md). O serviço de REST de suporte de dados do Azure requer que o utilizador ou aplicação que faz com que a API REST pedidos de ter o **contribuinte** ou **proprietário** função para aceder aos recursos. Para obter mais informações, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../../role-based-access-control/overview.md).  
+Serviços de multimédia suportam [do Azure Active Directory (Azure AD)-autenticação baseada em](../../active-directory/fundamentals/active-directory-whatis.md). O serviço de REST de suporte de dados do Azure requer que o utilizador ou aplicação que faz a API REST pedidos de ter o **contribuinte** ou **proprietário** função para acessar os recursos. Para obter mais informações, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > Atualmente, os Media Services suportam o modelo de autenticação do serviço de controlo de acesso do Azure. No entanto, a autorização de controlo de acesso vai ser preterida no dia 1 de Junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
 
-Este documento fornece uma descrição geral de como pode aceder a API de serviços de suporte de dados através de REST ou de APIs de .NET.
+Este documento oferece uma visão geral de como acessar a API de serviços de multimédia com REST ou de APIs do .NET.
 
 ## <a name="access-control"></a>Controlo de acesso
 
-Para o pedido de REST de suporte de dados do Azure com êxito, o utilizador chamado tem de ter uma função de contribuinte ou proprietário para a conta de Media Services está a tentar aceder.  
-Apenas um utilizador com a função de proprietário pode dar acesso a recursos (conta) suporte de dados para os novos utilizadores ou aplicações. A função de contribuinte pode aceder apenas o recurso de multimédia.
-Pedidos não autorizados falharam com o código de estado de 401. Se vir este código de erro, verifique se o seu utilizador tem a função de contribuinte ou proprietário atribuída para a conta de utilizador dos Media Services. Pode verificar isto no portal do Azure. Procure a conta de media e, em seguida, clique em de **controlo de acesso** separador. 
+Para a solicitação de REST de suporte de dados do Azure com êxito, o utilizador chamador tem de ter uma função de Contribuidor ou proprietário da conta de Media Services está a tentar aceder.  
+Apenas um utilizador com a função de proprietário pode dar acesso a recursos (conta) suporte de dados para novos utilizadores ou aplicações. A função de Contribuidor pode aceder apenas o recurso de multimédia.
+Pedidos não autorizados falharem, com o código de estado de 401. Se vir este código de erro, verifique se o usuário tem a função de proprietário ou contribuinte atribuída para a conta de utilizador dos serviços de multimédia. Pode verificar isto no portal do Azure. Procure a conta de multimédia e, em seguida, clique nas **controlo de acesso** separador. 
 
-![Separador de controlo de acesso](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
+![Guia de controle de acesso](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
 
 ## <a name="types-of-authentication"></a>Tipos de autenticação 
  
-Quando utiliza a autenticação do Azure AD com Media Services do Azure, tem duas opções de autenticação:
+Quando utiliza a autenticação do Azure AD com os serviços de multimédia do Azure, tem duas opções de autenticação:
 
-- **Autenticação de utilizador**. Autentica uma pessoa que está a utilizar a aplicação para interagir com recursos de Media Services. A aplicação interativa deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação de consola de gestão utilizada por utilizadores autorizados para monitorizar as tarefas de codificação ou transmissão em direto. 
-- **Autenticação principal de serviço**. Autenticar-se um serviço. As aplicações que utilizam frequentemente este método de autenticação são aplicações que executem serviços de daemon, serviços de camada média ou tarefas agendadas. Os exemplos são as web apps, aplicações de função, as logic apps, API e micro-serviços.
+- **Autenticação de utilizador**. Autenticar-se uma pessoa que está a utilizar a aplicação para interagir com os recursos de serviços de multimédia. O aplicativo interativo deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação de consola de gestão utilizada por utilizadores autorizados para monitorizar tarefas de codificação ou transmissão em direto. 
+- **Autenticação do principal de serviço**. Autenticar-se um serviço. Aplicativos geralmente usam este método de autenticação são as aplicações que executem serviços de daemon, serviços de camada intermediária ou tarefas agendadas. Os exemplos são aplicações web, aplicações de funções, logic apps, API e microsserviços.
 
 ### <a name="user-authentication"></a>Autenticação de utilizador 
 
-As aplicações que devem utilizar o método de autenticação de utilizador são gestão ou de monitorização de aplicações nativas: as aplicações móveis, as aplicações do Windows e aplicações de consola. Este tipo de solução é útil quando pretender que uma interação humana com o serviço dos seguintes cenários:
+Os aplicativos que devem utilizar o método de autenticação de utilizador são de gerenciamento ou monitoramento de aplicativos nativos: aplicações móveis, aplicações do Windows e aplicativos de Console. Este tipo de solução é útil quando desejar interação humana com o serviço em um dos seguintes cenários:
 
 - Dashboard de monitorização para os trabalhos de codificação.
-- Dashboard de monitorização para os fluxos em direto.
-- Aplicação de gestão para os utilizadores de ambiente de trabalho ou de dispositivo móveis administrar recursos numa conta de Media Services.
+- Dashboard de monitorização para transmissões em fluxo em direto.
+- Aplicação de gestão para utilizadores de ambiente de trabalho ou móveis administrar recursos numa conta de Media Services.
 
 > [!NOTE]
-> Este método de autenticação não deve ser utilizado para aplicações direcionadas para o consumidor. 
+> Este método de autenticação não deve ser utilizado para aplicações voltadas para consumidores. 
 
-Uma aplicação nativa tem de primeiro adquirir um token de acesso do Azure AD e, em seguida, utilizá-lo quando efetuar pedidos de HTTP para a API de REST de serviços de suporte de dados. Adicione o token de acesso para o cabeçalho do pedido. 
+Um aplicativo nativo deve primeiramente adquirir um token de acesso do Azure AD e, em seguida, utilizá-lo quando efetuar pedidos HTTP para a API de REST de serviços de multimédia. Adicione o token de acesso para o cabeçalho do pedido. 
 
-O diagrama seguinte mostra um fluxo de autenticação da aplicação interativa típica: 
+O diagrama seguinte mostra um fluxo de autenticação do aplicativo interativo típico: 
 
-![Diagrama de aplicações nativas](./media/media-services-use-aad-auth-to-access-ams-api/media-services-native-aad-app1.png)
+![Diagrama de aplicativos nativos](./media/media-services-use-aad-auth-to-access-ams-api/media-services-native-aad-app1.png)
 
 No diagrama anterior, os números representam o fluxo de pedidos por ordem cronológica.
 
 > [!NOTE]
-> Quando utiliza o método de autenticação de utilizador, todas as aplicações partilham o mesmo ID de cliente de aplicação nativa (predefinição) e o URI de redirecionamento de aplicação nativa. 
+> Quando utiliza o método de autenticação de utilizador, todas as aplicações partilham o mesmo ID de cliente de aplicação nativa (predefinição) e o URI de redirecionamento da aplicação nativa. 
 
-1. Solicita credenciais um utilizador.
+1. Um prompt ao usuário as credenciais.
 2. Pedir um token de acesso do Azure AD com os seguintes parâmetros:  
 
-    * Azure AD ponto final de inquilino.
+    * Endpoint de inquilino do Azure AD.
 
-        As informações de inquilino podem ser obtidas a partir do portal do Azure. Coloque o cursor sobre o nome de utilizador com sessão iniciada na parte superior direito.
-    * URI do recurso dos Media Services. 
+        As informações de inquilino podem ser obtidas a partir do portal do Azure. Coloque o cursor sobre o nome de utilizador com sessão iniciada no canto superior direito.
+    * URI do recurso de serviços de multimédia. 
 
-        Este URI é o mesmo para contas de serviços de suporte de dados que estão no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+        Este URI é o mesmo para contas de serviços de multimédia que estão no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
 
-    * ID de cliente de serviços de suporte de dados (nativo) de aplicação.
-    * URI de redirecionamento da aplicação de Media Services (nativo).
-    * URI para serviços de suporte de dados REST do recurso.
+    * ID de cliente de aplicação de serviços de multimédia (nativo).
+    * URI de redirecionamento da aplicação de serviços de multimédia (nativo).
+    * URI do recurso para os serviços de multimédia REST.
         
-        O URI representa o ponto final de REST API (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+        O URI representa o ponto de final de REST API (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
 
-    Para obter os valores para estes parâmetros, consulte [utilizar o portal do Azure para aceder às definições de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) utilizando a opção de autenticação de utilizador.
+    Para obter os valores para estes parâmetros, veja [utilizar o portal do Azure para aceder às definições de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) utilizando a opção de autenticação de utilizador.
 
-3. O token de acesso do Azure AD é enviado para o cliente.
-4. O cliente envia um pedido para a API de REST de suporte de dados do Azure com o token de acesso do Azure AD.
-5. O cliente anterior obtém os dados dos serviços de suporte de dados.
+3. O token de acesso do Azure AD é enviado ao cliente.
+4. O cliente envia um pedido à API de REST de multimédia do Azure com o token de acesso do Azure AD.
+5. O cliente recebe de volta os dados dos serviços de multimédia.
 
-Para obter informações sobre como utilizar a autenticação do Azure AD para comunicar com pedidos de REST utilizando o SDK do cliente do .NET dos Media Services, consulte [autenticação de utilização do Azure AD para aceder à API de serviços do suporte de dados com o .NET](media-services-dotnet-get-started-with-aad.md). 
+Para obter informações sobre como utilizar a autenticação do Azure AD para comunicar com pedidos REST utilizando o SDK de cliente .NET de serviços de multimédia, veja [autenticação de utilização do Azure AD para aceder à API de serviços de multimédia com .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Se não estiver a utilizar o SDK do cliente do .NET dos Media Services, tem de criar manualmente um pedido de token de acesso do Azure AD, utilizando os parâmetros descritos no passo 2. Para obter mais informações, consulte [como utilizar o Azure AD Authentication Library para obter o Azure AD token](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se não estiver a utilizar o SDK de cliente .NET de serviços de suporte de dados, tem de criar manualmente um pedido de token de acesso do Azure AD com os parâmetros descritos no passo 2. Para obter mais informações, consulte [como utilizar o Azure AD Authentication Library para obter o token do Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
 
 ### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
 
-As aplicações que utilizam frequentemente este método de autenticação são as aplicações que executam os serviços de camada média e tarefas agendadas: web apps, aplicações de função, as logic apps, APIs e micro-serviços. Este método de autenticação também é adequado para aplicações interativas na qual pode querer utilizar uma conta de serviço para gerir os recursos.
+Os aplicativos geralmente usam este método de autenticação são aplicações que executam serviços de camada intermediária e tarefas agendadas: web apps, aplicações de funções, aplicações lógicas, APIs e microsserviços. Este método de autenticação também é adequado para aplicativos interativos em que pode querer utilizar uma conta de serviço para gerir os recursos.
 
-Quando utiliza o método de autenticação principal de serviço para criar cenários de consumidor, autenticação, normalmente, é processada na camada média (através de alguns API) e não diretamente numa aplicação móvel ou ambiente de trabalho. 
+Quando utiliza o método de autenticação do principal de serviço para criar cenários de consumidor, autenticação, normalmente, é processada na camada intermediária (por meio de alguns API) e não diretamente num aplicativo móvel ou ambiente de trabalho. 
 
-Para utilizar este método, crie uma aplicação do Azure AD e o serviço principal no seu próprio inquilino. Depois de criar a aplicação, atribua a aplicação de acesso à função de contribuinte ou proprietário para a conta de Media Services. Para fazer isto no portal do Azure, utilizando a CLI do Azure, ou com um script do PowerShell. Também pode utilizar uma aplicação do Azure AD existente. Pode registar e gerir a sua aplicação Azure AD e o principal de serviço [no portal do Azure](media-services-portal-get-started-with-aad.md). Também pode fazer isto utilizando [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) ou [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+Para utilizar este método, crie uma aplicação do Azure AD e o serviço principal no seu próprio inquilino. Depois de criar o aplicativo, dar a acesso à função de Contribuidor ou proprietário da aplicação para a conta de Media Services. Pode fazer isso no portal do Azure, com a CLI do Azure, ou com um script do PowerShell. Também pode utilizar uma aplicação do Azure AD existente. Pode registar e gerir a sua aplicação do Azure AD e principal de serviço [no portal do Azure](media-services-portal-get-started-with-aad.md). Também pode fazer isso usando [CLI do Azure](media-services-use-aad-auth-to-access-ams-api.md) ou [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
-![Aplicações de camada média](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Aplicações de camada intermediária](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-Depois de criar a aplicação do Azure AD, pode obter valores para as seguintes definições. Necessitar destes valores para a autenticação:
+Depois de criar a sua aplicação do Azure AD, obter valores para as seguintes definições. Vai precisar destes valores para a autenticação:
 
-- ID do Cliente 
+- ID de Cliente 
 - Segredo do cliente 
 
 Na figura anterior, os números representam o fluxo de pedidos por ordem cronológica:
     
-1. Uma aplicação de camada média (web API ou aplicação web) solicita um token de acesso do Azure AD que tenha os seguintes parâmetros:  
+1. Uma aplicação de camada intermediária (web API ou aplicação web) solicita um token de acesso do Azure AD que tenha os seguintes parâmetros:  
 
-    * Azure AD ponto final de inquilino.
+    * Endpoint de inquilino do Azure AD.
 
-        As informações de inquilino podem ser obtidas a partir do portal do Azure. Coloque o cursor sobre o nome de utilizador com sessão iniciada na parte superior direito.
-    * URI do recurso dos Media Services. 
+        As informações de inquilino podem ser obtidas a partir do portal do Azure. Coloque o cursor sobre o nome de utilizador com sessão iniciada no canto superior direito.
+    * URI do recurso de serviços de multimédia. 
 
-        Este URI é o mesmo para contas de serviços de suporte de dados que estão localizadas no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+        Este URI é o mesmo para contas de serviços de multimédia que se encontram no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
 
-    * URI para serviços de suporte de dados REST do recurso.
+    * URI do recurso para os serviços de multimédia REST.
 
-        O URI representa o ponto final de REST API (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+        O URI representa o ponto de final de REST API (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
 
-    * Os valores de aplicação do Azure AD: o ID de cliente e o segredo do cliente.
+    * Valores de aplicações do Azure AD: o ID de cliente e o segredo de cliente.
     
-    Para obter os valores para estes parâmetros, consulte [utilizar o portal do Azure para aceder às definições de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) utilizando a opção de autenticação principal de serviço.
+    Para obter os valores para estes parâmetros, veja [utilizar o portal do Azure para aceder às definições de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) utilizando a opção de autenticação do principal de serviço.
 
-2. O token de acesso do Azure AD é enviado para a camada média.
-4. A camada média envia o pedido para a API de REST de suporte de dados do Azure com o token do Azure AD.
-5. A camada média anterior obtém os dados dos serviços de suporte de dados.
+2. O token de acesso do Azure AD é enviado para a camada intermediária.
+4. A camada média envia o pedido à API de REST de multimédia do Azure com o token do Azure AD.
+5. A camada média volta obtém os dados dos serviços de multimédia.
 
-Para obter mais informações sobre como utilizar a autenticação do Azure AD para comunicar com pedidos de REST utilizando o SDK do cliente do .NET dos Media Services, consulte [autenticação de utilização do Azure AD para aceder à API de serviços de suporte de dados do Azure com o .NET](media-services-dotnet-get-started-with-aad.md). 
+Para obter mais informações sobre como utilizar a autenticação do Azure AD para comunicar com pedidos REST utilizando o SDK de cliente .NET de serviços de multimédia, veja [autenticação de utilização do Azure AD para aceder à API de serviços de multimédia do Azure com .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Se não estiver a utilizar o SDK do cliente do .NET dos Media Services, tem de criar manualmente um pedido de token do Azure AD através da utilização de parâmetros descritos no passo 1. Para obter mais informações, consulte [como utilizar o Azure AD Authentication Library para obter o Azure AD token](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se não estiver a utilizar o SDK de cliente .NET de serviços de suporte de dados, tem de criar manualmente um pedido de token do Azure AD utilizando os parâmetros descritos na etapa 1. Para obter mais informações, consulte [como utilizar o Azure AD Authentication Library para obter o token do Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Exceção: "o servidor remoto devolveu um erro: não autorizado (401)."
+Exceção: "o servidor remoto devolveu um erro: (401) não autorizado."
 
-Solução: Para o pedido de REST de serviços de suporte de dados tenha êxito, o utilizador chamado tem de ser uma função de contribuinte ou o proprietário da conta de Media Services está a tentar aceder. Para obter mais informações, consulte o [controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) secção.
+Solução: Para o pedido de REST de serviços de suporte de dados tenha êxito, o utilizador chamador tem de ser uma função de proprietário ou contribuinte na conta de Media Services está a tentar aceder. Para obter mais informações, consulte a [controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) secção.
 
 ## <a name="resources"></a>Recursos
 
-Os seguintes artigos-se descrições gerais de conceitos de autenticação do Azure AD: 
+Os seguintes artigos são proporciona uma visão geral dos conceitos de autenticação do Azure AD: 
 
-- [Cenários de autenticação endereçados através do Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [Adicionar, atualizar ou remover uma aplicação no Azure AD](../../active-directory/develop/active-directory-integrating-applications.md)
-- [Configurar e gerir o controlo de acesso baseado em funções utilizando o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Adicionar, atualizar ou remover uma aplicação no Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Configurar e gerir o controlo de acesso baseado em funções com o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Utilizar o portal do Azure para [autenticação de acesso do Azure AD para consumir API de serviços de suporte de dados do Azure](media-services-portal-get-started-with-aad.md).
-* Autenticação de utilização do Azure AD para [aceder à API de serviços de suporte de dados do Azure com o .NET](media-services-dotnet-get-started-with-aad.md).
+* Utilizar o portal do Azure para [autenticação de acesso do Azure AD para consumir API de serviços de multimédia do Azure](media-services-portal-get-started-with-aad.md).
+* Autenticação de utilização do Azure AD para [aceder à API de serviços de multimédia do Azure com .NET](media-services-dotnet-get-started-with-aad.md).
 

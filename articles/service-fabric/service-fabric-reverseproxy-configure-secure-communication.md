@@ -13,24 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 0558a5647267dda26890ba3a6dc1af326fae94f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308168"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502445"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligar a um serviço seguro com o proxy inverso
 
-Este artigo explica como estabelecer uma ligação segura entre o proxy inverso e serviços, assim, ativar um canal de segurança de ponta a ponta.
+Este artigo explica como estabelecer uma ligação segura entre o proxy inverso e serviços, assim, ativar um canal de segurança de ponta a ponta. Para saber mais sobre o proxy inverso, consulte [inverter o proxy no Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Ligar a serviços seguros é suportado apenas quando o proxy inverso está configurado para escutar em HTTPS. REST do documento pressupõe que esse é o caso.
-Consulte a [proxy no Azure Service Fabric inverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para configurar o proxy inverso no Service Fabric.
+Ligar a serviços seguros é suportado apenas quando o proxy inverso está configurado para escutar em HTTPS. Este artigo pressupõe que esse é o caso.
+Consulte a [proxy inverso do programa de configuração no Azure Service Fabric](service-fabric-reverseproxy-setup.md) para configurar o proxy inverso no Service Fabric.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de ligação segura entre o proxy inverso e serviços 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Proxy inverso autenticar-se aos serviços:
-O proxy inverso identifica-se aos serviços com o seu certificado, especificado com ***reverseProxyCertificate*** propriedade na **Cluster** [secção de tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md). Serviços podem implementar a lógica para verificar o certificado apresentado pelo proxy inverso. Os serviços podem especificar os detalhes do certificado de cliente aceita como definições de configuração no pacote de configuração. Isso pode ser lido em tempo de execução e utilizado para validar o certificado apresentado pelo proxy inverso. Consulte a [gerir parâmetros da aplicação](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
+O proxy inverso identifica-se aos serviços com o seu certificado. Para o certificado de clusters do Azure é especificado com ***reverseProxyCertificate*** propriedade na [ **Microsoft.ServiceFabric/clusters** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [recursos Escreva a seção](../azure-resource-manager/resource-group-authoring-templates.md) do modelo do Resource Manager. Para clusters autónomos, o certificado é especificado com o os ***ReverseProxyCertificate*** ou o ***ReverseProxyCertificateCommonNames*** propriedade no **segurança**secção de ClusterConfig.json. Para obter mais informações, consulte [ativar o proxy inverso no clusters autónomos](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+
+Serviços podem implementar a lógica para verificar o certificado apresentado pelo proxy inverso. Os serviços podem especificar os detalhes do certificado de cliente aceita como definições de configuração no pacote de configuração. Isso pode ser lido em tempo de execução e utilizado para validar o certificado apresentado pelo proxy inverso. Consulte a [gerir parâmetros da aplicação](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Verificar a identidade do serviço por meio do certificado apresentado pelo serviço de um proxy inverso:
 Proxy inverso suporta as seguintes políticas para executar a validação de certificado de servidor de certificados apresentada por serviços: nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
@@ -193,6 +195,7 @@ Se o cliente não apresentar um certificado, o proxy inverso reencaminha um cabe
 
 
 ## <a name="next-steps"></a>Passos Seguintes
+* [Definir e configurar o proxy inverso num cluster](service-fabric-reverseproxy-setup.md).
 * Consulte a [configurar o proxy inverso para ligar a serviços seguros](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager exemplos de modelos para configurar o secure proxy inverso, com o certificado de serviço diferentes opções de validação.
 * Ver um exemplo de comunicação HTTP entre os serviços numa [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Chamadas de procedimento remoto com a comunicação remota do Reliable Services](service-fabric-reliable-services-communication-remoting.md)

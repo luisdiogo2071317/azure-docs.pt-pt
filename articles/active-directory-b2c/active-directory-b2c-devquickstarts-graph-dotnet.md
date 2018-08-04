@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: da8aac2968ba020dd2b98253b12e8c9f223966e5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce2c92f984f835c8e8f49ec94d65a9f3390812f9
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442508"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493127"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>O Azure AD B2C: Utilizar o Azure AD Graph API
 
@@ -27,7 +27,7 @@ Inquilinos do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. 
 Para inquilinos de B2C, existem dois modos principais de comunicação com a Graph API.
 
 * Para tarefas interativas e de execução única, deve agir como uma conta de administrador no inquilino do B2C ao executar as tarefas. Este modo requer um administrador iniciar sessão com as credenciais para que o administrador pode realizar todas as chamadas para a Graph API.
-* Para tarefas automatizadas, contínuas, deve usar algum tipo de conta de serviço que forneça com os privilégios necessários para efetuar tarefas de gestão. No Azure AD, pode fazê-ao registar uma aplicação e autenticar para o Azure AD. Isso é feito usando uma **ID da aplicação** que utiliza o [concessão de credenciais de cliente OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Neste caso, o aplicativo age em nome próprio, não como um utilizador, para chamar a API de gráfico.
+* Para tarefas automatizadas, contínuas, deve usar algum tipo de conta de serviço que forneça com os privilégios necessários para efetuar tarefas de gestão. No Azure AD, pode fazê-ao registar uma aplicação e autenticar para o Azure AD. Isso é feito usando uma **ID da aplicação** que utiliza o [concessão de credenciais de cliente OAuth 2.0](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api). Neste caso, o aplicativo age em nome próprio, não como um utilizador, para chamar a API de gráfico.
 
 Neste artigo, aprenderá a efetuar o caso de uso automatizado. Irá criar um .NET 4.5 `B2CGraphClient` que realiza o usuário criar, ler, atualizar e eliminar (CRUD) de operações. O cliente terá uma interface de linha de comandos do Windows (CLI) que permite invocar vários métodos. No entanto, o código é escrito para se comportar de forma noninteractive e automatizada.
 

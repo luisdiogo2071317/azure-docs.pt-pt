@@ -8,18 +8,26 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 59c41d4303cad00107793f3c09382347fbb1fb5b
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480390"
+ms.locfileid: "39493579"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos do Azure Event Grid para subscrições
 
 Este artigo fornece as propriedades e o esquema para eventos de subscrição do Azure. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
 As subscrições do Azure e grupos de recursos emitem os mesmos tipos de evento. Os tipos de evento estão relacionados a alterações em recursos. A principal diferença é que grupos de recursos emitem eventos para os recursos no grupo de recursos e subscrições do Azure emitem eventos para recursos entre a subscrição.
+
+Eventos de recursos são criados para PUT, PATCH e eliminar operações que são enviadas para `management.azure.com`. POST e GET operações não criam eventos. Enviado para o plano de dados de operações (como `myaccount.blob.core.windows.net`) não criar eventos.
+
+Quando subscreve eventos para uma subscrição do Azure, o ponto final recebe todos os eventos para essa subscrição. Os eventos podem incluir eventos que pretende ver, como a atualização de uma máquina virtual, mas também eventos que talvez não são importantes para si, como escrever uma nova entrada no histórico de implementação. Pode receber todos os eventos no seu ponto final e escrever código que processa os eventos que deseja manipular ou pode definir um filtro ao criar a subscrição de evento.
+
+Por meio de programação manipular eventos, pode ordenar eventos ao observar o `operationName` valor. Por exemplo, o ponto de final do evento apenas pode processar eventos para operações que são iguais a `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
+
+O assunto de evento é o ID de recurso do recurso que é o destino da operação. Para filtrar eventos para um recurso, fornecer esse recurso ID ao criar a subscrição de evento. Para scripts de exemplo, consulte [Subscribe e filtro para o grupo de recursos - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) ou [Subscribe e filtro para o grupo de recursos - CLI do Azure](scripts/event-grid-cli-resource-group-filter.md). Para filtrar por um tipo de recurso, utilize um valor no seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126056"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494213"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, planeamento de capacidade é um passo importante. Aqui estão alguns dos itens que deve considerar como parte desse processo.
@@ -62,7 +62,7 @@ Os serviços de sistema do Service Fabric (por exemplo, o serviço de Gestor de 
 * O **tamanho mínimo de VMs** para o nó principal tipo é determinado pela **escalão de durabilidade** que escolher. O escalão de durabilidade de padrão é Bronze. Ver [as características de durabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) para obter mais detalhes.  
 * O **número mínimo de VMs** para o nó principal tipo é determinado pela **escalão de fiabilidade** que escolher. O escalão de fiabilidade de padrão é Silver. Ver [as características de fiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.  
 
-Ao modelo Azure Resource Manager, o tipo de nó principal está configurado com o `isPrimary` atributo sob o [definição de tipo de nó](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+Ao modelo Azure Resource Manager, o tipo de nó principal está configurado com o `isPrimary` atributo sob o [definição de tipo de nó](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### <a name="non-primary-node-type"></a>Tipo de nó não-primário
 
@@ -110,10 +110,6 @@ Utilizar Gold ou Silver durabilidade para todos os tipos de nós que alojam serv
 - Adotar o mais seguras formas de fazer uma alteração de SKU de VM (aumentar/reduzir verticalmente): alterar o SKU de VM de um conjunto de dimensionamento de máquina virtual é, inerentemente, uma operação não segura e por isso, deve ser evitado se possível. Eis o processo que pode seguir para evitar problemas comuns.
     - **Para tipos de nós não primário:** é recomendado que crie o novo conjunto de dimensionamento de máquina virtual, modifique a restrição de posicionamento de serviço para incluir o novo tipo de conjunto/nó de dimensionamento de máquina virtual e, em seguida, reduzir a antiga instância de conjunto de dimensionamento de máquina virtual Contagem como 0, um nó por vez (isto é para se certificar de que a remoção de nós não afetam a fiabilidade do cluster).
     - **Para o tipo de nó primário:** a nossa recomendação é que não altere os SKU de VM do tipo de nó primário. A alteração do tipo de nó primário que SKU não é suportado. Se o motivo para o novo SKU é a capacidade, recomendamos que adicione mais instâncias. Se isso não é possível, crie um novo cluster e [restaurar estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Não é necessário restaurar o estado do serviço qualquer sistema, eles são recriados quando implanta aplicativos para o novo cluster. Se fosse apenas executar aplicativos sem monitoração de estado no seu cluster, então tudo o que fazer é implementar as suas aplicações para o novo cluster, não têm nada a restaurar. Se optar por seguir o caminho não suportado e quiser alterar o SKU de VM, em seguida, fazer modificações para o dimensionamento de máquinas virtuais definição de modelo para refletir o novo SKU do conjunto. Se o cluster tem apenas um tipo de nó, em seguida, certifique-se de que todas as suas aplicações com monitorização de estado a responder a todos [eventos de ciclo de vida de réplica do serviço](service-fabric-reliable-services-lifecycle.md) (como a réplica de compilação está bloqueada) na forma oportuna e que a réplica de serviço reconstruir duração é menos de cinco minutos (para o nível de durabilidade Silver). 
-
-    > [!WARNING]
-    > Alterar o tamanho de SKU de VM para conjuntos de dimensionamento de máquina virtual não está em execução, pelo menos, prata durabilidade não é recomendado. Alterar tamanho da SKU de VM é uma operação de infraestrutura do destrutiva dados no local. Sem, pelo menos, alguma capacidade de atraso ou monitorizar esta alteração, é possível que a operação pode causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem monitorização de estado. 
-    > 
     
 - Manter uma contagem mínima de cinco nós para qualquer conjunto de dimensionamento de máquina virtual que tem o nível de durabilidade de Gold ou Silver ativada.
 - Cada conjunto com o nível de durabilidade Silver ou Gold de dimensionamento VM tem de mapear para o seu próprio tipo de nó no cluster do Service Fabric. Mapeamento de VM de vários conjuntos de dimensionamento para um tipo de nó único impedirá coordenação entre o cluster do Service Fabric e a infraestrutura do Azure a funcionar corretamente.

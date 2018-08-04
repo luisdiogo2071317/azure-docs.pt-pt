@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342407"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493975"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,9 @@ Se o arquivo de dados na cloud suporta HTTPS ou TLS, todos os dados transferidos
 
 > [!NOTE]
 > Todas as ligações à base de dados do Azure SQL e o Azure SQL Data Warehouse exigem encriptação (SSL/TLS), enquanto os dados se encontram em trânsito para e da base de dados. Quando estiver criando um pipeline com o JSON, adicione a propriedade de encriptação e configurá-lo para **true** na cadeia de ligação. Armazenamento do Azure, pode utilizar **HTTPS** na cadeia de ligação.
+
+> [!NOTE]
+> Versão do TLS utilizada é 1.2.
 
 ### <a name="data-encryption-at-rest"></a>Encriptação de dados inativos
 Alguns dados armazena a encriptação de suporte de dados em repouso. Recomendamos que ative o mecanismo de encriptação de dados para esses arquivos de dados. 

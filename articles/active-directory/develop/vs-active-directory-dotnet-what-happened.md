@@ -1,6 +1,6 @@
 ---
-title: Alterações efetuadas a um projeto MVC quando ligar ao Azure AD
-description: Descreve o que acontece ao seu projeto MVC quando ligar ao Azure AD utilizando os serviços do Visual Studio ligado
+title: Alterações efetuadas a um projeto MVC, quando se liga ao Azure AD
+description: Descreve o que acontece ao seu projeto MVC quando ligar ao Azure AD com os serviços ligados do Visual Studio
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b79dc4a65193b04390f64cfbfc8cedb6758af0f0
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784137"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492132"
 ---
-# <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto MVC (serviço ligado da Visual Studio do Azure Active Directory)?
+# <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto MVC (serviço ligado do Visual Studio do Azure Active Directory)?
 
 > [!div class="op_single_selector"]
 > - [Introdução](vs-active-directory-dotnet-getting-started.md)
 > - [O que aconteceu](vs-active-directory-dotnet-what-happened.md)
 
-Este artigo identifica as alterações exatas efetuadas am projeto de ASP.NET MVC ao adicionar o [do Azure Active Directory ligado serviço com o Visual Studio](vs-active-directory-add-connected-service.md).
+Este artigo identifica as alterações exatas feitas am ASP.NET MVC do projeto ao adicionar o [com o Visual Studio do serviço de ligado do Azure Active Directory](vs-active-directory-add-connected-service.md).
 
-Para obter informações sobre como trabalhar com o serviço ligado, consulte [introdução](vs-active-directory-dotnet-getting-started.md).
+Para obter informações sobre como trabalhar com o serviço ligado, consulte [introdução ao](vs-active-directory-dotnet-getting-started.md).
 
-## <a name="added-references"></a>Referências adicionadas
+## <a name="added-references"></a>Foi adicionadas referências
 
-Afeta as referências *.NET do ficheiro de projeto) e `packages.config` (NuGet referências).
+Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referências de NuGet).
 
 | Tipo | Referência |
 | --- | --- |
@@ -46,7 +46,7 @@ Afeta as referências *.NET do ficheiro de projeto) e `packages.config` (NuGet r
 | .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 | .NET        | System.Runtime.Serialization |
 
-Referências adicionais se tiver selecionado o **ler os dados de diretório** opção:
+Referências adicionais, se tiver selecionado o **ler dados do diretório** opção:
 
 | Tipo | Referência |
 | --- | --- |
@@ -60,7 +60,7 @@ Referências adicionais se tiver selecionado o **ler os dados de diretório** op
 | .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 apenas) |
 | .NET; NuGet | System.Spatial |
 
-As seguintes referências são removidas (ASP.NET 4 projetos só, como no Visual Studio 2015):
+As seguintes referências são removidas (ASP.NET 4 projetos apenas, como no Visual Studio 2015):
 
 | Tipo | Referência |
 | --- | --- |
@@ -68,15 +68,15 @@ As seguintes referências são removidas (ASP.NET 4 projetos só, como no Visual
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
 | .NET; NuGet | Microsoft.AspNet.Identity.Owin |
 
-## <a name="project-file-changes"></a>Alterações ao ficheiro de projeto
+## <a name="project-file-changes"></a>Alterações de ficheiros de projeto
 
 - Defina a propriedade `IISExpressSSLPort` para um número diferente.
-- Defina a propriedade `WebProject_DirectoryAccessLevelKey` para 0 ou 1, se tiver selecionado o **ler os dados de diretório** opção.
+- Defina a propriedade `WebProject_DirectoryAccessLevelKey` como 0 ou 1, se tiver selecionado o **ler dados do diretório** opção.
 - Defina a propriedade `IISUrl` para `https://localhost:<port>/` onde `<port>` corresponde a `IISExpressSSLPort` valor.
 
-## <a name="webconfig-or-appconfig-changes"></a>alterações do Web. config ou o App. config
+## <a name="webconfig-or-appconfig-changes"></a>alterações de Web. config ou App. config
 
-- Adicionar as seguintes entradas de configuração:
+- Adicionadas as seguintes entradas de configuração:
 
     ```xml
     <appSettings>
@@ -88,9 +88,9 @@ As seguintes referências são removidas (ASP.NET 4 projetos só, como no Visual
     </appSettings>
     ```
 
-- Adicionado `<dependentAssembly>` elementos sob o `<runtime><assemblyBinding>` nós para `System.IdentityModel.Tokens.Jwt` e `Microsoft.IdentityModel.Protocol.Extensions`.
+- Adicionado `<dependentAssembly>` elementos sob o `<runtime><assemblyBinding>` nó para `System.IdentityModel.Tokens.Jwt` e `Microsoft.IdentityModel.Protocol.Extensions`.
 
-Alterações adicionais se tiver selecionado o **ler os dados de diretório** opção:
+Alterações adicionais, se tiver selecionado o **ler dados do diretório** opção:
 
 - Adicionar a seguinte entrada de configuração em `<appSettings>`:
 
@@ -98,7 +98,7 @@ Alterações adicionais se tiver selecionado o **ler os dados de diretório** op
     <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
     ```
 
-- Adicionar os seguintes elementos em `<configuration>`; os valores para o ficheiro de projeto mdf e o id de catálogo de projeto irão variar:
+- Adicionados os seguintes elementos em `<configuration>`; os valores para o arquivo de projeto mdf e o id de catálogo de projeto irão variar:
 
     ```xml
     <configSections>
@@ -122,29 +122,29 @@ Alterações adicionais se tiver selecionado o **ler os dados de diretório** op
     </entityFramework>
     ```
 
-- Adicionado `<dependentAssembly>` elementos sob o `<runtime><assemblyBinding>` nós para `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`, e `Microsoft.Data.OData`.
+- Adicionado `<dependentAssembly>` elementos sob o `<runtime><assemblyBinding>` nó para `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`, e `Microsoft.Data.OData`.
 
-## <a name="code-changes-and-additions"></a>As adições e alterações de código
+## <a name="code-changes-and-additions"></a>Alterações de código e adições
 
-- Adicionar o `[Authorize]` atributo para `Controllers/HomeController.cs` e quaisquer outros controladores existentes.
+- Adicionado o `[Authorize]` atributo para `Controllers/HomeController.cs` e quaisquer outros controladores existentes.
 
-- Adicionar uma classe de startup da autenticação, `App_Start/Startup.Auth.cs`, que contém a lógica de arranque para a autenticação do Azure AD. Se tiver selecionado o **ler os dados de diretório** opção, este ficheiro também contém um código para receber um código de OAuth e exchange-lo para um token de acesso.
+- Adicionado uma classe de startup da autenticação, `App_Start/Startup.Auth.cs`, que contém a lógica de arranque para a autenticação do Azure AD. Se tiver selecionado o **ler dados do diretório** opção, este ficheiro também contém código para receber um código de OAuth e o exchange-lo para um token de acesso.
 
-- Adicionar uma classe de controlador, `Controllers/AccountController.cs`, que contêm `SignIn` e `SignOut` métodos.
+- Adicionado uma classe de controlador `Controllers/AccountController.cs`, que contém `SignIn` e `SignOut` métodos.
 
-- Adicionar uma vista parcial, `Views/Shared/_LoginPartial.cshtml`, que contém uma hiperligação de ação para `SignIn` e `SignOut`.
+- Adicionado um modo de exibição parcial `Views/Shared/_LoginPartial.cshtml`, que contém uma hiperligação de ação para `SignIn` e `SignOut`.
 
-- Adicionar uma vista parcial, `Views/Account/SignoutCallback.cshtml`, que contém HTML para a IU do fim de sessão.
+- Adicionado um modo de exibição parcial, `Views/Account/SignoutCallback.cshtml`, que contém o HTML para o fim de sessão da interface do Usuário.
 
-- Atualizar o `Startup.Configuration` método para incluir uma chamada para `ConfigureAuth(app)` se a classe já existia; caso contrário, adicionar um `Startup` classe que inclui chama o método.
+- Atualizado o `Startup.Configuration` método para incluir uma chamada ao `ConfigureAuth(app)` se a classe já existe; caso contrário, adicionados um `Startup` classe inclui chama o método.
 
-- Adicionar `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), que contém as informações Visual Studio utiliza para controlar a adição do serviço ligado.
+- Adicionado `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` informações de contentor (Visual Studio 2015), que utiliza o Visual Studio para controlar a adição do serviço ligado.
 
-- Se tiver selecionado o **ler os dados de diretório** opção, adicionada `Models/ADALTokenCache.cs` e `Models/ApplicationDbContext.cs` para suportar a colocação em cache de token. Também adicionada um controlador adicional e a vista para ilustrar ao aceder aos informações de perfil de utilizador através do gráfico APIs do Azure: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, e `Views/UserProfile/Relogin.cshtml`
+- Se tiver selecionado o **ler dados do diretório** opção, adicionada `Models/ADALTokenCache.cs` e `Models/ApplicationDbContext.cs` para oferecer suporte a tokens em cache. Também adicionou um controlador adicional e a vista para ilustrar as informações do perfil de utilizador ao aceder ao utilizar graph APIs do Azure: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, e `Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Cópia de segurança de ficheiros (Visual Studio 2015)
 
-Ao adicionar o serviço ligado, Visual Studio 2015 efetua a cópia de segurança de ficheiros alterados e removidos. Todos os ficheiros afetados são guardados na pasta `Backup/AzureAD`. Visual Studio 2017 não cria cópias de segurança.
+Ao adicionar o serviço ligado, Visual Studio 2015 efetua uma cópia de segurança de ficheiros alterados e removidos. Todos os arquivos afetados são guardados na pasta `Backup/AzureAD`. Visual Studio 2017 não cria cópias de segurança.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -157,12 +157,12 @@ Ao adicionar o serviço ligado, Visual Studio 2015 efetua a cópia de segurança
 
 ## <a name="changes-on-azure"></a>Alterações no Azure
 
-- Criar uma aplicação do Azure AD no domínio que selecionou quando adicionar o serviço ligado.
-- Atualizar a aplicação para incluir o **ler os dados de diretório** permissão se essa opção tiver sido selecionada.
+- Criar uma aplicação do Azure AD no domínio selecionado ao adicionar o serviço ligado.
+- Atualizada da aplicação para incluir o **ler dados do diretório** permissão se essa opção tiver sido selecionada.
 
 [Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Cenários de autenticação do Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Adicionar início de sessão com a Microsoft para uma aplicação web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)

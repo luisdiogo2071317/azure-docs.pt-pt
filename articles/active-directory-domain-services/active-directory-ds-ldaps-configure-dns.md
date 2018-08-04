@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 967f4ef722ff5672d1749ac19b10615f5d08b08b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 669e0392cb77434c372c9af3c4d467d19cff8abd
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460185"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501739"
 ---
 # <a name="configure-dns-to-access-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Configurar o DNS para aceder a um domínio gerido do Azure AD Domain Services usando o LDAP seguro (LDAPS)
 
@@ -49,4 +49,4 @@ Já está! Agora, está pronto para ligar ao domínio gerido através de secure 
 >
 
 ## <a name="next-step"></a>Passo seguinte
-[Tarefa 5: fazer a ligação ao domínio gerido e bloquear o acesso de secure LDAP](active-directory-ds-ldaps-bind-lockdown.md)
+[Tarefa 5: vincular ao domínio gerido e bloquear o acesso LDAP seguro](active-directory-ds-ldaps-bind-lockdown.md)

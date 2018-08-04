@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: a2acbed81e323718c7d294d87ebf699c35664d02
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950739"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502650"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de rede inválida para o seu domínio gerido
 Este artigo ajuda-o a resolver erros de configuração relacionadas com a rede que resultam na mensagem de alerta seguinte:
@@ -41,7 +41,7 @@ Configurações de NSG inválidas são a causa mais comum de erros de rede para 
 ## <a name="sample-nsg"></a>Exemplo de NSG
 A tabela a seguir ilustra um NSG que seria manter seu domínio gerido segura, permitindo que a Microsoft para monitorizar, gerir e atualizar as informações de exemplo.
 
-![exemplo de NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Exemplo de NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 >[!NOTE]
 > O Azure AD Domain Services requer acesso sem restrições de saída da rede virtual. Recomendamos que não para criar qualquer regra NSG adicional, que restringe o acesso de saída para a rede virtual.

@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1ae8e2a4dc9ef9c21300ebfc4df8c0f1c5819f2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 87799cf5dde9039d3e7b386d726812600a4bbc69
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240015"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502921"
 ---
-# <a name="interpret-the-azure-active-directory-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria do Azure Active Directory no Azure Monitor (pré-visualização)
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria do Azure AD no Azure Monitor (pré-visualização)
 
-Este artigo descreve o esquema de registo de auditoria do Azure AD no Azure Monitor. Cada entrada de log individuais é armazenada como texto, formatado como um blob JSON, como mostra a abaixo dois exemplos. 
+Este artigo descreve o esquema de registo de auditoria do Azure Active Directory (Azure AD) no Azure Monitor. Cada entrada de log individuais é armazenada como texto e formatada como um blob JSON, conforme mostrado nos exemplos a seguir dois: 
 
 ```json
 { 
@@ -101,36 +101,39 @@ Este artigo descreve o esquema de registo de auditoria do Azure AD no Azure Moni
 } 
 ```
 
+## <a name="field-and-property-descriptions"></a>Descrições de campo e de propriedade
+
 | Nome do campo | Descrição |
 |------------|-------------|
-| hora       | Data e hora (UTC) |
-| operationName | Nome da operação |
-| operationVersion | Versão de REST API solicitada pelo cliente |
-| categoria | Atualmente, *auditoria* é o único valor suportado |
-| TenantId | Guid de inquilino associado com os registos |
-| resultType | Resultado da operação, pode ser *sucesso* ou *falha* |
-| resultSignature |  Isso é não mapeado, e pode ignorar este campo. | 
-| resultDescription | Descrição adicional do resultado, quando disponível | 
-| durationMs |  Isso é não mapeado, e pode ignorar este campo. |
-| callerIpAddress | Endereço IP do cliente que efetuou o pedido | 
-| correlationId | Guid opcional transmitido pelo cliente. Isso pode ajudar a correlacionar operações do lado do cliente com as operações do lado do servidor e é útil quando nos registos que abrangem em todos os serviços de rastreio. |
-| identidade | Identidade do token que foi apresentado quando efetua o pedido. Pode ser uma conta de utilizador, a conta de sistema ou o serviço principal. |
-| nível | Tipo de mensagem. Para registos de auditoria, isso é sempre *informativo* |
-| localização | Localização do datacenter |
-| propriedades | Apresenta uma lista de propriedades suportadas, relacionados com um registo de auditoria. Para obter mais informações, consulte a tabela a seguir. | 
+| hora       | A data e hora (UTC). |
+| operationName | O nome da operação. |
+| operationVersion | A versão de REST API é solicitada pelo cliente. |
+| categoria | Atualmente, *auditoria* é o único valor suportado. |
+| TenantId | O GUID associada os registos de inquilino. |
+| resultType | O resultado da operação. O resultado pode ser *sucesso* ou *falha*. |
+| resultSignature |  Este campo é não mapeado, e pode ignorá-lo com segurança. | 
+| resultDescription | Uma descrição adicional do resultado, quando disponível. | 
+| durationMs |  Este campo é não mapeado, e pode ignorá-lo com segurança. |
+| callerIpAddress | O endereço IP do cliente que efetuou o pedido. | 
+| correlationId | Um GUID opcional que é passado pelo cliente. Ele pode ajudar a correlacionar operações do lado do cliente com as operações do lado do servidor e é útil quando está a controlar os registos que abrangem serviços. |
+| identidade | A identidade do token que foi apresentado quando efetuou o pedido. A identidade pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
+| nível | O tipo de mensagem. Para os registos de auditoria, o nível é sempre *informativo*. |
+| localização | A localização do datacenter. |
+| propriedades | Lista de propriedades suportadas que estão relacionados com um registo de auditoria. Para obter mais informações, consulte a tabela seguinte. | 
 
+<br>
 
 | Nome da propriedade | Descrição |
 |---------------|-------------|
-| AuditEventCategory | Tipo de evento de auditoria. Pode ser *gestão de utilizadores*, *gestão de aplicações* etc.|
-| Tipo de identidade | *Aplicativo* ou *utilizador* |
-| Tipo de Operação | Pode ser *Add*, *Update*, *eliminar* ou *outros* |
-| Tipo de Recurso de Destino | Especifica o tipo de recurso de destino que a operação foi efetuada. Pode ser *aplicativo*, *utilizador*, *função*, *política* | 
-| Nome do recurso de destino | Nome do recurso de destino. Por exemplo, isto pode ser um nome de aplicação, um nome de função, um nome principal de utilizador ou um nome principal de serviço |
-| additionalTargets | Lista as propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e novos valores estão listados na *targetUpdatedProperties* | 
+| AuditEventCategory | O tipo de evento de auditoria. Pode ser *gestão de utilizadores*, *gestão de aplicações*, ou outro tipo.|
+| Tipo de identidade | O tipo pode ser *aplicativo* ou *utilizador*. |
+| Tipo de Operação | O tipo pode ser *Add*, *Update*, *eliminar*. ou *outros*. |
+| Tipo de Recurso de Destino | Especifica o tipo de recurso de destino que a operação foi efetuada. O tipo pode ser *aplicativo*, *utilizador*, *função*, *política* | 
+| Nome do recurso de destino | O nome do recurso de destino. Pode ser um nome de aplicação, um nome de função, um nome principal de utilizador ou um nome principal de serviço. |
+| additionalTargets | Lista as propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e novos valores estão listados na *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Interpretar o esquema de registos de início de sessão no Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Interpretar o esquema de registos de início de sessão no Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 * [Leia mais sobre os registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Perguntas mais frequentes perguntas e problemas conhecidos](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)
+* [Perguntas mais frequentes e problemas conhecidos](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)

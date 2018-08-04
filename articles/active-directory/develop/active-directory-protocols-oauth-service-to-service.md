@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7de567b3aaa5719a123a58c172548a4c0bffca64
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8a331aab32d8bc662026d49e16f63224fbbf6d41
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283245"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503037"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Chamadas serviço a serviço com as credenciais de cliente (segredo partilhado ou certificado)
 O OAuth 2.0 cliente credenciais de fluxo de concessão de permite um serviço web (*cliente confidencial*) para utilizar as suas próprias credenciais em vez de representar um utilizador, para autenticação ao chamar outro serviço web. Neste cenário, o cliente é normalmente um serviço web de camada intermediária, um serviço de daemon ou o web site. Para um nível mais elevado de garantia, do Azure AD também permite que o serviço de chamada utilizar um certificado (em vez de um segredo partilhado) como uma credencial.
@@ -38,7 +38,7 @@ O diagrama seguinte explica como as credenciais de cliente concedem o fluxo func
 4. Dados a partir do recurso protegido são retornados ao aplicativo cliente.
 
 ## <a name="register-the-services-in-azure-ad"></a>Registre-se os serviços no Azure AD
-Registre-se o serviço de chamada e o serviço de recebimento no Azure Active Directory (Azure AD). Para obter instruções detalhadas, consulte [integrar aplicações com o Azure Active Directory](active-directory-integrating-applications.md).
+Registre-se o serviço de chamada e o serviço de recebimento no Azure Active Directory (Azure AD). Para obter instruções detalhadas, consulte [integrar aplicações com o Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="request-an-access-token"></a>Pedir um Token de acesso
 Para pedir um token de acesso, utilize um HTTP POST para o inquilino específico ponto final do Azure.

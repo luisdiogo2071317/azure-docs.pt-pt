@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4ad1416f79b8cf9c03904da5f9efc1d1aae475d9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364035"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494130"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?
 Início de sessão único significa ser capaz de aceder a todas as aplicações e recursos de que precisa para fazer negócios, ao iniciar sessão apenas uma vez com uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todos os aplicativos que necessita sem ter que está a ser necessária para autenticar (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -112,7 +112,7 @@ Se seu aplicativo não for encontrado na Galeria de aplicações do Azure AD, em
 * **Adicionar uma aplicação não listada estiver a utilizar** -utilizar a categoria personalizado na Galeria de aplicações no portal do Azure para ligar uma aplicação não listada que sua organização está a utilizar. Pode adicionar qualquer aplicação que suporte SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma baseada em HTML início de sessão página como uma aplicação SSO de palavra-passe. Para obter mais detalhes, veja este artigo sobre [adicionando seu próprio aplicativo](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Adicionar a sua própria aplicação estiver a desenvolver** - se de que desenvolveram o aplicativo por conta própria, siga as diretrizes na documentação de programador do Azure AD para implementar o início de sessão único federado ou aprovisionamento com o Azure AD graph API. Para obter mais informações, consulte estes recursos:
   
-  * [Cenários de autenticação do Azure AD](../active-directory-authentication-scenarios.md)
+  * [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)

@@ -1,6 +1,6 @@
 ---
-title: 'Do Azure Active Directory dos serviços de domínio: Cenários de implementação | Microsoft Docs'
-description: Cenários de implementação de serviços de domínio do Azure AD
+title: 'Azure Active Directory Domain Services: Cenários de implementação | Documentos da Microsoft'
+description: Cenários de implementação para o Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,79 +12,79 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: be8d565ea16849302b743e5619afd3f21703bd1e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: db2bd855300d93d832a3dd7ca0ce526478824ccc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218693"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502574"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Cenários de implementação e casos de utilização
-Nesta secção, vamos ver alguns cenários e casos de utilização que beneficiam dos serviços de domínio do Azure Active Directory (AD).
+Nesta secção, vamos ver alguns cenários e casos de utilização que tiram partido dos serviços de domínio do Azure Active Directory (AD).
 
-## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Administração segura, fácil de máquinas virtuais do Azure
-Pode utilizar os serviços de domínio do Active Directory do Azure para gerir as máquinas virtuais do Azure de forma simplificada. Máquinas virtuais do Azure pode ser associadas ao domínio gerido, permitindo-lhe utilizar credenciais AD da sua empresa para iniciar sessão. Esta abordagem ajuda a evitar problemas de gestão de credenciais, tais como a manutenção de contas de administrador local em cada uma das suas máquinas virtuais do Azure.
+## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Administração segura e fácil de máquinas virtuais do Azure
+Pode utilizar o Azure Active Directory Domain Services para gerir máquinas virtuais do Azure de forma otimizada. Máquinas virtuais do Azure pode ser associadas ao domínio gerido, permitindo-lhe utilizar as credenciais empresariais do AD para iniciar sessão. Esta abordagem ajuda a evitar as preocupações de gestão de credenciais, tais como a manutenção de contas de administrador local em cada uma das máquinas virtuais do Azure.
 
-Também podem ser geridas e protegidas através da política de grupo de máquinas de virtuais de servidor que estão associadas ao domínio gerido. Pode aplicar linhas de base de segurança necessárias para as máquinas virtuais do Azure e bloqueie-los de acordo com as diretrizes de segurança da empresa. Por exemplo, pode utilizar as capacidades de gestão de política de grupo para restringir os tipos de aplicações que podem ser iniciadas nestas máquinas virtuais.
+Máquinas de virtuais de servidor que estão associadas ao domínio gerido também podem ser geridas e protegidas através de diretiva de grupo. Pode aplicar linhas de base de segurança necessárias para máquinas virtuais do Azure e bloqueá-los em conformidade com diretrizes de segurança corporativa. Por exemplo, pode utilizar as capacidades de gestão de política de grupo para restringir os tipos de aplicativos que podem ser iniciados nestas máquinas virtuais.
 
 ![Administração simplificada de máquinas virtuais do Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Como servidores e outra infraestrutura atingir o fim-de-vida, Contoso está a mover muitas aplicações atualmente alojadas no local para a nuvem. Os seus padrão IT atual exige deste que servidores que alojam as aplicações da empresa tem de ser associado a um domínio e geridos através da política de grupo. Do contoso administrador de TI prefers para as máquinas virtuais de adesão ao domínio implementadas no Azure, para facilitar a administração. Como resultado, os administradores e utilizadores podem iniciar sessão utilizando as respetivas credenciais empresariais. Ao mesmo tempo, podem ser configuradas máquinas para estar em conformidade com as linhas de base de segurança necessárias através da política de grupo. Contoso prefere não tem de implementar, monitorizar e gerir controladores de domínio do Azure para proteger máquinas virtuais do Azure. Por conseguinte, os serviços de domínio do Azure AD é uma excelente opção para este caso de utilização.
+Quando servidores e outras infraestruturas atinge o final da vida, a Contoso está migrando muitos aplicativos atualmente alojados no local para a cloud. O padrão IT atual estipula que servidores que alojam aplicações da empresa tem de ser associado a um domínio e gerenciado usando a diretiva de grupo. Do contoso administrador de TI prefere máquinas de virtuais de associação de domínio implementadas no Azure, para facilitar a administração. Como resultado, os administradores e utilizadores podem iniciar sessão utilizando as credenciais da empresa. Ao mesmo tempo, as máquinas podem ser configuradas para estar em conformidade com as linhas de base de segurança necessárias usando a diretiva de grupo. Contoso prefere não precisa de implementar, monitorizar e gerir controladores de domínio no Azure para proteger máquinas virtuais do Azure. Portanto, o Azure AD Domain Services é uma excelente escolha para este caso de utilização.
 
 **Notas de implementação**
 
 Considere os seguintes pontos importantes para este cenário de implementação:
 
-* Domínios geridos fornecidos pelos serviços de domínio do Azure AD fornecem uma estrutura de UO (unidade organizacional) simples único por predefinição. Todas as máquinas associados a um domínio de residir numa única UO simples. No entanto pode optar por criar UOs personalizados.
-* Serviços de domínio do Azure AD suporta a política de grupo simples sob a forma de um incorporada GPO cada para os utilizadores e computadores contentores. Pode criar GPOs personalizados e segmentá-los para UOs personalizados.
-* Serviços de domínio do Azure AD suporta o esquema de objeto de computador do AD base. Não é possível expandir o esquema do objeto de computador.
+* Domínios geridos fornecidos pelo Azure AD Domain Services fornecem uma única estrutura de UO (unidade organizacional) simples por predefinição. Todos os computadores associados a um domínio de residir numa única UO simples. No entanto pode optar por criar UOs personalizadas.
+* Serviços de domínio do Azure AD suporta a política de grupo simples na forma de um GPO incorporado cada para os utilizadores e computadores contentores. Pode criar GPOs personalizados e direcioná-las para UOs personalizadas.
+* O Azure AD Domain Services suporta o esquema de objeto de computador base do AD. Não é possível expandir o esquema do objeto de computador.
 
-## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Comparação de precisão-e-shift uma aplicação no local que utiliza a autenticação do enlace LDAP para serviços de infraestrutura do Azure
+## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Migração lift-and-shift uma aplicação no local que utiliza a autenticação do enlace de LDAP para serviços de infraestrutura do Azure
 ![Enlace de LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
-Contoso tem uma aplicação no local que foi comprada um ISV e estiver muitos anos, há. A aplicação está em modo de manutenção pelo ISV e pedir alterações para a aplicação é prohibitively dispendioso para Contoso. Esta aplicação tem um baseada na web front-end que recolhe as credenciais de utilizador utilizando um formulário web e, em seguida, efetua a autenticação de utilizadores através de um enlace LDAP para o Active Directory empresarial. Contoso pretende migrar esta aplicação aos serviços de infraestrutura do Azure. É necessário que a aplicação funciona tal como está, sem necessidade de alterações. Além disso, os utilizadores devem ser capazes de autenticar com as respetivas credenciais empresariais existentes e sem ter de reparametrização dos utilizadores para efetuar ações de forma diferente. Por outras palavras, os utilizadores finais devem ser oblivious de onde a aplicação está em execução e a migração transparente aos mesmos.
+A Contoso tiver uma aplicação no local que tenha sido comprada de um ISV há muitos anos. A aplicação está atualmente no modo de manutenção por de ISV e pedir alterações à aplicação é proibitivo para Contoso. Esta aplicação tem um baseada na web front-end que recolhe as credenciais de utilizador com um formulário da web e, em seguida, autentica os utilizadores através de um enlace LDAP para a empresa do Active Directory. Contoso pretende migrar esta aplicação nos serviços de infraestrutura do Azure. É desejável que o aplicativo funciona tal como está, sem exigir alterações. Além disso, os utilizadores devem conseguir autenticar com as respetivas credenciais empresariais atuais e sem ter de voltar a preparar os usuários façam coisas de forma diferente. Em outras palavras, os utilizadores finais devem ser óbvia de onde a aplicação está em execução e a migração deve ser transparente aos mesmos.
 
 **Notas de implementação**
 
 Considere os seguintes pontos importantes para este cenário de implementação:
 
-* Certifique-se de que a aplicação não tem de modificar/escrita ao diretório. Acesso de escrita LDAP para domínios geridos fornecida pelos serviços de domínio do Azure AD não é suportado.
-* Não é possível alterar as palavras-passe diretamente contra o domínio gerido. Os utilizadores finais podem alterar a palavra-passe: utilizando o mecanismo de alteração de palavra-passe self-service do Azure AD ou contra o diretório no local. Estas alterações são automaticamente sincronizados e está disponível no domínio gerido.
+* Certifique-se de que o aplicativo não precisa de modificar/escrita para o diretório. Acesso de escrita LDAP para domínios geridos fornecida pelo Azure AD Domain Services não é suportado.
+* Não é possível alterar as palavras-passe diretamente contra o domínio gerido. Os utilizadores finais podem alterar a palavra-passe ou usando o mecanismo de alteração de palavra-passe self-service do Azure AD ou no diretório no local. Estas alterações são automaticamente sincronizados e fiquem disponíveis no domínio gerido.
 
-## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>Comparação de precisão e shift de leitura de uma aplicação no local que utiliza o LDAP para aceder ao diretório nos serviços de infraestrutura do Azure
-Contoso tem uma aplicação de linha de negócio (LOB) no local que foi desenvolvida quase um decade há. Esta aplicação com suporte de diretório e foi concebida para funcionar com o Windows Server AD. A aplicação utiliza o LDAP (Lightweight Directory acesso Protocol) para ler informações/atributos sobre os utilizadores do Active Directory. A aplicação não modificar os atributos ou caso contrário escrevam no diretório. Contoso pretende migrar esta aplicação aos serviços de infraestrutura do Azure e extinguir o hardware no local de envelhecimento aloja atualmente esta aplicação. A aplicação não pode ser rescrita para utilizar o diretório moderno APIs, tais como a Azure AD Graph API baseado em REST. Por conseguinte, uma opção de comparação de precisão e shift pretender whereby a aplicação pode ser migrada para executar na nuvem, sem modificar o código ou conversão a aplicação.
+## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>Migração lift-and-shift de uma aplicação no local que utiliza o LDAP leitura para aceder ao diretório para serviços de infraestrutura do Azure
+A Contoso tiver uma aplicação de linha de negócio (LOB) no local que foi desenvolvida quase uma década atrás. Esta aplicação está ciente de diretório e foi concebida para trabalhar com o Windows Server AD. O aplicativo usa LDAP (Lightweight Directory Access Protocol) para ler informações/atributos sobre os utilizadores do Active Directory. A aplicação não modificar atributos ou caso contrário escrevam no diretório. Contoso quer migrar esta aplicação nos serviços de infraestrutura do Azure e extinguir o hardware de locais de classificação por vencimento aloja atualmente esta aplicação. A aplicação não pode ser reescrita para usar o diretório moderno a APIs, como o Azure AD Graph API baseada em REST. Por conseguinte, uma opção de migração lift-and-shift for o pretendido por meio das quais a aplicação pode ser migrada para executar na cloud, sem modificar o código ou reescrever o aplicativo.
 
 **Notas de implementação**
 
 Considere os seguintes pontos importantes para este cenário de implementação:
 
-* Certifique-se de que a aplicação não tem de modificar/escrita ao diretório. Acesso de escrita LDAP para domínios geridos fornecida pelos serviços de domínio do Azure AD não é suportado.
-* Certifique-se de que a aplicação não precisa de um esquema do Active Directory expandido personalizada. Extensões de esquema não são suportadas nos serviços de domínio do Azure AD.
+* Certifique-se de que o aplicativo não precisa de modificar/escrita para o diretório. Acesso de escrita LDAP para domínios geridos fornecida pelo Azure AD Domain Services não é suportado.
+* Certifique-se de que a aplicação não necessita de um esquema do Active Directory expandido personalizado. Extensões de esquema não são suportadas no Azure AD Domain Services.
 
 ## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>Migrar uma aplicação de serviço ou daemon no local para serviços de infraestrutura do Azure
-Algumas aplicações é constituída por várias camadas, onde um dos escalões tem de efetuar chamadas autenticadas para uma camada de back-end como uma camada de base de dados. Contas de serviço do Active Directory são frequentemente utilizadas para estes casos de utilização. Pode comparação de precisão e shift essas aplicações em serviços de infraestrutura do Azure e utilizar serviços de domínio do Azure AD para as necessidades de identidade destas aplicações. Pode optar por utilizar a mesma conta de serviço que é sincronizada a partir do diretório no local ao Azure AD. Em alternativa, pode criar primeiro uma UO personalizada e, em seguida, criar uma conta de serviço separada nessa UO, implementar essas aplicações.
+Alguns aplicativos consistem em várias camadas, onde um dos escalões precisa de realizar chamadas autenticadas para uma camada de back-end, como uma camada de base de dados. Contas de serviço do Active Directory são frequentemente utilizadas para estes casos de utilização. Pode migração lift-and-shift tais aplicativos em serviços de infraestrutura do Azure e utilizar Azure AD Domain Services para as necessidades de identidade desses aplicativos. Pode optar por utilizar a mesma conta de serviço que é sincronizada a partir do seu diretório no local para o Azure AD. Em alternativa, pode criar primeiro uma UO personalizada e, em seguida, criar uma conta de serviço separado nessa UO, implantar esses aplicativos.
 
-![Conta de serviço através de WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
+![Conta de serviço a utilizar WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
 
-Contoso tem uma aplicação de cofre software personalizada que inclua um front-end da web, um SQL server e um servidor FTP de back-end. Autenticação integrada do Windows de contas de serviço é utilizada para autenticar web front-end para o servidor FTP. O front-end da web está configurado para ser executado como uma conta de serviço. O servidor de back-end estiver configurado para autorizar o acesso da conta de serviço para o front-end da web. Contoso prefers para não tem de implementar uma máquina de virtual do controlador de domínio na nuvem para passar esta aplicação aos serviços de infraestrutura do Azure. Do contoso administrador de TI pode implementar os servidores que alojam o front-end da web, o SQL server e o servidor de FTP para máquinas virtuais do Azure. Estas máquinas, em seguida, estão associadas a um domínio gerido dos serviços de domínio do Azure AD. Em seguida, pode utilizam a mesma conta de serviço do respetivo diretório no local para efeitos de autenticação da aplicação. Esta conta de serviço é sincronizada para um domínio gerido dos serviços de domínio do Azure AD e está disponível para utilização.
+A Contoso tiver um aplicativo de cofre personalizados internos que inclui um front-end da web, um SQL server e um servidor FTP de back-end. Autenticação integrada do Windows de contas de serviço é utilizada para autenticar web front-end para o servidor FTP. O front-end da web está configurado para ser executado como uma conta de serviço. O servidor de back-end está configurado para autorizar o acesso da conta de serviço para o front-end da web. Contoso prefere não tem de implementar uma máquina virtual do controlador de domínio na cloud para mover esta aplicação nos serviços de infraestrutura do Azure. Do contoso administrador de TI pode implementar os servidores que alojam o front-end da web, o SQL server e o servidor de FTP para máquinas virtuais do Azure. Estas máquinas, em seguida, estão associadas a um domínio gerido do Azure AD Domain Services. Em seguida, eles podem utilizar a mesma conta de serviço em seu diretório no local para fins de autenticação da aplicação. Esta conta de serviço está sincronizada com o domínio gerido do Azure AD Domain Services e está disponível para utilização.
 
 **Notas de implementação**
 
 Considere os seguintes pontos importantes para este cenário de implementação:
 
-* Certifique-se de que a aplicação utiliza o nome de utilizador/palavra-passe para autenticação. Autenticação de certificado/smart card com base não é suportada pelos serviços de domínio do Azure AD.
-* Não é possível alterar as palavras-passe diretamente contra o domínio gerido. Os utilizadores finais podem alterar a palavra-passe: utilizando o mecanismo de alteração de palavra-passe self-service do Azure AD ou contra o diretório no local. Estas alterações são automaticamente sincronizados e está disponível no domínio gerido.
+* Certifique-se de que a aplicação utiliza o nome de utilizador/palavra-passe para autenticação. Autenticação de certificado/smart card com base não é suportada pelo Azure AD Domain Services.
+* Não é possível alterar as palavras-passe diretamente contra o domínio gerido. Os utilizadores finais podem alterar a palavra-passe ou usando o mecanismo de alteração de palavra-passe self-service do Azure AD ou no diretório no local. Estas alterações são automaticamente sincronizados e fiquem disponíveis no domínio gerido.
 
-## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Serviços de ambiente de trabalho remoto do Windows Server implementações no Azure
-Pode utilizar os serviços de domínio do Azure AD para fornecer serviços de domínio do AD geridos para os seus servidores de ambiente de trabalho remotos implementados no Azure.
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Implementações no Azure dos serviços de ambiente de trabalho remoto do Windows Server
+Pode utilizar o Azure AD Domain Services para fornecer os serviços de domínio do AD geridos para os seus servidores de ambiente de trabalho remotos, implementados no Azure.
 
 Para obter mais informações sobre este cenário de implementação, consulte como [integrar os serviços de domínio do Azure AD com a implementação de RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 
 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Clusters do HDInsight associados a um domínio (pré-visualização)
-Pode configurar um cluster do HDInsight do Azure que está associado a um domínio gerido dos serviços de domínio do Azure AD com Ranger Apache ativada. Criar e aplicar políticas de ramo de registo através do Apache Ranger e permitir que os utilizadores (por exemplo, cientistas de dados) ligar ao ramo de registo utilizando ferramentas baseadas em ODBC, por exemplo, Excel, Tableau etc. Microsoft está a trabalhar na adição de outras cargas de trabalho, como o HBase, Spark e Storm, para o HDInsight associados a um domínio em breve.
+Pode configurar um cluster do HDInsight do Azure que está associado a um domínio gerido do Azure AD Domain Services com o Apache Ranger ativada. Criar e aplicar políticas do Hive através do Apache Ranger para permitir que os utilizadores (por exemplo, os cientistas de dados) ligar ao Hive usando ferramentas baseadas em ODBC, por exemplo, Excel, Tableau etc. A Microsoft está trabalhando sobre como adicionar outras cargas de trabalho, como o HBase e Storm, Spark para HDInsight associado a um domínio em breve.
 
 Para obter mais informações sobre este cenário de implementação, consulte como [configurar clusters do HDInsight associados a um domínio](../hdinsight/domain-joined/apache-domain-joined-configure.md)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a87cccbcf58a9d8f701f9721fb3ec36460b13703
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 74da7e96ed52b441bc63d5fb5a032db9c6d57774
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438737"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494281"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar computadores sem acesso à Internet através do Gateway de OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e ligadas do Log Analytics com o Gateway do OMS quando direto ou computadores monitorizados do Operations Manager não tem acesso à Internet.  O Gateway de OMS, que é um proxy de encaminhamento de HTTP que suporte a HTTP com o comando de ligação HTTP de túnel, pode recolher dados e enviá-lo para a automatização do Azure e o Log Analytics em seu nome.  
@@ -82,7 +82,7 @@ O Gateway do OMS está disponível nos seguintes idiomas:
 - Espanhol (internacional)
 
 ### <a name="supported-encryption-protocols"></a>Protocolos de encriptação suportados
-O Gateway de OMS suporta apenas a Transport Layer Security (TLS) 1.0, 1.1 e 1.2.  Não suporta a Secure Sockets Layer (SSL).
+O Gateway de OMS suporta apenas a Transport Layer Security (TLS) 1.0, 1.1 e 1.2.  Não suporta a Secure Sockets Layer (SSL).  Para garantir a segurança dos dados em trânsito para o Log Analytics, é altamente recomendável que para configurar o gateway a utilizar, pelo menos, Transport Layer Security (TLS) 1.2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**.  Para obter mais informações, consulte [enviar dados de forma segura através de TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número suportado de ligações de agente
 A tabela seguinte realça o número suportado de agentes ao comunicar com um servidor de gateway.  Esse suporte é baseado em agentes a carregar ~ 200KB de dados a cada 6 segundos. O volume de dados por agente testado é cerca de 2,7 GB por dia.

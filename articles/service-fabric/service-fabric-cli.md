@@ -6,14 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 370c8521127ffc28cc1b604c217544bccc82d705
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763362"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39496343"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -25,7 +25,7 @@ A interface de linha de comandos (CLI) do Azure Service Fabric é um utilitário
 
 Antes da instalação, certifique-se de que o seu ambiente tem o Python e o pip instalados. Para obter mais informações, veja a [documentação de início rápido do pip](https://pip.pypa.io/en/latest/quickstart/)e a [documentação de instalação do Python](https://wiki.python.org/moin/BeginnersGuide/Download) oficial.
 
-A CLI suporta Python 2.7, 3.5 e 3.6 de versões. O Python 3.6 é a versão recomendada, uma vez que o Python 2.7 atingirá brevemente o fim do suporte.
+A CLI suporta as versões 2.7, 3.5, 3.6 e 3.7 de Python. Python 3.x é a versão recomendada, uma vez que o Python 2.7 será seu suporte terminará em breve.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime de destino do Service Fabric
 
@@ -33,7 +33,8 @@ A CLI do Service Fabric destina-se a suportar a versão de runtime mais recente 
 
 | Versão da CLI   | Versão de runtime suportada |
 |---------------|---------------------------|
-| Mais recente (~ = 5)  | Mais recente (~ = 6.2)            |
+| Mais recente (~ = 6)  | Mais recente (~ = 6.3)            |
+| 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
@@ -56,11 +57,11 @@ Existem muitas formas de instalar o pip e o Python na sua plataforma. Seguem-se 
 
 Para Windows 10, Windows Server 2016 e Windows Server 2012 R2, utilize as instruções de instalação oficiais padrão. O instalador do Python também instala o pip por predefinição.
 
-1. Aceda à [página de transferências do Python](https://www.python.org/downloads/) oficial e transfira a versão mais recente do Python 3.6
+1. Aceda a oficial [página de transferências do Python](https://www.python.org/downloads/)e baixar a versão mais recente do Python 3.7.
 
 2. Inicie o instalador.
 
-3. Na parte inferior da linha de comandos, selecione **Adicionar Python 3.6 a PATH**.
+3. Na parte inferior da linha de comandos, selecione **adicionar 3.7 de Python para o caminho**.
 
 4. Selecione **Instalar Agora** e conclua a instalação.
 
@@ -71,7 +72,7 @@ python --version
 pip --version
 ```
 
-Em seguida, execute o seguinte comando para instalar a CLI de recursos de infraestrutura de serviço do Azure (sfctl) e ver a página de ajuda do CLI:
+Em seguida, execute o seguinte comando para instalar a CLI do Azure Service Fabric (sfctl) e ver a página de ajuda CLI:
 
 ```bat
 pip install sfctl
@@ -113,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte de pré-visualização do Service Fabric)
 
-Para instalar a CLI do Service Fabric no Redhat, execute os seguintes comandos:
+Para instalar a CLI do Service Fabric no Red Hat, execute os seguintes comandos:
 
 ```bash
 sudo yum install -y python34
@@ -133,7 +134,7 @@ Para MacOS, recomendamos utilizar o [Gestor de pacotes HomeBrew](https://brew.sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Em seguida, no terminal, instale o Python 3.6, o pip e a CLI do Service Fabric através dos comandos seguintes:
+Em seguida, a partir do terminal, instale 3.7 de Python, pip e a CLI do Service Fabric, executando os seguintes comandos:
 
 ```bash
 brew install python3

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3dc62ba21458cc91d1858e11e7abbb6e96b0d5dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 653208fd3ec952cf6ab941a4894f9a754e906a3b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358953"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492720"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Utilizar o Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -211,8 +211,8 @@ Pode obter os seguintes erros ao criar um principal de serviço:
 
 * A sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito '/subscriptions/{guid}'."** - Este erro é apresentado quando a sua conta não tem permissões suficientes para atribuir uma função a uma identidade. Peça ao administrador da sua subscrição para adicioná-lo à função Administrador de Acesso dos Utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para configurar um principal de serviço com palavra-passe, veja [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Para obter passos detalhados sobre como integrar uma aplicação no Azure para gerir recursos, veja [Guia para programadores para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obter uma explicação mais detalhada de principais de serviço e de aplicações, veja [Objetos de Aplicações e Objetos de Principais de Serviço](../active-directory/active-directory-application-objects.md). 
-* Para obter mais informações sobre a autenticação do Azure Active Directory, veja [Cenários de Autenticação para o Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+* Para obter mais informações sobre a autenticação do Azure Active Directory, veja [Cenários de Autenticação para o Azure AD](../active-directory/develop/authentication-scenarios.md).

@@ -1,6 +1,6 @@
 ---
 title: Serviço de ligado como diagnosticar erros com o Azure Active Directory
-description: O serviço do Active Directory ligado detetou um tipo de autenticação incompatível
+description: O serviço ligado do Active Directory detetou um tipo de autenticação incompatível
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 8cd15c59bbe536dba9adb6f44c07844eaf030b55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4fc7d11516d2ebf5e091d519333b3cf1fd09c47
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784892"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495160"
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Erros de diagnóstico com o serviço do Azure Active Directory ligado
+# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticar erros com o Active Directory serviço ligado do Azure
 
-Ao detetar o código de autenticação anterior, ligar o diretório do Active Directory do Azure servidor detetou um tipo de autenticação incompatível.
+Ao detetar o código de autenticação anterior, o Azure Active Director ligar servidor detetou um tipo de autenticação incompatível.
 
-Para detetar corretamente o código de autenticação anterior num projeto, o projeto tem de ser criado.  Se encontrou o erro e não tiver um código de autenticação anterior no seu projeto, reconstruir e tente novamente.
+Para detetar corretamente o código de autenticação anterior num projeto, deve ser criado o projeto.  Se tiver encontrado este erro e não tiver um código de autenticação anterior no seu projeto, reconstruir e tente novamente.
 
 ## <a name="project-types"></a>Tipos de projeto
 
-O serviço ligado verifica o tipo de projeto que estiver a desenvolver, de modo que pode inserir a lógica de autenticação correto no projeto. Se não houver qualquer controlador que derive `ApiController` no projeto, o projeto é considerado um projeto de end WebAPI. Se existirem apenas os controladores que derivem de `MVC.Controller` no projeto, o projeto é considerado um projeto MVC. O serviço ligado não suporta qualquer tipo de projeto.
+O serviço ligado verifica o tipo de projeto que esteja a desenvolver para que ele pode injetar a lógica de autenticação direito no projeto. Se houver qualquer controlador que deriva de `ApiController` no projeto, o projeto é considerado um projeto WebAPI. Se existirem apenas os controladores que derivam de `MVC.Controller` no projeto, o projeto é considerado um projeto MVC. O serviço ligado não suporta qualquer tipo de projeto.
 
-## <a name="compatible-authentication-code"></a>Código de autenticação compatível
+## <a name="compatible-authentication-code"></a>Código de autenticação compatíveis
 
-O serviço ligado também verifica a existência de definições de autenticação que foram configuradas anteriormente ou que são compatíveis com o serviço. Se todas as definições estiverem presentes, é considerada um caso re-entrant e abre o serviço ligado visualize as definições.  Se apenas algumas das definições estiverem presentes, é considerada um caso de erro.
+O serviço ligado também verifica a existência de definições de autenticação que foram anteriormente configuradas ou que são compatíveis com o serviço. Se todas as definições estiverem presentes, é considerada um caso reentrante e abre o serviço ligado visualize as definições.  Se apenas algumas das definições estiverem presentes, ele é considerado um caso de erro.
 
 Num projeto MVC, o serviço ligado verifica a existência de qualquer uma das seguintes definições, que resultam da utilização anterior do serviço:
 
@@ -48,13 +48,13 @@ Além disso, o serviço ligado verifica a existência de qualquer uma das seguin
 
 ## <a name="incompatible-authentication-code"></a>Código de autenticação incompatível
 
-Por fim, o serviço ligado tenta detetar as versões do código de autenticação que foram configuradas com versões anteriores do Visual Studio. Se receber este erro, significa que projecto contém um tipo de autenticação incompatível. O serviço ligado Deteta os seguintes tipos de autenticação de versões anteriores do Visual Studio:
+Por fim, o serviço ligado tenta detetar versões do código de autenticação que foram configuradas com as versões anteriores do Visual Studio. Se tiver recebido este erro, significa que seu projeto contém um tipo de autenticação incompatível. O serviço ligado Deteta os seguintes tipos de autenticação a partir de versões anteriores do Visual Studio:
 
 * Autenticação do Windows
 * Contas de utilizador individuais
-* Contas organizacionais
+* Contas institucionais
 
-Para detetar a autenticação do Windows num projeto MVC, o ligado procura o `authentication` elemento no seu `web.config` ficheiro.
+Para detetar a autenticação do Windows num projeto MVC, o ligados procura a `authentication` elemento no seu `web.config` ficheiro.
 
 ```xml
 <configuration>
@@ -64,7 +64,7 @@ Para detetar a autenticação do Windows num projeto MVC, o ligado procura o `au
 </configuration>
 ```
 
-Para detetar a autenticação do Windows num projeto Web API, o serviço ligado procura o `IISExpressWindowsAuthentication` elemento no seu projeto `.csproj` ficheiro:
+Para detetar a autenticação do Windows num projeto Web API, o serviço ligado procura a `IISExpressWindowsAuthentication` elemento no seu projeto `.csproj` ficheiro:
 
 ```xml
 <Project>
@@ -74,7 +74,7 @@ Para detetar a autenticação do Windows num projeto Web API, o serviço ligado 
 </Project>
 ```
 
-Para detetar a autenticação de contas de utilizador individuais, o serviço ligado procura o elemento de pacote na sua `packages.config` ficheiro.
+Para detetar a autenticação de contas de utilizador individuais, o serviço ligado procura o elemento de pacote no seu `packages.config` ficheiro.
 
 ```xml
 <packages>
@@ -82,7 +82,7 @@ Para detetar a autenticação de contas de utilizador individuais, o serviço li
 </packages>
 ```
 
-Para detetar um formulário antigo de autenticação da conta institucional, o serviço ligado procura para o elemento seguinte`web.config`:
+Para detectar uma forma antiga de autenticação de conta da organização, o serviço ligado procura o seguinte elemento no`web.config`:
 
 ```xml
 <configuration>
@@ -92,6 +92,6 @@ Para detetar um formulário antigo de autenticação da conta institucional, o s
 </configuration>
 ```
 
-Para alterar o tipo de autenticação, remova o tipo de autenticação incompatíveis e tente novamente adicionar o serviço ligado.
+Para alterar o tipo de autenticação, remova o tipo de autenticação incompatíveis e tente adicionar o serviço ligado novamente.
 
-Para obter mais informações, consulte [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
+Para obter mais informações, consulte [cenários de autenticação do Azure AD](authentication-scenarios.md).

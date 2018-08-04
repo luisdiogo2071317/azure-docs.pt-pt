@@ -1,6 +1,6 @@
 ---
-title: Autenticação no Data Lake Store utilizando o Azure Active Directory | Microsoft Docs
-description: Saiba como autenticar com o Data Lake Store utilizando o Azure Active Directory
+title: Autenticação no Data Lake Store com o Azure Active Directory | Documentos da Microsoft
+description: Saiba como autenticar com o Data Lake Store com o Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,28 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625292"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494182"
 ---
-# <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação com o Data Lake Store utilizando o Azure Active Directory
+# <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação com o Data Lake Store com o Azure Active Directory
 
-O Azure Data Lake Store utiliza o Azure Active Directory para autenticação. Antes de criar uma aplicação que funciona com o Azure Data Lake Store, terá de decidir como autenticar a sua aplicação no Azure Active Directory (Azure AD).
+Azure Data Lake Store utiliza o Azure Active Directory para autenticação. Antes de criar um aplicativo que funciona com o Azure Data Lake Store, deve decidir como autenticar a aplicação no Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Opções de autenticação
 
-* **Autenticação de utilizador final** -credenciais do Azure de um utilizador final são utilizadas para autenticar com o Data Lake Store. A aplicação que cria para trabalhar com o Data Lake Store pede-lhe estas credenciais de utilizador. Consequentemente, este mecanismo de autenticação é *interativa* e a aplicação é executada no contexto do utilizador com sessão iniciada. Para obter mais informações e instruções, consulte [autenticação de utilizador final para o Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Autenticação de utilizador final** -credenciais do Azure de um utilizador final são utilizadas para autenticar com o Store de Lake de dados. Solicita a estas credenciais de utilizador da aplicação criada para funcionar com o Data Lake Store. Como resultado, esse mecanismo de autenticação é *interativo* e a aplicação é executada no contexto do utilizador com sessão iniciada. Para obter mais informações e instruções, consulte [autenticação de utilizador final para o Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Autenticação de serviço a serviço** -Utilize esta opção se pretender que uma aplicação para se autenticar com o Data Lake Store. Nestes casos, pode criar uma aplicação do Azure Active Directory (AD) e utiliza a chave da aplicação do Azure AD para autenticar com o Data Lake Store. Consequentemente, este mecanismo de autenticação é *não interativo*. Para obter mais informações e instruções, consulte [autenticação do serviço de serviço do Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Autenticação serviço a serviço** -Utilize esta opção se pretender que um aplicativo para se autenticar no Data Lake Store. Nesses casos, criar uma aplicação do Azure Active Directory (AD) e utilize a chave da aplicação do Azure AD para autenticar no Data Lake Store. Como resultado, esse mecanismo de autenticação é *não interativa*. Para obter mais informações e instruções, consulte [autenticação de serviço a serviço para o Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-A tabela seguinte ilustra como pelo utilizador final e mecanismos de autenticação do serviço de serviço são suportados para o Data Lake Store. Eis como ler a tabela.
+A tabela a seguir ilustra como o utilizador final e mecanismos de autenticação de serviço para serviço são suportados para o Data Lake Store. Aqui está como ler a tabela.
 
-* O símbolo ✔ * indica que a opção de autenticação é suportada e liga a um artigo que demonstra como utilizar a opção de autenticação. 
+* O símbolo de ✔ * indica que a opção de autenticação é suportada e liga a um artigo que demonstra como utilizar a opção de autenticação. 
 * O símbolo ✔ indica que a opção de autenticação é suportada. 
-* As células em branco denotam que a opção de autenticação não é suportada.
+* As células vazias indicam que a opção de autenticação não é suportada.
 
 
 |Utilize esta opção de autenticação com...                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST     |
@@ -40,12 +40,12 @@ A tabela seguinte ilustra como pelo utilizador final e mecanismos de autenticaç
 |Utilizador final (sem MFA * *)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(preterido)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Utilizador final (com a MFA)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
 |Para serviços (utilizando a chave de cliente)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
-|Para serviços (utilizando o certificado de cliente) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
+|Para serviços (usando o certificado de cliente) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* Clique o <b>✔\* </b> símbolo. É uma ligação.</i><br>
-<i>* * MFA representa a autenticação multifator</i>
+<i>* Clique a <b>✔\* </b> símbolo. É uma ligação.</i><br>
+<i>* * MFA significa para a autenticação multifator</i>
 
-Consulte [cenários de autenticação do Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md) para obter mais informações sobre como utilizar o Azure Active Directory para autenticação.
+Ver [cenários de autenticação do Azure Active Directory](../active-directory/develop/authentication-scenarios.md) para obter mais informações sobre como utilizar o Azure Active Directory para autenticação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

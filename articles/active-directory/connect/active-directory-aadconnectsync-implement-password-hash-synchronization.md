@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265051"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494986"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que precisa sincronizar suas senhas de usuário de uma instância do Active Directory no local para uma instância do Azure Active Directory (Azure AD) com base na cloud.
 
 ## <a name="what-is-password-hash-synchronization"></a>O que é a sincronização de hash de palavra-passe
-A probabilidade de que estão bloqueados de seu trabalho devido a uma palavra-passe esquecida está relacionado com o número de palavras-passe diferentes precisa se lembrar. As senhas mais que precisa se lembrar, maior será a probabilidade de esquecer um. Perguntas e chamadas sobre reposições de palavra-passe e outros problemas relacionados com a palavra-passe exigem a maioria dos recursos de suporte técnico.
+A probabilidade de que estão bloqueados de seu trabalho devido a uma palavra-passe esquecida está relacionado com o número de palavras-passe diferentes precisa se lembrar. As senhas mais que precisa se lembrar, maior será a probabilidade de esquecer um. Perguntas e chamadas sobre reposições de palavra-passe e outros problemas relacionados com a palavra-passe exigem a maioria dos recursos de suporte técnico de ajuda.
 
-Sincronização de hash de palavra-passe é uma funcionalidade usada para sincronizar as senhas de usuário de uma instância do Active Directory no local para um Azure baseado na nuvem instância do AD.
+Sincronização de hash de palavra-passe é uma funcionalidade usada para sincronizar um hash do hash de uma senha de usuários de uma instância do Active Directory no local para um Azure baseado na nuvem instância do AD.
 Utilize esta funcionalidade para iniciar sessão nos serviços do Azure AD, como o Office 365, Microsoft Intune, CRM Online e do Azure Active Directory Domain Services (Azure AD DS). Iniciar sessão utilizando a mesma palavra-passe que utiliza para iniciar sessão sua instância do Active Directory no local serviço.
 
 ![O que é o Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

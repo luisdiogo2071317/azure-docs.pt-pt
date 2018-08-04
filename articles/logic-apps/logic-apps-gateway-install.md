@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145211"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503653"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -84,7 +84,7 @@ Para obter informações sobre como utilizar o gateway com outros serviços, vej
   > [!TIP]
   > Se se inscreveu numa oferta do Office 365 e não forneceu o seu e-mail profissional real, pode ter um endereço de início de sessão que este aspeto: `username@domain.onmicrosoft.com` 
   >
-  > Para utilizar uma conta Microsoft que tem um [subscrição do Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/), primeiro [criar um diretório (inquilino) no Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), ou utilizar o diretório predefinido, com a sua conta Microsoft. 
+  > Para utilizar uma conta Microsoft que tem um [subscrição do Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/), primeiro [criar um diretório (inquilino) no Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md), ou utilizar o diretório predefinido, com a sua conta Microsoft. 
   > Adicionar um utilizador com uma palavra-passe para o diretório e, em seguida, conceder acesso a esse utilizador à sua subscrição. 
   > Em seguida, pode iniciar sessão durante a instalação do gateway com este nome de utilizador e palavra-passe.
 

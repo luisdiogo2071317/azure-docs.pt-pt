@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 9de1811768a7e81f6f8e755b96d5328ce89e7983
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 990fe50cefabed7b63eee177b19ec6d74c9929ab
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442025"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494526"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -72,6 +72,7 @@ ms.locfileid: "39442025"
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
+[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -922,37 +923,61 @@ Saída do script inclui as seguintes informações:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI do Azure para VMs do Linux
 Para instalar a extensão do Azure melhorada de monitorização para SAP com CLI do Azure:
 
-1. Instalar a CLI 1.0 do Azure, conforme descrito em [instalar a CLI 1.0 do Azure][azure-cli].
-1. Inicie sessão com a sua conta do Azure:
+1. Instalar com a CLI 1.0 do Azure
 
-  ```
-  azure login
-  ```
+   1. Instalar a CLI 1.0 do Azure, conforme descrito em [instalar a CLI 1.0 do Azure][azure-cli].
+   1. Inicie sessão com a sua conta do Azure:
 
-1. Mude para o modo Azure Resource Manager:
+      ```
+      azure login
+      ```
 
-  ```
-  azure config mode arm
-  ```
+   1. Mude para o modo Azure Resource Manager:
 
-1. Ative a monitorização avançada do Azure:
+      ```
+      azure config mode arm
+      ```
 
-  ```
-  azure vm enable-aem <resource-group-name> <vm-name>
-  ```
+   1. Ative a monitorização avançada do Azure:
+
+      ```
+      azure vm enable-aem <resource-group-name> <vm-name>
+      ```
+
+1. Instalar a CLI do Azure 2.0
+
+   1. Instalar a CLI 2.0 do Azure, conforme descrito em [instalar o Azure CLI 2.0][azure-cli-2].
+   1. Inicie sessão com a sua conta do Azure:
+
+      ```
+      az login
+      ```
+
+   1. Instalar a extensão de AEM de CLI do Azure
+  
+      ```
+      az extension add --name aem
+      ```
+  
+   1. Instalar a extensão com
+  
+      ```
+      az vm aem set -g <resource-group-name> -n <vm name>
+      ```
 
 1. Certifique-se de que a extensão de monitorização de avançada para Azure está ativa na VM do Linux do Azure. Verifique se o ficheiro \\var\\lib\\AzureEnhancedMonitor\\PerfCounters existe. Se existir, no prompt de comando, execute este comando para apresentar as informações recolhidas pelo Monitor avançada do Azure:
-```
-cat /var/lib/AzureEnhancedMonitor/PerfCounters
-```
 
-O resultado tem o seguinte aspeto:
-```
-2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
-2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
-???
-???
-```
+   ```
+   cat /var/lib/AzureEnhancedMonitor/PerfCounters
+   ```
+
+   O resultado tem o seguinte aspeto:
+   ```
+   ...
+   2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
+   2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
+   ...
+   ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Verificações e resolução de problemas para monitorização de ponto a ponto
 Depois de ter implementado a sua VM do Azure e configurar a infraestrutura de monitorização do Azure relevante, verifique se todos os componentes da extensão de monitorização de avançada para Azure funcionam conforme esperado.

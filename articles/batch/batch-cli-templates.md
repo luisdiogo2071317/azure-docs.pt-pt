@@ -1,99 +1,96 @@
 ---
-title: Executar tarefas de lote do Azure ponto-a-ponto sem escrever código (pré-visualização) | Microsoft Docs
-description: Crie ficheiros de modelo para a CLI do Azure criar conjuntos, trabalhos e tarefas do Batch.
+title: Executar tarefas de lote do Azure-a-ponto através de modelos | Documentos da Microsoft
+description: Crie conjuntos, trabalhos e tarefas do Batch com arquivos de modelo e a CLI do Azure.
 services: batch
-author: mscurrell
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 12/18/2017
-ms.author: markscu
-ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 08/02/2018
+ms.author: danlep
+ms.openlocfilehash: 50ed5a6b57c3c994f636db5cc975ad1908e50c7d
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130857"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493438"
 ---
-# <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Utilizar os Modelos da CLI do Batch e a Transferência de Ficheiros (Pré-visualização)
+# <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utilizar modelos da CLI do Azure Batch e a transferência de ficheiros
 
-Utilizar a CLI do Azure é possível executar tarefas de lote sem escrever código.
+Utilizar uma extensão do Azure Batch para a CLI do Azure, é possível executar tarefas do Batch sem escrever código.
 
-Criar e utilizar ficheiros de modelo com a CLI do Azure para criar conjuntos, trabalhos e tarefas do Batch. Facilmente ficheiros de entrada de tarefa de carregamento para a conta de armazenamento associados à conta do Batch e a tarefa de transferência ficheiros de saída.
+Criar e utilizar ficheiros de modelo JSON com a CLI do Azure para criar conjuntos, trabalhos e tarefas do Batch. Utilizar comandos de extensão CLI para facilmente carregar ficheiros de entrada da tarefa para a conta de armazenamento associados à conta do Batch e tarefa de transferência ficheiros de saída.
 
 ## <a name="overview"></a>Descrição geral
 
-Uma extensão para a CLI do Azure permite que o Batch ser utilizado ponto-a-ponto por utilizadores que não são os programadores. Com apenas comandos da CLI, pode criar um conjunto, carregar dados de entrada, criar trabalhos e tarefas associadas e transferir os dados de saída resultante. Nenhum código adicional é necessário. Executar os comandos da CLI diretamente ou integrá-los em scripts.
+Uma extensão para a CLI do Azure permite que o Batch para ser utilizada-a-ponto por utilizadores que não são programadores. Com apenas os comandos da CLI, pode criar um conjunto, carregar dados de entrada, criar trabalhos e tarefas associadas e transferir os dados de saída resultante. Não é necessário nenhum código adicional. Executar os comandos da CLI diretamente ou integrá-los em scripts.
 
-Criar modelos do batch no [existente Batch suporte na CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para ficheiros JSON especificar valores de propriedade ao criar agrupamentos, tarefas, tarefas e outros itens. Com modelos do Batch, as seguintes funcionalidades são adicionadas ao longo do que é possível com os ficheiros JSON:
+Criar modelos do batch a [suporte existente para o Batch na CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para ficheiros JSON especificar valores de propriedade ao criar conjuntos, trabalhos, tarefas e outros itens. Modelos do batch, adicione as seguintes capacidades:
 
--   Os parâmetros podem ser definidos. Quando o modelo é utilizado, apenas os valores de parâmetros são especificados para criar o item com outro item a ser especificados no corpo do modelo de valores de propriedade. Um utilizador que compreende Batch e as aplicações a ser executadas pelo Batch podem criar modelos, especificando o conjunto, o trabalho e os valores de propriedade de tarefas. Um utilizador menos estiver familiarizado com o Batch e/ou as aplicações apenas tem de especificar os valores dos parâmetros definidos.
+-   Podem definir os parâmetros. Quando o modelo é utilizado, apenas os valores de parâmetro são especificados para criar o item, com outros valores de propriedade do item especificados no corpo do modelo. Um utilizador a quem entenda o Batch e as aplicações para ser executado pelo Batch podem criar modelos, especificando o agrupamento, o trabalho e os valores de propriedade de tarefas. Um utilizador menos familiarizados com o Batch e/ou os aplicativos só precisam especificar os valores para os parâmetros definidos.
 
--   Fábricas de tarefas da tarefa criar um ou mais tarefas associadas a uma tarefa, evitando a necessidade de muitas definições de tarefa a ser criado e simplificar significativamente a submissão da tarefa.
+-   Fábricas de tarefas de trabalho crie um ou mais tarefas associadas a uma tarefa, evitando a necessidade de muitas definições de tarefa a ser criado e simplificando significativamente a submissão da tarefa.
 
 
-As tarefas normalmente utilizam ficheiros de dados de entrada e produzem ficheiros de dados de saída. Uma conta de armazenamento está associada, por predefinição, com cada conta do Batch. Transferência de ficheiros e para esta conta de armazenamento com a CLI do AZURE, sem codificação e sem credenciais de armazenamento.
+Tarefas normalmente utilizam ficheiros de dados de entrada e produzem ficheiros de dados de saída. Uma conta de armazenamento está associada, por predefinição, cada conta do Batch. Transferi ficheiros de e para esta conta de armazenamento com a CLI, sem codificação e não existem credenciais de armazenamento.
 
-Por exemplo, [ffmpeg](http://ffmpeg.org/) é uma aplicação popular que processa os ficheiros de áudio e vídeos. Eis os passos com a CLI de lote do Azure para invocar ffmpeg para poderem transcodificar vídeo os ficheiros de origem várias resoluções.
+Por exemplo, [ffmpeg](http://ffmpeg.org/) é um aplicativo popular que processa os ficheiros de áudio e vídeos. Eis os passos com a CLI do Azure Batch para invocar o ffmpeg para transcodificar ficheiros de vídeo de origem a resoluções diferentes.
 
--   Crie um modelo de agrupamento. O utilizador criar o modelo sabe como chamar a aplicação de ffmpeg e os respetivos requisitos; se especificarem a VM, SO adequado tamanho, como ffmpeg está instalado (a partir de um pacote de aplicação ou utilizando o Gestor de pacotes, por exemplo) e outros valores de propriedade de conjunto. Os parâmetros são criados para que quando o modelo é utilizado, apenas o ID do conjunto e o número de VMs tem de ser especificado.
+-   Crie um modelo de agrupamento. O utilizador criar o modelo sabe como chamar a aplicação ffmpeg e os respetivos requisitos; Especifica o sistema operacional adequado, a VM de tamanho, como o ffmpeg está instalado (a partir de um pacote de aplicação ou utilizar um Gestor de pacotes, por exemplo) e outros valores de propriedade do agrupamento. Parâmetros são criados pelo quando o modelo é utilizado, apenas o ID do conjunto e o número de VMs tem de ser especificado.
 
--   Crie um modelo de tarefa. O utilizador criar o modelo sabe como ffmpeg precisa de ser invocado a origem de transcodificar vídeo para uma resolução diferente e especifica a linha de comandos de tarefas; eles também saberem que existe uma pasta que contém os ficheiros de vídeo de origem, com uma tarefa necessária por ficheiro de entrada.
+-   Crie um modelo de tarefa. O utilizador criar o modelo sabe como ffmpeg tem de ser invocado para transcodificar origem de vídeo para uma resolução diferente e especifica a linha de comandos de tarefas; eles também sabem que existe uma pasta que contém os ficheiros de vídeo de origem, com uma tarefa ficheiro de entrada, necessária.
 
--   Um utilizador final com um conjunto de ficheiros de vídeo para poderem transcodificar primeiro cria um conjunto utilizando o modelo de agrupamento, especificar apenas o ID do conjunto e o número de VMs necessário. Em seguida, elas podem carregar os ficheiros de origem para poderem transcodificar. Em seguida, pode ser submetida uma tarefa utilizando o modelo de tarefa, especificar apenas o ID do conjunto e a localização dos ficheiros de origem carregado. A tarefa do Batch é criada com uma tarefa por ficheiro de entrada que está a ser gerado. Por fim, podem ser transferidos os ficheiros de saída transcodificação.
+-   Um utilizador final com um conjunto de ficheiros de vídeo para transcodificar primeiro cria um conjunto com o modelo de agrupamento, especificar apenas o ID do conjunto e o número de VMs necessárias. Em seguida, eles podem carregar os ficheiros de origem para transcodificar. Em seguida, pode ser submetida uma tarefa usando o modelo de tarefa, especificar apenas o ID do conjunto e a localização dos ficheiros de origem carregado. A tarefa de lote é criada, com uma tarefa por ficheiro de entrada a ser gerado. Por fim, os ficheiros transcodificados de saída podem ser transferidos.
 
 ## <a name="installation"></a>Instalação
 
-Instale uma extensão da CLI do Azure Batch para utilizar o modelo e as capacidades de transferência de ficheiros.
+Para instalar a extensão de CLI do Azure Batch, primeiro [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli), ou execute a CLI do Azure [Azure Cloud Shell](../cloud-shell/overview.md).
 
-Para obter instruções sobre como instalar a CLI do Azure, consulte [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
-
-Depois de instalada a CLI do Azure, instale a versão mais recente da extensão do Batch com o seguinte comando da CLI:
+Instale a versão mais recente da extensão do Batch com o seguinte comando da CLI do Azure:
 
 ```azurecli
 az extension add --name azure-batch-cli-extensions
 ```
 
-Para obter mais informações sobre a extensão do Batch, consulte [Microsoft Azure Batch CLI extensões para o Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
+Para obter mais informações sobre a extensão de CLI do Batch e opções de instalação adicionais, consulte a [repositório do GitHub](https://github.com/Azure/azure-batch-cli-extensions).
+
+
+Para utilizar as funcionalidades de extensão da CLI, precisa de uma conta do Azure Batch e, para os comandos que transfiram ficheiros para e do armazenamento, uma conta de armazenamento ligada.
+
+Para iniciar sessão numa conta do Batch com a CLI do Azure, veja [recursos do Batch de gerir com a CLI do Azure](batch-cli-get-started.md).
 
 ## <a name="templates"></a>Modelos
 
-A CLI do Azure Batch permite itens como conjuntos, trabalhos e tarefas a criar, especificando um ficheiro JSON que contém valores e nomes de propriedade. Por exemplo:
-
-```azurecli
-az batch pool create –-json-file AppPool.json
-```
-
-Os modelos do Azure Batch são semelhantes aos modelos Azure Resource Manager, na sintaxe e funcionalidade. São ficheiros JSON que contêm valores e nomes de propriedade do item, mas adiciona os seguintes conceitos principais:
+Modelos do Azure Batch são semelhantes aos modelos do Azure Resource Manager, na funcionalidade e a sintaxe. Eles são ficheiros JSON que contêm valores e nomes de propriedade do item, mas adicionar os seguintes conceitos principais:
 
 -   **Parâmetros**
 
-    -   Permitir que os valores de propriedade para ser especificado numa secção corpo, com apenas valores de parâmetros que necessita de ser fornecido quando o modelo é utilizado. Por exemplo, a definição de completa para um conjunto foi possível colocar no corpo e apenas um parâmetro definido para o id de agrupamento; apenas uma cadeia de ID do conjunto, por conseguinte, tem de ser fornecidos para criar um conjunto.
+    -   Permitir que os valores de propriedade seja especificada numa seção de corpo, com apenas valores de parâmetro que precisem de ser fornecido quando o modelo é utilizado. Por exemplo, a definição completa para um conjunto poderia ser colocada no corpo e apenas um parâmetro definido para o id do conjunto; apenas uma cadeia de ID do conjunto, por conseguinte, tem de ser fornecidos para criar um conjunto.
         
-    -   O corpo do modelo pode ser criado por alguém com dados de conhecimento do Batch e as aplicações a ser executado por lote; apenas os valores dos parâmetros definidos pelo autor tem de ser fornecidos quando o modelo é utilizado. Um utilizador sem o Batch aprofundada e/ou dados de conhecimento da aplicação, por conseguinte, pode utilizar os modelos.
+    -   O corpo do modelo pode ser criado por alguém com dados de conhecimento do Batch e os aplicativos para ser executado pelo Batch; apenas os valores para os parâmetros definidos pelo autor tem de ser fornecidos quando o modelo é utilizado. Um utilizador sem o Batch aprofundada e/ou dados de conhecimento do aplicativo, por conseguinte, pode utilizar os modelos.
 
 -   **Variáveis**
 
-    -   Permitir que os valores de parâmetros simples ou complexas ser especificados num único local e utilizado em locais de um ou mais no corpo do modelo. Variáveis podem simplificar e reduzir o tamanho do modelo, bem como torná-lo mais sustentável por meio de uma localização para alterar as propriedades.
+    -   Permitir que os valores dos parâmetros simples ou complexas seja especificado num único lugar e usado num ou mais lugares no corpo do modelo. Variáveis podem simplificar e reduzir o tamanho do modelo, bem como torná-lo mais fácil de manter, ter um único local para alterar as propriedades.
 
--   **Construções de nível mais elevadas**
+-   **Construções de nível superior**
 
-    -   Algumas construções de nível mais elevadas estão disponíveis no modelo que ainda não estão disponíveis as APIs do Batch. Por exemplo, uma fábrica de tarefas pode ser definida num modelo de tarefa que cria várias tarefas do trabalho com uma definição comuns de tarefas. Estes construções evitar a necessidade de código dinamicamente criar vários ficheiros JSON, tais como um ficheiro por tarefas, bem como criar ficheiros de script para instalar aplicações através de um Gestor de pacotes.
+    -   Algumas construções de nível superior estão disponíveis no modelo que ainda não estão disponíveis nas APIs de Batch. Por exemplo, uma fábrica de tarefas pode ser definida num modelo de tarefa que cria várias tarefas para a tarefa, utilizando uma definição de tarefa comuns. Essas construções evitar a necessidade de código para dinamicamente criar vários arquivos JSON, como um ficheiro por tarefa, bem como criar arquivos de script para instalar aplicativos por meio de um Gestor de pacotes.
 
-    -   Em algum momento, estes construções podem ser adicionado para o serviço Batch e estão disponíveis na APIs do Batch, UIs, etc.
+    -   Em algum momento, essas construções podem ser adicionados para o serviço Batch e está disponível nas APIs do Batch, interfaces do usuário, etc.
 
 ### <a name="pool-templates"></a>Modelos de conjunto
 
-Modelos de agrupamento suportam as capacidades de modelo padrão de parâmetros e variáveis. Também suportam a construção de nível mais elevada seguinte:
+Os modelos de conjunto suportam as capacidades de modelo padrão de parâmetros e variáveis. Também suportam a construção de nível superior seguinte:
 
 -   **Referências do pacote**
 
-    -   Opcionalmente, permite que software ser copiado para nós de agrupamento através da utilização de gestores de pacote. O Gestor de pacotes e o ID de pacote estão especificados. Por declarar um ou mais pacotes, evite criar um script que obtém os pacotes necessários, instalar o script e executar o script em cada nó do conjunto.
+    -   Opcionalmente, permite que o software seja copiado para nós do conjunto com os gestores de pacote. O Gestor de pacotes e o ID de pacote são especificados. Ao declarar um ou mais pacotes, evite criar um script que obtém os pacotes necessários, o script de instalar e executar o script em cada nó do conjunto.
 
-Segue-se um exemplo de um modelo que cria um agrupamento de VMs com Linux com ffmpeg instalado. Utilizá-la, forneça apenas uma cadeia de ID do conjunto e o número de VMs no agrupamento de:
+Segue-se um exemplo de um modelo que cria um conjunto de VMs do Linux com o ffmpeg instalado. Para usá-lo, fornece apenas uma cadeia de ID de agrupamento e o número de VMs no conjunto:
 
 ```json
 {
@@ -140,21 +137,40 @@ Segue-se um exemplo de um modelo que cria um agrupamento de VMs com Linux com ff
 }
 ```
 
-Se o ficheiro de modelo foi chamado _ffmpeg.json conjunto_, em seguida, invoque o modelo da seguinte forma:
+Se o ficheiro de modelo foi atribuído o nome _ffmpeg.json conjunto_, em seguida, invocar o modelo da seguinte forma:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
 ```
 
-### <a name="job-templates"></a>Modelos de tarefa
+A CLI pede-lhe para fornecer valores para o `poolId` e `nodeCount` parâmetros. Também pode fornecer os parâmetros num ficheiro JSON. Por exemplo:
 
-Modelos de tarefas suportam as capacidades de modelo padrão de parâmetros e variáveis. Também suportam a construção de nível mais elevada seguinte:
+```json
+{
+  "poolId": {
+    "value": "mypool"
+  },
+  "nodeCount": {
+    "value": 2
+  }
+}
+```
 
--   **Fábrica de tarefas**
+Se foi atribuído o nome do ficheiro JSON de parâmetros *Parameters. JSON do conjunto*, em seguida, invocar o modelo da seguinte forma:
 
-    -   Cria várias tarefas para uma tarefa da definição de uma tarefa. Três tipos de fábrica de tarefas são suportados – varrimento paramétrico, tarefas por ficheiro e a coleção de tarefas.
+```azurecli
+az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
+```
 
-Segue-se um exemplo de um modelo que cria uma tarefa para ficheiros de vídeo transcodificar MP4 com ffmpeg para um dos dois resoluções inferiores. Cria uma tarefa por ficheiro de vídeo de origem:
+### <a name="job-templates"></a>Modelos de trabalho
+
+Modelos de trabalho suportam as capacidades de modelo padrão de parâmetros e variáveis. Também suportam a construção de nível superior seguinte:
+
+-   **Fábrica de tarefa**
+
+    -   Cria várias tarefas para uma tarefa da definição de uma tarefa. Três tipos de fábrica de tarefa são suportados – paramétrica de abertura, tarefa por ficheiro e a coleção de tarefas.
+
+Segue-se um exemplo de um modelo que cria uma tarefa para transcodificar ficheiros de vídeo de MP4 com o ffmpeg para um dos dois resoluções inferiores. Ele cria uma tarefa por ficheiro de vídeo de origem. Ver [grupos de ficheiros e a transferência de ficheiros](#file-groups-and-file-transfer) para obter mais informações sobre grupos de ficheiros para a tarefa de entrada e saída.
 
 ```json
 {
@@ -230,19 +246,33 @@ Segue-se um exemplo de um modelo que cria uma tarefa para ficheiros de vídeo tr
 }
 ```
 
-Se o ficheiro de modelo foi chamado _tarefa ffmpeg.json_, em seguida, invoque o modelo da seguinte forma:
+Se o ficheiro de modelo foi denominado _tarefa ffmpeg.json_, em seguida, invocar o modelo da seguinte forma:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
 ```
 
+Como antes, a CLI pede-lhe para fornecer valores para os parâmetros. Também pode fornecer os parâmetros num ficheiro JSON.
+
+### <a name="use-templates-in-batch-explorer"></a>Utilizar modelos no Explorador do Batch
+
+Pode carregar um modelo de CLI do Batch para o [Explorador do Batch](https://github.com/Azure/BatchExplorer) o aplicativo de desktop (anteriormente chamado BatchLabs) para criar um conjunto do Batch ou a tarefa. Também pode selecionar a partir de modelos predefinidos de conjunto e o trabalho na galeria do Explorador do Batch.
+
+Para carregar um modelo:
+
+1. No Explorador do Batch, selecione **galeria** > **modelos Local**.
+
+2. Selecione, ou arrastar e soltar, um conjunto local ou o modelo de tarefa.
+
+3. Selecione **Utilize este modelo**e siga as mensagens no ecrã.
+
 ## <a name="file-groups-and-file-transfer"></a>Grupos de ficheiros e a transferência de ficheiros
 
-A maioria das tarefas e tarefas exigem que os ficheiros de entrada e produzem ficheiros de saída. Normalmente, os ficheiros de entrada e saída ficheiros são transferidos, o cliente para o nó, ou do nó para o cliente. A extensão da CLI do Azure Batch deduz transferência de ficheiros away e utiliza a conta de armazenamento que é criada por predefinição, cada conta de Batch.
+A maioria dos trabalhos e tarefas necessitam de ficheiros de entrada e produzem ficheiros de saída. Normalmente, os ficheiros de entrada e de ficheiros de saída são transferidos, do cliente para o nó ou a partir do nó para o cliente. A extensão da CLI do Azure Batch abstrai a transferência de ficheiros ausente e utiliza a conta de armazenamento que pode associar a cada conta do Batch.
 
-Um grupo de ficheiros equivale a um contentor que é criado na conta do storage do Azure. O grupo de ficheiros pode ter subpastas.
+Um grupo de ficheiros equivale a um contentor que é criado na conta de armazenamento do Azure. O grupo de ficheiros pode ter subpastas.
 
-A extensão de Batch CLI fornece comandos para carregar ficheiros de cliente para um grupo de ficheiros especificado e transferir ficheiros do grupo de ficheiro especificado para um cliente.
+A extensão de CLI do Batch fornece comandos para carregar ficheiros de cliente para um grupo de ficheiros especificado e transferir ficheiros do grupo de ficheiro especificado para um cliente.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -252,15 +282,16 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-Os modelos de conjunto e tarefa permitem ficheiros armazenados nos grupos de ficheiros ser especificado para cópia em nós de agrupamento ou desativar nós de conjunto para um grupo de ficheiros. Por exemplo, do modelo de tarefa especificado anteriormente, o ficheiro grupo "ffmpeg-de entrada" especificada para a fábrica de tarefas como a localização dos ficheiros de vídeo de origem copiado para baixo para o nó para transcodificação; o ficheiro grupo "ffmpeg-output" é a localização onde os ficheiros de saída transcodificação são copiados a partir do nó executar cada tarefa.
+Modelos de conjunto e o trabalho permitem que os arquivos armazenados em grupos de ficheiros seja especificado para cópia em nós de conjunto ou desativar nós de conjunto para um grupo de ficheiros. Por exemplo, na tarefa modelo especificado anteriormente, o grupo de ficheiros *introdução de ffmpeg* está especificado para a fábrica de tarefas como a localização dos ficheiros de vídeo de origem copiados para baixo até o nó para transcodificação. O grupo de ficheiros *ffmpeg-output* é a localização onde os ficheiros transcodificados de saída são copiados do nó de execução de cada tarefa.
 
 ## <a name="summary"></a>Resumo
 
-Suporte de transferência de ficheiros e modelo atualmente foram adicionadas apenas para a CLI do Azure. O objetivo é para expandir o público-alvo que pode utilizar o Batch para os utilizadores que não é necessário para desenvolver código utilizando as APIs do Batch, como os investigadores, utilizadores de TI e assim sucessivamente. Sem codificação, os utilizadores com dados de conhecimento do Azure, o Batch e as aplicações a ser executadas pelo Batch podem criar modelos para a criação do conjunto e tarefa. Com os parâmetros do modelo, os utilizadores sem conhecimentos detalhados do Batch e as aplicações podem utilizar os modelos.
+Suporte de transferência de ficheiros e modelo atualmente foram adicionados apenas para a CLI do Azure. O objetivo é expandir o público-alvo que pode utilizar o Batch para os utilizadores que não é necessário para desenvolver o código usando as APIs do Batch, como os pesquisadores e usuários de TI. Sem código, os utilizadores com dados de conhecimento do Azure, Batch e os aplicativos para ser executado pelo Batch podem criar modelos para a criação do conjunto e o trabalho. Com parâmetros de modelo, os utilizadores sem conhecimento detalhado do Batch e os aplicativos podem usar os modelos.
 
-Experimentar a extensão de Batch para a CLI do Azure e forneça quaisquer comentários ou sugestões, nos comentários para este artigo ou através de [repositório de Comunidade do Batch](https://github.com/Azure/Batch).
+Experimente a extensão de Batch para a CLI do Azure e forneça-nos com quaisquer comentários ou sugestões, tanto nos comentários para este artigo ou através do [repositório de Comunidade do Batch](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte a mensagem de blogue do modelos Batch: [tarefas a executar o Azure Batch com a CLI do AZURE – nenhum código necessário](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
-- Documentação detalhada de instalação e utilização, amostras e código de origem estão disponíveis no [repositório do Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).
+- Documentação de instalação e utilização detalhada, exemplos e código-fonte estão disponíveis no [repositório do GitHub do Azure](https://github.com/Azure/azure-batch-cli-extensions).
+
+- Saiba mais sobre como utilizar [Explorador do Batch](https://github.com/Azure/BatchExplorer) para criar e gerir recursos do Batch.

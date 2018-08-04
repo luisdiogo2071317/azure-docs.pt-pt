@@ -16,12 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2c2c1a613b639b44afecced30ff78604cfca1e73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6c3148f6ca9e538d2fed3467ba5d2129e123c7fd
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449835"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502289"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para programadores
 
@@ -32,8 +32,8 @@ O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que pe
 
 | | |
 | --- | --- |
-|[Noções básicas de autenticação](active-directory-authentication-scenarios.md) | Introdução à autenticação com o Azure AD. |
-|[Tipos de aplicações](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Descrição geral dos cenários autenticação que são suportado pelo Azure AD. |      
+|[Noções básicas de autenticação](authentication-scenarios.md) | Introdução à autenticação com o Azure AD. |
+|[Tipos de aplicações](authentication-scenarios.md#application-types-and-scenarios) | Descrição geral dos cenários autenticação que são suportado pelo Azure AD. |      
 | | |
 
 ## <a name="get-started"></a>Introdução
@@ -41,11 +41,11 @@ As configurações orientadas seguintes explicam como criar uma aplicação na s
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Aplicações móveis e de ambiente de trabalho](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Aplicações móveis e de ambiente de trabalho</center> | [Descrição geral](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) |
-| <center>![Aplicações Web](./media/azure-ad-developers-guide/Web_app.png)<br />Aplicações Web</center> | [Descrição geral](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |
-| <center>![Aplicações de página única](./media/azure-ad-developers-guide/SPA.png)<br />Aplicações de página única</center> | [Descrição geral](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![APIs da Web](./media/azure-ad-developers-guide/Web_API.png)<br />APIs da Web</center> | [Descrição geral](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Serviço a serviço](./media/azure-ad-developers-guide/Service_App.png)<br />Serviço a Serviço</center> | [Descrição geral](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
+| <center>![Aplicações móveis e de ambiente de trabalho](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Aplicações móveis e de ambiente de trabalho</center> | [Descrição geral](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
+| <center>![Aplicações Web](./media/azure-ad-developers-guide/Web_app.png)<br />Aplicações Web</center> | [Descrição geral](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
+| <center>![Aplicações de página única](./media/azure-ad-developers-guide/SPA.png)<br />Aplicações de página única</center> | [Descrição geral](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
+| <center>![APIs da Web](./media/azure-ad-developers-guide/Web_API.png)<br />APIs da Web</center> | [Descrição geral](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
+| <center>![Serviço a serviço](./media/azure-ad-developers-guide/Service_App.png)<br />Serviço a Serviço</center> | [Descrição geral](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 |  |  |  |  |  |
 
 ## <a name="how-to-guides"></a>Guias de procedimentos
@@ -53,7 +53,7 @@ Estes guias explicam algumas das tarefas mais comuns no Azure AD.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Registo da aplicação](active-directory-integrating-applications.md)           | Como registar uma aplicação no Azure AD. |
+|[Registo da aplicação](quickstart-v1-integrate-apps-with-azure-ad.md)           | Como registar uma aplicação no Azure AD. |
 |[Aplicações multi-inquilino](active-directory-devhowto-multi-tenant-overview.md)    | Como iniciar sessão numa conta profissional Microsoft. |
 |[Protocolos OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)| Como iniciar a sessão de utilizadores e chamar as APIs de web utilizando os protocolos de autenticação da Microsoft. |
 |  |  |

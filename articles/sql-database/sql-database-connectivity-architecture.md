@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036773"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493677"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de banco de dados SQL do Azure 
 
@@ -51,7 +51,7 @@ Se estiver a ligar de fora do Azure, as suas ligações têm uma política de li
 ![Descrição geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Quando utilizar pontos finais de serviço com a base de dados do Azure SQL sua política é **redirecionar** por predefinição. Portanto, para permitir a conectividade na sua Vnet tem de permitir saída para todos os endereços de IP de base de dados SQL do Azure, não apenas os IPs de gateway. Isso pode ser feito com a ajuda de etiquetas de serviço do NSG (grupo de segurança de rede), se pretender permitir que apenas com o gateway de IPs. Altere a definição de saída **Proxy**.
+> Quando utilizar pontos finais de serviço com a base de dados do Azure SQL sua política é **Proxy** por predefinição. Para ativar a conectividade na sua Vnet, permita ligações de saída para os endereços de IP de Gateway do Azure SQL da base de dados especificados na lista abaixo. Quando utilizar pontos finais de serviço é altamente recomendável sua política de ligação para a alteração **redirecionar** para permitir um melhor desempenho. Se alterar a sua política de ligação para **redirecionar** não será suficiente permitir a saída em seu NSG ao gateway do Azure SQLDB IPs listados abaixo, tem de permitir saída para todos os IPs de SQLDB do Azure. Isso pode ser feito com a ajuda de etiquetas de serviço do NSG (grupos de segurança de rede). Para obter mais informações, consulte [etiquetas de serviço](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços de IP do gateway da base de dados SQL do Azure
 
@@ -72,10 +72,10 @@ A tabela seguinte lista os IPs primário e secundário do gateway para todas as 
 | EUA Leste 2 | 191.239.224.107 | 40.79.84.180 * |
 | Índia Central | 104.211.96.159  | |
 | Índia do Sul | 104.211.224.146  | |
-| Índia Ocidental | 104.211.160.80 | |
+| Oeste da Índia | 104.211.160.80 | |
 | Leste do Japão | 191.237.240.43 | 13.78.61.196 |
 | Oeste do Japão | 191.238.68.11 | 104.214.148.156 |
-| Coreia Central | 52.231.32.42 | |
+| Coreia do Sul Central | 52.231.32.42 | |
 | Coreia do Sul | 52.231.200.86 |  |
 | EUA Centro-Norte | 23.98.55.75 | 23.96.178.199 |
 | Europa do Norte | 191.235.193.75 | 40.113.93.91 |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: eccf570a0bdcf896a40d8c49f400647e247f6d65
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435782"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494062"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão do Azure Active Directory no comportamento de uma aplicação com uma política de deteção de Realm Inicial
 
@@ -261,6 +261,6 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-- Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure AD](../develop/active-directory-authentication-scenarios.md).
+- Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).
 - Para obter mais informações sobre o utilizador início de sessão único, consulte [acesso a aplicações e início de sessão único com o Azure Active Directory](configure-single-sign-on-portal.md).
 - Visite o [Guia do programador do Active Directory](../develop/azure-ad-developers-guide.md) para uma descrição geral de todos os conteúdos relacionados ao desenvolvedor.

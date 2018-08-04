@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 36d1229de6eb71a41eeea895e16e3757c800fc16
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429085"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integração do Azure Active Directory com LogicMonitor
 
@@ -133,27 +133,23 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No menu na parte superior, clique em **definições**.
    
-   ![As definições](./media/logicmonitor-tutorial/ic790052.png "definições")
+    ![As definições](./media/logicmonitor-tutorial/ic790052.png "definições")
 
 1. Nas vossas de navegação no lado esquerdo, clique em **início de sessão único**
    
-   ![Início de sessão único](./media/logicmonitor-tutorial/ic790053.png "início de sessão único")
+    ![Início de sessão único](./media/logicmonitor-tutorial/ic790053.png "início de sessão único")
 
 1. Na **configurações de logon único (SSO)** secção, execute os seguintes passos:
    
-   ![Único configurações de logon](./media/logicmonitor-tutorial/ic790054.png "único configurações de logon")
+    ![Único configurações de logon](./media/logicmonitor-tutorial/ic790054.png "único configurações de logon")
    
-   a. Selecione **ativar o início de sessão único**.
+    a. Selecione **ativar o início de sessão único**.
 
-   b. Como **atribuição de função predefinido**, selecione **só de leitura**.
+    b. Como **atribuição de função predefinido**, selecione **só de leitura**.
    
-   c. Abra o ficheiro de metadados baixado no bloco de notas e, em seguida, cole o conteúdo do ficheiro para o **metadados de fornecedor de identidade** caixa de texto.
+    c. Abra o ficheiro de metadados baixado no bloco de notas e, em seguida, cole o conteúdo do ficheiro para o **metadados de fornecedor de identidade** caixa de texto.
    
-   d. Clique em **guardar alterações**.
-
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Clique em **guardar alterações**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
@@ -188,7 +184,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-a-logicmonitor-test-user"></a>Criar um utilizador de teste LogicMonitor
 
-Para utilizadores do AAD conseguir iniciar sessão, tem de ser aprovisionados para a aplicação de LogicMonitor com seus nomes de utilizador do Azure Active Directory.
+Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados para a aplicação de LogicMonitor com seus nomes de utilizador do Azure Active Directory.
 
 **Para configurar o aprovisionamento de utilizadores, execute os seguintes passos:**
 
@@ -196,19 +192,19 @@ Para utilizadores do AAD conseguir iniciar sessão, tem de ser aprovisionados pa
 
 1. No menu na parte superior, clique em **configurações**e, em seguida, clique em **funções e os utilizadores**.
    
-   ![Funções e os usuários](./media/logicmonitor-tutorial/ic790056.png "funções e os utilizadores")
+    ![Funções e os usuários](./media/logicmonitor-tutorial/ic790056.png "funções e os utilizadores")
 
 1. Clique em **Adicionar**.
 
 1. Na **adicionar uma conta** secção, execute os seguintes passos:
    
-   ![Adicionar uma conta](./media/logicmonitor-tutorial/ic790057.png "adicionar uma conta")
+    ![Adicionar uma conta](./media/logicmonitor-tutorial/ic790057.png "adicionar uma conta")
    
-   a. Tipo de **nome de utilizador**, **E-Mail**, **palavra-passe**, e **palavra-passe de volte a escrever** valores do utilizador do Azure Active Directory que pretende aprovisionar para as caixas de texto relacionadas.
+    a. Tipo de **nome de utilizador**, **E-Mail**, **palavra-passe**, e **palavra-passe de volte a escrever** valores do utilizador do Azure Active Directory que pretende aprovisionar para as caixas de texto relacionadas.
    
-   b. Selecione **funções**, **ver permissões**e o **estado**.
+    b. Selecione **funções**, **ver permissões**e o **estado**.
    
-   c. Clique em **submeter**.
+    c. Clique em **submeter**.
 
 >[!NOTE]
 >Pode utilizar quaisquer outras LogicMonitor utilizador conta criação ferramentas ou APIs fornecidas pelo LogicMonitor para aprovisionar o Azure Active Directory contas de utilizador. 
@@ -248,7 +244,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
  
 Quando clica no mosaico LogicMonitor no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo LogicMonitor.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

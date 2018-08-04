@@ -14,12 +14,12 @@ ms.date: 12/12/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: bcae3f51e2245928c8110d06f3514177d57ac883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450028"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503316"
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
@@ -59,7 +59,7 @@ Alterar o diretório da subscrição é uma operação ao nível do serviço. N�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter mais informações sobre como criar um novo diretório do Azure AD gratuitamente, veja [Como obter um inquilino do Azure Active Directory](../develop/active-directory-howto-tenant.md)
+* Para obter mais informações sobre como criar um novo diretório do Azure AD gratuitamente, veja [Como obter um inquilino do Azure Active Directory](../develop/quickstart-create-new-tenant.md)
 * Para obter mais informações sobre como transferir a propriedade da faturação de uma subscrição do Azure, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como atribuir funções no Azure AD, consulte [Atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)

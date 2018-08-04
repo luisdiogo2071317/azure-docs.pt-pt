@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 58431e43312046c5a30ebcd4c974849641c05156
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446468"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495344"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ O Azure Active Directory fornece às organizações com gestão de identidades d
 Existem várias formas para a sua aplicação integrar com o Azure AD. Tire partido de tantas ou, no mínimo um destes cenários, conforme apropriado para a sua aplicação.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Suporte do Azure AD como uma forma de início de sessão na sua aplicação
-**Reduza a fricção de início de sessão e reduzir os custos de suporte.** Ao utilizar o Azure AD para iniciar sessão na sua aplicação, os utilizadores não terão um nome mais e a palavra-passe para se lembrar. Como desenvolvedor, terá uma menos palavra-passe para armazenar e proteger. Não ter de lidar com redefinições de senha esquecida pode ser uma economia significativa sozinha. Azure AD alimenta o início de sessão para algumas das mais populares aplicações na cloud do mundo, incluindo o Office 365 e o Microsoft Azure. Com centenas de milhões utilizadores de milhões de organizações, as chances são de seu usuário já tem sessão iniciado no Azure AD. Saiba mais sobre [adicionando suporte para início de sessão do Azure AD](active-directory-authentication-scenarios.md).
+**Reduza a fricção de início de sessão e reduzir os custos de suporte.** Ao utilizar o Azure AD para iniciar sessão na sua aplicação, os utilizadores não terão um nome mais e a palavra-passe para se lembrar. Como desenvolvedor, terá uma menos palavra-passe para armazenar e proteger. Não ter de lidar com redefinições de senha esquecida pode ser uma economia significativa sozinha. Azure AD alimenta o início de sessão para algumas das mais populares aplicações na cloud do mundo, incluindo o Office 365 e o Microsoft Azure. Com centenas de milhões utilizadores de milhões de organizações, as chances são de seu usuário já tem sessão iniciado no Azure AD. Saiba mais sobre [adicionando suporte para início de sessão do Azure AD](authentication-scenarios.md).
 
 **Simplificar o início de sessão cópia de segurança para a sua aplicação.**  Durante a inscrição para a sua aplicação do Azure AD pode enviar informações essenciais sobre um usuário para que possa preencher previamente a formulário de inscrição ou eliminá-la completamente. Os utilizadores podem inscrever-se para a sua aplicação com a respetiva conta do Azure AD através de uma experiência de consentimento familiares semelhante àquelas encontradas em aplicações móveis e de redes sociais. Qualquer utilizador pode inscrever-se e iniciar sessão a uma aplicação que está integrada com o Azure AD sem a necessidade de envolvimento de TI. Saiba mais sobre [inscrever-se a sua aplicação para início de sessão de conta do Azure AD](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
@@ -83,5 +83,5 @@ Integração com o Azure AD é fornecido com os benefícios que não necessitam 
 ## <a name="next-steps"></a>Próximos Passos
 [Começar a escrever código](azure-ad-developers-guide.md#get-started).
 
-[Iniciar sessão dos utilizadores em utilizar o Azure AD](active-directory-authentication-scenarios.md)
+[Iniciar sessão dos utilizadores em utilizar o Azure AD](authentication-scenarios.md)
 

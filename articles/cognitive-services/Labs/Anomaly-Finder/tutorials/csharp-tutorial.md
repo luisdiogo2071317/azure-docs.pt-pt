@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317684"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502513"
 ---
 # <a name="anomaly-detection-c-application"></a>Aplicação de anomalias deteção c#
 
@@ -48,7 +48,7 @@ Prima Ctrl + Shift + B, ou clique em Build no menu da faixa de opções, em segu
 
 1. Depois de concluída a compilação, prima **F5** ou clique em **iniciar** no menu da faixa de opções para executar o exemplo.
 2. Localize a janela de interface de utilizador de deteção de anomalias com a caixa de edição de texto ler "{your_subscription_key}".
-3. Substitua o ficheiro de request.json, que contém os dados de exemplo, com os seus dados, em seguida, clique em "Enviar". Microsoft recebe os dados carregar e usá-los para detetar quaisquer pontos de anomalias entre, em seguida. Os dados atualizou não serão incluídos no servidor da Microsoft. Para detetar o ponto de anomalias novamente, precisa carregar os dados mais uma vez.
+3. Substitua o ficheiro de request.json, que contém os dados de exemplo, com os seus dados, em seguida, clique em "Enviar". Microsoft recebe os dados carregar e usá-los para detetar quaisquer pontos de anomalias entre, em seguida. Os dados que carregar não serão incluídos no servidor da Microsoft. Para detetar o ponto de anomalias novamente, precisa carregar os dados mais uma vez.
 4. Se os dados são boas, encontrará o resultado da deteção de anomalias no campo de "Resposta". Se ocorrer algum erro, as informações de erro serão exibidas no campo de resposta.
 
 <a name="Review"></a>

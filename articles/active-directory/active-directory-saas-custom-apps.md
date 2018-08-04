@@ -15,16 +15,16 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 640df9659dfa65d0eb2a65066085dd7dff7031ca
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1f3511b4d9e75136fd0105785a1e033378d2ebd1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365558"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494026"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory
 
-Este artigo é sobre um recurso que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Esta funcionalidade foi lançada a partir do technical preview, 18 de Novembro de 2015 e está incluída no [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Se estiver em vez disso, procurando orientação para programadores sobre como integrar aplicações personalizadas com o Azure AD através de código, consulte [cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md).
+Este artigo é sobre um recurso que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Esta funcionalidade foi lançada a partir do technical preview, 18 de Novembro de 2015 e está incluída no [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Se estiver em vez disso, procurando orientação para programadores sobre como integrar aplicações personalizadas com o Azure AD através de código, consulte [cenários de autenticação do Azure AD](develop/authentication-scenarios.md).
 
 A Galeria de aplicações do Azure Active Directory fornece uma listagem dos aplicativos que são conhecidos para oferecer suporte a um formulário de início de sessão único com o Azure Active Directory, conforme descrito em [este artigo](manage-apps/what-is-single-sign-on.md). Depois de (como um IT especialista ou sistema integrador na sua organização) encontrar a aplicação que pretende ligar, pode começar a utilizar, seguindo as instruções passo a passo apresentadas no portal do Azure para ativar o início de sessão único.
 

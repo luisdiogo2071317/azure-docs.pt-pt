@@ -1,5 +1,5 @@
 ---
-title: 'Serviços de domínio do Azure Active Directory: Introdução | Microsoft Docs'
+title: 'Serviços de domínio do Azure Active Directory: Introdução | Documentos da Microsoft'
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
 documentationcenter: ''
@@ -12,77 +12,77 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 2290273c1b998a2d75046fcbcf613762ddd588ee
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263980"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503211"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
 
 ## <a name="task-3-configure-administrative-group"></a>Tarefa 3: configurar o grupo administrativo
-Nesta tarefa de configuração, crie um grupo administrativo no diretório do Azure AD. Este grupo administrativo especial denomina *AAD DC administradores*. Os membros deste grupo recebem permissões administrativas nas máquinas que estão associados a um domínio para o domínio gerido. Em computadores associados a um domínio, este grupo é adicionado ao grupo de administradores. Além disso, os membros deste grupo podem utilizar o ambiente de trabalho remoto para ligar remotamente a computadores associados a um domínio.
+Esta tarefa de configuração, vai criar um grupo administrativo no diretório do Azure AD. Denomina-se este grupo administrativo especial *administradores do AAD DC*. Os membros deste grupo são concedidos permissões administrativas nos computadores que estão associados a um domínio para o domínio gerido. Em computadores associados a um domínio, este grupo é adicionado ao grupo de administradores. Além disso, os membros deste grupo podem utilizar o ambiente de trabalho remoto para ligar remotamente a computadores associados a um domínio.
 
 > [!NOTE]
-> Não tem permissões de administrador do domínio ou de administrador de empresa no domínio gerido que criou utilizando o Azure Active Directory Domain Services. Nos domínios geridos, estas permissões são reservadas pelo serviço em não são disponibilizadas aos utilizadores no inquilino. No entanto, pode utilizar o grupo administrativo especial criado nesta tarefa de configuração para efetuar algumas operações privilegiadas. Estas operações incluem associar computadores ao domínio, a que pertencem ao grupo de administração de computadores associados a um domínio e a configuração de política de grupo.
+> Não tem permissões de administrador Corporativo ou de administrador de domínio no domínio gerido que criou utilizando o Azure Active Directory Domain Services. Nos domínios geridos, estas permissões são reservadas pelo serviço e não estar disponíveis para os utilizadores no inquilino. No entanto, pode utilizar o grupo administrativo especial criado nesta tarefa de configuração para realizar algumas operações privilegiadas. Estas operações incluem associar computadores ao domínio, a que pertencem ao grupo de administração de computadores associados a um domínio e a configuração de diretiva de grupo.
 >
 
-O assistente cria automaticamente o grupo administrativo no diretório do Azure AD. Este grupo é chamado 'AAD DC administradores'. Se tiver um grupo existente com este nome no diretório do Azure AD, o assistente seleciona deste grupo. Pode configurar a associação de grupo utilizando o **grupo Administrador** página do assistente.
+O assistente cria automaticamente o grupo administrativo no diretório do Azure AD. Este grupo é chamado de "Administradores do AAD DC". Se tiver um grupo existente com este nome no diretório do Azure AD, o assistente seleciona este grupo. Pode configurar a associação de grupo utilizando o **grupo Administrador** página do assistente.
 
-1. Para configurar a associação de grupo, clique em **AAD DC administradores**.
+1. Para configurar a associação de grupo, clique em **administradores do AAD DC**.
 
     ![Configurar associação a um grupo](./media/getting-started/domain-services-blade-admingroup.png)
 
-2. Clique em de **adicionar membros** botão para adicionar utilizadores a partir do diretório do Azure AD para o grupo de administrador.
+2. Clique nas **adicionar membros** botão para adicionar utilizadores de diretório do Azure AD para o grupo de administrador.
 
 3. Quando tiver terminado, clique em **OK** mover para o **resumo** página do assistente.
 
 
 ## <a name="deploy-your-managed-domain"></a>Implementar o seu domínio gerido
 
-1. No **resumo** página do assistente, reveja as definições de configuração para o domínio gerido. Pode voltar atrás para qualquer passo do Assistente para efetuar alterações, se necessário. Quando tiver terminado, clique em **OK** para criar o novo domínio gerido.
+1. Sobre o **resumo** página do assistente, reveja as definições de configuração para o domínio gerido. Pode voltar atrás para qualquer passo do Assistente para fazer alterações, se necessário. Quando tiver terminado, clique em **OK** para criar o novo domínio gerido.
 
     ![Resumo](./media/getting-started/domain-services-blade-summary.png)
 
-2. Verá uma notificação que mostra o progresso da implementação do serviços de domínio do Azure AD. Clique na notificação para ver o progresso de detalhado para a implementação.
+2. Verá uma notificação que mostra o progresso da implementação do Azure AD Domain Services. Clique na notificação para ver o progresso detalhado para a implementação.
 
     ![Notificação - implementação em curso](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="check-the-deployment-status-of-your-managed-domain"></a>Verifique o estado de implementação do seu domínio gerido
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Verificar o estado de implementação do seu domínio gerido
 O processo de aprovisionamento do seu domínio gerido pode demorar até uma hora.
 
-1. Enquanto a implementação está em curso, pode pesquisar para serviços de domínio no **procurar recursos** caixa de pesquisa. Selecione **serviços de domínio do Azure AD** do resultado de pesquisa. O **serviços de domínio do Azure AD** painel lista o domínio gerido que está a ser aprovisionado.
+1. Enquanto a implementação está em curso, pode pesquisar por 'Serviços de domínio' no **pesquisar recursos** caixa de pesquisa. Selecione **Azure AD Domain Services** do resultado da pesquisa. O **Azure AD Domain Services** painel lista o domínio gerido, que está a ser aprovisionado.
 
-    ![Localizar o domínio gerido que está a ser aprovisionado](./media/getting-started/domain-services-provisioning-state-find-resource.png)
+    ![Encontrar o domínio gerido, que está a ser aprovisionado](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
 2. Clique no nome do domínio gerido (por exemplo, ' contoso100.com') para ver mais detalhes sobre o domínio gerido.
 
     ![Serviços de domínio - estado de aprovisionamento](./media/getting-started/domain-services-provisioning-state.png)
 
-3. O **descrição geral** separador mostra que o domínio gerido está atualmente a ser aprovisionado. Não é possível configurar o domínio gerido até que esteja totalmente aprovisionado. Pode demorar até uma hora para o seu domínio gerido completamente estar aprovisionada.
+3. O **descrição geral** separador mostra que o domínio gerido está atualmente a ser aprovisionado. Não é possível configurar o domínio gerido até que esteja totalmente aprovisionado. Poderá demorar até uma hora para o seu domínio gerido ser totalmente aprovisionado.
 
     ![Serviços de domínio - separador de descrição geral durante o estado de aprovisionamento ](./media/getting-started/domain-services-provisioning-state-details.png)
 
-4. Quando o domínio gerido esteja totalmente aprovisionado, o **descrição geral** separador mostra o estado de domínio como **executar**.
+4. Quando o domínio gerido está totalmente aprovisionado, o **descrição geral** separador mostra o estado de domínio como **em execução**.
 
     ![Serviços de domínio - separador Descrição geral depois de totalmente aprovisionado](./media/getting-started/domain-services-provisioned.png)
     >[!NOTE]
-    >Durante o processo de aprovisionamento, os serviços de domínio do Azure AD cria as aplicações da empresa com o nome "Serviços de controlador de domínio" e "AzureActiveDirectoryDomainControllerServices" no seu diretório. Estas aplicações da empresa são necessárias para atender o seu domínio gerido. É imperativo que estes não serão eliminados em qualquer altura.
+    >Durante o processo de aprovisionamento, o Azure AD Domain Services cria aplicações empresariais com o nome "Serviços de controlador de domínio" e "AzureActiveDirectoryDomainControllerServices" no seu diretório. Estas aplicações empresariais são necessárias para atender a seu domínio gerido. É imperativo que estes não são eliminados em qualquer altura.
     >
 
-5. No **propriedades** separador, verá dois endereços IP no qual o domínio controladores estão disponíveis para a rede virtual.
+5. Sobre o **propriedades** separador, verá dois endereços IP no qual o domínio controladores estão disponíveis para a rede virtual.
 
-    ![Serviços de domínio - separador de propriedades depois totalmente aprovisionado](./media/getting-started/domain-services-provisioned-properties.png)
+    ![Serviços de domínio - separador de propriedades, depois de totalmente aprovisionado](./media/getting-started/domain-services-provisioned-properties.png)
 
 
 ## <a name="need-help"></a>Precisa de ajuda?
-Pode demorar uma hora ou dois para os dois controladores de domínio para o seu domínio gerido a ser aprovisionado. Se a implementação falhou ou está bloqueada no estado 'Pendente' mais de duas horas, não hesite [contacte a equipa de produto para obter ajuda](active-directory-ds-contact-us.md).
+Pode demorar uma hora ou dois para ambos os controladores de domínio para o seu domínio gerido ser aprovisionado. Se a implementação falhou ou está bloqueada no estado "Pendente" há mais de duas horas, fique à vontade para [contacte a equipa de produto para obter ajuda](active-directory-ds-contact-us.md).
 
 
 ## <a name="next-step"></a>Passo seguinte

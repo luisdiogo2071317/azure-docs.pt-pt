@@ -1,19 +1,19 @@
 ---
-title: Gerir definições de entrega para subscrições do Azure Event Grid
-description: Descreve como personalizar as opções de entrega de eventos do Event Grid.
+title: Entregues e as políticas de repetição para subscrições do Azure Event Grid
+description: Descreve como personalizar as opções de entrega de eventos do Event Grid. Definir um destino de mensagens não entregues e o tempo que especificar para repetir a entrega.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0e575d668e28be52ee4ca61226693122304c7ea0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5a37fadc179157ba590b31a79fcd98f223cb1869
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441363"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501954"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Entregues e as políticas de repetição
 
@@ -25,7 +25,7 @@ Ao criar uma subscrição de evento, pode personalizar as definições de entreg
 
 Quando o Event Grid não é possível entregar um evento, ele pode enviar o evento não serão entregues para uma conta de armazenamento. Este processo é conhecido como mensagens não entregues. Por predefinição, não ative Event Grid mensagens não entregues. Para ativá-la, tem de especificar uma conta de armazenamento para armazenar eventos não serão entregues ao criar a subscrição de evento. Obter eventos a partir desta conta de armazenamento para resolver entregas.
 
-Grelha de eventos envia um evento para a localização de mensagens não entregues, se ele tiver tentado todas suas tentativas de repetição, ou se for recebida uma mensagem de erro que indica a entrega nunca terá êxito. Por exemplo, se a grelha de eventos receber um erro de formato incorrecto ao fornecer um evento, ele enviará imediatamente esse evento para a localização de mensagens não entregues.
+Grelha de eventos envia um evento para a localização de mensagens não entregues, se ele tiver tentado todas suas tentativas de repetição, ou se for recebida uma mensagem de erro que indica a entrega nunca terá êxito. Por exemplo, se grelha de eventos receber um erro de formato incorrecto ao fornecer um evento, ele envia esse evento para a localização de mensagens não entregues. Existe um atraso de cinco minutos entre a última tentativa de fornecer um evento e quando ela é entregue para a localização de mensagens não entregues. Este atraso destina-se para reduzir o número de operações de armazenamento Blob. Se a localização de mensagens não entregues não está disponível para quatro horas, o evento foi removido.
 
 Antes de definir a localização de mensagens não entregues, tem de ter uma conta de armazenamento com um contentor. Forneça o ponto final para esse contentor ao criar a subscrição de evento. O ponto final está no formato de: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
@@ -55,7 +55,9 @@ Para desativar as mensagens não entregues, execute novamente o comando para cri
 
 ## <a name="set-retry-policy"></a>Definir política de repetição
 
-Ao criar uma subscrição do Event Grid, pode definir valores para o tempo que o Event Grid deve tentar entregar o evento. Por predefinição, o Event Grid tentativas durante 24 horas (1440 minutos) e tenta um máximo de 30 vezes. Pode definir qualquer um destes valores para a sua subscrição do event grid.
+Ao criar uma subscrição do Event Grid, pode definir valores para o tempo que o Event Grid deve tentar entregar o evento. Por predefinição, o Event Grid tentativas durante 24 horas (1440 minutos) e tenta um máximo de 30 vezes. Pode definir qualquer um destes valores para a sua subscrição do event grid. O valor de tempo de vida de evento tem de ser um número inteiro entre 1 a 1440. O valor para tentativas de entrega máxima tem de ser um número inteiro de 1 para 30.
+
+Não é possível configurar o [intervalo de repetição](delivery-and-retry.md#retry-intervals-and-duration).
 
 Para definir o evento time-to-live com um valor diferente 1440 minutos, utilize:
 

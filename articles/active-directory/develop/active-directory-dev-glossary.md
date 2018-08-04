@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 68c682f9f5429246317ac439a4bc9eeb1b380c76
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 95ddfb6f2beb303a6adcfe4f7bc47d022ad862a6
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430489"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503112"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 Este artigo contém definições para algumas dos conceitos de desenvolvedor do núcleo do Azure Active Directory (AD), que são úteis durante o aprendizado sobre o desenvolvimento de aplicativos para o Azure AD.
@@ -189,7 +189,7 @@ Utilize a seguinte secção de comentários para fornecer comentários e ajudar 
 <!--Reference style links -->
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
@@ -197,8 +197,8 @@ Utilize a seguinte secção de comentários para fornecer comentários e ajudar 
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
-[AAD-How-To-Tenant]: active-directory-howto-tenant.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
+[AAD-How-To-Tenant]:quickstart-create-new-tenant.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md

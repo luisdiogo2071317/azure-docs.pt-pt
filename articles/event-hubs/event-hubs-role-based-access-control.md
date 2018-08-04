@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888372"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502141"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -41,7 +41,7 @@ Neste primeiro passo é opcional. Cada subscrição do Azure automaticamente é 
 
 Se pretender continuar a criar uma conta específica para este cenário [siga estes passos](../automation/automation-create-aduser-account.md). Tem de ter permissão para criar contas no inquilino do Azure Active Directory, o que talvez não seja o caso de cenários de empresa maiores.
 
-### <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes de Hubs de eventos
+### <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
 Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) de uma das regiões do Azure com suporte de pré-visualização de Hubs de eventos para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental** . 
 
@@ -57,7 +57,7 @@ Antes de poder executar o aplicativo de exemplo, registrá-la no Azure AD e apro
 
 Como o aplicativo de exemplo é uma aplicação de consola, tem de registar uma aplicação nativa e adicionar as permissões de API para **eventhub** ao conjunto de "permissões obrigatórias". Aplicativos nativos também tem um **redirect-URI** no Azure AD que serve como um identificador; o URI não precisa de ser um destino de rede. Utilize `http://eventhubs.microsoft.com` para este exemplo, uma vez que o exemplo de código já utiliza esse URI.
 
-Os passos de registo detalhados são explicados em [deste tutorial](../active-directory/develop/active-directory-integrating-applications.md). Siga os passos para registar um **nativo** aplicação e, em seguida, siga as instruções de atualização para adicionar o **eventhub** API para as permissões necessárias. À medida que seguir os passos, anote o **TenantId** e o **ApplicationId**, pois irá precisar destes valores para executar a aplicação.
+Os passos de registo detalhados são explicados em [deste tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Siga os passos para registar um **nativo** aplicação e, em seguida, siga as instruções de atualização para adicionar o **eventhub** API para as permissões necessárias. À medida que seguir os passos, anote o **TenantId** e o **ApplicationId**, pois irá precisar destes valores para executar a aplicação.
 
 ### <a name="run-the-app"></a>Executar a aplicação
 

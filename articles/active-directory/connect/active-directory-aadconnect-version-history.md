@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a82cae05bfd11145a1415494908679748870f680
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390158"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494494"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -41,7 +41,7 @@ Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?Lin
 
 ### <a name="release-status"></a>Estado da versão
 
-7/20/2018: lançado para atualização automática. Versão para download seguirá em breve.
+7/20/2018: lançadas para o download e a atualização automática. O processo de atualização automática ainda está em curso.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aperfeiçoamentos
 
