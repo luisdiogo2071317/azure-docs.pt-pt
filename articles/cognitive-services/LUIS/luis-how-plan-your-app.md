@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226028"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505533"
 ---
 # <a name="plan-your-luis-app"></a>Planear a sua aplicação LUIS
 
@@ -53,10 +53,10 @@ Uma entidade hierárquica é um tipo especial de um **simples** entidade; a defi
 
 Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente a entidade hierárquica [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
 
-### <a name="composite-entity"></a>entidade composta
+### <a name="composite-entity"></a>Entidade composta
 Uma entidade composta é constituída por outras entidades que formam as partes de um todo. 
 
-![entidade composta](./media/luis-plan-your-app/composite-entity.png)
+![Entidade composta](./media/luis-plan-your-app/composite-entity.png)
 
 Ver [extração de dados](luis-concept-data-extraction.md#composite-entity-data) para saber mais sobre a extrair a entidade composta do ponto de extremidade de resposta da consulta JSON. Experimente a entidade composta [tutorial](luis-tutorial-composite-entity.md) para saber mais sobre como utilizar uma entidade composta.
 
@@ -65,7 +65,7 @@ LUIS fornece [entidades pré-concebidas](luis-prebuilt-entities.md) para tipos c
 
 ![Entidade pré-criados numérica](./media/luis-plan-your-app/number-entity.png)
 
-Ver [extração de dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre a extração de entidades de expressão regular do ponto de extremidade de resposta da consulta JSON. 
+Ver [extração de dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre a extração de entidade pré-criados do ponto de extremidade de resposta da consulta JSON. 
 
 ### <a name="list-entity"></a>Entidade de lista 
 Uma entidade de lista é uma lista de valores explicitamente especificada. Cada valor é composta por um ou mais sinónimos. Num aplicativo de viagens, pode optar por criar uma entidade de lista para representar nomes de aeroporto.

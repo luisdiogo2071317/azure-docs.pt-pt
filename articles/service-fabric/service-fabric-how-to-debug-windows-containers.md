@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: 437c38a8e674fcdf06e26a7191ceecef9d901470
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e7ff7ca6d4fb18121dfa282c2c47e140a4c51a84
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968325"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505972"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Como: depurar contentores Windows no Azure Service Fabric com o Visual Studio 2017
 
@@ -34,10 +34,8 @@ Com o Visual Studio 2017 atualização 7 (15.7), pode depurar aplicações de .N
 
 1. Certificar-se de que o Docker para o serviço do Windows está em execução antes de continuar com a próxima etapa.
 
-1. Para oferecer suporte à resolução de DNS entre contentores, terá de configurar o cluster de desenvolvimento local, com o nome da máquina.
-    1. Abra PowerShell como administrador
-    1. Navegue para a pasta de configuração de Cluster de SDK, normalmente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
-    1. Execute o script `DevClusterSetup.ps1` com o parâmetro `-UseMachineName`
+1. Para oferecer suporte à resolução de DNS entre contentores, terá de configurar o cluster de desenvolvimento local, com o nome da máquina. Estes passos também são necessários para os serviços de endereços através do proxy inverso.
+    a. Abra o PowerShell como administrador b. Navegue para a pasta de configuração de Cluster de SDK, normalmente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` c. Execute o script `DevClusterSetup.ps1` com o parâmetro `-UseMachineName`
 
     ``` PowerShell
       C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
@@ -47,7 +45,7 @@ Com o Visual Studio 2017 atualização 7 (15.7), pode depurar aplicações de .N
     > Pode utilizar o `-CreateOneNodeCluster` para configurar um cluster de um nó. A predefinição criará um cluster de cinco nós local.
     >
 
-    Para saber mais sobre o serviço de DNS no Service Fabric, veja [serviço de DNS no Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice).
+    Para saber mais sobre o serviço de DNS no Service Fabric, veja [serviço de DNS no Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Para saber mais sobre como utilizar os recursos de infraestrutura do serviço de proxy inverso de serviços em execução num contentor, veja [tratamento especial de proxy inverso para serviços em execução nos contentores](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitações conhecidas ao depurar contentores no Service Fabric
 

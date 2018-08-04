@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 6f3075884131415efa62851b6e2db43bc00b39b8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ea7ee76a97a06b7f91805af8007a466d1b9f111d
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448327"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505282"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Erro ao processar as melhores práticas para clientes do Azure Active Directory Authentication Library (ADAL)
 
@@ -586,7 +586,7 @@ window.Logging = {
 Utilize a secção de comentários que se segue, para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.
 
 [![Inicie sessão no botão][AAD-Sign-In]] [ AAD-Sign-In] 
- <!--Reference style links --> [bibliotecas de autenticação de AAD]:./active-directory-authentication-libraries.md [cenários de autenticação de AAD]:./active-directory-authentication-scenarios.md [ AAD-Dev-Guide]:azure-ad-developers-guide.md [aplicações de integração de AAD]:./active-directory-integrating-applications.md [portal do AZURE]: https://portal.azure.com
+ <!--Reference style links --> [bibliotecas de autenticação de AAD]:./active-directory-authentication-libraries.md [cenários de autenticação de AAD]: autenticação-scenarios.md [AAD-Dev-Guide]: Azure-ad-desenvolvedores-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [portal do AZURE]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

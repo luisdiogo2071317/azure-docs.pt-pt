@@ -1,5 +1,5 @@
 ---
-title: Ativar o Azure Active Directory Domain Services com o PowerShell | Microsoft Docs
+title: Ativar o Azure Active Directory Domain Services com o PowerShell | Documentos da Microsoft
 description: Ativar o Azure Active Directory Domain Services com o PowerShell
 services: active-directory-ds
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: acae942131903aa86601f023976b0715bf553d4d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ee3f65b7afde19a1f9c730334043cc7dae9ea791
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215036"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503813"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar o Azure Active Directory Domain Services com o PowerShell
-Este artigo mostra como ativar os serviços de domínio do Azure Active Directory (AD) através do PowerShell.
+Este artigo mostra como ativar os serviços de domínio do Azure Active Directory (AD) com o PowerShell.
 
-## <a name="task-1-install-the-required-powershell-modules"></a>Tarefa 1: Instalar os módulos do PowerShell necessários
+## <a name="task-1-install-the-required-powershell-modules"></a>Tarefa 1: Instalar os módulos necessários do PowerShell
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Instalar e configurar o Azure AD PowerShell
 Siga as instruções no artigo para [instalar o módulo Azure AD PowerShell e ligar ao Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
@@ -35,14 +35,14 @@ Siga as instruções no artigo para [instalar o módulo Azure PowerShell e ligue
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Tarefa 2: Criar o principal de serviço necessário no diretório do Azure AD
-Escreva o seguinte comando do PowerShell para criar o principal de serviço necessário para os serviços de domínio do Azure AD no seu diretório do Azure AD.
+Escreva o seguinte comando do PowerShell para criar o principal de serviço necessário para o Azure AD Domain Services no seu diretório do Azure AD.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Tarefa 3: Criar e configurar o grupo 'AAD DC administradores'
-A tarefa seguinte consiste em criar o grupo de administrador que será utilizado para delegar tarefas de administração no seu domínio gerido.
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Tarefa 3: Criar e configurar o grupo "Administradores do AAD DC"
+A próxima tarefa é criar o grupo de administrador que será utilizado para delegar tarefas de administração no seu domínio gerido.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -67,8 +67,8 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Tarefa 4: Registar o fornecedor de recursos de serviços de domínio do Azure AD
-Escreva o seguinte comando do PowerShell para registar o fornecedor de recursos para os serviços de domínio do Azure AD:
+## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Tarefa 4: Registar o fornecedor de recursos do Azure AD Domain Services
+Escreva o seguinte comando do PowerShell para registar o fornecedor de recursos para o Azure AD Domain Services:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
@@ -86,13 +86,13 @@ New-AzureRmResourceGroup `
   -Location $AzureLocation
 ```
 
-Pode criar a rede virtual e o domínio gerido dos serviços de domínio do Azure AD deste grupo de recursos.
+Pode criar a rede virtual e o domínio gerido do Azure AD Domain Services neste grupo de recursos.
 
 
 ## <a name="task-6-create-and-configure-the-virtual-network"></a>Tarefa 6: Criar e configurar a rede virtual
-Agora, crie a rede virtual na qual ativar os serviços de domínio do Azure AD. Certifique-se que crie uma sub-rede dedicada para os serviços de domínio do Azure AD. Não implemente VMs de cargas de trabalho para esta sub-rede dedicado.
+Agora, crie a rede virtual em que ativou o Azure AD Domain Services. Certifique-se de que criar uma sub-rede dedicada para o Azure AD Domain Services. Não implemente VMs de carga de trabalho para esta sub-rede dedicada.
 
-Escreva os seguintes comandos do PowerShell para criar uma rede virtual com uma sub-rede dedicada para os serviços de domínio do Azure AD.
+Escreva os seguintes comandos do PowerShell para criar uma rede virtual com uma sub-rede dedicada para o Azure AD Domain Services.
 
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
@@ -117,8 +117,8 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Tarefa 7: Aprovisionar domínio gerido dos serviços de domínio do Azure AD
-Escreva o seguinte comando do PowerShell para ativar os serviços de domínio do Azure AD para o diretório:
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Tarefa 7: Aprovisionar o domínio gerido do Azure AD Domain Services
+Escreva o seguinte comando do PowerShell para ativar os serviços de domínio do Azure AD para o seu diretório:
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -136,18 +136,18 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **Não se esqueça de passos de configuração adicionais depois de aprovisionar o seu domínio gerido.**
-> Depois do seu domínio gerido é aprovisionado, ainda tem de concluir as seguintes tarefas:
-> * **[Atualizar as definições de DNS](active-directory-ds-getting-started-dns.md)**  para a rede virtual para máquinas virtuais pode encontrar o domínio gerido para associação a um domínio ou a autenticação.
-* **[Ativar a sincronização de palavra-passe para os serviços de domínio do Azure AD](active-directory-ds-getting-started-password-sync.md)**, pelo que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as respetivas credenciais empresariais.
+> **Não se esqueça os passos de configuração adicionais depois de aprovisionar o seu domínio gerido.**
+> Depois de seu domínio gerido está aprovisionado, ainda tem de concluir as seguintes tarefas:
+> * **[Atualizar definições de DNS](active-directory-ds-getting-started-dns.md)**  para a rede virtual para que as máquinas virtuais pode encontrar o domínio gerido para associação a um domínio ou de autenticação.
+* **[Ativar a sincronização de palavra-passe para o Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, pelo que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as credenciais da empresa.
 >
 
 
 ## <a name="powershell-script"></a>Script do PowerShell
-O script do PowerShell utilizado para executar todas as tarefas apresentadas neste artigo está abaixo. Copie o script e guardá-lo para um ficheiro com uma extensão '. ps1'. Execute o script do PowerShell ou utilizando o PowerShell Integrated Scripting Environment (ISE).
+O script do PowerShell utilizado para executar todas as tarefas apresentadas neste artigo é inferior. Copie o script e guarde-o para um ficheiro com uma extensão '. ps1'. Execute o script no PowerShell ou ao utilizar o PowerShell Integrated Scripting Environment (ISE).
 
 > [!NOTE]
-> **Permissões necessárias para executar este script** para ativar os serviços de domínio do Azure AD, tem de ser administrador global do diretório do Azure AD. Além disso, terá de menos privilégios de "Contribuinte" na rede virtual na qual ativar os serviços de domínio do Azure AD.
+> **As permissões necessárias para executar este script** para ativar os serviços de domínio do Azure AD, tem de ser o administrador global do diretório do Azure AD. Além disso, terá de, pelo menos, privilégios de "Contribuinte" na rede virtual no qual ativar os serviços de domínio do Azure AD.
 >
 
 ```powershell
@@ -221,14 +221,14 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **Não se esqueça de passos de configuração adicionais depois de aprovisionar o seu domínio gerido.**
-> Depois do seu domínio gerido é aprovisionado, ainda tem de concluir as seguintes tarefas:
-> * Atualize as definições de DNS para a rede virtual para que máquinas virtuais pode encontrar o domínio gerido para associação a um domínio ou a autenticação.
-* Ative a sincronização de palavra-passe para os serviços de domínio do Azure AD para que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as respetivas credenciais empresariais.
+> **Não se esqueça os passos de configuração adicionais depois de aprovisionar o seu domínio gerido.**
+> Depois de seu domínio gerido está aprovisionado, ainda tem de concluir as seguintes tarefas:
+> * Atualize definições de DNS para a rede virtual para que as máquinas virtuais pode encontrar o domínio gerido para associação a um domínio ou de autenticação.
+* Ative a sincronização de palavra-passe para o Azure AD Domain Services para que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as credenciais da empresa.
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-Depois de criado o seu domínio gerido, execute as seguintes tarefas de configuração para poder utilizar o domínio gerido:
+Depois de criado o seu domínio gerido, execute as seguintes tarefas de configuração, pelo que pode utilizar o domínio gerido:
 
 * [Atualizar as definições do servidor DNS para a rede virtual para apontar para o seu domínio gerido](active-directory-ds-getting-started-dns.md)
 * [Ativar a sincronização de palavra-passe para o seu domínio gerido](active-directory-ds-getting-started-password-sync.md)

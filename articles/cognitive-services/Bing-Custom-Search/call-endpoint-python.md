@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35355735"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504972"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Chamar o ponto final de pesquisa personalizada do Bing (Python)
 
@@ -34,13 +34,18 @@ Para concluir este guia de início rápido, necessita de:
 Para chamar o ponto de extremidade de pesquisa personalizada do Bing, siga estes passos:
 
 1. Crie uma pasta para o seu código.
+
 2. A partir de uma linha de comandos de administrador ou um terminal, navegue para a pasta que acabou de criar.
+
 3. Instalar o **pedidos** módulo python:
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. Criar o ficheiro BingCustomSearch.py e copie o seguinte código ao mesmo.
+
 8. Substitua **seu-SUBSCRIPTION-KEY** e **seu-personalizada-CONFIG-ID** com o seu ID de chave e a configuração (consulte o passo 1).
 
     ``` Python

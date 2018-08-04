@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95153a4661f030824c9b85c10c5b4b1731ff8a91
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 313fb77fe2d66215e1f55a6f75a8b1b3d540b73a
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239998"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505771"
 ---
-# <a name="interpret-the-azure-active-directory-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de início de sessão de registos do Azure Active Directory no Azure Monitor (pré-visualização)
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de início de sessão de registos do Azure AD no Azure Monitor (pré-visualização)
 
-Este artigo descreve o esquema de início de sessão no registo do Azure AD no Azure Monitor. A maioria das informações relacionadas com inícios de sessão é fornecida através da *propriedades* atributo do objeto de registos.
+Este artigo descreve o esquema de início de sessão no registo do Azure Active Directory (Azure AD) no Azure Monitor. A maioria das informações relacionadas com inícios de sessão é fornecida através do *propriedades* atributo do `records` objeto.
 
 ```json
 { 
@@ -147,26 +147,29 @@ Este artigo descreve o esquema de início de sessão no registo do Azure AD no A
         } 
     } 
 ```
+
+## <a name="field-descriptions"></a>Descrições de campo
+
 | Nome do campo | Descrição |
 |------------|-------------|
-| Hora | Data e hora em UTC |
+| Hora | A data e hora, em UTC. |
 | ResourceId | Este valor é não mapeado, e pode ignorar este campo.  |
-| OperationName | Para inícios de sessão, este valor é sempre *atividade de início de sessão* |
-| operationVersion | A versão de REST API solicitada pelo cliente |
-| Categoria | Para inícios de sessão, este é sempre *início de sessão* | 
-| TenantId | Guid de inquilino associado com os registos |
-| resultType | O resultado da operação de início de sessão, pode ser *sucesso* ou *falha* | 
-| resultSignature | Contém o código de erro, se houver, para a operação de início de sessão |
-| ResultDescription | Fornece a descrição do erro para a operação de início de sessão |
+| OperationName | Para inícios de sessão, este valor é sempre *atividade de início de sessão*. |
+| operationVersion | A versão de REST API é solicitada pelo cliente. |
+| Categoria | Para inícios de sessão, este valor é sempre *SignIn*. | 
+| TenantId | O GUID associada os registos de inquilino. |
+| resultType | O resultado da operação de início de sessão pode ser *sucesso* ou *falha*. | 
+| resultSignature | Contém o código de erro, se houver, para a operação de início de sessão. |
+| ResultDescription | Fornece a descrição do erro para a operação de início de sessão. |
 | durationMs |  Este valor é não mapeado, e pode ignorar este campo.|
-| callerIpAddress | Endereço IP do cliente que efetuou o pedido | 
-| CorrelationId | Guid opcional transmitido pelo cliente. Este valor pode ajudar a correlacionar operações do lado do cliente com as operações do lado do servidor e é útil quando nos registos que abrangem em todos os serviços de rastreio. |
-| Identidade | Identidade do token que foi apresentado quando efetua o pedido. Pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
-| Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo* |
-| Localização | Disponibiliza a localização da atividade de início de sessão |
-| Propriedades | Apresenta uma lista de todas as propriedades associadas com inícios de sessão. Para obter mais informações, leia os [MS referência da Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Esse esquema utiliza os nomes de atributo, tal como o recurso de início de sessão, para facilitar a leitura.
+| callerIpAddress | O endereço IP do cliente que efetuou o pedido. | 
+| CorrelationId | O GUID opcional que é transmitido pelo cliente. Este valor pode ajudar a correlacionar operações do lado do cliente com as operações do lado do servidor e é útil quando está a controlar os registos que abrangem serviços. |
+| Identidade | A identidade do token que foi apresentado quando efetuou o pedido. Pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
+| Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |
+| Localização | Disponibiliza a localização da atividade de início de sessão. |
+| Propriedades | Apresenta uma lista de todas as propriedades que estão associadas a inícios de sessão. Para obter mais informações, consulte [referência da API do Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Esse esquema utiliza os mesmos nomes de atributo que o recurso de início de sessão, para facilitar a leitura.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Interpretar o esquema de registos de auditoria no Azure monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpretar o esquema de registos de auditoria no Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 * [Leia mais sobre os registos de diagnóstico do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309158"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503711"
 ---
-# <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e a política de atualização de recursos de infraestrutura
-Este documento informa como personalizar as várias configurações de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o seu cluster do Service Fabric. Pode personalizá-las através da [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
+# <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
+Este artigo descreve como personalizar as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para clusters autónomos, personalizar definições ao atualizar o ficheiro de ClusterConfig.json e efetuar uma atualização de configuração no seu cluster. 
 
 > [!NOTE]
 > Nem todas as definições estão disponíveis no portal. No caso de uma definição indicada abaixo não está disponível através do portal de personalizá-lo a utilizar um modelo Azure Resource Manager.
@@ -35,14 +35,14 @@ Este documento informa como personalizar as várias configurações de recursos 
 - **NotAllowed** – estas definições não podem ser modificadas. Alterar estas definições requer que o cluster ser destruído e criado um novo cluster. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalize as configurações de cluster utilizando modelos do Resource Manager
-Os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção.
+Os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção com o Explorador de recursos do Azure.
 
 1. Ir para https://resources.azure.com
 2. Navegue até à sua subscrição ao expandir **subscrições** -> **\<subscrição Your >** -> **resourceGroups**  ->   **\<Seu grupo de recursos >** -> **fornecedores** -> **Microsoft.ServiceFabric**  ->  **clusters** -> **\<seu nome de Cluster >**
 3. No canto superior direito, selecione **leitura/escrita.**
 4. Selecione **edite** e atualizar o `fabricSettings` elemento JSON e adicione um novo elemento:
 
-```
+```json
       {
         "name": "Diagnostics",
         "parameters": [
@@ -53,6 +53,36 @@ Os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* 
         ]
       }
 ```
+
+Também pode personalizar as definições de cluster em uma das seguintes formas com o Azure Resource Manager:
+
+- Utilize o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) para exportar e atualizar o modelo do Resource Manager.
+- Uso [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) para exportar e atualizar o modelo do Resource Manager.
+- Utilize o [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) para exportar e atualizar o modelo do Resource Manager.
+- Utilizar o Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) e [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) comandos para modificar a definição diretamente.
+- Utilizar a CLI do Azure [definição do az sf cluster](https://docs.microsoft.com/cli/azure/sf/cluster/setting) comandos para modificar a definição diretamente.
+
+## <a name="customize-cluster-settings-for-standalone-clusters"></a>Personalize as configurações de cluster para clusters autónomos
+Clusters autónomos são configurados por meio do arquivo de ClusterConfig.json. Para obter mais informações, consulte [definições de configuração para um cluster autónomo de Windows](./service-fabric-cluster-manifest.md).
+
+Pode adicionar, atualizar ou remover definições no `fabricSettings` secção sob o [propriedades de Cluster](./service-fabric-cluster-manifest.md#cluster-properties) secção ClusterConfig.json. 
+
+Por exemplo, o JSON seguinte adiciona uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção em `fabricSettings`:
+
+```json
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+Depois de modificar as definições no seu ficheiro ClusterConfig.json, siga as indicações [atualizar a configuração de cluster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) para aplicar as definições no seu cluster. 
+
 
 Segue-se uma lista dos recursos de infraestrutura, as definições que pode personalizar, organizados pela secção.
 
@@ -145,7 +175,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, a predefinição é verdadeiro | Dinâmica |Se pretende ou não representação é necessária para aceder ao diagnóstico armazena em nome do aplicativo. |
 |AppEtwTraceDeletionAgeInDays |Int, a predefinição é 3 | Dinâmica |Número de dias após o qual podemos eliminar ficheiros ETL antigos, que contém os rastreios ETW de aplicações. |
-|ApplicationLogsFormatVersion |Int, a predefinição é 0 | Dinâmica |Formato de registos de versão para a aplicação. Os valores suportados são 0 e 1. Versão 1 inclui mais campos do registo de eventos do ETW que versão 0. |
+|ApplicationLogsFormatVersion |int, a predefinição é 0 | Dinâmica |Formato de registos de versão para a aplicação. Os valores suportados são 0 e 1. Versão 1 inclui mais campos do registo de eventos do ETW que versão 0. |
 |ClusterId |Cadeia | Dinâmica |O id exclusivo do cluster. Isso é gerado quando o cluster é criado. |
 |ConsumerInstances |Cadeia | Dinâmica |A lista de instâncias de consumidor do DCA. |
 |DiskFullSafetySpaceInMB |Int, o padrão é 1024 | Dinâmica |Espaço em disco restante em MB para proteger contra o uso por DCA. |
@@ -199,12 +229,12 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ClusterX509FindValue |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de cluster. |
 |ClusterX509FindValueSecondary |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de cluster. |
 |ClusterX509StoreName |cadeia de caracteres, a predefinição é "Meu" |Dinâmica|Nome do arquivo de certificados X.509, que contém o certificado de cluster para proteger a comunicação de dentro do cluster. |
-|EndApplicationPortRange |Int, a predefinição é 0 |Estático|Fim (não inclusivo) as portas de aplicação gerida pelo subsistema de alojamento. Necessário se EndpointFilteringEnabled é verdadeiro para alojamento. |
+|EndApplicationPortRange |int, a predefinição é 0 |Estático|Fim (não inclusivo) as portas de aplicação gerida pelo subsistema de alojamento. Necessário se EndpointFilteringEnabled é verdadeiro para alojamento. |
 |ServerAuthX509FindType |cadeia de caracteres, predefinido é "FindByThumbprint" |Dinâmica|Indica como procurar o certificado de servidor no arquivo especificado pelo valor ServerAuthX509StoreName suportados: FindByThumbprint; FindBySubjectName. |
 |ServerAuthX509FindValue |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de servidor. |
 |ServerAuthX509FindValueSecondary |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de servidor. |
 |ServerAuthX509StoreName |cadeia de caracteres, a predefinição é "Meu" |Dinâmica|Nome do arquivo de certificados X.509, que contém o certificado de servidor para o serviço de documento. |
-|StartApplicationPortRange |Int, a predefinição é 0 |Estático|Início das portas de aplicação gerida pelo subsistema de alojamento. Necessário se EndpointFilteringEnabled é verdadeiro para alojamento. |
+|StartApplicationPortRange |int, a predefinição é 0 |Estático|Início das portas de aplicação gerida pelo subsistema de alojamento. Necessário se EndpointFilteringEnabled é verdadeiro para alojamento. |
 |StateTraceInterval |Tempo em segundos, a predefinição é de 300 |Estático|Especifique o período de tempo em segundos. O intervalo para rastrear o estado do nó em cada nó e se nós no FM/FMM. |
 |UserRoleClientX509FindType |cadeia de caracteres, predefinido é "FindByThumbprint" |Dinâmica|Indica como procurar o certificado no arquivo especificado pelo valor UserRoleClientX509StoreName suportados: FindByThumbprint; FindBySubjectName. |
 |UserRoleClientX509FindValue |cadeia de caracteres, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado para a função de utilizador padrão FabricClient. |
@@ -230,7 +260,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ReplicaRestartWaitDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Não Permitido|Especifique o período de tempo em segundos. Este é o ReplicaRestartWaitDuration para o FMService |
 |StandByReplicaKeepDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|Não Permitido|Especifique o período de tempo em segundos. Este é o StandByReplicaKeepDuration para o FMService |
 |TargetReplicaSetSize|Int, o padrão é 7|Não Permitido|Este é o número de destino das réplicas de FM que irá manter recursos de infraestrutura do Windows. Um número mais alto resulta em maior fiabilidade dos dados FM; com uma compensação de desempenho pequeno. |
-|UserMaxStandByReplicaCount |Int, a predefinição é 1 |Dinâmica|O número máximo predefinido de réplicas de modo de espera que o sistema mantém-se para os serviços de utilizador. |
+|UserMaxStandByReplicaCount |int, a predefinição é 1 |Dinâmica|O número máximo predefinido de réplicas de modo de espera que o sistema mantém-se para os serviços de utilizador. |
 |UserReplicaRestartWaitDuration |Tempo em segundos, a predefinição é 60.0 * 30 |Dinâmica|Especifique o período de tempo em segundos. Quando uma réplica persistente fica inativo; Recursos de infraestrutura do Windows é aguarda por esta duração para a réplica seja aberto antes de criar novos réplicas de substituição (o que exigiriam uma cópia do Estado). |
 |UserStandByReplicaKeepDuration |Tempo em segundos, o padrão é 3600.0 * 24 * 7 |Dinâmica|Especifique o período de tempo em segundos. Quando uma réplica persistente voltar atrás de um Estado para baixo; Pode já ter foi substituído. Este temporizador determina quanto o FM irá manter a réplica em modo de espera antes de descartá-la. |
 
@@ -240,7 +270,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |CompletedActionKeepDurationInSeconds | Int, a predefinição é 604800 |Estático| Isto é, aproximadamente quanto para manter as ações que estão num Estado terminal. Isso também depende de segurança StoredActionCleanupIntervalInSeconds; uma vez que o trabalho para a limpeza só é feito nesse intervalo. 604800 é de 7 dias. |
 |DataLossCheckPollIntervalInSeconds|int, a predefinição é 5|Estático|Este é o tempo entre as verificações do que sistema executa enquanto aguarda a perda de dados ocorrer. O número de vezes que o número de perda de dados será verificado por iteração interna é DataLossCheckWaitDurationInSeconds/este. |
 |DataLossCheckWaitDurationInSeconds|int, a predefinição é 25|Estático|A quantidade total de tempo; em segundos; que o sistema esperará para perda de dados ocorrer. Isto é utilizado internamente quando a api de StartPartitionDataLossAsync() é chamado. |
-|MinReplicaSetSize |Int, a predefinição é 0 |Estático|O MinReplicaSetSize para FaultAnalysisService. |
+|MinReplicaSetSize |int, a predefinição é 0 |Estático|O MinReplicaSetSize para FaultAnalysisService. |
 |PlacementConstraints | cadeia de caracteres, a predefinição é ""|Estático| O PlacementConstraints para FaultAnalysisService. |
 |QuorumLossWaitDuration | Tempo em segundos, a predefinição é MaxValue |Estático|Especifique o período de tempo em segundos. O QuorumLossWaitDuration para FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, a predefinição é de 600|Estático|Este parâmetro é utilizado quando a perda de dados é chamada de api. Controla o tempo que o sistema esperará para uma réplica para são removidas depois de remover réplica internamente é invocada no mesmo. |
@@ -248,7 +278,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |StandByReplicaKeepDuration| Tempo em segundos, a predefinição é (60*24*7) minutos |Estático|Especifique o período de tempo em segundos. O StandByReplicaKeepDuration para FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, a predefinição é 3600 |Estático|Esta é a frequência com que o arquivo serão limpos. Apenas as ações num Estado terminal; e que foi concluída, pelo menos, CompletedActionKeepDurationInSeconds há será removido. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, a predefinição é 3600 |Estático|Esta é a frequência com que o arquivo será auditado para a limpeza; Se o número de eventos é mais do que 30000; a limpeza será iniciada. |
-|TargetReplicaSetSize |Int, a predefinição é 0 |Estático|NOT_PLATFORM_UNIX_START TargetReplicaSetSize para FaultAnalysisService. |
+|TargetReplicaSetSize |int, a predefinição é 0 |Estático|NOT_PLATFORM_UNIX_START TargetReplicaSetSize para FaultAnalysisService. |
 
 ## <a name="federation"></a>de Federação
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -301,8 +331,8 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |Bool, a predefinição é falso |Estático|Política de avaliação do Estado de funcionamento do cluster: avisos são tratados como erros. |
-|MaxPercentUnhealthyApplications | Int, a predefinição é 0 |Estático|Política de avaliação do Estado de funcionamento do cluster: percentagem máxima de aplicações de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento. |
-|MaxPercentUnhealthyNodes | Int, a predefinição é 0 |Estático|Política de avaliação do Estado de funcionamento do cluster: percentagem máxima de nós de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento. |
+|MaxPercentUnhealthyApplications | int, a predefinição é 0 |Estático|Política de avaliação do Estado de funcionamento do cluster: percentagem máxima de aplicações de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento. |
+|MaxPercentUnhealthyNodes | int, a predefinição é 0 |Estático|Política de avaliação do Estado de funcionamento do cluster: percentagem máxima de nós de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento. |
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -380,12 +410,12 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="ktllogger"></a>KtlLogger
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|AutomaticMemoryConfiguration |Int, a predefinição é 1 |Dinâmica|Sinalizador que indica se as definições de memória devem ser dinamicamente e automaticamente configuradas. Se a zero, em seguida, as definições de configuração de memória são usadas diretamente e não são alterados com base nas condições de sistema. Se um, em seguida, as definições de memória são configuradas automaticamente e pode ser alterada com base nas condições de sistema. |
-|MaximumDestagingWriteOutstandingInKB | Int, a predefinição é 0 |Dinâmica|O número de KB para permitir o início de sessão partilhado avançar à frente de registo de dedicado. Utilize 0 para indicar sem limite.
+|AutomaticMemoryConfiguration |int, a predefinição é 1 |Dinâmica|Sinalizador que indica se as definições de memória devem ser dinamicamente e automaticamente configuradas. Se a zero, em seguida, as definições de configuração de memória são usadas diretamente e não são alterados com base nas condições de sistema. Se um, em seguida, as definições de memória são configuradas automaticamente e pode ser alterada com base nas condições de sistema. |
+|MaximumDestagingWriteOutstandingInKB | int, a predefinição é 0 |Dinâmica|O número de KB para permitir o início de sessão partilhado avançar à frente de registo de dedicado. Utilize 0 para indicar sem limite.
 |SharedLogId |cadeia de caracteres, a predefinição é "" |Estático|Guid exclusivo para o contentor de registo partilhado. Utilize "" se utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
 |SharedLogPath |cadeia de caracteres, a predefinição é "" |Estático|Nome de ficheiro e caminho para a localização para colocar o contentor de registo partilhado. Utilize "" para utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
 |SharedLogSizeInMB |Int, a predefinição é 8192 |Estático|O número de MB para alocar no contentor de registo partilhado. |
-|WriteBufferMemoryPoolMaximumInKB | Int, a predefinição é 0 |Dinâmica|O número de KB para permitir que o conjunto de memória de memória intermédia de escrita para crescer até. Utilize 0 para indicar sem limite. |
+|WriteBufferMemoryPoolMaximumInKB | int, a predefinição é 0 |Dinâmica|O número de KB para permitir que o conjunto de memória de memória intermédia de escrita para crescer até. Utilize 0 para indicar sem limite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, a predefinição é 8388608 |Dinâmica|O número de KB para alocar inicialmente para o conjunto de memória de memória intermédia de escrita. Utilize 0 para indicar sem limite predefinido deve ser consistente com SharedLogSizeInMB abaixo. |
 
 ## <a name="management"></a>Gestão
@@ -414,7 +444,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="namingservice"></a>NamingService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|GatewayServiceDescriptionCacheLimit |Int, a predefinição é 0 |Estático|O número máximo de entradas mantidas no cache de descrição do serviço LRU no Gateway de nomenclatura (definido como 0 para nenhum limite). |
+|GatewayServiceDescriptionCacheLimit |int, a predefinição é 0 |Estático|O número máximo de entradas mantidas no cache de descrição do serviço LRU no Gateway de nomenclatura (definido como 0 para nenhum limite). |
 |MaxClientConnections |Int, a predefinição é 1000 |Dinâmica|O máximo permitido de número de ligações de cliente por gateway. |
 |MaxFileOperationTimeout |Tempo em segundos, a predefinição é 30 |Dinâmica|Especifique o período de tempo em segundos. Tempo limite máximo permitido para a operação de serviço de armazenamento de ficheiros. Pedidos de especificar o tempo limite serão rejeitados. |
 |MaxIndexedEmptyPartitions |Int, a predefinição é 1000 |Dinâmica|O número máximo de partições vazias que irá permanecer indexados no cache de notificação para a sincronização de clientes a restabelecer ligação. Quaisquer partições vazias acima esse número serão removidas do índice por pesquisa versão ordem ascendente. Os clientes a restabelecer ligação ainda pode sincronizar e receber atualizações em falta partição vazia; mas o protocolo de sincronização se torna mais caro. |
@@ -428,7 +458,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |QuorumLossWaitDuration | Tempo em segundos, a predefinição é MaxValue |Não Permitido| Especifique o período de tempo em segundos. Quando um serviço de nomenclatura entra em perda de quórum; Este temporizador inicia. Quando este expirar o FM considerará as réplicas baixo como perdido; e tentar recuperar o quórum. Não é que isso pode resultar em perda de dados. |
 |RepairInterval | Tempo em segundos, a predefinição é 5 |Estático| Especifique o período de tempo em segundos. Intervalo no qual será iniciada a nomenclatura reparação de inconsistência entre o proprietário de autoridade e o proprietário do nome. |
 |ReplicaRestartWaitDuration | Tempo em segundos, a predefinição é (60.0 * 30)|Não Permitido| Especifique o período de tempo em segundos. Quando uma réplica de nomenclatura serviço fica inativo; Este temporizador inicia. Quando este expirar o FM começará a substituir as réplicas que são para baixo (ele não ainda considerá-las perdido). |
-|ServiceDescriptionCacheLimit | Int, a predefinição é 0 |Estático| O número máximo de entradas mantidas no cache de descrição do serviço LRU no serviço de nomenclatura de Store (definido como 0 para nenhum limite). |
+|ServiceDescriptionCacheLimit | int, a predefinição é 0 |Estático| O número máximo de entradas mantidas no cache de descrição do serviço LRU no serviço de nomenclatura de Store (definido como 0 para nenhum limite). |
 |ServiceNotificationTimeout |Tempo em segundos, a predefinição é 30 |Dinâmica|Especifique o período de tempo em segundos. O tempo limite utilizado ao entregar notificações de serviço ao cliente. |
 |StandByReplicaKeepDuration | Tempo em segundos, a predefinição é 3600.0 * 2 |Não Permitido| Especifique o período de tempo em segundos. Quando uma réplica Naming Service voltar atrás de um Estado para baixo; Pode já ter foi substituído. Este temporizador determina quanto o FM irá manter a réplica em modo de espera antes de descartá-la. |
 |TargetReplicaSetSize |Int, o padrão é 7 |Não Permitido|Define o número de réplica para cada partição do armazenamento de serviço de nomenclatura. Aumentar o número de conjuntos de réplicas aumenta o nível de confiabilidade para obter as informações na Store de serviço de nomenclatura; diminuir a alteração que as informações serão perdidas devido a falhas de nó a um custo de aumento de carga nos recursos de infraestrutura do Windows e a quantidade de tempo que demora a executar atualizações para os dados de nomenclatura.|
@@ -464,19 +494,19 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | --- | --- | --- | --- |
 |Contadores |Cadeia | Dinâmica |Lista separada por vírgulas de contadores de desempenho a recolher. |
 |IsEnabled |Bool, a predefinição é verdadeiro | Dinâmica |Sinalizador indica se a recolha do contador de desempenho no nó local está ativada. |
-|MaxCounterBinaryFileSizeInMB |Int, a predefinição é 1 | Dinâmica |Tamanho máximo (em MB) de cada arquivo binário do contador de desempenho. |
+|MaxCounterBinaryFileSizeInMB |int, a predefinição é 1 | Dinâmica |Tamanho máximo (em MB) de cada arquivo binário do contador de desempenho. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, a predefinição é 10 | Dinâmica |Intervalo máximo (em segundos) após o qual é criado um novo ficheiro binário de contador de desempenho. |
 |SamplingIntervalInSeconds |Int, a predefinição é 60 | Dinâmica |Intervalo de amostragem para contadores de desempenho a ser recolhidos. |
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de afinidade: 0: difícil; 1: software; negativo: Ignorar. |
-|ApplicationCapacityConstraintPriority | Int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: difícil; 1: software; negativo: Ignorar. |
+|AffinityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de afinidade: 0: difícil; 1: software; negativo: Ignorar. |
+|ApplicationCapacityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: difícil; 1: software; negativo: Ignorar. |
 |AutoDetectAvailableResources|bool, a predefinição é TRUE|Estático|Esta configuração irá acionar a deteção automática de recursos disponíveis no nó (CPU e memória) quando esta configuração está definida como true - iremos ler as capacidades reais e corrija-os se o utilizador especificado as capacidades de nó incorreto ou não defini-los em todos os se esta configuração é definida como falso - iremos  rastrear um aviso de que o utilizador especificado as capacidades de nó incorreto; mas não corrigiremos-los; o que significa que o utilizador quer que as capacidades especificadas como > que o nó tem realmente ou se as capacidades são indefinidas; ele presumirá capacidade ilimitada |
 |BalancingDelayAfterNewNode | Tempo em segundos, a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos. Não inicie o balanceamento de atividades durante este período depois de adicionar um novo nó. |
 |BalancingDelayAfterNodeDown | Tempo em segundos, a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos. Não inicie o balanceamento de atividades durante este período após um nó de evento para baixo. |
-|CapacityConstraintPriority | Int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: difícil; 1: software; negativo: Ignorar. |
+|CapacityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: difícil; 1: software; negativo: Ignorar. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, a predefinição é 20 | Dinâmica|Define o número de vezes consecutivas que emitido ResourceBalancer movimentos são ignorados antes de diagnóstico é conduzido e são emitidos avisos de estado de funcionamento. Negativo: Não existem avisos emitida sob essa condição. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo em segundos, a predefinição é 120 |Dinâmica| Especifique o período de tempo em segundos. DDo não FaultDomain de corrigir e violações de restrição de UpgradeDomain durante este período depois de adicionar um novo nó. |
 |ConstraintFixPartialDelayAfterNodeDown | Tempo em segundos, a predefinição é 120 |Dinâmica| Especifique o período de tempo em segundos. Fazer não as violações de restrição FaultDomain corrigir e UpgradeDomain durante este período após um nó de evento para baixo. |
@@ -486,7 +516,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |DetailedNodeListLimit | int, a predefinição é 15 |Dinâmica| Define o número de nós por restrição para incluir antes da truncagem nos relatórios de réplica Unplaced. |
 |DetailedPartitionListLimit | int, a predefinição é 15 |Dinâmica| Define o número de partições por entrada de diagnóstico para uma restrição incluir antes da truncagem no diagnóstico. |
 |DetailedVerboseHealthReportLimit | Int, a predefinição é 200 | Dinâmica|Define o número de vezes que uma réplica unplaced tem de ser persistentemente unplaced antes de relatórios de estado de funcionamento detalhadas são emitidos. |
-|FaultDomainConstraintPriority | Int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de domínio de falhas: 0: difícil; 1: software; negativo: Ignorar. |
+|FaultDomainConstraintPriority | int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de domínio de falhas: 0: difícil; 1: software; negativo: Ignorar. |
 |GlobalMovementThrottleCountingInterval | Tempo em segundos, a predefinição é de 600 |Estático| Especifique o período de tempo em segundos. Indica o comprimento do intervalo passado para o qual pretende controlar por Movimentos de réplica de domínio (utilizados juntamente com GlobalMovementThrottleThreshold). Pode ser definido como 0 para ignorar completamente a limitação global. |
 |GlobalMovementThrottleThreshold | Uint, a predefinição é 1000 |Dinâmica| Número máximo de movimentos permitido na fase de balanceamento no intervalo nos últimos indicado pelo GlobalMovementThrottleCountingInterval. |
 |GlobalMovementThrottleThresholdForBalancing | Uint, o padrão é 0 | Dinâmica|Número máximo de movimentos permitido na fase de balanceamento no intervalo nos últimos indicado pelo GlobalMovementThrottleCountingInterval. 0 indica sem limite. |
@@ -495,7 +525,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |GlobalMovementThrottleThresholdPercentageForBalancing|Double, o padrão é 0|Dinâmica|Número máximo de movimentos permitido na fase de balanceamento de mensagens em fila (expressa em percentagem do número total de réplicas no PLB) no intervalo nos últimos indicado pelo GlobalMovementThrottleCountingInterval. 0 indica sem limite. Se ambos os isso e GlobalMovementThrottleThresholdForBalancing são especificados; em seguida, o limite mais Conservadora é utilizado.|
 |InBuildThrottlingAssociatedMetric | cadeia de caracteres, a predefinição é "" |Estático| O nome métrico associado para esta limitação. |
 |InBuildThrottlingEnabled | Bool, a predefinição é falso |Dinâmica| Determine se a limitação na compilação está ativada. |
-|InBuildThrottlingGlobalMaxValue | Int, a predefinição é 0 |Dinâmica|O número máximo de réplicas de na compilação permitido globalmente. |
+|InBuildThrottlingGlobalMaxValue | int, a predefinição é 0 |Dinâmica|O número máximo de réplicas de na compilação permitido globalmente. |
 |InterruptBalancingForAllFailoverUnitUpdates | Bool, a predefinição é falso | Dinâmica|Determina se a qualquer tipo de atualização de unidade de ativação pós-falha deve interrupção rápida ou lenta balanceamento executar. Com especificado balanceamento "false" execute será interrompido se FailoverUnit: é criado/eliminado; tem em falta réplicas; alterar a localização de réplica primária ou alterado número de réplicas. Balanceamento de execução não será interrompido em outros casos - se FailoverUnit: tem réplicas Extras; alterar o sinalizador qualquer réplica; alterar apenas a versão de partição ou qualquer outro caso. |
 |MinConstraintCheckInterval | Tempo em segundos, a predefinição é 1 |Dinâmica| Especifique o período de tempo em segundos. Define a quantidade mínima de tempo que deve passar antes rodadas de verificação de dois restrição consecutivos. |
 |MinLoadBalancingInterval | Tempo em segundos, a predefinição é 5 |Dinâmica| Especifique o período de tempo em segundos. Define a quantidade mínima de tempo que deve passar antes de dois ciclos de balanceamento consecutivos. |
@@ -506,18 +536,18 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |MoveParentToFixAffinityViolation | Bool, a predefinição é falso |Dinâmica| Definição que determina se as réplicas principal podem ser movidas para corrigir as restrições de afinidade.|
 |PartiallyPlaceServices | Bool, a predefinição é verdadeiro |Dinâmica| Determina se todas as réplicas do serviço em cluster serão colocadas "tudo ou nada" fornecido limitados nós adequado para eles.|
 |PlaceChildWithoutParent | Bool, a predefinição é verdadeiro | Dinâmica|Definição que determina se a réplica do serviço de subordinados pode ser colocado se nenhuma réplica principal está ativo. |
-|PlacementConstraintPriority | Int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de posicionamento: 0: difícil; 1: software; negativo: Ignorar. |
+|PlacementConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de posicionamento: 0: difícil; 1: software; negativo: Ignorar. |
 |PlacementConstraintValidationCacheSize | Int, a predefinição é 10000 |Dinâmica| Limita o tamanho da tabela utilizado para rápido de validação e de expressões de restrição de colocação em cache. |
 |PlacementSearchTimeout | Tempo em segundos, a predefinição é 0,5 |Dinâmica| Especifique o período de tempo em segundos. Quando colocar os serviços; Pesquisar no máximo essa longa antes de devolver um resultado. |
 |PLBRefreshGap | Tempo em segundos, a predefinição é 1 |Dinâmica| Especifique o período de tempo em segundos. Define a quantidade mínima de tempo que deve passar antes de PLB atualiza o estado novamente. |
 |PreferredLocationConstraintPriority | Int, a predefinição é 2| Dinâmica|Determina a prioridade de restrição de localização preferencial: 0: difícil; 1: software; 2: Otimização; negativo: Ignorar |
 |PreventTransientOvercommit | Bool, a predefinição é falso | Dinâmica|Determina a deve PLB imediatamente contar com recursos que serão liberados pelas movimentações iniciadas. Por padrão. PLB pode iniciar a movimentação terminar e mudança no mesmo nó que pode criar transitório sobreconsolidar. Definir esse parâmetro como true, irá impedir que esses tipos de overcommits e que serão de desfragmentação de sob demanda (também conhecido como placementWithMove) desativada. |
-|ScaleoutCountConstraintPriority | Int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de contagem de aumento horizontal: 0: difícil; 1: software; negativo: Ignorar. |
+|ScaleoutCountConstraintPriority | int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de contagem de aumento horizontal: 0: difícil; 1: software; negativo: Ignorar. |
 |SwapPrimaryThrottlingAssociatedMetric | cadeia de caracteres, a predefinição é ""|Estático| O nome métrico associado para esta limitação. |
 |SwapPrimaryThrottlingEnabled | Bool, a predefinição é falso|Dinâmica| Determine se a limitação de comutação primário está ativada. |
-|SwapPrimaryThrottlingGlobalMaxValue | Int, a predefinição é 0 |Dinâmica| O número máximo de réplicas de comutação primário permitido globalmente. |
+|SwapPrimaryThrottlingGlobalMaxValue | int, a predefinição é 0 |Dinâmica| O número máximo de réplicas de comutação primário permitido globalmente. |
 |TraceCRMReasons |Bool, a predefinição é verdadeiro |Dinâmica|Especifica se pretende rastrear motivos para CRM emitido movimentos para o canal de eventos operacionais. |
-|UpgradeDomainConstraintPriority | Int, a predefinição é 1| Dinâmica|Determina a prioridade de restrição de domínio de atualização: 0: difícil; 1: software; negativo: Ignorar. |
+|UpgradeDomainConstraintPriority | int, a predefinição é 1| Dinâmica|Determina a prioridade de restrição de domínio de atualização: 0: difícil; 1: software; negativo: Ignorar. |
 |UseMoveCostReports | Bool, a predefinição é falso | Dinâmica|Instrui o LB para ignorar o elemento de custo da função de classificação; resultando número potencialmente grande de movimentações para melhor equilibrada colocação. |
 |UseSeparateSecondaryLoad | Bool, a predefinição é verdadeiro | Dinâmica|Definição que determina se utilizar a carga secundária diferente. |
 |ValidatePlacementConstraint | Bool, a predefinição é verdadeiro |Dinâmica| Especifica se é ou não a expressão de PlacementConstraint para um serviço é validada quando ServiceDescription um serviço é atualizado. |
@@ -799,12 +829,12 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, a predefinição é verdadeiro |Estático| Consulta automática e a ação de atualização com base num arquivo de estado de objetivos. |
-|MinReplicaSetSize |Int, a predefinição é 0 |Estático |O MinReplicaSetSize para UpgradeOrchestrationService.
+|MinReplicaSetSize |int, a predefinição é 0 |Estático |O MinReplicaSetSize para UpgradeOrchestrationService.
 |PlacementConstraints | cadeia de caracteres, a predefinição é "" |Estático| O PlacementConstraints para UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tempo em segundos, a predefinição é MaxValue |Estático| Especifique o período de tempo em segundos. O QuorumLossWaitDuration para UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tempo em segundos, a predefinição é 60 minutos|Estático| Especifique o período de tempo em segundos. O ReplicaRestartWaitDuration para UpgradeOrchestrationService. |
 |StandByReplicaKeepDuration | Tempo em segundos, a predefinição é 60*24*7 minutos |Estático| Especifique o período de tempo em segundos. O StandByReplicaKeepDuration para UpgradeOrchestrationService. |
-|TargetReplicaSetSize |Int, a predefinição é 0 |Estático |O TargetReplicaSetSize para UpgradeOrchestrationService. |
+|TargetReplicaSetSize |int, a predefinição é 0 |Estático |O TargetReplicaSetSize para UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Bool, a predefinição é falso | Estático|Definir como para fazer a atualização do código exigir a aprovação de administrador antes de continuar. |
 
 ## <a name="upgradeservice"></a>UpgradeService

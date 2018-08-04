@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 986440e5af2fb665f5d7e244f2df12edba09f022
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4111174e7ce000a978a7a5280a2561897500bdb6
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431305"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505699"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v2.0?
 
@@ -91,7 +91,7 @@ Pode adicionar os dois últimos porque são subdomínios de redirecionamento pri
 
 Observe também, pode ter apenas 20 URLs de resposta para uma aplicação específica.
 
-Para saber como registar uma aplicação no Portal de registo de aplicação, veja [como registar uma aplicação com o ponto final v2.0](active-directory-v2-app-registration.md).
+Para saber como registar uma aplicação no Portal de registo de aplicação, veja [como registar uma aplicação com o ponto final v2.0](quickstart-v2-register-an-app.md).
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrições de bibliotecas e SDKs
 

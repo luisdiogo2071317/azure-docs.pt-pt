@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 741affee9d073cd282be4ee7e30dfd7a1a0ff45d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3ec6bbcb9250626f8d6ef75330991c5ebac053a7
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426276"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504722"
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ O Azure AD Graph API fornece as seguintes funcionalidades:
 O Azure AD Graph API permite que muitos cenários de aplicativos. Os cenários seguintes são as mais comuns:
 
 * **Linha de aplicativo de negócios (único inquilino)**: neste cenário, um programador empresarial funciona para uma organização que tenha uma subscrição do Office 365. O desenvolvedor está criando um aplicativo web que interage com o Azure AD para executar tarefas, tais como atribuir uma licença a um utilizador. Esta tarefa requer acesso à API do Azure AD Graph, para que o desenvolvedor registra a aplicação de inquilino único no Azure AD e configura ler e escrever as permissões para o Azure AD Graph API. Em seguida, a aplicação está configurada para utilizar as suas próprias credenciais ou aqueles do utilizador atualmente início de sessão para adquirir um token para chamar a API do Azure AD Graph.
-* **Software como um aplicativo de serviço (multi-inquilino)**: neste cenário, um fabricante de software independente (ISV) está a desenvolver uma aplicação web de multi-inquilino alojado que fornece recursos de gerenciamento de usuário para outras organizações que utilizam o Azure AD. Esses recursos exigem acesso a objetos de diretório, por isso, a aplicação tem de chamar a API do Azure AD Graph. O desenvolvedor registra a aplicação no Azure AD, configura-o para exigir a leitura e escrita permissões para o Azure AD Graph API e, em seguida, ativa o acesso externo para que outras organizações podem dar consentimento para utilizar a aplicação no respetivo diretório. Quando um utilizador na sua organização efetua a autenticação à aplicação pela primeira vez, eles são apresentados uma caixa de diálogo de consentimento com as permissões que a aplicação está a solicitar. Concessão de consentimento, em seguida, irá dar ao aplicativo aqueles solicitadas permissões para o Azure AD Graph API no diretório do utilizador. Para obter mais informações sobre a estrutura de consentimento, consulte [descrição geral da estrutura de consentimento](active-directory-integrating-applications.md).
+* **Software como um aplicativo de serviço (multi-inquilino)**: neste cenário, um fabricante de software independente (ISV) está a desenvolver uma aplicação web de multi-inquilino alojado que fornece recursos de gerenciamento de usuário para outras organizações que utilizam o Azure AD. Esses recursos exigem acesso a objetos de diretório, por isso, a aplicação tem de chamar a API do Azure AD Graph. O desenvolvedor registra a aplicação no Azure AD, configura-o para exigir a leitura e escrita permissões para o Azure AD Graph API e, em seguida, ativa o acesso externo para que outras organizações podem dar consentimento para utilizar a aplicação no respetivo diretório. Quando um utilizador na sua organização efetua a autenticação à aplicação pela primeira vez, eles são apresentados uma caixa de diálogo de consentimento com as permissões que a aplicação está a solicitar. Concessão de consentimento, em seguida, irá dar ao aplicativo aqueles solicitadas permissões para o Azure AD Graph API no diretório do utilizador. Para obter mais informações sobre a estrutura de consentimento, consulte [descrição geral da estrutura de consentimento](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="see-also"></a>Consultar Também
 [Guia de início rápido do Azure AD Graph API](active-directory-graph-api-quickstart.md)

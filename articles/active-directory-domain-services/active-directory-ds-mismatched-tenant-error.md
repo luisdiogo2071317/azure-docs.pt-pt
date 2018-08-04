@@ -1,6 +1,6 @@
 ---
-title: Resolver erros de diretório sem correspondência para existentes domínios geridos de serviços de domínio do Azure AD | Microsoft Docs
-description: Compreender e resolver erros de diretório sem correspondência para domínios geridos de serviços de domínio do Azure AD existentes
+title: Resolver erros de diretório sem correspondência para domínios geridos existentes do Azure AD Domain Services | Documentos da Microsoft
+description: Compreender e resolver erros de diretório sem correspondência para domínios geridos existentes do Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,56 +12,56 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 7e7786ac36485a792e9c77b10925f01790f95ab1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f791993a95534f66097e3e7e22141bf34e311f21
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218202"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504556"
 ---
-# <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório sem correspondência para domínios geridos de serviços de domínio do Azure AD existentes
-Tiver um domínio gerido dos serviços de domínio do Azure AD existente. Quando navegar para o portal do Azure e ver o domínio gerido, consulte a seguinte mensagem de erro:
+# <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório sem correspondência para domínios geridos existentes do Azure AD Domain Services
+Tem um domínio gerido do Azure AD Domain Services existente. Quando navegar para o portal do Azure e ver o domínio gerido, verá a seguinte mensagem de erro:
 
-![Erro no diretório sem correspondência](.\media\getting-started\mismatched-tenant-error.png)
+![Erro de diretório sem correspondência](.\media\getting-started\mismatched-tenant-error.png)
 
-Não é possível administrar este domínio gerido até que o erro está resolvido.
+Não é possível administrar este domínio gerido até que o erro seja resolvido.
 
 
-## <a name="whats-causing-this-error"></a>O que está a causar este erro?
-Este erro deve-se ao seu domínio gerido e a rede virtual que está ativada no pertencem a diferentes dois inquilinos do Azure AD. Por exemplo, se tiver um domínio gerido chamado 'contoso.com' e tiver sido ativado para o inquilino do Azure AD da Contoso. No entanto, a Azure virtual network na qual foi ativado o domínio gerido pertence a Fabrikam - outro inquilino do Azure AD.
+## <a name="whats-causing-this-error"></a>O que está causando o erro?
+Este erro é causado quando o domínio gerido e a rede virtual que está ativada no pertencem a duas diferentes inquilinos do Azure AD. Por exemplo, tem um domínio gerido chamado 'contoso.com' e esta foi ativada para o inquilino do Azure AD da Contoso. No entanto, a Azure virtual network na qual o domínio gerido foi ativado pertence a Fabrikam - outro inquilino do Azure AD.
 
-O novo portal do Azure (e especificamente a extensão de serviços de domínio do Azure AD), são criadas no Azure Resource Manager. No ambiente do Azure Resource Manager moderna, determinadas restrições são aplicadas para fornecer maior segurança e de acesso baseado em funções controlar (RBAC) aos recursos. Ativar os serviços de domínio do Azure AD para um inquilino do Azure AD é uma operação confidencial, uma vez que faz com que os hashes de credencial a ser sincronizadas para o domínio gerido. Esta operação requer que seja um administrador de inquilino para o diretório. Além disso, tem de ter privilégios administrativos através da rede virtual na qual ativar domínio gerido. Para verificações RBAC para trabalhar de forma consistente, o domínio gerido e a rede virtual devem pertencer ao mesmo inquilino do Azure AD.
+O novo portal do Azure (e especificamente a extensão do Azure AD Domain Services) baseia-se no Azure Resource Manager. No ambiente do Azure Resource Manager modernos, determinadas restrições são impostas para fornecer maior segurança e para acesso baseado em funções (RBAC) de controlar a recursos. Ativar os serviços de domínio do Azure AD para um inquilino do Azure AD é uma operação confidencial, uma vez que ele faz com que os hashes de credenciais sejam sincronizados com o domínio gerido. Esta operação requer que seja um administrador inquilino do diretório. Além disso, tem de ter privilégios administrativos através da rede virtual em que habilitar o domínio gerido. Para as verificações RBAC trabalhar de forma consistente, o domínio gerido e a rede virtual devem pertencer ao mesmo inquilino do Azure AD.
 
-Em suma, não é possível ativar um domínio gerido para um inquilino do Azure AD 'contoso.com' numa rede virtual que pertencem a uma subscrição do Azure pertencente a outro inquilino do Azure AD 'fabrikam.com'. 
+Em resumo, não é possível ativar um domínio gerido para "contoso.com" do inquilino do Azure AD numa rede virtual que pertencem a uma subscrição do Azure pertencentes a outro inquilino do Azure AD "fabrikam.com". 
 
-**Configuração válida**: neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. O domínio gerido está exposto numa rede virtual que pertencem a uma subscrição do Azure pertencente ao inquilino Contoso do Azure AD. Por conseguinte, tanto o domínio gerido, bem como a rede virtual pertence ao mesmo inquilino do Azure AD. Esta configuração é válido e totalmente suportados.
+**Configuração válida**: neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. O domínio gerido é exposto numa rede virtual que pertencem a uma subscrição do Azure pertencentes ao inquilino Contoso do Azure AD. Portanto, tanto o domínio gerido, bem como a rede virtual pertence ao mesmo inquilino do Azure AD. Esta configuração é válido e é totalmente suportada.
 
-![Configuração de inquilino válidos](./media/getting-started/valid-tenant-config.png)
+![Configuração de inquilinos válido](./media/getting-started/valid-tenant-config.png)
 
-**Configuração de inquilinos sem correspondência**: neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. No entanto, o domínio gerido está exposto numa rede virtual que pertença a uma subscrição do Azure pertencente ao inquilino Fabrikam do Azure AD. Por conseguinte, o domínio gerido e a rede virtual pertencem a duas diferentes inquilinos do Azure AD. Esta configuração é a configuração de erros de correspondência de inquilino e não é suportada. A rede virtual têm de ser movida para o mesmo inquilino do Azure AD (ou seja, Contoso) como o domínio gerido. Consulte o [resolução](#resolution) secção para obter detalhes.
+**Configuração do inquilino não correspondentes**: neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. No entanto, o domínio gerido é exposto numa rede virtual que pertence a uma subscrição do Azure pertencentes ao inquilino do Azure AD a Fabrikam. Por conseguinte, o domínio gerido e a rede virtual pertençam a dois diferentes inquilinos do Azure AD. Esta configuração é a configuração do inquilino não correspondentes e não é suportada. A rede virtual têm de ser movida para o mesmo inquilino do Azure AD (ou seja, Contoso) como o domínio gerido. Consulte a [resolução](#resolution) secção para obter detalhes.
 
-![Configuração de inquilinos sem correspondência](./media/getting-started/mismatched-tenant-config.png)
+![Configuração do inquilino não correspondentes](./media/getting-started/mismatched-tenant-config.png)
 
-Por conseguinte, quando o domínio gerido e a rede virtual que está ativada no pertencem a duas diferentes inquilinos do Azure AD, consulte o erro.
+Por conseguinte, quando o domínio gerido e a rede virtual que está ativada no pertencerem a dois diferentes inquilinos do Azure AD, este erro.
 
 As seguintes regras aplicam-se no ambiente do Gestor de recursos:
 - Um diretório do Azure AD pode ter várias subscrições do Azure.
 - Uma subscrição do Azure pode ter vários recursos, tais como redes virtuais.
-- Um único domínio gerido dos serviços de domínio do Azure AD está ativado para um diretório do Azure AD.
-- Um domínio gerido dos serviços de domínio do Azure AD pode ser ativado numa rede virtual que pertencem a nenhum das subscrições do Azure no mesmo inquilino do Azure AD.
+- Um único domínio gerido do Azure AD Domain Services está ativado para um diretório do Azure AD.
+- Um domínio gerido do Azure AD Domain Services pode ser ativado numa rede virtual que pertençam a qualquer uma das subscrições do Azure no mesmo inquilino do Azure AD.
 
 
 ## <a name="resolution"></a>Resolução
-Tem duas opções para resolver o erro de diretório não correspondentes. O utilizador pode:
+Tem duas opções para resolver o erro de diretório sem correspondência. Pode:
 
-- Clique em de **eliminar** botão para eliminar o existente gerido domínio. Voltar a criar utilizando o [portal do Azure](https://portal.azure.com), para que o domínio gerido e rede virtual está disponível no pertencer ao diretório do Azure AD. Associe todos os computadores anteriormente associados ao domínio eliminado recentemente criado domínio gerido.
+- Clique nas **eliminar** domínio gerido do botão para excluir os existentes. Voltar a criar com o [portal do Azure](https://portal.azure.com), para que o domínio gerido e a rede virtual está disponível no pertencem ao diretório do Azure AD. Junte-se a todas as máquinas anteriormente associadas ao domínio eliminado para o domínio gerido criado recentemente.
 
-- Mova a subscrição do Azure que contém a rede virtual para o diretório do Azure AD, à qual pertence o domínio gerido. Siga os passos a [transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md) artigo.
+- Mova a subscrição do Azure que contém a rede virtual para o diretório do Azure AD, ao qual pertence o domínio gerido. Siga os passos a [transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md) artigo.
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Serviços de domínio do Azure AD - guia de introdução](active-directory-ds-getting-started.md)
-* [Serviços de domínio do Azure AD - guia de resolução de problemas](active-directory-ds-troubleshooting.md)
+* [Azure AD Domain Services - guia de introdução](active-directory-ds-getting-started.md)
+* [Solução de problemas - serviços de domínio do Azure AD](active-directory-ds-troubleshooting.md)

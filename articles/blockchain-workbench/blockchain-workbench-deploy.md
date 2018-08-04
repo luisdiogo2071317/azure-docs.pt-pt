@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b65b6977dfe2043e260fd9c0eefd6038ca436d50
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224301"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505819"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementar o Azure Blockchain Workbench
 
@@ -51,7 +51,7 @@ O Azure Blockchain Workbench requer vários pré-requisitos antes da implantaç�
 Implementação de Blockchain Workbench requer o registo de uma aplicação do Azure AD. Precisa de um inquilino do Azure Active Directory (Azure AD) para registar a aplicação. Pode utilizar um inquilino existente ou criar um novo inquilino. Se estiver a utilizar um inquilino do Azure AD existente, tem permissões suficientes para registar aplicações e conceder permissões da Graph API no inquilino do Azure AD. Se não tiver permissões suficientes no inquilino do Azure AD existente, crie um novo inquilino. 
 
 > [!IMPORTANT]
-> Bancada de trabalho não tem de ser implementado no mesmo inquilino que está a utilizar para registar uma aplicação do Azure AD. Bancada de trabalho tem de ser implementada num inquilino em que tem permissões suficientes para implementar recursos. Para obter mais informações sobre os inquilinos do Azure AD, consulte [como obter um inquilino do Active Directory](../active-directory/develop/active-directory-howto-tenant.md) e [integrar aplicações com o Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+> Bancada de trabalho não tem de ser implementado no mesmo inquilino que está a utilizar para registar uma aplicação do Azure AD. Bancada de trabalho tem de ser implementada num inquilino em que tem permissões suficientes para implementar recursos. Para obter mais informações sobre os inquilinos do Azure AD, consulte [como obter um inquilino do Active Directory](../active-directory/develop/quickstart-create-new-tenant.md) e [integrar aplicações com o Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione a sua conta no canto superior direito canto e mude para o Azure AD pretendido de inquilino. O inquilino deve ser o inquilino do administrador de subscrição da subscrição em que a Bancada de trabalho é implementada e tem permissões suficientes para registar aplicações.

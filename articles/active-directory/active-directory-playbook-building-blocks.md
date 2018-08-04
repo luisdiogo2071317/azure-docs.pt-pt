@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049474"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505091"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -41,7 +41,7 @@ Seguem-se alguns pré-requisitos necessários para qualquer prova de conceito co
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Inquilino do Azure AD definido com uma subscrição do Azure válida | [Como obter um inquilino do Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se já tiver um ambiente com licenças do Azure AD Premium, pode obter uma subscrição sem limite ao navegar para https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
+| Inquilino do Azure AD definido com uma subscrição do Azure válida | [Como obter um inquilino do Azure Active Directory](develop/quickstart-create-new-tenant.md)<br/>**Nota:** se já tiver um ambiente com licenças do Azure AD Premium, pode obter uma subscrição sem limite ao navegar para https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
 | Domínios definidos e verificado | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** algumas cargas de trabalho como o Power BI foi aprovisionou um inquilino do azure AD nos bastidores. Para verificar se um determinado domínio está associado a um inquilino, navegue até ao https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se obter uma resposta com êxito, em seguida, o domínio já está atribuído a um inquilino e assumir o controlo pode ser necessário. Se assim for, contacte a Microsoft para obter orientações adicionais. Saiba mais sobre as opções de aquisição em: [o que é a inscrição Self-Service para o Azure?](users-groups-roles/directory-self-service-signup.md) |
 | O Azure AD Premium ou EMS ativado de avaliação | [Azure Active Directory Premium gratuito durante um mês](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Atribuiu o Azure AD Premium ou licenças do EMS aos utilizadores de prova de conceito | [Licenciar por conta própria e os seus utilizadores no Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |

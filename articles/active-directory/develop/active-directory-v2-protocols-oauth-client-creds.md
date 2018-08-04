@@ -17,12 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f406c63ddd326b819219e72ad304d6052c65106d
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 1a909e1deb40c61f4f11ca041e1749499fd815bc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264614"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504503"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>O Azure Active Directory v 2.0 e o fluxo de credenciais de cliente OAuth 2.0
 Pode utilizar o [concessão de credenciais de cliente OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) especificado no RFC 6749, por vezes denominado *polvo de dois OAuth*, para aceder a recursos hospedados na web utilizando a identidade de um aplicativo. Este tipo de concessão normalmente é utilizado para interações de servidor para servidor que devem ser executado em segundo plano, sem interação imediata com um utilizador. Esses tipos de aplicativos, muitas vezes, são denominados *daemons* ou *contas de serviço*.
@@ -62,7 +62,7 @@ Para obter mais informações sobre as permissões de aplicação, aceda a [Micr
 Para utilizar permissões de aplicação na sua aplicação, siga os passos que abordamos as secções seguintes.
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registo de aplicação
-1. Aceda ao seu aplicativo no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou [criar uma aplicação](active-directory-v2-app-registration.md), se ainda não o fez. Terá de utilizar pelo menos um segredo de aplicação, ao criar a sua aplicação.
+1. Aceda ao seu aplicativo no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou [criar uma aplicação](quickstart-v2-register-an-app.md), se ainda não o fez. Terá de utilizar pelo menos um segredo de aplicação, ao criar a sua aplicação.
 2. Localize a **permissões do Microsoft Graph** secção e, em seguida, adicione o **permissões de aplicação** que a sua aplicação necessita.
 3. **Guardar** o registo de aplicações.
 
@@ -174,8 +174,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | inquilino |Necessário | O inquilino do diretório do aplicativo planos operar em relação a, no formato de nome de domínio ou de GUID. |
 | client_id |Necessário |ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuído à sua aplicação. |
 | scope |Necessário |O valor transmitido para o `scope` parâmetro neste pedido deve ser o identificador de recurso (URI de ID de aplicação) do recurso que pretende, afixação com o `.default` sufixo. No exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. Este valor informa o ponto final v2.0 que todos os aplicativos direto das permissões de que configurou para a sua aplicação, que ele deverá emitir um token para aquelas associadas com o recurso que pretende utilizar. |
-| client_assertion_type |Necessário |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Necessário | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registar o seu certificado e o formato da asserção.|
+| client_assertion_type |obrigatório |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obrigatório | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registar o seu certificado e o formato da asserção.|
 | grant_type |Necessário |Tem de ser `client_credentials`. |
 
 Tenha em atenção que os parâmetros são quase os mesmos que no caso do pedido de segredo partilhado, exceto que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.

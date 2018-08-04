@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6800b18d1bb588c747d4e9ef7049ac4cbb82f60
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213476"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505396"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
 A arquitetura de rede do Azure segue uma versão modificada do setor core/distribuição/acesso modelo padrão, com camadas de hardware distintos. As camadas incluem:
@@ -38,7 +38,7 @@ A arquitetura de rede de um cluster do Azure num centro de dados é composta pel
 - Digi CMs
 - Unidades de distribuição de energia
 
-O Azure tem duas arquiteturas separadas. Alguns os clientes do Azure e serviços partilhados residem na arquitetura de rede local padrão (DLA), ao passo que as novas regiões e os clientes virtual residem na arquitetura de Quantum 10 (P10). A arquitetura DLA é uma estrutura de árvore tradicional, com roteadores ativo/passivo de acesso e segurança acesso listas de controle (ACLs) aplicadas para os routers de acesso. A arquitetura de Quantum 10 é uma estrutura de Clos/malha de roteadores, onde as ACLs não são aplicadas nos routers. Em vez disso, as ACLs são aplicadas abaixo o encaminhamento, através do Software de balanceamento de carga (SLB) ou VLANs definidas por software.
+O Azure tem duas arquiteturas separadas. Alguns os clientes do Azure e serviços partilhados residem na arquitetura de rede local padrão (DLA), ao passo que as novas regiões e os clientes virtual residem na arquitetura de Quantum 10 (P10). A arquitetura DLA é uma estrutura de árvore tradicional, com roteadores ativo/passivo de acesso e segurança acesso listas de controle (ACLs) aplicadas para os routers de acesso. A arquitetura de Quantum 10 é uma estrutura de fechar/malha de roteadores, onde as ACLs não são aplicadas nos routers. Em vez disso, as ACLs são aplicadas abaixo o encaminhamento, através do Software de balanceamento de carga (SLB) ou VLANs definidas por software.
 
 O diagrama seguinte fornece uma visão geral da arquitetura de rede dentro de um cluster do Azure:
 
