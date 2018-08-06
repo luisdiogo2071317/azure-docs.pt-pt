@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 6b25712d660c26f2e7206b361c443b8f97aad361
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867618"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391336"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Ver ou analisar dados recolhidos com a pesquisa de registos do Log Analytics
 
@@ -43,7 +43,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 Comece por abrir o portal do Registo de Pesquisas.   
 
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Monitorizar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Monitorizar**.
-2. No menu de navegação Monitorizar, selecione **Log Analytics** e, em seguida, selecione uma área de trabalho
+2. No menu de navegação Monitorizar, selecione **Log Analytics** e uma área de trabalho.
 
 ## <a name="create-a-simple-search"></a>Criar uma pesquisa simples
 A forma mais rápida de obter alguns dados com os quais trabalhar é utilizar uma pesquisa simples que devolve todos os registos numa tabela.  Se tiver clientes Windows ou Linux ligados à sua área de trabalho, terá dados na tabela Event (Windows) ou Syslog (Linux).

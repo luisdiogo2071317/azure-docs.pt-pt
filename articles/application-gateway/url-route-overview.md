@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do encaminhamento de conteúdo baseado em URL do Gateway de Aplicação do Azure
-description: Este artigo fornece uma descrição geral do encaminhamento de conteúdo baseado em URL do Gateway de Aplicação, da configuração UrlPathMap e da regra PathBasedRouting.
+title: Descrição geral do encaminhamento de conteúdos baseado em URL do Gateway de Aplicação do Azure
+description: Este artigo mostra uma descrição geral do encaminhamento de conteúdos baseado em URL do Gateway de Aplicação, da configuração UrlPathMap e da regra PathBasedRouting.
 documentationcenter: na
 services: application-gateway
 author: vhorne
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: eaecb731d6f64bf7dd15d9a9b11739fd3fbc983e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f706e267675dbb3d5465977157f40824efc96e48
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160550"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389247"
 ---
 # <a name="azure-application-gatewaty-url-path-based-routing-overview"></a>Descrição geral do encaminhamento baseado no caminho do URL do Gateway de Aplicação do Azure
 

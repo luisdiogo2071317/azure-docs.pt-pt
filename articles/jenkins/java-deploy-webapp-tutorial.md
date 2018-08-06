@@ -1,88 +1,85 @@
 ---
-title: Utilizar Jenkins para implementar as suas aplicações web no Azure | Microsoft Docs
-description: Defina a integração contínua a partir do GitHub App Service do Azure para as suas aplicações web de Java utilizando Jenkins e Docker.
-author: rloutlaw
-manager: douge
-ms.service: jenkins
-ms.search.scope: ''
-ms.devlang: java
-ms.topic: article
-ms.workload: web
-ms.date: 08/02/2017
-ms.author: routlaw
-ms.custom: Jenkins, devcenter
-ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: MT
+title: Utilizar o Jenkins para implementar as suas aplicações Web no Azure
+description: Utilize o Jenkins e o Docker para configurar a integração contínua a partir do GitHub no Serviço de Aplicações do Azure para as suas aplicações Web.
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29853004"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389947"
 ---
-# <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração contínua e implementação para o serviço de aplicações do Azure com Jenkins
+# <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração e a implementação contínua no Serviço de Aplicações do Azure com o Jenkins
 
-Este tutorial define a integração contínua e implementação (CI/CD) de uma aplicação de web de Java de exemplo desenvolvidas com o [mola arranque](http://projects.spring.io/spring-boot/) framework [Azure aplicação Web do App Service no Linux](/azure/app-service/containers/app-service-linux-intro) Jenkins a utilizar.
+Este tutorial configura a integração e a implementação contínua (CI/CD) de uma aplicação Web Java de exemplo desenvolvida com a arquitetura [Spring Boot](http://projects.spring.io/spring-boot/) nas [Aplicações Web do Serviço de Aplicações do Azure no Linux](/azure/app-service/containers/app-service-linux-intro) mediante a utilização do Jenkins.
 
-Irá efetuar as seguintes tarefas neste tutorial:
+Neste tutorial, vai realizar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Instale os plug-ins Jenkins necessários para implementar no App Service do Azure.
-> * Defina uma tarefa de Jenkins para criar imagens de Docker de um repositório do GitHub, quando é feito o Push de consolidação de novo.
-> * Definir uma nova aplicação de Web do Azure para Linux e configurá-lo para implementar imagens do Docker instaladas no registo de contentor do Azure.
-> * Configure o Azure App Service Jenkins Plug-in.
-> * Implemente a aplicação de exemplo para o App Service do Azure com uma compilação manual.
-> * Acionar uma compilação Jenkins e atualizar a aplicação web ao enviar as alterações no GitHub.
+> * Instalar os plug-ins do Jenkins necessários para implementar no Serviço de Aplicações do Azure.
+> * Definir um trabalho do Jenkins para compilar imagens do Docker a partir de um repositório do GitHub quando é emitida uma consolidação nova.
+> * Definir uma Aplicação Web do Azure nova para Linux e configurá-la para implementar imagens do Docker emitidas para o Azure Container Registry.
+> * Configurar o plug-in do Jenkins para o Serviço de Aplicações do Azure.
+> * Implementar a aplicação de exemplo no Serviço de Aplicações do Azure com uma compilação manual.
+> * Acionar uma compilação do Jenkins e atualizar a aplicação Web ao emitir alterações para o GitHub.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para concluir este tutorial, precisa de:
 
-* [Jenkins](https://jenkins.io/) com ferramentas JDK e Maven configuradas. Se não tiver um sistema Jenkins, crie uma agora no Azure a partir de [modelo de solução Jenkins](/azure/jenkins/install-jenkins-solution-template).
+* [Jenkins](https://jenkins.io/) com ferramentas JDK e Maven tools configuradas. Se não tiver um sistema Jenkins, crie-o no Azure agora a partir do [modelo de solução do Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Uma conta do [GitHub](https://github.com).
-* [Azure CLI 2.0](/cli/azure), da sua linha de comandos local ou no [Shell de nuvem do Azure](/azure/cloud-shell/overview)
+* [CLI 2.0 do Azure](/cli/azure), a partir da linha de comandos local ou no [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="install-jenkins-plug-ins"></a>Instalar Jenkins plug-ins
+## <a name="install-jenkins-plug-ins"></a>Instalar os plug-ins do Jenkins
 
-1. Abra um browser para a consola da web de Jenkins e selecione **gerir Jenkins** no menu da esquerda, em seguida, selecione **gerir plug-ins**.
-2. Selecione o **disponível** separador.
-3. Procure e selecione a caixa de verificação junto aos plug-ins seguintes:   
+1. Abra um browser na consola Web do Jenkins e selecione **Manage Jenkins** (Gerir Jenkins), no menu do lado esquerdo, e selecione **Manage Plugins** (Gerir Plug-ins).
+2. Selecione o separador **Available** (Disponíveis).
+3. Procure e selecione a caixa de verificação junto aos seguintes plug-ins:   
 
-    - [App Service do Azure Plug-in](https://plugins.jenkins.io/azure-app-service)
-    - [Origem de sucursal de GitHub Plug-in](https://plugins.jenkins.io/github-branch-source)
+    - [Azure App Service Plug-in](https://plugins.jenkins.io/azure-app-service)
+    - [GitHub Branch Source Plug-in](https://plugins.jenkins.io/github-branch-source)
 
-    Se o plug-ins não aparecerem, certifique-se de que ainda não estiverem instalados, verificando o **instalada** separador.
+    Se os plug-ins não aparecerem, aceda ao separador **Installed** (Instalados) para verificar se já estão instalados.
 
-1. Selecione **agora transferir e instalar após o reinício** para ativar o plug-ins na configuração Jenkins.
+1. Selecione**Download now and install after restart** (Transferir agora e instalar depois de reiniciar) para ativar os plug-ins na configuração do Jenkins.
 
-## <a name="configure-github-and-jenkins"></a>Configurar o GitHub e Jenkins
+## <a name="configure-github-and-jenkins"></a>Configurar o GitHub e o Jenkins
 
-Configurar Jenkins para receber [GitHub webhooks](https://developer.github.com/webhooks/) quando consolidações novo são enviadas por push para um repositório na sua conta.
+Configure o Jenkins para receber [webhooks do GitHub](https://developer.github.com/webhooks/) quando forem emitidas consolidações novas para um repositório na sua conta.
 
-1. Selecione **gerir Jenkins**, em seguida, **Configurar sistema**. No **GitHub** secção, certifique-se **gerir hooks** está selecionada e, em seguida, selecione **gerir ações adicionais do GitHub** e escolha **converter início de sessão e palavra-passe para o token**.
-2. Selecione o **de início de sessão e palavra-passe** botão de opção e introduza o nome de utilizador do GitHub e a palavra-passe. Selecione **criar token credenciais** para criar uma nova [GitHub pessoais acesso Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
-   ![Criar o GitHub PAT de início de sessão e palavra-passe](media/jenkins-java-quickstart/create_github_credentials.png)
-3.  Selecione o token de recentemente criado o **credenciais** pendente na configuração de GitHub servidores. Selecione **Testar ligação** para verificar se a autenticação está a funcionar.   
-   ![Verificar a ligação ao GitHub depois de ter configurada TERESA](media/jenkins-java-quickstart/verify_github_connection.png)
+1. Selecione **Manage Jenkins** (Gerir Jenkins) e **Configure System** (Configurar Sistema). Na secção **GitHub**, confirme que **Manage hooks** (Gerir hooks) está selecionado, escolha **Manage additional GitHub actions** (Gerir ações do GitHub adicionais) e escolha **Convert login and password to token** (Converter início de sessão e palavra-passe em token).
+2. Selecione o botão de opção **From login and password** (A partir de início de sessão e de palavra-passe) e introduza o seu nome de utilizador e a sua palavra-passe do GitHub. Selecione **Create token credentials** (Criar credenciais de token) para criar um [Token de Acesso Pessoal do GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
+   ![Criar PAT do GitHub a partir de início de sessão e de palavra-passe](media/jenkins-java-quickstart/create_github_credentials.png)
+3.  Selecione o token acabado de criar no menu pendente **Credentials** (Credenciais) na configuração dos Servidores do GitHub. Selecione **Test connection** (Testar ligação) para verificar se a autenticação está a funcionar.   
+   ![Verificar a ligação ao GitHub após o PAT estar configurado](media/jenkins-java-quickstart/verify_github_connection.png)
 
 > [!NOTE]
-> Se a sua conta GitHub tiver autenticação de dois fatores ativada, crie o token no GitHub e configure Jenkins utilizá-la. Reveja o [Jenkins GitHub Plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentação para obter detalhes completos.
+> Se a sua conta do GitHub tiver a autenticação de dois fatores ativada, crie o token no GitHub e configure o Jenkins para utilizá-lo. Reveja a documentação [do plug-in do GitHub do Jenkins](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) para obter os detalhes completos.
 
-## <a name="fork-the-sample-repo-and-create-a-jenkins-job"></a>Copiar o repositório de exemplo e criar uma tarefa de Jenkins 
+## <a name="fork-the-sample-repo-and-create-a-jenkins-job"></a>Duplicar (fork) o repositório de exemplo e criar um trabalho do Jenkins 
 
-1. Abra o [repositório de aplicação de exemplo de arranque de mola](https://github.com/spring-guides/gs-spring-boot-docker) e bifurcá-lo à sua própria conta GitHub selecionando **bifurcação** no canto superior direito.   
-    ![Bifurcação a partir do GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
-1. Na consola web do Jenkins, selecione **Novo Item**, atribua um nome **MyJavaApp**, selecione **projeto Freestyle**, em seguida, selecione **OK**.   
-    ![Novo projeto de Jenkins Freestyle](media/jenkins-java-quickstart/jenkins_freestyle.png)
-2. Sob o **geral** secção, selecione **GitHub** projeto e introduza o URL do repositório escolhido como https://github.com/raisa/gs-spring-boot-docker
-3. Sob o **gestão de código de origem** secção, selecione **Git**, introduza o seu repositório forked `.git` URL como https://github.com/raisa/gs-spring-boot-docker.git
+1. Abra o [repositório da aplicação de exemplo Spring Boot](https://github.com/spring-guides/gs-spring-boot-docker) e duplique-o para a sua conta do GitHub ao selecionar **Fork**, no canto superior direito.   
+    ![Fork no GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
+1. Na consola Web do Jenkins, selecione **New Item** (Novo Item), dê-lhe o nome **MyJavaApp**, selecione **Freestyle project** (Projeto para fins gerais) e selecione **OK**.   
+    ![Projeto para fins gerais novo do Jenkins](media/jenkins-java-quickstart/jenkins_freestyle.png)
+2. Na secção **General** (Geral), selecione o projeto do **GitHub** e introduza o URL do repositório duplicado, como https://github.com/raisa/gs-spring-boot-docker
+3. Na secção **Source code management**  (Gestão do código de origem), selecione **Git** e introduza o URL `.git` do repositório duplicado, como https://github.com/raisa/gs-spring-boot-docker.git
 4. Na secção **Criar Acionadores**, selecione **Acionador de hook do GitHub para consulta GITScm**.
-5. Sob o **criar** secção, selecione **Adicionar passo de compilação** e escolha **invocar destinos nível superior do Maven**. Introduza `package` no **objetivos** campo.
-6. Selecione **Guardar**. Pode testar a sua tarefa selecionando **compilar agora** da página de projeto.
+5. Na secção **Build** (Compilar), selecione **Add build step** (Adicionar passo de compilação) e escolha **Invoke top-level Maven targets** (Invocar destinos de Maven de nível superior). Introduza `package` no campo **Goals** (Objetivos).
+6. Selecione **Guardar**. Pode selecionar **Build Now** (Testar Agora), na página do projeto, para testar o seu trabalho.
 
-## <a name="configure-azure-app-service"></a>Configurar o App Service do Azure 
+## <a name="configure-azure-app-service"></a>Configurar o Serviço de Aplicações 
 
-1. Utilizar a CLI do Azure ou [nuvem Shell](/azure/cloud-shell/overview), crie um novo [aplicação Web no Linux](/azure/app-service/containers/app-service-linux-intro). É o nome da aplicação web neste tutorial `myJavaApp`, mas tem de utilizar um nome exclusivo para a sua própria aplicação.
+1. Utilize a CLI do Azure ou o [Cloud Shell](/azure/cloud-shell/overview) para criar uma [Aplicação Web no Linux](/azure/app-service/containers/app-service-linux-intro) nova. O nome da aplicação Web neste tutorial é `myJavaApp`, mas tem de utilizar um nome exclusivo para a sua própria aplicação.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
@@ -90,25 +87,25 @@ Configurar Jenkins para receber [GitHub webhooks](https://developer.github.com/w
     az webapp create --name myJavaApp --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan --runtime "java|1.8|Tomcat|8.5"
     ```
 
-2. Criar um [registo de contentor do Azure](/azure/container-registry/container-registry-intro) para armazenar as imagens de Docker por Jenkins. É o nome do registo de contentor utilizado neste tutorial `jenkinsregistry`, mas tem de utilizar um nome exclusivo para a sua própria registo de contentor. 
+2. Crie um registo do [Azure Container Registry](/azure/container-registry/container-registry-intro) para armazenar as imagens do Docker que o Jenkins cria. O nome do registo de contentor utilizado neste tutorial é `jenkinsregistry`, mas tem de utilizar um nome exclusivo para o seu próprio registo. 
 
     ```azurecli-interactive
     az acr create --name jenkinsregistry --resource-group myResourceGroupJenkins --sku Basic --admin-enabled
     ```
-3. Configurar a aplicação web para executar as imagens de Docker enviadas para o registo de contentor e especifique que a aplicação em execução no contentor escuta pedidos na porta 8080.   
+3. Configure a aplicação Web para executar as imagens do Docker emitidas para o registo de contentor e especifique que a aplicação que está em execução no contentor escuta os pedidos na porta 8080.   
 
     ```azurecli-interactive
     az webapp config container set -c jenkinsregistry/webapp --resource-group myResourceGroupJenkins --name myJavaApp
     az webapp config appsettings set --resource-group myResourceGroupJenkins --name myJavaApp --settings PORT=8080
     ```
 
-## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>Configurar o Azure App Service Jenkins Plug-in
+## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>Configurar o plug-in Azure App Service Jenkins
 
-1. Na consola web do Jenkins, selecione o **MyJavaApp** da tarefa que criou e, em seguida, selecione **configurar** no lado esquerdo da página.
-2. Desloque para baixo até **ações de pós-compilação de**, em seguida, selecione **adicionar ação de pós-compilação de** e escolha **publicar uma aplicação Web do Azure**.
-3. Em **Azure perfil de configuração**, selecione **adicionar** junto a **credenciais do Azure** e escolha **Jenkins**.
-4. No **adicionar credenciais** caixa de diálogo, selecione **Principal de serviço do Microsoft Azure** do **tipo** pendente.
-5. Criar um principal de serviço do Active Directory a partir da CLI do Azure ou [nuvem Shell](/azure/cloud-shell/overview).
+1. Na consola Web do Jenkins, selecione o trabalho **MyJavaApp** que criou e selecione **Configure** (Configurar), no lado esquerdo da página.
+2. Desloque-se para **Post-build Actions** (Ações pós-compilação), selecione **Add post-build action** (Adicionar ação pós-compilação) e escolha **Publish an Azure Web App** (Publicar uma Aplicação Web do Azure).
+3. Em **Azure Profile Configuration** (Configuração de Perfil do Azure), selecione **Add** (Adicionar), junto a **Azure Credentials** (Credenciais do Azure) e escolha **Jenkins**.
+4. Na caixa de diálogo **Add Credentials** (Adicionar Credenciais), selecione **Microsoft Azure Service Principal** (Principal de Serviço do Microsoft Azure), no menu pendente **Kind** (Tipo).
+5. Crie um Principal de serviço do Active Directory na CLI do Azure ou no [Cloud Shell](/azure/cloud-shell/overview).
     
     ```azurecli-interactive
     az ad sp create-for-rbac --name jenkins_sp --password secure_password
@@ -123,7 +120,7 @@ Configurar Jenkins para receber [GitHub webhooks](https://developer.github.com/w
         "tenant": "CCCCCCCC-CCCC-CCCC-CCCCCCCCCCC"
     }
     ```
-6. Introduza as credenciais do serviço principal para o **adicionar credenciais** caixa de diálogo. Se não souber o ID de subscrição do Azure, pode consultá-lo a partir da CLI do:
+6. Introduza as credenciais do principal de serviço na caixa de diálogo **Add Credentials** (Adicionar credenciais). Se não souber o ID da sua subscrição do Azure, pode consultá-lo na CLI:
      
      ```azurecli-interactive
      az account list
@@ -143,46 +140,49 @@ Configurar Jenkins para receber [GitHub webhooks](https://developer.github.com/w
             }
      ```
 
-    ![Configurar o Principal de serviço do Azure](media/jenkins-java-quickstart/azure_service_principal.png)
-6. Certifique-se de que o principal de serviço efetua a autenticação com o Azure ao selecionar **verificar Principal de serviço**. 
-7. Selecione **adicionar** para guardar as credenciais.
-8. Selecionar a credencial de principal de serviço que acabou de adicionar a partir de **credenciais do Azure** pendente quando estiver novamente para o **publicar uma aplicação Web do Azure** configuração.
-9. No **configuração de aplicação**, escolha o grupo de recursos e nome da aplicação de lista pendente web.
-10. Selecione o **publicar através do Docker** botão de opção.
-11. Introduza `complete/Dockerfile` para **Dockerfile caminho**.
-12. Introduza `https://jenkinsregistry.azurecr.io` no **URL de registo do Docker** campo.
-13. Selecione **adicionar** junto a **registo credenciais**. 
-14. Introduza o nome de utilizador de administrador para o registo de contentor do Azure que criou para o **Username**.
-15. Introduza a palavra-passe para o registo de contentor do Azure no **palavra-passe** campo. Pode obter o nome de utilizador e palavra-passe do portal do Azure ou através do comando CLI seguinte:
+    ![Configurar o Principal de Serviço do Azure](media/jenkins-java-quickstart/azure_service_principal.png)
+6. Selecione **Verify Service Principal** para verificar se o principal de serviço se autentica no Azure. 
+7. Selecione **Add** (Adicionar) para guardar as credenciais.
+8. Selecione a credencial do principal de serviço que acabou de adicionar a partir do menu pendente **Azure Credentials** (Credenciais do Azure) quando regressar à configuração **Publish an Azure Web App** (Publicar uma Aplicação Web do Azure).
+9. Em **App Configuration** (Configuração da Aplicação), escolha o seu grupo de recursos e o nome da aplicação Web no menu pendente.
+10. Selecione o botão de opção **Publish via Docker** (Publicar através do Docker).
+11. Introduza `complete/Dockerfile` em **Dockerfile path** (Caminho do Dockerfile).
+12. Introduza `https://jenkinsregistry.azurecr.io` no campo **Docker registry URL** (URL do registo do Docker).
+13. Selecione **Add** (Adicionar), junto a **Registry Credentials** (Credenciais do Registo). 
+14. Introduza o nome de utilizador do administrador do registo do Azure Container Registry que criou em **Username** (Nome de utilizador).
+15. Introduza a palavra-passe do registo do Azure Container Registry no campo **Password** (Palavra-passe). Pode obter o nome de utilizador e a palavra-passe no portal do Azure ou através do seguinte comando da CLI:
 
     ```azurecli-interactive
     az acr credential show -n jenkinsregistry
     ```
-    ![Adicione as credenciais de registo do contentor](media/jenkins-java-quickstart/enter_acr_credentials.png)
-15. Selecione **adicionar** para guardar a credencial.
-16. Selecione a credencial recentemente criada do **credenciais do registo** pendente no **configuração de aplicação** painel para o **publicar uma aplicação Web do Azure**. A ação de pós-compilação de terminar deverá ser semelhante a imagem seguinte:   
-    ![Configuração de ação de compilação de POST para implementação de serviço de aplicações do Azure](media/jenkins-java-quickstart/appservice_plugin_configuration.png)
-17. Selecione **guardar** para guardar a configuração da tarefa.
+    ![Adicionar as credenciais do registo de contentor](media/jenkins-java-quickstart/enter_acr_credentials.png)
+15. Selecione **Add** (Adicionar) para guardar a credencial.
+16. Selecione a credencial acabada de criar no menu pendente **Registry credentials** (Credenciais do registo), no painel **App Configuration** (Configuração do painel) para **Publish an Azure Web App** (Publicar uma Aplicação Web do Azure). A ação pós-compilada concluída deve ser semelhante à imagem seguinte:   
+    ![Configuração de ação pós-compilação para Implementação do Serviço de Aplicações do Azure](media/jenkins-java-quickstart/appservice_plugin_configuration.png)
+17. Selecione **Save** (Guardar) para guardar a configuração do trabalho.
 
 ## <a name="deploy-the-app-from-github"></a>Implementar a aplicação a partir do GitHub
 
-1. A partir do projeto Jenkins, selecione **compilar agora** para implementar a aplicação de exemplo no Azure.
-2. Uma vez concluída a compilação, a aplicação está em direto no Azure de publicação URL, por exemplo http://myjavaapp.azurewebsites.net.   
-   ![Ver a sua aplicação implementada no Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
+1. No projeto do Jenkins, selecione **Build Now** (Compilar Agora) para implementar a aplicação de exemplo no Azure.
+2. Após a conclusão da compilação, a aplicação é ativada no respetivo URL de publicação, como, por exemplo, http://myjavaapp.azurewebsites.net.   
+   ![Ver a aplicação implementada no Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
-## <a name="push-changes-and-redeploy"></a>Emitir alterações e volte a implementar
+## <a name="push-changes-and-redeploy"></a>Emitir alterações e reimplementar
 
-1. Partir do seu bifurcação do Github, navegar na web para `complete/src/main/java/Hello/Application.java`. Selecione o **editar este ficheiro** ligação do lado direito da interface do GitHub.
-2. Efetue a alteração seguinte para o `home()` método e confirmar a alteração para o ramo principal do repositório.
+1. No fork do Github, navegue para `complete/src/main/java/Hello/Application.java`. Selecione a ligação **Edit this file** (Editar este ficheiro), no lado direito da interface do GitHub.
+2. Faça a seguinte alteração ao método `home()` e consolide-a no ramo principal do repositório.
    
     ```java
     return "Hello Docker World on Azure";
     ```
-3. Inicia uma nova compilação no Jenkins, é acionada pela consolidação de novo no `master` ramo do repositório. Depois de terminar, volte a carregar a aplicação no Azure.     
-      ![Ver a sua aplicação implementada no Azure](media/jenkins-java-quickstart/hello_docker_world.png)
-  
-## <a name="next-steps"></a>Passos Seguintes
+3. É iniciada uma compilação nova no Jenkins, acionada pela consolidação nova no ramo `master` do repositório. Após a conclusão da compilação, recarregue a aplicação no Azure.     
+      ![Ver a aplicação implementada no Azure](media/jenkins-java-quickstart/hello_docker_world.png)
 
-- [Utilize as VMs do Azure como agentes de compilação](/azure/jenkins/jenkins-azure-vm-agents)
-- [Gerir os recursos nas tarefas e pipelines com a CLI do Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
- 
+## <a name="troubleshooting-the-jenkins-plugin"></a>Resolver problemas nos plug-ins do Jenkins
+
+Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
+
+## <a name="next-steps"></a>Passos seguintes
+
+> [!div class="nextstepaction"]
+> [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents) (Utilizar VMs do Azure como agentes de compilação)

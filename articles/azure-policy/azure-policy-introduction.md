@@ -4,17 +4,17 @@ description: O Azure Policy é um serviço no Azure utilizado para criar, atribu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249873"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364433"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -126,11 +126,11 @@ Existe um número máximo para cada tipo de objeto do Azure Policy. Uma entrada 
 | Âmbito | Definições de Política | 250 |
 | Âmbito | Definições de Iniciativa | 100 |
 | Inquilino | Definições de Iniciativa | 1000 |
-| Âmbito | Atribuição de Política | 100 |
+| Âmbito | Atribuições de Política/Iniciativa | 100 |
 | Definição de Política | Parâmetros | 20 |
 | Definição de Iniciativa | Políticas | 100 |
 | Definição de Iniciativa | Parâmetros | 100 |
-| Atribuição de Política | Exclusões (notScopes) | 100 |
+| Atribuições de Política/Iniciativa | Exclusões (notScopes) | 100 |
 | Regra de Política | Condicionais Aninhadas | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>Recomendações para a gestão de políticas

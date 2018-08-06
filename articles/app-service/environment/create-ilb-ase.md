@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355377"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347362"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -64,13 +64,7 @@ Para criar um ASE de ILB:
 
 4. Selecione ou crie uma VNet.
 
-    * Se selecionar uma nova VNet, pode especificar um nome e a localização. Se quiser alojar aplicações Linux neste ASE, apenas são suportadas atualmente as 6 regiões seguintes: **E.U.A. Oeste, E.U.A. Leste, Europa Ocidental, Europa do Norte, Leste da Austrália e Sudeste Asiático.** 
-
-5. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/25`, que tem 128 endereços e pode processar um ASE de tamanho máximo. O tamanho mínimo que pode selecionar é `/28`. Este tamanho apenas pode ser dimensionado até um máximo de três instâncias, de acordo com as necessidades da infraestrutura.
-
-    * Ultrapasse o máximo predefinido de 100 instâncias nos seus planos do Serviço de Aplicações.
-
-    * Dimensione cerca de 100, mas com um dimensionamento de front-end mais rápido.
+5. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/24`, que tem 256 endereços e pode processar um ASE de tamanho máximo e qualquer necessidade de dimensionamento. 
 
 6. Selecione **Rede Virtual/Localização** > **Configuração de Rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
 
@@ -119,7 +113,7 @@ Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação
 
 5. Selecione o seu SO. 
 
-    * Se quiser criar uma aplicação Linux com um contentor do Docker personalizado, basta criar o seu próprio contentor ao seguir as instruções aqui referidas. 
+    * Se quiser criar uma aplicação Linux com um contentor do Docker personalizado, basta criar o seu próprio contentor ao seguir [estas][linuxapp] instruções. 
 
 6. Selecione ou crie um plano do Serviço de Aplicações. Se quiser criar um novo plano do Serviço de Aplicações, selecione o seu ASE como localização. Selecione o conjunto de processos de trabalho onde pretende que o seu plano do Serviço de Aplicações seja criado. Quando criar o plano do Serviço de Aplicações, selecione o seu ASE como a localização e o conjunto de processos de trabalho. Quando especificar o nome da aplicação, o domínio no nome da aplicação é substituído pelo domínio para o seu ASE.
 
@@ -173,7 +167,6 @@ Para carregar os seus próprios certificados e testar o acesso:
     > [!NOTE] 
     > Não tente criar esta VM na mesma sub-rede que o ASE porque irá falhar ou causar problemas.
     >
-    >
 
 6. Defina o DNS para o seu domínio ASE. Pode utilizar um caráter universal com o domínio no seu DNS. Para fazer alguns testes simples, edite o ficheiro hosts na sua VM para definir o nome da aplicação Web para o endereço IP de VIP:
 
@@ -195,7 +188,7 @@ Tanto as Funções como os WebJobs são suportados num ASE de ILB, mas para o po
 
 Quando utiliza as Funções do Azure num ASE de ILB, poderá receber uma mensagem de erro com a indicação "Não é possível obter as funções neste momento. Tente novamente mais tarde." Este erro ocorre porque a IU de Funções tira partido do site do SCM através de HTTPS e o certificado de raiz não está na cadeia de certificação do browser. Os WebJobs têm um problema semelhante. Para evitar este problema, pode executar uma das seguintes ações:
 
-- Adicione o certificado ao arquivo de certificados fidedignos. Esta ação desbloqueia o Microsoft Edge e o Internet Explorer.
+- Adicione o certificado ao arquivo de certificados fidedignos. Esta ação desbloqueia o Edge e o Internet Explorer.
 - Utilize o Chrome e aceda primeiro ao site do SCM, aceite o certificado não fidedigno e, em seguida, aceda ao portal.
 - Utilize um certificado comercial que esteja na cadeia de certificação do seu browser.  Esta é a melhor opção.  
 
@@ -258,3 +251,4 @@ Para obter mais informações sobre como configurar o ASE de ILB com um disposit
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

@@ -1,21 +1,19 @@
 ---
 title: Criar um servidor do Jenkins no Azure
 description: Instale o Jenkins numa máquina virtual do Linux do Azure a partir do modelo de solução do Jenkins e crie uma aplicação Java de exemplo.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
-ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635463"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390433"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor do Jenkins numa VM do Linux do Azure a partir do portal do Azure
 
@@ -29,13 +27,13 @@ Este guia de introdução mostra como instalar o [Jenkins](https://jenkins.io) n
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Criar a VM do Jenkins a partir do modelo de solução
-Jenkins suporta um modelo em que o Jenkins delegados de servidor funcionam para um ou mais agentes para permitir que uma única instalação do Jenkins para alojar um grande número de projetos ou para fornecer ambientes diferentes, necessários para baseia-se ou os testes. Os passos nesta secção ajudá-lo por meio de instalar e configurar um servidor do Jenkins no Azure.
+O Jenkins suporta um modelo no qual o servidor do Jenkins delega o trabalho a um ou mais agentes, de modo a permitir que uma instalação do Jenkins individual aloje um grande número de projetos ou proporcione diferentes ambientes necessários para compilações ou testes. Os passos nesta secção orientam-no ao longo da instalação e configuração de um servidor do Jenkins no Azure.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Ligar-se ao Jenkins
 
-Navegue até à sua máquina virtual (por exemplo, http://jenkins2517454.eastus.cloudapp.azure.com/) no seu browser. A consola do Jenkins não está acessível através de HTTP não seguro, pelo que são fornecidas instruções na página para aceder à consola do Jenkins em segurança a partir do seu computador com um túnel SSH.
+Navegue para a máquina virtual (por exemplo, http://jenkins2517454.eastus.cloudapp.azure.com/)) no browser. A consola do Jenkins não está acessível através de HTTP não seguro, pelo que são fornecidas instruções na página para aceder à consola do Jenkins em segurança a partir do seu computador com um túnel SSH.
 
 ![Desbloquear o Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -45,7 +43,7 @@ Configure o túnel com o comando `ssh` na página da linha de comandos, substitu
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Depois de iniciar o túnel, navegue para http://localhost:8080/ no seu computador local. 
+Depois de iniciar o túnel, navegue para http://localhost:8080/ no computador local. 
 
 Obtenha a palavra-passe inicial ao executar o seguinte comando na linha de comandos, enquanto está ligado através de SSH à VM do Jenkins.
 
@@ -89,7 +87,11 @@ Selecione **Compilar Agora** para compilar o código e empacotar a aplicação d
 
 Navegue para `complete/build/libs` e certifique-se de que `gs-spring-boot-0.1.0.jar` está disponível para verificar se a compilação foi bem-sucedida. O servidor do Jenkins já está pronto para compilar os seus próprios projetos no Azure.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="troubleshooting-the-jenkins-solution-template"></a>Resolver problemas com o modelo de solução do Jenkins
+
+Se se deparar com erros no modelo de solução do Jenkins, comunique os problemas no [repositório Jenkins do GitHub](https://github.com/azure/jenkins/issues).
+
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar VMs do Azure como agentes do Jenkins](jenkins-azure-vm-agents.md)

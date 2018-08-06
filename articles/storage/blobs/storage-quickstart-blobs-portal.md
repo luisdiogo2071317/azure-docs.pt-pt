@@ -3,17 +3,17 @@ title: Início Rápido do Azure – Criar um blob no armazenamento de objetos co
 description: Neste início rápido, irá utilizar o portal do Azure no armazenamento de objetos (Blobs). Em seguida, utilize o portal do Azure para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: 1468aa0f12a05b71e3b997e1850d345a492308f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f281532260cfc895ecea56666260a1df1fb0c0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400506"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Início Rápido: carregar, transferir e listar blobs através do portal do Azure
 
@@ -32,7 +32,7 @@ Para criar um contentor no portal do Azure, siga estes passos:
 1. No portal do Azure, navegue para a sua nova conta de armazenamento.
 2. No menu à esquerda para a conta de armazenamento, desloque-se para a secção **Serviço Blob** e, em seguida, selecione **Procurar Blobs**.
 3. Clique no botão **Adicionar Contentor**.
-4. Introduza um nome para o novo contentor. O nome do contentor tem estar em minúsculas, tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-). Para obter informações sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Dar Nomes e Referenciar Contentores, Blobs e Metadados).
+4. Introduza um nome para o novo contentor. O nome do contentor tem estar em minúsculas, tem de começar com uma letra ou um número e só pode conter letras, números e o caráter de travessão (-). Para obter informações sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Dar Nomes e Referenciar Contentores, Blobs e Metadados).
 5. Defina o nível de acesso público ao contentor. O nível predefinido é **Privado (sem acesso anónimo)**.
 6. Clique em **OK** para criar o contentor.
 

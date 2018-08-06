@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090780"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362665"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Resolver problemas no Azure Data Box Disk (Pré-visualização)
 
 Este artigo aplica-se ao Microsoft Azure Data Box com a versão de Pré-visualização. Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gestão que podem ser executadas no Data Box e no Data Box Disk. 
 
-Pode gerir o Data Box através da IU do serviço Data Box (referida como IU do portal) e da IU Web local do dispositivo. O Data Box Disk só pode ser gerido através do portal do Azure. Este artigo foca as tarefas que pode efetuar com o portal do Azure. Utilize o portal do Azure para gerir encomendas, gerir dispositivos e controlar o estado da encomenda à medida que avança para a fase terminal.
+Pode gerir o Data Box Disk através do portal do Azure. Este artigo aborda em especial as tarefas que pode efetuar com o portal do Azure. Utilize o portal do Azure para gerir encomendas, gerir dispositivos e controlar o estado da encomenda à medida que avança para a conclusão.
 
 Este artigo inclui os seguintes tutoriais:
 

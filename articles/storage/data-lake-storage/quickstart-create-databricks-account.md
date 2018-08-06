@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063430"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324311"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -35,9 +35,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="set-aside-storage-account-configuration"></a>Reservar a configuração da conta de armazenamento
 
-Durante este tutorial, irá precisar de acesso ao nome da sua conta de armazenamento e à chave de acesso. No portal do Azure, selecione **Todos os serviços** e filtre *armazenamento*. Selecione **Contas de armazenamento** e localize a conta que criou para este tutorial.
-
-Na **Descrição geral**, copie o nome da conta de armazenamento para um editor de texto. Em seguida, selecione **Chaves de acesso** e copie o valor da **chave1** para o seu editor de texto, uma vez que são precisos ambos os valores para os comandos posteriores.
+> [!IMPORTANT]
+> Durante este tutorial, irá precisar de acesso ao nome da sua conta de armazenamento e à chave de acesso. No portal do Azure, selecione **Todos os serviços** e filtre *armazenamento*. Selecione **Contas de armazenamento** e localize a conta que criou para este tutorial.
+>
+> Na **Descrição geral**, copie o **nome** da conta de armazenamento para um editor de texto. Em seguida, selecione **Chaves de acesso** e copie o valor da **chave1** para o editor de texto, uma vez que são precisos ambos os valores para os comandos posteriores.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -93,7 +94,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databricks e, em seguida, executar fragmentos de código para configurar a conta de armazenamento.
 
-1. No [Portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
+1. No [portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
 
 2. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
@@ -105,7 +106,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
 
     Selecione **Criar**.
 
-4. Introduza o seguinte código na primeira célula, ao substituir os valores do marcador de posição pelo nome da sua conta, chave e um nome para o sistema de ficheiros.
+4. No seguinte código, substitua o texto de **ACCOUNT_NAME** e de **ACCOUNT_KEY** pelos valores que guardou no princípio do início rápido. Substitua também o texto de **FILE_SYSTEM_NAME** pelo nome que pretende dar ao sistema de ficheiros. Em seguida, introduza o código na primeira célula.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
 
 Antes de começar esta secção, tem de satisfazer os seguintes pré-requisitos:
 
-* Transfira **small_radio_json.json** [do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Carregue o ficheiro JSON de exemplo com o **AzCopy versão 10** para a conta de armazenamento de Blobs do Azure e o sistema de ficheiros criados por si:
+Introduza o seguinte código numa célula do bloco de notas:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> A versão 10 do AzCopy só está disponível para clientes de pré-visualização.
+Na célula, prima `Shift` + `Enter` para executar o código.
+
+Agora, numa célula nova abaixo desta, introduza o seguinte código (substitua **FILE_SYSTEM** e **ACCOUNT_NAME** pelos valores que utilizou anteriormente):
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+Na célula, prima `Shift` + `Enter` para executar o código.
 
 ## <a name="run-a-spark-sql-job"></a>Executar uma tarefa SQL do Spark
 

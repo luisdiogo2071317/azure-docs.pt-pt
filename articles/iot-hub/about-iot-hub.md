@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860161"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343632"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 
@@ -26,18 +26,24 @@ O Hub IoT ajuda-o a criar soluções de IoT dimensionáveis e com todas as funci
 
 ## <a name="scale-your-solution"></a>Dimensionar a sua solução
 
-O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. O Hub IoT oferece vários escalões de serviço para melhor servir as suas necessidades de escalabilidade. [Saiba mais](https://azure.microsoft.com/pricing/details/iot-hub/).
+O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. O Hub IoT oferece vários escalões de serviço para melhor servir as suas necessidades de escalabilidade. Veja a [página de preços](https://azure.microsoft.com/pricing/details/iot-hub/) para saber mais.
 
 ## <a name="secure-your-communications"></a>Comunicações protegidas
 
 O Hub IoT dá-lhe um canal de comunicação seguro através do qual os seus dispositivos podem enviar dados.
 
 * A autenticação por dispositivo permite que cada dispositivo se ligue com segurança ao Hub IoT e que cada dispositivo seja gerido de forma segura.
+
 * Tem controlo total sobre o acesso do dispositivo e pode controlar as ligações ao nível por dispositivo.
+
 * O [Serviço Aprovisionamento de Dispositivos no Hub IoT](https://docs.microsoft.com/azure/iot-dps/) aprovisiona automaticamente dispositivos ao hub IoT certo quando o dispositivo arranca pela primeira vez.
+
 * Vários tipos de autenticação suportam uma variedade de funcionalidades do dispositivo:
+
   * Autenticação baseada em token de SAS para que comece rapidamente a utilizar a sua solução de IoT.
+
   * Autenticação de certificado X.509 individual para assegurar uma autenticação segura baseada em normas.
+
   * Autenticação X.509 de AC para garantir uma inscrição simples baseada em normas.
 
 ## <a name="route-device-data"></a>Encaminhar dados de dispositivo
@@ -45,7 +51,9 @@ O Hub IoT dá-lhe um canal de comunicação seguro através do qual os seus disp
 A funcionalidade de encaminhamento de mensagens incorporada dá-lhe a flexibilidade de que precisa para configurar fan-out automático de mensagens baseado em regras:
 
 * Utilize o encaminhamento de mensagens para controlar o destino para onde o seu hub envia a telemetria do dispositivo.
+
 * Não incorre em custos adicionais para encaminhar mensagens para múltiplos pontos finais.
+
 * As regras de encaminhamento sem código substituem o código do distribuidor de mensagens personalizado.
 
 ## <a name="integrate-with-other-services"></a>Integrar noutros serviços
@@ -65,7 +73,9 @@ Pode integrar o Hub IoT noutros serviços do Azure para criar soluções ponto a
 Pode gerir os dispositivos ligados ao Hub IoT com uma matriz de funcionalidade incorporada.
 
 * Armazene, sincronize e consulte metadados e informações de estado de dispositivo de todos os seus dispositivos.
+
 * Defina o estado do dispositivo por dispositivo individual ou com base nas características comuns dos dispositivos.
+
 * Responda automaticamente a uma alteração de estado comunicada pelo dispositivo com a integração do encaminhamento de mensagens.
 
 ## <a name="make-your-solution-highly-available"></a>Tornar a solução altamente disponível
@@ -95,6 +105,7 @@ Se a solução não conseguir utilizar as bibliotecas do dispositivo, os disposi
 Se a sua solução não conseguir utilizar um dos protocolos suportados, pode expandir o Hub IoT para suportar protocolos personalizados:
 
 * Utilize o [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) para criar um gateway de campo para fazer a tradução de protocolos na periferia.
+
 * Personalize o [gateway de protocolo do Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) para fazer a tradução de protocolos na cloud.
 
 ## <a name="quotas-and-limits"></a>Quotas e limites
@@ -102,6 +113,7 @@ Se a sua solução não conseguir utilizar um dos protocolos suportados, pode ex
 Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso do serviço, pelo que estes limites podem afetar o âmbito da sua solução de IoT. O limite atual numa base por subscrição é de 10 hubs IoT por subscrição. Pode contactar o suporte para pedir o aumento da quota. Para obter mais detalhes sobre os limites de quotas:
 
 * [Limites de serviço da subscrição do Azure](../azure-subscription-service-limits.md)
+
 * [A limitação do Hub IoT e o que significa para si](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
 ## <a name="next-steps"></a>Passos seguintes

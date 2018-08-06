@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145323"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358951"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -88,6 +88,9 @@ Em primeiro lugar, crie um grupo de recursos para conter os recursos necessário
     A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
 11. Em **Intervalo de endereços**, escreva **10.0.1.0/24**.
 12. Utilize as outras predefinições e, em seguida, clique em **Criar**.
+
+> [!NOTE]
+> O tamanho mínimo da sub-rede AzureFirewallSubnet é /25.
 
 ### <a name="create-additional-subnets"></a>Criar sub-redes adicionais
 
@@ -172,6 +175,9 @@ Utilize as informações na tabela seguinte para configurar as **Definições** 
 4. Depois de concluída a implementação, vá para o grupo de recursos **Test-FW-RG** e clique na firewall **Test-FW01**.
 6. Anote o endereço IP privado. Vai utilizá-lo mais tarde quando criar a rota predefinida.
 
+> [!NOTE]
+> O endereço IP público tem de ser do tipo SKU Standard.
+
 [//]: # (Lembre-se de anotar o IP privado para a firewall.)
 
 ## <a name="create-a-default-route"></a>Criar uma rota predefinida
@@ -223,7 +229,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída padrão para passar
 >- Acesso ao armazenamento do estado dos discos geridos.
 >- Diagnóstico do Windows
 >
-> Pode substituir esta coleção de regras incorporadas na infraestrutura, ao criar uma coleção de regras de aplicação *recusar tudo*, que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
+> Pode substituir esta coleção de regras incorporadas na infraestrutura ao criar uma coleção de regras de aplicação *recusar tudo*, que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
 
 ## <a name="configure-network-rules"></a>Configurar regras de rede
 
@@ -233,7 +239,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída padrão para passar
 4. Em **Ação**, selecione **Permitir**.
 
 6. Em **Regras**, em **Nome**, escreva **AllowDNS**.
-8. Em **Protocolo**, selecione **TCP**.
+8. Em **Protocolo**, selecione **UDP**.
 9. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
 10. Em Endereço de destino, escreva **209.244.0.3,209.244.0.4**
 11. Em **Portas de Destino**, escreva **53**.

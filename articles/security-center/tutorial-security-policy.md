@@ -3,7 +3,7 @@ title: Tutorial do Centro de Segurança do Azure - Definir e avaliar políticas 
 description: Tutorial do Centro de Segurança do Azure - Definir e avaliar políticas de segurança
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/30/2018
+ms.author: terrylan
+ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779473"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358613"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: definir e avaliar as políticas de segurança
-O Centro de Segurança ajuda-o a manter a conformidade com os requisitos de segurança empresariais ou regulamentares mediante a utilização de políticas de segurança que definem a configuração pretendida para as suas cargas de trabalho. Depois de definir políticas para as suas subscrições do Azure e de as adaptar ao tipo de carga de trabalho ou à sensibilidade dos seus dados, o Centro de Segurança pode mostrar recomendações de segurança para os seus recursos de computação, rede, SQL e armazenamento e de aplicações. Neste tutorial, vai aprender a:
+O Centro de Segurança ajuda-o a manter a conformidade com os requisitos de segurança empresariais ou regulamentares mediante a utilização de políticas de segurança que definem a configuração pretendida para as suas cargas de trabalho. Depois de definir políticas para as suas subscrições do Azure e de as adaptar ao tipo de carga de trabalho ou à sensibilidade dos seus dados, o Centro de Segurança pode mostrar recomendações de segurança para os seus recursos de computação, de aplicações, de rede, de dados e armazenamento e de identidade e acesso. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a política de segurança
@@ -37,16 +37,20 @@ Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no es
 ## <a name="configure-security-policy"></a>Configurar a política de segurança
 O Centro de Segurança cria automaticamente uma política de segurança predefinida para cada uma das suas subscrições do Azure. As políticas de segurança são compostas por recomendações que pode ativar ou desativar de acordo com os requisitos de segurança dessa subscrição. Para fazer alterações à política de segurança predefinida, tem de ser proprietário, contribuidor ou administrador de segurança da subscrição em causa.
 
-1. No menu principal do Centro de Segurança, selecione **Política de segurança**. Selecione a subscrição que pretende utilizar. Em **COMPOENTES DA POLÍTICA**, selecione **Política de segurança**:
+1. No menu principal do Centro de Segurança, selecione **Política de segurança**.
+2. Selecione a subscrição que pretende utilizar.
 
   ![Política de segurança](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-2. Em cada configuração de segurança que pretende monitorizar, selecione **Ativado**. O Centro de Segurança avalia continuamente a configuração do seu ambiente e, se existirem vulnerabilidades, gerará uma recomendação de segurança. Selecione **Desativar** se a configuração de segurança não for recomendada ou não for relevante. Por exemplo, num ambiente de dev/test, poderá não precisar do mesmo nível de segurança do que num ambiente de produção. Depois de selecionar as políticas que são aplicáveis ao seu ambiente, clique em **Guardar**.
+3. Em **COMPOENTES DA POLÍTICA**, selecione **Política de segurança**
+4. Em cada configuração de segurança que pretende monitorizar, selecione **Ativado**. O Centro de Segurança avalia continuamente a configuração do seu ambiente e, se existirem vulnerabilidades, gerará uma recomendação de segurança. Selecione **Desativar** se a configuração de segurança não for recomendada ou não for relevante. Por exemplo, num ambiente de dev/test, poderá não precisar do mesmo nível de segurança do que num ambiente de produção. Depois de selecionar as políticas que são aplicáveis ao seu ambiente, clique em **Guardar**.
+
+  ![Configuração de segurança](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 
 Aguarde até que o Centro de Segurança processe estas políticas e gere recomendações. Algumas configurações, como as atualizações ao sistema e as configurações de SO, podem demorar até 12 horas, ao passo que as configurações de grupos de segurança de rede e de encriptação podem ser avaliadas quase de imediato. Quando vir as recomendações no dashboard do Centro de Segurança, pode avançar para o passo seguinte.
 
 ## <a name="assess-security-of-resources"></a>Avaliar a segurança dos recursos
-1. De acordo com as políticas de segurança que tiverem sido ativadas, o Centro de Segurança irá disponibilizar um conjunto de recomendações de segurança, conforme necessário. Deve começar por rever as recomendações relativas à máquina virtual e aos computadores. No dashboard do Centro de Segurança, clique em **Descrição Geral** e clique em **Computação**.
+1. De acordo com as políticas de segurança que tiverem sido ativadas, o Centro de Segurança irá disponibilizar um conjunto de recomendações de segurança, conforme necessário. Deve começar por rever as recomendações relativas à máquina virtual e aos computadores. No dashboard do Centro de Segurança, selecione **Descrição Geral** e **Computação e aplicações**.
 
   ![Computação](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
 
@@ -56,19 +60,23 @@ Aguarde até que o Centro de Segurança processe estas políticas e gere recomen
 
   ![Redes](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
 
-  A página de recomendações de rede tem uma lista de problemas de segurança de configuração de rede, de pontos finais destinados à Internet e de topologia de rede. Tal como com a **Computação**, algumas recomendações de rede disponibilizarão soluções integradas e outras não.
+  A página de recomendações de rede tem uma lista de problemas de segurança de configuração de rede, de pontos finais destinados à Internet e de topologia de rede. Tal como com a **Computação e aplicações**, algumas recomendações de rede disponibilizarão soluções integradas e outras não.
 
-3. Assim que abordar todas as recomendações de rede relevantes, deve avançar para a carga de trabalho seguinte, o armazenamento e dados. No dashboard do Centro de Segurança, clique em **Descrição Geral** e clique em **Armazenamento e dados**.
+3. Assim que abordar todas as recomendações de rede relevantes, deve avançar para a carga de trabalho seguinte, o armazenamento e dados. No dashboard do Centro de Segurança, clique em **Descrição geral** e em **Dados e armazenamento**.
 
   ![Recursos de dados](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
 
-  A página **Recursos de dados** contém recomendações relativas à ativação da auditoria para os servidores e bases de dados SQL do Azure, à ativação da encriptação para as bases de dados SQL e à ativação da encriptação da sua conta de armazenamento do Azure. Se não tiver estas cargas de trabalho, não verá nenhuma recomendação. Tal como com a **Computação**, algumas recomendações de SQL e armazenamento disponibilizarão soluções integradas e outras não.
+  A página **Recursos de Dados** contém recomendações relativas à ativação da auditoria para os servidores e as bases de dados SQL do Azure, à ativação da encriptação para as bases de dados SQL e à ativação da encriptação da sua conta de armazenamento do Azure. Se não tiver estas cargas de trabalho, não verá nenhuma recomendação. Tal como com a **Computação e aplicações**, algumas recomendações de dados e armazenamento disponibilizarão soluções integradas e outras não.
 
-4. Assim que abordar todas as recomendações de SQL e armazenamento relevantes, deve avançar para a carga de trabalho seguinte, as aplicações. No dashboard do Centro de Segurança, clique em **Descrição Geral** e clique em **Aplicações**.
+4. Assim que abordar todas as recomendações de dados e armazenamento relevantes, deve avançar para a carga de trabalho seguinte, identidade e acesso. No dashboard do Centro de Segurança, clique em **Descrição Geral** e em **Identidade e acesso**.
 
-  ![Aplicações](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+  ![Identidade e acesso](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
 
-  A página **Aplicações** contém recomendações para a implementação da firewall de aplicações Web e diretrizes gerais para a proteção de aplicações. Se não tiver máquinas virtuais ou computadores com aplicações Web em execução nos Serviços de Informação Internet (IIS), não verá estas recomendações.
+  A página **Identidade e acesso** contém recomendações como:
+
+   - Ativar o MFA para contas com privilégios na sua subscrição
+   - Remover contas externas com permissões de escrita da sua subscrição
+   - Remover as contas externas com privilégios da sua subscrição
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:

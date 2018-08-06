@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767863"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325290"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -97,7 +97,7 @@ Normalmente, os endereços IP públicos são utilizados nos cenários seguintes:
 * Utiliza certificados SSL associados a um endereço IP.
 
 > [!NOTE]
-> O Azure aloca endereços IP públicos a partir de um intervalo exclusivo a cada região do Azure. Para obter detalhes, veja [Intervalos de IP do Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
+> O Azure aloca endereços IP públicos a partir de um intervalo exclusivo de cada região em cada cloud do Azure. Pode transferir a lista de intervalos (prefixos) das clouds [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
 >
 
 ### <a name="dns-hostname-resolution"></a>Resolução de nomes de anfitrião DNS
