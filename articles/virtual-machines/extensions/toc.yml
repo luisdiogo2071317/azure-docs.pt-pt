@@ -38,7 +38,9 @@
           href: custom-script-windows.md
         - name: Gestão do Serviço do Azure (Clássico)
           href: custom-script-classic.md
-    - name: Diagnóstico
+    - name: Antimalware de IaaS para o Windows
+      href: iaas-antimalware-windows.md
+    - name: Instantâneo de VM
       items:
         - name: Linux
           href: vmsnapshot-linux.md

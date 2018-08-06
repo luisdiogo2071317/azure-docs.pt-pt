@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 3ec5fede8b4e196a2f7573b4c2f202d589a55f32
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5179f0a81ea67c1b20e9cbf77e18595e0b4bafa4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282673"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495286"
 ---
 # <a name="speech-scenarios"></a>Cenários de Voz
 
@@ -31,7 +31,7 @@ Número de utilizadores que pretende ativar a entrada de voz nas suas aplicaçõ
 
 ### <a name="voice-triggered-apps-with-baseline-models"></a>Voz acionada por aplicações com modelos de linha de base
 
-Se a sua aplicação vai ser utilizado pelo público geral em ambientes onde não é excessivo o barulho de fundo, a maneira mais fácil e rápida de fazer isso simplesmente baixando nosso [SDK de voz](speech-sdk.md) e seguir o relevante [ Exemplos de](quickstart-csharp-dotnet-windows.md). O SDK com tecnologia de sua [chave de subscrição do Azure](https://azure.microsoft.com/try/cognitive-services/) permite aos programadores carregar áudio para modelos de reconhecimento de voz de linha de base de energia Cortana e Skype. Os mdoels são uma funcionalidade de ponta e são utilizados pelos produtos mencionados anteriormente. Pode ficar tudo operacional em minutos.
+Se a sua aplicação vai ser utilizado pelo público geral em ambientes onde não é excessivo o barulho de fundo, a maneira mais fácil e rápida de fazer isso simplesmente baixando nosso [SDK de voz](speech-sdk.md) e seguir o relevante [ Exemplos de](quickstart-csharp-dotnet-windows.md). O SDK com tecnologia de sua [chave de subscrição do Azure](https://azure.microsoft.com/try/cognitive-services/) permite aos programadores carregar áudio para modelos de reconhecimento de voz de linha de base de energia Cortana e Skype. Os modelos são uma funcionalidade de ponta e são utilizados pelos produtos mencionados anteriormente. Pode ficar tudo operacional em minutos.
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Voz acionada por aplicações com modelos personalizados
 
@@ -39,7 +39,7 @@ Se seu aplicativo atende um domínio específico, (Digamos supramolecular, biolo
 
 ## <a name="transcribe-call-center-audio-calls"></a>Transcrição de chamadas de áudio do Centro de chamada
 
-Centrais de chamadas acumular-se em grandes quantidades de áudio. Oculto dentro do valor de permanece esses arquivos de áudio que pode ser obtido, no entanto, transcrição. A duração da chamada, o sentimento, a satisfação dos clientes e o valor geral a chamada fornecido ao chamador, podem ser detetados, obtendo transcrições de chamadas.
+Centrais de chamadas acumular-se em grandes quantidades de áudio. Oculto dentro do valor de permanece esses arquivos de áudio que pode ser obtido através de transcrição. A duração da chamada, o sentimento, a satisfação dos clientes e o valor geral a chamada fornecido ao chamador, podem ser detetados, obtendo transcrições de chamadas.
 
 O melhor ponto de partida é o [transcrição de API do Batch](batch-transcription.md) juntamente com relacionados [exemplo](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
@@ -55,7 +55,7 @@ Se planeia utilizar um modelo personalizado, em seguida, terá do ID desse model
 
 ## <a name="voice-bots"></a>Bots de voz
 
-Desenvolvedor pode capacitar seus aplicativos com a saída de voz. O serviço de voz pode synthetize voz para diversas [idiomas](supported-languages.md) e fornece a [pontos de extremidade](rest-apis.md) para acessar e adicionar essa capacidade à sua aplicação.
+Os desenvolvedores podem capacitar seus aplicativos com a saída de voz. O serviço de voz pode synthetize voz para diversas [idiomas](supported-languages.md) e fornece a [pontos de extremidade](rest-apis.md) para acessar e adicionar essa capacidade à sua aplicação.
 
 Além disso, para os utilizadores que pretendem adicionar mais personalidade e exclusividade aos seus bots, o serviço de voz permite aos programadores personalizar um tipo de voz exclusivo. Semelhante à personalização de reconhecimento de fala, tipos de voz de modelos exigem que os dados de utilizador. Os desenvolvedores são carregar esses dados em nossos [portal de adaptação de voz](https://customspeech.ai) e comece a criar a sua única da marca de voz para o bot. Detalhes são descritos [aqui](how-to-text-to-speech.md) , bem como a [FAQ](faq-text-to-speech.md) páginas 
 

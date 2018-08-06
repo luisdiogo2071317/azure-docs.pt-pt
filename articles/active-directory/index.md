@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: mtillman
-ms.openlocfilehash: 452c8104f4f5abd5730126fbe2a5755564d37d16
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5f193425912ad9c15d9f6b0b7681178fab54b83e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226072"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504622"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
@@ -31,10 +31,11 @@ O Azure Active Directory (Azure AD) é o serviço de gestão de identidades e di
                     <div class="cardText">
                         <h3>Noções Básicas</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-whatis">O que é o Azure AD?</a><br/>
-                        <a href="/azure/active-directory/understand-azure-identity-solutions">Soluções de identidade</a><br/>
-                        <a href="/azure/active-directory/get-started-azure-ad">Introdução</a><br/>
-                        <a href="/azure/active-directory/whats-new">Novidades</a>
+                        <a href="/azure/active-directory/fundamentals/active-directory-whatis">O que é o Azure AD?</a><br/>
+                        <a href="/azure/active-directory/fundamentals/understand-azure-identity-solutions">Soluções de identidade</a><br/>
+                        <a href="/azure/active-directory/fundamentals/get-started-azure-ad">Introdução</a><br/>
+                        <a href="/azure/active-directory/fundamentals/whats-new">Novidades</a><br/>
+                        <a href="/azure/active-directory/fundamentals/active-directory-deployment-plans">Planos de implementação do Azure AD</a>
                         </p>
                     </div>
                 </div>

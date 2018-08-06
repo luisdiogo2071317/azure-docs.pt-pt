@@ -156,22 +156,27 @@
 
 ## Gerir dispositivos
 ### [Descrição geral](devices/overview.md)
-### [Com o Portal do Azure](devices/device-management-azure-portal.md)
-### [Planear a Associação do Azure AD](devices/azureadjoin-plan.md)
-### [FAQs](devices/faq.md)
-### Tarefas
-#### [Como planear a sua implementação associada híbrida do Azure Active Directory](devices/hybrid-azuread-join-plan.md)
-#### [Configurar a associação híbrida do Azure Active Directory para os domínios geridos](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configurar a associação híbrida do Azure Active Directory para os domínios federados](devices/hybrid-azuread-join-federated-domains.md)
-#### [Como controlar a associação híbrida do Azure AD dos seus dispositivos](devices/hybrid-azuread-join-control.md)
+
+### Inícios rápidos
 #### [Configurar dispositivos Windows 10 registados no Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurar dispositivos associados ao Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Configurar dispositivos associados ao Azure AD híbridos](devices/hybrid-azuread-join-manual-steps.md)
-#### [Implementar no local](active-directory-device-registration-on-premises-setup.md)
-#### [Associação ao Azure AD durante a experiência de primeira execução do Windows 10](devices/azuread-joined-devices-frx.md)
-### Resolução de problemas
-#### [O Azure AD híbrido associou-se a dispositivos do Windows 10 e do Windows Server 2016](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [O Azure AD híbrido associou-se a dispositivos legados do Windows](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Tutoriais
+#### [Configurar a associação híbrida do Azure AD para os domínios geridos](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configurar a associação híbrida do Azure AD para os domínios federados](devices/hybrid-azuread-join-federated-domains.md)
+#### [Configurar manualmente a associação ao Azure AD híbrido](devices/hybrid-azuread-join-manual-steps.md)
+#### [Configurar a associação ao Azure AD durante a experiência de primeira execução do Windows 10](devices/azuread-joined-devices-frx.md)
+
+### Guias
+#### [Planear a Associação do Azure AD](devices/azureadjoin-plan.md)
+#### [Planear a sua implementação de associação ao Azure AD híbrido](devices/hybrid-azuread-join-plan.md)
+#### [Controlar a associação híbrida do Azure AD dos seus dispositivos](devices/hybrid-azuread-join-control.md)
+#### [Resolver problemas de dispositivos atuais do Windows associados ao Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Resolver problemas de dispositivos Windows legados associados ao Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Conceitos
+### [Manage devices using the Azure portal](devices/device-management-azure-portal.md) (Gerir dispositivos com o portal do Azure)
+### [FAQs](devices/faq.md)
 
 ## Gerir aplicações
 ### [Descrição geral](manage-apps/what-is-application-management.md)
@@ -472,6 +477,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Recursos
+## [Planos de implementação do Azure AD](./fundamentals/active-directory-deployment-plans.md)
 ## [Fórum de comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
