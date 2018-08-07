@@ -1,6 +1,6 @@
 ---
-title: Utilizar o PowerShell para criar e configurar uma área de trabalho de análise do registo | Microsoft Docs
-description: Iniciar análise utiliza dados a partir de servidores no local ou a infraestrutura de nuvem. Pode recolher dados da máquina de armazenamento do Azure quando gerados ao diagnóstico do Azure.
+title: Utilizar o PowerShell para criar e configurar uma área de trabalho do Log Analytics | Documentos da Microsoft
+description: Log Analytics utiliza dados de servidores no seu local ou a infraestrutura na cloud. Pode recolher dados de máquina de armazenamento do Azure quando gerados pelo diagnóstico do Azure.
 services: log-analytics
 documentationcenter: ''
 author: richrundmsft
@@ -15,53 +15,53 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: na
-ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6dcf3a5b26dc3c7e69721b2abb8a7d58767866d6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129341"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579056"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
-Pode utilizar o [cmdlets do PowerShell de análise do registo](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para efetuar várias funções na análise de registos, numa linha de comandos ou como parte de um script.  Exemplos de tarefas que pode realizar com o PowerShell incluem:
+Pode utilizar o [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções no Log Analytics numa linha de comandos ou como parte de um script.  Exemplos das tarefas que pode efetuar com o PowerShell:
 
 * Criar uma área de trabalho
 * Adicionar ou remover uma solução
-* Importar e exportar procuras guardadas
+* Importar e exportar pesquisas guardadas
 * Criar um grupo de computadores
-* Ativar a recolha de registos de IIS a partir de computadores com o agente de Windows instalado
+* Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
 * Recolher contadores de desempenho de computadores com Linux e Windows
-* Recolher eventos do syslog nos computadores com Linux 
+* Recolher eventos do syslog em computadores com Linux 
 * Recolher eventos de registos de eventos do Windows
 * Recolher registos de eventos personalizados
-* Adicionar o agente de análise do registo para uma máquina virtual do Azure
-* Configurar a análise de registos para dados do índice recolhidos através de diagnóstico do Azure
+* Adicionar o log analytics agent para uma máquina virtual do Azure
+* Configurar o log analytics para dados de índice recolhidos através dos diagnósticos do Azure
 
-Este artigo fornece dois exemplos de código que ilustram algumas das funções que pode realizar a partir do PowerShell.  Pode consultar o [referência de cmdlets PowerShell de análise do registo](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para outras funções.
+Este artigo fornece dois exemplos de código que mostram algumas das funções que pode efetuar a partir do PowerShell.  Pode consultar o [referência de cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para outras funções.
 
 > [!NOTE]
-> Análise de registos foi anteriormente denominada das informações operacionais, que é o nome utilizado nos cmdlets.
+> O log Analytics anteriormente chamado das informações operacionais, razão pela qual é o nome utilizado nos cmdlets.
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Estes exemplos funcionam com a versão 2.3.0 ou posterior do módulo AzureRm.OperationalInsights.
+Esses exemplos funcionam com a versão 2.3.0 ou posterior do módulo azurerm. Operationalinsights.
 
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar uma área de trabalho de análise do registo
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar uma área de trabalho do Log Analytics
 O script de exemplo seguinte ilustra como:
 
 1. Criar uma área de trabalho
-2. Lista as soluções disponíveis
+2. Listar as soluções disponíveis
 3. Adicionar soluções para a área de trabalho
-4. Pesquisas de importação guardada
-5. Exportação guardada pesquisas
+4. Pesquisas guardada de importação
+5. Pesquisas guardada de exportação
 6. Criar um grupo de computadores
-7. Ativar a recolha de registos de IIS a partir de computadores com o agente de Windows instalado
-8. Recolher contadores de desempenho disco lógico a partir de computadores com Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
-9. Recolher eventos syslog de computadores com Linux
-10. Recolher eventos de erro e aviso do registo de eventos de computadores Windows
-11. Recolher contador de desempenho Memória \ Mbytes disponíveis a partir de computadores Windows
+7. Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
+8. Recolher contadores de desempenho disco lógico de computadores Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
+9. Recolher eventos do syslog de computadores Linux
+10. Recolher eventos de erro e aviso de Log de eventos de computadores Windows
+11. Recolher contador de desempenho de memória utilizada em Mbytes disponíveis a partir de computadores Windows
 12. Recolher um registo personalizado 
 
 ```
@@ -188,21 +188,21 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ```
 
-## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configurar a análise de registos para indexar o diagnóstico do Azure
-Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o diagnóstico do Azure ativada e configurada para escrever uma área de trabalho de análise de registos. Esta abordagem envia dados diretamente para a análise de registos e não necessita de dados para ser escrito para uma conta de armazenamento. Recursos suportados incluem:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configurar o Log Analytics para indexar o diagnóstico do Azure
+Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o diagnóstico do Azure ativada e configurada para gravar numa área de trabalho do Log Analytics. Esta abordagem envia dados diretamente para o Log Analytics e não necessita de dados a ser escritos para uma conta de armazenamento. Os recursos suportados incluem:
 
 | Tipo de Recurso | Registos | Métricas |
 | --- | --- | --- |
 | Gateways de Aplicação    | Sim | Sim |
 | Contas de Automatização     | Sim | |
 | Contas de Batch          | Sim | Sim |
-| Análise do Data Lake     | Sim | | 
-| Arquivo data Lake         | Sim | |
-| Agrupamento elástico de SQL        |     | Sim |
+| Data Lake analytics     | Sim | | 
+| Arquivo do Data Lake         | Sim | |
+| Conjunto elástico de SQL        |     | Sim |
 | Espaço de nomes do Hub de Eventos     |     | Sim |
 | Hubs IoT                |     | Sim |
 | Cofre de Chaves               | Sim | |
-| Balanceadores de Carga          | Sim | |
+| Balanceador de Carga          | Sim | |
 | Aplicações Lógicas              | Sim | Sim |
 | Grupos de Segurança de Rede | Sim | |
 | Cache de Redis             |     | Sim |
@@ -210,11 +210,11 @@ Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o
 | Espaço de nomes do Service Bus   |     | Sim |
 | SQL (v12)               |     | Sim |
 | Web Sites               |     | Sim |
-| Web farms de servidores        |     | Sim |
+| Farms de servidores Web        |     | Sim |
 
-Para obter os detalhes sobre as métricas disponíveis, consulte [suportado métricas com a monitorização do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Para obter os detalhes das métricas disponíveis, consulte [suportado métricas com o Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-Para obter os detalhes dos registos disponíveis, consulte [suportado serviços e o esquema para os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Para obter os detalhes dos registos disponíveis, consulte [suportada serviços e o esquema para os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -224,20 +224,20 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Também pode utilizar o cmdlet anterior para recolher registos de recursos que estão em subscrições diferentes. O cmdlet é capaz de funcionar entre subscrições, uma vez que está a fornecer o id do recurso a criar os registos e os registos são enviados para a área de trabalho.
+Também pode utilizar o cmdlet anterior para recolher registos de recursos que estão em subscrições diferentes. O cmdlet é capaz de trabalhar em várias subscrições, uma vez que está a fornecer o id do recurso a criar registos e os registos são enviados para a área de trabalho.
 
 
-## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Configurar a análise de registos para diagnósticos do Azure do armazenamento de índice
-Para recolher dados de registo a partir de dentro de uma instância em execução de um serviço em nuvem clássico ou um cluster do service fabric, terá de escrever primeiro os dados para o armazenamento do Azure. Análise de registos é então configurada para recolher os registos da conta do storage. Recursos suportados incluem:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Configurar o Log Analytics para o diagnóstico do Azure do armazenamento de índice
+Para recolher dados de registos de dentro de uma instância em execução de um serviço cloud clássico ou um cluster do service fabric, precisa primeiro escrever os dados ao armazenamento do Azure. Log Analytics, em seguida, é configurado para recolher os registos da conta de armazenamento. Os recursos suportados incluem:
 
 * Serviços de cloud clássico (funções web e de trabalho)
-* Clusters de recursos de infraestrutura de serviço
+* Clusters do Service fabric
 
-O seguinte exemplo mostra como:
+A exemplo a seguir mostra como:
 
-1. Lista de contas do storage existentes e localizações de análise de registos serão índice dados a partir de
-2. Criar uma configuração de ler a partir de uma conta de armazenamento
-3. Atualizar a configuração recentemente criada para dados do índice a partir de localizações adicionais
+1. Listar as contas de armazenamento existentes e localizações do Log Analytics será indexar dados a partir de
+2. Criar uma configuração para ler a partir de uma conta de armazenamento
+3. Atualizar a configuração do recentemente criada para dados de índice a partir de localizações adicionais
 4. Eliminar a configuração criada recentemente
 
 ```
@@ -262,9 +262,9 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ```
 
-Também pode utilizar o script anterior para recolher registos de contas de armazenamento em diferentes subscrições. O script é capaz de funcionar entre subscrições, uma vez que está a fornecer o id de recurso de conta de armazenamento e uma chave de acesso correspondente. Quando alterar a chave de acesso, terá de atualizar as informações de armazenamento com a nova chave.
+Também pode utilizar o script anterior para recolher registos de contas de armazenamento em subscrições diferentes. O script é capaz de trabalhar em várias subscrições, uma vez que está a fornecer o id de recurso de conta de armazenamento e uma chave de acesso correspondente. Quando alterar a chave de acesso, tem de atualizar a informação de armazenamento para que a nova chave.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Reveja os cmdlets do PowerShell de análise do registo](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para obter informações adicionais sobre como utilizar o PowerShell para análise de registos de configuração.
+* [Reveja o Log Analytics dos cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para obter mais informações sobre como utilizar o PowerShell para a configuração do Log Analytics.
 

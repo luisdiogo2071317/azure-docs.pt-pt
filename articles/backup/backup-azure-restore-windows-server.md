@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247283"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576190"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar ficheiros para um servidor Windows ou para um computador cliente Windows com o modelo de implementação Resource Manager
 
@@ -51,6 +51,8 @@ Se um ficheiro eliminado acidentalmente e deseja restaurá-lo na mesma máquina 
 4. Sobre o **selecionar modo de recuperação** painel, escolha **ficheiros e pastas individuais** e, em seguida, clique em **seguinte**.
 
     ![Procurar ficheiros](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> A opção de restaurar *ficheiros e pastas individuais* requer o .NET Framework 4.5.2 ou superior. Se não vir a *ficheiros e pastas individuais* opção, tem de atualizar .NET Framework versão 4.5.2 ou superior e tente novamente.
 
 5. Sobre o **selecionar Volume e data** painel, selecione o volume que contém os ficheiros de e/ou pastas que pretende restaurar.
 
@@ -67,7 +69,7 @@ Se um ficheiro eliminado acidentalmente e deseja restaurá-lo na mesma máquina 
     ![Opções de recuperação](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. No Explorador do Windows, copie os ficheiros de e/ou pastas que pretende restaurar e cole-os em qualquer localização local para o servidor ou computador. Pode abrir ou transmitir ficheiros diretamente a partir do volume de recuperação e certifique-se de que as versões corretas são recuperadas.
+8. No Explorador do Windows, copie os ficheiros de e/ou pastas que pretende restaurar e cole-os em qualquer localização local para o servidor ou computador. Pode abrir ou transmitir ficheiros diretamente a partir do volume de recuperação e certifique-se de que está a recuperar as versões corretas.
 
     ![Copie e cole os ficheiros e pastas a partir do volume montado para localização local](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

@@ -1,69 +1,63 @@
 ---
-title: Reparação de uma tarefa de exportação de importação/exportação do Azure - v1 | Microsoft Docs
+title: Reparação de uma tarefa de exportação de importar/exportar do Azure - v1 | Documentos da Microsoft
 description: Saiba como reparar uma tarefa de exportação que foi criada e executada com o serviço importar/exportar do Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873878"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522728"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de uma tarefa de exportação
 Depois de uma tarefa de exportação foi concluída, pode executar a ferramenta de importação/exportação do Microsoft Azure no local para:  
   
-1.  Transferir todos os ficheiros que não foi possível exportar o serviço importar/exportar do Azure.  
+1.  Baixe todos os ficheiros que não foi possível exportar o serviço importar/exportar do Azure.  
   
-2.  Confirme que os ficheiros na unidade corretamente foram exportados.  
+2.  Valide que os ficheiros na unidade corretamente foram exportados.  
   
-Tem de ter conetividade para o armazenamento do Azure para utilizar esta funcionalidade.  
+Tem de ter conectividade ao armazenamento do Azure para utilizar esta funcionalidade.  
   
 O comando de reparação de uma tarefa de importação é **RepairExport**.
 
 ## <a name="repairexport-parameters"></a>Parâmetros de RepairExport
 
-Os parâmetros seguintes podem ser especificados com **RepairExport**:  
+Os seguintes parâmetros podem ser especificados com **RepairExport**:  
   
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
-|**/r: < RepairFile\>**|Necessário. Caminho para o ficheiro de reparação, que controla o progresso da reparação e permite-lhe retomar uma reparação de interrompida. Cada unidade tem de ter um e apenas um ficheiro de reparação. Quando iniciar uma reparação de uma determinada unidade, irá passar no caminho para um ficheiro de reparação que ainda não existe. Para retomar uma reparação de interrompida, deverá passar nome de um ficheiro de reparação existente. O ficheiro de reparação correspondente para a unidade de destino tem sempre de ser especificado.|  
-|**/LOGDIR: < LogDirectory\>**|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos neste diretório. Se nenhum diretório de registo for especificado, será utilizado como o diretório de registo do diretório atual.|  
-|**/d: < TargetDirectory\>**|Necessário. O diretório para validar e reparar. Isto é normalmente o diretório de raiz da unidade de exportação, mas pode também ser uma partilha de ficheiros de rede que contém uma cópia dos ficheiros exportados.|  
+|**r: < RepairFile\>**|Necessário. Caminho para o ficheiro de reparação, que controla o progresso do reparo e permite-lhe retomar uma reparação de interrompida. Cada unidade tem de ter apenas um ficheiro de reparação. Quando iniciar uma reparação de uma determinada unidade, passará no caminho para um ficheiro de reparação que ainda não existe. Para retomar uma reparação de interrompido, deve passar no nome de um ficheiro existente de reparação. Sempre é necessário especificar o ficheiro de reparação correspondente para a unidade de destino.|  
+|**/LOGDIR: < LogDirectory\>**|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
+|**/d: < TargetDirectory\>**|Necessário. O diretório para validar e reparar. Isto é normalmente o diretório de raiz da unidade de exportação, mas poderia também ser uma partilha de ficheiros de rede que contém uma cópia dos ficheiros exportados.|  
 |**/BK: < BitLockerKey\>**|Opcional. Deve especificar a chave do BitLocker, se pretender que a ferramenta para desbloquear um encriptados onde estão armazenados os ficheiros exportados.|  
 |**/SN: < StorageAccountName\>**|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
-|**/SK: < StorageAccountKey\>**|**Necessário** se e apenas se não for especificado um contentor SAS. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
-|**/csas: < ContainerSas\>**|**Necessário** se e apenas se a chave de conta de armazenamento não está especificada. O contentor de SAS para aceder aos blobs associadas com a tarefa de exportação.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Necessário. O caminho para o ficheiro de registo de cópia de unidade. O ficheiro é gerado pelo serviço de importação/exportação do Windows Azure e pode ser transferido a partir do blob storage do associado ao trabalho. O ficheiro de registo de cópia contém informações sobre os blobs com falhas ou ficheiros que estão a ser reparado.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Opcional. O caminho para o ficheiro de manifesto a unidade de exportação. Este ficheiro é gerado pelo serviço de importação/exportação do Windows Azure e armazenado na unidade de exportação e, opcionalmente num blob na conta de armazenamento associado ao trabalho.<br /><br /> O conteúdo dos ficheiros na unidade de exportação será verificado com os hashes de MD5 contidos neste ficheiro. Todos os ficheiros que são determinados estar danificado serão transferidos e rescritos para os diretórios de destino.|  
+|**/SK: < StorageAccountKey\>**|**Necessário** se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
+|**/csas: < ContainerSas\>**|**Necessário** se e apenas se a chave de conta de armazenamento não está especificado. O contentor de SAS para aceder aos blobs associados com a tarefa de exportação.|  
+|**/ CopyLogFile: < DriveCopyLogFile\>**|Necessário. O caminho para o ficheiro de registo de cópia de unidade. O ficheiro é gerado pelo serviço importar/exportar do Azure Windows e pode ser baixado do armazenamento de BLOBs associado à tarefa. O ficheiro de registo de cópia contém informações sobre blobs com falhas ou ficheiros que estão a ser reparado.|  
+|**/ ManifestFile: < DriveManifestFile\>**|Opcional. O caminho para o ficheiro de manifesto a unidade de exportação. Este ficheiro é gerado pelo serviço importar/exportar do Azure Windows e armazenado na unidade de exportação e, opcionalmente, num blob na conta de armazenamento associado à tarefa.<br /><br /> O conteúdo dos ficheiros na unidade de exportação será verificado com os hashes MD5 contidos neste ficheiro. Todos os ficheiros que são determinados estar danificado serão transferidos e reescritos para os diretórios de destino.|  
   
-## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Utilizar o modo de RepairExport para corrigir exportações falhadas  
-Pode utilizar a ferramenta de importação/exportação do Azure para transferir os ficheiros que não foi possível exportar. O ficheiro de registo de cópia irá conter uma lista de ficheiros que falhou a exportar.  
+## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Utilizar o modo de RepairExport para corrigir o exporta com falhas  
+Pode utilizar a ferramenta de importação/exportação do Azure para transferir os ficheiros que falha ao exportar. O ficheiro de registo de cópia irá conter uma lista de ficheiros que falha ao exportar.  
   
-As causas de falhas de exportação incluem as possibilidades seguintes:  
+As causas de falhas de exportação incluem as seguintes possibilidades:  
   
 -   Unidades danificadas  
   
--   A chave de conta de armazenamento foi alterada durante o processo de transferência  
+-   A chave de conta de armazenamento foi alterado durante o processo de transferência  
   
-Para executar a ferramenta **RepairExport** modo, primeiro tem de ligar a unidade que contém os ficheiros exportados para o seu computador. Em seguida, execute a ferramenta de importação/exportação do Azure, especificando o caminho para essa unidade com o `/d` parâmetro. Também tem de especificar o caminho do ficheiro de registo de cópia de unidade que transferiu. O seguinte exemplo de linha de comandos abaixo executa a ferramenta para reparar todos os ficheiros que não foi possível exportar:  
+Para executar a ferramenta **RepairExport** modo, primeiro tem de se ligar a unidade que contém os ficheiros exportados para o seu computador. Em seguida, execute a ferramenta de importação/exportação do Azure, especificando o caminho para essa unidade com o `/d` parâmetro. Também tem de especificar o caminho do ficheiro de registo de cópia da unidade que transferiu. O exemplo de linha de comandos seguinte abaixo executa a ferramenta para reparar todos os ficheiros que falha ao exportar:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Segue-se um exemplo de um cópia do ficheiro de registo que mostra um bloco no blob Falha ao exportar:  
+Segue-se um exemplo de um ficheiro de registo de cópia que mostra que um bloco no blob Falha ao exportar:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -82,12 +76,12 @@ Segue-se um exemplo de um cópia do ficheiro de registo que mostra um bloco no b
 </DriveLog>  
 ```  
   
-O ficheiro de registo de cópia indica que ocorreu uma falha enquanto o serviço de importação/exportação do Windows Azure foi estiverem a transferir um dos blocos do blob para o ficheiro na unidade de exportação. Os outros componentes do ficheiro transferido com êxito e o comprimento do ficheiro foi corretamente definido. Neste caso, a ferramenta irá abrir o ficheiro na unidade, transfira o bloco da conta do storage e escrevem-para o intervalo de ficheiro a partir de deslocamento 65536 com comprimento 65536.  
+O ficheiro de registo de cópia indica que ocorreu uma falha durante o serviço importar/exportar do Azure Windows foi baixar um dos bloco BLOBs de para o ficheiro na unidade de exportação. Os outros componentes do ficheiro transferido com êxito e o comprimento do ficheiro foi definido corretamente. Neste caso, a ferramenta irá abrir o ficheiro na unidade, transferir o bloco da conta de armazenamento e gravá-lo para o intervalo de ficheiro a partir de deslocamento 65536 com comprimento 65536.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Utilizar RepairExport para validar o conteúdo de unidade  
-Também pode utilizar o Azure para importar/exportar com o **RepairExport** opção para validar o conteúdo na unidade estão corretos. O ficheiro de manifesto em cada unidade de exportação contém MD5s para o conteúdo da unidade.  
+## <a name="using-repairexport-to-validate-drive-contents"></a>Uso RepairExport para validar o conteúdo da unidade  
+Também pode utilizar Importar/exportar do Azure com o **RepairExport** opção para validar o conteúdo na unidade estão corretos. O ficheiro de manifesto em cada unidade de exportação contém MD5s para o conteúdo da unidade.  
   
-O serviço importar/exportar do Azure pode também guardar os ficheiros de manifesto para uma conta de armazenamento durante o processo de exportação. A localização dos ficheiros de manifesto está disponível através de [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação quando a tarefa foi concluída. Consulte [serviço importar/exportar formato de ficheiro de manifesto](storage-import-export-file-format-metadata-and-properties.md) para obter mais informações sobre o formato de um ficheiro de manifesto de unidade.  
+O serviço importar/exportar do Azure também pode guardar os ficheiros de manifestos para uma conta de armazenamento durante o processo de exportação. A localização dos ficheiros de manifestos está disponível através da [Get Job de](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação quando a tarefa for concluída. Ver [serviço importar/exportar formato de ficheiro de manifesto](storage-import-export-file-format-metadata-and-properties.md) para obter mais informações sobre o formato de um arquivo de manifesto de unidade.  
   
 O exemplo seguinte mostra como executar a ferramenta de importação/exportação do Azure com o **/ManifestFile** e **/CopyLogFile** parâmetros:  
   
@@ -95,7 +89,7 @@ O exemplo seguinte mostra como executar a ferramenta de importação/exportaçã
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
 ```  
   
-Segue-se um exemplo de um ficheiro de manifesto:  
+Segue-se um exemplo de um arquivo de manifesto:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -132,7 +126,7 @@ Segue-se um exemplo de um ficheiro de manifesto:
 </DriveManifest>  
 ``` 
   
-Depois de concluir o processo de reparação, a ferramenta irá ler através de cada ficheiro referenciado no ficheiro de manifesto e verificar a integridade do ficheiro com os hashes de MD5. Para o manifesto acima, irá percorrer os seguintes componentes.  
+Depois de concluir o processo de reparação, a ferramenta irá ler cada arquivo referenciado no arquivo de manifesto e verificar a integridade do ficheiro com os hashes MD5. Para o manifesto acima, esta irá passar pelos seguintes componentes.  
 
 ```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
@@ -154,9 +148,9 @@ G:\pictures\wild\canyon.jpg, offset 8163, length 2721
 G:\pictures\wild\canyon.jpg.properties  
 ```
 
-Qualquer componente falhar a verificação será transferiu a ferramenta e rescrita para o mesmo ficheiro na unidade.  
+Qualquer componente falhar a verificação será transferido pela ferramenta e reescrito para o mesmo ficheiro na unidade.  
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
  
 * [Configurar a ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

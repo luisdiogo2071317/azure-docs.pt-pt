@@ -17,17 +17,17 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9c2140d0e482089be632d9a21560349a6381968e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8b23d99b838449681f83ff2e88bd96ee90502404
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495242"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578862"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter o AppSource certificada para Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) é um destino para usuários empresariais para detetar, experimentar e gerir aplicações de SaaS de linha de negócio (autónomo SaaS e suplementos para produtos de SaaS da Microsoft já existentes).
 
-Para listar uma aplicação autónoma de SaaS no AppSource, a aplicação tem de aceitar início de sessão único de contas de trabalho a partir de qualquer empresa ou organização que tenha o Azure Active Directory. O processo de início de sessão tem de utilizar o [OpenID Connect](./active-directory-protocols-openid-connect-code.md) ou [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocolos. Integração de SAML não é aceite para obter uma certificação do AppSource.
+Para listar uma aplicação autónoma de SaaS no AppSource, a aplicação tem de aceitar início de sessão único de contas de trabalho a partir de qualquer empresa ou organização que tenha o Azure Active Directory. O processo de início de sessão tem de utilizar o [OpenID Connect](v1-protocols-openid-connect-code.md) ou [OAuth 2.0](v1-protocols-oauth-code.md) protocolos. Integração de SAML não é aceite para obter uma certificação do AppSource.
 
 ## <a name="guides-and-code-samples"></a>Exemplos de código e guias
 Se quiser saber mais sobre como integrar o seu aplicativo com o Azure Active Directory com o ID de Open ligar, siga os nossos guias e exemplos de código a [Guia do programador do Azure Active Directory](azure-ad-developers-guide.md#get-started "introdução ao Azure AD para os desenvolvedores").
@@ -41,7 +41,7 @@ Para habilitar vários inquilinos na sua aplicação:
 - Atualizar seu código para enviar pedidos para o '`common`' ponto de extremidade (atualizar o ponto final da *https://login.microsoftonline.com/{yourtenant}* para *https://login.microsoftonline.com/common*)
 - Em algumas plataformas, como o ASP.NET, também precisa atualizar seu código para aceitar vários emissores
 
-Para obter mais informações sobre vários inquilinos, consulte: [como iniciar sessão a qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](./active-directory-devhowto-multi-tenant-overview.md).
+Para obter mais informações sobre vários inquilinos, consulte: [como iniciar sessão a qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Aplicações de inquilino único
 Aplicativos que apenas aceitam inícios de sessão dos utilizadores de uma instância do Azure Active Directory definido são conhecidos como *aplicação de inquilino único*. Utilizadores externos (incluindo contas de trabalho ou escolares de outras organizações ou conta pessoal) podem iniciar sessão a uma aplicação de inquilino único depois de adicionar cada utilizador como *conta de convidado* para o Azure Active Directory da instância que o aplicação fica registada. Pode adicionar utilizadores como contas de convidado para um Azure Active Directory através do [ *colaboração B2B do Azure AD* ](../b2b/what-is-b2b.md) - e ele pode ser feito [programaticamente](../b2b/code-samples.md). Quando adicionar um utilizador como conta de convidado para um Azure Active Directory, é enviado um e-mail de convite ao utilizador, que tem de aceitar o convite ao clicar na ligação no e-mail de convite. Os convites que são enviados para um utilizador adicional numa organização de convite que também seja membro da organização de parceiro não são necessários aceitar um convite para iniciar sessão.
@@ -121,7 +121,7 @@ Utilize a seguinte secção de comentários para fornecer comentários e ajude-n
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: azure-ad-developers-guide.md
-[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 

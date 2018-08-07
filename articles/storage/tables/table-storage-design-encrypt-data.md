@@ -1,39 +1,34 @@
 ---
-title: Encriptar dados da tabela de armazenamento do Azure | Microsoft Docs
+title: Encriptar dados da tabela de armazenamento do Azure | Documentos da Microsoft
 description: Saiba mais sobre a encriptação de dados de tabela no armazenamento do Azure.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/11/2018
 ms.author: sngun
-ms.openlocfilehash: 082e8a54cc8625a4bbdea2157f73874dbc86fde2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 8a7b61705f6efc5a76212fdd1345a022f58e0686
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661039"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526471"
 ---
 # <a name="encrypt-table-data"></a>Encriptar dados da tabela
-A biblioteca de clientes do Storage de Azure .NET suporta a encriptação das propriedades de entidade de cadeia para inserção e substitua operações. As cadeias de encriptados são armazenadas no serviço como propriedades binárias e estes são convertidos para cadeias depois de desencriptação.    
+Biblioteca de cliente de armazenamento do Azure de .NET suporta a encriptação das propriedades de entidade de cadeia de caracteres para inserir e substitua operações. As cadeias de caracteres encriptadas são armazenadas no serviço como propriedades binárias e elas são convertidas para cadeias de caracteres após desencriptação.    
 
-Para as tabelas, além da política de encriptação, os utilizadores tem de especificar as propriedades sejam encriptados. Pode fazê-lo especificando a um atributo [EncryptProperty] (para entidades POCO que derivem de TableEntity) ou um resolvedor de encriptação nas opções de pedido. Um resolvedor de encriptação é um delegado que utiliza uma chave de partição, chave de linha e nome de propriedade e devolve um valor boleano que indica se essa propriedade deve ser encriptada. Durante a encriptação, a biblioteca de cliente utiliza estas informações para decidir se pretende encriptar uma propriedade ao escrever a transmissão. Também fornece o delegado para a possibilidade de lógica em torno da forma como as propriedades são encriptadas. (Por exemplo, se X, então encriptar propriedade um; caso contrário, encriptar propriedades A e B.) Não é necessário fornecer estas informações ao ler ou consultar entidades.
+Para tabelas, além da política de encriptação, os utilizadores tem de especificar as propriedades sejam encriptados. Isso pode ser feito, qualquer um dos especificando um atributo [EncryptProperty] (para entidades POCO que derivam de TableEntity) ou um resolvedor de encriptação nas opções de pedido. Um resolvedor de encriptação é um delegado que assume uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booleano que indica se essa propriedade deve ser encriptada. Durante a encriptação, a biblioteca de cliente utiliza estas informações para decidir se pretende encriptar uma propriedade ao escrever para a transmissão. O delegado também fornece a possibilidade de lógica em torno de como as propriedades são encriptadas. (Por exemplo, se X, em seguida, criptografar propriedades R; caso contrário, encriptar propriedades A e B.) Não é necessário fornecer estas informações ao ler ou consultar entidades.
 
 ## <a name="merge-support"></a>Suporte de intercalação
 
-Intercalação não é atualmente suportada. Porque um subconjunto de propriedades pode ter sido encriptado anteriormente com uma chave diferente, basta intercalar as propriedades de novo e atualizar os metadados resulta numa perda de dados. Intercalar o requer efetuar chamadas de serviço adicional para a entidade pré-existente de leitura do serviço ou utilizar uma nova chave por propriedade, que não são adequadas por motivos de desempenho.     
+Merge não é atualmente suportada. Uma vez que um subconjunto de propriedades pode ter sido criptografado anteriormente usando uma chave diferente, simplesmente as novas propriedades de mesclagem e atualizar os metadados resulta em perda de dados. Intercalar o requer a fazer chamadas de serviço extra para ler a entidade já existente do serviço ou usando uma nova chave por propriedade, que não são adequados por motivos de desempenho.     
 
-Para obter informações sobre a encriptação de dados da tabela, consulte [encriptação do lado do cliente e o Cofre de chaves do Azure para armazenamento do Microsoft Azure](../common/storage-client-side-encryption.md).  
+Para obter informações sobre a encriptação de dados da tabela, consulte [encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure](../common/storage-client-side-encryption.md).  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Padrões de conceção da tabela](table-storage-design-patterns.md)
-- [Relações de modelação](table-storage-design-modeling.md)
-- [Relações de modelação](table-storage-design-modeling.md)
-- [Estrutura de modificação de dados](table-storage-design-for-modification.md)
+- [Padrões de Design de tabela](table-storage-design-patterns.md)
+- [Modelando as relações](table-storage-design-modeling.md)
+- [Modelando as relações](table-storage-design-modeling.md)
+- [Design para modificação de dados](table-storage-design-for-modification.md)

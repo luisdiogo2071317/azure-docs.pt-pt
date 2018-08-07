@@ -1,57 +1,51 @@
 ---
-title: Formato de ficheiro de registo de importação/exportação do Azure | Microsoft Docs
-description: Saiba mais sobre o formato dos ficheiros de registo criado quando são executados os passos para uma tarefa de serviço de importação/exportação.
+title: Formato de ficheiro de registo de importação/exportação do Azure | Documentos da Microsoft
+description: Saiba mais sobre o formato dos ficheiros de registo criado quando etapas são executadas para uma tarefa de serviço de importação/exportação.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874102"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525523"
 ---
-# <a name="azure-importexport-service-log-file-format"></a>Formato do ficheiro de registo de serviço do Azure para importar/exportar
-Quando o serviço de importação/exportação do Microsoft Azure efetua uma ação num disco como parte de uma tarefa de importação ou uma tarefa de exportação, os registos são escritos para bloquear os blobs na conta do storage associadas com essa tarefa.  
+# <a name="azure-importexport-service-log-file-format"></a>Azure formato de ficheiro do registo de serviço de importação/exportação
+Quando o serviço de importação/exportação do Microsoft Azure realiza uma ação numa unidade como parte de uma tarefa de importação ou uma tarefa de exportação, os registos são escritos para bloquear os blobs na conta de armazenamento associadas com essa tarefa.  
   
-Existem dois registos que podem ser escritos pelo serviço de importação/exportação:  
+Existem dois registos que podem ser gravados pelo serviço de importação/exportação:  
   
--   O registo de erros sempre é gerado na eventualidade de ocorrer um erro.  
+-   O registo de erros é sempre gerado no caso de um erro.  
   
--   O registo verboso não está ativado por predefinição, mas pode ser ativado definindo a `EnableVerboseLog` propriedade um [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs#Jobs_Update) operação.  
+-   O registo verboso não está ativado por predefinição, mas pode ser ativado ao configurar o `EnableVerboseLog` propriedade num [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs#Jobs_Update) operação.  
   
 ## <a name="log-file-location"></a>Localização do ficheiro de registo  
-Os registos são escritos para bloquear os blobs no contentor ou diretório virtual especificado pelo `ImportExportStatesPath` definição, que podem ser definidas num `Put Job` operação. A localização a que os registos são escritos depende de como a autenticação é especificada para a tarefa, juntamente com o valor especificado para `ImportExportStatesPath`. Autenticação para a tarefa pode ser especificada através de uma chave de conta de armazenamento ou de um contentor SAS (assinatura de acesso partilhado).  
+Os registos são escritos para bloquear os blobs no contentor ou do diretório virtual especificado pelos `ImportExportStatesPath` definição, que pode definir um `Put Job` operação. A localização para o qual os registos são escritos depende de como a autenticação é especificada para a tarefa, juntamente com o valor especificado para `ImportExportStatesPath`. Autenticação para a tarefa pode ser especificada através de uma chave de conta de armazenamento ou um contentor SAS (assinatura de acesso partilhado).  
   
-O nome do diretório virtual ou contentor pode a ser o nome predefinido do `waimportexport`, ou outro contentor ou nome do diretório virtual que especificou.  
+O nome do contentor ou o diretório virtual pode a ser o nome predefinido do `waimportexport`, ou outro contentor ou o nome do diretório virtual que especificou.  
   
 A tabela abaixo mostra as opções possíveis:  
   
-|Método de Autenticação|O valor de `ImportExportStatesPath`elemento|Localização de Blobs de registo|  
+|Método de Autenticação|Valor de `ImportExportStatesPath`elemento|Localização dos Blobs de registo|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Chave de conta de armazenamento|Valor predefinido|Um contentor com o nome `waimportexport`, que é o contentor predefinido. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Chave de conta de armazenamento|Valor de utilizador especificado|Um contentor com o nome de utilizador. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
-|Contentor SAS|Valor predefinido|Um diretório virtual com o nome `waimportexport`, que é o nome predefinido, sob o contentor especificado na SAS.<br /><br /> Por exemplo, se a SAS especificado para a tarefa é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, em seguida, a localização do registo seria`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
-|Contentor SAS|Valor de utilizador especificado|Um diretório virtual com o nome de utilizador, sob o contentor especificado na SAS.<br /><br /> Por exemplo, se a SAS especificado para a tarefa é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, e o nome do diretório virtual especificados `mylogblobs`, em seguida, a localização do registo seria `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
+|Chave da conta de armazenamento|Valor predefinido|Um contentor com o nome `waimportexport`, que é o contentor predefinido. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Chave da conta de armazenamento|Valor especificado pelo utilizador|Um contentor com o nome pelo utilizador. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|SAS de contentor|Valor predefinido|Um diretório virtual com o nome `waimportexport`, que é o nome predefinido, sob o contentor especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para a tarefa é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, seria a localização do registo `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
+|SAS de contentor|Valor especificado pelo utilizador|Um diretório virtual com o nome pelo usuário, por baixo do contentor especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para a tarefa é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, e o nome do diretório virtual especificado `mylogblobs`, em seguida, a localização do registo seria `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Pode obter o URL para os registos verbosos e erro ao chamar o [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação. Os registos estão disponíveis após a conclusão do processamento da unidade.  
+Pode obter o URL para os registos verbosos e um erro ao chamar o [Get Job de](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação. Os registos estão disponíveis após a conclusão do processamento da unidade.  
   
 ## <a name="log-file-format"></a>Formato de ficheiro de registo  
-O formato para ambos os registos é o mesmo: um blob que contém descrições de XML dos eventos que ocorreram durante a cópia de blobs entre o disco rígido e a conta do cliente.  
+O formato para ambos os logs é o mesmo: um blob que contém descrições de XML dos eventos que ocorreram ao copiar blobs entre o disco rígido e a conta do cliente.  
   
-O registo verboso contém informações sobre o estado da operação de cópia de cada blob (para uma tarefa de importação) ou o ficheiro (para uma tarefa de exportação), enquanto que o registo de erros contém apenas as informações de blobs ou ficheiros que encontrou erros durante a importação ou tarefa de exportação.  
+O registo verboso contém informações completas sobre o estado da operação de cópia para cada blob (para uma tarefa de importação) ou o ficheiro (para uma tarefa de exportação), ao passo que o registo de erros contém apenas as informações de blobs ou ficheiros que encontrou erros durante a importação ou tarefa de exportação.  
   
-O formato de registo verboso é mostrado abaixo. O registo de erros tem a mesma estrutura, mas filtra operações com êxito.  
+O formato de registo verboso é mostrado abaixo. O registo de erros com a mesma estrutura, mas filtra as operações bem-sucedidas.  
 
 ```xml
 <DriveLog Version="2014-11-01">  
@@ -110,89 +104,89 @@ A tabela seguinte descreve os elementos do ficheiro de registo.
 |Elemento XML|Tipo|Descrição|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa um registo de unidade.|  
-|`Version`|Atributo, cadeia|A versão do formato de registo.|  
-|`DriveId`|Cadeia|Número de série de hardware a unidade.|  
-|`Status`|Cadeia|Estado do processamento de unidade. Consulte o `Drive Status Codes` tabela abaixo para obter mais informações.|  
-|`Blob`|Aninhada elemento XML|Representa um blob.|  
+|`Version`|Atributo de cadeia de caracteres|A versão do formato de registo.|  
+|`DriveId`|Cadeia|Número de série de hardware da unidade.|  
+|`Status`|Cadeia|Estado do processamento da unidade. Consulte o `Drive Status Codes` da tabela abaixo para obter mais informações.|  
+|`Blob`|Elemento XML aninhado|Representa um blob.|  
 |`Blob/BlobPath`|Cadeia|O URI do blob.|  
 |`Blob/FilePath`|Cadeia|O caminho relativo para o ficheiro na unidade.|  
-|`Blob/Snapshot`|DateTime|A versão de instantâneos do blob, para apenas uma tarefa de exportação.|  
+|`Blob/Snapshot`|DateTime|A versão de instantâneo de blob, para apenas uma tarefa de exportação.|  
 |`Blob/Length`|Número inteiro|O comprimento total do blob em bytes.|  
 |`Blob/LastModified`|DateTime|A data/hora que o blob foi modificado pela última vez, para apenas uma tarefa de exportação.|  
-|`Blob/ImportDisposition`|Cadeia|A disposição de importação do blob, apenas uma tarefa de importação.|  
-|`Blob/ImportDisposition/@Status`|Atributo, cadeia|O estado da disposição de importação.|  
-|`PageRangeList`|Aninhada elemento XML|Representa uma lista de intervalos de página para um blob de página.|  
+|`Blob/ImportDisposition`|Cadeia|A disposição de importação do blob, para apenas uma tarefa de importação.|  
+|`Blob/ImportDisposition/@Status`|Atributo de cadeia de caracteres|O estado da eliminação de importação.|  
+|`PageRangeList`|Elemento XML aninhado|Representa uma lista de intervalos de página para um blob de página.|  
 |`PageRange`|Elemento XML|Representa um intervalo de páginas.|  
-|`PageRange/@Offset`|Atributo de número inteiro|Deslocamento do intervalo de páginas de início no blob.|  
-|`PageRange/@Length`|Atributo de número inteiro|Comprimento em bytes do intervalo de páginas.|  
-|`PageRange/@Hash`|Atributo, cadeia|Com codificação Base16 hash MD5 do intervalo de página.|  
-|`PageRange/@Status`|Atributo, cadeia|Estado de processamento o intervalo de páginas.|  
-|`BlockList`|Aninhada elemento XML|Representa uma lista de blocos para um blob de blocos.|  
+|`PageRange/@Offset`|Atributo de número inteiro|Deslocamento inicial do intervalo de página no blob.|  
+|`PageRange/@Length`|Atributo de número inteiro|Comprimento em bytes do intervalo de página.|  
+|`PageRange/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 de intervalo de páginas.|  
+|`PageRange/@Status`|Atributo de cadeia de caracteres|Estado de processamento o intervalo de páginas.|  
+|`BlockList`|Elemento XML aninhado|Representa uma lista de blocos para um blob de blocos.|  
 |`Block`|Elemento XML|Representa um bloco.|  
-|`Block/@Offset`|Atributo de número inteiro|A partir de deslocamento do bloco do blob.|  
-|`Block/@Length`|Atributo de número inteiro|Comprimento em bytes, o bloco.|  
-|`Block/@Id`|Atributo, cadeia|O ID do bloco.|  
-|`Block/@Hash`|Atributo, cadeia|Com codificação Base16 hash MD5 do bloco.|  
-|`Block/@Status`|Atributo, cadeia|Estado de processamento o bloco.|  
-|`Metadata`|Aninhada elemento XML|Representa os metadados do blob.|  
-|`Metadata/@Status`|Atributo, cadeia|Estado de processamento dos metadados do blob.|  
+|`Block/@Offset`|Atributo de número inteiro|Deslocamento inicial do bloco no blob.|  
+|`Block/@Length`|Atributo de número inteiro|Comprimento em bytes do bloco.|  
+|`Block/@Id`|Atributo de cadeia de caracteres|O ID de bloco.|  
+|`Block/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do bloco.|  
+|`Block/@Status`|Atributo de cadeia de caracteres|Estado de processamento do bloco.|  
+|`Metadata`|Elemento XML aninhado|Representa os metadados do blob.|  
+|`Metadata/@Status`|Atributo de cadeia de caracteres|Estado do processamento dos metadados do blob.|  
 |`Metadata/GlobalPath`|Cadeia|Caminho relativo para o ficheiro de metadados globais.|  
-|`Metadata/GlobalPath/@Hash`|Atributo, cadeia|Com codificação Base16 hash MD5 do ficheiro de metadados globais.|  
+|`Metadata/GlobalPath/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do ficheiro de metadados globais.|  
 |`Metadata/Path`|Cadeia|Caminho relativo para o ficheiro de metadados.|  
-|`Metadata/Path/@Hash`|Atributo, cadeia|Com codificação Base16 hash MD5 do ficheiro de metadados.|  
-|`Properties`|Aninhada elemento XML|Representa as propriedades de blob.|  
-|`Properties/@Status`|Atributo, cadeia|Estado do processamento de propriedades blob, por exemplo, ficheiro não encontrado; foi concluída.|  
-|`Properties/GlobalPath`|Cadeia|Caminho relativo para o ficheiro de propriedades globais.|  
-|`Properties/GlobalPath/@Hash`|Atributo, cadeia|Com codificação Base16 hash MD5 do ficheiro global propriedades.|  
-|`Properties/Path`|Cadeia|Caminho relativo para o ficheiro de propriedades.|  
-|`Properties/Path/@Hash`|Atributo, cadeia|Com codificação Base16 hash MD5 do ficheiro de propriedades.|  
-|`Blob/Status`|Cadeia|Estado de processamento o blob.|  
+|`Metadata/Path/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do ficheiro de metadados.|  
+|`Properties`|Elemento XML aninhado|Representa as propriedades do blob.|  
+|`Properties/@Status`|Atributo de cadeia de caracteres|Estado do processamento de propriedades do blob, por exemplo, ficheiro não encontrado, foi concluída.|  
+|`Properties/GlobalPath`|Cadeia|Caminho relativo para o arquivo de propriedades globais.|  
+|`Properties/GlobalPath/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do arquivo de propriedades globais.|  
+|`Properties/Path`|Cadeia|Caminho relativo para o arquivo de propriedades.|  
+|`Properties/Path/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do arquivo de propriedades.|  
+|`Blob/Status`|Cadeia|Estado do processamento de blob.|  
   
 # <a name="drive-status-codes"></a>Códigos de estado de unidade  
 A tabela seguinte lista os códigos de estado para uma unidade de processamento.  
   
 |Código de estado|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|A unidade concluiu o processamento sem erros.|  
-|`CompletedWithWarnings`|A unidade concluiu o processamento com avisos num ou mais blobs pelos dispositions de importação especificados para os blobs.|  
-|`CompletedWithErrors`|O disco foi concluída com erros de um ou mais blobs ou segmentos.|  
+|`Completed`|A unidade de terminar de processar sem erros.|  
+|`CompletedWithWarnings`|A unidade termina o processamento com avisos num ou mais blobs pelos dispositions de importação especificados para os blobs.|  
+|`CompletedWithErrors`|A unidade foi concluída com erros num ou mais blobs ou segmentos.|  
 |`DiskNotFound`|É encontrado nenhum disco na unidade.|  
 |`VolumeNotNtfs`|O primeiro volume de dados no disco não está no formato NTFS.|  
 |`DiskOperationFailed`|Ocorreu uma falha desconhecida ao realizar operações na unidade.|  
 |`BitLockerVolumeNotFound`|Não foi encontrado nenhum volume encryptable do BitLocker.|  
 |`BitLockerNotActivated`|O BitLocker não está ativado no volume.|  
 |`BitLockerProtectorNotFound`|O protetor de chave de palavra-passe numérica não existe no volume.|  
-|`BitLockerKeyInvalid`|A palavra-passe numérica fornecido não é possível desbloquear o volume.|  
-|`BitLockerUnlockVolumeFailed`|Falha desconhecida tiver ocorrido durante a tentativa de desbloquear o volume.|  
-|`BitLockerFailed`|Ocorreu uma falha desconhecida ao executar operações de BitLocker.|  
+|`BitLockerKeyInvalid`|A palavra-passe numérica fornecida não é possível desbloquear o volume.|  
+|`BitLockerUnlockVolumeFailed`|Falha desconhecida ocorreu ao tentar desbloquear o volume.|  
+|`BitLockerFailed`|Ocorreu uma falha desconhecida ao executar operações de disco BitLocker.|  
 |`ManifestNameInvalid`|O nome de ficheiro de manifesto é inválido.|  
 |`ManifestNameTooLong`|O nome de ficheiro de manifesto é demasiado longo.|  
 |`ManifestNotFound`|O ficheiro de manifesto não foi encontrado.|  
-|`ManifestAccessDenied`|É negado o acesso ao ficheiro de manifesto.|  
-|`ManifestCorrupted`|O ficheiro de manifesto está danificado (o conteúdo não corresponde ao respetivo hash).|  
-|`ManifestFormatInvalid`|O conteúdo de manifesto não é compatível com o formato requerido.|  
-|`ManifestDriveIdMismatch`|O ID de unidade no ficheiro de manifesto não corresponde a uma leitura da unidade.|  
-|`ReadManifestFailed`|Ocorreu uma falha de e/s do disco ao ler o manifesto.|  
-|`BlobListFormatInvalid`|O blob de lista de BLOBs de exportação não é compatível com o formato requerido.|  
-|`BlobRequestForbidden`|Acesso para os blobs na conta de armazenamento é proibido. Isto pode dever-se a chave de conta de armazenamento inválido ou contentor SAS.|  
-|`InternalError`|E, Ocorreu um erro interno ao processar a unidade.|  
+|`ManifestAccessDenied`|Acesso ao arquivo de manifesto é negado.|  
+|`ManifestCorrupted`|O ficheiro de manifesto está danificado (o conteúdo não coincide com o hash).|  
+|`ManifestFormatInvalid`|O conteúdo de manifesto não obedece ao formato necessário.|  
+|`ManifestDriveIdMismatch`|O ID de unidade no arquivo de manifesto não corresponde a uma leitura da unidade.|  
+|`ReadManifestFailed`|Ocorreu um falha de e/s de disco ao ler a partir do manifesto.|  
+|`BlobListFormatInvalid`|O blob de lista de blob de exportação não obedece ao formato necessário.|  
+|`BlobRequestForbidden`|Acesso para os blobs na conta de armazenamento é proibido. Isto pode dever-se a chave de conta de armazenamento inválido ou SAS do contentor.|  
+|`InternalError`|E Ocorreu um erro interno ao processar a unidade.|  
   
 ## <a name="blob-status-codes"></a>Códigos de estado de blob  
-A tabela seguinte lista os códigos de estado de processamento de um blob.  
+A tabela seguinte lista os códigos de estado para o processamento de um blob.  
   
 |Código de estado|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|O blob concluiu o processamento sem erros.|  
-|`CompletedWithErrors`|O blob concluiu o processamento de erros em um ou mais intervalos de página ou blocos, os metadados ou propriedades.|  
+|`Completed`|O blob terminar de processar sem erros.|  
+|`CompletedWithErrors`|O blob terminou o processamento de erros em um ou mais intervalos de página ou blocos, metadados ou as propriedades.|  
 |`FileNameInvalid`|O nome de ficheiro é inválido.|  
 |`FileNameTooLong`|O nome de ficheiro é demasiado longo.|  
-|`FileNotFound`|O ficheiro não encontrado.|  
+|`FileNotFound`|O ficheiro não foi encontrado.|  
 |`FileAccessDenied`|É negado o acesso ao ficheiro.|  
-|`BlobRequestFailed`|Falhou o pedido de serviço Blob para aceder a BLOBs.|  
-|`BlobRequestForbidden`|O pedido de serviço Blob para aceder a BLOBs é proibido. Isto pode dever-se a chave de conta de armazenamento inválido ou contentor SAS.|  
+|`BlobRequestFailed`|O pedido de serviço de BLOBs para aceder ao blob falhou.|  
+|`BlobRequestForbidden`|O pedido de serviço de BLOBs para aceder ao blob é proibido. Isto pode dever-se a chave de conta de armazenamento inválido ou SAS do contentor.|  
 |`RenameFailed`|Falha ao mudar o nome do blob (para uma tarefa de importação) ou o ficheiro (para uma tarefa de exportação).|  
-|`BlobUnexpectedChange`|Tiver ocorrido uma alteração inesperada com o blob (para uma tarefa de exportação).|  
-|`LeasePresent`|Há uma concessão presente no blob.|  
+|`BlobUnexpectedChange`|Ocorreu uma alteração inesperada com o blob (para uma tarefa de exportação).|  
+|`LeasePresent`|Existe uma concessão presente no blob.|  
 |`IOFailed`|Ocorreu uma falha de e/s de disco ou de rede ao processar o blob.|  
 |`Failed`|Ocorreu uma falha desconhecida ao processar o blob.|  
   
@@ -202,65 +196,65 @@ A tabela seguinte lista os códigos de estado para resolver uma disposição de 
 |Código de estado|Descrição|  
 |-----------------|-----------------|  
 |`Created`|O blob foi criado.|  
-|`Renamed`|O blob foi alterado por disposição de importação de mudança de nome. O `Blob/BlobPath` elemento contém o URI para o blob cujo nome foi alterado.|  
+|`Renamed`|O blob foi alterado por disposição de importação de mudança de nome. O `Blob/BlobPath` elemento contém o URI para o blob nome mudado.|  
 |`Skipped`|O blob foi ignorado por `no-overwrite` importar disposição.|  
-|`Overwritten`|O blob substituíram um blob existente por `overwrite` importar disposição.|  
-|`Cancelled`|Uma falha anterior foi parado o processamento a disposição de importação.|  
+|`Overwritten`|O blob tem de substituir um blob existente por `overwrite` importar disposição.|  
+|`Cancelled`|Uma falha anterior foi parado o processamento da eliminação de importação.|  
   
 ## <a name="page-rangeblock-status-codes"></a>Códigos de estado de intervalo/bloco de página  
-A tabela seguinte lista os códigos de estado de processamento de um intervalo de página ou um bloco.  
+A tabela seguinte lista os códigos de estado para o processamento de um intervalo de página ou um bloco.  
   
 |Código de estado|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|O intervalo de páginas ou bloco concluiu o processamento sem erros.|  
-|`Committed`|O bloco tiver sido consolidado, mas não no bloco de completo lista porque outros blocos tem falha ou coloque a lista de bloqueios completa próprio tem falhou.|  
+|`Completed`|O intervalo de páginas ou o bloco de terminar de processar sem erros.|  
+|`Committed`|O bloco foi confirmado, mas não em todo o bloco lista porque outros blocos tem falha ou colocar a lista completa de bloco em si falhou.|  
 |`Uncommitted`|O bloco é carregado, mas não consolidado.|  
-|`Corrupted`|O intervalo de páginas ou bloco está danificado (o conteúdo não corresponde ao respetivo hash).|  
-|`FileUnexpectedEnd`|Foi detetado um fim inesperado do ficheiro.|  
+|`Corrupted`|O intervalo de páginas ou de bloqueios está danificado (o conteúdo não coincide com o hash).|  
+|`FileUnexpectedEnd`|Foi detetado um fim de ficheiro inesperado.|  
 |`BlobUnexpectedEnd`|Foi detetado um fim inesperado do blob.|  
-|`BlobRequestFailed`|Falhou o pedido de serviço Blob para aceder ao intervalo de página ou o bloco.|  
-|`IOFailed`|Ocorreu uma falha de e/s de disco ou de rede ao processar o intervalo de página ou o bloco.|  
-|`Failed`|Ocorreu uma falha desconhecida ao processar o intervalo de página ou o bloco.|  
-|`Cancelled`|Uma falha anterior foi parado o processamento adicional do bloco ou intervalo de páginas.|  
+|`BlobRequestFailed`|O pedido de serviço de BLOBs para aceder ao intervalo de páginas ou bloco falhou.|  
+|`IOFailed`|Ocorreu uma falha de e/s de disco ou de rede ao processar o intervalo de páginas ou de bloqueios.|  
+|`Failed`|Ocorreu uma falha desconhecida ao processar o intervalo de páginas ou de bloqueios.|  
+|`Cancelled`|Uma falha anterior foi parado o processamento adicional do intervalo de páginas ou bloco.|  
   
 ## <a name="metadata-status-codes"></a>Códigos de estado de metadados  
-A tabela seguinte lista os códigos de estado de processamento de metadados do blob.  
+A tabela seguinte lista os códigos de estado para o processamento de metadados do blob.  
   
 |Código de estado|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|Os metadados concluiu o processamento sem erros.|  
+|`Completed`|Os metadados de terminar de processar sem erros.|  
 |`FileNameInvalid`|O nome de ficheiro de metadados é inválido.|  
 |`FileNameTooLong`|O nome de ficheiro de metadados é demasiado longo.|  
 |`FileNotFound`|O ficheiro de metadados não foi encontrado.|  
 |`FileAccessDenied`|É negado o acesso ao ficheiro de metadados.|  
-|`Corrupted`|O ficheiro de metadados está danificado (o conteúdo não corresponde ao respetivo hash).|  
-|`XmlReadFailed`|O conteúdo de metadados não é compatível com o formato requerido.|  
-|`XmlWriteFailed`|Escrever os metadados de XML falhou.|  
-|`BlobRequestFailed`|Falhou o pedido de serviço Blob para aceder aos metadados.|  
+|`Corrupted`|O ficheiro de metadados está danificado (o conteúdo não coincide com o hash).|  
+|`XmlReadFailed`|O conteúdo de metadados não obedece ao formato necessário.|  
+|`XmlWriteFailed`|Escrever os metadados XML falhou.|  
+|`BlobRequestFailed`|O pedido de serviço de BLOBs para acessar os metadados falhou.|  
 |`IOFailed`|Ocorreu uma falha de e/s de disco ou de rede ao processar os metadados.|  
 |`Failed`|Ocorreu uma falha desconhecida ao processar os metadados.|  
 |`Cancelled`|Uma falha anterior foi parado o processamento adicional dos metadados.|  
   
 ## <a name="properties-status-codes"></a>Códigos de estado de propriedades  
-A tabela seguinte lista os códigos de estado de processamento de propriedades de blob.  
+A tabela seguinte lista os códigos de estado para o processamento de propriedades do blob.  
   
 |Código de estado|Descrição|  
 |-----------------|-----------------|  
-|`Completed`|As propriedades tem concluído o processamento sem erros.|  
-|`FileNameInvalid`|O nome de ficheiro de propriedades é inválido.|  
-|`FileNameTooLong`|O nome de ficheiro de propriedades é demasiado longo.|  
-|`FileNotFound`|O ficheiro de propriedades não foi encontrado.|  
-|`FileAccessDenied`|É negado o acesso ao ficheiro de propriedades.|  
-|`Corrupted`|O ficheiro de propriedades está corrompido (o conteúdo não corresponde ao respetivo hash).|  
-|`XmlReadFailed`|O conteúdo de propriedades não é compatível com o formato requerido.|  
-|`XmlWriteFailed`|Escrever as propriedades de XML falhou.|  
-|`BlobRequestFailed`|Falhou o pedido de serviço Blob para aceder às propriedades.|  
+|`Completed`|As propriedades terminou o processamento sem erros.|  
+|`FileNameInvalid`|O nome do arquivo de propriedades é inválido.|  
+|`FileNameTooLong`|O nome do arquivo de propriedades é demasiado longo.|  
+|`FileNotFound`|O arquivo de propriedades não for encontrado.|  
+|`FileAccessDenied`|É negado o acesso ao arquivo de propriedades.|  
+|`Corrupted`|O ficheiro de propriedades está danificado (o conteúdo não coincide com o hash).|  
+|`XmlReadFailed`|O conteúdo de propriedades não obedece ao formato necessário.|  
+|`XmlWriteFailed`|Escrever as propriedades XML falhou.|  
+|`BlobRequestFailed`|O pedido de serviço de BLOBs para aceder às propriedades falhou.|  
 |`IOFailed`|Ocorreu uma falha de e/s de disco ou de rede ao processar as propriedades.|  
 |`Failed`|Ocorreu uma falha desconhecida ao processar as propriedades.|  
 |`Cancelled`|Uma falha anterior foi parado o processamento adicional das propriedades.|  
   
 ## <a name="sample-logs"></a>Registos de exemplo  
-Segue-se um exemplo de registo verboso.  
+Segue-se um exemplo de log detalhado.  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -316,7 +310,7 @@ O registo de erros correspondente é mostrado abaixo.
 </DriveLog>  
 ```
 
- O registo de erros de seguir para uma tarefa de importação contém um erro sobre um ficheiro não encontrado na unidade de importação. Tenha em atenção que o estado dos componentes subsequentes `Cancelled`.  
+ O registo de erros de seguir para uma tarefa de importação contém um erro sobre um arquivo não encontrado na unidade de importação. Tenha em atenção que é o estado dos componentes subsequentes `Cancelled`.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -339,7 +333,7 @@ O registo de erros correspondente é mostrado abaixo.
 </DriveLog>  
 ```
 
-O seguinte registo de erros para uma tarefa de exportação indica que o conteúdo de blob foi escrito com êxito para a unidade, mas que ocorreu um erro ao exportar as propriedades do blob.  
+O seguinte registo de erros para uma tarefa de exportação indica que o conteúdo do blob foi escrito com êxito para a unidade, mas que ocorreu um erro ao exportar as propriedades do blob.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -357,6 +351,6 @@ O seguinte registo de erros para uma tarefa de exportação indica que o conteú
 </DriveLog>  
 ```
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
  
-* [API de REST do Storage para importar/exportar](/rest/api/storageimportexport/)
+* [API de REST de importação/exportação de armazenamento](/rest/api/storageimportexport/)

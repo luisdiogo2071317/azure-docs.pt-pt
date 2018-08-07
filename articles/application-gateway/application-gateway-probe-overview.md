@@ -2,51 +2,43 @@
 title: Estado de funcionamento da descrição geral da monitorização para o Gateway de aplicação do Azure
 description: Saiba mais sobre as capacidades de monitorização no Gateway de aplicação do Azure
 services: application-gateway
-documentationcenter: na
 author: vhorne
 manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/30/2018
+ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30310910"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531531"
 ---
-# <a name="application-gateway-health-monitoring-overview"></a>Gateway estado de funcionamento monitorização descrição geral da aplicação
+# <a name="application-gateway-health-monitoring-overview"></a>Descrição geral do Application Gateway health monitorização
 
-Gateway de aplicação do Azure por predefinição monitoriza o estado de funcionamento de todos os recursos no seu conjunto de back-end e remove automaticamente qualquer recurso considerado em mau estado de funcionamento do agrupamento. Gateway de aplicação continua a monitorizar as instâncias de mau estado de funcionamento e adiciona-a novamente para o bom conjunto de back-end assim que estes fiquem disponíveis e respondem a sondas de estado de funcionamento. Gateway de aplicação envia que as sondas de estado de funcionamento com a mesma porta que está definida nas definições de HTTP de back-end. Esta configuração assegura que a sonda consiste em testar a mesma porta que os clientes estariam a utilizar para ligar ao back-end.
+O Gateway de aplicação do Azure por predefinição monitoriza o estado de funcionamento de todos os recursos no seu conjunto de back-end e automaticamente remove qualquer recurso considerado em mau estado de funcionamento do conjunto. Gateway de aplicação continua a monitorizar as instâncias em mau estado de funcionamento e adiciona-os novamente para o conjunto de back-end em bom estado, uma vez que eles se tornarem disponíveis e respondem às sondas de estado de funcionamento. Gateway de aplicação envia que o estado de funcionamento sondas com a mesma porta que é definida nas definições de HTTP de back-end. Esta configuração garante que a sonda está a testar a mesma porta que os clientes estariam a utilizar para ligar ao back-end.
 
 ![exemplo de sonda de gateway de aplicação][1]
 
-Para além de utilizar a monitorização de sonda de estado de funcionamento do predefinida, também pode personalizar a sonda de estado de funcionamento de acordo com os requisitos da sua aplicação. Neste artigo, são abordadas predefinido e sondas de estado de funcionamento personalizados.
-
-> [!NOTE]
-> Se existir um NSG na sub-rede de Gateway de aplicação, intervalos de portas 65503 65534 devem ser abertos na sub-rede do Gateway de aplicação para o tráfego de entrada. Estas portas são necessárias para o estado de funcionamento do back-end API para trabalhar.
+Além de utilizar a monitorização de sonda de estado de funcionamento do predefinido, também pode personalizar a sonda de estado de funcionamento para atender às necessidades da sua aplicação. Neste artigo, são abordadas predefinido e sondas de estado de funcionamento personalizados.
 
 ## <a name="default-health-probe"></a>Sonda de estado de funcionamento predefinida
 
-Um gateway de aplicação é configurada automaticamente uma sonda do Estado de funcionamento predefinida quando não configurada qualquer configuração de sonda personalizada. O comportamento de monitorização funciona efetuando um pedido de HTTP para os endereços IP configurados para o conjunto de back-end. Para as pesquisas de predefinição se as definições de http de back-end são configuradas para HTTPS, a sonda utiliza HTTPS, bem como para testar os back-ends de estado de funcionamento.
+Um gateway de aplicação configura automaticamente uma sonda de estado de funcionamento predefinida quando não configurada qualquer configuração de sonda personalizada. O comportamento de monitorização funciona fazendo uma solicitação HTTP para os endereços IP configurados para o conjunto de back-end. Para sondas padrão se as definições de http de back-end estão configuradas para HTTPS, a sonda utiliza HTTPS também para testar o estado de funcionamento dos back-ends.
 
-Por exemplo: configurar o gateway de aplicação para utilizar servidores de back-end A, B e C para receber o tráfego de rede HTTP na porta 80. A monitorização de estado de funcionamento de predefinição testes os três servidores cada 30 segundos para um bom estado de funcionamento resposta HTTP. Uma resposta HTTP bom estado de funcionamento tem um [código de estado](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
+Por exemplo: configurar o gateway de aplicação para utilizar servidores de back-end A, B e C para receber o tráfego de rede HTTP na porta 80. A monitorização de estado de funcionamento de predefinição testa os três servidores a cada 30 segundos para uma resposta HTTP em bom estado. Uma bom estado de funcionamento resposta HTTP tem um [código de estado](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
 
-Se falhar a verificação de pesquisa predefinida para o servidor A, o gateway de aplicação remove-o conjunto de back-end e deixa de tráfego de rede que fluem para este servidor. A sonda predefinida ainda continua a verificar a existência de servidor um cada 30 segundos. Quando A responde com êxito para um pedido de uma pesquisa de estado de funcionamento predefinida, que é adicionado novamente como bom estado de funcionamento para o conjunto de back-end e tráfego começa a fluir novamente para o servidor.
+Se falhar a verificação de sonda de padrão para o servidor A, o gateway de aplicação remove-o do seu conjunto de back-end e deixa de tráfego de rede que fluem para este servidor. A sonda predefinida ainda continua a verificar a existência de servidor um cada 30 segundos. Quando o servidor A responde com êxito a uma solicitação de uma sonda de estado de funcionamento predefinida, é adicionado novamente como bom estado de funcionamento para o conjunto de back-end e o tráfego começar a fluir para o servidor novamente.
 
-### <a name="probe-matching"></a>Correspondência de pesquisa
+### <a name="probe-matching"></a>Correspondência de sonda
 
-Por predefinição, uma resposta de HTTP (S) com o código de estado 200 é considerada em bom estado. Além disso, sondas de estado de funcionamento personalizado suportam dois critérios correspondentes. Critérios de correspondência podem ser utilizado para, opcionalmente, modifique a interpretação de predefinição do que consititutes uma resposta de bom estado de funcionamento.
+Por predefinição, uma resposta de HTTP (S) com o código de estado 200 é considerada em bom estado. Além disso, sondas de estado de funcionamento personalizados suportam dois critérios de correspondência. Critérios de correspondência podem ser utilizado para, opcionalmente, modifique a interpretação de padrão do que constitui uma resposta de bom estado de funcionamento.
 
-São correspondentes aos critérios: 
+A seguir é correspondentes aos critérios: 
 
-- **Correspondência de código de estado de resposta HTTP** - sonda correspondente critério para aceitar o utilizador especificado http resposta código ou resposta código intervalos. Códigos de estado de resposta de separados por vírgulas individual ou um intervalo de código de estado é suportado.
-- **Correspondência de corpo de resposta HTTP** - correspondência de critério que se parece no corpo da resposta HTTP e corresponde a um utilizador especificado cadeia de pesquisa. Tenha em atenção que apenas procura a correspondência de presença de utilizador especificado cadeia no corpo de resposta e não é uma correspondência de expressão regular completa.
+- **Correspondência de código de estado de resposta HTTP** - critério para abertos ao recebimento de correspondência de sonda http resposta código ou resposta intervalos de código especificadas pelo utilizador. Códigos de estado de resposta separados por vírgulas individuais ou um intervalo de código de estado é suportado.
+- **Correspondência de corpo de resposta HTTP** - critério que examina o corpo de resposta HTTP e as correspondências com um utilizador especificado a cadeia de caracteres de correspondência de sonda. O aspeto de apenas de correspondência de presença do utilizador especificado no corpo de resposta de cadeias de caracteres e não é uma correspondência de expressão regular completa.
 
 Critérios de correspondência podem ser especificados utilizando o `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
@@ -56,45 +48,57 @@ Por exemplo:
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-Depois dos critérios de correspondência for especificado, podem ser anexado a pesquisa de configuração utilizando uma `-Match` parâmetro no PowerShell.
+Assim que os critérios de correspondência for especificado, pode ser anexado a configuração através de sonda um `-Match` parâmetro no PowerShell.
 
 ### <a name="default-health-probe-settings"></a>Predefinições de sonda de estado de funcionamento
 
 | Propriedade de pesquisa | Valor | Descrição |
 | --- | --- | --- |
-| URL de Pesquisa |http://127.0.0.1:\<porta\>/ |Caminho do URL |
-| Intervalo |30 |Intervalo de pesquisa em segundos |
-| Tempo limite |30 |Sonda de tempo limite em segundos |
-| Limiar de mau estado de funcionamento |3 |Sonda de contagem de repetições. O servidor de back-end está marcado como após o número de falhas de sonda consecutivas atinge o limiar de mau estado de funcionamento. |
+| URL de Pesquisa |http://127.0.0.1:\<port\>/ |Caminho do URL |
+| Intervalo |30 |A quantidade de tempo em segundos a aguardar antes da próxima sonda de estado de funcionamento é enviada.|
+| Tempo limite |30 |A quantidade de tempo em segundos, o gateway de aplicação aguarda uma resposta de sonda antes de os marcar a sonda como mau estado de funcionamento. Se uma sonda retornar saudável, o back-end correspondente será imediatamente marcado como em bom estado.|
+| Limiar de mau estado de funcionamento |3 |Controla quantas sondas para enviar no caso de falha da sonda de estado de funcionamento normal. Estas sondas de estado de funcionamento adicionais são enviadas numa rápida sucessão para determinar o estado de funcionamento do back-end rapidamente e não espere durante o intervalo de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 > [!NOTE]
-> A porta é a mesma porta as definições de HTTP de back-end.
+> A porta é a mesma porta que as definições de HTTP de back-end.
 
-A sonda predefinida analisa apenas http://127.0.0.1:\<porta\> para determinar o estado de funcionamento. Se precisar de configurar a sonda de estado de funcionamento para ir para um URL personalizado ou modificar todas as outras definições, tem de utilizar das sondas personalizadas conforme descrito nos passos seguintes:
+A sonda predefinida analisa apenas http://127.0.0.1:\<port\> para determinar o estado de funcionamento. Se precisar de configurar a sonda de estado de funcionamento para ir para um URL personalizado ou modificar outras definições, tem de utilizar as pesquisas personalizadas.
 
-## <a name="custom-health-probe"></a>Sonda de estado de funcionamento personalizado
+### <a name="probe-intervals"></a>Intervalos de sonda
 
-Das sondas personalizadas permitem-lhe ter um controlo mais granular sobre a monitorização de estado de funcionamento. Quando utilizar das sondas personalizadas, pode configurar o intervalo de pesquisa, o URL e caminho para testar e quantos falhadas as respostas de aceitar antes de marcar a instância de conjunto back-end como estando danificado.
+Todas as instâncias de Gateway de aplicação de sonda de back-end independente umas das outras. A mesma configuração de pesquisa aplica-se a cada instância de Gateway de aplicação. Por exemplo, se a configuração de sonda consiste em enviar sondas de estado de funcionamento a cada 30 segundos e o gateway de aplicação tem duas instâncias, em seguida, ambas as instâncias enviam a sonda de estado de funcionamento a cada 30 segundos.
 
-### <a name="custom-health-probe-settings"></a>Definições de pesquisa de estado de funcionamento personalizado
+Também se existirem várias escutas, cada serviço de escuta sonda o back-end independente umas das outras. Por exemplo, se existirem dois serviços de escuta que aponta para o mesmo conjunto de back-end em duas portas diferentes (configurado por duas definições de http de back-end), em seguida, cada serviço de escuta sondas back-end da mesmo forma independente. Neste caso, existem dois sondas de cada instância de gateway de aplicação para os dois serviços de escuta. Se existirem duas instâncias do gateway de aplicação neste cenário, a máquina virtual de back-end veria quatro sondas de acordo com o intervalo de sonda configurado.
 
-A tabela seguinte fornece definições para as propriedades de uma sonda do Estado de funcionamento personalizados.
+## <a name="custom-health-probe"></a>Sonda de estado de funcionamento personalizados
+
+As pesquisas personalizadas permitem que tenha um controle mais granular sobre a monitorização de estado de funcionamento. Ao utilizar sondas personalizadas, pode configurar o intervalo de pesquisa, o URL e caminho para testar e quantos respostas com falhas para aceitar antes de os marcar a instância de conjunto de back-end como mau estado de funcionamento.
+
+### <a name="custom-health-probe-settings"></a>Definições de sonda de estado de funcionamento personalizados
+
+A tabela seguinte fornece definições para as propriedades de uma sonda de estado de funcionamento personalizados.
 
 | Propriedade de pesquisa | Descrição |
 | --- | --- |
-| Nome |Nome da sonda. Este nome é utilizado para fazer referência para a sonda nas definições de HTTP de back-end. |
-| Protocolo |Protocolo utilizado para enviar a pesquisa. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
-| Anfitrião |Nome de anfitrião para enviar a pesquisa. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize '127.0.0.1'. Este valor é diferente do nome de anfitrião VM. |
-| Caminho |Caminho relativo da sonda. O caminho válido começa a partir do '/'. |
-| Intervalo |Intervalo de pesquisa em segundos. Este valor é o intervalo de tempo entre dois sondas consecutivos. |
-| Tempo limite |Sonda de tempo limite em segundos. Se uma resposta válida não foram recebida durante este período de tempo limite, a pesquisa está marcada como falhado.  |
-| Limiar de mau estado de funcionamento |Sonda de contagem de repetições. O servidor de back-end está marcado como após o número de falhas de sonda consecutivas atinge o limiar de mau estado de funcionamento. |
+| Nome |Nome da sonda. Este nome é utilizado para fazer referência a sonda nas definições de HTTP de back-end. |
+| Protocolo |Protocolo utilizado para enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
+| Anfitrião |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize "127.0.0.1". Este valor é diferente do nome de anfitrião VM. |
+| Caminho |Caminho relativo da sonda. O caminho válido começa com "/". |
+| Intervalo |Intervalo de sonda em segundos. Este valor é o intervalo de tempo entre dois sondas consecutivos. |
+| Tempo limite |Sonda de tempo limite em segundos. Se uma resposta válida não está a ser recebida durante este período de tempo limite, a sonda está marcada como falhado.  |
+| Limiar de mau estado de funcionamento |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 > [!IMPORTANT]
-> Se o Gateway de aplicação está configurada para um único site, por predefinição, o anfitrião nome deve ser especificado como '127.0.0.1', a menos que caso contrário configurado na sonda personalizada.
-> Para referência uma sonda personalizada é enviada para \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\>. A porta utilizada será a mesma porta, tal como definido nas definições de HTTP de back-end.
+> Se o Gateway de aplicação está configurado para um único site, por predefinição, o anfitrião nome deve ser especificado como '127.0.0.1', a menos que caso contrário, é configurado na sonda personalizada.
+> Para referência uma sonda personalizada é enviada ao \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\>. A porta utilizada será a mesma porta, conforme definido nas definições de HTTP de back-end.
+
+## <a name="nsg-considerations"></a>Considerações de NSG
+
+Se existir um grupo de segurança de rede (NSG) numa sub-rede de gateway de aplicação, intervalos de portas 65503 65534 têm de ser abertos na sub-rede de gateway de aplicação para tráfego de entrada. Estas portas são necessárias para o estado de funcionamento do back-end API para trabalhar.
+
+Além disso, conectividade de Internet de saída não pode ser bloqueada e o tráfego a partir da etiqueta AzureLoadBalancer têm de ser permitido.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Depois de aprendizagem sobre a monitorização de estado de funcionamento do Gateway de aplicação, pode configurar um [sonda do Estado de funcionamento personalizado](application-gateway-create-probe-portal.md) no portal do Azure ou um [sonda do Estado de funcionamento personalizado](application-gateway-create-probe-ps.md) com o PowerShell e o Azure Resource Manager modelo de implementação.
+Após a aprendizagem sobre a monitorização de estado de funcionamento do Gateway de aplicação, pode configurar uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-portal.md) no portal do Azure ou uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-ps.md) com o PowerShell e o Azure Resource Manager modelo de implementação.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

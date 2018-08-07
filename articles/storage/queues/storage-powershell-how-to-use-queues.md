@@ -1,41 +1,36 @@
 ---
-title: Efetuar operações em armazenamento de filas do Azure com o PowerShell | Microsoft Docs
+title: Executar operações no armazenamento de filas do Azure com o PowerShell | Documentos da Microsoft
 description: Como realizar operações no armazenamento de filas do Azure com o PowerShell
 services: storage
-documentationcenter: storage
 author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 0765e2b36f9d32c43e9f0042d2be0fab53e07b04
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.component: queues
+ms.openlocfilehash: 0b78f822bec2bd545331ed52f3339a07b5dfb466
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116292"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521052"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de filas do Azure com o Azure PowerShell
 
-Armazenamento de filas do Azure é um serviço para armazenar grandes quantidades de mensagens que podem ser acedidas de qualquer local no mundo através de HTTP ou HTTPS. Para obter informações detalhadas, consulte [introdução às filas do Azure](storage-queues-introduction.md). Este artigo procedimentos abrange operações de armazenamento de filas comuns. Saiba como:
+Armazenamento de filas do Azure é um serviço para armazenar grandes quantidades de mensagens que podem ser acedidas em qualquer local no mundo através de HTTP ou HTTPS. Para obter informações detalhadas, consulte [introdução às filas do Azure](storage-queues-introduction.md). Este artigo que mostra como abrange operações de armazenamento de filas comuns. Saiba como:
 
 > [!div class="checklist"]
 > * Criar uma fila
 > * Obter uma fila
-> * Adicionar uma mensagem
+> * Adicione uma mensagem
 > * Ler uma mensagem
 > * Eliminar uma mensagem 
 > * Eliminar uma fila
 
-Este procedimentos requer o Azure PowerShell versão do módulo 3,6 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+Nesta explicação de procedimento requer o Azure PowerShell versão 3.6 ou posterior do módulo. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
 
-Não existem nenhum cmdlets do PowerShell para o plane de dados para filas. Para efetuar dados operações plane como adicionar uma mensagem, leia uma mensagem e eliminar uma mensagem, terá de utilizar a biblioteca de clientes de armazenamento de .NET como o é exposto no PowerShell. Criar um objeto de mensagem e, em seguida, pode utilizar comandos como AddMessage para executar operações nessa mensagem. Este artigo mostra-lhe como fazê-lo.
+Não há nenhum cmdlets do PowerShell para o plano de dados para filas. Para executar os dados de operações do plano de como adicionar uma mensagem, leia uma mensagem e eliminar uma mensagem, precisa usar a biblioteca de cliente de armazenamento do .NET, como ele é exposto no PowerShell. Cria um objeto de mensagem e, em seguida, pode utilizar comandos, como AddMessage para realizar operações em que a mensagem. Este artigo mostra-lhe como fazer isso.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -47,7 +42,7 @@ Connect-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Obter a lista de localizações
 
-Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Depois de a lista ser apresentada, localize a que quer utilizar. Utilizará este exercício **eastus**. Armazene-o na variável **localização** para utilização futura.
+Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Depois de a lista ser apresentada, localize a que quer utilizar. Irá utilizar este exercício **eastus**. Store isso na variável **localização** para utilização futura.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -58,7 +53,7 @@ $location = "eastus"
 
 Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Armazene o nome do grupo de recursos numa variável para utilização futura. Neste exemplo, um grupo de recursos denominado *howtoqueuesrg* é criado no *eastus* região.
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Store o nome do grupo de recursos numa variável para utilização futura. Neste exemplo, um grupo de recursos chamado *howtoqueuesrg* é criado na *eastus* região.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -67,7 +62,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Criar conta de armazenamento
 
-Criar uma conta de armazenamento para fins gerais standard com a utilização do armazenamento localmente redundante (LRS) [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Obter o contexto da conta de armazenamento que define a conta de armazenamento a ser utilizado. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais.
+Criar uma conta de armazenamento para fins gerais com armazenamento localmente redundante (LRS) usando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Obtenha o contexto de conta de armazenamento que define a conta de armazenamento a ser utilizado. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
@@ -81,18 +76,18 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-O exemplo seguinte primeiro estabelece uma ligação ao armazenamento do Azure utilizando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e a sua chave de acesso. Em seguida, chama [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet para criar uma fila com o nome 'queuename'.
+O exemplo seguinte primeiro estabelece uma ligação ao armazenamento do Azure com o contexto da conta de armazenamento, que inclui o nome da conta de armazenamento e a sua chave de acesso. Em seguida, ele chama [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet para criar uma fila com o nome 'queuename'.
 
 ```powershell
 $queueName = "howtoqueue"
 $queue = New-AzureStorageQueue –Name $queueName -Context $ctx
 ```
 
-Para informações sobre as convenções de nomenclatura para o serviço de fila do Azure, consulte [nomenclatura de filas e metadados](http://msdn.microsoft.com/library/azure/dd179349.aspx).
+Para informações sobre as convenções de nomenclatura para Azure Queue Service, consulte [nomenclatura de filas e metadados](http://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Obter uma fila
 
-Pode consultar e obter uma fila específica ou uma lista de todas as filas de uma conta de armazenamento. Os exemplos seguintes demonstram como obter todas as filas na conta do storage e uma fila específica; ambos os comandos utilizam o [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet.
+Pode consultar e obter uma fila específica ou uma lista de todas as filas numa conta de armazenamento. Os exemplos seguintes demonstram como as pode recuperar todas as filas na conta de armazenamento e uma fila específica; os dois comandos utilizam o [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet.
 
 ```powershell
 # Retrieve a specific queue
@@ -104,11 +99,11 @@ $queue
 Get-AzureStorageQueue -Context $ctx | select Name
 ```
 
-## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem para uma fila
+## <a name="add-a-message-to-a-queue"></a>Adicione uma mensagem numa fila
 
-Operações com impacto reais mensagens na fila de utilizam a biblioteca de clientes de armazenamento de .NET como exposto no PowerShell. Para adicionar uma mensagem para uma fila, crie uma nova instância do objeto de mensagem, [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) classe. Em seguida, chame o método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). Um CloudQueueMessage pode ser criado a partir de uma cadeia (no formato UTF-8) ou uma matriz de bytes.
+Operações que afetam as mensagens reais na fila de utilizam a biblioteca de cliente de armazenamento de .NET como expostos no PowerShell. Para adicionar uma mensagem numa fila, crie uma nova instância do objeto message, [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) classe. Em seguida, chame o método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). Um CloudQueueMessage pode ser criado a partir de uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes.
 
-O exemplo seguinte mostra como adicionar uma mensagem para a fila.
+O exemplo seguinte demonstra como adicionar uma mensagem à sua fila.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
@@ -126,17 +121,17 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessage($QueueMessage)
 ```
 
-Se utilizar o [Explorador de armazenamento do Azure](http://storageexplorer.com), pode ligar à sua conta do Azure e ver as filas na conta de armazenamento e desagregar para uma fila para ver as mensagens na fila. 
+Se utilizar o [Explorador de armazenamento do Azure](http://storageexplorer.com), pode ligar à sua conta do Azure e ver as filas na conta de armazenamento e fazer uma busca detalhada numa fila para ver as mensagens na fila. 
 
-## <a name="read-a-message-from-the-queue-then-delete-it"></a>Ler uma mensagem da fila, em seguida, elimine-o
+## <a name="read-a-message-from-the-queue-then-delete-it"></a>Leia uma mensagem da fila, em seguida, eliminá-lo
 
-As mensagens são lidas por ordem melhor-tente primeiro na primeira fora. Não é garantida. Ao ler a mensagem da fila, torna-se invisível para todos os outros processos observar a fila. Isto garante que, se o código não conseguir processar a mensagem devido uma falha de hardware ou software, outra instância do seu código pode obter a mesma mensagem e tente novamente.  
+As mensagens são de leitura por ordem melhor: Experimente first-in-first-out. Não é garantido. Quando ler a mensagem da fila, torna-se invisível para todos os outros processos olhar para a fila. Isto garante que, se seu código não conseguir processar a mensagem devido uma falha de hardware ou software, outra instância do seu código pode obter a mesma mensagem e tente novamente.  
 
-Isto **tempo limite de invisibilidade** define quanto a mensagem permanece invisível antes de ser novamente disponível para processamento. A predefinição é 30 segundos. 
+Isso **tempo limite de invisibilidade** define o tempo que a mensagem permanece invisível antes de ser novamente disponível para processamento. A predefinição é 30 segundos. 
 
-O código lê uma mensagem da fila em dois passos. Quando chamar o [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) método, obterá a seguinte mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para acabar de remover a mensagem da fila, tem de chamar o [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) método. 
+Seu código ler uma mensagem da fila em dois passos. Quando chama a [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) método, obterá a seguinte mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para concluir a remover a mensagem da fila, chama o [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) método. 
 
-No exemplo seguinte, leu as mensagens de três fila, em seguida, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia as mensagens de três novamente, eliminar as mensagens depois de lê-los ao chamar **DeleteMessage**. Se tentar ler a fila depois das mensagens são eliminadas, $queueMessage será devolvido como NULL.
+No exemplo a seguir, leia as mensagens de fila de três depois, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia as mensagens de três novamente, a eliminar as mensagens depois de lê-los ao chamar **DeleteMessage**. Se tentar ler a fila depois das mensagens são eliminadas, $queueMessage será devolvido como NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -163,7 +158,7 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Eliminar uma fila
-Para eliminar uma fila e todas as mensagens nela contidas, chame o cmdlet Remove-AzureStorageQueue. O exemplo seguinte mostra como eliminar a fila específica utilizada neste exercício, utilizando o cmdlet Remove-AzureStorageQueue.
+Para eliminar uma fila e todas as mensagens contidas no mesmo, chame o cmdlet Remove-AzureStorageQueue. O exemplo seguinte mostra como eliminar a fila específica utilizada neste exercício, utilizando o cmdlet Remove-AzureStorageQueue.
 
 ```powershell
 # Delete the queue 
@@ -172,7 +167,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover todos os recursos que criou neste exercício, remova o grupo de recursos. Isto também elimina todos os recursos contidos no grupo. Neste caso, remove a conta de armazenamento criada e o grupo de recursos em si.
+Para remover todos os ativos que criou neste exercício, remova o grupo de recursos. Isto também elimina todos os recursos contidos no grupo. Neste caso, remove a conta de armazenamento que criou e o grupo de recursos.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -180,12 +175,12 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo procedimentos, aprendeu sobre a gestão de armazenamento de filas básica com o PowerShell, incluindo como:
+Neste artigo de procedimentos, aprendeu sobre a gestão de armazenamento de fila básica com o PowerShell, incluindo como:
 
 > [!div class="checklist"]
 > * Criar uma fila
 > * Obter uma fila
-> * Adicionar uma mensagem
+> * Adicione uma mensagem
 > * Ler a mensagem seguinte
 > * Eliminar uma mensagem 
 > * Eliminar uma fila

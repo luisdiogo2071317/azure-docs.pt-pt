@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239156"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525227"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Palavras com erros ortográficos corretas com verificação de ortografia do Bing
 
@@ -64,7 +64,7 @@ A consulta de ponto final tem da chave transmitida os parâmetros de cadeia de c
 
 O ponto final do URL tem vários valores que precisam ser passados corretamente. A chave da API de verificação ortográfica do Bing v7 é apenas mais um deles. Tem de definir o **verificação ortográfica** parâmetro para true e tem de definir o valor de **bing-ortográfica-check-subscription-key** para o valor da chave:
 
-https://{Region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appID}?Subscription-Key={luisKey}&spellCheck=**true**& como bing-ortográfica-check-subscription-key =**{bingKey}**& verboso = true & timezoneOffset = 0 Released & q = {expressão}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Enviar a expressão com erros ortográficos para LUIS
 1. Num browser, copie a cadeia de caracteres anterior e substitua a `region`, `appId`, `luisKey`, e `bingKey` pelos seus próprios valores. Certifique-se de utilizar a região de ponto final, se for diferente da sua publicação [região](luis-reference-regions.md).

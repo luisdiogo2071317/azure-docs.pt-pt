@@ -17,16 +17,16 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4111174e7ce000a978a7a5280a2561897500bdb6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505699"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578454"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v2.0?
 
-Quando criar aplicativos que se integram com o Azure Active Directory (Azure AD), precisa decidir se os protocolos de autenticação e de ponto final de v2.0 atender às suas necessidades. Ponto de extremidade original do Azure AD é ainda totalmente suportado e, em alguns aspetos, é mais rico do que a versão 2.0. No entanto, o ponto final v2.0 [apresenta vantagens consideráveis](active-directory-v2-compare.md) para desenvolvedores.
+Quando criar aplicativos que se integram com o Azure Active Directory (Azure AD), precisa decidir se os protocolos de autenticação e de ponto final de v2.0 atender às suas necessidades. Ponto de extremidade original do Azure AD é ainda totalmente suportado e, em alguns aspetos, é mais rico do que a versão 2.0. No entanto, o ponto final v2.0 [apresenta vantagens consideráveis](azure-ad-endpoint-comparison.md) para desenvolvedores.
 
 Aqui está uma recomendação simplificada para desenvolvedores no momento:
 

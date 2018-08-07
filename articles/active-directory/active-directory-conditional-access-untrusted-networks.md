@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b37c9017d6c9a8b1d5f53141e28c170307206f3b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2dea5686add93d93f35e82445f411035a2451e33
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225830"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525982"
 ---
 # <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>Como: Configurar políticas de acesso condicional para tentativas de acesso de redes não fidedignas   
 
@@ -39,7 +39,7 @@ Veja:
 
 - [O que é o acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md) – para uma visão geral do acesso condicional 
 
-- [Início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md) - para obter alguma experiência com a configuração de políticas de acesso condicional. 
+- [Início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](conditional-access/app-based-mfa.md) - para obter alguma experiência com a configuração de políticas de acesso condicional. 
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -61,7 +61,7 @@ Com acesso condicional do Azure AD, pode solucionar esse requisito com uma únic
 
 ## <a name="considerations"></a>Considerações
 
-O desafio desse cenário é traduzir *quando é efetuada uma tentativa de acesso de um local que não é fidedigno* numa condição de acesso condicional. Na política de acesso condicional, pode configurar o [condição de localizações](active-directory-conditional-access-locations.md) cenários relacionados com a localizações de rede. Permite-lhe selecionar a condição de localizações [localizações com nome](active-directory-conditional-access-locations.md#named-locations), que representam os agrupamentos lógicos de intervalos de endereços IP, países e regiões.  
+O desafio desse cenário é traduzir *quando é efetuada uma tentativa de acesso de um local que não é fidedigno* numa condição de acesso condicional. Na política de acesso condicional, pode configurar o [condição de localizações](conditional-access/location-condition.md) cenários relacionados com a localizações de rede. A condição de localizações permite-lhe selecionar localizações com nome, que representam os agrupamentos lógicos de intervalos de endereços IP, países e regiões.  
 
 Normalmente, a sua organização é proprietária um ou mais intervalos de endereços, por exemplo, 199.30.16.0 - 199.30.16.24.
 Pode configurar um local nomeado por:
@@ -85,7 +85,7 @@ Em vez de tentar definir o que todos os locais são que não são confiáveis, p
 
 ## <a name="implementation"></a>Implementação
 
-Com a abordagem descrita neste artigo, pode configurar uma política de acesso condicional para localizações não fidedignas. Sempre deve testar a política antes de distribuí-lo em produção para se certificar de que ele funciona conforme esperado. Idealmente, deve fazer seus testes iniciais num inquilino de teste se possível. Para obter mais informações, consulte [como deve implementar uma nova política](active-directory-conditional-access-best-practices.md#how-should-you-deploy-a-new-policy). 
+Com a abordagem descrita neste artigo, pode configurar uma política de acesso condicional para localizações não fidedignas. Sempre deve testar a política antes de distribuí-lo em produção para se certificar de que ele funciona conforme esperado. Idealmente, deve fazer seus testes iniciais num inquilino de teste se possível. Para obter mais informações, consulte [como deve implementar uma nova política](conditional-access/best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 

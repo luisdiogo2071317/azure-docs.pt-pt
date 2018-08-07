@@ -17,12 +17,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: b428549d7dc804371368d8c252b949ac2fae62c2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: cdd0d9ccff608d5882480d1394e2188579cefe75
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506256"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576805"
 ---
 # <a name="azure-ad-android-getting-started"></a>O Azure AD Android, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -126,7 +126,7 @@ Pode encontrar toda a configuração para este exemplo de código no ***src/main
 3. Localizar quaisquer problemas ou têm pedidos? Pode criar um problema ou publicar no Stackoverflow com a marca `azure-active-directory`. 
 
 ### <a name="cross-app-sso"></a>SSO em vária aplicações
-Saiba mais [como ativar o SSO em vária aplicações em dispositivos Android ao utilizar a ADAL](active-directory-sso-android.md). 
+Saiba mais [como ativar o SSO em vária aplicações em dispositivos Android ao utilizar a ADAL](howto-v1-enable-sso-on-android.md). 
 
 ### <a name="auth-telemetry"></a>Telemetria de autenticação
 a biblioteca ADAL expõe a telemetria de autenticação para o ajudar a compreender como as aplicações estão se comportando e criar melhores experiências desenvolvedores de aplicativos. Isto permite-lhe capturar o início de sessão com êxito, os utilizadores ativos e várias outras informações interessantes. Com a telemetria de autenticação, é necessário estabelecer um serviço de telemetria para agregar e armazenar eventos, os programadores de aplicações.

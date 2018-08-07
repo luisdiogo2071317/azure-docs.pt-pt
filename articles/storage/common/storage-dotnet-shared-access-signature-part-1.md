@@ -1,171 +1,171 @@
 ---
-title: Utilizar a partilhado assinaturas de acesso (SAS) no Storage do Azure | Microsoft Docs
-description: Saiba como utilizar assinaturas de acesso partilhado (SAS) para delegar o acesso a recursos de armazenamento do Azure, incluindo ficheiros, tabelas, filas e blobs.
+title: Utilizar a partilhado assinaturas de acesso (SAS) no armazenamento do Azure | Documentos da Microsoft
+description: Saiba como utilizar assinaturas de acesso partilhado (SAS) para delegar acesso a recursos de armazenamento do Azure, incluindo blobs, filas, tabelas e ficheiros.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cshoe
-ms.openlocfilehash: ad313c11fb88ec7992220d43c25ca75bf65acc56
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: common
+ms.openlocfilehash: 315c5a88d16206414b6b81a83963cbb1f8b4424a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37026089"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524759"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 
-Uma assinatura de acesso partilhado (SAS) fornece uma forma de conceder acesso limitado a objetos da sua conta do storage para outros clientes, sem a chave de conta a exposição. Neste artigo, iremos fornecer uma descrição geral do modelo de SAS, rever as melhores práticas SAS e observe alguns exemplos.
+Uma assinatura de acesso partilhado (SAS) fornece uma forma de conceder acesso limitado aos objetos na sua conta de armazenamento para outros clientes, sem expor a sua chave de conta. Neste artigo, vamos fornecer uma visão geral do modelo de SAS, rever as melhores práticas SAS e ver alguns exemplos.
 
-Para obter exemplos de códigos adicionais através da SAS para além daquelas aqui apresentadas, consulte [introdução ao armazenamento de Blobs do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) e outros exemplos disponíveis no [exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage) biblioteca. Pode transferir as aplicações de exemplo e executá-los ou procurar o código no GitHub.
+Para obter exemplos de código adicional através da SAS além dos apresentados aqui, consulte [introdução ao armazenamento de Blobs do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) e outros exemplos disponíveis no [exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage) biblioteca. Pode transferir os aplicativos de exemplo e executá-los ou procurar o código no GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>O que é uma assinatura de acesso partilhado?
-Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder clientes acesso a recursos na sua conta de armazenamento sem partilha as chaves de conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
+Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder clientes acesso a recursos na sua conta de armazenamento sem partilhar as chaves de conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-Uma SAS dá-lhe um controlo granular sobre o tipo de acesso que conceder a clientes que tenham a SAS, incluindo:
+Uma SAS dá-lhe um controlo granular sobre o tipo de acesso que concede aos clientes que tenham a SAS, incluindo:
 
 * O intervalo durante o qual a SAS é válida, incluindo a hora de início e a hora de expiração.
-* As permissões concedidas à SAS. Por exemplo, uma SAS para um blob poderá conceder a leitura e permissões de escrita a esse blob, mas não eliminar as permissões.
-* Opcional endereço IP ou intervalo de endereços IP dos quais o armazenamento do Azure irá aceitar a SAS. Por exemplo, poderá especificar um intervalo de endereços IP que pertençam a sua organização.
-* O protocolo através do qual o Storage do Azure irá aceitar a SAS. Pode utilizar este parâmetro opcional para restringir o acesso aos clientes que utilizam o HTTPS.
+* As permissões concedidas a SAs. Por exemplo, uma SAS para um blob poderá conceder a leitura e permissões de escrita a esse blob, mas não eliminar as permissões.
+* Um endereço IP opcional ou intervalo de endereços IP dos quais o armazenamento do Azure irá aceitar a SAS. Por exemplo, poderá especificar um intervalo de endereços IP que pertençam a sua organização.
+* O protocolo através do qual o armazenamento do Azure irá aceitar a SAS. Pode utilizar este parâmetro opcional para restringir o acesso aos clientes através de HTTPS.
 
-## <a name="when-should-you-use-a-shared-access-signature"></a>Quando deve utilizar uma assinatura de acesso partilhado?
-Pode utilizar um SAS quando se pretende fornecer acesso a recursos na sua conta de armazenamento para qualquer cliente não possessing chaves de acesso da sua conta de armazenamento. A conta de armazenamento inclui tanto uma chave de acesso primária e secundária, que conceda acesso administrativo à sua conta e todos os recursos dentro da mesma. A exposição de qualquer uma destas chaves abre-se a possibilidade de utilização por acidente ou maliciosa na sua conta. Assinaturas de acesso partilhado fornecem uma alternativa segura que permite aos clientes de leitura, escrita e eliminação de dados na sua conta de armazenamento, de acordo com as permissões que tiver explicitamente concedido e sem necessidade de uma chave de conta.
+## <a name="when-should-you-use-a-shared-access-signature"></a>Quando deve usar uma assinatura de acesso partilhado?
+Pode utilizar uma SAS para fornecer acesso a recursos na sua conta de armazenamento para qualquer cliente não possessing chaves de acesso da conta de armazenamento. Sua conta de armazenamento inclui tanto uma chave de acesso primária e secundária, que concedem acesso administrativo à sua conta e todos os recursos dentro da mesma. Expor qualquer uma destas chaves abre-se a sua conta para a possibilidade de utilização por acidente ou maliciosa. Assinaturas de acesso partilhado são uma alternativa de segura que permite aos clientes ler, escrever e eliminar dados na sua conta de armazenamento, de acordo com as permissões que se tiver concedido e sem necessidade de uma chave de conta.
 
-Um cenário comum, onde é útil uma SAS é um serviço em que os utilizadores ler e escrever os seus próprios dados à sua conta de armazenamento. Num cenário em que uma conta do storage armazena dados de utilizador, existem dois padrões de conceção comuns:
+Um cenário comum em que é útil uma SAS é um serviço em que os utilizadores ler e escrever seus próprios dados à sua conta de armazenamento. Num cenário em que uma conta de armazenamento armazena dados de utilizador, existem dois padrões de design típico:
 
-1. Os clientes carregar e transferir dados através de um serviço de proxy de front-end que efetua a autenticação. Este serviço de proxy de front-end tem a vantagem de permitir que a validação de regras de negócio, mas para grandes quantidades de dados ou transações de volume elevado, criação de um serviço que pode ser dimensionados para corresponder a pedido pode ser difícil ou dispendiosa.
+1. Os clientes carregar e transferir dados através de um serviço de proxy de front-end, que efetua a autenticação. Este serviço de proxy de front-end tem a vantagem de permitir que a validação de regras de negócios, mas para grandes quantidades de dados ou transações de grande volume, criação de um serviço que possa ser dimensionada para corresponder a pedido pode ser difícil ou dispendioso.
 
-  ![Diagrama do cenário: serviço proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+  ![Diagrama do cenário: serviço de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
-1. Um serviço simples autentica o cliente conforme necessário e, em seguida, gera uma SAS. Depois do cliente recebe a SAS, podem aceder a recursos da conta de armazenamento diretamente com as permissões definidas através da SAS e para o intervalo permitido através da SAS. O SAS atenua a necessidade de encaminhamento de todos os dados através do serviço de proxy de front-end.
+1. Um serviço simples autentica o cliente conforme necessário e, em seguida, gera uma SAS. Assim que o cliente recebe a SAS, podem aceder a recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido a SAs. A SAS, reduz a necessidade para todos os dados através do serviço de front-end de proxy de encaminhamento.
 
-  ![Diagrama do cenário: serviço do fornecedor da SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+  ![Diagrama do cenário: serviço de fornecedor SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
-Muitos serviços do mundo real podem utilizar uma versão híbrida destas duas abordagens. Por exemplo, alguns dados possam ser processados e validar através do proxy de front-end, enquanto outros dados são guardados e/ou diretamente através da SAS de leitura.
+Muitos serviços do mundo real, podem utilizar uma mistura dessas duas abordagens. Por exemplo, alguns dados possam ser processados e validados através do proxy de front-end, enquanto outros dados são guardados e/ou diretamente através da SAS de leitura.
 
-Além disso, terá de utilizar um SAS para autorizar o acesso ao objeto de origem numa operação de cópia em determinados cenários:
+Além disso, terá de utilizar uma SAS para autorizar o acesso ao objeto de origem numa operação de cópia em determinados cenários:
 
-* Quando copiar um blob para outro blob que reside numa conta do storage diferente, tem de utilizar uma SAS para autorizar o acesso para o blob de origem. Opcionalmente, pode utilizar um SAS para autorizar o acesso para o blob de destino, bem como.
-* Quando copiar um ficheiro para outro ficheiro, que reside numa conta do storage diferente, tem de utilizar uma SAS para autorizar o acesso ao ficheiro de origem. Opcionalmente, pode utilizar um SAS para autorizar o acesso ao ficheiro de destino.
-* Quando copiar um blob para um ficheiro ou um ficheiro para um blob, tem de utilizar uma SAS para autorizar o acesso ao objeto de origem, mesmo que residem os objetos de origem e de destino dentro da mesma conta de armazenamento.
+* Quando copiar um blob para o blob de outro que reside numa conta de armazenamento diferentes, tem de utilizar uma SAS para autorizar o acesso para o blob de origem. Opcionalmente, pode utilizar uma SAS para autorizar o acesso para o blob de destino também.
+* Quando copiar um ficheiro para outro ficheiro que reside numa conta de armazenamento diferentes, tem de utilizar uma SAS para autorizar o acesso ao ficheiro de origem. Opcionalmente, pode utilizar uma SAS para autorizar o acesso ao ficheiro de destino.
+* Quando copiar um blob para um arquivo ou um ficheiro para um blob, tem de utilizar uma SAS para autorizar o acesso ao objeto de origem, mesmo que os objetos de origem e destino residam na mesma conta de armazenamento.
 
 ## <a name="types-of-shared-access-signatures"></a>Tipos de assinaturas de acesso partilhado
 Pode criar dois tipos de assinaturas de acesso partilhado:
 
-* **Serviço SAS.** O serviço SAS delega o acesso a um recurso em apenas um dos serviços de armazenamento: o serviço Blob, Fila, Tabela ou Ficheiro. Consulte [construir um serviço SAS](https://msdn.microsoft.com/library/dn140255.aspx) e [exemplos de SAS do serviço](https://msdn.microsoft.com/library/dn140256.aspx) para obter informações aprofundadas sobre construir o token de SAS do serviço.
-* **Conta SAS.** O conta SAS delegados acesso aos recursos num ou mais dos serviços de armazenamento. Todas as operações disponíveis através de um serviço SAS também estão disponíveis através de uma conta SAS. Além disso, com a conta SAS, pode delegar o acesso às operações que se aplicam a um determinado serviço como **Get/defina as propriedades de serviço** e **obter estatísticas de serviço**. Também pode delegar o acesso às operações de leitura, escrita e eliminação em contentores de blobs, tabelas, filas e partilhas de ficheiros que não são permitidos com um serviço SAS. Consulte [construir uma conta SAS](https://msdn.microsoft.com/library/mt584140.aspx) para obter informações aprofundadas sobre construir o token SAS de conta.
+* **Serviço SAS.** O serviço SAS delega o acesso a um recurso em apenas um dos serviços de armazenamento: o serviço Blob, Fila, Tabela ou Ficheiro. Ver [construir uma SAS de serviço](https://msdn.microsoft.com/library/dn140255.aspx) e [exemplos de SAS de serviço](https://msdn.microsoft.com/library/dn140256.aspx) para obter informações aprofundadas sobre a construção do token SAS de serviço.
+* **Conta SAS.** O conta SAS delegados acesso a recursos num ou mais dos serviços de armazenamento. Todas as operações disponíveis através de um serviço SAS também estão disponíveis por meio de uma conta SAS. Além disso, com a conta SAS, pode delegar o acesso às operações que se aplicam a um determinado serviço, tal como **propriedades do serviço de Get/Set** e **obter estatísticas do serviço**. Também pode delegar o acesso às operações de leitura, escrita e eliminação em contentores de blobs, tabelas, filas e partilhas de ficheiros que não são permitidos com um serviço SAS. Ver [construir uma SAS de conta](https://msdn.microsoft.com/library/mt584140.aspx) para obter informações aprofundadas sobre a construção do token SAS de conta.
 
 ## <a name="how-a-shared-access-signature-works"></a>Como funciona uma assinatura de acesso partilhado
-Uma assinatura de acesso partilhado é um URI assinado que aponta para um ou mais recursos de armazenamento e inclui um token que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acedidos pelo cliente. Um dos parâmetros de consulta, a assinatura é construído a partir dos parâmetros SAS e assinado com a chave de conta. Esta assinatura é utilizada pelo armazenamento do Azure para autorizar o acesso ao recurso de armazenamento.
+Uma assinatura de acesso partilhado é um URI assinado que aponta para um ou mais recursos de armazenamento e inclui um token que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acessados pelo cliente. Um dos parâmetros de consulta, a assinatura é construído com os parâmetros SAS e assinado com a chave de conta. Essa assinatura é utilizada pelo armazenamento do Azure para autorizar o acesso ao recurso de armazenamento.
 
 Eis um exemplo de um URI de SAS, que mostra o URI do recurso e o token SAS:
 
 ![Componentes de um URI de SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-uri.png)   
 
-O token SAS é uma cadeia gerar no *cliente* lado (consulte o [exemplos SAS](#sas-examples) secção para obter exemplos de código). Um token SAS que gerar com a biblioteca de clientes de armazenamento, por exemplo, não é controlado pelo armazenamento do Azure de qualquer forma. Pode criar um número ilimitado de tokens SAS do lado do cliente.
+O token SAS é uma cadeia de caracteres é gerar no *cliente* lado (consulte a [exemplos SAS](#sas-examples) secção para obter exemplos de código). Um token SAS que gere com a biblioteca de cliente de armazenamento, por exemplo, não é registado pelo armazenamento do Azure de qualquer forma. Pode criar um número ilimitado de SAS tokens no lado do cliente.
 
-Quando um cliente fornece um URI de SAS ao Storage do Azure como parte de um pedido, o serviço verifica a assinatura para verificar se é válido para autenticar o pedido e parâmetros SAS. Se o serviço verifica se a assinatura é válida, em seguida, o pedido está autorizado. Caso contrário, o pedido é recusado com o código de erro 403 (proibido).
+Quando um cliente fornece um URI de SAS para o armazenamento do Azure como parte de um pedido, o serviço verifica os parâmetros SAS e a assinatura para verificar se é válido para autenticar o pedido. Se o serviço verifica se a assinatura é válida, em seguida, a solicitação é autorizada. Caso contrário, a solicitação será recusada com o código de erro 403 (proibido).
 
 ## <a name="shared-access-signature-parameters"></a>Parâmetros de assinatura de acesso partilhado
-A conta SAS tokens SAS de serviço incluem alguns parâmetros comuns em também de ter alguns parâmetros que são diferentes.
+A conta SAS e tokens SAS de serviço incluem alguns parâmetros comuns e também de ter alguns parâmetros que são diferentes.
 
-### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Os parâmetros comuns a conta SAS e tokens SAS do serviço
+### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parâmetros comuns a conta SAS e tokens SAS de serviço
 * **Versão de API** um parâmetro opcional que especifica a versão do serviço de armazenamento a utilizar para executar o pedido.
-* **Versão de Service** um parâmetro obrigatório que especifica a versão do serviço de armazenamento a utilizar para autorizar o pedido.
-* **Hora de início.** Este é o tempo no qual a SAS passa a ser válida. A hora de início para uma assinatura de acesso partilhado é opcional. Se uma hora de início for omitida, o SAS tem efeito imediato. A hora de início tem de ser expresso em UTC (Hora Universal Coordenada), com um designador de UTC especial ("Z"), por exemplo `1994-11-05T13:15:30Z`.
-* **Hora de expiração.** Este é o tempo após o qual a SAS já não é válida. Melhores práticas recomendado especifique uma hora de expiração para um SAS ou que associá-la a uma política de acesso armazenada. A hora de expiração tem de ser expresso em UTC (Hora Universal Coordenada), com um designador de UTC especial ("Z"), por exemplo `1994-11-05T13:15:30Z` (consulte mais abaixo).
-* **Permissões.** As permissões especificadas na SAS indicam as operações que pode executar o cliente contra o recurso de armazenamento através da SAS. Diferirem permissões disponíveis para uma conta SAS e um serviço SAS.
-* **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (consulte a secção [estado de configuração de sessão de encaminhamento](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) para Express Route) partir do qual aceitar pedidos.
-* **Protocolo.** Um parâmetro opcional que especifica o protocolo permitido para um pedido. Os valores possíveis são HTTPS e HTTP (`https,http`), que é apenas o valor predefinido ou HTTPS (`https`). Tenha em atenção que HTTP só não é um valor permitido.
-* **Assinatura.** A assinatura é construída a partir de outros parâmetros especificados como parte de token e, em seguida, são encriptadas. A assinatura é utilizada para autorizar o acesso aos recursos de armazenamento especificada.
+* **Versão de serviço** um parâmetro obrigatório que especifica a versão do serviço de armazenamento a utilizar para autorizar a solicitação.
+* **Hora de início.** Este é o tempo em que a SAS se torna válida. A hora de início para uma assinatura de acesso partilhado é opcional. Se uma hora de início for omitida, a SAS tem efeita imediato. A hora de início tem de ser expresso em UTC (Hora Universal Coordenada), com um designador de UTC especial ("Z"), por exemplo `1994-11-05T13:15:30Z`.
+* **Hora de expiração.** Este é o tempo após o qual a SAS já não é válida. Melhores práticas recomendável que especifica uma hora de expiração para um SAS, ou associá-lo a uma política de acesso armazenado. A hora de expiração tem de ser expresso em UTC (Hora Universal Coordenada), com um designador de UTC especial ("Z"), por exemplo `1994-11-05T13:15:30Z` (ver mais abaixo).
+* **Permissões.** As permissões especificadas no SAS indicam as operações que o cliente pode realizar com o recurso de armazenamento através da SAS. Permissões disponíveis diferem para uma conta SAS e um serviço SAS.
+* **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (consulte a secção [estado de configuração de sessão de encaminhamento](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) de Express Route) partir do qual aceitar pedidos.
+* **Protocolo.** Um parâmetro opcional que especifica o protocolo permitidos para um pedido. Os valores possíveis são HTTPS e HTTP (`https,http`), que é apenas o valor predefinido, ou HTTPS (`https`). Tenha em atenção que HTTP apenas não é um valor permitido.
+* **Assinatura.** A assinatura é construída de outros parâmetros especificados como parte de token e, em seguida, são encriptados. A assinatura é utilizada para autorizar o acesso aos recursos de armazenamento especificada.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parâmetros para um token SAS de serviço
 * **Recursos de armazenamento.** Recursos de armazenamento para o qual pode delegar o acesso com um serviço SAS incluem:
   * Contentores e blobs
   * Partilhas de ficheiros e ficheiros
   * Filas
-  * As tabelas e os intervalos de entidades de tabela.
+  * As tabelas e intervalos de entidades da tabela.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Parâmetros para um token SAS de conta
-* **Serviço ou serviços.** Uma conta SAS pode delegar o acesso a uma ou mais dos serviços de armazenamento. Por exemplo, pode criar uma conta SAS que delegados aceder ao serviço Blob e o ficheiro. Ou pode criar uma SAS que delegados de acesso para todos os quatro dos serviços (Blob, fila, tabela e ficheiro).
-* **Tipos de recursos de armazenamento.** Uma conta SAS aplica-se para uma ou mais classes de recursos de armazenamento, em vez de um recurso específico. Pode criar uma conta SAS para delegar o acesso ao:
-  * APIs de nível de serviço, que são chamadas contra o recurso de conta de armazenamento. Os exemplos incluem **Get/defina as propriedades de serviço**, **obter estatísticas de serviço**, e **listar contentores/filas/tabelas/partilhas**.
-  * APIs de ao nível do contentor, que são chamadas contra os objetos de contentor para cada serviço: blob contentores, filas, tabelas e partilhas de ficheiros. Os exemplos incluem **criar/eliminar contentor**, **criar/eliminar fila**, **criar/eliminar tabela**, **Criar/Eliminar partilha**e  **Listar os Blobs/os ficheiros e diretórios**.
-  * APIs de ao nível do objeto, que são chamadas contra ficheiros, as entidades da tabela, fila de mensagens e blobs. Por exemplo, **colocar Blob**, **consulta entidade**, **obter mensagens**, e **criar ficheiro**.
+* **Serviço ou serviços.** Uma conta SAS pode delegar o acesso a um ou mais dos serviços de armazenamento. Por exemplo, pode criar uma conta SAS, que delega o acesso ao serviço de BLOBs e ficheiros. Ou pode criar uma SAS que o acesso de delegados para os quatro serviços (Blob, fila, tabela e ficheiro).
+* **Tipos de recursos de armazenamento.** Uma conta SAS aplica-se para uma ou mais classes de recursos de armazenamento, em vez de um recurso específico. Pode criar uma conta SAS para delegar acesso para:
+  * APIs de nível de serviço, que são chamadas contra o recurso de conta de armazenamento. Os exemplos incluem **propriedades do serviço de Get/Set**, **obter estatísticas de serviço**, e **lista contentores/filas/tabelas/partilhas**.
+  * APIs de nível de contêiner, que são chamadas em relação os objetos de contentor para cada serviço: BLOBs, contentores, filas, tabelas e partilhas de ficheiros. Os exemplos incluem **criar/eliminar contentor**, **criar/eliminar fila**, **criar/eliminar tabela**, **Criar/Eliminar partilha**e o  **Lista de Blobs/ficheiros e diretórios**.
+  * APIs de nível de objeto, que são chamadas em relação a blobs, fila de mensagens, entidades de tabelas e ficheiros. Por exemplo, **colocar Blob**, **entidade de consulta**, **obter mensagens**, e **criar ficheiro**.
 
-## <a name="examples-of-sas-uris"></a>Exemplos de SAS URIs
+## <a name="examples-of-sas-uris"></a>Exemplos de URIs SAS
 
-### <a name="service-sas-uri-example"></a>Exemplo de URI de SAS do serviço
+### <a name="service-sas-uri-example"></a>Exemplo de URI de SAS de serviço
 
-Eis um exemplo de um serviço URI de SAS que fornece de leitura e escrita permissões para um blob. A tabela divide cada parte de URI para compreender como contribui para a SAS:
+Eis um exemplo de um serviço de URI de SAS que fornece permissões de escrita para um blob e ler. A tabela divide cada parte do URI para compreender como contribui para a SAS:
 
 ```
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Nome | Parte da SAS | Descrição |
+| Nome | Parte SAS | Descrição |
 | --- | --- | --- |
-| URI de blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Tenha em atenção que através de HTTPS é vivamente recomendável. |
-| Versão de serviços de armazenamento |`sv=2015-04-05` |Para serviços de armazenamento versão 2012-02-12 e posterior, este parâmetro indica a versão a utilizar. |
-| Hora de início |`st=2015-04-29T22%3A18%3A26Z` |Especificado na hora UTC. Se pretender que a SAS para ser válida imediatamente, omita a hora de início. |
-| Hora de expiração |`se=2015-04-30T02%3A23%3A26Z` |Especificado na hora UTC. |
+| URI de blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Tenha em atenção que através de HTTPS é altamente recomendado. |
+| Versão de serviços de armazenamento |`sv=2015-04-05` |Para a versão 2012-02-12 dos serviços de armazenamento e mais tarde, esse parâmetro indica a versão a utilizar. |
+| Hora de início |`st=2015-04-29T22%3A18%3A26Z` |Especificado no fuso horário UTC. Se pretender que a SAS para ser válida imediatamente, omita a hora de início. |
+| Hora de expiração |`se=2015-04-30T02%3A23%3A26Z` |Especificado no fuso horário UTC. |
 | Recurso |`sr=b` |O recurso é um blob. |
-| Permissões |`sp=rw` |As permissões concedidas através da SAS incluem Read (r) e escrever (m). |
-| Intervalo de IPs |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do que um pedido serão aceites. |
-| Protocolo |`spr=https` |São permitidos apenas pedidos através de HTTPS. |
-| Assinatura |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Utilizado para autorizar o acesso para o blob. A assinatura é uma HMAC calculada através de uma cadeia para assinar e a chave, utilizando o algoritmo SHA256 e, em seguida, codificado com codificação Base64. |
+| Permissões |`sp=rw` |As permissões concedidas a SAs incluem Read (r) e escrita (w). |
+| Intervalo de IPs |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do qual será aceita um pedido. |
+| Protocolo |`spr=https` |São permitidos apenas os pedidos através de HTTPS. |
+| Assinatura |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Utilizado para autorizar o acesso para o blob. A assinatura é um HMAC calculada com uma cadeia de caracteres para assinar e a chave a utilizar o algoritmo SHA256 e, em seguida, codificados usando a codificação Base64. |
 
 ### <a name="account-sas-uri-example"></a>Exemplo de URI de SAS de conta
 
-Eis um exemplo de uma conta SAS que utiliza os mesmos parâmetros comuns no token. Uma vez que estes parâmetros são descritos acima, estes não são descritas aqui. Apenas os parâmetros que são específicas para a conta que SAs é descrito na tabela abaixo.
+Eis um exemplo de uma conta SAS que utiliza os mesmos parâmetros comuns no token. Uma vez que estes parâmetros são descritos acima, eles não são descritos aqui. Apenas os parâmetros que são específicas para a conta que SAs é descrita na tabela abaixo.
 
 ```
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Nome | Parte da SAS | Descrição |
+| Nome | Parte SAS | Descrição |
 | --- | --- | --- |
-| URI do recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |O Blob ponto final de serviço, com parâmetros para obter as propriedades do serviço (quando chamado com GET) ou definir as propriedades do serviço (quando chamado com definido). |
-| Serviços |`ss=bf` |O SAS aplica-se aos serviços Blob e ficheiro |
-| Tipos de recursos |`srt=s` |O SAS aplica-se às operações de nível de serviço. |
-| Permissões |`sp=rw` |As permissões de conceder acesso para ler e operações de escrita. |
+| URI do recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |O Blob ponto final de serviço, com parâmetros para obter as propriedades do serviço (quando chamado com GET) ou definir as propriedades do serviço (quando chamado conjunto). |
+| Serviços |`ss=bf` |A SAS se aplica aos serviços Blob e ficheiro |
+| Tipos de recurso |`srt=s` |A SAS se aplica a operações de nível de serviço. |
+| Permissões |`sp=rw` |As permissões de concedem acesso para ler e operações de escrita. |
 
-Uma vez que as permissões estão limitadas para o nível de serviço, as operações acessíveis com este SAS são **obter propriedades de serviço Blob** (leitura) e **definir propriedades de serviço Blob** (escrita). No entanto, com um URI de recursos diferente, o mesmo token SAS também pode ser utilizado para delegar o acesso às **obter estatísticas de serviço Blob** (leitura).
+Considerando que permissões são restritas para o nível de serviço, as operações acessíveis com esta SAS são **obter propriedades do serviço Blob** (ler) e **definir propriedades do serviço Blob** (escrita). No entanto, com um URI de recurso diferente, o mesmo token SAS poderia também ser utilizado para delegar o acesso ao **obter estatísticas do serviço Blob** (ler).
 
-## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Controlar um SAS com uma política de acesso armazenada
+## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Controlar um SAS com uma política de acesso armazenadas
 Uma assinatura de acesso partilhado pode efetuar uma das duas formas:
 
-* **SAS ad hoc:** quando cria um SAS ad hoc, a hora de início, hora de expiração e as permissões para a SAS estão todos os especificado no URI de SAS (ou implícitas, no caso em que a hora de início for omitida). Este tipo de SAS pode ser criado como uma conta SAS ou um serviço SAS.
-* **SAS com a política de acesso armazenada:** uma política de acesso armazenada está definido no contentor de recursos – um contentor de blob, tabela, fila, ou partilha – de ficheiros e pode ser utilizado para gerir restrições para um ou mais assinaturas de acesso partilhado. Quando associa um SAS com uma política de acesso armazenada, a SAS herda as restrições - a hora de início, hora de expiração e permissões – definidas para a política de acesso armazenada.
+* **SAS ad hoc:** quando cria uma SAS ad hoc, a hora de início, a hora de expiração, e as permissões a SAs são todos especificado no URI de SAS (ou implícitas, no caso em que a hora de início é omitida). Este tipo de SAS pode ser criado como uma conta SAS ou um serviço SAS.
+* **SAS com a política de acesso armazenadas:** uma política de acesso armazenado é definido num contêiner de recursos – um contentor de BLOBs, tabela, fila, ou partilha – de ficheiros e pode ser utilizado para gerir restrições para um ou mais assinaturas de acesso partilhado. Quando associa um SAS com uma política de acesso armazenado, a SAS herda as restrições, a hora de início, hora de expiração e permissões – definidas para a política de acesso armazenado.
 
 > [!NOTE]
-> Atualmente, uma conta SAS tem de ser um SAS ad hoc. Armazenados acesso políticas não são suportadas ainda para a conta SAS.
+> Atualmente, uma conta SAS tem de ser SAS ad hoc. Armazenados acesso políticas ainda não são suportadas para a conta SAS.
 
-A diferença entre os dois formulários é importante para um cenário de chave: revogação. Como um URI de SAS é um URL, qualquer pessoa que obtém a SAS pode utilizá-lo, independentemente de quem o criou originalmente. Se uma SAS é publicada publicamente, pode ser utilizada por qualquer pessoa do mundo. Uma SAS concede acesso a recursos a qualquer pessoa possessing-lo até uma das quatro ações acontece:
+A diferença entre as duas formas é importante para um cenário de chave: revogação. Como um URI de SAS é um URL, qualquer pessoa que obtém a SAS pode utilizá-lo, independentemente de quem a criou originalmente. Se uma SAS é publicada publicamente, ele pode ser usado por qualquer pessoa no mundo. Uma SAS concede acesso a recursos para qualquer pessoa possessing-lo até que uma das quatro coisas acontece:
 
-1. A hora de expiração especificada na SAS foi atingida.
-2. A hora de expiração especificada na política de acesso armazenada referenciada pela SAS foi atingida (se uma política de acesso armazenada é referenciada e especifica uma hora de expiração). Isto pode ocorrer porque o intervalo decorrida ou porque tiver modificado a política de acesso armazenada com um período de tempo de expiração no passado, que é uma forma de revogar a SAS.
-3. A política de acesso armazenada referenciada através da SAS é eliminada, que é outra forma de revogar a SAS. Tenha em atenção que se recrie a política de acesso armazenada com exatamente o mesmo nome, todos os tokens SAS existentes novamente será válidos de acordo com as permissões associadas essa política de acesso armazenada (partindo do princípio de que a hora de expiração a SAS não passou). Se estiver a destinar a revogar a SAS, lembre-se de que utilize um nome diferente se recrie a política de acesso com uma data de expiração futura.
-4. A chave de conta que utilizou para criar a SAS é novamente gerada. Voltar a gerar uma chave de conta fará com que todos os componentes da aplicação utilizando essa chave para falha ao autorizar até que está a ser atualizadas para utilizar a chave de conta válido ou a chave de conta recentemente gerada novamente.
+1. For atingida a hora de expiração especificada no SAS.
+2. A hora de expiração especificada na política de acesso armazenado referenciada pela SAS foi atingida (se uma política de acesso armazenado é referenciada, e se ele Especifica um tempo de expiração). Isto pode ocorrer devido à decorrido o intervalo, ou modificar a política de acesso armazenadas com um tempo de expiração no passado, que é uma forma de revogar a SAS.
+3. A política de acesso armazenado referenciada pela SAS é eliminada, que é outra forma de revogar a SAS. Tenha em atenção que se recriar a política de acesso armazenadas com exatamente o mesmo nome, todos os tokens SAS existentes novamente será válidos de acordo com as permissões associadas essa política de acesso armazenadas (partindo do princípio de que a hora de expiração no SAS não passou). Se pretende revogar o SAS, certifique-se de que utilize um nome diferente, caso recrie a política de acesso com um tempo de expiração no futuro.
+4. A chave da conta que utilizou para criar a SAS é regenerada. Regenerar uma chave de conta fará com que todos os componentes da aplicação com essa chave não sejam autorizar até que sejam atualizados para utilizar a chave de conta válido ou a chave da conta recentemente regenerada.
 
 > [!IMPORTANT]
-> Uma assinatura de acesso partilhado URI está associada a chave de conta utilizada para criar a assinatura e o associados armazenados política de acesso (se aplicável). Não se for especificada nenhuma política de acesso armazenada, é a única forma de revogar uma assinatura de acesso partilhado alterar a chave de conta.
+> Um URI de assinatura de acesso partilhado é associado a chave da conta utilizada para criar a assinatura e o associados armazenados política de acesso (se houver). Não se for especificada nenhuma política de acesso armazenado, é a única forma de revogar uma assinatura de acesso partilhado alterar a chave de conta.
 
-## <a name="authenticating-from-a-client-application-with-a-sas"></a>Autenticação de uma aplicação de cliente com uma SAS
-Um cliente que está na posse de um SAS pode utilizar a SAS para autorizar um pedido de uma conta de armazenamento para o qual possui as chaves de conta. Uma SAS pode ser incluída numa cadeia de ligação ou utilizada a diretamente a partir do método ou construtor adequado.
+## <a name="authenticating-from-a-client-application-with-a-sas"></a>Autenticação de um aplicativo de cliente com uma SAS
+Um cliente que está na posse de uma SAS pode utilizar a SAS para autorizar um pedido com uma conta de armazenamento para o qual não possuem as chaves de conta. Uma SAS podem ser incluída numa cadeia de ligação ou utilizada diretamente a partir do método ou construtor apropriado.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>Com uma SAS numa cadeia de ligação
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
-### <a name="using-a-sas-in-a-constructor-or-method"></a>Utilizar um SAS num construtor ou método
-Vários construtores de biblioteca de cliente de armazenamento do Azure e sobrecargas do método oferecem um parâmetro SAS, para que podem autorizar um pedido para o serviço com uma SAS.
+### <a name="using-a-sas-in-a-constructor-or-method"></a>Com uma SAS num construtor ou método
+Vários construtores de biblioteca de cliente de armazenamento do Azure e a sobrecarga de métodos oferece um parâmetro SAS, para que pode autorizar um pedido para o serviço com uma SAS.
 
-Por exemplo, aqui um URI de SAS é utilizado para criar uma referência para um blob de bloco. O SAS fornece as credenciais apenas necessárias para o pedido. A referência de blob de bloco, em seguida, é utilizada para uma operação de escrita:
+Por exemplo, aqui um URI de SAS é utilizado para criar uma referência para um blob de blocos. A SAS fornece as credenciais apenas necessárias para o pedido. A referência de blob de bloco, em seguida, é utilizada para uma operação de escrita:
 
 ```csharp
 string sasUri = "https://storagesample.blob.core.windows.net/sample-container/" +
@@ -206,37 +206,37 @@ catch (StorageException e)
 
 ```
 
-## <a name="best-practices-when-using-sas"></a>Melhores práticas através da SAS
-Quando utilizar assinaturas de acesso partilhado nas suas aplicações, tem de ter em consideração dois potenciais riscos:
+## <a name="best-practices-when-using-sas"></a>Melhores práticas quando através da SAS
+Quando utiliza assinaturas de acesso partilhado nas suas aplicações, terá de conhecer dois riscos potenciais:
 
-* Se Ocorreu uma fuga uma SAS, pode ser utilizada por qualquer pessoa que obtém, que potencialmente pode comprometer a sua conta do storage.
-* Se uma SAS fornecido para uma aplicação cliente expira e a aplicação não consegue obter um novo SAS do seu serviço, em seguida, funcionalidade da aplicação pode ser hindered.
+* Se uma SAS é perdida, pode ser utilizado por qualquer pessoa que obtém, que podem comprometer a conta de armazenamento.
+* Se uma SAS fornecido para uma aplicação cliente expira e o aplicativo não é possível obter uma SAS novo a partir do seu serviço, então a funcionalidade do aplicativo pode ficar prejudicada.
 
 As seguintes recomendações para a utilização de assinaturas de acesso partilhado podem ajudar a mitigar estes riscos:
 
-1. **Utilizam sempre HTTPS** para criar ou distribuir uma SAS. Se uma SAS é transmitida através de HTTP e forem intercetada, um atacante efetuar um ataque man-in-the-middle é capaz de ler a SAS e, em seguida, utilizá-lo tal como o utilizador pretendido pode ter potencialmente comprometer a dados confidenciais ou permitindo danos nos dados pelo utilizador mal intencionado.
-2. **Referência armazenadas as políticas de acesso sempre que possível.** Políticas de acesso armazenada dão-lhe a opção para revogar permissões sem ter de voltar a gerar as chaves de conta de armazenamento. Defina a expiração nestes muito distante (ou infinito) e certifique-se de que é atualizado regularmente movê-lo farther no futuro.
-3. **Utilize um SAS ad hoc near-term tempos de expiração.** Desta forma, mesmo que uma SAS esteja comprometida, é válido apenas para um curto período de tempo. Esta prática é especialmente importante se não é possível referenciar uma política de acesso armazenada. Near-term tempos de expiração também limitam a quantidade de dados que podem ser gravados para um blob ao limitar o tempo disponível para carregar ao mesmo.
-4. **Ter clientes renovar automaticamente a SAS, se necessário.** Os clientes devem renovar a SAS bem antes da expiração, para permitir que o tempo de novas tentativas se o serviço que fornece a SAS não está disponível. Se a SAS se destinar a ser utilizado para um pequeno número de curta duração, imediatas operações que são esperados para ser concluída dentro do período de expiração, em seguida, isto poderá ser desnecessário como a SAS não deve ser renovado. No entanto, se tiver o cliente que está a efetuar regularmente pedidos através de SAS, em seguida, a possibilidade de expiração entra play. A chave consideração é para equilibrar a necessidade de SAS ser curta duração (como anteriormente indicado) com a necessidade de se certificar de que o cliente está a pedir renovação antecipadamente suficiente (para evitar a interrupção devido a SAS expirar antes de renovação com êxito).
-5. **Seja cuidadoso com a hora de início do SAS.** Se definir a hora de início para uma SAS para **agora**, em seguida, devido a relógio desfasamento (diferenças na hora atual de acordo com as diferentes máquinas), falhas poderão ser observadas ligados intermitentemente para o primeiro poucos minutos. Em geral, defina a hora de início para ter pelo menos de 15 minutos no passado. Em alternativa, não defina-o de todo, que tornará válido imediatamente em todos os casos. O mesmo geralmente aplica-se a hora de expiração também – Lembre-se de que pode observar até 15 minutos de relógio dissimetrias em qualquer direção no qualquer pedido. Para clientes com uma versão REST antes de 2012-02-12, a duração máxima para um SAS que não façam referência a uma política de acesso armazenada é 1 hora e quaisquer políticas de especificar o prazo mais do que o que irá falhar.
-6. **Ser específico com o recurso para ser acedido.** É melhor prática de segurança fornecer um utilizador com os privilégios mínimos necessários. Se um utilizador necessita apenas de acesso de leitura para uma entidade única, em seguida, conceda acesso de leitura para essa entidade única e não de leitura/escrita/eliminar acesso a todas as entidades. Isto também ajuda a lessen os danos se uma SAS for comprometida, porque a SAS tem menos potência às mãos de um atacante.
-7. **Tenha em atenção que a conta será faturada por qualquer utilização, incluindo feito com uma SAS.** Se fornecer o acesso de escrita para um blob, um utilizador pode optar por carregar um blob de 200GB. Se concedeu ao-los, bem como o acesso de leitura, estes podem optar por transferi-lo 10 vezes, incorrer em custos de saída em 2 TB por si. Novamente, fornece permissões limitadas para ajudar a mitigar as ações possíveis de utilizadores mal intencionados. Utilize o SAS de curta duração para reduzir esta ameaça (mas ser mindful do relógio dissimetrias na hora de fim).
-8. **Valide os dados escritos através da SAS.** Quando uma aplicação cliente escreve dados para a sua conta de armazenamento, tenha em atenção que só pode haver problemas com os dados. Se a sua aplicação requer que dados ser validados ou autorizados antes que fique pronta a utilizar, deverá efetuar esta validação depois dos dados são escritos e antes de ser utilizado pela sua aplicação. Esta prática também protege contra dados danificados ou maliciosos a ser escritos à sua conta, por um utilizador a quem adquiriu corretamente a SAS ou por um utilizador explorá uma SAS obtida ilicitamente.
-9. **Não utilize sempre SAS.** Por vezes, os riscos associados uma operação específica em relação a sua conta do storage suplantam as vantagens de SAS. Para operações, crie um serviço de camada média que escreve a sua conta do storage depois de efetuar o negócio da regra de validação, a autenticação e a auditoria. Além disso, por vezes, é mais simples gerir o acesso de outras formas. Por exemplo, se pretender que todos os blobs num contentor legíveis publicamente, pode tornar o contentor público, em vez de fornecer uma SAS para todos os clientes de acesso.
-10. **Utilize a análise de armazenamento para monitorizar a sua aplicação.** Pode utilizar o registo e as métricas para observar qualquer pico de pedidos de falhas de autenticação devido a uma falha no seu serviço do fornecedor SAS ou para a remoção de uma política de acesso armazenada inadvertida. Consulte o [blogue da equipa de armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) para obter informações adicionais.
+1. **Utilize sempre HTTPS** para criar ou distribuir uma SAS. Se uma SAS é transmitida através de HTTP e interceptada, um atacante que efetue um ataque man-in-the-middle é capaz de ler a SAS e, em seguida, utilizá-la tal como o utilizador em causa poderia ter, potencialmente, comprometer dados confidenciais ou permitindo a Corrupção de dados, o usuário mal-intencionado.
+2. **Referência de políticas de acesso armazenadas sempre que possível.** Políticas de acesso armazenadas dão-lhe a opção para revogar permissões sem ter de voltar a gerar as chaves de conta de armazenamento. Defina a expiração sobre esses muito distante (ou infinito) e certifique-se de que é atualizado regularmente para movê-la mais no futuro.
+3. **Utilize as horas de expiração de curto prazo em SAS ad hoc.** Dessa forma, mesmo que uma SAS for comprometida, é válido apenas para um curto período de tempo. Esta prática é especialmente importante se não pode fazer referência a uma política de acesso armazenado. Horas de expiração curto também limitam a quantidade de dados que podem ser gravados para um blob ao limitar o tempo disponível para carregar para o mesmo.
+4. **Ter clientes automaticamente renovada a SAS se necessário.** Os clientes devem renovar a SAS bem antes da expiração, para dar tempo para repetições, se o serviço fornece a SAS não está disponível. Se sua SAS destina-se a ser utilizado para um pequeno número de operações de imediato de curta duração que devem ser concluído dentro do período de expiração, em seguida, isso pode ser desnecessário, como a SAS não deve ser renovado. No entanto, se tiver o cliente que está a fazer regularmente pedidos através de SAS, em seguida, a possibilidade de expiração entra em cena. A consideração fundamental é equilibrar a necessidade de SAS para curta (conforme anteriormente mencionado) com a necessidade de garantir que o cliente está a pedir a renovação cedo o suficiente (para evitar a interrupção devido a SAS irá expirar antes de renovação efetuada com êxito).
+5. **Tenha cuidado com a hora de início do SAS.** Se definir a hora de início uma SAs **agora**, em seguida, devido a relógio skew (diferenças na hora atual, de acordo com diferentes máquinas), falhas podem ser observadas intermitentemente para os primeiros poucos minutos. Em geral, defina a hora de início para ser, pelo menos, 15 minutos no passado. Em alternativa, não defini-lo, que tornará válido imediatamente em todos os casos. O mesmo geralmente aplica-se a hora de expiração também – Lembre-se de que pode observar até 15 minutos do relógio do distorção em ambas as direções em qualquer pedido. Para clientes com uma versão REST antes de 2012-02-12, a duração máxima para um SAS que não faz referência uma política de acesso armazenado é de 1 hora e todas as políticas de especificação de longo prazo que o que irá falhar.
+6. **Seja específico com o recurso a ser acessado.** Uma melhor prática de segurança é fornecer um utilizador com os mínimos privilégios necessários. Se um utilizador necessita apenas de acesso de leitura para uma única entidade, em seguida, lhes conceda acesso de leitura para essa entidade única e não de leitura/escrita/eliminar acesso a todas as entidades. Isto também ajuda a reduzir os danos se uma SAS for comprometida, uma vez que a SAS tem menos poder nas mãos de um atacante.
+7. **Compreenda o que sua conta será cobrada qualquer utilização, incluindo o que é feito com SAS.** Se fornecer acesso de escrita para um blob, um utilizador pode optar por carregar um blob de 200GB. Se demos-lhes acesso de leitura também, optem para baixá-lo 10 vezes, incorrer em custos de saída em 2 TB para. Novamente, fornece permissões limitadas para ajudar a atenuar as ações possíveis de utilizadores mal intencionados. Utilize a SAS de curta duração para reduzir esta ameaça (mas ficar atentos a distorção na hora de fim).
+8. **Valide dados escritos através da SAS.** Quando um aplicativo cliente escreve dados para a sua conta de armazenamento, tenha em atenção que pode haver problemas com os dados. Se seu aplicativo exigir que os dados ser validados ou autorizados antes que ele está pronto a utilizar, deve realizar esta validação depois dos dados são escritos e antes de ser utilizada pela sua aplicação. Esta prática também protege contra dados danificados ou maliciosos que está a ser escritos para a sua conta, por um usuário que adquiriu corretamente a SAS ou por um utilizador explorando uma fuga SAS.
+9. **Não utilize sempre SAS.** Por vezes, os riscos associados uma determinada operação contra a sua conta de armazenamento superam os benefícios de SAS. Para essas operações, criar um serviço de camada intermediária que escreve na sua conta de armazenamento depois de efetuar as empresas a regra de validação, autenticação e auditoria. Além disso, às vezes, é mais simples gerir o acesso de outras formas. Por exemplo, se quiser efetuar todos os blobs num contentor legíveis publicamente, pode tornar o contentor público, em vez de fornecer uma SAS para todos os clientes de acesso.
+10. **Utilize a análise de armazenamento para monitorizar a sua aplicação.** Pode utilizar o registo e as métricas para observar qualquer pico em falhas de autenticação devido a uma falha no seu serviço do fornecedor SAS ou para a remoção acidental de uma política de acesso armazenado. Consulte a [blogue da equipa do Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) para obter informações adicionais.
 
 ## <a name="sas-examples"></a>Exemplos SAS
-Segue-se alguns exemplos de ambos os tipos de assinaturas de acesso partilhado, a conta SAS e serviço SAS.
+Seguem-se alguns exemplos de ambos os tipos de assinaturas de acesso partilhado, a conta SAS e SAS de serviço.
 
-Para executar estes exemplos c#, tem de referenciar os seguintes pacotes de NuGet no seu projeto:
+Para executar esses exemplos em C#, precisa referenciar os seguintes pacotes de NuGet no seu projeto:
 
-* [Biblioteca de clientes do Storage do Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versão 6 ou posterior (para utilizar a conta SAS).
+* [Biblioteca de cliente de armazenamento do Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versão 6.x ou posterior (para utilizar a conta SAS).
 * [Gestor de Configuração do Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Para obter exemplos adicionais que mostram como criar e testar uma SAS, consulte [exemplos de código do Azure para armazenamento](https://azure.microsoft.com/documentation/samples/?service=storage).
 
-### <a name="example-create-and-use-an-account-sas"></a>Exemplo: Criar e utilizar uma conta SAS
-Exemplo de código seguinte cria uma conta SAS que é válido para os serviços de ficheiros e de Blob e atribui o cliente permissões de leitura, escrita e permissões de lista de acesso a APIs de nível de serviço. A conta SAS restringe o protocolo para HTTPS, para que o pedido tem de ser efetuado com HTTPS.
+### <a name="example-create-and-use-an-account-sas"></a>Exemplo: Criar e utilizar uma SAS de conta
+O exemplo de código seguinte cria uma conta SAS que é válido para os serviços de ficheiros e BLOBs e permite que o cliente permissões de leitura, escrita e listar permissões para aceder a APIs de nível de serviço. A conta SAS restringe o protocolo HTTPS, para que o pedido tem de ser feito com HTTPS.
 
 ```csharp
 static string GetAccountSASToken()
@@ -260,7 +260,7 @@ static string GetAccountSASToken()
 }
 ```
 
-Para utilizar a conta SAS de acesso a APIs de nível de serviço para o serviço Blob, construir um objeto de cliente do Blob utilizando a SAS e o ponto final de armazenamento de BLOBs para a sua conta de armazenamento.
+Para utilizar a conta SAS para aceder às APIs de nível de serviço para o serviço de BLOBs, construa um objeto de cliente de Blob com a SAS e o ponto final de armazenamento de BLOBs para a sua conta de armazenamento.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -302,8 +302,8 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-### <a name="example-create-a-stored-access-policy"></a>Exemplo: Criar uma política de acesso armazenada
-O código seguinte cria uma política de acesso armazenado num contentor. Pode utilizar a política de acesso para especificar restrições para um serviço SAS no contentor ou os respetivos blobs.
+### <a name="example-create-a-stored-access-policy"></a>Exemplo: Criar uma política de acesso armazenadas
+O código a seguir cria uma política de acesso armazenadas num contêiner. Pode utilizar a política de acesso para especificar restrições para um serviço SAS no contentor ou os respetivos blobs.
 
 ```csharp
 private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer container, string policyName)
@@ -329,7 +329,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Exemplo: Criar um serviço SAS num contentor
-O código seguinte cria um SAS num contentor. Se o nome de uma política de acesso armazenada existente não for fornecido, essa política está associada a SAS. Se nenhuma política de acesso armazenada for fornecida, o código cria um SAS ad-hoc no contentor.
+O código seguinte cria um SAS num contentor. Se o nome de uma política de acesso armazenado existente for fornecido, essa política está associada com a SAS. Se nenhuma política de acesso armazenadas não for fornecida, o código cria uma SAS ad-hoc no contentor.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -372,7 +372,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Exemplo: Criar um serviço SAS num blob
-O código seguinte cria um SAS no blob. Se o nome de uma política de acesso armazenada existente não for fornecido, essa política está associada a SAS. Se nenhuma política de acesso armazenada for fornecida, o código cria um SAS ad-hoc no blob.
+O código seguinte cria um SAS num blob. Se o nome de uma política de acesso armazenado existente for fornecido, essa política está associada com a SAS. Se nenhuma política de acesso armazenadas não for fornecida, o código cria uma SAS ad-hoc no blob.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -418,10 +418,10 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>Conclusão
-Assinaturas de acesso partilhado são úteis para fornecer permissões limitadas à sua conta de armazenamento para clientes que não devem ter a chave de conta. Como tal, são uma parte vital do modelo de segurança para qualquer aplicação utilizando o armazenamento do Azure. Se seguir as melhores práticas listadas aqui, pode utilizar a SAS para fornecer maior flexibilidade de acesso a recursos na sua conta de armazenamento, sem comprometer a segurança da sua aplicação.
+Assinaturas de acesso partilhado são úteis para fornecer permissões limitadas à sua conta de armazenamento para os clientes que não devem ter a chave da conta. Como tal, são uma parte vital do modelo de segurança para qualquer aplicação com o armazenamento do Azure. Se seguir as melhores práticas indicadas aqui, pode utilizar a SAS para fornecer mais flexibilidade de acesso aos recursos na sua conta de armazenamento, sem comprometer a segurança da sua aplicação.
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com o Blob storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com armazenamento de BLOBs](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Gerir o acesso de leitura anónimo a contentores e blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegar Acesso com uma Assinatura de Acesso Partilhado](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Introduzir tabela e fila SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Apresentando o SAS da fila e de tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

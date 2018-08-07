@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887434"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528634"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem para a implementação de recursos nos modelos do Azure Resource Manager
 Para um determinado recurso, pode haver outros recursos que tem de existir antes do recurso está implementado. Por exemplo, um SQL server tem de existir antes de tentar implementar uma base de dados SQL. Define esta relação, marcando um recurso como dependente do recurso de outro. Define uma dependência com o **dependsOn** elemento, ou utilizando o **referência** função. 
 
-Resource Manager avalia as dependências entre os recursos e implementa-los em sua ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-los em paralelo. Apenas terá de definir as dependências de recursos que são implementados no mesmo modelo. 
+O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Apenas terá de definir as dependências de recursos que são implementados no mesmo modelo. 
 
 ## <a name="dependson"></a>dependsOn
 No seu modelo, o elemento de dependsOn permite-lhe definir um recurso como um dependendo de um ou mais recursos. O valor pode ser uma lista separada por vírgulas de nomes de recursos. 
@@ -108,7 +108,7 @@ O exemplo seguinte mostra um SQL server e base de dados SQL. Tenha em atenção 
 ```
 
 ## <a name="reference-and-list-functions"></a>funções de referência e lista
-O [fazem referência função](resource-group-template-functions-resource.md#reference) permite que uma expressão derive o respetivo valor a partir de outras JSON pares nome / valor ou a recursos de tempo de execução. O [lista * funções](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) retornar valores para um recurso de uma operação de lista.  Expressões de referência e lista implicitamente declarar que um recurso depende de outra, quando o recurso referenciado está implementado no mesmo modelo e referido pelo respetivo nome (ID de recurso não). Se passar o ID de recurso para as funções de referência ou de lista, uma referência implícita não é criada.
+O [fazem referência função](resource-group-template-functions-resource.md#reference) permite que uma expressão derive o respetivo valor a partir de outras JSON pares nome / valor ou a recursos de tempo de execução. O [lista * funções](resource-group-template-functions-resource.md#list) retornar valores para um recurso de uma operação de lista.  Expressões de referência e lista implicitamente declarar que um recurso depende de outra, quando o recurso referenciado está implementado no mesmo modelo e referido pelo respetivo nome (ID de recurso não). Se passar o ID de recurso para as funções de referência ou de lista, uma referência implícita não é criada.
 
 O formato geral da função de referência é:
 

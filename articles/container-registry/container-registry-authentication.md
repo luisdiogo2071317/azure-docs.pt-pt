@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b97a0fffa6f21e7a8b06dc406711f249310fd73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431594"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579525"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo privado de contentor do Docker
 
@@ -36,7 +36,7 @@ Quando iniciar sessão com `az acr login`, a CLI utiliza o token criado quando t
 
 ## <a name="service-principal"></a>Principal de serviço
 
-Pode atribuir um [principal de serviço](../active-directory/develop/active-directory-application-objects.md) para o seu registo, e a sua aplicação ou serviço pode utilizá-lo para a autenticação sem periféricos. Principais de serviço permitem [acesso baseado em funções](../role-based-access-control/role-assignments-portal.md) para um registo, e pode atribuir múltiplos principais de serviço para um registo. Vários principais de serviço permitem-lhe definir acesso diferentes para diferentes aplicações.
+Pode atribuir um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) para o seu registo, e a sua aplicação ou serviço pode utilizá-lo para a autenticação sem periféricos. Principais de serviço permitem [acesso baseado em funções](../role-based-access-control/role-assignments-portal.md) para um registo, e pode atribuir múltiplos principais de serviço para um registo. Vários principais de serviço permitem-lhe definir acesso diferentes para diferentes aplicações.
 
 As funções disponíveis são:
 

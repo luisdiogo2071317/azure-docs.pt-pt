@@ -7,7 +7,7 @@
 - name: Início Rápido
   items:
     - name: Criar um perfil do Gestor de Tráfego
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Tutoriais
   items:
     - name: Encaminhar o tráfego com base na localização geográfica do ponto final

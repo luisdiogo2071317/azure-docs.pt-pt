@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237830"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524149"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: Melhorar a aplicação com funções padrão
 
@@ -27,7 +27,7 @@ Neste tutorial, utilize uma entidade com funções combinadas com padrões para 
 * Criar padrão para expressões com usando entidade simple com as funções
 * Como verificar as melhorias de predição do padrão
 
-Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md) gratuita para criar a sua aplicação LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Se não tiver a aplicação de recursos humanos do [padrão](luis-tutorial-pattern.md) tutorial, [importar](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site. A aplicação para importar se encontra no [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) repositório do GitHub.
@@ -125,23 +125,16 @@ Etiquetagem as entidades nestes passos pode ser mais fácil de se a entidade de 
     Se removeu a entidade de keyPhrase, adicioná-lo novamente para a aplicação agora.
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
-A intenção de novo e expressões com necessitam de treinamento. 
 
-1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar).
-
-2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
-Para obter uma predição do LUIS num chatbot ou noutra aplicação, tem de publicar a aplicação. 
 
-1. No lado direito superior do site do LUIS, selecione o botão **Publish** (Publicar). 
-
-2. Selecione o bloco Production (Produção) e o botão **Publish** (Publicar).
-
-3. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>O ponto de extremidade sem padrão de consulta
-1. Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Vá para o final do URL no endereço e introduza `Move Wayne Berry from Miami to Mount Vernon`. O último parâmetro querystring é `q`, a expressão **query**. 
 
@@ -388,7 +381,8 @@ Cidades, como nomes de pessoas são complicadas que podem ser qualquer combinaç
 A pontuação de intenção agora é muito superior e os nomes de função fazem parte da resposta de entidade.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione as reticências (***...*** ) à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

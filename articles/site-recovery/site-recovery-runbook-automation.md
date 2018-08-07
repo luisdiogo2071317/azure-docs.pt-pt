@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917698"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578770"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de automatização do Azure aos planos de recuperação
 Neste artigo, descrevemos como o Azure Site Recovery se integra com a automatização do Azure para ajudar a expandir seus planos de recuperação. Planos de recuperação podem orquestrar a recuperação de VMs que são protegidas com o Site Recovery. Planos de recuperação funcionam tanto para a replicação para uma nuvem secundária e para replicação no Azure. Planos de recuperação também ajudam a tornar a recuperação **consistentemente preciso**, **repetíveis**, e **automatizada**. Se efetuar a ativação pós-falha suas VMs do Azure, integração com a automatização do Azure expande a seus planos de recuperação. Pode usá-lo para executar runbooks, que oferecem as tarefas de automação poderoso.
@@ -196,7 +196,7 @@ Para cada plano de recuperação, crie variáveis independentes, para que possa 
 
 Considere um cenário no qual pretende que um único script para ativar a um IP público em VMs específicas. Em outro cenário, pode querer aplicar diferentes NSGs em VMs diferentes (não em todas as VMs). Pode fazer um script que é reutilizável para qualquer plano de recuperação. Cada plano de recuperação pode ter um número variável de VMs. Por exemplo, uma recuperação do SharePoint tem dois front-ends. Um aplicativo básico linha de negócio (LOB) tem apenas um front-end. Não é possível criar variáveis separadas para cada plano de recuperação.
 
-No exemplo a seguir, usamos uma nova técnica e criar um [complexo variável](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) nos ativos de conta de automatização do Azure. Pode fazê-lo ao especificar vários valores. Tem de utilizar o Azure PowerShell para concluir os passos seguintes:
+No exemplo a seguir, usamos uma nova técnica e criar um [complexo variável](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) nos ativos de conta de automatização do Azure. Pode fazê-lo ao especificar vários valores. Tem de utilizar o Azure PowerShell para concluir os passos seguintes:
 
 1. No PowerShell, inicie sessão sua subscrição do Azure:
 

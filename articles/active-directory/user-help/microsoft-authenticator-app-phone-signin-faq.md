@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358637"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528430"
 ---
-# <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sessão com o seu telemóvel, não a palavra-passe
+# <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sessão com o telefone, não com a palavra-passe.
 
 A aplicação Microsoft Authenticator não só ajuda a manter as suas contas segura ao efetuar a verificação de dois passos depois de introduzir a palavra-passe, mas agora ele pode substituir a palavra-passe da sua conta Microsoft inteiramente.
 
@@ -70,7 +70,7 @@ As novas contas são automaticamente ativadas, para que pode começar a utilizar
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Para utilizar o início de sessão no telefone para iniciar sessão na sua conta pessoal
 
-1.  Aceda ao seu pessoal Microsoft início de sessão-página de conta e, em seguida, em vez de digitar a palavra-passe, selecione o **em alternativa, utilize uma aplicação** ligação.
+1.  Aceda ao seu pessoal Microsoft início de sessão-página de conta e, em seguida, em vez de digitar a palavra-passe, selecione o **em alternativa, utilize a aplicação Microsoft Authenticator** ligação.
 
     A Microsoft envia uma notificação para o seu telefone. 
 

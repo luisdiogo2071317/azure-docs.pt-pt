@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 653208fd3ec952cf6ab941a4894f9a754e906a3b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: aec79655dde48a18891776f40c51aa5a5c859ef8
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492720"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577269"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Utilizar o Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -214,5 +214,5 @@ Pode obter os seguintes erros ao criar um principal de serviço:
 ## <a name="next-steps"></a>Passos Seguintes
 * Para configurar um principal de serviço com palavra-passe, veja [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Para obter passos detalhados sobre como integrar uma aplicação no Azure para gerir recursos, veja [Guia para programadores para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
-* Para obter uma explicação mais detalhada de principais de serviço e de aplicações, veja [Objetos de Aplicações e Objetos de Principais de Serviço](../active-directory/active-directory-application-objects.md). 
+* Para obter uma explicação mais detalhada de principais de serviço e de aplicações, veja [Objetos de Aplicações e Objetos de Principais de Serviço](../active-directory/develop/app-objects-and-service-principals.md). 
 * Para obter mais informações sobre a autenticação do Azure Active Directory, veja [Cenários de Autenticação para o Azure AD](../active-directory/develop/authentication-scenarios.md).

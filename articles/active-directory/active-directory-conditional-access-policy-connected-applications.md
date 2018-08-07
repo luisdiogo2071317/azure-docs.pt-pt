@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d67abe003afc6f5aec420f4668efa5df7d8dbc4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ca0006eae63811cf9c198094768fb2ec8bd1a072
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414472"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522344"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos
 
@@ -111,5 +111,5 @@ Para um dispositivo que está marcado como compatível, pode assumir que:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Antes de configurar uma política de acesso condicional com base no dispositivo no seu ambiente, deve dar uma olhada a [melhores práticas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md).
+Antes de configurar uma política de acesso condicional com base no dispositivo no seu ambiente, deve dar uma olhada a [melhores práticas para acesso condicional no Azure Active Directory](conditional-access/best-practices.md).
 

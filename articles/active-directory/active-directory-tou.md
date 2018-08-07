@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 02f681bd679baa6bfe4037dd749f64c7b81668d3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398959"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527461"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -73,7 +73,7 @@ Depois de finalizar o documento Termos de utilização, utilize o procedimento q
 
 5. Para **Exigir que os utilizadores expandam os Termos de utilização**, selecione ativado ou desativado.  Se esta definição estiver Ativada, será pedido aos utilizadores finais que vejam os Termos de utilização antes de os aceitarem.
 
-6. Em **Acesso Condicional** pode **Impor** os Termos de utilização carregados ao selecionar um modelo na lista pendente ou uma política de acesso condicional personalizada.  As políticas de acesso condicional personalizadas permitem especificar Termos de utilização detalhados, ao ponto de individualizar uma aplicação da cloud ou um grupo de utilizadores em particular.  Para obter mais informações, veja [configurar políticas de acesso condicional](active-directory-conditional-access-best-practices.md).
+6. Em **Acesso Condicional** pode **Impor** os Termos de utilização carregados ao selecionar um modelo na lista pendente ou uma política de acesso condicional personalizada.  As políticas de acesso condicional personalizadas permitem especificar Termos de utilização detalhados, ao ponto de individualizar uma aplicação da cloud ou um grupo de utilizadores em particular.  Para obter mais informações, veja [configurar políticas de acesso condicional](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Os controlos de política de acesso condicional (incluindo os Termos de utilização) não suportam a imposição em contas de serviço.  Recomendamos excluir todas as contas de serviço da política de acesso condicional.
@@ -240,4 +240,4 @@ R: pode [revisão ainda aceitado os termos de utilização](#how-users-can-revie
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Melhores práticas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md)
+- [Melhores práticas para acesso condicional no Azure Active Directory](conditional-access/best-practices.md)

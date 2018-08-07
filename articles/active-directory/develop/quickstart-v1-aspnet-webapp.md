@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: andret
-ms.openlocfilehash: 2fd41d08df5a8f425a1d59e8cd1172043286d8b7
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 5353e22d7ae77adecfe126bb589d08c808752550
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496168"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579355"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
@@ -30,7 +30,7 @@ Este guia demonstra como implementar o início de sessão com a Microsoft com um
 No final deste guia, a aplicação irá aceitar inícios de sessão de contas profissionais e escolares de organizações que tem integrado com o Azure Active Directory.
 
 > [!NOTE]
-> Esta configuração assistida ajuda-o para permitir inícios de sessão das contas profissionais e escolares no seu aplicativo ASP.NET. Se estiver interessado permitir inícios de sessão de contas pessoais, além de contas profissionais e escolares, pode utilizar o [ponto final v2](active-directory-v2-compare.md). Ver [este ASP.NET orientada a configuração para o ponto final v2](tutorial-v2-asp-webapp.md) , bem como [neste documento](active-directory-v2-limitations.md) explicando as limitações atuais do ponto final v2.
+> Esta configuração assistida ajuda-o para permitir inícios de sessão das contas profissionais e escolares no seu aplicativo ASP.NET. Se estiver interessado permitir inícios de sessão de contas pessoais, além de contas profissionais e escolares, pode utilizar o [ponto final v2](azure-ad-endpoint-comparison.md). Ver [este ASP.NET orientada a configuração para o ponto final v2](tutorial-v2-asp-webapp.md) , bem como [neste documento](active-directory-v2-limitations.md) explicando as limitações atuais do ponto final v2.
 <br/><br/>
 
 <!--separator-->
@@ -218,7 +218,7 @@ Siga os passos seguintes, se pretender aceitar inícios de sessão de contas pro
 2. Em `All Settings` selecione `Properties`
 3. Alteração `Multi-tenanted` propriedade `Yes` e clique em `Save`
 
-Para obter mais informações sobre esta definição e o conceito de aplicações multi-inquilino, consulte [este artigo](active-directory-devhowto-multi-tenant-overview.md "descrição geral da multi-inquilino").
+Para obter mais informações sobre esta definição e o conceito de aplicações multi-inquilino, consulte [este artigo](howto-convert-app-to-be-multi-tenant.md "descrição geral da multi-inquilino").
 
 ### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Restringir os utilizadores da instância do Active Directory da organização apenas um para iniciar sessão na sua aplicação (inquilino único)
 

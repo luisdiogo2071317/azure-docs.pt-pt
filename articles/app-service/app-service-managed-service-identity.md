@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: df9b5b855f017bca887fa5c080b9e6350538afc1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428371"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578835"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Como utilizar o Azure Managed Service Identity no serviço de aplicações e funções do Azure
 
@@ -202,7 +202,7 @@ Uma resposta 200 OK bem-sucedida inclui um corpo JSON com as seguintes proprieda
 > |token_type|Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [o Framework de autorização de OAuth 2.0: utilização de Token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
-Esta resposta é igual a [resposta para o pedido de token de acesso de serviço para serviço AAD](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+Esta resposta é igual a [resposta para o pedido de token de acesso de serviço para serviço AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
 > Variáveis de ambiente são configuradas quando o processo é iniciado pela primeira vez, portanto, depois de ativar a identidade do serviço gerido para a sua aplicação poderá ter de reiniciar a aplicação ou voltar a implementar seu código, antes `MSI_ENDPOINT` e `MSI_SECRET` estão disponíveis para o seu código.

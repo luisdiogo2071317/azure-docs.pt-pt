@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a4e03eac9c41c72714103a2c863a9ed6b2fd8608
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265069"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577733"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Afirmações opcionais no Azure AD (pré-visualização)
 
@@ -33,7 +33,7 @@ Esta funcionalidade é utilizada por desenvolvedores de aplicativos para especif
 > [!Note]
 > Esta capacidade está atualmente em pré-visualização pública. Esteja preparado para reverter ou remover todas as alterações. A funcionalidade está disponível em qualquer subscrição do Azure AD durante a pré-visualização pública. No entanto, quando a funcionalidade torna-se disponível em geral, alguns aspetos da funcionalidade podem exigir uma subscrição do Azure AD premium.
 
-Para obter a lista de afirmações padrão e como elas são usadas em tokens, consulte a [Noções básicas de tokens emitidos pelo Azure AD](active-directory-token-and-claims.md). 
+Para obter a lista de afirmações padrão e como elas são usadas em tokens, consulte a [Noções básicas de tokens emitidos pelo Azure AD](v1-id-and-access-tokens.md). 
 
 Um dos objetivos do [ponto final v2.0 do Azure AD](active-directory-appmodel-v2-overview.md) é tamanhos menores de token para garantir um desempenho ideal pelos clientes.  Como resultado, várias afirmações incluídas anteriormente no acesso e tokens de ID já não estão presentes nos tokens de v2.0 e devem ser-lhe pedidas para especificamente numa base por aplicação.  
 
@@ -60,7 +60,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 | `controls`                 | Multivalue de afirmação que contém os controles de sessão impostos pelas políticas de acesso condicional.  | JWT        |           | 3 valores:<br> "app_res": A aplicação precisa de impor restrições mais granulares. <br> "ca_enf": a imposição de acesso condicional foi diferida e ainda é necessária. <br> "no_cookie": Este token é insuficiente para o exchange para um cookie no browser. <br>  |
 | `home_oid`                 | Para os utilizadores convidados, o ID de objeto do utilizador no inquilino principal do utilizador.| JWT        |           | |
 | `sid`                      | ID de sessão utilizado para a fim de sessão de utilizador de por sessão. | JWT        |           |         |
-| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido aos dispositivos geridos que podem verificar o tipo de dispositivo.|
+| `platf`                    | Plataforma de dispositivos    | JWT        |           | Restringido aos dispositivos geridos que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Origem PrimaryAuthoritativeEmail do utilizador      | JWT        |           |         |
 | `verified_secondary_email` | Origem SecondaryAuthoritativeEmail do utilizador   | JWT        |           |        |
 | `enfpolids`                | IDs de política imposta. Uma lista da política de IDs que foram consideradas para o utilizador atual.  | JWT |  |  |
@@ -87,7 +87,7 @@ Essas declarações são sempre incluídas na v1.0 tokens, mas não incluídas n
 | `pwd_exp`     | Hora de expiração de palavra-passe        | A datetime em que a palavra-passe expira.                                                                                    |       |
 | `pwd_url`     | Alterar o URL da palavra-passe             | Um URL que o utilizador pode visitar para alterar a palavra-passe.                                                                        |       |
 | `in_corp`     | Rede empresarial interior        | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída                     |       |
-| `nickname`    | Apelido                        | Um nome adicional para o utilizador, separado do primeiro ou último nome.                                                             |       |                                                                                                                |       |
+| `nickname`    | Alcunha                        | Um nome adicional para o utilizador, separado do primeiro ou último nome.                                                             |       |                                                                                                                |       |
 | `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto de utilizador do Azure AD. <br>"family_name": "Santos" |       |
 | `given_name`  | Nome próprio                      | Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto de utilizador do Azure AD.<br>"given_name": "Francisco"                   |       |
 
@@ -247,4 +247,4 @@ Existem várias opções disponíveis para atualização das propriedades na con
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* Saiba mais sobre o [afirmações padrão](active-directory-token-and-claims.md) fornecidos pelo Azure AD. 
+* Saiba mais sobre o [afirmações padrão](v1-id-and-access-tokens.md) fornecidos pelo Azure AD. 

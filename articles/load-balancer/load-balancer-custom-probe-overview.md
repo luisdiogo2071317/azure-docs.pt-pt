@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2018
+ms.date: 08/06/2018
 ms.author: kumud
-ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 69af189ce04d8bcfb2fe0c6842c845cc988b5380
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397294"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577918"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
@@ -31,7 +31,7 @@ Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a
 > [!IMPORTANT]
 > As sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 e não tem de ser bloqueadas para sondas marcar sua instância.  Revisão [endereço IP de origem de sonda](#probesource) para obter detalhes.
 
-## <a name="health-probe-types"></a>Tipos de sonda de estado de funcionamento
+## <a name="types"></a>Tipos de sonda de estado de funcionamento
 
 Sondas de estado de funcionamento podem observar qualquer porta numa instância de back-end, incluindo a porta em que o serviço real é fornecido. A sonda de estado de funcionamento suporta serviços de escuta TCP ou pontos de extremidade HTTP. 
 
@@ -43,7 +43,7 @@ Deve ser não NAT ou de um Estado de funcionamento da pesquisa por meio da inst�
 
 Se desejar testar uma falha de sonda de estado de funcionamento ou marcar para baixo de uma instância individual, pode utilizar um grupo de segurança para a sonda de estado de funcionamento de bloqueio explícita (destino ou [origem](#probesource)).
 
-### <a name="tcp-probe"></a>Sonda TCP
+### <a name="tcpprobe"></a>Sonda TCP
 
 Sondas TCP iniciam uma ligação ao efetuar um handshake TCP aberto de três vias com a porta definido.  Isto é, em seguida, seguido de um handshake TCP fechar de quatro vias.
 
@@ -53,7 +53,7 @@ Uma sonda TCP falha quando:
 * O serviço de escuta TCP na instância não responde durante o período de tempo limite.  Uma sonda é marcada para baixo com base no número de solicitações de sonda com falha, o que foram configuradas para ir sem resposta antes de os marcar a sonda.
 * A sonda recebe uma reposição da instância TCP.
 
-### <a name="http-probe"></a>Sonda HTTP
+### <a name="httpprobe"></a>Sonda HTTP
 
 Sondas HTTP estabelecer uma ligação de TCP e emitir um HTTP GET com o caminho especificado. Sondas HTTP suportam caminhos relativos para o HTTP GET. A sonda de estado de funcionamento está marcado como cópia de segurança quando a instância responde com um Estado HTTP 200 dentro do período de tempo limite.  Tentativa de sondas de estado de funcionamento HTTP para verificar a cada 15 segundos da porta de sonda de estado de funcionamento configurado por predefinição. O intervalo de sonda mínimo é de 5 segundos. A duração total não pode exceder os 120 segundos. 
 
@@ -67,7 +67,7 @@ Uma sonda HTTP falha quando:
 * Ponto final da sonda HTTP não responder durante a um período de tempo limite do segundo 31. Dependendo do valor de tempo limite que está definido, várias solicitações de sondagem podem passar sem resposta antes da sonda é marcada como não está em execução (ou seja, antes de SuccessFailCount sondas são enviadas).
 * Ponto final da sonda HTTP fecha a ligação através de uma reposição TCP.
 
-### <a name="guest-agent-probe-classic-only"></a>Pesquisa do agente convidado (apenas clássica)
+### <a name="guestagent"></a>Pesquisa do agente convidado (apenas clássica)
 
 Funções de serviço cloud (funções de trabalho e funções da web) usar um agente de convidado para a sonda de monitorização por predefinição.   Isso deve ser considerado uma opção de último recurso.  Sempre deve definir uma sonda de estado de funcionamento explicitamente com um TCP ou uma sonda HTTP. Uma sonda de agente convidado não é tão eficaz quanto sondas explicitamente definidas na maioria dos cenários de aplicação.  
 
@@ -81,7 +81,7 @@ Se o agente convidado responde com um HTTP 200, o Balanceador de carga envia nov
 
 Quando utiliza uma função da web, normalmente, executa o código de site no w3wp.exe, que não é monitorizado pelo Azure agente de recursos de infraestrutura ou de convidado. Falhas no w3wp.exe (por exemplo, as respostas HTTP 500) não são relatadas para o agente convidado. Conseqüentemente, o Balanceador de carga não Use essa instância da rotação.
 
-## <a name="probe-health"></a>Sonda de estado de funcionamento
+## <a name="probehealth"></a>Sonda de estado de funcionamento
 
 Sondas de estado de funcionamento TCP e HTTP são consideradas íntegros e marcar a instância de função em bom estado quando:
 

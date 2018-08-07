@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 08/06/2018
 ms.author: magoedte
-ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366101"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521936"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) contentor (pré-visualização)
 
@@ -356,7 +356,13 @@ Gráfico de desempenho apresenta quatro métricas de desempenho:
 - **Contagem de nós**: uma contagem de nós e o estado do Kubernetes. São Estados de nós do cluster representados *todos os*, *pronto*, e *não está pronto* e podem ser filtrados individualmente ou combinado no Seletor de acima do gráfico. 
 - **Contagem de pod de atividade**: uma contagem de pod e o estado a partir do Kubernetes. Estados de pods representados são *todos os*, *pendente*, *em execução*, e *desconhecido* e podem ser filtrados individualmente ou combinado no Seletor de acima do gráfico. 
 
-Se mudar para o **nós** guia, a hierarquia de linha segue o modelo de objeto de Kubernetes a partir do nó do cluster. Expanda o nó e pode ver um ou mais pods em execução no nó. Se mais de um contêiner é agrupado para um pod, eles são exibidos como a última linha na hierarquia. Também pode ver a cargas de trabalho relacionadas não pod quantas estão em execução no anfitrião se o anfitrião tiver pressão de memória ou processador.
+Quando muda para **nós**, **controladores**, e **contentores** separador apresentada automaticamente no lado direito da página é o painel de propriedades.  Mostra as propriedades do item selecionado, incluindo etiquetas definir para organizar os objetos de Kubernetes.  Clique nas **>>** ligação no painel para view\hide o painel.  
+
+![Painel de propriedades de perspetivas do exemplo Kubernetes](./media/monitoring-container-health/perspectives-preview-pane-01.png)
+
+À medida que expande os objetos da hierarquia, as atualizações do painel de propriedades com base no objeto selecionado. No painel também pode ver eventos de Kubernetes com pesquisas de registos predefinido ao clicar no **registos de eventos de Kubernetes do modo de exibição** link na parte superior do painel. Para obter mais informações sobre a visualização de dados de registo do Kubernetes, consulte [pesquisar registos para analisar dados](#search-logs-to-analyze-data).
+
+Mude para o **nós** separador e a hierarquia de linha segue o modelo de objeto do Kubernetes, começando com um nó do cluster. Expanda o nó e pode ver um ou mais pods em execução no nó. Se mais de um contêiner é agrupado para um pod, eles são exibidos como a última linha na hierarquia. Também pode ver a cargas de trabalho relacionadas não pod quantas estão em execução no anfitrião se o anfitrião tiver pressão de memória ou processador.
 
 ![Hierarquia de nós do Kubernetes de exemplo na vista de desempenho](./media/monitoring-container-health/container-health-nodes-view.png)
 
@@ -481,9 +487,9 @@ Exemplos de registos que são recolhidos por Estado de funcionamento do contento
 ## <a name="search-logs-to-analyze-data"></a>Registos de pesquisa para analisar dados
 O log Analytics pode ajudá-lo a analisar as tendências, diagnosticar afunilamentos, previsão, ou correlacionar dados que podem ajudar a determinam se a configuração de cluster atual é satisfatória. Pesquisas de registos predefinidas são fornecidas por si para começar imediatamente a utilizar ou personalizar para retornar as informações da maneira como desejar. 
 
-Pode efetuar análises interativas de dados na área de trabalho ao selecionar o **ver registo** opção, disponível na extremidade direita quando expande um controlador ou o contentor. O **pesquisa de registos** acima a página do portal do Azure que estavam no é apresentada a página.
+Pode efetuar análises interativas de dados na área de trabalho ao selecionar o **registos de eventos de Kubernetes do modo de exibição** ou **ver registos de contentor** opção no painel de pré-visualização. O **pesquisa de registos** é apresentada a página à direita da página do portal do Azure que estavam no.
 
-![Analisar dados no Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
+![Analisar dados no Log Analytics](./media/monitoring-container-health/container-health-log-search-example.png)   
 
 A saída de registos de contentor é reencaminhada para o Log Analytics são STDOUT e STDERR. Uma vez que o estado de funcionamento do contentor está a monitorizar o Kubernetes gerido pelo Azure (AKS), o sistema do Kube não é coletado hoje devido ao grande volume de dados gerados. 
 

@@ -1,22 +1,22 @@
 ---
-title: Planear uma implementação de ficheiros do Azure | Microsoft Docs
-description: Saiba o que deve considerar quando planear uma implementação de ficheiros do Azure.
+title: Planear uma implementação de ficheiros do Azure | Documentos da Microsoft
+description: Saiba o que considerar quando planear uma implementação de ficheiros do Azure.
 services: storage
 author: wmgries
-manager: aungoo
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 06/12/2018
 ms.author: wgries
-ms.openlocfilehash: 86c577c23c97939a31551734dab9d45837011ffa
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737399"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531349"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
-[Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através do protocolo SMB padrão da indústria. Porque os ficheiros do Azure é totalmente gerido, é muito mais fácil de implementar e gerir um servidor de ficheiros ou um dispositivo NAS implementar a política em cenários de produção. Este artigo aborda os tópicos a ter em consideração quando implementar uma partilha de ficheiros do Azure para utilização em produção dentro da sua organização.
+[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Porque os ficheiros do Azure totalmente gerido, implantá-lo em cenários de produção é muito mais fácil do que implementar e gerir um servidor de ficheiros ou um dispositivo. Este artigo aborda os tópicos a ter em consideração quando implementar uma partilha de ficheiros do Azure para utilização em produção na sua organização.
 
 ## <a name="management-concepts"></a>Conceitos de gestão
  O diagrama seguinte ilustra as construções de gestão de ficheiros do Azure:
@@ -31,45 +31,45 @@ ms.locfileid: "34737399"
 
 * **Ficheiro**: um ficheiro na partilha. Um ficheiro pode ter até 1 TiB de tamanho.
 
-* **Formato de URL**: para pedidos a uma partilha de ficheiros do Azure efetuadas com o protocolo de REST de ficheiro, os ficheiros são endereçáveis utilizando o seguinte formato de URL:
+* **Formato de URL**: para pedidos para uma partilha de ficheiros do Azure feitas com o protocolo de REST de ficheiros, ficheiros são endereçáveis através do formato de URL seguinte:
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory>/directories>/<file>
     ```
 
 ## <a name="data-access-method"></a>Método de acesso de dados
-Ofertas de ficheiros do Azure dois, incorporados e convenientes de acesso a dados métodos que pode utilizar em separado ou em combinação entre si, para aceder aos seus dados:
+Ficheiros do Azure oferecem duas, incorporados e convenientes de acesso a dados métodos que pode utilizar em separado, ou em combinação entre si, para aceder aos seus dados:
 
-1. **Nuvem acesso direto**: partilha de ficheiros de qualquer Azure pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com a indústria padrão Server Message Block (SMB) protocolo ou através da API de REST do ficheiro. Com o SMB, leituras e escritas em ficheiros na partilha são efetuadas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, o SMB 2.1. Para montar no local, tal como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com encriptação). Para além do SMB, novas aplicações ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiro, que fornece uma interface de programação de aplicações fácil e escalável para o desenvolvimento de software.
-2. **Sincronização de ficheiros do Azure** (pré-visualização): com sincronização de ficheiros do Azure, partilhas podem ser replicadas para servidores Windows no local ou no Azure. Os utilizadores acederia a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados até que ponto ausente de um datacenter Azure, tal como um cenário de sucursal. Os dados podem ser replicados entre múltiplos pontos finais com o Windows Server, tal como entre várias sucursais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, para que todos os dados são continuarão acessíveis através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados é perfeitamente resgatar os quando aberto pelo utilizador.
+1. **Cloud acesso direto**: partilha de ficheiros do Azure de qualquer pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com o setor de bloco de mensagem de servidor padrão (SMB) protocolo ou através da API de REST de ficheiros. Com o SMB, leituras e escritas de ficheiros na partilha são feitas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, SMB 2.1. Montar no local, como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com criptografia). Além de SMB, novos aplicativos ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiros, que fornece uma interface de programação de aplicativo de fácil e escalonável para o desenvolvimento de software.
+2. **O Azure File Sync** (pré-visualização): com o Azure File Sync, partilhas podem ser replicadas para servidores do Windows no local ou no Azure. Os utilizadores seriam aceder a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados distantes de um datacenter do Azure, tal como num cenário de filiais. Dados podem ser replicados entre vários pontos de extremidade do Windows Server, tal como entre várias filiais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, que todos os dados são continua acessível através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados de forma totalmente integrada são recuperados quando aberto pelo seu utilizador.
 
-A tabela seguinte ilustra a forma como os seus utilizadores e aplicações podem aceder a partilha de ficheiros do Azure:
+A tabela a seguir ilustra como os utilizadores e as aplicações podem aceder a partilha de ficheiros do Azure:
 
-| | Acesso à nuvem direta | Azure File Sync |
+| | Acesso direto à cloud | Azure File Sync |
 |------------------------|------------|-----------------|
-| Protocolos de que precisa utilizar? | Ficheiros do Azure suporta o SMB 2.1, SMB 3.0 e API de REST de ficheiros. | Aceder à partilha de ficheiros do Azure através de qualquer protocolos suportados no Windows Server (SMB, NFS, FTPS, etc.) |  
-| Onde está a executar a carga de trabalho? | **No Azure**: ficheiros do Azure oferece acesso direto aos seus dados. | **No local com a rede lenta**: os clientes Windows, Linux e macOS podem montar uma partilha de ficheiro do Windows local no local como uma cache rápida da Azure da partilha de ficheiros. |
-| O nível de ACLs precisa? | Nível de partilha e o ficheiro. | Nível de partilha, o ficheiro e o utilizador. |
+| Quais protocolos precisar de utilizar? | Os ficheiros do Azure suporta o SMB 2.1 e API REST de ficheiros SMB 3.0. | Aceder à sua partilha de ficheiros do Azure através de qualquer protocolo suportado no Windows Server (SMB, NFS, FTPS, etc.) |  
+| Onde está a executar a sua carga de trabalho? | **No Azure**: ficheiros do Azure oferece acesso direto aos seus dados. | **No local com rede lenta**: clientes Windows, Linux e macOS podem montar uma partilha de ficheiros do Windows no local como um cache rápido da sua partilha de ficheiros do Azure. |
+| O nível de ACLs precisa? | Nível de partilha e o ficheiro. | Nível de partilha de ficheiros e utilizador. |
 
 ## <a name="data-security"></a>Segurança de dados
-Ficheiros do Azure tem várias opções incorporadas para garantir a segurança dos dados:
+Os ficheiros do Azure tem várias opções incorporadas para garantir a segurança de dados:
 
-* Suporte para encriptação em ambos os protocolos de ativação pós-falha a transmissão: encriptação SMB 3.0 e REST de ficheiro através de HTTPS. Por predefinição: 
-    * Os clientes que suportam encriptação SMB 3.0 enviarem e recebem dados através de um canal encriptado.
-    * Os clientes que não suportam o SMB 3.0, podem comunicar intra-Centro de dados através de SMB 2.1 ou SMB 3.0 sem encriptação. Tenha em atenção que os clientes não são permitidos para comunicar o Centro de dados inter-através de SMB 2.1 ou SMB 3.0 sem encriptação.
-    * Os clientes podem comunicar através de REST de ficheiros com HTTP ou HTTPS.
-* Encriptação em rest ([encriptação do serviço de armazenamento do Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): encriptação de serviço de armazenamento (SSE) está ativada por predefinição para todas as contas de armazenamento. Dados em rest está encriptada com chaves completamente gerido. Encriptação em rest não aumentar os custos de armazenamento ou reduzir o desempenho. 
-* Requisito opcional de dados encriptados em trânsito: quando selecionada, ficheiros do Azure rejeita o acesso os dados através de canais não encriptados. Especificamente, apenas HTTPS e SMB 3.0 com ligações de encriptação são permitidos. 
+* Suporte para a encriptação em ambos os protocolos de over-the-wire: encriptação SMB 3.0 e REST de ficheiros através de HTTPS. Por predefinição: 
+    * Os clientes que suportam encriptação SMB 3.0 enviarem e recebem dados através de um canal criptografado.
+    * Os clientes que não suportam SMB 3.0, podem comunicar intra-datacenter através de SMB 2.1 ou SMB 3.0 sem encriptação. Tenha em atenção que os clientes não têm permissão para comunicar o Centro de dados inter através de SMB 2.1 ou SMB 3.0 sem encriptação.
+    * Os clientes podem comunicar através do REST de ficheiros com HTTP ou HTTPS.
+* Encriptação em repouso ([do Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): encriptação de serviço de armazenamento (SSE) está ativado para todas as contas de armazenamento. Dados Inativos são encriptados com chaves geridas pelo totalmente. Encriptação em repouso não aumentar os custos de armazenamento ou reduzir o desempenho. 
+* Requisito opcional de dados encriptados em trânsito: quando selecionada, ficheiros do Azure rejeita o acesso os dados através de canais não encriptadas. Especificamente, são permitidas apenas HTTPS e SMB 3.0 com ligações de encriptação. 
 
     > [!Important]  
-    > Exigir a transferência segura de dados fará com que clientes SMB antigos sem capacidade de comunicar com o SMB 3.0 com encriptação falhar. Consulte [montar no Windows](storage-how-to-use-files-windows.md), [montar no Linux](storage-how-to-use-files-linux.md), [montar no macOS](storage-how-to-use-files-mac.md) para obter mais informações.
+    > Exigir que a transferência segura de dados fará com que os clientes SMB antigos não capazes de comunicar com o SMB 3.0 com a encriptação efetuar a ativação. Ver [montar no Windows](storage-how-to-use-files-windows.md), [montar no Linux](storage-how-to-use-files-linux.md), [montar em macOS](storage-how-to-use-files-mac.md) para obter mais informações.
 
-Para segurança máxima, recomendamos vivamente sempre ativar ambas as encriptação em-rest e ativar a encriptação de dados em trânsito sempre que estiver a utilizar clientes modernos para aceder aos seus dados. Por exemplo, se precisar de montar uma partilha numa VM Windows Server 2008 R2, que só suporta o SMB 2.1, terá de permitir o tráfego não encriptado à sua conta de armazenamento, uma vez que o SMB 2.1 não suporta encriptação.
+Para segurança máxima, é altamente recomendável sempre ativar ambas as encriptação inativa e ativar a encriptação de dados em trânsito, sempre que estiver a utilizar clientes modernos para aceder aos seus dados. Por exemplo, se precisa montar uma partilha numa VM Windows Server 2008 R2, que só suporta o SMB 2.1, terá de permitir o tráfego não criptografado para a sua conta de armazenamento, uma vez que o SMB 2.1 não suporta a encriptação.
 
-Se estiver a utilizar para aceder à partilha de ficheiros do Azure de sincronização de ficheiros do Azure, podemos sempre utilizará HTTPS e o SMB 3.0 com encriptação para sincronizar os dados aos seus servidores do Windows, independentemente se necessitar de encriptação de dados em rest.
+Se estiver a utilizar o Azure File Sync para aceder a partilha de ficheiros do Azure, sempre Utilizamos HTTPS e SMB 3.0 com a encriptação para sincronizar os dados para os seus servidores do Windows, independentemente de se necessita de encriptação de dados em repouso.
 
 ## <a name="data-redundancy"></a>Redundância de dados
-Ficheiros do Azure suporta três opções de redundância de dados: armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS) e o armazenamento georredundante (GRS). As secções seguintes descrevem as diferenças entre as opções de redundância diferentes:
+Os ficheiros do Azure suporta três opções de redundância de dados: armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS) e o armazenamento georredundante (GRS). As secções seguintes descrevem as diferenças entre as opções de redundância diferentes:
 
 ### <a name="locally-redundant-storage"></a>Armazenamento localmente redundante
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
@@ -81,17 +81,17 @@ Ficheiros do Azure suporta três opções de redundância de dados: armazenament
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
-Atualmente, o tamanho máximo para uma partilha de ficheiros do Azure é TiB 5, que inclui os instantâneos de partilha. Devido a esta limitação atual, tem de considerar o crescimento de dados esperado ao implementar uma partilha de ficheiros do Azure. Tenha em atenção que uma conta de armazenamento do Azure, pode armazenar várias partilhas de um total de 500 TiB armazenados em todas as partilhas.
+Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB, que inclui os instantâneos de partilha. Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure. Tenha em atenção que uma conta de armazenamento do Azure, pode armazenar várias partilhas com um total de 500 TiB armazenadas em todas as partilhas.
 
-É possível sincronizar as partilhas de ficheiros de Azure vários para um servidor de ficheiros Windows única com sincronização de ficheiros do Azure. Isto permite-lhe garantir que as partilhas de ficheiros de mais antigos, muito grande que pode ter no local podem ser colocadas em sincronização de ficheiros do Azure. Consulte [planear uma implementação de sincronização de ficheiros do Azure](storage-files-planning.md) para obter mais informações.
+É possível sincronizar as partilhas de ficheiros do Azure vários para um único servidor de ficheiros do Windows com o Azure File Sync. Isto permite-lhe garantir que as partilhas de ficheiros de mais antigas e muito grandes, que pode ter no local podem ser colocadas em Azure File Sync. Veja [planear uma implementação de sincronização de ficheiros do Azure](storage-files-planning.md) para obter mais informações.
 
 ## <a name="data-transfer-method"></a>Método de transferência de dados
-Existem muitas opções fácil em massa a transferência de dados a partir de um ficheiro existente partilharem, tais como uma partilha de ficheiros no local, para ficheiros do Azure. Alguns dos populares incluem (lista não exaustiva):
+Existem muitas opções fácil em massa de transferência de dados a partir de um ficheiro existente partilharem, tais como uma partilha de ficheiros no local, para ficheiros do Azure. Algumas aplicações populares incluem (lista parcial):
 
-* **Sincronização de ficheiros do Azure**: como parte de uma sincronização primeiro entre uma partilha de ficheiros do Azure (uma "ponto final da nuvem") e um espaço de nomes de diretório de Windows (um "servidor de ponto final"), sincronização de ficheiros do Azure irá replicar todos os dados da partilha de ficheiros existentes ao Azure Files.
-* **[Importar/exportar do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: o serviço do importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure através do envio unidades de disco rígido para um datacenter do Azure. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy é uma ferramenta de cópia bem conhecidos que é fornecido com o Windows e Windows Server. Robocopy pode ser utilizado para transferir dados para ficheiros do Azure ao montar a partilha de ficheiros localmente e, em seguida, utilizar a localização montada como o destino no comando Robocopy.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: o AzCopy é um utilitário da linha de comandos concebido para copiar dados e de ficheiros do Azure, bem como o Blob storage do Azure, utilizando os comandos simples com um desempenho ideal. AzCopy está disponível para o Windows e Linux.
+* **O Azure File Sync**: como parte da primeira sincronização entre uma partilha de ficheiros do Azure (uma "ponto final da Cloud") e um espaço de nomes de diretório Windows (um "servidor de ponto final"), do Azure File Sync irá replicar todos os dados da partilha de ficheiros existentes para ficheiros do Azure.
+* **[Importar/exportar do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: serviço do importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure envie unidades de disco rígido num Datacenter do Azure. 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy é uma ferramenta de cópia bem conhecido que acompanha o Windows e Windows Server. Robocopy pode ser utilizado para transferir dados para ficheiros do Azure ao montar a partilha de ficheiros localmente e, em seguida, utilizar a localização de montado como o destino no comando Robocopy.
+* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: o AzCopy é um utilitário de linha de comandos concebido para copiar dados de e para ficheiros do Azure, bem como armazenamento de Blobs do Azure, utilizando os comandos simples com um desempenho ideal. O AzCopy é disponível para Windows e Linux.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Planear uma implementação de sincronização de ficheiros do Azure](storage-sync-files-planning.md)

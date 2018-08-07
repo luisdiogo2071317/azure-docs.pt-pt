@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: e5bee65677b85b729a38ce3b902687cfbdb989da
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345910"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523670"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -374,7 +374,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### <a name="input---javascript-example"></a>Introdução - exemplo de JavaScript
 
-O exemplo seguinte mostra um enlace de entrada de tabela num *Function* de ficheiros e [código de JavaScript] (node.md de referência de funções) que utiliza o enlace. A função utiliza um acionador de fila para ler uma única linha da tabela. 
+O exemplo seguinte mostra um enlace de entrada de tabela num *Function* ficheiro e [código JavaScript](functions-reference-node.md) que utiliza o enlace. A função utiliza um acionador de fila para ler uma única linha da tabela. 
 
 O *Function* ficheiro Especifica um `partitionKey` e um `rowKey`. O `rowKey` valor "{queueTrigger}" indica que a chave de linha é proveniente de cadeia de caracteres de mensagem da fila.
 

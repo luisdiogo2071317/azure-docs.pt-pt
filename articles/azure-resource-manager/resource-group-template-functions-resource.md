@@ -1,6 +1,6 @@
 ---
-title: Funções de modelo do Azure Resource Manager - recursos | Microsoft Docs
-description: Descreve as funções de utilizar um modelo Azure Resource Manager para obter valores sobre os recursos.
+title: Funções de modelo do Azure Resource Manager - recursos | Documentos da Microsoft
+description: Descreve as funções para utilizar num modelo do Azure Resource Manager para recuperar valores sobre os recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,32 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3d2375b0b633beb56232e518202b09777f60cc8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824341"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524513"
 ---
-# <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para os modelos Azure Resource Manager
+# <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
-O Resource Manager fornece as seguintes funções, para obter valores de recursos:
+O Resource Manager proporciona as seguintes funções para obter valores do recurso:
 
+* [listAccountSas](#list)
 * [listKeys](#listkeys)
 * [listSecrets](#list)
 * [lista *](#list)
-* [fornecedores](#providers)
+* [Fornecedores](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
 * [subscrição](#subscription)
 
-Para obter os valores de parâmetros, variáveis ou a implementação atual, consulte [das funções de valor de implementação](resource-group-template-functions-deployment.md).
+Para obter valores de parâmetros, variáveis ou a implementação atual, veja [das funções de valor de implementação](resource-group-template-functions-deployment.md).
 
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets e lista *
+## <a name="listaccountsas-listkeys-listsecrets-and-list"></a>listAccountSas, listKeys, listSecrets e lista *
+`listAccountSas(resourceName or resourceIdentifier, apiVersion, functionValues)`
+
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `listSecrets(resourceName or resourceIdentifier, apiVersion)`
@@ -53,9 +56,10 @@ Devolve os valores para qualquer tipo de recurso que suporta a operação de lis
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |cadeia |Identificador exclusivo para o recurso. |
-| apiVersion |Sim |cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **aaaa-mm-dd**. |
+| apiVersion |Sim |cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **dd-mm-aaaa**. |
+| functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para as funções que suportam a receção de um objeto com valores de parâmetros, tal como **listAccountSas** numa conta de armazenamento. | 
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
 O objeto devolvido do listKeys tem o seguinte formato:
 
@@ -76,15 +80,15 @@ O objeto devolvido do listKeys tem o seguinte formato:
 }
 ```
 
-Outras funções de lista têm formatos de retorno diferentes. Para ver o formato de uma função, incluí-la na secção saídas conforme mostrado no modelo de exemplo. 
+Outras funções de lista têm formatos de retornados diferentes. Para ver o formato de uma função, incluí-lo na secção de saídas como mostra o modelo de exemplo. 
 
 ### <a name="remarks"></a>Observações
 
-Todas as operações que começa com **lista** pode ser utilizado como uma função no modelo. As operações disponíveis incluem não só listKeys, mas também operações como `list`, `listAdminKeys`, e `listStatus`. No entanto, não é possível utilizar **lista** operações que exigem valores no corpo do pedido. Por exemplo, o [lista conta SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) operação requer os parâmetros de corpo do pedido como *signedExpiry*, por isso, não é possível utilizá-lo dentro de um modelo.
+Qualquer operação que começa com **lista** pode ser utilizado como uma função no seu modelo. As operações disponíveis incluem não só listKeys, mas também como o operations `list`, `listAdminKeys`, e `listStatus`. O [SAS de conta da lista](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) operação requer que os parâmetros de corpo de pedido como *signedExpiry*. Para utilizar esta função num modelo, fornece um objeto com o corpo valores de parâmetros.
 
 Para determinar que tipos de recursos tem uma operação de lista, tem as seguintes opções:
 
-* Ver o [operações de REST API](/rest/api/) para um fornecedor de recursos e procure para operações de lista. Por exemplo, contas de armazenamento têm o [listKeys operação](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Ver os [operações de REST API](/rest/api/) para um fornecedor de recursos e procure para operações de lista. Por exemplo, contas de armazenamento têm o [listKeys operação](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
 * Utilize o [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) cmdlet do PowerShell. O exemplo seguinte obtém todas as operações de lista para contas de armazenamento:
 
   ```powershell
@@ -96,41 +100,71 @@ Para determinar que tipos de recursos tem uma operação de lista, tem as seguin
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Especifique o recurso com o nome de recurso ou [resourceId função](#resourceid). Quando utilizar esta função no mesmo modelo que implementa o recurso referenciado, utilize o nome do recurso.
+Especifique o recurso com o nome de recurso ou o [resourceId função](#resourceid). Quando utilizar esta função no mesmo modelo que implementa o recurso referenciado, utilize o nome do recurso.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) mostra como devolver as chaves primária e secundárias de uma conta de armazenamento na secção saídas.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) mostra como devolver as chaves primária e secundárias da conta de armazenamento na secção de saídas. Ele também retorna um token SAS para a conta de armazenamento. Para obter esse token, ele passa um objeto para a função de listAccountSas. Este exemplo destina-se para mostrar como utilizar as funções de lista. Normalmente, poderia usar o token SAS num valor de recursos em vez de retorná-lo como um valor de saída. Valores de saída são armazenados no histórico de implementação e não são seguras. Tem de especificar uma hora de expiração no futuro para a implementação com êxito.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagename": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus"
+        },
+        "requestContent": {
+            "type": "object",
+            "defaultValue": {
+                "signedServices": "b",
+                "signedResourceType": "c",
+                "signedPermission": "r",
+                "signedExpiry": "2018-08-20T11:00:00Z",
+                "signedResourceTypes": "s"
+            }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('storagename')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": false,
+                "accessTier": "Hot",
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "keys": {
+            "type": "object",
+            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
+        },
+        "accountSAS": {
+            "type": "object",
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+        }
     }
 }
 ``` 
@@ -138,32 +172,32 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
 
 Para implementar este modelo de exemplo com o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
 ```
 
 <a id="providers" />
 
-## <a name="providers"></a>fornecedores
+## <a name="providers"></a>Fornecedores
 `providers(providerNamespace, [resourceType])`
 
-Devolve informações sobre um fornecedor de recursos e os respetivos tipos de recurso suportados. Se não fornecer um tipo de recurso, a função devolve todos os tipos suportados para o fornecedor de recursos.
+Devolve informações sobre um fornecedor de recursos e os tipos de recursos suportados. Se não fornecer um tipo de recurso, a função devolve todos os tipos suportados para o fornecedor de recursos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sim |cadeia |Espaço de nomes do fornecedor |
-| resourceType |Não |cadeia |O tipo de recurso no espaço de nomes especificado. |
+| resourceType |Não |cadeia |O tipo de recurso dentro do espaço de nomes especificado. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Cada tipo suportado é devolvido o seguinte formato: 
+Cada tipo suportado é devolvido no seguinte formato: 
 
 ```json
 {
@@ -173,11 +207,11 @@ Cada tipo suportado é devolvido o seguinte formato:
 }
 ```
 
-Não é garantida a matriz ordenação dos valores devolvidos.
+Ordenação de matriz de valores devolvidos não é garantido.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) mostra como utilizar a função de fornecedor:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) mostra como usar a função de fornecedor:
 
 ```json
 {
@@ -201,7 +235,7 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 }
 ```
 
-Para o **Microsoft** fornecedor de recursos e **sites** tipo de recurso, o exemplo anterior devolve um objeto no seguinte formato:
+Para o **Microsoft. Web** fornecedor de recursos e **sites** tipo de recurso, o exemplo anterior retorna um objeto no seguinte formato:
 
 ```json
 {
@@ -240,29 +274,29 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="reference"></a>Referência
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Devolve um objeto que representa o estado do tempo de execução de um recurso.
+Devolve um objeto que representa o estado de runtime de um recurso.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |cadeia |Nome ou o identificador exclusivo de um recurso. |
-| apiVersion |Não |cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado dentro do mesmo modelo. Normalmente, no formato, **aaaa-mm-dd**. |
-| 'Total' |Não |cadeia |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, é devolvido apenas o objeto de propriedades do recurso. O objeto completo inclui os valores, tais como o ID de recurso e a localização. |
+| apiVersion |Não |cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado no mesmo modelo. Normalmente, no formato, **dd-mm-aaaa**. |
+| "Completo" |Não |cadeia |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, apenas o objeto de propriedades do recurso é retornado. O objeto completo inclui valores, como o ID de recurso e o local. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Cada tipo de recurso devolve propriedades diferentes para a função de referência. A função não devolve um formato único e predefinido. Além disso, o valor devolvido difere consoante se especificou o objeto completo. Para ver as propriedades de um tipo de recurso, devolva o objeto na secção saídas conforme mostrado no exemplo.
+Cada tipo de recurso devolve as propriedades diferentes para a função de referência. A função não retornará um único formato predefinido. Além disso, o valor retornado é diferente com base no se especificou o objeto completo. Para ver as propriedades de um tipo de recurso, retornar o objeto na secção de saídas, conforme mostrado no exemplo.
 
 ### <a name="remarks"></a>Observações
 
-A função de referência deriva o respetivo valor a partir de um Estado de runtime e, por conseguinte, não pode ser utilizada na secção de variáveis. Podem ser utilizado na secção de saídas de um modelo ou [modelo ligado](resource-group-linked-templates.md#link-or-nest-a-template). Não pode ser utilizado na secção saídas um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta o modelo aninhado num modelo ligado. 
+A função de referência é derivada de seu valor de um Estado de tempo de execução e, portanto, não pode ser utilizada na secção de variáveis. Pode ser utilizado na secção de saídas de um modelo ou [modelo ligado](resource-group-linked-templates.md#link-or-nest-a-template). Não é possível utilizar a secção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado. 
 
-Ao utilizar a função de referência, implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado é aprovisionado dentro do mesmo modelo e fazer referência ao recurso pelo respetivo nome (ID de recurso não). Não é necessário utilizar também a propriedade de dependsOn. A função não é avaliada até que o recurso referenciado foi concluída a implementação.
+Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
 
-Para ver os nomes de propriedade e os valores para um tipo de recurso, crie um modelo que devolve o objeto na secção saídas. Se tiver um recurso existente desse tipo, o seu modelo devolve o objeto sem a implementar quaisquer novos recursos. 
+Para ver os nomes de propriedade e os valores para um tipo de recurso, crie um modelo que retorna o objeto na secção de saídas. Se tiver um recurso existente desse tipo, o seu modelo retorna o objeto sem ter de implementar todos os novos recursos. 
 
-Normalmente, utiliza o **referência** função devolver um valor específico de um objeto, tal como o ponto final do blob URI ou o nome de domínio completamente qualificado.
+Normalmente, utiliza a **referência** função para retornar um valor específico de um objeto, como o ponto final do blob URI ou o nome de domínio completamente qualificado.
 
 ```json
 "outputs": {
@@ -277,7 +311,7 @@ Normalmente, utiliza o **referência** função devolver um valor específico de
 }
 ```
 
-Utilize `'Full'` quando precisa de valores de recurso que não fazem parte do esquema de propriedades. Por exemplo, para definir políticas de acesso do Cofre de chaves, obter as propriedades de identidade para uma máquina virtual.
+Utilize `'Full'` quando necessitar de valores do recurso que não fazem parte do esquema de propriedades. Por exemplo, para definir políticas de acesso do Cofre de chaves, obter as propriedades de identidade para uma máquina virtual.
 
 ```json
 {
@@ -301,11 +335,11 @@ Utilize `'Full'` quando precisa de valores de recurso que não fazem parte do es
     ...
 ```
 
-Para o exemplo completo de como o modelo anterior, consulte [Windows ao Cofre de chaves](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Um exemplo semelhante está disponível para [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+Para o exemplo completo do modelo anterior, consulte [Windows para o Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Um exemplo semelhante está disponível para [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) implementa um recurso e faz referência a esse recurso.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) implementa um recurso e faz referência a esse recurso.
 
 ```json
 {
@@ -344,7 +378,7 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 }
 ``` 
 
-O exemplo anterior devolve os dois objetos. É o objeto de propriedades no seguinte formato:
+O exemplo anterior devolve os dois objetos. O objeto de propriedades é no seguinte formato:
 
 ```json
 {
@@ -362,7 +396,7 @@ O exemplo anterior devolve os dois objetos. É o objeto de propriedades no segui
 }
 ```
 
-O objeto completo é o seguinte formato:
+O objeto completo é no seguinte formato:
 
 ```json
 {
@@ -411,7 +445,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
 ```
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) faz referência a uma conta de armazenamento que não seja implementada neste modelo. A conta de armazenamento já existe no mesmo grupo de recursos.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) faz referência a uma conta de armazenamento que não está implementada neste modelo. A conta de armazenamento já existe no mesmo grupo de recursos.
 
 ```json
 {
@@ -451,9 +485,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devolve um objeto que representa o grupo de recursos atual. 
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-O objeto devolvido é o seguinte formato:
+O objeto devolvido é no seguinte formato:
 
 ```json
 {
@@ -470,7 +504,7 @@ O objeto devolvido é o seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-Uma utilização comum da função resourceGroup consiste em criar recursos na mesma localização que o grupo de recursos. O exemplo seguinte utiliza a localização do grupo de recursos para atribuir a localização para um web site.
+Uma utilização comum da função resourceGroup é criar recursos na mesma localização que o grupo de recursos. O exemplo seguinte utiliza a localização do grupo de recursos para atribuir a localização para um web site.
 
 ```json
 "resources": [
@@ -486,7 +520,7 @@ Uma utilização comum da função resourceGroup consiste em criar recursos na m
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) devolve as propriedades do grupo de recursos.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) devolve as propriedades do grupo de recursos.
 
 ```json
 {
@@ -502,7 +536,7 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
 }
 ```
 
-O exemplo anterior devolve um objeto no seguinte formato:
+O exemplo anterior retorna um objeto no seguinte formato:
 
 ```json
 {
@@ -532,21 +566,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="resourceid"></a>resourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
-Devolve o identificador exclusivo de um recurso. Utilize esta função quando o nome de recurso é ambíguo ou não aprovisionada dentro do mesmo modelo. 
+Devolve o identificador exclusivo de um recurso. Utilize esta função quando o nome do recurso é ambíguo ou não aprovisionada dentro do mesmo modelo. 
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (formato de GUID no) |Valor predefinido é a subscrição atual. Especificar este valor quando precisar de obter um recurso na outra subscrição. |
-| resourceGroupName |Não |cadeia |Valor predefinido é o grupo de recursos atual. Especificar este valor quando precisar de obter um recurso noutro grupo de recursos. |
+| subscriptionId |Não |a cadeia de caracteres (formato de GUID) |Valor predefinido é a subscrição atual. Especifica este valor quando precisar de recuperar um recurso noutra subscrição. |
+| resourceGroupName |Não |cadeia |Valor predefinido é o grupo de recursos atual. Especifica este valor quando precisar de recuperar um recurso noutro grupo de recursos. |
 | resourceType |Sim |cadeia |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
 | resourceName1 |Sim |cadeia |Nome do recurso. |
-| resourceName2 |Não |cadeia |Recursos nome segmento seguinte se o recurso está aninhado. |
+| resourceName2 |Não |cadeia |Recurso nome segmento seguinte se o recurso está aninhado. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-O identificador é devolvido o seguinte formato:
+O identificador é devolvido no seguinte formato:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -554,33 +588,33 @@ O identificador é devolvido o seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-Os valores de parâmetros que especificou dependem se o recurso é o mesmo grupo de subscrição e dos recursos, como a implementação atual.
+Os valores de parâmetro que especifica dependem se o recurso é o mesmo grupo de recursos e subscrição como a implementação atual.
 
-Para obter o ID de recurso para uma conta do storage na mesma subscrição e grupo de recursos, utilize:
+Para obter o ID de recurso para uma conta de armazenamento na mesma subscrição e grupo de recursos, utilize:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Para obter o ID de recurso para uma conta do storage na mesma subscrição, mas o grupo de recursos diferente, utilize:
+Para obter o ID de recurso para uma conta de armazenamento na mesma subscrição, mas um grupo de recursos diferente, utilize:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Para obter o ID de recurso para uma conta de armazenamento numa subscrição diferente e o grupo de recursos, utilize:
+Para obter o ID de recurso para uma conta de armazenamento numa subscrição diferente e grupo de recursos, utilize:
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Para obter o ID de recurso para uma base de dados num grupo de recursos diferente, utilize:
+Para obter o ID de recurso para uma base de dados no grupo de recursos diferente, utilize:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-Muitas vezes, terá de utilizar esta função quando utilizar uma conta de armazenamento ou de rede virtual num grupo de recursos alternativo. O exemplo seguinte mostra como um recurso de um grupo de recursos externos pode facilmente ser utilizado:
+Muitas vezes, terá de utilizar esta função quando utilizar uma conta de armazenamento ou a rede virtual num grupo de recursos alternativos. O exemplo seguinte mostra como um recurso de um grupo de recurso externo pode ser facilmente utilizado:
 
 ```json
 {
@@ -627,7 +661,7 @@ Muitas vezes, terá de utilizar esta função quando utilizar uma conta de armaz
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) devolve o ID de recurso para uma conta de armazenamento no grupo de recursos:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) devolve o ID de recurso para uma conta de armazenamento no grupo de recursos:
 
 ```json
 {
@@ -683,7 +717,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devolve detalhes sobre a subscrição para a implementação atual. 
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
 A função devolve o seguinte formato:
 
@@ -698,7 +732,7 @@ A função devolve o seguinte formato:
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) mostra chamar a função de subscrição na secção saídas. 
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) mostra a função de subscrição chamada na secção de saídas. 
 
 ```json
 {
@@ -728,7 +762,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
+* Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para ver como implementar o modelo que criou, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
 

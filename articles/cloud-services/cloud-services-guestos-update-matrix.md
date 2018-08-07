@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970167"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524863"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -43,6 +43,9 @@ Fornece a que com informações atualizadas sobre o SO convidado do Azure mais r
 Não sabe sobre como atualizar o SO convidado? Verifique [isso] [ cloud updates] horizontalmente.
 
 ## <a name="news-updates"></a>Notícias sobre atualizações
+
+###### <a name="august-3-2018"></a>**3 de Agosto de 2018**
+Lançou o SO de convidado de Julho.
 
 ###### <a name="july-3-2018"></a>**3 de Julho de 2018**
 Lançou o SO de convidado de Junho.
@@ -90,8 +93,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-5.21_201807-02 |3 de Agosto de 2018 |Post 5.23 |TBD |
 | WA-CONVIDADO-SO-5.20_201806-01 |3 de julho de 2018 |Post 5.22 |TBD |
-| WA-CONVIDADO-SO-5.19_201805-01 |1 de Junho de 2018 |Post 5.21 |TBD |
+|~~WA-CONVIDADO-SO-5.19_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |TBD |
 |~~WA-CONVIDADO-SO-5.18_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-5.17_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018|TBD |
 |~~WA-CONVIDADO-SO-5.16_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
@@ -99,7 +103,6 @@ SO de convidado de Outubro já lançada.
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-5.11_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 
 
 ## <a name="family-4-releases"></a>Versões de família 4
@@ -114,8 +117,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-4.56_201807-02 |3 de Agosto de 2018 |Post 4.58 |TBD |
 | WA-CONVIDADO-SO-4.55_201806-01 |3 de julho de 2018 |Post 4.57 |TBD |
-| WA-CONVIDADO-SO-4.54_201805-01 |1 de Junho de 2018 |Post 4,56 |TBD |
+|~~WA-CONVIDADO-SO-4.54_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |TBD |
 |~~WA-CONVIDADO-SO-4.53_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-4.52_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-4.51_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
@@ -123,8 +127,6 @@ SO de convidado de Outubro já lançada.
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-4.46_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
-
 
 
 ## <a name="family-3-releases"></a>Versões da família 3
@@ -139,8 +141,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-3.63_201807-02 |3 de Agosto de 2018 |Post 3.65 |TBD |
 | WA-CONVIDADO-SO-3.62_201806-01 |3 de julho de 2018 |Post 3.64 |TBD |
-| WA-CONVIDADO-SO-3.61_201805-01 |1 de Junho de 2018 |Post 3.63 |TBD |
+|~~WA-CONVIDADO-SO-3.61_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |TBD |
 |~~WA-CONVIDADO-SO-3.60_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-3.59_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-3.58_201802-01~~ |19 de Março de 2018 |4 de Maio de 2018 |TBD |
@@ -148,8 +151,6 @@ SO de convidado de Outubro já lançada.
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 de Janeiro de 2018 |19 de Março de 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-3.53_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-GUEST-OS-3.52_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 
 
 ## <a name="family-2-releases"></a>Versões de família 2
@@ -164,8 +165,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-2.76_201807-02 |3 de Agosto de 2018 |Post 2.78 |TBD |
 | WA-CONVIDADO-SO-2.75_201806-01 |3 de julho de 2018 |Post 2.77 |TBD |
-| WA-CONVIDADO-SO-2.74_201805-01 |1 de Junho de 2018 |Post 2.76 |TBD |
+|~~WA-CONVIDADO-SO-2.74_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018|TBD |
 |~~WA-CONVIDADO-SO-2.73_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-2.72_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-2.71_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |

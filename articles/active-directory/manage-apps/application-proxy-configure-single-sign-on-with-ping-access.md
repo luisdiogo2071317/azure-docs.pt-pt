@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e7976cf0574952fdafbdc8b40db47af3a5420fd5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369276"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577191"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações e o PingAccess
 
@@ -140,7 +140,7 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a p
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional - Graph de atualização para enviar os campos personalizados
 
-Para obter uma lista de tokens de segurança do Azure AD envia para a autenticação, consulte [referência de token do Azure AD](./../develop/active-directory-token-and-claims.md). Se precisar de uma declaração personalizada que envia os tokens de outros, utilize do Graph ou o manifesto da aplicação no Portal do Azure para definir o campo de aplicação *acceptMappedClaims* ao **verdadeiro**.    
+Para obter uma lista de tokens de segurança do Azure AD envia para a autenticação, consulte [referência de token do Azure AD](../develop/v1-id-and-access-tokens.md). Se precisar de uma declaração personalizada que envia os tokens de outros, utilize do Graph ou o manifesto da aplicação no Portal do Azure para definir o campo de aplicação *acceptMappedClaims* ao **verdadeiro**.    
 
 Este exemplo utiliza a API do Graph:
 

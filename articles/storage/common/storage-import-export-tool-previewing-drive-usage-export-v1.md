@@ -1,43 +1,37 @@
 ---
-title: Utilização da unidade de uma tarefa de exportação de importação/exportação do Azure - v1 de pré-visualização | Microsoft Docs
-description: Saiba como pré-visualize a lista de blobs que selecionou para uma tarefa de exportação no serviço de importação/exportação do Azure.
+title: Pré-visualização da utilização da unidade para uma tarefa de exportação de importar/exportar do Azure - v1 | Documentos da Microsoft
+description: Aprenda a pré-visualizar a lista de blobs que selecionou para uma tarefa de exportação no serviço importar/exportar do Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873647"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520576"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Pré-visualização da utilização da unidade para uma tarefa de exportação
-Antes de criar uma tarefa de exportação, tem de escolher um conjunto de blobs para ser exportada. O serviço de importação/exportação do Microsoft Azure permite-lhe utilizar uma lista de caminhos de blob ou blob prefixos para representar os blobs que selecionou.  
+Antes de criar uma tarefa de exportação, terá de escolher um conjunto de blobs para ser exportada. O serviço de importação/exportação do Microsoft Azure permite-lhe utilizar uma lista de caminhos de blob ou BLOBs prefixos para representar os blobs que selecionou.  
   
-Em seguida, precisa de determinar quantos unidades terá de enviar. A ferramenta de importação/exportação fornece o `PreviewExport` comando para pré-visualizar a utilização da unidade para os blobs que selecionou, com base no tamanho unidades que pretende utilizar.
+Em seguida, terá de determinar quantas unidades tiver de enviar. A ferramenta de importação/exportação fornece o `PreviewExport` comando para pré-visualizar a utilização da unidade para os blobs que selecionou, com base no tamanho das unidades de que pretende utilizar.
 
 ## <a name="command-line-parameters"></a>Parâmetros da linha de comandos
 
-Pode utilizar os seguintes parâmetros ao utilizar o `PreviewExport` comando da ferramenta de importação/exportação.
+Pode utilizar os seguintes parâmetros ao utilizar o `PreviewExport` comando da ferramenta importar/exportar.
 
 |Parâmetro da linha de comandos|Descrição|  
 |--------------------------|-----------------|  
-|**/LOGDIR:**< LogDirectory\>|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos neste diretório. Se nenhum diretório de registo for especificado, será utilizado como o diretório de registo do diretório atual.|  
+|**/LOGDIR:**< LogDirectory\>|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
 |**/SN:**< StorageAccountName\>|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
-|**/SK:**< StorageAccountKey\>|Necessário se e apenas se não for especificado um contentor SAS. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
-|**/csas:**< ContainerSas\>|Necessário se e apenas se não for especificada uma chave de conta do storage. O contentor de SAS para listar os blobs para ser exportado na tarefa de exportação.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Necessário. Caminho para o XML do ficheiro que contém lista de caminhos de blob ou blob prefixos de caminho para os blobs ser exportada. O formato de ficheiro utilizado no `BlobListBlobPath` elemento o [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação da REST API do serviço de importação/exportação.|  
-|**/ DriveSize:**< DriveSize\>|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação, *por exemplo,*, 500 GB, 1,5 TB.|  
+|**/SK:**< StorageAccountKey\>|Necessário se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
+|**/csas:**< ContainerSas\>|Necessário se e apenas se não for especificada uma chave de conta de armazenamento. O contentor de SAS para listar os blobs para ser exportado na tarefa de exportação.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Necessário. Caminho para o XML que contêm lista de caminhos dos BLOBs de ficheiros ou prefixos de caminho para os blobs ser exportada de Blobs. O formato de ficheiro utilizado na `BlobListBlobPath` elemento no [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação de REST API do serviço de importação/exportação.|  
+|**/ DriveSize:**< DriveSize\>|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação *por exemplo,*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Exemplo de linha de comandos
 
@@ -47,7 +41,7 @@ O exemplo seguinte demonstra a `PreviewExport` comando:
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-O ficheiro de lista de BLOBs de exportação pode conter nomes de BLOBs e BLOBs prefixos, conforme mostrado aqui:  
+O ficheiro de lista de blob de exportação pode conter nomes de BLOBs e BLOBs de prefixos, conforme mostrado aqui:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -58,9 +52,9 @@ O ficheiro de lista de BLOBs de exportação pode conter nomes de BLOBs e BLOBs 
 </BlobList>  
 ```
 
-A ferramenta de importação/exportação do Azure apresenta uma lista de todos os blobs para ser exportada e calcula como pacote-los para unidades de tamanho especificado, tendo em conta quaisquer necessário overhead, em seguida, calcula o número de unidades necessário para armazenar os blobs e informações de utilização da unidade.  
+A ferramenta de importação/exportação do Azure apresenta uma lista de todos os blobs para ser exportada calcula como empacotá-los em unidades de tamanho especificado, tendo em conta a qualquer sobrecarga necessária, e estima o número de unidades necessária para armazenar os blobs e as informações de utilização da unidade.  
   
-Eis um exemplo de saída, com os registos informativas omitido:  
+Eis um exemplo da saída, com registos informativas omitido:  
   
 ```  
 Number of unique blob paths/prefixes:   3  
@@ -76,6 +70,6 @@ Number of drives needed:        3
         Drive #3:       blobs = 2, occupied space = 131.28 GB    
 ```  
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Referência da ferramenta de importação/exportação do Azure](../storage-import-export-tool-how-to-v1.md)
+* [Referência da ferramenta importar/exportar do Azure](../storage-import-export-tool-how-to-v1.md)

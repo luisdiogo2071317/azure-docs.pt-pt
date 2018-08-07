@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 99860628197092749a5102787afd952f2a09a995
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493222"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576999"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteger uma API com OAuth 2.0 com o Azure Active Directory e gestão de API
 
@@ -193,7 +193,7 @@ Pode utilizar o [validar JWT](api-management-access-restriction-policies.md#Vali
 
 ## <a name="build-an-application-to-call-the-api"></a>Criar um aplicativo para chamar a API
 
-Neste guia, usou a consola de programador na gestão de API como o exemplo de aplicação de cliente para chamar o `Echo API` protegidos pelo OAuth 2.0. Para saber mais sobre como criar uma aplicação e implementar o OAuth 2.0, veja [exemplos de código do Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+Neste guia, usou a consola de programador na gestão de API como o exemplo de aplicação de cliente para chamar o `Echo API` protegidos pelo OAuth 2.0. Para saber mais sobre como criar uma aplicação e implementar o OAuth 2.0, veja [exemplos de código do Azure Active Directory](../active-directory/develop/sample-v1-code.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [Azure Active Directory e OAuth2.0](../active-directory/develop/authentication-scenarios.md).

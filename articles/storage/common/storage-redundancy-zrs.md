@@ -3,17 +3,17 @@ title: Criar aplicações de armazenamento do Azure de elevada disponibilidade n
 description: Armazenamento com redundância de zona (ZRS) oferece uma forma simples de criar aplicações com elevada disponibilidade. O ZRS protege contra falhas de hardware no Centro de dados e contra alguns desastres regionais.
 services: storage
 author: tolandmike
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
-ms.openlocfilehash: f75ed9eba989a47856460b5926cfcff9ab100a1c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.component: common
+ms.openlocfilehash: 7f21902fc3656922d042a09a7d6f25b25b753876
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396942"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525176"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Armazenamento com redundância de zona (ZRS): aplicações de armazenamento do Azure de elevada disponibilidade
 

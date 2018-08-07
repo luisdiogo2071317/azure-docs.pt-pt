@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 08/06/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 07c17d248d78313f1c5f6f1025ae06a623b75944
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 3007227808fd7fc4ec185b87a8a44c4497c66597
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259352"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579508"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Descrição geral: Grupos de georreplicação e ativação pós-falha automática Active Directory
 Replicação geográfica activa foi concebida como uma solução de continuidade de negócio que permite que o aplicativo efetuar a recuperação após desastre rápida no caso de uma falha de dimensionamento do Centro de dados. Se a georreplicação está ativada, o aplicativo pode iniciar a ativação pós-falha para uma base de dados secundária numa região diferente do Azure. Até quatro bases de dados secundárias são suportados nas regiões idêntica ou diferentes e as bases de dados secundárias também podem ser utilizados para consultas de acesso só de leitura. A ativação pós-falha tem de ser iniciada manualmente pelo aplicativo ou pelo utilizador. Após a ativação pós-falha, a nova principal tem um ponto de final de ligação diferente. 
@@ -123,7 +123,7 @@ Para alguns aplicativos, que as regras de segurança requerem que o acesso à re
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Utilização de grupos de ativação pós-falha e regras de rede virtual
 
-Se estiver a utilizar [pontos finais de serviço de rede Virtual e regras](sql-database-vnet-service-endpoint-rule-overview.md) para restringir o acesso à base de dados SQL, esteja ciente de que ponto final de serviço de cada rede Virtual aplica-se apenas numa região do Azure. O ponto final não ativa noutras regiões aceitar comunicações de sub-rede. Uma vez que a ativação pós-falha resulta em sessões de cliente SQL que está a ser reencaminhadas para o servidor na região (secundário) diferente, estas sessões irão falhar se originado de um cliente fora dessa região. Por esse motivo, a política de ativação pós-falha automática não pode ser ativada se os servidores participantes estão incluídos nas regras de rede Virtual. Para suportar a ativação pós-falha manual, siga estes passos:
+Se estiver a utilizar [pontos finais de serviço de rede Virtual e regras](sql-database-vnet-service-endpoint-rule-overview.md) para restringir o acesso à base de dados SQL, esteja ciente de que ponto final de serviço de cada rede Virtual aplica-se apenas numa região do Azure. O ponto final não ativa noutras regiões aceitar comunicações de sub-rede. Por conseguinte, apenas as aplicações de cliente implementadas na mesma região podem ligar à base de dados primária. Uma vez que a ativação pós-falha resulta em sessões de cliente SQL que está a ser reencaminhadas para o servidor na região (secundário) diferente, estas sessões irão falhar se originado de um cliente fora dessa região. Por esse motivo, a política de ativação pós-falha automática não pode ser ativada se os servidores participantes estão incluídos nas regras de rede Virtual. Para suportar a ativação pós-falha manual, siga estes passos:
 
 1.  Aprovisionar as cópias redundantes dos componentes front-end da sua aplicação (serviço web, máquinas virtuais etc.) na região secundária
 2.  Configurar o [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) individualmente para o servidor primário e secundário

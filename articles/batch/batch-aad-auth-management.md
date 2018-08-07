@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: 67bef29a27530308811fe777337e6495aa91b0e1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 698212ce1f4e88cda741a78030023f3acdeee9f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504746"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576088"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gestão do Batch com o Active Directory
 
@@ -34,7 +34,7 @@ Para saber mais sobre como utilizar a biblioteca de gestão de lotes .NET e o ex
 
 ## <a name="register-your-application-with-azure-ad"></a>Registar a sua aplicação com o Azure AD
 
-O Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) fornece uma interface programática para o Azure AD para utilização nas suas aplicações. Para chamar ADAL a partir da sua aplicação, tem de registar a sua aplicação no inquilino do Azure AD. Quando registar a sua aplicação, forneça o Azure AD com informações sobre a sua aplicação, incluindo um nome para o mesmo no inquilino do Azure AD. Em seguida, do Azure AD fornece um ID de aplicação que utiliza para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+O Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) fornece uma interface programática para o Azure AD para utilização nas suas aplicações. Para chamar ADAL a partir da sua aplicação, tem de registar a sua aplicação no inquilino do Azure AD. Quando registar a sua aplicação, forneça o Azure AD com informações sobre a sua aplicação, incluindo um nome para o mesmo no inquilino do Azure AD. Em seguida, do Azure AD fornece um ID de aplicação que utiliza para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 Para registar a aplicação de exemplo de AccountManagement, siga os passos a [adicionar uma aplicação](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) secção [integrar aplicações com o Azure Active Directory] [ aad_integrate]. Especifique **aplicação cliente nativa** para o tipo de aplicação. O setor de URI padrão do 2.0 de OAuth para o **URI de redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. No entanto, pode especificar qualquer URI válida (por exemplo, `http://myaccountmanagementsample`) para o **URI de redirecionamento**, como ele não tem de ser um ponto final real:
 

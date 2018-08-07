@@ -1,32 +1,26 @@
 ---
-title: Erro de diagnóstico e recuperação para tarefas de importação/exportação do Azure | Microsoft Docs
-description: Saiba como ativar o registo para as tarefas do serviço de importação/exportação do Microsoft Azure verboso.
+title: Recuperação de diagnósticos e erros para tarefas de importação/exportação do Azure | Documentos da Microsoft
+description: Saiba como ativar o registo de tarefas do serviço importar/exportar do Azure Microsoft verboso.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873640"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526332"
 ---
-# <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Erro de diagnóstico e recuperação para tarefas de importação/exportação do Azure
-Para cada unidade de processamento, o serviço de importação/exportação do Azure cria um registo de erros na conta de armazenamento associados. Também pode ativar o registo verboso, definindo o `LogLevel` propriedade `Verbose` ao chamar o [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs#Jobs_Update) operações.
+# <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Recuperação de diagnósticos e erros para tarefas de importação/exportação do Azure
+Para cada unidade de processamento, o serviço importar/exportar do Azure cria um registo de erros na conta de armazenamento associados. Também pode ativar o registo verboso, definindo a `LogLevel` propriedade para `Verbose` ao chamar os [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs#Jobs_Update) operações.
 
- Por predefinição, os registos são escritos para um contentor com o nome `waimportexport`. Pode especificar um nome diferente, definindo o `DiagnosticsPath` propriedade ao chamar o `Put Job` ou `Update Job Properties` operações. Os registos são armazenados como blobs de blocos com a seguinte convenção de nomenclatura: `waies/jobname_driveid_timestamp_logtype.xml`.
+ Por predefinição, os registos são escritos para um contentor com o nome `waimportexport`. Pode especificar um nome diferente, definindo a `DiagnosticsPath` propriedade ao chamar o `Put Job` ou `Update Job Properties` operações. Os registos são armazenados como blobs de blocos com a seguinte convenção de nomenclatura: `waies/jobname_driveid_timestamp_logtype.xml`.
 
- Pode obter o URI de registos para uma tarefa chamando a [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operação. O URI para o registo verboso é devolvido no `VerboseLogUri` propriedade para cada unidade, enquanto o URI para o registo de erro é devolvido no `ErrorLogUri` propriedade.
+ Pode obter o URI dos registos de uma tarefa ao chamar o [Get Job de](/rest/api/storageimportexport/jobs#Jobs_Get) operação. O URI para o registo verboso que é devolvido na `VerboseLogUri` propriedade para cada unidade, enquanto o URI para o log de erro é retornado no `ErrorLogUri` propriedade.
 
 Pode utilizar os dados de registo para identificar os seguintes problemas.
 
@@ -34,7 +28,7 @@ Pode utilizar os dados de registo para identificar os seguintes problemas.
 
 Os seguintes itens são classificados como erros de unidade:
 
--   Erros de acesso ou ler o ficheiro de manifesto
+-   Erros no acessar ou ler o ficheiro de manifesto
 
 -   Chaves do BitLocker incorretas
 
@@ -44,22 +38,22 @@ Os seguintes itens são classificados como erros de unidade:
 
 Os seguintes itens são classificados como erros de blob:
 
--   Blob incorreto ou em conflito ou nomes
+-   Blob incorreta ou em conflito ou nomes
 
 -   Ficheiros em falta
 
--   Blob não encontrado
+-   Blob não foi encontrado
 
--   Ficheiros truncados (os ficheiros no disco são com tamanho inferior ao especificado no manifesto)
+-   Ficheiros truncados (os arquivos no disco são menores do que o especificado no manifesto de)
 
--   Ficheiro danificado conteúdo (para tarefas de importação, detetado com um erro de correspondência de soma de verificação MD5)
+-   Arquivo corrompido conteúdo (para tarefas de importação, detectada com um erro de correspondência de soma de verificação MD5)
 
--   Ficheiros de metadados e a propriedade de blob danificada (detetados com um erro de correspondência de soma de verificação MD5)
+-   Ficheiros de metadados e propriedades do blob danificada (detetados com um erro de correspondência de soma de verificação MD5)
 
--   Esquema incorreto para as propriedades de blob e/ou os ficheiros de metadados
+-   Esquema incorreto para as propriedades do blob e/ou arquivos de metadados
 
-Pode haver casos em que algumas partes de uma tarefa de importação ou exportação não concluir com êxito, enquanto a tarefa geral ainda é concluída. Neste caso, pode carregar ou transferir as peças em falta dos dados através de rede ou pode criar uma nova tarefa de transferência de dados. Consulte o [referência de ferramenta de importação/exportação do Azure](storage-import-export-tool-how-to-v1.md) para aprender a reparar os dados através de rede.
+Pode haver casos em que algumas partes de uma tarefa de importação ou exportação não forem concluídas com êxito, enquanto o trabalho inteiro ainda é concluída. Neste caso, pode carregar ou transferir as partes ausentes dos dados pela rede, ou pode criar uma nova tarefa para transferir os dados. Consulte a [referência da ferramenta importar/exportar do Azure](storage-import-export-tool-how-to-v1.md) para aprender a reparar os dados pela rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Utilizar o REST API do serviço de importação/exportação](storage-import-export-using-the-rest-api.md)
+* [Utilizar a API de REST do serviço de importação/exportação](storage-import-export-using-the-rest-api.md)

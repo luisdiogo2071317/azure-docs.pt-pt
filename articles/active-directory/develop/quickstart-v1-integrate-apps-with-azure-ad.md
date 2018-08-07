@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 48e10a48999e2dc73627f0830147b6d00fd3d8b9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506305"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579668"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -30,7 +30,7 @@ Os desenvolvedores corporativos e fornecedores de software-como-serviço (SaaS) 
 
 Este artigo mostra-lhe como adicionar, atualizar ou remover o registo de uma aplicação no Azure AD. Conheça os diferentes tipos de aplicativos que podem ser integrados com o Azure AD, como configurar as suas aplicações para aceder a outros recursos, tais como as APIs web e muito mais.
 
-Para saber mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre elas, consulte [objectos da aplicação e objetos de Principal de serviço](active-directory-application-objects.md); para saber mais sobre as diretrizes de imagem corporativa, deve utilizar o desenvolvimento de aplicativos com o Azure Active Directory, veja [diretrizes de imagem corporativa para aplicações integradas](active-directory-branding-guidelines.md).
+Para saber mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre elas, consulte [objectos da aplicação e objetos de Principal de serviço](app-objects-and-service-principals.md); para saber mais sobre as diretrizes de imagem corporativa, deve utilizar o desenvolvimento de aplicativos com o Azure Active Directory, veja [diretrizes de imagem corporativa para aplicações integradas](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Adicionar uma aplicação
 Qualquer aplicativo que deseja usar os recursos do Azure AD em primeiro lugar tem de estar registado no inquilino do Azure AD. Este processo de registro envolve a fornecer os detalhes do Azure AD sobre a sua aplicação, como a URL onde este se encontra, o URL para enviar respostas após um utilizador é autenticado, o URI que identifica a aplicação e assim por diante.
@@ -73,7 +73,7 @@ Por exemplo, se precisar de uma aplicação de cliente da web ler as informaçõ
 
 Estrutura do consentimento baseia-se em OAuth 2.0 e os vários fluxos, como concedem credenciais de cliente e de concessão do código de autorização, usando clientes públicos ou confidenciais. Ao utilizar o OAuth 2.0, do Azure AD torna possível criar vários tipos diferentes de aplicativos cliente, tal como num telemóvel, tablet, servidor ou um aplicativo web e obter acesso aos recursos necessários.
 
-Para obter mais informações sobre como utilizar a estrutura do consentimento com concessões de autorização de OAuth2.0, consulte [autorizar o acesso a aplicações web com OAuth 2.0 e o Azure AD](active-directory-protocols-oauth-code.md) e [cenários de autenticação do Azure AD](authentication-scenarios.md). Para obter informações sobre como obter acesso autorizado ao Office 365 através do Microsoft Graph, consulte [autenticação de aplicações com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Para obter mais informações sobre como utilizar a estrutura do consentimento com concessões de autorização de OAuth2.0, consulte [autorizar o acesso a aplicações web com OAuth 2.0 e o Azure AD](v1-protocols-oauth-code.md) e [cenários de autenticação do Azure AD](authentication-scenarios.md). Para obter informações sobre como obter acesso autorizado ao Office 365 através do Microsoft Graph, consulte [autenticação de aplicações com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Exemplo da experiência de consentimento
 
@@ -259,7 +259,7 @@ Também pode oferecer a sua aplicação web:
 
 Para obter mais informações sobre as alterações de aplicação necessários para suportar vários inquilinos acesso e experiências de início de sessão-em/inscrever-se, consulte:
 
-- [Como iniciar sessão de qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](active-directory-devhowto-multi-tenant-overview.md)
+- [Como iniciar sessão de qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
 - A lista de [exemplos de código de multi-inquilino](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
 - [Início rápido: Adicionar a imagem corporativa à sua página de início de sessão no Azure AD](../fundamentals/customize-branding.md)
 
@@ -267,7 +267,7 @@ Para obter mais informações sobre as alterações de aplicação necessários 
 
 Aplicativo de página única (SPAs), normalmente, é estruturado com um forte JavaScript front-end que executa no navegador, que chama API web a aplicação back-end para realizar sua lógica de negócios. Para SPAs alojados no Azure AD, utilize concessão implícita OAuth 2.0 para autenticar o utilizador com o Azure AD e obter um token que pode utilizar para proteger as chamadas de cliente de JavaScript do aplicativo, a sua API da web de back-end. 
 
-Depois do utilizador tenha concedido consentimento, esse mesmo protocolo de autenticação pode servir-se para obter os tokens para proteger as chamadas entre o cliente e outras web configurados para a aplicação de recursos de API. Para obter mais informações sobre a concessão de autorização implícita e ajudar a decidir se é adequada para o seu cenário de aplicação, veja [Noções básicas sobre o OAuth2 implícita conceder o fluxo no Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Depois do utilizador tenha concedido consentimento, esse mesmo protocolo de autenticação pode servir-se para obter os tokens para proteger as chamadas entre o cliente e outras web configurados para a aplicação de recursos de API. Para obter mais informações sobre a concessão de autorização implícita e ajudar a decidir se é adequada para o seu cenário de aplicação, veja [Noções básicas sobre o OAuth2 implícita conceder o fluxo no Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
 Por predefinição, a concessão implícita OAuth 2.0 está desativado para as aplicações. Pode ativar a concessão implícita OAuth 2.0 para a sua aplicação, definindo a `oauth2AllowImplicitFlow` valor em seu [manifesto do aplicativo](active-directory-application-manifest.md).
 
@@ -291,7 +291,7 @@ Por predefinição, a concessão implícita OAuth 2.0 está desativado para as a
 Esta secção descreve como remover o registo de uma aplicação de inquilino do Azure AD.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Remoção de um aplicativo criado pela sua organização
-Aplicativos que sua organização tiver registado aparecem sob o filtro de "As minhas aplicações" na página do seu inquilino principal "registos de aplicações". Esses aplicativos são aqueles que registou manualmente através do portal do Azure ou através de programação através do PowerShell ou a Graph API. Mais especificamente, eles são representados por ambas as um objeto Principal de serviço e aplicações no seu inquilino. Para obter mais informações, consulte [objectos da aplicação e objetos de Principal de serviço](active-directory-application-objects.md).
+Aplicativos que sua organização tiver registado aparecem sob o filtro de "As minhas aplicações" na página do seu inquilino principal "registos de aplicações". Esses aplicativos são aqueles que registou manualmente através do portal do Azure ou através de programação através do PowerShell ou a Graph API. Mais especificamente, eles são representados por ambas as um objeto Principal de serviço e aplicações no seu inquilino. Para obter mais informações, consulte [objectos da aplicação e objetos de Principal de serviço](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Para remover uma aplicação de inquilino único do diretório
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -309,14 +309,14 @@ Aplicativos que sua organização tiver registado aparecem sob o filtro de "As m
 6. Clique em **Sim** na mensagem de confirmação.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Remover uma aplicação multi-inquilino autorizada por outra organização
-Um subconjunto dos aplicativos que são apresentados o filtro de "Todas as aplicações" (excluindo os registos de "As minhas aplicações") na página de "Registos de aplicações" principal do seu inquilino, são aplicações multi-inquilino. Em termos técnicos, estas aplicações de multi-inquilinos são de outro inquilino e foram registadas no seu inquilino durante o processo de consentimento. Mais especificamente, são representados por apenas um objeto principal do serviço no seu inquilino, com nenhum objeto de aplicativo correspondente. Para obter mais informações sobre as diferenças entre aplicativos e objetos de principal de serviço, consulte [aplicativos e objetos de principal de serviço no Azure AD](active-directory-application-objects.md).
+Um subconjunto dos aplicativos que são apresentados o filtro de "Todas as aplicações" (excluindo os registos de "As minhas aplicações") na página de "Registos de aplicações" principal do seu inquilino, são aplicações multi-inquilino. Em termos técnicos, estas aplicações de multi-inquilinos são de outro inquilino e foram registadas no seu inquilino durante o processo de consentimento. Mais especificamente, são representados por apenas um objeto principal do serviço no seu inquilino, com nenhum objeto de aplicativo correspondente. Para obter mais informações sobre as diferenças entre aplicativos e objetos de principal de serviço, consulte [aplicativos e objetos de principal de serviço no Azure AD](app-objects-and-service-principals.md).
 
 Para remover o acesso de uma aplicação multi-inquilino para o seu diretório (depois de ter autoriza), o administrador da empresa tem de remover o seu principal de serviço. O administrador tem de ter acesso de administrador global e pode removê-lo através do portal do Azure ou utilizar o [Cmdlets do Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure AD](authentication-scenarios.md).
-- Consulte a [diretrizes de imagem corporativa para aplicações integradas](active-directory-branding-guidelines.md) para obter dicas sobre visual orientações para a sua aplicação.
-- Para obter mais informações sobre a relação entre objetos de Principal de serviço e aplicações de uma aplicação, consulte [objectos da aplicação e objetos de Principal de serviço](active-directory-application-objects.md).
+- Consulte a [diretrizes de imagem corporativa para aplicações integradas](howto-add-branding-in-azure-ad-apps.md) para obter dicas sobre visual orientações para a sua aplicação.
+- Para obter mais informações sobre a relação entre objetos de Principal de serviço e aplicações de uma aplicação, consulte [objectos da aplicação e objetos de Principal de serviço](app-objects-and-service-principals.md).
 - Para saber mais sobre a função desempenhada de manifesto da aplicação, veja [compreender o manifesto da aplicação do Azure Active Directory](active-directory-application-manifest.md)
 - Consulte a [Glossário do programador do Azure AD](active-directory-dev-glossary.md) para obter definições de alguns dos conceitos de Programador de núcleos do Azure AD.
 - Visite o [Guia do programador do Active Directory](azure-ad-developers-guide.md) para uma descrição geral de todos os conteúdos relacionados ao desenvolvedor.

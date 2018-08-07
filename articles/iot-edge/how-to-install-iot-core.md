@@ -1,5 +1,5 @@
 ---
-title: Instalar o limite de IoT do Azure no IoT Core | Microsoft Docs
+title: Instalar o Azure IoT Edge no IoT Core | Documentos da Microsoft
 description: Instalar o runtime do Azure IoT Edge num dispositivo Windows IoT Core
 author: kgremban
 manager: timlt
@@ -9,25 +9,25 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ae5644a62b794dc8d6ace52f21a452fa70027d39
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f57db00894dab80f96f45111331d47a173520ced
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029565"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576003"
 ---
-# <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalar o runtime de limite de IoT no Windows IoT Core - pré-visualização
+# <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalar o runtime do IoT Edge no Windows IoT Core - pré-visualização
 
-Limite de IoT do Azure e [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) funcionam em conjunto para ativar o limite de computação nos dispositivos, mesmo pequenos. Pode executar o tempo de execução do limite de IoT do Azure, mesmo em dispositivos muito pequena do único quadro computador (SBC) que são muito prevalente atualmente da indústria de IoT. 
+O Azure IoT Edge e [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) funcionam em conjunto para ativar o edge em dispositivos pequenos de computação. O tempo de execução do Azure IoT Edge pode ser executado mesmo em dispositivos único quadro computador (SBC) muito pequeno, que são muito predominantes da indústria de IoT. 
 
 Este artigo explica o tempo de execução num quadro de desenvolvimento com o Windows IoT Core de aprovisionamento. 
 
-**Atualmente, o Windows IoT Core suporta o Azure IoT Edge apenas nos processadores baseados em x64 do Intel.**
+**Atualmente, o Windows IoT Core suporta o Azure IoT Edge apenas em processadores baseados em x64 do Intel.**
 
-## <a name="install-the-container-runtime"></a>Instalar o runtime do contentor
+## <a name="install-the-container-runtime"></a>Instalar o runtime de contentor
 
-1. Configurar o seu dashboard com **criar 17134 (RS4)** imagem de núcleos de IoT. 
-1. Ativar no dispositivo, em seguida, [início de sessão remotamente com o PowerShell][lnk-powershell].
+1. Configurar o seu quadro com **17134 criar (RS4)** imagem IoT Core. 
+1. Ativar o dispositivo, em seguida, [início de sessão remotamente com o PowerShell][lnk-powershell].
 1. Na consola do PowerShell, instale o tempo de execução do contentor: 
 
    ```powershell
@@ -41,18 +41,18 @@ Este artigo explica o tempo de execução num quadro de desenvolvimento com o Wi
    ```
 
    >[!NOTE]
-   >Este contentor runtime é a partir do servidor de compilação do projeto de Moby e destina-se apenas a fins de avaliação. -Não testado, aprovadas ou suportada pelo Docker.
+   >Este tempo de execução do contentor é a partir do servidor de compilação do projeto Moby e destina-se apenas a fins de avaliação. Não-lo com testado, apoiado pelo ou suportada pelo Docker.
 
-## <a name="finish-installing"></a>Concluir a instalação
+## <a name="finish-installing"></a>Conclua a instalação
 
-Instalar o Daemon de segurança de limite de IoT e configurá-lo com as instruções no [neste artigo][lnk-install-windows-on-windows]
+Instale o Daemon de segurança do IoT Edge e configurá-lo com as instruções em [neste artigo][lnk-install-windows-on-windows]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que tem um dispositivo com o tempo de execução do limite do IoT, saiba como [implementar e monitorizar os módulos de limite de IoT à escala][lnk-deploy].
+Agora que tiver um dispositivo com o runtime do IoT Edge, saiba como [implementar e monitorizar os módulos do IoT Edge em escala][lnk-deploy].
 
 <!--Links-->
-[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md#download-the-edge-daemon-package-and-install
+[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md
 [lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
 [lnk-deploy]: how-to-deploy-monitor.md
 [lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows

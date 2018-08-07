@@ -1,70 +1,70 @@
 ---
-title: Como desaprovisionar dispositivos que foram aprovisionados com o serviço de aprovisionamento de dispositivos do Azure IoT Hub | Microsoft Docs
-description: Como os dispositivos de desaprovisionamento que foram aprovisionados com o serviço de aprovisionamento de dispositivos do Azure IoT Hub
-author: bryanla
-ms.author: bryanla
+title: Como desaprovisionar os dispositivos que foram aprovisionados no serviço de aprovisionamento de dispositivos do Azure IoT Hub | Documentos da Microsoft
+description: Como os dispositivos de desaprovisionamento que foram aprovisionados no serviço de aprovisionamento de dispositivos do Azure IoT Hub
+author: wesmc7777
+ms.author: wesmc
 ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 56d9c4c057e226f6cd93551380436cdc52d79169
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c6e2a9006d73d269422292dc959866d3f6d8a82
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630362"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522677"
 ---
-# <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desaprovisionar dispositivos que foram auto-aprovisionados anteriormente 
+# <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desaprovisionar os dispositivos que foram anteriormente aprovisionados 
 
-Pode considerar necessário para dispositivos de desaprovisionamento que foram anteriormente automaticamente aprovisionado através do serviço de aprovisionamento de dispositivos. Por exemplo, um dispositivo pode ser vendido ou movido para um hub IoT diferente, ou pode ser perda, roubo ou ficarem comprometida. 
+Pode ser necessário para dispositivos de desaprovisionamento que foram anteriormente aprovisionados através do serviço de aprovisionamento de dispositivo. Por exemplo, um dispositivo pode ser vendido ou movido para um hub de IoT diferente, ou pode ser perdido, roubado ou ficarem comprometida. 
 
-Em geral, o desaprovisionamento um dispositivo envolve dois passos:
+Em geral, um dispositivo de desaprovisionamento envolve dois passos:
 
-1. Disenroll o dispositivo a partir do seu serviço de aprovisionamento, para impedir futuro automática aprovisionamento. Dependendo se pretende revogar o acesso temporariamente ou permanentemente, poderá pretender desativar ou eliminar uma entrada de inscrição. Para dispositivos que utilizam o atestado de x. 509, pode pretender desativar/eliminar uma entrada na hierarquia de grupos de inscrição existentes.  
+1. Disenroll o dispositivo a partir do seu serviço de aprovisionamento, para evitar futuro aprovisionamento automático. Dependendo se pretende revogar o acesso temporária ou permanente, poderá desativar ou eliminar uma entrada de inscrição. Para dispositivos que utilizam o atestado de X.509, pode querer desativar/eliminar uma entrada na hierarquia de grupos de inscrição existentes.  
  
-   - Para saber como disenroll um dispositivo, consulte o artigo [como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub](how-to-revoke-device-access-portal.md).
-   - Para saber como disenroll um dispositivo através de programação utilizando um dos SDKs de serviço aprovisionamento, consulte o artigo [gerir inscrições de dispositivos com o serviço SDKs](how-to-manage-enrollments-sdks.md).
+   - Para saber como disenroll um dispositivo, veja [como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub](how-to-revoke-device-access-portal.md).
+   - Para saber como disenroll um programaticamente, usando um dos SDKs do serviço aprovisionamento de dispositivo, veja [gerir inscrições de dispositivos com SDKs de serviço](how-to-manage-enrollments-sdks.md).
 
-2. Anular o registo do dispositivo a partir do seu IoT Hub, para impedir a transferência de dados e comunicações futura. Novamente, pode desativar temporariamente ou eliminar permanentemente a entrada do dispositivo no registo de identidade para o IoT Hub onde foi aprovisionado. Consulte [desativar dispositivos](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) para saber mais sobre disablement. Consulte "Dispositivo gestão / dispositivos IoT" para o recurso do IoT Hub, no [portal do Azure](https://portal.azure.com).
+2. Anular o registo do dispositivo do seu IoT Hub, para impedir a transferência de dados e comunicações futura. Mais uma vez, pode desativar temporariamente ou eliminar permanentemente a entrada do dispositivo no registo de identidade do IoT Hub em que foi aprovisionada. Ver [desativar dispositivos](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) para saber mais sobre a desabilitação. Consulte "Dispositivo gestão / dispositivos IoT" para o seu recurso do IoT Hub, o [portal do Azure](https://portal.azure.com).
 
-Os passos exatos que tomar para desaprovisionar um dispositivo dependem o mecanismo de atestado e a respetiva entrada de registo aplicável com o serviço de aprovisionamento. As secções seguintes fornecem uma descrição geral do processo, consoante o tipo de inscrição e de atestado.
+Os passos exatos que tomar para desaprovisionar um dispositivo dependem do seu mecanismo de atestado e sua entrada de inscrição aplicável ao seu serviço de aprovisionamento. As secções seguintes fornecem uma visão geral do processo, com base no tipo de inscrição e atestado.
 
 ## <a name="individual-enrollments"></a>Inscrições individuais
-Dispositivos que utilizam o atestado de TPM ou atestado de x. 509 com um certificado de folha são aprovisionados através de uma entrada de registo individuais. 
+Dispositivos que utilizam o atestado de TPM ou X.509 atestado com um certificado de folha são aprovisionados através de uma entrada de inscrição individual. 
 
-Para desaprovisionar num dispositivo que tenha uma inscrição individuais: 
+Para desaprovisionar um dispositivo que tenha uma inscrição individual: 
 
 1. Disenroll o dispositivo a partir do seu serviço de aprovisionamento:
 
-   - Para dispositivos que utilizam o atestado de TPM, elimine a entrada de registo individuais para revogar o acesso do dispositivo para o serviço de aprovisionamento, permanentemente, ou desativar a entrada temporariamente revogar o acesso. 
-   - Para dispositivos que utilizam o atestado de x. 509, pode eliminar ou desativar a entrada. Tenha em atenção, no entanto, se eliminar um registo individual para um dispositivo que utiliza o x. 509 e existe um grupo de inscrição ativados para um certificado de assinatura em que a cadeia de certificados do dispositivo, o dispositivo pode inscrever novamente. Para esses dispositivos, pode ser mais segura desativar a entrada de inscrição. Ao fazê-lo, por isso, impede que o dispositivo de reinscrição, independentemente da se um grupo de inscrição ativado existe para um dos respetivos certificados de assinatura.
+   - Para dispositivos que utilizam o atestado de TPM, elimine a entrada de inscrição individual para revogar o acesso do dispositivo ao serviço de aprovisionamento permanentemente ou desativar a entrada temporariamente revogar o acesso. 
+   - Para dispositivos que utilizam o atestado de X.509, pode eliminar ou desativar a entrada. Tenha em atenção, no entanto, se eliminar uma inscrição individual para um dispositivo que utiliza X.509 e existe um grupo de inscrição ativado para um certificado de assinatura em que a cadeia de certificados do dispositivo, o dispositivo pode inscrever novamente. Para esses dispositivos, pode ser mais seguro desativar a entrada de inscrição. Ao fazê-lo modo, impede que o dispositivo de reinscrição, independentemente de se um grupo de inscrição ativado já existe para um dos seus certificados de assinatura.
 
-2. Desative ou elimine o dispositivo no registo de identidade do hub IoT que tenha sido aprovisionado para. 
+2. Desativar ou eliminar o dispositivo no registo de identidade do hub IoT que ele tenha sido aprovisionado para. 
 
 
 ## <a name="enrollment-groups"></a>Grupos de inscrição
-Com o atestado de x. 509, os dispositivos também podem ser aprovisionados através de um grupo de inscrição. Grupos de inscrição estão configurados com um certificado de assinatura, ou um intermédio ou certificado da AC de raiz e controlam o acesso ao serviço de aprovisionamento para dispositivos com esse certificado na respetiva cadeia de certificados. Para obter mais informações sobre grupos de inscrição e certificados x. 509 com o serviço de aprovisionamento, consulte [certificados x. 509](concepts-security.md#x509-certificates). 
+Com o atestado de X.509, os dispositivos também podem ser aprovisionados por meio de um grupo de inscrição. Grupos de inscrição estão configurados com um certificado de assinatura, um utilizador intermédio ou certificado da AC de raiz e controlam o acesso ao serviço de aprovisionamento de dispositivos com esse certificado na respetiva cadeia de certificados. Para saber mais sobre os grupos de inscrição e certificados X.509 com o serviço de aprovisionamento, consulte [certificados X.509](concepts-security.md#x509-certificates). 
 
-Para ver uma lista de dispositivos que foram aprovisionados através de um grupo de inscrição, pode ver detalhes do grupo de inscrição. Esta é uma forma fácil de compreender que o IoT hub a cada dispositivo ter sido aprovisionado para. Para ver a lista de dispositivos: 
+Para ver uma lista de dispositivos que foram aprovisionadas através de um grupo de inscrição, pode ver os detalhes do grupo de inscrição. Esta é uma forma fácil de compreender qual cada dispositivo ter sido aprovisionado para o hub IoT. Para ver a lista de dispositivos: 
 
-1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu da esquerda.
+1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu do lado esquerdo.
 2. Clique em seu serviço de aprovisionamento na lista de recursos.
-3. No seu serviço de aprovisionamento, clique em **gerir inscrições**, em seguida, selecione **inscrição grupos** separador.
+3. No seu serviço de aprovisionamento, clique em **gerir inscrições**, em seguida, selecione **grupos de inscrição** separador.
 4. Clique no grupo de inscrição para abri-lo.
 
-   ![Ver a entrada de grupo de inscrição no portal](./media/how-to-unprovision-devices/view-enrollment-group.png)
+   ![Ver a entrada de inscrição de grupo no portal](./media/how-to-unprovision-devices/view-enrollment-group.png)
 
-Com os grupos de inscrição, existem dois cenários a ter em consideração:
+Com os grupos de inscrição, existem dois cenários a considerar:
 
-- Para desaprovisionar todos os dispositivos que foram aprovisionados através de um grupo de inscrição:
+- Para desaprovisionar a todos os dispositivos que foram aprovisionados através de um grupo de inscrição:
   1. Desative o grupo de inscrição na lista de proibições o certificado de assinatura. 
-  2. Utilize a lista de dispositivos aprovisionados para esse grupo de inscrição para desativar ou eliminar cada dispositivo no registo de identidade do seu IoT hub correspondentes. 
-  3. Depois de desativar ou eliminar todos os dispositivos da respetiva os respetivos hubs IoT, opcionalmente, pode eliminar o grupo de inscrição. Tenha em atenção, no entanto, que, se eliminar o grupo de inscrição e existir um grupo de inscrição ativados para um certificado de assinatura superior a cópia de segurança na cadeia de certificados de uma ou mais dos dispositivos, esses dispositivos podem inscrever novamente. 
+  2. Utilize a lista de dispositivos aprovisionados para esse grupo de inscrição para desativar ou eliminar cada dispositivo no registo de identidade do seu IoT hub do respectivo. 
+  3. Depois de desativar ou eliminar todos os dispositivos de seus respectivos hubs de IoT, opcionalmente, pode eliminar o grupo de inscrição. Lembre-se, porém, que, se eliminar o grupo de inscrição e existe um grupo de inscrição ativado para um certificado de assinatura posição superior na cadeia de certificados de uma ou mais dos dispositivos, esses dispositivos podem voltar a inscrever. 
 
 - Para desaprovisionar um único dispositivo de um grupo de inscrição:
-  1. Crie uma inscrição individuais desativada para o seu certificado de folha (dispositivos). Isto revoga acesso ao serviço de aprovisionamento para que o dispositivo, contudo permite acesso de outros dispositivos que tenham o certificado de assinatura do grupo de inscrição na respetiva cadeia. Não elimine a inscrição individuais desativada para o dispositivo. Se o fizer, irá permitir que o dispositivo inscrever novamente através do grupo de inscrição. 
-  2. Utilize a lista de dispositivos aprovisionados para esse grupo de inscrição para localizar o IoT hub que o dispositivo foi aprovisionado para e desative ou elimine-o partir do registo de identidade que hub. 
+  1. Crie uma inscrição individual desativada para o seu certificado de folha (dispositivos). Isso revoga o acesso ao serviço de aprovisionamento para que o dispositivo, contudo permite acesso a outros dispositivos que tenham o certificado de assinatura do grupo de inscrição na respetiva cadeia. Não elimine a inscrição individual desativada para o dispositivo. Isso permitirá que o dispositivo inscrever novamente através do grupo de inscrição. 
+  2. Utilize a lista de dispositivos aprovisionados para esse grupo de inscrição para encontrar o hub IoT que o dispositivo foi aprovisionado para e desative ou elimine-o do registo de identidade nesse hub. 
   
   
 

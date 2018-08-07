@@ -2,24 +2,18 @@
 title: Métricas de armazenamento do Azure no Azure Monitor | Documentos da Microsoft
 description: Saiba mais sobre a nova métrica fornecida a partir do Azure Monitor.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: f67fdbde243a7087496a075581e3f1d0040ade58
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.component: common
+ms.openlocfilehash: 880632a39332f7d9ad24b0f7aa2301660eb2f9b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263611"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528578"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -336,13 +330,13 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 
 ### <a name="account-level"></a>Nível de conta
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | UsedCapacity | A quantidade de armazenamento utilizado pela conta de armazenamento. Para contas de armazenamento standard, é a soma da capacidade utilizada pelo blob, tabela, ficheiro e fila. Para contas de armazenamento premium e contas de armazenamento de BLOBs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
 
 ### <a name="blob-storage"></a>Armazenamento de blobs
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | BlobCapacity | O total de armazenamento de BLOBs utilizado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
 | BlobCount    | O número de objetos de BLOBs armazenados na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
@@ -350,7 +344,7 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 
 ### <a name="table-storage"></a>Table Storage
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | TableCapacity | A quantidade de armazenamento de tabela utilizada a conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
 | TableCount   | O número de tabelas na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
@@ -358,7 +352,7 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 
 ### <a name="queue-storage"></a>Armazenamento de filas
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | QueueCapacity | A quantidade de armazenamento de filas utilizada a conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
 | QueueCount   | O número de filas na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
@@ -366,7 +360,7 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 
 ### <a name="file-storage"></a>Armazenamento de ficheiros
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | FileCapacity | A quantidade de armazenamento de ficheiros utilizado a conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
 | FileCount   | O número de ficheiros na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
@@ -378,7 +372,7 @@ Métricas de transação são enviadas do armazenamento do Azure para o Azure Mo
 
 O armazenamento do Azure fornece as seguintes métricas de transação no Azure Monitor.
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | Transações | O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: ResponseType, GeoType, ApiName e autenticação ([definição](#metrics-dimensions))<br/> Exemplo de valor: 1024 |
 | Entrada | A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
@@ -391,7 +385,7 @@ O armazenamento do Azure fornece as seguintes métricas de transação no Azure 
 
 O armazenamento do Azure suporta seguintes dimensões de métricas no Azure Monitor.
 
-| Nome da dimensão | Descrição |
+| Nome da Dimensão | Descrição |
 | ------------------- | ----------------- |
 | BlobType | O tipo de blob para apenas as métricas de Blob. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
 | ResponseType | Tipo de resposta de transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros de servidor, exceto aqueles descrito </li> <li> ServerBusyError: Pedido autenticado que devolveu um código de estado HTTP 503. </li> <li> ServerTimeoutError: O limite de tempo pedido autenticado que devolveu um código de estado HTTP 500. O limite de tempo excedido devido a um erro de servidor. </li> <li> AuthorizationError: Pedido autenticado que falhou devido a acesso não autorizado de dados ou uma falha de autorização. </li> <li> NetworkError: Pedido autenticado que falhou por erros de rede. Normalmente ocorre quando um cliente prematuramente fecha uma conexão antes da expiração de tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação lado do cliente. </li> <li> ClientTimeoutError: O limite de tempo pedido autenticado que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou o tempo limite do pedido estiver definido como um valor inferior que o esperado pelo serviço de armazenamento, é um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente, exceto aqueles descrito. </li> <li> Êxito: Pedido com êxito|

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-ms.openlocfilehash: aeff3be89121bb93432d03f108ab5d2e5fa6f007
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 713e5304ca54039413f68ebc189dd049e77cdaa0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099542"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527580"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introdução à Azure Search no Node.js
 > [!div class="op_single_selector"]
@@ -99,9 +99,9 @@ Também pode tentar qualquer um destes termos:
 ## <a name="next-steps"></a>Passos Seguintes
 Este é o primeiro tutorial da Azure Search com base em Node.js e o conjunto de dados USGS. Ao longo do tempo, iremos irá expandir este tutorial para demonstrar funcionalidades adicionais de pesquisa que pode querer utilizar nas suas soluções personalizadas.
 
-Se já tiver algum conhecimento na Azure Search, pode utilizar este exemplo como ponto de partida para tentar dos sugestores (consultas antecipada ou conclusão automática), filtros e navegação por facetas. Também pode melhorar a página de resultados da pesquisa ao adicionar contagens e criação de batches de documentos para que os utilizadores possam percorrer os resultados.
+Se já tiver algumas informações básicas no Azure Search, pode utilizar este exemplo como um springboard para tentar sugestores (conclusão automática de antecipada ou consultas), filtros e navegação por facetas. Também pode melhorar a página de resultados da pesquisa ao adicionar contagens e criação de batches de documentos para que os utilizadores possam percorrer os resultados.
 
-Novo na Azure Search? Recomendamos que experimente outros tutoriais para desenvolver uma noção básica sobre o que pode criar. Visite a nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para obter mais recursos. Também pode ver as ligações na nossa [Lista de vídeos e tutoriais](search-video-demo-tutorial-list.md) para aceder a mais informações.
+Novo na Azure Search? Recomendamos que experimente outros tutoriais para desenvolver uma noção básica sobre o que pode criar. Visite a nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para obter mais recursos. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG

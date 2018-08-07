@@ -1,6 +1,6 @@
 ---
-title: Personalizar afirmações emitidas no token SAML para aplicações da empresa no Azure Active Directory | Microsoft Docs
-description: Saiba como personalizar afirmações emitidas no token SAML para aplicações da empresa no Azure Active Directory
+title: Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory | Documentos da Microsoft
+description: Saiba como personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,67 +17,67 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318425"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579423"
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizar afirmações emitidas no token SAML para aplicações da empresa no Azure Active Directory
-Hoje em dia do Azure Active Directory suporta o início de sessão único com a maioria das aplicações da empresa, incluindo ambas as aplicações previamente integradas na Galeria de aplicações do Azure AD, bem como as aplicações personalizadas. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD através do protocolo SAML 2.0, AD do Azure envia um token para a aplicação (através de um HTTP POST). E, em seguida, a aplicação valida e utiliza o token para iniciar a sessão do utilizador em vez de pedir um nome de utilizador e palavra-passe. Estes tokens SAML contém informações sobre o utilizador ao conhecido como "afirmações".
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory
+Hoje em dia o Azure Active Directory suporta início de sessão único com a maioria das aplicações empresariais, incluindo as duas aplicações pré-integradas na Galeria de aplicações do Azure AD, bem como as aplicações personalizadas. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD através do protocolo SAML 2.0, o Azure AD envia um token para a aplicação (através de um HTTP POST). E, em seguida, o aplicativo valida e utiliza o token para registar o utilizador em vez de solicitar um nome de utilizador e palavra-passe. Estes tokens SAML contêm informações sobre o utilizador conhecido como "afirmações".
 
-Na identidade-enunciar, uma "reclamação" informações de Estados de um fornecedor de identidade sobre um utilizador dentro do token que emitem para esse utilizador. No [SAML token](http://en.wikipedia.org/wiki/SAML_2.0), estes dados normalmente estão incluídos na declaração de atributo de SAML. ID exclusivo do utilizador é normalmente representado no requerente do SAML, também denominada como identificador de nome.
+Na linguagem de identificação, uma "declaração" é informações que indica um fornecedor de identidade sobre um usuário dentro do token que emitir para esse utilizador. Na [SAML token](http://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na declaração de atributo de SAML. ID exclusivo do utilizador, normalmente é representado no requerente do SAML, também denominado como um identificador de nome.
 
-Por predefinição, o Azure Active Directory emite um token SAML para a aplicação que contém uma afirmação NameIdentifier, com um valor de nome de utilizador (também conhecidas como nome principal do utilizador) no Azure AD. Este valor pode identificar exclusivamente o utilizador. O token SAML também contém as afirmações adicionais que contém o endereço de correio eletrónico do utilizador, nome próprio e apelido.
+Por predefinição, o Azure Active Directory emite um token SAML para a sua aplicação que contém uma afirmação NameIdentifier, com um valor de nome de utilizador (nome da principal de utilizador também conhecidas como) no Azure AD. Este valor pode identificar exclusivamente o utilizador. O token SAML também contém as afirmações adicionais que contém o endereço de e-mail do utilizador, nome próprio e apelido.
 
-Para ver ou editar as afirmações emitidas no SAML token para a aplicação, abra a aplicação no portal do Azure. Em seguida, selecione o **ver e editar todos os outros atributos de utilizador** caixa de verificação no **atributos de utilizador** secção da aplicação.
+Para ver ou editar as declarações emitidas no SAML token para a aplicação, abra a aplicação no portal do Azure. Em seguida, selecione o **vista e editar todos os outros atributos de utilizador** caixa de seleção o **atributos de utilizador** seção do aplicativo.
 
 ![Secção de atributos de utilizador][1]
 
-Existem duas razões possíveis por que razão poderá ser necessário editar as afirmações emitidas no SAML token:
-* A aplicação foi escrita para solicitar a um conjunto diferente de afirmação URIs ou valores de afirmação.
-* A aplicação foi implementada de forma que requer a afirmação NameIdentifier ser algo que o nome de utilizador (também conhecidas como nome principal do utilizador) armazenado no Azure Active Directory.
+Existem duas razões possíveis porque poderá ter de editar as declarações emitidas no SAML token:
+* O aplicativo foi escrito para solicitar a um conjunto diferente de URIs de declaração ou valores de afirmação.
+* A aplicação foi implementada de forma que requer a afirmação NameIdentifier ser algo que não seja o nome de utilizador (nome da principal de utilizador também conhecidas como) armazenado no Azure Active Directory.
 
-Pode editar qualquer um dos valores de afirmação de predefinição. Selecione a linha de afirmação na tabela de atributos token SAML. Esta ação abre o **Editar atributo** secção e, em seguida, pode editar o nome de afirmação, o valor e o espaço de nomes associados a afirmação.
+Pode editar qualquer um dos valores de afirmação padrão. Selecione a linha de afirmação na tabela de atributos de token SAML. Esta ação abre o **Editar atributo** secção e, em seguida, pode editar a afirmação de nome, valor e associada com a declaração de espaço de nomes.
 
 ![Editar atributo de utilizador][2]
 
-Pode também remover afirmações (que não seja NameIdentifier) utilizando o menu de contexto, que abre-se ao clicar no **...**  ícone. Também pode adicionar nova afirmações utilizando o **adicionar atributo** botão.
+Também pode remover declarações (que não seja NameIdentifier) utilizando o menu de contexto, que abre-se ao clicar no **...**  ícone. Também pode adicionar nova afirmações utilizando o **adicionar atributo** botão.
 
 ![Editar atributo de utilizador][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>Editar a afirmação NameIdentifier
-Para resolver o problema onde a aplicação foi implementada com um nome de utilizador diferente, clique em de **identificador de utilizador** pendente **atributos de utilizador** secção. Esta ação apresenta uma caixa de diálogo com várias opções diferentes:
+Para resolver o problema em que o aplicativo tiver sido implementado com um nome de utilizador diferente, clique nas **identificador de utilizador** menu pendente **atributos de utilizador** secção. Esta ação fornece uma caixa de diálogo com várias opções diferentes:
 
 ![Editar atributo de utilizador][4]
 
-Na lista pendente, selecione **user.mail** para definir a afirmação NameIdentifier para ser o endereço de correio eletrónico do utilizador no diretório. Em alternativa, selecione **user.onpremisessamaccountname** a definir para o utilizador do SAM nome da conta que tenha sido sincronizados a partir do Azure AD no local.
+Na lista pendente, selecione **user.mail** para definir a afirmação NameIdentifier para ser o endereço de e-mail do utilizador no diretório. Em alternativa, selecione **user.onpremisessamaccountname** para definido como o utilizador do nome da conta SAM que tenha sido sincronizado a partir do Azure AD no local.
 
-Também pode utilizar o especial **ExtractMailPrefix()** função para remover o sufixo de domínio, o endereço de e-mail, nome da conta do SAM ou o nome principal de utilizador. Extrai apenas a primeira parte do nome de utilizador que está a ser passem (por exemplo, "joe_smith" em vez de joe_smith@contoso.com).
+Também pode utilizar o especial **ExtractMailPrefix()** para remover o sufixo de domínio do endereço de e-mail, nome de conta SAM ou o nome principal de utilizador. Extrai apenas a primeira parte do nome de utilizador que está sendo passada por meio de (por exemplo, "joe_smith" em vez de joe_smith@contoso.com).
 
 ![Editar atributo de utilizador][5]
 
-Iremos agora tenha também adicionado o **join()** função para aderir ao domínio verificado com o valor do identificador de utilizador. Quando seleciona a função de join() no **identificador de utilizador** selecione primeiro o identificador de utilizador como, como o nome do principal utilizador ou endereço de e-mail e, em seguida, no segundo lista pendente, selecione o domínio verificado. Se selecionar o endereço de e-mail com o domínio verificado, em seguida, do Azure AD extrai o nome de utilizador do primeiro joe_smith de valor de joe_smith@contoso.com e o acrescenta com contoso.onmicrosoft.com. Consulte o exemplo seguinte:
+Agora também adicionámos a **join()** função para aderir ao domínio verificado com o valor do identificador de utilizador. ao selecionar a função de join() no **identificador de utilizador** selecione primeiro o identificador de utilizador, como o nome do principal utilizador ou endereço de e-mail e, em seguida, na segunda lista pendente, selecione o domínio verificado. Se selecionar o endereço de e-mail com o domínio verificado, do Azure AD extrai o nome de utilizador a partir do primeiro joe_smith de valor de joe_smith@contoso.com e o acrescenta com contoso.onmicrosoft.com. Veja o exemplo seguinte:
 
 ![Editar atributo de utilizador][6]
 
-## <a name="adding-claims"></a>A adição de afirmações
-Ao adicionar uma afirmação, pode especificar o nome de atributo (que não estritamente tem de seguir um padrão URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de utilizador que é armazenado no diretório.
+## <a name="adding-claims"></a>Adicionar afirmações
+Quando adicionar uma afirmação, pode especificar o nome de atributo (o que não seja estritamente necessário seguem um padrão URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de utilizador que é armazenado no diretório.
 
-![Adicione o atributo de utilizador][7]
+![Adicionar o atributo de utilizador][7]
 
-Por exemplo, terá de enviar o departamento de que o utilizador pertence a respetiva organização como uma afirmação (como, vendas). Introduza o nome de afirmação, conforme esperado pela aplicação e, em seguida, selecione **user.department** como o valor.
+Por exemplo, terá de enviar o departamento de que o utilizador pertence na sua organização como uma afirmação (como, vendas). Introduza o nome de afirmação, conforme o esperado pela aplicação e, em seguida, selecione **user.department** como o valor.
 
 > [!NOTE]
-> Se para um utilizador especificado não existir nenhum valor armazenado para um atributo selecionado, em seguida, esse afirmação não é a ser emitida no token.
+> Se para um determinado usuário, não existe nenhum valor armazenado para um atributo selecionado, essa afirmação não está a ser emitida no token.
 
 > [!TIP]
-> O **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** só são suportadas quando a sincronização dos dados de utilizador no local do Active Directory utilizando o [do Azure AD Ligar a ferramenta](../active-directory-aadconnect.md).
+> O **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** só são suportadas quando a sincronização de dados de utilizador no local do Active Directory com o [do Azure AD Ligar a ferramenta](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Afirmações restritas
 
-Existem algumas restritas afirmações no SAML. Se adicionar estas afirmações, em seguida, do Azure AD não envie estas afirmações. Seguem-se o conjunto de afirmações SAML restringida:
+Existem alguns restritas afirmações no SAML. Se adicionar essas declarações, Azure AD não irá enviar essas declarações. Seguem-se o conjunto de afirmações SAML restringida:
 
     | Tipo de afirmação (URI) |
     | ------------------- |
@@ -131,7 +131,7 @@ Existem algumas restritas afirmações no SAML. Se adicionar estas afirmações,
 ## <a name="next-steps"></a>Passos Seguintes
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](../active-directory-apps-index.md)
 * [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Resolução de problemas baseados em SAML Single Sign-On](active-directory-saml-debugging.md)
+* [Resolução de problemas com base em SAML início de sessão único](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

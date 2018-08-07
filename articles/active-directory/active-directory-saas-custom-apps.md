@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f3511b4d9e75136fd0105785a1e033378d2ebd1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: a2b1816a7f972e698d3872e6c252c09a4d5292ef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494026"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578733"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory
 
@@ -148,7 +148,7 @@ Atribuir um utilizador permitirá que o Azure AD para emitir um token para o uti
 
 ### <a name="test-the-saml-application"></a>Testar a aplicação de SAML
 
-Antes de testar a aplicação de SAML, tem de ter configurado a aplicação com o Azure AD e atribuídos a utilizadores ou grupos à aplicação. Para testar a aplicação de SAML, veja [como depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory](develop/active-directory-saml-debugging.md).
+Antes de testar a aplicação de SAML, tem de ter configurado a aplicação com o Azure AD e atribuídos a utilizadores ou grupos à aplicação. Para testar a aplicação de SAML, veja [como depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="password-single-sign-on"></a>Palavra-passe início de sessão único
 

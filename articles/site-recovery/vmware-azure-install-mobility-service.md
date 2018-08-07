@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: ee954a951d3fc07709e3f27b4ced71a9ec525410
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492967"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527002"
 ---
 # <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade 
 
@@ -26,7 +26,8 @@ Serviço de mobilidade da recuperação de sites do Azure está instalado em VMs
 
 
 >[!IMPORTANT]
-> A partir da versão 9.7.0.0, em VMs do Windows, o serviço de mobilidade instalador também instala o mais recente disponível [agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Quando um computador efetua a ativação pós-falha para o Azure, o computador cumpre a pré-requisitos para a utilização de qualquer extensão de VM a instalação do agente.
+> Versão 9.7.0.0, a partir **em VMs do Windows**, o instalador do serviço de mobilidade também instala o mais recente disponível [agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Quando um computador efetua a ativação pós-falha para o Azure, o computador cumpre a pré-requisitos para a utilização de qualquer extensão de VM a instalação do agente.
+> </br>No **VMs do Linux**, WALinuxAgent tem de ser instalado manualmente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Conclua estes passos de pré-requisitos antes de instalar manualmente o serviço de mobilidade no seu servidor:

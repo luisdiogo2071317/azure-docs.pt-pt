@@ -1,46 +1,41 @@
 ---
-title: Desenvolver para os ficheiros do Azure com Java | Microsoft Docs
-description: Saiba como desenvolver aplicações Java e serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro.
+title: Programar para os ficheiros do Azure com Java | Documentos da Microsoft
+description: Saiba como desenvolver aplicações Java e serviços que utilizam ficheiros do Azure para armazenar dados de ficheiros.
 services: storage
-documentationcenter: java
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
-ms.translationtype: HT
+ms.component: files
+ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738205"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531316"
 ---
-# <a name="develop-for-azure-files-with-java"></a>Desenvolver para os ficheiros do Azure com Java
+# <a name="develop-for-azure-files-with-java"></a>Programar para os ficheiros do Azure com Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca deste tutorial
-Este tutorial irá demonstram as noções básicas da utilização de Java para desenvolver aplicações ou serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro. Neste tutorial, iremos criar uma aplicação de consola e mostram como executar ações básicas com Java e ficheiros do Azure:
+Este tutorial demonstra as noções básicas da utilização de Java para programar aplicações ou serviços que utilizam ficheiros do Azure para armazenar dados de ficheiros. Neste tutorial, iremos criar uma aplicação de consola e Mostrar como realizar ações básicas com Java e ficheiros do Azure:
 
-* Criar e eliminar as partilhas de ficheiros do Azure
-* Criar e eliminar diretórios
-* Enumerar ficheiros e diretórios numa partilha de ficheiros do Azure
+* Criar e eliminar partilhas de ficheiros do Azure
+* Crie e elimine diretórios
+* Enumerar arquivos e diretórios numa partilha de ficheiros do Azure
 * Carregar, transferir e eliminar um ficheiro
 
 > [!Note]  
-> Porque os ficheiros do Azure podem ser acedidos através de SMB, é possível escrever as aplicações que aceder à partilha de ficheiros do Azure utilizando as classes de e/s de Java padrão. Este artigo descreve como escrever as aplicações que utilizam o SDK de Java de armazenamento do Azure, que utiliza o [API REST da Azure ficheiros](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para falar com ficheiros do Azure.
+> Como ficheiros do Azure pode ser acedidos através de SMB, é possível escrever aplicações que acedam à partilha de ficheiros do Azure com as classes de e/s do Java padrão. Este artigo descreve como escrever aplicações que utilizam o SDK de Java de armazenamento do Azure, que utiliza a [API de REST de ficheiros do Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para comunicar com o serviço ficheiros do Azure.
 
 ## <a name="create-a-java-application"></a>Criar uma aplicação Java
-Para criar os exemplos, terá do Kit de desenvolvimento Java (JDK) e o [SDK de armazenamento do Azure para Java](https://github.com/Azure/azure-storage-java). Deve também criou uma conta de armazenamento do Azure.
+Para criar os exemplos, terá do Kit de desenvolvimento Java (JDK) e o [SDK de armazenamento do Azure para Java](https://github.com/Azure/azure-storage-java). Deve também ter criado uma conta de armazenamento do Azure.
 
-## <a name="set-up-your-application-to-use-azure-files"></a>Configurar a sua aplicação para utilizar os ficheiros do Azure
+## <a name="set-up-your-application-to-use-azure-files"></a>Configurar a sua aplicação para utilizar ficheiros do Azure
 Para utilizar as APIs de armazenamento do Azure, adicione a seguinte instrução na parte superior do ficheiro onde pretende aceder ao serviço de armazenamento de Java.
 
 ```java
@@ -50,7 +45,7 @@ import com.microsoft.azure.storage.file.*;
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de ligação de armazenamento do Azure
-Para utilizar ficheiros do Azure, terá de ligar à sua conta do storage do Azure. É o primeiro passo configurar uma cadeia de ligação, que iremos utilizar para ligar à sua conta de armazenamento. Vamos definir uma variável estática fazê-lo.
+Para utilizar ficheiros do Azure, terá de ligar à sua conta de armazenamento do Azure. O primeiro passo seria configurar uma cadeia de ligação, o que vamos utilizar para ligar à sua conta de armazenamento. Vamos definir uma variável estática para fazer isso.
 
 ```java
 // Configure the connection-string with your values
@@ -66,7 +61,7 @@ public static final String storageConnectionString =
 > 
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Ligar a uma conta de armazenamento do Azure
-Para ligar a sua conta do storage, tem de utilizar o **CloudStorageAccount** objeto, passar uma cadeia de ligação à respetiva **analisar** método.
+Para ligar à sua conta de armazenamento, tem de utilizar o **CloudStorageAccount** objeto, passando uma cadeia de ligação para seu **analisar** método.
 
 ```java
 // Use the CloudStorageAccount object to connect to your storage account
@@ -77,24 +72,24 @@ try {
 }
 ```
 
-**CloudStorageAccount.parse** emite um InvalidKeyException, pelo que terá para colocá-la no interior de um bloco try/catch.
+**CloudStorageAccount.parse** lança uma InvalidKeyException, portanto, precisará colocá-lo dentro de um bloco try/catch.
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
-Todos os ficheiros e diretórios nos ficheiros de Azure residem num contentor chamado um **partilha**. A conta do storage pode ter partilhas tantos como permite a capacidade de conta. Para obter acesso a uma partilha e o respetivo conteúdo, tem de utilizar um cliente de ficheiros do Azure.
+Todos os ficheiros e diretórios nos ficheiros do Azure residem num contêiner chamado um **partilha**. Sua conta de armazenamento pode ter quantas partilhas como permite que a sua capacidade de conta. Para obter acesso a uma partilha e o respetivo conteúdo, terá de utilizar um cliente de ficheiros do Azure.
 
 ```java
 // Create the Azure Files client.
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
-Utilizando o cliente de ficheiros do Azure, em seguida, pode obter uma referência a uma partilha.
+Com o cliente de ficheiros do Azure, em seguida, pode obter uma referência a uma partilha.
 
 ```java
 // Get a reference to the file share
 CloudFileShare share = fileClient.getShareReference("sampleshare");
 ```
 
-Para criar efetivamente a partilha, utilize o **createIfNotExists** método do objeto CloudFileShare.
+Para realmente criar a partilha, utilize o **createIfNotExists** método do objeto CloudFileShare.
 
 ```java
 if (share.createIfNotExists()) {
@@ -102,10 +97,10 @@ if (share.createIfNotExists()) {
 }
 ```
 
-Neste momento, **partilhar** contém uma referência a uma partilha denominada **sampleshare**.
+Neste momento, **partilhar** mantém uma referência para uma partilha denominada **sampleshare**.
 
 ## <a name="delete-an-azure-file-share"></a>Eliminar uma partilha de ficheiros do Azure
-Eliminar uma partilha é feito chamando a **deleteIfExists** método num objeto CloudFileShare. Eis o código de exemplo que suporta que.
+A eliminar uma partilha é feita chamando o **deleteIfExists** método num objeto de CloudFileShare. Aqui está o código de exemplo que faz isso.
 
 ```java
 try
@@ -128,7 +123,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
-Também pode organizar armazenamento colocando os ficheiros subdiretórios em vez de ter todos eles no diretório de raiz. Ficheiros do Azure permite-lhe criar tantas diretórios como irá permitir a sua conta. O código abaixo, irá criar um subdiretório com o nome **sampledir** sob o diretório de raiz.
+Também pode organizar o armazenamento ao colocar os ficheiros dentro dos subdiretórios em vez de ter todas elas no diretório de raiz. Os ficheiros do Azure permite-lhe criar os diretórios como permitirá que a sua conta. O código abaixo, irá criar um subdiretório nomeado **sampledir** sob o diretório de raiz.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -145,7 +140,7 @@ if (sampleDir.createIfNotExists()) {
 ```
 
 ## <a name="delete-a-directory"></a>Eliminar um diretório
-Eliminar um diretório é uma tarefa simples, embora deve ser salientado que não é possível eliminar um diretório que contiver ficheiros ou outros diretórios.
+Eliminar um diretório é uma tarefa bem simples, embora é importante observar que não é possível eliminar um diretório que ainda contém arquivos ou de outros diretórios.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -160,8 +155,8 @@ if ( containerDir.deleteIfExists() ) {
 }
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar ficheiros e diretórios numa partilha de ficheiros do Azure
-Obter uma lista de ficheiros e diretórios dentro de uma partilha facilmente é feito chamando **listFilesAndDirectories** numa referência CloudFileDirectory. O método devolve uma lista de objetos de ListFileItem que pode iterar. Por exemplo, o seguinte código irá listar ficheiros e diretórios dentro do diretório de raiz.
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar arquivos e diretórios numa partilha de ficheiros do Azure
+Obter uma lista de ficheiros e diretórios dentro de uma partilha facilmente é feito chamando **listFilesAndDirectories** numa referência de CloudFileDirectory. O método retorna uma lista de objetos de ListFileItem que pode repetir. Por exemplo, o código a seguir lista ficheiros e diretórios dentro do diretório de raiz.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -173,16 +168,16 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## <a name="upload-a-file"></a>Carregar um ficheiro
-Nesta secção, irá aprender como carregar um ficheiro a partir do armazenamento local para o diretório de raiz de uma partilha.
+Nesta secção, irá aprender como carregar um ficheiro do armazenamento local para o diretório de raiz de uma partilha.
 
-O primeiro passo no carregamento de um ficheiro é para obter uma referência para o diretório onde deve residir. Fazê-lo ao chamar o **getRootDirectoryReference** método do objeto de partilha.
+O primeiro passo para carregar um ficheiro é obter uma referência para o diretório onde devem residir. Fazê-lo ao chamar o **getRootDirectoryReference** método do objeto de partilha.
 
 ```java
 //Get a reference to the root directory for the share.
 CloudFileDirectory rootDir = share.getRootDirectoryReference();
 ```
 
-Agora que tem uma referência para o diretório de raiz da partilha, pode carregar um ficheiro no mesmo utilizando o seguinte código.
+Agora que tem uma referência para o diretório de raiz da partilha, pode carregar um ficheiro à classe usando o seguinte código.
 
 ```java
         // Define the path to a local file.
@@ -193,7 +188,7 @@ Agora que tem uma referência para o diretório de raiz da partilha, pode carreg
 ```
 
 ## <a name="download-a-file"></a>Transferir um ficheiro
-Uma das operações mais frequentes que será executa relativamente aos ficheiros do Azure é transferir ficheiros. No exemplo seguinte, o código transfere SampleFile.txt e apresenta o respetivo conteúdo.
+Uma das operações mais frequentes que será executa relativamente aos ficheiros do Azure é transferir ficheiros. No exemplo a seguir, o código downloads SampleFile.txt e apresenta o conteúdo.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -210,7 +205,7 @@ System.out.println(file.downloadText());
 ```
 
 ## <a name="delete-a-file"></a>Eliminar um ficheiro
-Há outra operação de ficheiros do Azure comum é a eliminação de ficheiros. O seguinte código elimina um ficheiro denominado SampleFile.txt armazenados dentro de um diretório com o nome **sampledir**.
+Outra operação de ficheiros do Azure comum é a eliminação de ficheiros. O código seguinte elimina um ficheiro denominado SampleFile.txt armazenados dentro de um diretório chamado **sampledir**.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -229,12 +224,12 @@ if ( file.deleteIfExists() ) {
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se quiser obter mais informações sobre outras APIs de armazenamento do Azure, siga estas ligações.
+Se gostaria de saber mais sobre outras APIs de armazenamento do Azure, siga estas ligações.
 
-* [Do Azure para programadores de Java](/java/azure)/)
+* [Azure para programadores Java](/java/azure)/)
 * [Armazenamento do Azure SDK para Java](https://github.com/azure/azure-storage-java)
 * [Armazenamento do Azure SDK para Android](https://github.com/azure/azure-storage-android)
-* [Referência do SDK de cliente de armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/) (Referência do SDK do Cliente do Armazenamento do Azure)
 * [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blogue da Equipa de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Transferir dados com o Utilitário de Linha de Comandos AzCopy](../common/storage-use-azcopy.md)

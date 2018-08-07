@@ -17,12 +17,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: jmprieur
-ms.openlocfilehash: cc85dbe4bc1d207f18381e2a6d85461db229d6ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3490c4589446a308d81280765baccb63e01dd6c7
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506599"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579566"
 ---
 # <a name="azure-ad-ios-getting-started"></a>O Azure AD iOS, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -238,8 +238,8 @@ Para referência, o exemplo concluído (sem os valores de configuração) é for
 ## <a name="next-steps"></a>Passos Seguintes
 Agora pode passar para cenários adicionais. Poderá querer experimentar:
 
-* [Proteger uma API com o Azure AD da Web de node. js](active-directory-devquickstarts-webapi-nodejs.md)
-* Saiba [como ativar o SSO em vária aplicações em dispositivos iOS através da ADAL](active-directory-sso-ios.md)  
+* [Proteger uma API com o Azure AD da Web de node. js](quickstart-v1-nodejs-webapi.md)
+* Saiba [como ativar o SSO em vária aplicações em dispositivos iOS através da ADAL](howto-v1-enable-sso-on-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

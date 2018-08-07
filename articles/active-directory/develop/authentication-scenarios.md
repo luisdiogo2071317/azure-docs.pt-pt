@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6429a6fb762e9eb2bac59788c5c4eb0f9c031b2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505489"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578529"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Cenários de autenticação do Azure AD
 
@@ -62,7 +62,7 @@ Agora que tem uma descrição geral dos conceitos básicos, leia as secções ab
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Afirmações nos tokens de segurança do Azure AD
 
-Tokens de segurança (acesso e tokens de ID) emitidos pelo Azure AD contêm afirmações ou asserções de informações sobre o assunto que foi autenticado. Essas declarações podem ser utilizadas pela aplicação para várias tarefas. Por exemplo, as aplicações podem utilizar afirmações para validar o token, identificar o inquilino do diretório do assunto, exibir informações de utilizador, determinar autorização o assunto e assim por diante. As ações presentes em qualquer token de segurança de determinado dependem do tipo de token, o tipo de credencial usado para autenticar o utilizador e a configuração da aplicação. Uma breve descrição de cada tipo de afirmação emitido pelo Azure AD é fornecida na tabela abaixo. Para obter mais informações, consulte [tipos de token e afirmação suportados](active-directory-token-and-claims.md).
+Tokens de segurança (acesso e tokens de ID) emitidos pelo Azure AD contêm afirmações ou asserções de informações sobre o assunto que foi autenticado. Essas declarações podem ser utilizadas pela aplicação para várias tarefas. Por exemplo, as aplicações podem utilizar afirmações para validar o token, identificar o inquilino do diretório do assunto, exibir informações de utilizador, determinar autorização o assunto e assim por diante. As ações presentes em qualquer token de segurança de determinado dependem do tipo de token, o tipo de credencial usado para autenticar o utilizador e a configuração da aplicação. Uma breve descrição de cada tipo de afirmação emitido pelo Azure AD é fornecida na tabela abaixo. Para obter mais informações, consulte [tipos de token e afirmação suportados](v1-id-and-access-tokens.md).
 
 | Afirmação | Descrição |
 | --- | --- |
@@ -113,7 +113,7 @@ Cada cenário listado neste documento inclui uma subseção que descreve os requ
 
 ## <a name="application-types-and-scenarios"></a>Tipos de aplicativos e cenários
 
-Cada um dos cenários descritos aqui pode ser desenvolvida usando vários idiomas e plataformas. Todos são apoiados por exemplos de código completo disponíveis na [guia de amostras de código](active-directory-code-samples.md), ou diretamente a partir do correspondente [repositórios de exemplo do GitHub](https://github.com/Azure-Samples?q=active-directory). Além disso, se seu aplicativo precisar de uma parte específica ou um segmento de um cenário ponto-a-ponto, na maioria dos casos essa funcionalidade pode ser adicionada independentemente. Por exemplo, se tiver um aplicativo nativo que chama uma API web, pode adicionar facilmente uma aplicação web que também chama a API web. O diagrama seguinte ilustra estes cenários e tipos de aplicativos, e como componentes diferentes podem ser adicionados:
+Cada um dos cenários descritos aqui pode ser desenvolvida usando vários idiomas e plataformas. Todos são apoiados por exemplos de código completo disponíveis na [guia de amostras de código](sample-v1-code.md), ou diretamente a partir do correspondente [repositórios de exemplo do GitHub](https://github.com/Azure-Samples?q=active-directory). Além disso, se seu aplicativo precisar de uma parte específica ou um segmento de um cenário ponto-a-ponto, na maioria dos casos essa funcionalidade pode ser adicionada independentemente. Por exemplo, se tiver um aplicativo nativo que chama uma API web, pode adicionar facilmente uma aplicação web que também chama a API web. O diagrama seguinte ilustra estes cenários e tipos de aplicativos, e como componentes diferentes podem ser adicionados:
 
 ![Tipos de aplicativos e cenários](./media/authentication-scenarios/application_types_and_scenarios.png)
 
@@ -142,7 +142,7 @@ Esta secção descreve um aplicativo que autentica um usuário num navegador da 
 
 #### <a name="code-samples"></a>Exemplos de código
 
-Veja os exemplos de código para o navegador da Web para cenários de aplicativo Web. E, visite-a freqüentemente--novos exemplos são adicionados com frequência. [Aplicação Web](active-directory-code-samples.md#web-applications).
+Veja os exemplos de código para o navegador da Web para cenários de aplicativo Web. E, visite-a freqüentemente--novos exemplos são adicionados com frequência. [Aplicação Web](sample-v1-code.md#web-applications).
 
 #### <a name="registering"></a>A registar
 
@@ -155,7 +155,7 @@ A sessão do utilizador expira quando expira o tempo de vida do token emitido pe
 
 ### <a name="single-page-application-spa"></a>Aplicação de página única (SPA)
 
-Esta secção descreve a autenticação para um único aplicativo de página, que utiliza o Azure AD e a autorização implícita OAuth 2.0 concedem para proteger o seu web API volta terminar. Aplicativos de única página são estruturados geralmente como uma camada de apresentação de JavaScript (front-end) que é executado no navegador e um Web API back-end que é executado num servidor e implementa a lógica comercial do aplicativo. Para obter mais informações sobre a concessão de autorização implícita e ajudar a decidir se é adequada para o seu cenário de aplicação, veja [Noções básicas sobre o OAuth2 implícita conceder o fluxo no Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Esta secção descreve a autenticação para um único aplicativo de página, que utiliza o Azure AD e a autorização implícita OAuth 2.0 concedem para proteger o seu web API volta terminar. Aplicativos de única página são estruturados geralmente como uma camada de apresentação de JavaScript (front-end) que é executado no navegador e um Web API back-end que é executado num servidor e implementa a lógica comercial do aplicativo. Para obter mais informações sobre a concessão de autorização implícita e ajudar a decidir se é adequada para o seu cenário de aplicação, veja [Noções básicas sobre o OAuth2 implícita conceder o fluxo no Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
 Neste cenário, quando o utilizador inicia sessão, o JavaScript de front-end utiliza [Active Directory Authentication Library para JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) e a concessão de autorização implícita para obter um token de ID (id_token) do Azure AD. O token é colocado em cache e o cliente liga-ao pedido que o token de portador ao efetuar chamadas para a sua API Web back-end, que está protegida com o middleware da OWIN. 
 
@@ -176,7 +176,7 @@ Neste cenário, quando o utilizador inicia sessão, o JavaScript de front-end ut
 
 #### <a name="code-samples"></a>Exemplos de código
 
-Veja os exemplos de código para cenários de aplicação de página única (SPA). Certifique-se de que visite-a freqüentemente--novos exemplos são adicionados com frequência. [A única aplicação de página (SPA)](active-directory-code-samples.md#single-page-applications).
+Veja os exemplos de código para cenários de aplicação de página única (SPA). Certifique-se de que visite-a freqüentemente--novos exemplos são adicionados com frequência. [A única aplicação de página (SPA)](sample-v1-code.md#single-page-applications).
 
 #### <a name="registering"></a>A registar
 
@@ -218,7 +218,7 @@ Se estiver a utilizar as bibliotecas de autenticação do AD, a maioria dos deta
 
 #### <a name="code-samples"></a>Exemplos de código
 
-Veja os exemplos de código para o aplicativo nativo para cenários de Web API. Além disso, visite-a freqüentemente – adicionamos novos exemplos com frequência. [Aplicação nativa a Web API](active-directory-code-samples.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+Veja os exemplos de código para o aplicativo nativo para cenários de Web API. Além disso, visite-a freqüentemente – adicionamos novos exemplos com frequência. [Aplicação nativa a Web API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 #### <a name="registering"></a>A registar
 
@@ -271,7 +271,7 @@ A identidade da aplicação e os tipos de identidade do utilizador delegado são
 
 #### <a name="code-samples"></a>Exemplos de código
 
-Veja os exemplos de código para a aplicação Web para cenários de Web API. E, visite-a freqüentemente--novos exemplos são adicionados com frequência. Web [aplicativo Web API](active-directory-code-samples.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+Veja os exemplos de código para a aplicação Web para cenários de Web API. E, visite-a freqüentemente--novos exemplos são adicionados com frequência. Web [aplicativo Web API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 #### <a name="registering"></a>A registar
 
@@ -313,7 +313,7 @@ O fluxo abordado a seguir pressupõe que um utilizador ser autenticado no outro 
 
 #### <a name="code-samples"></a>Exemplos de código
 
-Veja os exemplos de código para Daemon ou uma aplicação de servidor para cenários de Web API. E, visite-a freqüentemente--novos exemplos são adicionados com frequência. [Servidor ou aplicativo de Daemon, a API Web](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Veja os exemplos de código para Daemon ou uma aplicação de servidor para cenários de Web API. E, visite-a freqüentemente--novos exemplos são adicionados com frequência. [Servidor ou aplicativo de Daemon, a API Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 #### <a name="registering"></a>A registar
 
@@ -328,7 +328,7 @@ Quando o primeiro aplicativo utiliza o seu código de autorização ao obter o t
 
 [Guia para programadores do Azure Active Directory](azure-ad-developers-guide.md)
 
-[Exemplos de código do Azure Active Directory](active-directory-code-samples.md)
+[Exemplos de código do Azure Active Directory](sample-v1-code.md)
 
 [Informações importantes sobre o Rollover da chave de assinatura no Azure AD](active-directory-signing-key-rollover.md)
 

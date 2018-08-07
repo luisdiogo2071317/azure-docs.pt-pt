@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 41cbe7a27950c4d521da613f26aa450c63961400
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 1f9a2b786db59ecfee6ede53b2b789d84651c975
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505682"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577123"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
 
@@ -66,7 +66,7 @@ Utilize o **ponto final de recurso do Azure Batch** para adquirir um token para 
 
 O primeiro passo para utilizar o Azure AD para autenticar está a registar a aplicação no inquilino do Azure AD. Registar a aplicação permite-lhe chamar do Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) a partir do código. A ADAL fornece uma API para autenticar com o Azure AD a partir da sua aplicação. Registar a aplicação é necessário se planeia utilizar a autenticação integrada ou um principal de serviço.
 
-Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. Em seguida, do Azure AD fornece um ID de aplicação (também chamado de um *ID de cliente*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. Em seguida, do Azure AD fornece um ID de aplicação (também chamado de um *ID de cliente*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 Para registar a aplicação do Batch, siga os passos a [adicionar uma aplicação](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) secção [integrar aplicações com o Azure Active Directory][aad_integrate]. Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. Não é necessário ser um ponto final real.
 
@@ -374,7 +374,7 @@ Utilize as credenciais do principal de serviço para abrir um **BatchServiceClie
 
 * Para saber mais sobre o Azure AD, veja a [do Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). Exemplos detalhados que mostram como utilizar a ADAL estão disponíveis no [exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteca.
 
-* Para obter mais informações sobre principais de serviço, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Para criar um principal de serviço com o portal do Azure, veja [utilize o portal para criar o principal de aplicações e serviço que pode aceder aos recursos do Active Directory](../resource-group-create-service-principal-portal.md). Também pode criar um principal de serviço com o PowerShell ou da CLI do Azure.
+* Para obter mais informações sobre principais de serviço, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Para criar um principal de serviço com o portal do Azure, veja [utilize o portal para criar o principal de aplicações e serviço que pode aceder aos recursos do Active Directory](../resource-group-create-service-principal-portal.md). Também pode criar um principal de serviço com o PowerShell ou da CLI do Azure.
 
 * Para autenticar aplicações de gestão do Batch com o Azure AD, consulte [soluções de gestão de Batch de autenticar com o Active Directory](batch-aad-auth-management.md).
 

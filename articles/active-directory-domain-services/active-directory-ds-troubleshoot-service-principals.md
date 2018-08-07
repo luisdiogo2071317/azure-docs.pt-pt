@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 407b9732574880cd64036e92fe0c7fac169b7346
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503289"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579549"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de Principal de serviço inválido para o seu domínio gerido
 
@@ -30,7 +30,7 @@ Este artigo ajuda-o a resolver erros de configuração relacionadas com o princi
 
 **Mensagem de alerta:** *um Principal de serviço necessárias para o Azure AD Domain Services funcionar corretamente foi eliminado do diretório do Azure AD. Esta configuração afeta a capacidade da Microsoft para monitorizar, gerir, corrigir e sincronizar o domínio gerido.*
 
-[Principais de serviço](../active-directory/develop/active-directory-application-objects.md) são aplicações que a Microsoft utiliza para gerir, atualizar e manter o seu domínio gerido. Se eles forem excluídos, interrompe a capacidade da Microsoft para atender a seu domínio.
+[Principais de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicações que a Microsoft utiliza para gerir, atualizar e manter o seu domínio gerido. Se eles forem excluídos, interrompe a capacidade da Microsoft para atender a seu domínio.
 
 
 ## <a name="check-for-missing-service-principals"></a>Procurar em falta principais de serviço

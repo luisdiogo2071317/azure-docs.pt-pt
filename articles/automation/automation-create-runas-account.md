@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a29379492f4ffd662244c3e42de321f47be13d9f
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2b0f2b864c5c29e9804239d06afdf23708e52828
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436981"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579617"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação da conta de Automatização com contas Run As 
 Pode atualizar a sua conta de Automatização existente a partir do portal do Azure ou utilizar o PowerShell, se:
@@ -289,5 +289,5 @@ No portal do Azure, selecione **subscrições** e escolha a subscrição da sua 
 Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no portal do Azure e selecione **controlo de acesso (IAM)**. Selecione **Add**, esta ação abre o **adicionar permissões** página. Para **função**, selecione **contribuinte**. Na **selecione** escreva o nome do principal de serviço para a conta Run As de caixa de texto e, selecione-o na lista. Clique em **Guardar** para guardar as alterações. Fazer isso para os grupos de recursos que pretende dar a Run As de automatização principal de serviço acesso para.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para obter mais informações sobre principais de serviço, consulte [objectos da aplicação e objetos de Principal de serviço](../active-directory/active-directory-application-objects.md).
+* Para obter mais informações sobre principais de serviço, consulte [objectos da aplicação e objetos de Principal de serviço](../active-directory/develop/app-objects-and-service-principals.md).
 * Para obter mais informações sobre certificados e serviços do Azure, consulte [descrição geral de certificados para serviços Cloud do Azure](../cloud-services/cloud-services-certs-create.md).

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430999"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578556"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista abrangente de cada documento escrito sobre os vários recursos relacionados com a aplicação no Azure Active Directory (Azure AD).
@@ -41,7 +41,7 @@ Esta seção fornece acesso rápido para guias de resolução de problemas relev
 
 | Área de recursos |  |
 |:---:| --- |
-| Início de sessão único federado |[Resolução de problemas com base em SAML início de sessão único](active-directory-saml-debugging.md) |
+| Início de sessão único federado |[Resolução de problemas com base em SAML início de sessão único](develop/howto-v1-debug-saml-sso-issues.md) |
 | Com base em palavra-passe de início de sessão único |[A extensão do painel de acesso de resolução de problemas do Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy da aplicação |[Guia de resolução de problemas do Proxy de aplicações](manage-apps/application-proxy-troubleshoot.md) |
 | Início de sessão único no local AD e o Azure AD |[Resolução de problemas de sincronização de Hash de palavra-passe](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Resolução de problemas de repetição de escrita de palavra-passe](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -57,7 +57,7 @@ Início de sessão único permite aos utilizadores aceder uma variedade de aplic
 | Simplificado de milhares de aplicações SaaS previamente integradas com o Azure AD com passos de configuração de início de sessão único |[Guia de introdução da Galeria de aplicações do Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa das aplicações previamente integradas que oferecem suporte à Federação](saas-apps/tutorial-list.md)<br /><br />[Como adicionar a sua aplicação na Galeria de aplicações do Azure AD](active-directory-app-gallery-listing.md) |
 | Mais de 150 aplicações tutoriais sobre como configurar o início de sessão único para aplicações, tal como [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md)e muitos mais |[Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](saas-apps/tutorial-list.md) |
 | Como configurar e personalizar a configuração de início de sessão única manualmente |[Como para configurar federado início de sessão único para aplicações que não estão na Galeria de aplicações de diretório do Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Como personalizar afirmações emitidas no Token SAML para aplicações previamente integradas](active-directory-saml-claims-customization.md) |
-| Guia de resolução de problemas para aplicações federadas que utilizam o protocolo SAML |[Resolução de problemas com base em SAML início de sessão único](active-directory-saml-debugging.md) |
+| Guia de resolução de problemas para aplicações federadas que utilizam o protocolo SAML |[Resolução de problemas com base em SAML início de sessão único](develop/howto-v1-debug-saml-sso-issues.md) |
 | Como configurar a data de expiração do certificado da sua aplicação e como renovar os certificados |[Gestão de certificados para início de sessão único federado no Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Início de sessão único federado está disponível para todas as edições do Azure AD para até dez aplicações por utilizador. [O Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a aplicativos ilimitados. Se a organização tiver [do Azure AD básico](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), em seguida, pode [utilizar grupos para atribuir acesso a aplicações federadas](#managing-access-to-applications).

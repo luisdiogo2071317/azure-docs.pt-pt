@@ -17,12 +17,12 @@ ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, sureshja
-ms.openlocfilehash: 0783c9885ec47bdd8c33c296e975547391900139
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a0d302e740732c5bf76ba75486b75f6f73091940
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505740"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576462"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Manifesto da aplicação do Azure Active Directory
 Aplicações que se integram com o Azure AD tem de ser registadas com um inquilino do Azure AD. Esta aplicação pode ser configurada com o manifesto da aplicação (sob o painel do Azure AD) no [portal do Azure](https://portal.azure.com).
@@ -35,7 +35,7 @@ Aplicações que se integram com o Azure AD tem de ser registadas com um inquili
 |---------|---------|---------|---------|
 |appID     |  Cadeia de caracteres de identificador       |""|  O identificador exclusivo para a aplicação que está atribuído a uma aplicação pelo Azure AD.|
 |appRoles     |    Tipo de matriz     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|A coleção de funções que uma aplicação poderá declarar. Estas funções podem ser atribuídas a utilizadores, grupos ou principais de serviço.|
-|availableToOtherTenants|boolean|`true`|Se este valor é definido como true, o aplicativo do está disponível para outros inquilinos. Se definido como false, a aplicação só está disponível para o inquilino está registado no. Para obter mais informações, consulte: [como iniciar sessão a qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](active-directory-devhowto-multi-tenant-overview.md). |
+|availableToOtherTenants|boolean|`true`|Se este valor é definido como true, o aplicativo do está disponível para outros inquilinos. Se definido como false, a aplicação só está disponível para o inquilino está registado no. Para obter mais informações, consulte: [como iniciar sessão a qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md). |
 |displayName     |cadeia         |`MyRegisteredApp`         |O nome a apresentar para a aplicação. |
 |errorURL     |cadeia         |`http://MyRegisteredAppError`         |O URL para erros encontrados num aplicativo. |
 |groupMembershipClaims     |    cadeia     |    `1`     |   Uma máscara de bits que configura a afirmação de "groups" emitida num utilizador ou token de acesso de OAuth 2.0 que o aplicativo espera. Os valores de máscara de bits são: 0: nenhum, 1: grupos de segurança e funções do Azure AD, 2: reservado e 4: reservado. Definição da bitmask para 7 irá obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro. |
@@ -67,7 +67,7 @@ Aplicações que se integram com o Azure AD tem de ser registadas com um inquili
 Utilize a seguinte secção de comentários para fornecer comentários que ajuda a refinar e moldar o nosso conteúdo.
 
 <!--article references -->
-[AAD-APP-OBJECTS]: active-directory-application-objects.md
+[AAD-APP-OBJECTS]:app-objects-and-service-principals.md
 [AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
@@ -77,7 +77,7 @@ Utilize a seguinte secção de comentários para fornecer comentários que ajuda
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
-[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
+[IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365

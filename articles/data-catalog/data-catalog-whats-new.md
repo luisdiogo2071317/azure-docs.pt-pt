@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860008"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577067"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no catálogo de dados do Azure
 Atualiza para **catálogo de dados do Azure** são lançadas regularmente. Nem todas as versão inclui novas funcionalidades destinadas ao utilizador, como algumas versões estão focalizadas em capacidades do serviço de back-end. Esta página destaca os novos recursos de destinada ao utilizador adicionados ao serviço catálogo de dados do Azure.
@@ -27,7 +27,7 @@ Atualiza para **catálogo de dados do Azure** são lançadas regularmente. Nem t
 A partir de Novembro de 2017, as seguintes funcionalidades foram adicionadas ao catálogo de dados do Azure:
 
 * Suporte para criar uma ligação diretamente para os termos do glossário de negócios específicas no portal do catálogo de dados. Os utilizadores podem copiar links do glossário comercial e inseri-los em documentos, mensagens de e-mail, relatórios ou em outros locais para ligar diretamente a definição do termo do glossário.
-* Suporte para principais de serviço do Azure Active Directory. Os administradores do catálogo de dados podem autorizar a utilização de principais de serviço para aceder ao catálogo de aplicações de cliente e podem conceder esses aplicativos permissões específicas como eles podem conceder permissões a utilizadores e grupos de segurança. Para obter mais informações, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Suporte para principais de serviço do Azure Active Directory. Os administradores do catálogo de dados podem autorizar a utilização de principais de serviço para aceder ao catálogo de aplicações de cliente e podem conceder esses aplicativos permissões específicas como eles podem conceder permissões a utilizadores e grupos de segurança. Para obter mais informações, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Suporte para a autenticação do Azure Active Directory ao ligar a origens de dados do Azure SQL Database e o Azure SQL Data Warehouse, utilizando a ferramenta de registo de origem de dados do catálogo de dados. Para obter mais informações, consulte [utilizar do Azure Active Directory a autenticação para a autenticação com base de dados SQL ou SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 

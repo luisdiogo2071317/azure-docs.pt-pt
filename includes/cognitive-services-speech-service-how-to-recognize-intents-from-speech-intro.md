@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: a3cbfc3677c5b1a19b83a82da9bcd6bed3108152
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79dc1fe9fffd8c44c97cf68a12bb90655b672577
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346249"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577980"
 ---
 <!-- N.B. no header, language-agnostic -->
 
-O [SDK de voz](~/articles/cognitive-services/speech-service/speech-sdk.md) fornece uma forma de reconhecer **objetivos do discurso**, fornecida pelo serviço de voz e o [serviço de compreensão de idiomas (LUIS)](https://luis.ai).
+O [SDK de voz](~/articles/cognitive-services/speech-service/speech-sdk.md) fornece uma forma de reconhecer **objetivos do discurso**, fornecida pelo serviço de voz e o [serviço de compreensão de idiomas (LUIS)](https://www.luis.ai/home).
 
 1. Criar uma fábrica de voz, fornecendo uma chave de subscrição do serviço de compreensão de idiomas e [região](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). A chave de subscrição do serviço de compreensão de idiomas é chamada **chave de ponto final** na documentação do serviço. Não é possível utilizar o serviço de compreensão de idiomas a chave de criação. Consulte também os **nota** abaixo.
 

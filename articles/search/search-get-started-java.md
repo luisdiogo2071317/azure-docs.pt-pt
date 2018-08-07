@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed
-ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799537"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525625"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução à Azure Search em Java
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Todas as modificações do ficheiro e instruções de execução subsequentes se
 ## <a name="configure-the-service-url-and-api-key"></a>Configurar o URL do serviço e a chave de API
 1. No **Explorador do Projeto**, faça duplo clique no ficheiro **config.properties** para editar as definições de configuração que contêm o nome do servidor e a chave de API.
 2. Consulte os passos descritos anteriormente neste artigo para localizar o URL do serviço e a chave de API no [Portal do Azure](https://portal.azure.com) e obter os valores que irá agora introduzir no ficheiro **config.properties**.
-3. Em **config.properties**, substitua "Chave de API" pela chave de API para o serviço. Seguinte, o nome do serviço (o primeiro componente do URL http://servicename.search.windows.net) substitui o "nome de serviço" no mesmo ficheiro.
+3. Em **config.properties**, substitua "Chave de API" pela chave de API para o serviço. Em seguida, o nome do serviço (o primeiro componente do URL http://servicename.search.windows.net) substitui o "serviço nome" no mesmo ficheiro.
    
     ![][5]
 
@@ -159,7 +159,7 @@ Este é o primeiro tutorial da Azure Search com base em Java e o conjunto de dad
 
 Se já tiver algum conhecimento sobre a Azure Search, pode utilizar este exemplo como ponto de partida para uma experimentação adicional, talvez aumentar a [página de pesquisa](search-pagination-page-layout.md) ou implementar a [navegação por facetas](search-faceted-navigation.md). Também pode melhorar a página de resultados da pesquisa ao adicionar contagens e criação de batches de documentos para que os utilizadores possam percorrer os resultados.
 
-Novo na Azure Search? Recomendamos que experimente outros tutoriais para desenvolver uma noção básica sobre o que pode criar. Visite a nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para obter mais recursos. Também pode ver as ligações na nossa [Lista de vídeos e tutoriais](search-video-demo-tutorial-list.md) para aceder a mais informações.
+Novo na Azure Search? Recomendamos que experimente outros tutoriais para desenvolver uma noção básica sobre o que pode criar. Visite a nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para obter mais recursos. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

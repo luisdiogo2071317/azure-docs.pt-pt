@@ -1,81 +1,82 @@
 ---
-title: Base de dados SQL do Azure - otimização automática | Microsoft Docs
-description: Base de dados SQL do Azure analisa a consulta SQL e feita automaticamente a carga de trabalho do utilizador.
+title: Base de dados SQL do Azure - otimização automática | Documentos da Microsoft
+description: Base de dados SQL do Azure analisa a consulta SQL e se adapta automaticamente a carga de trabalho do utilizador.
 services: sql-database
-author: jovanpop-msft
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: jovanpop
-ms.openlocfilehash: bef8d01bd4c220fac595177089088ff64ee3bc3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 6ed113d11a0c61620ae4a9d48eee957bb979dc11
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646648"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526798"
 ---
-# <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na SQL Database do Azure
+# <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
-Otimização automática de base de dados do SQL do Azure fornece picos de desempenho e cargas de trabalho estáveis através da utilização Artificial Intelligence de otimização do desempenho contínua.
+Otimização automática da base de dados do SQL do Azure fornece desempenho máximo e cargas de trabalho estáveis através da utilização de Inteligência Artificial de ajuste de desempenho contínua.
 
-Otimização automática é um serviço completamente gerido que utiliza intelligence incorporado para monitorizar continuamente consultas executadas numa base de dados e melhora a respetiva desempenho automaticamente. Isto é conseguido através da adaptação dinamicamente a base de dados para as cargas de trabalho de alteração e aplicar recomendações de otimização. A otimização automática aprende horizontalmente de todas as bases de dados no Azure através de Artificial Intelligence e melhora as respetivas ações de otimização dinâmica. Mais tempo uma base de dados do SQL do Azure é executado com a otimização automática no, melhor efetua.
+A otimização automática é um serviço totalmente gerido que utiliza inteligência incorporada para monitorizar continuamente as consultas executadas numa base de dados e melhora automaticamente a seu desempenho. Isso é feito por meio de adaptação dinamicamente a base de dados para as cargas de trabalho de alteração e a aplicar recomendações de otimização. A otimização automática aprende horizontalmente de todas as bases de dados no Azure através de Inteligência Artificial e melhora a suas ações de otimização dinâmica. Mais tempo de execução de uma base de dados do SQL do Azure com ajuste automático em, melhor desempenho.
 
-Otimização automática de base de dados do SQL do Azure pode ser uma das funcionalidades mais importantes que pode ativar para fornecer estável e executar cargas de trabalho de pico.
+Otimização automática da base de dados do SQL do Azure pode ser um dos recursos mais importantes que pode ativar para fornecer estável e aumentar o desempenho de cargas de trabalho.
 
-## <a name="what-can-automatic-tuning-do-for-you"></a>O que pode otimização automática fazer por si?
+## <a name="what-can-automatic-tuning-do-for-you"></a>O que pode otimização automática fazer por?
 
-- Otimização de desempenho automatizado de bases de dados do Azure SQL Server
-- Verificação automática de ganhos de desempenho
-- A reversão automática e a correção automática
-- Registo de histórico de otimização
-- Otimização de scripts T-SQL de ação para implementações manuais
+- Ajuste de desempenho automatizado de bases de dados do Azure SQL
+- Verificação automatizada de ganhos de desempenho
+- Reversão automática e correção automática
+- Ajuste o registro de histórico
+- Ajuste de scripts do T-SQL de ação para as implementações manuais
 - Monitorização de desempenho da carga de trabalho proativa
-- Ampliar a capacidade de centenas de milhares de bases de dados
+- Aumentar horizontalmente a capacidade em centenas de milhares de bases de dados
 - Impacto positivo para recursos de DevOps e o custo total de propriedade
 
 ## <a name="safe-reliable-and-proven"></a>Seguro, fiável e comprovado
 
-Operações de otimização aplicadas às bases de dados do Azure SQL são totalmente seguras para o desempenho das cargas de trabalho mais intense. O sistema tem foram concebido com cuidado para não interfere com as cargas de trabalho do utilizador. Recomendações de otimização automáticas são aplicadas apenas nos tempos de uma baixa utilização. O sistema também pode desativar temporariamente operações otimização automáticas para proteger o desempenho da carga de trabalho. Esse caso, "Desativado pelo sistema" mensagem será apresentada no portal do Azure. A otimização automática regards cargas de trabalho com a prioridade mais elevada do recurso.
+Operações de otimização aplicadas a bases de dados do Azure SQL são totalmente seguras para o desempenho das cargas de trabalho mais intensa. O sistema foi desenvolvido com cuidado para não interferem com as cargas de trabalho do utilizador. Recomendações de otimização automáticas são aplicadas apenas às horas de uma baixa utilização. O sistema também temporariamente pode desativar a operações de otimização automática para proteger o desempenho da carga de trabalho. Nesse caso, a mensagem "Desativada pelo sistema" será apresentada no portal do Azure. A otimização automática regards cargas de trabalho com a prioridade mais alta do recurso.
 
-Mecanismos de otimização automáticos são maduros e tem sido perfected em centenas de milhares de bases de dados em execução no Azure. Operações automáticas de otimização aplicadas são verificadas automaticamente para garantir que não há uma melhoria positiva para o desempenho da carga de trabalho. Recomendações de desempenho regressed são detetadas dinamicamente e retomadas rapidamente reverter. Através do registo de histórico de otimização há um rastreio claro da otimização melhorias efetuadas para cada base de dados do SQL do Azure. 
+Mecanismos de otimização automática são maduros e tem sido ideal em centenas de milhares de bases de dados em execução no Azure. Operações automatizadas de otimização aplicadas são verificadas automaticamente para garantir que existe uma melhoria positiva para o desempenho da carga de trabalho. Recomendações de desempenho regredido são dinamicamente detetadas e imediatamente revertidas. Através do registo de histórico de otimização não existe um rastreio claro de ajuste os aprimoramentos feitos para cada base de dados do SQL do Azure. 
 
-![Como funciona o trabalho de otimização automático](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
+![Como funciona o trabalho de otimização automática](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Otimização automática de base de dados do SQL do Azure está a partilhar respetiva lógica principal com o motor de otimização automático do SQL Server. Para obter informações técnicas adicionais o mecanismo de intelligence incorporadas, consulte [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+Otimização automática da base de dados do SQL do Azure está a partilhar sua lógica de núcleo com o mecanismo de otimização automática do SQL Server. Para obter informações técnicas adicionais no mecanismo de inteligência incorporada, consulte [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## <a name="use-automatic-tuning"></a>Utilizar a otimização automática
 
-A otimização automática tem de ser ativadas manualmente na sua subscrição. Para ativar a otimização automática através do portal do Azure, consulte [ativar a otimização automática](sql-database-automatic-tuning-enable.md).
+A otimização automática tem de ser habilitada manualmente na sua subscrição. Para ativar a otimização automática através do portal do Azure, consulte [ativar o ajuste automático](sql-database-automatic-tuning-enable.md).
 
-A otimização automática pode funcionam de forma autónoma através de aplicar automaticamente recomendações de otimização, incluindo a verificação automática de ganhos de desempenho. 
+A sintonização automática pode funcionam de forma autónoma por meio de automaticamente aplicar recomendações de otimização, incluindo a verificação automática de ganhos de desempenho. 
 
-Para obter mais controlo, pode ser desativado automático de aplicações de otimização de recomendações e otimização recomendações pode ser aplicada manualmente através do portal do Azure. Também é possível utilizar a solução para ver apenas recomendações otimização automáticas e aplicá-las manualmente através de scripts e ferramentas da sua escolha. 
+Para obter mais controle, a aplicação automática de recomendações de otimização pode ser desativada e recomendações de otimização podem ser aplicadas manualmente através do portal do Azure. Também é possível utilizar a solução para ver automatizadas apenas com recomendações de Otimização e aplicá-las manualmente por meio de scripts e ferramentas da sua preferência. 
 
-Para uma descrição geral de automática como funciona a Otimização e para cenários de utilização normal, veja o vídeo incorporado:
+Para uma visão geral de como automática funciona de Otimização e para cenários de uso típico, veja o vídeo incorporado:
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
 >
 
-## <a name="automatic-tuning-options"></a>Opções de otimização automáticas
+## <a name="automatic-tuning-options"></a>Opções de otimização automática
 
-Opções de otimização automáticas disponíveis no SQL Database do Azure são:
- 1. **CREATE INDEX** -identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e automaticamente verifica que o desempenho de consultas foi melhorado.
- 2. **DROP INDEX** -identifica índices redundantes e duplicados e índices que não foram utilizados durante um período de tempo muito longo. Tenha em atenção que esta opção não é compatível com aplicações utilizar sugestões de índice e de mudança de partição.
- 3. **FORCE último bom plano** -identifica as consultas SQL com o plano de execução que é mais lenta do que o plano de boa anterior e consultas utilizando o último conhecido bom plano em vez do plano regressed.
+Opções de otimização automática disponíveis no banco de dados do Azure SQL são:
+ 1. **Criar índice** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente que melhorou o desempenho de consultas.
+ 2. **DROP INDEX** -identifica os índices de redundantes e duplicados e os que não foram utilizados por um muito longo período de tempo. Tenha em atenção que esta opção não é compatível com aplicativos utilizar sugestões de índice e de alternância de partição.
+ 3. **FORÇAR último plano bom** -identifica as consultas SQL com o plano de execução que é mais lento do que o plano de boa anterior e consulta com o último plano bom conhecido em vez do plano regredido.
 
-Base de dados SQL do Azure identifica **CREATE INDEX**, **DROP INDEX**, e **FORCE último boa planear** recomendações que podem otimizar a base de dados e mostra-las no portal do Azure. Encontrar mais informações sobre a identificação dos índices que devem ser alteradas em [encontrar recomendações do índice no portal do Azure](sql-database-advisor-portal.md). Ou pode aplicar manualmente recomendações utilizando o portal ou pode deixar a base de dados do SQL Azure automaticamente aplicar recomendações, monitorizar a carga de trabalho após a alteração e certifique-se de que a recomendação melhorada o desempenho da sua carga de trabalho. 
+Base de dados SQL do Azure identifica **CREATE INDEX**, **DROP INDEX**, e **força última boa planear** recomendações que podem otimizar a sua base de dados e mostram-las no portal do Azure. Encontrar mais informações sobre a identificação de índices que devem ser alteradas em [localizar recomendações de índice no portal do Azure](sql-database-advisor-portal.md). Também pode aplicar manualmente recomendações com o portal ou pode permitir que a base de dados do Azure SQL para automaticamente aplicar recomendações, monitorizar a carga de trabalho após a alteração e certifique-se de que a recomendação melhorámos o desempenho da carga de trabalho. 
 
-Opções de otimização automáticas podem ser independentemente ativadas ou desativadas por base de dados, ou podem ser configurados em servidores de lógicos e aplicadas em cada base de dados que herda as definições do servidor. Servidores lógicos podem herdar as predefinições do Azure para as definições de otimização automáticas. Predefinições do Azure neste momento estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
+Opções de otimização automática podem ser ativadas ou desativadas por base de dados independente, ou podem ser configuradas em servidores lógicos e aplicados em cada base de dados que herda as definições do servidor. Servidores lógicos podem herdar as predefinições do Azure para definições de sintonização automática. Predefinições do Azure neste momento estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
 
-Configurar opções num servidor de otimização automática e herdar as definições para as bases de dados que pertencem ao servidor principal é um método recomendado para configurar a otimização automática como simplifica a gestão das opções de otimização automáticas para um grande número de bases de dados.
+Configurar opções num servidor de otimização automática e a herdar as definições para bases de dados que pertencem ao servidor principal é um método recomendado para configurar a otimização automática como ele simplifica a gestão de opções de otimização automática para um grande número de bases de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para ativar a otimização automática da base de dados do Azure SQL Server para gerir a sua carga de trabalho, consulte [ativar a otimização automática](sql-database-automatic-tuning-enable.md).
-- Para rever e aplicar automático otimização recomendações manualmente, consulte o artigo [localizar e aplicar as recomendações de desempenho](sql-database-advisor-portal.md).
-- Para saber mais sobre como criar notificações por e-mail para recomendações de otimização automáticas, consulte [notificações para a otimização automática por correio eletrónico](sql-database-automatic-tuning-email-notifications.md)
-- Para saber mais sobre intelligence incorporado utilizado na otimização automática, consulte [Artificial Intelligence tunes bases de dados do Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- Para saber mais sobre como automática funciona otimização de SQL Database do Azure e SQL server de 2017, consulte [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+- Para ativar a otimização automática na base de dados do Azure SQL para gerir a sua carga de trabalho, consulte [ativar o ajuste automático](sql-database-automatic-tuning-enable.md).
+- Analisar manualmente e aplicar recomendações de otimização automática, consulte [localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).
+- Para saber mais sobre a criação de notificações por e-mail para recomendações de otimização automática, consulte [notificações para a otimização automática por E-Mail](sql-database-automatic-tuning-email-notifications.md)
+- Para saber mais sobre como inteligência incorporada utilizada na otimização automática, consulte [Inteligência Artificial ajusta bases de dados do Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Para saber mais sobre o funcionamento de otimização automático como na base de dados do Azure SQL e SQL server 2017, veja [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

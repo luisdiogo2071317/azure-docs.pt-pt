@@ -1,6 +1,6 @@
 ---
-title: Compreender o tempo de execução do limite do Azure IoT | Microsoft Docs
-description: Saiba mais sobre o tempo de execução do limite de IoT do Azure e como garante os dispositivos de limite
+title: Compreender o tempo de execução do Azure IoT Edge | Documentos da Microsoft
+description: Saiba mais sobre o tempo de execução do Azure IoT Edge e como ela capacita os seus dispositivos periféricos
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,113 +8,113 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096972"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526097"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura
 
-O tempo de execução do limite de IoT é uma coleção de programas que precisam de ser instalada num dispositivo para o mesmo ser considerado um dispositivo de limite de IoT. Coletivamente, os componentes do tempo de execução de limite de IoT permitem que os dispositivos IoT Edge receber o código para executar no limite e comunicam os resultados. 
+O runtime do IoT Edge é uma coleção de programas que têm de ser instalado num dispositivo para o mesmo ser considerado um dispositivo IoT Edge. Coletivamente, os componentes do runtime do IoT Edge permitem que os dispositivos do IoT Edge receber o código para executar na periferia e comunicam os resultados. 
 
-O tempo de execução do limite de IoT efetua as seguintes funções nos dispositivos de limite de IoT:
+O runtime do IoT Edge efetua as seguintes funções em dispositivos IoT Edge:
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém as normas de segurança do Azure IoT Edge no dispositivo.
-* Garante que [módulos de limite de IoT][lnk-módulos] sempre em execução.
+* Garante que [módulos do IoT Edge][lnk-módulos] sempre em execução.
 * Reporta o estado de funcionamento dos módulos à cloud, para monitorização remota.
 * Facilita a comunicação entre dispositivos de folha a jusante e o dispositivo IoT Edge.
 * Facilita a comunicação entre os módulos no dispositivo IoT Edge.
 * Facilita a comunicação entre o dispositivo do Azure IoT e a cloud.
 
-![Tempo de execução do limite de IoT comunica insights e o estado de funcionamento do módulo ao IoT Hub][1]
+![Runtime do IoT Edge comunica informações e o estado de funcionamento do módulo para o IoT Hub][1]
 
-Responsabilidades do tempo de execução do limite de IoT enquadram-se em duas categorias: módulo Gestão e de comunicação. Estas duas funções são efetuadas por dois componentes que compõem o tempo de execução do limite de IoT. O hub IoT Edge é responsável pela comunicação, enquanto o agente de limite de IoT gere a implementação e os módulos de monitorização. 
+As responsabilidades do runtime do IoT Edge enquadram-se em duas categorias: módulo gerenciamento e a comunicação. Estas duas funções são executadas por dois componentes que compõem o runtime do IoT Edge. O hub de IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e os módulos de monitorização. 
 
-O agente de limite e o hub de limite são módulos, tal como qualquer outro módulo em execução num dispositivo de limite de IoT. Para obter mais informações sobre como funcionam os módulos, consulte [lnk-módulos]. 
+O agente do Edge e hub do Edge são módulos, assim como qualquer outro módulo em execução num dispositivo IoT Edge. Para obter mais informações sobre como funcionam os módulos, consulte [lnk-módulos]. 
 
-## <a name="iot-edge-hub"></a>Hub IoT Edge
+## <a name="iot-edge-hub"></a>Hub do IoT Edge
 
-O hub de limite é um dos dois módulos que constituem o tempo de execução do limite de IoT do Azure. Atua como um proxy local para o IoT Hub resultariam da exposição pontos finais de protocolo mesmo como o IoT Hub. Este consistência significa que os clientes (se dispositivos ou os módulos) pode ligar para o tempo de execução do IoT Edge como fariam ao IoT Hub. 
-
->[!NOTE]
->Hub de limite suporta clientes que se ligam através de MQTT ou AMQP. Não suporta clientes que utilizem HTTP. 
-
-O limite do hub não é uma versão completa do IoT Hub executar localmente. Existem alguns aspetos silenciosamente delega o hub de limite ao IoT Hub. Por exemplo, o Edge hub reencaminha os pedidos de autenticação ao IoT Hub quando um dispositivo primeiro tenta ligar. Após a primeira ligação for estabelecida, as informações de segurança é colocado em cache localmente pelo Edge hub. As ligações subsequentes partir desse dispositivo são permitidas sem terem de autenticar para a nuvem. 
+O hub do Edge é um dos dois módulos que constituem o tempo de execução do Azure IoT Edge. Ele atua como um proxy local para o IoT Hub ao expor os pontos de extremidade de protocolo mesmo como o IoT Hub. Esta consistência significa que os clientes (se dispositivos ou módulos) pode ligar-se para o runtime do IoT Edge como se fossem ao IoT Hub. 
 
 >[!NOTE]
->O tempo de execução deve estar ligado sempre que tentar autenticar um dispositivo.
+>Hub do Edge suporta clientes que se ligam através de MQTT ou AMQP. Não suporta clientes que utilizam HTTP. 
 
-Para reduzir a largura de banda da sua solução de IoT Edge utiliza, o hub de limite otimiza o número de ligações efetivas são efetuadas para a nuvem. Hub de contorno leva lógicas ligações de clientes, como módulos ou dispositivos de folha e combina-los para uma única ligação física para a nuvem. Os detalhes deste processo são transparentes para o resto da solução. Os clientes pensar têm as seus próprios ligação para a nuvem, apesar de serem todas a ser enviados através da ligação do mesma. 
-
-![Hub de limite atua como um gateway entre vários dispositivos físicos e a nuvem][2]
-
-Hub de limite pode determinar se está ligado ao IoT Hub. Se se perder a ligação, o hub de limite guarda mensagens ou as atualizações de duplo localmente. Assim que for restabelecer uma ligação, sincroniza-se todos os dados. A localização utilizada para esta cache temporário é determinada por uma propriedade do duplo de módulo do hub Edge. O tamanho da cache não é limitado e irá aumentar desde que o dispositivo tem capacidade de armazenamento. 
+O hub do Edge não é uma versão completa do IoT Hub em execução localmente. Existem algumas coisas que o hub do Edge silenciosamente delega para o IoT Hub. Por exemplo, o hub do Edge encaminha pedidos de autenticação para o IoT Hub quando um dispositivo primeiro tenta ligar. Depois da primeira ligação está estabelecida, informações de segurança é colocado em cache localmente pelo hub do Edge. São permitidas ligações subsequentes do que o dispositivo sem precisarem autenticar para a cloud. 
 
 >[!NOTE]
->Adicionar controlo sobre os parâmetros de colocação em cache adicionais será adicionada ao produto, antes de ser disponibilidade geral.
+>O tempo de execução tem de estar ligado sempre que tentar autenticar um dispositivo.
+
+Para reduzir a largura de banda sua solução de IoT Edge utiliza, o hub do Edge otimiza o número de conexões reais são efetuadas para a cloud. Hub do Edge usa a lógicas ligações de clientes, como módulos ou dispositivos de folha e combina-os para uma única ligação física para a cloud. Os detalhes desse processo são transparentes para o restante da solução. Os clientes acha que eles têm sua própria ligação para a cloud, apesar de tudo o que está a ser enviados pela mesma conexão. 
+
+![Hub do Edge atua como um gateway entre vários dispositivos físicos e a cloud][2]
+
+Hub do Edge pode determinar se está ligado ao IoT Hub. Se a ligação for perdida, o hub do Edge guarda as mensagens ou as atualizações de duplo localmente. Depois de uma conexão for restabelecida, ele sincroniza todos os dados. A localização utilizada para esta cache temporário é determinada por uma propriedade do duplo do módulo de hub do Edge. O tamanho da cache não está limitado e irá aumentar, desde que o dispositivo tem capacidade de armazenamento. 
+
+>[!NOTE]
+>Adicionar o controle sobre parâmetros adicionais de colocação em cache será adicionado ao produto antes de ele entra em disponibilidade geral.
 
 ### <a name="module-communication"></a>Comunicação de módulo
 
-Hub de limite facilita a comunicação de módulo para o módulo. Utilizar Edge Hub como um mediador de mensagens mantém módulos independentes entre si. Módulos só tem de especificar as entradas no qual aceitar as saídas para que estes escrever mensagens e as mensagens. Em seguida, um programador de solução stitches estas entradas e saídas em conjunto para que os módulos processam os dados na ordem específica para essa solução. 
+Hub do Edge facilita a comunicação de módulo de módulo. Utilizar o Hub do Edge como um mediador de mensagens mantém módulos independentes entre si. Módulos só precisam de especificar as entradas em que aceite mensagens e as saídas para que eles escrevem mensagens. Um desenvolvedor de soluções, em seguida, stitches essas entradas e saídas em conjunto, para que os módulos de processam os dados na ordem específica para essa solução. 
 
-![Hub de limite facilita a comunicação de módulo de módulo][3]
+![Hub do Edge facilita a comunicação de módulo de módulo][3]
 
-Para enviar dados para o hub de limite, um módulo chama o método de SendEventAsync. O primeiro argumento especifica em qual saída para enviar a mensagem. A seguinte pseudocode envia uma mensagem no output1:
+Para enviar dados para o hub do Edge, um módulo chama o método de SendEventAsync. O primeiro argumento especifica em qual saída deve enviar a mensagem. O seguinte pseudocódigo envia uma mensagem no output1:
 
    ```csharp
-   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
    await client.SendEventAsync(“output1”, message); 
    ```
 
-Para receber uma mensagem, registe-se uma chamada de retorno que processa mensagens futuras numa introdução específica. A seguinte pseudocode regista messageProcessor a função a ser utilizada para processar todas as mensagens recebidas em input1:
+Para receber uma mensagem, registe um retorno de chamada que processa as mensagens recebidas numa entrada específica. O seguinte pseudocódigo registra o messageProcessor de função a ser utilizada para processar todas as mensagens recebidas no input1:
 
    ```csharp
    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-O Programador de solução é responsável por especificando as regras que determinam como o hub de limite passa mensagens entre módulos. As regras de encaminhamento estão definidas na nuvem e enviadas para baixo para hub Edge no respetivo dispositivo duplo. A mesma sintaxe para rotas de IoT Hub é utilizada para definir as rotas entre os módulos no limite de IoT do Azure. 
+O desenvolvedor de soluções é responsável por especificar as regras que determinam como o hub do Edge passa mensagens entre módulos. Regras de encaminhamento são definidas na cloud e enviadas para o hub do Edge no seu dispositivo duplo. A mesma sintaxe para as rotas do IoT Hub é usada para definir rotas entre módulos no Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Rotas entre os módulos][4]
+![Rotas entre módulos][4]
 
-## <a name="iot-edge-agent"></a>Agente de limite de IoT
+## <a name="iot-edge-agent"></a>Agente do IoT Edge
 
-O agente de limite de IoT é o módulo que constitui o tempo de execução do limite de IoT do Azure. É responsável pela instanciar módulos, garantindo que continuam em execução e reportar o estado dos módulos do IoT Hub. Tal como qualquer outro módulo, o agente de limite utiliza duplo respetivo módulo para armazenar estes dados de configuração. 
+O agente do IoT Edge é o outro módulo que compõe o tempo de execução do Azure IoT Edge. Ele é responsável por instanciar módulos, garantindo que continuam em execução e comunicar o estado dos módulos de volta para o IoT Hub. Assim como qualquer outro módulo, o agente do Edge usa seu módulo duplo para armazenar estes dados de configuração. 
 
-Para iniciar a execução do agente Edge, execute o comando de início do azure-iot-limite-tempo de execução-ctl.py. O agente obtém o respetivo duplo de módulo a partir do IoT Hub e inspeciona o dicionário de módulos. O dicionário de módulos é uma coleção de módulos que têm de ser iniciados. 
+Para iniciar a execução do agente do Edge, execute o comando start azure-iot-edge-tempo de execução-ctl.py. O agente obtém seu módulo duplo a partir do IoT Hub e inspeciona o dicionário de módulos. O dicionário de módulos é uma coleção de módulos que têm de ser iniciado. 
 
-Cada item no dicionário de módulos contém informações específicas sobre um módulo e é utilizado pelo agente de contorno para controlar o ciclo de vida do módulo. Algumas das propriedades mais interessantes são: 
+Cada item no dicionário módulos contém informações específicas sobre um módulo e é utilizado pelo agente do Edge para controlar o ciclo de vida do módulo. Algumas das propriedades mais interessantes são: 
 
-* **Settings.Image** – a imagem de contentor que o agente de limite utiliza para iniciar o módulo. O agente de limite deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. Para configurar o agente de limite, atualize o `config.yaml` ficheiro. No Linux, utilize o seguinte comando: `sudo nano /etc/iotedge/config.yaml`
-* **settings.createOptions** – uma cadeia que é transmitida diretamente para o daemon de Docker ao iniciar o contentor de um módulo. A adição de opções de Docker esta propriedade permite opções avançadas, como a porta de reencaminhamento ou montar os volumes num contentor de um módulo.  
-* **estado** – o estado em que o agente de Edge coloca o módulo. Este valor, normalmente, é definido como *executar* como a maioria das pessoas pretende que o agente de contorno para iniciar imediatamente a todos os módulos no dispositivo. No entanto, pode especificar o estado inicial de um módulo para ser interrompida e aguarde uma hora no futuro saber se o agente de contorno para iniciar um módulo. O agente de limite reporta o estado de cada módulo novamente para a nuvem nas propriedades que relatados. Uma diferença entre a propriedade pretendida e a propriedade comunicada é um indicador de um dispositivo funcionar incorretamente. Os Estados suportados são:
+* **Settings.Image** – a imagem de contentor que o agente do Edge utiliza para iniciar o módulo. O agente do Edge deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. Para configurar o agente do Edge, atualize o `config.yaml` ficheiro. No Linux, utilize o seguinte comando: `sudo nano /etc/iotedge/config.yaml`
+* **settings.createOptions** – uma cadeia de caracteres é passada diretamente para o daemon do Docker ao iniciar o contentor de um módulo. A adição de opções de Docker nessa propriedade permite para obter opções avançadas, como a porta de reencaminhamento ou montar volumes para o contentor de um módulo.  
+* **estado** – o estado em que o agente do Edge coloca o módulo. Este valor é geralmente definido para *em execução* como a maioria das pessoas querem o agente do Edge para iniciar imediatamente todos os módulos no dispositivo. No entanto, poderia especificar o estado inicial de um módulo a ser parado e aguarde uma hora no futuro informar o agente do Edge para iniciar um módulo. O agente do Edge relata o status de cada módulo para a cloud nas propriedades comunicadas. Uma diferença entre a propriedade pretendida e a propriedade comunicada é um indicador de um dispositivo com comportamento inadequado. Os Estados suportados são:
    * A transferir
    * A executar
    * Estado de funcionamento incorreto
    * Com Falhas
    * Parada
-* **restartPolicy** – como o agente de limite reinicia um módulo. Os valores possíveis incluem:
-   * Nunca – o agente de limite nunca reinicia o módulo.
-   * o agente de limite de onFailure - se o módulo de falhas, reinicia-lo. Se o módulo foi encerrado corretamente, o agente de limite não reiniciá-lo.
-   * Mau estado de funcionamento - se o módulo de falhas ou é considerado mau estado de funcionamento, o agente de limite reinicia-lo.
-   * -Se o módulo falha, é considerado em mau estado de funcionamento ou encerramento de qualquer forma, o agente de limite reinicia sempre-lo. 
+* **restartPolicy** – como o agente do Edge reinicia um módulo. Os valores possíveis incluem:
+   * Nunca – o agente do Edge nunca reinicia o módulo.
+   * onFailure - se o módulo falhar, o agente do Edge reinicia-lo. Se o módulo foi encerrado corretamente, o agente do Edge não reiniciá-lo.
+   * Mau estado de funcionamento - se o módulo falha ou for considerado mau estado de funcionamento, o agente do Edge reinicia-lo.
+   * Sempre - se o módulo falha, é considerado em mau estado de funcionamento ou encerra de qualquer forma, o agente do Edge reinicia-lo. 
 
-O agente de limite de IoT envia a resposta de tempo de execução ao IoT Hub. Aqui está uma lista de possíveis respostas:
+O agente do IoT Edge envia a resposta de runtime para o IoT Hub. Aqui está uma lista de possíveis respostas:
   * 200 - OK
   * 400 - a configuração de implementação está incorreto ou é inválido.
-  * 417 - o dispositivo não tem uma configuração de implementação definida.
-  * 412 - a versão do esquema na configuração da implementação é inválida.
-  * 406 - o dispositivo de limite é estado offline ou não enviar relatórios.
-  * 500 - um erro no tempo de execução de limite.
+  * 417 - o dispositivo não tem um conjunto de configurações de implementação.
+  * 412 - a versão de esquema na configuração da implementação é inválida.
+  * 406 - o dispositivo de limite é de relatórios de status offline ou não de envio.
+  * 500 - Erro no runtime do edge.
 
 ### <a name="security"></a>Segurança
 
-O agente de limite de IoT desempenha um papel fundamental na segurança de um dispositivo de limite de IoT. Por exemplo, executa ações como verificar a imagem de um módulo antes de iniciá-lo. Estas funcionalidades serão adicionadas na disponibilidade geral. 
+O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar uma imagem do módulo antes de iniciá-los. Estas funcionalidades serão adicionadas no momento da disponibilidade geral. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

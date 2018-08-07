@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
-ms.openlocfilehash: cad98954c89c37e57d44abf2af54e903a1b4a740
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 780420c3ff69eb7da6e7c73b973164ed47c2c047
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504928"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525489"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric com o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -341,6 +341,9 @@ Para simplificar algumas das etapas envolvidas na configuração do Azure AD com
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> Para nuvens nacionais (Azure Government, Azure China, Azure Alemanha), deve também especificar o `-Location` parâmetro.
+
 Pode encontrar o TenantId executando o comando do PowerShell `Get-AzureSubscription`. Executar este comando apresenta o TenantId para cada subscrição.
 
 ClusterName é utilizado para o prefixo de aplicações do Azure AD que são criadas pelo script. Não é necessário o nome de cluster real de corresponder exatamente. Destina-se apenas a tornar mais fácil mapear os artefactos do Azure AD para o cluster do Service Fabric que está a ser utilizados com.
@@ -370,6 +373,9 @@ O script imprime o JSON necessário para o modelo Azure Resource Manager, quando
 Esta secção é para os usuários que desejam personalizados para criar um modelo de Gestor de recursos de cluster do Service Fabric. Depois de ter um modelo, ainda pode voltar atrás e utilizar os módulos do PowerShell ou a CLI para implementá-la. 
 
 Modelos do Gestor de recursos de exemplo estão disponíveis no [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos podem ser utilizados como ponto de partida para o modelo de cluster.
+
+> [!NOTE]
+> Para nuvens nacionais (Azure Government, Azure China, Azure Alemanha), deverá ainda adicionar o seguinte procedimento `fabricSettings` ao seu modelo ARM: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
 
 ### <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 Este guia utiliza a [5-nó cluster seguro] [ service-fabric-secure-cluster-5-node-1-nodetype] modelo de exemplo e os parâmetros de modelo. Baixe `azuredeploy.json` e `azuredeploy.parameters.json` para o seu computador e abra ambos os ficheiros no seu editor de texto favorito.
@@ -714,4 +720,3 @@ Neste ponto, tem um cluster seguro com fornecendo autenticação de gestão do A
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-

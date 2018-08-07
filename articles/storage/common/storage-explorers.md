@@ -1,38 +1,32 @@
 ---
-title: Ferramentas para trabalhar com o Storage do Azure | Microsoft Docs
-description: Uma lista das ferramentas que lhe permitem ver/interagir com os seus dados de armazenamento do Azure.
+title: Ferramentas para trabalhar com o armazenamento do Azure | Documentos da Microsoft
+description: Uma lista de ferramentas que permitem-lhe ver/interagir com os seus dados de armazenamento do Azure.
 services: storage
-documentationcenter: ''
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 5c2add48b128a3e5a632c048f0feb4413fcb26cc
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.component: common
+ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23933390"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526203"
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
-Os utilizadores do Storage do Azure com frequência querem ser capazes de vista/interagir com os dados utilizando uma ferramenta de cliente do Storage do Azure. Nas tabelas abaixo, iremos lista várias ferramentas que permitem-lhe fazê-lo. Vamos colocar "X" em cada bloco se fornece a capacidade para a enumeração de e/ou aceder a abstração de dados. A tabela mostra também se as ferramentas está livre ou não. "Versão de avaliação" indica que existe uma versão de avaliação gratuita, mas o produto completo não está livre. "Y/N" indica que está disponível uma versão gratuitamente, enquanto está disponível para comprar uma versão diferente.
+Os utilizadores do armazenamento do Azure querem frequentemente poder ver/interagir com os seus dados com uma ferramenta de cliente de armazenamento do Azure. Nas tabelas abaixo, listamos as diversas ferramentas que permitem que faça isso. Colocamos um "X" em cada bloco se fornece a capacidade para a enumerar e/ou aceder a abstração de dados. A tabela mostra também se as ferramentas é gratuito ou não. "Avaliação" indica que existe uma avaliação gratuita, mas o produto completo não é gratuito. "Y/N" indica que está disponível uma versão gratuita, enquanto uma versão diferente está disponível para compra.
 
-Só fornecemos um instantâneo das ferramentas de cliente do Storage do Azure disponíveis. Estas ferramentas podem continuar a evoluir e aumentar a funcionalidade. Se existirem atualizações ou correções, deixe um comentário para nos informar. O mesmo é verdadeiro que se souber de ferramentas que aparece aqui - ser iremos seria satisfeitos adicioná-los.
+Fornecemos apenas um instantâneo das ferramentas de cliente de armazenamento do Azure disponíveis. Essas ferramentas podem continuar a evoluir e expandir a funcionalidade. Se existirem atualizações ou correções, deixe um comentário para nos informar. O mesmo é verdadeiro que se souber de ferramentas que deve ser aqui – Teremos muito gosto para adicioná-los.
 
 **Ferramentas de cliente de armazenamento do Microsoft Azure**
 
 <table>
   <tr>
-    <th rowspan="2">Ferramenta de cliente do Storage do Azure</th>
-    <th rowspan="2">Blob de bloco</th>
-    <th rowspan="2">Blob de página</th>
+    <th rowspan="2">Ferramenta de cliente de armazenamento do Azure</th>
+    <th rowspan="2">Blob de blocos</th>
+    <th rowspan="2">BLOBs de páginas</th>
     <th rowspan="2">Blob de acréscimo</th>
     <th rowspan="2">Tabelas</th>
     <th rowspan="2">Filas</th>
@@ -90,15 +84,15 @@ Só fornecemos um instantâneo das ferramentas de cliente do Storage do Azure di
   </tr>
 </table>
 
-**Ferramentas de cliente do Storage do Azure de terceiros**
+**Ferramentas de cliente de armazenamento do Azure de terceiros**
 
-Iremos não verificou a funcionalidade ou qualidade reivindicados pelas seguintes ferramentas de terceiros e as respetivas listagem não implica um endossamento pela Microsoft.
+Não podemos ter verificado a funcionalidade ou qualidade reclamadas pelos seguintes ferramentas de terceiros e sua listagem não implica a uma aprovação pela Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Ferramenta de cliente do Storage do Azure</th>
-    <th rowspan="2">Blob de bloco</th>
-    <th rowspan="2">Blob de página</th>
+    <th rowspan="2">Ferramenta de cliente de armazenamento do Azure</th>
+    <th rowspan="2">Blob de blocos</th>
+    <th rowspan="2">BLOBs de páginas</th>
     <th rowspan="2">Blob de acréscimo</th>
     <th rowspan="2">Tabelas</th>
     <th rowspan="2">Filas</th>
@@ -127,7 +121,7 @@ Iremos não verificou a funcionalidade ou qualidade reivindicados pelas seguinte
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate: Explorador do Azure</a></td>
+    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Do Redgate: O Explorador do Azure</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -155,21 +149,21 @@ Iremos não verificou a funcionalidade ou qualidade reivindicados pelas seguinte
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">Explorador de cloudBerry</a></td>
+    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
     <td></td>
     <td></td>
     <td>X</td>
-    <td>Y/N</td>
+    <td>S/N</td>
     <td></td>
     <td>X</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gapotchenko.com/cloudcombine">Combinação de nuvem</a></td>
+    <td><a href="http://www.gapotchenko.com/cloudcombine">Combinação de cloud</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -197,7 +191,7 @@ Iremos não verificou a funcionalidade ou qualidade reivindicados pelas seguinte
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Nuvem Gladinet</a></td>
+    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
     <td>X</td>
     <td></td>
     <td></td>

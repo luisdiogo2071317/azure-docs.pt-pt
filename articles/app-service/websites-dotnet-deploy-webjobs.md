@@ -1,9 +1,9 @@
 ---
-title: Desenvolver e implementar WebJobs com o Visual Studio - Azure
+title: Desenvolver e implementar o WebJobs com o Visual Studio - Azure
 description: Saiba como desenvolver e implementar WebJobs do Azure para o serviço de aplicações do Azure com o Visual Studio.
 services: app-service
 documentationcenter: ''
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ccbf1241012fbac184de2fb0109dab4b5e618a52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30161528"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579124"
 ---
-# <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implementar WebJobs com o Visual Studio - App Service do Azure
+# <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implementar o WebJobs com o Visual Studio - serviço de aplicações do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-Este tópico explica como utilizar o Visual Studio para implementar um projeto de aplicação de consola para uma aplicação web no [do serviço de aplicações](app-service-web-overview.md) como um [trabalho Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Para obter informações sobre como implementar WebJobs utilizando o [portal do Azure](https://portal.azure.com), consulte [tarefas de execução em segundo plano com WebJobs](web-sites-create-web-jobs.md).
+Este tópico explica como utilizar o Visual Studio para implementar um projeto de aplicação de consola numa aplicação web no [serviço de aplicações](app-service-web-overview.md) como um [WebJob do Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Para obter informações sobre como implementar WebJobs com o [portal do Azure](https://portal.azure.com), consulte [tarefas de execução em segundo plano com o WebJobs](web-sites-create-web-jobs.md).
 
-Quando o Visual Studio implementa um projeto de aplicação de consola com WebJobs, executa duas tarefas:
+Quando o Visual Studio implementa um projeto de aplicativo de Console habilitados para o WebJobs, ele executa duas tarefas:
 
-* Copia os ficheiros de tempo de execução para a pasta adequada na aplicação web (*App_Data/tarefas/contínua* para WebJobs contínuos, *App_Data/tarefas/acionada* para WebJobs agendadas e a pedido).
-* Configura [agendador do Azure](https://docs.microsoft.com/azure/scheduler/) tarefas de WebJobs que estejam agendados para execução em alturas específicas. (Isto não é necessária para WebJobs contínuos.)
+* Copia os ficheiros de tempo de execução para a pasta apropriada na aplicação web (*aplicação_dados/tarefas/contínua* para o WebJobs contínuos, *aplicação_dados/tarefas/acionada* para WebJobs agendados e a pedido).
+* Configura [agendador do Azure](https://docs.microsoft.com/azure/scheduler/) tarefas para WebJobs agendados para execução em horários específicos. (Isso não é necessária para o WebJobs contínuos.)
 
-Um projeto WebJobs capacidade tem os seguintes itens adicionados ao mesmo:
+Um projeto de WebJobs capacidade tem os seguintes itens adicionados à mesma:
 
 * O [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) pacote NuGet.
-* A [settings.json webjob publicar](#publishsettings) ficheiro que contém as definições de implementação e programador. 
+* R [Settings webjob publicar](#publishsettings) ficheiro que contém as definições de implementação e o scheduler. 
 
-![Diagrama que mostra o que é adicionado a uma aplicação de consola para ativar a implementação, como um trabalho Web](./media/websites-dotnet-deploy-webjobs/convert.png)
+![Diagrama que mostra o que é adicionado a uma aplicação de consola para permitir uma implantação como um WebJob](./media/websites-dotnet-deploy-webjobs/convert.png)
 
-Pode adicionar estes itens a um projeto de aplicação de consola existente ou utilize um modelo para criar um novo projeto de aplicação de consola com WebJobs. 
+Pode adicionar estes itens para um projeto de aplicação de consola existente ou utilizar um modelo para criar um novo projeto de aplicação de consola preparada para WebJobs. 
 
-Pode implementar um projeto como um WebJob por si só ou ligá-la a um projeto web para que implementa automaticamente sempre que implementar o projeto web. Para ligar projetos, o Visual Studio inclui o nome do projeto WebJobs ativado num [webjobs list.json](#webjobslist) ficheiros no projeto web.
+Pode implementar um projeto como um WebJob por si só ou ligá-lo num projeto web para que ele implementa automaticamente sempre que implementar o projeto web. Para ligar a projetos, o Visual Studio inclui o nome do projeto WebJobs habilitado numa [webjobs list.json](#webjobslist) arquivo no projeto da web.
 
-![Diagrama que mostra o projeto de WebJob a associar ao projeto web](./media/websites-dotnet-deploy-webjobs/link.png)
+![Diagrama que mostra a vinculação ao projeto de web de projetos de trabalho Web](./media/websites-dotnet-deploy-webjobs/link.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,85 +51,85 @@ Se estiver a utilizar o Visual Studio 2015, instale o [Azure SDK para .NET (Visu
 
 Se estiver a utilizar o Visual Studio 2017, instale o [carga de trabalho de desenvolvimento do Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
-## <a id="convert"></a> Ativar a implementação de WebJobs para um projeto de aplicação de consola existente
+## <a id="convert"></a> Ativar a implementação do WebJobs para um projeto de aplicação de consola existente
 
 Tem duas opções:
 
 * [Ativar a implementação automática com um projeto web](#convertlink).
 
-  Configure um projeto de aplicação de consola existente para que o se implementa automaticamente como um WebJob quando implementar um projeto web. Utilize esta opção quando pretender executar o seu trabalho Web na mesma aplicação web em que executa a aplicação web relacionados.
+  Configure um projeto de aplicação de consola existente para que ele implementa automaticamente como um WebJob quando implementar um projeto web. Utilize esta opção quando pretender executar o WebJob na mesma aplicação web em que executar o aplicativo da web relacionados.
 
 * [Ativar a implementação sem um projeto web](#convertnolink).
 
-  Configure um projeto de aplicação de consola existente para implementar como um WebJob por si só, sem ligação com um projeto web. Utilize esta opção quando pretender executar um trabalho Web na aplicação web por si só, com nenhuma aplicação web em execução na aplicação web. Pode querer fazê-lo para poder dimensionar os recursos de trabalho Web independentemente os recursos de aplicação web.
+  Configure um projeto de aplicação de consola existente para implementar como um WebJob por si só, com nenhum link para um projeto web. Utilize esta opção quando pretender executar um WebJob num aplicativo web por si só, com nenhuma aplicação web em execução na aplicação web. Pode querer fazer isso para que seja possível dimensionar os recursos de WebJob independentemente dos recursos da aplicação web.
 
-### <a id="convertlink"></a> Ativar a implementação automática de WebJobs com um projeto web
+### <a id="convertlink"></a> Ativar a implementação automática de WebJobs com um projeto da web
 
-1. Clique com o botão direito no projeto web na **Explorador de soluções**e, em seguida, clique em **adicionar** > **projeto existente como o trabalho Web do Azure**.
+1. Com o botão direito no projeto web no **Explorador de soluções**e, em seguida, clique em **Add** > **projeto existente como Azure WebJob**.
    
-    ![Projeto existente como o trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/eawj.png)
+    ![Projeto existente como WebJob do Azure](./media/websites-dotnet-deploy-webjobs/eawj.png)
    
-    O [trabalho Web do Azure de adicionar](#configure) é apresentada a caixa de diálogo.
-2. No **nome do projeto** na lista pendente, selecione a aplicação de consola do projeto para adicionar como um WebJob.
+    O [adicionar WebJob do Azure](#configure) é apresentada a caixa de diálogo.
+2. Na **nome do projeto** na lista pendente, selecione a aplicação de consola do projeto para adicionar como um WebJob.
    
-    ![Selecionar o projeto na caixa de diálogo Adicionar WebJob do Azure](./media/websites-dotnet-deploy-webjobs/aaw1.png)
-3. Concluir o [trabalho Web do Azure de adicionar](#configure) caixa de diálogo e, em seguida, clique em **OK**. 
+    ![Selecionar projeto na caixa de diálogo Adicionar WebJob do Azure](./media/websites-dotnet-deploy-webjobs/aaw1.png)
+3. Concluir o [adicionar WebJob do Azure](#configure) caixa de diálogo e clique em **OK**. 
 
-### <a id="convertnolink"></a> Ativar a implementação de WebJobs sem um projeto web
-1. Clique com o botão direito no projeto de aplicação de consola em **Explorador de soluções**e, em seguida, clique em **publicar como trabalho Web do Azure...** . 
+### <a id="convertnolink"></a> Ativar a implementação de WebJobs sem um projeto da web
+1. Com o botão direito no projeto de aplicação de consola no **Explorador de soluções**e, em seguida, clique em **publicar como WebJob do Azure...** . 
    
-    ![Publicar como trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
+    ![Publicar como WebJob do Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
    
-    O [trabalho Web do Azure de adicionar](#configure) aparece a caixa de diálogo, com o projeto selecionado no **nome do projeto** caixa.
-2. Concluir o [trabalho Web do Azure de adicionar](#configure) caixa de diálogo e, em seguida, clique em **OK**.
+    O [adicionar WebJob do Azure](#configure) caixa de diálogo é apresentada, com o projeto selecionado na **nome do projeto** caixa.
+2. Concluir o [adicionar WebJob do Azure](#configure) caixa de diálogo e clique em **OK**.
    
-   O **publicar Web** é apresentado o assistente.  Se não pretender publicar imediatamente, feche o assistente. As definições que introduziu são guardadas para a quando pretende [implementar o projeto](#deploy).
+   O **publicar Web** é apresentado o assistente.  Se não pretender publicar imediatamente, feche o assistente. As definições que introduzir são guardadas para quando deseja [implementar o projeto](#deploy).
 
-## <a id="create"></a>Criar um novo projeto WebJobs-ativado
-Para criar um novo projeto WebJobs ativado, pode utilizar o modelo de projeto de aplicação de consola e ativar a implementação de WebJobs conforme explicado no [secção anterior](#convert). Como alternativa, pode utilizar o modelo de novo projeto de WebJobs:
+## <a id="create"></a>Criar um novo projeto habilitados para o WebJobs
+Para criar um novo projeto habilitados para o WebJobs, pode utilizar o modelo de projeto de aplicativo de Console e ativar a implementação do WebJobs, conforme explicado [secção anterior](#convert). Como alternativa, pode utilizar o modelo de novo projeto do WebJobs:
 
-* [Utilizar o modelo de novo projeto de WebJobs para um WebJob independente](#createnolink)
+* [Utilizar o modelo de novo projeto do WebJobs para um WebJob independente](#createnolink)
   
-    Criar um projeto e configurá-lo para implementar por si próprio como um WebJob, sem ligação com um projeto web. Utilize esta opção quando pretender executar um trabalho Web na aplicação web por si só, com nenhuma aplicação web em execução na aplicação web. Pode querer fazê-lo para poder dimensionar os recursos de trabalho Web independentemente os recursos de aplicação web.
-* [Utilizar o modelo de novo projeto de WebJobs para um WebJob associado a um projeto web](#createlink)
+    Crie um projeto e configurá-lo para implementar por si só como um WebJob, com nenhum link para um projeto web. Utilize esta opção quando pretender executar um WebJob num aplicativo web por si só, com nenhuma aplicação web em execução na aplicação web. Pode querer fazer isso para que seja possível dimensionar os recursos de WebJob independentemente dos recursos da aplicação web.
+* [Utilizar o modelo de novo projeto do WebJobs para um WebJob ligado a um projeto da web](#createlink)
   
-    Crie um projeto que está configurado para implementar automaticamente como um WebJob quando um projeto web na mesma solução for implementado. Utilize esta opção quando pretender executar o seu trabalho Web na mesma aplicação web em que executa a aplicação web relacionados.
+    Crie um projeto que está configurado para implementar automaticamente como um WebJob quando um projeto web na mesma solução é implementado. Utilize esta opção quando pretender executar o WebJob na mesma aplicação web em que executar o aplicativo da web relacionados.
 
 > [!NOTE]
-> O modelo de novo projeto de WebJobs automaticamente instala os pacotes NuGet e inclui código *Program.cs* para o [SDK de WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se não pretender utilizar o SDK de WebJobs, remover ou alterar o `host.RunAndBlock` instrução no *Program.cs*.
+> O modelo de novo projeto do WebJobs automaticamente instala os pacotes de NuGet e inclui o código na *Program.cs* para o [SDK do WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se não quiser utilizar o SDK de WebJobs, remova ou altere a `host.RunAndBlock` instrução na *Program.cs*.
 > 
 > 
 
-### <a id="createnolink"></a> Utilizar o modelo de novo projeto de WebJobs para um WebJob independente
-1. Clique em **ficheiro** > **novo projeto**e, em seguida, no **novo projeto** clique da caixa de diálogo **nuvem**  >   **Trabalho Web do Azure (.NET Framework)**.
+### <a id="createnolink"></a> Utilizar o modelo de novo projeto do WebJobs para um WebJob independente
+1. Clique em **arquivo** > **novo projeto**e, em seguida, no **novo projeto** clique da caixa de diálogo **Cloud**  >   **WebJob do Azure (.NET Framework)**.
    
-    ![Caixa de diálogo do projeto nova que mostra o modelo do trabalho Web](./media/websites-dotnet-deploy-webjobs/np.png)
-2. Siga as instruções apresentadas anteriormente a [tornar a aplicação de consola projetar um projeto de WebJobs independente](#convertnolink).
+    ![Caixa de diálogo do projeto nova que mostra o modelo de WebJob](./media/websites-dotnet-deploy-webjobs/np.png)
+2. Siga as indicações mostradas anteriormente ao [tornar o aplicativo de Console, um projeto de WebJobs independente do projeto](#convertnolink).
 
-### <a id="createlink"></a> Utilizar o modelo de novo projeto de WebJobs para um WebJob associado a um projeto web
-1. Clique com o botão direito no projeto web na **Explorador de soluções**e, em seguida, clique em **adicionar** > **novo projeto do trabalho Web do Azure**.
+### <a id="createlink"></a> Utilizar o modelo de novo projeto do WebJobs para um WebJob ligado a um projeto da web
+1. Com o botão direito no projeto web no **Explorador de soluções**e, em seguida, clique em **Add** > **novo projeto de WebJob do Azure**.
    
-    ![Nova entrada de menu do projeto de trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/nawj.png)
+    ![Nova entrada de menu do projeto de WebJob do Azure](./media/websites-dotnet-deploy-webjobs/nawj.png)
    
-    O [trabalho Web do Azure de adicionar](#configure) é apresentada a caixa de diálogo.
-2. Concluir o [trabalho Web do Azure de adicionar](#configure) caixa de diálogo e, em seguida, clique em **OK**.
+    O [adicionar WebJob do Azure](#configure) é apresentada a caixa de diálogo.
+2. Concluir o [adicionar WebJob do Azure](#configure) caixa de diálogo e clique em **OK**.
 
 ## <a id="configure"></a>A caixa de diálogo Adicionar WebJob do Azure
-O **trabalho Web do Azure de adicionar** caixa de diálogo permite-lhe introduzir o nome do WebJob e executar a definição do modo para o trabalho Web. 
+O **adicionar WebJob do Azure** caixa de diálogo permite-lhe introduzir o nome de WebJob e modo de configuração para o WebJob de execução. 
 
-![Adicionar caixa de diálogo do trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/aaw2.png)
+![Adicionar a caixa de diálogo do trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-Os campos nesta caixa de diálogo correspondem aos campos no **adicionar WebJob** caixa de diálogo do portal do Azure. Para obter mais informações, consulte [tarefas de execução em segundo plano com WebJobs](web-sites-create-web-jobs.md).
+Os campos nesta caixa de diálogo correspondem aos campos na **WebJob adicionar** caixa de diálogo do portal do Azure. Para obter mais informações, consulte [tarefas de execução em segundo plano com o WebJobs](web-sites-create-web-jobs.md).
 
 > [!NOTE]
-> * Para obter informações sobre a implementação da linha de comandos, consulte [ativação da linha de comandos ou entrega de Azure WebJobs contínuos](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
-> * Se implementar um WebJob e, em seguida, decida que pretende alterar o tipo de WebJob e volte a implementar, terá de eliminar o *settings.json webjobs publicar* ficheiro. Esta ação irá tornar o Visual Studio para mostrar as opções de publicação novamente, para que possa alterar o tipo do trabalho Web.
-> * Se implementar um WebJob e posteriormente, altera o modo de execução do contínua para não contínuos ou vice-versa, o Visual Studio cria um WebJob novo no Azure, quando implementar novamente. Se alterar outras definições de agendamento, mas deixe modo de execução da mesma ou alternar entre agendada e a pedido, Visual Studio atualiza a tarefa existente em vez de criar um novo.
+> * Para obter informações sobre a implementação da linha de comandos, consulte [ativação da linha de comandos ou a entrega contínua do WebJobs do Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+> * Se implementar um WebJob e, em seguida, decidir que pretende alterar o tipo de WebJob e volte a implementar, terá de eliminar a *Settings webjobs publicar* ficheiro. Esta ação irá tornar o Visual Studio para mostrar as opções de publicação mais uma vez, para que possa alterar o tipo de trabalho Web.
+> * Se implementar um WebJob e posteriormente alterar o modo de execução do contínua para não contínuos e vice-versa, o Visual Studio cria um WebJob de novo no Azure quando implementar novamente. Se alterar outras definições de agendamento, mas deixe modo de execução o mesmo ou alternar entre agendada e a pedido, Visual Studio atualiza a tarefa existente em vez de criar um novo.
 > 
 > 
 
 ## <a id="publishsettings"></a>webjob-publish-settings.json
-Quando configura uma aplicação de consola para a implementação de WebJobs, instala o Visual Studio a [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet pacote e armazena informações de agendamento um *settings.json webjob publicar*  ficheiros no projeto *propriedades* pasta do projeto WebJobs. Eis um exemplo desse ficheiro:
+Quando configurar uma aplicação de consola para a implementação de WebJobs, o Visual Studio instala o [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet pacote e arquivos de agendamento de informações num *Settings webjob publicar*  arquivo no projeto *propriedades* pasta do projeto WebJobs. Eis um exemplo desse ficheiro:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
@@ -141,10 +141,10 @@ Quando configura uma aplicação de consola para a implementação de WebJobs, i
           "runMode": "Continuous"
         }
 
-Pode editar este ficheiro diretamente e o Visual Studio fornece IntelliSense. O esquema do ficheiro é armazenado em [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) e podem ser visualizados não existe.  
+Pode editar este ficheiro diretamente, e o Visual Studio fornece o IntelliSense. O esquema de ficheiro é armazenado em [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser vista aqui.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
-Quando liga um projeto ativada de WebJobs para um projeto web, o Visual Studio armazena o nome do projeto WebJobs num *webjobs list.json* ficheiro o projeto web *propriedades* pasta. A lista pode conter vários projetos de WebJobs, conforme mostrado no exemplo seguinte:
+Quando liga um projeto habilitados para o WebJobs para um projeto web, o Visual Studio armazena o nome do projeto de WebJobs uma *webjobs list.json* arquivo no projeto da web *propriedades* pasta. A lista pode conter vários projetos de WebJobs, conforme mostrado no exemplo a seguir:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
@@ -158,13 +158,13 @@ Quando liga um projeto ativada de WebJobs para um projeto web, o Visual Studio a
           ]
         }
 
-Pode editar este ficheiro diretamente e o Visual Studio fornece IntelliSense. O esquema do ficheiro é armazenado em [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) e podem ser visualizados não existe.
+Pode editar este ficheiro diretamente, e o Visual Studio fornece o IntelliSense. O esquema de ficheiro é armazenado em [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) e pode ser vista aqui.
 
 ## <a id="deploy"></a>Implementar um projeto de WebJobs
-Um projeto de WebJobs de ligação a um projeto web implementa automaticamente com o projeto web. Para obter informações sobre a implementação do projeto web, consulte **guias de procedimentos** > **implementar aplicações** no painel de navegação esquerdo.
+Um projeto de WebJobs que a ligação a um projeto web implementa automaticamente com o projeto de web. Para obter informações sobre a implantação do projeto de web, consulte **guias de procedimentos** > **implementar aplicação** na navegação à esquerda.
 
-Para implementar um projeto de WebJobs por si só, clique com botão direito no projeto em **Explorador de soluções** e clique em **publicar como trabalho Web do Azure...** . 
+Para implementar um projeto de WebJobs por si só, com o botão direito do rato no **Explorador de soluções** e clique em **publicar como WebJob do Azure...** . 
 
-![Publicar como trabalho Web do Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
+![Publicar como WebJob do Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
 
 Para um WebJob independente, o mesmo **publicar Web** assistente que é utilizado para projetos web é apresentada, mas com menos definições disponíveis para alterar.

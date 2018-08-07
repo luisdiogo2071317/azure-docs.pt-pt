@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52f0e6c90aa9fa0dc439eae3801b2d4ac29387a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429685"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521888"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Aplicações web do Azure em direto de perfil com o Application Insights
 
@@ -167,9 +167,12 @@ Aqui estão algumas coisas que pode verificar:
 * Certifique-se de que a aplicação web tem a versão Beta do Application Insights SDK 2.2 ou ativado mais tarde.
 * Certifique-se de que a sua aplicação web tem o **APPINSIGHTS_INSTRUMENTATIONKEY** definição configurada com a mesma chave de instrumentação que é utilizada pelo SDK do Application Insights.
 * Certifique-se de que a aplicação web está em execução no .NET Framework 4.6.
-* Se a sua aplicação web é uma aplicação ASP.NET Core, verifique [as dependências necessárias](#aspnetcore).
+* Se a sua aplicação web é uma aplicação ASP.NET Core, tem de executar, pelo menos, ASP.NET Core 2.0.
 
 Depois do Profiler é iniciado, há um período de aquecimento curto durante o qual o Profiler recolhe ativamente vários rastreios de desempenho. Depois disso, o Profiler recolhe rastreios de desempenho durante dois minutos por hora.
+
+> [!NOTE]
+> Há um bug no agente do criador de perfil que o impede de carregamento de rastreios obtidos a partir de aplicações em execução no ASP.NET Core 2.1. Estamos a trabalhar numa correção e irá deixá-lo pronto em breve.
 
 ### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Eu estava usando o criador de perfil de serviço do Azure. O que aconteceu?
 

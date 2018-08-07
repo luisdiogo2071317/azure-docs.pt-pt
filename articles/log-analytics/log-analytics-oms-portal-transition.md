@@ -14,14 +14,18 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1a8ccc818cafac4867cb533c83f297af61a21836
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: b9fb32f4f014f8e0fb67b558a2806d74edaac56c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309107"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576020"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS para o Azure
+
+> [!NOTE]
+> Este artigo aplica-se para a cloud pública do Azure e a cloud de governo, exceto onde indicado o contrário.
+
 Uma parte do feedback recebido repetidamente dos clientes de Log Analytics é a necessidade de uma experiência de usuário único monitorizar e gerir cargas de trabalho do Azure e no local. Provavelmente já sabe o portal do Azure é o hub para todos os serviços do Azure e oferece uma gestão avançada de experiência com recursos como os dashboards para fixar recursos, a pesquisa inteligente para localizar recursos e a identificação para gestão de recursos. Para consolidar e simplificar o fluxo de trabalho de monitorização e gestão, começamos a adicionar as capacidades de portais do OMS no portal do Azure. Temos o prazer de anunciar a maioria dos recursos do portal do OMS agora fazem parte do portal do Azure. Na verdade, alguns dos novos recursos, tais como análise de tráfego só estão disponíveis no portal do Azure. Existem apenas algumas lacunas restantes incluindo algumas soluções que ainda são o processo de ser movidos para o portal do Azure. Se não estiver a utilizar estas funcionalidades, será capaz de realizar tudo que estava a fazer no portal do OMS com o portal do Azure e muito mais. Se ainda não o fez, recomendamos que começa a utilizar o portal do Azure hoje mesmo! 
 
 Esperamos que fechar as lacunas restantes dos dois portais, Agosto de 2018. Com base nos comentários dos clientes, iremos comunicar a linha cronológica para sunsetting no portal do OMS. Temos o prazer de passar para o portal do Azure e esperar que a transição para ser fácil. Mas estamos cientes de alterações são difíceis e podem ser prejudicais. Envie dúvidas, comentários ou preocupações para **LAUpgradeFeedback@microsoft.com**. O restante deste artigo vai sobre os cenários-chave, as lacunas atuais e o plano para essa transição. 
@@ -60,7 +64,11 @@ Atualmente, existem algumas falhas de funcionalidade que requerem a continuar a 
 
 
 ## <a name="what-should-i-do-now"></a>O que devo fazer agora?  
-Deve consultar [perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics](../log-analytics/log-analytics-oms-portal-faq.md) para obter informações sobre como efetuar a transição para o portal do Azure. Se o [lacunas descrito acima](#current-known-gaps) não se aplicam ao seu ambiente, em seguida, deve considerar a iniciar com o portal do Azure como a sua experiência primária. Enviar comentários, dúvidas ou preocupações para LAUpgradeFeedback@microsoft.com.
+Deve consultar [perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics](../log-analytics/log-analytics-oms-portal-faq.md) para obter informações sobre como efetuar a transição para o portal do Azure. Se o [lacunas descrito acima](#current-known-gaps) não se aplicam ao seu ambiente, em seguida, deve considerar a iniciar com o portal do Azure como a sua experiência primária. Enviar comentários, dúvidas ou preocupações para **LAUpgradeFeedback@microsoft.com**.
+
+A maioria das funcionalidades vão continuar a funcionar sem executar qualquer migração. Exceções estão listadas abaixo.
+
+- Ver [migrar as implementações de atualização do OMS para o Azure](../automation/migrate-oms-update-deployments.md) para obter detalhes sobre a transição da solução de gestão de atualizações. 
 
 ## <a name="new-workspaces"></a>Novas áreas de trabalho
 A partir 29 de Julho, já não será capaz de criar novas áreas de trabalho através do portal do OMS. Siga as orientações no [criar uma área de trabalho do Log Analytics no portal do Azure](log-analytics-quick-create-workspace.md) para criar uma nova área de trabalho no portal do Azure.
@@ -70,7 +78,7 @@ A partir 29 de Julho, já não será capaz de criar novas áreas de trabalho atr
 ### <a name="alert-extension"></a>Extensão de alerta  
 
 > [!NOTE]
-> Agora tem sido expandidos totalmente alertas no portal do Azure. Regras de alerta existentes podem ser visualizadas no portal do OMS, mas só podem ser geridos no portal do Azure.
+> Alertas agora foram estendidos totalmente no portal do Azure para a cloud pública. Regras de alerta existentes podem ser visualizadas no portal do OMS, mas só podem ser geridos no portal do Azure. Extensão de alertas no portal do Azure será iniciado para a cloud do Azure government em Outubro de 2018.
 
 Os alertas são no processo de ser [expandidos para o portal do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Quando isso for concluído, as ações de gestão de alertas só estará disponíveis no portal do Azure. Alertas existentes continuarão a ser listados no portal do OMS. Se aceder aos alertas através de programação, utilizando a API de REST de alerta do Log Analytics ou o modelo de recurso alerta do Log Analytics, terá de utilizar grupos de ação em vez de ações em suas chamadas de API, modelos Azure Resource Manager e comandos do PowerShell.
 

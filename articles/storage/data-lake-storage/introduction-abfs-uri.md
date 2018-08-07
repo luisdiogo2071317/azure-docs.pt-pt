@@ -1,53 +1,52 @@
 ---
-title: Utilize a pré-visualização do Azure Data Lake armazenamento Gen2 URI
-description: Utilize a pré-visualização do Azure Data Lake armazenamento Gen2 URI
+title: Utilizar a pré-visualização de geração 2 de Lake armazenamento de dados do Azure URI
+description: Utilizar a pré-visualização de geração 2 de Lake armazenamento de dados do Azure URI
 services: storage
 keywords: ''
 author: jamesbak
 ms.topic: article
 ms.author: jamesbak
-manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 27ea73862f834a834b1622d0e51d0076c9afbe71
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114297"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523109"
 ---
-# <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilize o Gen2 Lake armazenamento de dados do Azure URI
+# <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilize a geração 2 Lake armazenamento de dados do Azure URI
 
-O [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) controlador compatível com a pré-visualização do Azure Data Lake armazenamento Gen2 for conhecido pelo respetivo identificador de esquema `abfs` (sistema de ficheiros de Blob do Azure). Consistente com outros controladores de sistema de ficheiros do Hadoop, o controlador ABFS utiliza um formato URI para endereçar ficheiros e diretórios dentro de uma conta com capacidade de Gen2 de armazenamento do Data Lake.
+O [sistema de ficheiros do Hadoop](http://www.aosabook.org/en/hdfs.html) controladores que seja compatível com a pré-visualização do Azure Data Lake Storage Gen2 é conhecido pelo respetivo identificador de esquema `abfs` (sistema de ficheiros de Blob do Azure). Consistente com outros controladores de sistema de ficheiros do Hadoop, o driver ABFS emprega um formato de URI para endereçar ficheiros e diretórios dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake.
 
-## <a name="uri-syntax"></a>Sintaxe URI
+## <a name="uri-syntax"></a>Sintaxe de URI
 
-A sintaxe URI para Gen2 de armazenamento do Data Lake está dependente de ou não a conta de armazenamento é configurada para ter Gen2 de armazenamento do Data Lake como sistema de ficheiros predefinido.
+A sintaxe URI de geração 2 de armazenamento do Data Lake é depende se pretende ou não a conta de armazenamento está configurada para ter a geração 2 de armazenamento do Data Lake como o sistema de ficheiros predefinido.
 
-Se a conta com capacidade de Gen2 de armazenamento do Data Lake pretende endereço **não é** definido como o sistema de ficheiros durante a criação de conta, em seguida, a expressão compacta sintaxe URI é:
+Se a conta com capacidade de geração 2 de armazenamento do Data Lake desejo abordar **není** definido durante a criação de conta, como o sistema de ficheiros predefinido, em seguida, é a abreviatura de sintaxe de URI:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Identificador de esquema**: O `abfs` protocolo é utilizado como o identificador de esquema. Tem a opção para ligar com ou sem uma ligação do secure socket layer (SSL). Utilize `abfss` para estabelecer ligação com uma ligação de camada de socket segura.
+1. **Identificador do esquema**: O `abfs` protocolo é utilizado como o identificador do esquema. Tem a opção para ligar com ou sem uma ligação do secure sockets layer (SSL). Utilize `abfss` para estabelecer ligação com uma ligação de camada de soquete seguro.
 
-2. **Sistema de ficheiros**: A localização principal que contém os ficheiros e pastas. Este é o mesmo como contentores no serviço Blobs Storage do Azure.
+2. **Sistema de ficheiros**: A localização principal que contém os ficheiros e pastas. Este é o mesmo que contentores no serviço de Blobs de armazenamento do Azure.
 
-3. **Nome da conta**: O nome atribuído à sua conta de armazenamento durante a criação.
+3. **Nome da conta**: O nome dado à sua conta de armazenamento durante a criação.
 
-4. **Caminhos**: uma barra delimitada (`/`) representação da estrutura de diretório.
+4. **Caminhos**: uma barra delimitados por (`/`) representação da estrutura de diretório.
 
-5. **Nome de ficheiro**: O nome do ficheiro individual. Este parâmetro é opcional se envolvido um diretório.
+5. **Nome de ficheiro**: O nome do ficheiro individual. Este parâmetro é opcional, se esteja Solucionando um diretório.
 
-No entanto, se a conta que pretende endereço está definida como o sistema de ficheiros durante a criação de conta, em seguida, a expressão compacta sintaxe URI é:
+No entanto, se a conta que desejo abordar é definida como o sistema de ficheiros predefinido durante a criação da conta, a forma abreviada sintaxe de URI é:
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **Caminho**: uma barra delimitada (`/`) representação da estrutura de diretório.
+1. **Caminho**: uma barra delimitados por (`/`) representação da estrutura de diretório.
 
-2. **Nome de ficheiro**: O nome do ficheiro individual.
+2. **Nome do ficheiro**: O nome do ficheiro individual.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Utilizar Gen2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](use-hdi-cluster.md)
+- [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](use-hdi-cluster.md)

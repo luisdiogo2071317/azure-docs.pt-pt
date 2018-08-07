@@ -1,106 +1,106 @@
 ---
 title: Como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub
-description: Como disenroll um dispositivo para impedir o aprovisionamento através do serviço de aprovisionamento de dispositivos do Azure IoT Hub
-author: bryanla
-ms.author: bryanla
+description: Como disenroll um dispositivo para impedir que o aprovisionamento através do serviço de aprovisionamento de dispositivos do Azure IoT Hub
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4b6c948765575c92c962999fe394ffaf1a0d22f3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628849"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525472"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
-Gestão adequado de credenciais de dispositivo é fundamental para sistemas de perfil de alta como soluções de IoT. Uma melhor prática para esses sistemas é ter um plano limpar como revogar o acesso para dispositivos quando as respetivas credenciais, se um token de assinaturas (SAS) de acesso partilhado ou de um certificado x. 509, podem ficar comprometidas. 
+Apropriadas de gerenciamento de credenciais do dispositivo é fundamental para sistemas de alto perfil como soluções de IoT. Uma prática recomendada para estes sistemas é ter um plano claro de como revogar o acesso para dispositivos quando as credenciais, se um token de acesso partilhado de assinaturas (SAS) ou um certificado X.509, possam ter sido comprometidas. 
 
-Inscrição no serviço de aprovisionamento de dispositivos permite que um dispositivo ser [aprovisionamento automático](concepts-auto-provisioning.md). Um dispositivo aprovisionado é aquele que foi registado com o IoT Hub, permitindo que recebe a sua inicial [dispositivo duplo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) de estado e começar a dados de telemetria de relatórios. Este artigo descreve como disenroll um dispositivo da sua instância de serviço aprovisionamento, impedir de que está a ser aprovisionado novamente no futuro.
+Inscrição no serviço de aprovisionamento de dispositivos permite que um dispositivo ser [aprovisionado automaticamente](concepts-auto-provisioning.md). Um dispositivo aprovisionado é aquele que foi registado com o IoT Hub, permitindo que ele receber seu inicial [dispositivo duplo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) de estado e começam a reportar dados de telemetria. Este artigo descreve como disenroll um dispositivo a partir da sua instância do serviço aprovisionamento, que o impedem de que está a ser aprovisionado novamente no futuro.
 
 > [!NOTE] 
-> Tenha em atenção a política de repetição de dispositivos que se revogar o acesso. Por exemplo, um dispositivo que tem uma política de repetição infinita poderá continuamente tentar registar com o serviço de aprovisionamento. Nessa situação consome recursos do serviço e possivelmente afeta o desempenho.
+> Tenha em atenção de dispositivos que se revogar o acesso para a política de repetição. Por exemplo, um dispositivo que tem uma política de repetição infinita continuamente poderá tentar registar com o serviço de aprovisionamento. Nessa situação consome recursos do serviço e, possivelmente, afeta o desempenho.
 
-## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Dispositivos bloqueados através da utilização de uma entrada de registo individuais
+## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Lista de bloqueios de dispositivos através de uma entrada de inscrição individual
 
-As inscrições individuais aplicam-se a um único dispositivo e podem utilizar certificados x. 509 ou tokens SAS (por um TPM real ou virtual) como o mecanismo de atestado. (Para dispositivos que utilizam os tokens SAS de como os respetivos mecanismo de atestado pode ser aprovisionado apenas através de inscrição individuais.) Na lista de proibições num dispositivo que tenha uma inscrição individuais, pode desativar ou eliminar a entrada de inscrição. 
+Inscrições individuais aplicam-se a um dispositivo individual e podem utilizar certificados X.509 ou tokens SAS (num TPM real ou virtual) como o mecanismo de atestação. (Para dispositivos que usam SAS tokens, como seu mecanismo de atestado pode ser provisionado apenas por meio de uma inscrição individual.) Na lista de proibições um dispositivo que tenha uma inscrição individual, pode desativar ou eliminar a entrada de inscrição. 
 
-Para temporariamente lista de proibições o dispositivo, desativando a respetiva entrada de inscrição: 
+À temporariamente lista de bloqueio do dispositivo ao desativar a sua entrada de inscrição: 
 
-1. Inicie sessão no Azure portal e selecione **todos os recursos** no menu esquerdo.
-2. Na lista de recursos, selecione o serviço de aprovisionamento que pretende que a lista de proibições do seu dispositivo.
-3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrições individuais** separador.
-4. Selecione a entrada de registo para o dispositivo que pretende que a lista de proibições. 
-5. Desloque-se na parte inferior e selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**.  
+1. Inicie sessão no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione a lista de bloqueio do dispositivo no serviço de aprovisionamento.
+3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione a **inscrições individuais** separador.
+4. Selecione a entrada de inscrição para o dispositivo que pretende criar uma lista de bloqueio. 
+5. Desloque para baixo e selecione **desativar** sobre o **ativar entrada** mudar e, em seguida, selecione **guardar**.  
 
-   [![Desativar a entrada de registo individuais no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+   [![Desativar a entrada de inscrição individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
 
-Para permanentemente lista de proibições o dispositivo, eliminando a respetiva entrada de inscrição:
+À permanentemente lista de bloqueio do dispositivo ao eliminar a entrada de inscrição:
 
-1. Inicie sessão no Azure portal e selecione **todos os recursos** no menu esquerdo.
-2. Na lista de recursos, selecione o serviço de aprovisionamento que pretende que a lista de proibições do seu dispositivo.
-3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrições individuais** separador.
-4. Selecione a caixa de verificação junto a entrada de registo para o dispositivo que pretende que a lista de proibições. 
-5. Selecione **eliminar** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover a inscrição. 
+1. Inicie sessão no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione a lista de bloqueio do dispositivo no serviço de aprovisionamento.
+3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione a **inscrições individuais** separador.
+4. Selecione a caixa de verificação junto a entrada de inscrição para o dispositivo que pretende criar uma lista de bloqueio. 
+5. Selecione **elimine** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover a inscrição. 
 
-   ![Eliminar a entrada de registo individuais no portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
+   ![Eliminar a entrada de inscrição individual no portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
     
-Depois de concluir o procedimento, deverá ver a entrada removida da lista de inscrições individuais.  
+Depois de concluir o procedimento, verá sua participação removida da lista de inscrições individuais.  
 
-## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista de proibições um x. 509 intermediária ou um certificado de AC de raiz através da utilização de um grupo de inscrição
+## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista de proibições um certificado de AC de raiz ou intermediário X.509 ao utilizar um grupo de inscrição
 
-Certificados x. 509 normalmente são dispostos numa cadeia de certificados de confiança. Se um certificado em qualquer fase numa cadeia ficar comprometido, a confiança é quebrada. O certificado tem de ser blacklisted para impedir que o serviço de aprovisionamento de dispositivos de aprovisionamento dispositivos downstream qualquer cadeia que contém esse certificado. Para obter mais informações sobre certificados x. 509 e como são utilizadas com o serviço de aprovisionamento, consulte [certificados x. 509](./concepts-security.md#x509-certificates). 
+Certificados X.509, normalmente, são organizados numa cadeia de certificados de confiança. Se um certificado em qualquer fase de uma cadeia de ficar comprometido, a confiança é quebrada. O certificado tem de ser bloqueado para impedir que o serviço aprovisionamento de dispositivos de aprovisionamento dispositivos downstream qualquer cadeia que contém esse certificado. Para saber mais sobre certificados X.509 e como elas são usadas com o serviço de aprovisionamento, consulte [certificados X.509](./concepts-security.md#x509-certificates). 
 
-Um grupo de inscrição é uma entrada para dispositivos que partilham um mecanismo de atestado comuns de certificados x. 509 assinado por intermédio iguais ou AC de raiz. A entrada de grupo de inscrição está configurada com o certificado x. 509 associado o intermédio ou AC de raiz. A entrada também é configurada com quaisquer valores de configuração, tais como Estado duplo e a ligação do hub IoT, que são partilhados por dispositivos com esse certificado na respetiva cadeia de certificados. Na lista de proibições o certificado, pode desativar ou eliminar o grupo de inscrição.
+Um grupo de inscrição é uma entrada para os dispositivos que partilham um mecanismo de atestado comuns de certificados X.509 assinado por intermédio iguais ou AC de raiz. A entrada de inscrição de grupo está configurada com o certificado X.509 associado intermediários ou o AC de raiz. A entrada também é configurada com qualquer configuração valores, tais como Estado duplo e a ligação do hub IoT, que são partilhados por dispositivos com esse certificado na respetiva cadeia de certificados. Na lista de proibições o certificado, pode desativar ou eliminar o grupo de inscrição.
 
-Para temporariamente lista de proibições o certificado, desativando o grupo de inscrição: 
+Na temporariamente lista de proibições o certificado ao desativar o respetivo grupo de inscrição: 
 
-1. Inicie sessão no Azure portal e selecione **todos os recursos** no menu esquerdo.
-2. Na lista de recursos, selecione o serviço de aprovisionamento que pretende que a lista de proibições o certificado de assinatura de.
-3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrição grupos** separador.
-4. Selecione o grupo de inscrição com o certificado que pretende que a lista de proibições.
-5. Selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**.  
+1. Inicie sessão no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione o serviço de aprovisionamento que pretende que o certificado de assinatura de lista de bloqueio.
+3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione a **grupos de inscrição** separador.
+4. Selecione o grupo de inscrição com o certificado que pretende criar uma lista de bloqueio.
+5. Selecione **desativar** sobre o **ativar entrada** mudar e, em seguida, selecione **guardar**.  
 
-   ![Desativar a entrada de grupo de inscrição no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
+   ![Desativar entrada de grupo de inscrição no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
-Para permanentemente lista de proibições o certificado ao eliminar o grupo de inscrição:
+Na permanentemente lista de proibições o certificado ao eliminar o grupo de inscrição:
 
-1. Inicie sessão no Azure portal e selecione **todos os recursos** no menu esquerdo.
-2. Na lista de recursos, selecione o serviço de aprovisionamento que pretende que a lista de proibições do seu dispositivo.
-3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrição grupos** separador.
-4. Selecione a caixa de verificação junto ao grupo de inscrição para o certificado que pretende que a lista de proibições. 
-5. Selecione **eliminar** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover o grupo de inscrição. 
+1. Inicie sessão no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione a lista de bloqueio do dispositivo no serviço de aprovisionamento.
+3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione a **grupos de inscrição** separador.
+4. Selecione a caixa de verificação junto ao grupo de inscrição para o certificado que pretende criar uma lista de bloqueio. 
+5. Selecione **elimine** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover o grupo de inscrição. 
 
    ![Eliminar a entrada de grupo de inscrição no portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
-Depois de concluir o procedimento, deverá ver a entrada removida da lista de grupos de inscrição.  
+Depois de concluir o procedimento, verá sua participação removida da lista de grupos de inscrição.  
 
 > [!NOTE]
-> Se eliminar um grupo de inscrição de certificados, os dispositivos que tenham o certificado na respetiva cadeia de certificados ainda poderá inscrever se um grupo de inscrição ativado para o certificado de raiz ou intermediária outra superior a cópia de segurança no respetivo certificado existe a cadeia.
+> Se eliminar um grupo de inscrição para um certificado, os dispositivos que tenham o certificado na respetiva cadeia de certificados ainda poderão inscrever-se se um grupo de inscrição ativado para o certificado de raiz ou outro certificado intermédio apresentado acima no respetivo certificado existe a cadeia.
 
-## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>Lista de proibições dispositivos específicos num grupo de inscrição
+## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>Lista de bloqueios de dispositivos específicos num grupo de inscrição
 
-Dispositivos que implementam o mecanismo de atestado de x. 509 utilizam cadeia de certificados do dispositivo e a chave privada para autenticação. Quando um dispositivo se liga e autentica com o serviço de aprovisionamento de dispositivos, o serviço procura primeiro uma inscrição individuais que corresponda a credenciais do dispositivo. O serviço de pesquisa, em seguida, grupos de inscrição para determinar se o dispositivo pode ser aprovisionado. Se o serviço de encontrar uma inscrição individuais desativada para o dispositivo, impede o dispositivo a ligação. O serviço impede que a ligação, mesmo se existe um grupo de inscrição ativados para um intermédio ou uma AC de raiz na cadeia de certificados do dispositivo. 
+Dispositivos que implementam o mecanismo de atestado de X.509 utilizam cadeia de certificados do dispositivo e a chave privada para autenticar. Quando um dispositivo liga-se e efetua a autenticação no serviço aprovisionamento de dispositivos, o serviço procura primeiro uma inscrição individual que corresponde ao credenciais do dispositivo. O serviço de pesquisa, em seguida, grupos de inscrição para determinar se o dispositivo pode ser aprovisionado. Se o serviço encontrar uma inscrição individual desativada para o dispositivo, ele impede que o dispositivo se liguem. O serviço impede que a ligação, mesmo se existe um grupo de inscrição ativado para um utilizador intermédio ou de uma AC de raiz na cadeia de certificados do dispositivo. 
 
 Na lista de proibições um dispositivo individual num grupo de inscrição, siga estes passos:
 
-1. Inicie sessão no Azure portal e selecione **todos os recursos** no menu esquerdo.
-2. Na lista de recursos, selecione o serviço de aprovisionamento que contém o grupo de inscrição para o dispositivo que pretende que a lista de proibições.
-3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione o **inscrições individuais** separador.
+1. Inicie sessão no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione o serviço de aprovisionamento que contém o grupo de inscrição para o dispositivo que pretende criar uma lista de bloqueio.
+3. No seu serviço de aprovisionamento, selecione **gerir inscrições**e, em seguida, selecione a **inscrições individuais** separador.
 4. Selecione o **adicionar** botão na parte superior. 
-5. Selecione **x. 509** como o mecanismo de atestado de dispositivo e carregue o certificado de dispositivo. Este é o certificado de entidade final assinado instalado no dispositivo. O dispositivo utiliza-o para gerar certificados para autenticação.
-6. Para **ID do dispositivo IoT Hub**, introduza o ID do dispositivo. 
-7. Selecione **desativar** no **ativar entrada** mudar e, em seguida, selecione **guardar**. 
+5. Selecione **X.509** como o mecanismo de atestado para o dispositivo e carregue o certificado do dispositivo. Este é o certificado de entidade final assinado instalado no dispositivo. O dispositivo utiliza-o para gerar certificados para autenticação.
+6. Para **ID de dispositivo do IoT Hub**, introduza o ID do dispositivo. 
+7. Selecione **desativar** sobre o **ativar entrada** mudar e, em seguida, selecione **guardar**. 
 
-    [![Utilize desativada entrada de registo individuais para desativar o dispositivo da inscrição de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![Utilização desativada a entrada de inscrição individual para desativar do dispositivo de inscrição de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Quando criar com êxito a inscrição, deverá ver o seu dispositivo aparecem no **inscrições individuais** separador.
+Ao criar a sua inscrição com êxito, deverá ver o seu dispositivo são apresentadas na **inscrições individuais** separador.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Disenrollment também faz parte do processo de desaprovisionamento maior. Desaprovisionamento um dispositivo inclui tanto disenrollment do serviço de aprovisionamento e deregistering a partir do IoT hub. Para saber mais sobre o processo completo, consulte [como desaprovisionar dispositivos que foram auto-aprovisionados anteriormente](how-to-unprovision-devices.md) 
+A anulação de inscrições também faz parte do processo de desaprovisionamento maior. Um dispositivo de desaprovisionamento inclui tanto a anulação de inscrições do serviço de aprovisionamento e a anulação do IoT hub. Para saber mais sobre o processo completo, consulte o artigo [como desaprovisionar os dispositivos que foram anteriormente aprovisionados](how-to-unprovision-devices.md) 
 

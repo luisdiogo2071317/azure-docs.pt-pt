@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fe900d8bf70e3784b9dd53c129fc0ce9d1574de
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449926"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576496"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Enviar a sua primeira imagem para um registo privado de contentor Docker com a CLI do Docker
 
@@ -35,7 +35,7 @@ Existem [várias formas de autenticar](container-registry-authentication.md) par
 az acr login --name myregistry
 ```
 
-Também pode iniciar sessão com [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/). O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, poderá ter [atribuído um principal de serviço](container-registry-authentication.md#service-principal) para o seu registo para um cenário de automatização.
+Também pode iniciar sessão com [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/). O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter [atribuído um principal de serviço](container-registry-authentication.md#service-principal) para o seu registo para um cenário de automatização.
 
 ```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword

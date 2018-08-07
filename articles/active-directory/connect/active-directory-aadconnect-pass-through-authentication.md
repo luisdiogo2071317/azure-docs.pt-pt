@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 12c825143f48b5558ea9b1d49ed8cea59d84f6af
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214034"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522786"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Utilizador inicie sessão com a autenticação de pass-through do Azure Active Directory
 
@@ -49,7 +49,7 @@ Pode combinar a autenticação pass-through com o [totalmente integrada Single S
 - *Proteger*
   - Palavras-passe no local nunca são armazenadas na cloud de nenhuma forma.
   - O agente só faz ligações de saída a partir de dentro da sua rede. Por conseguinte, não existe nenhum requisito para instalar o agente numa rede de perímetro, também conhecido como uma rede de Perímetro.
-  - Protege as contas de utilizador ao trabalhar de forma totalmente integrada com [políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo multi-factor Authentication (MFA), [antigos de autenticação de bloqueio](../active-directory-conditional-access-conditions.md) e por [ filtrar os ataques de palavra-passe de força bruta](../authentication/howto-password-smart-lockout.md).
+  - Protege as contas de utilizador ao trabalhar de forma totalmente integrada com [políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo multi-factor Authentication (MFA), [antigos de autenticação de bloqueio](../conditional-access/conditions.md) e por [ filtrar os ataques de palavra-passe de força bruta](../authentication/howto-password-smart-lockout.md).
 - *Elevada disponibilidade*
   - Agentes adicionais podem ser instalados em vários servidores no local para proporcionar elevada disponibilidade de pedidos de início de sessão.
 

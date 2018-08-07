@@ -3,7 +3,7 @@ title: Gerir recomendações de segurança no Centro de segurança do Azure | Do
 description: Este documento explica-lhe como recomendações no Centro de segurança do Azure ajudar a proteger os seus recursos do Azure e mantenha-se em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367111"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522242"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerir recomendações de segurança no Centro de segurança do Azure
 Este documento explica como utilizar as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
@@ -50,6 +50,8 @@ Após definir uma política de segurança, o Centro de Segurança analisa o esta
 Para ver os detalhes de cada recomendação, selecione o **mosaico de recomendações** sob **descrição geral**. **Recomendações** abre.
 
 ![Recomendações de filtro][2]
+
+Pode filtrar recomendações. Para filtrar as recomendações, selecione **filtro** sobre o **recomendações** painel. O **filtro** é aberto o painel e selecionar os valores de gravidade e o estado que pretende ver.
 
 As recomendações são apresentadas num formato de tabela em que cada linha representa uma recomendação específica. As colunas desta tabela são:
 
@@ -124,13 +126,6 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 | Remover contas externas com permissões de proprietário da sua subscrição | Recomenda-se de que remover contas externas com permissões de proprietário da sua subscrição para impedir o acesso não monitorizado. |
 | Remover contas preteridas da subscrição | Recomenda que remova preterido contas das suas subscrições. |
 | Remover contas preteridas com permissões de proprietário da subscrição | Recomenda que remova preterido contas com permissões de proprietário das suas subscrições. |
-Pode filtrar e ignorar recomendações.
-
-1. Selecione **filtro** sobre o **recomendações** painel. O **filtro** é aberto o painel e selecionar os valores de gravidade e o estado que pretende ver.
-
-2. Se determinar que uma recomendação não é aplicável, pode ignorar a recomendação e, em seguida, filtrá-la fora de sua visão. Existem duas formas de dispensar uma recomendação. É uma maneira de clique com o botão direito do rato num item e, em seguida, selecione **dispensar**. O outro é passar o mouse sobre um item, clique nas reticências que aparecem à direita e, em seguida, selecionam **dispensar**. Pode ver recomendações ignoradas ao clicar **filtro**e, em seguida, selecionando **dispensados**.
-
-    ![Ignorar a recomendação][3]
 
 ### <a name="apply-recommendations"></a>Aplicar recomendações
 Depois de rever todas as recomendações, decida que um deve aplicar primeiro. Recomendamos que utilize a classificação de gravidade, como o parâmetro principal para avaliar quais recomendações deve ser aplicado primeiro.
@@ -150,4 +145,3 @@ Neste documento, foram introduzidas para recomendações de segurança no Centro
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

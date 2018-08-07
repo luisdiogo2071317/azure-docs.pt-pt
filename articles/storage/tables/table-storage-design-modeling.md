@@ -1,49 +1,44 @@
 ---
-title: Modelar relações na estrutura da tabela de armazenamento do Azure | Microsoft Docs
-description: Compreenda o processo de modelação quando conceber a sua solução de armazenamento de tabela.
+title: Modelando as relações no design da tabela de armazenamento do Azure | Documentos da Microsoft
+description: Compreenda o processo de modelagem quando conceber a sua solução de armazenamento de tabela.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 561281375273135009a956fd27dfe9f193ab92ac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: ed4399e2d58924f89d4201979ffe1fb903a05d0c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661069"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522633"
 ---
-# <a name="modeling-relationships"></a>Relações de modelação
-Este artigo explica o processo de modelação para o ajudar a conceber as suas soluções de armazenamento de tabelas do Azure.
+# <a name="modeling-relationships"></a>Modelar relações
+Este artigo explica o processo de modelagem para criar as suas soluções de armazenamento de tabelas do Azure.
 
-Criação de modelos de domínio é um passo chave na estrutura dos sistemas complexos. Normalmente, o processo de modelação é utilizado para identificar as entidades e as relações entre os mesmos como uma forma de compreender o domínio de empresa e informar sobre a estrutura do seu sistema. Esta secção centra-se na forma como pode traduzir alguns dos tipos de relação comuns encontrados nos modelos de domínio para as estruturas do serviço tabela. O processo de mapeamento de um modelo de dados lógico ao físico NoSQL baseada em modelo de dados-é diferente da utilizada ao conceber a base de dados relacional. Estrutura de bases de dados relacionais, normalmente, assume um processo de normalização de dados otimizado para minimizando a redundância – e uma capacidade de consulta declarativa que deduz como a implementação de como funciona a base de dados.  
+A criação de modelos de domínio é uma etapa importante no design de sistemas complexos. Normalmente, o processo de modelagem é utilizado para identificar as entidades e as relações entre eles, como uma forma de compreender o domínio de empresa e informar o design do seu sistema. Esta seção se concentra em como é possível converter alguns dos tipos de relação comuns encontrados em modelos de domínio para designs para o serviço de tabela. O processo de mapeamento de um modelo de dados lógico para um físico baseados em NoSQL-modelo de dados é diferente da usada ao conceber uma base de dados relacional. Design de bancos de dados relacionais normalmente pressupõe um processo de normalização de dados otimizado para minimizar a redundância – e uma capacidade de consulta declarativa que abstrai a como a implementação de como funciona a base de dados.  
 
 ## <a name="one-to-many-relationships"></a>Relações um-para-muitos
-Relações um-para-muitos entre objetos de domínio do negócio ocorrerem com frequência: por exemplo, um departamento tem muitos colaboradores. Existem várias formas de implementar relações um-para-muitos no serviço tabela cada com os profissionais de TI e contras que podem ser relevantes para o cenário em particular.  
+Relações um-para-muitos entre objetos de domínio de negócios ocorrerem com frequência: por exemplo, um departamento tem muitos funcionários. Existem várias formas de implementar as relações um-para-muitos no serviço tabela cada com prós e contras que podem ser relevantes para o cenário em particular.  
 
-Considere o exemplo de uma grande empresa múltiplos national com dezenas de milhares de departamentos e entidades de empregado onde cada departamento tem muitos colaboradores e cada empregado como associados com um departamento específico. É uma abordagem armazenar departamento separado e as entidades de empregado como estas:  
+Considere o exemplo de uma grande empresa multinacional com dezenas de milhares de departamentos e entidades de funcionário em que cada departamento tem muitos funcionários e de cada funcionário como associados a um departamento específico. Uma abordagem é armazenar separado de departamento e entidades de funcionário como estas:  
 
 
-![Armazenar departamento separado e as entidades de empregado](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
+![Store departamento separado e entidades de funcionários](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
 
-Este exemplo mostra uma relação um-para-muitos implícita entre tipos com base no **PartitionKey** valor. Cada departamento pode ter muitos colaboradores.  
+Este exemplo mostra uma relação um-para-muitos implícita entre tipos de acordo com o **PartitionKey** valor. Cada departamento pode ter muitos funcionários.  
 
-Este exemplo mostra também uma entidade de departamento e respetivos entidades de empregado relacionadas com a mesma partição. Pode optar por utilizar partições diferentes, tabelas ou contas de armazenamento, mesmo que para os tipos de entidade diferentes.  
+Este exemplo também mostra uma entidade de departamento e respetivas entidades de funcionários relacionados na mesma partição. Poderia optar por utilizar partições diferentes, tabelas ou contas de armazenamento até mesmo para os tipos de entidade diferentes.  
 
-Uma abordagem alternativa é denormalize os seus dados e armazenar as entidades de empregado apenas com os dados de departamento denormalized conforme mostrado no exemplo seguinte. Neste cenário específico, esta abordagem denormalized não pode ser a melhor se tiver um requisito para poder alterar os detalhes de um Gestor de departamento porque para efetuar este procedimento, tem de atualizar todos os funcionários do departamento.  
+Uma abordagem alternativa é desnormalizar os dados e armazenar apenas as entidades de funcionários com dados de departamento desnormalizada, conforme mostrado no exemplo a seguir. Neste cenário específico, esta abordagem desnormalizada pode não ser a melhor se tiver um requisito para poder alterar os detalhes de um Gestor de departamento, porque para fazer isso tem de atualizar todos os funcionários do departamento.  
 
-![entidade de empregado](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
+![Entidade Employee](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
-Para obter mais informações, consulte o [padrão Denormalization](table-storage-design-patterns.md#denormalization-pattern) mais à frente neste guia.  
+Para obter mais informações, consulte a [padrão de desnormalização](table-storage-design-patterns.md#denormalization-pattern) mais adiante neste guia.  
 
-A tabela seguinte resume as profissionais de TI e contras de cada uma das abordagens descritas acima para armazenar o empregado e entidades de departamento que tenham uma relação um-para-muitos. Deve também considerar a frequência esperada desempenhar várias operações: pode ser aceitável para ter uma estrutura que inclui uma operação dispendiosa, se essa operação só acontece com pouca frequência.  
+A tabela seguinte resume os prós e contras de cada uma das abordagens descritas acima para o armazenamento de funcionários e entidades de departamento que tenham uma relação um-para-muitos. Também deve considerar a frequência esperada executar várias operações: pode ser aceitável para ter um design que inclui uma operação dispendiosa, se essa operação só acontece com pouca frequência.  
 
 <table>
 <tr>
@@ -52,82 +47,82 @@ A tabela seguinte resume as profissionais de TI e contras de cada uma das aborda
 <th>Contras</th>
 </tr>
 <tr>
-<td>Separe os tipos de entidade, a mesma partição, a mesma tabela</td>
+<td>Tipos de entidade separada, a mesma partição, a mesma tabela</td>
 <td>
 <ul>
 <li>Pode atualizar uma entidade de departamento com uma única operação.</li>
-<li>Pode utilizar um EGT para manter a consistência, se tiver um requisito para modificar uma entidade de departamento sempre que atualizar/insert/eliminar uma entidade do empregado. Por exemplo, se mantém uma contagem de empregado departamentais para cada departamento.</li>
+<li>Pode usar um EGT para manter a consistência, se tiver um requisito para modificar uma entidade de departamento sempre que atualizar/inserir/eliminar uma entidade employee. Por exemplo, se mantém uma contagem de funcionários departamentais para cada departamento.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Terá de obter um empregado e uma entidade de departamento para algumas atividades de cliente.</li>
-<li>Operações de armazenamento acontecer na mesma partição. Em volumes de transação elevada, isto pode resultar num hotspot.</li>
-<li>Não é possível mover um empregado para departamento novo utilizando um EGT.</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Tipos de entidade separado, partições diferentes ou tabelas ou contas de armazenamento</td>
-<td>
-<ul>
-<li>Pode atualizar uma entidade do departamento ou uma entidade de empregado com uma única operação.</li>
-<li>Em volumes de transação elevada, isto pode ajudar a distribuídos a carga por mais partições.</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>Terá de obter um empregado e uma entidade de departamento para algumas atividades de cliente.</li>
-<li>Não é possível utilizar EGTs para manter a consistência quando a atualização/insert/eliminar um empregado e a atualização de um departamento. Por exemplo, ao atualizar uma contagem do empregado na entidade de um departamento.</li>
-<li>Não é possível mover um empregado para departamento novo utilizando um EGT.</li>
+<li>Terá de obter um funcionário e uma entidade do departamento para algumas atividades de cliente.</li>
+<li>Operações de armazenamento acontecem na mesma partição. Em volumes de alta transação, isso pode resultar num ponto de acesso.</li>
+<li>Não é possível mover um funcionário para um novo departamento, usando um EGT.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Denormalize para o tipo de entidade única</td>
+<td>Tipos de entidade separada, partições diferentes ou tabelas ou contas de armazenamento</td>
 <td>
 <ul>
-<li>Pode obter todas as informações que necessárias com um único pedido.</li>
+<li>Pode atualizar uma entidade de departamento ou funcionário com uma única operação.</li>
+<li>Em volumes de alta transação, isto pode ajudar a distribuir a carga por mais partições.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Poderá ser Caro manter a consistência se precisar de atualizar as informações de departamento (Isto iria requerem que Atualize todos os funcionários do departamento de um).</li>
+<li>Terá de obter um funcionário e uma entidade do departamento para algumas atividades de cliente.</li>
+<li>Não é possível utilizar EGTs para manter a consistência quando atualizar/inserir/eliminar um funcionário e atualização de um departamento. Por exemplo, a atualizar um número de funcionários numa entidade de departamento.</li>
+<li>Não é possível mover um funcionário para um novo departamento, usando um EGT.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Desnormalizar para o único tipo de entidade</td>
+<td>
+<ul>
+<li>Pode recuperar todas as informações de que precisa com uma única solicitação.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Pode ser dispendioso para manter a consistência, se precisar de atualizar as informações do departamento (isso exigiria que Atualize todos os funcionários num departamento).</li>
 </ul>
 </td>
 </tr>
 </table>
 
-Como escolher entre estas opções e de que os profissionais de TI e contras são mais significativas, depende os cenários de aplicação específica. Por exemplo, com que frequência modificar entidades departamento; todas as consultas de empregado precisa as informações adicionais departamentais; como fechar está os limites de escalabilidade no seu partições ou a sua conta de armazenamento?  
+Como escolher entre estas opções, e quais os prós e contras são mais significativas, depende do seus cenários de aplicação específica. Por exemplo, a frequência com que modifique entidades de departamento; todas as suas consultas de funcionário preciso obter mais informações departamentais; como fechar é para os limites de escalabilidade em suas partições ou a sua conta de armazenamento?  
 
 ## <a name="one-to-one-relationships"></a>Relações um para um
-Modelos de domínio podem incluir um para um relações entre entidades. Se precisar de implementar uma relação unívoca no serviço tabela, também tem de escolher como ligar as duas entidades relacionadas quando precisar de recuperar os dois. Esta ligação pode ser implícita, com base numa convenção de valores da chave ou explícito ao armazenar uma ligação sob a forma de **PartitionKey** e **RowKey** valores em cada entidade para a entidade relacionada. Para ver um debate do se deve armazenar as entidades relacionadas na mesma partição, consulte a secção [um-para-muitos relações](#one-to-many-relationships).  
+Modelos de domínio podem incluir um para um relações entre entidades. Se precisar de implementar uma relação unívoca no serviço tabela, também tem de escolher como ligar as duas entidades relacionadas, quando precisar de obter ambos. Esta ligação pode ser implícita, com base numa convenção dos valores de chave ou explícita ao armazenar uma ligação sob a forma de **PartitionKey** e **RowKey** valores em cada entidade para a entidade relacionada. Para uma discussão sobre se deve armazenar as entidades relacionadas na mesma partição, consulte a secção [um-para-muitos relações](#one-to-many-relationships).  
 
-Também existem considerações de implementação que podem originar a implementação relações um para um no serviço tabela:  
+Também existem considerações de implementação que podem levar a implementar as relações um para um no serviço de tabela:  
 
-* Processamento de entidades grandes (para obter mais informações, consulte [padrão de entidades grandes](table-storage-design-patterns.md#large-entities-pattern)).  
-* Implementar controlos de acesso (para obter mais informações, consulte [controlar o acesso com assinaturas de acesso partilhado](#controlling-access-with-shared-access-signatures)).  
+* Tratamento de entidades grandes (para obter mais informações, consulte [grandes entidades padrão](table-storage-design-patterns.md#large-entities-pattern)).  
+* A implementação de controlos de acesso (para obter mais informações, consulte [controlar o acesso com assinaturas de acesso partilhado](#controlling-access-with-shared-access-signatures)).  
 
-## <a name="join-in-the-client"></a>Associação no cliente
-Embora existam formas para modelar relações no serviço tabela, deve não se esqueça que as duas razões prime para utilizar o serviço de tabela são escalabilidade e desempenho. Se encontrar que são modelação muitas relações comprometer o desempenho e escalabilidade da sua solução, deverá solicitar a si se é necessário compilar todas as relações de dados para a estrutura da tabela. Poderá simplificar a estrutura e melhorar a escalabilidade e o desempenho da sua solução se permitir que a aplicação de cliente, efetuar quaisquer associações necessárias.  
+## <a name="join-in-the-client"></a>Junte-se no cliente
+Embora existam formas para modelar relações no serviço tabela, deve não se esqueça de que os dois motivos principais para utilizar o serviço de tabela são a escalabilidade e desempenho. Se encontrar a que modelagem de relações de muitos que comprometem o desempenho e escalabilidade da sua solução, deve se perguntar se é necessário criar todas as relações de dados em seu design de tabela. Poderá conseguir simplificar o design e melhorar a escalabilidade e desempenho da sua solução se permitir que a aplicação cliente realizar qualquer uniões necessárias.  
 
-Por exemplo, se tiver pequenas tabelas que contêm dados que não se altera com frequência, em seguida, pode obter estes dados uma vez e cache-la no cliente. Isto pode evitar e voltas repetidas para obter os mesmos dados. Nos exemplos que consultou neste guia, o conjunto de departamentos numa organização pequeno é provável que sejam pequenas e alterar raramente tornando um bom candidato para dados que a aplicação cliente pode transferir uma vez e cache como aspeto dos dados.  
+Por exemplo, se tiver pequenas tabelas que contêm dados que não são alterados muitas vezes, em seguida, pode obter estes dados uma vez e cache no cliente. Isto pode evitar idas e voltas repetidas para obter os mesmos dados. Nos exemplos, temos analisado a neste guia, o conjunto de departamentos numa pequena organização, é provável que ser pequeno e alterar com pouca frequência tornando um bom candidato para a cache de dados que a aplicação cliente pode transferir uma vez e como a procura de dados.  
 
 ## <a name="inheritance-relationships"></a>Relações de herança
-Se a aplicação de cliente utiliza um conjunto de classes que fazem parte de uma relação de herança para representar as entidades de negócio, facilmente, pode manter as entidades no serviço tabela. Por exemplo, pode ter o seguinte conjunto de classes definidas na sua aplicação de cliente onde **pessoa** é uma classe abstracta.
+Se a aplicação cliente utiliza um conjunto de classes que fazem parte de uma relação de herança para representar as entidades comerciais, pode facilmente manter essas entidades no serviço tabela. Por exemplo, pode ter o seguinte conjunto de classes definidas na aplicação de cliente em que **pessoa** é uma classe abstrata.
 
-![Pessoa classe abstrata](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
+![Classe abstrata da pessoa](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
 
-Pode manter instâncias das classes concretas duas no serviço tabela utilizando uma única tabela de pessoa utilizar entidades em que aspeto este:  
+Pode manter instâncias das duas classes concretas no serviço de tabela com uma única tabela de pessoa com entidades aquela aparência como esta:  
 
-![Tabela de pessoa](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
+![Tabela de pessoas](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Para obter mais informações sobre como trabalhar com diversos tipos de entidade na mesma tabela no código de cliente, consulte a secção [trabalhar com tipos de entidade heterogéneos](#working-with-heterogeneous-entity-types) mais à frente neste guia. Isto fornece exemplos de como reconhecer o tipo de entidade no código de cliente.  
+Para obter mais informações sobre como trabalhar com vários tipos de entidade na mesma tabela no código do cliente, consulte a secção [trabalhar com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types) mais adiante neste guia. Esta opção fornece exemplos de como a reconhecer o tipo de entidade no código do cliente.  
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Padrões de conceção da tabela](table-storage-design-patterns.md)
-- [Conceção para consultas](table-storage-design-for-query.md)
+- [Padrões de design de tabela](table-storage-design-patterns.md)
+- [Design para a consulta](table-storage-design-for-query.md)
 - [Encriptar dados da tabela](table-storage-design-encrypt-data.md)
-- [Estrutura de modificação de dados](table-storage-design-for-modification.md)
+- [Design para modificação de dados](table-storage-design-for-modification.md)

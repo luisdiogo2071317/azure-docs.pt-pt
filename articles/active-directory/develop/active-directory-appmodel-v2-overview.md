@@ -17,12 +17,12 @@ ms.date: 05/01/2017
 ms.author: celested
 ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b90e03ad15f3656c06f36d6114250298db91e9ad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d71e889fccaa6de59d9a528754a5e11d0220bef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430328"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577140"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Inicie sessão no Microsoft Account e Azure Active Directory a usuários num único aplicativo
 No passado, os desenvolvedores de aplicativos que queriam suportar ambas as contas Microsoft pessoais e contas do Azure Active Directory profissionais tinham de integrar com dois sistemas separados. O ponto de final de v2.0 do Azure Active Directory (Azure AD) introduz uma nova versão de API de autenticação que simplifica este processo. O ponto de final de v2.0 do Azure AD permite inícios de sessão de ambos os tipos de contas através de uma integração única. Aplicações que utilizam o ponto de final de v2.0 do Azure AD também podem consumir as APIs de REST do [Microsoft Graph API](https://graph.microsoft.io) utilizando ambos os tipos de conta.
@@ -46,9 +46,9 @@ Saiba mais sobre o que pode fazer com o ponto de final de v2.0 do Azure AD:
 Explore informações aprofundadas sobre a plataforma de ponto final de v2.0 do Azure AD:
 
 * [Referenciam de protocolos de v2.0 do Azure AD](active-directory-v2-protocols.md)
-* [Referência de tokens do Azure AD v2.0](active-directory-v2-tokens.md)
+* [Referência de tokens do Azure AD v2.0](v2-id-and-access-tokens.md)
 * [Referenciam de bibliotecas de autenticação de v2.0 do Azure AD](active-directory-v2-libraries.md)
-* [Âmbitos e consentimento no ponto de final de v2.0 do Azure AD](active-directory-v2-scopes.md)
+* [Âmbitos e consentimento no ponto de final de v2.0 do Azure AD](v2-permissions-and-consent.md)
 * [O Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]

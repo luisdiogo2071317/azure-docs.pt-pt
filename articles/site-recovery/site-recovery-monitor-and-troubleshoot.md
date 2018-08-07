@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216078"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578590"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorizar e resolver problemas de recuperação de sites
 
@@ -88,7 +88,7 @@ O **vista de infraestrutura** mostra os componentes da infra-estrutura envolvido
 - Uma linha vermelha com o ícone de erro verlaid indica a existência de um ou mais sintomas de erro que afetar a conectividade.
 -  Paire o ponteiro do mouse sobre o ícone de erro para mostrar o erro e o número de entidades afetados. Clique no ícone para uma lista filtrada de entidades afetadas.
 
-    ! [Vista de infraestrutura de recuperação (cofre) do site] Re(./Media/site-Recovery-monitor-and-Troubleshoot/site-Recovery-Vault-infra-View.png)
+    ![Vista de infraestrutura de recuperação do site (cofre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>Sugestões para monitorizar a infraestrutura
 

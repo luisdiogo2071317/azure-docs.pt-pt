@@ -3,7 +3,7 @@ title: Monitorizar a identidade e o acesso no Centro de Segurança do Azure | Mi
 description: Saiba como utilizar a capacidade de identidade e acesso no Centro de Segurança do Azure para monitorizar a atividade de acesso dos seus utilizadores e os problemas relacionados com identidades.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
-ms.author: terrylan
-ms.openlocfilehash: b2243b10c20a0c8ed0faccbcc82e24193bd4adac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460269"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526835"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
@@ -33,12 +33,12 @@ A identidade deve ser o plano de controlo da sua empresa e proteger a sua identi
 
 Através da monitorização das atividades de identidade, poderá levar a cabo ações proativas antes da ocorrência de um incidente ou ações reativas para parar uma tentativa de ataque. O dashboard de identidade e acesso fornece recomendações, tais como:
 
-- Ativar a MFA para contas com privilégios na sua subscrição
+- Ativar o MFA para contas com privilégios na sua subscrição
 - Remover contas externas com permissões de escrita da sua subscrição
-- Remover contas externas com privilégios da sua subscrição
+- Remover as contas externas com privilégios da sua subscrição
 
 > [!NOTE]
-> Se a sua subscrição tiver mais de 250 contas, o Centro de segurança não consegue executar as recomendações de identidade na sua subscrição. Recomendações que são executadas não estão listadas na "avaliações indisponíveis" que é abordada abaixo.
+> Se a sua subscrição tiver mais de 600 contas, o Centro de segurança não consegue executar as recomendações de identidade na sua subscrição. Recomendações que são executadas não estão listadas na "avaliações indisponíveis" que é abordada abaixo.
 Centro de segurança não consegue executar as recomendações de identidade em agentes de administrador de um parceiro de fornecedor de soluções Cloud (CSP).
 >
 >

@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: f06c4ad7e99c5ccdd0f63ac16877c0277fdf819c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0c4edb4fbf7271331affb2559018e53480aa7a85
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504265"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577167"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização pública)
 Pode especificar o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de token para todas as aplicações na sua organização, para uma aplicação de (com várias organizações) de multi-inquilino ou para um principal de serviço específico na sua organização.
@@ -49,7 +49,7 @@ Pode definir políticas de duração do token para tokens de atualização, os t
 Os clientes utilizam tokens de acesso para aceder a um recurso protegido. Um token de acesso pode ser utilizado apenas para uma combinação de utilizador, o cliente e o recurso. Tokens de acesso não não possível revogar e são válidos até sua expiração. Um ator mal-intencionado que foi obtido um token de acesso pode utilizá-lo para a extensão do seu ciclo de vida. Ajustar o tempo de vida de um token de acesso é uma compensação entre melhorando o desempenho do sistema e aumentar a quantidade de tempo que o cliente manterá acesso depois da conta de utilizador está desativada. Desempenho do sistema aprimorado é obtido ao reduzir o número de vezes que um cliente precisa de adquirir um token de acesso atualizada.  A predefinição é 1 hora - depois de 1 hora, o cliente tem de utilizar o token de atualização para adquirir um novo token de atualização e token de acesso (geralmente silenciosamente). 
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
-Quando um cliente adquire um token de acesso para aceder a um recurso protegido, o cliente também recebe um token de atualização. O token de atualização é utilizado para obter pares de token de acesso nova/atualização quando o token de acesso atual expira. Um token de atualização está vinculado a uma combinação de utilizador e de cliente. Pode ser um token de atualização [revogado em qualquer altura](develop/active-directory-token-and-claims.md#token-revocation), e a validade do token é verificada sempre que o token é utilizado.  
+Quando um cliente adquire um token de acesso para aceder a um recurso protegido, o cliente também recebe um token de atualização. O token de atualização é utilizado para obter pares de token de acesso nova/atualização quando o token de acesso atual expira. Um token de atualização está vinculado a uma combinação de utilizador e de cliente. Pode ser um token de atualização [revogado em qualquer altura](develop/v1-id-and-access-tokens.md#token-revocation), e a validade do token é verificada sempre que o token é utilizado.  
 
 É importante fazer uma distinção entre clientes confidenciais e os clientes públicos, como este problema afeta o tempo que os tokens de atualização podem ser utilizados. Para obter mais informações sobre os diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -106,7 +106,7 @@ Pode criar e, em seguida, atribuir uma política de duração do token para uma 
 * Se nenhuma política está atribuída explicitamente ao principal de serviço ou para a organização, é imposta a política atribuída à aplicação.
 * Se nenhuma política tiver sido atribuída para o principal de serviço, a organização ou o objeto de aplicativo, os valores predefinidos é imposta. (Consulte a tabela [propriedades de duração do token configuráveis](#configurable-token-lifetime-properties).)
 
-Para obter mais informações sobre a relação entre os objectos da aplicação e objetos de principal de serviço, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](active-directory-application-objects.md).
+Para obter mais informações sobre a relação entre os objectos da aplicação e objetos de principal de serviço, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](develop/app-objects-and-service-principals.md).
 
 Validade de um token é avaliada no momento que o token é utilizado. A política com a prioridade mais alta na aplicação que está sendo acessada entra em vigor.
 

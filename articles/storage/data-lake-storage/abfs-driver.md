@@ -1,67 +1,64 @@
 ---
-title: O controlador de rastreio de Blob do Azure para a pré-visualização do Azure Data Lake armazenamento Gen2
-description: O controlador de sistema de ficheiros do ABFS Hadoop
+title: O driver de sistema de ficheiros do Azure Blob para pré-visualização do Azure Data Lake Storage geração 2
+description: O driver de sistema de ficheiros do ABFS Hadoop
 services: storage
 keywords: ''
 author: jamesbak
-manager: jahogg
 ms.topic: article
 ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 8be6df5f4098b8a97e41c73edc5664799fd3edbe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114338"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520824"
 ---
-# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O controlador de sistema de ficheiros do Azure Blob (ABFS): um controlador de armazenamento do Azure dedicado para o Hadoop
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver de sistema de ficheiros do Azure Blob (ABFS): um driver de armazenamento do Azure dedicado para o Hadoop
 
-Um dos métodos de acesso primária para os dados na pré-visualização do Azure Data Lake armazenamento Gen2 é através de [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Funcionalidades de Gen2 do armazenamento do Azure Lake de dados de um controlador associado, o controlador de sistema de ficheiros de Blob do Azure ou `ABFS`. ABFS faz parte do Apache Hadoop e está incluído em muitas as distribuições comerciais do Hadoop. Utilizar este controlador, muitas arquiteturas e aplicações podem aceder aos dados no Data Lake armazenamento Gen2 sem qualquer código explicitamente a referenciar o serviço de Gen2 de armazenamento do Data Lake.
+Um dos métodos de acesso primária para os dados em pré-visualização do Azure Data Lake Storage Gen2 é através da [sistema de ficheiros Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Geração de armazenamento 2 do Azure Data Lake inclui um driver associado, o driver de sistema de ficheiros de Blob do Azure ou `ABFS`. ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Utilizar este controlador, muitos aplicativos e estruturas podem aceder a dados na geração 2 de armazenamento do Data Lake sem nenhum código explicitamente a referenciar o serviço de geração 2 de armazenamento do Data Lake.
 
-## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Capacidade anterior: controlador o Blob de armazenamento do Azure Windows
+## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Capacidade anterior: driver do Windows Azure Storage Blob
 
-O controlador de Blob de armazenamento do Windows Azure ou [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) fornecido o suporte original para o Blobs Storage do Azure. Este controlador efetuada a complexa tarefa de sistema de ficheiros de mapeamento semântica (conforme necessário, a interface de sistema de ficheiros Hadoop) para que o objeto de arquivo de interface de estilo exposta ao Blob Storage do Azure. Este controlador continua a suportar a este modelo, fornecer acesso de elevado desempenho aos dados armazenados em Blobs, mas contém uma quantidade significativa de código desta mapeamento, tornando difícil manter a efetuar. Além disso, algumas operações, tais como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) quando aplicada aos diretórios requerem o controlador para efetuar um grande número de operações (devido a falta de arquivos de objeto suporte para diretórios) que frequentemente leva a degradação do desempenho.
+O driver do Windows Azure Storage Blob ou [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) foi fornecido o suporte original para Blobs de armazenamento do Azure. Este controlador efetuada a complexa tarefa de sistema de ficheiros de mapeamento semântica (conforme exigido pela interface do sistema de ficheiros do Hadoop) para que o objeto armazenar interface no estilo exposto pelo armazenamento de Blobs do Azure. Este controlador continua a suportar esse modelo, fornecendo acesso de alto desempenho para dados armazenados em Blobs, mas contém uma quantidade significativa de código realizar esse mapeamento, tornando difícil de manter. Além disso, algumas operações, tais como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) quando aplicado aos diretórios requerem o driver para executar um grande número de operações (devido à ausência de arquivos de objeto suporte para diretórios) que, muitas vezes, leva a degradação do desempenho. O novo serviço de armazenamento do Azure Data Lake foi concebido para superar as deficiências inerentes de WASB.
 
-Assim, a ultrapassar o objetivo de design inerente de WASB, o novo serviço de armazenamento do Azure Data Lake foi implementado com o suporte do controlador da ABFS novo.
+## <a name="the-azure-blob-file-system-driver"></a>O driver de sistema de ficheiros de Blob do Azure
 
-## <a name="the-azure-blob-file-system-driver"></a>O controlador de sistema de ficheiros de Blob do Azure
+O [interface REST de armazenamento do Azure Data Lake](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) foi concebido para suportar a semântica de sistema de ficheiros do Azure no armazenamento de Blobs. Uma vez que o sistema de ficheiros Hadoop também foi concebido para suportar a mesma semântica não existe nenhum requisito para um mapeamento complexo no driver. Portanto, o driver de sistema de ficheiros de Blob do Azure (ou ABFS) é um shim meros de cliente para a API REST.
 
-O [interface REST de armazenamento do Azure Data Lake](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) foi concebido para suportar a semântica de sistema de ficheiros ao longo do Blob Storage do Azure. Uma vez que o sistema de ficheiros Hadoop também foi concebido para suportar a mesma semântica não é necessário para um mapeamento de complexo, o controlador. Assim, o controlador de sistema de ficheiros de Blob do Azure (ou ABFS) é um shim de cliente mere para a API REST.
-
-No entanto, existem algumas funções de que o controlador tem ainda de efetuar:
+No entanto, existem algumas funções que o controlador deve executar:
 
 ### <a name="uri-scheme-to-reference-data"></a>Esquema URI para dados de referência
 
-Consistente com outras implementações de sistema de ficheiros dentro do Hadoop, o controlador ABFS define o seu próprio esquema de URI para que os recursos (ficheiros e diretórios) podem ser resolvidos de forma distinta. O esquema URI é descrito da [utilize o URI de Gen2 de armazenamento do Azure Data Lake](./introduction-abfs-uri.md). A estrutura do URI é: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+Consistente com outras implementações de sistema de ficheiros dentro do Hadoop, o driver ABFS define seu próprio esquema URI, de modo a que recursos (diretórios e arquivos) podem ser resolvidos de forma distinta. O esquema URI está documentado no [utilizam o URI de geração 2 de armazenamento do Azure Data Lake](./introduction-abfs-uri.md). A estrutura do URI é: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
-Utilizar o formato URI acima, standard ferramentas Hadoop e estruturas podem ser utilizadas para fazer referência a estes recursos:
+Usando o formato URI acima, padrão de ferramentas do Hadoop e estruturas podem ser utilizadas para fazer referência a esses recursos:
 
 ```bash
 hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data 
 hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/ 
 ```
 
-Internamente, o controlador ABFS traduz os recursos de especificado no URI de ficheiros e diretórios e faz com que chamadas para a API de REST de armazenamento do Azure Data Lake com essas referências.
+Internamente, o driver ABFS traduz-se o recurso ou recursos especificados no URI a arquivos e diretórios e faz chamadas para a API de REST de armazenamento do Azure Data Lake com essas referências.
 
 ### <a name="authentication"></a>Autenticação
 
-O controlador ABFS atualmente suporta a autenticação de chave partilhada para que a aplicação de Hadoop com segurança pode aceder aos recursos contidos Gen2 de armazenamento do Data Lake. A chave é encriptada e armazenada na configuração do Hadoop.
+O driver ABFS atualmente suporta a autenticação de chave partilhada para que a aplicação do Hadoop com segurança pode aceder aos recursos contidos dentro de geração 2 de armazenamento do Data Lake. A chave é encriptada e armazenada na configuração do Hadoop.
 
 ### <a name="configuration"></a>Configuração
 
-Toda a configuração para o controlador ABFS é armazenado no <code>core-site.xml</code> ficheiro de configuração. Sobre as distribuições de Hadoop com [Ambari](http://ambari.apache.org/), a configuração também pode ser gerida utilizando o web portal ou a API de REST do Ambari.
+Toda a configuração para o controlador ABFS é armazenado no <code>core-site.xml</code> ficheiro de configuração. Nas distribuições Hadoop destacando [Ambari](http://ambari.apache.org/), a configuração também pode ser gerenciada com o web portal ou a API REST do Ambari.
 
-Detalhes de todas as entradas de configuração suportados estão especificados no [documentação do Hadoop oficial](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Detalhes de todas as entradas de configuração suportados estão especificados na [documentação oficial Hadoop](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ### <a name="hadoop-documentation"></a>Documentação do Hadoop
 
-O controlador ABFS é documentado na íntegra a [documentação do Hadoop oficial](http://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+O driver ABFS é documentado na íntegra a [documentação oficial Hadoop](http://hadoop.apache.org/docs/current/hadoop-azure/index.html)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar Clusters do HDInsight](./quickstart-create-connect-hdi-cluster.md)
-- [Criar um Cluster de Databricks do Azure](./quickstart-create-databricks-account.md)
-- [Utilize o Gen2 Lake armazenamento de dados do Azure URI](./introduction-abfs-uri.md)
+- [Criar um Cluster do Databricks do Azure](./quickstart-create-databricks-account.md)
+- [Utilize a geração 2 Lake armazenamento de dados do Azure URI](./introduction-abfs-uri.md)

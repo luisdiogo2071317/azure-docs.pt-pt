@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8bba58c3493bc8adc17c5d4bca103326808d5b8b
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91cb7df9d38432d660930c21f6a9d0d64215d6e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506641"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577444"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Aplicação web do Azure node. js do AD, introdução
 Aqui usamos Passport para:
@@ -414,6 +414,6 @@ Para sua referência, o exemplo concluído (sem os valores de configuração) [�
 
 Agora pode passar para tópicos mais avançados. Talvez queira experimentar:
 
-[Proteger uma Web API com o Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
+[Proteger uma Web API com o Azure AD](quickstart-v1-nodejs-webapi.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

@@ -6,15 +6,15 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/26/2018
+ms.date: 8/06/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e88ff8ff591e7f7ce64f4dd01ec20a8167bb3c98
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d8e2d3e6a303009f5718a86772cdc3db8ed332a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438329"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523857"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilizar os cmdlets de Recoveryservices para fazer uma cópia de segurança de máquinas virtuais
 
@@ -365,7 +365,7 @@ Depois de ter restaurado os discos, utilize estes passos para criar e configurar
   PS C:\> $properties = $details.properties
   PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
   PS C:\> $containerName = $properties["Config Blob Container Name"]
-  PS C:\> $blobName = $properties["Config Blob Name"]
+  PS C:\> $configBlobName = $properties["Config Blob Name"]
   ```
 
 2. Definir o contexto de armazenamento do Azure e restaurar o ficheiro de configuração JSON.
@@ -373,7 +373,7 @@ Depois de ter restaurado os discos, utilize estes passos para criar e configurar
     ```
     PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
     PS C:\> $destination_path = "C:\vmconfig.json"
-    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $configBlobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
@@ -404,18 +404,28 @@ Depois de ter restaurado os discos, utilize estes passos para criar e configurar
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-    PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+    PS C:\> $dekUrl = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+    ```
+    
+ Ao definir o disco do SO, certifique-se de que o tipo de sistema operacional relevante é mencionado   
+    ```
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows/Linux
     PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
     PS C:\> foreach($dd in $obj.'properties.storageProfile'.dataDisks)
      {
      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
      }
     ```
+    
+A encriptação de discos de dados deve de ser habilitada manualmente com o seguinte comando.
 
-    #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>VMs encriptadas, não geridos (BEK e KEK)
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -VolumeType Data
+    ```
+    
+   #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>VMs encriptadas, não geridos (BEK e KEK)
 
-    Para VMs não geridos e criptografadas (criptografadas com BEK e KEK), terá de restaurar a chave e segredo ao Cofre de chaves, antes de pode anexar discos. Para obter mais informações, consulte o artigo [restaurar uma máquina virtual encriptada a partir de um ponto de recuperação de cópia de segurança do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar discos de SO e dados para VMs encriptadas.
+   Para VMs não geridos e criptografadas (criptografadas com BEK e KEK), terá de restaurar a chave e segredo ao Cofre de chaves, antes de pode anexar discos. Para obter mais informações, consulte o artigo [restaurar uma máquina virtual encriptada a partir de um ponto de recuperação de cópia de segurança do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar discos de SO e dados para VMs encriptadas.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -429,9 +439,15 @@ Depois de ter restaurado os discos, utilize estes passos para criar e configurar
      }
     ```
 
-    #### <a name="managed-non-encrypted-vms"></a>Gerido, não encriptada de VMs
+A encriptação de discos de dados deve de ser habilitada manualmente com o seguinte comando.
 
-    Para VMs não encriptadas geridas, terá de criar discos geridos a partir do armazenamento de BLOBs e, em seguida, anexe os discos. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo seguinte mostra como anexar os discos de dados de VMs geridas não encriptada.
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
+   #### <a name="managed-non-encrypted-vms"></a>Gerido, não encriptada de VMs
+
+   Para VMs não encriptadas geridas, terá de criar discos geridos a partir do armazenamento de BLOBs e, em seguida, anexe os discos. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo seguinte mostra como anexar os discos de dados de VMs geridas não encriptada.
 
     ```
     PS C:\> $storageType = "StandardLRS"
@@ -450,9 +466,9 @@ Depois de ter restaurado os discos, utilize estes passos para criar e configurar
     }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-only"></a>Gerido, VMs encriptadas (BEK apenas)
+   #### <a name="managed-encrypted-vms-bek-only"></a>Gerido, VMs encriptadas (BEK apenas)
 
-    Para VMs encriptadas geridas (encriptadas com a BEK apenas), terá de criar discos geridos a partir do armazenamento de BLOBs e, em seguida, anexe os discos. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo seguinte mostra como anexar os discos de dados para VMs encriptadas geridas.
+   Para VMs encriptadas geridas (encriptadas com a BEK apenas), terá de criar discos geridos a partir do armazenamento de BLOBs e, em seguida, anexe os discos. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo seguinte mostra como anexar os discos de dados para VMs encriptadas geridas.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -473,9 +489,15 @@ Depois de ter restaurado os discos, utilize estes passos para criar e configurar
      }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-and-kek"></a>Gerido, VMs encriptadas (BEK e KEK)
+A encriptação de discos de dados deve de ser habilitada manualmente com o seguinte comando.
 
-    Para VMs encriptadas geridas (criptografadas com BEK e KEK), terá de criar discos geridos a partir do armazenamento de BLOBs e, em seguida, anexe os discos. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo seguinte mostra como anexar os discos de dados para VMs encriptadas geridas.
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
+   #### <a name="managed-encrypted-vms-bek-and-kek"></a>Gerido, VMs encriptadas (BEK e KEK)
+
+   Para VMs encriptadas geridas (criptografadas com BEK e KEK), terá de criar discos geridos a partir do armazenamento de BLOBs e, em seguida, anexe os discos. Para obter informações detalhadas, consulte o artigo [anexar um disco de dados a uma VM do Windows com o PowerShell](../virtual-machines/windows/attach-disk-ps.md). O código de exemplo seguinte mostra como anexar os discos de dados para VMs encriptadas geridas.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -496,7 +518,12 @@ Depois de ter restaurado os discos, utilize estes passos para criar e configurar
      Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
      }
     ```
+A encriptação de discos de dados deve de ser habilitada manualmente com o seguinte comando.
 
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
 5. Configure as definições de rede.
 
     ```

@@ -3,17 +3,17 @@ title: Autenticar com o Azure Active Directory para aceder a dados de BLOBs e fi
 description: Utilize o Azure Active Directory para autenticar a partir de dentro de um aplicativo e, em seguida, autorizar pedidos aos recursos de armazenamento do Azure (pré-visualização).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: tamram
-ms.openlocfilehash: f8c798307f27c5f96b15517e1f5bfb9d1762fec2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.component: common
+ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506200"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577709"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Autenticar com o Azure Active Directory a partir de uma aplicação de armazenamento do Azure (pré-visualização)
 
@@ -23,7 +23,7 @@ Este artigo mostra como configurar a sua aplicação para a autenticação com o
 
 Antes de pode autenticar-se uma entidade de segurança da sua aplicação de armazenamento do Azure, configure definições de controlo (RBAC) de acesso baseado em funções para aquela entidade de segurança. O armazenamento do Azure define as funções RBAC que abranger permissões para contentores e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança é concedido acesso a esse recurso. Para obter mais informações, consulte [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
 
-Para uma descrição geral do fluxo de concessão de código do OAuth 2.0, consulte [fluxo de concessão de acesso de autorizar a aplicações de web do Azure Active Directory usando o código de OAuth 2.0](../../active-directory/develop/active-directory-protocols-oauth-code.md).
+Para uma descrição geral do fluxo de concessão de código do OAuth 2.0, consulte [fluxo de concessão de acesso de autorizar a aplicações de web do Azure Active Directory usando o código de OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 > [!IMPORTANT]
 > Esta pré-visualização destina-se apenas a utilização de não produção. Contratos de nível de serviço de produção (SLAs) não estarão disponíveis até que a integração do Azure AD para o armazenamento do Azure é declarada em disponibilidade geral. Se a integração do Azure AD ainda não é suportada para o seu cenário, continue a usar a autorização de chave partilhada ou SAS tokens em seus aplicativos. Para obter mais informações sobre a pré-visualização, veja [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).
@@ -34,7 +34,7 @@ Para uma descrição geral do fluxo de concessão de código do OAuth 2.0, consu
 
 O primeiro passo para utilizar o Azure AD para autorizar o acesso aos recursos de armazenamento está a registar a aplicação cliente no inquilino do Azure AD. Registar a aplicação permite-lhe chamar do Azure [Active Directory Authentication Library](../../active-directory/active-directory-authentication-libraries.md) (ADAL) a partir do código. A ADAL fornece uma API para autenticar com o Azure AD a partir da sua aplicação. Registar a aplicação também permite-lhe autorizar chamadas desse aplicativo para APIs de armazenamento do Azure com um token de acesso.
 
-Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. O Azure AD, em seguida, fornece um ID de cliente (também chamado de um *ID da aplicação*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID de cliente, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md).
+Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. O Azure AD, em seguida, fornece um ID de cliente (também chamado de um *ID da aplicação*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID de cliente, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
 Para registar a aplicação de armazenamento do Azure, siga os passos a [adicionar uma aplicação](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) secção [integrar aplicações com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. O valor não precisa de ser um ponto final real.
 

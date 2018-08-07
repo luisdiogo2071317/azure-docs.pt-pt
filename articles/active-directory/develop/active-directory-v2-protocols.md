@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b50d04f843e86f5af8ccd32589a540e38e6e47df
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502938"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579307"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>Ligar de protocolos - OAuth 2.0 e OpenID v2.0
 O ponto final v2.0 pode utilizar o Azure AD para identidade-como-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações aqui será útil se optar por escrever seu código através do envio direto & manipulação HTTP pedidos ou utilizar uma biblioteca de código-fonte aberto de terceiros 3ª, em vez de utilizar um dos nossos [bibliotecas-fonte aberto](active-directory-v2-libraries.md).
@@ -73,13 +73,13 @@ Para obter mais informações sobre como interagir com estes pontos finais, esco
 ## <a name="tokens"></a>Tokens
 A implementação de v2.0 de OAuth 2.0 e OpenID Connect fazem amplo uso de tokens de portador, incluindo os tokens de portador representados como JWTs. Um token de portador é um token de segurança simples que concede o acesso de "bearer" a um recurso protegido. Nesse sentido, "bearer" é capaz de apresentar o token de terceiros. Embora uma parte deve primeiro autenticar com o Azure AD para receber o token de portador, se não são tidas nos passos necessários para proteger o token na transmissão e o armazenamento, podem ser intercetado e utilizado por uma entidade não-intencionais. Embora alguns tokens de segurança tem um mecanismo interno para impedir que partes não autorizadas a utilizá-los, os tokens de portador não tem esse mecanismo e devam ser transportados num canal seguro, como a segurança de camada de transporte (HTTPS). Se um token de portador é transmitido de forma, um man-in a invasão intermediária pode ser utilizado por usuários mal-intencionados para adquirir o token e utilizá-lo para um acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou de colocação em cache os tokens de portador para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura. Para obter mais considerações de segurança em tokens de portador, consulte [RFC 6750 secção 5](http://tools.ietf.org/html/rfc6750).
 
-Existem mais detalhes de diferentes tipos de tokens utilizados no ponto final v2.0 está disponível no [a referência de token de ponto final de v2.0](active-directory-v2-tokens.md).
+Existem mais detalhes de diferentes tipos de tokens utilizados no ponto final v2.0 está disponível no [a referência de token de ponto final de v2.0](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocolos
 Se estiver pronto para ver alguns pedidos de exemplo, começar com um do abaixo tutoriais. Cada uma delas corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar o que é o fluxo certo para, confira [os tipos de aplicações que criar com a versão 2.0](active-directory-v2-flows.md).
 
-* [Crie uma aplicação nativa com o OAuth 2.0 e móveis](active-directory-v2-protocols-oauth-code.md)
-* [Criar Web aplicações com abrir ID Connect](active-directory-v2-protocols-oidc.md)
-* [Criar aplicações de página única com o fluxo implícito de OAuth 2.0](active-directory-v2-protocols-implicit.md)
-* [Compilação Daemons ou processos de lado servidor com as credenciais de cliente OAuth 2.0 fluxo](active-directory-v2-protocols-oauth-client-creds.md)
-* [Obter os tokens de uma API Web com o fluxo do OAuth 2.0 em nome da](active-directory-v2-protocols-oauth-on-behalf-of.md)
+* [Crie uma aplicação nativa com o OAuth 2.0 e móveis](v2-oauth2-auth-code-flow.md)
+* [Criar Web aplicações com abrir ID Connect](v2-protocols-oidc.md)
+* [Criar aplicações de página única com o fluxo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
+* [Compilação Daemons ou processos de lado servidor com as credenciais de cliente OAuth 2.0 fluxo](v2-oauth2-client-creds-grant-flow.md)
+* [Obter os tokens de uma API Web com o fluxo do OAuth 2.0 em nome da](v2-oauth2-on-behalf-of-flow.md)

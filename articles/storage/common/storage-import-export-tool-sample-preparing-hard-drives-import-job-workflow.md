@@ -1,29 +1,23 @@
 ---
-title: Fluxo de trabalho de exemplo para prep unidades de disco rígido para uma tarefa de importação do Azure para importar/exportar | Microsoft Docs
-description: Consulte as instruções para o processo de conclusão da preparação unidades para uma tarefa de importação no serviço de importação/exportação do Azure.
+title: Fluxo de trabalho de exemplo para a preparação de unidades de disco rígido para uma tarefa de importação de importar/exportar do Azure | Documentos da Microsoft
+description: Ver um passo a passo para o processo completo de preparar as unidades para uma tarefa de importação no serviço importar/exportar do Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873794"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524625"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de amostra para preparar unidades de disco rígido para uma tarefa de importação
 
-Este artigo explica o processo de preparação unidades para uma tarefa de importação concluído.
+Este artigo orienta-o processo completo de preparar as unidades para uma tarefa de importação.
 
 ## <a name="sample-data"></a>Dados de exemplo
 
@@ -32,40 +26,40 @@ Neste exemplo importa os seguintes dados para uma conta de armazenamento do Azur
 |Localização|Descrição|Tamanho dos dados|
 |--------------|-----------------|-----|
 |H:\Video\ |Uma coleção de vídeos|12 TB|
-|H:\Photo\ |Uma coleção de fotografias|30 GB|
+|H:\Photo\ |Uma coleção de fotos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|Imagem de disco A Blu-ray™|25 GB|
-|\\\bigshare\john\music\ |Uma coleção de ficheiros de música numa partilha de rede|10 GB|
+|\\\bigshare\john\music\ |Uma coleção de arquivos de música num compartilhamento de rede|10 GB|
 
 ## <a name="storage-account-destinations"></a>Destinos de conta de armazenamento
 
 A tarefa de importação irá importar os dados para os seguintes destinos na conta de armazenamento:
 
-|Origem|Diretório virtual de destino ou blob|
+|Origem|Diretório virtual de destino ou de BLOBs|
 |------------|-------------------------------------------|
 |H:\Video\ |vídeo /|
 |H:\Photo\ |fotografia /|
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music\ |música|
+|\\\bigshare\john\music\ |Música|
 
-Com este mapeamento, o ficheiro `H:\Video\Drama\GreatMovie.mov` serão importados para o blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
+Com este mapeamento, o ficheiro `H:\Video\Drama\GreatMovie.mov` vão ser importados para o blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
 ## <a name="determine-hard-drive-requirements"></a>Determinar os requisitos de disco rígido
 
-Em seguida, para determinar quantos discos rígidos são necessários, o tamanho dos dados de computação:
+Em seguida, para determinar quantas unidades de disco rígido são necessários, o tamanho dos dados de computação:
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-Neste exemplo, dois discos rígidos de 8TB devem ser suficientes. No entanto, dado que o diretório de origem `H:\Video` tem 12TB de dados e a capacidade do disco rígido único é apenas de 8TB, poderá especificar isto a seguir de forma a **driveset.csv** ficheiro:
+Neste exemplo, duas unidades de disco rígido de 8TB devem ser suficientes. No entanto, desde o diretório de origem `H:\Video` tem 12TB de dados e a capacidade do disco rígido único é apenas de 8TB, será possível especificar isso na seguinte forma no **driveset.csv** ficheiro:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-A ferramenta irá distribuem dados em duas unidades de disco rígidas uma forma otimizada.
+A ferramenta vai distribuir dados em dois discos rígidos de forma otimizada.
 
-## <a name="attach-drives-and-configure-the-job"></a>Anexar unidades e configurar a tarefa
-Irá expor os dois discos para a máquina e crie volumes. Em seguida, criar **dataset.csv** ficheiro:
+## <a name="attach-drives-and-configure-the-job"></a>Ligar a unidades e configurar a tarefa
+Anexe ambos os discos na máquina e criar volumes. Em seguida, de autor **dataset.csv** ficheiro:
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
@@ -74,13 +68,13 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 \\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
 ```
 
-Além disso, pode definir os metadados para todos os ficheiros seguintes:
+Além disso, pode definir os seguintes metadados para todos os ficheiros:
 
-* **UploadMethod:** serviço de importação/exportação do Windows Azure
+* **UploadMethod:** serviço importar/exportar do Windows Azure
 * **DataSetName:** SampleData
-* **CreationDate:** 1/10/2013
+* **CreationDate:** 10/1/2013
 
-Para definir os metadados para os ficheiros importados, crie um ficheiro de texto, `c:\WAImportExport\SampleMetadata.txt`, com o seguinte conteúdo:
+Para definir metadados para os ficheiros de importados, crie um ficheiro de texto, `c:\WAImportExport\SampleMetadata.txt`, com o seguinte conteúdo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,9 +87,9 @@ Para definir os metadados para os ficheiros importados, crie um ficheiro de text
 
 Também pode definir algumas propriedades para o `FavoriteMovie.ISO` blob:
 
-* **Tipo de conteúdo:** application/octet-stream.
-* **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ = =
-* **Cache-Control:** não cache
+* **Tipo de conteúdo:** application/octet-stream
+* **MD5 de conteúdo:** Q2hlY2sgSW50ZWdyaXR5IQ = =
+* **Controlo de cache:** no cache
 
 Para definir estas propriedades, crie um ficheiro de texto, `c:\WAImportExport\SampleProperties.txt`:
 
@@ -118,7 +112,7 @@ Agora, está pronto para executar a ferramenta de importação/exportação do A
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Se todos os dados mais tem de ser adicionada, crie outro ficheiro de conjunto de dados (mesmo formato que Initialdataset).
+Se todos os dados mais precisam ser adicionado, crie outro ficheiro de conjunto de dados (mesmo formato que Initialdataset).
 
 **Para a segunda sessão:**
 
@@ -126,9 +120,9 @@ Se todos os dados mais tem de ser adicionada, crie outro ficheiro de conjunto de
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-Depois de concluíram as sessões de cópia, pode desligar duas unidades do computador de cópia e envie-os para o Centro de dados do Azure adequada. Deverá carregar os ficheiros de dois diário de alterações, `<FirstDriveSerialNumber>.xml` e `<SecondDriveSerialNumber>.xml`, ao criar a tarefa de importação no portal do Azure.
+Depois de concluíram as sessões de cópia, pode desligar as duas unidades do computador cópia e enviá-los para o Centro de dados do Azure adequada. Carregue os ficheiros de dois diário `<FirstDriveSerialNumber>.xml` e `<SecondDriveSerialNumber>.xml`, ao criar a tarefa de importação no portal do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [Referência rápida para comandos utilizados com frequência](../storage-import-export-tool-quick-reference.md)

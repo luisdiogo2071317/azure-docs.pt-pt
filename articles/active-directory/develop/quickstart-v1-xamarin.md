@@ -17,12 +17,12 @@ ms.date: 11/30/2017
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f259878ee2eb28d129c68fb4bd43af4ee1138fb
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3479aa8dd319c81f320b6c7ead086c266454acc6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506459"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579600"
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>O Azure AD Xamarin, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -192,6 +192,6 @@ ADAL torna mais fácil incorporar funcionalidades de identidade comum para a apl
 
 Para referência, transfira o [exemplo concluído](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (sem os valores de configuração).
 
-Agora pode passar para cenários de identidade adicionais. Por exemplo, experimente [proteger uma API Web do .NET com o Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Agora pode passar para cenários de identidade adicionais. Por exemplo, experimente [proteger uma API Web do .NET com o Azure AD](quickstart-v1-dotnet-webapi.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

@@ -4,16 +4,16 @@ description: Este tutorial explica como utilizar o serviço de Blobs do Azure co
 ms.topic: article
 ms.author: tarcher
 author: tarcher
-manager: jpconnock
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 24248b198965ddf9ed9ef8df67c34560d08d3935
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: common
+ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389852"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524394"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins
 
@@ -57,7 +57,7 @@ Para utilizar o serviço de Blobs com o Jenkins, terá de instalar o plug-in do 
 ## <a name="how-to-install-the-azure-storage-plugin"></a>Como instalar o plug-in do armazenamento do Azure
 1. No painel do Jenkins, selecione **gerir Jenkins**.
 2. Na **gerir Jenkins** página, selecione **gerir plug-ins**.
-3. Selecione o **disponível** separador.
+3. Selecione o separador **Available** (Disponíveis).
 4. Na **carregadores de artefacto** secção, verificação **Plug-in do armazenamento do Microsoft Azure**.
 5. Selecione **instalar sem reinício** ou **agora a transferir e instalar após o reinício**.
 6. Reinicie o Jenkins.
@@ -140,9 +140,9 @@ Esta seção fornece uma descrição geral dos componentes do serviço de Blobs.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de resolução de problemas
+## <a name="troubleshooting-the-jenkins-plugin"></a>Resolver problemas nos plug-ins do Jenkins
 
-Se tiver quaisquer erros com os plug-ins do Jenkins, comunique o assunto na [Jenkins JIRA](https://issues.jenkins-ci.org/) para o componente específico.
+Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Conheça o Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
