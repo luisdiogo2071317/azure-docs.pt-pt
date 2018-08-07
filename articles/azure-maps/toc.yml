@@ -40,6 +40,8 @@
       items:
         - name: Gerir contas e chaves
           href: how-to-manage-account-keys.md
+        - name: Ver métricas de utilização
+          href: how-to-view-api-usage.md
     - name: Obter dados de mapa das APIs Rest
       items:
         - name: Pesquisar por um endereço

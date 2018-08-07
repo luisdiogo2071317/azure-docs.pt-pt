@@ -171,12 +171,13 @@
 #### [Planear a Associação do Azure AD](devices/azureadjoin-plan.md)
 #### [Planear a sua implementação de associação ao Azure AD híbrido](devices/hybrid-azuread-join-plan.md)
 #### [Controlar a associação híbrida do Azure AD dos seus dispositivos](devices/hybrid-azuread-join-control.md)
+#### [Atribuir administradores locais a dispositivos associados do Azure AD](devices/assign-local-admin.md)
 #### [Resolver problemas de dispositivos atuais do Windows associados ao Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [Resolver problemas de dispositivos Windows legados associados ao Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Conceitos
-### [Manage devices using the Azure portal](devices/device-management-azure-portal.md) (Gerir dispositivos com o portal do Azure)
-### [FAQs](devices/faq.md)
+#### [Manage devices using the Azure portal](devices/device-management-azure-portal.md) (Gerir dispositivos com o portal do Azure)
+#### [FAQs](devices/faq.md)
 
 ## Gerir aplicações
 ### [Descrição geral](manage-apps/what-is-application-management.md)
@@ -403,30 +404,30 @@
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
 #### Inícios rápidos
-##### [Configurar por MFA de aplicação na cloud](active-directory-conditional-access-app-based-mfa.md)
-##### [Exigir que os termos de utilização sejam aceites](active-directory-conditional-access-tou.md)
-##### [Bloquear o acesso quando é detetado um risco de sessão](active-directory-conditional-access-app-sign-in-risk.md)
+##### [Configurar por MFA de aplicação na cloud](conditional-access/app-based-mfa.md)
+##### [Exigir que os termos de utilização sejam aceites](conditional-access/require-tou.md)
+##### [Bloquear o acesso quando é detetado um risco de sessão](conditional-access/app-sign-in-risk.md)
 #### Tutoriais
-##### [Migrar política de MFA clássica](active-directory-conditional-access-migration-mfa.md)
+##### [Migrar política de MFA clássica](conditional-access/policy-migration-mfa.md)
 #### Conceitos
-##### [Proteção de linha de base](active-directory-conditional-access-baseline-protection.md)
-##### [Condições](active-directory-conditional-access-conditions.md)
-##### [Condições de localização](active-directory-conditional-access-locations.md)
-##### [Controlos](active-directory-conditional-access-controls.md)
-##### [Ferramenta e-se](active-directory-conditional-access-whatif.md)
+##### [Proteção de linha de base](conditional-access/baseline-protection.md)
+##### [Condições](conditional-access/conditions.md)
+##### [Condições de localização](conditional-access/location-condition.md)
+##### [Controlos](conditional-access/controls.md)
+##### [Ferramenta e-se](conditional-access/what-if-tool.md)
 ##### [Compreender as políticas de dispositivo para serviços do Office 365](active-directory-conditional-access-device-policies.md)
 #### Guias de procedimentos
-##### [Melhores práticas](active-directory-conditional-access-best-practices.md)
+##### [Melhores práticas](conditional-access/best-practices.md)
 ##### [Configurar políticas de acesso condicional para tentativas de acesso de redes não fidedignas](active-directory-conditional-access-untrusted-networks.md)
 ##### [Configurar o acesso condicional baseado no dispositivo](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configurar o acesso condicional baseado na aplicação](active-directory-conditional-access-mam.md)
 ##### [Fornecer termos de utilização para utilizadores e aplicações](active-directory-tou.md)
-##### [Migrar políticas clássicas](active-directory-conditional-access-migration.md)
+##### [Migrar políticas clássicas](conditional-access/policy-migration.md)
 ##### [Configurar ligação VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Configurar o SharePoint e Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediação](active-directory-conditional-access-device-remediation.md)
 #### [Referência técnica](active-directory-conditional-access-technical-reference.md)
-#### [FAQs](active-directory-conditional-faqs.md)
+#### [FAQs](conditional-access/faqs.md)
 
 ### Autenticação baseada em certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
