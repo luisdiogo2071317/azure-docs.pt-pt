@@ -1,73 +1,68 @@
 ---
-title: Utilize o .NET com MapReduce de Hadoop no HDInsight baseado em Linux - Azure | Microsoft Docs
-description: Saiba como utilizar aplicações .NET para transmissão em fluxo MapReduce no HDInsight baseado em Linux.
+title: Utilizar .NET com o Hadoop MapReduce no HDInsight baseado em Linux - Azure
+description: Saiba como utilizar aplicações de .NET para transmissão em fluxo MapReduce no HDInsight baseado em Linux.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 36b8f51122bad6614e63dfc58e09e5c1ca08f83d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 8650bad4d980efba78fe753200bca364bda26488
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400073"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595982"
 ---
-# <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET para o HDInsight baseado em Windows para o HDInsight baseado em Linux
+# <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET para o HDInsight baseado em Windows para HDInsight baseado em Linux
 
-Utilização de clusters do HDInsight baseado em Linux [Mono (https://mono-project.com) ](https://mono-project.com) para executar aplicações de .NET. Mono permite-lhe utilizar componentes de .NET, tais como aplicações de MapReduce com o HDInsight baseado em Linux. Neste documento, saiba como migrar as soluções de .NET criadas para clusters do HDInsight baseados em Windows trabalhar com Mono no HDInsight baseado em Linux.
+Utilização de clusters do HDInsight baseado em Linux [Mono (https://mono-project.com) ](https://mono-project.com) para executar aplicações de .NET. Mono permite-lhe utilizar componentes .NET como aplicativos de MapReduce com o HDInsight baseado em Linux. Neste documento, saiba como migrar soluções .NET criadas para os clusters do HDInsight baseado em Windows funcionar com o Mono no HDInsight baseado em Linux.
 
 ## <a name="mono-compatibility-with-net"></a>Compatibilidade mono com .NET
 
-Versão mono 4.2.1 está incluído com o HDInsight versão 3.6. Para obter mais informações sobre a versão do Mono incluído com o HDInsight, consulte [as versões de componentes do HDInsight](hdinsight-component-versioning.md). Para instalar uma versão específica do Mono, consulte o [instalar ou atualizar Mono](hdinsight-hadoop-install-mono.md) documento.
+Versão mono 4.2.1 está incluída com o HDInsight versão 3.6. Para obter mais informações sobre a versão do Mono incluído com o HDInsight, consulte [versões de componente de HDInsight](hdinsight-component-versioning.md). Para instalar uma versão específica do Mono, consulte a [instalar ou atualizar o Mono](hdinsight-hadoop-install-mono.md) documento.
 
-Para obter mais informações sobre a compatibilidade entre Mono e .NET, consulte o [compatibilidade Mono (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) documento.
+Para obter mais informações sobre a compatibilidade entre o Mono e .NET, consulte a [compatibilidade Mono (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) documento.
 
 > [!IMPORTANT]
-> A estrutura SCP.NET é compatível com Mono. Para obter mais informações sobre a utilização SCP.NET com Mono, consulte [utilize o Visual Studio para desenvolver topologias c# para Apache Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
+> Da arquitetura SCP.NET é compatível com Mono. Para obter mais informações sobre como utilizar SCP.NET com Mono, consulte [Use o Visual Studio para desenvolver topologias c# para Apache Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Análise de portabilidade automatizada
 
-O [.NET portabilidade analisador](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) pode ser utilizado para gerar um relatório de incompatibilidades entre a sua aplicação e Mono. Utilize os seguintes passos para configurar o analisador para verificar a sua aplicação para portabilidade Mono:
+O [analisador de portabilidade do .NET](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) pode ser utilizado para gerar um relatório de incompatibilidades entre a aplicação e Mono. Utilize os seguintes passos para configurar o analyzer para verificar a sua aplicação para portabilidade Mono:
 
-1. Instalar o [.NET portabilidade analisador](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Durante a instalação, selecione a versão do Visual Studio para utilizar.
+1. Instalar o [analisador de portabilidade do .NET](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Durante a instalação, selecione a versão do Visual Studio para utilizar.
 
-2. A partir do Visual Studio 2015, selecione __analisar__ > __portabilidade analisador definições__e certifique-se de que __4.5__ é verificado o __Mono__ secção.
+2. A partir do Visual Studio 2015, selecione __Analyze__ > __configurações do analisador de portabilidade__e certifique-se de que __4.5__ é verificado o __Mono__ secção.
 
     ![4.5 marcada na secção Mono para as definições de analisador](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
     Selecione __OK__ para guardar a configuração.
 
-3. Selecione __analisar__ > __analisar portabilidade de assemblagem__. Selecione a assemblagem que contém a sua solução e, em seguida, selecione __abra__ para iniciar uma análise.
+3. Selecione __analisar__ > __analisar a portabilidade de Assembly__. Selecione o assembly que contém a sua solução e, em seguida, selecione __aberto__ para iniciar uma análise.
 
-4. Assim que a análise estiver concluída, selecione __analisar__ > __ver relatórios de análise__. No __resultados de análise portabilidade__, selecione __abrir relatório__ para abrir um relatório.
+4. Assim que a análise estiver concluída, selecione __Analyze__ > __ver relatórios de análise de__. Na __resultados de análise de portabilidade__, selecione __abrir relatório__ para abrir um relatório.
 
     ![Caixa de diálogo de resultados de analisador de portabilidade](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> O analisador de não é possível detetar cada problema com a sua solução. Por exemplo, um caminho de ficheiro de `c:\temp\file.txt` é considerado OK se Mono está em execução no Windows. O mesmo caminho não é válido numa plataforma Linux.
+> O analisador não é possível capturar todos os problemas com a sua solução. Por exemplo, um caminho de ficheiro de `c:\temp\file.txt` é considerado OK se Mono está em execução no Windows. O mesmo caminho não é válido numa plataforma Linux.
 
 ## <a name="manual-portability-analysis"></a>Análise de portabilidade manual
 
-Efetuar uma auditoria manual do seu código utilizando as informações de [portabilidade de aplicação (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) documento.
+Realizar uma auditoria manual de seu código usando as informações a [portabilidade da aplicação (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) documento.
 
 ## <a name="modify-and-build"></a>Modificar e criar
 
-Pode continuar a utilizar o Visual Studio para criar as suas soluções de .NET para o HDInsight. No entanto, tem de se certificar de que o projeto está configurado para utilizar o .NET Framework 4.5.
+Pode continuar a utilizar o Visual Studio para criar as suas soluções .NET para o HDInsight. No entanto, tem de se certificar de que o projeto está configurado para utilizar o .NET Framework 4.5.
 
 ## <a name="deploy-and-test"></a>Implementar e testar
 
-Depois de modificar a sua solução com as recomendações do analisador de portabilidade .NET ou a partir de uma análise manual, terá de a testar com o HDInsight. Testar a solução num cluster do HDInsight baseado em Linux pode revelar problemas subtis que precisam de ser corrigido. Recomendamos que ative o registo adicional na sua aplicação ao testá-lo.
+Depois de modificar sua solução com as recomendações do analisador de portabilidade do .NET ou de uma análise manual, é necessário testá-lo com o HDInsight. Teste da solução num cluster do HDInsight baseado em Linux pode revelar problemas sutis que precisam ser corrigidas. Recomendamos que ative o registo adicional na sua aplicação ao testá-lo.
 
-Para obter mais informações sobre aceder a registos, consulte os seguintes documentos:
+Para obter mais informações sobre como acessar os registos, consulte os seguintes documentos:
 
 * [Access YARN application logs on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md) (Aceder a registos de aplicações do YARN no HDInsight baseado no Linux)
 
@@ -75,6 +70,6 @@ Para obter mais informações sobre aceder a registos, consulte os seguintes doc
 
 * [Utilizar c# com o MapReduce no HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Utilizar funções definidas pelo utilizador c# com o Hive e do Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Utilizar funções c# definidas pelo utilizador com o Hive e Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Desenvolver topologias c# para Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578556"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621536"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista abrangente de cada documento escrito sobre os vários recursos relacionados com a aplicação no Azure Active Directory (Azure AD).
@@ -54,7 +54,7 @@ Início de sessão único permite aos utilizadores aceder uma variedade de aplic
 | Guia do artigo |  |
 |:---:| --- |
 | Uma introdução à Federação e outros tipos de início de sessão |[Início de sessão único com o Azure AD](manage-apps/what-is-single-sign-on.md) |
-| Simplificado de milhares de aplicações SaaS previamente integradas com o Azure AD com passos de configuração de início de sessão único |[Guia de introdução da Galeria de aplicações do Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa das aplicações previamente integradas que oferecem suporte à Federação](saas-apps/tutorial-list.md)<br /><br />[Como adicionar a sua aplicação na Galeria de aplicações do Azure AD](active-directory-app-gallery-listing.md) |
+| Simplificado de milhares de aplicações SaaS previamente integradas com o Azure AD com passos de configuração de início de sessão único |[Guia de introdução da Galeria de aplicações do Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa das aplicações previamente integradas que oferecem suporte à Federação](saas-apps/tutorial-list.md)<br /><br />[Como adicionar a sua aplicação na Galeria de aplicações do Azure AD](develop/howto-app-gallery-listing.md) |
 | Mais de 150 aplicações tutoriais sobre como configurar o início de sessão único para aplicações, tal como [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md)e muitos mais |[Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](saas-apps/tutorial-list.md) |
 | Como configurar e personalizar a configuração de início de sessão única manualmente |[Como para configurar federado início de sessão único para aplicações que não estão na Galeria de aplicações de diretório do Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Como personalizar afirmações emitidas no Token SAML para aplicações previamente integradas](active-directory-saml-claims-customization.md) |
 | Guia de resolução de problemas para aplicações federadas que utilizam o protocolo SAML |[Resolução de problemas com base em SAML início de sessão único](develop/howto-v1-debug-saml-sso-issues.md) |
@@ -109,7 +109,7 @@ Depois de configurar o início de sessão único às suas aplicações e recurso
 | Guia do artigo |  |
 |:---:| --- |
 | Uma introdução às funcionalidades de acesso condicional oferecidos no Azure AD, Office 365 e Intune |[Gestão de riscos com acesso condicional](active-directory-conditional-access-azure-portal.md) |
-| Como ativar o acesso condicional para os seguintes tipos de recursos |[Acesso condicional para aplicações SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acesso condicional para aplicações no local](active-directory-conditional-access-azure-portal.md)<br /><br />[Acesso condicional para aplicações no local publicadas através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Como ativar o acesso condicional para os seguintes tipos de recursos |[Acesso condicional para aplicações SaaS](conditional-access/app-based-conditional-access.md)<br /><br />[Acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acesso condicional para aplicações no local](active-directory-conditional-access-azure-portal.md)<br /><br />[Acesso condicional para aplicações no local publicadas através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Como registar dispositivos com o Azure Active Directory para ativar políticas de acesso condicional com base no dispositivo |[Descrição geral do registo de dispositivos do Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Como ativar o registo automático de dispositivos para o domínio associado a um dispositivos do Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Dispositivos de passos para o Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Dispositivos de passos para o Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Como utilizar a aplicação Microsoft Authenticator para verificação de dois passos | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
@@ -144,7 +144,7 @@ Se sua organização está a desenvolver ou a manutenção de linha de negócio 
 | Guia do artigo |  |
 |:---:| --- |
 | Orientações para profissionais de TI e desenvolvedores de aplicativos à integração de aplicações com o Azure AD |[O IT Guia do Pro para desenvolver aplicativos para o Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Guia do programador para o Azure Active Directory](develop/azure-ad-developers-guide.md) |
-| Como a aplicação fornecedores podem adicionar as suas aplicações para a Galeria de aplicações do Azure AD |[Listar a sua aplicação na Galeria de aplicações de diretório do Azure Active Directory](active-directory-app-gallery-listing.md) |
+| Como a aplicação fornecedores podem adicionar as suas aplicações para a Galeria de aplicações do Azure AD |[Listar a sua aplicação na Galeria de aplicações de diretório do Azure Active Directory](develop/howto-app-gallery-listing.md) |
 | Como gerir o acesso a aplicativos desenvolvidos com o Azure Active Directory |[Como ativar a atribuição de utilizadores para aplicativos desenvolvidos](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Atribuir utilizadores à sua aplicação](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Atribuição de grupo à sua aplicação](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 Se estiver a desenvolver aplicações destinadas ao consumidor, poderá estar interessado em usar [do Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) para que não precisa de desenvolver seu próprio sistema de identidade para gerir os seus utilizadores. [Saiba mais](../active-directory-b2c/active-directory-b2c-overview.md).

@@ -1,47 +1,43 @@
 ---
-title: Criar um pipeline de aprendizagem do Apache Spark - Azure HDInsight | Microsoft Docs
-description: Utilize a biblioteca de aprendizagem do Apache Spark para criar pipelines de dados.
+title: Criar um Apache Spark de machine learning pipeline - Azure HDInsight
+description: Utilize a biblioteca do Apache Spark do machine learning para criar pipelines de dados.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: c3ff29404858a768737536e7d31c3c6858eea7d2
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/19/2018
+ms.openlocfilehash: eb7959255a0b3c1597592eaae41d83dabd333d05
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617059"
 ---
 # <a name="create-a-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Spark
 
-Biblioteca de aprendizagem do Apache Spark máquina escalável (MLlib) proporciona capacidades de modelação para um ambiente distribuído. O pacote de Spark [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível incorporados no DataFrames. Estas APIs ajudam a criar e otimizar práticas pipelines de aprendizagem automática.  *Spark aprendizagem* refere-se a esta API com base em MLlib DataFrame, não mais antigo com base em RDD pipeline API.
+Biblioteca de rede do Apache Spark dimensionáveis de machine learning (MLlib) oferece capacidades de modelação para um ambiente distribuído. O pacote de Spark [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível incorporadas no DataFrames. Estas APIs ajudam a criar e otimizar o práticos pipelines de machine learning.  *Aprendizagem do spark* refere-se a esta API com base em MLlib DataFrame, não mais antigo com base em RDD pipeline API.
 
-Um de machine learning pipeline (ML) é um fluxo de trabalho completado combinar os vários algoritmos do machine learning em conjunto. Podem existir vários passos necessários para processar e obter dados, que requerem uma sequência de algoritmos. Pipelines definem as fases e ordenação de uma processo de aprendizagem. No MLlib, as fases de um pipeline são representados por uma sequência de PipelineStages, onde um transformador e um Estimator efetuam tarefas específica.
+Um pipeline (ML) de aprendizagem automática é um fluxo de trabalho completo, combinar vários algoritmos de machine learning em conjunto. Podem existir muitas etapas necessárias para processar e Aprenda com dados, exigindo que uma sequência de algoritmos. Pipelines definem as fases e a ordenação de um processo de aprendizagem automática. No MLlib, fases de um pipeline são representados por uma seqüência específica de PipelineStages, onde um transformador e um avaliador que esteja realizar tarefas.
 
-Um transformador é um algoritmo que transforma um DataFrame para outro, utilizando o `transform()` método. Por exemplo, um transformador de funcionalidade foi ler uma coluna de uma DataFrame, mapeá-lo para outra coluna e um novo DataFrame de saída com a coluna mapeada anexada ao mesmo.
+Um transformador é um algoritmo que transforma um pacote de dados para outro, utilizando o `transform()` método. Por exemplo, um transformador recursos poderia ler uma coluna de um pacote de, mapeá-lo para outra coluna e um novo pacote de dados de saída com a coluna mapeada acrescentada.
 
-Um Estimator é uma abstração de algoritmos de aprendizagem e é responsável por ajuste ou um conjunto de dados de preparação produzir um transformador. Um Estimator implementa um método denominado `fit()`, que aceita um DataFrame e produz um DataFrame, que é um transformador.
+Um avaliador que esteja é uma abstração de algoritmos de aprendizagem e é responsável por que se ajusta ou treinamento num conjunto de dados para produzir um transformador. Um avaliador que esteja implementa um método chamado `fit()`, que aceita um DataFrame e produz um pacote de dados, o que é um transformador.
 
-Cada instância sem monitorização de estado de um transformador ou um Estimator tem o seu próprio identificador exclusivo, que é utilizado durante a especificação de parâmetros. Ambos utilizam uma uniform API para especificar estes parâmetros.
+Cada instância sem monitoração de estado de um transformador ou um avaliador que esteja tem seu próprio identificador exclusivo, que é utilizado ao especificar os parâmetros. Ambos utilizam uma API uniforme para especificar estes parâmetros.
 
 ## <a name="pipeline-example"></a>Exemplo de pipeline
 
-Para demonstrar uma utilização de um pipeline de ML prática, este exemplo utiliza o exemplo `HVAC.csv` ficheiro de dados que vem previamente carregado no armazenamento de cluster do HDInsight, o Storage do Azure ou para o Data Lake Store predefinida. Para ver os conteúdos do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv` contém um conjunto de tempo de destino e temperatures reais de AVAC (*aquecimento, ventilação e ar condicionado*) edifícios vários sistemas. O objetivo é para preparar o modelo de dados e produzir uma previsão temperatura para um determinado edifício.
+Para demonstrar um uso prático de um pipeline de ML, este exemplo utiliza o exemplo `HVAC.csv` ficheiro de dados que estão pré-carregados no armazenamento padrão para o seu cluster do HDInsight, o armazenamento do Azure ou o Data Lake Store. Para ver o conteúdo do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv` contém um conjunto de vezes com o destino e temperaturas reais de ar-Condicionado (*aquecimento, ventilação e ar condicionado*) sistemas em vários edifícios. O objetivo é preparar o modelo nos dados e produzir uma temperatura previsão para um determinado edifício.
 
-O seguinte código:
+O código a seguir:
 
-1. Define um `LabeledDocument`, qual armazena o `BuildingID`, `SystemInfo` (um sistema identificador e duração) e um `label` (1.0 se a criação for demasiado frequente, 0.0, caso contrário).
-2. Cria uma função de analisador personalizado `parseDocument` que demora uma linha (linhas) de dados e determina se o edifício "ativos" comparando a temperatura de destino para a temperatura real.
+1. Define um `LabeledDocument`, as lojas que o `BuildingID`, `SystemInfo` (um sistema identificador e idade) e um `label` (1.0, se a criação é muito quente, 0,0, caso contrário).
+2. Cria uma função de analisador personalizado `parseDocument` que usa uma linha (linha) de dados e determina se a compilação é "quente" comparando a temperatura de destino para a temperatura real.
 3. Aplica-se o analisador quando extrair os dados de origem.
-4. Cria dados de preparação.
+4. Cria dados de treinamento.
 
 ```python
 # The data structure (column meanings) of the data array:
@@ -74,11 +70,11 @@ documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
 ```
 
-Este pipeline de exemplo tem três fases: `Tokenizer` e `HashingTF` (ambas Transformers), e `Logistic Regression` (um Estimator).  Os dados extraídos e analisados o `training` DataFrame flui através do pipeline quando `pipeline.fit(training)` é chamado.
+Este pipeline de exemplo tem três fases: `Tokenizer` e `HashingTF` (ambas apresentam vários transformadores), e `Logistic Regression` (um avaliador que esteja).  Os dados extraídos e analisados a `training` DataFrame percorrem o pipeline quando `pipeline.fit(training)` é chamado.
 
-1. A primeira fase, `Tokenizer`, divide o `SystemInfo` coluna de entrada (que consistem os valores de identificador e idade do sistema) para um `words` coluna de saída. Neste novo `words` coluna é adicionada ao DataFrame. 
-2. A segunda fase, `HashingTF`, converte a nova `words` coluna em vetores de funcionalidade. Neste novo `features` coluna é adicionada ao DataFrame. Estes primeiro duas fases são Transformers. 
-3. A terceira fase `LogisticRegression`, é um Estimator e, por isso, o pipeline chama o `LogisticRegression.fit()` método para produzir um `LogisticRegressionModel`. 
+1. O primeiro estágio, `Tokenizer`, divide o `SystemInfo` coluna de entrada (consistindo nos valores de identificador e a idade do sistema) num `words` coluna de saída. Este novo `words` coluna é adicionada para o pacote de dados. 
+2. A segunda fase `HashingTF`, converte o novo `words` coluna em vetores de funcionalidade. Este novo `features` coluna é adicionada para o pacote de dados. Estas duas primeiras fases são apresentam vários transformadores. 
+3. A terceira fase `LogisticRegression`, é um avaliador que esteja e, portanto, o pipeline chama o `LogisticRegression.fit()` método para produzir um `LogisticRegressionModel`. 
 
 ```python
 tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -91,7 +87,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(training)
 ```
 
-Para ver o novo `words` e `features` colunas adicionadas pelo `Tokenizer` e `HashingTF` transformers e um exemplo do `LogisticRegression` estimator, execute um `PipelineModel.transform()` método no DataFrame original. Código de produção, o passo seguinte seria possível passem um teste DataFrame para validar a formação.
+Para ver a nova `words` e `features` colunas adicionadas pela `Tokenizer` e `HashingTF` apresentam vários transformadores e um exemplo do `LogisticRegression` avaliador, execute um `PipelineModel.transform()` método no pacote de dados original. No código de produção, a próxima etapa seria de passar num pacote de dados para validar o treinamento de teste.
 
 ```python
 peek = model.transform(training)
@@ -126,8 +122,8 @@ peek.show()
 only showing top 20 rows
 ```
 
-O `model` objeto pode agora ser utilizado para tornar as predições. Para o exemplo completo desta máquina learning aplicação e instruções passo a passo para executá-los, consulte [compilar o Apache Spark aprendizagem automática aplicações no Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
+O `model` objeto agora pode ser usado para fazer previsões. Para o exemplo completo desta aplicação e instruções passo a passo para executá-los de aprendizagem automática, consulte [Apache Spark criar aplicações de machine learning no Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
 ## <a name="see-also"></a>Consulte também
 
-* [Ciência de dados utilizando Scala e o Spark no Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Ciência de dados com o Scala e Spark no Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

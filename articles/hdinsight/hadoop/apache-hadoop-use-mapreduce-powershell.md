@@ -1,25 +1,20 @@
 ---
-title: Utilizar o MapReduce e o PowerShell com o Hadoop - o Azure HDInsight | Microsoft Docs
-description: Saiba como utilizar o PowerShell para executar remotamente as tarefas do MapReduce com o Hadoop no HDInsight.
+title: Utilizar o MapReduce e o PowerShell com o Hadoop - Azure HDInsight
+description: Saiba como utilizar o PowerShell para executar remotamente tarefas de MapReduce com o Hadoop no HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
-ms.openlocfilehash: 7416d064f89515feb04523ca6d4ea73f37c14e38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: jasonh
+ms.openlocfilehash: cab6fc652fa11db7dd1e9e9ae7f0a1a634dca3b0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33938543"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591825"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas de MapReduce com o Hadoop no HDInsight com o PowerShell
 
@@ -36,35 +31,35 @@ Este documento fornece um exemplo de utilização do Azure PowerShell para execu
 
 * **Uma estação de trabalho com o Azure PowerShell**.
 
-## <a id="powershell"></a>Execute uma tarefa de MapReduce
+## <a id="powershell"></a>Executar uma tarefa de MapReduce
 
-O Azure PowerShell fornece *cmdlets* que permitem-lhe executar remotamente as tarefas do MapReduce no HDInsight. Internamente, PowerShell faz com que chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente denominadas Templeton) em execução no cluster do HDInsight.
+O Azure PowerShell disponibiliza *cmdlets* que permitem-lhe executar remotamente tarefas de MapReduce no HDInsight. Internamente, o PowerShell faz chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente denominadas Templeton) em execução no cluster do HDInsight.
 
-Os cmdlets seguintes são utilizados quando executar tarefas de MapReduce num cluster de HDInsight remoto.
+Os cmdlets seguintes são utilizados quando executar tarefas de MapReduce num cluster do HDInsight remoto.
 
-* **Ligar-AzureRmAccount**: autentica o Azure PowerShell para a sua subscrição do Azure.
+* **Connect-AzureRmAccount**: autentica o Azure PowerShell para a sua subscrição do Azure.
 
-* **Novo AzureRmHDInsightMapReduceJobDefinition**: cria um novo *definição de tarefa* utilizando as informações de MapReduce especificada.
+* **Novo AzureRmHDInsightMapReduceJobDefinition**: cria uma nova *definição de tarefa* usando as informações de MapReduce especificadas.
 
-* **Início AzureRmHDInsightJob**: envia a definição de tarefa no HDInsight e inicia a tarefa. A *tarefa* objeto é devolvido.
+* **Start-AzureRmHDInsightJob**: envia a definição de tarefa ao HDInsight e inicia a tarefa. R *tarefa* objeto é devolvido.
 
-* **Espera-AzureRmHDInsightJob**: utiliza o objeto de trabalho para verificar o estado da tarefa. Deve aguardar até que a tarefa é concluída ou excedido o tempo de espera.
+* **Espera-AzureRmHDInsightJob**: usa o objeto de tarefa para verificar o estado da tarefa. Ele aguarda até que a tarefa é concluída ou o tempo de espera foi excedido.
 
 * **Get-AzureRmHDInsightJobOutput**: utilizado para obter o resultado da tarefa.
 
-Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tarefa no cluster do HDInsight.
+Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tarefa no seu cluster do HDInsight.
 
-1. Com um editor, guarde o seguinte código como **mapreducejob.ps1**.
+1. Com um editor, guarde o código a seguir como **mapreducejob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
-2. Abra uma nova **Azure PowerShell** linha de comandos. Altere os diretórios para a localização do **mapreducejob.ps1** de ficheiros, em seguida, utilize o seguinte comando para executar o script:
+2. Abra uma nova **do Azure PowerShell** prompt de comando. Altere os diretórios para a localização do **mapreducejob.ps1** de ficheiros, em seguida, utilize o seguinte comando para executar o script:
 
         .\mapreducejob.ps1
 
-    Quando executar o script, serão apresentadas para o nome do cluster do HDInsight e o início de sessão do cluster. Também poderá ser solicitado para autenticar a sua subscrição do Azure.
+    Ao executar o script, lhe for pedido para o nome do HDInsight cluster e o início de sessão do cluster. Também poderá ser solicitado para autenticar a sua subscrição do Azure.
 
-3. Quando a tarefa estiver concluída, poderá recebe um resultado semelhante ao seguinte texto:
+3. Quando a tarefa estiver concluída, recebe um resultado semelhante ao seguinte texto:
 
         Cluster         : CLUSTERNAME
         ExitCode        : 0
@@ -79,20 +74,20 @@ Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tar
     Este resultado indica que a tarefa foi concluída com êxito.
 
     > [!NOTE]
-    > Se o **ExitCode** é um valor diferente de 0, consulte [resolução de problemas](#troubleshooting).
+    > Se o **ExitCode** é um valor diferente de 0, veja [resolução de problemas](#troubleshooting).
 
-    Este exemplo também armazena os ficheiros transferidos para um **output.txt** ficheiro no diretório de executar o script.
+    Este exemplo também armazena os ficheiros transferidos para uma **output.txt** ficheiro no diretório que executar o script.
 
-### <a name="view-output"></a>Saída de vista
+### <a name="view-output"></a>Saída do modo de exibição
 
-Para ver as palavras e contagens produzidas pela tarefa, abra o **output.txt** ficheiro num editor de texto.
+Para ver as palavras e contagens de produzido pela tarefa, abra a **output.txt** ficheiro num editor de texto.
 
 > [!NOTE]
-> Os ficheiros de saída de uma tarefa de MapReduce são imutáveis. Por isso, se voltar a executar este exemplo, terá de alterar o nome do ficheiro de saída.
+> Os ficheiros de saída de uma tarefa de MapReduce são imutáveis. Portanto, se voltar a executar este exemplo, terá de alterar o nome do ficheiro de saída.
 
 ## <a id="troubleshooting"></a>Resolução de Problemas
 
-Se nenhuma informação é devolvida quando a tarefa é concluída, ver os erros para a tarefa. Para ver informações de erro para esta tarefa, adicione o seguinte comando ao fim do **mapreducejob.ps1** ficheiro, guarde-o e, em seguida, execute-o novamente.
+Se nenhuma informação é retornada quando a tarefa é concluída, ver os erros para a tarefa. Para ver informações de erro para esta tarefa, adicione o seguinte comando ao final dos **mapreducejob.ps1** de ficheiros, guarde-o e, em seguida, execute-o novamente.
 
 ```powershell
 # Print the output of the WordCount job.
@@ -104,17 +99,17 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Este cmdlet devolve as informações que foi escritas em STDERR como a tarefa é executada.
+Este cmdlet devolve as informações de que foi escritas para STDERR como a execução da tarefa.
 
 ## <a id="summary"></a>Resumo
 
-Como pode ver, o Azure PowerShell fornece uma forma fácil de executar as tarefas do MapReduce num cluster do HDInsight, monitorizar o estado da tarefa e obter o resultado.
+Como pode ver, o Azure PowerShell fornece uma forma fácil de executar tarefas de MapReduce num cluster do HDInsight, monitorizar o estado da tarefa e obter o resultado.
 
 ## <a id="nextsteps"></a>Passos seguintes
 
-Para obter informações gerais sobre as tarefas do MapReduce no HDInsight:
+Para obter informações gerais sobre tarefas de MapReduce no HDInsight:
 
-* [Utilizar o MapReduce do HDInsight Hadoop](hdinsight-use-mapreduce.md)
+* [Utilizar o MapReduce no HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 

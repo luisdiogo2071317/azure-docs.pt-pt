@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de SAP BW utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados a partir do SAP Business Warehouse aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
+title: Copiar dados do SAP BW com o Azure Data Factory | Documentos da Microsoft
+description: Saiba como copiar dados do SAP Business Warehouse para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,61 +11,63 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9934e9757b5def444afb39d110e490aa6516521f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045080"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590335"
 ---
-# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados a partir do SAP Business Warehouse utilizando o Azure Data Factory
+# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Versão atual](connector-sap-business-warehouse.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de um SAP Business armazém (BW). Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados a partir de um SAP Business Warehouse (BW). Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados do SAP Business Warehouse para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de SAP Business Warehouse para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, este conector do SAP Business Warehouse suporta:
+Especificamente, este conector SAP Business Warehouse suporta:
 
-- Do SAP Business Warehouse **versão 7. x**.
-- Copiar dados a partir de **InfoCubes e QueryCubes** (incluindo BEx consulta) através de consultas MDX.
-- A copiar os dados utilizando a autenticação básica.
+- SAP Business Warehouse **versão 7.x**.
+- Copiar dados a partir **InfoCubes e QueryCubes** (incluindo BEx consulta) usando consultas MDX.
+- Cópia de dados usando a autenticação básica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector do SAP Business Warehouse, tem de:
+Para utilizar este conector SAP Business Warehouse, tem de:
 
-- Defina um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
-- Instalar o **SAP NetWeaver biblioteca** na máquina de tempo de execução de integração. Pode obter a biblioteca do SAP Netweaver ao administrador de SAP ou diretamente a partir de [Centro de transferências de Software do SAP](https://support.sap.com/swdc). Procure o **SAP nota #1025361** para obter a localização de transferência para a versão mais recente. Certifique-se que escolha o **64-bit** SAP NetWeaver biblioteca, que corresponde a instalação de tempo de execução de integração. Em seguida, instale todos os ficheiros incluídos no SDK do SAP NetWeaver RFC, de acordo com a nota SAP. A biblioteca do SAP NetWeaver também está incluída na instalação do SAP ferramentas de cliente.
+- Configure um Runtime de integração autoalojado. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+- Instalar o **biblioteca de SAP NetWeaver** na máquina do Runtime de integração. Pode obter a biblioteca do SAP Netweaver do seu administrador SAP ou diretamente a partir da [SAP Software Download Center](https://support.sap.com/swdc). Procure o **SAP Note #1025361** para obter a localização de transferência para a versão mais recente. Certifique-se de que escolha o **64-bit** biblioteca de SAP NetWeaver, que corresponde à sua instalação do Runtime de integração. Em seguida, instale todos os ficheiros incluídos no SDK do SAP NetWeaver RFC, de acordo com a nota SAP. A biblioteca do SAP NetWeaver também está incluída na instalação de ferramentas de cliente SAP.
 
-> [!TIP]
-> Coloque os dlls extraídas do NetWeaver RFC SDK na pasta system32.
+>[!TIP]
+>Para resolver o problema de conectividade ao SAP BW, certifique-se:
+>- Todas as bibliotecas de dependência extraídas a partir do SDK do NetWeaver RFC estão em vigor na pasta %windir%\system32. Normalmente, tem icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll sapcryto_old.dll, sapnwrfc.dll.
+>- As portas necessárias utilizadas para ligar ao servidor SAP estão ativadas no computador do Runtime de integração autoalojado, que normalmente são a porta 3300 e 3201.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do SAP Business Warehouse.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector SAP Business Warehouse.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço do SAP Business Warehouse (BW) ligada:
+As seguintes propriedades são suportadas para o serviço de SAP Business Warehouse (BW) ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **SapBw** | Sim |
+| tipo | A propriedade de tipo deve ser definida como: **SapBw** | Sim |
 | servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
-| systemNumber | Número de sistema do sistema SAP BW.<br/>Permitido valor: número decimal dois dígitos representado como uma cadeia. | Sim |
-| clientId | ID de cliente do cliente no sistema SAP W.<br/>Permitido valor: número decimal de três dígitos representado como uma cadeia. | Sim |
-| userName | Nome do utilizador que tem acesso ao servidor do SAP. | Sim |
-| palavra-passe | Palavra-passe para o utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
+| systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
+| clientId | ID de cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
+| userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
+| palavra-passe | Palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -94,9 +96,9 @@ As seguintes propriedades são suportadas para o serviço do SAP Business Wareho
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados SAP BW.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do SAP BW.
 
-Para copiar dados de SAP BW, defina a propriedade de tipo do conjunto de dados para **RelationalTable**. Enquanto existirem sem propriedades de específicos do tipo suportadas para o conjunto de dados SAP BW do tipo RelationalTable.
+Para copiar dados do SAP BW, defina a propriedade de tipo de conjunto de dados para **RelationalTable**. Embora não haja nenhuma propriedade de específicos do tipo suportada para o conjunto de dados do SAP BW de tipo RelationalTable.
 
 **Exemplo:**
 
@@ -116,16 +118,16 @@ Para copiar dados de SAP BW, defina a propriedade de tipo do conjunto de dados p
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem de SAP BW.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do SAP BW.
 
 ### <a name="sap-bw-as-source"></a>SAP BW como origem
 
-Para copiar dados de SAP BW, defina o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do SAP BW, defina o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
-| consulta | Especifica a consulta MDX para ler os dados na instância do SAP BW. | Sim |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| consulta | Especifica a consulta MDX para ler dados a partir da instância do SAP BW. | Sim |
 
 **Exemplo:**
 
@@ -159,18 +161,18 @@ Para copiar dados de SAP BW, defina o tipo de origem na atividade de cópia para
 ]
 ```
 
-## <a name="data-type-mapping-for-sap-bw"></a>Mapeamento de tipo de dados para SAP BW
+## <a name="data-type-mapping-for-sap-bw"></a>Mapeamento de tipo de dados para o SAP BW
 
-Quando copiar dados a partir do SAP BW, os seguintes mapeamentos são utilizados SAP BW tipos de dados para tipos de dados intermédio do Azure Data Factory. Consulte [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Quando se copiam dados a partir do SAP BW, os seguintes mapeamentos são utilizados entre tipos de dados do SAP BW aos tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
-| Tipo de dados SAP BW | Tipo de dados intermédio de fábrica de dados |
+| Tipo de dados do SAP BW | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | ACCP | Int |
 | CHAR | Cadeia |
 | CLNT | Cadeia |
-| CURR | Decimal |
+| MÊS | decimal |
 | CUKY | Cadeia |
-| DEC | Decimal |
+| DEZEMBRO | decimal |
 | FLTP | Valor de duplo |
 | INT1 | Byte |
 | INT2 | Int16 |
@@ -179,10 +181,10 @@ Quando copiar dados a partir do SAP BW, os seguintes mapeamentos são utilizados
 | LCHR | Cadeia |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Decimal |
-| NÃO PROCESSADO | Byte[] |
+| QUAN | decimal |
+| NÃO PROCESSADOS | Byte[] |
 | RAWSTRING | Byte[] |
-| CADEIA | Cadeia |
+| CADEIA DE CARACTERES | Cadeia |
 | UNIDADE | Cadeia |
 | DATS | Cadeia |
 | NUMC | Cadeia |
@@ -190,4 +192,4 @@ Quando copiar dados a partir do SAP BW, os seguintes mapeamentos são utilizados
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

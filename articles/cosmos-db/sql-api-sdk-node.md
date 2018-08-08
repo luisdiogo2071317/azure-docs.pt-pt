@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: API de Node.js do SQL Server, SDK & recursos | Microsoft Docs'
-description: Saiba tudo sobre API Node.js do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Node.js SDK.
+title: 'Azure Cosmos DB: API de node. js SQL, SDK e recursos | Documentos da Microsoft'
+description: Saiba tudo sobre a API de node. js de SQL e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de node. js do Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
 manager: kfile
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797850"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594367"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js do Cosmos BD do Azure para a API do SQL Server: notas de versão e recursos
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de node. js do Cosmos DB do Azure para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alteração de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,173 +34,167 @@ ms.locfileid: "34797850"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Transferir o SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API node.js](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Amostras**</td><td>[Exemplos de código do node.js](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Tutorial de introdução**</td><td>[Começar com o SDK Node.js](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Tutorial de aplicação Web**</td><td>[Criar uma aplicação de web do Node.js utilizando o Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Plataforma suportada atual**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[NODE.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[NODE.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[NODE.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Recurso  |Ligação  |
+|---------|---------|
+|Transferir o SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|Documentação da API  |  [Documentação de referência do SDK de JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|Instruções de instalação do SDK  |  [Instruções de instalação](https://github.com/Azure/azure-cosmos-js#installation)
+|Contribuir para o SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Amostras | [Exemplos de código node. js](sql-api-nodejs-samples-preview.md)
+| Tutorial de introdução | [Introdução ao SDK do JavaScript](sql-api-nodejs-get-started-preview.md)
+| Tutorial da aplicação Web | [Criar uma aplicação web de node. js com o Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Plataforma suportada atual | [NODE. js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - necessário para o SDK versão 2.0.0 e superiores.<br/>[V4.2.0 de node. js](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [V0.12 de node. js](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [V0.10 de node. js](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* RC1 da versão 2.0.0 do SDK do JavaScript para a pré-visualização pública.
+* Novo modelo de objeto, com métodos e de nível superior CosmosClient dividir por classes de base de dados, o contentor e o Item relevantes. 
+* Suporte para [promete](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK convertidas para TypeScript.
+
 ### <a name="1.14.4"/>1.14.4</a>
-* documentação de npm for corrigida.
+* documentação de npm fixada.
 
 ### <a name="1.14.3"/>1.14.3</a>
-* Suporte adicionado para repetições de predefinição em problemas de ligação.
-* Suporte adicionado para ler as alterações de coleção do feed.
-* Erros de consistência de sessão fixo que causou ligados intermitentemente "leitura sessão não está disponível".
-* Adicionado suporte para as métricas de consulta.
-* Alterar o número máximo do http do agente de ligações.
+* Foi adicionado suporte para predefinida é repetida em problemas de ligação.
+* Foi adicionado suporte para alteração de coleção de leitura do feed.
+* Erro de consistência de sessão fixo que intermitentemente causado "leitura session não está disponível".
+* Foi adicionado suporte para as métricas de consulta.
+* Alterar o número máximo do agente de http de ligações.
 
 ### <a name="1.14.2"/>1.14.2</a>
-* Documentação atualizada a referência de base de dados do Azure Cosmos em vez do Azure DocumentDB.
-* Suporte adicionado para definição de proxyUrl na ConnectionPolicy.
+* Documentação atualizada a referência do Azure Cosmos DB em vez do Azure DocumentDB.
+* Foi adicionado suporte para definição de proxyUrl na ConnectionPolicy.
 
 ### <a name="1.14.1"/>1.14.1</a>
-* Corrigir secundária para sistemas de ficheiros sensíveis a maiúsculas e minúsculas.
+* Correção de pequenas para sistemas de ficheiros maiúsculas de minúsculas.
 
 ### <a name="1.14.0"/>1.14.0</a>
-* Adiciona suporte para a consistência de sessão.
-* Esta versão do SDK requer a versão mais recente do Azure Cosmos DB emulador disponível para transferência a partir do https://aka.ms/cosmosdb-emulator.
+* Adiciona suporte para consistência da sessão.
+* Esta versão do SDK requer a versão mais recente do emulador do Cosmos DB disponível para download em https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
-* Divisão proofed entre consultas de partição.
-* Adiciona suporte para o recurso de ligação com barras à direita e à esquerda (e testes correspondentes).
+* Divisão planeado para várias consultas de partição.
+* Adiciona suporte para ligação de recursos com barras à direita e à esquerda (e testes de correspondentes).
 
 ### <a name="1.12.2"/>1.12.2</a>
-*   documentação de npm for corrigida.
+*   documentação de npm fixada.
 
 ### <a name="1.12.1"/>1.12.1</a>
-* Corrigido um erro no executeStoredProcedure onde documentos envolvidos tinham carateres Unicode especiais (LS, PS).
-* Corrigido um erro no processamento de documentos com carateres Unicode a chave de partição.
-* Suporte fixo para criar coleções com o suporte de dados do nome. Problema de Github #114.
-* Suporte fixo para o token de autorização de permissão. Problema de Github #178.
+* Foi corrigido um erro no executeStoredProcedure em que os documentos envolvidos tinham carateres Unicode especiais (LS, PS).
+* Foi corrigido um erro no processamento de documentos com caracteres Unicode na chave de partição.
+* Obter suporte fixo para criar coleções com o suporte de dados do nome. Problema do Github #114.
+* Suporte fixo para o token de autorização de permissão. Problema do Github #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
-* Foi adicionado suporte para um novo [nível de consistência](consistency-levels.md) chamado ConsistentPrefix.
-* Suporte adicionado para UriFactory.
-* Corrigido um erro de suporte de Unicode. Problema de GitHub #171.
+* Foi adicionado suporte para uma nova [nível de consistência](consistency-levels.md) chamado ConsistentPrefix.
+* Foi adicionado suporte para UriFactory.
+* Foi corrigido um erro de suporte de Unicode. Problema do GitHub #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
-* O suporte adicionado para consultas de agregação (CONTAGEM, MIN, MAX, soma e média).
-* Adicionar a opção para controlar o grau de paralelismo para entre consultas de partição.
-* Adicionar a opção para desativar a verificação de SSL quando em execução contra o emulador de BD do Cosmos do Azure.
-* Lowered débito mínimo em coleções particionadas de 10,100 RU/s ao 2500 RU/s.
-* Corrigir os erros de token de continuação para a coleção de partições únicas. Problema de Github #107.
-* Corrigir os erros de executeStoredProcedure processar 0 como param único. Problema de Github #155.
+* Foi adicionado o suporte para consultas de agregação (COUNT, MIN, MAX, soma e média).
+* Adicionar a opção para controlar o grau de paralelismo para cruzada consultas de partição.
+* Adicionar a opção para desativar a verificação de SSL na execução no emulador do Azure Cosmos DB.
+* Reduzidas débito mínimo em coleções particionadas do 10,100 RU/s para 2500 RU/s.
+* Corrigir o erro de token de continuação para a coleção de partição única. Problema do Github #107.
+* Foi corrigido o erro de executeStoredProcedure no processamento de 0 como único parâmetro. Problema do Github #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
-* Cabeçalho de agente de utilizador fixo para incluir a versão do SDK.
-* Limpeza de código secundárias.
+* Cabeçalho do agente do usuário fixo para incluir a versão do SDK.
+* Limpeza de código pequenas.
 
 ### <a name="1.10.1"/>1.10.1</a>
-* Ao utilizar o SDK para o emulator(hostname=localhost) de destino a desativar a verificação de SSL.
-* Suporte adicionado para ativar o registo de script durante a execução do procedimento armazenado.
+* Desativar a verificação de SSL ao utilizar o SDK para direcionar o emulator(hostname=localhost).
+* Foi adicionado suporte para ativar o registo de script durante a execução do procedimento armazenado.
 
 ### <a name="1.10.0"/>1.10.0</a>
-* Suporte adicionado para entre consultas paralelas de partição.
-* Suporte adicionado para consultas de parte superior/ORDER BY para coleções particionadas.
+* Foi adicionado suporte para cruzada consultas paralelas de partição.
+* Foi adicionado suporte para a parte superior/ORDER BY consultas para coleções particionadas.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Suporte de política de repetição adicionado para pedidos otimizados. (Pedidos otimizados recebem uma pedido taxa demasiado grande exceção, o código de erro 429.) Por predefinição, base de dados do Azure Cosmos repete nove vezes para cada pedido quando for detetado o código de erro 429, para respeitar o tempo de retryAfter no cabeçalho de resposta. Um período de tempo do intervalo de repetição fixo pode agora ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy se pretender ignorar a hora de retryAfter devolvida pelo servidor entre as repetições. BD do Azure do Cosmos aguarda agora um máximo de 30 segundos para cada pedido que está a ser limitado (independentemente da contagem de repetições) e devolve a resposta com o código de erro 429. Neste momento também pode ser substituído na propriedade RetryOptions ConnectionPolicy objeto.
-* BD do cosmos devolve agora x-ms-limitação--contagem de repetições e x-ms-throttle-retry-wait-time-ms como cabeçalhos de resposta de cada pedido para indicar a limitação de Repetir contagem e a hora cumulativa aguardaram o pedido entre as repetições.
-* A classe de RetryOptions foi adicionada, a propriedade RetryOptions na classe ConnectionPolicy que pode ser utilizada para substituir o algumas das opções predefinidas de repetir a exposição.
+* Suporte de política de repetição foi adicionado para pedidos limitados. (Pedidos limitados do Microsoft recebem uma pedido taxa demasiado grande exceção, o código de erro 429.) Por predefinição, do Azure Cosmos DB repete nove vezes para cada solicitação quando o código de erro 429 for encontrado, respeitar o tempo de retryAfter no cabeçalho de resposta. O tempo de um intervalo de repetição fixo pode agora ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy se pretender ignorar a hora de retryAfter devolvida pelo servidor entre as repetições. O Azure Cosmos DB agora aguarda até um máximo de 30 segundos para cada solicitação que está a ser limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Neste momento também pode ser substituído na propriedade RetryOptions no objeto ConnectionPolicy.
+* Cosmos DB agora retorna x-ms-limitação--contagem de repetições e x-ms-throttle-retry-wait-time-ms conforme os cabeçalhos de resposta em cada solicitação para indicar a limitação Repetir contagem e a hora de cumulativa o pedido de espera entre as repetições.
+* A classe RetryOptions foi adicionada, expondo a propriedade RetryOptions na classe ConnectionPolicy que pode ser utilizada para substituir algumas das opções de repetição predefinida.
 
 ### <a name="1.8.0"/>1.8.0</a>
-* O suporte adicionado para contas de multirregião base de dados.
+* Foi adicionado o suporte para contas de base de dados de várias regiões.
 
 ### <a name="1.7.0"/>1.7.0</a>
 * Foi adicionado o suporte para a funcionalidade de tempo para Live(TTL) para documentos.
 
 ### <a name="1.6.0"/>1.6.0</a>
-* Implementado [particionada coleções](partition-data.md) e [níveis de desempenho definido pelo utilizador](performance-levels.md).
+* Implementado [particionados coleções](partition-data.md) e [níveis de desempenho definido pelo utilizador](performance-levels.md).
 
 ### <a name="1.5.6"/>1.5.6</a>
-* Erros de RangePartitionResolver.resolveForRead fixo onde não foi devolver ligações devido a um concat incorreto de resultados.
+* Foi corrigido o erro RangePartitionResolver.resolveForRead onde não foi retornando ligações devido a um concat ruim de resultados.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Corrigido hashParitionResolver resolveForRead(): quando nenhuma chave de partição fornecido foi gerar exceção, em vez de devolver uma lista de todas as ligações registadas.
+* Foi corrigido hashParitionResolver resolveForRead(): quando nenhuma chave de partição fornecido estava gerando a exceção, em vez de retornar uma lista de todas as ligações registadas.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Corrige o problema [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -agente dedicado de HTTPS: evitar modificar o agente global para fins de BD do Cosmos do Azure. Utilize um agente dedicado para todos os pedidos de lib.
+* Corrige o problema [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -agente dedicado de HTTPS: evitam a modificação do agente global para fins de Azure Cosmos DB. Utilize um agente dedicado para todos os pedidos da biblioteca.
 
 ### <a name="1.5.3"/>1.5.3</a>
-* Corrige o problema [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - corretamente processar travessões no ID de suporte de dados.
+* Corrige o problema [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - corretamente lidar com travessões em ids de suporte de dados.
 
 ### <a name="1.5.2"/>1.5.2</a>
-* Corrige o problema [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -EventEmitter escuta fuga de aviso.
+* Corrige o problema [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -EventEmitter serviço de escuta de fuga de aviso.
 
 ### <a name="1.5.1"/>1.5.1</a>
 * Corrige o problema [#92](https://github.com/Azure/azure-documentdb-node/issues/90) -mudar o nome de pasta Hash para hash para sistemas de maiúsculas e minúsculas.
 
 ### <a name="1.5.0"/>1.5.0</a>
-* Suporte de fragmentação de implementar, adicionando as resoluções de hash & ntervalo de datas da partição.
+* Suporte de fragmentação de implementar adicionando Inte & rvalo de hash resolvedores de partição.
 
 ### <a name="1.4.0"/>1.4.0</a>
-* Implemente Upsert. Novo upsertXXX os métodos no documentClient.
+* Implemente Upsert. Novos métodos de upsertXXX na documentClient.
 
 ### <a name="1.3.0"/>1.3.0</a>
-* Ignorado para colocar os números de versão em alinhamento com outros SDKs.
+* Foi ignorada para introduzir os números de versão em alinhamento com outros SDKs.
 
 ### <a name="1.2.2"/>1.2.2</a>
-* Divisão Q promete wrapper para o repositório de novo.
+* As perguntas de divisão e promete wrapper para o repositório de novo.
 * Atualizar para o ficheiro de pacote para o registo de npm.
 
 ### <a name="1.2.1"/>1.2.1</a>
-* Implementa o ID de encaminhamento com base.
-* Corrige o problema [#49](https://github.com/Azure/azure-documentdb-node/issues/49) -propriedade atual está em conflito com current () do método.
+* Implementa ID encaminhamento com base.
+* Corrige o problema [#49](https://github.com/Azure/azure-documentdb-node/issues/49) -propriedade atual está em conflito com o método current().
 
 ### <a name="1.2.0"/>1.2.0</a>
-* Suporte adicionado para o índice de Geoespacial.
-* Valida a propriedade id de todos os recursos. Os IDs de recursos não podem conter?, /, #, &#47; &#47;, carateres nem terminar com um espaço.
-* Adiciona ResourceResponse novo cabeçalho "índice transformação curso".
+* Foi adicionado suporte para o índice de dados Geoespaciais.
+* Valida a propriedade de id para todos os recursos. IDs de recursos não podem conter?, /, #, &#47; &#47;, ou terminar com um espaço de carateres.
+* Adiciona o novo cabeçalho "índice transformação progress" ao ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
-* Implementa a política de indexação V2.
+* Implementa a política de indexação da V2.
 
 ### <a name="1.0.3"/>1.0.3</a>
-* Problema [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - implementado eslint grunt configurações de núcleos e promessa SDK.
+* Problema [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - implementado eslint e pesado configurações no núcleo e prometem SDK.
 
 ### <a name="1.0.2"/>1.0.2</a>
-* Problema [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -Promises wrapper não inclui um cabeçalho com o erro.
+* Problema [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -wrapper de Promises não inclui o cabeçalho com o erro.
 
 ### <a name="1.0.1"/>1.0.1</a>
-* Capacidade implementada de consulta em relação a conflitos adicionando readConflicts, readConflictAsync e queryConflicts.
+* Obter capacidade implementada para consultar os conflitos adicionando readConflicts readConflictAsync e queryConflicts.
 * Documentação da API atualizada.
-* Problema [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -client.createDocumentAsync erro.
+* Problema [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -erro de client.createDocumentAsync.
 
 ### <a name="1.0.0"/>1.0.0</a>
-* GA SDK.
+* SDK DE DISPONIBILIDADE GERAL.
 
-## <a name="release--retirement-dates"></a>Datas de extinção & versão
-A Microsoft disponibiliza notificação, pelo menos, **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
+## <a name="release--retirement-dates"></a>Versão & retirada datas
+A Microsoft fornece notificação, pelo menos, **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
-Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomenda-se que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível.
+Novos recursos e funcionalidade e otimizações, apenas são adicionadas ao SDK atual, como tal, é recomendável que sempre atualiza para a versão mais recente SDK mais cedo possível.
 
-Qualquer pedido de BD do Cosmos utilizando que um SDK extinto é rejeitadas pelo serviço.
+Qualquer pedido para a utilização do Cosmos DB que é um SDK extinto ser rejeitados pelo serviço.
 
 <br/>
 
-| Versão | Data da versão | Data de retirada |
+| Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.0.0-3 (RC)](#2.0.0-3) |2 de Agosto de 2018 |--- |
 | [1.14.4](#1.14.4) |03 de Maio de 2018 |--- |
 | [1.14.3](#1.14.3) |03 de Maio de 2018 |--- |
 | [1.14.2](#1.14.2) |21 de Dezembro de 2017 |--- |
@@ -240,5 +234,5 @@ Qualquer pedido de BD do Cosmos utilizando que um SDK extinto é rejeitadas pelo
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
 

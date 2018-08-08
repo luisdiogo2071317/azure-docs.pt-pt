@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 08/07/2018
 ms.author: shlo
-ms.openlocfilehash: 655a6ab2960047cde50bec2953015283ca8577f0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e1ca5356959197ae416caf0330a5a1c7eec96f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214864"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621458"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -47,7 +47,7 @@ Criação visual com a integração de Git do VSTS suporta o controlo de código
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurar um repositório de Git do VSTS com o Azure Data Factory
 Pode configurar um repositório de GIT do VSTS com uma fábrica de dados por meio de dois métodos.
 
-#### <a name="method1"></a> Método de configuração 1: página Vamos começar
+#### <a name="method1"></a> Método de configuração 1 (repositório de Git do VSTS): página Vamos começar
 
 No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
 
@@ -66,11 +66,11 @@ O painel mostra o seguinte código do VSTS, definições de repositório:
 | **Conta do Visual Studio Team Services** | Nome da sua conta VSTS. Pode localizar o nome da sua conta VSTS em `https://{account name}.visualstudio.com`. Pode [iniciar sessão na sua conta do VSTS](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e verá os repositórios e os projetos. | <your account name> |
 | **ProjectName** | O nome do projeto VSTS. Pode localizar o nome do projeto VSTS em `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
 | **RepositoryName** | O nome de repositório de código do VSTS. Os projetos do VSTS contêm repositórios de Git para gerir o seu código-fonte à medida que aumenta a seu projeto. Pode criar um novo repositório ou utilizar um repositório existente que já se encontra no seu projeto. | <your VSTS code repository name> |
-| **Ramo de colaboração** | O ramo de colaboração do VSTS que será utilizado para publicação. Por predefinição, é `master`. Altere esta opção no caso de que pretende publicar recursos a partir de outro ramo. | <your collaboration branch name> |
+| **Ramo de colaboração** | O ramo de colaboração do VSTS que é utilizado para publicação. Por predefinição, é `master`. Altere esta definição caso queira publicar recursos a partir de outro ramo. | <your collaboration branch name> |
 | **Pasta raiz** | A pasta de raiz no seu ramo de colaboração do VSTS. | <your root folder name> |
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório de Git do VSTS. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: experiência do Usuário baseada em telas de criação
+#### <a name="configuration-method-2--vsts-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Git do VSTS): UX tela de criação
 Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
 
 É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições <a href="#method1">método de configuração 1</a>.
@@ -92,7 +92,7 @@ Cada repositório de Git do VSTS que está associada uma fábrica de dados tem u
 
 ![Alterar o código, a sincronização ou de publicação](media/author-visually/sync-publish.png)
 
-Quando estiver preparado com o desenvolvimento de recursos no seu ramo de funcionalidade, pode clicar em **criar pedido pull**. Isso levará para GIT do VSTS onde pode fazer a solicitação de pedidos, código revisões e intercalar alterações ao ramo de colaboração. (`master` é a predefinição). Só são permitidas para publicar para o serviço Data Factory do ramo de colaboração. 
+Quando estiver preparado com o desenvolvimento de recursos no seu ramo de funcionalidade, pode clicar em **criar pedido pull**. Esta ação lhe VSTS GIT, onde pode fazer pedidos pull, revisões de código e intercalar as alterações ao ramo de colaboração. (`master` é a predefinição). Só são permitidas para publicar para o serviço Data Factory do ramo de colaboração. 
 
 ![Criar um novo pedido pull](media/author-visually/create-pull-request.png)
 
@@ -104,8 +104,81 @@ Depois de foram mescladas alterações para o ramo de colaboração (`master` é
 > [!IMPORTANT]
 > O ramo principal não é representa o que é implementado no serviço Data Factory. O ramo principal *tem* ser publicados manualmente o serviço Data Factory.
 
+### <a name="author-with-github-integration"></a>Autor com integração do Github
+
+Criação de Visual com integração do Github suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório de conta do Github para o controlo de origem, colaboração, controlo de versões. Uma única conta Github pode ter vários repositórios, mas um repositório do Github pode ser associado a fábrica de dados apenas uma. Se não tiver aGithub conta ou o repositório, siga [estas instruções](https://github.com/join) para criar os seus recursos. A integração do GitHub com o Data Factory suporta tanto públicas Github, bem como GitHub Enterprise.
+
+> [!NOTE]
+> Pode armazenar ficheiros de dados e de script num repositório do Github. No entanto, terá de carregar os ficheiros manualmente para o armazenamento do Azure. Um pipeline do Data Factory não automaticamente carregar arquivos de script ou de dados armazenados num repositório do Github para o armazenamento do Azure.
+
+#### <a name="configure-a-public-github-repository-with-azure-data-factory"></a>Configurar um repositório do Github público com o Azure Data Factory
+
+Pode configurar um repositório do Github com uma fábrica de dados por meio de dois métodos.
+
+**Método de configuração 1 (repositório público): página Vamos começar**
+
+No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
+
+![Página de introdução à fábrica de dados](media/author-visually/github-integration-image1.png)
+
+O **definições do repositório** é apresentado o painel de configuração:
+
+![Definições de repositório do GitHub](media/author-visually/github-integration-image2.png)
+
+O painel mostra o seguinte código do VSTS, definições de repositório:
+
+| **Definição**                                              | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valor**          |
+|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| **Tipo de repositório**                                      | O tipo de repositório de código do VSTS.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Conta do GitHub**                                       | Nome da sua conta GitHub. Este nome pode ser encontrado partir https://github.com/{account nome} / {nome do repositório}. Navegar para esta página pede-lhe para introduzir as credenciais de OAuth do Github para a sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
+| **RepositoryName**                                       | O nome de repositório de código do GitHub. Contas GitHub contenham repositórios de Git para gerir o seu código-fonte. Pode criar um novo repositório ou utilizar um repositório existente que já está na sua conta.                                                                                                                                                                                                                              |                    |
+| **Ramo de colaboração**                                 | O ramo de colaboração do GitHub que serve para publicação. Por padrão, ele é a Mestra. Altere esta definição caso queira publicar recursos a partir de outro ramo.                                                                                                                                                                                                                                                               |                    |
+| **Pasta raiz**                                          | A pasta de raiz no seu ramo de colaboração do GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
+| **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
+| **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
+
+**Método de configuração 2 (repositório público): UX tela de criação**
+
+Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
+
+É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições *método de configuração 1* acima.
+
+#### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Configurar um repositório de Github Enterprise com o Azure Data Factory
+
+Pode configurar um repositório de Github Enterprise com uma fábrica de dados por meio de dois métodos.
+
+**Método de configuração 1 (repositório de Enterprise): página Vamos começar**
+
+No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
+
+![Página de introdução à fábrica de dados](media/author-visually/github-integration-image1.png)
+
+O **definições do repositório** é apresentado o painel de configuração:
+
+![Definições de repositório do GitHub](media/author-visually/github-integration-image3.png)
+
+O painel mostra o seguinte código do VSTS, definições de repositório:
+
+| **Definição**                                              | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valor**          |
+|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| **Tipo de repositório**                                      | O tipo de repositório de código do VSTS.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Utilizar o GitHub Enterprise**                                | Caixa de verificação para selecionar o GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
+| **URL do GitHub Enterprise**                                | O URL de raiz de GitHub Enterprise. Por exemplo: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
+| **Conta do GitHub**                                       | Nome da sua conta GitHub. Este nome pode ser encontrado partir https://github.com/{account nome} / {nome do repositório}. Navegar para esta página pede-lhe para introduzir as credenciais de OAuth do Github para a sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
+| **RepositoryName**                                       | O nome de repositório de código do GitHub. Contas GitHub contenham repositórios de Git para gerir o seu código-fonte. Pode criar um novo repositório ou utilizar um repositório existente que já está na sua conta.                                                                                                                                                                                                                              |                    |
+| **Ramo de colaboração**                                 | O ramo de colaboração do GitHub que serve para publicação. Por padrão, ele é a Mestra. Altere esta definição caso queira publicar recursos a partir de outro ramo.                                                                                                                                                                                                                                                               |                    |
+| **Pasta raiz**                                          | A pasta de raiz no seu ramo de colaboração do GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
+| **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
+| **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
+
+**Método de configuração 2 (repositório de Enterprise): UX tela de criação**
+
+Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
+
+É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições *método de configuração 1* acima.
+
 ## <a name="use-the-expression-language"></a>Utilize a linguagem de expressão
-Pode especificar expressões para valores de propriedade usando a linguagem de expressão que é suportada pelo Azure Data Factory. 
+Pode especificar expressões para valores de propriedade usando a linguagem de expressão que é suportada pelo Azure Data Factory.
 
 Especificar expressões para valores de propriedade selecionando **adicionar conteúdo dinâmico**:
 

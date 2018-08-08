@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: e4f09e90c1ebb14cdbd528b34e016001c6556540
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389655"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618344"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
@@ -81,7 +81,8 @@ Esta secção mostra o resumo das informações.
 |shortId|O ID do vídeo. Por exemplo, 63c6d532ff.|
 |privacyMode|Sua análise detalhada pode ter um dos seguintes modos: **privada**, **público**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
-|thumbnailUrl|Miniatura do vídeo total URL. Por exemplo, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Tenha em atenção que, se o vídeo é privado, o URL contém um token de acesso de uma hora. Depois de uma hora, o URL já não será válido e terá de obter a divisão novamente com um novo url no mesmo ou chamar GetAccessToken para obter um novo token de acesso e construir o url completo manualmente ("https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
+|thumbnailVideoId|O id do vídeo a partir do qual foi tirada a miniatura.
+|thumbnailId|Id de miniatura do vídeo. Para obter a chamada de miniatura real Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
 |rostos|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentimentos|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
@@ -106,7 +107,7 @@ Esta secção mostra o resumo das informações.
 |do IdP|Os metadados do vídeo externo (se especificado pelo utilizador).|
 |isAdult|Indica se o vídeo foi revisado e identificado como um vídeo para adultos manualmente.|
 |informações|O objeto de informações. Para obter mais informações, consulte [insights](#insights).|
-|thumbnailUrl|Miniatura do vídeo total URL. Por exemplo, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Tenha em atenção que, se o vídeo é privado, o URL contém um token de acesso de uma hora. Depois de uma hora, o URL já não será válido e terá de obter a divisão novamente com um novo url no mesmo ou chamar GetAccessToken para obter um novo token de acesso e construir o url completo manualmente ("https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
+|thumbnailId|Id de miniatura do vídeo. Para obter a chamada de miniatura real Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e transmita-o id do vídeo e thumbnailId.|
 |publishedUrl|Um url para transmitir o vídeo.|
 |publishedUrlProxy|Um url para transmitir o vídeo de (para dispositivos da Apple).|
 |viewToken|Um token de vista de resumo de duração para o vídeo de transmissão em fluxo.|

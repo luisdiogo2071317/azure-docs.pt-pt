@@ -1,25 +1,20 @@
 ---
-title: Instalar as suas próprias aplicações do Hadoop personalizadas no Azure HDInsight | Microsoft Docs
+title: Instalar seus próprios aplicativos personalizados do Hadoop no HDInsight do Azure
 description: Saiba como instalar aplicações do HDInsight em aplicações do HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: ab0395f9ee9a8950b439f19502ca6cef6c4f4cf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 23fbbdc4fc41329efadc4fc7953afa0659e79465
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201640"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595904"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Hadoop personalizadas no Azure HDInsight
 
@@ -83,7 +78,7 @@ Pode verificar o estado da aplicação no Portal do Azure para validar a instala
 3. Clique no cluster onde instalou a aplicação.
 4. No painel **Definições**, clique em **aplicações** na categoria **Geral**. Deverá ver **hue** indicada no painel **Aplicações Instaladas**.
 5. Clique em **hue** na lista para ver as propriedades.  
-6. Clique na hiperligação de página Web para validar o Web site; Abra o ponto final de HTTP num browser para validar a IU da web de Hue, abra o ponto final SSH utilizando SSH. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md).
+6. Clique na ligação de página Web para validar o Web site; Abra o ponto de final HTTP num browser para validar a IU da web de Hue, abra o ponto final SSH com SSH. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="troubleshoot-the-installation"></a>Resolver problemas relacionados com a instalação
 Pode verificar o estado da instalação da aplicação na notificação do portal (clique no ícone de sino na parte superior do portal).

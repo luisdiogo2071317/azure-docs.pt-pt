@@ -1,25 +1,20 @@
 ---
-title: Instalar o Jupyter localmente e ligar a um cluster do Azure HDInsight Spark | Documentos da Microsoft
-description: Saiba como instalar o bloco de notas do Jupyter localmente no seu computador e ligá-la para um cluster do Apache Spark no HDInsight do Azure.
+title: Instalar o Jupyter localmente e ligar ao Spark no Azure HDInsight
+description: Saiba como instalar o bloco de notas do Jupyter localmente no seu computador e ligá-la a um cluster do Apache Spark.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+author: jasonwhowell
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 72850bc7d7c86f2fefd1b8f4311b038ddd7c8b33
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: jasonh
+ms.openlocfilehash: 5e1a089f24a3223220b703bd4225e2750c7cae72
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423553"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619248"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de notas do Jupyter no seu computador e ligar ao Apache Spark no HDInsight
 

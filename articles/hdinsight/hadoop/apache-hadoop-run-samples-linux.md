@@ -1,26 +1,21 @@
 ---
-title: Executar exemplos de MapReduce do Hadoop no HDInsight - Azure | Microsoft Docs
-description: Começar a utilizar o MapReduce amostras nos ficheiros jar incluídos no HDInsight. Utilizar o SSH para ligar ao cluster e, em seguida, utilize o comando de Hadoop para executar tarefas de exemplo.
+title: Executar exemplos de MapReduce do Hadoop no HDInsight - Azure
+description: Começar a utilizar os exemplos de MapReduce nos ficheiros jar incluídos no HDInsight. Utilizar o SSH para ligar ao cluster e, em seguida, utilize o comando de Hadoop para executar tarefas de exemplo.
 keywords: jar de exemplo do hadoop, hadoop exemplos jar, exemplos de mapreduce do hadoop, exemplos de mapreduce
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 14f860d64c482ac7ef74512aea4850821d30132c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: b29fb56f6ce244811aef924bb947a8b8ee8e4da4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202310"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597308"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos de MapReduce incluídos no HDInsight
 
@@ -30,103 +25,103 @@ Saiba como executar os exemplos de MapReduce incluídos com o Hadoop no HDInsigh
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster do HDInsight**: consulte [começar a utilizar o Hadoop com o Hive no HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md)
+* **Um cluster do HDInsight**: consulte [introdução ao Hadoop com o Hive no HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
     > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-* **Um cliente SSH**: para obter mais informações, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH**: para obter mais informações, consulte [utilizar o SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>Os exemplos de MapReduce
 
-**Localização**: exemplos estão localizados no cluster do HDInsight em `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+**Localização**: os exemplos estão localizados no cluster do HDInsight em `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 
-**Conteúdo**: os exemplos seguintes estão contidos neste arquivo:
+**Conteúdo**: os exemplos seguintes estão contidos deste arquivo:
 
-* `aggregatewordcount`: Um agregado com a base de programa de mapreduce que contagens palavras nos ficheiros de entrada.
-* `aggregatewordhist`: Um agregado com a base de programa de mapreduce que calcula a histograma das palavras nos ficheiros de entrada.
-* `bbp`: Um programa de mapreduce que utiliza Bailey-Borwein-Plouffe para dígitos exatos do instalador de plataforma de computação.
-* `dbcount`: Uma tarefa de exemplo que contagens registos pageview armazenados numa base de dados.
-* `distbbp`: Um programa de mapreduce que utiliza uma fórmula de tipo BBP para bits exatos de instalador de plataforma de computação.
-* `grep`: Um programa de mapreduce que contagens de correspondências de um regex na entrada.
-* `join`: Uma tarefa que efetua uma junção através de ordenada, igualmente particionada conjuntos de dados.
-* `multifilewc`: Uma tarefa que contagens de palavras de vários ficheiros de mensagens em fila.
-* `pentomino`: Um mapreduce mosaico disposição dos programa para encontrar soluções para problemas de pentomino.
-* `pi`: Um programa de mapreduce que calcula Pi utilizando um quasi-Monte método Carlo.
-* `randomtextwriter`: Um programa de mapreduce que escreve 10 GB de dados de texto aleatórios por nó.
-* `randomwriter`: Um programa de mapreduce que escreve 10 GB de dados aleatórios por nó.
-* `secondarysort`: Um exemplo de definir uma ordenação secundária para a fase de reduzir.
-* `sort`: Um programa de mapreduce que ordena os dados escritos pelo escritor de aleatório.
-* `sudoku`: Um solver sudoku.
+* `aggregatewordcount`: Um agregado com base em programa mapreduce que conte as palavras nos ficheiros de entrada.
+* `aggregatewordhist`: Um agregado com base em programa mapreduce que computa o histograma das palavras nos ficheiros de entrada.
+* `bbp`: Um programa mapreduce que utiliza Bailey-Borwein-Plouffe para dígitos exatos do instalador de plataforma de computação.
+* `dbcount`: Uma tarefa de exemplo que conte os registos de visualização de página armazenados numa base de dados.
+* `distbbp`: Um programa mapreduce que utiliza uma fórmula de tipo BBP para bits exatas de instalador de plataforma de computação.
+* `grep`: Um programa mapreduce que conte as correspondências de um regex na entrada.
+* `join`: Uma tarefa que efetua uma junção através de ordenados, igualmente particionados conjuntos de dados.
+* `multifilewc`: Uma tarefa que conte de palavras de vários arquivos.
+* `pentomino`: Um mapreduce mosaico programa de apresentação de mensagens em fila para encontrar soluções para problemas de pentomino.
+* `pi`: Um programa mapreduce que as estimativas de Pi usando um quasi-Monte de método Carlo.
+* `randomtextwriter`: Um programa mapreduce que escreve 10 GB de dados textuais aleatórios por nó.
+* `randomwriter`: Um programa mapreduce que escreve 10 GB de dados aleatórios por nó.
+* `secondarysort`: Um exemplo de definir um tipo secundário para a fase de redução.
+* `sort`: Um programa mapreduce que classifica os dados escritos pelo escritor do aleatório.
+* `sudoku`: Um solucionador do sudoku.
 * `teragen`: Gere dados para o terasort.
-* `terasort`: O terasort execute.
-* `teravalidate`: A verificar os resultados da terasort.
-* `wordcount`: Um programa de mapreduce que contagens palavras nos ficheiros de entrada.
-* `wordmean`: Um programa de mapreduce que contagens a duração média das palavras nos ficheiros de entrada.
-* `wordmedian`: Um programa de mapreduce que conta o comprimento mediano das palavras nos ficheiros de entrada.
-* `wordstandarddeviation`: Um programa de mapreduce que conta o desvio-padrão do comprimento de palavras nos ficheiros de entrada.
+* `terasort`: Execute o terasort.
+* `teravalidate`: A verificar os resultados de terasort.
+* `wordcount`: Um programa mapreduce que conte as palavras nos ficheiros de entrada.
+* `wordmean`: Um programa mapreduce que conte a duração média das palavras nos ficheiros de entrada.
+* `wordmedian`: Um programa mapreduce que conte o comprimento mediano das palavras nos ficheiros de entrada.
+* `wordstandarddeviation`: Um programa mapreduce que conte o desvio-padrão de comprimento de palavras nos ficheiros de entrada.
 
-**Código fonte**: código de origem para estes exemplos está incluído no cluster do HDInsight em `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+**O código-fonte**: estes exemplos de código-fonte está incluído no cluster do HDInsight em `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Executar o exemplo de wordcount
 
 1. Ligar ao HDInsight através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Do `username@#######:~$` linha de comandos, utilize o seguinte comando para listar os exemplos:
+2. Do `username@#######:~$` pedem, utilize o seguinte comando para listar os exemplos:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
     ```
 
-    Este comando cria a lista de exemplo da secção anterior deste documento.
+    Este comando cria a lista de exemplo da seção anterior deste documento.
 
-3. Utilize o seguinte comando para obter ajuda sobre uma amostra específica. Neste caso, o **wordcount** exemplo:
+3. Utilize o seguinte comando para obter ajuda sobre um exemplo específico. Neste caso, o **wordcount** exemplo:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
     ```
 
-    Receber a mensagem seguinte:
+    Recebe a seguinte mensagem:
 
         Usage: wordcount <in> [<in>...] <out>
 
-    Esta mensagem indica que pode fornecer vários caminhos de entrada para os documentos de origem. O caminho final é onde está armazenada a saída (contagem de palavras nos documentos origem).
+    Esta mensagem indica que pode fornecer vários caminhos de entrada para os documentos de origem. O caminho final é onde está armazenada a saída (contagem de palavras nos documentos de origem).
 
-4. Utilize o seguinte para contagem de todas as palavras nos blocos de notas do Leonardo Da Vinci, que são fornecidos como dados de exemplo com o cluster:
+4. Utilize o seguinte para a contagem de todas as palavras nos blocos de anotações de Leonardo Da Vinci, que são fornecidos como dados de exemplo com o seu cluster:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
     ```
 
-    Entrada para esta tarefa é lida `/example/data/gutenberg/davinci.txt`. Saída para este exemplo está armazenado num `/example/data/davinciwordcount`. Os dois caminhos estão localizados no armazenamento de predefinido para o cluster, não o sistema de ficheiros local.
+    Para esta tarefa é lida a partir de entrada `/example/data/gutenberg/davinci.txt`. Saída para este exemplo é armazenado no `/example/data/davinciwordcount`. Os dois caminhos estão localizados no armazenamento de predefinido para o cluster, não o sistema de arquivos local.
 
    > [!NOTE]
-   > Conforme indicado na ajuda para o exemplo de wordcount, pode também especificar vários ficheiros de entrada. Por exemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contabilizaria palavras no davinci.txt e ulysses.txt.
+   > Conforme observado na ajuda para o exemplo de wordcount, também pode especificar vários ficheiros de entrada. Por exemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contabilizaria palavras em davinci.txt e ulysses.txt.
 
-5. Uma vez concluída a tarefa, utilize o seguinte comando para ver o resultado:
+5. Depois de concluída a tarefa, utilize o seguinte comando para ver o resultado:
 
     ```bash
     hdfs dfs -cat /example/data/davinciwordcount/*
     ```
 
-    Este comando concatena todos os ficheiros de saída produzidos pela tarefa. Apresenta a saída para a consola. O resultado é semelhante ao seguinte texto:
+    Este comando concatena todos os ficheiros de saída produzidos pela tarefa. Ele apresenta o resultado no Console. O resultado é semelhante ao seguinte texto:
 
         zum     1
         zur     1
         zwanzig 1
         zweite  1
 
-    Cada linha representa um word e o número de vezes ocorreu nos dados de entrada.
+    Cada linha representa uma palavra e o número de vezes que ocorreu nos dados de entrada.
 
-## <a name="the-sudoku-example"></a>O exemplo de Sudoku
+## <a name="the-sudoku-example"></a>O exemplo do Sudoku
 
-[Sudoku](https://en.wikipedia.org/wiki/Sudoku) é um puzzle lógica composta por 3 x nove 3 grelhas. Alguns células na grelha têm números, enquanto outros estão em branco e o objetivo é resolver das células em branco. A hiperligação anterior tem mais informações sobre puzzle, mas o objetivo deste exemplo consiste em resolver para as células em branco. Por isso, o nosso entrada deve ser um ficheiro que é o seguinte formato:
+[O Sudoku](https://en.wikipedia.org/wiki/Sudoku) é um quebra-cabeça de lógica composto de nove 3x3 grades. Algumas células da grade têm números, enquanto outros estão em branco e o objetivo é solucionar para as células em branco. A ligação anterior tem mais informações sobre o quebra-cabeça, mas o objetivo deste exemplo é resolver para as células em branco. Portanto, nossa entrada deve ser um ficheiro que está no seguinte formato:
 
-* Nove linhas de nove colunas
+* Nove linhas de colunas de nove
 * Cada coluna pode conter um número ou `?` (que indica uma célula em branco)
 * Células são separadas por um espaço
 
-Há uma forma de determinados construir Sudoku de pequenos quebra-cabeças; Não é possível repetir um número numa coluna ou linha. Não há um exemplo no cluster do HDInsight que foi construído corretamente. Está localizado em `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` e contém o seguinte texto:
+Existe uma determinada maneira para construir o quebra-cabeças Sudoku; Não é possível repetir um número numa coluna ou linha. Há um exemplo no cluster do HDInsight que foi construído corretamente. Está localizado em `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` e contém o seguinte texto:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -138,13 +133,13 @@ Há uma forma de determinados construir Sudoku de pequenos quebra-cabeças; Não
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-Para executar este problema de exemplo através do exemplo Sudoku, utilize o seguinte comando:
+Para executar esse problema de exemplo através do exemplo do Sudoku, utilize o seguinte comando:
 
 ```bash
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 ```
 
-Os resultados são apresentados semelhantes para o seguinte texto:
+Os resultados são apresentados semelhantes ao seguinte texto:
 
     8 5 1 3 9 2 6 4 7
     4 3 2 6 7 8 1 9 5
@@ -156,55 +151,55 @@ Os resultados são apresentados semelhantes para o seguinte texto:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi--example"></a>Exemplo de instalador de plataforma (π)
+## <a name="pi--example"></a>Exemplo de PI (π)
 
-O exemplo de pi utiliza uma estatística (quasi-Monte Carlo) método para calcular o valor de pi. Pontos são colocados aleatoriamente um quadrado de unidade. O quadrado também contém um círculo. A probabilidade de que os pontos de coincidir com círculo são iguais para a área do círculo, pi/4. O valor de pi, pode ser estimado do valor 4R. R é o rácio do número de pontos que estão dentro do círculo para o número total de pontos que estão dentro de parênteses. Quanto maior for o exemplo de pontos de utilizados, melhor a estimativa é.
+O exemplo de instalador de plataforma usa uma estatística (quasi-Monte Carlo) método para calcular o valor de pi. Pontos são colocados aleatoriamente num quadrado de unidade. O quadrado contém também um círculo. A probabilidade de que os pontos se inserem num círculo são iguais para a área do círculo, pi/4. O valor de pi pode ser estimado do valor da 4R. R é a proporção entre o número de pontos que estão dentro do círculo para o número total de pontos que estejam no quadrado. Quanto maior for o exemplo de pontos de utilizados, melhor será a estimativa é.
 
-Utilize o seguinte comando para executar este exemplo. Este comando utiliza os mapas de 16 10,000,000 exemplos para calcular o valor de pi:
+Utilize o seguinte comando para executar este exemplo. Este comando utiliza o 16 mapas com 10.000.000 exemplos para estimar o valor de pi:
 
 ```bash
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 ```
 
-O valor devolvido por este comando é semelhante à **3.14159155000000000000**. Existência de referências, as primeiras 10 casas decimais de pi são 3.1415926535.
+O valor devolvido por este comando é semelhante à **3.14159155000000000000**. Para referências, as primeiras 10 casas decimais de pi são 3.1415926535.
 
 ## <a name="10-gb-greysort-example"></a>Exemplo de Greysort de 10 GB
 
-GraySort é uma ordenação benchmark. A métrica é a taxa de ordenação (TB por minuto) que é conseguida ao ordenar grandes quantidades de dados, normalmente, um 100 TB Mínimo.
+GraySort é uma espécie de benchmark. A métrica é a taxa de ordenação (TB por minuto) que é obtida ao ordenar grandes quantidades de dados, normalmente, um 100 TB Mínimo.
 
-Este exemplo utiliza um modest 10 GB de dados para que possam executar relativamente rapidamente. Utiliza as aplicações de MapReduce desenvolvidas pela Owen O'Malley e Arun Murthy. Estas aplicações won o benchmark de ordenação de terabyte para fins gerais ("daytona") anuais no 2009, com uma velocidade de 0.578 TB minuto (100 TB no 173 minutos). Para obter mais informações sobre esta e outras ordenação testes de desempenho, consulte o [Sortbenchmark](http://sortbenchmark.org/) site.
+Este exemplo utiliza um modesto 10 GB de dados para que podem ser executada relativamente rapidamente. Ele usa os aplicativos de MapReduce desenvolvidos pela Owen O'Malley e a Arun Murthy. Esses aplicativos venceram o parâmetro de comparação de ordenação de terabytes de fins gerais ("daytona") anual em 2009, com uma taxa de 0.578 TB por minuto (100 TB, em minutos 173). Para obter mais informações sobre este e outros parâmetros de comparação de classificação, consulte a [Sortbenchmark](http://sortbenchmark.org/) site.
 
-Este exemplo utiliza três conjuntos de MapReduce programas:
+Este exemplo utiliza três conjuntos de programas MapReduce:
 
-* **TeraGen**: MapReduce de um programa que gera linhas de dados para ordenar
+* **TeraGen**: MapReduce de um programa que gera linhas de dados para classificar
 
-* **TeraSort**: amostras de dados de entrada e utiliza o MapReduce para ordenar os dados para uma ordem total
+* **TeraSort**: os dados de entrada de exemplo e usa o MapReduce para classificar os dados para um total do pedido
 
-    TeraSort é uma ordenação padrão do MapReduce, exceto um particionador personalizado. O particionador utiliza uma lista ordenada de chaves N-1 amostragem que definem o intervalo de chave para cada reduza. Em especial, todas as chaves esses que exemplo [i-1] < = chave < exemplo [i] são enviados para reduzir i. Este particionador são todas as garantias de que as saídas de reduzir i menor que o resultado de reduzir i + 1.
+    TeraSort é uma espécie de MapReduce padrão, exceto um particionador personalizado. O particionador utiliza uma lista ordenada de chaves do objeto de amostragem de n-1 que definem o intervalo de chaves para cada reduza. Em particular, todas as chaves desse tipo que fornecem uma amostra [i-1] < = chave < exemplo [i] são enviadas para reduzir a i. Este particionador são todas as garantias de que as saídas de reduzem i menores do que a saída de reduzir i + 1.
 
-* **TeraValidate**: MapReduce de um programa que valida que o resultado global é ordenado
+* **TeraValidate**: MapReduce de um programa que valida que a saída globalmente está classificada
 
-    Cria um mapeamento por ficheiro no diretório de saída e cada mapa assegura que cada chave é inferior ou igual à anterior. A função de mapa gera registos das chaves primeiro e últimos de cada ficheiro. A função de reduza garante que a primeira chave de ficheiro i é maior do que a chave última do i-1 de ficheiro. Quaisquer problemas são reportados como uma saída da fase de reduza, com as chaves que estão fora de ordem.
+    Ele cria um mapa por ficheiro no diretório de saída, e cada mapa garante que cada chave é menor ou igual ao anterior. A função map gera registos das chaves próprio e apelidos de cada arquivo. A função de reduza garante que a primeira chave de ficheiro i é maior do que a última chave do i-1 de ficheiro. Todos os problemas são apresentados como uma saída da fase de reduza, com as chaves que estão fora de ordem.
 
-Utilize os seguintes passos para gerar dados, ordenar e, em seguida, validar a saída:
+Utilize os seguintes passos para gerar dados, ordenar e, em seguida, validar o resultado:
 
-1. Gerar 10 GB de dados, o que são armazenados para o armazenamento de predefinido do cluster do HDInsight em `/example/data/10GB-sort-input`:
+1. Gerar 10 GB de dados, o que são armazenados para armazenamento de predefinido do cluster do HDInsight em `/example/data/10GB-sort-input`:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    O `-Dmapred.map.tasks` indica Hadoop quantos de mapa de tarefas a utilizar para esta tarefa. Os dois parâmetros finais instrui a tarefa para criar 10 GB de dados e para armazená-la em `/example/data/10GB-sort-input`.
+    O `-Dmapred.map.tasks` informa ao Hadoop quantas tarefas de mapa a utilizar para esta tarefa. Os dois parâmetros finais instruir a tarefa para criar 10 GB de dados e armazená-los em `/example/data/10GB-sort-input`.
 
-2. Utilize o seguinte comando para ordenar os dados:
+2. Utilize o seguinte comando para classificar os dados:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
     ```
 
-    O `-Dmapred.reduce.tasks` indica Hadoop quantos reduzir as tarefas a utilizar para a tarefa. Os dois parâmetros finais são apenas de entrada e de saída localizações de dados.
+    O `-Dmapred.reduce.tasks` informa ao Hadoop tarefas a utilizar para a tarefa de reduzir o número. Os dois parâmetros finais são apenas os entrada e saídos locais para dados.
 
-3. Utilize o seguinte para validar os dados gerados pela ordenação:
+3. Utilize o seguinte para validar os dados gerados pela classificação:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
@@ -212,7 +207,7 @@ Utilize os seguintes passos para gerar dados, ordenar e, em seguida, validar a s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Do artigo, aprendeu a executar as amostras incluídas com os clusters do HDInsight baseado em Linux. Para tutoriais sobre como utilizar o Pig, Hive e MapReduce com o HDInsight, consulte os tópicos seguintes:
+Neste artigo, aprendeu a executar os exemplos incluídos com os clusters do HDInsight baseado em Linux. Para tutoriais sobre como utilizar o Pig, Hive e o MapReduce com o HDInsight, consulte os tópicos seguintes:
 
 * [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)

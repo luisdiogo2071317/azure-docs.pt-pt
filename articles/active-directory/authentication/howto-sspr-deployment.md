@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158867"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622325"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
@@ -75,12 +75,13 @@ Deve considerar [pré-preenchimento alguns dados de autenticação para os seus 
 
 ## <a name="disable-self-service-password-reset"></a>Desativar a reposição de palavras-passe self-service
 
-Se sua organização decidir desativar a reposição de palavra-passe self-service é um processo simples. Abra o seu inquilino do Azure AD e aceda a **Reposição de Palavras-passe** > **Propriedades** e selecione **Ninguém**, em **Reposição de Palavras-passe Self-Service Ativada**. Os utilizadores irão continuar a manter seus
+Se sua organização decidir desativar a reposição de palavra-passe self-service é um processo simples. Abra o seu inquilino do Azure AD e aceda a **Reposição de Palavras-passe** > **Propriedades** e selecione **Ninguém**, em **Reposição de Palavras-passe Self-Service Ativada**. Os utilizadores manterá os métodos de autenticação registado para utilização futura.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
+* [Ativar o registo convergido para a reposição de palavra-passe self-service do Azure multi-factor Authentication e o Azure AD](concept-registration-mfa-sspr-converged.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Quais são as opções de política da SSPR?](concept-sspr-policy.md)

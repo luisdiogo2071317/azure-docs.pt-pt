@@ -1,25 +1,20 @@
 ---
-title: Monitorizar clusters do Hadoop no HDInsight utilizando a API do Ambari - Azure | Microsoft Docs
-description: Utilize as APIs do Apache Ambari para criar, gerir e monitorizar clusters do Hadoop. APIs e ferramentas de operador intuitiva ocultam a complexidade do Hadoop.
+title: Monitorizar clusters do Hadoop no HDInsight com a API do Ambari - Azure
+description: Utilize as APIs do Apache Ambari para criar, gerir e monitorizar Hadoop clusters. Ferramentas de operação intuitivas e APIs de ocultar a complexidade do Hadoop.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-editor: cgronlun
-manager: jhubbard
-ms.assetid: 052135b3-d497-4acc-92ff-71cee49356ff
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3c8b1af3ad151a7a901150352202ab0b85aa6ec8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f55ee02ada5bb53d4634d119311fb9230ff15105
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402041"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592827"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Monitorize clusters Hadoop no HDInsight usando a API do Ambari
 Saiba como monitorizar clusters do HDInsight ao utilizar as APIs do Ambari.
@@ -30,38 +25,38 @@ Saiba como monitorizar clusters do HDInsight ao utilizar as APIs do Ambari.
 > 
 
 ## <a name="what-is-ambari"></a>O que é o Ambari?
-[Apache Ambari] [ ambari-home] é utilizado para o aprovisionamento, gestão e monitorização de clusters do Apache Hadoop. Inclui uma coleção intuitiva de ferramentas de operador intuitiva e um conjunto robusto de APIs que ocultam a complexidade do Hadoop, simplificando a operação de clusters. Para obter mais informações sobre as APIs, consulte [referência da API do Ambari][ambari-api-reference]. 
+[Apache Ambari] [ ambari-home] é utilizado para aprovisionar, gerir e monitorizar clusters Apache Hadoop. Inclui uma coleção intuitiva de ferramentas de operador intuitiva e um conjunto robusto de APIs que ocultam a complexidade do Hadoop, simplificando a operação de clusters. Para obter mais informações sobre as APIs, veja [referência de API do Ambari][ambari-api-reference]. 
 
-Atualmente, o HDInsight suporta apenas a funcionalidade de monitorização do Ambari. Ambari API 1.0 é suportado pelo clusters do HDInsight versão 3.0 e 2.1. Este artigo abrange ao aceder aos APIs Ambari em clusters do HDInsight versão 3.1 e 2.1. A principal diferença entre os dois é que alguns dos componentes foram alteradas com a introdução das novas capacidades (por exemplo, o servidor de histórico da tarefa). 
+Atualmente, o HDInsight suporta apenas a funcionalidade de monitorização do Ambari. 1.0 da API de Ambari é suportada pelos clusters do HDInsight versão 3.0 e 2.1. Este artigo aborda ao aceder ao APIs do Ambari em clusters do HDInsight versão 3.1 e 2.1. A principal diferença entre as duas é que alguns dos componentes foram alteradas com a introdução de novos recursos (por exemplo, o servidor de histórico da tarefa). 
 
 **Pré-requisitos**
 
 Antes de começar este tutorial, tem de ter os seguintes itens:
 
 * **Uma estação de trabalho com o Azure PowerShell**.
-* (Opcional) [cURL][curl]. Para instalá-lo, consulte o artigo [cURL versões e transferências][curl-download].
+* (Opcional) [cURL][curl]. Para instalá-lo, veja [cURL versões e Downloads][curl-download].
   
   > [!NOTE]
-  > Quando utilizar o comando cURL no Windows, utilize double-aspas em vez de aspas dos único para os valores de opção.
+  > Quando utilizar o comando cURL no Windows, utilize aspas em vez de aspas de único passo para os valores de opção.
   > 
   > 
-* **Um cluster do Azure HDInsight**. Para obter instruções sobre o aprovisionamento de cluster, consulte [começar a utilizar o HDInsight] [ hdinsight-get-started] ou [aprovisionar clusters do HDInsight][hdinsight-provision]. Terá dos dados para seguir o tutorial:
+* **Um cluster do Azure HDInsight**. Para obter instruções sobre o aprovisionamento do cluster, consulte [introdução à utilização do HDInsight] [ hdinsight-get-started] ou [Provision HDInsight clusters][hdinsight-provision]. Terá de seguir o tutorial, os seguintes dados:
   
   | Propriedade do cluster | Nome da variável do PowerShell do Azure | Valor | Descrição |
   | --- | --- | --- | --- |
   |   Nome de cluster do HDInsight |$clusterName | |O nome do cluster do HDInsight. |
-  |   Nome de utilizador do cluster |$clusterUsername | |Especificar o nome de utilizador do cluster quando o cluster foi criado. |
+  |   Nome de utilizador do cluster |$clusterUsername | |Nome de utilizador do cluster especificado quando o cluster foi criado. |
   |   Palavra-passe do cluster |$clusterPassword | |Palavra-passe de utilizador de cluster. |
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-## <a name="jump-start"></a>Iniciar
+## <a name="jump-start"></a>Impulsione a
 Existem várias formas de utilizar Ambari para monitorizar clusters do HDInsight.
 
 **Utilizar o Azure PowerShell**
 
-O seguinte script do PowerShell do Azure obtém as informações de controlador de tarefa de MapReduce *num cluster HDInsight 3.5.*  A principal diferença é que podemos solicitar estes detalhes do serviço YARN (em vez de MapReduce).
+O seguinte script do Azure PowerShell obtém as informações de controlador de tarefa de MapReduce *num cluster do HDInsight 3.5.*  A principal diferença é que podemos extrair estes detalhes do serviço YARN (em vez de MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -77,7 +72,7 @@ O seguinte script do PowerShell do Azure obtém as informações de controlador 
 
     $response.metrics.'yarn.queueMetrics'
 
-O script do PowerShell seguinte obtém as informações de controlador de tarefa de MapReduce *num cluster HDInsight 2.1*:
+O seguinte script do PowerShell obtém as informações de controlador de tarefa de MapReduce *num cluster do HDInsight 2.1*:
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -99,7 +94,7 @@ O resultado é:
 
 **Utilizar cURL**
 
-O exemplo seguinte obtém informações do cluster utilizando cURL:
+O exemplo seguinte obtém as informações de cluster com o cURL:
 
     curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
@@ -120,34 +115,34 @@ O resultado é:
         "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
                  "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-**Para a versão 8/10/2014**:
+**Para a versão 10/8/2014**:
 
-Ao utilizar o ponto final do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o *host_name* campo devolve o nome de domínio completamente qualificado (FQDN) do nó em vez do nome de anfitrião. Antes do lançamento 8/10/2014, neste exemplo devolvido simplesmente "**headnode0**". Depois da versão 8/10/2014, obterá o FQDN "**headnode0. { . Azurehdinsight.NET de ClusterDNS} .net**", conforme mostrado no exemplo anterior. Esta alteração é exigida para facilitar os cenários em que os vários tipos de cluster (por exemplo, o HBase e Hadoop) podem ser implementados numa rede virtual (VNET). Isto acontece, por exemplo, quando utilizar o HBase como uma plataforma de back-end para o Hadoop.
+Ao utilizar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o *host_name* campo Devolve o nome de domínio completamente qualificado (FQDN) do nó em vez do nome de anfitrião. Antes do lançamento 10/8/2014, neste exemplo devolvido simplesmente "**headnode0**". Após o lançamento de 10/8/2014, obtenha o FQDN "**headnode0. { . Azurehdinsight.NET de ClusterDNS} .net**", conforme mostrado no exemplo anterior. Esta alteração era necessária para facilitar cenários onde vários tipos de cluster (por exemplo, HBase e o Hadoop) podem ser implementados numa rede virtual (VNET). Isto acontece, por exemplo, quando utilizar o HBase como uma plataforma de back-end para o Hadoop.
 
-## <a name="ambari-monitoring-apis"></a>APIs de monitorização do Ambari
-A tabela seguinte lista algumas do Ambari mais comuns monitorizar chamadas de API. Para obter mais informações sobre a API, consulte [referência da API do Ambari][ambari-api-reference].
+## <a name="ambari-monitoring-apis"></a>Monitorizar as APIs do Ambari
+A tabela seguinte lista algumas do monitorização de chamadas de API de Ambari mais comuns. Para obter mais informações sobre a API, consulte [referência de API do Ambari][ambari-api-reference].
 
 | Chamada de API do monitor | URI | Descrição |
 | --- | --- | --- |
 | Obter clusters |`/api/v1/clusters` | |
 | Obter as informações de cluster. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |clusters, serviços, anfitriões |
-| Obter os serviços |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |Os serviços incluem: hdfs, mapreduce |
+| Obter serviços |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |Os serviços incluem: hdfs, mapreduce |
 | Obter as informações de serviços. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
-| Obter os componentes de serviço |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
-| Obter as informações de componente. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, os componentes do anfitrião, as métricas |
+| Obter os componentes do serviço |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
+| Obter as informações de componente. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, componentes do anfitrião, as métricas |
 | Obter anfitriões |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts` |headnode0, workernode0 |
-| Obter as informações de anfitrião. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
-| Obter os componentes de anfitrião |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components` |namenode, resourcemanager |
+| Obtenha informações do anfitrião. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
+| Obter os componentes do anfitrião |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components` |namenode, resourcemanager |
 | Obter informações de componente de anfitrião. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>` |HostRoles, componente, anfitrião, métricas |
-| Obter configurações |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations` |Tipos de configuração: site principal, hdfs local, mapred site, site do hive |
-| Obter as informações de configuração. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Tipos de configuração: site principal, hdfs local, mapred site, site do hive |
+| Obter configurações |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations` |Tipos de configuração: site principal, o site de hdfs, o mapred-site, o site do hive |
+| Obtenha informações de configuração. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Tipos de configuração: site principal, o site de hdfs, o mapred-site, o site do hive |
 
 ## <a name="next-steps"></a>Próximos Passos
-Agora tem aprendeu a utilizar Ambari monitorizar chamadas de API. Para saber mais, consulte:
+Agora aprendeu a utilizar a monitorização de chamadas de API do Ambari. Para saber mais, consulte:
 
-* [Gerir clusters do HDInsight através do portal do Azure][hdinsight-admin-portal]
+* [Gerir clusters do HDInsight com o portal do Azure][hdinsight-admin-portal]
 * [Gerir clusters do HDInsight com o Azure PowerShell][hdinsight-admin-powershell]
-* [Gerir clusters do HDInsight através da interface de linha de comandos][hdinsight-admin-cli]
+* [Gerir clusters do HDInsight utilizando a interface de linha de comandos][hdinsight-admin-cli]
 * [Documentação do HDInsight][hdinsight-documentation]
 * [Introdução ao HDInsight][hdinsight-get-started]
 

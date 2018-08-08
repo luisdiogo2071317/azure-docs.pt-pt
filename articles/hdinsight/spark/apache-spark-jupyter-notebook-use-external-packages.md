@@ -1,25 +1,20 @@
 ---
-title: Utilizar pacotes personalizados do Maven com o Jupyter no Spark no HDInsight do Azure | Documentos da Microsoft
+title: Utilizar pacotes personalizados do Maven com o Jupyter no Spark no Azure HDInsight
 description: Obter instruções passo a passo sobre como configurar disponíveis da blocos de notas do Jupyter com clusters do Spark do HDInsight para utilizar pacotes personalizados do Maven.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: nitinme
-ms.openlocfilehash: e58721a8394c4d6d3e5457d156912b399483672a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: jasonh
+ms.openlocfilehash: 51099f64546acc6f18269b2e7ec05106bb3baa2d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446753"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622036"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilizar pacotes externos com blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]

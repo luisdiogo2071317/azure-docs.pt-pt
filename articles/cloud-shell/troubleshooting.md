@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 51d9b8e4299cfa3bc850c7405c27233d678f98b6
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494405"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619411"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas & limitações do Azure Cloud Shell
 
@@ -82,7 +82,7 @@ O Azure Cloud Shell tem as seguintes limitações conhecidas:
 
 A máquina que fornece a sua sessão do Cloud Shell é temporária e ele é reciclado, depois da sessão está inativa durante 20 minutos. Cloud Shell requer uma partilha de ficheiros do Azure de ser montado. Como resultado, a sua subscrição tem de ser capaz de configurar recursos de armazenamento para aceder ao Cloud Shell. Outras considerações incluem:
 
-- Com o armazenamento montado, apenas modificações do `clouddrive` diretório são mantidas. No Bash, sua `$Home` diretório também é mantido.
+- Com o armazenamento montado, apenas modificações do `clouddrive` diretório são mantidas. No Bash, sua `$HOME` diretório também é mantido.
 - Partilhas de ficheiros do Azure podem ser montadas apenas a partir do seu [atribuídos região](persisting-shell-storage.md#mount-a-new-clouddrive).
   - No Bash, execute `env` para encontrar a sua região definida como `ACC_LOCATION`.
 - Ficheiros do Azure suportam o armazenamento apenas localmente redundante e contas de armazenamento georredundante.

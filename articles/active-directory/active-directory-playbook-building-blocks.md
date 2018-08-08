@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505091"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618976"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -452,9 +452,9 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 | Passo | Recursos |
 | --- | --- |
 | Aceda ao Portal de gestão do Azure AD: painel de acesso condicional | [Portal de gestão do Azure AD: Acesso condicional](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Crie política de acesso condicional:<br/>-Os utilizadores de prova de conceito do destino em "Utilizadores e grupos"<br/>-Aplicação de prova de conceito destino em "Aplicações de Cloud"<br/>-Direcionar todos os locais exceto aqueles fidedignas em "Condições" -> "Localizações" **Nota:** IPs fidedignos são configurados no [Portal de MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-Exigir autenticação multifator em "Concessão" | [Introdução ao acesso condicional no Azure Active Directory: passos de configuração de política](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Acesso à aplicação de dentro da rede empresarial | [Introdução ao acesso condicional no Azure Active Directory: a política de teste](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Aplicação de acesso de rede pública | [Introdução ao acesso condicional no Azure Active Directory: a política de teste](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Crie política de acesso condicional:<br/>-Os utilizadores de prova de conceito do destino em "Utilizadores e grupos"<br/>-Aplicação de prova de conceito destino em "Aplicações de Cloud"<br/>-Direcionar todos os locais exceto aqueles fidedignas em "Condições" -> "Localizações" **Nota:** IPs fidedignos são configurados no [Portal de MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-Exigir autenticação multifator em "Concessão" | [Criar a sua política de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Acesso à aplicação de dentro da rede empresarial | [Testar a sua política de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Aplicação de acesso de rede pública | [Testar a sua política de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -553,7 +553,7 @@ Obter uma estimativa de tempo para concluir: 20 minutos
 | --- | --- |
 | Dispositivo com o certificado de utilizador aprovisionado (Windows, iOS ou Android) da PKI de empresa | [Implementar certificados de utilizador](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Domínio do Azure AD federadas com o AD FS | [Azure AD Connect e a federação](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Descrição geral de serviços de certificados do Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Para dispositivos iOS têm a aplicação Microsoft Authenticator instalada | [Comece com a aplicação Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
+| Para dispositivos iOS têm a aplicação Microsoft Authenticator instalada | [Introdução à aplicação Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Passos
 

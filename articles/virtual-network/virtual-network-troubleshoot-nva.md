@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 86af69c5fe58511befecebcb4046e21fd34e096c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449821"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621410"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicação virtual de rede no Azure
 
-Poderá ter problemas de conectividade VPN ou de VM e erros que afetam uma aplicação de rede Virtual (NVA) no Microsoft Azure. Este artigo fornece os passos básicos para o ajudar a validar requisitos básicos de plataforma do Azure para configurações de NVA.
+Poderá notar VM ou problemas de conectividade VPN e de erros quando a utilizar uma aplicação de rede Virtual (NVA) no Microsoft Azure de terceiros. Este artigo fornece os passos básicos para o ajudar a validar requisitos básicos de plataforma do Azure para configurações de NVA.
 
 Suporte técnico para as NVAs de terceiros e sua integração com a plataforma do Azure é fornecido pelo fabricante do NVA. Se tiver uma conectividade ou o problema de encaminhamento que envolve uma NVA, deve [contacte o fornecedor da NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) diretamente.
 

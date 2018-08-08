@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5bf8c491a3edc2efa8fa6361f4c5aec2deb30ccb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2774111ff22572904a958037eed4c17f524770ce
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531627"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591596"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory? 
 
@@ -77,15 +77,15 @@ Utilizar multi-factor authentication ajuda a proteger os recursos de que está s
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-Pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional com base no dispositivo é conceder acesso aos recursos configurados apenas a partir [dispositivos geridos](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Exigir um dispositivo em conformidade é uma opção que precisa definir é que um dispositivo gerido. Se esta opção estiver selecionada, a sua política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão [registado](../devices/overview.md) para o seu Azure Active Directory e está marcado como compatíveis pelo Intune (para qualquer SO do dispositivo) ou por seu sistema MDM de terceiros para dispositivos Windows 10. Sistemas MDM de terceiros para tipos de SO do dispositivo que não seja o Windows 10 não são suportados.
+Pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional com base no dispositivo é conceder acesso aos recursos configurados apenas a partir [dispositivos geridos](require-managed-devices.md). Exigir um dispositivo em conformidade é uma opção que precisa definir é que um dispositivo gerido. Se esta opção estiver selecionada, a sua política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão [registado](../devices/overview.md) para o seu Azure Active Directory e está marcado como compatíveis pelo Intune (para qualquer SO do dispositivo) ou por seu sistema MDM de terceiros para dispositivos Windows 10. Sistemas MDM de terceiros para tipos de SO do dispositivo que não seja o Windows 10 não são suportados.
 
-Para obter mais informações, consulte [definir políticas de acesso condicional com base no dispositivo do Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+Para obter mais informações, consulte [definir políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo de associado ao Azure AD híbrido
 
 Exigir uma versão híbrida do Azure AD de dispositivo associado ao é outra opção, que tem de configurar políticas de acesso condicional com base no dispositivo. Este requisito refere-se para desktops Windows, computadores portáteis e tablets de enterprise que estão associados a um Active Directory no local. Se esta opção estiver selecionada, a sua política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão associados ao Active Directory no local e o Azure Active Directory.  
 
-Para obter mais informações, consulte [definir políticas de acesso condicional com base no dispositivo do Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+Para obter mais informações, consulte [definir políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
 
 
 
@@ -97,7 +97,7 @@ Uma vez que os funcionários utilizam dispositivos móveis para pessoais e taref
 Pode usar [políticas de proteção de aplicações do Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da sua empresa independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
 
-Com as aplicações aprovadas do cliente, pode exigir uma aplicação de cliente tenta aceder às suas aplicações na cloud para suportar [políticas de proteção de aplicações do Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, pode restringir o acesso ao Exchange Online para a aplicação Outlook. Uma política de acesso condicional que requer que as aplicações aprovadas do cliente também é conhecido como [política de acesso condicional com base na aplicação](../active-directory-conditional-access-mam.md). Para obter uma lista de aplicações aprovadas do cliente suportados, consulte [aprovado requisito de aplicação de cliente](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+Com as aplicações aprovadas do cliente, pode exigir uma aplicação de cliente tenta aceder às suas aplicações na cloud para suportar [políticas de proteção de aplicações do Intune](https://docs.microsoft.com/intune/app-protection-policy). Por exemplo, pode restringir o acesso ao Exchange Online para a aplicação Outlook. Uma política de acesso condicional que requer que as aplicações aprovadas do cliente também é conhecido como [política de acesso condicional com base na aplicação](app-based-conditional-access.md). Para obter uma lista de aplicações aprovadas do cliente suportados, consulte [aprovado requisito de aplicação de cliente](technical-reference.md#approved-client-app-requirement).
 
 
 ### <a name="terms-of-use"></a>Termos de Utilização

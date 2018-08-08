@@ -1,33 +1,29 @@
 ---
-title: Ligar o Excel ao Hadoop com o controlador ODBC do Hive - o Azure HDInsight | Microsoft Docs
-description: Saiba como configurar e utilizar o controlador Microsoft ODBC do Hive para Excel para consultar dados nos clusters do HDInsight a partir do Microsoft Excel.
-keywords: hadoop, excel, o hive do excel, ramo de registo de odbc
+title: Ligar o Excel ao Hadoop com o controlador ODBC do Hive - Azure HDInsight
+description: Saiba como configurar e utilizar o controlador Microsoft Hive ODBC para o Excel para consultar dados em clusters do HDInsight a partir do Microsoft Excel.
+keywords: hadoop do excel, o hive do excel, do hive odbc
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-tags: azure-portal
-editor: cgronlun
-ms.assetid: a7665a14-0211-4521-b3e7-3b26e8029cc0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 26234ca17d833fef01ad5a6465824c99d84cc556
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 4153504e7d0fb6dff4b8a675b301f54fb3588e46
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590872"
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel ao Hadoop no Azure HDInsight com o controlador Microsoft ODBC do Hive
+# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel ao Hadoop no HDInsight do Azure com o controlador Microsoft Hive ODBC
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Solução de macrodados da Microsoft integra-se os componentes do Microsoft Business Intelligence (BI) com clusters do Apache Hadoop que foram implementadas pelo Azure HDInsight. Um exemplo desta integração é a capacidade de ligar o Excel para o armazém de dados do ramo de registo de um cluster de Hadoop no HDInsight com o Microsoft ramo de registo abertos da base de dados (controlador Connectivity).
+Solução de macrodados da Microsoft integra-se os componentes do Microsoft Business Intelligence (BI) com clusters do Apache Hadoop que foram implementados pelo Azure HDInsight. Um exemplo desta integração é a capacidade de ligar o Excel para o armazém de dados do Hive de um cluster de Hadoop no HDInsight com o controlador Microsoft Hive Open Database Connectivity (ODBC).
 
-Também é possível ligar os dados associados um cluster do HDInsight e outras origens de dados, incluindo outros clusters do Hadoop (não HDInsight), a partir do Excel utilizando o suplemento do Microsoft Power Query para Excel. Para obter informações sobre como instalar e utilizar o Power Query, consulte [ligar o Excel para o HDInsight com o Power Query][hdinsight-power-query].
+Também é possível ligar os dados associados um cluster do HDInsight e outras origens de dados, incluindo outros clusters do Hadoop (não HDInsight), do Excel usando o suplemento do Microsoft Power Query para Excel. Para obter informações sobre como instalar e utilizar o Power Query, consulte [ligar o Excel ao HDInsight com o Power Query][hdinsight-power-query].
 
 
 
@@ -35,24 +31,24 @@ Também é possível ligar os dados associados um cluster do HDInsight e outras 
 
 Antes de começar este artigo, tem de ter os seguintes itens:
 
-* **Um cluster do HDInsight**. Para criar um, consulte [introdução ao Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
-* **Uma estação de trabalho** com o Office 2013 Professional Plus, Office 365 Pro Plus, autónomo do Excel 2013 ou Office 2010 Professional Plus.
+* **Um cluster do HDInsight**. Para criar um, veja [introdução ao Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* **Uma estação de trabalho** com o Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
-## <a name="install-microsoft-hive-odbc-driver"></a>Instalar o controlador ODBC do Hive do Microsoft
-Transfira e instale o Microsoft controlador ODBC do Hive do [Centro de transferências][hive-odbc-driver-download].
+## <a name="install-microsoft-hive-odbc-driver"></a>Instalar o controlador Microsoft Hive ODBC
+Baixe e instale o controlador Microsoft Hive ODBC do [Centro de transferências][hive-odbc-driver-download].
 
-Este controlador pode ser instalado em versões de 32 bits ou 64 bits do Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 e Windows Server 2012. O controlador permite a ligação ao Azure HDInsight. Deverá instalar a versão que corresponde à versão da aplicação onde utiliza o controlador ODBC. Para este tutorial, é utilizado o controlador a partir do Office Excel.
+Esse driver pode ser instalado em versões de 32 bits ou 64 bits do Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 e Windows Server 2012. O driver permite a ligação ao Azure HDInsight. Deve instalar a versão que corresponde à versão do aplicativo em que usar o controlador ODBC. Para este tutorial, o driver é utilizado a partir do Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Criar a origem de dados do ODBC do Hive
 Os passos seguintes mostram como criar uma origem de dados de ODBC do Hive.
 
-1. Do Windows 8 ou Windows 10, prima a tecla Windows para abrir o ecrã de início e, em seguida, escreva **origens de dados**.
-2. Clique em **configurar origens de dados de ODBC (32-bit)** ou **configurar origens de dados de ODBC (64-bit)** dependendo da versão do Office. Se estiver a utilizar o Windows 7, escolha **origens de dados de ODBC (32 bits)** ou **origens de dados de ODBC (64 bits)** de **ferramentas administrativas**. Deverá ver o **administrador de origem de dados de ODBC** caixa de diálogo.
+1. Do Windows 8 ou Windows 10, prima a tecla do Windows para abrir o ecrã de início e, em seguida, escreva **origens de dados**.
+2. Clique em **configurar origens de dados ODBC (32-bit)** ou **configurar origens de dados ODBC (64-bit)** dependendo da versão do Office. Se estiver a utilizar o Windows 7, escolha **origens de dados ODBC (32 bits)** ou **origens de dados ODBC (64 bits)** partir **ferramentas administrativas**. Deverá ver o **administrador de fonte de dados de ODBC** caixa de diálogo.
    
-    ![Administrador de origem de dados OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "configurar um DSN a utilizar o administrador de origem de dados ODBC")
+    ![Administrador de fonte de dados OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "configurar um DSN com o administrador de fonte de dados de ODBC")
 
-3. No DNS do utilizador, clique em **adicionar** para abrir o **criar uma nova origem de dados** assistente.
-4. Selecione **controlador ODBC do Hive Microsoft**e, em seguida, clique em **concluir**. Deverá ver o **Hive ODBC controlador DNS configuração do Microsoft** caixa de diálogo.
+3. A partir do DNS do utilizador, clique em **Add** para abrir o **criar nova origem de dados** assistente.
+4. Selecione **Microsoft Hive ODBC Driver**e, em seguida, clique em **concluir**. Deverá ver o **Microsoft Hive ODBC Driver de configuração de DNS** caixa de diálogo.
 5. Escreva ou selecione os seguintes valores:
    
    | Propriedade | Descrição |
@@ -67,43 +63,43 @@ Os passos seguintes mostram como criar uma origem de dados de ODBC do Hive.
    
     </table>
    
-    Existem alguns parâmetros importantes a ter em consideração quando clicar em **opções avançadas**:
+    Existem alguns parâmetros importantes ter em consideração quando clica em **opções avançadas**:
    
    | Parâmetro | Descrição |
    | --- | --- |
-   |  Utilizar consulta nativa |Quando estiver selecionada, o controlador ODBC não tenta converter TSQL em HiveQL. Deverá utilizá-lo apenas se tiver a 100% se que submeter o pura declarações HiveQL. Ao ligar ao SQL Server ou SQL Database do Azure, deve deixar a opção estiver desmarcada. |
-   |  Linhas obtidas por blocos |Ao obter um grande número de registos, a otimização este parâmetro pode ser necessário para garantir que os desempenhos ideal. |
-   |  O comprimento da coluna predefinido cadeia, comprimento da coluna de binário, escala da coluna Decimal |O tipo de dados comprimentos e precisions pode afetar a forma como são devolvidos dados. Causarem informações incorretas devem ser devolvidos devido a perda de precisão e/ou truncagem. |
+   |  Utilizar a consulta nativa |Quando estiver selecionada, o controlador ODBC não tentará converter TSQL em HiveQL. Deve usá-lo apenas se for 100%-se de que está a enviar instruções de HiveQL puras. Ao ligar ao SQL Server ou base de dados do Azure SQL, deve deixar desmarcada. |
+   |  Linhas obtidas por bloco |Quando a obter um grande número de registos, a otimização este parâmetro pode ser necessário para garantir que os desempenhos ideal. |
+   |  Comprimento de coluna de cadeia de caracteres padrão, o comprimento de coluna binária, escala da coluna Decimal |O tipo de dados comprimentos e precisions pode afetar a forma como os dados são retornados. Estes provocarem informações incorretas a serem retornados devido a perda de precisão e/ou o truncamento. |
 
-    ![Opções Avançadas](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "opções de configuração avançadas DSN")
+    ![Opções Avançadas](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "opções de configuração do Advanced DSN")
 
-1. Clique em **testar** para testar a origem de dados. Quando a origem de dados está configurada corretamente, mostra *testes foi CONCLUÍDO com êxito!*.
-2. Clique em **OK** para fechar a caixa de diálogo de teste. A nova origem de dados deverá estar listada no **administrador de origem de dados de ODBC**.
+1. Clique em **testar** para testar a origem de dados. Quando a origem de dados está configurada corretamente, ela mostra *testes foi CONCLUÍDO com êxito!*.
+2. Clique em **OK** para fechar a caixa de diálogo de teste. A nova origem de dados deverá ser listada no **administrador de fonte de dados de ODBC**.
 3. Clique em **OK** para sair do assistente.
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>Importe dados para o Excel a partir do HDInsight
-Os passos seguintes descrevem a forma de importar dados a partir de uma tabela do Hive para um livro do Excel utilizando a origem de dados ODBC que criou na secção anterior.
+Os passos seguintes descrevem a forma de importar dados de uma tabela do Hive para um livro do Excel com a origem de dados ODBC que criou na secção anterior.
 
 1. Abra um livro novo ou existente no Excel.
-2. Do **dados** separador, clique em **obter dados**, clique em **de outras origens**e, em seguida, clique em **de ODBC** para iniciar o **Assistente de ligação de dados**.
+2. Do **dados** separador, clique em **obter dados**, clique em **de outras origens**e, em seguida, clique em **do ODBC** para iniciar o **dados Assistente de ligação**.
    
-    ![Assistente de ligação de dados aberto](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "Assistente de ligação de dados aberto")
+    ![Assistente de ligação de dados abertos](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "Assistente de ligação de dados abertos")
 4. Selecione o nome da origem de dados que criou na última secção e, em seguida, clique em **OK**.
 5. Introduza o nome de utilizador do Hadoop (o nome predefinido é admin) e a palavra-passe e, em seguida, clique em **Connect**.
-6. No navegador, expanda **HIVE**, expanda **predefinido**, clique em **hivesampletable**e, em seguida, clique em **carga**. Demora alguns segundos antes de os dados serem importados para o Excel.
+6. No navegador, expanda **HIVE**, expanda **predefinição**, clique em **hivesampletable**e, em seguida, clique em **carga**. Demora alguns segundos antes de os dados serem importados para o Excel.
 
-    ![Navegador de ODBC do Hive do HDInsight](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight.hive.odbc.navigator.png "Assistente de ligação de dados aberto")
+    ![Navegador de ODBC do Hive do HDInsight](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight.hive.odbc.navigator.png "Assistente de ligação de dados abertos")
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a utilizar o controlador ODBC do Hive do Microsoft para obter dados do serviço do HDInsight para o Excel. Da mesma forma, poderá obter dados a partir do serviço de HDInsight na base de dados do SQL Server. Também é possível carregar dados para um serviço de HDInsight. Para saber mais, consulte:
+Neste artigo, aprendeu a utilizar o controlador Microsoft Hive ODBC para recuperar dados do serviço HDInsight para o Excel. Da mesma forma, pode recuperar dados do serviço HDInsight na base de dados SQL. Também é possível carregar dados para um serviço do HDInsight. Para saber mais, consulte:
 
-* [Visualizar dados do Hive com o Microsoft Power BI no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
-* [Visualizar dados de ramo de registo de consultas interativas com o Power BI no Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Utilize Zeppelin para executar consultas do Hive no Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
+* [Visualizar dados de Hive com o Microsoft Power BI no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualizar dados de consulta interativa do Hive com o Power BI no Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+* [Utilizar o Zeppelin para executar consultas do Hive no Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
 * [Ligar o Excel ao Hadoop com o Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Ligar ao Azure HDInsight e executar consultas do Hive, utilizando ferramentas do Data Lake para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
-* [Utilizar a ferramenta do Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
+* [Ligar ao Azure HDInsight e executar consultas do Hive com o Data Lake Tools para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
+* [Utilize a ferramenta do Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 * [Carregar dados para o HDInsight](./../hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md

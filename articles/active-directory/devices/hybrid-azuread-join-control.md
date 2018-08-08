@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369178"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622175"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Como controlar a associação do Azure AD híbrido dos seus dispositivos
 
@@ -36,7 +36,7 @@ Este artigo pressupõe que está familiarizado com:
 
 -  [Introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md)
  
--  [Como planear a sua implementação híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
+-  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
 
 -  Configurar a associação ao Azure Active Directory de híbrido para [domínios geridos](hybrid-azuread-join-managed-domains.md) ou [federado domínios](hybrid-azuread-join-federated-domains.md)
 
@@ -110,6 +110,9 @@ Pode controlar o comportamento de registro de dispositivo dos seus dispositivos 
     
 
 Precisa de associar esta definição de cliente para um local de sua preferência. Por exemplo, para configurar esta definição de cliente para todos os dispositivos atuais de Windows na sua organização, ligar o definição de cliente para o domínio. Para fazer uma implantação controlada, pode configurar o definição de cliente para Windows associados a um domínio atuais dispositivos que pertencem a uma unidade organizacional ou um grupo de segurança.
+
+> [!Important]
+> Embora a configuração acima se encarrega de existente associado a um domínio dispositivos Windows 10, existe um potencial para domínio recentemente de associação de dispositivos para continuarão a tentar associação do Azure AD híbrido concluída devido ao atraso potencial no aplicativo real da política de grupo ou Definições do Gestor de configuração sobre o recentemente domínio associado a um dispositivo Windows 10. Para evitar isto, é recomendado que crie uma nova imagem do sysprep (utilizada como um exemplo para um método de aprovisionamento) de um dispositivo que nunca anteriormente foi associado ao Azure AD híbrido e que já tem a definição de política de grupo acima aplicada ou o cliente do Configuration Manager definição aplicada. Também tem de utilizar a nova imagem para o aprovisionamento de novos computadores associar o domínio da sua organização. 
 
 ## <a name="control-windows-down-level-devices"></a>Controlar os dispositivos de nível inferior do Windows
 

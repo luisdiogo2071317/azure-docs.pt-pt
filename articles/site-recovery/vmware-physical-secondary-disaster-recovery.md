@@ -8,22 +8,58 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 251e2b1f8785408bf441bcbcf3d0fcbdd767a358
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479487"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618993"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação após desastre de máquinas de virtuais de VMware no local ou servidores físicos para um site secundário
 
-InMage Scout na [do Azure Site Recovery](site-recovery-overview.md) fornece replicação em tempo real entre locais sites de VMware. InMage Scout está incluído nas assinaturas de serviço do Azure Site Recovery. 
+InMage Scout na [do Azure Site Recovery](site-recovery-overview.md) fornece replicação em tempo real entre locais sites de VMware. InMage Scout está incluído nas assinaturas de serviço do Azure Site Recovery.
+
+## <a name="end-of-support-announcement"></a>Anúncio de fim do suporte
+
+O cenário de recuperação de sites do Azure para a replicação entre datacenters físicos ou o VMware no local está a atingir o fim do suporte.
+
+-   A partir de Agosto de 2018, o cenário não pode ser configurado no cofre dos serviços de recuperação e, o software de InMage Scout não pode ser transferido a partir do cofre. As implementações existentes serão suportadas. 
+-   De 2020 de 31 de Dezembro, o cenário de não ser suportado.
+- Parceiros existentes podem integrar novos clientes para o cenário até as extremidades de suporte.
+
+Durante a 2018 e 2019, serão lançadas duas atualizações: 
+
+-   Atualização 7: Corrige problemas de configuração e de conformidade de rede e fornece suporte de TLS 1.2.
+-   Atualização 8: Adiciona suporte para Linux sistemas operativos RHEL/CentOS 7.3/7.4/7.5 e para a 12 de SUSE
+
+Após a atualização 8, não são necessárias mais atualizações serão lançadas. Haverá suporte limitado de correção para os sistemas de operativos adicionados em 8 de atualização e correções de erros com base na melhor esforço.
+
+O Azure Site Recovery continua a inovar ao fornecer uma solução de DRaaS totalmente integrada e melhor na classe de clientes do VMware e Hyper-V com o Azure como um site de recuperação após desastre. A Microsoft recomenda que existentes InMage / clientes de ASR Scout considere a utilização de VMware do Azure Site Recovery para o cenário do Azure para necessidades de continuidade do negócio. VMware do Azure Site Recovery para o cenário do Azure é uma solução de DR de nível empresarial para aplicações de VMware, que oferece RPO e RTO de minutos, suportam para a replicação de aplicativo de várias VMS e recuperação, a integração totalmente integrada, monitoramento abrangente, e vantagem do TCO significativa.
+
+### <a name="scenario-migration"></a>Migração do cenário
+Como alternativa, recomendamos a configuração da recuperação após desastre para VMs de VMware no local e máquinas físicas ao replicá-los para o Azure. Fazer isso da seguinte forma:
+
+1.  Reveja a comparação rápida abaixo. Antes, pode replicar máquinas no local, terá de verificação que cumprem [requisitos](./vmware-physical-azure-support-matrix.md#replicated-machines) para replicação no Azure. Se estiver a replicar VMs de VMware, recomendamos que reveja [diretrizes de planeamento de capacidade](./site-recovery-plan-capacity-vmware.md)e execute o [ferramenta Planeador de implementações](./site-recovery-deployment-planner.md) para os requisitos de capacidade de identidade e verificar a conformidade.
+2.  Depois de executar o planeador de implementação, pode configurar a replicação: o para VMs de VMware, siga estes tutoriais para [preparar o Azure](./tutorial-prepare-azure.md), [preparar seu ambiente do VMware no local](./vmware-azure-tutorial-prepare-on-premises.md), e [configurar recuperação após desastre](./vmware-azure-tutorial-prepare-on-premises.md).
+s para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recovery.md).
+3.  Depois das máquinas estão a replicar para o Azure, pode executar uma [teste de recuperação após desastre](./site-recovery-test-failover-to-azure.md) para se certificar de que está tudo a funcionar conforme esperado.
+
+### <a name="quick-comparison"></a>Comparação rápida
+
+**Funcionalidade** | **Replicação para o Azure** |**Replicação entre os datacenters de VMware**
+--|--|--
+**Componentes necessários** |Serviço de mobilidade nas máquinas replicadas. Local no servidor de configuração, o servidor de processos, o servidor de destino mestre. Servidor de processo temporário no Azure para reativação pós-falha.|Serviço de mobilidade, servidor de processos, o servidor de configuração e o destino principal
+**Configuração e orquestração** |O Cofre dos serviços de recuperação no portal do Azure | Usando vContinuum 
+**Replicados**|Disco (Windows e Linux) |Windows volume<br> Disco-Linux
+**Cluster de disco partilhado**|Não suportado|Suportadas
+**Alterações a dados limites (média)** |10 MB/s dados por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Dados > 10 MB/s por disco  <br> Dados > 25 MB/s por VM
+**Monitorização** |No portal do Azure|No c++ /CX (servidor de configuração)
+**Matriz de suporte**| [Clique aqui para obter detalhes](./vmware-physical-azure-support-matrix.md)|[Transferir a matriz de ASR Scout compatível](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
 Para concluir este tutorial:
 
 - [Revisão](vmware-physical-secondary-support-matrix.md) os requisitos de suporte para todos os componentes.
@@ -75,7 +111,7 @@ Transfira o [atualizar](https://aka.ms/asr-scout-update6) ficheiro. zip. O fiche
 6. **Servidor de destino principal do Linux**: para atualizar o agente unificado, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** a mestre e extraia-o servidor de destino. A pasta extraída, execute **/Install**.
 7. **Servidor de origem do Windows**: para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
     Não precisa de instalar o agente de atualização 5 no servidor de origem, se ele já foi atualizado para a atualização 4 ou agente de origem é instalado com o instalador de base mais recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Servidor de origem do Linux**: para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Servidor do RHEL 6,7 de 64 bits, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
+8. **Servidor de origem do Linux**: para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
 
 ## <a name="enable-replication"></a>Ativar a replicação
 
@@ -160,7 +196,7 @@ A atualização 4 do Scout é uma atualização cumulativa. Inclui todas as corr
 
 #### <a name="bug-fixes-and-enhancements"></a>Correções de erros e melhorias
 
-* Encerramento melhorado processamento para os seguintes sistemas operativos Linux e clones, para evitar problemas de indesejável nova sincronização:
+* Encerramento melhorado processamento para os seguintes sistemas operativos Linux e clones, para evitar problemas de ressincronização indesejável:
     * Red Hat Enterprise Linux (RHEL) 6.x
     * Oracle Linux (OL) 6.x
 * Para o Linux, todas as permissões de acesso de pasta no diretório de instalação do agente unificado agora são restritos apenas o utilizador local.
@@ -222,7 +258,7 @@ Atualização 3 corrige os problemas seguintes:
 
 Correções na atualização 2 incluem:
 
-* **Servidor de configuração**: problemas que impediu o gratuito de 31 dias medição de recursos de funcionar conforme esperado, quando o servidor de configuração foi registrado no Site Recovery.
+* **Servidor de configuração**: problemas que impediu o gratuito de 31 dias medição de recursos de trabalho conforme o esperado, quando o servidor de configuração foi registado para o cofre do Azure Site Recovery.
 * **Agente unificado**: corrigir um problema em que resultaram na atualização não sendo instalada no servidor de destino mestre, durante a atualização da versão 8.0 para 8.0.1 Update 1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>O Azure Site Recovery Scout 8.0.1 atualização 1

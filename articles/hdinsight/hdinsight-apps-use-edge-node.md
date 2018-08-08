@@ -1,31 +1,26 @@
 ---
-title: Utilizar nós edge vazio nos clusters do Hadoop no HDInsight - Azure | Microsoft Docs
-description: Como adicionar um nó de extremidade vazio para um cluster do HDInsight que pode ser utilizado como um cliente e, em seguida, teste/o anfitrião de aplicações do HDInsight.
+title: Utilizar nós de extremidade em branco em clusters do Hadoop no HDInsight - Azure
+description: Como adicionar um nó de extremidade vazio para um cluster do HDInsight que pode ser utilizado como um cliente e, em seguida, teste/anfitrião suas aplicações do HDInsight.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jgao
-ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 225b08e2d83bfb8bdd102924ecf85c89aa48c217
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170276"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598202"
 ---
-# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utilizar nós edge vazio nos clusters do Hadoop no HDInsight
+# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utilizar nós de extremidade em branco em clusters do Hadoop no HDInsight
 
-Saiba como adicionar um nó de extremidade vazio para um cluster do HDInsight. Um nó de extremidade vazia é uma máquina virtual do Linux com as mesmo as ferramentas de cliente instalado e configurado como o headnodes, mas com serviços não Hadoop em execução. Pode utilizar o nó de extremidade para aceder ao cluster, teste as aplicações de cliente e que aloja as aplicações de cliente. 
+Saiba como adicionar um nó de extremidade vazio para um cluster do HDInsight. Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instalado e configurado como nos principais, mas com não existem serviços do Hadoop em execução. Pode utilizar o nó de extremidade para aceder ao cluster, testar as suas aplicações de cliente e hospedar seus aplicativos de cliente. 
 
-Pode adicionar um nó de extremidade vazio para um cluster do HDInsight existente para um novo cluster ao criar o cluster. Adicionar um nó de extremidade vazio é feito utilizando o modelo Azure Resource Manager.  O exemplo seguinte demonstra como é efetuada através de um modelo:
+Pode adicionar um nó de extremidade vazio para um cluster do HDInsight existente, para um novo cluster ao criar o cluster. Adicionar um nó de extremidade em branco é feito usando o modelo Azure Resource Manager.  O exemplo seguinte demonstra como isso é feito através de um modelo:
 
     "resources": [
         {
@@ -56,25 +51,25 @@ Pode adicionar um nó de extremidade vazio para um cluster do HDInsight existent
         }
     ],
 
-Como é mostrado no exemplo, opcionalmente, pode chamar um [ação de script](hdinsight-hadoop-customize-cluster-linux.md) para efetuar uma configuração adicional, como a instalação [Apache Hue](hdinsight-hadoop-hue-linux.md) no nó de extremidade. O script de ação de script tem de ser publicamente acessível na web.  Por exemplo, se o script é armazenado no armazenamento do Azure, utilize contentores públicos ou blobs públicos.
+Conforme mostrado no exemplo, pode, opcionalmente, chamar um [ação de script](hdinsight-hadoop-customize-cluster-linux.md) para efetuar configuração adicional, como a instalação [Apache Hue](hdinsight-hadoop-hue-linux.md) no nó de extremidade. O script de ação de script tem de ser acessível publicamente na web.  Por exemplo, se o script é armazenado no armazenamento do Azure, utilize contentores públicos ou blobs públicos.
 
-O tamanho de máquina virtual do nó de extremidade têm de cumprir os requisitos de tamanho de vm de nó do HDInsight cluster trabalho. Para os tamanhos de vm de nó de trabalho recomendada, consulte [clusters do Hadoop criar no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+O tamanho de máquina virtual do nó de extremidade tem de cumprir os requisitos de tamanho de vm de nó do HDInsight cluster trabalho. Para os tamanhos de vm de nó de trabalho recomendada, consulte [criar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
-Depois de ter criado um nó de extremidade, pode ligar ao nó de extremidade utilizando SSH e executar as ferramentas de cliente acedam ao cluster de Hadoop no HDInsight.
+Depois de ter criado um nó de extremidade, pode ligar ao nó de extremidade através de SSH e executar as ferramentas de cliente para aceder ao cluster de Hadoop no HDInsight.
 
 > [!WARNING] 
-> Componentes personalizados que estão instalados no nó de extremidade recebem comercialmente razoável suporte da Microsoft. Isto pode resultar na resolução de problemas que encontrar. Ou pode ser referido recursos de Comunidade para obter assistência. Seguem-se alguns dos mais sites de Active Directory para obter ajuda da Comunidade:
+> Componentes personalizados que estão instalados no nó de extremidade recebem suporte comercialmente razoável da Microsoft. Isto pode resultar na resolução de problemas que encontrar. Ou pode ser direcionado para os recursos da Comunidade para obter mais assistência. Seguem-se alguns dos sites de ativos mais para obter ajuda da Comunidade:
 >
 > * [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> Se estiver a utilizar uma tecnologia do Apache, poderá encontrar assistência através do Apache sites projeto [ http://apache.org ](http://apache.org), tais como o [Hadoop](http://hadoop.apache.org/) site.
+> Se estiver a utilizar uma tecnologia do Apache, talvez consiga encontrar assistência através do Apache sites de projeto na [ http://apache.org ](http://apache.org), como a [Hadoop](http://hadoop.apache.org/) site.
 
 > [!NOTE]
-> Mesmo que os clusters, nós de limite também são gerido de patch.  Para obter mais informações, consulte [aplicação de patches de SO para o HDInsight](./hdinsight-os-patching.md).
+> Mesmo que os clusters, nós de extremidade também são gerido de patch.  Para obter mais informações, consulte [aplicação de patches de SO para o HDInsight](./hdinsight-os-patching.md).
 
-## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicionar um nó de extremidade para um cluster existente
-Nesta secção, utilize um modelo do Resource Manager para adicionar um nó de extremidade para um cluster do HDInsight existente.  O modelo do Resource Manager pode ser encontrado na [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). O modelo do Resource Manager chama uma ação de script, localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. O script não realizar qualquer ação.  É para demonstrar a ação de script chamada a partir de um modelo do Resource Manager.
+## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicionar um nó de extremidade a um cluster existente
+Nesta secção, vai utilizar um modelo do Resource Manager para adicionar um nó de extremidade a um cluster do HDInsight existente.  O modelo do Resource Manager pode ser encontrado na [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). O modelo do Resource Manager chama uma ação de script localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. O script não executa qualquer ação.  É demonstrar a chamada de ação de script de um modelo do Resource Manager.
 
 **Para adicionar um nó de extremidade vazio para um cluster existente**
 
@@ -85,22 +80,22 @@ Nesta secção, utilize um modelo do Resource Manager para adicionar um nó de e
    
    * **Subscrição**: selecione uma subscrição do Azure utilizada para criar o cluster.
    * **Grupo de recursos**: selecione o grupo de recursos utilizado para o cluster do HDInsight existente.
-   * **Localização**: selecionar a localização do cluster do HDInsight existente.
-   * **Nome do cluster**: introduza o nome do cluster do HDInsight existente.
-   * **Tamanho de nó de contorno**: selecione uma dos tamanhos VM. O tamanho da vm tem de cumprir os requisitos de tamanho de vm de nó de trabalho. Para os tamanhos de vm de nó de trabalho recomendada, consulte [clusters do Hadoop criar no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
-   * **Contorno nó prefixo**: O valor predefinido é **novo**.  Utilizar o valor predefinido, o nome de nó de extremidade é **novo edgenode**.  Pode personalizar o prefixo do portal. Também pode personalizar o nome completo do modelo.
+   * **Localização**: selecione a localização do cluster HDInsight existente.
+   * **Nome do cluster**: introduza o nome de um cluster do HDInsight existente.
+   * **Tamanho do nó de extremidade**: selecione um dos tamanhos de VM. O tamanho da vm tem de cumprir os requisitos de tamanho de vm de nó de trabalho. Para os tamanhos de vm de nó de trabalho recomendada, consulte [criar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+   * **Prefixo do nó de extremidade**: O valor predefinido é **nova**.  Com o valor predefinido, o nome do nó de extremidade é **novo edgenode**.  Pode personalizar o prefixo do portal. Também pode personalizar o nome completo do modelo.
 
-4. Verifique **concordo com os termos e condições indicadas acima**e, em seguida, clique em **Compra** para criar o nó de extremidade.
+4. Verifique **concordo com os termos e condições indicados acima**e, em seguida, clique em **Compra** para criar o nó de extremidade.
 
 >[!IMPORTANT]
-> Certifique-se de que seleciona o grupo de recursos do Azure para o cluster do HDInsight existente.  Caso contrário, receberá a mensagem de erro "não é possível executar a operação pedida no recurso aninhado. Principais recursos '&lt;ClusterName >' não foi encontrada. "
+> Certifique-se selecionar o grupo de recursos do Azure para o cluster do HDInsight existente.  Caso contrário, obtém a mensagem de erro "não é possível executar a operação pedida no recurso aninhado. Recurso principal "&lt;ClusterName >' não foi encontrado."
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Adicionar um nó de extremidade ao criar um cluster
-Nesta secção, utilize um modelo do Resource Manager para criar o cluster do HDInsight com um nó de extremidade.  O modelo do Resource Manager pode ser encontrado no [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). O modelo do Resource Manager chama uma ação de script, localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. O script não realizar qualquer ação.  É para demonstrar a ação de script chamada a partir de um modelo do Resource Manager.
+Nesta seção, usar um modelo do Resource Manager para criar o cluster do HDInsight com um nó de extremidade.  O modelo do Resource Manager pode ser encontrado na [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). O modelo do Resource Manager chama uma ação de script localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. O script não executa qualquer ação.  É demonstrar a chamada de ação de script de um modelo do Resource Manager.
 
 **Para criar um cluster do HDInsight com um nó de extremidade**
 
-1. Se ainda não tiver uma, crie um cluster do HDInsight.  Consulte [começar a utilizar o Hadoop no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+1. Se ainda não tiver uma, crie um cluster do HDInsight.  Ver [começar a utilizar o Hadoop no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Clique na imagem seguinte para iniciar sessão no Azure e abrir o modelo Azure Resource Manager no portal do Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -110,25 +105,25 @@ Nesta secção, utilize um modelo do Resource Manager para criar o cluster do HD
    * **Grupo de recursos**: criar um novo grupo de recursos utilizado para o cluster.
    * **Localização**: Selecione uma localização para o grupo de recursos.
    * **Nome do cluster**: introduza um nome para o novo cluster criar.
-   * **Nome de utilizador de início de sessão do cluster**: introduza o nome de utilizador de HTTP do Hadoop.  O nome predefinido é **admin**.
+   * **Nome de utilizador de início de sessão do cluster**: introduza o nome de utilizador HTTP do Hadoop.  O nome predefinido é **admin**.
    * **Palavra-passe de início de sessão do cluster**: introduza a palavra-passe de utilizador do Hadoop HTTP.
    * **SSH nome de utilizador**: introduza o nome de utilizador SSH. O nome predefinido é **sshuser**.
    * **SSH palavra-passe**: introduza a palavra-passe de utilizador do SSH.
    * **Instalar a ação de Script**: mantenha o valor predefinido para percorrer neste tutorial.
      
-     Foram codificado no modelo de algumas propriedades: tipo de Cluster, o número de nós de trabalho de Cluster, tamanho de nó de limite e o nome de nó de extremidade.
-4. Verifique **concordo com os termos e condições indicadas acima**e, em seguida, clique em **Compra** para criar o cluster com o nó de extremidade.
+     Algumas propriedades foram codificadas no modelo: tipo de Cluster, contagem de nós de trabalho de Cluster, o tamanho de nó de extremidade e o nome de nó de extremidade.
+4. Verifique **concordo com os termos e condições indicados acima**e, em seguida, clique em **Compra** para criar o cluster com o nó de extremidade.
 
-## <a name="add-multiple-edge-nodes"></a>Adicionar vários nós de limite
+## <a name="add-multiple-edge-nodes"></a>Adicionar vários nós de extremidade
 
-Pode adicionar vários nós edge para um cluster do HDInsight.  A configuração com vários nós limite só pode ser efetuada utilizando os modelos Azure Resource Manager.  Consulte o exemplo de modelo no início deste artigo.  Tem de atualizar o **targetInstanceCount** para refletir o número de nós de limite que pretende criar.
+Pode adicionar vários nós de extremidade para um cluster do HDInsight.  A configuração de nós de extremidade vários só pode ser feita utilizando modelos do Azure Resource Manager.  Veja o exemplo de modelo no início deste artigo.  Tem de atualizar o **targetInstanceCount** para refletir o número de nós de extremidade que pretende criar.
 
 ## <a name="access-an-edge-node"></a>Aceder a um nó de extremidade
-O nó de extremidade ssh ponto final está &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Por exemplo, novas-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+O nó de extremidade ssh ponto final está &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Por exemplo, novo-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
 
-O nó de extremidade aparece como uma aplicação no portal do Azure.  O portal dá-lhe as informações para aceder ao nó de extremidade utilizando SSH.
+Nó de extremidade é apresentada como uma aplicação no portal do Azure.  O portal fornece as informações para aceder ao nó de extremidade através de SSH.
 
-**Para verificar o ponto final de SSH do nó de extremidade**
+**Para verificar o ponto final SSH do nó de extremidade**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster do HDInsight com um nó de extremidade.
@@ -139,10 +134,10 @@ O nó de extremidade aparece como uma aplicação no portal do Azure.  O portal 
 
 1. Utilize o SSH para ligar ao nó de extremidade. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Depois de ligar ao nó de extremidade através do SSH, utilize o seguinte comando para abrir a consola do ramo de registo:
+2. Depois de ligar ao nó de extremidade através de SSH, utilize o seguinte comando para abrir a consola do Hive:
    
         hive
-3. Execute o seguinte comando para mostrar as tabelas do Hive no cluster:
+3. Execute o seguinte comando para mostrar tabelas do Hive no cluster:
    
         show tables;
 
@@ -153,15 +148,15 @@ Pode eliminar um nó de extremidade do portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster do HDInsight com um nó de extremidade.
-3. Clique em **Aplicações**. Deverá ver uma lista de nós de limite.  
-4. Clique no nó de extremidade que pretende eliminar e, em seguida, clique em **eliminar**.
+3. Clique em **Aplicações**. Deverá ver uma lista de nós de extremidade.  
+4. Com o botão direito do nó de extremidade que pretende eliminar e, em seguida, clique em **eliminar**.
 5. Clique em **Sim** para confirmar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como adicionar um nó de extremidade e como aceder ao nó de extremidade. Para obter mais informações, consulte os artigos seguintes:
 
 * [Instalar aplicações HDInsight](hdinsight-apps-install-applications.md): Saiba como instalar aplicações HDInsight nos clusters.
-* [Instalar aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada no HDInsight.
+* [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): Saiba como implementar uma aplicação HDInsight não publicada para o HDInsight.
 * [Publicar aplicações do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar as suas aplicações do HDInsight personalizadas no Azure Marketplace.
 * [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicações do HDInsight.
 * [Personalizar clusters do HDInsight baseados em Linux através da Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como utilizar a Ação de Script para instalar outras aplicações.

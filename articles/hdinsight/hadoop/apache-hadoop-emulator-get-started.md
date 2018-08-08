@@ -1,80 +1,75 @@
 ---
-title: Saiba através de uma sandbox Hadoop - emulador - Azure HDInsight | Microsoft Docs
-description: 'Para iniciar a aprendizagem sobre a utilização do ecossistema do Hadoop, pode configurar um sandbox de Hadoop do Hortonworks numa máquina virtual do Azure. '
-keywords: emulador do hadoop, hadoop sandbox
-editor: cgronlun
-manager: jhubbard
+title: Saiba mais através de uma sandbox do Hadoop - emulador - Azure HDInsight
+description: 'Para começar a aprender sobre a utilização do ecossistema do Hadoop, pode configurar um sandbox do Hadoop da Hortonworks numa máquina virtual do Azure. '
+keywords: emulador do hadoop, sandbox do hadoop
+editor: jasonwhowell
 services: hdinsight
-author: nitinme
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 6a2a81f89e86a75dd56283526713b88cdfd21569
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401137"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598717"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começar com uma sandbox de Hadoop, um emulador numa máquina virtual
+# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Comece com um sandbox do Hadoop, um emulador numa máquina virtual
 
-Saiba como instalar o sandbox de Hadoop do Hortonworks numa máquina virtual para saber mais sobre a ecossistema do Hadoop. A sandbox disponibiliza um ambiente de desenvolvimento local para saber mais sobre Hadoop, distribuída ficheiro sistema Hadoop (HDFS) e a submissão da tarefa. Depois de se familiarizar com o Hadoop, pode começar a utilizar o Hadoop no Azure através da criação de um cluster do HDInsight. Para obter mais informações sobre como começar a utilizar, consulte [começar com o Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+Saiba como instalar o sandbox do Hadoop a partir do Hortonworks numa máquina virtual para saber mais sobre o ecossistema Hadoop. A área de segurança fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, Hadoop Distributed File System (HDFS) e submissão de tarefas. Depois de se familiarizar com o Hadoop, pode começar a utilizar o Hadoop no Azure através da criação de um cluster do HDInsight. Para obter mais informações sobre como começar, consulte [introdução ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Oracle VirtualBox](https://www.virtualbox.org/). Transfira e instale-o de [aqui](https://www.virtualbox.org/wiki/Downloads).
+* [Oracle VirtualBox](https://www.virtualbox.org/). Transfira e instale-o a partir [aqui](https://www.virtualbox.org/wiki/Downloads).
 
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Transfira e instale a máquina virtual
-1. Navegue para o [Hortonworks transfere](http://hortonworks.com/downloads/#sandbox).
+1. Navegue para o [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
 
-2. Clique em **transferir para VIRTUALBOX** para transferir os mais recentes Hortonworks Sandbox numa VM. É solicitado que registe com Hortonworks antes de começa a transferência. Demora uma ou duas horas para transferir, consoante a velocidade de rede.
+2. Clique em **BAIXAR para VIRTUALBOX** para transferir a Sandbox da Hortonworks mais recente numa VM. São-lhe pedido para registar com a Hortonworks antes de inicia a transferência. Demora uma ou duas horas para transferir consoante a velocidade da rede.
    
-    ![Imagem de ligação para transferir Hortonworks Sandbox para VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. Da mesma página web, clique em de **importar na caixa Virtual** hiperligação para transferir um PDF que contém as instruções de instalação para a máquina virtual.
+    ![Imagem de ligação para transferir a Sandbox da Hortonworks para VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
+3. A partir da mesma página da web, clique nas **importar na caixa Virtual** ligação para transferir o PDF com as instruções de instalação para a máquina virtual.
 
 Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
 
-![Arquivo de Hortonworks Sandbox](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
+![Arquivo de Sandbox da Hortonworks](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
 
 
 ## <a name="start-the-virtual-machine"></a>Iniciar a máquina virtual
 
-1. Abra VirtualBox VM Oracle.
-2. Do **ficheiro** menu, clique em **importar aplicação**e, em seguida, especifique a imagem do Hortonworks Sandbox.
-1. Selecione o Hortonworks Sandbox, clique em **iniciar**e, em seguida, **Normal iniciar**. Depois da máquina virtual tem de terminar o processo de arranque, apresenta instruções de início de sessão.
+1. Abra o Oracle VM VirtualBox.
+2. Do **arquivo** menu, clique em **importar aplicação**e, em seguida, especifique a imagem de Sandbox da Hortonworks.
+1. Selecione a Sandbox da Hortonworks, clique em **começar**e, em seguida **Normal iniciar**. Depois da máquina virtual tem de terminar o processo de inicialização, apresenta instruções de início de sessão.
    
     ![Início normal](./media/apache-hadoop-emulator-get-started/normal-start.png)
 2. Abra um browser e navegue para o URL apresentado (normalmente http://127.0.0.1:8888).
 
 ## <a name="set-sandbox-passwords"></a>Definir palavras-passe de Sandbox
 
-1. Do **começar** passo da página Hortonworks Sandbox, selecione **opções avançadas de vista**. Utilize as informações nesta página para iniciar sessão para a sandbox utilizando SSH. Utilize o nome e a palavra-passe fornecida.
+1. Do **começar** passo da página de Sandbox da Hortonworks, selecione **opções avançadas de vista**. Utilize as informações desta página para iniciar sessão para a área de segurança através de SSH. Utilize o nome e a palavra-passe fornecida.
    
    > [!NOTE]
-   > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseado na web fornecido pela máquina virtual em **http://localhost:4200/**.
+   > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseada na web, fornecido pela máquina virtual em **http://localhost:4200/**.
    > 
    
-    Na primeira vez que o se ligar através do SSH, lhe for pedido para alterar a palavra-passe para a conta raiz. Introduza uma nova palavra-passe, que utilizar quando iniciar sessão utilizando SSH.
+    Na primeira vez que se liga através de SSH, lhe for pedido para alterar a palavra-passe para a conta raiz. Introduza uma palavra-passe nova, o que utilizar quando iniciar sessão através de SSH.
 
-2. Depois de a sessão, introduza o seguinte comando:
+2. Depois de iniciar sessão, introduza o seguinte comando:
    
         ambari-admin-password-reset
    
-    Quando solicitado, forneça uma palavra-passe para a conta de administrador do Ambari. Isto é utilizado ao aceder a IU da Web do Ambari.
+    Quando lhe for pedido, forneça uma palavra-passe para a conta de administrador do Ambari. Isto é utilizado ao aceder à IU Web do Ambari.
 
-## <a name="use-hive-commands"></a>Utilizar comandos de ramo de registo
+## <a name="use-hive-commands"></a>Utilizar comandos do Hive
 
-1. A partir de uma ligação SSH ao sandbox, utilize o seguinte comando para iniciar a shell do Hive:
+1. A partir de uma ligação de SSH para a área de segurança, utilize o seguinte comando para iniciar a Hive shell:
    
         hive
-2. Depois de ter iniciado o shell, utilize o seguinte para ver as tabelas que são fornecidas com o sandbox:
+2. Assim que tiver iniciado o shell, utilize o seguinte para ver as tabelas que são fornecidas com a área de segurança:
    
         show tables;
 3. Utilize o seguinte para obter 10 linhas do `sample_07` tabela:
@@ -82,7 +77,7 @@ Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba como utilizar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Learning ropes de Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Tutorial do Hadoop - introdução HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Saiba como utilizar o Visual Studio com a Sandbox da Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Aprender tudo de que a Sandbox da Hortonworks](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Tutorial do Hadoop - guia de introdução HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

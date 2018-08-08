@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578454"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590754"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v2.0?
 
@@ -39,11 +39,11 @@ Se tiver uma aplicação do Azure AD existente que não utiliza o ponto final v2
 
 ## <a name="restrictions-on-app-types"></a>Restrições de tipos de aplicações
 
-Atualmente, os seguintes tipos de aplicações não são suportados pelo ponto final v2.0. Para obter uma descrição dos tipos de aplicação suportados, consulte [tipos de aplicações para o ponto de final de v2.0 do Azure Active Directory](active-directory-v2-flows.md).
+Atualmente, os seguintes tipos de aplicações não são suportados pelo ponto final v2.0. Para obter uma descrição dos tipos de aplicação suportados, consulte [tipos de aplicações para o ponto de final de v2.0 do Azure Active Directory](v2-app-types.md).
 
 ### <a name="standalone-web-apis"></a>APIs da Web autónoma
 
-Pode utilizar o ponto final v2.0 para [criar uma API Web que está protegida com OAuth 2.0](active-directory-v2-flows.md#web-apis). No entanto, o que a API Web pode receber tokens apenas a partir de uma aplicação que tenha o ID da mesma aplicação. Não é possível aceder uma API Web a partir de um cliente que tenha um ID da aplicação diferentes. O cliente não será capaz de solicitar ou obter permissões para a API Web.
+Pode utilizar o ponto final v2.0 para [criar uma API Web que está protegida com OAuth 2.0](v2-app-types.md#web-apis). No entanto, o que a API Web pode receber tokens apenas a partir de uma aplicação que tenha o ID da mesma aplicação. Não é possível aceder uma API Web a partir de um cliente que tenha um ID da aplicação diferentes. O cliente não será capaz de solicitar ou obter permissões para a API Web.
 
 Para ver como criar uma API Web que aceita tokens de um cliente que tem o mesmo ID de aplicação, veja os exemplos de Web API do ponto final de v2.0 no [introdução ao](active-directory-appmodel-v2-overview.md#getting-started) secção.
 
@@ -98,9 +98,9 @@ Para saber como registar uma aplicação no Portal de registo de aplicação, ve
 Atualmente, o suporte de biblioteca para o ponto final v2.0 é limitado. Se quiser usar o ponto final v2.0 num aplicativo de produção, tem estas opções:
 
 * Se estiver criando um aplicativo web, pode utilizar com segurança Microsoft em disponibilidade geral do servidor middleware para executar a validação do início de sessão e o token. Estes incluem o middleware da OWIN abrir ID Connect do ASP.NET e o plug-in de passaporte de node. js. Para exemplos de código que utilizam o middleware da Microsoft, consulte a [introdução ao](active-directory-appmodel-v2-overview.md#getting-started) secção.
-* Se estiver criando um aplicativo de desktop ou mobile, pode utilizar um da bibliotecas de autenticação da Microsoft (MSAL) de pré-visualização. Essas bibliotecas estão em pré-visualização suportado de produção, portanto, é seguro para usá-los em aplicações de produção. Pode ler mais sobre os termos de pré-visualização e as bibliotecas disponíveis no [referência de bibliotecas de autenticação](active-directory-v2-libraries.md).
+* Se estiver criando um aplicativo de desktop ou mobile, pode utilizar um da bibliotecas de autenticação da Microsoft (MSAL) de pré-visualização. Essas bibliotecas estão em pré-visualização suportado de produção, portanto, é seguro para usá-los em aplicações de produção. Pode ler mais sobre os termos de pré-visualização e as bibliotecas disponíveis no [referência de bibliotecas de autenticação](reference-v2-libraries.md).
 * Para plataformas não abrangidas por bibliotecas da Microsoft, pode integrar com o ponto final v2.0 diretamente enviar e receber mensagens de protocolo no código da aplicação. Os protocolos de OpenID Connect e OAuth v2.0 [estão documentados explicitamente](active-directory-v2-protocols.md) para ajudar a efetuar uma integração desse tipo.
-* Por fim, pode utilizar bibliotecas de código-fonte aberto abrir ID Connect e OAuth para integrar com o ponto final v2.0. O protocolo de v2.0 deve ser compatível com muitas bibliotecas de protocolo aberto sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia consoante o idioma e plataforma. O [abrir ID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) Web sites manter uma lista de implementações populares. Para obter mais informações, consulte [bibliotecas de autenticação e a versão 2.0 do Azure Active Directory](active-directory-v2-libraries.md)e a lista de bibliotecas de cliente de código-fonte aberto e exemplos que foram testados com o ponto final v2.0.
+* Por fim, pode utilizar bibliotecas de código-fonte aberto abrir ID Connect e OAuth para integrar com o ponto final v2.0. O protocolo de v2.0 deve ser compatível com muitas bibliotecas de protocolo aberto sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia consoante o idioma e plataforma. O [abrir ID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) Web sites manter uma lista de implementações populares. Para obter mais informações, consulte [bibliotecas de autenticação e a versão 2.0 do Azure Active Directory](reference-v2-libraries.md)e a lista de bibliotecas de cliente de código-fonte aberto e exemplos que foram testados com o ponto final v2.0.
 
 ## <a name="restrictions-on-protocols"></a>Restrições em protocolos
 

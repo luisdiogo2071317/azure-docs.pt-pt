@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238425"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618901"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação de lado do servidor do Azure Cosmos DB: procedimentos armazenados, acionadores de base de dados e UDFs
 
@@ -394,7 +394,7 @@ client.replaceDocumentAsync(docToReplace.self,
 Pós-acionadores de, como o Pre-acionadores, estão associados uma operação num documento e não se parâmetros de entrada. São executados **depois de** a operação foi concluída e tem acesso para a mensagem de resposta que é enviado ao cliente.   
 
 O exemplo seguinte mostra os pós-acionadores de em ação:
-```
+```javascript
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -434,7 +434,7 @@ var updateMetadataTrigger = {
 
 ```
 O acionador pode ser registrado, conforme mostrado no exemplo a seguir.
-```
+```javascript
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -844,4 +844,3 @@ Podem também ser as seguintes referências e recursos úteis no seu caminho par
 * [Extensibilidade de base de dados seguras e portáteis](http://dl.acm.org/citation.cfm?id=276339) 
 * [Arquitetura de base de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hospedar o Runtime do .NET no Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
-

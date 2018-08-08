@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d3c033efb034cbce2e439ba22097cafc029d8b63
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412417"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620489"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementar com base na cloud do Azure multi-factor Authentication
 
@@ -109,3 +109,5 @@ Parabéns, tiver configurado o multi-factor Authentication na cloud.
 Para configurar definições adicionais, como os IPs fidedignos, mensagens de voz personalizada e alertas de fraude, consulte o artigo [definições de configurar o Azure multi-factor Authentication](howto-mfa-mfasettings.md)
 
 Informações sobre como gerir as definições de utilizador para o Azure multi-factor Authentication podem ser encontrado no artigo [gerir definições de utilizador com o Azure multi-factor Authentication na cloud](howto-mfa-userdevicesettings.md)
+
+[Ativar o registo convergido para a reposição de palavra-passe self-service do Azure multi-factor Authentication e o Azure AD](concept-registration-mfa-sspr-converged.md)

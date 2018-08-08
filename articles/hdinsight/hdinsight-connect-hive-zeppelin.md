@@ -1,50 +1,46 @@
 ---
-title: Utilize Zeppelin para executar consultas do Hive no Azure HDInsight | Microsoft Docs
-description: Saiba como utilizar Zeppelin para executar consultas do Hive.
-keywords: hive do hadoop do hdinsight, consulta interativa, LLAP
+title: Utilizar o Zeppelin para executar consultas do Hive no HDInsight do Azure
+description: Saiba como utilizar o Zeppelin para executar consultas do Hive.
+keywords: o hdinsight, hadoop, hive, a consulta interativa, o LLAP
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: c8fe65d2eadaede1d99befbf76c4d06fab9598fc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: d4767c4d86d03827b0c055af41638988afd632a1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202616"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595938"
 ---
-# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Utilize Zeppelin para executar consultas do Hive no Azure HDInsight 
+# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Utilizar o Zeppelin para executar consultas do Hive no HDInsight do Azure 
 
-Clusters do HDInsight de consulta interativa incluem blocos de notas do Zeppelin que pode utilizar para executar consultas interativas do ramo de registo. Neste artigo, irá aprender a utilizar Zeppelin para executar consultas do Hive no Azure HDInsight. 
+Os clusters do Interactive Query do HDInsight incluem blocos de notas do Zeppelin que pode utilizar para executar consultas interativas do Hive. Neste artigo, irá aprender a utilizar o Zeppelin para executar consultas do Hive no HDInsight do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de passar neste artigo, tem de ter os seguintes itens:
+Antes de passar por este artigo, tem de ter os seguintes itens:
 
-* **Cluster de HDInsight de consulta interativa**. Consulte [Criar cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) para criar um cluster do HDInsight.  Certifique-se escolher o tipo de consulta interativo. 
+* **Cluster do HDInsight Interactive Query**. Ver [criar um cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) para criar um cluster do HDInsight.  Certifique-se de escolher o tipo de consulta interativa. 
 
-## <a name="create-a-zeppelin-note"></a>Crie uma nota do Zeppelin
+## <a name="create-a-zeppelin-note"></a>Criar uma nota de Zeppelin
 
-1. Navegue para o seguinte URL:
+1. Navegue para o URL seguinte:
 
         https://CLUSTERNAME.azurehdinsight.net/zeppelin
     Substitua **CLUSTERNAME** pelo nome do cluster.
 
-2. Introduza o nome de utilizador do Hadoop e a palavra-passe. Página Zeppelin, pode criar uma nova nota ou abrir notas existentes. HiveSample contém alguns exemplos de consultas do Hive.  
+2. Introduza o nome de utilizador do Hadoop e a palavra-passe. Na página Zeppelin, pode criar uma nova nota ou abra notas existentes. HiveSample contém alguns exemplos de consultas do Hive.  
 
-    ![Zeppelin consulta interativa do HDInsight](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    ![Zeppelin Interactive Query do HDInsight](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
 3. Clique em **criar nova nota**.
 4. Escreva ou selecione os seguintes valores:
 
-    - Nome de Nota: introduza um nome para a nota.
-    - Predefinição interpretador: selecione **JDBC**.
+    - Nome da observação: introduza um nome para a nota.
+    - O interpretador de predefinição: selecione **JDBC**.
 
 5. Clique em **criar nota**.
 6. Execute a seguinte consulta do Hive:
@@ -52,13 +48,13 @@ Antes de passar neste artigo, tem de ter os seguintes itens:
         %jdbc(hive)
         show tables
 
-    ![HDInsight interativa zeppelin execuções de consulta](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    ![Consulta de execuções do Interactive Query do HDInsight zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
 
-    O **%jdbc(hive)** instrução na primeira linha indica o bloco de notas para utilizar o interpretador de JDBC ramo de registo.
+    O **%jdbc(hive)** instrução na primeira linha informa o bloco de notas para utilizar o interpretador de JDBC do Hive.
 
-    A consulta deverá devolver uma tabela de Hive chamada *hivesampletable*.
+    A consulta deverá devolver uma tabela do Hive chamada *hivesampletable*.
 
-    Seguem-se duas consultas do Hive mais que podem ser executadas contra o hivesampletable. 
+    Seguem-se dois mais consultas do Hive que pode ser executado em relação a hivesampletable. 
 
         %jdbc(hive)
         select * from hivesampletable limit 10
@@ -69,16 +65,16 @@ Antes de passar neste artigo, tem de ter os seguintes itens:
         group by ${group_name=market,market|deviceplatform|devicemake}
         limit ${total_count=10}
 
-    A comparação com o ramo de registo tradicional, os resultados da consulta voltar atrás tem mais rapidamente.
+    Comparando com o Hive tradicional, os resultados da consulta voltar tem mais rapidamente.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a visualizar dados do HDInsight através do Power BI.  Para obter mais informações, consulte os artigos seguintes:
+Neste artigo, aprendeu a visualizar dados do HDInsight com o Power BI.  Para obter mais informações, consulte os artigos seguintes:
 
-* [Visualizar dados do Hive com o Microsoft Power BI no Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Visualizar dados de ramo de registo de consultas interativas com o Power BI no Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Ligar o Excel para o HDInsight com o controlador ODBC do Microsoft Hive](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+* [Visualizar dados de Hive com o Microsoft Power BI no Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Visualizar dados de consulta interativa do Hive com o Power BI no Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+* [Ligar o Excel ao HDInsight com o controlador Microsoft Hive ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Ligar o Excel ao Hadoop com o Power Query](hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Ligar ao Azure HDInsight e executar consultas do Hive, utilizando ferramentas do Data Lake para Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
-* [Utilizar a ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md).
+* [Ligar ao Azure HDInsight e executar consultas do Hive com o Data Lake Tools para Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* [Utilize a ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md).
 * [Carregar dados para o HDInsight](./hdinsight-upload-data.md).

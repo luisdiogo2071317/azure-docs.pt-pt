@@ -10,14 +10,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602122"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622641"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
 
@@ -26,7 +26,9 @@ ms.locfileid: "38602122"
 | Runtime | Estado |
 |---------|---------|
 |1.x|Geralmente disponível (GA)|
-|2.x|Pré-visualização|
+|2.x|Pré-visualização<sup>*</sup>|
+
+<sup>*</sup>Para receber atualizações importantes na versão 2.x, incluindo a última hora altera anúncios, veja a [anúncios de serviço de aplicações do Azure](https://github.com/Azure/app-service-announcements/issues) repositório.
 
 > [!NOTE] 
 > Este artigo refere-se ao serviço cloud, as funções do Azure. Para obter informações sobre o produto que permite-lhe executar as funções do Azure no local, consulte a [descrição geral de tempo de execução de funções do Azure](functions-runtime-overview.md).

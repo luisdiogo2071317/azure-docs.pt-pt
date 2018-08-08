@@ -1,52 +1,47 @@
 ---
-title: Script de ação - pacotes de instalar o Python com o Jupyter no Azure HDInsight | Microsoft Docs
-description: Instruções passo a passo sobre como utilizar a ação de script para configurar disponíveis blocos de notas do Jupyter com clusters do HDInsight Spark para utilizar pacotes de python externo.
+title: Ação de script - pacotes de instalar o Python com o Jupyter no Azure HDInsight
+description: Instruções passo a passo sobre como utilizar a ação de script para configurar disponíveis da blocos de notas do Jupyter com clusters do Spark do HDInsight para utilizar pacotes externos python.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: nitinme
-ms.openlocfilehash: 4d9d1e0aaf6a1c0155f9ab74a5e63302635a0c11
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 36e727a59b91303c8c62c5525f72c328e2792ad6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517414"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619180"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilize a ação de Script para instalar pacotes de Python externos para blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]
-> * [Utilizar a magia de células](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Através da ação de Script](apache-spark-python-package-installation.md)
+> * [Magia de células](apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Com a ação de Script](apache-spark-python-package-installation.md)
 >
 >
 
-Saiba como utilizar as ações de Script para configurar um cluster do Apache Spark no HDInsight (Linux) para utilizar externo, contribuíram de Comunidade **python** pacotes que não são incluídos out of box no cluster.
+Saiba como utilizar as ações de Script para configurar um cluster do Apache Spark no HDInsight (Linux) para utilizar externo, fornecidas pela Comunidade **python** pacotes que não são incluídos out of box, no cluster.
 
 > [!NOTE]
-> Também pode configurar um bloco de notas do Jupyter utilizando `%%configure` magic utilizar pacotes externos. Para obter instruções, consulte [utilizar pacotes externos com blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
+> Também pode configurar um bloco de notas do Jupyter com o `%%configure` mágica para utilizar pacotes externos. Para obter instruções, consulte [utilizar pacotes externos com blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
 > 
 > 
 
-Pode pesquisar o [índice de pacote](https://pypi.python.org/pypi) para a lista completa de pacotes que estão disponíveis. Também pode obter uma lista de pacotes disponíveis a partir de outras origens. Por exemplo, é possível instalar pacotes disponibilizados através de [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) ou [conda forge](https://conda-forge.org/feedstocks/).
+Pode pesquisar o [índice de pacote](https://pypi.python.org/pypi) para obter a lista completa de pacotes que estão disponíveis. Também pode obter uma lista dos pacotes disponíveis a partir de outras origens. Por exemplo, pode instalar disponibilizados por meio de pacotes [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) ou [uma falsificação conda](https://conda-forge.org/feedstocks/).
 
-Neste artigo, irá aprender a instalar o [TensorFlow](https://www.tensorflow.org/) pacote através da ação de Script no seu cluster e utilizá-lo através do bloco de notas do Jupyter.
+Neste artigo, irá aprender a instalar o [TensorFlow](https://www.tensorflow.org/) com a ação de Script no seu cluster do pacote e usá-lo por meio do bloco de notas do Jupyter.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Tem de ter o seguinte:
 
 * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte [clusters do Apache Spark criar no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
    > [!NOTE]
-   > Se ainda não tiver um cluster do Spark no HDInsight Linux, pode executar ações de script durante a criação do cluster. Visite a documentação na [como utilizar as ações de script personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+   > Se ainda não tiver um cluster do Spark no HDInsight Linux, pode executar ações de script durante a criação do cluster. Visite a documentação sobre [como utilizar as ações de script personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
    > 
    > 
 
@@ -54,14 +49,14 @@ Tem de ter o seguinte:
 
 1. No [Portal do Azure](https://portal.azure.com/), no startboard, clique no mosaico relativo ao cluster do Spark (se o tiver afixado ao startboard). Também pode navegar até ao cluster em **Procurar Tudo** > **Clusters do HDInsight**.   
 
-2. No painel de cluster do Spark, clique em **ações de Script** no painel esquerdo. Execute a ação personalizada que instala TensorFlow em nós principais e os nós de trabalho. O script de deteção pode ser referenciado a partir de: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh visite a documentação na [como utilizar as ações de script personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. No painel do cluster do Spark, clique em **ações de Script** no painel à esquerda. Executar a ação personalizada que instalará TensorFlow os nós principais e os nós de trabalho. O script de bash pode ser referenciado em: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh visite a documentação sobre [como utilizar as ações de script personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
-   > Existem dois python instalações do cluster. O Spark irá utilizar a instalação de python Anaconda localizada em `/usr/bin/anaconda/bin`. Essa instalação no seu ações personalizadas através de referência `/usr/bin/anaconda/bin/pip` e `/usr/bin/anaconda/bin/conda`.
+   > Existem dois python instalações no cluster. Spark irá utilizar a instalação do python Anaconda localizada em `/usr/bin/anaconda/bin`. Essa instalação nas suas ações personalizadas através de referência `/usr/bin/anaconda/bin/pip` e `/usr/bin/anaconda/bin/conda`.
    > 
    > 
 
-3. Abra um bloco de notas do PySpark Jupyter
+3. Abra um bloco de notas do Jupyter do PySpark
 
     ![Criar um novo bloco de notas Jupyter](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Criar um novo bloco de notas Jupyter")
 
@@ -69,7 +64,7 @@ Tem de ter o seguinte:
 
     ![Forneça um nome para o bloco de notas](./media/apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "Forneça um nome para o bloco de notas")
 
-5. Irá agora `import tensorflow` e execute um exemplo do Olá mundo. 
+5. Irá agora `import tensorflow` e executar um exemplo do hello world. 
 
     Código para copiar:
 
@@ -80,7 +75,7 @@ Tem de ter o seguinte:
 
     O resultado tem o seguinte aspeto:
     
-    ![A execução do código TensorFlow](./media/apache-spark-python-package-installation/execution.png "TensorFlow executar código")
+    ![Execução de código do TensorFlow](./media/apache-spark-python-package-installation/execution.png "TensorFlow executar código")
 
 ## <a name="seealso"></a>Ver também
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)

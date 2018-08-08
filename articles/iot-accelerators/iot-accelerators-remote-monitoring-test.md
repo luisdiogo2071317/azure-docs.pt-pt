@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 9c0c1ba9dd343baa453f10ad82c0cc8b8e69da7b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187728"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596159"
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -140,6 +140,8 @@ Os seguintes comandos a utilizar o `az` comando partir [CLI 2.0 do Azure](https:
     ```sh
     az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
+
+    Só deverá ativar o acesso SSH durante o desenvolvimento e teste. Se ativar o SSH, [deve desabilitá-la novamente logo que possível](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines)
 
 1. Para alterar a palavra-passe da máquina virtual para uma palavra-passe, que sabe, execute o seguinte comando. Utilize o nome da máquina virtual que apontou anteriormente e uma palavra-passe da sua preferência:
 

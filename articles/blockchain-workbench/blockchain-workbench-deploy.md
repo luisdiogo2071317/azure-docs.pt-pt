@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b65b6977dfe2043e260fd9c0eefd6038ca436d50
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505819"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593966"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementar o Azure Blockchain Workbench
 
@@ -73,7 +73,7 @@ Implementação de Blockchain Workbench requer o registo de uma aplicação do A
 
 ### <a name="modify-application-manifest"></a>Modificar o manifesto da aplicação
 
-Em seguida, terá de modificar o manifesto de aplicação para utilizar funções de aplicação no Azure AD para especificar administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos da aplicação, consulte [manifesto de aplicação do Azure Active Directory](../active-directory/develop/active-directory-application-manifest.md).
+Em seguida, terá de modificar o manifesto de aplicação para utilizar funções de aplicação no Azure AD para especificar administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos da aplicação, consulte [manifesto de aplicação do Azure Active Directory](../active-directory/develop/reference-app-manifest.md).
 
 1. Para a aplicação que registou, selecione **manifesto** no painel de detalhes de aplicação registada.
 2. Gere um GUID. Pode gerar um GUID usando o comando do PowerShell [guid]:: Novo_guid () ou o cmdlet New-GUID. Outra opção consiste em utilizar um Web site de gerador GUID.

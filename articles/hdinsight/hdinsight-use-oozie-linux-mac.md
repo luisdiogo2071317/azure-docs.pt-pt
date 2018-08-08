@@ -1,74 +1,71 @@
 ---
-title: Utilizar o Hadoop Oozie fluxos de trabalho no Azure HDInsight baseado em Linux | Microsoft Docs
-description: Utilize o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e submeter uma tarefa de Oozie.
+title: Utilizar fluxos de trabalho do Oozie do Hadoop no HDInsight do Azure baseado em Linux
+description: Utilize Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e submeter uma tarefa de Oozie.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a8a1b45d28b8d762a659ccdcc6986dcacb3a9d3e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019284"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599178"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
+# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Saiba como utilizar o Apache Oozie com o Hadoop no Azure HDInsight. Oozie é um sistema de coordenação e fluxos de trabalho que gere as tarefas do Hadoop. Oozie está integrado com a pilha do Hadoop e suporta as seguintes tarefas:
+Saiba como utilizar o Apache Oozie com o Hadoop no HDInsight do Azure. Oozie é um sistema de fluxo de trabalho e a coordenação que gere as tarefas do Hadoop. Oozie está integrado com a pilha do Hadoop e suporta as seguintes tarefas:
 
 * Apache MapReduce
-* O Apache Pig
+* Apache Pig
 * Apache Hive
 * O Apache Sqoop
 
-Também pode utilizar o Oozie para agendar tarefas específicas para um sistema, como os programas de Java ou scripts de shell.
+Também pode utilizar o Oozie para agendar tarefas que são específicas para um sistema, como programas de Java ou scripts de shell.
 
 > [!NOTE]
-> Outra opção para definir fluxos de trabalho com o HDInsight é utilizar o Azure Data Factory. Para saber mais sobre o Data Factory, consulte o artigo [Pig de utilização e o Hive com o Data Factory][azure-data-factory-pig-hive].
+> Outra opção para definir fluxos de trabalho com o HDInsight é utilizar o Azure Data Factory. Para saber mais sobre o Data Factory, veja [utilizar Pig e Hive com o Data Factory][azure-data-factory-pig-hive].
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster do HDInsight**: consulte [introdução ao HDInsight no Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Um cluster do HDInsight**: consulte [começar com o HDInsight no Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 
-O fluxo de trabalho utilizado neste documento contém duas ações. As ações são definições para as tarefas, como a execução do Hive, Sqoop, MapReduce ou outros processos:
+O fluxo de trabalho utilizado neste documento contém duas ações. Ações são as definições para tarefas, como a execução do Hive, Sqoop, MapReduce ou outros processos:
 
 ![Diagrama de fluxo de trabalho][img-workflow-diagram]
 
-1. Uma ação de ramo de registo executa um script de HiveQL para extrair os registos da **hivesampletable** que incluiu com o HDInsight. Cada linha de dados descreve a visita de um dispositivo móvel específico. O formato de registo é apresentado como o seguinte texto:
+1. Uma ação de Hive executa um script de HiveQL para extrair os registos a partir da **hivesampletable** que está incluído no HDInsight. Cada linha de dados descreve uma visita de um dispositivo móvel específico. O formato de registo aparece como o seguinte texto:
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
         23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
-    O script de ramo de registo utilizado neste documento contagens de visitas totais para cada plataforma, tal como Android ou iPhone e armazena o número de uma nova tabela do Hive.
+    O script de ramo de registo utilizado neste documento conta o total de visitas para cada plataforma, como Android ou iPhone e armazena as contagens para uma nova tabela do Hive.
 
     Para obter mais informações sobre o Hive, consulte [Utilizar o Hive com o HDInsight][hdinsight-use-hive].
 
-2. Uma ação de Sqoop exporta o conteúdo da tabela do Hive novo a uma tabela na base de dados do Azure SQL. Para obter mais informações sobre Sqoop, consulte [utilize Hadoop Sqoop com o HDInsight][hdinsight-use-sqoop].
+2. Uma ação de Sqoop exporta o conteúdo da nova tabela do Hive para uma tabela criada na base de dados do Azure SQL. Para obter mais informações sobre o Sqoop, consulte [utilização Hadoop Sqoop com o HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]
-> Para versões suportadas do Oozie nos clusters do HDInsight, consulte [Novidades nas versões de cluster do Hadoop fornecidas pelo HDInsight][hdinsight-versions].
+> Para versões suportadas do Oozie em clusters do HDInsight, consulte [quais são as novidades nas versões de cluster do Hadoop fornecidas pelo HDInsight][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>Criar o diretório de trabalho
 
-Oozie espera, pode armazenar todos os recursos necessários para uma tarefa no mesmo diretório. Este exemplo utiliza **wasb: / / / tutoriais/useoozie**. Para criar este diretório, execute os seguintes passos:
+Oozie espera que armazene todos os recursos necessários para uma tarefa no mesmo diretório. Este exemplo utiliza **wasb: / / / tutoriais/useoozie**. Para criar este diretório, conclua os seguintes passos:
 
-1. Ligar ao cluster do HDInsight ao utilizar o SSH:
+1. Ligar ao cluster do HDInsight com SSH:
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
@@ -83,22 +80,22 @@ Oozie espera, pode armazenar todos os recursos necessários para uma tarefa no m
     ```
 
     > [!NOTE]
-    > O `-p` parâmetro faz com que a criação de todos os diretórios no caminho. O **dados** diretório é utilizado para armazenar os dados utilizados pelo **useooziewf.hql** script.
+    > O `-p` parâmetro faz com que a criação de todos os diretórios no caminho. O **dados** directory é utilizado para armazenar os dados utilizados pela **useooziewf.hql** script.
 
-3. Para se certificar de que o Oozie pode representar a conta de utilizador, utilize o seguinte comando:
+3. Para certificar-se de que o Oozie pode representar a conta de utilizador, utilize o seguinte comando:
 
     ```bash
     sudo adduser username users
     ```
 
-    Substitua `username` com o nome de utilizador SSH.
+    Substitua `username` com seu nome de utilizador SSH.
 
     > [!NOTE]
-    > Pode ignorar erros indicam que o utilizador já for um membro do `users` grupo.
+    > Pode ignorar os erros que indicam que o utilizador já é membro do `users` grupo.
 
-## <a name="add-a-database-driver"></a>Adicionar um controlador de base de dados
+## <a name="add-a-database-driver"></a>Adicionar um driver de base de dados
 
-Uma vez que este fluxo de trabalho utiliza Sqoop para exportar dados para a base de dados do SQL Server, tem de fornecer uma cópia do controlador JDBC utilizado para interagir com a base de dados do SQL Server. Para copiar o controlador JDBC para o diretório de trabalho, utilize o seguinte comando da sessão SSH:
+Uma vez que este fluxo de trabalho utiliza o Sqoop para exportar dados para a base de dados SQL, tem de fornecer uma cópia do driver JDBC utilizado para interagir com a base de dados SQL. Para copiar o JDBC driver para o diretório de trabalho, utilize o seguinte comando a partir da sessão SSH:
 
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
@@ -107,19 +104,19 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 > [!NOTE]
 > Poderá receber uma mensagem que o ficheiro já existe.
 
-Se o fluxo de trabalho utilizada outros recursos, tais como um jar que contém uma aplicação de MapReduce, terá de adicionar bem esses recursos.
+Se o seu fluxo de trabalho utilizados outros recursos, tais como um jar que contém uma aplicação de MapReduce, terá de adicionar esses recursos também.
 
 ## <a name="define-the-hive-query"></a>Definir a consulta do Hive
 
-Utilize os seguintes passos para criar um script de idioma (HiveQL) de consulta de Hive que define uma consulta. Um fluxo de trabalho do Oozie mais tarde neste documento, será utilizada a consulta.
+Utilize os seguintes passos para criar um script de idioma (HiveQL) de consulta do Hive que define uma consulta. Irá utilizar a consulta num fluxo de trabalho do Oozie mais tarde neste documento.
 
-1. A partir da ligação SSH, utilize o seguinte comando para criar um ficheiro denominado `useooziewf.hql`:
+1. A partir da ligação de SSH, utilize o seguinte comando para criar um arquivo chamado `useooziewf.hql`:
 
     ```bash
     nano useooziewf.hql
     ```
 
-3. Depois de abre o GNU nano editor, utilize a seguinte consulta como o conteúdo do ficheiro:
+3. Depois de abre o editor do GNU nano, utilize a seguinte consulta como o conteúdo do ficheiro:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -128,13 +125,13 @@ Utilize os seguintes passos para criar um script de idioma (HiveQL) de consulta 
     INSERT OVERWRITE TABLE ${hiveTableName} SELECT deviceplatform, COUNT(*) as count FROM hivesampletable GROUP BY deviceplatform;
     ```
 
-    Existem duas variáveis utilizadas no script:
+    Existem duas variáveis no script:
 
-    * `${hiveTableName}`: Contém o nome da tabela a ser criado.
+    * `${hiveTableName}`: Contém o nome da tabela a ser criada.
 
-    * `${hiveDataFolder}`: Contém a localização para armazenar os ficheiros de dados da tabela.
+    * `${hiveDataFolder}`: Contém a localização para armazenar os ficheiros de dados para a tabela.
 
-    O ficheiro de definição de fluxo de trabalho, workflow.xml neste tutorial, transmite estes valores para este script de HiveQL no tempo de execução.
+    O ficheiro de definição de fluxo de trabalho, workflow.xml neste tutorial, passa esses valores para este script de HiveQL no tempo de execução.
 
 4. Para sair do editor, selecione Ctrl + X. Quando lhe for pedido, selecione `Y` para guardar o ficheiro, introduza `useooziewf.hql` como o nome de ficheiro e, em seguida, selecione **Enter**.
 
@@ -144,11 +141,11 @@ Utilize os seguintes passos para criar um script de idioma (HiveQL) de consulta 
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Este comando armazena o `useooziewf.hql` ficheiro no armazenamento compatível com HDFS para o cluster.
+    Este comando armazena os `useooziewf.hql` ficheiro no armazenamento compatível com HDFS do cluster.
 
 ## <a name="define-the-workflow"></a>Definir o fluxo de trabalho
 
-Definições de fluxo de trabalho do Oozie são escritas no Hadoop processo linguagem de definição (hPDL), que é uma linguagem de definição de processo XML. Utilize os seguintes passos para definir o fluxo de trabalho:
+Definições de fluxo de trabalho de Oozie são escritas no Hadoop processo de definição de idioma (hPDL), que é uma linguagem de definição do processo XML. Utilize os seguintes passos para definir o fluxo de trabalho:
 
 1. Utilize a seguinte instrução para criar e editar um novo ficheiro:
 
@@ -156,7 +153,7 @@ Definições de fluxo de trabalho do Oozie são escritas no Hadoop processo ling
     nano workflow.xml
     ```
 
-2. Depois de abre o editor nano for apresentado, introduza o seguinte XML como o conteúdo do ficheiro:
+2. Depois de abre o editor nano, introduza o seguinte XML como o conteúdo do ficheiro:
 
     ```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
@@ -215,15 +212,15 @@ Definições de fluxo de trabalho do Oozie são escritas no Hadoop processo ling
 
    * `RunHiveScript`: Esta ação é a ação de início e executa o `useooziewf.hql` script de ramo de registo.
 
-   * `RunSqoopExport`: Esta ação exporta os dados criados a partir do script de ramo de registo para uma base de dados do SQL Server por utilizar o Sqoop. Esta ação é executada apenas se o `RunHiveScript` ação for concluída com êxito.
+   * `RunSqoopExport`: Esta ação exporta os dados criados do script do Hive para uma base de dados SQL com o Sqoop. Esta ação é executada apenas se o `RunHiveScript` ação é efetuada com êxito.
 
-     O fluxo de trabalho tem várias entradas, tais como `${jobTracker}`. Irá substituir estas entradas com os valores que utiliza na definição de tarefa. Irá criar a definição de tarefa mais tarde neste documento.
+     O fluxo de trabalho tem várias entradas, como `${jobTracker}`. Substituirá essas entradas com os valores que utilizar na definição de tarefa. Irá criar a definição de tarefa mais tarde neste documento.
 
-     Tenha também em atenção o `<archive>sqljdbc4.jar</archive>` entrada na secção Sqoop. Esta entrada indica ao Oozie para disponibilizar este arquivo para Sqoop ao executar esta ação.
+     Tenha também em atenção o `<archive>sqljdbc4.jar</archive>` entrada na secção Sqoop. Essa entrada instrui o Oozie para disponibilizar este arquivo para Sqoop ao executar esta ação.
 
-3. Para guardar o ficheiro, selecione de Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**. 
+3. Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**. 
 
-4. Utilize o seguinte comando para copiar o `workflow.xml` do ficheiro para `/tutorials/useoozie/workflow.xml`:
+4. Utilize o comando seguinte para copiar o `workflow.xml` de ficheiros para `/tutorials/useoozie/workflow.xml`:
 
     ```bash
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
@@ -231,12 +228,12 @@ Definições de fluxo de trabalho do Oozie são escritas no Hadoop processo ling
 
 ## <a name="create-the-database"></a>Criar a base de dados
 
-Para criar uma base de dados do SQL, siga os passos a [criar uma base de dados do SQL Server](../sql-database/sql-database-get-started.md) documento. Quando criar a base de dados, utilize `oozietest` como o nome de base de dados. Também anote o nome do servidor de base de dados.
+Para criar uma base de dados SQL, siga os passos a [criar uma base de dados do SQL](../sql-database/sql-database-get-started.md) documento. Quando cria a base de dados, utilize `oozietest` como o nome de base de dados. Também, tome nota do nome do servidor da base de dados.
 
 ### <a name="create-the-table"></a>Criar a tabela
 
 > [!NOTE]
-> Existem várias formas de ligar à base de dados do SQL Server para criar uma tabela. Os passos seguintes utilizam [FreeTDS](http://www.freetds.org/) do cluster do HDInsight.
+> Existem várias formas de ligar à base de dados SQL para criar uma tabela. Os passos seguintes utilizam [FreeTDS](http://www.freetds.org/) do cluster do HDInsight.
 
 
 1. Utilize o seguinte comando para instalar o FreeTDS no cluster do HDInsight:
@@ -245,13 +242,13 @@ Para criar uma base de dados do SQL, siga os passos a [criar uma base de dados d
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Depois do FreeTDS foi instalado, utilize o seguinte comando para ligar ao servidor de base de dados do SQL Server que criou anteriormente:
+2. Depois de ter sido instalado o FreeTDS, utilize o seguinte comando para ligar ao servidor de base de dados SQL que criou anteriormente:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
     ```
 
-    Recebe o resultado como o seguinte texto:
+    É apresentado o resultado como o seguinte texto:
 
         locale is "en_US.UTF-8"
         locale charset is "UTF-8"
@@ -270,7 +267,7 @@ Para criar uma base de dados do SQL, siga os passos a [criar uma base de dados d
     GO
     ```
 
-    Quando for introduza a declaração `GO`, as instruções anteriores são avaliadas. As declarações de criar uma tabela, chamada **mobiledata**, que é utilizado pelo fluxo de trabalho.
+    Quando for introduza a declaração `GO`, as instruções anteriores são avaliadas. Essas instruções criar uma tabela, denominada **mobiledata**, que é utilizado pelo fluxo de trabalho.
 
     Para verificar que a tabela foi criada, utilize os seguintes comandos:
 
@@ -279,24 +276,24 @@ Para criar uma base de dados do SQL, siga os passos a [criar uma base de dados d
     GO
     ```
 
-    Consulte o resultado como o seguinte texto:
+    Veja o resultado como o seguinte texto:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         oozietest       dbo     mobiledata      BASE TABLE
 
-4. Para sair do utilitário de tsql, introduza `exit` no `1>` linha.
+4. Para saia do utilitário de tsql, introduza `exit` no `1>` prompt.
 
 ## <a name="create-the-job-definition"></a>Criar a definição de tarefa
 
-A definição de tarefa descreve onde encontrar a workflow.xml. Também descreve onde encontrar outros ficheiros utilizados pelo fluxo de trabalho, tal como `useooziewf.hql`. Além disso, define os valores para as propriedades utilizadas dentro do fluxo de trabalho e os ficheiros associados.
+A definição de tarefa descreve onde encontrar o workflow.xml. Também descreve onde encontrar outros arquivos usados pelo fluxo de trabalho, tais como `useooziewf.hql`. Além disso, ele define os valores para as propriedades utilizadas no fluxo de trabalho e os ficheiros associados.
 
-1. Para obter o endereço completo do armazenamento de predefinido, utilize o seguinte comando. Este endereço é utilizado no ficheiro de configuração que cria no próximo passo.
+1. Para obter o endereço completo do armazenamento predefinido, utilize o seguinte comando. Este endereço é utilizado no ficheiro de configuração que criar no próximo passo.
 
     ```bash
     sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
     ```
 
-    Este comando devolve informações como o XML do seguinte:
+    Este comando devolve informações como o seguinte XML:
 
     ```xml
     <name>fs.defaultFS</name>
@@ -304,9 +301,9 @@ A definição de tarefa descreve onde encontrar a workflow.xml. Também descreve
     ```
 
     > [!NOTE]
-    > Se o cluster do HDInsight utiliza o armazenamento do Azure como armazenamento de predefinido, o `<value>` conteúdo do elemento de começar por `wasb://`. Se o Azure Data Lake Store é utilizado em vez disso, começa com `adl://`.
+    > Se o cluster de HDInsight utiliza o armazenamento do Azure como armazenamento predefinido, o `<value>` conteúdo de elemento de começar por `wasb://`. Se o Azure Data Lake Store é utilizado em vez disso, ele começa com `adl://`.
 
-    Guardar o conteúdo do `<value>` elemento, dado que é utilizado nos passos.
+    Salvar o conteúdo do `<value>` elemento, como ele é usado nos passos seguintes.
 
 2. Para criar a configuração de definição de tarefa do Oozie, utilize o seguinte comando:
 
@@ -314,7 +311,7 @@ A definição de tarefa descreve onde encontrar a workflow.xml. Também descreve
     nano job.xml
     ```
 
-3. Depois de abre o editor nano for apresentado, utilize o seguinte XML como o conteúdo do ficheiro:
+3. Depois de abre o editor nano, utilize o seguinte XML como o conteúdo do ficheiro:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -377,36 +374,36 @@ A definição de tarefa descreve onde encontrar a workflow.xml. Também descreve
     </configuration>
     ```
 
-   * Substitua todas as instâncias de `wasb://mycontainer@mystorageaccount.blob.core.windows.net` com o valor recebido anteriormente para o armazenamento de predefinido.
+   * Substitua todas as instâncias de `wasb://mycontainer@mystorageaccount.blob.core.windows.net` com o valor que recebeu anteriormente para o armazenamento predefinido.
 
      > [!WARNING]
-     > Se o caminho é um `wasb` caminho, tem de utilizar o caminho completo. Não Encurte para just `wasb:///`.
+     > Se o caminho é um `wasb` caminho, tem de utilizar o caminho completo. Não Encurte-a para apenas `wasb:///`.
 
-   * Substitua `YourName` com o nome de início de sessão para o cluster do HDInsight.
-   * Substitua `serverName`, `adminLogin`, e `adminPassword` com as informações da base de dados do SQL Server.
+   * Substitua `YourName` com seu nome de início de sessão para o cluster do HDInsight.
+   * Substitua `serverName`, `adminLogin`, e `adminPassword` com as informações da base de dados SQL.
 
-     A maioria das informações existentes neste ficheiro é utilizada para preencher os valores utilizados nos ficheiros workflow.xml ou ooziewf.hql, tal como `${nameNode}`.
+     A maioria das informações existentes neste ficheiro é utilizado para preencher os valores utilizados nos ficheiros de workflow.xml ou ooziewf.hql, como `${nameNode}`.
 
      > [!NOTE]
-     > O `oozie.wf.application.path` entrada define onde encontrar o ficheiro workflow.xml. Este ficheiro contém o fluxo de trabalho que foi executado pela tarefa.
+     > O `oozie.wf.application.path` entrada define onde encontrar o ficheiro de workflow.xml. Este ficheiro contém o fluxo de trabalho que foi executado por esta tarefa.
 
-5. Para guardar o ficheiro, selecione de Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
+5. Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
 
 ## <a name="submit-and-manage-the-job"></a>Submeter e gerir a tarefa
 
-Os seguintes passos utilizem o comando de Oozie para submeter e gerir Oozie fluxos de trabalho no cluster. O comando de Oozie é uma interface amigável através de [API de REST do Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Os seguintes passos utilizam o comando de Oozie para submeter e gerir fluxos de trabalho de Oozie no cluster. O comando de Oozie é uma interface amigável ao longo da [API do REST de Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 > [!IMPORTANT]
-> Quando utiliza o comando de Oozie, tem de utilizar o FQDN para o nó principal do HDInsight. Este FQDN só é acessível a partir do cluster, ou se o cluster estiver numa rede virtual do Azure, a partir de outros computadores na mesma rede.
+> Quando utiliza o comando de Oozie, tem de utilizar o FQDN para o nó principal do HDInsight. Este FQDN só é acessível a partir do cluster, ou se o cluster está numa rede virtual do Azure, a partir de outras máquinas na mesma rede.
 
 
-1. Para obter o URL para o serviço do Oozie, utilize o seguinte comando:
+1. Para obter o URL para o serviço de Oozie, utilize o seguinte comando:
 
     ```bash
     sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
     ```
 
-    Esta ação devolve informações como o XML do seguinte:
+    Esta ação devolve informações como o seguinte XML:
 
     ```xml
     <name>oozie.base.url</name>
@@ -415,22 +412,22 @@ Os seguintes passos utilizem o comando de Oozie para submeter e gerir Oozie flux
 
     O `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` parte é o URL a utilizar com o comando de Oozie.
 
-2. Para criar uma variável de ambiente para o URL, utilize o seguinte, pelo que não tenha de introduzi-la para cada comando:
+2. Para criar uma variável de ambiente para o URL, utilize o seguinte, para que não tenha de introduzi-los de cada comando:
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    Substitua o URL pelo recebido anteriormente.
+    Substitua o URL que recebeu anteriormente.
 3. Para submeter a tarefa, utilize o seguinte:
 
     ```bash
     oozie job -config job.xml -submit
     ```
 
-    Este comando carrega as informações de tarefa de `job.xml` e envia-a para Oozie, mas não é executado.
+    Este comando carrega as informações de tarefa de `job.xml` e envia para Oozie, mas não é executado.
 
-    Depois de concluir o comando, deverá devolver o ID da tarefa, por exemplo, `0000005-150622124850154-oozie-oozi-W`. Este ID é utilizado para gerir a tarefa.
+    Quando o comando estiver concluído, deverá devolver o ID da tarefa, por exemplo, `0000005-150622124850154-oozie-oozi-W`. Este ID é utilizado para gerir a tarefa.
 
 4. Para ver o estado da tarefa, utilize o seguinte comando:
 
@@ -439,7 +436,7 @@ Os seguintes passos utilizem o comando de Oozie para submeter e gerir Oozie flux
     ```
 
     > [!NOTE]
-    > Substitua `<JOBID>` com o ID devolvido no passo anterior.
+    > Substitua `<JOBID>` com a identificação retornada no passo anterior.
 
     Esta ação devolve informações como o seguinte texto:
 
@@ -458,7 +455,7 @@ Os seguintes passos utilizem o comando de Oozie para submeter e gerir Oozie flux
         CoordAction ID: -
         ------------------------------------------------------------------------------------------------------------------------------------
 
-    Esta tarefa tem o estado `PREP`. Este estado indica que a tarefa foi criada, mas não foi iniciada.
+    Esta tarefa tem o estado `PREP`. Este status indica que a tarefa foi criada, mas não foi iniciada.
 
 5. Para iniciar a tarefa, utilize o seguinte comando:
 
@@ -467,17 +464,17 @@ Os seguintes passos utilizem o comando de Oozie para submeter e gerir Oozie flux
     ```
 
     > [!NOTE]
-    > Substitua `<JOBID>` com o ID devolvido anteriormente.
+    > Substitua `<JOBID>` com a identificação retornada anteriormente.
 
-    Se verificar o estado após este comando, está num Estado de execução e informações são devolvidas para as ações dentro da tarefa.
+    Se verificar o estado após este comando, está no estado de execução e informações são devolvidas para as ações dentro da tarefa.
 
-6. Depois de concluída a tarefa com êxito, pode verificar que os dados gerados e exportados para a tabela de base de dados do SQL Server utilizando o seguinte comando:
+6. Depois da tarefa foi concluída com êxito, pode verificar que os dados foi gerados e exportados para a tabela de base de dados SQL utilizando o seguinte comando:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
     ```
 
-    Na `1>` solicitar, introduza a seguinte consulta:
+    Na `1>` , introduza a seguinte consulta:
 
     ```sql
     SELECT * FROM mobiledata
@@ -495,21 +492,21 @@ Os seguintes passos utilizem o comando de Oozie para submeter e gerir Oozie flux
         Windows Phone   1791
         (6 rows affected)
 
-Para obter mais informações sobre o comando de Oozie, consulte [ferramenta da linha de comandos do Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Para obter mais informações sobre o comando de Oozie, consulte [ferramenta de linha de comando do Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
-## <a name="oozie-rest-api"></a>API de REST do Oozie
+## <a name="oozie-rest-api"></a>API de REST de Oozie
 
-Com a API de REST do Oozie, pode criar as suas próprias ferramentas que funcionam com Oozie. Segue-se informações específicas do HDInsight sobre a utilização da API de REST Oozie:
+Com a API de REST do Oozie, pode criar suas próprias ferramentas que funcionam com o Oozie. Segue-se informações específicas do HDInsight sobre a utilização da API de REST do Oozie:
 
-* **URI**: pode aceder a API de REST de fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie`.
+* **URI**: pode aceder a API de REST do fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticação**: para autenticar, utilize a API a conta de cluster HTTP (administrador) e a palavra-passe. Por exemplo:
+* **Autenticação**: para autenticar, utilizar a API, a conta HTTP de cluster (admin) e a palavra-passe. Por exemplo:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-Para obter mais informações sobre como utilizar a API de REST do Oozie, consulte [API de serviços Web do Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Para obter mais informações sobre como utilizar a API de REST do Oozie, consulte [API de serviços Web de Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ## <a name="oozie-web-ui"></a>IU da web do Oozie
 
@@ -518,48 +515,48 @@ A IU da web de Oozie fornece uma vista baseada na web para o estado das tarefas 
    * Estado da tarefa
    * Definição da tarefa
    * Configuração
-   * Um gráfico das ações na tarefa
+   * Um gráfico das ações da tarefa
    * Registos da tarefa
 
 Também pode ver os detalhes para as ações dentro de uma tarefa.
 
-Para aceder a IU da web do Oozie, conclua os seguintes passos:
+Para aceder à IU da web de Oozie, conclua os seguintes passos:
 
-1. Crie um túnel SSH para o cluster do HDInsight. Para obter mais informações, consulte [utilize túnel SSH com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+1. Crie um túnel SSH para o cluster do HDInsight. Para obter mais informações, consulte [Use SSH Tunneling túnel com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Depois de criar um túnel, abra a IU da web do Ambari no seu browser. O URI para o site do Ambari é `https://CLUSTERNAME.azurehdinsight.net`. Substitua `CLUSTERNAME` com o nome do cluster do HDInsight baseado em Linux.
+2. Depois de criar um túnel, abra a IU web do Ambari no seu navegador da web. O URI para o site de Ambari é `https://CLUSTERNAME.azurehdinsight.net`. Substitua `CLUSTERNAME` com o nome do cluster do HDInsight baseado em Linux.
 
-3. Do lado esquerdo da página, selecione **Oozie** > **ligações rápidas** > **IU da Web do Oozie**.
+3. Do lado esquerdo da página, selecione **Oozie** > **ligações rápidas** > **IU da Web de Oozie**.
 
-    ![Imagem de menus](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Imagem dos menus](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
-4. A IU da web de Oozie predefinições para apresentar as tarefas de fluxo de trabalho em execução. Para ver todas as tarefas de fluxo de trabalho, selecione **todas as tarefas**.
+4. A IU da web de Oozie por predefinição para apresentar as tarefas de fluxo de trabalho em execução. Para ver todas as tarefas de fluxo de trabalho, selecione **todas as tarefas**.
 
     ![Todas as tarefas apresentadas](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
-5. Para visualizar mais informações sobre uma tarefa, selecione a tarefa.
+5. Para ver mais informações sobre uma tarefa, selecione a tarefa.
 
     ![Informações da tarefa](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. Do **tarefa informações** separador, pode ver as informações básicas de tarefa e as ações individuais dentro da tarefa. Pode utilizar os separadores na parte superior para ver o **definição de tarefa**, **tarefa configuração**, acesso a **registo da tarefa**, ou visualizar um acíclicos direcionados (DAG) da tarefa em **Tarefa DAG**.
+6. Partir do **informações da tarefa** guia, pode ver as informações de trabalho básico e as ações individuais dentro da tarefa. Pode utilizar os separadores na parte superior para ver os **definição de tarefa**, **configuração de tarefa**, acesso a **registo da tarefa**, ou ver Acíclico (DAG) do trabalho em **Da tarefa DAG**.
 
-   * **Registo da tarefa**: selecione a **obter registos** botão para obter todos os registos para a tarefa ou utilize o **introduzir o filtro de pesquisa** campo para filtrar os registos.
+   * **Registo da tarefa**: selecione o **obter registos** botão para obter todos os registos para o trabalho ou utilizar o **introduza o filtro de pesquisa** campo para filtrar os registos.
 
        ![Registo da tarefa](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **Tarefa DAG**: O DAG é uma descrição geral do gráfica dos caminhos de dados efetuadas através do fluxo de trabalho.
+   * **Tarefa DAG**: O DAG é uma visão geral gráfica dos caminhos de dados executadas pelo fluxo de trabalho.
 
        ![Tarefa DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. Se selecionar uma das ações do **tarefa informações** separador, implica das informações para a ação. Por exemplo, seleccione o **RunSqoopExport** ação.
+7. Se selecionar uma das ações do **informações da tarefa** separador, ele apresenta informações para a ação. Por exemplo, selecione o **RunSqoopExport** ação.
 
     ![Informações de ação](./media/hdinsight-use-oozie-linux-mac/action.png)
 
-8. Pode ver os detalhes para a ação, tal como uma hiperligação para o **URL da consola**. Utilize esta hiperligação para ver as informações de controlador de tarefa para a tarefa.
+8. Pode ver os detalhes para a ação, como um link para o **URL da consola**. Utilize esta ligação para ver informações de controlador de tarefa para a tarefa.
 
-## <a name="schedule-jobs"></a>Agenda de tarefas
+## <a name="schedule-jobs"></a>Programar tarefas
 
-Pode utilizar o coordenador para especificar um início, uma extremidade e a frequência de ocorrência de tarefas. Para definir uma agenda para o fluxo de trabalho, execute os seguintes passos:
+Pode utilizar o coordenador de especificar um início, fim e a frequência de ocorrência de tarefas. Para definir uma agenda para o fluxo de trabalho, conclua os seguintes passos:
 
 1. Utilize o seguinte comando para criar um ficheiro denominado **coordinator.xml**:
 
@@ -582,13 +579,13 @@ Pode utilizar o coordenador para especificar um início, uma extremidade e a fre
     > [!NOTE]
     > O `${...}` variáveis são substituídas pelos valores na definição de tarefa no tempo de execução. As variáveis são:
     >
-    > * `${coordFrequency}`: O tempo entre instâncias da tarefa em execução.
-    > * `${coordStart}`: A hora de início da tarefa.
+    > * `${coordFrequency}`: O tempo entre as instâncias da tarefa em execução.
+    > * `${coordStart}`: A hora de início de tarefa.
     > * `${coordEnd}`: A hora de fim da tarefa.
-    > * `${coordTimezone}`: As tarefas de coordenador estão num fixo fuso horário com sem hora de Verão, normalmente representado utilizando a UTC. Este fuso horário é referido como a *fuso horário de processamento de Oozie.*
+    > * `${coordTimezone}`: Tarefas de coordenador estão num fuso de horário fixo com nenhuma horário de Verão, normalmente são representado utilizando a UTC. Este fuso horário é referido como o *fuso horário de processamento de Oozie.*
     > * `${wfPath}`: O caminho para o workflow.xml.
 
-2. Para guardar o ficheiro, selecione de Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
+2. Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
 
 3. Para copiar o ficheiro para o diretório de trabalho para esta tarefa, utilize o seguinte comando:
 
@@ -596,7 +593,7 @@ Pode utilizar o coordenador para especificar um início, uma extremidade e a fre
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. Para modificar o `job.xml` ficheiro, utilize o seguinte comando:
+4. Para modificar o `job.xml` de ficheiros, utilize o seguinte comando:
 
     ```
     nano job.xml
@@ -604,9 +601,9 @@ Pode utilizar o coordenador para especificar um início, uma extremidade e a fre
 
     Efetue as seguintes alterações:
 
-   * Ao instruir o Oozie para executar o ficheiro de coordenador em vez do fluxo de trabalho, alterar `<name>oozie.wf.application.path</name>` para `<name>oozie.coord.application.path</name>`.
+   * Para instruir o Oozie para executar o ficheiro de coordenador em vez do fluxo de trabalho, altere `<name>oozie.wf.application.path</name>` para `<name>oozie.coord.application.path</name>`.
 
-   * Para definir o `workflowPath` variável utilizado pelo coordenador, adicione o seguinte XML:
+   * Para definir o `workflowPath` variável usada pelo coordenador, adicione o seguinte XML:
 
         ```xml
         <property>
@@ -615,9 +612,9 @@ Pode utilizar o coordenador para especificar um início, uma extremidade e a fre
         </property>
         ```
 
-       Substitua o `wasb://mycontainer@mystorageaccount.blob.core.windows` texto com o valor utilizado na entradas no ficheiro job.xml.
+       Substitua o `wasb://mycontainer@mystorageaccount.blob.core.windows` texto com o valor utilizado em outras entradas no arquivo job.xml.
 
-   * Para definir o início, o fim e a frequência para o coordenador, adicione o seguinte XML:
+   * Para definir o início, fim e a frequência para o coordenador, adicionam o seguinte XML:
 
         ```xml
         <property>
@@ -641,9 +638,9 @@ Pode utilizar o coordenador para especificar um início, uma extremidade e a fre
         </property>
         ```
 
-       Estes valores de definir a hora de início para 12:00 PM 10 de Maio de 2017 e a hora de fim para 12 de Maio de 2017. O intervalo para executar esta tarefa está definido para diariamente. É a frequência em minutos, por isso, 24 horas, 60 minutos = 1440 minutos. Por fim, está definido o fuso horário UTC.
+       Esses valores definidos às 12:00 no dia 10 de Maio de 2017, a hora de início e a hora de fim de 12 de Maio de 2017. O intervalo para executar esta tarefa é definido como diariamente. A frequência é em minutos, por isso, 24 horas x 60 minutos = 1440 minutos. Por fim, o fuso horário é definido como UTC.
 
-5. Para guardar o ficheiro, selecione de Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
+5. Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
 
 6. Para executar a tarefa, utilize o seguinte comando:
 
@@ -653,69 +650,69 @@ Pode utilizar o coordenador para especificar um início, uma extremidade e a fre
 
     Este comando submete e inicia a tarefa.
 
-7. Se passar para o Oozie IU da web e selecione o **coordenador tarefas** separador, pode ver informações como na imagem seguinte:
+7. Se for para o Oozie web da interface do Usuário e selecione o **tarefas de coordenador** separador, verá informações como na imagem seguinte:
 
-    ![Separador tarefas da coordenador](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
+    ![Separador de tarefas de coordenador](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
     O **Materialization seguinte** entrada contém da próxima vez que a tarefa é executada.
 
 8. Como a tarefa de fluxo de trabalho anterior, se selecionar a entrada da tarefa na IU da web apresenta informações sobre a tarefa:
 
-    ![Coordenador tarefa informações](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![Informações da tarefa de coordenador](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Esta imagem mostra apenas é executada com êxito da tarefa, não as ações individuais dentro do fluxo de trabalho agendado. Para ver as ações individuais, selecione uma do **ação** entradas.
+    > Esta imagem mostra apenas execuções com êxito da tarefa, não as ações individuais do fluxo de trabalho agendado. Para ver as ações individuais, selecione uma da **ação** entradas.
 
     ![Informações de ação](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Com a IU do Oozie, pode ver os registos de Oozie. A IU do Oozie também contém ligações para os registos de JobTracker para as tarefas de MapReduce que foram iniciadas pelo fluxo de trabalho. Deve ser o padrão para resolução de problemas:
+Com a interface do Usuário do Oozie, pode ver registos de Oozie. A interface do Usuário do Oozie também contém links para os registos de JobTracker para as tarefas de MapReduce que foram iniciados pelo fluxo de trabalho. O padrão para resolução de problemas deve ser:
 
    1. Ver a tarefa na IU da web do Oozie.
 
-   2. Se existir um erro ou falha de uma ação específica, selecione a ação para ver se o **mensagem de erro** campo fornece mais informações sobre a falha.
+   2. Se existir um erro ou a falha de uma ação específica, selecione a ação para ver se o **mensagem de erro** campo fornece mais informações sobre a falha.
 
-   3. Se estiver disponível, utilize o URL da ação para ver mais detalhes, tais como os registos de JobTracker, para a ação.
+   3. Se estiver disponível, utilize o URL da ação para ver mais detalhes, como os registos de JobTracker, para a ação.
 
-Seguem-se os erros específicos que poderá encontrar e como resolvê-los.
+Seguem-se erros específicos que podem surgir e como resolvê-los.
 
 ### <a name="ja009-cannot-initialize-cluster"></a>JA009: Não é possível inicializar o cluster
 
-**Sintomas**: muda o estado da tarefa para **suspenso**. Os detalhes para mostrar a tarefa de `RunHiveScript` estado como **START_MANUAL**. Selecionar a ação apresenta a seguinte mensagem de erro:
+**Os sintomas**: O estado da tarefa é alterado para **suspenso**. Detalhes para mostrar a tarefa a `RunHiveScript` estado como **START_MANUAL**. Selecionar a ação de apresenta a seguinte mensagem de erro:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Causa**: endereços de armazenamento de Blob do Azure a utilizados no **job.xml** o ficheiro não contém o contentor de armazenamento ou o nome de conta de armazenamento. O formato de endereço de Blob de armazenamento tem de ser `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Causa**: os endereços de armazenamento de Blobs do Azure a utilizados no **job.xml** ficheiro não contém o contentor de armazenamento ou o nome de conta de armazenamento. O formato de endereço do armazenamento de BLOBs tem de ser `wasb://containername@storageaccountname.blob.core.windows.net`.
 
 **Resolução**: alterar os endereços de armazenamento de BLOBs que utiliza a tarefa.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie não tem permissão para representar &lt;utilizador >
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: O Oozie não tem permissão para representar &lt;utilizador >
 
-**Sintomas**: muda o estado da tarefa para **suspenso**. Os detalhes para mostrar a tarefa de `RunHiveScript` estado como **START_MANUAL**. Se selecionar a ação, mostra a seguinte mensagem de erro:
+**Os sintomas**: O estado da tarefa é alterado para **suspenso**. Detalhes para mostrar a tarefa a `RunHiveScript` estado como **START_MANUAL**. Se selecionar a ação, mostra a mensagem de erro seguinte:
 
     JA002: User: oozie is not allowed to impersonate <USER>
 
-**Causa**: as definições atuais de permissão não permitem Oozie representar a conta de utilizador especificado.
+**Causa**: as definições de permissão atuais não permitem Oozie representar a conta de utilizador especificado.
 
-**Resolução**: Oozie pode representar os utilizadores a **utilizadores** grupo. Utilize o `groups USERNAME` para ver os grupos de que a conta de utilizador é membro. Se o utilizador não for um membro do **utilizadores** grupo, utilize o seguinte comando para adicionar o utilizador ao grupo:
+**Resolução**: Oozie pode representar os utilizadores a **utilizadores** grupo. Utilize o `groups USERNAME` para ver os grupos de que a conta de utilizador é membro. Se o utilizador não é um membro do **utilizadores** grupo, utilize o seguinte comando para adicionar o utilizador ao grupo:
 
     sudo adduser USERNAME users
 
 > [!NOTE]
 > Pode demorar vários minutos antes de HDInsight reconhece que o utilizador foi adicionado ao grupo.
 
-### <a name="launcher-error-sqoop"></a>Iniciador erro (Sqoop)
+### <a name="launcher-error-sqoop"></a>Iniciador de erro (Sqoop)
 
-**Sintomas**: muda o estado da tarefa para **KILLED**. Os detalhes para mostrar a tarefa de `RunSqoopExport` estado como **erro**. Se selecionar a ação, mostra a seguinte mensagem de erro:
+**Os sintomas**: O estado da tarefa é alterado para **KILLED**. Detalhes para mostrar a tarefa a `RunSqoopExport` estado como **erro**. Se selecionar a ação, mostra a mensagem de erro seguinte:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
-**Causa**: Sqoop não consegue carregar o controlador de base de dados necessário para aceder à base de dados.
+**Causa**: Sqoop não consegue carregar o driver de base de dados necessário para acessar o banco de dados.
 
-**Resolução**: quando utilizar o Sqoop a partir de uma tarefa do Oozie, tem de incluir o controlador de base de dados com os outros recursos, tais como workflow.xml, as utilizações de tarefa. Além disso, que contém o controlador de base de dados do arquivo de referência a `<sqoop>...</sqoop>` secção o workflow.xml.
+**Resolução**: quando utilizar o Sqoop a partir de uma tarefa de Oozie, tem de incluir o controlador de base de dados com os outros recursos, como o workflow.xml, as utilizações de tarefa. Além disso, o arquivo que contém o driver de base de dados a partir de referência a `<sqoop>...</sqoop>` seção o workflow.xml.
 
-Por exemplo, para a tarefa neste documento, teria de utilizar os seguintes passos:
+Por exemplo, para a tarefa neste documento, usaria os seguintes passos:
 
 1. Copiar o `sqljdbc4.1.jar` do ficheiro para o **/tutoriais/useoozie** diretório:
 
@@ -723,7 +720,7 @@ Por exemplo, para a tarefa neste documento, teria de utilizar os seguintes passo
     hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
     ```
 
-2. Modificar o `workflow.xml` para adicionar o seguinte XML numa nova linha acima `</sqoop>`:
+2. Modificar a `workflow.xml` para adicionar o seguinte XML numa nova linha acima `</sqoop>`:
 
     ```xml
     <archive>sqljdbc41.jar</archive>
@@ -731,14 +728,14 @@ Por exemplo, para a tarefa neste documento, teria de utilizar os seguintes passo
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu como definir um fluxo de trabalho do Oozie e como executar uma tarefa de Oozie. Para obter mais informações sobre como trabalhar com o HDInsight, consulte os artigos seguintes:
+Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e como executar uma tarefa de Oozie. Para saber mais sobre como trabalhar com o HDInsight, veja os artigos seguintes:
 
-* [Utilizar o coordenador de Oozie baseado no tempo com o HDInsight][hdinsight-oozie-coordinator-time]
+* [Utilizar o coordenador de Oozie baseados no tempo com o HDInsight][hdinsight-oozie-coordinator-time]
 * [Carregar dados para tarefas do Hadoop no HDInsight][hdinsight-upload-data]
-* [Utilizar o Sqoop com o Hadoop no HDInsight][hdinsight-use-sqoop]
+* [Utilize o Sqoop com o Hadoop no HDInsight][hdinsight-use-sqoop]
 * [Utilizar o Hive com o Hadoop no HDInsight][hdinsight-use-hive]
 * [Utilizar o Pig com o Hadoop no HDInsight][hdinsight-use-pig]
-* [Desenvolver programas de Java MapReduce para o HDInsight][hdinsight-develop-mapreduce]
+* [Desenvolver programas Java MapReduce para o HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md

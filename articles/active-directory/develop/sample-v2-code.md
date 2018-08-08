@@ -17,12 +17,12 @@ ms.date: 04/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8d2ce5bb2f44d9e21fb12e96f9c68d4ecc0fc501
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 0be97bfbbaafd6045fd36be57d85e917f0325779
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581875"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600657"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Exemplos de código do Azure Active Directory (ponto final V2)
 
@@ -36,7 +36,7 @@ Este artigo descreve resumidamente e fornece links para amostras para o ponto fi
 > [!NOTE]
 > Se estiver interessado em exemplos de V1, veja [exemplos de código do Azure AD (ponto de final V1)](sample-v1-code.md).
 
-Para compreender o cenário básico para cada tipo de exemplo, veja [tipos de aplicações para o ponto de final de v2.0 do Azure Active Directory](active-directory-v2-flows.md).
+Para compreender o cenário básico para cada tipo de exemplo, veja [tipos de aplicações para o ponto de final de v2.0 do Azure Active Directory](v2-app-types.md).
 
 Também pode contribuir para os exemplos no GitHub. Para saber como, veja [Microsoft Azure Active Directory amostras e documentação](https://github.com/Azure-Samples?page=3&query=active-directory).
 

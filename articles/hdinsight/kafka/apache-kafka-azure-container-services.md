@@ -1,131 +1,126 @@
 ---
-title: Utilizar o serviço de Kubernetes do Azure com Kafka no HDInsight | Microsoft Docs
-description: Saiba como utilizar Kafka no HDInsight a partir de imagens do contentor alojadas no serviço do Azure Kubernetes (AKS).
+title: Utilizar o serviço Kubernetes do Azure com o Kafka no HDInsight
+description: Saiba como utilizar o Kafka no HDInsight a partir de imagens de contentor alojadas no Azure Kubernetes Service (AKS).
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 339213654341b76cf4245240989cd59c7c041b0f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885966"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621250"
 ---
-# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Utilizar o serviço de Kubernetes do Azure com Kafka no HDInsight
+# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Utilizar o serviço Kubernetes do Azure com o Kafka no HDInsight
 
-Saiba como utilizar o serviço de Kubernetes do Azure (AKS) com Kafka num cluster do HDInsight. Os passos neste documento utilizam uma aplicação Node.js alojada no AKS para verificar a conectividade com Kafka. Esta aplicação utiliza o [kafka nó](https://www.npmjs.com/package/kafka-node) pacote para comunicar com Kafka. Utiliza [Socket.io](https://socket.io/) evento suscitada pelo departamento de processamento de mensagens entre o browser cliente e o back-end alojadas no AKS.
+Saiba como utilizar o Azure Kubernetes Service (AKS) com o Kafka no cluster do HDInsight. Os passos neste documento utilizam uma aplicação node. js alojada no AKS para verificar a conectividade com o Kafka. Esta aplicação utiliza a [kafka-nó](https://www.npmjs.com/package/kafka-node) pacote para comunicar com o Kafka. Ele usa [Socket.io](https://socket.io/) evento orientado a mensagens entre o cliente de navegador e o back-end alojado no AKS.
 
-O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em fluxo distribuída de código aberto que pode ser utilizada para criar aplicações e pipelines de dados de transmissão em fluxo em tempo real. Serviço Kubernetes do Azure gere o seu ambiente alojado do Kubernetes e faz com que um processo rápido e fácil de implementar aplicações de. Utilizar uma rede Virtual do Azure, pode ligar os dois serviços.
+O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em fluxo distribuída de código aberto que pode ser utilizada para criar aplicações e pipelines de dados de transmissão em fluxo em tempo real. Serviço Kubernetes do Azure gere o seu ambiente alojado do Kubernetes e torna rápido e fácil de implementar aplicações em contentores. Ao utilizar uma rede Virtual do Azure, pode ligar os dois serviços.
 
 > [!NOTE]
-> O foco deste documento é os passos necessários para ativar o serviço de Kubernetes do Azure para comunicar com Kafka no HDInsight. O exemplo em si é apenas um cliente Kafka básica para demonstrar que a configuração funciona.
+> O foco deste documento é os passos necessários para ativar o serviço de Kubernetes do Azure comunicar com o Kafka no HDInsight. O exemplo em si é apenas um cliente de Kafka básica para demonstrar que a configuração funciona.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Uma subscrição do Azure.
+* Uma subscrição do Azure
 
-Este documento parte do princípio de que está familiarizado com a criar e utilizar os seguintes serviços do Azure:
+Este documento parte do princípio de que está familiarizado com a criação e utilizar os serviços do Azure seguintes:
 
 * Kafka no HDInsight
 * Serviço Kubernetes do Azure
 * Redes Virtuais do Azure
 
-Este documento também parte do princípio de que tem walked de [tutorial Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Este tutorial cria um serviço de contentor, cria um cluster de Kubernetes, um registo de contentor e configura o `kubectl` utilitário.
+Este documento assume também que tiver percorrido o [tutorial do Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Este tutorial cria um serviço de contentor, cria um cluster do Kubernetes, um registo de contentores e configura o `kubectl` utilitário.
 
 ## <a name="architecture"></a>Arquitetura
 
 ### <a name="network-topology"></a>Topologia da rede
 
-HDInsight e AKS utilizar uma rede Virtual do Azure como um contentor de recursos de computação. Para ativar a comunicação entre o HDInsight e AKS, tem de ativar a comunicação entre as respetivas redes. Os passos neste documento utilizam o Peering de rede Virtual para as redes. Outras ligações, por exemplo, VPN, também deverão funcionar. Para obter mais informações sobre peering, consulte o [peering de rede Virtual](../../virtual-network/virtual-network-peering-overview.md) documento.
+O HDInsight e o AKS utilizar uma rede Virtual do Azure como um contêiner para recursos de computação. Para ativar a comunicação entre o HDInsight e o AKS, tem de ativar a comunicação entre as suas redes. Os passos neste documento utilizam o Peering de rede Virtual para as redes. Outras conexões, como VPN, também deverá funcionar. Para obter mais informações sobre o peering, veja a [peering de rede Virtual](../../virtual-network/virtual-network-peering-overview.md) documento.
 
 
 O diagrama seguinte ilustra a topologia de rede utilizada neste documento:
 
-![HDInsight numa rede virtual, AKS noutra e as redes ligadas através do peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+![HDInsight numa rede virtual, AKS em outro e as redes ligadas a utilização do peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
 > [!IMPORTANT]
-> Resolução de nomes não está ativada entre as redes em modo de peering, pelo que é utilizado o endereçamento IP. Por predefinição, Kafka no HDInsight está configurado para devolver os nomes de anfitrião em vez de endereços IP quando os clientes se liguem. Os passos neste documento modificar Kafka utilizar IP publicidade em vez disso.
+> Resolução de nomes não está ativada entre as redes, portanto, é utilizado o endereçamento IP em modo de peering. Por predefinição, o Kafka no HDInsight está configurado para devolver os nomes de anfitrião em vez de endereços IP, quando os clientes ligam. Os passos neste documento modificar Kafka para utilizar o IP em vez disso, a publicidade.
 
-## <a name="create-an-azure-kubernetes-service-aks"></a>Criar um serviço de Kubernetes (AKS) do Azure
+## <a name="create-an-azure-kubernetes-service-aks"></a>Criar um serviço de Kubernetes do Azure (AKS)
 
-Se ainda não tiver um cluster AKS, utilize um dos seguintes documentos para saber como criar um:
+Se ainda não tiver um cluster do AKS, utilize um dos seguintes documentos para saber como criar um:
 
-* [Implementar um cluster do serviço de Kubernetes do Azure (AKS) - Portal](../../aks/kubernetes-walkthrough-portal.md)
-* [Implementar um cluster do serviço de Kubernetes do Azure (AKS) - CLI](../../aks/kubernetes-walkthrough.md)
+* [Implementar um cluster do Azure Kubernetes Service (AKS) - Portal](../../aks/kubernetes-walkthrough-portal.md)
+* [Implementar um cluster do Azure Kubernetes Service (AKS) - CLI](../../aks/kubernetes-walkthrough.md)
 
 > [!NOTE]
-> AKS cria uma rede virtual durante a instalação. Esta rede estiver em modo de peering para criado para o HDInsight na secção seguinte.
+> AKS cria uma rede virtual durante a instalação. Esta rede é configurar o peering criado para HDInsight na próxima seção.
 
-## <a name="configure-virtual-network-peering"></a>Configure o peering de rede virtual
+## <a name="configure-virtual-network-peering"></a>Configurar o peering de rede virtual
 
-1. Do [portal do Azure](https://portal.azure.com), selecione __grupos de recursos__e, em seguida, localize o grupo de recursos que contém a rede virtual para o seu cluster AKS. O nome do grupo de recursos é `MC_<resourcegroup>_<akscluster>_<location>`. O `resourcegroup` e `akscluster` entradas são o nome do grupo de recursos que criou o cluster e o nome do cluster. O `location` é a localização que o cluster foi criado no.
+1. Partir do [portal do Azure](https://portal.azure.com), selecione __grupos de recursos__e, em seguida, localize o grupo de recursos que contém a rede virtual para o seu cluster do AKS. O nome do grupo de recursos é `MC_<resourcegroup>_<akscluster>_<location>`. O `resourcegroup` e `akscluster` entradas são o nome do grupo de recursos que criou o cluster e o nome do cluster. O `location` é a localização que o cluster foi criado.
 
 2. No grupo de recursos, selecione o __rede Virtual__ recursos.
 
-3. Selecione __espaço de endereços__. Tenha em atenção de que o espaço de endereços listados.
+3. Selecione __espaço de endereços__. Tenha em atenção de que o espaço de endereço listado.
 
-4. Para criar uma rede virtual para o HDInsight, selecione __+ criar um recurso__, __redes__e, em seguida, __rede Virtual__.
+4. Para criar uma rede virtual para o HDInsight, selecione __+ criar um recurso__, __redes__e, em seguida __rede Virtual__.
 
     > [!IMPORTANT]
-    > Quando os introduzir os valores para a nova rede virtual, tem de utilizar um espaço de endereço que não se sobreponha utilizada pela rede de cluster AKS.
+    > Ao introduzir os valores para a nova rede virtual, tem de utilizar um espaço de endereços que não se sobreponha daquela utilizada na rede de cluster do AKS.
 
-    Utilizar o mesmo __localização__ para a rede virtual que utilizou para o cluster AKS.
+    Utilizar o mesmo __localização__ para a rede virtual que utilizou para o cluster do AKS.
 
-    Aguarde até que a rede virtual foi criada antes de avançar para o passo seguinte.
+    Aguarde até que a rede virtual tiver sido criada antes de avançar para o passo seguinte.
 
-5. Para configurar o peering entre a rede do HDInsight e a rede de cluster AKS, selecione a rede virtual e, em seguida, selecione __Peerings__. Selecione __+ adicionar__ e utilize os seguintes valores para preencher o formulário:
-
-    * __Nome__: introduza um nome exclusivo para esta configuração de peering.
-    * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o **AKS cluster**.
-
-    Deixe todos os outros campos de que o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
-
-6. Para configurar o peering entre a rede de cluster AKS e a rede do HDInsight, selecione o __rede virtual de cluster AKS__e, em seguida, selecione __Peerings__. Selecione __+ adicionar__ e utilize os seguintes valores para preencher o formulário:
+5. Para configurar o peering entre a rede de HDInsight e a rede de cluster do AKS, selecione a rede virtual e, em seguida, selecione __Peerings__. Selecione __+ adicionar__ e utilize os seguintes valores para preencher o formulário:
 
     * __Nome__: introduza um nome exclusivo para esta configuração de peering.
-    * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o __cluster do HDInsight__.
+    * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o **cluster do AKS**.
 
-    Deixe todos os outros campos de que o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
+    Deixe todos os outros campos com o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
 
-## <a name="install-kafka-on-hdinsight"></a>Instalar Kafka no HDInsight
+6. Para configurar o peering entre a rede de cluster do AKS e a rede de HDInsight, selecione o __rede virtual de cluster do AKS__e, em seguida, selecione __Peerings__. Selecione __+ adicionar__ e utilize os seguintes valores para preencher o formulário:
 
-Ao criar o Kafka num cluster do HDInsight, tem de associar a rede virtual que criou anteriormente para o HDInsight. Para obter mais informações sobre como criar um cluster de Kafka, consulte o [criar um cluster de Kafka](apache-kafka-get-started.md) documento.
+    * __Nome__: introduza um nome exclusivo para esta configuração de peering.
+    * __Rede virtual__: Utilize este campo para selecionar a rede virtual para o __cluster de HDInsight__.
+
+    Deixe todos os outros campos com o valor predefinido, em seguida, selecione __OK__ para configurar o peering.
+
+## <a name="install-kafka-on-hdinsight"></a>Instalar o Kafka no HDInsight
+
+Ao criar o Kafka no cluster do HDInsight, tem de associar a rede virtual que criou anteriormente para o HDInsight. Para obter mais informações sobre como criar um cluster de Kafka, consulte a [criar um cluster de Kafka](apache-kafka-get-started.md) documento.
 
 > [!IMPORTANT]
-> Ao criar o cluster, tem de utilizar o __definições avançadas__ para associar a rede virtual que criou para o HDInsight.
+> Quando criar o cluster, tem de utilizar o __definições avançadas__ para associar a rede virtual que criou para o HDInsight.
 
-## <a name="configure-kafka-ip-advertising"></a>Configurar Kafka IP publicidade
+## <a name="configure-kafka-ip-advertising"></a>Configurar a publicidade de IP do Kafka
 
-Utilize os seguintes passos para configurar Kafka anunciará endereços IP em vez de nomes de domínio:
+Utilize os seguintes passos para configurar o Kafka para anunciar os endereços IP em vez de nomes de domínio:
 
-1. Um web browser, aceda ao https://CLUSTERNAME.azurehdinsight.net. Substitua __CLUSTERNAME__ com o nome de Kafka num cluster do HDInsight.
+1. Um browser, aceda à https://CLUSTERNAME.azurehdinsight.net. Substitua __CLUSTERNAME__ com o nome do cluster do Kafka no HDInsight.
 
-    Quando lhe for pedido, utilize HTTPS nome de utilizador e palavra-passe para o cluster. É apresentado a IU da Web do Ambari para o cluster.
+    Quando lhe for pedido, utilize o nome de utilizador HTTPS e a palavra-passe para o cluster. A interface do Usuário de Web do Ambari do cluster é apresentado.
 
-2. Para ver informações no Kafka, selecione __Kafka__ na lista à esquerda.
+2. Para ver informações sobre o Kafka, selecione __Kafka__ da lista à esquerda.
 
-    ![Lista de serviço com Kafka realçado](./media/apache-kafka-azure-container-services/select-kafka-service.png)
+    ![Lista de serviço com o Kafka realçado](./media/apache-kafka-azure-container-services/select-kafka-service.png)
 
-3. Para ver a configuração de Kafka, selecione __folhas__ do meio superior.
+3. Para ver a configuração do Kafka, selecione __configurações__ da parte superior ao centro.
 
-    ![Ligações de folhas de Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
+    ![Links de configurações para o Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
 
-4. Para localizar o __kafka env__ configuração, introduza `kafka-env` no __filtro__ campo no canto superior direito.
+4. Para localizar os __kafka env__ configuração, introduza `kafka-env` no __filtro__ campo no canto superior direito.
 
-    ![Configuração de Kafka, para kafka env](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
+    ![Configuração do Kafka, para env do kafka](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
 
-5. Para configurar Kafka anunciará endereços IP, adicione o seguinte texto para o fim do __modelo de env kafka__ campo:
+5. Para configurar o Kafka para anunciar os endereços IP, adicione o seguinte texto para o fim dos __env de kafka-modelo__ campo:
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -135,49 +130,49 @@ Utilize os seguintes passos para configurar Kafka anunciará endereços IP em ve
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Para configurar a interface de escuta Kafka, introduza `listeners` no __filtro__ campo no canto superior direito.
+6. Para configurar a interface que escuta Kafka, introduza `listeners` no __filtro__ campo no canto superior direito.
 
-7. Para configurar Kafka escutar em todas as interfaces de rede, altere o valor no __os serviços de escuta__ campo para `PLAINTEXT://0.0.0.0:9092`.
+7. Para configurar o Kafka para escutar em todas as interfaces de rede, altere o valor na __serviços de escuta__ campo `PLAINTEXT://0.0.0.0:9092`.
 
-8. Para guardar as alterações de configuração, utilize o __guardar__ botão. Introduza uma mensagem de texto que descreve as alterações. Selecione __OK__ depois das alterações foram guardadas.
+8. Para guardar as alterações de configuração, utilize o __guardar__ botão. Introduza uma mensagem de texto que descreve as alterações. Selecione __OK__ assim que as alterações foram guardadas.
 
     ![Configuração botão Guardar](./media/apache-kafka-azure-container-services/save-button.png)
 
-9. Para evitar erros ao reiniciar Kafka, utilize o __serviço ações__ botão e selecione __ativar no modo de manutenção__. Selecione OK para concluir esta operação.
+9. Para evitar erros quando reiniciar o Kafka, utilize o __ações de serviço__ e selecione __ativar no modo de manutenção__. Selecione OK para concluir esta operação.
 
-    ![Ações de serviço, com ative manutenção realçada](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
+    ![Ações de serviço, com ative a manutenção realçada](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
 
-10. Para reiniciar Kafka, utilize o __reiniciar__ botão e selecione __afetadas todas reinicie__. Confirme o reinício e, em seguida, utilize o __OK__ botão após a conclusão da operação.
+10. Para reiniciar o Kafka, utilize o __reinicie__ e selecione __reiniciar todos os afetados__. Confirme o reinício e, em seguida, utilize o __OK__ botão após a conclusão da operação.
 
     ![Reinicie o botão ao reiniciar todos os afetados realçado](./media/apache-kafka-azure-container-services/restart-button.png)
 
-11. Para desativar o modo de manutenção, utilize o __serviço ações__ botão e selecione __Ativar desativar modo de manutenção__. Selecione **OK** para concluir esta operação.
+11. Para desativar o modo de manutenção, utilize o __ações de serviço__ e selecione __Ativar desativar modo de manutenção__. Selecione **OK** para concluir esta operação.
 
 ## <a name="test-the-configuration"></a>Testar a configuração
 
-Neste momento, Kafka e Azure Kubernetes serviço estão em comunicação através de redes virtuais em modo de peering. Para testar esta ligação, utilize os seguintes passos:
+Neste momento, Kafka e o serviço Kubernetes do Azure estão em comunicação através de redes virtuais em modo de peering. Para testar esta ligação, utilize os seguintes passos:
 
-1. Crie um tópico de Kafka que é utilizado pela aplicação de teste. Para obter informações sobre como criar Kafka tópicos, consulte o [criar um cluster de Kafka](apache-kafka-get-started.md) documento.
+1. Crie um tópico do Kafka que é utilizado pela aplicação de teste. Para obter informações sobre como criar tópicos de Kafka, consulte a [criar um cluster de Kafka](apache-kafka-get-started.md) documento.
 
-2. Transferir a aplicação de exemplo do [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test).
+2. Transferir a aplicação de exemplo da [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test).
 
 3. Editar o `index.js` de ficheiros e alterar as seguintes linhas:
 
-    * `var topic = 'mytopic'`: Substituir `mytopic` com o nome do tópico Kafka utilizado por esta aplicação.
-    * `var brokerHost = '176.16.0.13:9092`: Substituir `176.16.0.13` com o endereço IP de um dos anfitriões do Mediador para o cluster.
+    * `var topic = 'mytopic'`: Substitua `mytopic` com o nome do tópico Kafka usado por esse aplicativo.
+    * `var brokerHost = '176.16.0.13:9092`: Substitua `176.16.0.13` com o endereço IP interno de um dos anfitriões broker para o seu cluster.
 
-        Para localizar o endereço IP interno do Mediador do anfitriões (workernodes) no cluster, consulte o [API de REST do Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) documento. Escolha uma das entradas em que o nome de domínio começa com o endereço IP `wn`.
+        Para obter o endereço IP interno de Mediador (workernodes) de anfitriões no cluster, consulte a [API REST do Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) documento. Escolher endereço IP de uma das entradas em que o nome de domínio começa com `wn`.
 
-4. Numa linha de comandos no `src` diretório, as dependências de instalar e utilizar o Docker para criar uma imagem para a implementação:
+4. De uma linha de comando no `src` directory, instale as dependências e utilizar o Docker para criar uma imagem para a implementação:
 
     ```bash
     docker build -t kafka-aks-test .
     ```
 
     > [!NOTE]
-    > Pacotes exigidos desta aplicação são verificados no repositório, pelo que não necessita de utilizar o `npm` utilitário para instalá-los.
+    > Pacotes necessários por esta aplicação são verificados para o repositório, para que não é necessário utilizar o `npm` utilitário para instalá-los.
 
-5. Início de sessão para o registo de contentor do Azure (ACR) e localizar o nome de loginServer:
+5. Inicie sessão para o Azure Container Registry (ACR) e encontrar o nome loginServer:
 
     ```bash
     az acr login --name <acrName>
@@ -185,9 +180,9 @@ Neste momento, Kafka e Azure Kubernetes serviço estão em comunicação atravé
     ```
 
     > [!NOTE]
-    > Se não souber o nome do registo de contentor do Azure, ou são familiarizado com a utilização da CLI do Azure para trabalhar com o serviço de Kubernetes do Azure, consulte o [tutoriais AKS](../../aks/tutorial-kubernetes-prepare-app.md).
+    > Se não souber o nome do registo de contentor do Azure, ou caso esteja familiarizada com a utilização da CLI do Azure para trabalhar com o serviço de Kubernetes do Azure, consulte a [tutoriais AKS](../../aks/tutorial-kubernetes-prepare-app.md).
 
-6. Etiqueta local `kafka-aks-test` imagem com o loginServer do ACR. Também adicionar `:v1` ao fim para indicar a versão de imagem:
+6. Etiquetar local `kafka-aks-test` imagem com o loginServer do seu ACR. Também adicionar `:v1` ao fim para indicar a versão da imagem:
 
     ```bash
     docker tag kafka-aks-test <acrLoginServer>/kafka-aks-test:v1
@@ -200,30 +195,30 @@ Neste momento, Kafka e Azure Kubernetes serviço estão em comunicação atravé
     ```
     Esta operação demora vários minutos a concluir.
 
-8. Edite o ficheiro de manifesto Kubernetes (`kafka-aks-test.yaml`) e substitua `microsoft` com o nome de loginServer ACR obtido no passo 4.
+8. Edite o ficheiro de manifesto do Kubernetes (`kafka-aks-test.yaml`) e substitua `microsoft` com o nome loginServer do ACR obtidos no passo 4.
 
-9. Utilize o seguinte comando para implementar as definições da aplicação do manifesto:
+9. Utilize o seguinte comando para implementar as definições de aplicação a partir do manifesto:
 
     ```bash
     kubectl create -f kafka-aks-test.yaml
     ```
 
-10. Utilize o seguinte comando a observar a `EXTERNAL-IP` da aplicação:
+10. Utilize o seguinte comando para ver para o `EXTERNAL-IP` do aplicativo:
 
     ```bash
     kubectl get service kafka-aks-test --watch
     ```
 
-    Assim que é atribuído um endereço IP externo, utilize __CTRL + C__ para sair da veja
+    Assim que for atribuído um endereço IP externo, utilize __CTRL + C__ para sair do watch
 
-11. Abra um browser e introduza o endereço IP externo para o serviço. Chegam a uma página semelhante para a imagem seguinte:
+11. Abra um browser e introduza o endereço IP externo para o serviço. Chega a uma página semelhante à seguinte imagem:
 
-    ![Imagem da página web](./media/apache-kafka-azure-container-services/test-web-page.png)
+    ![Imagem da página da web](./media/apache-kafka-azure-container-services/test-web-page.png)
 
-12. Introduza o texto no campo e, em seguida, selecione o __enviar__ botão. Os dados são enviados para Kafka. O consumidor Kafka na aplicação lê a mensagem e adiciona-o para o __mensagens de Kafka__ secção.
+12. Introduza o texto no campo e, em seguida, selecione o __enviar__ botão. Os dados são enviados ao Kafka. Em seguida, o consumidor de Kafka no aplicativo lê a mensagem e adiciona-o para o __mensagens do Kafka__ secção.
 
     > [!WARNING]
-    > Poderá receber várias cópias de uma mensagem. Normalmente, este problema ocorre quando o utilizador atualiza o seu browser depois de ligar ou abrir várias ligações de browser para a aplicação.
+    > Poderá receber várias cópias de uma mensagem. Esse problema geralmente acontece quando atualizar o browser depois de ligar ou abrir várias ligações de browser para a aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

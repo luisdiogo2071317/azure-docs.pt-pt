@@ -1,24 +1,18 @@
 ---
-title: Resolver problemas relacionados com HDFS com o Azure HDinsight | Documentos da Microsoft
+title: Resolver problemas de HDFS no Azure HDinsight
 description: Obtenha respostas a perguntas comuns sobre como trabalhar com HDFS e o Azure HDInsight.
-keywords: FAQ do Azure HDInsight, HDFS, guia, as perguntas mais comuns de resolução de problemas
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
+services: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: 7ed4bf8f48ce425880bcda84bc7838a26180d924
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f458a1b7156b2cc00a4b088ef98d12526378d827
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578019"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600834"
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Resolver problemas relacionados com HDFS com o Azure HDInsight
 

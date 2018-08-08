@@ -1,86 +1,82 @@
 ---
-title: As opções de contexto para os serviços de ML no HDInsight - Azure de computação | Microsoft Docs
-description: Saiba mais sobre as opções de contexto computação diferentes disponíveis para os utilizadores com os serviços de ML a no HDInsight
+title: Opções de contexto para os serviços de ML no HDInsight - Azure de computação
+description: Saiba mais sobre as opções de contexto diferente de computação disponíveis para os utilizadores com os serviços de ML a no HDInsight
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0deb0b1c-4094-459b-94fc-ec9b774c1f8a
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 57480cef48182a56b315d7d6932883c485f5a7c8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 98c92638d66e3ac1b4b537c0f1f8b70000aa85e9
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050113"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617569"
 ---
-# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>As opções de contexto para os serviços de ML no HDInsight de computação
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto para os serviços de ML no HDInsight de computação
 
-Serviços de ML no Azure HDInsight controla a forma como as chamadas são executadas ao definir o contexto de computação. Este artigo descreve as opções disponíveis especificar se e como a execução é paralelizada por núcleos do nó de extremidade ou cluster do HDInsight.
+Serviços de ML no Azure HDInsight controla como as chamadas são executadas ao definir o contexto de cálculo. Este artigo descreve as opções que estão disponíveis para especificar se e como a execução é paralelizada entre os núcleos do nó de extremidade ou cluster do HDInsight.
 
-O nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e executar os scripts de R. Com um nó de extremidade, tem a opção de executar as funções distribuídas parallelized do RevoScaleR em todos os núcleos do servidor edge nó. Também pode executá-los em todos os nós do cluster através Hadoop mapa reduzir do RevoScaleR ou contextos de computação de Spark.
+Nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e para executar os scripts R. Com um nó de extremidade, tem a opção de executar as funções em paralelo distribuídas de RevoScaleR entre os núcleos do servidor de nó edge. Também pode executá-los em todos os nós do cluster através da utilização Hadoop mapeamento redução do RevoScaleR ou contextos de computação do Spark.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>Serviços de ML no Azure HDInsight
-[Serviços de ML no Azure HDInsight](r-server-overview.md) fornece funcionalidades mais recentes para a análise baseada em R. Pode utilizar os dados armazenados num contentor do HDFS no seu [Blob do Azure](../../storage/common/storage-introduction.md "Blob storage do Azure") conta de armazenamento, um arquivo Data Lake ou o sistema de ficheiros local do Linux. Uma vez que os serviços de ML está incorporado no código aberto R, podem aplicar as aplicações baseadas em R que criar nenhum dos pacotes de open source para R 8000 +. Também poderá utilizar rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), pacote de análise de macrodados da Microsoft que está incluído com os serviços de ML.  
+[Serviços de ML no Azure HDInsight](r-server-overview.md) fornece as capacidades mais recentes para análise baseada em R. Pode utilizar os dados armazenados no contentor de HDFS no seu [BLOBs do Azure](../../storage/common/storage-introduction.md "armazenamento de Blobs do Azure") conta de armazenamento, um arquivo do Data Lake ou sistema de arquivos local do Linux. Como os serviços de ML é criado no R de código aberto, podem aplicar os aplicativos baseados em R que criar nenhum dos pacotes de R open-source 8000 +. Também podem utilizar as rotinas em [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), pacote de análise de macrodados da Microsoft que está incluído com os serviços de ML.  
 
-## <a name="compute-contexts-for-an-edge-node"></a>Contextos de um nó de extremidade de computação
-Em geral, um script do R que é executado no cluster de serviços de ML no nó de extremidade é executado dentro do interpretador de R nesse nó. As exceções são esses passos que chamar uma função de RevoScaleR. As chamadas de RevoScaleR executam num ambiente de computação que é determinado pelo como definir o contexto de computação RevoScaleR.  Quando executar o script do R a partir de um nó de extremidade, os valores possíveis do contexto de computação são:
+## <a name="compute-contexts-for-an-edge-node"></a>Contextos para um nó de extremidade de computação
+Em geral, um script R que é executado no cluster de serviços de ML no nó de extremidade é executado dentro do interpretador de R nesse nó. As exceções são os passos que chamam uma função de RevoScaleR. As chamadas de RevoScaleR executam num ambiente de computação que é determinado pelo como definir o contexto de cálculo de RevoScaleR.  Quando executar o script R a partir de um nó de extremidade, os valores possíveis do contexto de computação são:
 
-- local sequencial (*local*)
-- local paralelo (*localpar*)
+- local seqüencial (*local*)
+- paralelo local (*localpar*)
 - Reduzir o mapa
 - Spark
 
-O *local* e *localpar* diferem opções apenas em como **rxExec** chamadas são executadas. Ambos os executar outras chamadas de função rx de forma paralela em núcleos disponíveis a menos que especificado em contrário através da utilização do RevoScaleR **numCoresToUse** opção, por exemplo `rxOptions(numCoresToUse=6)`. Opções de execução paralela oferecem um desempenho ideal.
+O *local* e *localpar* opções sejam diferentes apenas em como **rxExec** chamadas são executadas. Ambos executar outras chamadas de função rx de forma paralela nos núcleos disponíveis, a menos que especificado de outra forma através da utilização do RevoScaleR **numCoresToUse** opção, por exemplo `rxOptions(numCoresToUse=6)`. As opções de execução paralela oferecem um desempenho ideal.
 
-A tabela seguinte resume as várias opções de contexto de computação para definir a forma como as chamadas são executadas:
+A tabela seguinte resume as várias opções de contexto de computação para definir como as chamadas são executadas:
 
-| Contexto de cálculo  | Como definir                      | Contexto de execução                        |
+| Contexto de cálculo  | Como configurar                      | Contexto de execução                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
-| Local sequencial | rxSetComputeContext('local')    | Execução paralelizada em todos os núcleos do servidor de nó edge, exceto as chamadas rxExec, que são executados serialmente |
-| Paralelo local   | rxSetComputeContext('localpar') | Execução paralelizada em todos os núcleos do servidor edge nó |
-| Spark            | RxSpark()                       | Paralelizada distribuída execução através do Spark em todos os nós do HDI cluster |
-| Reduzir o mapa       | RxHadoopMR()                    | Paralelizada distribuída execução através de reduzir o mapa em todos os nós do HDI cluster |
+| Local sequencial | rxSetComputeContext('local')    | Execução em paralelo entre os núcleos de servidor de nó edge, exceto para chamadas de rxExec, que são executados serialmente |
+| Paralelo local   | rxSetComputeContext('localpar') | Execução em paralelo entre os núcleos de servidor de nó edge |
+| Spark            | RxSpark()                       | Execução distribuída em paralelo através do Spark em todos os nós do HDI cluster |
+| Reduzir o mapa       | RxHadoopMR()                    | Execução distribuída em paralelo através do mapeamento redução em todos os nós do HDI cluster |
 
-## <a name="guidelines-for-deciding-on-a-compute-context"></a>Diretrizes para decidir num contexto de computação
+## <a name="guidelines-for-deciding-on-a-compute-context"></a>Diretrizes para decidir sobre o contexto de cálculo
 
-Qual das três opções que escolher que fornecem paralelizada execução depende da natureza do seu trabalho de análise, o tamanho e a localização dos seus dados. Não há nenhum fórmula simple que indica que a computação contexto para utilizar. No entanto, existem algumas princípios de orientação para que possam ajudar a tornar a escolha certa ou, pelo menos, ajudar a restringir as suas escolhas antes de executar um benchmark. Estes princípios ao servir de pelos incluem:
+Qual das três opções escolha que fornecem a execução em paralelo depende da natureza de seu trabalho de análise, o tamanho e a localização dos seus dados. Não há nenhuma fórmula simples, que indica quais contexto utilizar de cálculo. No entanto, existem alguns princípios importantes que podem ajudá-lo a escolha certa, ou, pelo menos, ajudar a limitar suas opções antes de executar um parâmetro de comparação. Estes princípios básicos incluem:
 
-- O sistema de ficheiros local do Linux é mais rápido do que o HDFS.
-- Estatísticas repetidas são mais rápidas, se os dados locais e se está a ser XDF.
-- É preferível para transmitir pequenas quantidades de dados a partir de uma origem de dados de texto. Se a quantidade de dados for superior, convertê-la XDF antes de análise.
-- A sobrecarga de copiar ou os dados ao nó de extremidade para análise de transmissão em fluxo fica unmanageable para grandes quantidades de dados.
-- O Spark é superior a reduzir o mapa para análise no Hadoop.
+- O sistema de ficheiros de Linux local é mais rápido que HDFS.
+- Análises repetidas são mais rápidos, se os dados são locais e se está a ser XDF.
+- É preferível para transmissão em fluxo pequenas quantidades de dados a partir de uma origem de dados de texto. Se a quantidade de dados é maior, convertê-la XDF antes de análise.
+- A sobrecarga de copiar ou os dados para o nó de extremidade para análise de transmissão em fluxo torna-se impossível de gerenciar para grandes quantidades de dados.
+- O Spark é mais rápido do que o mapa reduzir para análise no Hadoop.
 
-Tendo em conta estes princípios, as secções seguintes disponibilizam algumas prática regras gerais para a seleção de um contexto de computação.
+Tendo em conta esses princípios, as seções a seguir oferecem algumas regras básicas para a seleção de um contexto de cálculo.
 
 ### <a name="local"></a>Local
-* Se a quantidade de dados para analisar é pequena e não requerem a análise repetido, em seguida, transmiti-lo diretamente para o Analysis Services rotina utilizando *local* ou *localpar*.
-* Se a quantidade de dados para analisar pequena ou média e requer a análise repetido, em seguida, copie-a para o sistema de ficheiros local, importá-lo para XDF e analisá-lo através de *local* ou *localpar*.
+* Se a quantidade de dados para analisar é pequena e não necessita de análise repetido, em seguida, transmiti-la diretamente na análise rotina usando *local* ou *localpar*.
+* Se a quantidade de dados para analisar é pequeno ou médio porte e requer a análise repetida, em seguida, copiá-lo para o sistema de arquivos local, importá-lo para XDF e analisá-los por meio *local* ou *localpar*.
 
-### <a name="hadoop-spark"></a>Spark de Hadoop
-* Se a quantidade de dados para analisar for grande, em seguida, importá-lo para utilizar o Spark DataFrame **RxHiveData** ou **RxParquetData**, ou para XDF no HDFS (a menos que o armazenamento é um problema) e analisá-lo utilizando a capacidade de cálculo do Spark contexto.
+### <a name="hadoop-spark"></a>Hadoop Spark
+* Se a quantidade de dados para analisar for grande, em seguida, importá-lo para um DataFrame do Spark através de **RxHiveData** ou **RxParquetData**, ou para XDF hdfs (a menos que o armazenamento é um problema) e analise-os com a computação de Spark contexto.
 
 ### <a name="hadoop-map-reduce"></a>Reduzir o mapa de Hadoop
-* Utilize o contexto de computação mapa reduzir apenas se ocorrer um problema com o contexto de computação do Spark insurmountable, uma vez que é, geralmente, mais lenta.  
+* Utilize o contexto de cálculo de mapeamento redução apenas se ocorrer um problema insuperável com o contexto de cálculo do Spark, uma vez que é geralmente mais lento.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Ajuda inline no rxSetComputeContext
-Para obter mais informações e exemplos de contextos de computação RevoScaleR, consulte inline ajudar R no método rxSetComputeContext, por exemplo:
+Para obter mais informações e exemplos de contextos de cálculo de RevoScaleR, consulte o inline ajudar em R no método rxSetComputeContext, por exemplo:
 
     > ?rxSetComputeContext
 
-Também pode consultar o [distribuídas descrição geral de informática](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) no [documentação do servidor do Machine Learning](https://docs.microsoft.com/machine-learning-server/).
+Também pode consultar o [distribuído descrição geral da informática](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) na [documentação do Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada por núcleos do nó de extremidade ou cluster do HDInsight. Para obter mais informações sobre como utilizar os serviços de ML com clusters do HDInsight, consulte os seguintes tópicos:
+Neste artigo, aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada entre os núcleos do nó de extremidade ou cluster do HDInsight. Para saber mais sobre como utilizar os serviços de ML com clusters do HDInsight, consulte os seguintes tópicos:
 
 * [Descrição geral dos serviços de ML para o Hadoop](r-server-overview.md)
-* [Começar com os serviços de ML para o Hadoop](r-server-get-started.md)
-* [Opções de armazenamento do Azure ML serviços no HDInsight](r-server-storage.md)
+* [Introdução aos serviços de ML para o Hadoop](r-server-get-started.md)
+* [Opções de armazenamento do Azure para os serviços de ML no HDInsight](r-server-storage.md)
 

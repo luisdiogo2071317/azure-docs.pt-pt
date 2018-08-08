@@ -2,19 +2,18 @@
 title: Configurar um cluster do HDInsight associados a um domínio com o Azure AD DS
 description: Saiba como definir e configurar um cluster do HDInsight associados a um domínio com o Azure Active Directory Domain Services
 services: hdinsight
+ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-manager: jhubbard
-editor: cgronlun
-ms.service: hdinsight
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.openlocfilehash: 45cb9590e6dd0d8260f6e63b80caeca894f0fd44
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0d44812c92fd14bf87aac9a942241f8de55f2eec
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126039"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590593"
 ---
 # <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight associados a um domínio com o Azure Active Directory Domain Services
 
@@ -31,7 +30,7 @@ Ativar o Azure AD DS é um pré-requisito antes de poder criar um cluster do HDI
 
 Depois de aprovisionar a instância do Azure AD DS, crie uma conta de serviço no Azure Active Directory (Azure AD) com as permissões corretas. Se esta conta de serviço já existir, repor a palavra-passe e aguarde até que sincronizar para o Azure AD DS. Esta reposição resultará na criação do hash de palavra-passe de Kerberos, e pode demorar até 30 minutos a sincronizar com o Azure AD DS. 
 
-A conta de serviço deve ter os privilégios seguintes:
+A conta de serviço tem os seguintes privilégios:
 
 - Associar máquinas ao domínio e coloque principais de máquina na UO que especificou durante a criação do cluster.
 - Crie principais de serviço na UO que especificou durante a criação do cluster.
@@ -52,9 +51,12 @@ A próxima etapa é criar o cluster do HDInsight com o Azure AD DS e a conta de 
 Quando cria um cluster do HDInsight associados a um domínio, tem de fornecer os seguintes parâmetros:
 
 - **Nome de domínio**: O nome de domínio que está associada com o Azure AD DS. Um exemplo é contoso.onmicrosoft.com.
+
 - **Nome de utilizador de domínio**: A conta de serviço no controlador de domínio do Azure adiciona gerida domínio que criou na secção anterior. Um exemplo é hdiadmin@contoso.onmicrosoft.com. Este utilizador de domínio será o administrador deste cluster do HDInsight.
+
 - **Palavra-passe do domínio**: A palavra-passe da conta de serviço.
-- **Unidade organizacional**: O nome único da UO que pretende utilizar com o cluster do HDInsight. Um exemplo é UO = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Se essa UO não existir, o cluster de HDInsight tenta criar a UO com os privilégios que tenha da conta de serviço. Por exemplo, se a conta de serviço está no grupo de administradores do Azure AD DS, tem as permissões adequadas para criar uma UO. Caso contrário, precisará de criar a UO pela primeira vez e dar o controle de total de conta de serviço sobre nessa UO. Para obter mais informações, consulte [criar uma UO num domínio gerido do Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
+
+- **Unidade organizacional**: O nome único da UO que pretende utilizar com o cluster do HDInsight. Um exemplo é UO = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Se essa UO não existir, o cluster de HDInsight tenta criar a UO com os privilégios que tenha da conta de serviço. Por exemplo, se a conta de serviço está no grupo de administradores do Azure AD DS, tem as permissões adequadas para criar uma UO. Caso contrário, terá de criar a UO pela primeira vez e dar o controle de total de conta de serviço sobre nessa UO. Para obter mais informações, consulte [criar uma UO num domínio gerido do Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
     > [!IMPORTANT]
     > Incluir todos os DCs, separados por vírgulas, depois da unidade Organizacional (por exemplo, UO = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com).
@@ -64,11 +66,11 @@ Quando cria um cluster do HDInsight associados a um domínio, tem de fornecer os
     > [!IMPORTANT]
     > Introduza o URL completo, incluindo "ldaps: / /" e o número de porta (: 636).
 
-- **Grupo de utilizadores de acesso**: os grupos de segurança cujos usuários que quer sincronizar para o cluster. Por exemplo, HiveUsers. Se pretender especificar múltiplos grupos de utilizador, separadas por ponto e vírgula ";".
- 
+- **Grupo de utilizadores de acesso**: os grupos de segurança cujos usuários que quer sincronizar para o cluster. Por exemplo, HiveUsers. Se pretender especificar múltiplos grupos de utilizador, separadas por ponto e vírgula ";". O grupo (s) tem de existir no diretório antes de aprovisionamento. Para obter mais informações, consulte [criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Se o grupo não existir, ocorrerá um erro: "HiveUsers de grupo não foi encontrada no Active Directory".
+
 Captura de ecrã seguinte mostra as configurações no portal do Azure:
 
-![Configuração de serviços de domínio do Active Directory associados a um domínio do Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+   ![Configuração de serviços de domínio do Active Directory associados a um domínio do Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

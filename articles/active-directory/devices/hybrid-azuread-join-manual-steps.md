@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427555"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618528"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar híbrida do Azure Active Directory associados a um dispositivos manualmente 
 
@@ -574,7 +574,12 @@ Quando tiver concluído os passos necessários, dispositivos associados a um dom
 
 ### <a name="remarks"></a>Observações
 
-- Pode usar um objeto de diretiva de grupo ou definição para controlar a distribuição do registo automático de computadores associados a um domínio Windows 10 e Windows Server 2016 de cliente do System Center Configuration Manager. **Se não pretender que estes dispositivos para registar automaticamente com o Azure AD ou se pretender controlar o registo**, em seguida, deve implementar política de grupo, desativar o registo automático para todos estes dispositivos pela primeira vez ou se estiver a utilizar a configuração Manager tem de configurar o cliente em serviços Cloud -> automaticamente registar novos dispositivos Windows 10 associados a um domínio com o Azure Active Directory como "Não", antes de iniciar com qualquer um dos passos de configuração. Depois de terminar a configurar, e quando estiver pronto para testar, tem de implementar política de grupo, ativar o registo automático apenas para os dispositivos de teste e, em seguida, para todos os outros dispositivos à medida que escolha.
+- Pode usar um objeto de diretiva de grupo ou definição para controlar a distribuição do registo automático de computadores associados a um domínio Windows 10 e Windows Server 2016 de cliente do System Center Configuration Manager. **Se não pretender que estes dispositivos para registar automaticamente com o Azure AD ou se pretender controlar o registo**, em seguida, deve implementar política de grupo, desativar o registo automático para todos estes dispositivos pela primeira vez ou se estiver a utilizar a configuração Manager tem de configurar o cliente em serviços Cloud > automaticamente registar novos dispositivos associados a um domínio do Windows 10 com o Azure Active Directory como "Não", antes de iniciar com qualquer um dos passos de configuração. 
+
+> [!Important]
+> Uma vez que existe um atraso de potencial no aplicativo do objeto de política de grupo em recentemente os computadores associados a um domínio durante o qual pode ocorrer a tentativa de registo automático de dispositivos Windows 10, tem de criar uma nova imagem do sysprep de um dispositivo Windows 10 que nunca foi anteriormente registrado automaticamente e que já tenha o GPO para desativar o registo automático de dispositivos Windows 10 e utilizar essa imagem do sysprep para aprovisionar os computadores novos que se irão associar o domínio da sua organização.
+
+Depois de terminar a configurar, e quando estiver pronto para testar, tem de implementar política de grupo, ativar o registo automático apenas para os dispositivos de teste e, em seguida, para todos os outros dispositivos à medida que escolha.
 
 - Para a implementação de computadores de nível inferior do Windows, pode implementar um [pacote Windows Installer](#windows-installer-packages-for-non-windows-10-computers) para computadores que selecionou.
 

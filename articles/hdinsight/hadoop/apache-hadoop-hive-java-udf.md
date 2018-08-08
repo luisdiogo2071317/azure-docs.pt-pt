@@ -1,28 +1,24 @@
 ---
-title: Java definido pelo utilizador função (UDF com o Hive no HDInsight - Azure) | Microsoft Docs
-description: Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que funciona com o Hive. Neste exemplo UDF converte uma tabela de cadeias de texto para minúsculas.
+title: Java definidas pelo utilizador função (UDF com o Hive no HDInsight - Azure)
+description: Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) que funciona com o Hive. Neste exemplo UDF converte uma tabela de cadeias de caracteres de texto em minúsculas.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: eb98b5e4ef2251ad44cbb4b737141fea79adc743
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200763"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590369"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilize um Java UDF com o Hive no HDInsight
+# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilizar um Java UDF com o Hive no HDInsight
 
-Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que funciona com o Hive. UDF Java neste exemplo converte uma tabela de cadeias de texto em minúsculas de todos os carateres.
+Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) que funciona com o Hive. O Java UDF neste exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas carateres.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -31,16 +27,16 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
     > [!IMPORTANT]
     > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-    A maioria dos passos neste documento funcionam em ambos os clusters baseados em Windows e Linux. No entanto, os passos utilizados para carregar UDF compilada para o cluster e executá-la são específicos para clusters baseados em Linux. São fornecidas hiperligações para informações que podem ser utilizadas com clusters baseados em Windows.
+    A maioria dos passos neste documento funcionam em ambos os clusters baseados em Windows e Linux. No entanto, os passos utilizados para carregar a UDF compilada para o cluster e executá-la são específicos para clusters baseados em Linux. São fornecidas hiperligações para informações que podem ser utilizadas com clusters baseados em Windows.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 ou posterior (ou um equivalente, tais como OpenJDK)
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 ou posterior (ou um equivalente, como OpenJDK)
 
 * [Apache Maven](http://maven.apache.org/)
 
-* Um editor de texto ou IDE de Java
+* Um editor de texto ou o Java IDE
 
     > [!IMPORTANT]
-    > Se criar os ficheiros de Python num cliente Windows, tem de utilizar um editor que utiliza LF como um fim de linha. Se não tem a certeza se o seu editor utiliza LF ou CRLF, consulte o [resolução de problemas](#troubleshooting) secção para obter passos sobre como remover o caráter de CR.
+    > Se criar os ficheiros de Python num cliente Windows, tem de utilizar um editor que utiliza LF como um fim da linha. Se não tiver a certeza se o seu editor utiliza LF ou CRLF, consulte a [resolução de problemas](#troubleshooting) secção para obter passos sobre como remover o caráter de CR.
 
 ## <a name="create-an-example-java-udf"></a>Criar um exemplo de Java UDF 
 
@@ -51,13 +47,13 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
     ```
 
    > [!NOTE]
-   > Se estiver a utilizar o PowerShell, tem de colocar secção os parâmetros entre aspas. Por exemplo, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > Se estiver a utilizar o PowerShell, tem de colocar os parâmetros entre aspas. Por exemplo, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
-    Este comando cria um diretório com o nome **exampleudf**, que contém o projeto Maven.
+    Este comando cria um diretório chamado **exampleudf**, que contém o projeto Maven.
 
-2. Depois de criar o projeto, elimine o **exampleudf/src/teste** diretório foi criado como parte do projeto.
+2. Depois do projeto ter sido criado, eliminar a **exampleudf/src/teste** diretório que foi criado como parte do projeto.
 
-3. Abra o **exampleudf/pom.xml**e substituir a existente `<dependencies>` entrada com o XML dos seguinte:
+3. Abra o **exampleudf/pom.xml**e substituir o existente `<dependencies>` entrada com o seguinte XML:
 
     ```xml
     <dependencies>
@@ -76,9 +72,9 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
     </dependencies>
     ```
 
-    Estas entradas especifiquem a versão do Hadoop e ao Hive incluídos com o HDInsight 3.6. Pode encontrar informações sobre as versões do Hadoop e ao Hive fornecido com o HDInsight a partir do [controlo de versões do HDInsight componente](../hdinsight-component-versioning.md) documento.
+    Estas entradas de especificar a versão do Hadoop e ao Hive incluído com o HDInsight 3.6. Pode encontrar informações sobre as versões do Hadoop e ao Hive fornecido com o HDInsight a partir da [controlo de versões de componente de HDInsight](../hdinsight-component-versioning.md) documento.
 
-    Adicionar um `<build>` secção antes do `</project>` linha no final do ficheiro. Esta secção deve conter o seguinte XML:
+    Adicionar uma `<build>` secção antes do `</project>` linha no final do ficheiro. Esta secção deve conter o seguinte XML:
 
     ```xml
     <build>
@@ -134,11 +130,11 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
 
     Estas entradas definem como compilar o projeto. Especificamente, a versão do Java que utiliza o projeto e como criar um uberjar para a implementação para o cluster.
 
-    Guarde o ficheiro depois das alterações foram efetuadas.
+    Guarde o ficheiro depois das alterações foram feitas.
 
-4. Mudar o nome **exampleudf/src/main/java/com/microsoft/examples/App.java** para **ExampleUDF.java**e, em seguida, abra o ficheiro no seu editor.
+4. Mudar o nome **exampleudf/src/main/java/com/microsoft/examples/App.java** ao **ExampleUDF.java**e, em seguida, abra o ficheiro no seu editor.
 
-5. Substitua os conteúdos do **ExampleUDF.java** ficheiros com o seguinte, em seguida, guarde o ficheiro.
+5. Substitua os conteúdos do **ExampleUDF.java** de ficheiros com o seguinte, em seguida, guarde o ficheiro.
 
     ```java
     package com.microsoft.examples;
@@ -165,17 +161,17 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
     }
     ```
 
-    Este código implementa um UDF que aceita um valor de cadeia e devolve uma versão em minúsculas da cadeia.
+    Esse código implementa uma UDF que aceita um valor de cadeia de caracteres e retorna uma versão em minúsculas da cadeia de caracteres.
 
-## <a name="build-and-install-the-udf"></a>Criar e instalar UDF
+## <a name="build-and-install-the-udf"></a>Compilar e instalar a UDF
 
-1. Utilize o seguinte comando para compilar e UDF do pacote:
+1. Utilize o seguinte comando para compilar e empacotar a UDF:
 
     ```bash
     mvn compile package
     ```
 
-    Este comando cria e pacotes UDF para o `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` ficheiro.
+    Este comando cria e empacota a UDF no `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` ficheiro.
 
 2. Utilize o `scp` comandos para copiar o ficheiro para o cluster do HDInsight.
 
@@ -183,7 +179,7 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Substitua `myuser` com a conta de utilizador do SSH para o cluster. Substitua `mycluster` com o nome do cluster. Se utilizou uma palavra-passe para proteger a conta do SSH, lhe for pedido que introduza a palavra-passe. Se utilizou um certificado, poderá ter de utilizar o `-i` parâmetro para especificar o ficheiro de chave privada.
+    Substitua `myuser` com a conta de utilizador SSH para o seu cluster. Substitua `mycluster` com o nome do cluster. Se utilizou uma palavra-passe para proteger a conta SSH, lhe for pedido para introduzir a palavra-passe. Se utilizou um certificado, poderá ter de utilizar o `-i` parâmetro para especificar o ficheiro de chave privada.
 
 3. Ligar ao cluster através de SSH.
 
@@ -193,23 +189,23 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
 
     Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-4. A partir de sessão SSH, copie o ficheiro jar no armazenamento do HDInsight.
+4. A partir da sessão SSH, copie o ficheiro jar para o armazenamento do HDInsight.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
     ```
 
-## <a name="use-the-udf-from-hive"></a>Utilizar UDF do ramo de registo
+## <a name="use-the-udf-from-hive"></a>Utilizar a UDF do Hive
 
-1. Utilize o seguinte para iniciar o cliente Beeline da sessão SSH.
+1. Utilize o seguinte para iniciar o cliente de Beeline da sessão SSH.
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-    Este comando assume que utilizou a predefinição de **admin** para a conta de início de sessão para o cluster.
+    Este comando assume que utilizou a predefinição **administrador** para a conta de início de sessão para o seu cluster.
 
-2. Assim que chegam a `jdbc:hive2://localhost:10001/>` solicitar, introduza o seguinte para adicionar UDF ao ramo de registo e expô-la como uma função.
+2. Assim que chegam ao `jdbc:hive2://localhost:10001/>` , introduza o seguinte para adicionar a UDF Hive e expô-la como uma função.
 
     ```hiveql
     ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
@@ -217,15 +213,15 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
     ```
 
     > [!NOTE]
-    > Este exemplo assume que o armazenamento do Azure é armazenamento predefinido para o cluster. Se o cluster utilizar o Data Lake Store em vez disso, altere o `wasb:///` valor `adl:///`.
+    > Este exemplo assume que o armazenamento do Azure é armazenamento predefinido para o cluster. Se o cluster utilizar o Data Lake Store em vez disso, alterar os `wasb:///` valor a `adl:///`.
 
-3. Utilize UDF ao converter valores obtidos a partir de uma tabela para cadeias de minúsculas.
+3. Utilize a UDF para converter valores obtidos a partir de uma tabela de cadeias de caracteres em minúsculas.
 
     ```hiveql
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    Esta consulta seleciona a plataforma do dispositivo (Android, Windows, iOS, etc.) da tabela, converter a cadeia de carateres inferior maiúsculas e minúsculas e, em seguida, as pode apresentar. A saída apresentado de forma semelhante para o seguinte texto:
+    Esta consulta seleciona a plataforma do dispositivo (Android, Windows, iOS, etc.) da tabela, converter a cadeia de caracteres para o caso mais baixo e, em seguida, exibi-los. A saída será semelhante ao seguinte texto:
 
         +----------+--+
         |   _c0    |
@@ -244,6 +240,6 @@ Saiba como criar uma Java função baseada em definido pelo utilizador (UDF) que
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para outras formas de trabalhar com o Hive, consulte [utilizar o Hive com o HDInsight](hdinsight-use-hive.md).
+Para outras formas de trabalhar com o Hive, consulte [utilizar o Hive com HDInsight](hdinsight-use-hive.md).
 
-Para obter mais informações sobre Hive User-Defined funções, consulte [operadores do ramo de registo e funções definidas pelo utilizador](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) secção da wiki do ramo de registo em apache.org.
+Para obter mais informações sobre as funções de Hive User-Defined, consulte [Hive operadores e funções definidas pelo utilizador](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) secção do wiki do Hive em apache.org.

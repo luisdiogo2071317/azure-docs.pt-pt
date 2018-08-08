@@ -1,36 +1,31 @@
 ---
-title: Resolver problemas do ramo de registo utilizando o Azure HDInsight | Microsoft Docs
-description: Obtenha respostas a questões recorrentes sobre como trabalhar com Apache Hive e o Azure HDInsight.
-keywords: FAQ do HDInsight, Hive, do Azure, manual, perguntas comuns de resolução de problemas
-services: Azure HDInsight
-documentationcenter: na
-author: dharmeshkakadia
-manager: ''
-editor: ''
-ms.assetid: 15B8D0F3-F2D3-4746-BDCB-C72944AA9252
+title: Resolver problemas do Hive com o Azure HDInsight
+description: Obtenha respostas a perguntas comuns sobre como trabalhar com o Apache Hive e o Azure HDInsight.
+keywords: FAQ do Azure HDInsight, Hive, guia, as perguntas mais comuns de resolução de problemas
+services: hdinsight
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.date: 11/2/2017
+author: dharmeshkakadia
 ms.author: dharmeshkakadia
-ms.openlocfilehash: d397552285466dc038fe580a084e2d1d0d69bfe2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.date: 11/2/2017
+ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407702"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600028"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Resolver problemas do ramo de registo utilizando o Azure HDInsight
+# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Resolver problemas do Hive com o Azure HDInsight
 
-Saiba mais sobre as questões superiores e as resoluções ao trabalhar com Apache Hive payloads no Apache Ambari.
+Saiba mais sobre as principais perguntas e resolução ao trabalhar com o Apache Hive payloads no Apache Ambari.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Como exportar um metastore do Hive e importá-la para outro cluster?
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Como exportar um metastore Hive e importá-lo noutro cluster?
 
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Liga ao cluster do HDInsight utilizando um cliente Secure Shell (SSH). Para obter mais informações, consulte [leitura adicional](#additional-reading-end).
+1. Ligar ao cluster do HDInsight com um cliente Secure Shell (SSH). Para obter mais informações, consulte [leitura adicional](#additional-reading-end).
 
 2. Execute o seguinte comando no cluster do HDInsight a partir do qual pretende exportar o metastore:
 
@@ -38,26 +33,26 @@ Saiba mais sobre as questões superiores e as resoluções ao trabalhar com Apac
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  Este comando gera um ficheiro denominado allatables.sql.
+  Este comando gera um arquivo chamado allatables.sql.
 
-3. Copie o ficheiro alltables.sql para o novo cluster do HDInsight e, em seguida, execute o seguinte comando:
+3. Copie alltables.sql o ficheiro para o novo cluster do HDInsight e, em seguida, execute o seguinte comando:
 
   ```apache
   hive -f alltables.sql
   ```
 
-O código nos passos de resolução parte do princípio de que os caminhos de dados no novo cluster são os mesmos que os caminhos de dados no cluster antigo. Se os caminhos de dados forem diferentes, pode editar o ficheiro de alltables.sql gerado para refletir as alterações manualmente.
+O código nos passos de resolução pressupõe que os caminhos de dados no novo cluster são os mesmos que os caminhos de dados no cluster antigo. Se os caminhos de dados forem diferentes, pode editar manualmente o ficheiro de alltables.sql gerado para refletir as alterações.
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Ligar a um cluster do HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Ligar a um cluster do HDInsight com SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Como se localizar registos do Hive num cluster?
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Como faço para localizar os registos de Hive num cluster?
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Liga ao cluster do HDInsight através de SSH. Para obter mais informações, consulte **leitura adicional**.
+1. Ligar ao cluster do HDInsight com SSH. Para obter mais informações, consulte **leitura adicional**.
 
 2. Para ver registos de cliente do ramo de registo, utilize o seguinte comando:
 
@@ -65,13 +60,13 @@ O código nos passos de resolução parte do princípio de que os caminhos de da
   /tmp/<username>/hive.log 
   ```
 
-3. Para ver registos de metastore do Hive, utilize o seguinte comando:
+3. Para ver registos de metastore Hive, utilize o seguinte comando:
 
   ```apache
   /var/log/hive/hivemetastore.log 
   ```
 
-4. Para ver registos Hiveserver, utilize o seguinte comando:
+4. Para ver registos do Hiveserver, utilize o seguinte comando:
 
   ```apache
   /var/log/hive/hiveserver2.log 
@@ -79,26 +74,26 @@ O código nos passos de resolução parte do princípio de que os caminhos de da
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Ligar a um cluster do HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Ligar a um cluster do HDInsight com SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Como iniciar a shell do Hive com as configurações específicas num cluster?
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Como posso iniciar o shell do Hive com configurações específicas num cluster?
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Especifique um par chave-valor de configuração quando iniciar a shell do Hive. Para obter mais informações, consulte [leitura adicional](#additional-reading-end).
+1. Especifica um par de chave-valor de configuração quando começar a Hive shell. Para obter mais informações, consulte [leitura adicional](#additional-reading-end).
 
   ```apache
   hive -hiveconf a=b 
   ```
 
-2. Para listar todas as configurações efetivas na shell do Hive, utilize o seguinte comando:
+2. Para listar todas as configurações em vigor no shell do Hive, utilize o seguinte comando:
 
   ```apache
   hive> set;
   ```
 
-  Por exemplo, utilize o seguinte comando para iniciar a shell do Hive com o registo de depuração ativados na consola:
+  Por exemplo, utilize o seguinte comando para iniciar o shell do Hive com o registo de depuração ativado na consola do:
 
   ```apache
   hive -hiveconf hive.root.logger=ALL,console 
@@ -106,23 +101,23 @@ O código nos passos de resolução parte do princípio de que os caminhos de da
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Propriedades de configuração do ramo de registo](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
+- [Propriedades de configuração do Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Como analisar os dados de Tez DAG num caminho críticas para o cluster?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Como analisar os dados de Tez DAG num caminho crítico para o cluster?
 
 
 ### <a name="resolution-steps"></a>Passos de resolução
  
-1. Para analisar um Apache Tez acíclicos direcionados (DAG) num gráfico de crítico para o cluster, estabeleça ligação ao cluster do HDInsight utilizando SSH. Para obter mais informações, consulte [leitura adicional](#additional-reading-end).
+1. Para analisar um Apache Tez Acíclico (DAG) num gráfico de crítico para o cluster, ligue ao cluster do HDInsight com SSH. Para obter mais informações, consulte [leitura adicional](#additional-reading-end).
 
-2. Numa linha de comandos, execute o seguinte comando:
+2. No prompt de comando, execute o seguinte comando:
    
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
   ```
 
-3. Lista de outros analisadores que podem ser utilizadas para analisar Tez DAG, utilize o seguinte comando:
+3. Para listar outros analisadores que podem ser utilizados para analisar Tez DAG, utilize o seguinte comando:
 
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
@@ -130,35 +125,35 @@ O código nos passos de resolução parte do princípio de que os caminhos de da
 
   Tem de fornecer um programa de exemplo como o primeiro argumento.
 
-  Os nomes dos programas válidos incluem:
-    - **ContainerReuseAnalyzer**: imprimir detalhes de reutilização de contentor num DAG
-    - **CriticalPath**: localizar o caminho de um DAG crítico
-    - **LocalityAnalyzer**: imprimir detalhes localidade num DAG
-    - **ShuffleTimeAnalyzer**: analisar os detalhes do tempo de shuffle num DAG
-    - **SkewAnalyzer**: analisar os detalhes dissimetrias num DAG
-    - **SlowNodeAnalyzer**: imprimir detalhes de nó num DAG
+  Nomes de programa válidos incluem:
+    - **ContainerReuseAnalyzer**: imprimir os detalhes de reutilização de contentor num DAG
+    - **CriticalPath**: localizar o caminho crítico de um DAG
+    - **LocalityAnalyzer**: imprimir os detalhes de localidade num DAG
+    - **ShuffleTimeAnalyzer**: analisar os detalhes de tempo de shuffle num DAG
+    - **SkewAnalyzer**: analisar os detalhes distorção num DAG
+    - **SlowNodeAnalyzer**: imprimir os detalhes do nó num DAG
     - **SlowTaskIdentifier**: detalhes da tarefa lenta de impressão num DAG
-    - **SlowestVertexAnalyzer**: imprimir mais lentos detalhes de vértice num DAG
-    - **SpillAnalyzer**: detalhes de impressão transbordam num DAG
+    - **SlowestVertexAnalyzer**: Imprima detalhes mais lentos do vértice num DAG
+    - **SpillAnalyzer**: detalhes de impressão vaze num DAG
     - **TaskConcurrencyAnalyzer**: imprimir os detalhes de simultaneidade de tarefas num DAG
-    - **VertexLevelCriticalPathAnalyzer**: localizar o caminho de crítico a nível de vértice num DAG
+    - **VertexLevelCriticalPathAnalyzer**: localizar o caminho crítico no nível de vértice num DAG
 
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Ligar a um cluster do HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Ligar a um cluster do HDInsight com SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Como transferir dados Tez DAG a partir de um cluster?
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Como transferir dados de Tez DAG a partir de um cluster?
 
 
 #### <a name="resolution-steps"></a>Passos de resolução
 
 Existem duas formas para recolher os dados de Tez DAG:
 
-- Na linha de comandos:
+- Da linha de comandos:
  
-    Liga ao cluster do HDInsight através de SSH. Na linha de comandos, execute o seguinte comando:
+    Ligar ao cluster do HDInsight com SSH. No prompt de comando, execute o seguinte comando:
 
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
@@ -166,18 +161,18 @@ Existem duas formas para recolher os dados de Tez DAG:
 
 - Utilize a vista Ambari Tez:
    
-  1. Aceda à Ambari. 
+  1. Vá para o Ambari. 
   2. Aceda à vista de Tez (sob o ícone de mosaicos no canto superior direito). 
   3. Selecione o DAG em que pretende visualizar.
   4. Selecione **transferir dados**.
 
 ### <a name="additional-reading-end"></a>Leitura adicional
 
-[Ligar a um cluster do HDInsight através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+[Ligar a um cluster do HDInsight com SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
 ### <a name="see-also"></a>Consultar Também
-[Resolver problemas utilizando o Azure HDInsight](hdinsight-troubleshoot-guide.md)
+[Resolver problemas com o Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

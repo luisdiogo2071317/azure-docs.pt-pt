@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f23c7f7006c52eb3dfc254080c4f836a65177043
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a5070bf3a243993739875b42ebc562e6b017c3c4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582089"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598284"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Acesso condicional do Azure Active Directory FAQs
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>As aplicações que funcionam com políticas de acesso condicional?
 
-Para obter informações sobre aplicações que funcionam com políticas de acesso condicional, consulte [aplicativos e os browsers que utilizam regras de acesso condicional no Azure Active Directory](../active-directory-conditional-access-technical-reference.md).
+Para obter informações sobre aplicações que funcionam com políticas de acesso condicional, consulte [aplicativos e os browsers que utilizam regras de acesso condicional no Azure Active Directory](technical-reference.md).
 
 ## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>Políticas de acesso condicional são aplicadas para colaboração B2B e os utilizadores convidados?
 

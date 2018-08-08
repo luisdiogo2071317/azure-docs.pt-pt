@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 025bcd0cde8d73cfdd4d79a77256a1705950f90a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 14d0cdc0bde1081f1a020c7039596a5b6880070f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444651"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619753"
 ---
 # <a name="approvals"></a>Aprovações
 
@@ -141,13 +141,13 @@ A partir daí, verá uma lista de pedidos com aprovação pendente:
 
 ![](media/azure-ad-pim-approval-workflow/image024.png)
 
-### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>Aprovar ou rejeitar pedidos de elevação de função (único e/ou em massa)
+### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>aprovar ou rejeitar pedidos de elevação de função (único e/ou em massa)
 
 Seleccione os pedidos que pretende aprovar ou negar e clique no botão na barra de ação que corresponde à sua decisão:
 
 ![](media/azure-ad-pim-approval-workflow/image025.png)
 
-### <a name="provide-justification-for-my-approvalrejection"></a>Fornecer a justificação para meu aprovação/rejeição
+### <a name="provide-justification-for-my-approvalrejection"></a>fornecer a justificação para meu aprovação/rejeição
 
 Esta ação irá abrir um novo painel para aprovar ou negar pedidos de várias ao mesmo tempo. Introduza uma justificativa para a sua decisão, e clique em aprovar (ou negar) na parte inferior ou o painel:
 
@@ -157,7 +157,7 @@ Quando o processo de pedido for concluído, o símbolo de estado irá refletir a
 
 ![](media/azure-ad-pim-approval-workflow/image031.png)
 
-### <a name="request-activation-of-a-role-that-requires-approval"></a>Pedir a ativação de uma função que requer aprovação
+### <a name="request-activation-of-a-role-that-requires-approval"></a>pedir a ativação de uma função que requer aprovação
 
 Pode ser iniciado a solicitando a ativação de uma função que requer aprovação de navegação do PIM antiga ou nova navegação, como o processo de ativação de função permanece o mesmo. Basta Selecione uma função na lista de funções para ativar:
 
@@ -175,7 +175,7 @@ O requerente verá uma notificação que o pedido está com aprovação pendente
 
 ![](media/azure-ad-pim-approval-workflow/image039.png)
 
-### <a name="view-the-status-of-your-request-to-activate"></a>Ver o estado do seu pedido para ativar
+### <a name="view-the-status-of-your-request-to-activate"></a>ver o estado do seu pedido para ativar
 
 Visualizar o estado de um pedido pendente para ativar tem de ser acedido no painel de navegação nova. Na barra de navegação esquerdo, selecione o separador de "Os meus pedidos":
 

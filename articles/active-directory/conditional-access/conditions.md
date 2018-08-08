@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a04a1693e0f626e2ee6858132d6bd6d376840039
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3fac86d53de4d5f519feaba2208f4682a0b38403
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531481"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600267"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são condições no acesso condicional do Azure Active Directory? 
 
@@ -100,10 +100,10 @@ A plataforma do dispositivo é caracterizada por sistema operativo que é execut
 
 ![Configurar as plataformas de dispositivo](./media/conditions/24.png)
 
-Para obter uma lista de plataformas de dispositivos suportados, consulte [condição de plataforma de dispositivo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#device-platform-condition).
+Para obter uma lista de plataformas de dispositivos suportados, consulte [condição de plataforma de dispositivo](technical-reference.md#device-platform-condition).
 
 
-Caso de utilização de uma comum para esta condição é uma política que restringe o acesso às suas aplicações na cloud para [dispositivos geridos](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Para obter mais cenários, incluindo a condição de plataforma do dispositivo, consulte [acesso condicional com base na aplicação do Azure Active Directory](../active-directory-conditional-access-mam.md).
+Caso de utilização de uma comum para esta condição é uma política que restringe o acesso às suas aplicações na cloud para [dispositivos geridos](require-managed-devices.md). Para obter mais cenários, incluindo a condição de plataforma do dispositivo, consulte [acesso condicional com base na aplicação do Azure Active Directory](app-based-conditional-access.md).
 
 
 

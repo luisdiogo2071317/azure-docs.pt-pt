@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fc51282717f713bbe924ad0f1b11a9bf894dbee5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f76995a522d268011af2440d5d91c55dcd3afd16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581882"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590522"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>O que é uma migração de política de acesso condicional do Azure Active Directory? 
 
@@ -133,7 +133,7 @@ Se tiver uma nova política que tenha **Exchange Active Sync** como aplicações
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-[Com base na aplicação](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) políticas clássicas para o Office 365 Exchange Online, que incluem **Exchange Active Sync** como condição de aplicações de cliente permitem **suportado** e **não suportada** [plataformas de dispositivos](../active-directory-conditional-access-technical-reference.md#device-platform-condition). Embora não é possível configurar plataformas de dispositivos individuais numa nova política relacionada, pode limitar o suporte para [plataformas de dispositivos suportadas](../active-directory-conditional-access-technical-reference.md#device-platform-condition) apenas. 
+[Com base na aplicação](technical-reference.md#approved-client-app-requirement) políticas clássicas para o Office 365 Exchange Online, que incluem **Exchange Active Sync** como condição de aplicações de cliente permitem **suportado** e **não suportada** [plataformas de dispositivos](technical-reference.md#device-platform-condition). Embora não é possível configurar plataformas de dispositivos individuais numa nova política relacionada, pode limitar o suporte para [plataformas de dispositivos suportadas](technical-reference.md#device-platform-condition) apenas. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
@@ -156,9 +156,9 @@ Neste caso, pode consolidar suas políticas clássicas numa nova política, que 
 
 ### <a name="device-platforms"></a>Plataformas de dispositivos
 
-Políticas clássicas com [com base na aplicação controles](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) estão pré-configuradas com o iOS e Android como o [condição de plataforma de dispositivo](../active-directory-conditional-access-technical-reference.md#device-platform-condition). 
+Políticas clássicas com [com base na aplicação controles](technical-reference.md#approved-client-app-requirement) estão pré-configuradas com o iOS e Android como o [condição de plataforma de dispositivo](technical-reference.md#device-platform-condition). 
 
-Numa nova política, tem de selecionar o [plataformas de dispositivos](../active-directory-conditional-access-technical-reference.md#device-platform-condition) pretende oferecer apoio técnico individualmente.
+Numa nova política, tem de selecionar o [plataformas de dispositivos](technical-reference.md#device-platform-condition) pretende oferecer apoio técnico individualmente.
 
 ![Azure Active Directory](./media/policy-migration/41.png)
 

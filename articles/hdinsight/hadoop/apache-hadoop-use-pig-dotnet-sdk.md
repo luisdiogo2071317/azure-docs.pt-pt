@@ -1,50 +1,45 @@
 ---
-title: Executar tarefas do Apache Pig com o .NET SDK para o Hadoop - Azure HDInsight | Microsoft Docs
-description: Saiba como utilizar o SDK .NET do Hadoop para submeter tarefas do Pig ao Hadoop no HDInsight.
+title: Executar tarefas do Apache Pig com o .NET SDK para Hadoop - Azure HDInsight
+description: Saiba como utilizar o SDK de .NET para o Hadoop para submeter tarefas do Pig ao Hadoop no HDInsight.
 services: hdinsight
-documentationcenter: .net
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 986e6fe0e71c4e1361814e22d89fa5121341cc79
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: jasonh
+ms.openlocfilehash: e781d5d6cf9b1e2ce3c79e138c7a82c780ce8df4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771757"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594819"
 ---
-# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Executar tarefas do Pig utilizando o SDK .NET para o Hadoop no HDInsight
+# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Executar tarefas do Pig com o SDK .NET para o Hadoop no HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Saiba como utilizar o SDK .NET do Hadoop para submeter tarefas de Apache Pig ao Hadoop no Azure HDInsight.
+Saiba como utilizar o SDK de .NET para o Hadoop para submeter tarefas do Apache Pig para o Hadoop no HDInsight do Azure.
 
-O SDK .NET do HDInsight fornece bibliotecas de cliente do .NET que torna mais fácil trabalhar com clusters do HDInsight a partir do .NET. PIg permite-lhe criar operações de MapReduce por uma série de transformações de dados de modelação. Neste documento, irá aprender a utilizar uma aplicação básica c# para submeter uma tarefa de Pig para um cluster do HDInsight.
+O SDK de .NET do HDInsight fornece bibliotecas de cliente do .NET que torna mais fácil trabalhar com clusters do HDInsight de .NET. PIg permite-lhe criar operações de MapReduce por uma série de transformações de dados de modelagem. Neste documento, irá aprender a utilizar uma aplicação básica de c# para submeter uma tarefa do Pig a um cluster do HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir os passos neste artigo, precisa do seguinte.
 
-* Um cluster do Azure HDInsight (Hadoop no HDInsight) (ou Windows ou baseado em Linux).
+* Um cluster do Azure HDInsight (Hadoop no HDInsight) (qualquer um dos Windows ou baseado em Linux).
 
   > [!IMPORTANT]
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-* Visual Studio 2012 2013, 2015 ou de 2017.
+* O Visual Studio 2012, 2013, 2015 ou 2017.
 
 ## <a name="create-the-application"></a>Criar a aplicação
 
-O SDK .NET do HDInsight fornece bibliotecas de cliente .NET, que torna mais fácil trabalhar com clusters do HDInsight a partir do .NET.
+O SDK de .NET do HDInsight fornece bibliotecas de cliente .NET, que torna mais fácil trabalhar com clusters do HDInsight de .NET.
 
-1. Do **ficheiro** menu no Visual Studio, selecione **novo** e, em seguida, selecione **projeto**.
+1. Do **arquivo** menu no Visual Studio, selecione **New** e, em seguida, selecione **projeto**.
 
 2. Para o novo projeto, escreva ou selecione os seguintes valores:
 
@@ -56,13 +51,13 @@ O SDK .NET do HDInsight fornece bibliotecas de cliente .NET, que torna mais fác
 
 3. Clique em **OK** para criar o projeto.
 
-4. Do **ferramentas** menu, selecione **Gestor de pacotes de biblioteca** ou **Gestor de pacotes NuGet**e, em seguida, selecione **consola do Gestor de pacotes**.
+4. Partir do **ferramentas** menu, selecione **Library Package Manager** ou **Gestor de pacotes NuGet**e, em seguida, selecione **Package Manager Console**.
 
-5. Para instalar os pacotes de SDK do .NET, utilize o seguinte comando:
+5. Para instalar os pacotes do SDK do .NET, utilize o seguinte comando:
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-6. A partir do Explorador de soluções, faça duplo clique em **Program.cs** para abri-lo. Substitua o código existente com o seguinte.
+6. No Explorador de soluções, faça duplo clique em **Program.cs** para abri-lo. Substitua o código existente com o seguinte.
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;

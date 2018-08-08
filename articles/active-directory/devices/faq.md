@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e6d223b386aea3ca41931c600d16c16b53765f26
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414925"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597158"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -37,7 +37,7 @@ ms.locfileid: "39414925"
 
 **Observações:**
 
-- Os utilizadores que estão incluídos na sua política de acesso condicional tem um [uma versão suportada do Office para macOS](../active-directory-conditional-access-technical-reference.md#client-apps-condition) para aceder aos recursos. 
+- Os utilizadores que estão incluídos na sua política de acesso condicional tem um [uma versão suportada do Office para macOS](../conditional-access/technical-reference.md#client-apps-condition) para aceder aos recursos. 
 
 - Durante a primeira tentativa de acesso, os utilizadores são-lhe pedidos para inscrever o dispositivo com o portal da empresa.
 
@@ -146,7 +146,7 @@ Para versões de SO do Windows de nível inferior que estão no local AD associa
 
 **P: Posso ver o registo de dispositivo sob as informações de utilizador no portal do Azure e pode ver o estado como registrado no dispositivo. Sou que eu configurar corretamente para utilizar o acesso condicional?**
 
-**R:** o estado de associação de dispositivo, refletido pela deviceID, tem de corresponder com isso no Azure AD e satisfazer quaisquer critérios de avaliação para o acesso condicional. Para obter mais informações, consulte [exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos](../active-directory-conditional-access-policy-connected-applications.md).
+**R:** o estado de associação de dispositivo, refletido pela deviceID, tem de corresponder com isso no Azure AD e satisfazer quaisquer critérios de avaliação para o acesso condicional. Para obter mais informações, consulte [exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos](../conditional-access/require-managed-devices.md).
 
 ---
 

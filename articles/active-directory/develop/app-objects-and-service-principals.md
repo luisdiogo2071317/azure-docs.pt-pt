@@ -17,18 +17,18 @@ ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: a885170ce5c7e509e6497a8ac0e8d6790f9ea577
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 057465567217cff080b189bcdabee3042f41468d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581881"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595880"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Aplicação e objetos de principal de serviço no Azure Active Directory (Azure AD)
-Por vezes, o significado de "aplicação" pode ser mal compreendido quando utilizado no contexto do Azure AD. O objetivo deste artigo é esclarecer os aspectos de conceituais e concretos de integração de aplicações do Azure AD, com uma ilustração de registo e o consentimento para um [aplicação multi-inquilino](active-directory-dev-glossary.md#multi-tenant-application).
+Por vezes, o significado de "aplicação" pode ser mal compreendido quando utilizado no contexto do Azure AD. O objetivo deste artigo é esclarecer os aspectos de conceituais e concretos de integração de aplicações do Azure AD, com uma ilustração de registo e o consentimento para um [aplicação multi-inquilino](developer-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Descrição geral
-Uma aplicação que foi integrada com o Azure AD tem implicações que vão além do aspecto de software. "Aplicação" é frequentemente utilizada como um termo conceitual, que faça referência a não apenas o software de aplicação, mas também o registo do Azure AD e função na autenticação/autorização "conversas" em tempo de execução. Por definição, um aplicativo pode funcionar num [cliente](active-directory-dev-glossary.md#client-application) função (consumindo um recurso), uma [servidor recursos](active-directory-dev-glossary.md#resource-server) função (expondo as APIs para os clientes), ou até mesmo ambos. O protocolo de conversação é definido por um [fluxo de concessão de autorização do OAuth 2.0](active-directory-dev-glossary.md#authorization-grant), permitindo que o cliente/recurso para acesso/proteger os dados de um recurso, respetivamente. Agora vamos um nível mais aprofundado e ver como o modelo de aplicação do Azure AD representa uma aplicação em tempo de design e tempo de execução. 
+Uma aplicação que foi integrada com o Azure AD tem implicações que vão além do aspecto de software. "Aplicação" é frequentemente utilizada como um termo conceitual, que faça referência a não apenas o software de aplicação, mas também o registo do Azure AD e função na autenticação/autorização "conversas" em tempo de execução. Por definição, um aplicativo pode funcionar num [cliente](developer-glossary.md#client-application) função (consumindo um recurso), uma [servidor recursos](developer-glossary.md#resource-server) função (expondo as APIs para os clientes), ou até mesmo ambos. O protocolo de conversação é definido por um [fluxo de concessão de autorização do OAuth 2.0](developer-glossary.md#authorization-grant), permitindo que o cliente/recurso para acesso/proteger os dados de um recurso, respetivamente. Agora vamos um nível mais aprofundado e ver como o modelo de aplicação do Azure AD representa uma aplicação em tempo de design e tempo de execução. 
 
 ## <a name="application-registration"></a>Registo da aplicação
 Quando registar uma aplicação do Azure AD no [portal do Azure][AZURE-Portal], dois objetos são criados no seu inquilino do Azure AD: um objeto de aplicativo e um objeto principal de serviço.
@@ -39,7 +39,7 @@ Uma aplicação do Azure AD é definida por seu um e apenas a objeto application
 #### <a name="service-principal-object"></a>objeto do principal de serviço
 Para poder aceder aos recursos que são protegidos pelo inquilino do Azure AD, a entidade que precisa de acesso tem de ser representada por uma entidade de segurança. Isso é verdadeiro para aplicativos (principal de serviço) e os utilizadores (principal de utilizador). A entidade de segurança define a política de acesso e permissões de utilizador/aplicação nesse inquilino. Isto permite que os principais recursos como a autenticação de utilizador/aplicação durante o início de sessão e autorização durante o acesso a recursos.
 
-Quando um aplicativo é concedido permissão para aceder aos recursos num inquilino (após o registo ou [consentimento](active-directory-dev-glossary.md#consent)), é criado um objeto principal de serviço. O Azure AD Graph [entidade ServicePrincipal] [ AAD-Graph-Sp-Entity] define o esquema para as propriedades de um serviço principal do objeto. 
+Quando um aplicativo é concedido permissão para aceder aos recursos num inquilino (após o registo ou [consentimento](developer-glossary.md#consent)), é criado um objeto principal de serviço. O Azure AD Graph [entidade ServicePrincipal] [ AAD-Graph-Sp-Entity] define o esquema para as propriedades de um serviço principal do objeto. 
 
 #### <a name="application-and-service-principal-relationship"></a>Aplicação e a relação de principal de serviço
 Considere o objeto de aplicativo como o *global* representação da sua aplicação para utilização em todos os inquilinos e o principal de serviço como o *local* representação para utilização num inquilino específico. O serve de objeto de aplicativo como o modelo a partir do qual comuns e as propriedades predefinidas é *derivado* para utilização na criação de objetos de principal de serviço correspondentes. Um objeto de aplicativo, portanto, tem uma relação de 1:1 com o aplicativo de software e uma relação de 1:many com seus objetos de principal de serviço correspondentes.

@@ -1,36 +1,29 @@
 ---
-title: Ligação MapReduce e o SSH com Hadoop no HDInsight - Azure | Microsoft Docs
+title: Ligação MapReduce e o SSH com Hadoop no HDInsight - Azure
 description: Saiba como utilizar o SSH para executar tarefas de MapReduce com o Hadoop no HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlunb
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 361adda08b48ea1f45fd35953bdef3e63afc2ae6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399008"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594540"
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Utilizar o MapReduce com o Hadoop no HDInsight com SSH
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Saiba como submeter as tarefas do MapReduce de uma ligação Secure Shell (SSH) para o HDInsight.
+Aprenda a submeter tarefas de MapReduce de uma ligação de Secure Shell (SSH) para o HDInsight.
 
 > [!NOTE]
-> Se já estiver familiarizado com a utilização de servidores de Hadoop baseado em Linux, mas estiver familiarizado com o HDInsight, consulte [sugestões do HDInsight baseado em Linux](../hdinsight-hadoop-linux-information.md).
+> Se já estiver familiarizado com a utilização do Hadoop baseado em Linux servidores, mas estiver familiarizado com o HDInsight, consulte [Dicas do HDInsight baseado em Linux](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Pré-requisitos
 
@@ -39,40 +32,40 @@ Saiba como submeter as tarefas do MapReduce de uma ligação Secure Shell (SSH) 
   > [!IMPORTANT]
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-* Um cliente SSH. Para obter mais informações, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
+* Um cliente SSH. Para obter mais informações, consulte [utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a id="ssh"></a>Ligar com SSH
 
-Ligar ao cluster através de SSH. Por exemplo, o seguinte comando liga a um cluster com o nome **myhdinsight** como o **sshuser** conta:
+Ligar ao cluster através de SSH. Por exemplo, o comando seguinte liga a um cluster com o nome **myhdinsight** como o **sshuser** conta:
 
 ```bash
 ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**Se utilizar uma chave de certificado de autenticação SSH**, terá de especificar a localização da chave privada no seu sistema de cliente, por exemplo:
+**Se utilizar uma chave de certificado para autenticação SSH**, poderá ter de especificar a localização da chave privada no seu sistema de cliente, por exemplo:
 
 ```bash
 ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**Se utilizar uma palavra-passe de autenticação SSH**, tem de fornecer a palavra-passe quando lhe for pedido.
+**Se utilizar uma palavra-passe para autenticação SSH**, tem de fornecer a palavra-passe quando lhe for pedido.
 
-Para obter mais informações sobre como utilizar o SSH com o HDInsight, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Para obter mais informações sobre como utilizar o SSH com HDInsight, consulte [utilizar o SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="hadoop"></a>Utilizar comandos de Hadoop
+## <a id="hadoop"></a>Utilizar comandos do Hadoop
 
-1. Depois de ligar ao cluster do HDInsight, utilize o seguinte comando para iniciar uma tarefa de MapReduce:
+1. Assim que estiver ligado ao cluster do HDInsight, utilize o seguinte comando para iniciar uma tarefa de MapReduce:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    Este comando inicia o `wordcount` classe, que faz a `hadoop-mapreduce-examples.jar` ficheiro. Utiliza o `/example/data/gutenberg/davinci.txt` documento como entrada e saída é armazenado em `/example/data/WordCountOutput`.
+    Este comando inicia o `wordcount` classe, que está contido no `hadoop-mapreduce-examples.jar` ficheiro. Ele usa o `/example/data/gutenberg/davinci.txt` documento como entrada e saída está armazenado em `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > Para obter mais informações sobre esta tarefa de MapReduce e os dados de exemplo, consulte [MapReduce de utilização no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
+    > Para obter mais informações sobre esta tarefa de MapReduce e os dados de exemplo, consulte [utilizar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
-2. A tarefa emite detalhes que processa e devolve informações semelhante para o seguinte texto quando a tarefa é concluída:
+2. A tarefa emite detalhes à medida que processa e devolve informações semelhantes ao seguinte texto quando a tarefa é concluída:
 
         File Input Format Counters
         Bytes Read=1395666
@@ -88,7 +81,7 @@ Para obter mais informações sobre como utilizar o SSH com o HDInsight, consult
     Este comando apresenta dois ficheiros, `_SUCCESS` e `part-r-00000`. O `part-r-00000` ficheiro contém a saída para esta tarefa.
 
     > [!NOTE]
-    > Algumas tarefas de MapReduce podem dividir os resultados por vários **parte-r-# # #** ficheiros. Se assim for, utilize o # # # sufixo para indicar a ordem dos ficheiros.
+    > Algumas tarefas de MapReduce podem dividir os resultados em vários **parte-r-# # #** ficheiros. Se assim for, utilize o # # # sufixo para indicar a ordem dos ficheiros.
 
 4. Para ver o resultado, utilize o seguinte comando:
 
@@ -96,7 +89,7 @@ Para obter mais informações sobre como utilizar o SSH com o HDInsight, consult
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Este comando apresenta uma lista das palavras que estão contidas no **wasb://example/data/gutenberg/davinci.txt** de ficheiros e o número de vezes que ocorreu de cada palavra. O texto seguinte é um exemplo dos dados que estão contidos no ficheiro:
+    Este comando apresenta uma lista das palavras contidas no **wasb://example/data/gutenberg/davinci.txt** ficheiro e o número de vezes que ocorreu cada palavra. O texto seguinte é um exemplo dos dados que estão contidos no ficheiro:
 
         wreathed        3
         wreathing       1
@@ -108,13 +101,13 @@ Para obter mais informações sobre como utilizar o SSH com o HDInsight, consult
 
 ## <a id="summary"></a>Resumo
 
-Como pode ver, comandos de Hadoop fornecem uma forma fácil para executar as tarefas do MapReduce em cluster do HDInsight e, em seguida, ver o resultado da tarefa.
+Como pode ver, comandos de Hadoop fornecem uma forma fácil de executar tarefas de MapReduce num cluster do HDInsight e, em seguida, ver o resultado da tarefa.
 
 ## <a id="nextsteps"></a>Passos seguintes
 
-Para obter informações gerais sobre as tarefas do MapReduce no HDInsight:
+Para obter informações gerais sobre tarefas de MapReduce no HDInsight:
 
-* [Utilizar o MapReduce do HDInsight Hadoop](hdinsight-use-mapreduce.md)
+* [Utilizar o MapReduce no HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: dc362c89f7bc83c4848c0e857173db1ea2639bc4
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 01b77fc2521c221594a38b3731694115adf82e2c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362845"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600810"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar a palavra-passe início de sessão único para uma aplicação da galeria do Azure AD
 
@@ -31,7 +31,7 @@ Este problema ocorre, normalmente, se o fornecedor do aplicativo tiver alterado 
 
 Embora a Microsoft tem as tecnologias para detetar automaticamente quando integrações quebrar, pode não ser possível localizar os problemas imediatamente ou os problemas demoram algum tempo a corrigir. No caso de quando uma dessas integrações não funciona corretamente, abra um incidente de suporte para que pode ser corrigido mais rapidamente possível.
 
-**Se for contato com o fornecedor desse aplicativo,** enviá-los nossa maneira para que a Microsoft pode trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para obtê-las iniciado.
+**Se for contato com o fornecedor desse aplicativo,** enviá-los nossa maneira para que a Microsoft pode trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](develop/howto-app-gallery-listing.md) para obtê-las iniciado.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais são preenchidas bem como submetidas, mas a página indica que as credenciais estão incorretas
 
@@ -59,7 +59,7 @@ No caso de sugestões anteriores funcionar, pode ser o caso em que uma alteraç�
 
 Embora a Microsoft tem as tecnologias para detetar automaticamente quando interromper integrações de aplicação, pode não ser possível localizar os problemas imediatamente ou os problemas poderão demorar algum tempo para corrigir. Quando uma integração não funciona corretamente, pode abrir um incidente de suporte para corrigir o mais rapidamente possível. 
 
-Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para obtê-las iniciado.
+Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](develop/howto-app-gallery-listing.md) para obtê-las iniciado.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>A extensão funciona no Chrome e Firefox, mas não no Internet Explorer
 
@@ -73,7 +73,7 @@ Existem duas das principais causas para este problema:
 
    * Infelizmente, esta situação pode variar consoante a versão do navegador, a velocidade do computador ou a sites visitados. Neste caso, sugerimos que contacte o suporte para que possamos corrigir a integração para esta aplicação específica.
 
-Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para obtê-las iniciado.
+Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](develop/howto-app-gallery-listing.md) para obtê-las iniciado.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de início de sessão da aplicação foi alterada recentemente ou requer um campo adicional
 
@@ -81,7 +81,7 @@ Se a página de início de sessão do aplicativo mudou drasticamente, às vezes,
 
 Embora a Microsoft tem as tecnologias para detetar automaticamente quando interromper integrações de aplicação, pode não ser possível localizar os problemas imediatamente ou os problemas poderão demorar algum tempo para corrigir. Quando uma integração não funciona corretamente, pode abrir um incidente de suporte para corrigir o mais rapidamente possível. 
 
-Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para obtê-las iniciado.
+Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](develop/howto-app-gallery-listing.md) para obtê-las iniciado.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão de Browser do painel de acesso
 

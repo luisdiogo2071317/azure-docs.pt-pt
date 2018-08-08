@@ -1,29 +1,24 @@
 ---
-title: O Hive com ferramentas do Data Lake (Hadoop) para o Visual Studio - Azure HDInsight | Microsoft Docs
-description: Saiba como utilizar as ferramentas do Data Lake para Visual Studio para executar consultas do Hive Apache com Apache Hadoop no Azure HDInsight.
+title: O Hive com ferramentas do Data Lake (Hadoop) para o Visual Studio - Azure HDInsight
+description: Saiba como utilizar as ferramentas do Data Lake para Visual Studio para executar consultas do Apache Hive com o Apache Hadoop no HDInsight do Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 862a2aae2e9d417ccf9daf336177b23842dd3db7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 938605bebe30dd23e73fbf43a37328d9e753a06e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201793"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597230"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Hive, utilizando as ferramentas do Data Lake para Visual Studio
+# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Hive com as ferramentas do Data Lake para Visual Studio
 
-Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta Apache Hive. As ferramentas do Data Lake permitem-lhe criar facilmente, submeter e monitorizar as consultas do Hive ao Hadoop no Azure HDInsight.
+Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consultar Apache Hive. As ferramentas do Data Lake permitem-lhe facilmente criar, submeter e monitorizar consultas do Hive ao Hadoop no HDInsight do Azure.
 
 ## <a id="prereq"></a>Pré-requisitos
 
@@ -34,19 +29,19 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
 
 * Visual Studio (uma das seguintes versões):
 
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate com atualização 4
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate com a atualização 4
 
     * Visual Studio 2015 (qualquer edição)
 
     * Visual Studio 2017 (qualquer edição)
 
-* Ferramentas do HDInsight para Visual Studio ou o Azure Data Lake tools para Visual Studio. Consulte [começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
+* Ferramentas do HDInsight para Visual Studio ou o Azure Data Lake tools para Visual Studio. Ver [começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
 
 ## <a id="run"></a> Executar consultas do Hive com o Visual Studio
 
-1. Abra **Visual Studio** e selecione **novo** > **projeto** > **do Azure Data Lake** > **HIVE** > **aplicação do Hive**. Forneça um nome para este projeto.
+1. Open **Visual Studio** e selecione **New** > **projeto** > **Azure Data Lake**  >   **HIVE** > **Hive aplicação**. Forneça um nome para este projeto.
 
-2. Abra o **Script.hql** ficheiro criado com este projeto e cole as seguintes declarações HiveQL:
+2. Abra o **hql** ficheiro que é criado com este projeto e cole as seguintes declarações HiveQL:
 
    ```hiveql
    set hive.execution.engine=tez;
@@ -57,38 +52,38 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
 
-    As declarações de efetuar as seguintes ações:
+    Essas instruções executam as seguintes ações:
 
-   * `DROP TABLE`: Se a tabela existe, esta instrução elimina-a.
+   * `DROP TABLE`: Se a tabela existe, essa instrução elimina-a.
 
-   * `CREATE EXTERNAL TABLE`: Cria uma nova tabela 'externa' no ramo de registo. As tabelas externas apenas armazenam a definição da tabela no ramo de registo (os dados for deixados na localização original).
+   * `CREATE EXTERNAL TABLE`: Cria uma nova tabela de "externa" no Hive. Tabelas externas apenas armazenam a definição da tabela no Hive (resta os dados na localização original).
 
      > [!NOTE]
-     > As tabelas externas devem ser utilizadas ao espera os dados subjacentes ser atualizados por uma origem externa. Por exemplo, uma tarefa de MapReduce ou serviço do Azure.
+     > Tabelas externas devem ser usadas quando espera que os dados subjacentes ser atualizados por uma origem externa. Por exemplo, uma tarefa de MapReduce ou serviço do Azure.
      >
-     > Remover uma tabela externa **não** eliminar os dados, a definição de tabela.
+     > Remover uma tabela externa faz **não** eliminar os dados, apenas a definição da tabela.
 
-   * `ROW FORMAT`: Indica ao ramo de registo como estão formatados corretamente os dados. Neste caso, os campos no registo de cada são separados por um espaço.
+   * `ROW FORMAT`: Informa ao Hive como os dados estiverem formatados. Neste caso, os campos em cada registo são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION`: Indica ao ramo de registo que os dados são armazenados no diretório/dados de exemplo e que é armazenada como texto.
+   * `STORED AS TEXTFILE LOCATION`: Informa ao Hive que os dados são armazenados no diretório/dados de exemplo e que são armazenado como texto.
 
-   * `SELECT`: Selecione uma contagem de todas as linhas onde coluna `t4` contém o valor `[ERROR]`. Esta declaração devolve um valor `3` porque existem três linhas que contêm este valor.
+   * `SELECT`: Selecione uma contagem de todas as linhas em que coluna `t4` contém o valor `[ERROR]`. Esta declaração devolve um valor de `3` porque existem três linhas que contêm este valor.
 
-   * `INPUT__FILE__NAME LIKE '%.log'` -Diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo. Esta cláusula restringe a pesquisa para o ficheiro de sample.log que contém os dados.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Informa ao Hive que podemos deverá devolver apenas dados de ficheiros terminados em. log. Essa cláusula restringe a pesquisa para o ficheiro Sample log que contém os dados.
 
-3. Na barra de ferramentas, selecione o **Cluster do HDInsight** que pretende utilizar para esta consulta. Selecione **submeter** para executar as instruções de como uma tarefa do Hive.
+3. Na barra de ferramentas, selecione o **Cluster de HDInsight** que pretende utilizar para esta consulta. Selecione **submeter** para executar as instruções como uma tarefa do Hive.
 
    ![Submeter barra](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
 
-4. O **resumo da tarefa do Hive** aparece e apresenta informações sobre a tarefa em execução. Utilize o **atualizar** ligação para atualizar as informações da tarefa, até que o **estado da tarefa** alterações **concluído**.
+4. O **resumo da tarefa do Hive** aparece e apresenta informações sobre a tarefa em execução. Utilize o **Atualize** link para atualizar a informação de tarefa, até o **estado da tarefa** é alterado para **concluído**.
 
-   ![Resumo da tarefa apresentar uma tarefa concluída](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![Resumo da tarefa exibindo uma tarefa concluída](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
 
-5. Utilize o **resultado da tarefa** ligação para ver o resultado da tarefa. Apresenta `[ERROR] 3`, que é o valor devolvido por esta consulta.
+5. Utilize o **saída da tarefa** ligação para ver o resultado da tarefa. Ele exibe `[ERROR] 3`, que é o valor devolvido por esta consulta.
 
-6. Também pode executar consultas do Hive sem criar um projeto. Utilizar **Explorador de servidores**, expanda **Azure** > **HDInsight**, clique no seu servidor do HDInsight e, em seguida, selecione **escrever uma consulta do Hive**.
+6. Também pode executar consultas do Hive sem criar um projeto. Usando **Explorador de servidores**, expanda **Azure** > **HDInsight**, o servidor do HDInsight com o botão direito e, em seguida, selecione **escrever uma consulta do Hive** .
 
-7. No **temp.hql** documento apresentado, adicione as seguintes declarações HiveQL:
+7. Na **temp.hql** documento que é apresentada, adicione as seguintes declarações HiveQL:
 
    ```hiveql
    set hive.execution.engine=tez;
@@ -96,20 +91,20 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
    ```
 
-    As declarações de efetuar as seguintes ações:
+    Essas instruções executam as seguintes ações:
 
-   * `CREATE TABLE IF NOT EXISTS`: Cria uma tabela se ainda não existir. Porque o `EXTERNAL` palavra-chave não é utilizada, esta instrução cria uma tabela interna. Tabelas internas são armazenadas no armazém de dados do Hive e são geridas pelo ramo de registo.
+   * `CREATE TABLE IF NOT EXISTS`: Cria uma tabela se ainda não exista. Uma vez que o `EXTERNAL` palavra-chave não é utilizado, esta instrução cria uma tabela interna. Tabelas internas são armazenadas no armazém de dados de Hive e são geridas através do Hive.
 
      > [!NOTE]
-     > Ao contrário `EXTERNAL` tabelas, remover uma tabela interna também elimina os dados subjacentes.
+     > Ao contrário de `EXTERNAL` tabelas, remover uma tabela interna também elimina os dados subjacentes.
 
-   * `STORED AS ORC`: Armazena os dados no formato de (ORC) columnar linha otimizada. ORC é um formato altamente otimizado e eficiente para armazenar dados do Hive.
+   * `STORED AS ORC`: Armazena os dados em formato de (ORC) em colunas de linha otimizada. ORC é um formato altamente otimizado e eficiente para armazenar os dados de Hive.
 
-   * `INSERT OVERWRITE ... SELECT`: Seleciona as linhas do `log4jLogs` tabela que contenham `[ERROR]`, insere, em seguida, os dados para o `errorLogs` tabela.
+   * `INSERT OVERWRITE ... SELECT`: Seleciona linhas do `log4jLogs` tabela que contêm `[ERROR]`, em seguida, insere os dados no `errorLogs` tabela.
 
-8. Na barra de ferramentas, selecione **submeter** para executar a tarefa. Utilize o **estado da tarefa** para determinar que a tarefa foi concluída com êxito.
+8. Na barra de ferramentas, selecione **submeter** para executar a tarefa. Utilize o **estado da tarefa** para determinar se a tarefa foi concluída com êxito.
 
-9. Para verificar que a tarefa criada a tabela, utilize **Explorador de servidores** e expanda **Azure** > **HDInsight** > cluster do HDInsight > **bases de dados do Hive** > **predefinido**. O **foram** tabela e o **log4jLogs** tabela são listados.
+9. Para verificar se a tarefa criada a tabela, utilize **Explorador de servidores** e expanda **Azure** > **HDInsight** > seu cluster do HDInsight >  **Bases de dados de Hive** > **padrão**. O **registos de erros** tabela e o **log4jLogs** tabela estão listados.
 
 ## <a id="nextsteps"></a>Passos seguintes
 
@@ -127,7 +122,7 @@ Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDIn
 
 Para obter mais informações sobre as ferramentas do HDInsight para Visual Studio:
 
-* [Introdução às ferramentas HDInsight para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
+* [Introdução às ferramentas do HDInsight para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61425daff618bcaff54d201b7eee8d5e0b5abda7
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506214"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621206"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos no Azure Event Grid
 
@@ -74,7 +74,7 @@ Se o Event Grid não é possível confirmar que um evento foi recebido pelo pont
 
 ## <a name="batching"></a>Lotes
 
-Quando utilizar um tópico personalizado, eventos tem sempre de ser publicados numa matriz. Isso pode ser um lote de um para cenários de débito e baixa, no entanto, para usecases de volume elevado, é recomendado que o batch vários eventos em conjunto por publicar para alcançar maior eficiência. Lotes podem ser até 1 MB. Cada evento deve ainda não excede 64 KB.
+Quando utilizar um tópico personalizado, eventos tem sempre de ser publicados numa matriz. Isso pode ser um lote de um para cenários de débito e baixa, no entanto, para usecases de volume elevado, é recomendado que o batch vários eventos em conjunto por publicar para alcançar maior eficiência. Lotes podem ser até 1 MB. Cada evento ainda não deve exceder os 64 KB.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

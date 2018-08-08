@@ -17,15 +17,15 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 645ce394c09f5cdd9f45b085e8d86cdc07ee9158
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579307"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591337"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>Ligar de protocolos - OAuth 2.0 e OpenID v2.0
-O ponto final v2.0 pode utilizar o Azure AD para identidade-como-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações aqui será útil se optar por escrever seu código através do envio direto & manipulação HTTP pedidos ou utilizar uma biblioteca de código-fonte aberto de terceiros 3ª, em vez de utilizar um dos nossos [bibliotecas-fonte aberto](active-directory-v2-libraries.md).
+O ponto final v2.0 pode utilizar o Azure AD para identidade-como-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações aqui será útil se optar por escrever seu código através do envio direto & manipulação HTTP pedidos ou utilizar uma biblioteca de código-fonte aberto de terceiros 3ª, em vez de utilizar um dos nossos [bibliotecas-fonte aberto](reference-v2-libraries.md).
 
 > [!NOTE]
 > Nem todos os cenários do Azure Active Directory e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
@@ -76,7 +76,7 @@ A implementação de v2.0 de OAuth 2.0 e OpenID Connect fazem amplo uso de token
 Existem mais detalhes de diferentes tipos de tokens utilizados no ponto final v2.0 está disponível no [a referência de token de ponto final de v2.0](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocolos
-Se estiver pronto para ver alguns pedidos de exemplo, começar com um do abaixo tutoriais. Cada uma delas corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar o que é o fluxo certo para, confira [os tipos de aplicações que criar com a versão 2.0](active-directory-v2-flows.md).
+Se estiver pronto para ver alguns pedidos de exemplo, começar com um do abaixo tutoriais. Cada uma delas corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar o que é o fluxo certo para, confira [os tipos de aplicações que criar com a versão 2.0](v2-app-types.md).
 
 * [Crie uma aplicação nativa com o OAuth 2.0 e móveis](v2-oauth2-auth-code-flow.md)
 * [Criar Web aplicações com abrir ID Connect](v2-protocols-oidc.md)

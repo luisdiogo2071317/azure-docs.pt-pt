@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 1b5aa32155afc5264ecf5979ebc25f879bbc5b67
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582105"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617603"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e Configurar um Certificado SSL para o Serviço de Aplicações do Azure
 
@@ -199,11 +199,11 @@ Recodificação do certificado agrega o certificado com um novo certificado emit
 
 ## <a name="renew-the-certificate"></a>Renovar o certificado
 
-Para ativar a renovação automática do certificado a qualquer altura, clique em **definições de renovação automática** na página de gestão do certificado. Selecione **nos** e clique em **guardar**. O certificado será renovada 60 dias antes da expiração, se tiver ativada a renovação automática.
+Para ativar a renovação automática do certificado a qualquer altura, clique em **definições de renovação automática** na página de gestão do certificado. Selecione **nos** e clique em **guardar**. Certificados podem iniciar automaticamente a renovar 90 dias antes da expiração, se tiver ativada a renovação automática.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-Para renovar manualmente o certificado em vez disso, clique em **renovação Manual** em vez disso.
+Para renovar manualmente o certificado em vez disso, clique em **renovação Manual** em vez disso. Pode pedir para renovar manualmente o certificado 60 dias antes da expiração.
 
 > [!NOTE]
 > O certificado renovado não está vinculado automaticamente à sua aplicação, quer renovados manualmente ou ele renovado automaticamente. Associá-lo à sua aplicação, consulte [renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

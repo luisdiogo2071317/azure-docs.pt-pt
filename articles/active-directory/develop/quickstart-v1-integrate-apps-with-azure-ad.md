@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579668"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592208"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,8 +46,8 @@ Qualquer aplicativo que deseja usar os recursos do Azure AD em primeiro lugar te
 
   - **Nome:** introduza um nome de aplicação com significado
   - **Tipo de aplicação:** 
-    - Selecione "Nativo" para [aplicativos cliente](active-directory-dev-glossary.md#client-application) que são instaladas localmente num dispositivo. Esta definição é utilizada para o público de OAuth [clientes nativos](active-directory-dev-glossary.md#native-client).
-    - Selecione "aplicação Web / API" para [aplicações cliente](active-directory-dev-glossary.md#client-application) e [aplicações de API derecursos/](active-directory-dev-glossary.md#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](active-directory-dev-glossary.md#web-client) e públicas [baseada no utilizador-agente clientes](active-directory-dev-glossary.md#user-agent-based-client). O mesmo aplicativo também pode expor um cliente e o recurso/API.
+    - Selecione "Nativo" para [aplicativos cliente](developer-glossary.md#client-application) que são instaladas localmente num dispositivo. Esta definição é utilizada para o público de OAuth [clientes nativos](developer-glossary.md#native-client).
+    - Selecione "aplicação Web / API" para [aplicações cliente](developer-glossary.md#client-application) e [aplicações de API derecursos/](developer-glossary.md#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](developer-glossary.md#web-client) e públicas [baseada no utilizador-agente clientes](developer-glossary.md#user-agent-based-client). O mesmo aplicativo também pode expor um cliente e o recurso/API.
   - **URL de início de sessão:** para "aplicação Web / API" aplicações, indique o URL base da sua aplicação. Por exemplo, `http://localhost:31544` pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores usaria este URL para iniciar sessão a uma aplicação de cliente da web. 
   - **URI de redirecionamento:** para aplicações "Nativas", forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo `http://MyFirstAADApp`
 
@@ -105,7 +105,7 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurar uma aplicação de cliente para aceder a APIs web
 Ordem de uma aplicação web/confidencial de cliente poder participar de um fluxo de concessão de autorização que requer autenticação (e obter um token de acesso), tem de estabelecer credenciais seguras. O método de autenticação padrão suportado pelo portal do Azure é o ID de cliente + chave secreta. Esta secção abrange os passos de configuração necessários para fornecer a chave secreta com credenciais de seu cliente.
 
-Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplicação de recurso (por exemplo, a Microsoft Graph API), a estrutura do consentimento garante que o cliente obtém a concessão de permissão necessária, com base nas permissões solicitadas. Por predefinição, todos os aplicativos podem escolher as permissões de "Windows Azure Active Directory" (Graph API) e "Windows API de gestão de serviço do Azure." O [permissão da Graph API de "início de sessão e ler perfil de utilizador"](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também está selecionada por predefinição. Se o cliente está a ser registado num inquilino com contas de subscrever o Office 365, web APIs e permissões para o Exchange Online e SharePoint estão disponíveis para seleção. Pode selecionar a partir [dois tipos de permissões](active-directory-dev-glossary.md#permissions) para cada web API de pretendido:
+Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplicação de recurso (por exemplo, a Microsoft Graph API), a estrutura do consentimento garante que o cliente obtém a concessão de permissão necessária, com base nas permissões solicitadas. Por predefinição, todos os aplicativos podem escolher as permissões de "Windows Azure Active Directory" (Graph API) e "Windows API de gestão de serviço do Azure." O [permissão da Graph API de "início de sessão e ler perfil de utilizador"](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também está selecionada por predefinição. Se o cliente está a ser registado num inquilino com contas de subscrever o Office 365, web APIs e permissões para o Exchange Online e SharePoint estão disponíveis para seleção. Pode selecionar a partir [dois tipos de permissões](developer-glossary.md#permissions) para cada web API de pretendido:
 
 - Permissões de aplicação: A aplicação cliente precisa acessar a API web diretamente em nome próprio (nenhum contexto de usuário). Este tipo de permissão necessita de consentimento de administrador e também não está disponível para aplicações de cliente nativo.
 
@@ -149,7 +149,7 @@ Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplic
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurar uma aplicação de recurso para expor as APIs web
 
-Pode desenvolver uma API web e torná-lo disponível para aplicativos cliente, expor o acesso [âmbitos](active-directory-dev-glossary.md#scopes) e [funções](active-directory-dev-glossary.md#roles). Uma API web configurados corretamente é disponibilizada como outro Microsoft APIs web, incluindo a Graph API e as APIs do Office 365. Âmbitos de acesso e as funções são expostas através de sua [manifesto da aplicação](active-directory-dev-glossary.md#application-manifest), que é um ficheiro JSON que representa a configuração de identidade do seu aplicativo. 
+Pode desenvolver uma API web e torná-lo disponível para aplicativos cliente, expor o acesso [âmbitos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles). Uma API web configurados corretamente é disponibilizada como outro Microsoft APIs web, incluindo a Graph API e as APIs do Office 365. Âmbitos de acesso e as funções são expostas através de sua [manifesto da aplicação](developer-glossary.md#application-manifest), que é um ficheiro JSON que representa a configuração de identidade do seu aplicativo. 
 
 A seção a seguir mostra como expor os âmbitos de acesso, ao modificar o manifesto da aplicação de recurso.
 
@@ -203,10 +203,10 @@ A seção a seguir mostra como expor os âmbitos de acesso, ao modificar o manif
 
 O manifesto do aplicativo, na verdade, serve como um mecanismo para atualizar a entidade de aplicativo, que define todos os atributos de configuração de identidade de uma aplicação Azure AD, incluindo os âmbitos de acesso de API que discutimos. Para obter mais informações sobre a entidade de aplicativo e seu esquema, consulte a [documentação de entidade de aplicação do Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). O artigo contém informações de referência completa sobre os membros da entidade de aplicativo utilizado para especificar permissões para a sua API, incluindo:  
 
-- O membro appRoles, que é uma coleção de [função de aplicação](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entidades, usadas para definir [permissões de aplicação](active-directory-dev-glossary.md#permissions) para uma API web. 
-- O membro de oauth2Permissions, que é uma coleção de [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entidades, usadas para definir [permissões delegadas](active-directory-dev-glossary.md#permissions) para uma API web.
+- O membro appRoles, que é uma coleção de [função de aplicação](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entidades, usadas para definir [permissões de aplicação](developer-glossary.md#permissions) para uma API web. 
+- O membro de oauth2Permissions, que é uma coleção de [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entidades, usadas para definir [permissões delegadas](developer-glossary.md#permissions) para uma API web.
 
-Para obter mais informações sobre a aplicação conceitos de manifesto em geral, consulte [compreender o manifesto da aplicação do Azure Active Directory](active-directory-application-manifest.md).
+Para obter mais informações sobre a aplicação conceitos de manifesto em geral, consulte [compreender o manifesto da aplicação do Azure Active Directory](reference-app-manifest.md).
 
 ### <a name="accessing-the-azure-ad-graph-and-office-365-via-microsoft-graph-apis"></a>Acessando o Azure AD Graph e do Office 365 através de APIs do Microsoft Graph  
 
@@ -269,7 +269,7 @@ Aplicativo de página única (SPAs), normalmente, é estruturado com um forte Ja
 
 Depois do utilizador tenha concedido consentimento, esse mesmo protocolo de autenticação pode servir-se para obter os tokens para proteger as chamadas entre o cliente e outras web configurados para a aplicação de recursos de API. Para obter mais informações sobre a concessão de autorização implícita e ajudar a decidir se é adequada para o seu cenário de aplicação, veja [Noções básicas sobre o OAuth2 implícita conceder o fluxo no Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-Por predefinição, a concessão implícita OAuth 2.0 está desativado para as aplicações. Pode ativar a concessão implícita OAuth 2.0 para a sua aplicação, definindo a `oauth2AllowImplicitFlow` valor em seu [manifesto do aplicativo](active-directory-application-manifest.md).
+Por predefinição, a concessão implícita OAuth 2.0 está desativado para as aplicações. Pode ativar a concessão implícita OAuth 2.0 para a sua aplicação, definindo a `oauth2AllowImplicitFlow` valor em seu [manifesto do aplicativo](reference-app-manifest.md).
 
 #### <a name="to-enable-oauth-20-implicit-grant"></a>Para ativar a concessão implícita OAuth 2.0
 
@@ -317,7 +317,7 @@ Para remover o acesso de uma aplicação multi-inquilino para o seu diretório (
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure AD](authentication-scenarios.md).
 - Consulte a [diretrizes de imagem corporativa para aplicações integradas](howto-add-branding-in-azure-ad-apps.md) para obter dicas sobre visual orientações para a sua aplicação.
 - Para obter mais informações sobre a relação entre objetos de Principal de serviço e aplicações de uma aplicação, consulte [objectos da aplicação e objetos de Principal de serviço](app-objects-and-service-principals.md).
-- Para saber mais sobre a função desempenhada de manifesto da aplicação, veja [compreender o manifesto da aplicação do Azure Active Directory](active-directory-application-manifest.md)
-- Consulte a [Glossário do programador do Azure AD](active-directory-dev-glossary.md) para obter definições de alguns dos conceitos de Programador de núcleos do Azure AD.
+- Para saber mais sobre a função desempenhada de manifesto da aplicação, veja [compreender o manifesto da aplicação do Azure Active Directory](reference-app-manifest.md)
+- Consulte a [Glossário do programador do Azure AD](developer-glossary.md) para obter definições de alguns dos conceitos de Programador de núcleos do Azure AD.
 - Visite o [Guia do programador do Active Directory](azure-ad-developers-guide.md) para uma descrição geral de todos os conteúdos relacionados ao desenvolvedor.
 

@@ -16,12 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 41fdf1a61538e43ef17eee2937273f56a4538b76
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 666a677943811af05cd3403eab4887271c1f87b3
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577208"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591215"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para programadores
 
@@ -65,7 +65,7 @@ Os seguintes artigos fornecem informações detalhadas sobre APIs, mensagens de 
 | ----------------------------------------------------------------------------------| --- |
 | [Bibliotecas de Autenticação (ADAL)](active-directory-authentication-libraries.md)   | Descrição geral de bibliotecas e SDKs que são fornecidos pelo Azure AD. |
 | [Exemplos de código](sample-v1-code.md)                                  | Uma lista de todos os exemplos de código do Azure AD. |
-| [Glossário](active-directory-dev-glossary.md)                                      | Terminologia e definições de palavras que são utilizadas nesta documentação. |
+| [Glossário](developer-glossary.md)                                      | Terminologia e definições de palavras que são utilizadas nesta documentação. |
 |  |  |
 
 

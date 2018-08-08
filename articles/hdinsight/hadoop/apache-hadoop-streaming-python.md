@@ -1,64 +1,57 @@
 ---
-title: Desenvolver Python transmissão em fluxo de tarefas de MapReduce com o HDInsight - Azure | Microsoft Docs
-description: Saiba como utilizar o Python na transmissão em sequência de tarefas de MapReduce. Hadoop fornece uma API de transmissão em fluxo para MapReduce para escrever em idiomas diferentes de Java.
+title: Desenvolver trabalhos de MapReduce com o HDInsight - Azure de transmissão de Python
+description: Saiba como utilizar o Python em tarefas de MapReduce de transmissão em fluxo. Hadoop fornece uma API de transmissão em fluxo para o MapReduce para escrever numa linguagem diferente de Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: b5e19f81c3e869347f21ab3c70a70016196b946d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 34a270ce321770c3e024580be7b234bfa5f21b22
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400519"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594462"
 ---
-# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Desenvolver Python MapReduce programas transmissão em fluxo para o HDInsight
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Desenvolver programas MapReduce de transmissão para HDInsight de Python
 
-Saiba como utilizar o Python nas operações de MapReduce de transmissão em fluxo. Hadoop fornece uma API de transmissão em fluxo para MapReduce que permite-lhe escrever mapa e reduzir as funções em idiomas diferentes de Java. Os passos neste documento o mapa de implementar e reduzir os componentes no Python.
+Saiba como utilizar o Python em operações de MapReduce de transmissão em fluxo. Hadoop fornece uma API de transmissão em fluxo para MapReduce que permite-lhe escrever o mapa e reduzir as funções em linguagens diferentes de Java. Os passos neste documento implementam o mapa e reduzem os componentes em Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Hadoop baseado em Linux num cluster do HDInsight
 
   > [!IMPORTANT]
-  > Os passos neste documento exigem um cluster do HDInsight que utiliza o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+  > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-* Editor de texto
+* Um editor de texto
 
   > [!IMPORTANT]
-  > O editor de texto tem de utilizar LF como o fim de linha. Utilizar um fim de linha de CRLF faz com que erros ao executar a tarefa de MapReduce nos clusters do HDInsight baseado em Linux.
+  > O editor de texto tem de utilizar LF como o fim da linha. Utilizar um fim da linha de CRLF faz com que erros ao executar a tarefa de MapReduce em clusters do HDInsight baseado em Linux.
 
 * O `ssh` e `scp` comandos, ou [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
 
-## <a name="word-count"></a>Contagem de Word
+## <a name="word-count"></a>Contagem de palavras
 
-Neste exemplo é que uma contagem de word básico implementada uma python um mapeador de pontos e reducer. O mapeador de quebras de frases no palavras individuais e o reducer contagens produzir o resultado e agrega as palavras.
+Neste exemplo é que uma contagem de palavras básica implementado num python um mapeador de pontos e reducer. O mapeador de pontos divide as frases em palavras individuais e o reducer contagens produzir a saída e agrega as palavras.
 
 O fluxograma a seguir ilustra o que acontece durante o mapa e reduzir fases.
 
 ![Ilustração do processo de mapreduce](./media/apache-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## <a name="streaming-mapreduce"></a>MapReduce transmissão em fluxo
+## <a name="streaming-mapreduce"></a>MapReduce de transmissão em fluxo
 
 Hadoop permite-lhe especificar um ficheiro que contém o mapa e reduzir a lógica que é utilizada por uma tarefa. Os requisitos específicos para o mapa e reduzir a lógica são:
 
 * **Entrada**: O mapa e reduzir componentes devem ler os dados de entrada do STDIN.
-* **Saída**: O mapa e reduzir componentes tem de escrever dados de saída STDOUT.
-* **Formato de dados**: os dados consumidos e produzidos tem de ser um par chave/valor, separado por um caráter de separador.
+* **Saída**: O mapa e reduzir componentes devem gravar dados de saída para STDOUT.
+* **Formato de dados**: os dados consumidos e produzidos tem de ser um par chave/valor, separado por um caractere de tabulação.
 
-Python pode facilmente lidar com estes requisitos, utilizando o `sys` módulo lida STDIN e utilizar `print` imprimam em STDOUT. A tarefa restantes é simplesmente os dados com um separador de formatação (`\t`) caráter entre a chave e valor.
+Python pode facilmente lidar com esses requisitos ao utilizar o `sys` módulo para ler a partir do STDIN e usando `print` para imprimir para STDOUT. A tarefa restante é simplesmente os dados com um separador de formatação (`\t`) caráter entre a chave e valor.
 
 ## <a name="create-the-mapper-and-reducer"></a>Criar o mapeador de pontos e reducer
 
@@ -131,7 +124,7 @@ Python pode facilmente lidar com estes requisitos, utilizando o `sys` módulo li
 
 ## <a name="run-using-powershell"></a>Executar com o PowerShell
 
-Para garantir que os ficheiros de tem o direito de linha endings, utilize o seguinte script do PowerShell:
+Para garantir que seus arquivos possuem o direito de linha fins, utilize o seguinte script do PowerShell:
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
@@ -139,20 +132,20 @@ Utilize o seguinte script do PowerShell para carregar os ficheiros, execute a ta
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
-## <a name="run-from-an-ssh-session"></a>Executar a partir de uma sessão SSH
+## <a name="run-from-an-ssh-session"></a>Execute a partir de uma sessão SSH
 
-1. Do seu ambiente de desenvolvimento, no mesmo diretório que `mapper.py` e `reducer.py` ficheiros, utilize o seguinte comando:
+1. Do seu ambiente de desenvolvimento, no mesmo diretório `mapper.py` e `reducer.py` ficheiros, utilize o seguinte comando:
 
     ```bash
     scp mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:
     ```
 
-    Substitua `username` com o nome de utilizador do SSH para o cluster, e `clustername` com o nome do cluster.
+    Substitua `username` com o nome de utilizador SSH para o seu cluster, e `clustername` com o nome do cluster.
 
     Este comando copia os ficheiros do sistema local para o nó principal.
 
     > [!NOTE]
-    > Se utilizou uma palavra-passe para proteger a sua conta do SSH, é-lhe pedida a palavra-passe. Se tiver utilizado uma chave SSH, poderá ter de utilizar o `-i` parâmetro e o caminho para a chave privada. Por exemplo, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > Se utilizou uma palavra-passe para proteger a sua conta do SSH, lhe for pedida a palavra-passe. Se utilizou uma chave SSH, poderá ter de utilizar o `-i` parâmetro e o caminho para a chave privada. Por exemplo, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Ligar ao cluster através de SSH:
 
@@ -160,9 +153,9 @@ Utilize o seguinte script do PowerShell para carregar os ficheiros, execute a ta
     ssh username@clustername-ssh.azurehdinsight.net`
     ```
 
-    Para obter mais informações sobre, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Para obter mais informações sobre, consulte [utilizar o SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Para garantir que a mapper.py e reducer.py têm os endings linha correto, utilize os seguintes comandos:
+3. Para verificar se o mapper.py e reducer.py tem fins a linha correta, utilize os seguintes comandos:
 
     ```bash
     perl -pi -e 's/\r\n/\n/g' mapper.py
@@ -177,21 +170,21 @@ Utilize o seguinte script do PowerShell para carregar os ficheiros, execute a ta
 
     Este comando tem as seguintes partes:
 
-   * **hadoop streaming.jar**: utilizada quando executar operações de MapReduce transmissão em fluxo. -Das interfaces Hadoop com o código de MapReduce externo que fornecer.
+   * **hadoop streaming.jar**: utilizada durante a execução de operações de MapReduce de transmissão em fluxo. Ela faz interface Hadoop com o código externo do MapReduce que fornecer.
 
    * **-ficheiros**: adiciona os ficheiros especificados para a tarefa de MapReduce.
 
-   * **-Mapeador**: indica qual o ficheiro a utilizar como o mapeador de Hadoop.
+   * **-Mapeador**: informa qual arquivo a ser usado como o mapeador de pontos de Hadoop.
 
-   * **-reducer**: indica qual o ficheiro a utilizar como o reducer ao Hadoop.
+   * **-reducer**: informa qual arquivo a ser usado como o reducer de Hadoop.
 
-   * **-entrada**: O ficheiro de entrada que iremos deve contar palavras do.
+   * **-entrada**: O ficheiro de entrada que deve Contamos as palavras do.
 
    * **-saída**: O diretório que o resultado é escrito.
 
     Como funciona a tarefa de MapReduce, o processo é apresentado como percentagens.
 
-        15/02/05 19:01:04 mapreduce de informações. Tarefa: reduzir o mapa 0% 0% 15/02/05 19:01:16 mapreduce de informações. Tarefa: reduzir o mapa 100% 0% 15/02/05 19:01:27 mapreduce de informações. Tarefa: o mapa 100% reduzir 100%
+        15/02/05 19:01:04 mapreduce de informações. Tarefa: mapa 0% reduzir 0% 15/02/05 19:01:16 mapreduce de informações. Tarefa: mapa 100% reduzir 0% 15/02/05 19:01:27 mapreduce de informações. Tarefa: mapa 100% reduzir 100%
 
 
 5. Para ver o resultado, utilize o seguinte comando:
@@ -200,11 +193,11 @@ Utilize o seguinte script do PowerShell para carregar os ficheiros, execute a ta
     hdfs dfs -text /example/wordcountout/part-00000
     ```
 
-    Este comando apresenta uma lista de palavras e quantas vezes o word ocorreu.
+    Este comando mostra uma lista de palavras e o número de vezes que a palavra ocorreu.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como utilizar tarefas de MapRedcue transmissão em fluxo com o HDInsight, utilize as hiperligações seguintes para explorar as outras formas de trabalhar com o Azure HDInsight.
+Agora que aprendeu como utilizar tarefas de MapRedcue transmissão em fluxo com o HDInsight, utilize as seguintes ligações para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
 * [Utilizar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Utilizar o Pig com o HDInsight](hdinsight-use-pig.md)

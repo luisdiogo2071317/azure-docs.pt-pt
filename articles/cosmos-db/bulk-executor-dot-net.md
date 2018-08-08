@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 804906e1c1b361b9274dbc8fa3ab1cb204e27dfc
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 842ec8f641fca80e469864dd4d81e14c863fd464
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857281"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600062"
 ---
-# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usando a biblioteca de .NET de executor em massa para realizar operações em massa no Azure Cosmos DB
+# <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize a biblioteca de .NET de executor em massa para realizar operações em massa no Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como usar o executor de em massa do Azure Cosmos DB biblioteca .NET para importar e atualizar documentos para o contentor do Azure Cosmos DB. Para saber mais sobre a biblioteca de executor em massa e como o ajuda a tirar partido do débito em massa e de armazenamento, consulte [descrição geral da biblioteca de executor em massa](bulk-executor-overview.md) artigo. Este tutorial irá guiá-lo por meio de um aplicativo do .NET de exemplo que em massa documentos de importações gerados aleatoriamente para um contentor do Azure Cosmos DB. Depois de importar, mostra como pode em massa atualizar os dados importados, especificando os patches como operações a serem executadas em campos de documentos específica.
 

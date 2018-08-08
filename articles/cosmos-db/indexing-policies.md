@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215269"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618772"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como funciona o Azure Cosmos DB indexa dados?
 
@@ -323,9 +323,9 @@ No Azure Cosmos DB, pode efetuar alterações à política de indexação de uma
 
 ![Como funciona a indexação – transformações de índice online do Azure Cosmos DB](./media/indexing-policies/index-transformations.png)
 
-Transformações de índice são feitas online. Isso significa que os documentos indexados pela política antiga com eficiência são transformados pela nova política *sem afetar a disponibilidade de escrita ou o débito aprovisionado* da coleção. A consistência de leitura e escrita operações feitas com o uso da API REST, SDKs, ou a partir da procedimentos armazenados e acionadores não é afetada durante a transformação de índice. Não existe nenhuma degradação do desempenho ou período de indisponibilidade para as suas aplicações quando fizer uma alteração da política de indexação.
+Transformações de índice são feitas online. Isso significa que os documentos indexados pela política antiga com eficiência são transformados pela nova política *sem afetar a disponibilidade de escrita ou o débito aprovisionado* da coleção. A consistência de leitura e escrita operações feitas com o uso da API REST, SDKs, ou a partir da procedimentos armazenados e acionadores não é afetada durante a transformação de índice. 
 
-No entanto, durante o tempo em que a transformação de índice é curso, as consultas são eventualmente consistentes, independentemente da configuração de modo indexação (consistência ou Lazy). Também se aplica às consultas de todas as interfaces: REST API, SDKs e a partir da procedimentos armazenados e acionadores. Assim como com Lazy indexação, a transformação de índice é executada de forma assíncrona em segundo plano nas réplicas através dos recursos sobressalentes disponíveis para uma réplica específica. 
+Alterar a política de indexação é um processo assíncrono e o tempo para concluir a operação depende do número de documentos, de RUs aprovisionadas e de tamanho de documentos. Enquanto a reindexação está em curso, a sua consulta pode não devolver todos os resultados se a consulta utiliza o índice que está a ser modificado e consultas correspondente não retornará quaisquer erros/falhas. Enquanto a reindexação está em curso, as consultas são eventualmente consistentes, independentemente da configuração de modo indexação (consistência ou Lazy). Depois do índice de transformação estiver concluída, irá continuar a ver resultados consistentes. Também se aplica às consultas de todas as interfaces: REST API, SDKs e a partir da procedimentos armazenados e acionadores. Assim como com Lazy indexação, a transformação de índice é executada de forma assíncrona em segundo plano nas réplicas através dos recursos sobressalentes disponíveis para uma réplica específica. 
 
 Transformações de índice também são feitas no local. O Azure Cosmos DB não mantém duas cópias do índice e troca horizontalmente o índice antigo pelo novo. Isso significa que não existe espaço em disco adicional é necessário ou consumido nos seus conjuntos, enquanto ocorrem de transformações de índice.
 

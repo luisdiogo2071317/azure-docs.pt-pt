@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/07/2018
 ms.author: babanisa
-ms.openlocfilehash: d2bc0d8f78e6fe0806afb3208c88df28b8cce1f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3fe717cb60791d24637ccd5b9a3c08fd34801524
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460241"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617946"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -44,7 +44,7 @@ Esse mecanismo de validação manual está em pré-visualização. Para a utiliz
 ### <a name="validation-details"></a>Detalhes da validação
 
 * No momento da criação/atualização de subscrição de evento, o Event Grid publica um evento de validação de subscrição para o ponto de extremidade de destino. 
-* O evento contém um valor de cabeçalho "Tipo de evento Aeg: SubscriptionValidation".
+* O evento contém um valor de cabeçalho "tipo de evento aeg: SubscriptionValidation".
 * O corpo do evento tem o mesmo esquema que outros eventos do Event Grid.
 * A propriedade eventType do evento é "Microsoft.EventGrid.SubscriptionValidationEvent".
 * A propriedade de dados do evento inclui uma propriedade de "validationCode" com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13...".

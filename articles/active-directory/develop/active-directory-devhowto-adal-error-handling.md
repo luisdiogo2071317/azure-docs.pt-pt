@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: ea7ee76a97a06b7f91805af8007a466d1b9f111d
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505282"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593048"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Erro ao processar as melhores práticas para clientes do Azure Active Directory Authentication Library (ADAL)
 
@@ -44,8 +44,8 @@ Existe um conjunto de erros gerados pelo sistema operativo, que poderão necessi
 
 ### <a name="application-scenarios"></a>Cenários de aplicações
 
-- [Cliente nativo](active-directory-dev-glossary.md#native-client) aplicativos (iOS, Android, ambiente de trabalho do .NET ou Xamarin)
-- [Cliente Web](active-directory-dev-glossary.md#web-client) aplicativos que chamam um [recurso](active-directory-dev-glossary.md#resource-server) (.NET)
+- [Cliente nativo](developer-glossary.md#native-client) aplicativos (iOS, Android, ambiente de trabalho do .NET ou Xamarin)
+- [Cliente Web](developer-glossary.md#web-client) aplicativos que chamam um [recurso](developer-glossary.md#resource-server) (.NET)
 
 ### <a name="error-cases-and-actionable-steps"></a>Casos de erro e passos acionáveis
 

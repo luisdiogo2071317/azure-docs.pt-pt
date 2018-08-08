@@ -1,133 +1,128 @@
 ---
-title: Ativar capturas de área dinâmica para dados de serviços do Hadoop no HDInsight - Azure | Microsoft Docs
-description: Ative a área dinâmica para dados de informações para serviços do Hadoop de clusters do HDInsight baseado em Linux para depuração e de análise.
+title: Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight - Azure
+description: Ative capturas de área dinâmica para dados para serviços do Hadoop de clusters do HDInsight baseado em Linux para depuração e análise.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: cd906736f2642d764c2b72a0572f63d675613c81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: e96cda8560d6fffa3475e7b3130ebc5954548eac
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405128"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592895"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados de serviços do Hadoop no HDInsight baseado em Linux
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight baseado em Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Área dinâmica para dados capturas contém um instantâneo de memória da aplicação, incluindo os valores das variáveis no momento que a captura foi criada. Por isso, são úteis para diagnosticar problemas que ocorram em tempo de execução.
+Capturas de área dinâmica para dados contém um instantâneo de memória do aplicativo, incluindo os valores das variáveis no momento que a captura foi criada. Portanto, eles são úteis para diagnosticar problemas que ocorrem no tempo de execução.
 
 > [!IMPORTANT]
-> Os passos neste documento apenas trabalham com clusters do HDInsight que utilizam o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+> Os passos neste documento funcionam apenas com clusters do HDInsight que utilizam o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="whichServices"></a>Serviços
 
-Pode ativar a área dinâmica para dados de informações para os seguintes serviços:
+Pode ativar os registos da área dinâmica para os seguintes serviços:
 
 * **hcatalog** -tempelton
-* **ramo de registo** -hiveserver2, metastore, derbyserver
+* **Hive** -hiveserver2, metastore, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resourcemanager, nodemanager, timelineserver
+* **yarn** -resourcemanager nodemanager, timelineserver
 * **hdfs** -datanode secondarynamenode, namenode
 
-Também pode ativar a área dinâmica para dados de informações para o mapa e reduzir os processos executaram pelo HDInsight.
+Também pode ativar os registos da área dinâmica para o mapa e reduzir processos executaram pelo HDInsight.
 
-## <a name="configuration"></a>Configuração de informação de área dinâmica para dados de conhecimento
+## <a name="configuration"></a>Configuração de despejo de área dinâmica para dados de compreensão
 
-Capturas de área dinâmica para dados são ativadas por transmitir opções (por vezes conhecida como significa adesão, ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços do Hadoop, pode modificar o script de shell utilizado para iniciar o serviço para transmitir estas opções.
+Registos da área dinâmica estão ativados por passar as opções (por vezes conhecida como opta ativamente por participar, ou parâmetros) para o JVM quando um serviço é iniciado. Para a maioria dos serviços do Hadoop, pode modificar o script de shell utilizado para iniciar o serviço para transmitir essas opções.
 
-Em cada script, há uma exportação para  **\* \_OPTS**, que contém as opções transmitidas para a JVM. Por exemplo, no **hadoop env.sh** script, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém opções para o serviço de NameNode.
+Cada script, existe uma exportação para  **\* \_OPTS**, que contém as opções passadas para o JVM. Por exemplo, no **hadoop env.sh** script, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço de NameNode.
 
-Mapear e reduzir os processos são ligeiramente diferentes, como estas operações são um processo subordinado do serviço de MapReduce. Cada mapear ou reduzir o processo é executado num contentor subordinado e não existirem duas entradas que contêm as opções de JVM. Ambos contidas no **mapred site.xml**:
+Mapa e redução processos são ligeiramente diferentes, como essas operações são um processo subordinado do serviço do MapReduce. Cada um mapa ou reduzir o processo é executado num contentor subordinado, e existem duas entradas que contêm as opções de JVM. Ambos contidas no **mapred site**:
 
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> É recomendável utilizar Ambari para modificar os scripts e de definições de mapred site.xml, como o identificador do Ambari replicar as alterações em nós do cluster. Consulte o [utilizando Ambari](#using-ambari) secção para obter passos específicos.
+> Recomendamos que utilize Ambari para modificar os scripts e de definições de site mapred, como identificador de Ambari, a replicação de alterações em todos os nós do cluster. Consulte a [Ambari usando](#using-ambari) secção para obter passos específicos.
 
 ### <a name="enable-heap-dumps"></a>Ativar capturas de área dinâmica para dados
 
-A seguinte opção permite capturas de área dinâmica para dados quando ocorre um OutOfMemoryError:
+A seguinte opção permite que os registos da área dinâmica quando ocorre um OutOfMemoryError:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
 O **+** indica que esta opção está ativada. A predefinição é Desativado.
 
 > [!WARNING]
-> Capturas de área dinâmica para dados não estão ativadas para serviços do Hadoop no HDInsight por predefinição, como os ficheiros de informação podem ser elevados. Se a ativá-los para resolução de problemas, lembre-se de desativá-las depois de ter reproduzido o problema e recolhidos os ficheiros de informação.
+> Capturas de área dinâmica para dados não estão ativadas para serviços do Hadoop no HDInsight por predefinição, como os ficheiros de informação podem ser grandes. Se habilitá-los para resolução de problemas, lembre-se de desabilitá-los depois reproduzida o problema e recolha de ficheiros de informação.
 
-### <a name="dump-location"></a>Localização de captura
+### <a name="dump-location"></a>Localização de cópia de segurança
 
-A localização predefinida para o ficheiro de informação é o atual diretório de trabalho. Pode controlar em que o ficheiro é armazenado utilizando a seguinte opção:
+A localização predefinida para o ficheiro de informação é o atual diretório de trabalho. Pode controlar onde o ficheiro é armazenado com a seguinte opção:
 
     -XX:HeapDumpPath=/path
 
-Por exemplo, utilizando `-XX:HeapDumpPath=/tmp` faz com que as informações de estado ser armazenado no diretório /tmp dos.
+Por exemplo, usando `-XX:HeapDumpPath=/tmp` faz com que as informações sejam armazenados no diretório /tmp dos.
 
 ### <a name="scripts"></a>Scripts
 
-Também pode acionar um script quando um **OutOfMemoryError** ocorre. Por exemplo, a acionar uma notificação para saber que ocorreu o erro. Utilize a opção seguinte para acionar um script num __OutOfMemoryError__:
+Também pode acionar um script quando uma **OutOfMemoryError** ocorre. Por exemplo, acionar uma notificação para que saiba o que ocorreu o erro. Utilize a seguinte opção para acionar um script numa __OutOfMemoryError__:
 
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Uma vez que Hadoop um sistema distribuído, qualquer script utilizada tem de ser colocado em todos os nós do cluster que executa o serviço no.
+> Como o Hadoop é um sistema distribuído, qualquer script usado deve ser colocado em todos os nós do cluster que o serviço é executado no.
 > 
-> O script deve também estar numa localização que seja acessível pela conta de serviço é executado como e tem de fornecer permissões de execução. Por exemplo, pode pretender armazenar scripts no `/usr/local/bin` e utilizar `chmod go+rx /usr/local/bin/filename.sh` para conceder a leitura e de executar permissões.
+> O script deve também estar numa localização acessível pela conta de serviço é executado como e tem de fornecer permissões de execução. Por exemplo, pode desejar armazenar scripts no `/usr/local/bin` e utilize `chmod go+rx /usr/local/bin/filename.sh` para conceder a leitura e permissões de execução.
 
 ## <a name="using-ambari"></a>Com o Ambari
 
 Para modificar a configuração para um serviço, utilize os seguintes passos:
 
-1. Abra o web do Ambari da IU para o cluster. O URL é https://YOURCLUSTERNAME.azurehdinsight.net.
+1. Abra a IU web do Ambari para o seu cluster. O URL é https://YOURCLUSTERNAME.azurehdinsight.net.
 
-    Quando lhe for pedido, autenticar para o site utilizando o nome da conta HTTP (predefinição: admin) e palavra-passe para o cluster.
+    Quando lhe for pedido, autenticar para o site com o nome da conta HTTP (predefinição: administrador) e palavra-passe para o seu cluster.
 
    > [!NOTE]
-   > Poderá ser solicitado uma segunda vez pela Ambari para o nome de utilizador e palavra-passe. Se assim for, introduza o mesmo nome de conta e palavra-passe
+   > Pode solicitar-lhe que uma segunda vez Ambari para o nome de utilizador e palavra-passe. Se assim for, introduza o mesmo nome de conta e palavra-passe
 
-2. Utilizando a lista de no lado esquerdo, selecione a área de serviço que pretende modificar. Por exemplo, **HDFS**. Na área de System center, selecione o **folhas** separador.
+2. Utilizando a lista de no lado esquerdo, selecione a área de serviço que pretende modificar. Por exemplo, **HDFS**. Na área central, selecione o **configurações** separador.
 
-    ![Imagem da web do Ambari com separador folhas do HDFS selecionado](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
+    ![Imagem da web do Ambari com o separador de configurações de HDFS selecionado](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
 
-3. Utilizar o **filtro...**  entrada, introduza **significa adesão**. Apenas os itens que contém este texto são apresentados.
+3. Usando o **filtro...**  entrada, introduza **opta ativamente por participar**. São apresentados apenas os itens que contenham esse texto.
 
     ![Lista filtrada](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
-4. Localizar o  **\* \_OPTS** entrada para o serviço que pretende ativar a área dinâmica para dados de informações para e adicionar as opções que pretende ativar. Na imagem seguinte, posso adicionou `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` para o **HADOOP\_NAMENODE\_OPTS** entrada:
+4. Encontrar o  **\* \_OPTS** entrada para o serviço que pretende ativar a captura de área dinâmica para dados para e adicione as opções que pretende ativar. Na imagem seguinte, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` para o **HADOOP\_NAMENODE\_OPTS** entrada:
 
     ![HADOOP_NAMENODE_OPTS com - XX: + HeapDumpOnOutOfMemoryError - XX: HeapDumpPath = / tmp /](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
    > [!NOTE]
-   > Quando ativar a área dinâmica para dados informações de estado para o mapa ou reduza Subprocesso, procure para os campos com o nome **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
+   > Quando ativar a área dinâmica para dados informações do Estado para o mapa ou reduzir o processo filho, procure para os campos com o nome **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
 
-    Utilize o **guardar** botão para guardar as alterações. Pode introduzir uma curta tenha em atenção que descreve as alterações.
+    Utilize o **guardar** botão para guardar as alterações. Pode inserir uma nota curta que descreve as alterações.
 
-5. Depois de tem sido aplicadas as alterações, o **reinício necessário** ícone é apresentado junto a um ou mais serviços.
+5. Depois de terem sido aplicadas as alterações, o **reinício necessário** ícone é apresentado ao lado de um ou mais serviços.
 
-    ![Reinicie o ícone necessária e reiniciar botão](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
+    ![Reinicie o ícone necessária e reinicie o botão](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
 
-6. Selecione cada serviço que necessita de um reinício e utilize o **serviço ações** botão para **ativar no modo de manutenção**. Modo de manutenção impede que os alertas que está a ser gerados a partir do serviço quando reiniciá-la.
+6. Selecione cada serviço que precisa de um reinício e utilize o **ações de serviço** botão **ativar no modo de manutenção**. Modo de manutenção impede que os alertas que sejam gerados a partir do serviço quando ela é reiniciada.
 
     ![Ativar o menu do modo de manutenção](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
 
-7. Assim que tiver ativado o modo de manutenção, utilize o **reiniciar** botão para o serviço **reiniciar todos os afetado**
+7. Assim que tiver ativado o modo de manutenção, utilize o **reinicie** botão para o serviço **reiniciar todos os afetado**
 
     ![Reinicie a entrada de todos os afetados](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
    > [!NOTE]
-   > as entradas para a **reiniciar** botão poderão ser diferente para outros serviços.
+   > as entradas para o **reiniciar** botão pode ser diferente de outros serviços.
 
-8. Assim que os serviços foram reiniciados, utilize o **serviço ações** botão para **Ativar desativar modo de manutenção**. Este Ambari para retomar a monitorização de alertas para o serviço.
+8. Assim que os serviços foram reiniciados, utilize o **ações de serviço** botão **Ativar desativar modo de manutenção**. Este Ambari para retomar a monitorização para os alertas para o serviço.
 

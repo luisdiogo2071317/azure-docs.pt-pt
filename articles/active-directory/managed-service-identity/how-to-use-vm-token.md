@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 1c8fb3314c6ee446de08433f13ed169c6c52e3db
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578386"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596057"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como utilizar um Azure VM Managed Service Identity (MSI) para a aquisição do token 
 
@@ -44,7 +44,7 @@ Se planeja usar os exemplos do Azure PowerShell neste artigo, certifique-se de q
 
 ## <a name="overview"></a>Descrição geral
 
-Uma aplicação cliente pode pedir uma identidade de serviço gerida [token de acesso só de aplicação](../develop/active-directory-dev-glossary.md#access-token) para aceder a um determinado recurso. O token é [com base no principal de serviço do MSI](overview.md#how-does-it-work). Como tal, não é necessário para o cliente registar-se para obter um token de acesso em seu próprio principal de serviço. O token é adequado para utilização como um token de portador no [chama o serviço a serviço exigir credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
+Uma aplicação cliente pode pedir uma identidade de serviço gerida [token de acesso só de aplicação](../develop/developer-glossary.md#access-token) para aceder a um determinado recurso. O token é [com base no principal de serviço do MSI](overview.md#how-does-it-work). Como tal, não é necessário para o cliente registar-se para obter um token de acesso em seu próprio principal de serviço. O token é adequado para utilização como um token de portador no [chama o serviço a serviço exigir credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

@@ -1,37 +1,34 @@
 ---
-title: Utilizar Grafana no Azure HDInsight | Microsoft Docs
-description: Saiba como aceder Grafana no Azure HDInsight
+title: Utilizar o Grafana no Azure HDInsight
+description: Saiba como aceder a Grafana no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: jgao
-ms.openlocfilehash: c452cb1264dceff8cb791588fa7c58f73631d422
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ae8e676e9a6d6590398d6ccbb759aa29d33e108e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305478"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598148"
 ---
-# <a name="access-grafana-in-azure-hdinsight"></a>Acesso Grafana no Azure HDInsight
+# <a name="access-grafana-in-azure-hdinsight"></a>Grafana de acesso no Azure HDInsight
 
 
-Grafana é um construtor gráfico e o dashboard popular, open source. Grafana é a funcionalidade avançada; não apenas-permite aos utilizadores criar personalizável e dashboards partilhável, também oferece dashboards transformada em modelo/criar um script, integração de LDAP, várias origens de dados e muito mais.
+O Grafana é um construtor gráfico e dashboard popular, o código-fonte aberto. O Grafana é recursos sofisticados; não só permite aos utilizadores criar personalizáveis e dashboards partilhável, ele também oferece dashboards baseadas num modelo com/script, integração de LDAP, várias origens de dados e muito mais.
 
-Atualmente, Grafana é suporte apenas pelo tipo de cluster de consulta interativa no Azure HDInsight.
+Atualmente, o Grafana é apenas suporte pelo tipo de cluster do Interactive Query no HDInsight do Azure.
 
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-hadoop-cluster"></a>Criar um cluster do Hadoop
 
-Nesta secção, crie um cluster de consulta interativo no HDInsight através de um modelo Azure Resource Manager. Não precisa de ter experiência no modelo do Resource Manager para seguir este artigo. 
+Nesta secção, vai criar um cluster do Interactive Query no HDInsight com um modelo Azure Resource Manager. Não precisa de ter experiência no modelo do Resource Manager para seguir este artigo. 
 
 1. Clique no botão **Implementar no Azure** abaixo para iniciar sessão no Azure abrir o modelo do Resource Manager no portal do Azure. 
    
@@ -76,19 +73,19 @@ Nesta secção, crie um cluster de consulta interativo no HDInsight através de 
 > 
 >
 
-## <a name="access-the-grafana-dashboard"></a>Aceder ao dashboard Grafana
+## <a name="access-the-grafana-dashboard"></a>Aceder ao dashboard da Grafana
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **clusters do HDInsight**e, em seguida, selecione o nome de cluster que criou na última secção.
-3. Em **ligações rápidas**, clique em **Cluster dashboard**.
+2. Selecione **clusters do HDInsight**e, em seguida, selecione o nome do cluster que criou na última secção.
+3. Sob **ligações rápidas**, clique em **dashboard de clusters**.
 
-    ![Portal de dashboard de cluster do HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "dashboard de cluster do HDInsight no portal")
+    ![Portal de dashboard de cluster do HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "dashboard de clusters do HDInsight no portal")
 
-4. A partir do dashboard, clique em de **Grafana** mosaico.
-5. Introduza as credenciais de utilizador de cluster do Hadoop.
-6. O dashboard Grafana tem o seguinte:
+4. No dashboard, clique nas **Grafana** mosaico.
+5. Introduza as credenciais de utilizador do cluster de Hadoop.
+6. O dashboard da Grafana é semelhante a:
 
-    ![Dashboard de HDInsight Grafana](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
+    ![O dashboard da Grafana do HDInsight](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "o dashboard da Grafana do HDInsight")
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. 

@@ -1,65 +1,62 @@
 ---
-title: Resolver problemas de HBase utilizando o Azure HDInsight | Microsoft Docs
-description: Obtenha respostas a questões recorrentes sobre como trabalhar com o HBase e o Azure HDInsight.
+title: Resolver problemas relacionados com o HBase com o Azure HDInsight
+description: Obtenha respostas a perguntas comuns sobre como trabalhar com o HBase e o Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinver
-manager: ashitg
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 7/7/2017
+author: nitinver
 ms.author: nitinver
-ms.openlocfilehash: d5d50121cd0375af1b57baadeb40efb237aaea11
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 7/7/2017
+ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165286"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593904"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Resolver problemas de HBase utilizando o Azure HDInsight
+# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o HBase com o Azure HDInsight
 
-Saiba mais sobre os principais problemas e as resoluções ao trabalhar com múltiplos payloads Apache HBase no Apache Ambari.
+Saiba mais sobre os principais problemas e resolução ao trabalhar com payloads de Apache HBase no Apache Ambari.
 
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Como executar relatórios de comando hbck a com várias regiões não atribuídas?
+## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Como executar relatórios de comando hbck com várias regiões não atribuídos?
 
-Uma mensagem de erro comuns que poderá ver quando executa o `hbase hbck` comando é "várias regiões a ser não atribuídas ou holes na cadeia de regiões."
+Uma mensagem de erro comuns que poderá ver quando executa o `hbase hbck` comando é "várias regiões a ser não atribuídos ou buracos na cadeia de regiões."
 
-Na IU do mestre de HBase, pode ver o número de regiões que são desequilibrada em todos os servidores de região. Em seguida, pode executar `hbase hbck` comando para ver holes na cadeia de região.
+Na IU do principal do HBase, pode ver o número de regiões são desequilibrado em todos os servidores de região. Em seguida, pode executar `hbase hbck` comando para ver os buracos na cadeia de região.
 
-Poderá ser holes, por isso, causado pelas regiões offline, corrigir primeiro as atribuições. 
+Buracos podem ser tão causado pelas regiões offline, a corrigir as atribuições pela primeira vez. 
 
-Para colocar as regiões não atribuídas um estado normal, conclua os seguintes passos:
+Para que as regiões não atribuídas voltem a um estado normal, conclua os seguintes passos:
 
-1. Inicie sessão no cluster HBase do HDInsight através de SSH.
-2. Para estabelecer ligação com a shell de ZooKeeper, execute o `hbase zkcli` comando.
-3. Execute o `rmr /hbase/regions-in-transition` comando ou o `rmr /hbase-unsecure/regions-in-transition` comando.
-4. Para sair do `hbase zkcli` shell, utilize o `exit` comando.
-5. Abra a IU do Apache Ambari e, em seguida, reinicie o serviço de mestre de HBase do Active Directory.
-6. Execute o `hbase hbck` comando novamente (sem quaisquer opções). Verifique o resultado deste comando para se certificar de que todas as regiões estão a ser atribuídas.
+1. Inicie sessão para o cluster do HBase do HDInsight com SSH.
+2. Para ligar com o shell do ZooKeeper, execute o `hbase zkcli` comando.
+3. Executar o `rmr /hbase/regions-in-transition` comando ou o `rmr /hbase-unsecure/regions-in-transition` comando.
+4. Para sair dos `hbase zkcli` shell, utilize o `exit` comando.
+5. Abra a interface do Usuário do Apache Ambari e, em seguida, reinicie o serviço principal do HBase Active Directory.
+6. Execute o `hbase hbck` comando novamente (sem quaisquer opções). Verificar a saída deste comando para se certificar de que todas as regiões estão a ser atribuídas.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Como corrigir problemas de limite de tempo quando utilizar comandos de hbck a existência de atribuições de região?
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Como corrigir problemas de tempo limite ao utilizar comandos hbck a existência de atribuições de região?
 
 ### <a name="issue"></a>Problema
 
-Uma causa potencial de problemas de tempo limite ao utilizar o `hbck` comando pode ser que várias regiões estão no estado "em transição" durante muito tempo. Pode ver essas regiões como offline na IU do mestre de HBase. Porque um número elevado de regiões está a tentar efetuar a transição, mestre HBase poderá tempo limite e ser incapaz de colocar essas regiões novamente online.
+Uma causa potencial para problemas de tempo limite quando utiliza o `hbck` comando pode ser que várias regiões estão no estado "em transição" durante muito tempo. Pode ver essas regiões como offline na interface de Usuário principal do HBase. Uma vez que um elevado número de regiões está a tentar efetuar a transição, o principal do HBase poderá tempo limite e ser incapaz de manter essas regiões novamente online.
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Inicie sessão no cluster HBase do HDInsight através de SSH.
-2. Para estabelecer ligação com a shell de ZooKeeper, execute o `hbase zkcli` comando.
-3. Execute o `rmr /hbase/regions-in-transition` ou `rmr /hbase-unsecure/regions-in-transition` comando.
-4. Para sair do `hbase zkcli` shell, utilize o `exit` comando.
-5. Na IU do Ambari, reinicie o serviço de mestre de HBase do Active Directory.
+1. Inicie sessão para o cluster do HBase do HDInsight com SSH.
+2. Para ligar com o shell do ZooKeeper, execute o `hbase zkcli` comando.
+3. Executar o `rmr /hbase/regions-in-transition` ou o `rmr /hbase-unsecure/regions-in-transition` comando.
+4. Para sair da `hbase zkcli` shell, utilize o `exit` comando.
+5. Na IU do Ambari, reinicie o serviço de principal do HBase Active Directory.
 6. Execute o `hbase hbck -fixAssignments` novamente o comando.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como posso force-desativar modo de segurança do HDFS num cluster?
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como, force-desativar modo de segurança de HDFS, num cluster?
 
 ### <a name="issue"></a>Problema
 
-O local distribuídas ficheiro sistema Hadoop (HDFS) está encravada no modo de segurança no cluster do HDInsight.
+O local Hadoop Distributed File System (HDFS) fica preso em modo de segurança no cluster do HDInsight.
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
@@ -69,7 +66,7 @@ Este erro poderá ser causado por uma falha ao executar o seguinte comando do HD
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-O erro que poderá ver quando tentar executar o comando tem o seguinte aspeto:
+O erro, que poderá ver quando tentar executar o comando tem esta aparência:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -125,11 +122,11 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Causa provável
 
-O cluster do HDInsight tem foi escalado para baixo até um muito alguns nós. O número de nós é inferior ou perto o fator de replicação do HDFS.
+O cluster do HDInsight tem sido colocada em escala para um muito alguns nós. O número de nós está abaixo ou perto do fator de replicação do HDFS.
 
 ### <a name="resolution-steps"></a>Passos de resolução 
 
-1. Obter o estado do HDFS no cluster do HDInsight, executando os seguintes comandos:
+1. Obter o estado do HDFS no cluster do HDInsight ao executar os comandos seguintes:
 
    ```apache
    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -170,7 +167,7 @@ O cluster do HDInsight tem foi escalado para baixo até um muito alguns nós. O 
    ...
 
    ```
-2. Também pode verificar a integridade das HDFS no cluster do HDInsight utilizando os seguintes comandos:
+2. Também pode verificar a integridade do HDFS no cluster do HDInsight utilizando os seguintes comandos:
 
    ```apache
    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -203,19 +200,19 @@ O cluster do HDInsight tem foi escalado para baixo até um muito alguns nós. O 
    The filesystem under path '/' is HEALTHY
    ```
 
-3. Se determinar que existem não existem em falta, danificado, ou blocos under-replicados ou que podem ser ignorados esses blocos, execute o seguinte comando para tirar o nó nome fora do modo de segurança:
+3. Se determinar que existem não existem em falta, danificado, ou blocos under-replicados ou que os blocos podem ser ignorados, execute o seguinte comando para tirar o nó de nome do modo de segurança:
 
    ```apache
    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Como corrija a conectividade de JDBC ou SQLLine problemas com o Apache Phoenix?
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Como corrigir a conectividade do JDBC ou SQLLine problemas com o Apache Phoenix?
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-Para estabelecer ligação com o Phoenix, tem de fornecer o endereço IP de um nó de ZooKeeper ativo. Certifique-se de que o serviço de ZooKeeper que sqlline.py está a tentar ligar-se está a funcionar.
-1. Inicie sessão no cluster do HDInsight através de SSH.
+Para ligar com a Phoenix, tem de fornecer o endereço IP de um nó ativo do ZooKeeper. Certifique-se de que o serviço do ZooKeeper para o qual sqlline.py está a tentar ligar está em execução.
+1. Inicie sessão para o cluster do HDInsight com SSH.
 2. Introduza o seguinte comando:
                 
    ```apache
@@ -223,21 +220,21 @@ Para estabelecer ligação com o Phoenix, tem de fornecer o endereço IP de um n
    ```
 
    > [!Note] 
-   > Pode obter o endereço IP do nó ZooKeeper Active Directory a partir da IU do Ambari. Aceda a **HBase** > **ligações rápidas** > **ZK\* (ativo)** > **Zookeeper informações**. 
+   > Pode obter o endereço IP do nó ativo do ZooKeeper da IU do Ambari. Aceda a **HBase** > **ligações rápidas** > **ZK\* (Active Directory)** > **Zookeeper informações**. 
 
-3. Se o sqlline.py liga ao Phoenix e não não tempo limite, execute o seguinte comando para validar a disponibilidade e o estado de funcionamento de Phoenix:
+3. Se o sqlline.py liga-se a Phoenix e faz não tempo limite, execute o seguinte comando para validar a disponibilidade e o estado de funcionamento do Phoenix:
 
    ```apache
            !tables
            !quit
    ```      
-4. Se este comando funciona, não há nenhum problema. O endereço IP fornecido pelo utilizador poderá estar incorreto. No entanto, se o comando interrompe para um período de tempo alargado e, em seguida, apresenta o seguinte erro, continue para o passo 5.
+4. Se este comando funciona, não existe nenhum problema. O endereço IP fornecido pelo utilizador poderão estar incorreto. No entanto, se o comando coloca em pausa para um período de tempo alargado e, em seguida, apresenta o seguinte erro, continue para o passo 5.
 
    ```apache
            Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
    ```
 
-5. Execute os seguintes comandos a partir do nó principal (hn0) para diagnosticar a condição do sistema Phoenix. Tabela de catálogo:
+5. Execute os seguintes comandos do nó principal (hn0) para diagnosticar a condição do sistema de Phoenix. Tabela de catálogo:
 
    ```apache
             hbase shell
@@ -250,52 +247,52 @@ Para estabelecer ligação com o Phoenix, tem de fornecer o endereço IP de um n
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Na IU do Ambari, conclua os seguintes passos para reiniciar o serviço de HMaster em todos os nós de ZooKeeper:
+6. Na IU do Ambari, conclua os seguintes passos para reiniciar o serviço de HMaster em todos os nós do ZooKeeper:
 
-    1. No **resumo** secção do HBase, aceda a **HBase** > **mestre do Active Directory HBase**. 
-    2. No **componentes** secção, reinicie o serviço de mestre de HBase.
-    3. Repita estes passos para todas as restantes **mestre do modo de espera HBase** serviços. 
+    1. Na **resumo** secção do HBase, aceda à **HBase** > **principal do HBase ativo**. 
+    2. Na **componentes** secção, reinicie o serviço principal do HBase.
+    3. Repita estes passos para todos os restantes **principal do HBase de modo de espera** serviços. 
 
-Pode demorar até cinco minutos para que o serviço de mestre de HBase para stabilize e concluir o processo de recuperação. Após alguns minutos, repita os comandos de sqlline.py para confirmar que o sistema. Tabela de catálogo está operacional e que as TI podem ser consultada. 
+Pode demorar até cinco minutos para o serviço principal do HBase estabilizar e concluir o processo de recuperação. Após alguns minutos, repita os comandos de sqlline.py para confirmar que o sistema. Tabela de catálogo está a funcionar e que ele pode ser consultado. 
 
-Quando o sistema. Tabela de catálogo para normal, o problema de conectividade para Phoenix deve ser resolvido automaticamente.
+Quando o sistema. A tabela de catálogo está de volta ao normal, o problema de conectividade para Phoenix deve ser resolvido automaticamente.
 
 
 ## <a name="what-causes-a-master-server-to-fail-to-start"></a>O que faz com que um servidor principal falhar ao iniciar?
 
 ### <a name="error"></a>Erro 
 
-Ocorre uma falha de mudança de nome atomic.
+Ocorre uma falha de mudança de nome atómica.
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
-Durante o processo de arranque, HMaster concluir vários passos de inicialização. Estes incluem mover dados a partir da pasta zero (.tmp) para a pasta de dados. HMaster também analisa a pasta de registos de escrita antecipada (WALs) para ver se existem quaisquer servidores de região de responder, e assim sucessivamente. 
+Durante o processo de inicialização, HMaster conclui muitos passos de inicialização. Estes incluem mover os dados a partir da pasta de raiz (. tmp) para a pasta de dados. HMaster também analisa a pasta de registos de escrita-ahead (WALs) para ver se existem quaisquer servidores de região não responsivo, e assim por diante. 
 
-Durante o arranque, HMaster num nível básico `list` comando estas pastas. Se em qualquer altura, HMaster vê um ficheiro inesperado em nenhum destas pastas, emite uma exceção e não comece.  
+Durante o arranque, HMaster faz um basic `list` comando nessas pastas. Se a qualquer momento, HMaster vê um ficheiro inesperado em qualquer uma dessas pastas, ele lançará uma exceção e não iniciar.  
 
 ### <a name="probable-cause"></a>Causa provável
 
-Nos registos do servidor de região, tente identificar a linha cronológica da criação do ficheiro e, em seguida, ver se Ocorreu uma falha de processo perto da hora que de ficheiro foi criado. (Contacte o suporte de HBase para ajudá-lo a fazê-lo.) Este ajuda-na fornecer mais robustos mecanismos, para que possa evitar atingir este erro e certifique-se encerramentos processo correto.
+Nos registos do servidor de região, tente identificar a linha do tempo da criação de ficheiro e, em seguida, ver se Ocorreu uma falha de processo em todo o tempo que o ficheiro foi criado. (Contacte o suporte de HBase para ajudá-lo a fazer isso.) Esta ajuda-nos fornecer mecanismos mais robustos, para que possa evitar atingir esse bug e certifique-se de encerramentos de processo normal.
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-Verifique a pilha de chamadas e tente determinar a pasta qual poderá estar a causar o problema (por exemplo, poderá ser a pasta de WALs ou a pasta de .tmp). Em seguida, no Explorador de nuvem ou através da utilização de comandos HDFS, tente localizar o ficheiro de problema. Normalmente, este é um \*-renamePending.json ficheiro. (O \*-renamePending.json ficheiro é um ficheiro de diário de alterações que é utilizado para implementar a operação de mudança de nome atómico no controlador WASB. Devido a erros nesta implementação, estes ficheiros podem ser deixados ao longo depois de falhas de processos e etc.) Força-eliminar este ficheiro no Explorador de nuvem ou através da utilização de comandos HDFS. 
+Verificar a pilha de chamadas e tente determinar qual pasta pode estar a causar o problema (por exemplo, poderá ser a pasta de WALs ou a pasta. tmp). Em seguida, no Cloud Explorer ou através dos comandos HDFS, tente localizar o ficheiro de problema. Normalmente, este é um \*-renamePending.json ficheiro. (O \*-renamePending.json é um arquivo de diário que é utilizado para implementar a operação de mudança de nome atómica no driver do WASB. Devido a erros nesta implementação, esses arquivos podem ser deixados após falhas de processos e assim por diante.) Eliminação de força este ficheiro no Cloud Explorer ou através dos comandos HDFS. 
 
-Por vezes, também poderá haver um ficheiro temporário denominado algo semelhante ao seguinte *$$$. $$$* nesta localização. Tem de utilizar o HDFS `ls` comando para ver este ficheiro; não é possível ver o ficheiro no Cloud Explorer. Para eliminar este ficheiro, utilize o comando HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
+Às vezes, também poderá haver um arquivo temporário com algo como o nome *$$$. $$$* nesta localização. Precisa usar HDFS `ls` comando para ver este ficheiro; não é possível encontrar o arquivo no Cloud Explorer. Para eliminar este ficheiro, utilize o comando HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
 
-Após executar estes comandos, HMaster deve começar imediatamente. 
+Depois de executar estes comandos, HMaster deve começar imediatamente. 
 
 ### <a name="error"></a>Erro
 
-O endereço do servidor não está listado no *hbase: meta* para xxx de região.
+Nenhum endereço de servidor está listado na *hbase: meta* para região xxx.
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
-Poderá ver uma mensagem no cluster do Linux que indica que o *hbase: meta* tabela não se encontra online. Executar `hbck` pode reportar que "hbase: meta tabela replicaId 0 não se encontra em qualquer região." O problema poderá ser que HMaster não foi possível inicializar depois de reiniciado o HBase. Nos registos HMaster, poderá ver a mensagem: "nenhum endereço do servidor listados no hbase: meta para região hbase: cópia de segurança \<nome de região\>".  
+Poderá ver uma mensagem no seu cluster do Linux que indica que o *hbase: meta* tabela não está online. Executar `hbck` poderão comunicar que "hbase: meta tabela replicaId 0 não for encontrada em qualquer região." O problema poderá ser que HMaster não foi possível inicializar depois de reiniciado o HBase. Nos registos HMaster, poderá ver a mensagem: "nenhum endereço de servidor listado no hbase: meta de região hbase: cópia de segurança \<nome da região\>".  
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Na shell do HBase, introduza os comandos seguintes (alteração real valores, conforme aplicável):  
+1. Na shell do HBase, introduza os seguintes comandos (alteração real valores, conforme aplicável):  
 
    ```apache
    > scan 'hbase:meta'  
@@ -305,11 +302,11 @@ Poderá ver uma mensagem no cluster do Linux que indica que o *hbase: meta* tabe
    > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
    ```
 
-2. Eliminar o *hbase: espaço de nomes* entrada. Esta entrada pode ser o mesmo erro que está a ser reportados quando o *hbase: espaço de nomes* tabela é procurada.
+2. Eliminar a *hbase: espaço de nomes* entrada. Esta entrada poderá ser o mesmo erro que está a ser comunicado quando os *hbase: espaço de nomes* tabela é procurada.
 
-3. Trazer para primeiro o HBase no estado de execução, na IU do Ambari, reinicie o serviço de HMaster Active Directory.  
+3. Para abrir o HBase num Estado de execução, na IU do Ambari, reinicie o serviço de HMaster Active Directory.  
 
-4. Na shell do HBase, para trazer todas as tabelas offline, execute o seguinte comando:
+4. Na shell do HBase, para abrir todas as tabelas offline, execute o seguinte comando:
 
    ```apache 
    hbase hbck -ignorePreCheckPermission -fixAssignments 
@@ -317,46 +314,46 @@ Poderá ver uma mensagem no cluster do Linux que indica que o *hbase: meta* tabe
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-[Não é possível processar a tabela HBase](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[Não é possível processar a tabela de HBase](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>Erro
 
-HMaster exceder o tempo limite com uma exceção fatal semelhante a "java.io.IOException: ServiceHost 300000ms a aguardar para a tabela de espaço de nomes a ser atribuída."
+HMaster exceder o tempo limite com uma exceção fatal semelhante a "java.io.IOException: excedido 300000ms à espera de espaço de nomes tabela a ser atribuída."
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
-Podem ocorrer este problema se tiver várias tabelas e regiões que não foram descarregadas quando reiniciar os serviços de HMaster. Reinício poderá falhar e verá a mensagem de erro anterior.  
+Podem ocorrer este problema se tiver muitas tabelas e regiões que não tenham sido liberadas quando reiniciar os serviços de HMaster. Reinício poderá falhar, e verá a mensagem de erro anterior.  
 
 ### <a name="probable-cause"></a>Causa provável
 
-Este é um problema conhecido com o serviço de HMaster. Tarefas de arranque do cluster geral podem demorar muito tempo. HMaster encerrado porque a tabela de espaço de nomes ainda não está atribuída. Isto ocorre apenas em situações em que a grande quantidade de dados unflushed existe e de um tempo limite de cinco minutos não é suficiente.
+Este é um problema conhecido com o serviço de HMaster. Tarefas de arranque geral do cluster podem demorar muito tempo. HMaster encerra o tempo limite porque a tabela de espaço de nomes ainda não está atribuída. Isto ocorre apenas em cenários em que a grande quantidade de dados unflushed existe e não é suficiente um tempo limite de cinco minutos.
   
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Na IU do Ambari, aceda a **HBase** > **folhas**. No ficheiro de hbase-site.xml personalizada, adicione a seguinte definição: 
+1. Na IU do Ambari, aceda a **HBase** > **configurações**. No ficheiro de hbase-site personalizado, adicione a seguinte definição: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
    ```
 
-2. Reinicie os serviços necessários (HMaster e possivelmente outros serviços do HBase).  
+2. Reinicie os serviços necessários (HMaster e, possivelmente, outros serviços do HBase).  
 
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>O que causa uma falha de reinício num servidor região?
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>O que faz com que uma falha de reinício num servidor de região?
 
 ### <a name="issue"></a>Problema
 
-Uma falha de reinício num servidor região pode ser impedida ao seguintes melhores práticas. Recomendamos que coloque em pausa atividade pesada carga de trabalho quando estiver a planear reiniciar os servidores de região de HBase. Se uma aplicação continua a estabelecer ligação com os servidores de região quando shutdown está em curso, a operação de reinício do servidor de região será mais lenta por vários minutos. Além disso, é boa ideia primeiro esvaziar todas as tabelas. Para obter uma referência sobre como remover da cache tabelas, consulte [HBase do HDInsight: como melhorar a hora de reinício de cluster HBase ao limpar as tabelas](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Uma falha de reinício num servidor de região pode ser impedida ao seguir as melhores práticas. Recomendamos que coloque em pausa a atividade de carga de trabalho pesadas quando estiver a planear reiniciar os servidores de região do HBase. Se um aplicativo continuar a ligar-se com os servidores de região quando shutdown está em curso, a operação de reinício do servidor de região será mais lenta por vários minutos. Além disso, é uma boa idéia primeiro esvaziar todas as tabelas. Para obter uma referência sobre como esvaziar tabelas, veja [HBase do HDInsight: como a melhorar o tempo de reinício de cluster do HBase ao liberá-lo tabelas](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-Se iniciar a operação de reinício nos servidores de região de HBase da IU do Ambari, poderá ver de imediato que os servidores de região correu para baixo, mas não reiniciem imediato. 
+Se iniciar a operação de reinício em servidores de região HBase da IU do Ambari, verá imediatamente que os servidores de região foi desativado, mas eles não reiniciem agora mesmo. 
 
-Eis o que acontece em segundo plano: 
+Eis o que está acontecendo nos bastidores: 
 
-1. O agente do Ambari envia um pedido de paragem para o servidor de região.
-2. O agente do Ambari aguarda 30 segundos para o servidor de região encerrar corretamente. 
-3. Se a aplicação continua a estabelecer ligação com o servidor de região, o servidor não irá encerrar imediatamente. O tempo limite de 30 segundo expira antes de ocorre o encerramento. 
-4. Depois de 30 segundos, o agente do Ambari envia um kill de imposição (`kill -9`) comando para o servidor de região. Pode ver este no registo do agente do ambari (no /var/registo/diretório do nó de trabalho respetivo):
+1. O agente de Ambari envia um pedido de paragem para o servidor de região.
+2. O agente de Ambari aguarda 30 segundos para o servidor de região ao encerrar corretamente. 
+3. Se a sua aplicação continua a se conectar com o servidor de região, o servidor não encerrado imediatamente. O tempo limite de 30 segundos expira antes que ocorra de encerramento. 
+4. Após 30 segundos, o agente de Ambari envia uma força-kill (`kill -9`) comando para o servidor de região. Pode ver isso no registo do agente de ambari (no /var/registo/diretório do nó de trabalho respectivo):
 
    ```apache
            2017-03-21 13:22:09,171 - Execute['/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/current/hbase-regionserver/conf stop regionserver'] {'only_if': 'ambari-sudo.sh  -H -E t
@@ -370,7 +367,7 @@ Eis o que acontece em segundo plano:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-Devido um encerramento abrupto, a porta associada ao processo poderá não ser libertada, apesar do processo de servidor de região está parado. Esta situação pode levar a uma AddressBindException quando está a iniciar o servidor de região, conforme mostrado nos seguintes registos. Pode verificar isto na região-server.log no diretório /var/log/hbase em nós de trabalho onde o servidor de região conseguir iniciar. 
+Devido ao encerramento abrupta, a porta associada ao processo pode não ser liberada, mesmo que o processo de servidor de região está parado. Esta situação pode levar a uma AddressBindException quando o servidor de região está a iniciar, conforme mostrado nos seguintes registos. Pode verificar isto na região-server.log no diretório /var/log/hbase em nós de trabalho onde o servidor de região não iniciar. 
 
    ```apache
 
@@ -412,8 +409,8 @@ Devido um encerramento abrupto, a porta associada ao processo poderá não ser l
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Tente reduzir a carga nos servidores de região de HBase antes de iniciar um reinício. 
-2. Em alternativa (se o passo 1 não ajuda), tente reiniciar manualmente os servidores de região em nós de trabalho, utilizando os seguintes comandos:
+1. Tente reduzir a carga nos servidores de região HBase antes de iniciar um reinício. 
+2. Como alternativa (se o passo 1 não ajuda), tente reiniciar manualmente os servidores de região em nós de trabalho usando os seguintes comandos:
 
    ```apache
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
@@ -421,4 +418,4 @@ Devido um encerramento abrupto, a porta associada ao processo poderá não ser l
    ```
 
 ### <a name="see-also"></a>Consultar Também
-[Resolver problemas utilizando o Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+[Resolver problemas com o Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

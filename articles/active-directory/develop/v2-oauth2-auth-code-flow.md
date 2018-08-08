@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1e8807030cc1e08a41bfb6c1e8d2e1fe2b2432c7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b56dbd4321c8b87639e34cc7fb5db2141334101f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582041"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600460"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v2.0 - fluxo de código de autorização de OAuth 2.0
 A concessão de código de autorização de OAuth 2.0 pode ser utilizada nas aplicações que são instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web. Usando a implementação do v2.0 de modelo de aplicação do OAuth 2.0, pode adicionar a iniciar sessão e a API de acesso às suas aplicações móveis e de Desktops. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer um da [bibliotecas de autenticação de código-fonte aberto do Azure](active-directory-authentication-libraries.md).
@@ -32,7 +32,7 @@ A concessão de código de autorização de OAuth 2.0 pode ser utilizada nas apl
 > 
 > 
 
-O fluxo de código de autorização de OAuth 2.0 é descrito em [secção 4.1 da especificação de OAuth 2.0](http://tools.ietf.org/html/rfc6749). Ele é usado para realizar a autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](active-directory-v2-flows.md#web-apps) e [instalado nativamente aplicações](active-directory-v2-flows.md#mobile-and-native-apps). O fluxo permite que aplicações em segurança adquirir access_tokens que pode ser utilizado para aceder aos recursos protegidos pelo ponto final v2.0. 
+O fluxo de código de autorização de OAuth 2.0 é descrito em [secção 4.1 da especificação de OAuth 2.0](http://tools.ietf.org/html/rfc6749). Ele é usado para realizar a autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](v2-app-types.md#web-apps) e [instalado nativamente aplicações](v2-app-types.md#mobile-and-native-apps). O fluxo permite que aplicações em segurança adquirir access_tokens que pode ser utilizado para aceder aos recursos protegidos pelo ponto final v2.0. 
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 Num alto nível, o fluxo de autenticação completa para uma aplicação nativa/móvel parece um pouco com isto:

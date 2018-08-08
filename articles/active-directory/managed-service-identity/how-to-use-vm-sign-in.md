@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901097"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590318"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Como utilizar um Azure VM Managed Service Identity (MSI) para início de sessão 
 
@@ -38,7 +38,7 @@ Se planeja usar os exemplos do Azure PowerShell ou a CLI do Azure neste artigo, 
 
 ## <a name="overview"></a>Descrição geral
 
-Fornece um MSI uma [objeto principal do serviço](../develop/active-directory-dev-glossary.md#service-principal-object) , que é [criados após ativar o MSI](overview.md#how-does-it-work) na VM. O principal de serviço pode ser concedido acesso aos recursos do Azure e utilizado como uma identidade por clientes de script/linha de comandos para início de sessão e acesso a recursos. Tradicionalmente, para aceder a recursos protegidos na sua própria identidade do utilizador, um cliente de script precisaria:  
+Fornece um MSI uma [objeto principal do serviço](../develop/developer-glossary.md#service-principal-object) , que é [criados após ativar o MSI](overview.md#how-does-it-work) na VM. O principal de serviço pode ser concedido acesso aos recursos do Azure e utilizado como uma identidade por clientes de script/linha de comandos para início de sessão e acesso a recursos. Tradicionalmente, para aceder a recursos protegidos na sua própria identidade do utilizador, um cliente de script precisaria:  
 
    - ser registrado e dar o seu consentimento no Azure AD como uma aplicação de cliente confidencial/web
    - Inicie sessão em seu principal de serviço, com as credenciais da aplicação (o que são provável que incorporado no script)

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414529"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622257"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -132,7 +132,7 @@ A aplicação Microsoft Authenticator está disponível para [Android](https://g
 A aplicação Microsoft Authenticator pode ajudar a impedir o acesso não autorizado a contas e parar as transações fraudulentas ao enviar uma notificação para o seu smartphone ou tablet. Os utilizadores visualizar a notificação e se esta for legítima, selecionar verificar. Caso contrário, podem selecionar negar.
 
 > [!WARNING]
-> Para senhas de auto-atendimento repor quando apenas um método é necessário para a reposição, o código de verificação é a única opção disponível para os utilizadores.
+> Para as senhas de auto-atendimento repostas quando apenas um método é necessário para a reposição, o código de verificação é a única opção disponível para os usuários **para garantir o nível mais elevado de segurança**.
 >
 > Quando dois métodos são necessários os utilizadores poderão repor usando **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
 >
@@ -142,7 +142,7 @@ A aplicação Microsoft Authenticator pode ajudar a impedir o acesso não autori
 A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem ser utilizadas como um token de software para gerar um código de verificação OATH. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação para o ecrã de início de sessão. O código de verificação fornece uma segunda forma de autenticação.
 
 > [!WARNING]
-> Senha de autoatendimento repor quando apenas um método é necessário para a reposição de código de verificação é a única opção disponível para os utilizadores.
+> Palavra-passe self-service de reposição quando apenas um método é necessário para a reposição do código de verificação é a única opção disponível para os usuários **para garantir o nível mais elevado de segurança**.
 >
 
 ## <a name="mobile-phone"></a>Número de telemóvel
@@ -198,5 +198,7 @@ Se sua organização estiver federada para SSO com o Azure AD e vai estar a util
 [Ativar a reposição para a sua organização no palavra-passe self-service](quickstart-sspr.md)
 
 [Ativar a multi-factor Authentication para a sua organização](howto-mfa-getstarted.md)
+
+[Ativar o registo convergido para a reposição de palavra-passe self-service do Azure multi-factor Authentication e o Azure AD](concept-registration-mfa-sspr-converged.md)
 
 [Documentação de configuração de método de autenticação de utilizador final](https://aka.ms/securityinfoguide)

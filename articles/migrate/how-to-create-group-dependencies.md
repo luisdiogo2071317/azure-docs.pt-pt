@@ -1,35 +1,35 @@
 ---
-title: Refinar um grupo de avaliação com mapeamento de dependência de grupo no Azure migrar | Microsoft Docs
-description: Descreve como refinar uma avaliação utilizando o mapeamento de grupo de dependência no serviço Azure migrar.
+title: Refinar um grupo de avaliação com o mapeamento de dependência de grupo no Azure Migrate | Documentos da Microsoft
+description: Descreve como refinar uma avaliação com o mapeamento de grupo de dependência no serviço Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: a91543dcea1fb9fb6a33b5a7bc3892a2bac7b241
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215788"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622903"
 ---
-# <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo utilizando o mapeamento de grupo de dependência
+# <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
-Este artigo descreve como refinar um grupo ao visualizar as dependências de todas as máquinas no grupo. Normalmente, utiliza este método quando pretender adicione refinar associação para um grupo existente, a verificação entre dependências de grupo, antes de executar uma avaliação. Limitar um grupo através de visualização de dependência pode ajudará a planear efetivamente a migração para Azure.You pode detetar todos os sistemas interdependentes que precisam de migrar em conjunto. Ajuda a garantir que nada for deixado e surprise não ocorrerem quando estiver a migrar para o Azure. 
+Este artigo descreve como refinar um grupo ao visualizar as dependências de todas as máquinas no grupo. Geralmente usa esse método quando pretender refinar a associação de um grupo existente, por verificação de dependências de grupo, antes de executar uma avaliação. Refinar um grupo através de visualização de dependência pode ajuda a planejar sua migração para Azure.You efetivamente pode detetar todos os sistemas interdependentes que precisam para migrar em conjunto. Ele ajuda a garantir que nada seja deixado e não ocorrerem falhas de surpresa quando estiver a migrar para o Azure. 
 
 
 > [!NOTE]
-> Grupos para o qual pretende visualizar as dependências não devem conter mais de 10 máquinas. Se tiver mais de 10 máquinas do grupo, recomendamos que dividi-lo para grupos mais pequenos para tirar partido da funcionalidade de visualização de dependência.
+> Grupos para o qual pretende visualizar as dependências não devem conter mais de 10 máquinas. Se tiver mais de 10 máquinas no grupo, recomendamos que dividi-lo em grupos mais pequenos para aproveitar a funcionalidade de visualização de dependência.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>Preparar o grupo para visualização de dependência
-Para ver as dependências de um grupo, tem de transferir e instalar agentes em cada máquina no local que faz parte do grupo. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
+# <a name="prepare-the-group-for-dependency-visualization"></a>Preparar o grupo para visualização de dependências
+Para ver as dependências de um grupo, terá de transferir e instalar agentes em cada máquina no local que faz parte do grupo. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
 
 ### <a name="download-and-install-the-vm-agents"></a>Transferir e instalar os agentes da VM
-1. No **descrição geral**, clique em **gerir** > **grupos**, vá para o grupo necessário.
-2. Na lista de máquinas, no **agente de dependência** coluna, clique em **requer a instalação** para ver instruções sobre como transferir e instalar os agentes.
-3. No **dependências** página, transfira e instale o Microsoft Monitoring Agent (MMA) e o agente de dependência em cada VM que faz parte do grupo.
-4. Copie o ID e a chave da área de trabalho. Terá de estes quando instalar o MMA nas máquinas no local.
+1. Na **descrição geral**, clique em **gerir** > **grupos**, vá para o grupo de necessário.
+2. Na lista de máquinas, no **agente de dependência** coluna, clique em **requer instalação** para ver instruções sobre como transferir e instalar os agentes.
+3. Sobre o **dependências** página, transferir e instalar o Microsoft Monitoring Agent (MMA) e o agente de dependência em cada VM que faz parte do grupo.
+4. Copie o ID e a chave da área de trabalho. Vai precisar de ambos quando instalar o MMA nas máquinas no local.
 
 ### <a name="install-the-mma"></a>Instalar o MMA
 
@@ -37,52 +37,52 @@ Para instalar o agente num computador Windows:
 
 1. Faça duplo clique no agente transferido.
 2. Na página **Bem-vindo**, clique em **Seguinte**. Na página **Termos de Licenciamento**, clique em **Concordo** para aceitar a licença.
-3. No **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **seguinte**. 
-4. No **opções de configuração do agente**, selecione **Log Analytics do Azure** > **seguinte**. 
-5. Clique em **adicionar** para adicionar uma nova área de trabalho de análise de registos. Colar o ID da área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
+3. Na **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **próxima**. 
+4. Na **opções de configuração do agente**, selecione **Azure Log Analytics** > **seguinte**. 
+5. Clique em **adicionar** para adicionar uma nova área de trabalho do Log Analytics. Cole o ID de área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
 
 
 Para instalar o agente num computador Linux:
 
-1. Transfira o pacote adequado (x86 ou x64) para o seu computador Linux utilizando scp/sftp.
-2. Instalar o pacote utilizando o – argumento de instalação.
+1. Transfira o pacote adequado (x86 ou x64) para o seu computador Linux utilizar o scp/sftp.
+2. Instalar o pacote utilizando o argumento-- instalação.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
 
 ### <a name="install-the-dependency-agent"></a>Instalar o agente de Dependência
 1. Para instalar o agente de dependência num computador Windows, clique duas vezes o ficheiro de configuração e siga o assistente.
-2. Para instalar o agente de dependência num computador Linux, instale como raiz utilizando o seguinte comando:
+2. Para instalar o agente de dependência numa máquina Linux, instale como raiz com o seguinte comando:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Saiba mais](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre sistemas operativos suportados pelo agente de dependência. 
+Saiba mais sobre o suporte de agente de dependência para o [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) e [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) sistemas operativos.
 
-## <a name="refine-the-group-based-on-dependency-visualization"></a>Otimizar o grupo com base na visualização de dependência
-Depois de instalar os agentes em todas as máquinas do grupo, pode visualizar as dependências do grupo e refiná-la seguindo os passos abaixo.
+## <a name="refine-the-group-based-on-dependency-visualization"></a>Refinar o grupo com base na visualização de dependências
+Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as dependências do grupo e refiná-la ao seguir os passos abaixo.
 
-1. O Azure migrar em projeto, **gerir**, clique em **grupos**e selecione o grupo.
-2. Na página de grupo, clique em **dependências de vista**, para abrir o mapa de dependência do grupo.
+1. O Azure Migrate em projeto, **Manage**, clique em **grupos**e selecione o grupo.
+2. Na página de grupo, clique em **ver dependências**, para abrir o mapa de dependências de grupo.
 3. O mapa de dependência para o grupo mostra os seguintes detalhes:
-    - Entrada (clientes) e de ligações de saída (servidores) TCP para/de todas as máquinas que fazem parte do grupo
-        - As máquinas dependentes que não tenham MMA e dependência instalado o agente estão agrupadas por números de porta
-        - As máquinas de dependenct que tenham o MMA e instalado o agente de dependência são apresentadas como caixas separadas 
-    - Processos em execução dentro da máquina, pode expandir cada caixa de máquina para ver os processos
-    - Propriedades de nome de domínio completamente qualificado, o sistema operativo, etc. de endereços MAC de cada máquina, pode clicar em cada caixa de máquina para ver estes detalhes
+    - Entrada (clientes) e as ligações de saída (servidores) TCP de/para todas as máquinas que fazem parte do grupo
+        - As máquinas dependentes que não têm o agente MMA e de dependência instalado são agrupadas por números de porta
+        - As máquinas de dependenct que têm o MMA e instalado o agente de dependência são apresentadas como caixas separadas 
+    - Processos em execução no interior da máquina, pode expandir cada caixa de máquina para ver os processos
+    - Propriedades como nome de domínio completamente qualificado, sistema operativo, etc. do endereço MAC de cada máquina, pode clicar em cada caixa de máquina para ver estes detalhes
 
      ![Ver dependências de grupo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
-3. Para ver mais granulares dependências, clique em modificar o intervalo de tempo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo, ou especificar o início e fim datas e duração.
+3. Para ver dependências mais granulares, clique no intervalo de tempo de modificá-lo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo ou especificar o início e datas de término e duração.
 4. Verifique se as máquinas dependentes, o processo em execução dentro de cada máquina e identificar as máquinas que devem ser adicionadas ou removidas do grupo.
 5. Utilize Ctrl + clique para selecionar máquinas no mapa para adicionar ou removê-los do grupo.
     - Só é possível adicionar máquinas que tenham sido detetadas.
-    - Adição e remoção de um grupo de máquinas invalidam passado avaliações do mesmo.
-    - Opcionalmente, pode criar uma nova avaliação quando modificar o grupo.
+    - Adicionar e remover máquinas de um grupo invalida anteriores avaliações para ele.
+    - Opcionalmente, pode criar uma nova avaliação ao modificar o grupo.
 5. Clique em **OK** para guardar o grupo.
 
     ![Adicionar ou remover máquinas](./media/how-to-create-group-dependencies/add-remove.png)
 
-Se pretende verificar as dependências de um computador específico que aparece no mapa de dependência do grupo, [configurar o mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md).
+Se pretender verificar as dependências de uma máquina específica que aparece no mapa de dependências de grupo, a [configurar o mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -1,38 +1,33 @@
 ---
-title: Utilizar o Pig de Hadoop com SSH num cluster do HDInsight - Azure | Microsoft Docs
-description: Saiba como ligar a um cluster de Hadoop baseado em Linux com SSH e, em seguida, utilize o comando de Pig para executar instruções Pig Latin interativamente, ou como uma tarefa de lote.
+title: Utilizar o Pig de Hadoop com SSH num cluster do HDInsight - Azure
+description: Saiba como ligar a um cluster do Hadoop de baseados em Linux com o SSH e, em seguida, utilize o comando de Pig para executar as instruções em Pig Latin interativamente ou como uma tarefa do batch.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: c296e01096480b85aea52ace69f25aff39e3bd2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: c521f5781c1fb8bae1e036649ee31744d0742796
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401154"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590301"
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Executar tarefas do Pig num cluster baseado em Linux com o comando de Pig (SSH)
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Saiba como executar interativamente tarefas do Pig a partir de uma ligação SSH ao cluster do HDInsight. A linguagem de programação do Pig Latin permite-lhe descrever transformações que são aplicadas aos dados de entrada para produzir o resultado pretendido.
+Saiba como executar interativamente tarefas do Pig a partir de uma ligação SSH ao seu cluster do HDInsight. A linguagem de programação de Pig Latin permite-lhe descrever transformações são aplicadas a dados de entrada para produzir a saída desejada.
 
 > [!IMPORTANT]
 > Os passos neste documento exigem um cluster do HDInsight baseado em Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a id="ssh"></a>Ligar com SSH
 
-Utilize o SSH para ligar ao cluster do HDInsight. O exemplo seguinte liga a um cluster com o nome **myhdinsight** como a conta de chamada **sshuser**:
+Utilize o SSH para ligar ao cluster do HDInsight. O exemplo seguinte liga a um cluster com o nome **myhdinsight** como a conta com o nome **sshuser**:
 
 ```bash
 ssh sshuser@myhdinsight-ssh.azurehdinsight.net
@@ -40,15 +35,15 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="pig"></a>Utilize o comando de Pig
+## <a id="pig"></a>Utilize o comando do Pig
 
-1. Assim que estiver ligado, inicie a interface de linha de comandos (CLI) do Pig utilizando o seguinte comando:
+1. Assim que estiver ligado, inicie a interface de linha de comandos (CLI) do Pig com o seguinte comando:
 
     ```bash
     pig
     ```
 
-    Depois de um momento, a linha é alterado para`grunt>`.
+    Após alguns momentos, a linha de comandos muda para`grunt>`.
 
 2. Introduza a seguinte instrução:
 
@@ -56,52 +51,52 @@ Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-
     LOGS = LOAD '/example/data/sample.log';
     ```
 
-    Este comando carrega o conteúdo do ficheiro sample.log para registos. Pode ver o conteúdo do ficheiro, utilizando a seguinte instrução:
+    Este comando carrega o conteúdo do ficheiro Sample log para registos. Pode ver o conteúdo do arquivo usando a instrução seguinte:
 
     ```piglatin
     DUMP LOGS;
     ```
 
-3. Em seguida, transforme os dados através da aplicação de uma expressão regular para extrair apenas o nível de registo de cada registo utilizando a seguinte instrução:
+3. Em seguida, transforme os dados através da aplicação de uma expressão regular para extrair apenas o nível de registo de cada registo, utilizando a seguinte instrução:
 
     ```piglatin
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
     ```
 
-    Pode utilizar **informação do estado** para ver os dados depois da transformação. Neste caso, utilize `DUMP LEVELS;`.
+    Pode usar **DESPEJAR** para ver os dados após a transformação. Neste caso, utilize `DUMP LEVELS;`.
 
-4. Continue a aplicar as transformações utilizando as instruções na seguinte tabela:
+4. Continue a aplicar transformações utilizando as instruções na tabela a seguir:
 
-    | Declaração de PIg Latin | O que faz a instrução |
+    | Instrução de PIg Latin | O que faz a instrução |
     | ---- | ---- |
-    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Remove linhas que contêm um valor nulo para o nível de registo e armazena os resultados em `FILTEREDLEVELS`. |
+    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Remove as linhas que contêm um valor nulo para o nível de registo e armazena os resultados em `FILTEREDLEVELS`. |
     | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | Agrupa as linhas por nível de registo e armazena os resultados em `GROUPEDLEVELS`. |
-    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Cria um conjunto de dados que contém cada registo exclusivo ocorre valor nível e quantas vezes-lo. O conjunto de dados é armazenado em `FREQUENCIES`. |
-    | `RESULT = order FREQUENCIES by COUNT desc;` | Ordena os níveis de registo por contagem (descendente) e armazena para `RESULT`. |
+    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Cria um conjunto de dados que contém cada registo único valor de nível e o número de vezes que ele ocorre. O conjunto de dados é armazenado em `FREQUENCIES`. |
+    | `RESULT = order FREQUENCIES by COUNT desc;` | Ordena os níveis de registo por contagem (descendente) e armazena em `RESULT`. |
 
     > [!TIP]
-    > Utilize `DUMP` para ver o resultado da transformação depois de cada passo.
+    > Utilize `DUMP` para ver o resultado da transformação após cada passo.
 
-5. Também pode guardar os resultados de uma transformação utilizando o `STORE` instrução. Por exemplo, a seguinte instrução guarda o `RESULT` para o `/example/data/pigout` diretório no armazenamento de predefinido para o cluster:
+5. Também pode guardar os resultados de uma transformação, utilizando o `STORE` instrução. Por exemplo, a instrução a seguir salva a `RESULT` para o `/example/data/pigout` diretório no armazenamento padrão para o seu cluster:
 
     ```piglatin
     STORE RESULT into '/example/data/pigout';
     ```
 
    > [!NOTE]
-   > Os dados são armazenados no diretório especificado em ficheiros com o nome `part-nnnnn`. Se já existe um diretório, receberá um erro.
+   > Os dados são armazenados no diretório especificado nos arquivos chamados `part-nnnnn`. Se já existir no diretório, receberá um erro.
 
-6. Para sair da linha de comandos da grunt, introduza a seguinte instrução:
+6. Para sair da linha de comandos da assistente, introduza a seguinte instrução:
 
     ```piglatin
     QUIT;
     ```
 
-### <a name="pig-latin-batch-files"></a>Ficheiros de batch de PIg Latin
+### <a name="pig-latin-batch-files"></a>PIg Latin arquivos em lote
 
 Também pode utilizar o comando de Pig para executar o Pig Latin contidos num ficheiro.
 
-1. Depois de sair da linha de comandos grunt, utilize o seguinte comando para criar o ficheiro denominado `pigbatch.pig`:
+1. Depois de sair de linha de comandos da assistente, utilize o seguinte comando para criar o ficheiro com o nome `pigbatch.pig`:
 
     ```bash
     nano ~/pigbatch.pig
@@ -119,15 +114,15 @@ Também pode utilizar o comando de Pig para executar o Pig Latin contidos num fi
     DUMP RESULT;
     ```
 
-    Quando terminar, utilize __Ctrl__ + __X__, __Y__e, em seguida, __Enter__ para guardar o ficheiro.
+    Quando terminar, utilize __Ctrl__ + __X__, __Y__e, em seguida __Enter__ para guardar o ficheiro.
 
-3. Utilize o seguinte comando para executar o `pigbatch.pig` ficheiro utilizando o comando de Pig.
+3. Utilize o seguinte comando para executar o `pigbatch.pig` ficheiro através do comando de Pig.
 
     ```bash
     pig ~/pigbatch.pig
     ```
 
-    Após a conclusão da tarefa de lote, consulte o seguinte resultado:
+    Quando concluir a tarefa de lote, verá a seguinte saída:
 
         (TRACE,816)
         (DEBUG,434)

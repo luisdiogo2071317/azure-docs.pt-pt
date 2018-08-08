@@ -1,32 +1,27 @@
 ---
-title: Analisar os registos de Web site com bibliotecas de Python no Spark - Azure | Microsoft Docs
-description: Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com o Spark no Azure HDInsight.
+title: Analisar registos de Web sites com bibliotecas de Python no Spark - Azure
+description: Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com o Spark no HDInsight do Azure.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8c61c70f-fe7f-4f0f-a4ab-0cccee5668c9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: jgao
-ms.openlocfilehash: 00940d4eb438fceb683eca8663d0d23f53ff7ff3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: bb176c9c188aff5d3ec583216ade187decddbe2c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521841"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620523"
 ---
-# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar os registos de Web site utilizando uma biblioteca de Python personalizada com um cluster do Spark no HDInsight
+# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar registos de sites com uma biblioteca de Python personalizada com o cluster do Spark no HDInsight
 
-Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com o Spark no HDInsight. A biblioteca personalizada utilizamos é uma biblioteca de Python chamada **iislogparser.py**.
+Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com o Spark no HDInsight. A biblioteca personalizada, podemos usar é uma biblioteca de Python chamada **iislogparser.py**.
 
 > [!TIP]
-> Este tutorial também está disponível como um bloco de notas do Jupyter num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para efetuar o tutorial do dentro de um bloco de notas, criar um cluster do Spark, inicie um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), e, em seguida, execute o bloco de notas **analisar os registos com o Spark utilizando um library.ipynb personalizado** sob o **PySpark**  pasta.
+> Este tutorial também está disponível como um bloco de notas do Jupyter num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para executar o tutorial a partir de um bloco de notas, crie um cluster do Spark, iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), e, em seguida, execute o bloco de notas **analisar registos com o Spark com um library.ipynb personalizado** sob o **PySpark**  pasta.
 >
 >
 
@@ -36,12 +31,12 @@ Tem de ter o seguinte:
 
 * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte [clusters do Apache Spark criar no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="save-raw-data-as-an-rdd"></a>Guardar dados não processados como um RDD
-Nesta secção, vamos utilizar o [Jupyter](https://jupyter.org) associado um cluster do Apache Spark no HDInsight para executar tarefas que processar os dados de exemplo não processados e guarde-o como uma tabela do Hive do bloco de notas. Os dados de exemplo são um ficheiro. csv (hvac.csv) disponível em todos os clusters por predefinição.
+## <a name="save-raw-data-as-an-rdd"></a>Guardar os dados não processados como uma RDD
+Nesta secção, vamos utilizar o [Jupyter](https://jupyter.org) associado a um cluster do Apache Spark no HDInsight para executar tarefas que processam os dados de exemplo em bruto e salvá-la como uma tabela do Hive do bloco de notas. Os dados de exemplo são um ficheiro. csv (Hvac) disponível em todos os clusters por predefinição.
 
-Assim que os seus dados são guardados como uma tabela do Hive, na secção seguinte, irá ligar para a tabela de Hive através de ferramentas de BI como o Power BI e o Tableau.
+Assim que os seus dados são guardados como uma tabela do Hive, na secção seguinte, irá ligar à tabela do Hive através de ferramentas de BI como o Power BI e o Tableau.
 
 1. No [portal do Azure](https://portal.azure.com/), no startboard, clique no mosaico relativo ao cluster do Spark (se o tiver afixado ao startboard). Também pode navegar até ao cluster em **Procurar Tudo** > **Clusters do HDInsight**.   
 2. No painel do cluster do Spark, clique em **Dashboard de Clusters** e, em seguida, clique em **Bloco de Notas do Jupyter**. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
@@ -58,18 +53,18 @@ Assim que os seus dados são guardados como uma tabela do Hive, na secção segu
 4. É criado e aberto um novo bloco de notas com o nome Untitled.pynb. Clique no nome do bloco de notas na parte superior e introduza um nome amigável.
 
     ![Forneça um nome para o bloco de notas](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Forneça um nome para o bloco de notas")
-5. Uma vez que criou um bloco de notas com o kernel do PySpark, não é necessário criar quaisquer contextos explicitamente. Os contextos do Spark e do Hive serão criados automaticamente quando executa a primeira célula do código. Pode começar por importar os tipos que são necessários para este cenário. Cole o seguinte fragmento numa célula vazia e, em seguida, prima **SHIFT + ENTER**.
+5. Uma vez que criou um bloco de notas com o kernel do PySpark, não é necessário criar quaisquer contextos explicitamente. Os contextos do Spark e do Hive serão criados automaticamente quando executa a primeira célula do código. Pode começar por importar os tipos que são necessários para este cenário. Cole o seguinte fragmento numa célula vazia e prima **SHIFT + ENTER**.
 
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
 
-1. Crie um RDD utilizando os dados de registo de exemplo já disponíveis no cluster. Pode aceder os dados na conta do storage predefinida associada ao cluster **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
+1. Crie um RDD usando os dados de registo de exemplo já disponíveis no cluster. Pode acessar os dados na conta de armazenamento predefinida associada ao cluster em **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
-1. Obter um registo de exemplo definido para verificar que o passo anterior foi concluído com êxito.
+1. Obter um registo de exemplo definido para verificar se o passo anterior foi concluído com êxito.
 
         logs.take(5)
 
@@ -85,21 +80,21 @@ Assim que os seus dados são guardados como uma tabela do Hive, na secção segu
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32',
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
-## <a name="analyze-log-data-using-a-custom-python-library"></a>Analisar dados de registo utilizando uma biblioteca Python personalizada
-1. No resultado acima, as linhas de alguns primeiro incluem as informações de cabeçalho e o esquema descrito no cabeçalho de que corresponde de cada linha restantes. Analisar esses registos pode ser complicado. Por isso, vamos utilizar uma biblioteca Python personalizada (**iislogparser.py**) que faz com que esses registos muito mais fácil de análise. Por predefinição, esta biblioteca é incluída no cluster do Spark no HDInsight em **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+## <a name="analyze-log-data-using-a-custom-python-library"></a>Analisar dados de registo através de uma biblioteca de Python personalizada
+1. No resultado acima, as primeiras linhas de algumas incluem as informações de cabeçalho e cada linha restante faz a correspondência do esquema descrito nesse cabeçalho. Esses registos de análise pode ser complicado. Então, usamos uma biblioteca de Python personalizada (**iislogparser.py**) que faz com que esses registos muito mais fácil de análise. Por predefinição, esta biblioteca é incluída no seu cluster do Spark no HDInsight em **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
-    No entanto, esta biblioteca não está no `PYTHONPATH` pelo que não é possível utilizá-la utilizando uma instrução de importação como `import iislogparser`. Para utilizar esta biblioteca, iremos tem de distribui-la para todos os nós de trabalho. Execute o seguinte fragmento.
+    No entanto, esta biblioteca não está no `PYTHONPATH` para que seja não é possível usá-la utilizando uma instrução de importação como `import iislogparser`. Para utilizar esta biblioteca, podemos tem distribuí-la para todos os nós de trabalho. Execute o seguinte fragmento.
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
-1. `iislogparser` Fornece uma função `parse_log_line` que devolve `None` se uma linha de registo de uma linha de cabeçalho e devolve uma instância do `LogLine` classe se encontrar uma linha de registo. Utilize o `LogLine` classe para extrair o RDD apenas as linhas de registo:
+1. `iislogparser` Fornece uma função `parse_log_line` que retorna `None` se uma linha de log é uma linha de cabeçalho e retorna uma instância do `LogLine` se encontrar uma linha de registo de classe. Utilize o `LogLine` classe para extrair apenas as linhas de registo do RDD:
 
         def parse_line(l):
             import iislogparser
             return iislogparser.parse_log_line(l)
         logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
-2. Obter alguns extraídas linhas de registo para verificar se o passo foi concluído com êxito.
+2. Obter algumas extraídas linhas de registo para verificar se a etapa foi concluída com êxito.
 
        logLines.take(2)
 
@@ -111,7 +106,7 @@ Assim que os seus dados são guardados como uma tabela do Hive, na secção segu
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. O `LogLine` classe, por sua vez, tem alguns métodos úteis, como `is_error()`, que devolve se uma entrada de registo tem um código de erro. Utilize esta opção para calcular o número de erros nas linhas de registo extraídos e, em seguida, inicie sessão todos os erros para um ficheiro diferente.
+3. O `LogLine` classe, por sua vez, tem alguns métodos úteis, como `is_error()`, que retorna se uma entrada de registo tem um código de erro. Utilize esta opção para computar o número de erros nas linhas de log extraídos e, em seguida, inicie todos os erros para um ficheiro diferente.
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()
@@ -126,8 +121,8 @@ Assim que os seus dados são guardados como uma tabela do Hive, na secção segu
        # -----------------
 
        There are 30 errors and 646 log entries
-4. Também pode utilizar **Matplotlib** para construir uma visualização dos dados. Por exemplo, se pretender isolar a causa de pedidos que são executadas durante muito tempo, pode querer localizar os ficheiros que demoram mais tempo para servir em média.
-   O fragmento abaixo obtém os recursos de 25 superiores que demoraram mais a servir um pedido.
+4. Também pode utilizar **Matplotlib** para construir uma visualização dos dados. Por exemplo, se quiser isolar a causa de pedidos que são executadas durante muito tempo, pode querer localizar os arquivos que demoram mais tempo para servir em média.
+   O trecho a seguir obtém os recursos de 25 principais que demorou mais tempo para servir um pedido.
 
        def avgTimeTakenByKey(rdd):
            return rdd.combineByKey(lambda line: (line.time_taken, 1),
@@ -168,7 +163,7 @@ Assim que os seus dados são guardados como uma tabela do Hive, na secção segu
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. Também pode apresentar esta informação sob a forma de desenho. Como primeiro passo para criar um desenho, informe-nos primeiro de criar uma tabela temporária **AverageTime**. A tabela agrupa os registos do tempo para ver se ocorreram quaisquer picos de latência invulgares em qualquer altura específica.
+5. Também pode apresentar estas informações na forma de plotagem. Como primeiro passo para criar um desenho, vamos primeiro criar uma tabela temporária **AverageTime**. A tabela agrupa os registos por tempo para ver se ocorreram picos latência invulgar a qualquer momento.
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),
@@ -176,19 +171,19 @@ Assim que os seus dados são guardados como uma tabela do Hive, na secção segu
 
        avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
        avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
-6. Em seguida, pode executar a seguinte consulta SQL para obter todos os registos do **AverageTime** tabela.
+6. Em seguida, pode executar a seguinte consulta SQL para obter todos os registos no **AverageTime** tabela.
 
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   O `%%sql` magic seguido `-o averagetime` assegura que o resultado da consulta é persistente localmente no servidor do Jupyter (normalmente o headnode do cluster). O resultado é persistente como um [Pandas](http://pandas.pydata.org/) dataframe com o nome especificado **averagetime**.
+   O `%%sql` seguido de mágica `-o averagetime` garante que o resultado da consulta persistem localmente no servidor do Jupyter (normalmente, o nó principal do cluster). A saída é persistente como uma [Pandas](http://pandas.pydata.org/) dataframe com o nome especificado **averagetime**.
 
    Deve ver um resultado como o seguinte:
 
-   ![Resultado da consulta SQL](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "resultado de consulta SQL")
+   ![Resultado da consulta SQL](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "resultado da consulta SQL")
 
-   Para obter mais informações sobre o `%%sql` mágica, consulte [parâmetros suportados com o % % sql magic](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
-7. Agora, pode utilizar Matplotlib, uma biblioteca utilizada para construir a visualização de dados, para criar um desenho. Porque o desenho tem de ser criado de localmente persistente **averagetime** dataframe, o fragmento de código tem de começar a `%%local` magic. Isto garante que o código é executado localmente no servidor do Jupyter.
+   Para obter mais informações sobre o `%%sql` mágico, consulte [parâmetros suportados com o % % "sql Magic"](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+7. Agora, pode utilizar o Matplotlib, uma biblioteca utilizada para criar a visualização de dados, para criar um desenho. Porque o desenho tem de ser criado de localmente persistente **averagetime** pacote de dados, o trecho de código tem de começar com o `%%local` mágica. Isto garante que o código é ser executado localmente no servidor do Jupyter.
 
        %%local
        %matplotlib inline

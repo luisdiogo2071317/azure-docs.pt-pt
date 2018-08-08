@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136847"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619054"
 ---
 # <a name="built-in-roles-in-azure"></a>Funções incorporadas no Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -63,6 +63,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuinte de Máquina Virtual clássica](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
 | [Contribuinte de base de dados do ClearDB MySQL](#cleardb-mysql-db-contributor) | Permite-lhe gerir bases de dados MySQL ClearDB, mas não aceder-lhes. |
 | [Função de leitor de conta do cosmos DB](#cosmos-db-account-reader-role) | Pode ler os dados da conta do Azure Cosmos DB. Ver [contribuinte de conta do DocumentDB](#documentdb-account-contributor) para a gestão de contas do Azure Cosmos DB. |
+| [Contribuinte de caixa de dados](#data-box-contributor) | Permite-lhe gerir tudo no serviço do Data Box, exceto que lhe dá acesso a outras pessoas. |
+| [Operador de caixa de dados](#data-box-operator) | Permite-lhe gerir o serviço do Data Box, exceto a ordem de criação ou edição de detalhes do pedido e que lhe dá acesso a outras pessoas. |
 | [Contribuinte do Data Factory](#data-factory-contributor) | Permite-lhe gerir fábricas de dados, mas não aceder-lhes. |
 | [Programador do Data Lake Analytics](#data-lake-analytics-developer) | Permite-lhe submeter, monitorizar e gerir as suas tarefas, mas não criar ou eliminar as contas do Data Lake Analytics. |
 | [Purger de dados](#data-purger) | Pode remover dados de análise |
@@ -76,6 +78,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Leitor do log Analytics](#log-analytics-reader) | O Leitor do Log Analytics pode visualizar e procurar todos os dados de monitorização assim como visualizar as definições de monitorização, incluindo a visualização da configuração de diagnósticos Azure em todos os recursos do Azure. |
 | [Contribuidor da aplicação lógica](#logic-app-contributor) | Permite-lhe gerir aplicações lógicas, mas não aceder às mesmas. |
 | [Operador de aplicação lógica](#logic-app-operator) | Permite-lhe ler, ativar e desativar a aplicação lógica. |
+| [Função de operador de aplicação gerida](#managed-application-operator-role) | Permite-lhe ler e executar ações nos recursos de aplicação gerida |
 | [Contribuidor de identidade gerido](#managed-identity-contributor) | Criar, Ler, Atualizar e Eliminar a Identidade Atribuída ao Utilizador |
 | [Operador de identidade gerido](#managed-identity-operator) | Ler e Atribuir a Identidade Atribuída ao Utilizador |
 | [Contribuinte do grupo de gestão](#management-group-contributor) | Função de Contribuinte do Grupo de Gestão |
@@ -347,33 +350,34 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gerir os resultados da operação na gestão de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Criar e gerir contentores de cópia de segurança dentro de recursos de infraestrutura de cópia de segurança do cofre dos serviços de recuperação |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerir tarefas de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar tarefas |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Devolve o resultado da operação de tarefa de exportação. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Criar e gerir os metadados relacionados com a gestão de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerir resultados de operações de gestão de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Criar e gerir políticas de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerir itens que podem ser uma cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Criar e gerir itens de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Criar e gerir contentores que contém itens de cópia de segurança |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Resumos de utilização dos itens e servidores protegidos para dos serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/certificates/* | Criar e gerir certificados relacionados com a cópia de segurança no cofre dos serviços de recuperação |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerir as informações expandidas relacionadas para o Cofre |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter alertas para o Cofre dos serviços de recuperação. |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | A operação obter cofre obtém um objeto que representa o recurso do Azure do tipo "Cofre" |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerir a operação de deteção para a obter recém-criado contentores |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerir identidades registadas |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerir a utilização do cofre dos serviços de recuperação |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Resumos de utilização dos itens e servidores protegidos para dos serviços de recuperação. |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter alertas para o Cofre dos serviços de recuperação. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Devolve o resultado da operação de tarefa de exportação. |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
 ## <a name="backup-operator"></a>Operador de Cópia de Segurança
@@ -658,6 +662,32 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
+## <a name="data-box-contributor"></a>Contribuinte de caixa de dados
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe gerir tudo no serviço do Data Box, exceto que lhe dá acesso a outras pessoas. |
+> | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
+> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | Microsoft.Databox/* |  |
+
+## <a name="data-box-operator"></a>Operador de caixa de dados
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe gerir o serviço do Data Box, exceto a ordem de criação ou edição de detalhes do pedido e que lhe dá acesso a outras pessoas. |
+> | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | Microsoft.Databox/jobs/listsecrets/action | Lista os segredos não encriptados relativos à encomenda. |
+
 ## <a name="data-factory-contributor"></a>Contribuinte do Data Factory
 > [!div class="mx-tableFixed"]
 > | | |
@@ -828,7 +858,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crie um laboratório numa conta do laboratório. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenha informações de disponibilidade regional para cada categoria de tamanho sob uma conta de laboratório |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenha informações de disponibilidade regional para cada categoria de tamanho configurada com uma conta de laboratório |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
@@ -918,6 +948,15 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Web/connections/*/read | Ligações de leitura. |
 > | Microsoft.Web/customApis/*/read | Leia a API personalizada. |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades num plano do serviço de aplicações |
+
+## <a name="managed-application-operator-role"></a>Função de operador de aplicação gerida
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe ler e executar ações nos recursos de aplicação gerida |
+> | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **Ações** |  |
+> | Microsoft.Solutions/applications/read | Obtém uma lista de aplicações. |
 
 ## <a name="managed-identity-contributor"></a>Contribuidor de Identidade Gerida
 > [!div class="mx-tableFixed"]
@@ -1125,6 +1164,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/policyDefinitions/* | Criar e gerir definições de política |
 > | Microsoft.Authorization/policySetDefinitions/* | Criar e gerir conjuntos de políticas |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta |
+> | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
 > | Microsoft.operationalInsights/workspaces/*/read | Ver dados do Log Analytics |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
@@ -1134,8 +1174,9 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Security/locations/tasks/activate/action | Ativar uma recomendação de segurança |
 > | Microsoft.Security/locations/tasks/dismiss/action | Dispensar uma recomendação de segurança |
 > | Microsoft.Security/policies/write | Atualiza a política de segurança |
+> | Microsoft.Security/securityContacts/write | Atualiza o contacto de segurança |
+> | Microsoft.Security/securityContacts/delete | Elimina o contacto de segurança |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
-> | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
 
 ## <a name="security-manager"></a>Gestor de Segurança
 > [!div class="mx-tableFixed"]

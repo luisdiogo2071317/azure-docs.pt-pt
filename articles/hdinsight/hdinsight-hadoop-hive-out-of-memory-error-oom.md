@@ -1,31 +1,27 @@
 ---
-title: Corrigir um ramo de registo fora de erro de memória no Azure HDInsight | Microsoft Docs
-description: Corrigir um ramo de registo fora de erro de memória no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes.
+title: Corrigir um ramo de registo fora de erro de memória no Azure HDInsight
+description: Corrigi um ramo de registo fora de erro de memória no HDInsight. O cenário de cliente é uma consulta em muitas tabelas grandes.
 keywords: sem definições de ramo de registo de erros, OOM, de memória
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: f2ae83d259b7567a4b5c39e76ed7610e2ee426f8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 24b0258bac8c33b84b48655d8ecddd9061368b9a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200542"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592844"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrigir um ramo de registo fora de erro de memória no Azure HDInsight
 
-Saber como corrigir um ramo de registo fora de erro de memória ao processar tabelas grandes ao configurar as definições da memória do Hive.
+Saiba como corrigir um ramo de registo fora de erro de memória quando processar tabelas grandes ao configurar as definições de memória do Hive.
 
-## <a name="run-hive-query-against-large-tables"></a>Executar a consulta do Hive contra tabelas grandes
+## <a name="run-hive-query-against-large-tables"></a>Executar a consulta do Hive com base em tabelas grandes
 
 Um cliente executou uma consulta do Hive:
 
@@ -45,18 +41,18 @@ Um cliente executou uma consulta do Hive:
         …
         …
 
-Alguns nuances desta consulta:
+Algumas nuances desta consulta:
 
-* T1 é um alias a uma tabela grande, TABLE1, que tem muitos tipos de coluna de cadeia.
-* Outras tabelas são não que grande mas ter demasiadas colunas.
-* Todas as tabelas são associar cada um dos outros, em alguns casos com várias colunas na tabela1 e outras pessoas.
+* T1 é um alias para uma grande tabela, TABLE1, com vários tipos de coluna de cadeia de caracteres.
+* Outras tabelas são não que a grandes, mas é necessário o número de colunas.
+* Todas as tabelas são ingressar em si, em alguns casos com várias colunas na tabela1 e outros.
 
-A consulta do Hive demorou 26 minutos a concluir num nó de cluster do A3 HDInsight 24. O cliente reparado as mensagens de aviso seguinte:
+A consulta do Hive demorou 26 minutos a concluir num nó de cluster de HDInsight A3 24. O cliente observado as seguintes mensagens de aviso:
 
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-Utilizando o motor de execução Tez. Da mesma consulta foi executada durante 15 minutos e, em seguida, apresentou o seguinte erro:
+Ao utilizar o motor de execução Tez. A mesma consulta for executada durante 15 minutos e, em seguida, apresentou o seguinte erro:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -82,16 +78,16 @@ Utilizando o motor de execução Tez. Da mesma consulta foi executada durante 15
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
 
-O erro permanece quando utilizar uma máquina virtual maior (por exemplo, D12).
+O erro permanece ao utilizar uma máquina virtual maior (por exemplo, D12).
 
 
 ## <a name="debug-the-out-of-memory-error"></a>Depurar o fora de erro de memória
 
-Encontrar nosso suporte e as equipas de engenharia em conjunto um dos problemas causar a saída de erro de memória foi um [conhecido problema descrito na JIRA Apache](https://issues.apache.org/jira/browse/HIVE-8306):
+Nosso suporte e equipas de engenharia em conjunto encontrado um dos problemas fazendo com que o fora de erro de memória foi um [problema descrito no JIRA a Apache conhecido](https://issues.apache.org/jira/browse/HIVE-8306):
 
     When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-O **hive.auto.convert.join.noconditionaltask** no ramo de registo-site.xml ficheiro foi definido como **verdadeiro**:
+O **hive.auto.convert.join.noconditionaltask** hive-site ficheiro foi definido como **verdadeiro**:
 
     <property>
         <name>hive.auto.convert.join.noconditionaltask</name>
@@ -103,24 +99,24 @@ O **hive.auto.convert.join.noconditionaltask** no ramo de registo-site.xml fiche
         </description>
       </property>
 
-É provável que a associação de mapa tiver sido a causa do espaço de área dinâmica para dados de Java nosso erro de memória. Conforme explicado na mensagem de blogue [as definições da memória Yarn de Hadoop no HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando Tez motor de execução é utilizada a pilha de espaço utilizado, na verdade, pertence ao contentor Tez. Ver a imagem seguinte, que descreve a memória de contentor Tez.
+É provável que a associação de mapa foi a causa do espaço de área dinâmica para dados Java nosso de erro de memória. Conforme explicado na mensagem de blogue [definições de memória de Yarn do Hadoop no HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando Tez motor de execução é utilizado o heap espaço utilizado, na verdade, pertence ao contentor Tez. Ver a imagem seguinte, que descreve a memória de contentor do Tez.
 
-![Diagrama de memória de contentor Tez: fora do erro de memória de ramo de registo](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+![Diagrama de memória de contentor do Tez: Hive fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Como a mensagem de blogue sugere, as seguintes definições de dois memória definem a memória do contentor para a área dinâmica para dados: **hive.tez.container.size** e **hive.tez.java.opts**. Da nossa experiência fora de exceção de memória não significa que o tamanho do contentor é demasiado pequeno. Significa que o tamanho da pilha de Java (hive.tez.java.opts) é demasiado pequeno. Modo sempre que for apresentada a memória esgotada, pode tentar aumentar **hive.tez.java.opts**. Se for necessário poderá ter de aumentar **hive.tez.container.size**. O **java.opts** definição deve ser cerca de 80% da **container.size**.
+Como sugere a mensagem de blogue, as seguintes definições de dois memória definem a memória de contentor para o heap: **hive.tez.container.size** e **hive.tez.java.opts**. A nossa experiência, fora de exceção de memória não significa que o tamanho do contentor é demasiado pequeno. Isso significa que o tamanho da pilha de Java (hive.tez.java.opts) é demasiado pequeno. Portanto, sempre que vir fora da memória, pode tentar aumentar **hive.tez.java.opts**. Se for necessário poderá ter de aumentar **hive.tez.container.size**. O **java.opts** definição deve ser cerca de 80% dos **container.size**.
 
 > [!NOTE]
-> A definição **hive.tez.java.opts** tem de ser sempre menor **hive.tez.container.size**.
+> A definição **hive.tez.java.opts** tem de ser sempre menor do que **hive.tez.container.size**.
 > 
 > 
 
-Como uma máquina D12 tem 28GB de memória, decidimos utilizar um tamanho de contentor de 10GB (10240MB) e atribuir 80% para java.opts:
+Como uma máquina de D12 tem memória de 28GB, decidimos usar um tamanho de contentor de 10GB (10240MB) e atribuir a 80% para java.opts:
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m
 
-Com as novas definições, a consulta executou com êxito em 10 minutos.
+Com as novas definições, a consulta foi executado com êxito em menos de 10 minutos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Obter um erro OOM não significam necessariamente que o tamanho do contentor é demasiado pequeno. Em vez disso, deve configurar as definições de memória para que o tamanho da área dinâmica para dados é aumentado e é, pelo menos, 80% do tamanho de memória do contentor. Para otimizar as consultas do Hive, consulte [consultas otimizar Hive do Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Recebendo um erro OOM não significa necessariamente que o tamanho do contentor é demasiado pequeno. Em vez disso, deve configurar as definições de memória para que o tamanho da pilha é aumentado e é, pelo menos, 80% do tamanho de memória do contentor. Para otimizar consultas do Hive, consulte [otimizar Hive consultas para o Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).

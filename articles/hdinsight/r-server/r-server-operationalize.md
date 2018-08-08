@@ -1,23 +1,20 @@
 ---
-title: Operacionalizar os serviços de ML no HDInsight - Azure | Documentos da Microsoft
+title: Operacionalizar os serviços de ML no HDInsight - Azure
 description: Saiba como operacionalizar os serviços de ML no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 0472158dfb9ad228ce2ddef0edf4eafcf4cd3d29
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430982"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622308"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster de serviços de ML no Azure HDInsight
 
@@ -124,7 +121,7 @@ Se o seu cluster não estiver configurado numa VNet ou se estiver com problemas 
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Quando a sessão SSH estiver ativa, o tráfego da porta 12800 do computador é encaminhado para a porta 12800 do nó de extremidade através dessa sessão. Confirme que utiliza `127.0.0.1:12800` no método `remoteLogin()`. Isso inicia sessão na operacionalização do nó de extremidade através do encaminhamento de porta.
+Quando a sessão SSH estiver ativa, o tráfego da porta 12800 do computador local é encaminhado para porta o nó de extremidade 12800 através dessa sessão. Confirme que utiliza `127.0.0.1:12800` no método `remoteLogin()`. Isso inicia sessão na operacionalização do nó de extremidade através do encaminhamento de porta.
 
 
     library(mrsdeploy)

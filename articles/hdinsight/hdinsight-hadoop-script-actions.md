@@ -1,23 +1,20 @@
 ---
-title: Script de desenvolvimento de ação com o HDInsight - Azure | Documentos da Microsoft
+title: Desenvolvimento de ação de script com o HDInsight - Azure
 description: Saiba como personalizar clusters do Hadoop com ação de Script. Ação de script pode ser utilizada para instalar software adicional em execução num cluster do Hadoop ou para alterar a configuração dos aplicativos instalados num cluster.
 services: hdinsight
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b00661e1561b4aa93be26994b20e33feac97ff6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f26a11e623148eecc8096b45c6ac9df68b8e102a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952373"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599161"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desenvolver scripts de ação de Script para clusters baseados em Windows HDInsight
 Saiba como escrever scripts de ação de Script para o HDInsight. Para obter informações sobre como usar scripts de ação de Script, consulte [HDInsight personalizar clusters com ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters do HDInsight baseado em Linux, consulte [scripts de desenvolver ações de Script para HDInsight](hdinsight-hadoop-script-actions-linux.md).
