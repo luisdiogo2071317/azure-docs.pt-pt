@@ -1,117 +1,112 @@
 ---
-title: Resolver problemas com o cluster do Apache Spark no Azure HDInsight | Microsoft Docs
-description: Saiba mais sobre problemas relacionados com clusters do Apache Spark no Azure HDInsight e como resolver os.
+title: Resolver problemas com o cluster do Apache Spark no Azure HDInsight
+description: Saiba mais sobre problemas relacionados com clusters do Apache Spark no Azure HDInsight e como solucionar esses.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: a2cb862102462d00822686de7a273c013a164bde
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31519244"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39616960"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster do Apache Spark no HDInsight
 
-Este documento mantém um registo dos problemas conhecidos para a pré-visualização pública do HDInsight Spark.  
+Este documento mantém um registo de todos os problemas conhecidos na pré-visualização pública do HDInsight Spark.  
 
-## <a name="livy-leaks-interactive-session"></a>O Livy fugas de sessão interativa
-Quando o Livy reiniciado (do Ambari ou devido a reinício da máquina virtual de headnode 0) com uma sessão interativa ainda alive, é podem fugir uma sessão interativa de tarefa. Como resultado, as novas tarefas podem estar bloqueadas no Estado aceites.
+## <a name="livy-leaks-interactive-session"></a>Sessão interativa de vazamentos de Livy
+Quando Livy é reiniciado (do Ambari ou devido a reinício da máquina virtual de nó principal 0) com uma sessão interativa ainda existem, uma sessão de trabalho interativo é perdida. Como resultado, novas tarefas podem estar bloqueadas no Estado aceites.
 
 **Atenuação:**
 
-Utilize o procedimento seguinte para contornar este problema:
+Utilize o procedimento seguinte para contornar o problema:
 
-1. SSH para headnode. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH no nó principal. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Execute o seguinte comando para localizar os IDs de aplicação das tarefas de interativas a trabalhar com o Livy. 
+2. Execute o seguinte comando para localizar os IDs de aplicação das tarefas interativos iniciados por meio do Livy. 
    
         yarn application –list
    
-    Os nomes de tarefa de predefinição será o Livy se as tarefas foram começar com uma sessão interativa de Livy sem nomes explícitos especificados. Para a sessão de Livy iniciada pelo bloco de notas do Jupyter, o nome da tarefa começa com remotesparkmagics_ *. 
+    Os nomes de tarefa padrão será Livy se as tarefas foram iniciadas com uma sessão interativa do Livy com nenhuma explícitas nomes especificados. Para a sessão do Livy iniciada pelo bloco de notas do Jupyter, o nome da tarefa começa com remotesparkmagics_ *. 
 3. Execute o seguinte comando para eliminar essas tarefas. 
    
         yarn application –kill <Application ID>
 
 Novas tarefas de iniciar a execução. 
 
-## <a name="spark-history-server-not-started"></a>Servidor de histórico de Spark não foi iniciado
-Servidor do histórico de Spark não está iniciado automaticamente depois de um cluster é criado.  
+## <a name="spark-history-server-not-started"></a>Não foi iniciada no servidor de histórico do Spark
+Servidor de histórico do Spark não é iniciada automaticamente depois de um cluster é criado.  
 
 **Atenuação:** 
 
 Inicie manualmente o servidor de histórico do Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problema de permissão no diretório de registo do Spark
-hdiuser obtém o seguinte erro ao submeter a tarefa a utilizar o spark-submeter:
+hdiuser obtém o seguinte erro ao submeter uma tarefa através do spark-submit:
 
 ```
 java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
 ```
-E nenhum controlador de registo é escrito. 
+E não é escrito nenhum registo de controlador. 
 
 **Atenuação:**
 
 1. Adicione hdiuser ao grupo de Hadoop. 
-2. Forneça 777 permissões no /var/log/spark após a criação do cluster. 
+2. Fornece 777 permissões sobre /var/log/spark após a criação do cluster. 
 3. Atualize a localização de registo do spark com o Ambari para ser um diretório com 777 permissões.  
-4. O spark de execução-submeter como sudo.  
+4. Spark de execução-submeter como sudo.  
 
-## <a name="spark-phoenix-connector-is-not-supported"></a>O Spark Phoenix conector não é suportado
+## <a name="spark-phoenix-connector-is-not-supported"></a>Conector do Spark-Phoenix não é suportado
 
-Clusters do HDInsight Spark não suportam o conector do Spark Phoenix.
+Os clusters do HDInsight Spark não suportam o conector do Spark-Phoenix.
 
 **Atenuação:**
 
-Em vez disso, tem de utilizar o conector do HBase do Spark. Para instruções, consulte [como utilizar o conector do Spark HBase](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Em vez disso, tem de utilizar o conector do Spark-HBase. Para obter instruções, consulte [como utilizar o conector do Spark-HBase](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemas relacionados com blocos de notas do Jupyter
 Seguem-se alguns problemas conhecidos relacionados com blocos de notas do Jupyter.
 
-### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Blocos de notas com carateres não ASCII em nomes de ficheiros
-Não utilize carateres não ASCII em nomes de bloco de notas do Jupyter ficheiros. Se tentar carregar um ficheiro através da IU do Jupyter, que tem um nome de ficheiro não ASCII, falha sem qualquer mensagem de erro. Jupyter não permitem-lhe carregar o ficheiro, mas não inicia um erro de visível se.
+### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Blocos de notas com caracteres não-ASCII em nomes de ficheiros
+Não utilize carateres não ASCII em nomes de bloco de notas do Jupyter. Se tentar carregar um ficheiro através da IU Jupyter, que tem um nome de ficheiro não-ASCII, ocorre uma falha sem qualquer mensagem de erro. Jupyter não permitem-lhe carregar o ficheiro, mas ele não emite um erro de visível ou.
 
-### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar os blocos de notas de tamanhos superiores
-Poderá ver um erro **`Error loading notebook`** quando carrega blocos de notas que são maiores de tamanho.  
+### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar os blocos de notas de tamanhos maiores
+Poderá ver um erro **`Error loading notebook`** quando carrega os blocos de notas que são maiores de tamanho.  
 
 **Atenuação:**
 
-Se obtiver este erro, não significa que os dados estão danificados ou perdidos.  Os blocos de notas são ainda num disco em `/var/lib/jupyter`, e pode SSH para o cluster possam aceder às mesmas. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Se obtiver este erro, não significa que seus dados estão danificado ou perdido.  Os blocos de anotações são ainda em disco no `/var/lib/jupyter`, e pode encaminhar o SSH para o cluster para aceder aos mesmos. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Assim que tiver estabelecido ligação ao cluster através de SSH, pode copiar os blocos de notas do seu cluster no seu computador local (através de SCP ou WinSCP) de cópia de segurança para evitar a perda de quaisquer dados importantes no bloco de notas. Pode, em seguida, túnel SSH no seu headnode na porta 8001 aceder Jupyter sem passar o gateway.  A partir daí, pode desmarcar a saída do seu bloco de notas e resave para minimizar o tamanho do bloco de notas.
+Depois de ter ligado ao cluster através de SSH, pode copiar seus blocos de notas do seu cluster no seu computador local (utilizando o SCP ou WinSCP) como uma cópia de segurança para evitar a perda de quaisquer dados importantes no bloco de notas. Pode, em seguida, túnel SSH no seu nó principal em porta 8001 para acessar o Jupyter sem passar através do gateway.  A partir daí, pode limpar a saída do seu bloco de notas e salvar novamente para minimizar o tamanho do bloco de notas.
 
-Para impedir que este erro ocorrer no futuro, tem de seguir algumas melhores práticas:
+Para impedir que este erro aconteça no futuro, deve seguir algumas práticas recomendadas:
 
-* É importante manter o tamanho de bloco de notas pequeno. Qualquer saída das tarefas do Spark que é enviada para Jupyter é continuada no bloco de notas.  É melhor prática, com o Jupyter no geral para evitar a execução `.collect()` em grande RDD ou dataframes; em vez disso, se pretende observar no conteúdo de um RDD, considere executar `.take()` ou `.sample()` para que o resultado não demasiado grande.
-* Além disso, quando guardar um bloco de notas, desmarque todos os saída células para reduzir o tamanho.
+* É importante manter o tamanho do bloco de notas menor. Qualquer saída de suas tarefas do Spark que é enviada de volta ao Jupyter é mantida no bloco de notas.  É melhor prática, com o Jupyter em geral para evitar `.collect()` do on grandes RDD ou dataframes; em vez disso, se quiser uma olhada no conteúdo de um RDD, considere a execução `.take()` ou `.sample()` para que sua saída não ficar demasiado grande.
+* Além disso, quando guarda um bloco de notas, desmarque todos os resultados células para reduzir o tamanho.
 
-### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Arranque inicial do bloco de notas demora mais tempo do que o previsto
-Primeira instrução de código no bloco de notas do Jupyter utilizando a magia do Spark pode demorar mais do que um minuto.  
+### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Arranque inicial do bloco de notas demora mais tempo do que o esperado
+Primeira instrução de código no bloco de notas do Jupyter com a mágica de Spark pode demorar mais de um minuto.  
 
 **Explicação:**
 
-Isto acontece porque quando a primeira célula do código é executada. Em segundo plano este inicia a configuração de sessão e Spark, SQL e contextos de ramo de registo estão definidos. Depois destas contextos estão definidos, a primeira instrução é executada e Isto permite que a impressão que a instrução demorava muito tempo a concluir.
+Isso acontece porque quando a primeira célula do código é executada. Em segundo plano esta ação inicia a configuração de sessão e o Spark, o SQL e contextos de ramo de registo estão definidos. Depois desses contextos são definidos, a primeira instrução é executada, e isso dá a impressão de que a instrução demorava muito tempo a concluir.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite de bloco de notas do Jupyter criar a sessão
-Quando o cluster do Spark tem recursos insuficientes, os Spark e PySpark kernels no bloco de notas do Jupyter irão tentar criar a sessão do tempo limite. 
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite de bloco de notas do Jupyter na criação da sessão
+Quando o cluster do Spark tem recursos insuficientes, os Spark e PySpark kernels no bloco de notas Jupyter irão tentar criar a sessão do tempo limite. 
 
-**Mitigações:** 
+**Atenuações:** 
 
-1. Liberte alguns recursos do cluster do Spark por:
+1. Liberte alguns recursos no seu cluster do Spark por:
    
-   * A parar os outros blocos de notas do Spark ao aceder ao menu de fechar e Halt ou clicar encerramento no Explorador do bloco de notas.
+   * A parar outros blocos de notas do Spark vai para o menu de fechar e parar ou clicando em encerramento no Explorador do bloco de notas.
    * A parar a outras aplicações do Spark do YARN.
-2. Reinicie o bloco de notas que estava a tentar iniciar a cópia de segurança. Recursos suficientes devem estar disponíveis para criar uma sessão agora.
+2. Reinicie o bloco de notas que estava a tentar iniciar. Recursos suficientes devem estar disponíveis para a criação de uma sessão agora.
 
 ## <a name="see-also"></a>Consulte também
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)

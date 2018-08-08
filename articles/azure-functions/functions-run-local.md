@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126219"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618619"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -33,9 +33,9 @@ Existem duas versões de ferramentas de núcleo de funções do Azure. A versão
 
 + [Versão 1.x](#v1): suporta a versão 1.x do runtime, o que está geralmente disponível (GA). Esta versão das ferramentas só é suportado em computadores Windows e é instalado a partir um [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm). Com esta versão, pode criar funções em linguagens experimentais que não são suportadas oficialmente. Para obter mais informações, consulte [idiomas suportados nas funções do Azure](supported-languages.md)
 
-+ [Versão 2.x](#v2): suporta a versão 2.x do runtime. Esta versão suporta [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Utiliza os gestores de pacotes específicos da plataforma ou npm para instalação. Como o runtime 2.x, esta versão das ferramentas de núcleo está atualmente em pré-visualização.
++ [Versão 2.x](#v2): suporta [versão 2.x do runtime](functions-versions.md). Esta versão suporta [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Utiliza os gestores de pacotes específicos da plataforma ou npm para instalação. Como o runtime 2.x, esta versão das ferramentas de núcleo está atualmente em pré-visualização. 
 
-Salvo indicação em contrário, os exemplos neste artigo são para a versão 2.x.
+Salvo indicação em contrário, os exemplos neste artigo são para a versão 2.x. Para receber atualizações importantes na versão 2.x, incluindo a última hora altera anúncios, veja a [anúncios de serviço de aplicações do Azure](https://github.com/Azure/app-service-announcements/issues) repositório.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 

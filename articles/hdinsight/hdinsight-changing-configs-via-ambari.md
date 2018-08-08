@@ -1,20 +1,19 @@
 ---
-title: Otimizar as configurações de cluster com o Ambari - Azure HDInsight | Documentos da Microsoft
+title: Otimizar as configurações de cluster com o Ambari - Azure HDInsight
 description: Utilize a IU web do Ambari para configurar e otimizar clusters do HDInsight.
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 6fe7092b2038b5cf53906e537ef02e457370d0d3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16020ec421eb077dca8318c765834e6f64f3235
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434667"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600602"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utilizar Ambari para otimizar as configurações de cluster do HDInsight
 
@@ -26,7 +25,7 @@ Inicie sessão no Ambari em `https://CLUSTERNAME.azurehdidnsight.net` com as sua
 
 ![Dashboard do Ambari](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
 
-A IU web do Ambari pode ser utilizada para gerir anfitriões, serviços, alertas, configurações e vistas. Não é possível utilizar Ambari para criar um cluster do HDInsight, serviços de atualização, gerir pilhas e versões, desativar ou recommission anfitriões ou adicionar serviços ao cluster.
+A IU web do Ambari pode ser utilizada para gerir anfitriões, serviços, alertas, configurações e vistas. T do Ambari pode ser utilizado para criar um cluster do HDInsight, serviços de atualização, gerir pilhas e versões, desativar ou recommission anfitriões ou adicionar serviços ao cluster.
 
 ## <a name="manage-your-clusters-configuration"></a>Gerir a configuração do seu cluster
 
@@ -191,7 +190,7 @@ Como regra geral, é importante ter o método de compressão divisível, caso co
     ![Hive exec compress intermédio](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]
-    > Para compactar arquivos intermediários, escolha um codec de compressão com CPU mais baixa custo, mesmo que o codec não tiver uma saída de compressão elevada.
+    > Para compactar arquivos intermediários, escolha um codec de compressão com CPU mais baixa custo, mesmo que o codec tem uma saída de compressão elevada.
 
 1. Para definir o codec de compressão intermediários, adicione a propriedade personalizada `mapred.map.output.compression.codec` para o `hive-site.xml` ou `mapred-site.xml` ficheiro.
 
@@ -228,7 +227,7 @@ Também pode ser comprimida a saída final do Hive.
 
 A execução especulativa inicia um determinado número de tarefas duplicadas para detetar e a lista de proibições o controlador de tarefa de execução lenta, ainda assim aumentando a execução de tarefa geral ao otimizar os resultados de tarefas individuais.
 
-A execução especulativa não deve ser ativada para tarefas de MapReduce de execução longa com grandes quantidades de entrada.
+A execução especulativa t de não deve ser ativada para tarefas de MapReduce de execução longa com grandes quantidades de entrada.
 
 * Para ativar a execução especulativa, navegue para a colmeia **configurações** separador e, em seguida, defina o `hive.mapred.reduce.tasks.speculative.execution` parâmetro como true. O valor predefinido é false.
 
