@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712526"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591572"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação de aplicações de página única com contas através do Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="register-single-page-app"></a>Registar a aplicação de página única
 
-As aplicações têm de ser [registadas](../active-directory/develop/active-directory-dev-glossary.md#application-registration) no inquilino antes de poderem receber [tokens de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) do Azure Active Directory. O registo de aplicações cria um [ID de aplicação](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) para a aplicação no inquilino. 
+As aplicações têm de ser [registadas](../active-directory/develop/developer-glossary.md#application-registration) no inquilino antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registo de aplicações cria um [ID de aplicação](../active-directory/develop/developer-glossary.md#application-id-client-id) para a aplicação no inquilino. 
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 
@@ -88,7 +88,7 @@ Para inscrever utilizadores para acederem e iniciarem sessão na aplicação Web
     | **Nome** | SiUpIn | Introduza um **Nome** para a política. O nome da política tem o prefixo **B2C_1_**. Utilize o nome completo da política **B2C_1_SiUpIn** no código de exemplo. | 
     | **Fornecedor de identidade** | Inscrever-se no e-mail | O fornecedor de identidade utilizado para identificar exclusivamente o utilizador. |
     | **Atributos de inscrição** | Nome a Apresentar e Código Postal | Selecione os atributos a recolher do utilizador durante a inscrição. |
-    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, O utilizador é novo, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, O utilizador é novo, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/developer-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Clique em **Criar** para criar a política. 
 
@@ -105,7 +105,7 @@ Para permitir aos utilizadores repor as respetivas informações de perfil por s
     | **Nome** | SiPe | Introduza um **Nome** para a política. O nome da política tem o prefixo **B2C_1_**. Utilize o nome completo da política **B2C_1_SiPe** no código de exemplo. | 
     | **Fornecedor de identidade** | Inscrição da conta local | O fornecedor de identidade utilizado para identificar exclusivamente o utilizador. |
     | **Atributos do perfil** | Nome a Apresentar e Código Postal | Selecione os atributos que os utilizadores podem modificar durante a edição de perfil. |
-    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma edição de perfil com êxito. |
+    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/developer-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma edição de perfil com êxito. |
 
 2. Clique em **Criar** para criar a política. 
 
@@ -121,7 +121,7 @@ Para ativar a reposição de palavras-passe na aplicação, tem de criar uma **p
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | SSPR | Introduza um **Nome** para a política. O nome da política tem o prefixo **B2C_1_**. Utilize o nome completo da política **B2C_1_SSPR** no código de exemplo. | 
     | **Fornecedor de identidade** | Repor a palavra-passe com o endereço de e-mail | Trata-se do fornecedor de identidade utilizado para identificar exclusivamente o utilizador. |
-    | **Afirmações da aplicação** | ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma reposição de palavra-passe com êxito. |
+    | **Afirmações da aplicação** | ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/developer-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma reposição de palavra-passe com êxito. |
 
 2. Clique em **Criar** para criar a política. 
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 01c13b214d40fba278ce788047e2b158adc20287
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711601"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594785"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="register-web-api"></a>Registar uma API Web
 
-Os recursos da API Web têm de ser registados no seu inquilino antes de poderem aceitar e responder a [pedidos de recursos protegidos](../active-directory/develop/active-directory-dev-glossary.md#resource-server) por parte de [aplicações cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application) que apresentem [tokens de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) a partir do Azure Active Directory. O registo estabelece o [objeto da aplicação e do principal de serviço](../active-directory/develop/active-directory-dev-glossary.md#application-object) no seu inquilino. 
+Os recursos da API Web têm de ser registados no seu inquilino antes de poderem aceitar e responder a [pedidos de recursos protegidos](../active-directory/develop/developer-glossary.md#resource-server) por parte de [aplicações cliente](../active-directory/develop/developer-glossary.md#client-application) que apresentem [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) a partir do Azure Active Directory. O registo estabelece o [objeto da aplicação e do principal de serviço](../active-directory/develop/developer-glossary.md#application-object) no seu inquilino. 
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 
@@ -59,7 +59,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrado
     | **Incluir aplicação/API Web** | Sim | Selecione **Sim** para uma API Web. |
     | **Permitir fluxo implícito** | Sim | Selecione **Sim** se a aplicação utilizar o [Início de sessão OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de resposta** | `http://localhost:5000` | Os URLs de resposta são pontos finais para onde o Azure AD B2C devolve quaisquer tokens que a aplicação peça. Neste tutorial, a API Web de exemplo é executada localmente (localhost) e escuta na porta 5000. |
-    | **URI do ID da Aplicação** | demoapi | O URI identifica exclusivamente a API no inquilino. Isto permite-lhe registar várias APIs por inquilino. Os [âmbitos](../active-directory/develop/active-directory-dev-glossary.md#scopes) regem o acesso ao recurso protegido da API e são definidos por URI de ID de Aplicação. |
+    | **URI do ID da Aplicação** | demoapi | O URI identifica exclusivamente a API no inquilino. Isto permite-lhe registar várias APIs por inquilino. Os [âmbitos](../active-directory/develop/developer-glossary.md#scopes) regem o acesso ao recurso protegido da API e são definidos por URI de ID de Aplicação. |
     | **Cliente nativo** | Não | Uma vez que se trata de uma API Web e não de um cliente nativo, selecione Não. |
     
 3. Clique em **Criar** para registar a API.
@@ -74,7 +74,7 @@ Registar a API Web no Azure AD B2C define uma relação de confiança. Uma vez q
 
 ## <a name="define-and-configure-scopes"></a>Definir e configurar âmbitos
 
-Os [âmbitos](../active-directory/develop/active-directory-dev-glossary.md#scopes) proporcionam uma forma de reger o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, alguns utilizadores podem ter o acesso de leitura e de escrita, ao passo que outros podem ter apenas permissões só de leitura. Neste tutorial, vai definir as permissões de leitura e escrita para a API Web.
+Os [âmbitos](../active-directory/develop/developer-glossary.md#scopes) proporcionam uma forma de reger o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, alguns utilizadores podem ter o acesso de leitura e de escrita, ao passo que outros podem ter apenas permissões só de leitura. Neste tutorial, vai definir as permissões de leitura e escrita para a API Web.
 
 ### <a name="define-scopes-for-the-web-api"></a>Definir âmbitos para a API Web
 
@@ -110,7 +110,7 @@ Para chamar uma API Web protegida a partir de uma aplicação, tem de conceder p
 
 5. Clique em **OK**.
 
-O seu **O Meu Exemplo de Aplicação WPF** está registada para chamar o **O Meu Exemplo de API Web Node.js** protegido. Para utilizar a aplicação de ambiente de trabalho WPF, os utilizadores [autenticam-se](../active-directory/develop/active-directory-dev-glossary.md#authentication) com o Azure AD B2C. A aplicação de ambiente de trabalho obtém uma [concessão de autorização](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) do Azure AD B2C para aceder à API Web protegida.
+O seu **O Meu Exemplo de Aplicação WPF** está registada para chamar o **O Meu Exemplo de API Web Node.js** protegido. Para utilizar a aplicação de ambiente de trabalho WPF, os utilizadores [autenticam-se](../active-directory/develop/developer-glossary.md#authentication) com o Azure AD B2C. A aplicação de ambiente de trabalho obtém uma [concessão de autorização](../active-directory/develop/developer-glossary.md#authorization-grant) do Azure AD B2C para aceder à API Web protegida.
 
 ## <a name="update-web-api-code"></a>Atualizar o código da API Web
 

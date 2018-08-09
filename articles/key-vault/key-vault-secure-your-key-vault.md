@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070384"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576972"
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 O Cofre de Chaves do Azure é um serviço em nuvem que protege chaves e segredos de encriptação (como certificados, cadeias de ligação e palavras-passe) das suas aplicações na nuvem. Uma vez que estes dados são confidenciais e vitais para a sua atividade, é fundamental proteger o acesso aos seus cofres de chaves, de modo a que só os utilizadores e as aplicações com autorização possam aceder aos mesmos. Este artigo disponibiliza uma descrição geral do modelo de acesso do cofre de chaves, explica a autenticação e a autorização e descreve como proteger o acesso ao cofre de chaves das suas aplicações com um exemplo.
@@ -47,7 +47,7 @@ Quando cria um cofre de chaves numa subscrição do Azure, este é automaticamen
 * **acesso de utilizador+aplicação** - normalmente, destina-se a aplicações que acedem a cofres de chaves em nome de um utilizador com sessão iniciada. O Azure PowerShell e o Portal do Azure são dois exemplos deste tipo de acesso. Existem duas formas de conceder acesso aos utilizadores. Uma é conceder-lhes acesso para que possam aceder ao cofre de chaves a partir de qualquer aplicação e a outra é conceder-lhes acesso ao cofre apenas quando utilizam uma determinada aplicação (naquela que é a chamada identidade composta). 
 * **acesso só de aplicação** - para as aplicações que executem serviços de daemon, tarefas em segundo plano, etc. É concedido acesso ao cofre de chaves à identidade da aplicação.
 
-Em ambos os tipos de aplicações, a aplicação autentica-se com o Azure Active Directory através de um dos [métodos de autenticação suportados](../active-directory/active-directory-authentication-scenarios.md) e recebe um token. O método de autenticação utilizado depende do tipo de aplicação. Depois, a aplicação utiliza esse token e envia um pedido à API REST para o cofre de chaves. Em caso de acesso do plano de gestão, os pedidos são encaminhados através do ponto final do Azure Resource Manager. Ao aceder ao plano de gestão, a aplicação fala diretamente com um ponto final do cofre de chaves. Veja mais detalhes sobre o [fluxo de autenticação completo](../active-directory/active-directory-protocols-oauth-code.md). 
+Em ambos os tipos de aplicações, a aplicação autentica-se com o Azure Active Directory através de um dos [métodos de autenticação suportados](../active-directory/develop/authentication-scenarios.md) e recebe um token. O método de autenticação utilizado depende do tipo de aplicação. Depois, a aplicação utiliza esse token e envia um pedido à API REST para o cofre de chaves. Em caso de acesso do plano de gestão, os pedidos são encaminhados através do ponto final do Azure Resource Manager. Ao aceder ao plano de gestão, a aplicação fala diretamente com um ponto final do cofre de chaves. Veja mais detalhes sobre o [fluxo de autenticação completo](../active-directory/develop/v1-protocols-oauth-code.md). 
 
 O nome do recurso relativamente ao qual a aplicação pede um token é diferente, consoante a aplicação esteja a aceder ao plano de gestão ou de dados. Por conseguinte, o nome do recurso é o ponto final do plano de gestão ou do plano de dados, descrito na tabela numa secção anterior, dependendo do ambiente do Azure.
 
@@ -223,7 +223,7 @@ Este exemplo mostra um cenário simples. Os cenários da vida real podem ser mai
 * [Controlo de Acesso Baseado em Funções para o Microsoft Azure no Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   Esta é uma ligação para um vídeo do Channel 9 da conferência Ignite 2015 MS. Nesta sessão, fala-se sobre as capacidades de gestão de acesso e de criação de relatórios no Azure e são exploradas as melhores práticas relativamente à proteção do acesso às subscrições do Azure com o Azure Active Directory.
-* [Autorizar o acesso a aplicações Web com OAuth 2.0 e o Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+* [Autorizar o acesso a aplicações Web com OAuth 2.0 e o Azure Active Directory](../active-directory/develop/v1-protocols-oauth-code.md)
   
   Este artigo descreve o fluxo completo de OAuth 2.0 para autenticar com o Azure Active Directory.
 * [APIs REST de Gestão do cofre de chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -238,7 +238,7 @@ Este exemplo mostra um cenário simples. Os cenários da vida real podem ser mai
 * [Controlo de acesso a segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Ligação para a documentação de referência do Controlo de acesso a chaves
-* [Definir](https://msdn.microsoft.com/library/mt603625.aspx) e [Remover](https://msdn.microsoft.com/library/mt619427.aspx) a política de acesso do cofre de chaves com o PowerShell
+* [Definir](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) e [Remover](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) a política de acesso do cofre de chaves com o PowerShell
   
   Ligações para documentação de referência sobre cmdlets do PowerShell para gerir a política de acesso do cofre de chaves.
 

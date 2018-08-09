@@ -5,13 +5,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
-ms.openlocfilehash: 4442a724cf3e37d5e7271d9c29f99138ab1faa5f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295835"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626760"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Criar uma aplicação Web de página única do Azure Time Series Insights
 
@@ -42,11 +43,11 @@ Este tutorial também irá utilizar os dados do ambiente TSI do exemplo de aplic
 Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo fornece a configuração de identidade para uma aplicação, permitindo-lhe utilizar suporte OAuth para o início de sessão único. O OAuth requer que os SPAs utilizem a concessão de autorização "implícita", que deverá atualizar no manifesto de aplicação. Um manifesto de aplicação é uma representação JSON de configuração da identidade da aplicação. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta de subscrição do Azure.  
-2. Selecione o recurso **Azure Active Directory** no painel esquerdo, em seguida, **Registos de aplicação**, em seguida, **+ Novo registo de aplicação**:  
+1. Selecione o recurso **Azure Active Directory** no painel esquerdo, em seguida, **Registos de aplicação**, em seguida, **+ Novo registo de aplicação**:  
    
    ![Portal do Azure Registo de aplicação no Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-3. Na página **Criar**, preencha os parâmetros necessários:
+1. Na página **Criar**, preencha os parâmetros necessários:
    
    Parâmetro|Descrição
    ---|---
@@ -58,27 +59,27 @@ Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo forne
 
    ![Portal do Azure Registo de aplicação no Azure AD - criação](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. As aplicações de recurso fornecem APIs REST para utilização por outras aplicações, e também são registadas com o Azure AD. As APIs fornecem acesso granular/protegido a aplicações de cliente, ao exporem os “âmbitos”. Dado que a sua aplicação irá chamar a API do “Azure Time Series Insights”, precisa de especificar a API e o âmbito, para o qual a permissão será pedida/concedida no runtime. Selecione **Definições**, em seguida, **Permissões necessárias**, em seguida, **+ Adicionar**:
+1. As aplicações de recurso fornecem APIs REST para utilização por outras aplicações, e também são registadas com o Azure AD. As APIs fornecem acesso granular/protegido a aplicações de cliente, ao exporem os “âmbitos”. Dado que a sua aplicação irá chamar a API do “Azure Time Series Insights”, precisa de especificar a API e o âmbito, para o qual a permissão será pedida/concedida no runtime. Selecione **Definições**, em seguida, **Permissões necessárias**, em seguida, **+ Adicionar**:
 
    ![Portal do Azure Adicionar permissões do Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. Na página **Adicionar acesso à API**, clique em **1 Selecionar uma API** para especificar a API do TSI. Na página **Selecionar uma API**, introduza "azure time" no campo de pesquisa. Em seguida, selecione a API do “Azure Time Series Insights” na lista de resultados e clique em **Selecionar**: 
+1. Na página **Adicionar acesso à API**, clique em **1 Selecionar uma API** para especificar a API do TSI. Na página **Selecionar uma API**, introduza "azure time" no campo de pesquisa. Em seguida, selecione a API do “Azure Time Series Insights” na lista de resultados e clique em **Selecionar**: 
 
    ![Portal do Azure Adicionar permissões do Azure AD - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. Agora, especifique um âmbito na API. Novamente, na página **Adicionar acesso à API**, clique em **2 Selecionar permissões**. Na página **Ativar Acesso**, selecione o âmbito "Aceder ao serviço Azure Time Series Insights". Clique em **Selecionar**, que irá reencaminhá-lo para a página **Adicionar acesso à API**,onde irá clicar em **Concluído**:
+1. Agora, especifique um âmbito na API. Novamente, na página **Adicionar acesso à API**, clique em **2 Selecionar permissões**. Na página **Ativar Acesso**, selecione o âmbito "Aceder ao serviço Azure Time Series Insights". Clique em **Selecionar**, que irá reencaminhá-lo para a página **Adicionar acesso à API**,onde irá clicar em **Concluído**:
 
    ![Portal do Azure Adicionar permissões do Azure AD - âmbito](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. Quando regressar à página **Permissões necessárias**, tenha em atenção que a API do "Azure Time Series Insights" está agora listada. Terá precisará de permissão de pré-consentimento para que a aplicação aceda à API e ao âmbito, para todos os utilizadores. Clique no botão **Conceder permissões** na parte superior e selecione **Sim**:
+1. Quando regressar à página **Permissões necessárias**, tenha em atenção que a API do "Azure Time Series Insights" está agora listada. Terá precisará de permissão de pré-consentimento para que a aplicação aceda à API e ao âmbito, para todos os utilizadores. Clique no botão **Conceder permissões** na parte superior e selecione **Sim**:
 
    ![Portal do Azure Permissões necessárias do Azure AD - consentimento](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. Como mencionado anteriormente, terá também de atualizar o manifesto de aplicação. Clique no nome da aplicação no endereço para regressar à página **Aplicação registada**. Selecione **Manifesto**, altere a propriedade `oauth2AllowImplicitFlow` para `true`, em seguida, clique em **Guardar**:
+1. Como mencionado anteriormente, terá também de atualizar o manifesto de aplicação. Clique no nome da aplicação no endereço para regressar à página **Aplicação registada**. Selecione **Manifesto**, altere a propriedade `oauth2AllowImplicitFlow` para `true`, em seguida, clique em **Guardar**:
 
    ![Portal do Azure Atualizar manifesto do Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-9. Por fim, clique no endereço para regressar novamente à página **Aplicação registada** e copie as propriedades do URL da **Home page** e o **ID da aplicação** para a sua aplicação. Irá utilizar estas propriedades num passo posterior:
+1. Por fim, clique no endereço para regressar novamente à página **Aplicação registada** e copie as propriedades do URL da **Home page** e o **ID da aplicação** para a sua aplicação. Irá utilizar estas propriedades num passo posterior:
 
    ![Portal do Azure Propriedades do Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -92,15 +93,15 @@ Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo forne
    - **Index.html** HTML e JavaScript para a página https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** folha de estilo CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Abra e inicie sessão no Visual Studio para criar um projeto para a aplicação Web. No menu **Ficheiro**, selecione a opção **Abrir**, **Site**. Na caixa de diálogo **Abrir Site**, selecione o diretório de trabalho onde armazenou os ficheiros HTML e CSS e, em seguida, clique em **Abrir**:
+1. Abra e inicie sessão no Visual Studio para criar um projeto para a aplicação Web. No menu **Ficheiro**, selecione a opção **Abrir**, **Site**. Na caixa de diálogo **Abrir Site**, selecione o diretório de trabalho onde armazenou os ficheiros HTML e CSS e, em seguida, clique em **Abrir**:
 
    ![VS - Ficheiro abrir site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. Abra o **Explorador de Soluções** no menu **Ver** do Visual Studio. Deverá ver a nova solução, com um projeto do site (ícone de globo), que contém os ficheiros HTML e CSS:
+1. Abra o **Explorador de Soluções** no menu **Ver** do Visual Studio. Deverá ver a nova solução, com um projeto do site (ícone de globo), que contém os ficheiros HTML e CSS:
 
    ![VS - Explorador de soluções nova solução](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. Antes de poder publicar a aplicação, tem de atualizar as partes do código JavaScript em **index.html**: 
+1. Antes de poder publicar a aplicação, tem de atualizar as partes do código JavaScript em **index.html**: 
 
    a. Em primeiro lugar, altere os caminhos para a referência dos ficheiros JavaScript e folhas de estilo no elemento `<head>`. Abra o ficheiro **index.html** na sua solução Visual Studio e localize as seguintes linhas de código JavaScript. Anule o comentário das três linhas em "PROD RESOURCE LINKS" e comente as três linhas em "DEV RESOURCE LINKS":
    
@@ -133,7 +134,7 @@ Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo forne
 
    c. Guarde o **index.html** quando tiver terminado a edição.
 
-5. Agora publique a aplicação Web na sua subscrição do Azure como um Serviço de Aplicações do Azure:  
+1. Agora publique a aplicação Web na sua subscrição do Azure como um Serviço de Aplicações do Azure:  
 
    > [!NOTE]
    > Vários campos das caixas de diálogo seguintes são preenchidos com os dados da sua subscrição do Azure. Como tal, pode demorar alguns segundos para cada caixa de diálogo carregar completamente, antes de poder continuar.  
@@ -187,7 +188,7 @@ Este tutorial cria vários serviços do Azure em execução. Se não planeia con
 No menu esquerdo do portal do Azure:
 
 1. Clique no ícone **Grupos de recursos** e, em seguida, selecione o grupo de recursos que criou para o Ambiente do TSI. Na parte superior da página, clique em **Eliminar grupo de recursos**, escreva o nome do grupo de recurso e, em seguida, clique em **Eliminar**. 
-2. Clique no ícone **Grupos de recursos** e, em seguida, selecione o grupo de recursos que foi criado pelo acelerador de soluções da simulação de dispositivos. Na parte superior da página, clique em **Eliminar grupo de recursos**, escreva o nome do grupo de recurso e, em seguida, clique em **Eliminar**. 
+1. Clique no ícone **Grupos de recursos** e, em seguida, selecione o grupo de recursos que foi criado pelo acelerador de soluções da simulação de dispositivos. Na parte superior da página, clique em **Eliminar grupo de recursos**, escreva o nome do grupo de recurso e, em seguida, clique em **Eliminar**. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

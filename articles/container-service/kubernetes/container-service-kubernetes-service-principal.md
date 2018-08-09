@@ -9,21 +9,21 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 84215daac950f602c815e1ffc5ae6dd5269d9bdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167117"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576924"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurar o principal de serviço do Azure AD para um cluster de Kubernetes no Container Service
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-No Azure Container Service, um cluster de Kubernetes requer um [principal de serviço do Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) para interagir com APIs do Azure. O principal de serviço tem de gerir dinamicamente recursos, como [rotas definidas pelo utilizador](../../virtual-network/virtual-networks-udr-overview.md) e o [Balanceador de Carga do Azure de Camada 4](../../load-balancer/load-balancer-overview.md).
+No Azure Container Service, um cluster de Kubernetes requer um [principal de serviço do Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) para interagir com APIs do Azure. O principal de serviço tem de gerir dinamicamente recursos, como [rotas definidas pelo utilizador](../../virtual-network/virtual-networks-udr-overview.md) e o [Balanceador de Carga do Azure de Camada 4](../../load-balancer/load-balancer-overview.md).
 
 
-Este artigo mostra as diferentes opções para configurar um principal de serviço para o cluster de Kubernetes. Por exemplo, se instalou e configurou o [CLI do Azure 2.0](/cli/azure/install-az-cli2), pode executar o comando [`az acs create`](/cli/azure/acs#az_acs_create), para criar o cluster de Kubernetes e o principal de serviço ao mesmo tempo.
+Este artigo mostra as diferentes opções para configurar um principal de serviço para o cluster de Kubernetes. Por exemplo, se instalou e configurou o [CLI do Azure 2.0](/cli/azure/install-az-cli2), pode executar o comando [`az acs create`](/cli/azure/acs#az-acs-create), para criar o cluster de Kubernetes e o principal de serviço ao mesmo tempo.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisitos para o principal de serviço
@@ -96,7 +96,7 @@ O exemplo seguinte mostra uma forma de passar os parâmetros com a CLI do Azure 
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opção 2: gerar um principal de serviço ao criar o cluster com `az acs create`
 
-Se executar o comando [`az acs create`](/cli/azure/acs#az_acs_create) para criar o cluster de Kubernetes, tem a opção de gerar automaticamente um principal de serviço.
+Se executar o comando [`az acs create`](/cli/azure/acs#az-acs-create) para criar o cluster de Kubernetes, tem a opção de gerar automaticamente um principal de serviço.
 
 Tal como com outras opções de criação de cluster de Kubernetes, pode especificar parâmetros para um principal de serviço existente quando executa `az acs create`. No entanto, quando omitir estes parâmetros, a CLI do Azure cria um automaticamente para utilização com o Container Service. Isto é efetuado de forma transparente durante a implementação.
 
@@ -132,7 +132,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 A menos que especifique uma janela de validade personalizada com o parâmetro `--years` ao criar um principal de serviço, as suas credenciais são válidas durante 1 ano a partir da hora de criação. Quando a credencial expira, os nós de cluster podem entrar numa estado **NotReady**.
 
-Para verificar a data de expiração de um principal de serviço, execute o comando [az ad app show](/cli/azure/ad/app#az_ad_app_show) com o parâmetro `--debug` e procure o valor `endDate` de `passwordCredentials` junto à parte inferior do resultado:
+Para verificar a data de expiração de um principal de serviço, execute o comando [az ad app show](/cli/azure/ad/app#az-ad-app-show) com o parâmetro `--debug` e procure o valor `endDate` de `passwordCredentials` junto à parte inferior do resultado:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -146,7 +146,7 @@ Resultado (aqui apresentado como truncado):
 ...
 ```
 
-Se as credenciais do principal de serviço tiverem expirado, utilize o comando [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) para atualizar as credenciais:
+Se as credenciais do principal de serviço tiverem expirado, utilize o comando [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) para atualizar as credenciais:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>
