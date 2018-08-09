@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 48f1a4950365c00b7bff8c804abd95fd7b7ab9b9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: be6032d8c0ce7c20a080037fad216c4b540c90cb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069061"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435602"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutorial: Ativar a firewall de aplicações Web com a CLI do Azure
 
@@ -41,7 +41,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure denominado *myResourceGroupAG* com [az group create](/cli/azure/group#az_group_create).
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure denominado *myResourceGroupAG* com [az group create](/cli/azure/group#az-group-create).
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
 
-A rede virtual e as sub-redes são utilizadas para fornecer conectividade de rede ao gateway de aplicação e aos respetivos recursos associados. Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet*, com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) e [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Crie um endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+A rede virtual e as sub-redes são utilizadas para fornecer conectividade de rede ao gateway de aplicação e aos respetivos recursos associados. Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet*, com [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) e [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Crie um endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Criar um gateway de aplicação com uma WAF
 
-Pode utilizar [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myPublicIPSddress* que criou anteriormente.
+Pode utilizar [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myPublicIPSddress* que criou anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,7 +108,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, vai criar um conjunto de dimensionamento de máquinas virtuais que fornece dois servidores para o conjunto de back-end no gateway de aplicação. As máquinas virtuais no conjunto de dimensionamento são associadas à sub-rede *myBackendSubnet*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az_vmss_create).
+Neste exemplo, vai criar um conjunto de dimensionamento de máquinas virtuais que fornece dois servidores para o conjunto de back-end no gateway de aplicação. As máquinas virtuais no conjunto de dimensionamento são associadas à sub-rede *myBackendSubnet*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -144,7 +144,7 @@ Neste tutorial, o gateway de aplicação utiliza uma conta de armazenamento para
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma conta de armazenamento denominada *myagstore1*, com [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+Crie uma conta de armazenamento denominada *myagstore1*, com [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 
 ```azurecli-interactive
 az storage account create \
@@ -157,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Configurar o diagnóstico
 
-Configure o diagnóstico para registar dados nos registos ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Substitua `<subscriptionId>` pelo identificador da subscrição e, em seguida, configure o diagnóstico com [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
+Configure o diagnóstico para registar dados nos registos ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Substitua `<subscriptionId>` pelo identificador da subscrição e, em seguida, configure o diagnóstico com [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -171,7 +171,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser.
+Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurepowershell-interactive
 az network public-ip show \

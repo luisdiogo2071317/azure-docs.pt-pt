@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: ff6712a70138a2178a2bddb4af467371192fdea3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8b5b96db516c6f62f669a0cfc2a10a0c7796cac5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582226"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429204"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: migrar uma aplicação Web MongoDB Node.js existente 
 
@@ -76,7 +76,7 @@ A aplicação irá tentar ligar a uma origem do MongoDB e falhar, saia da aplica
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Se estiver a utilizar uma CLI do Azure instalada, inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/reference-index#az_login) e siga as instruções no ecrã. Pode ignorar esta etapa se estiver a utilizar o Azure Cloud Shell.
+Se estiver a utilizar uma CLI do Azure instalada, inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/reference-index#az-login) e siga as instruções no ecrã. Pode ignorar esta etapa se estiver a utilizar o Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -90,7 +90,7 @@ Se `cosmosdb` não está na lista de comandos de base, reinstale a [CLI do Azure
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com o [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure, como aplicações Web, bases de dados e contas de armazenamento, são implementados e geridos. 
+Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com o [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure, como aplicações Web, bases de dados e contas de armazenamento, são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos na região Europa Ocidental. Escolha um nome exclusivo para o grupo de recursos.
 
@@ -102,7 +102,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Crie uma conta do Azure Cosmos DB com o comando [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create).
+Crie uma conta do Azure Cosmos DB com o comando [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create).
 
 No comando seguinte, substitua o nome exclusivo da conta do Azure Cosmos DB, quando vir o marcador de posição `<cosmosdb-name>`. Este nome exclusivo será utilizado como parte do ponto final do Azure Cosmos DB (`https://<cosmosdb-name>.documents.azure.com/`). Por isso, o nome tem de ser exclusivo em todas as contas do Azure Cosmos DB. 
 

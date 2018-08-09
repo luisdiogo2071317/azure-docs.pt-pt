@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 8781a4fd7e3dde830a173d62025dbf59a0a3738e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 43c9ee65b43bed7ac686edbf48ec670a85cf12cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031027"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426495"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure
 Este guia de introdução descreve como utilizar a CLI do Azure para criar uma Base de Dados do Azure para o servidor MySQL num grupo de recursos do Azure em cerca de cinco minutos. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts.
@@ -27,13 +27,13 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az_account_set).
+Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
+Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
 
 O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`.
 
@@ -42,7 +42,7 @@ az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL
-Crie uma Base de Dados do Azure para o servidor MySQL com o comando **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
+Crie uma Base de Dados do Azure para o servidor MySQL com o comando **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)**. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
 O exemplo seguinte cria um servidor em EUA Oeste com o nome `mydemoserver` no seu grupo de recursos `myresourcegroup`, com o início de sessão de administrador do servidor `myadmin`. Este é um servidor d**Gen 4** **Fins Gerais** com 2 **vCores**. O nome de um servidor mapeia para o nome DNS e, por conseguinte, é necessário para ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` pelo seu próprio valor.
 ```azurecli-interactive
@@ -56,7 +56,7 @@ O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {gera
 Leia a documentação dos [escalões de preços](./concepts-pricing-tiers.md) para entender os valores válidos por região e por escalão.
 
 ## <a name="configure-firewall-rule"></a>Configurar a regra de firewall
-Crie uma regra de firewall ao nível da Base de Dados do Azure para o servidor MySQL com o comando **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create)**. A regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta de linha de comandos **mysql.exe** ou o MySQL Workbench, se ligue ao seu servidor através da firewall do serviço Azure MySQL. 
+Crie uma regra de firewall ao nível da Base de Dados do Azure para o servidor MySQL com o comando **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)**. A regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta de linha de comandos **mysql.exe** ou o MySQL Workbench, se ligue ao seu servidor através da firewall do serviço Azure MySQL. 
 
 O exemplo seguinte cria uma regra de firewall chamada `AllowMyIP` que permite ligações a partir de um endereço IP específico, 192.168.0.1. Substitua o endereço IP ou intervalo de endereços IP que correspondem ao local onde os irá ligar. 
 
@@ -201,7 +201,7 @@ Se não precisa destes recursos para outro início rápido/tutorial, pode elimin
 az group delete --name myresourcegroup
 ```
 
-Se apenas quiser eliminar o único servidor recém-criado, pode executar o comando **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
+Se apenas quiser eliminar o único servidor recém-criado, pode executar o comando **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)**.
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```

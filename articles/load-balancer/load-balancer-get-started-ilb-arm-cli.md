@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd4dda835279a21509f77814f4d5f9e30e8a42c1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676091"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439203"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Criar um balanceador de carga interno para balanceamento de carga de VMs através da CLI do Azure 2.0
 
@@ -110,7 +110,7 @@ Antes de implementar algumas VMs e testar o balanceador de carga, crie os recurs
 
 ### <a name="create-nics"></a>Criar NICs
 
-Crie duas interfaces de rede com [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associe as mesmas ao endereço IP privado. 
+Crie duas interfaces de rede com [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associe as mesmas ao endereço IP privado. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -130,7 +130,7 @@ Neste exemplo, o utilizador cria duas máquinas virtuais para serem utilizadas c
 
 ### <a name="create-an-availability-set"></a>Criar um Conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -184,7 +184,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az_vm_create).
+Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -228,7 +228,7 @@ Para obter o endereço IP privado do balanceador de carga, utilize [az network l
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupILB

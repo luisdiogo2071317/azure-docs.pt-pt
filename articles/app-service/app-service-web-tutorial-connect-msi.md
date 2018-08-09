@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461542"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445566"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Tutorial: Proteger a ligação da Base de Dados SQL com a identidade de serviço gerida
 
@@ -48,7 +48,7 @@ Este artigo retoma onde o artigo [Tutorial: Criar uma aplicação ASP.NET no Azu
 
 ## <a name="enable-managed-service-identity"></a>Ativar a identidade de serviço gerida
 
-Para ativar uma identidade de serviço na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) no Cloud Shell. No comando seguinte, substitua *\<nome da aplicação>*.
+Para ativar uma identidade de serviço na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, substitua *\<nome da aplicação>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Conceder acesso à base de dados à identidade
 
-Em seguida, vai conceder acesso à base de dados à identidade de serviço da sua aplicação com o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) no Cloud Shell. No comando seguinte, substitua *\<server_name>* e <principalid_from_last_step>. Escreva um nome de administrador em *\<admin_user>*.
+Em seguida, vai conceder acesso à base de dados à identidade de serviço da sua aplicação com o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) no Cloud Shell. No comando seguinte, substitua *\<server_name>* e <principalid_from_last_step>. Escreva um nome de administrador em *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ A identidade de serviço gerida tem agora acesso ao servidor da Base de Dados SQ
 
 ## <a name="modify-connection-string"></a>Modificar a cadeia de ligação
 
-Modifique a ligação que definiu anteriormente para a aplicação com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell. No comando seguinte, substitua *\<app name>* pelo nome da aplicação e *\<server_name>* e *\<db_name>* pelos nomes relativos à Base de Dados SQL.
+Modifique a ligação que definiu anteriormente para a aplicação com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando seguinte, substitua *\<app name>* pelo nome da aplicação e *\<server_name>* e *\<db_name>* pelos nomes relativos à Base de Dados SQL.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure

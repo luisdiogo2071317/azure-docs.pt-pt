@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: ea00ad1742089bf53c79d5c3d17d3e7ba8477a38
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: acdc2b40530be190212b8b8f35443ce8d4ee4bde
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38700857"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432519"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Criar um servidor MySQL e configurar uma regra de firewall com a CLI do Azure
 Este script de exemplo da CLI do Azure cria um servidor da Base de Dados do Azure para MySQL e configura uma regra de firewall ao nível do servidor. Assim que o script é executado com êxito, o servidor MySQL é acedido por todos os serviços do Azure e o endereço IP configurado.
@@ -38,10 +38,10 @@ Este script utiliza os comandos descritos na tabela seguinte:
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Cria um servidor MySQL que aloja as bases de dados. |
-| [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) | Cria uma regra de firewall para permitir o acesso ao servidor e às bases de dados incluídas, a partir do intervalo de endereços IP introduzido. |
-| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | Cria um servidor MySQL que aloja as bases de dados. |
+| [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) | Cria uma regra de firewall para permitir o acesso ao servidor e às bases de dados incluídas, a partir do intervalo de endereços IP introduzido. |
+| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).

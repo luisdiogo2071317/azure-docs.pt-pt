@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: af148cd8b3eececb258057a8bf6a78216ec0e50a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c2c138e7064ae5f8bfb11d2f8d4c6b8e9e45760d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258335"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442008"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma Identidade de Serviço Gerida de VM do Linux para aceder ao Azure Cosmos DB 
 
@@ -58,19 +58,19 @@ Neste tutorial, vai criar uma nova VM do Linux ativada por Identidade de Serviç
 
 Para criar uma VM ativada por Identidade de Serviço Gerida:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az_login). Utilize uma conta que esteja associada à subscrição do Azure na qual pretende implementar a VM:
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta que esteja associada à subscrição do Azure na qual pretende implementar a VM:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Crie uma [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az_group_create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
+2. Crie uma [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az-group-create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Crie uma VM com [az vm create](/cli/azure/vm/#az_vm_create). O exemplo seguinte cria uma VM com o nome *myVM* com uma Identidade de Serviço Gerida, conforme pedido pelo parâmetro `--assign-identity`. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
+3. Crie uma VM com [az vm create](/cli/azure/vm/#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* com uma Identidade de Serviço Gerida, conforme pedido pelo parâmetro `--assign-identity`. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12

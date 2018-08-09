@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450033"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -31,7 +32,7 @@ Nos tutoriais seguintes, vai implementar o contentor do seu registo privado para
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial requer a instalação local da CLI do Azure (versão 2.0.31 ou posterior). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Este tutorial requer a instalação local da CLI do Azure (versão 2.0.31 ou posterior). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 Deve estar familiarizado com os principais conceitos do Docker, como contentores, imagens de contentores e comandos simples do Docker da CLI. Para obter noções básicas sobre os contentores, veja [Get started with Docker]( https://docs.docker.com/get-started/) (Introdução ao Docker).
 
@@ -89,7 +90,7 @@ Quando a replicação estiver completa, o portal reflete *Pronto* para ambas as 
 
 Agora que configurou a georreplicação, crie uma imagem de contentor e envie-a para o seu registo. Deve primeiro iniciar a sessão na sua instância do ACR antes de enviar imagens para a mesma.
 
-Utilize o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para autenticar e colocar as credenciais em cache para o seu registo. Substitua `<acrName>` pelo nome do registo que criou anteriormente.
+Utilize o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) para autenticar e colocar as credenciais em cache para o seu registo. Substitua `<acrName>` pelo nome do registo que criou anteriormente.
 
 ```azurecli
 az acr login --name <acrName>

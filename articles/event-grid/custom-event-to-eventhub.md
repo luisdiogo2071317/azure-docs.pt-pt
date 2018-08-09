@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 7b2cf18aa2bbce1fcaf8b26dbca00d7fd352c3b1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b5be37ede208ba14fbfe8270bff317a782bf655a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867237"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425889"
 ---
 # <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para o Hubs de Eventos do Azure com a CLI do Azure e o Event Grid
 
@@ -25,7 +25,7 @@ O Azure Event Grid é um serviço de eventos para a cloud. Os Hubs de Eventos do
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). 
 
 O exemplo seguinte cria um grupo de recursos com o nome *gridResourceGroup* na localização *westus2*.
 

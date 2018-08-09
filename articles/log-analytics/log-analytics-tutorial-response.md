@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: d81a41a0012d4e0be4e812d48074e7af1e92213a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: c6c7b3f897e38fbd67098c9f881380bc073f13da
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391151"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432655"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
 São criadas regras de pesquisa de registos pelos Alertas do Azure para executar automaticamente consultas de registos especificados a intervalos regulares.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, é criado um registo de alerta. A regra pode executar automaticamente uma ou mais ações através dos [Grupos de Ações](../monitoring-and-diagnostics/monitoring-action-groups.md).  Este tutorial é uma continuação do tutorial [Criar e partilhar dashboards de dados do Log Analytics](log-analytics-tutorial-dashboards.md).   
@@ -43,15 +43,15 @@ Os alertas são criados por regras de alerta no Azure Monitor e podem executar a
 No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica com base na consulta *Azure VMs – Utilização do Processador* guardada em [Visualizar tutorial de dados](log-analytics-tutorial-dashboards.md). É criado um alerta para cada máquina virtual que excede um limiar de 90%.
 
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Monitorizar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Monitorizar**.
-2. No painel da esquerda, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.
+1. No painel da esquerda, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.
 
     ![Criar nova regra de alerta](./media/log-analytics-tutorial-response/alert-rule-02.png)
 
-3. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho VM e Log Analytics criada anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.
+1. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho VM e Log Analytics criada anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.
 
     ![Tarefa Criar alerta passo 1](./media/log-analytics-tutorial-response/alert-rule-03.png)
 
-4. Na secção **Critérios de Alerta**, clique em **Adicionar Critérios** para definir a consulta e, em seguida, especifique a lógica que a regra de alerta segue. No painel **Configurar lógica de sinal**, selecione **Pesquisa de registos personalizados** como nome do sinal e introduza a sua consulta na **Consulta de pesquisa**.
+1. Na secção **Critérios de Alerta**, clique em **Adicionar Critérios** para definir a consulta e, em seguida, especifique a lógica que a regra de alerta segue. No painel **Configurar lógica de sinal**, selecione **Pesquisa de registos personalizados** como nome do sinal e introduza a sua consulta na **Consulta de pesquisa**.
 
     Por exemplo:
     ```
@@ -62,21 +62,21 @@ No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica
 
     O painel atualiza para apresentar as definições de configuração do alerta.  Na parte superior, são apresentados os resultados dos últimos 30 minutos do sinal selecionado.
 
-5. Configure o alerta com as seguintes informações:  
+1. Configure o alerta com as seguintes informações:  
    a. Na lista pendente **Com base em*, selecione **Medição métrica**.  Uma medição métrica cria um alerta para cada objeto na consulta com um valor que excede o nosso limiar especificado.  
    b. Para **Condição**, selecione **Maior que** e introduza **90** para **Limiar**.  
    c. Na secção Acionar Alerta Com Base Em, selecione **Falhas de segurança consecutivas** e na lista pendente selecione **Maior que** e introduza 3.  
    d. Na secção Avaliação baseada em, aceite as predefinições. A regra é executada a cada cinco minutos e devolve registos que foram criados no intervalo da hora atual.  
-6. Clique em **Concluído** para concluir a regra do alerta.
+1. Clique em **Concluído** para concluir a regra de alerta.
 
     ![Configurar sinal do alerta](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)
 
-7. Agora, passando ao segundo passo, indique o nome do alerta no campo **Nome da regra de alerta**, como **Percentagem da CPU maior que 90%**.  Especifique uma **Descrição** detalhando especificidades do alerta e selecione **Crítico (Grav 0)** como o valor de **Gravidade** nas opções fornecidas.
+1. Agora passando ao segundo passo, indique o nome do alerta no campo **Nome da regra de alerta**, como **Percentagem da CPU maior que 90%**.  Especifique uma **Descrição** detalhando especificidades do alerta e selecione **Crítico (Grav 0)** como o valor de **Gravidade** nas opções fornecidas.
 
     ![Configurar detalhes do alerta](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
 
-8. Para ativar imediatamente a regra de alerta na criação, aceite o valor predefinido de **Ativar regra após criação**.  
-9. Para o terceiro e último passo, especifica um **Grupo de Ações**, que garante que as mesmas ações são feitas sempre que um alerta é acionado e pode ser utilizado para cada regra que definir.  Configure um novo grupo de ações com as seguintes informações:  
+1. Para ativar imediatamente a regra de alerta na criação, aceite o valor predefinido de **Ativar regra após criação**.  
+1. Para o terceiro e último passo, especifica um **Grupo de Ações**, que garante que as mesmas ações são feitas sempre que um alerta é acionado e pode ser utilizado para cada regra que definir.  Configure um novo grupo de ações com as seguintes informações:  
    a. Selecione **Novo grupo de ações** e o painel **Adicionar grupo de ações** é apresentado.  
    b. Em **Nome do grupo de ações**, especifique um nome como **Operações de TI – Notificar** e um **Nome abreviado** como **itops-n**.  
    c. Verifique se os valores predefinidos de **Subscrição** e **Grupo de recursos** estão corretos. Caso contrário, selecione os valores corretos na lista pendente.  
@@ -85,8 +85,8 @@ No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica
    f. Clique em **OK** para guardar as alterações.  
        ![Criar novo grupo de ações](./media/log-analytics-tutorial-response/action-group-properties-01.png)
 
-10. Clique em **OK** para concluir o grupo de ações.
-11. Clique em **Criar regra de alerta** para concluir a regra de alerta. Começa imediatamente a executar.
+1. Clique em **OK** para concluir o grupo de ações.
+1. Clique em **Criar regra de alerta** para concluir a regra de alerta. Começa imediatamente a executar.
 
     ![Concluir a criação da nova regra de alerta](./media/log-analytics-tutorial-response/alert-rule-01.png)
 

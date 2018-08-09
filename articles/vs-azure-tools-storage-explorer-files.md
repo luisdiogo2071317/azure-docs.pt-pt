@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525762"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429792"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure
 
@@ -41,17 +41,17 @@ Os passos seguintes mostram como criar uma partilha de ficheiros no Explorador d
 
 1. Abra o Explorador de Armazenamento.
 
-2. No painel da esquerda, expanda a conta de armazenamento na qual pretende criar a Partilha de Ficheiros.
+1. No painel da esquerda, expanda a conta de armazenamento na qual pretende criar a Partilha de Ficheiros.
 
-3. Clique com o botão direito do rato em **File Shares (Partilhas de Ficheiros)** e, no menu de contexto, selecione **Create File Share (Criar Partilha de Ficheiros)**.
+1. Clique com o botão direito do rato em **File Shares (Partilhas de Ficheiros)** e, no menu de contexto, selecione **Create File Share (Criar Partilha de Ficheiros)**.
 
     ![Criar a Partilha de Ficheiros](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. É apresentada uma caixa de texto abaixo da pasta **File Shares (Partilhas de Ficheiros)**. Introduza o nome da partilha de ficheiros. Veja a secção [Regras de nomenclatura de partilhas](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) para obter uma lista das regras e restrições à nomenclatura das partilhas de ficheiros.
+1. É apresentada uma caixa de texto abaixo da pasta **File Shares (Partilhas de Ficheiros)**. Introduza o nome da partilha de ficheiros. Veja a secção [Regras de nomenclatura de partilhas](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) para obter uma lista das regras e restrições à nomenclatura das partilhas de ficheiros.
 
     ![Dar um nome à partilha](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Quando tiver concluído, prima **Enter** para criar a partilha de ficheiros ou **Esc** para cancelar. Depois de a partilha ser criada com êxito, será apresentada na pasta **File Shares** da conta de armazenamento selecionada.
+1. Quando tiver concluído, prima **Enter** para criar a partilha de ficheiros ou **Esc** para cancelar. Depois de a partilha ser criada com êxito, será apresentada na pasta **File Shares** da conta de armazenamento selecionada.
 
     ![A nova partilha](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -63,15 +63,15 @@ Os passos seguintes mostram como ver os conteúdos de uma partilha de ficheiros 
 
 1. Abra o Explorador de Armazenamento.
 
-2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer ver.
+1. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer ver.
 
-3. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
+1. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
 
-4. Clique com o botão direito do rato na partilha que quer ver e, no menu de contexto, selecione **Open (Abrir)**. Também pode fazer duplo clique na partilha de ficheiros desejada.
+1. Clique com o botão direito do rato na partilha que quer ver e, no menu de contexto, selecione **Open (Abrir)**. Também pode fazer duplo clique na partilha de ficheiros desejada.
 
     ![Abrir a partilha](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. O painel principal apresenta os conteúdos da partilha de ficheiros.
+1. O painel principal apresenta os conteúdos da partilha de ficheiros.
     
     ![Os conteúdos da partilha](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -83,15 +83,15 @@ Os passos seguintes mostram como eliminar uma partilha de ficheiros no Explorado
 
 1. Abra o Explorador de Armazenamento.
 
-2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer ver.
+1. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer ver.
 
-3. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
+1. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
 
-4. Clique com o botão direito do rato na partilha que quer eliminar e, no menu de contexto, selecione **Delete (Eliminar)**. Também pode premir **Delete** para eliminar a partilha de ficheiros selecionada atualmente.
+1. Clique com o botão direito do rato na partilha que quer eliminar e, no menu de contexto, selecione **Delete (Eliminar)**. Também pode premir **Delete** para eliminar a partilha de ficheiros selecionada atualmente.
 
     ![Eliminar](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
+1. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
     
     ![Caixa de diálogo de confirmação](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -103,15 +103,15 @@ Os passos seguintes mostram como copiar uma partilha de ficheiros de uma conta d
 
 1. Abra o Explorador de Armazenamento.
 
-2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer copiar.
+1. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer copiar.
 
-3. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
+1. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
 
-4. Clique com o botão direito do rato na partilha que quer copiar e, no menu de contexto, selecione **Copy File Share (Copiar Partilha de Ficheiro)**.
+1. Clique com o botão direito do rato na partilha que quer copiar e, no menu de contexto, selecione **Copy File Share (Copiar Partilha de Ficheiro)**.
 
     ![Copiar Partilha de Ficheiros](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Clique com o botão direito do rato na conta de armazenamento de “destino” pretendida na qual quer colar a partilha de ficheiros e, no menu de contexto, selecione **Paste File Share (Colar Partilha de Ficheiros)**.
+1. Clique com o botão direito do rato na conta de armazenamento de “destino” pretendida na qual quer colar a partilha de ficheiros e, no menu de contexto, selecione **Paste File Share (Colar Partilha de Ficheiros)**.
 
     ![Criar Partilha de Ficheiros](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -123,25 +123,25 @@ Os passos seguintes mostram como criar uma SAS para uma partilha de ficheiros:
 
 1. Abra o Explorador de Armazenamento.
 
-2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros para a qual quer obter uma SAS
+1. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros para a qual quer obter uma SAS
 
-3. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
+1. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
 
-4. Clique com o botão direito do rato na partilha de ficheiros pretendida e, no menu de contexto, selecione **Get Shared Access Signature (Obter Assinatura de Acesso Partilhado)**.
+1. Clique com o botão direito do rato na partilha de ficheiros pretendida e, no menu de contexto, selecione **Get Shared Access Signature (Obter Assinatura de Acesso Partilhado)**.
 
     ![Obter Assinatura de Acesso Partilhado](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. Na caixa de diálogo **Shared Access Signature (Assinatura de Acesso Partilhado)**, especifique a política, as datas de início e de expiração, o fuso horário e os níveis de acesso que atribuir ao recurso.
+1. Na caixa de diálogo **Shared Access Signature (Assinatura de Acesso Partilhado)**, especifique a política, as datas de início e de expiração, o fuso horário e os níveis de acesso que atribuir ao recurso.
 
     ![Caixa de diálogo SAS](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Quando tiver terminado de especificar as opções de SAS, selecione **Create (Criar)**.
+1. Quando tiver terminado de especificar as opções de SAS, selecione **Create (Criar)**.
 
-7. É, então, apresentada uma segunda caixa de diálogo **Assinatura de Acesso Partilhado**, que mostra a partilha de ficheiros juntamente com o URL e QueryStrings que pode utilizar para aceder ao recurso do armazenamento. Selecione **Copy (Copiar)**, junto ao URL que quer copiar para a área de transferências.
+1. É, então, apresentada uma segunda caixa de diálogo **Assinatura de Acesso Partilhado**, que mostra a partilha de ficheiros juntamente com o URL e QueryStrings que pode utilizar para aceder ao recurso do armazenamento. Selecione **Copy (Copiar)**, junto ao URL que quer copiar para a área de transferências.
     
     ![Segunda caixa de diálogo SAS](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. Quando terminar, selecione **Close (Fechar)**.
+1. Quando terminar, selecione **Close (Fechar)**.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Gerir as Políticas de Acesso de uma partilha de ficheiros
 
@@ -149,19 +149,19 @@ Os passos seguintes mostram como gerir (adicionar e remover) políticas de acess
 
 1. Abra o Explorador de Armazenamento.
 
-2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros cujas políticas de acesso quer gerir.
+1. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros cujas políticas de acesso quer gerir.
 
-3. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
+1. Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
 
-4. Selecione a partilha de ficheiros pretendida e, no menu de contexto, selecione **Manage Access Policies (Gerir Políticas de Acesso)**.
+1. Selecione a partilha de ficheiros pretendida e, no menu de contexto, selecione **Manage Access Policies (Gerir Políticas de Acesso)**.
 
     ![Menu de Contexto Gerir políticas de acesso](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. A caixa de diálogo **Access Policies (Políticas de Acesso)** mostrará todas as políticas de acesso que já tenham sido criadas para a partilha de ficheiros selecionada.
+1. A caixa de diálogo **Access Policies (Políticas de Acesso)** mostrará todas as políticas de acesso que já tenham sido criadas para a partilha de ficheiros selecionada.
     
     ![Políticas de Acesso](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Siga estes passos consoante a tarefa de gestão de política de acesso:
+1. Siga estes passos consoante a tarefa de gestão de política de acesso:
     
     - **Adicionar uma política de acesso nova** - selecione **Add (Adicionar)**. Depois de gerada, a caixa de diálogo **Access Policies** mostrará a política de acesso acabada de adicionar (com predefinições).
 
@@ -169,7 +169,7 @@ Os passos seguintes mostram como gerir (adicionar e remover) políticas de acess
 
     - **Remover uma política de acesso** - selecione **Remove (Remover)** junto à política de acesso que pretende remover.
 
-7. Utilize a Política de Acesso que criou anteriormente para criar um URL de SAS novo:
+1. Utilize a Política de Acesso que criou anteriormente para criar um URL de SAS novo:
     
     ![Obter SAS](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -183,19 +183,19 @@ Os passos seguintes mostram como gerir ficheiros (e pastas) numa partilha de fic
 
 1.  Abra o Explorador de Armazenamento.
 
-2.  No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer gerir.
+1.  No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer gerir.
 
-3.  Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
+1.  Expanda as **Partilhas de Ficheiros** da conta de armazenamento.
 
-4.  Faça duplo clique na partilha de ficheiros que quer ver.
+1.  Faça duplo clique na partilha de ficheiros que quer ver.
 
-5.  O painel principal apresenta os conteúdos da partilha de ficheiros.
+1.  O painel principal apresenta os conteúdos da partilha de ficheiros.
 
     ![Os conteúdos da partilha](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  O painel principal apresenta os conteúdos da partilha de ficheiros.
+1.  O painel principal apresenta os conteúdos da partilha de ficheiros.
 
-7.  Siga estes passos, consoante a tarefa que pretende realizar:
+1.  Siga estes passos, consoante a tarefa que pretende realizar:
 
     - **Carregar ficheiros para uma partilha de ficheiros**
 

@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fab67b503d060c8c01b5a3692c8a07b24c425c78
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488704"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437411"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux com uma imagem personalizada (pré-visualização)
 
@@ -161,7 +161,7 @@ O alojamento do Linux para Funções não é atualmente suportado em planos de c
 
 ## <a name="create-and-deploy-the-custom-image"></a>Criar e implementar a imagem personalizada
 
-Uma aplicação de funções aloja a execução das suas funções. Utilize o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) para criar uma aplicação de funções a partir de uma imagem do Docker Hub. 
+Uma aplicação de funções aloja a execução das suas funções. Utilize o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) para criar uma aplicação de funções a partir de uma imagem do Docker Hub. 
 
 No comando seguinte, substitua o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. Como anteriormente, `<docker-id>` é o nome da sua conta do Docker.
 
@@ -196,7 +196,7 @@ O parâmetro _deployment-container-image-name_ indica a imagem alojada no Docker
 
 A função precisa da cadeia de ligação para ligar à conta de armazenamento predefinida. Quando estiver publicar a sua imagem personalizada numa conta de contentor privada, deve definir estas definições de aplicação como variáveis de ambiente no Dockerfile com a [instrução ENV](https://docs.docker.com/engine/reference/builder/#env) ou equivalente. 
 
-Neste caso, `<storage_account>` é o nome da conta de armazenamento que criou. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione estas definições de aplicação na aplicação de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
+Neste caso, `<storage_account>` é o nome da conta de armazenamento que criou. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione estas definições de aplicação na aplicação de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

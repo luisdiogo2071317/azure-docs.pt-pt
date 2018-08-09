@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 4/17/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 47f0b43ae074314ffb1727508bb534fdd79c1f7d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4a122aebd149131e97be5c593a51871b1a943577
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607121"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427423"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
 O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaurar a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros individuais. Este artigo explica como restaurar uma VM completa através do CLI. Neste tutorial, ficará a saber como:
@@ -47,7 +47,7 @@ Quando a transferência de dados estiver concluída, o instantâneo é removido 
 ## <a name="list-available-recovery-points"></a>Listar pontos de recuperação disponíveis
 Para restaurar um disco, selecione um ponto de recuperação como a origem dos dados de recuperação. Uma vez que a política predefinida cria um ponto de recuperação por dia e mantêm-nos durante 30 dias, pode manter um conjunto de pontos de recuperação que lhe permite selecionar um ponto específico no tempo para a recuperação. 
 
-Para ver uma lista dos pontos de recuperação disponíveis, utilize [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). O **nome** do ponto de recuperação é utilizado para recuperar os discos. Neste tutorial, queremos os pontos de recuperação mais recentes disponíveis. O parâmetro `--query [0].name` seleciona o nome do ponto de recuperação mais recente da seguinte forma:
+Para ver uma lista dos pontos de recuperação disponíveis, utilize [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). O **nome** do ponto de recuperação é utilizado para recuperar os discos. Neste tutorial, queremos os pontos de recuperação mais recentes disponíveis. O parâmetro `--query [0].name` seleciona o nome do ponto de recuperação mais recente da seguinte forma:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -63,7 +63,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Restaurar um disco da VM
 Para restaurar o disco a partir do ponto de recuperação, primeiro tem de criar uma conta de armazenamento do Azure. Esta conta de armazenamento é utilizada para armazenar o disco restaurado. Nos passos adicionais, o disco restaurado é utilizado para criar uma VM.
 
-1. Para criar uma conta de armazenamento, utilize [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). O nome da conta de armazenamento tem de estar todo em minúsculas e ser globalmente exclusivo. Substitua *mystorageaccount* pelo seu próprio nome exclusivo:
+1. Para criar uma conta de armazenamento, utilize [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). O nome da conta de armazenamento tem de estar todo em minúsculas e ser globalmente exclusivo. Substitua *mystorageaccount* pelo seu próprio nome exclusivo:
 
     ```azurecli-interactive
     az storage account create \
@@ -72,7 +72,7 @@ Para restaurar o disco a partir do ponto de recuperação, primeiro tem de criar
         --sku Standard_LRS
     ```
 
-2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua *myRecoveryPointName* pelo nome do ponto de recuperação que obteve na saída a partir do comando anterior [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list):
+2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua *myRecoveryPointName* pelo nome do ponto de recuperação que obteve na saída a partir do comando anterior [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list):
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ Para restaurar o disco a partir do ponto de recuperação, primeiro tem de criar
 
 
 ## <a name="monitor-the-restore-job"></a>Monitorizar a tarefa de restauro
-Para monitorizar o estado da tarefa de restauro, utilize [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
+Para monitorizar o estado da tarefa de restauro, utilize [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -111,7 +111,7 @@ Quando o *Estado* dos relatórios da tarefa restauro é *Concluído*, o disco fo
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Converter disco restaurado num Disco Gerido
 A tarefa de restauro cria um disco não gerido. Para criar uma VM a partir do disco, primeiro tem de ser convertido para um disco gerido.
 
-1. Obtenha as informações de ligação para a sua conta de armazenamento com [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Substitua *storageaccountname* pelo nome da sua conta de armazenamento da seguinte forma:
+1. Obtenha as informações de ligação para a sua conta de armazenamento com [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Substitua *storageaccountname* pelo nome da sua conta de armazenamento da seguinte forma:
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -128,7 +128,7 @@ A tarefa de restauro cria um disco não gerido. Para criar uma VM a partir do di
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. Agora pode criar um Disco Gerido a partir do seu disco recuperado com [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create). O *uri* variável do passo anterior é utilizado como a origem para o Disco Gerido.
+3. Agora pode criar um Disco Gerido a partir do seu disco recuperado com [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create). O *uri* variável do passo anterior é utilizado como a origem para o Disco Gerido.
 
     ```azurecli-interactive
     az disk create \
@@ -137,7 +137,7 @@ A tarefa de restauro cria um disco não gerido. Para criar uma VM a partir do di
         --source $uri
     ```
 
-4. Agora que tem um Disco Gerido a partir do seu disco restaurado, limpe a conta de armazenamento e o disco não gerido com [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete). Substitua *storageaccountname* pelo nome da sua conta de armazenamento da seguinte forma:
+4. Agora que tem um Disco Gerido a partir do seu disco restaurado, limpe a conta de armazenamento e o disco não gerido com [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete). Substitua *storageaccountname* pelo nome da sua conta de armazenamento da seguinte forma:
 
     ```azurecli-interactive
     az storage account delete \
@@ -149,7 +149,7 @@ A tarefa de restauro cria um disco não gerido. Para criar uma VM a partir do di
 ## <a name="create-a-vm-from-the-restored-disk"></a>Criar uma VM a partir do disco restaurado
 O último passo é criar uma VM a partir do Disco Gerido.
 
-1. Crie uma VM a partir do Disco Gerido com [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) da seguinte forma:
+1. Crie uma VM a partir do Disco Gerido com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) da seguinte forma:
 
     ```azurecli-interactive
     az vm create \
@@ -159,7 +159,7 @@ O último passo é criar uma VM a partir do Disco Gerido.
         --os-type linux
     ```
 
-2. Para confirmar que a VM foi criada a partir do disco recuperado, liste as VMs no seu grupo de recursos com [az vm list](/cli/azure/vm?view=azure-cli-latest#az_vm_list) da seguinte forma:
+2. Para confirmar que a VM foi criada a partir do disco recuperado, liste as VMs no seu grupo de recursos com [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) da seguinte forma:
 
     ```azurecli-interactive
     az vm list --resource-group myResourceGroup --output table

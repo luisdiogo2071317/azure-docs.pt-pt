@@ -1,20 +1,20 @@
 ---
 title: Configurar o Aprovisionamento de Dispositivos com um modelo do Azure Resource Manager | Microsoft Docs
 description: Início Rápido do Azure - Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com um modelo
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219701"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523449"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
 
@@ -301,7 +301,7 @@ O modelo que definiu no último passo utiliza parâmetros para especificar o nom
 
 Utilize os seguintes comandos da CLI do Azure para implementar os modelos e verificar a implementação.
 
-1. Para implementar o modelo, execute o comando [ para iniciar uma implementação](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
+1. Para implementar o modelo, execute o comando [ para iniciar uma implementação](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ Utilize os seguintes comandos da CLI do Azure para implementar os modelos e veri
    ![Saída do aprovisionamento](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Para verificar a implementação, execute o comando [ para listar os recursos ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) e procure o serviço de aprovisionamento e o hub IoT novos na saída:
+2. Para verificar a implementação, execute o comando [ para listar os recursos ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) e procure o serviço de aprovisionamento e o hub IoT novos na saída:
 
     ```azurecli
      az resource list -g {your resource group name}

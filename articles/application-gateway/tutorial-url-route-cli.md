@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 45057a23d54f42a4f5b165fc3eb50c001ce92e8d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a774d491de4ca1dfdb96181ff13fa644a061cd65
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069173"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434219"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Encaminhar o tráfego Web com base no URL, com a CLI do Azure
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az_net). Em seguida, adicione uma sub-rede denominada *myBackendSubnet*, que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az-net). Em seguida, adicione uma sub-rede denominada *myBackendSubnet*, que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar conjuntos e portas de back-end de imagens e vídeos
 
-Adicione conjuntos de back-end denominados *imagesBackendPool* e *videoBackendPool* ao gateway de aplicação, com [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). Adicione a porta de front-end para os conjuntos, com [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
+Adicione conjuntos de back-end denominados *imagesBackendPool* e *videoBackendPool* ao gateway de aplicação, com [az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address-pool_create). Adicione a porta de front-end para os conjuntos, com [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -128,7 +128,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-backend-listener"></a>Adicionar o serviço de escuta de back-end
 
-Adicione o serviço de escuta de back-end denominado *backendListener* que é necessário para encaminhar o tráfego, com [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Adicione o serviço de escuta de back-end denominado *backendListener* que é necessário para encaminhar o tráfego, com [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create).
 
 
 ```azurecli-interactive
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-url-path-map"></a>Adicionar o mapa de caminho do URL
 
-Os mapas de caminho de URL asseguram que são encaminhados URLs específicos para conjuntos de back-end específicos. Crie o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule*, com [az network application-gateway url-path-mau create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) e [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
+Os mapas de caminho de URL asseguram que são encaminhados URLs específicos para conjuntos de back-end específicos. Crie o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule*, com [az network application-gateway url-path-mau create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_create) e [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -167,7 +167,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>Adicionar a regra de encaminhamento
 
-A regra de encaminhamento associa os mapas do URL ao serviço de escuta que criou. Adicione uma regra denominada *rule2*, com [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+A regra de encaminhamento associa os mapas do URL ao serviço de escuta que criou. Adicione uma regra denominada *rule2*, com [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -234,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser. Como, por exemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* ou *http://40.121.222.19:8080/video/test.htm*.
+Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser. Como, por exemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* ou *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurecli-interactive
 az network public-ip show \

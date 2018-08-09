@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 29a5cc67ab4d515809d00e5f0b4277f95bfb08e6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100181"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434429"
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Implementar um cluster do Kubernetes no Azure Container Service
 
@@ -35,7 +35,7 @@ Nos tutoriais anteriores, foi criada e carregada uma imagem de contentor para um
 
 ## <a name="create-kubernetes-cluster"></a>Criar cluster do Kubernetes
 
-Crie um cluster do Kubernetes no Azure Container Service com o comando [az acs create](/cli/azure/acs#az_acs_create). 
+Crie um cluster do Kubernetes no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 O exemplo seguinte cria um cluster com o nome `myK8sCluster` num Grupo de Recursos chamado `myResourceGroup`. Este Grupo de Recursos foi criado no [tutorial anterior](./container-service-tutorial-kubernetes-prepare-acr.md).
 
@@ -43,7 +43,7 @@ O exemplo seguinte cria um cluster com o nome `myK8sCluster` num Grupo de Recurs
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az_acs_create). 
+Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 Ao fim de vários minutos, a implementação é concluída e devolve informações sobre a implementação do ACS no formato json.
 

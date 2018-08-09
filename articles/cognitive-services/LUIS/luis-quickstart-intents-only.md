@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358143"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494378"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Criar aplicação com domínio personalizado
 Neste tutorial, crie uma aplicação que demonstre como utilizar **intenções** para determinar a _intenção_ do utilizador com base na expressão (texto) enviada para a aplicação. Quando terminar, obterá um ponto final do LUIS em execução na cloud.
@@ -84,19 +84,15 @@ Esta aplicação tem algumas intenções. A primeira intenção, **`GetJobInform
     Na aplicação de chamada do LUIS, como um chatbot, se o LUIS devolver a intenção **None** (Nenhuma) para uma expressão, o seu bot pode perguntar se o utilizador quer terminar a conversa. O chatbot também pode dar mais instruções para continuar a conversa se o utilizador não quiser terminá-la. 
 
 ## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
-1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar). 
 
-    ![Botão de preparação](./media/luis-quickstart-intents-only/train-button.png)
-
-2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
-
-    ![Barra de estado preparado](./media/luis-quickstart-intents-only/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Ponto final de consulta para a intenção GetJobInformation
+
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá para o final do URL no endereço e introduza `I'm looking for a job with Natual Language Processing`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões no passo 4, pelo que é um bom teste e deve devolver a intenção `GetJobInformation` como a principal intenção de classificação. 
@@ -189,7 +185,8 @@ O resultado JSON identifica a intenção com a melhor classificação. Todas as 
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e localizar informações (não armazenadas no LUIS) para responder à pergunta ou terminar a conversa. Tratam-se de opções de programação para o bot ou a aplicação de chamada. O LUIS não permite isso. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione **As minhas aplicações** no menu superior esquerdo. Selecione as reticências (***…***) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

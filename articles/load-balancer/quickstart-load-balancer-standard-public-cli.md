@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 48ed4270838a32c8060bf96a63fcfdd8c65f9689
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b6623b614a254635cb758f615271dac826f08b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696128"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439749"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Guia de Início Rápido: Criar um Balanceador de Carga Standard para balancear a carga de VMs com a CLI do Azure 2.0
 
@@ -149,7 +149,7 @@ Crie uma regra do grupo de segurança de rede para permitir ligações de entrad
 ```
 ### <a name="create-nics"></a>Criar NICs
 
-Crie três interfaces de rede com [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associe as mesmas ao endereço IP público e ao grupo de segurança de rede. 
+Crie três interfaces de rede com [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associe as mesmas ao endereço IP público e ao grupo de segurança de rede. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -171,7 +171,7 @@ Neste exemplo, o utilizador cria três máquinas virtuais para serem utilizadas 
 
 ### <a name="create-an-availability-set"></a>Criar um Conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -225,7 +225,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az_vm_create).
+Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -244,7 +244,7 @@ Poderão ser necessários alguns minutos para que as VMs sejam implementadas.
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-Para obter o endereço IP público do balanceador de carga, utilize [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser.
+Para obter o endereço IP público do balanceador de carga, utilize [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurecli-interactive
   az network public-ip show \
@@ -257,7 +257,7 @@ Para obter o endereço IP público do balanceador de carga, utilize [az network 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB

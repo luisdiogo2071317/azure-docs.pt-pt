@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: baa449bb9e78a5c6437b0a9528e5d1f10dfa519f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223624"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520457"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Tutorial: 9.  Adicionar análise de sentimentos
 Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos positivos, negativos e neutros de expressões.
@@ -27,7 +27,7 @@ Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos
 > * Preparar e publicar a aplicação
 > * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS 
 
-Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Se não tiver a aplicação de Recursos Humanos do tutorial [entidade de keyPhrase pré-concebida](luis-quickstart-intent-and-key-phrase.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
@@ -79,15 +79,8 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
     [ ![Captura de ecrã da aplicação LUIS com expressões de exemplo na intenção EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
-A LUIS desconhece a nova intenção e as respetivas expressões de exemplo até estar preparada. 
 
-1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar).
-
-    ![Captura de ecrã do botão Preparar realçado](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
-
-2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
-
-    ![Captura de ecrã da barra de notificação de êxito da Preparação ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configurar a aplicação para incluir análise de sentimentos
 Configurar análise de sentimentos na página **Publicar**. 
@@ -96,17 +89,15 @@ Configurar análise de sentimentos na página **Publicar**.
 
     ![Captura de ecrã da página Intenção com o botão Publicar expandido ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Selecione **Ativar Análise de Sentimentos**. Selecione o bloco Production (Produção) e o botão **Publish** (Publicar).
+2. Selecione **Ativar Análise de Sentimentos**. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Captura de ecrã da página Publicar com o botão Publicar no bloco de produção realçado")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
+## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
 
-4. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Consultar o ponto final com uma expressão
 
-1. Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. 
-
-    ![Captura de ecrã da página Publicar com o URL de ponto final realçado](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá para o final do URL no endereço e introduza `Jill Jones work with the media team on the public portal was amazing`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `EmployeeFeedback` com a análise de sentimentos extraída.
 
@@ -212,7 +203,8 @@ O chatbot tem agora informações suficientes para determinar o passo seguinte n
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados de sentimento da expressão para efetuar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências (***…***) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

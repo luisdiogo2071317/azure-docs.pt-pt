@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700830"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434844"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o Hub IoT
 
@@ -70,23 +70,23 @@ Se quiser utilizar a CLI localmente em vez de utilizar o Cloud Shell, terá de t
 
 Este tutorial requer a versão 5.7 ou posterior do módulo do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
 
-## <a name="set-up-resources"></a>Configurar os recursos
+## <a name="set-up-resources"></a>Configurar recursos
 
 Para este tutorial, precisa de um hub IoT, uma conta de armazenamento e uma fila do Service Bus. Estes recursos podem todos ser criados com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no final, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 As secções seguintes descrevem como efetuar estes passos obrigatórios. Siga as instruções da CLI *ou* do PowerShell.
 
-1. Criar um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
-2. Crie um hub IoT na camada S1. Adicione um grupo de consumidores ao hub IoT. O grupo de consumidores é utilizado pelo Azure Stream Analytics durante a obtenção dos dados.
+1. Crie um hub IoT na camada S1. Adicione um grupo de consumidores ao hub IoT. O grupo de consumidores é utilizado pelo Azure Stream Analytics durante a obtenção dos dados.
 
-3. Crie uma conta de armazenamento standard V1 com replicação Standard_LRS.
+1. Crie uma conta de armazenamento standard V1 com replicação Standard_LRS.
 
-4. Crie um espaço de nomes e uma fila do Service Bus. 
+1. Crie um espaço de nomes e uma fila do Service Bus. 
 
-5. Crie uma identidade para o dispositivo simulado que envia mensagens para o hub. Guarde a chave para a fase de teste.
+1. Crie uma identidade para o dispositivo simulado que envia mensagens para o hub. Guarde a chave para a fase de teste.
 
 ### <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
@@ -265,15 +265,15 @@ Depois, crie uma identidade do dispositivo e guarde a chave para utilização po
 
 1. Abra o [portal do Azure](https://portal.azure.com) e inicie sessão na sua conta do Azure.
 
-2. Clique em **Grupos de recursos** e selecione o grupo de recursos. Este tutorial utiliza **ContosoResources**.
+1. Clique em **Grupos de recursos** e selecione o grupo de recursos. Este tutorial utiliza **ContosoResources**.
 
-3. Na lista de recursos, clique no hub IoT. Este tutorial utiliza **ContosoTestHub**. Selecione **Dispositivos IoT** no painel Hub.
+1. Na lista de recursos, clique no hub IoT. Este tutorial utiliza **ContosoTestHub**. Selecione **Dispositivos IoT** no painel Hub.
 
-4. Clique em **+ Adicionar**. No painel Adicionar Dispositivo, preencha o ID do dispositivo. Este tutorial utiliza **Contoso-Test-Device**. Deixe as chaves em branco e marque **Chaves de Geração Automática**. Confirme que a opção **Ligar dispositivo ao hub IoT**  está ativada. Clique em **Guardar**.
+1. Clique em **+ Adicionar**. No painel Adicionar Dispositivo, preencha o ID do dispositivo. Este tutorial utiliza **Contoso-Test-Device**. Deixe as chaves em branco e marque **Chaves de Geração Automática**. Confirme que a opção **Ligar dispositivo ao hub IoT**  está ativada. Clique em **Guardar**.
 
    ![Captura de ecrã que mostra o ecrã Adicionar dispositivo.](./media/tutorial-routing/add-device.png)
 
-5. Agora que foi criado, clique no dispositivo para ver as chaves geradas. Clique no ícone de Cópia na Chave primária e guarde-a na localização desejada, por exemplo, no Bloco de notas para a fase de teste deste tutorial.
+1. Agora que foi criado, clique no dispositivo para ver as chaves geradas. Clique no ícone de Cópia na Chave primária e guarde-a na localização desejada, por exemplo, no Bloco de notas para a fase de teste deste tutorial.
 
    ![Captura de ecrã que mostra os detalhes do dispositivo, incluindo as chaves.](./media/tutorial-routing/device-details.png)
 
@@ -303,7 +303,7 @@ Agora configure o encaminhamento para a conta de armazenamento. Defina um ponto 
    
    Clique em **OK** para acabar de adicionar o ponto final.
    
-2. Clique em **Rotas** no hub IoT. Vai criar uma regra de encaminhamento que encaminha as mensagens para o contentor de armazenamento que acabou de adicionar como um ponto final. Clique em **+ Adicionar** na parte superior do painel Rotas. Preencha os campos no ecrã. 
+1. Clique em **Rotas** no hub IoT. Vai criar uma regra de encaminhamento que encaminha as mensagens para o contentor de armazenamento que acabou de adicionar como um ponto final. Clique em **+ Adicionar** na parte superior do painel Rotas. Preencha os campos no ecrã. 
 
    **Nome**: introduza um nome para a regra de encaminhamento. Este tutorial utiliza **StorageRule**.
 
@@ -335,7 +335,7 @@ Agora configure o encaminhamento para a fila do Service Bus. Defina um ponto fin
 
    Clique em **OK** para guardar o ponto final. Depois de concluído, feche o painel Pontos finais. 
     
-2. Clique em **Rotas** no hub IoT. Vai criar uma regra de encaminhamento que encaminha mensagens para a fila do Service Bus que acabou de adicionar como um ponto final. Clique em **+ Adicionar** na parte superior do painel Rotas. Preencha os campos no ecrã. 
+1. Clique em **Rotas** no hub IoT. Vai criar uma regra de encaminhamento que encaminha mensagens para a fila do Service Bus que acabou de adicionar como um ponto final. Clique em **+ Adicionar** na parte superior do painel Rotas. Preencha os campos no ecrã. 
 
    **Nome**: introduza um nome para a regra de encaminhamento. Este tutorial utiliza **SBQueueRule**. 
 
@@ -373,17 +373,17 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
 
    Clique em **Criar**.
 
-4. Agora, vá para a Aplicação Lógica. A forma mais fácil de aceder à Aplicação Lógica é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial utiliza **ContosoResources**) e, em seguida, selecionar a Aplicação Lógica na lista de recursos. É apresentada a página Estruturador de Aplicações Lógicas (poderá ter de deslocar o ecrã para a direita para ver a página completa). Na página Estruturador de Aplicações Lógicas, desloque o ecrã para baixo até ver o mosaico que indica **Aplicação Lógica em Branco +** e clique nele. 
+1. Agora, vá para a Aplicação Lógica. A forma mais fácil de aceder à Aplicação Lógica é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial utiliza **ContosoResources**) e, em seguida, selecionar a Aplicação Lógica na lista de recursos. É apresentada a página Estruturador de Aplicações Lógicas (poderá ter de deslocar o ecrã para a direita para ver a página completa). Na página Estruturador de Aplicações Lógicas, desloque o ecrã para baixo até ver o mosaico que indica **Aplicação Lógica em Branco +** e clique nele. 
 
-5. É apresentada uma lista de conectores. Selecione **Service Bus**. 
+1. É apresentada uma lista de conectores. Selecione **Service Bus**. 
 
    ![Captura de ecrã que mostra a lista de conectores.](./media/tutorial-routing/logic-app-connectors.png)
 
-6. É apresentada uma lista de acionadores. Selecione **Service Bus – Quando uma mensagem é recebida numa fila (concluir automaticamente)**. 
+1. É apresentada uma lista de acionadores. Selecione **Service Bus – Quando uma mensagem é recebida numa fila (concluir automaticamente)**. 
 
    ![Captura de ecrã que mostra a lista de acionadores do Service Bus.](./media/tutorial-routing/logic-app-triggers.png)
 
-6. No ecrã seguinte, preencha o Nome da Ligação. Este tutorial utiliza **ContosoConnection**. 
+1. No ecrã seguinte, preencha o Nome da Ligação. Este tutorial utiliza **ContosoConnection**. 
 
    ![Captura de ecrã que mostra como configurar a ligação para a fila do Service Bus.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -391,31 +391,31 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
    
    ![Captura de ecrã que mostra como configurar a ligação.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-7. No ecrã seguinte, selecione o nome da fila na lista pendente (este tutorial utiliza **contososbqueue**). Pode utilizar as predefinições no resto dos campos. 
+1. No ecrã seguinte, selecione o nome da fila na lista pendente (este tutorial utiliza **contososbqueue**). Pode utilizar as predefinições no resto dos campos. 
 
    ![Captura de ecrã que mostra as opções da fila.](./media/tutorial-routing/logic-app-queue-options.png)
 
-7. Agora, configure a ação para enviar um e-mail quando é recebida uma mensagem na fila. No Estruturador de Aplicações Lógicas, clique em **+Novo passo** para adicionar um passo e, em seguida, clique em**Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. No ecrã de acionadores, selecione **Outlook do Office 365 – Enviar um e-mail**.  
+1. Agora, configure a ação para enviar um e-mail quando é recebida uma mensagem na fila. No Estruturador de Aplicações Lógicas, clique em **+Novo passo** para adicionar um passo e, em seguida, clique em**Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. No ecrã de acionadores, selecione **Outlook do Office 365 – Enviar um e-mail**.  
 
    ![Captura de ecrã que mostra as opções do Office 365.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-8. Em seguida, inicie sessão na sua conta Office 365 para configurar a ligação. Especifique os endereços de e-mail dos destinatários. Especifique também o assunto e escreva a mensagem para apresentar no corpo ao destinatário. Para fins de teste, introduza o seu próprio endereço de e-mail para o destinatário.
+1. Em seguida, inicie sessão na sua conta Office 365 para configurar a ligação. Especifique os endereços de e-mail dos destinatários. Especifique também o assunto e escreva a mensagem para apresentar no corpo ao destinatário. Para fins de teste, introduza o seu próprio endereço de e-mail para o destinatário.
 
    Clique em **Adicionar conteúdo dinâmico** para mostrar o conteúdo da mensagem que pode incluir. Selecione **Conteúdo** – incluirá a mensagem no e-mail. 
 
    ![Captura de ecrã que mostra as opções de e-mail da aplicação lógica.](./media/tutorial-routing/logic-app-send-email.png)
 
-9. Clique em **Guardar**. Em seguida, feche o Estruturador de Aplicações Lógicas.
+1. Clique em **Guardar**. Em seguida, feche o Estruturador de Aplicações Lógicas.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurar o Azure Stream Analytics
 
 Para ver os dados numa visualização do Power BI, configure primeiro uma tarefa do Stream Analytics para obter os dados. Lembre-se de que apenas as mensagens com o **nível** definido como **normal** são enviadas para o ponto final predefinido e serão obtidas pela tarefa do Stream Analytics para a visualização do Power BI.
 
-### <a name="create-the-stream-analytics-job"></a>Criar tarefa do Stream Analytics
+### <a name="create-the-stream-analytics-job"></a>Criar a tarefa do Stream Analytics
 
 1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso** > **Internet das Coisas** > **Tarefa do Stream Analytics**.
 
-2. Introduza as seguintes informações para a tarefa.
+1. Introduza as seguintes informações para a tarefa.
 
    **Nome da tarefa**: o nome da tarefa. O nome tem de ser globalmente exclusivo. Este tutorial utiliza **contosoJob**.
 
@@ -425,13 +425,13 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    ![Captura de ecrã que mostra como criar a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-3. Clique em **Criar** para criar a tarefa. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial utiliza **ContosoResources**. Selecione o grupo de recursos e, em seguida, clique na tarefa de Stream Analytics na lista de recursos. 
+1. Clique em **Criar** para criar a tarefa. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial utiliza **ContosoResources**. Selecione o grupo de recursos e, em seguida, clique na tarefa de Stream Analytics na lista de recursos. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada à tarefa do Stream Analytics
 
 1. Em **Topologia da Tarefa**, clique em **Entradas**.
 
-2. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. No ecrã apresentado, preencha os campos seguintes:
+1. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de entrada**: este tutorial utiliza **contosoinputs**.
 
@@ -449,13 +449,13 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    ![Captura de ecrã que mostra como configurar a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-5. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída à tarefa do Stream Analytics
 
-1. Em **Topologia de Tarefas**, clique em **Saídas**.
+1. Em **Topologia da Tarefa**, clique em **Saídas**.
 
-2. No painel **Saídas**, clique em **Adicionar**e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
+1. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de saída**: o alias exclusivo da saída. Este tutorial utiliza **contosooutputs**. 
 
@@ -465,25 +465,25 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    Aceite as predefinições no resto dos campos.
 
-3. Clique em **Autorizar**e inicie sessão na sua conta do Power BI.
+1. Clique em **Autorizar**e inicie sessão na sua conta do Power BI.
 
    ![Captura de ecrã que mostra como configurar as saídas para a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-4. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta da tarefa do Stream Analytics
 
 1. Em **Topologia de Tarefas**, clique em **Consulta**.
 
-2. Substitua `[YourInputAlias]` pelo alias de entrada da tarefa. Este tutorial utiliza **contosoinputs**.
+1. Substitua `[YourInputAlias]` pelo alias de entrada da tarefa. Este tutorial utiliza **contosoinputs**.
 
-3. Substitua `[YourOutputAlias]` pelo alias de saída da tarefa. Este tutorial utiliza **contosooutputs**.
+1. Substitua `[YourOutputAlias]` pelo alias de saída da tarefa. Este tutorial utiliza **contosooutputs**.
 
    ![Captura de ecrã que mostra como configurar a consulta para a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-4. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
-5. Feche o painel Consulta. Esta ação leva-o de volta à vista de recursos no grupo de recursos. Clique na tarefa do Stream Analytics. Este tutorial denomina-o **contosoJob**.
+1. Feche o painel Consulta. Esta ação leva-o de volta à vista de recursos no grupo de recursos. Clique na tarefa do Stream Analytics. Este tutorial denomina-o **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
@@ -525,7 +525,7 @@ Se tudo estiver configurado corretamente, neste momento, deverá ver os seguinte
    * A Aplicação Lógica que obtém a mensagem da fila do Service Bus está a funcionar corretamente.
    * O conector da Aplicação Lógica para o Outlook está a funcionar corretamente. 
 
-2. No [portal do Azure](https://portal.azure.com), clique em**Grupos de recursos** e selecione o seu Grupo de Recursos. Este tutorial utiliza **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs** e selecione o Contentor. Este tutorial utiliza **contosoresults**. Deverá ver uma pasta e poderá pesquisar através dos diretórios até ver um ou mais ficheiros. Abra um desses ficheiros; contêm as entradas encaminhadas para a conta de armazenamento. 
+1. No [portal do Azure](https://portal.azure.com), clique em**Grupos de recursos** e selecione o seu Grupo de Recursos. Este tutorial utiliza **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs** e selecione o Contentor. Este tutorial utiliza **contosoresults**. Deverá ver uma pasta e poderá pesquisar através dos diretórios até ver um ou mais ficheiros. Abra um desses ficheiros; contêm as entradas encaminhadas para a conta de armazenamento. 
 
    ![Captura de ecrã que mostra os ficheiros resultantes no armazenamento.](./media/tutorial-routing/results-in-storage.png)
 
@@ -537,19 +537,19 @@ Agora com a aplicação ainda em execução, configure a visualização do Power
 
 ## <a name="set-up-the-power-bi-visualizations"></a>Configurar as Visualizações do Power BI
 
-1. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
+1. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
-2. Aceda a **Áreas de Trabalho** e selecione a área de trabalho que definiu quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **A Minha Área de Trabalho**. 
+1. Aceda a **Áreas de Trabalho** e selecione a área de trabalho que definiu quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **A Minha Área de Trabalho**. 
 
-3. Clique em **Conjuntos de dados**.
+1. Clique em **Conjuntos de dados**.
 
    Deverá ver o conjunto de dados que especificou quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **contosodataset**. (Pode demorar 5 a 10 minutos para que o conjunto de dados seja apresentado na primeira vez.)
 
-4. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
+1. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
 
    ![Captura de ecrã que mostra a área de trabalho do Power BI com Ações e o ícone de relatório realçados.](./media/tutorial-routing/power-bi-actions.png)
 
-5. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
+1. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
 
    a. Na página de criação do relatório, adicione um gráfico de linhas ao clicar no ícone de gráfico de linhas.
 
@@ -563,11 +563,11 @@ Agora com a aplicação ainda em execução, configure a visualização do Power
 
    É criado um gráfico de linhas. O eixo X apresenta a data e hora no fuso horário UTC. O eixo Y apresenta a temperatura do sensor.
 
-7. Crie outro gráfico de linhas para mostrar a humidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga os mesmos passos acima e coloque **EventEnqueuedUtcTime** no eixo X e **humidade** no eixo Y.
+1. Crie outro gráfico de linhas para mostrar a humidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga os mesmos passos acima e coloque **EventEnqueuedUtcTime** no eixo X e **humidade** no eixo Y.
 
    ![Captura de ecrã que mostra o relatório do Power BI final com os dois gráficos.](./media/tutorial-routing/power-bi-report.png)
 
-8. Clique em **Guardar** para guardar o relatório.
+1. Clique em **Guardar** para guardar o relatório.
 
 Poderá ver os dados em ambos os gráficos. Significado:
 
@@ -581,7 +581,7 @@ Pode atualizar os gráficos para ver os dados mais recentes ao clicar no botão 
 
 Se quiser remover todos os recursos que criou, elimine o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, o espaço de nomes e a fila do Service Bus, a Aplicação Lógica, a conta de armazenamento e o próprio grupo de recursos. 
 
-### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
 Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá para a área de trabalho. Este tutorial utiliza **A Minha Área de Trabalho**. Para remover a visualização do Power BI, aceda a Conjuntos de Dados e clique no ícone do lixo para eliminar o conjunto de dados. Este tutorial utiliza **contosodataset**. Quando remover o conjunto de dados, o relatório é também removido.
 

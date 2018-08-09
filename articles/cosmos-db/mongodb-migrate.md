@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100301"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435327"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importar dados do MongoDB 
 
@@ -45,8 +45,8 @@ Este tutorial abrange as seguintes tarefas:
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Localizar as informações da cadeia de ligação (anfitrião, porta, nome de utilizador e palavra-passe)
 
 1. No [portal do Azure](https://portal.azure.com), no painel do lado esquerdo, clique na entrada **Azure Cosmos DB**.
-2. No painel **Subscrições**, selecione o nome da sua conta.
-3. No painel **Cadeia de Ligação**, clique em **Cadeia de Ligação**.
+1. No painel **Subscrições**, selecione o nome da sua conta.
+1. No painel **Cadeia de Ligação**, clique em **Cadeia de Ligação**.
 
    O painel do lado direito contém todas as informações de que precisa para se ligar com êxito à sua conta.
 
@@ -102,7 +102,7 @@ Exemplo:
         }
         ```
 
-2. Calcule os custos de RU aproximados para uma escrita em documento única:
+1. Calcule os custos de RU aproximados para uma escrita em documento única:
 
     a. Ligue à base de dados MongoDB do Azure Cosmos DB a partir da shell do MongoDB. Pode encontrar instruções em [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ligar uma aplicação MongoDB ao Azure Cosmos DB).
     
@@ -125,7 +125,7 @@ Exemplo:
         
     d. Tome nota do custo do pedido.
     
-3. Determine a latência do seu computador para o serviço cloud do Azure Cosmos DB:
+1. Determine a latência do seu computador para o serviço cloud do Azure Cosmos DB:
     
     a. Utilize o comando ```setVerboseShell(true)``` para ativar o registo verboso a partir da shell do MongoDB.
     
@@ -135,9 +135,9 @@ Exemplo:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Remova o documento inserido antes da migração para garantir que não existem documentos duplicados. Pode remover documentos com o comando: ```db.coll.remove({})```
+1. Remova o documento inserido antes da migração para garantir que não existem documentos duplicados. Pode remover documentos com o comando: ```db.coll.remove({})```
 
-5. Calcular os valores de *batchSize* e *numInsertionWorkers* aproximados:
+1. Calcular os valores de *batchSize* e *numInsertionWorkers* aproximados:
 
     * Para *batchSize*, divida as RUs totais aprovisionadas pelas RUs que a escrita única no documento consumiu, no passo 3.
     
@@ -157,7 +157,7 @@ Exemplo:
     
     *numInsertionWorkers = (10 000 RUs x 0,1 s) / (24 x 10 RUs) = 4,1666*
 
-6. Execute o comando da migração final:
+1. Execute o comando da migração final:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

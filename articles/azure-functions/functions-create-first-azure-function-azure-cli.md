@@ -12,12 +12,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 2088844693748f090a67ad56f9b5fba4514d1282
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cc41b5e4ed9c823976a3e45a6e52d6c8b5684758
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488362"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429444"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Criar a sua primeira função com a CLI do Azure
 
@@ -45,7 +45,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Precisa de uma aplicação Function App para alojar a execução das suas funções. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Utilize o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) para criar uma aplicação Function App. 
+Precisa de uma aplicação Function App para alojar a execução das suas funções. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Utilize o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) para criar uma aplicação Function App. 
 
 No comando seguinte, substitua o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. O parâmetro _deployment-source-url_ é um repositório de exemplo no GitHub que contém uma função acionada por HTTP "Hello World".
 

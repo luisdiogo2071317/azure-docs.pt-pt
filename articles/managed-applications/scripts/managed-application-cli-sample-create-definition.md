@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 430cadf0cc609ab3473b14115b2956553a677a26
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1cc407e07aee307b00116aad1c44bf8e2b97e33e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29848088"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432478"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Criar uma definição da aplicação gerida com a CLI do Azure
 
@@ -39,7 +39,7 @@ Este script utiliza o seguinte comando para criar a definição da aplicação g
 
 | Comando | Notas |
 |---|---|
-| [az managedapp definition create](https://docs.microsoft.com/cli/azure/managedapp/definition#az_managedapp_definition_create) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
+| [az managedapp definition create](https://docs.microsoft.com/cli/azure/managedapp/definition#az-managedapp-definition-create) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

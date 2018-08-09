@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f4285b3e02176f6f734e6de4d02d3c9c26e5524c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467786"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429718"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Criar a sua primeira função em execução no Linux com a CLI do Azure (pré-visualização)
 
@@ -50,7 +50,7 @@ O alojamento do Linux para Funções é atualmente suportado apenas num plano do
 
 ## <a name="create-a-function-app-on-linux"></a>Criar uma aplicação de funções no Linux
 
-Precisa de uma aplicação de funções para alojar a execução das suas funções no Linux. A aplicação de funções proporciona um ambiente para a execução do código da sua função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Utilize o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) para criar uma aplicação de funções com um plano do Serviço de Aplicações do Linux. 
+Precisa de uma aplicação de funções para alojar a execução das suas funções no Linux. A aplicação de funções proporciona um ambiente para a execução do código da sua função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Utilize o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) para criar uma aplicação de funções com um plano do Serviço de Aplicações do Linux. 
 
 No comando seguinte, substitua o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. O parâmetro _deployment-source-url_ é um repositório de exemplo no GitHub que contém uma função acionada por HTTP "Hello World".
 

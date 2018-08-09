@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 59e36a2c8b719f2e8e3fd6aec20b91605221d8b2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109448"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432444"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para ativar o CI/CD para uma aplicação Java no Service Fabric
 
@@ -53,15 +53,15 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
 1. Extraia a imagem do contentor do Jenkins do Service Fabric: ``docker pull rapatchi/jenkins:v10``. Esta imagem inclui o plug-in do Jenkins do Service Fabric pré-instalado.
 
-2. Execute a imagem do contentor com a localização onde os certificados estão localizados no computador local montado
+1. Execute a imagem do contentor com a localização onde os certificados estão localizados no computador local montado
 
     ```bash
     docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
     ```
 
-3. Obtenha o ID da instância de imagem do contentor. Pode listar todos os contentores de Docker com o comando ``docker ps –a``
+1. Obtenha o ID da instância de imagem do contentor. Pode listar todos os contentores de Docker com o comando ``docker ps –a``
 
-4. Obtenha a palavra-passe da instância do Jenkins ao executar o seguinte comando:
+1. Obtenha a palavra-passe da instância do Jenkins ao executar o seguinte comando:
 
     ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
@@ -71,7 +71,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     * Esta palavra-passe é necessária para iniciar sessão no dashboard do Jenkins a partir do portal, que é ``http://<HOST-IP>:8080``
     * Depois de iniciar sessão pela primeira vez, pode criar a sua própria conta de utilizador ou utilizar a conta de administrador.
 
-5. Utilize os passos mencionados em [Gerar uma chave SSH nova e adicioná-la ao agente SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) para configurar o GitHub para funcionar com o Jenkins. Uma vez que os comandos são executados a partir do contentor do Docker, siga as instruções para o ambiente do Linux.
+1. Utilize os passos mencionados em [Gerar uma chave SSH nova e adicioná-la ao agente SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) para configurar o GitHub para funcionar com o Jenkins. Uma vez que os comandos são executados a partir do contentor do Docker, siga as instruções para o ambiente do Linux.
     * Utilize as instruções fornecidas pelo GitHub para gerar a chave SSH. Em seguida, adicione a chave SSH à conta do GitHub que aloja o repositório.
     * Execute os comandos mencionados na ligação anterior na shell Docker do Jenkins (e não no seu anfitrião).
     * Para iniciar sessão na shell do Jenkins a partir do seu anfitrião, utilize os comandos seguintes:
@@ -86,17 +86,17 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
 1. Em primeiro lugar, se não tiver um repositório que possa utilizar para alojar o projeto de Voto no Github, crie um. O repositório é denominado **dev_test** no restante tutorial.
 
-2. Crie um **novo item** no dashboard do Jenkins.
+1. Crie um **novo item** no dashboard do Jenkins.
 
-3. Introduza um nome para o item (por exemplo, **MyJob**). Selecione **free-style project** (projeto de estilo livre) e clique em **OK**.
+1. Introduza um nome para o item (por exemplo, **MyJob**). Selecione **free-style project** (projeto de estilo livre) e clique em **OK**.
 
-4. Vá para a página da tarefa e clique em **Configure** (Configurar).
+1. Vá para a página da tarefa e clique em **Configure** (Configurar).
 
    a. Na secção geral, selecione a caixa de verificação de **Projeto do GitHub** e especifique o URL do seu projeto do GitHub. Este URL aloja a aplicação Java do Service Fabric que pretende integrar no fluxo de integração contínua do Jenkins e implementação contínua (CI/CD) (por exemplo, ``https://github.com/testaccount/dev_test``).
 
    b. Na secção **Gestão de Código Fonte**, selecione **Git**. Especifique o URL do repositório que aloja a aplicação Java do Service Fabric que quer integrar no fluxo CI/CD do Jenkins (por exemplo, *https://github.com/testaccount/dev_test.git*). Também pode especificar aqui o ramo a compilar, (por exemplo, **/master**).
 
-5. Configure o seu *GitHub* (o que está a alojar o repositório) para que seja capaz de comunicar com o Jenkins. Utilize os passos seguintes:
+1. Configure o seu *GitHub* (o que está a alojar o repositório) para que seja capaz de comunicar com o Jenkins. Utilize os passos seguintes:
 
    a. Aceda à sua página de repositório do GitHub. Aceda a **Definições** > **Integrações e Serviços**.
 
@@ -108,13 +108,13 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
    ![Configuração do Jenkins do Service Fabric](./media/service-fabric-tutorial-java-jenkins/jenkinsconfiguration.png)
 
-6. Na secção **Build Triggers** (Criar Acionadores), selecione a opção de compilação que pretende. Neste exemplo, pretende-se acionar uma compilação sempre que se dá um envio para o repositório. Para isso, selecionamos **GitHub hook trigger for GITScm polling** (Acionador de hook do GitHub para consulta GITScm).
+1. Na secção **Build Triggers** (Criar Acionadores), selecione a opção de compilação que pretende. Neste exemplo, pretende-se acionar uma compilação sempre que se dá um envio para o repositório. Para isso, selecionamos **GitHub hook trigger for GITScm polling** (Acionador de hook do GitHub para consulta GITScm).
 
-7. Na **secção Build** (Compilar), na lista pendente **Add build step** (Adicionar passo de compilação), selecione a opção **Invoke Gradle Script** (Invocar Gradle Script). No widget fornecido, abra o menu avançado e especifique o caminho para o **Script de compilação de raiz** da sua aplicação. Este obtém o build.gradle a partir do caminho especificado e funciona em conformidade.
+1. Na **secção Build** (Compilar), na lista pendente **Add build step** (Adicionar passo de compilação), selecione a opção **Invoke Gradle Script** (Invocar Gradle Script). No widget fornecido, abra o menu avançado e especifique o caminho para o **Script de compilação de raiz** da sua aplicação. Este obtém o build.gradle a partir do caminho especificado e funciona em conformidade.
 
     ![Ação de Compilação do Jenkins do Service Fabric](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-8. No menu pendente **Post-Build Actions** (Ações de Pós-compilação), selecione **Deploy Service Fabric Project** (Implementar Projeto do Service Fabric). Aqui, tem de indicar os detalhes do cluster no qual a aplicação do Service Fabric compilada com o Jenkins seria implementada. O caminho para o certificado é onde o volume foi montado (/tmp/myCerts).
+1. No menu pendente **Post-Build Actions** (Ações de Pós-compilação), selecione **Deploy Service Fabric Project** (Implementar Projeto do Service Fabric). Aqui, tem de indicar os detalhes do cluster no qual a aplicação do Service Fabric compilada com o Jenkins seria implementada. O caminho para o certificado é onde o volume foi montado (/tmp/myCerts).
 
     Também tem de indicar os detalhes adicionais utilizados para implementar a aplicação. Veja a captura de ecrã seguinte para obter um exemplo dos detalhes da aplicação:
 
@@ -140,7 +140,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     </div>
     ```
 
-2. Atualize as versões **ApplicationTypeVersion** e **ServiceManifestVersion** para **2.0.0** no ficheiro *Voting/VotingApplication/ApplicationManifest.xml*.
+1. Atualize as versões **ApplicationTypeVersion** e **ServiceManifestVersion** para **2.0.0** no ficheiro *Voting/VotingApplication/ApplicationManifest.xml*.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -167,7 +167,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     </ApplicationManifest>
     ```
 
-3. Atualize o campo **Version** nos campos **ServiceManifest** e **Version** na etiqueta **CodePackage** no ficheiro *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* para **2.0.0**.
+1. Atualize o campo **Version** nos campos **ServiceManifest** e **Version** na etiqueta **CodePackage** no ficheiro *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* para **2.0.0**.
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">
@@ -179,13 +179,13 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     </CodePackage>
     ```
 
-4. Para inicializar uma tarefa do Jenkins que efetua uma atualização da aplicação, emita as novas alterações para o seu repositório do Github.
+1. Para inicializar uma tarefa do Jenkins que efetua uma atualização da aplicação, emita as novas alterações para o seu repositório do Github.
 
-5. No Service Fabric Explorer, clique no menu pendente **Aplicações**. Para ver o estado da atualização, clique no separador **Atualizações em Curso**.
+1. No Service Fabric Explorer, clique no menu pendente **Aplicações**. Para ver o estado da atualização, clique no separador **Atualizações em Curso**.
 
     ![Atualização em curso](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. Se aceder a **http://\<Host-IP>:8080**, a aplicação de Voto com funcionalidade completa está agora a funcionar.
+1. Se aceder a **http://\<Host-IP>:8080**, a aplicação de Voto com funcionalidade completa está agora a funcionar.
 
     ![Aplicação de Voto Local](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

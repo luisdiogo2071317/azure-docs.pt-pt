@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dd9c6f2969bfbcd1b2170c0685ab69b8b2ce70da
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d90015d7f1a895fc903da32b8a63f83b421730a9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224318"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429556"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux
 
@@ -160,7 +160,7 @@ Neste passo, vai criar uma base de dados MySQL na [Base de Dados do Azure para M
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-Crie um servidor na Base de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Crie um servidor na Base de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
 No comando seguinte, substitua o nome do servidor MySQL onde vê o marcador de posição _&lt;mysql_server_name>_ (os carateres válidos são `a-z`, `0-9` e `-`). Este nome faz parte do nome de anfitrião do servidor MySQL (`<mysql_server_name>.database.windows.net`); tem de ser globalmente exclusivo.
 
@@ -185,7 +185,7 @@ Quando o servidor MySQL tiver sido criado, a CLI do Azure mostra informações s
 
 ### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
 
-Crie uma regra de firewall para o servidor MySQL permitir ligações ao cliente com o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
+Crie uma regra de firewall para o servidor MySQL permitir ligações ao cliente com o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -339,7 +339,7 @@ A aplicação do Laravel é iniciada no diretório _/public_. A imagem PHP prede
 
 ### <a name="configure-database-settings"></a>Configurar as definições da base de dados
 
-No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os marcadores de posição _&lt;appname>_ e _&lt;mysql_server_name>_.
 
@@ -370,7 +370,7 @@ Utilize `php artisan` para gerar uma chave de aplicação nova sem a guardar em 
 php artisan key:generate --show
 ```
 
-Defina a chave da aplicação na aplicação Web do Serviço de Aplicações com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+Defina a chave da aplicação na aplicação Web do Serviço de Aplicações com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

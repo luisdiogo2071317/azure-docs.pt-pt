@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 20b549914daf71c0d23235b5c20ebb6f14367471
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172039"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423084"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Criar uma aplicação Web Docker Python com PostgreSQL no Azure
 
@@ -133,7 +133,7 @@ Neste passo, vai criar uma base de dados PostgreSQL no Azure. Quando a aplicaç�
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Criar uma Base de Dados do Azure para o servidor PostgreSQL
 
-Crie um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) no Cloud Shell.
+Crie um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) no Cloud Shell.
 
 No seguinte exemplo de linha de comandos, substitua *\<postgresql_name>* por um nome de servidor exclusivo, e substitua *\<admin_username>* e *\<admin_password>* pelas credenciais de utilizador pretendidas. O nome do servidor é utilizado como parte do ponto final do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure. As credenciais de utilizador são para a conta de utilizador administrador da base de dados. 
 
@@ -339,7 +339,7 @@ Neste passo, vai criar uma aplicação no Serviço de Aplicações do Azure e co
 
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-No Cloud Shell, crie uma aplicação Web no plano do Serviço de Aplicações *myAppServicePlan* com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+No Cloud Shell, crie uma aplicação Web no plano do Serviço de Aplicações *myAppServicePlan* com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create).
 
 No seguinte comando, substitua o marcador de posição *\<app_name>* por um nome de aplicação exclusivo. Este nome faz parte do URL da aplicação Web, pelo que o nome tem de ser exclusivo relativamente a todas as aplicações no Serviço de Aplicações do Azure.
 
@@ -368,7 +368,7 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 No início do tutorial, definiu as variáveis de ambiente para ligar à base de dados PostgreSQL.
 
-No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 O exemplo seguinte especifica os detalhes de ligação de base de dados, como as definições da aplicação. Também utiliza a variável *WEBSITES_PORT* para a porta de contentor 5000, o que permite ao contentor receber tráfego HTTP na porta 80.
 
@@ -378,7 +378,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="configure-custom-container-deployment"></a>Configurar implementação de contentor personalizada
 
-Embora já tenha especificado o nome da imagem de contentor, ainda tem de especificar o URL de registo personalizado e as credenciais de utilizador. No Cloud Shell, execute o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Embora já tenha especificado o nome da imagem de contentor, ainda tem de especificar o URL de registo personalizado e as credenciais de utilizador. No Cloud Shell, execute o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"

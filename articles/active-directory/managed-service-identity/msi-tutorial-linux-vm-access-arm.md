@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c2735d385b0a3c2201ec2dad83c0c32fe44d458c
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d1e4d8dd7201935ef1dbdc83224f905c812f9cca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258248"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447480"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: utilizar uma identidade atribuída ao utilizador numa VM do Linux, para aceder ao Azure Resource Manager
 
@@ -72,7 +72,7 @@ Neste tutorial, vamos criar primeiro uma nova VM do Linux. Também pode optar po
     az login
     ```
 
-2. Crie uma identidade atribuída ao utilizador com [az identity create](/cli/azure/identity#az_identity_create). O parâmetro `-g` especifica o grupo de recursos onde a Identidade de Serviço Gerida é criada e o parâmetro `-n` especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<MSI NAME>` pelos seus próprios valores:
+2. Crie uma identidade atribuída ao utilizador com [az identity create](/cli/azure/identity#az-identity-create). O parâmetro `-g` especifica o grupo de recursos onde a Identidade de Serviço Gerida é criada e o parâmetro `-n` especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<MSI NAME>` pelos seus próprios valores:
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -102,7 +102,7 @@ A resposta contém detalhes para a identidade atribuída ao utilizador criada, s
 
 Uma identidade atribuída ao utilizador pode ser utilizada pelos clientes em vários recursos do Azure. Utilize os seguintes comandos para atribuir a identidade atribuída pelo utilizador a uma única VM. Utilize a propriedade `Id` devolvida no passo anterior para o parâmetro `-IdentityID`.
 
-Atribuir a Identidade de Serviço Gerida atribuída ao utilizador à VM do Linux, com [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. Utilize a propriedade `id` devolvida no passo anterior para o valor de parâmetro `--identities`.
+Atribuir a Identidade de Serviço Gerida atribuída ao utilizador à VM do Linux, com [az vm assign-identity](/cli/azure/vm#az-vm-assign-identity). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. Utilize a propriedade `id` devolvida no passo anterior para o valor de parâmetro `--identities`.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"

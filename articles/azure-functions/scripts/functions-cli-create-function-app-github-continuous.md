@@ -10,12 +10,12 @@ ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: b44126f6bf191ee57bfea7017a4f4d87a57c01f1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 3090058236212d1baca17e2886a76f31ee1b2718
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989865"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424474"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Criar uma aplicação de funções no Azure que é implementada a partir do GitHub
 
@@ -48,7 +48,7 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para a aplicação de funções. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor e associa-a ao repositório de Git ou de Mercurial. |
 

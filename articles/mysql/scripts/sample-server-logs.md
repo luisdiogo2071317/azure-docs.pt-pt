@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: abe79185b817a4581c7df3f73c1d48ece6058643
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 98f1179dd6dff4cd8b0125266899374d80893d26
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698013"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420425"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Ativar e transferir registos de consulta lenta de um servidor da Base de Dados do Azure para MySQL com a CLI do Azure
 Este script de exemplo da CLI ativa e transfere os registos de consulta lenta de um único servidor da Base de Dados do Azure para MySQL.
@@ -38,13 +38,13 @@ Este script utiliza os comandos descritos na tabela seguinte:
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Cria um servidor MySQL que aloja as bases de dados. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | Liste os valores de configuração para um servidor. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | Atualize a configuração de um servidor. |
-| [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | Liste os ficheiros de registo para um servidor. |
-| [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Descarregue ficheiros de registo. |
-| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | Cria um servidor MySQL que aloja as bases de dados. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) | Liste os valores de configuração para um servidor. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) | Atualize a configuração de um servidor. |
+| [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) | Liste os ficheiros de registo para um servidor. |
+| [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download) | Descarregue ficheiros de registo. |
+| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).

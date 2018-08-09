@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295954"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446695"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar o redimensionamento de imagens carregadas com o Event Grid
 
@@ -52,7 +52,7 @@ Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o 
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-As Funções do Azure requerem uma conta de armazenamento geral. Crie uma conta de armazenamento geral separada no grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+As Funções do Azure requerem uma conta de armazenamento geral. Crie uma conta de armazenamento geral separada no grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 
 Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. 
 
@@ -66,7 +66,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função  
 
-Precisa de uma aplicação de funções para alojar a execução da sua função. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Utilize o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) para criar uma aplicação Function App. 
+Precisa de uma aplicação de funções para alojar a execução da sua função. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Utilize o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) para criar uma aplicação Function App. 
 
 No comando seguinte, substitua o nome da aplicação de funções exclusivo onde vir o marcador de posição `<function_app>`. O nome da aplicação de funções vai ser utilizado como o domínio DNS predefinido para a aplicação de funções, por isso o nome tem de ser exclusivo em todas as aplicações no Azure. Para `<general_storage_account>`, substitua o nome da conta de armazenamento geral que criou.
 

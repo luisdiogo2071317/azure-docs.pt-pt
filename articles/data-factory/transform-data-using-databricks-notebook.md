@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: c3774774ff220153d1af9ec9f9807414efb3f7ce
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: efef0c4a8fd5a1cd08c5c15d5cb5cea9fc0ee9aa
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081815"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426056"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a Atividade do Databricks Notebook no Azure Data Factory
 
@@ -48,19 +48,19 @@ Para uma introdução e demonstração de onze minutos desta funcionalidade, vej
 
 1.  Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 
-2.  Selecione **Novo** no menu da esquerda, selecione **Dados + Análise** e, em seguida, selecione **Data Factory**.
+1.  Selecione **Novo** no menu da esquerda, selecione **Dados + Análise** e, em seguida, selecione **Data Factory**.
 
     ![Criar uma nova fábrica de dados](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image1.png)
 
-3.  No painel **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**.
+1.  No painel **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**.
 
     O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se vir o seguinte erro, altere o nome da fábrica de dados. (Por exemplo, utilize **\<oseunome\>ADFTutorialDataFactory**). Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
     ![Indicar um nome para a nova fábrica de dados](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
-4.  Em **Subscrição**, selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados.
+1.  Em **Subscrição**, selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados.
 
-5.  Em **Grupo de Recursos**, efetue um destes passos:
+1.  Em **Grupo de Recursos**, efetue um destes passos:
     
     - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
     
@@ -70,19 +70,19 @@ Para uma introdução e demonstração de onze minutos desta funcionalidade, vej
 
 1.  Em **Versão**, selecione **V2**.
 
-2.  Em **Localização**, selecione a localização para a fábrica de dados.
+1.  Em **Localização**, selecione a localização para a fábrica de dados.
 
     Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
 
-3.  Selecione **Afixar ao dashboard**.
+1.  Selecione **Afixar ao dashboard**.
 
-4.  Selecione **Criar**.
+1.  Selecione **Criar**.
 
-5.  No dashboard, é apresentado o mosaico seguinte, com o estado **A Implementar o Data Factory**:
+1.  No dashboard, é apresentado o mosaico seguinte, com o estado **A Implementar o Data Factory**:
 
     ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image3.png)
 
-6.  Após concluir a criação, verá a página **Fábrica de dados**. Selecione o mosaico **Criar e Monitorizar** para iniciar a aplicação de IU do Azure Data Factory num separador à parte.
+1.  Após concluir a criação, verá a página **Fábrica de dados**. Selecione o mosaico **Criar e Monitorizar** para iniciar a aplicação de IU do Azure Data Factory num separador à parte.
 
     ![Iniciar a aplicação da IU da fábrica de dados](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
 
@@ -96,31 +96,31 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
     ![Editar o novo serviço ligado](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image5.png)
 
-2.  Selecione **Ligações**, na parte inferior da janela, e selecione **+ Novo**.
+1.  Selecione **Ligações**, na parte inferior da janela, e selecione **+ Novo**.
     
     ![Criar uma nova ligação](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-3.  Na janela **Novo Serviço Ligado**, selecione **Arquivo de Dados** \> **Azure Databricks** e, em seguida, **Continuar**.
+1.  Na janela **Novo Serviço Ligado**, selecione **Arquivo de Dados** \> **Azure Databricks** e, em seguida, **Continuar**.
     
     ![Especificar um serviço ligado do Databricks](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
-4.  Na janela **Novo Serviço Ligado**, conclua os passos abaixo:
+1.  Na janela **Novo Serviço Ligado**, conclua os passos abaixo:
     
     1.  Para **Nome**, introduza ***AzureDatabricks\_LinkedService***
     
-    2.  Para **Cluster**, selecione um **Novo Cluster**
+    1.  Para **Cluster**, selecione um **Novo Cluster**
     
-    3.  Para **Domínio/Região**, selecione a região onde está localizada a sua área de trabalho do Azure Databricks.
+    1.  Para **Domínio/Região**, selecione a região onde está localizada a sua área de trabalho do Azure Databricks.
     
-    4.  Para **Tipo de nó de cluster**, selecione **Standard\_D3\_v2** para este tutorial.
+    1.  Para **Tipo de nó de cluster**, selecione **Standard\_D3\_v2** para este tutorial.
     
-    5.  Para **Token de Acesso**, gere-o a partir da área de trabalho do Azure Databricks. Pode encontrar os passos [aqui](https://docs.databricks.com/api/latest/authentication.html#generate-token).
+    1.  Para **Token de Acesso**, gere-o a partir da área de trabalho do Azure Databricks. Pode encontrar os passos [aqui](https://docs.databricks.com/api/latest/authentication.html#generate-token).
     
-    6.  Para **Versão do cluster**, selecione **4.0 Beta** (versão mais recente)
+    1.  Para **Versão do cluster**, selecione **4.0 Beta** (versão mais recente)
     
-    7.  Para **Número de nós de trabalho**, introduza **2**.
+    1.  Para **Número de nós de trabalho**, introduza **2**.
     
-    8.  Selecione **Concluir**
+    1.  Selecione **Concluir**
 
         ![Concluir a criação do serviço ligado](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image8.png)
 
@@ -130,17 +130,17 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
     ![Botões para criar um novo pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-2.  Crie um **parâmetro** para ser utilizado no **Pipeline**. Mais tarde, transmita este parâmetro à Atividade do Databricks Notebook. No pipeline vazio, clique no separador **Parâmetros** e, em seguida, em **Novo** e dê-lhe um nome no formato "**nome**".
+1.  Crie um **parâmetro** para ser utilizado no **Pipeline**. Mais tarde, transmita este parâmetro à Atividade do Databricks Notebook. No pipeline vazio, clique no separador **Parâmetros** e, em seguida, em **Novo** e dê-lhe um nome no formato "**nome**".
 
     ![Criar um novo parâmetro](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
     ![Criar o parâmetro de nome](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
 
-3.  Na caixa de ferramentas **Atividades**, expanda **Databricks**. Arraste a atividade do **Notebook** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline.
+1.  Na caixa de ferramentas **Atividades**, expanda **Databricks**. Arraste a atividade do **Notebook** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline.
 
     ![Arrastar o Notebook para a superfície de desenho](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image12.png)
 
-4.  Nas propriedades da janela de atividade **Databricks** **Notebook**, na parte inferior, conclua os seguintes passos:
+1.  Nas propriedades da janela de atividade **Databricks** **Notebook**, na parte inferior, conclua os seguintes passos:
 
     a. Mudar para o separador **Definições**.
 
@@ -150,17 +150,17 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
        1. Iniciar a Área de trabalho do Azure Databricks
 
-       2. Crie uma **Nova Pasta** na Área de Trabalho e denomine-a **adftutorial**.
+       1. Crie uma **Nova Pasta** na Área de Trabalho e denomine-a **adftutorial**.
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) e denomine-o **mynotebook** na **Pasta** adftutorial**e**clique em **Criar**.
+       1. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) e denomine-o **mynotebook** na **Pasta** adftutorial**e**clique em **Criar**.
 
           ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
           ![Definir as propriedades do novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       4. No Notebook recém-criado denominado "mynotebook", adicione o seguinte código:
+       1. No Notebook recém-criado denominado "mynotebook", adicione o seguinte código:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
@@ -174,9 +174,9 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
            ![Criar widgets para parâmetros](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
 
-       5. Neste caso, o **Caminho do Notebook** é **/adftutorial/mynotebook**
+       1. Neste caso, o **Caminho do Notebook** é **/adftutorial/mynotebook**
 
-5.  Volte à **ferramenta de criação da IU do Data Factory**. Navegue para o separador **Definições** em **Atividade do Notebook1**. 
+1.  Volte à **ferramenta de criação da IU do Data Factory**. Navegue para o separador **Definições** em **Atividade do Notebook1**. 
     
     a.  **Adicione o parâmetro** à atividade do Notebook. Vai utilizar o mesmo parâmetro que adicionou anteriormente ao **Pipeline**.
 
@@ -184,11 +184,11 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
     b.  Dê o nome **input** ao parâmetro e forneça o valor como expressão **@pipeline().parameters.name**.
 
-6.  Para validar o pipeline, selecione o botão **Validar** na barra de ferramentas. Para fechar a janela de validação, selecione o botão **\>\>** (seta para a direita).
+1.  Para validar o pipeline, selecione o botão **Validar** na barra de ferramentas. Para fechar a janela de validação, selecione o botão **\>\>** (seta para a direita).
 
     ![Validar o pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
-7.  Selecione **Publicar Tudo**. A IU do Data Factory publica as entidades (serviços ligados e pipeline) no serviço Azure Data Factory.
+1.  Selecione **Publicar Tudo**. A IU do Data Factory publica as entidades (serviços ligados e pipeline) no serviço Azure Data Factory.
 
     ![Publicar as novas entidades da fábrica de dados](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
@@ -208,9 +208,9 @@ A caixa de diálogo **Execução do Pipeline** pede-lhe o parâmetro **name**. U
 
     ![Monitorizar o pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
-2.  Selecione **Atualizar** periodicamente para verificar o estado da execução do pipeline.
+1.  Selecione **Atualizar** periodicamente para verificar o estado da execução do pipeline.
 
-3.  Para ver as execuções de atividades associadas à execução do pipeline, selecione **Ver Execuções de Atividades**, na coluna **Ações**.
+1.  Para ver as execuções de atividades associadas à execução do pipeline, selecione **Ver Execuções de Atividades**, na coluna **Ações**.
 
     ![Ver as execuções de atividades](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
 

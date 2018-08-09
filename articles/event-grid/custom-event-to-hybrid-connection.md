@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127718"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434151"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para as Ligações Híbridas do Azure Relay com a CLI do Azure e o Event Grid
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de s
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). 
 
 O exemplo seguinte cria um grupo de recursos com o nome *gridResourceGroup* na localização *westus2*.
 

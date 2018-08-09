@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358299"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492828"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Tutorial: 3. Adicionar entidade de expressão regular
 Neste tutorial, vai criar uma aplicação que demonstra como extrair dados formatados de forma consistente a partir de uma expressão com a entidade **Expressão Regular**.
@@ -110,15 +110,8 @@ Crie uma entidade de expressão regular para indicar ao LUIS o que é um formato
     Uma vez que a entidade não é de aprendizagem automática, a etiqueta é aplicada às expressões e apresentada no site do LUIS assim que for criada.
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
-Uma entidade de expressão regular não requer preparação, mas a nova intenção e expressões requerem. 
 
-1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar).
-
-    ![Imagem do botão de preparação](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
-
-    ![Imagem da barra de notificação de êxito](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
 
@@ -237,7 +230,8 @@ O chatbot tem agora informações suficientes para determinar a ação principal
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os números de formulário, e procurar uma API de terceiros. O LUIS não permite isso. O LUIS apenas determina a intenção do utilizador e extrai os dados sobre essa intenção. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências (***…***) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f5790f57b66f1d73ff98d5f84276ec9a44568432
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 142305cf371135e71424ca38885c40595398a74d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857931"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427842"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a CLI do Azure
 
@@ -29,7 +29,7 @@ Se optar por instalar e usar a CLI localmente, este início rápido requer a exe
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eualeste2*.
 
@@ -41,7 +41,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Pode associar uma conta de Armazenamento do Microsoft Azure à sua conta do Batch. Apesar de não ser obrigatório neste início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real. Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para criar uma conta de armazenamento no seu grupo de recursos.
+Pode associar uma conta de Armazenamento do Microsoft Azure à sua conta do Batch. Apesar de não ser obrigatório neste início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real. Utilize o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create) para criar uma conta de armazenamento no seu grupo de recursos.
 
 ```azurecli-interactive
 az storage account create \
@@ -53,7 +53,7 @@ az storage account create \
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
-Crie uma conta do Batch com o comando [az batch account create](/cli/azure/batch/account#az_batch_account_create). Precisa de uma conta para criar recursos de computação (conjuntos de nós de computação) e tarefas do Batch.
+Crie uma conta do Batch com o comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). Precisa de uma conta para criar recursos de computação (conjuntos de nós de computação) e tarefas do Batch.
 
 O exemplo seguinte cria uma conta do Batch com o nome *mybatchaccount* em *myResourceGroup* e associa a conta de armazenamento criada.  
 
@@ -65,7 +65,7 @@ az batch account create \
     --location eastus2
 ```
 
-Para criar e gerir conjuntos e tarefas de computação, tem de autenticar com o Batch. Inicie sessão na conta com o comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). Depois de iniciar sessão, os comandos `az batch` utilizam este contexto de conta.
+Para criar e gerir conjuntos e tarefas de computação, tem de autenticar com o Batch. Inicie sessão na conta com o comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). Depois de iniciar sessão, os comandos `az batch` utilizam este contexto de conta.
 
 ```azurecli-interactive 
 az batch account login \
@@ -76,7 +76,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>Criar um conjunto de nós de computação
 
-Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computação do Linux através do comando [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). O exemplo seguinte cria um conjunto com o nome *mypool* de dois nós de tamanho *Standard_A1_v2* com Ubuntu 16.04 LTS. O tamanho do nó sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido.
+Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computação do Linux através do comando [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). O exemplo seguinte cria um conjunto com o nome *mypool* de dois nós de tamanho *Standard_A1_v2* com Ubuntu 16.04 LTS. O tamanho do nó sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido.
  
 ```azurecli-interactive
 az batch pool create \
@@ -86,7 +86,7 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
-O Batch cria o conjunto de imediato, mas demora alguns minutos a alocar e a iniciar os nós de computação. Durante este período, o conjunto está no estado `resizing`. Para ver o estado do conjunto, execute o comando [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show). Este comando mostra todas as propriedades do conjunto e pode consultar as propriedades específicas. O comando seguinte obtém o estado de alocação do conjunto:
+O Batch cria o conjunto de imediato, mas demora alguns minutos a alocar e a iniciar os nós de computação. Durante este período, o conjunto está no estado `resizing`. Para ver o estado do conjunto, execute o comando [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). Este comando mostra todas as propriedades do conjunto e pode consultar as propriedades específicas. O comando seguinte obtém o estado de alocação do conjunto:
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
@@ -97,7 +97,7 @@ Continue para os passos seguintes para criar tarefas enquanto o estado do conjun
 
 ## <a name="create-a-job"></a>Criar uma tarefa
 
-Agora que tem um conjunto, crie um trabalho para ser executado no mesmo.  Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Crie uma tarefa do Batch através do comando [az batch job create](/cli/azure/batch/job#az_batch_job_create). O exemplo seguinte cria uma tarefa *myjob* no conjunto *mypool*. Inicialmente, o trabalho não tem tarefas.
+Agora que tem um conjunto, crie um trabalho para ser executado no mesmo.  Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Crie uma tarefa do Batch através do comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). O exemplo seguinte cria uma tarefa *myjob* no conjunto *mypool*. Inicialmente, o trabalho não tem tarefas.
 
 ```azurecli-interactive 
 az batch job create \
@@ -107,7 +107,7 @@ az batch job create \
 
 ## <a name="create-tasks"></a>Criar tarefas
 
-Agora utilize o comando [az batch task create](/cli/azure/batch/task#az_batch_task_create) para criar algumas tarefas para executar na tarefa. Neste exemplo, cria quatro tarefas idênticas. Cada tarefa executa um `command-line` para apresentar as variáveis de ambiente do Batch num nó de computação e, em seguida, aguarda 90 segundos. Quando utiliza o Batch, esta linha de comandos é onde especifica a aplicação ou o script. O Batch apresenta várias formas de implementar aplicações e scripts para os nós de computação.
+Agora utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar algumas tarefas para executar na tarefa. Neste exemplo, cria quatro tarefas idênticas. Cada tarefa executa um `command-line` para apresentar as variáveis de ambiente do Batch num nó de computação e, em seguida, aguarda 90 segundos. Quando utiliza o Batch, esta linha de comandos é onde especifica a aplicação ou o script. O Batch apresenta várias formas de implementar aplicações e scripts para os nós de computação.
 
 O seguinte script do Bash cria 4 tarefas paralelas (*mytask1* para *mytask4*).
 
@@ -127,7 +127,7 @@ A saída do comando mostra as definições para cada uma das tarefas. O Batch di
 
 Depois de criar uma tarefa, o Batch coloca em fila para a execução no conjunto. Assim que um nó estiver disponível para executá-lo, a tarefa é executada.
 
-Utilize o comando [az batch task show](/cli/azure/batch/task#az_batch_task_show) para ver o estado das tarefas do Batch. O exemplo seguinte mostra os detalhes do *mytask1* em execução num dos nós do conjunto.
+Utilize o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para ver o estado das tarefas do Batch. O exemplo seguinte mostra os detalhes do *mytask1* em execução num dos nós do conjunto.
 
 ```azurecli-interactive 
 az batch task show \
@@ -139,7 +139,7 @@ A saída do comando inclui muitos detalhes, mas tome nota do `exitCode` da linha
 
 ## <a name="view-task-output"></a>Ver resultado das tarefas
 
-Para listar os ficheiros criados por uma tarefa num nó de computação, utilize o comando [az batch task file list](/cli/azure/batch/task#az_batch_task_file_list). O comando seguinte lista os ficheiros criados por *mytask1*: 
+Para listar os ficheiros criados por uma tarefa num nó de computação, utilize o comando [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list). O comando seguinte lista os ficheiros criados por *mytask1*: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Para transferir um dos ficheiros de saída para um diretório local, utilize o comando [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download). Neste exemplo, o resultado da tarefa está em `stdout.txt`. 
+Para transferir um dos ficheiros de saída para um diretório local, utilize o comando [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download). Neste exemplo, o resultado da tarefa está em `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \
@@ -192,13 +192,13 @@ AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do Batch e a conta de armazenamento associada que foi criada neste início rápido. A conta do Batch em si não é cobrada.
 
-É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar de um conjunto, elimine-o com o comando [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete). Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
+É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar de um conjunto, elimine-o com o comando [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool
 ```
 
-Quando já não for preciso, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, conta do Batch e todos os recursos relacionados. Elimine os recursos da seguinte forma:
+Quando já não for preciso, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Batch e todos os recursos relacionados. Elimine os recursos da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

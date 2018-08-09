@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233129a6ddb655483812fdd222b55a6c3623a9b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114956"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426112"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -34,11 +34,11 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
 1. Inicie sessão no [Portal do Azure][azure_portal].
 
-2. Selecione **Criar um recurso** > **Computação** > **Serviço do Batch**.
+1. Selecione **Criar um recurso** > **Computação** > **Serviço do Batch**.
 
     ![Batch no Marketplace][marketplace_portal]
 
-3. Introduza as definições da **Nova conta do Batch**. Veja os detalhes seguintes.
+1. Introduza as definições da **Nova conta do Batch**. Veja os detalhes seguintes.
 
     ![Criar uma conta do Batch][account_portal]
 
@@ -56,7 +56,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
     f. **Modo de atribuição de conjuntos**: para a maioria dos cenários, aceite o **serviço Batch** predefinido.
 
-4. Selecione **Criar** para criar a conta.
+1. Selecione **Criar** para criar a conta.
 
 
 
@@ -85,22 +85,22 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
 1. Inicie sessão no [Portal do Azure][azure_portal].
 
-2. Selecione **Todos os Serviços** > **Subscrições** e selecione a subscrição que pretende utilizar para a conta do Batch.
+1. Selecione **Todos os Serviços** > **Subscrições** e selecione a subscrição que pretende utilizar para a conta do Batch.
 
-3. Na página **Subscrição**, selecione **Fornecedores de recursos** e procure **Microsoft.Batch**. Verifique se o fornecedor de recursos **Microsoft.Batch** está registado na subscrição. Se não estiver registado, selecione a ligação **Registar**.
+1. Na página **Subscrição**, selecione **Fornecedores de recursos** e procure **Microsoft.Batch**. Verifique se o fornecedor de recursos **Microsoft.Batch** está registado na subscrição. Se não estiver registado, selecione a ligação **Registar**.
 
     ![Registar fornecedor do Microsoft.Batch][register_provider]
 
-3. Na página **Subscrição**, selecione **Controlo de acesso (IAM)** > **Adicionar**.
+1. Na página **Subscrição**, selecione **Controlo de acesso (IAM)** > **Adicionar**.
 
     ![Controlo de acesso da subscrição][subscription_access]
 
-4. Na página **Adicionar permissões**, selecione a função **Contribuinte** e procure a API do Batch. Procure para cada uma destas cadeias até encontrar a API:
+1. Na página **Adicionar permissões**, selecione a função **Contribuinte** e procure a API do Batch. Procure para cada uma destas cadeias até encontrar a API:
     1. **MicrosoftAzureBatch**.
-    2. **Batch do Microsoft Azure**. Os inquilinos mais recentes podem utilizar este nome.
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** é o ID para a API do Batch. 
+    1. **Batch do Microsoft Azure**. Os inquilinos mais recentes podem utilizar este nome.
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** é o ID para a API do Batch. 
 
-5. Depois de encontrar a API do Batch, selecione-a e selecione **Guardar**.
+1. Depois de encontrar a API do Batch, selecione-a e selecione **Guardar**.
 
     ![Adicionar permissões do Batch][add_permission]
 
@@ -109,7 +109,7 @@ No modo de subscrição de utilizador, é necessário um cofre de chaves do Azur
 
 1. No [Portal do Azure][azure_portal], selecione **Novo** > **Segurança** > **Key Vault**.
 
-2. Na página **Criar Key Vault**, introduza um nome para o cofre de chaves e crie um grupo de recursos na região em que quer a sua conta do Batch. Deixe as definições restantes nos valores predefinidos e selecione **Criar**.
+1. Na página **Criar Key Vault**, introduza um nome para o cofre de chaves e crie um grupo de recursos na região em que quer a sua conta do Batch. Deixe as definições restantes nos valores predefinidos e selecione **Criar**.
 
 Ao criar a conta do Batch no modo de subscrição de utilizador, utilize o grupo de recursos do cofre de chaves, especifique **Subscrição de utilizador** como o modo de atribuição de agrupamento e selecione o cofre de chaves.
 

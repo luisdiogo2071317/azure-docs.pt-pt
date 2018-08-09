@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 04/05/2018
-ms.openlocfilehash: 8c5a196afbcc607300dd69ada0a06a292a9c2c0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 38ae923d86965e493501e8df64f7a064929c3cfb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635113"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422659"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Monitorizar e dimensionar um servidor da Base de Dados do Azure para MySQL com a CLI do Azure
 Este script de exemplo da CLI dimensiona um único servidor da Base de Dados do Azure para MySQL para um nível de desempenho diferente depois de consultar as métricas.
@@ -37,10 +37,10 @@ Este script utiliza os comandos descritos na tabela seguinte:
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Cria um servidor MySQL que aloja as bases de dados. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Liste o valor métrico dos recursos. |
-| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Cria um servidor MySQL que aloja as bases de dados. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | Liste o valor métrico dos recursos. |
+| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).

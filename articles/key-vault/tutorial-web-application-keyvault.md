@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 747a0fc7f66edbae8d4a99eeaf0ea45f844d6465
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ff8cfb84fda6d40cca6d61a956f05e28ea670bf6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125950"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428779"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar uma aplicação Web do Azure para ler um segredo do Key Vault
 
@@ -44,7 +44,7 @@ az login
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 O exemplo seguinte cria um grupo de recursos com o nome *ContosoResourceGroup* na localização *eastus*.
 

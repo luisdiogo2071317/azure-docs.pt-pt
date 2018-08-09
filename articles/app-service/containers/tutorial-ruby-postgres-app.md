@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 927c8f6d0fefbc592999487217c41aeecc96b0d9
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950986"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445081"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Ruby e Postgres no Serviço de Aplicações do Azure no Linux
 
@@ -123,7 +123,7 @@ Neste passo, vai criar uma base de dados Postgres na [Base de Dados do Azure par
 
 ### <a name="create-a-postgres-server"></a>Criar um servidor Postgres
 
-Crie um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
+Crie um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
 
 Execute o seguinte comando no Cloud Shell e substitua um nome de servidor único pelo marcador de posição *\<postgres_server_name>*. O nome do servidor tem de ser exclusivo em todos os servidores no Azure. 
 
@@ -155,7 +155,7 @@ Após criar o servidor da Base de Dados do Azure para PostgreSQL, a CLI do Azure
 
 ### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor Postgres permitir ligações ao cliente com o comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az_postgres_server_firewall_rule_create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. Substitua um nome de servidor único pelo marcador de posição *\<postgres_server_name>*.
+No Cloud Shell, crie uma regra de firewall para o servidor Postgres permitir ligações ao cliente com o comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. Substitua um nome de servidor único pelo marcador de posição *\<postgres_server_name>*.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres_server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -300,7 +300,7 @@ Neste passo, vai implementar a aplicação Rails ligada ao Postgres no Serviço 
 
 ### <a name="configure-database-settings"></a>Configurar as definições da base de dados
 
-No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell.
+No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
 
 O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os marcadores de posição _&lt;appname>_ e _&lt;postgres_server_name>_.
 

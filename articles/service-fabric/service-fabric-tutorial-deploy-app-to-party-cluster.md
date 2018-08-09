@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 601742d82c1bd9a0e691de28ff9c4a09f12b538e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 81cd4d247ba6153fd205ead36f29a52b420bb427
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186384"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502833"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementar uma aplicação do Service Fabric num cluster no Azure
 
@@ -65,7 +65,7 @@ Para este tutorial, tem duas opções de implementação da aplicação de Vota�
 * Publique num cluster existente na sua subscrição.  Pode criar clusters do Service Fabric através do [portal do Azure](https://portal.azure.com) com os scripts do [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou da [CLI do Azure](./scripts/cli-create-cluster.md) ou a partir de um [modelo do Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Muitos serviços utilizam proxy inverso para comunicar entre si. Os clusters criados a partir do Visual Studio e os clusters de terceiros têm proxy inverso ativado por predefinição.  Se utilizar um cluster existente, tem de [ativar o proxy inverso no cluster](service-fabric-reverseproxy.md#setup-and-configuration).
+> Muitos serviços utilizam proxy inverso para comunicar entre si. Os clusters criados a partir do Visual Studio e os clusters de terceiros têm proxy inverso ativado por predefinição.  Se utilizar um cluster existente, tem de [ativar o proxy inverso no cluster](service-fabric-reverseproxy-setup.md#).
 
 
 ### <a name="find-the-votingweb-service-endpoint-for-your-azure-subscription"></a>Encontrar o ponto final do serviço VotingWeb para a sua subscrição do Azure

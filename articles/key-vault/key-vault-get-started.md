@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070356"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505718"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução Cofre de Chaves do Azure
 Este artigo ajuda-o a começar a utilizar o Azure Key Vault com o PowerShell e orienta-o ao longo das atividades seguintes:
@@ -206,7 +206,7 @@ Para ver o valor contido no segredo como texto simples:
 Agora, o seu cofre de chaves e chave ou segredo estão prontos a ser utilizados em aplicações. Deve autorizar as aplicações a utilizá-los.  
 
 ## <a id="register"></a>Registar uma aplicação com o Azure Active Directory
-Geralmente, este passo deve ser realizado por um programador, num computador à parte. Não é específico do Azure Key Vault. Para obter passos detalhados relativamente ao registo de aplicações no Azure Active Directory, deve rever os artigos com os títulos [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) (Integrar aplicações no Azure Active Directory) ou [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Utilizar o portal para criar uma aplicação do Azure Active Directory e um principal de serviço que possa aceder a recursos)
+Geralmente, este passo deve ser realizado por um programador, num computador à parte. Não é específico do Azure Key Vault. Para obter passos detalhados relativamente ao registo de aplicações no Azure Active Directory, deve rever os artigos com os títulos [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) (Integrar aplicações no Azure Active Directory) ou [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Utilizar o portal para criar uma aplicação do Azure Active Directory e um principal de serviço que possa aceder a recursos)
 
 > [!IMPORTANT]
 > Para concluir o tutorial, a sua conta, o cofre e a aplicação que irá registar neste passo devem todos estar no mesmo diretório do Azure.

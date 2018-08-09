@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: 94d91c59aef569b952799ede45222914af698bc4
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 49cae1d5187a04ef1d7a87eacfdb32faf042bd0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795521"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444723"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Criar uma política de ativação pós-falha para elevada disponibilidade com a CLI do Azure
 
@@ -47,10 +47,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Atualiza conta do Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](/cli/azure/sql/server#az-sql-server-create) | Cria uma conta do Azure Cosmos DB. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Atualiza conta do Azure Cosmos DB. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

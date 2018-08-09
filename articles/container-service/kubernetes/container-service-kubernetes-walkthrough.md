@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 62c2ebcdd3c40fd5204e20e4e15b0af784804ff0
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c592952c4e6ebff0db0833fd7b235fbb911909af
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100475"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423791"
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Implementar o cluster do Kubernetes para contentores do Linux
 
@@ -36,7 +36,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westeurope*.
 
@@ -61,13 +61,13 @@ Saída:
 
 ## <a name="create-kubernetes-cluster"></a>Criar cluster do Kubernetes
 
-Crie um cluster do Kubernetes no Azure Container Service com o comando [az acs create](/cli/azure/acs#az_acs_create). O exemplo seguinte cria um cluster com o nome *myK8sCluster* com um nó principal do Linux e três nós de agente do Linux.
+Crie um cluster do Kubernetes no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). O exemplo seguinte cria um cluster com o nome *myK8sCluster* com um nó principal do Linux e três nós de agente do Linux.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
 
-Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az_acs_create). 
+Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 Ao fim de vários minutos, o comando é concluído e devolve informações sobre o cluster no formato json. 
 
@@ -203,7 +203,7 @@ Agora, pode navegar para o endereço IP externo para ver a aplicação Azure Vot
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)  
 
 ## <a name="delete-cluster"></a>Eliminar o cluster
-Quando o cluster já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
+Quando o cluster já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes --no-wait
