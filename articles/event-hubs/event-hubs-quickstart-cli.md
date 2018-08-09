@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: sethm
-ms.openlocfilehash: 77acad8bd0a7ada13979db539b138e03d42dc031
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132321"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425957"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Início Rápido: Processar fluxos de eventos com a CLI do Azure e Java
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de dados altamente dimensionável e um serviço de ingestão capaz de receber e processar milhões de eventos por segundo. Este início rápido mostra como criar recursos dos Hubs de Eventos com a CLI do Azure e, em seguida, enviar e receber fluxos de eventos de um hub de eventos com código Java.
 
-Para concluir este início rápido, precisa de uma subscrição do Azure. Se não tiver uma, [Criar uma conta gratuita][] antes de começar.
+Para concluir este início rápido, precisa de uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita][] antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -292,7 +292,7 @@ Neste artigo, criou o espaço de nomes dos Hubs de Eventos e outros recursos nec
 > [!div class="nextstepaction"]
 > [Visualizar anomalias de dados nas transmissões de dados dos Hubs de Eventos](event-hubs-tutorial-visualize-anomalies.md)
 
-[Criar uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[crie uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
-[az group create]: /cli/azure/group#az_group_create
+[az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
