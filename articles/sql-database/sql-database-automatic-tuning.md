@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ed113d11a0c61620ae4a9d48eee957bb979dc11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: dd6e8f5f46e9fdf6887cc2a0b0c7b15bbd00fabd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526798"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626204"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
@@ -77,6 +77,6 @@ Configurar opções num servidor de otimização automática e a herdar as defin
 
 - Para ativar a otimização automática na base de dados do Azure SQL para gerir a sua carga de trabalho, consulte [ativar o ajuste automático](sql-database-automatic-tuning-enable.md).
 - Analisar manualmente e aplicar recomendações de otimização automática, consulte [localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).
-- Para saber mais sobre a criação de notificações por e-mail para recomendações de otimização automática, consulte [notificações para a otimização automática por E-Mail](sql-database-automatic-tuning-email-notifications.md)
+- Para saber mais sobre a criação de notificações por e-mail para recomendações de otimização automática, consulte [notificações para a otimização automática por E-Mail](sql-database-automatic-tuning-email-notifications.md).
 - Para saber mais sobre como inteligência incorporada utilizada na otimização automática, consulte [Inteligência Artificial ajusta bases de dados do Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Para saber mais sobre o funcionamento de otimização automático como na base de dados do Azure SQL e SQL server 2017, veja [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

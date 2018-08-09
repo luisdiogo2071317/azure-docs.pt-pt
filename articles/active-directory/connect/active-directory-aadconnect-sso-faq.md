@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283228"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627479"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
@@ -40,19 +40,20 @@ Não. SSO totalmente integrado só está disponível na instância do Azure AD e
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quais aplicativos aproveitar `domain_hint` ou `login_hint` capacidade de parâmetro do SSO totalmente integrado?
 
-Abaixo encontra uma lista parcial de aplicativos que enviar estes parâmetros para o Azure AD e, portanto, fornece aos usuários uma silenciosa experiência de logon usando o SSO totalmente integrado (ou seja, não é necessário para os seus utilizadores introduzir os nomes de utilizador):
+Abaixo encontra uma lista parcial das aplicações que pode enviar estes parâmetros para o Azure AD e, portanto, fornece aos usuários uma silenciosa experiência de logon usando o SSO totalmente integrado (ou seja, não é necessário para os seus utilizadores introduzir os nomes de utilizador ou palavras-passe):
 
 | Nome da aplicação | URL da aplicação a ser utilizado |
 | -- | -- |
-| Painel de acesso | myapps.microsoft.com/contoso.com |
-| Outlook na Web | outlook.office365.com/contoso.com |
+| Painel de acesso | https://myapps.microsoft.com/contoso.com |
+| Outlook na Web | https://outlook.office365.com/contoso.com |
+| Portal do Office 365 | https://portal.office.com?domain_hint=contoso.com |
 
 Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para pontos finais de inquilinos do Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
 
 | Nome da aplicação | URL da aplicação a ser utilizado |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Portal do Azure | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Portal do Azure | https://portal.azure.com/contoso.com |
 
 Nas tabelas acima, substitua "contoso.com" com o seu nome de domínio para obter os URLs de aplicativo adequado para o seu inquilino.
 

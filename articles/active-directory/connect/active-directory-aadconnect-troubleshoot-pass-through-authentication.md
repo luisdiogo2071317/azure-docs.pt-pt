@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 99f877a0002e9a631bcfdabdbea51fcf2ca1a2c1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214180"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626597"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas de autenticação de pass-through do Azure Active Directory
 
@@ -53,7 +53,7 @@ Se o utilizador não consegue iniciar sessão utilizando a autenticação pass-t
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos das falhas de início de sessão no Centro de administração do Azure Active Directory (necessita de licença Premium)
 
-Se o seu inquilino tem uma licença do Azure AD Premium associada a ele, também pode ver o [relatório de atividade de início de sessão](../active-directory-reporting-activity-sign-ins.md) sobre o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+Se o seu inquilino tem uma licença do Azure AD Premium associada a ele, também pode ver o [relatório de atividade de início de sessão](../reports-monitoring/concept-sign-ins.md) sobre o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Active Directory do Azure – relatório de inícios de sessão](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 

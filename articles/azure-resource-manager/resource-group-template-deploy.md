@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 714f5f2d4aa1635da8aa62139be5c80e7761ae27
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5d01fcbccb341db7e06a40c882f77d428fa06637
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38486745"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626248"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
@@ -161,15 +161,6 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
   ". Path 'variables', line 31, position 3.
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-Para utilizar o modo de conclusão, utilize o `Mode` parâmetro:
-
-```powershell
-New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
-  -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
-```
-
 ## <a name="sample-template"></a>Modelo de exemplo
 
 O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o como um arquivo chamado storage.json. Para compreender como criar este modelo, veja [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).  
@@ -221,7 +212,7 @@ O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o c
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Os exemplos neste artigo implementar recursos no grupo de recursos na sua subscrição predefinida. Para utilizar uma subscrição diferente, consulte [gerir várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
-* Para obter um script de exemplo completo que implementa um modelo, consulte [script de implementação de modelo do Resource Manager](resource-manager-samples-powershell-deploy.md).
+* Para especificar como lidar com recursos que existe no grupo de recursos, mas não estão definidas no modelo, consulte [modos de implementação Azure Resource Manager](deployment-modes.md).
 * Para compreender como definir parâmetros no seu modelo, veja [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obter dicas sobre como resolver erros comuns de implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para obter informações sobre como implementar um modelo que necessita de um token SAS, consulte [implementar modelo privado com o SAS token](resource-manager-powershell-sas-token.md).

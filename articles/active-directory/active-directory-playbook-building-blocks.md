@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618976"
+ms.locfileid: "39626816"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -159,7 +159,7 @@ Obter uma estimativa de tempo para concluir: 60 minutos
 | Aguarde alguns minutos enquanto o aprovisionamento esteja concluído.  Entretanto, pode verificar os relatórios de aprovisionamento |  |
 | Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso | [O que é o painel de acesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Clique no mosaico da aplicação que acabou de ser criado. Confirmar o acesso |  |
-| Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md) |
+| Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -191,7 +191,7 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 | Clique no mosaico da aplicação que acabou de ser criado. | [O que é o painel de acesso?: SSO baseado em palavra-passe sem o aprovisionamento de identidade](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Forneça a credencial de aplicação | [O que é o painel de acesso?: SSO baseado em palavra-passe sem o aprovisionamento de identidade](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fechar o navegador e repetir o início de sessão. Desta vez o utilizador deverá ver o acesso totalmente integrado ao aplicativo. |  |
-| Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md) |
+| Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -223,7 +223,7 @@ Obter uma estimativa de tempo para concluir: 30 minutos
 | Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Atribuir a aplicação para o grupo identificado nos pré-requisitos ao atribuir-lhes credenciais | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Iniciar sessão, como diferentes usuários, essa aplicação de acesso, como o **mesmo partilhado conta.**  |  |
-| Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md) |
+| Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### <a name="considerations"></a>Considerações
@@ -500,17 +500,17 @@ Obter uma estimativa de tempo para concluir: 20 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | Dispositivo com browser de Tor baixado e instalado | [Baixe o navegador de Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Acesso ao utilizador prova de conceito para fazer o início de sessão | [Playbook do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md) |
+| Acesso ao utilizador prova de conceito para fazer o início de sessão | [Playbook do Azure Active Directory Identity Protection](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>Passos
 
 | Passo | Recursos |
 | --- | --- |
 | Browser de tor aberto | [Baixe o navegador de Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Inicie sessão no https://myapps.microsoft.com com a conta de utilizador de prova de conceito | [Playbook do Azure Active Directory Identity Protection: simulação de eventos de risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Inicie sessão no https://myapps.microsoft.com com a conta de utilizador de prova de conceito | [Playbook do Azure Active Directory Identity Protection: simulação de eventos de risco](identity-protection/playbook.md#simulating-risk-events) |
 | Aguarde 5 a 7 minutos |  |
 | Inicie sessão como um administrador global para https://portal.azure.com e abra o painel de proteção de identidade | https://aka.ms/aadipgetstarted |
-| Abra o painel de eventos de risco. Deverá ver uma entrada sob "Inícios de sessão de endereços IP anónimos"  | [Playbook do Azure Active Directory Identity Protection: simulação de eventos de risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Abra o painel de eventos de risco. Deverá ver uma entrada sob "Inícios de sessão de endereços IP anónimos"  | [Playbook do Azure Active Directory Identity Protection: simulação de eventos de risco](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -534,14 +534,14 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 | Passo | Recursos |
 | --- | --- |
 | Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel de proteção de identidade | https://aka.ms/aadipgetstarted |
-| Ative uma política de risco de início de sessão da seguinte forma:<br/>-Atribuído a: o utilizador de prova de conceito<br/>-Condições: Início de sessão risco médio ou superior (inícios de sessão de localização anônimo é considerado como um nível de risco médio)<br/>-Controles: Exigir a MFA | [Playbook do Azure Active Directory Identity Protection: início de sessão de risco](active-directory-identityprotection-playbook.md) |
+| Ative uma política de risco de início de sessão da seguinte forma:<br/>-Atribuído a: o utilizador de prova de conceito<br/>-Condições: Início de sessão risco médio ou superior (inícios de sessão de localização anônimo é considerado como um nível de risco médio)<br/>-Controles: Exigir a MFA | [Playbook do Azure Active Directory Identity Protection: início de sessão de risco](identity-protection/playbook.md) |
 | Browser de tor aberto | [Baixe o navegador de Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Inicie sessão no https://myapps.microsoft.com com a conta de utilizador de prova de conceito |  |
-| Tenha em atenção a submissão da MFA | [Experiências de início de sessão com o Azure AD Identity Protection: recuperação de início de sessão arriscada](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| Tenha em atenção a submissão da MFA | [Experiências de início de sessão com o Azure AD Identity Protection: recuperação de início de sessão arriscada](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Considerações
 
-Esta capacidade é parte do Azure AD Premium P2 e/ou EMS E5. Para saber mais sobre eventos de risco, visite: [eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md)
+Esta capacidade é parte do Azure AD Premium P2 e/ou EMS E5. Para saber mais sobre eventos de risco, visite: [eventos de risco do Azure Active Directory](reports-monitoring/concept-risk-events.md)
 
 ## <a name="configuring-certificate-based-authentication"></a>Configuração da autenticação baseada em certificado
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258291"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627649"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory autenticação pass-through: Limitações atuais
 
@@ -42,7 +42,7 @@ São suportados os seguintes cenários:
 
 Os cenários seguintes são _não_ suportados:
 
-- Deteção de utilizadores com [fuga de credenciais](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Deteção de utilizadores com [fuga de credenciais](../reports-monitoring/concept-risk-events.md#leaked-credentials).
 - O Azure AD Domain Services precisa de sincronização de Hash de palavra-passe para ser ativada no inquilino. Portanto, os inquilinos que utilizam a autenticação pass-through _apenas_ não funcionam para cenários que precisam de serviços de domínio do Azure AD.
 - Autenticação pass-through não é integrada com [do Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 

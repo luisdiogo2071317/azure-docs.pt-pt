@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036528"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627462"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Origens de dados no Azure de monitorização
 Este artigo descreve os dados disponíveis para monitorizar o estado de funcionamento e desempenho dos seus recursos do Azure e as aplicações em execução nos mesmos.  Recolher e analisar estes dados com as ferramentas descritas no [coleta de dados no Azure de monitorização](monitoring-data-collection.md)
@@ -42,7 +42,7 @@ Pode ver o registo de atividades para um recurso específico na sua página nos 
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Registos de auditoria do Azure Active Directory
-[Relatórios do Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md) contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico. Atualmente não é possível combinar dados de auditoria do Azure Active Directory com outros dados de monitorização como só é acessível através do Azure Active Directory e o [do Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+[Relatórios do Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md) contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico. Atualmente não é possível combinar dados de auditoria do Azure Active Directory com outros dados de monitorização como só é acessível através do Azure Active Directory e o [do Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## <a name="azure-services"></a>Serviços do Azure

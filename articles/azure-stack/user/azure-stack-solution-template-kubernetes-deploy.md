@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: edcea5f0a4b95725bf766632731f461334e829a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fb7716ff1b5ce661dff55c3a8dac90a062fad53
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420143"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630787"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Implementar um cluster de Kubernetes no Azure Stack
 
@@ -27,6 +27,7 @@ ms.locfileid: "39420143"
 
 > [!Note]  
 > O Kubernetes de serviços de contentor do Azure (ACS) no Azure Stack está em pré-visualização privada. O operador do Azure Stack tem de pedir acesso para o item do Marketplace de Kubernetes necessário para executar as instruções neste artigo.
+<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
 
 O seguinte artigo analisa com um modelo de solução do Azure Resource Manager para implementar e aprovisionar os recursos do Kubernetes numa operação única e coordenada. Serão necessárias para recolher as informações necessárias sobre a instalação do Azure Stack, gerar o modelo e, em seguida, implementar a sua cloud.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: API de processador Feed do .NET alteração, SDK & recursos | Microsoft Docs'
-description: Saiba tudo sobre a API de processador de Feed de alteração e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK do processador .NET de Feed de alteração.
+title: 'Azure Cosmos DB: API de processador do Feed do .NET alteração, SDK e recursos | Documentos da Microsoft'
+description: Saiba tudo sobre a API de processador do Feed de alterações e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK do processador de .NET de Feed de alterações.
 services: cosmos-db
 author: ealsur
 manager: kfile
@@ -10,17 +10,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: e8a8edd22fe66df12e9e7327a25e82aa5f07bd1b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113722"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627632"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alteração de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,24 +34,27 @@ ms.locfileid: "37113722"
 
 |   |   |
 |---|---|
-|**Transferência do SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**Documentação da API**|[Alterar a documentação de referência da API de biblioteca de Feed de processador](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Introdução**|[Introdução ao SDK .NET do processador de Feed de alteração](change-feed.md)|
-|**Arquitetura suportada atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [O Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Documentação da API**|[Alterar a documentação de referência da API de biblioteca de processador do Feed](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Introdução**|[Introdução ao SDK de .NET de processador de Feed de alterações](change-feed.md)|
+|**Estrutura de suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="v2-builds"></a>compilações v2
+### <a name="v2-builds"></a>compilações de v2
+
+### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
+* Corrigido uma condição de corrida que ocorre durante a divisão de partição. A condição de corrida pode levar a adquirir concessão e perdê-lo durante a divisão de partição imediatamente e causar contenção. O problema de condição de corrida é resolvido com esta versão.
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
-* GA SDK
+* SDK DE DISPONIBILIDADE GERAL
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Foram corrigidos os problemas seguintes:
-  * Quando ocorre a divisão de partição, pode existir duplicado de processamento de documentos modificados antes da divisão.
+  * Quando ocorre a divisão de partição, pode haver duplicado de processamento de documentos modificados antes da divisão.
   * A API de GetEstimatedRemainingWork devolveu 0 quando não existem concessões estavam presentes na coleção de concessão.
 
-* As seguintes exceções são efetuadas públicas. As extensões que implementam IPartitionProcessor podem acionar estas exceções.
+* As seguintes exceções são públicos. As extensões que implementam IPartitionProcessor podem emitir essas exceções.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
@@ -59,73 +62,73 @@ ms.locfileid: "37113722"
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Pequenas alterações de API:
-  * Remover ChangeFeedProcessorOptions.IsAutoCheckpointEnabled que foi marcado como obsoleto.
+  * Removido ChangeFeedProcessorOptions.IsAutoCheckpointEnabled que foi marcado como obsoleto.
 
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
-* Melhoramentos de estabilidade:
-  * Melhor de processamento de inicialização do arquivo de concessão. Quando o arquivo de concessão está vazio, apenas uma instância de processador pode inicializá-lo, irão aguardar a outras pessoas.
-  * Versão/mais estável/eficiente concessão renovação. Renovar e lançar uma partição de uma concessão são independente de renovação de outros utilizadores. No v1 que foi efetuada sequencialmente para todas as partições.
-* Nova v2 API:
-  * Padrão de construtor para construção flexível do processador: a classe de ChangeFeedProcessorBuilder.
-    * Pode efetuar qualquer combinação de parâmetros.
-    * Pode demorar DocumentClient instância para a recolha de monitorização e/ou concessão (não disponível no v1).
+* Melhorias de estabilidade:
+  * Um manuseio de inicialização de arquivo de concessão. Quando o arquivo de concessão estiver vazio, apenas uma instância de processador pode inicializá-lo, irão esperar a outras pessoas.
+  * Renovação de concessão stable/eficiente mais/release. Renovação e lançar uma partição de uma concessão são independente da renovação de outras pessoas. No v1, isso foi feito em seqüência para todas as partições.
+* Nova API v2:
+  * Padrão de construtor para construção flexível do processador: a classe ChangeFeedProcessorBuilder.
+    * Pode demorar qualquer combinação de parâmetros.
+    * Pode demorar a instância do DocumentClient para a recolha de monitorização e/ou concessão (não disponível no v1).
   * IChangeFeedObserver.ProcessChangesAsync agora demora CancellationToken.
-  * IRemainingWorkEstimator - o restantes estimator de trabalho pode ser utilizada em separado do processador.
+  * IRemainingWorkEstimator - o avaliador de trabalho restantes pode ser utilizado em separado do processador.
   * Novos pontos de extensibilidade:
-    * IParitionLoadBalancingStrategy - para personalizado de balanceamento de carga de partições entre instâncias do processador.
-    * ILease, ILeaseManager - para a gestão de concessão personalizado.
-    * IPartitionProcessor - alterações de processamento personalizadas numa partição.
-* Utiliza o registo - [LibLog](https://github.com/damianh/LibLog) biblioteca.
+    * IParitionLoadBalancingStrategy - para personalizados-balanceamento de carga de partições entre instâncias do processador.
+    * ILease, ILeaseManager - para a gestão da concessão personalizado.
+    * IPartitionProcessor - para que as alterações do processamento personalizado numa partição.
+* Registo - utiliza [LibLog](https://github.com/damianh/LibLog) biblioteca.
 * 100% compatível com versões anteriores com a API de v1.
-* Novo código base.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21.1 e superior.
+* Nova base de código.
+* Compatível com [SDK de .NET de SQL](sql-api-sdk-dotnet.md) versões 1.21.1 e acima.
 
-### <a name="v1-builds"></a>compilações v1
+### <a name="v1-builds"></a>compilações de v1
 
 ### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
 * Adicionar mais registo.
-* Corrigido uma fuga de DocumentClient ao chamar a estimativa de trabalho pendentes várias vezes.
+* Foi corrigido um vazamento de DocumentClient ao chamar a estimativa do trabalho pendente várias vezes.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Correções de estimativa de trabalho pendentes.
+* Correções a estimativa do trabalho pendente.
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Melhoramentos de estabilidade.
-  * Correção para processamento de problema de cancelada tarefas que pode originar parado observadores em algumas partições.
-* Suporte para o ponto de verificação manual.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21 e superior.
+* Melhorias de estabilidade.
+  * Correção para a manipulação de problema de cancelamento de tarefas que pode levar a parada observadores em algumas partições.
+* Suporte para pontos de verificação manual.
+* Compatível com [SDK de .NET de SQL](sql-api-sdk-dotnet.md) versões 1,21 e acima.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Adiciona suporte para .NET 2.0 padrão. O pacote agora suporta `netstandard2.0` e `net451` os monikers do framework.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.17.0 e superior.
-* Compatível com [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versões 1.5.1 e superior.
+* Adiciona suporte para .NET Standard 2.0. O pacote suporta agora `netstandard2.0` e `net451` monikers do framework.
+* Compatível com [SDK de .NET de SQL](sql-api-sdk-dotnet.md) versões 1.17.0 e acima.
+* Compatível com [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versões 1.5.1 e acima.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Corrige um problema com o cálculo de estimativa do trabalho restantes quando o Feed de alteração foi vazio ou não trabalho estava pendente.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e superior.
+* Corrige um problema com o cálculo de estimativa do trabalho restante, quando o Feed de alteração estava vazio ou nenhum trabalho estava pendente.
+* Compatível com [SDK de .NET de SQL](sql-api-sdk-dotnet.md) versões 1.13.2 e acima.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Adicionar um método para obter uma estimativa do trabalho restantes para ser processado no Feed de alteração.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e superior.
+* Adicionar um método para obter uma estimativa do trabalho restante para serem processados no Feed de alterações.
+* Compatível com [SDK de .NET de SQL](sql-api-sdk-dotnet.md) versões 1.13.2 e acima.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.14.1 e abaixo.
+* SDK DE DISPONIBILIDADE GERAL
+* Compatível com [SDK de .NET de SQL](sql-api-sdk-dotnet.md) versões 1.14.1 e abaixo.
 
 
-## <a name="release--retirement-dates"></a>Versão & extinção datas
-A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
+## <a name="release--retirement-dates"></a>Datas de lançamento & retirada
+A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
-Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomenda-se que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível. 
+Novos recursos e funcionalidade e otimizações, apenas são adicionadas ao SDK atual, como tal, é recomendável que sempre atualiza para a versão mais recente SDK mais cedo possível. 
 
-Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo serviço.
+Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 <br/>
 
-| Versão | Data da versão | Data de retirada |
+| Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [1.3.3](#1.3.3) |08 de Maio de 2018 |--- |
-| [1.3.2](#1.3.2) |18 de Abril de 2018 |--- |
+| [1.3.2](#1.3.2) |18 de abril de 2018 |--- |
 | [1.3.1](#1.3.1) |13 de março de 2018 |--- |
 | [1.2.0](#1.2.0) |31 de outubro de 2017 |--- |
 | [1.1.1](#1.1.1) |29 de Agosto de 2017 |--- |
@@ -137,5 +140,5 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

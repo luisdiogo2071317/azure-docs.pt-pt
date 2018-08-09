@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867329"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627394"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos, utilizar grupos para gerir o licenciamento no Azure Active Directory
 
@@ -27,7 +27,7 @@ Utilize as seguintes informações e exemplos para obter uma compreensão mais a
 
 ## <a name="usage-location"></a>Localização da utilização
 
-Alguns serviços da Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. Na [do portal do Azure](https://portal.azure.com), pode especificar nos **utilizador** &gt; **perfil** &gt; **definições**.
+Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. Na [do portal do Azure](https://portal.azure.com), pode especificar nos **utilizador** &gt; **perfil** &gt; **definições**.
 
 Para a atribuição de licença de grupo, todos os utilizadores sem uma localização de utilização definida herdará a localização do diretório. Se tiver usuários em vários locais, certifique-se refletir que corretamente em seus objetos de utilizador antes de adicionar utilizadores a grupos com licenças.
 
@@ -146,13 +146,13 @@ Pode usar um script do PowerShell para verificar se os utilizadores têm uma lic
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Utilizar registos de auditoria para monitorizar a atividade de licenciamento baseado no grupo
 
-Pode usar [registos de auditoria do Azure AD](./../active-directory-reporting-activity-audit-logs.md#audit-logs) ver todas as atividades relacionadas com licenciamento baseado em grupo, incluindo:
+Pode usar [registos de auditoria do Azure AD](../reports-monitoring/concept-audit-logs.md#audit-logs) ver todas as atividades relacionadas com licenciamento baseado em grupo, incluindo:
 - quem alterou licenças em grupos
 - Quando o sistema começou a processar uma alteração de licença de grupo, e quando concluído
 - que alterações de licença foram feitas a um utilizador como resultado de uma atribuição de licença de grupo.
 
 >[!NOTE]
-> Registos de auditoria estão disponíveis na maioria dos painéis na seção do portal do Azure Active Directory. Dependendo de onde acessá-los, os filtros podem ser previamente aplicados para mostrar apenas atividades relevantes para o contexto do painel. Se não está a ver os resultados esperados, examine [as opções de filtragem](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) ou aceder aos registos de auditoria não filtrado sob [ **do Azure Active Directory > atividade > registos de auditoria** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Registos de auditoria estão disponíveis na maioria dos painéis na seção do portal do Azure Active Directory. Dependendo de onde acessá-los, os filtros podem ser previamente aplicados para mostrar apenas atividades relevantes para o contexto do painel. Se não está a ver os resultados esperados, examine [as opções de filtragem](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) ou aceder aos registos de auditoria não filtrado sob [ **do Azure Active Directory > atividade > registos de auditoria** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
 ### <a name="find-out-who-modified-a-group-license"></a>Descubra quem modificado de uma licença de grupo
 
@@ -231,9 +231,9 @@ Se utilizar o licenciamento baseado em grupo, é uma boa idéia para se familiar
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre outros cenários para gestão de licenças através do licenciamento baseado em grupo, consulte:
+Para saber mais sobre outros cenários para gestão de licenças através do licenciamento baseado no grupo, veja:
 
 * [O que é o licenciamento no Azure Active Directory com base em grupo?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Como migrar utilizadores licenciados individuais para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
+* [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)

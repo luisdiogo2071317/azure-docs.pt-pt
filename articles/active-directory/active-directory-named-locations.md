@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 497c3b54238c9e38144a5840b59cac38af581f39
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525931"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627496"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Configurar localizações com nome no Azure Active Directory
 
 Com localizações com nome, pode etiquetar os intervalos de endereços IP fidedignos na sua organização. O Azure Active Directory utiliza localizações com nome no contexto de:
 
-- A detecção de [eventos de risco](active-directory-reporting-risk-events.md) para reduzir o número de comunicadas falsos positivos.  
+- A detecção de [eventos de risco](reports-monitoring/concept-risk-events.md) para reduzir o número de comunicadas falsos positivos.  
 
 - [Acesso condicional com base na localização](conditional-access/location-condition.md).
 
@@ -99,6 +99,6 @@ Para obter mais informações, consulte:
 
 - [Condições de localização no acesso condicional do Azure Active Directory](conditional-access/location-condition.md)
 
-- [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+- [Eventos de risco do Azure Active Directory](reports-monitoring/concept-risk-events.md).
 
-- [Relatório de inícios de sessão de risco no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [Relatório de inícios de sessão de risco no portal do Azure Active Directory](reports-monitoring/concept-risky-sign-ins.md).  

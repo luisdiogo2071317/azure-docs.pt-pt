@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284875"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626928"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
 
@@ -50,7 +50,7 @@ Clicar para ver todas as florestas do AD que foram ativadas para SSO totalmente 
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivos das falhas de início de sessão no Centro de administração do Active Directory do Azure (precisa de uma licença Premium)
 
-Se o seu inquilino tem uma licença do Azure AD Premium associada a ele, também pode ver o [relatório de atividade de início de sessão](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+Se o seu inquilino tem uma licença do Azure AD Premium associada a ele, também pode ver o [relatório de atividade de início de sessão](../reports-monitoring/concept-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Azure Active Directory: relatório de inícios de sessão](./media/active-directory-aadconnect-sso/sso9.png)
 

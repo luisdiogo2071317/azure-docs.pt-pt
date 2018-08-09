@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617603"
+ms.locfileid: "39627149"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e Configurar um Certificado SSL para o Serviço de Aplicações do Azure
 
@@ -78,7 +78,7 @@ Da mesma **configuração do certificado** página que utilizou no passo 3, cliq
 
 Escolha o método de verificação de domínio preferencial. 
 
-Há quatro tipos de verificação de domínio suportados pelo certificados do serviço de aplicações: serviço de aplicações, domínio, email e verificação Manual. Esses tipos de verificação são explicados em mais detalhes no [Advanced secção](#advanced).
+Há quatro tipos de verificação de domínio suportados pelo certificados do serviço de aplicações: serviço de aplicações, domínio e verificação Manual. Esses tipos de verificação são explicados em mais detalhes no [Advanced secção](#advanced).
 
 > [!NOTE]
 > **Verificação do serviço de aplicações** é a opção mais conveniente, quando o domínio que pretende verificar já está mapeado para uma aplicação de serviço de aplicações na mesma subscrição. Tira partido do fato de que a aplicação de serviço de aplicações já verificou a propriedade do domínio.
@@ -135,16 +135,7 @@ Neste ponto, deve ser capaz de visitar a sua aplicação através de `HTTPS://` 
 
 ### <a name="verifying-domain-ownership"></a>Verificar a propriedade do domínio
 
-Há dois outros tipos de verificação de domínio suportados pelo certificados do serviço de aplicações: Mail e verificação Manual.
-
-#### <a name="mail-verification"></a>Verificação por E-mail
-
-E-mail de verificação já foi enviado para os endereços de E-mail associado a este domínio personalizado.
-Para concluir o passo de verificação de E-Mail, abra o e-mail e clique na ligação de verificação.
-
-![Inserir a imagem de verificação de e-mail](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-Se precisar de reenviar o e-mail de verificação, clique nas **reenviar E-Mail** botão.
+Há dois outros tipos de verificação de domínio suportados pelo certificados do serviço de aplicações: verificação do domínio e a verificação manual.
 
 #### <a name="domain-verification"></a>Verificação do Domínio
 

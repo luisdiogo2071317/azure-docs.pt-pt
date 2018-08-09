@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115402"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627411"
 ---
 # <a name="durable-functions-overview"></a>Descrição geral de funções durável
 
@@ -44,7 +44,7 @@ O principal motivo para as funções durável é simplificar problemas de coorde
 
 Funções duráveis permite-lhe implementar este padrão de forma concisa no código.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> Existem diferenças sutis ao escrever uma função durável pré-compilados no c# vs, o exemplo de script c# mostrado anteriormente. Uma função c# pré-compiladas exigiria duráveis parâmetros a ser decorada com os respetivos atributos. Um exemplo é `[OrchestrationTrigger]` atributo para `DurableOrchestrationContext` parâmetro. Se os parâmetros não são decorados corretamente, o tempo de execução não seria capaz de inserir as variáveis para a função e forneceria o erro. Visite [exemplo](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) para obter mais exemplos.
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
 
@@ -88,7 +90,7 @@ O `ctx` parâmetro ([DurableOrchestrationContext](https://azure.github.io/azure-
 
 Com as funções normais, pode ser feito fanning fazendo com que a função de enviar várias mensagens para uma fila. No entanto, o fanning em é muito mais desafiador. Teria de escrever código para controlar quando as funções de acionada por fila terminam e armazenam as saídas de função. A extensão de funções duráveis lida com esse padrão com o código relativamente simples.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ Um exemplo seria possível invertendo o cenário de API de HTTP de async anterio
 
 Usando funções duráveis, podem ser criados vários monitores que cumprem os pontos de extremidade arbitrários em algumas linhas de código. Os monitores podem terminar a execução quando alguma condição for cumprida, ou terminar com o [DurableOrchestrationClient](durable-functions-instance-management.md), e o intervalo de espera pode ser alterado com base em alguma condição (ou seja, término exponencial.) O seguinte código implementa um monitor básico.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ Um exemplo de um processo comercial que envolve a interação humana é um proce
 
 Este padrão pode ser implementado usando uma função de orquestrador. O orchestrator usaria um [temporizador durável](durable-functions-timers.md) para solicitar a aprovação e escalar em caso de tempo limite. Ele deve esperar para um [evento externo](durable-functions-external-events.md), qual seria a notificação gerada por alguma interação humana.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
