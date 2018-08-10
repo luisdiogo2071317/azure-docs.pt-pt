@@ -37,4 +37,4 @@ Consoante o dispositivo VPN que tiver, poderá transferir um script de configura
 
 - Para os passos de configuração da política de IPsec/IKE, consulte [Configurar política de IPsec/IKE para ligações VPN S2S ou VNet para VNet](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).
 
-- Para ligar vários dispositivos VPN baseados em políticas, veja [Connect Azure VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Ligue gateways VPN do Azure a vários dispositivos VPN baseados em políticas no local com o PowerShell).
+- Para ligar vários dispositivos VPN baseados em políticas, veja [Ligue gateways VPN do Azure a vários dispositivos VPN baseados em políticas no local com o PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).

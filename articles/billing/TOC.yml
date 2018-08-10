@@ -25,21 +25,29 @@
       href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
     - name: Compreender o limite de gastos
       href: billing-spending-limit.md
-    - name: Poupe com as Instâncias de VM Reservadas
+    - name: Poupe com as reservas do Azure
       items:
-        - name: O que são as instâncias reservadas?
+        - name: O que são as reservas do Azure?
           href: billing-save-compute-costs-reservations.md
-        - name: Comprar uma instância reservada
-          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Comprar uma reserva
+          items:
+            - name: Máquina virtual
+              href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+            - name: SQL Database
+              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Como é aplicado o desconto
-          href: billing-understand-vm-reservation-charges.md
+          items:
+            - name: Instâncias de VM Reservada
+              href: billing-understand-vm-reservation-charges.md
+            - name: Capacidade de reserva da Base de Dados SQL
+              href: billing-understand-reservation-charges.md
         - name: Custos de software não incluídos
           href: billing-reserved-instance-windows-software-costs.md
         - name: Utilização de Pay As You Go
           href: billing-understand-reserved-instance-usage.md
         - name: Feito para Enterprise
           href: billing-understand-reserved-instance-usage-ea.md
-        - name: Gerir as instâncias reservadas
+        - name: Gerir reservas do Azure
           href: billing-manage-reserved-vm-instance.md
 - name: Gerir conta
   items:

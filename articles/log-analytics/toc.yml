@@ -110,9 +110,17 @@
     - name: Consultar dados
       items:
         - name: Documentação de linguagem
-          href: 'https://docs.loganalytics.io'
-        - name: Transição da linguagem legada
-          href: log-analytics-log-search-transition.md
+          items:
+            - name: Transição da linguagem legada
+              href: log-analytics-log-search-transition.md
+            - name: Introdução ao portal de Análise
+              href: query-language/get-started-analytics-portal.md
+            - name: Introdução às consultas
+              href: query-language/get-started-queries.md
+            - name: Consultas de pesquisa
+              href: query-language/search-queries.md
+            - name: Referência de linguagem
+              href: 'https://docs.loganalytics.io'
         - name: Pesquisas entre recursos
           href: log-analytics-cross-workspace-search.md
         - name: Agir com base nos resultados de pesquisa
