@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 18bdd27f1f18b9ca938a3c81c65e1905e4fbe5df
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a03b72200f97c54bce188ec6a6ad8a06a43f26ae
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576479"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002584"
 ---
 # <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Configuração DPDK numa máquina virtual do Linux
 
@@ -62,7 +62,7 @@ Funcionamento em rede acelerado tem de estar ativado na máquina virtual do Linu
 
 ## <a name="install-dpdk-dependencies"></a>Instalar dependências DPDK
 
-### <a name="ubuntu-1804"></a>Ubuntu 18.04
+### <a name="ubuntu-1604"></a>Ubuntu 16.04
 
 ```bash
 sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
@@ -70,7 +70,7 @@ sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```
 
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
+### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
 sudo apt-get update
@@ -108,11 +108,10 @@ zypper \
 ## <a name="setup-virtual-machine-environment-once"></a>Configurar o ambiente de máquina virtual (uma vez)
 
 1. [Transferir o mais recente DPDK](https://core.dpdk.org/download). Versão 18.02 ou superior é necessário para o Azure.
-2. Instalar o *libnuma dev* empacotar com `sudo apt-get install libnuma-dev`.
-3. Primeiro, crie a configuração padrão com `make config T=x86_64-native-linuxapp-gcc`.
-4. Ativar Mellanox PMDs a configuração gerada com `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
-5. A compilação com `make`.
-6. Instalar com `make install DESTDIR=<output folder>`.
+2. Primeiro, crie a configuração padrão com `make config T=x86_64-native-linuxapp-gcc`.
+3. Ativar Mellanox PMDs a configuração gerada com `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
+4. A compilação com `make`.
+5. Instalar com `make install DESTDIR=<output folder>`.
 
 # <a name="configure-runtime-environment"></a>Configurar o ambiente de tempo de execução
 
@@ -134,14 +133,14 @@ Execute os seguintes comandos uma vez, após reiniciar:
      > [!NOTE]
      > Existe uma forma de modificar o ficheiro de grub para que as páginas enormes estão reservadas no arranque ao seguir a [instruções](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para DPDK. É a instrução na parte inferior da página. Quando em execução numa máquina virtual Linux do Azure, modificar arquivos em /etc/config/grub.d em vez disso, para reservar hugepages entre reinícios.
 
-2. Endereços MAC e IP: utilizar `ifconfig –a` para ver o endereço MAC e IP das interfaces de rede. O *VF* interface de rede e *NETVSC* interface de rede têm o mesmo endereço MAC, mas apenas o *NETVSC* interface de rede tem um endereço IP.
+2. Endereços MAC e IP: utilizar `ifconfig –a` para ver o endereço MAC e IP das interfaces de rede. O *VF* interface de rede e *NETVSC* interface de rede têm o mesmo endereço MAC, mas apenas o *NETVSC* interface de rede tem um endereço IP. Interfaces de VF estão em execução como interfaces de subordinado de NETVSC interfaces.
 
 3. Endereços PCI
 
    * Descubra qual a utilizar para o endereço PCI *VF* com `ethtool -i <vf interface name>`.
    * Certifique-se de que testpmd acidentalmente não assuma o dispositivo de pci VF para *eth0*, se *eth0* tenha o accelerated networking ativada. Se aplicação DPDK acidentalmente está a ser utilizado sobre a interface de rede de gestão e provoca a perda da sua ligação de SSH, utilize a consola de série para interromper o aplicativo DPDK, ou para parar ou iniciar a máquina virtual.
 
-4. Carga *ibuverbs* em cada reinício com `modprobe -a ib_uverbs`. Para apenas a 15 de SLES, de carga *mlx4_ib* com 'modprobe - a mlx4_ib'.
+4. Carga *ibuverbs* em cada reinício com `modprobe -a ib_uverbs`. Para apenas a 15 de SLES, também carregar *mlx4_ib* com `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>PMD contra falhas
 
@@ -153,23 +152,23 @@ Uso `sudo` antes do *testpmd* comando a ser executado no modo de raiz.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: Verificação da funcionalidade de inicialização de adaptador de segurança contra falhas
 
-1. Execute os seguintes comandos para iniciar a aplicação de uma única porta:
+1. Execute os seguintes comandos para iniciar um aplicativo de testpmd única porta:
 
    ```bash
    testpmd -w <pci address from previous step> \
      --vdev="net_vdev_netvsc0,iface=eth1" \
-     -i \
+     -- -i \
      --port-topology=chained
     ```
 
-2. Execute os seguintes comandos para iniciar um aplicativo de porta dupla:
+2. Execute os seguintes comandos para iniciar um aplicativo de testpmd de porta dupla:
 
    ```bash
    testpmd -w <pci address nic1> \
    -w <pci address nic2> \
    --vdev="net_vdev_netvsc0,iface=eth1" \
    --vdev="net_vdev_netvsc1,iface=eth2" \
-   -i
+   -- -i
    ```
 
    Se executar com mais de 2 NICs, o `--vdev` argumento segue este padrão: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
@@ -186,30 +185,30 @@ Os seguintes comandos periodicamente os pacotes por segundo estatísticas de imp
 1. No lado do TX, E.u.a., execute o seguinte comando:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
 2. No lado do RX, execute o seguinte comando:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
@@ -221,31 +220,31 @@ Os seguintes comandos periodicamente os pacotes por segundo estatísticas de imp
 1. No lado do TX, E.u.a., execute o seguinte comando:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 
 2. No lado do FWD, execute o seguinte comando:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address NIC1> \
      -w <pci address NIC2> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --vdev=”net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     --nb-cores <number of cores to use for test pmd> \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
-     –eth-peer=<recv port id>,<peer MAC address> \
+     --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 

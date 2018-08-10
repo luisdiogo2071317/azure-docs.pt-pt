@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdbcfca64c2e680dfdf8feefe1bafdefb84981f4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 975b3d30f242b877512312f8a5a030bde9349287
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125825"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003652"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
@@ -154,7 +154,7 @@ Para obter o código de produto a partir do pacote de instalação do agente dir
     ```
 
 4. [Importe o script de configuração MMAgent.ps1](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) na sua conta de automatização. 
-5. [Atribuir um computador Windows ou o nó](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-dsc) para a configuração. Em 15 minutos, o nó verifica a respetiva configuração e o agente é enviado para o nó.
+5. [Atribuir um computador Windows ou o nó](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) para a configuração. Em 15 minutos, o nó verifica a respetiva configuração e o agente é enviado para o nó.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Verificar a conectividade de agente para o Log Analytics
 

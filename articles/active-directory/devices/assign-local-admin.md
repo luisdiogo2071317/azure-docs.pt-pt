@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 2dfef8d0dbaf4d70559c966f1587764210d8b49c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b72cab6ce90f0cbb74afd3e00a9aec73fb2908f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598335"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003785"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Dispositivos associados ao como gerir o grupo de administradores locais no Azure AD
 
 Para gerir um dispositivo de Windows, terá de ser um membro do grupo Administradores local. Como parte do processo de associação do Azure Active Directory (Azure AD), o Azure AD atualiza a associação deste grupo num dispositivo. Pode personalizar a atualização de associação para satisfazer os seus requisitos empresariais. Uma atualização de associação é, por exemplo, útil se pretender ativar a sua equipa de suporte técnico fazer tarefas que exigem direitos de administrador num dispositivo.
 
-Este artigo explica como funciona a atualização de associação e como pode personalizá-lo.
+Este artigo explica como funciona a atualização de associação e como pode personalizá-lo durante uma associação ao Azure AD. O conteúdo deste artigo não se aplica a um **híbrida** associação do Azure AD.
 
 
 ## <a name="how-it-works"></a>Como funciona

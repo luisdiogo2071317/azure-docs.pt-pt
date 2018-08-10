@@ -3,7 +3,7 @@ title: Receber eventos de Hubs de Eventos do Azure com o Framework .NET | Micros
 description: Siga este tutorial para receber eventos dos Hubs de Eventos do Azure com o Framework .NET.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: 4f74b0f90795362d3e509fdbd33e5f358227f147
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: 8fbce92c8c703b86d86367f83329cfa853bc5e4d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436876"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003506"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Receber eventos de Hubs de Eventos do Azure com o .NET Framework
 
@@ -52,11 +52,11 @@ Para utilizar o [Anfitrião do Processador de Eventos][EventProcessorHost], tem 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
 
-3. Na **criar conta de armazenamento** painel, escreva um nome para a conta de armazenamento. Escolha uma subscrição do Azure, um grupo de recursos e uma localização na que pretenda criar o recurso. Em seguida, clique em **Criar**.
+3. Na **criar conta de armazenamento** painel, escreva um nome para a conta de armazenamento. Escolha uma subscrição do Azure, um grupo de recursos e uma localização na qual quer criar o recurso. Em seguida, clique em **Criar**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-4. Na lista de contas de armazenamento, clique na conta de armazenamento recentemente criada.
+4. Na lista de contas de armazenamento, clique na conta de armazenamento criada recentemente.
 
 5. No painel de conta de armazenamento, clique em **chaves de acesso**. Copie o valor da **chave1** para utilizar mais tarde neste tutorial.
    

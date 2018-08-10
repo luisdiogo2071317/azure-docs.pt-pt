@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do Service Fabric e contentores | Microsoft Docs
-description: Uma descrição geral do Service Fabric e a utilização de contentores para implementar aplicações de microsserviço. Este artigo fornece uma descrição geral de como contentores podem ser utilizados e as funcionalidades disponíveis no Service Fabric.
+title: Descrição geral do Service Fabric e contentores | Documentos da Microsoft
+description: Uma visão geral do Service Fabric e o uso de contentores para implementar aplicações de microsserviços. Este artigo fornece uma visão geral de como os contentores podem ser usados e as capacidades disponíveis no Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -12,78 +12,103 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/21/2018
+ms.date: 8/8/2018
 ms.author: msfussell
-ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6715142be7f40955861afa634bf6e2472c9f7294
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641917"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005780"
 ---
-# <a name="service-fabric-and-containers"></a>Serviço de recursos de infraestrutura e de contentores
+# <a name="service-fabric-and-containers"></a>Service Fabric e contentores
 
 ## <a name="introduction"></a>Introdução
-Azure Service Fabric é uma [orchestrator](service-fabric-cluster-resource-manager-introduction.md) dos serviços de um cluster de máquinas, com anos de utilização e a otimização de grande escala para serviços Microsoft. Os serviços podem ser desenvolvidos de várias maneiras de utilizar o [modelos de programação do Service Fabric](service-fabric-choose-framework.md) para implementar [convidado executáveis](service-fabric-guest-executables-introduction.md). Por predefinição, o Service Fabric implementa e ativa estes serviços como processos. Processos de fornecem o ativação mais rápida e mais alta densidade utilização de recursos num cluster. Serviço de recursos de infraestrutura também pode implementar serviços nas imagens de contentor. Importante ainda, pode combinar os serviços de processos e serviços nos contentores na mesma aplicação.   
 
-## <a name="what-are-containers"></a>Quais são contentores?
-Contentores são encapsulados, individualmente implementáveis componentes que são executados como instâncias isoladas no mesmo kernel para tirar partido de Virtualização que fornece um sistema operativo. Assim, cada aplicação e respetivos bibliotecas de tempo de execução, dependências e do sistema executam dentro de um contentor com acesso total, privado para a vista de contentor próprio isolada das construções de sistema operativo. Juntamente com a portabilidade, este nível de isolamento de segurança e de recursos é a vantagem principal para utilizar contentores com o Service Fabric, caso contrário, que executa serviços em processos.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços e contentores dimensionáveis e fiáveis.
 
-Contentores são uma tecnologia de Virtualização que Virtualiza do sistema operativo subjacente de aplicações. Contentores fornecem um ambiente imutável para as aplicações sejam executadas com variando graus de isolamento. Contentores são executados diretamente sobre o kernel e terem uma vista isolada do sistema de ficheiros e outros recursos. Em comparação com as máquinas virtuais, contentores tem as seguintes vantagens:
+O Service Fabric é da Microsoft [orquestrador de contentores](service-fabric-cluster-resource-manager-introduction.md) para implementar microsserviços em clusters de máquinas. Benefícios do Service Fabric das lições aprendidas durante sua anos a executar os serviços da Microsoft em grande escala.
 
-* **Pequeno**: contentores utilizarem um espaço de armazenamento única e versões de camada e as atualizações para aumentar a eficiência.
-* **Rápido**: contentores não tem de efetuar o arranque de um sistema operativo completo, para poderem iniciar muito mais rapidamente, normalmente, em segundos.
-* **Portabilidade**: uma imagem de aplicação pode ser convertidos para serem executados na nuvem, no local, dentro de máquinas virtuais, nem diretamente em máquinas físicas.
-* **Governação de recursos**: um contentor pode limitar os recursos físicos que se pode consumir no respetivo anfitrião.
+Os microsserviços podem ser desenvolvidos de muitas formas, desde a utilização dos [modelos de programação do Service Fabric](service-fabric-choose-framework.md) e do [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) até à implementação de [qualquer código à sua escolha](service-fabric-guest-executables-introduction.md). Ou, se só quer [implementar e gerir contentores](service-fabric-containers-overview.md), Service Fabric também é uma ótima opção.
 
-## <a name="container-types-and-supported-environments"></a>Tipos de contentor e Ambientes suportados
-Service Fabric suporta contentores no Linux e Windows e também suporta o modo de isolamento de Hyper-V em que esta. 
+Por predefinição, o Service Fabric implementa e ativa estes serviços como processos. Processos fornecem a ativação mais rápida e a mais alta utilização de densidade dos recursos num cluster. Service Fabric também pode implementar serviços nas imagens de contentor. Também pode combinar serviços em processos e serviços em contentores, no mesmo aplicativo.
 
-### <a name="docker-containers-on-linux"></a>Contentores de docker no Linux
-Docker fornece APIs de alto nível para criar e gerir contentores por cima de contentores de kernel do Linux. Hub de docker é um repositório central para armazenar e obter as imagens de contentor.
-Para um tutorial, consulte [implementar um contentor de Docker Service Fabric](service-fabric-get-started-containers-linux.md).
+Para iniciar de imediato e experimentar os contentores no Service Fabric, tente um início rápido, tutorial ou exemplo:  
 
-### <a name="windows-server-containers"></a>Contentores do Windows Server
-Windows Server 2016 fornece dois tipos diferentes de contentores que diferem no nível de isolamento indicado. Contentores do Windows Server e contentores de Docker são semelhantes porque ambos têm o isolamento de sistema de ficheiros e espaço de nomes mas partilham o kernel com o anfitrião que estão em execução. No Linux, este isolamento tradicionalmente tiver sido fornecido pelo `cgroups` e `namespaces`, e contentores do Windows Server comportam-se da mesma forma.
+[Início rápido: Implementar uma aplicação de contentores do Linux no Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Início rápido: Implementar uma aplicação de contentores do Windows no Service Fabric](service-fabric-quickstart-containers.md)  
+[Crie contentores de uma aplicação .NET existente](service-fabric-host-app-in-a-container.md)  
+[Exemplos de Contentor do Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
-Contentores do Windows com suporte de Hyper fornecem mais segurança e isolamento, porque cada contentor não partilha o kernel do sistema operativo com outros contentores ou com o anfitrião. Com este nível de isolamento de segurança mais elevado, contentores de Hyper-V ativada destinam-se cenários hostile, multi-inquilino.
-Para um tutorial, consulte [implementar um contentor do Windows para o Service Fabric](service-fabric-get-started-containers.md).
+## <a name="what-are-containers"></a>Quais são os contentores
 
-A figura seguinte mostra os diferentes tipos de Virtualização e isolamento níveis disponíveis no sistema operativo.
-![Plataforma de Service Fabric][Image1]
+Contentores de resolvem o problema das aplicações em execução com confiança em ambientes de computação diferentes, fornecendo um imutável ambiente para o aplicativo seja executado. Contentores de encapsular um aplicativo e todas as respetivas dependências, como bibliotecas e ficheiros de configuração, na sua própria caixa isolada que contém tudo o que for necessário para executar o software dentro do contentor. Onde quer que o contentor é executado, o aplicativo em seu interior sempre tem tudo o que ele precisa ser executado, como as versões corretas do seu bibliotecas dependentes, quaisquer ficheiros de configuração e qualquer outra coisa, precisa ser executado.
 
-## <a name="scenarios-for-using-containers"></a>Cenários para utilizar contentores
+Os contentores executados diretamente sobre o kernel e tem um modo de exibição isolado do sistema de ficheiros e outros recursos. Uma aplicação num contentor não tem conhecimento de quaisquer outros aplicativos ou processos estejam fora do contentor. Cada aplicativo e suas bibliotecas de tempo de execução, dependências e do sistema são executados dentro de um contentor com acesso completo e privado para a vista de contentor próprio isolado do sistema operativo. Para além de tornar fácil fornecer todas as dependências do seu aplicativo, precisa ser executado em diferentes ambientes de computação, segurança e isolamento de recursos são vantagens importantes da utilização de contentores com o Service Fabric, qual é executado; caso contrário, serviços num processo.
+
+Em comparação com as máquinas virtuais, contentores têm as seguintes vantagens:
+
+* **Pequenas**: contentores utilizarem um espaço de armazenamento única e versões de camada e as atualizações para aumentar a eficiência.
+* **Fast**: contentores não é preciso inicializar um sistema operativo inteiro, para que podem começar a muito mais rapidamente, normalmente em segundos.
+* **Portabilidade**: uma imagem de aplicação contentorizada pode ser convertida para serem executados na cloud, no local, dentro de máquinas virtuais, ou diretamente em máquinas físicas.
+* **Governação de recursos**: um contentor pode limitar os recursos físicos que ele possa consumir no respetivo anfitrião.
+
+### <a name="container-types-and-supported-environments"></a>Tipos de contentor e Ambientes suportados
+
+Service Fabric suporta contentores no Linux e Windows e suporta o modo de isolamento de Hyper-V no Windows.
+
+#### <a name="docker-containers-on-linux"></a>Contentores do docker no Linux
+
+Docker fornece APIs para criar e gerir contentores por cima de contentores de kernel do Linux. Hub do docker fornece repositório central para armazenar e recuperar imagens de contentor.
+Para obter um tutorial baseado em Linux, veja [criar a sua primeira aplicação de contentor do Service Fabric no Linux](service-fabric-get-started-containers-linux.md).
+
+#### <a name="windows-server-containers"></a>Contentores do Windows Server
+
+Windows Server 2016 fornece dois tipos diferentes de contentores que diferem por nível de isolamento. Contentores do Windows Server e os contentores do Docker são semelhantes porque têm espaço de nomes e o ficheiro de isolamento de sistema, enquanto o kernel de partilha com o anfitrião em que são executadas. No Linux, esse isolamento tradicionalmente fornecido pela unidade e espaços de nomes e contentores do Windows Server se comportam da mesma forma.
+
+Os contentores do Windows com suporte de Hyper-V oferecem mais segurança e isolamento, porque não existir um contentor compartilha o kernel do sistema operacional com qualquer outro contentor ou com o anfitrião. Com este nível de isolamento de segurança mais elevado, contentores de Hyper-V ativada destinam-se cenários potencialmente hostis, multi-inquilinos.
+Para obter um tutorial baseados em Windows, consulte [criar a sua primeira aplicação de contentor do Service Fabric no Windows](service-fabric-get-started-containers.md).
+
+A figura seguinte mostra os diferentes tipos de níveis de Virtualização e isolamento disponíveis.
+![Plataforma do Service Fabric][Image1]
+
+## <a name="scenarios-for-using-containers"></a>Cenários de utilização de contentores
+
 Seguem-se exemplos típicos onde um contentor é uma boa opção:
 
-* **IIS de comparação de precisão e deslocar**: Se tiver existente [ASP.NET MVC](https://www.asp.net/mvc) aplicações que pretende continuar a utilizar, colocá-los num contentor em vez de a migrá-las para o ASP.NET Core. Estas aplicações de ASP.NET MVC dependem de serviços de informação Internet (IIS). Pode estas aplicações nas imagens de contentor da imagem de IIS precreated do pacote e implementá-los com o Service Fabric. Consulte [imagens do contentor no Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre contentores do Windows.
-* **Combinar contentores e micro-serviços de Service Fabric**: utilizar uma imagem de contentor existente para a parte da sua aplicação. Por exemplo, poderá utilizar o [contentor NGINX](https://hub.docker.com/_/nginx/) para web front-end da sua aplicação e a serviços com monitorização de estado para o cálculo de back-end mais intensiva.
-* **Reduzir o impacto dos serviços de "vizinhos inúteis"**: pode utilizar a capacidade de governação de recursos de contentores para restringir os recursos que utiliza um serviço num anfitrião. Se os serviços podem consumir muitos recursos e afetar o desempenho de terceiros (como uma operação de execução longa, semelhante de consulta), considere colocar estes serviços ao contentores que tenham a governação de recursos.
+* **IIS lift- and -shift**: pode colocar um existente [ASP.NET MVC](https://www.asp.net/mvc) aplicação num contentor, em vez de migrar para ASP.NET Core. Estas aplicações de ASP.NET MVC dependem de serviços de informação Internet (IIS). Pode empacotar esses aplicativos nas imagens de contentor a partir da imagem pré-criada do IIS e implementá-las com o Service Fabric. Ver [imagens de contentor no Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre contentores do Windows.
 
-## <a name="service-fabric-support-for-containers"></a>Suporte de Service Fabric para contentores
-Serviço de recursos de infraestrutura suporta a implementação de contentores de Docker em contentores de Linux e Windows Server no Windows Server 2016, juntamente com suporte para o modo de isolamento de Hyper-V. 
+* **Misturar contentores e microsserviços de Service Fabric**: utilizar uma imagem de contentor existente para a parte da sua aplicação. Por exemplo, poderá utilizar o [contentor NGINX](https://hub.docker.com/_/nginx/) para web front-end da aplicação e serviços com estado para a computação de back-end mais intensiva.
 
-No Service Fabric [modelo de aplicação](service-fabric-application-model.md), um contentor representa um anfitrião de aplicações no serviço várias réplicas são colocadas. Service Fabric pode executar quaisquer contentores, e o cenário é semelhante a [cenário executável convidado](service-fabric-guest-executables-introduction.md), onde o pacote uma aplicação existente no interior de um contentor. Este cenário é o caso de utilização comuns para contentores, e os exemplos incluem a executar uma aplicação de escrita em qualquer idioma ou estruturas, mas não a utilizar os modelos de programação do Service Fabric incorporados.
+* **Reduzir o impacto dos serviços de "vizinhos ruidosos"**: pode utilizar a capacidade de governação de recursos de contentores para restringir os recursos utilizados por um serviço num anfitrião. Se os serviços podem consumir muitos recursos e afetar o desempenho de outras pessoas (como uma operação de longa execução, tipo de consulta), considere colocar esses serviços em contentores que tenham a governação de recursos.
 
-Além disso, pode executar [serviços do Service Fabric no interior de contentores](service-fabric-services-inside-containers.md) bem. Suporte para os serviços do Service Fabric em execução no interior de contentores está actualmente limitado e irá ser melhorado em versões futuras.
+## <a name="service-fabric-support-for-containers"></a>Suporte do Service Fabric para contentores
 
-Service Fabric tem várias capacidades de contentor que o ajudam a criarem aplicações que são compostas de micro-serviços que são de. Recursos de infraestrutura de serviço oferece as seguintes capacidades de serviços:
+O Service Fabric suporta a implementação de contentores do Docker no Linux e contentores do Windows Server no Windows Server 2016, juntamente com suporte para o modo de isolamento de Hyper-V. 
 
-* Implementação de imagem de contentor e a ativação.
-* Governação de recursos, incluindo a definir valores de recursos por predefinição em clusters do Azure.
+O Service Fabric fornece um [modelo de aplicativo](service-fabric-application-model.md) em que um contentor representa um host de aplicativo no qual serviço várias réplicas são colocadas. O Service Fabric também suporta um [cenário executáveis de convidado](service-fabric-guest-executables-introduction.md) em que não use o modelos de programação do Service Fabric incorporadas, mas em vez disso, a empacotar um aplicativo existente, escrito usando qualquer linguagem ou arquitetura, dentro um contentor. Este cenário é o caso de utilização comuns para contentores.
+
+Também pode executar [serviços do Service Fabric dentro de um contentor](service-fabric-services-inside-containers.md). Suporte para serviços do Service Fabric em execução no interior de contentores está limitado.
+
+O Service Fabric fornece várias capacidades de contentores que o ajudam a criarem aplicações que são compostas por microsserviços em contentores, tais como:
+
+* Implantação de imagem de contentor e a ativação.
+* Governação de recursos, incluindo a definição de valores de recursos por predefinição em clusters do Azure.
 * Autenticação do repositório.
-* Porta do contentor para o mapeamento de porta do anfitrião.
-* Deteção de contentor de contentor e comunicação.
-* Capacidade para configurar e definir variáveis de ambiente.
-* Capacidade para definir as credenciais de segurança no contentor.
-* Escolher entre diferentes modos de funcionamento em rede para contentores.
+* Porta do contentor para mapeamento de portas do anfitrião.
+* Deteção de contentor para contentor e a comunicação.
+* Capacidade de configurar e definir variáveis de ambiente.
+* Capacidade de definir as credenciais de segurança no contentor.
+* Uma opção de diferentes modos de funcionamento em rede para contentores.
+
+Para uma visão geral abrangente do contentor de suporte no Azure, tais como criar um cluster de Kubernetes com o serviço de Kubernetes do Azure, como para criar um registo privado do Docker no Azure Container Registry e muito mais, consulte [do Azure para contentores](https://docs.microsoft.com/azure/containers/).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu sobre contentores, que Service Fabric é orchestrator um contentor e de que o Service Fabric tem funcionalidades que suportam contentores. Como passo seguinte, iremos abordará exemplos de cada uma das funcionalidades para lhe mostrar como utilizá-los.
 
-[Criar a sua primeira aplicação de contentor do Service Fabric no Windows](service-fabric-get-started-containers.md)
+Neste artigo, aprendeu sobre o suporte do que Service Fabric fornece para contentores em execução. Em seguida, podemos abordará exemplos de cada um dos recursos para lhe mostrar como usá-los.
 
-[Criar a primeira aplicação de contentor do Service Fabric no Linux](service-fabric-get-started-containers-linux.md)
-
+[Criar a sua primeira aplicação de contentor do Service Fabric no Linux](service-fabric-get-started-containers-linux.md)  
+[Criar a sua primeira aplicação de contentor do Service Fabric no Windows](service-fabric-get-started-containers.md)  
 [Saiba mais sobre os contentores do Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

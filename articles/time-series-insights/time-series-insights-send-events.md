@@ -1,75 +1,75 @@
 ---
-title: Como enviar eventos para um ambiente de informações de séries de tempo do Azure | Microsoft Docs
-description: Este tutorial explica como criar e configurar o hub de eventos e executar uma aplicação de exemplo para eventos de emissão para ser mostrada no informações de séries de tempo do Azure.
+title: Como enviar eventos para um ambiente do Azure Time Series Insights | Documentos da Microsoft
+description: Este tutorial explica como criar e configurar o hub de eventos e executar uma aplicação de exemplo para enviar eventos para ser mostrada no Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: fb550942debf26691a0deac2a1ad8093128e4e63
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 30b83c54d314934f1de170955eec22e7b2a264b8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294518"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629757"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights com um hub de eventos
-Este artigo explica como criar e configurar o hub de eventos e execute um exemplo de aplicação para eventos de push. Se tiver um hub de eventos existentes com eventos no formato JSON, ignore este tutorial e ver o seu ambiente no [Insights de séries de tempo](https://insights.timeseries.azure.com).
+Este artigo explica como criar e configurar o hub de eventos e executa uma aplicação de exemplo para enviar eventos. Se tiver um hub de eventos existente com eventos no formato JSON, ignorar este tutorial e ver o seu ambiente no [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 1. Para criar um hub de eventos, siga as instruções na [documentação](../event-hubs/event-hubs-create.md) dos Hubs de Eventos.
 
-2. Procurar **hub de eventos** na barra de procura. Clique em **Event Hubs** na lista devolvida.
+2. Procure **hub de eventos** na barra de pesquisa. Clique em **os Hubs de eventos** na lista devolvida.
 
-3. Selecione o seu hub de eventos, clicando no respetivo nome.
+3. Selecione o seu hub de eventos ao clicar no respetivo nome.
 
-4. Em **entidades** na janela Configuração meio, clique em **Event Hubs** novamente.
+4. Sob **entidades** na janela de configuração média, clique em **dos Hubs de eventos** novamente.
 
-5. Selecione o nome do hub de eventos de configurá-lo.
+5. Selecione o nome do hub de eventos para configurá-lo.
 
   ![Selecionar o grupo de consumidores do hub de eventos](media/send-events/consumer-group.png)
 
-6. Em **entidades**, selecione **grupos de consumidores**.
+6. Sob **entidades**, selecione **grupos de consumidores**.
  
 7. Confirme que cria um grupo de consumidores que seja utilizado exclusivamente pela sua origem de eventos do Time Series Insights.
 
    > [!IMPORTANT]
-   > Certifique-se de que este grupo de consumidores não é utilizado por nenhum outro serviço (como uma tarefa do Stream Analytics ou outro ambiente do Time Series Insights). Se o grupo de consumidores é utilizado por outros serviços, a operação de leitura é afetado negativamente para este ambiente e os outros serviços. A utilização de “$Default” como o grupo de consumidores pode levar à potencial reutilização por parte de outros leitores.
+   > Certifique-se de que este grupo de consumidores não é utilizado por nenhum outro serviço (como uma tarefa do Stream Analytics ou outro ambiente do Time Series Insights). Se o grupo de consumidores for utilizado por outros serviços, a operação de leitura é afetada negativamente neste ambiente e os outros serviços. A utilização de “$Default” como o grupo de consumidores pode levar à potencial reutilização por parte de outros leitores.
 
-8. Sob o **definições** cabeçalho, selecione **políticas de acesso de partilha**.
+8. Sob o **configurações** cabeçalho, selecione **políticas de acesso de partilha**.
 
-9. No hub de eventos, crie **MySendPolicy** que é utilizada para enviar eventos na amostra csharp.
+9. No hub de eventos, crie **MySendPolicy** que é utilizado para enviar eventos no exemplo csharp.
 
   ![Selecione Políticas de acesso partilhado e clique no botão Adicionar](media/send-events/shared-access-policy.png)  
 
   ![Adicionar uma política de acesso partilhado nova](media/send-events/shared-access-policy-2.png)  
 
-## <a name="add-time-series-insights-reference-data-set"></a>Adicionar o conjunto de dados de referência de informações de séries de tempo 
-Utilizar dados de referência na TSI contextualizes os dados de telemetria.  Nesse contexto adiciona significado aos seus dados e torna mais fácil para agregação e de filtro.  As associações TSI referenciam a dados em tempo de entrada e retroactively não é possível associar estes dados.  Por conseguinte, é fundamental para adicionar dados de referência antes de adicionar uma origem de evento com dados.  Os dados, como o tipo de sensor ou localização estão dimensões útil que poderá associar a um dispositivo/tag/sensor ID para facilitar o setor e o filtro.  
+## <a name="add-time-series-insights-reference-data-set"></a>Adicionar um conjunto de dados de referência do Time Series Insights 
+Utilizar os dados de referência no TSI contextualiza seus dados de telemetria.  Esse contexto adiciona significado aos seus dados e torna mais fácil para o filtro e aggregate.  Associações TSI dados de referência em tempo de entrada e retroativamente não é possível associar esses dados.  Por conseguinte, é fundamental para adicionar dados de referência antes de adicionar uma origem de eventos com dados.  Dados, como o tipo de localização ou sensor são dimensões útil que deseja associar a um dispositivo/etiqueta/sensor ID para tornar mais fácil para o setor e o filtro.  
 
 > [!IMPORTANT]
 > É fundamental ter um conjunto de dados de referência configurado ao carregar os dados históricos.
 
-Certifique-se de que tem os dados de referência no local quando efetuar em massa de dados históricos de carregamento para TSI.  Tenha em atenção, TSI irá iniciar imediatamente a leitura de uma origem de evento associado a um se essa origem de evento tem de dados.  É útil de espera para associar uma origem de evento a TSI até que tem os dados de referência, especialmente se essa origem de evento tem de dados no mesmo. Em alternativa, pode aguardar para enviar dados para essa origem de evento até o conjunto de dados de referência está no local.
+Certifique-se de que tem dados de referência no local quando efetuar em massa de dados históricos de carregamento para TSI.  Tenha em mente, TSI será imediatamente começar a ler a partir de uma origem de evento associado ao se essa origem de evento tem dados.  É útil aguardar para associar uma origem de evento ao TSI até que tem os dados de referência, especialmente se essa origem de evento tem dados no mesmo. Em alternativa, pode esperar para enviar dados para essa origem de evento até que o conjunto de dados de referência esteja in-loco.
 
-Para gerir os dados de referência, existe a interface de utilizador baseadas na web no Explorador de TSI, e há uma API c# programática. TSI Explorer tem um utilizador visual beneficiar de carregamento de ficheiros ou referência colar existente conjuntos de dados como formato JSON ou CSV. Com a API, pode criar uma aplicação personalizada quando necessário.
+Para gerir dados de referência, há a interface do usuário baseada na web no Explorador de TSI, e há uma API programática em C#. Explorador de TSI tem um utilizador visual experiência para carregar ficheiros ou de referência de existente colar em conjuntos de dados em formato JSON ou CSV. Com a API, pode criar uma aplicação personalizada quando necessário.
 
-Para obter mais informações sobre a gestão de dados de referência no Insights de séries de tempo, consulte o [artigo de referência de dados](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Para obter mais informações sobre como gerir dados de referência no Time Series Insights, consulte a [artigo de dados de referência](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Criar a origem de eventos do Time Series Insights
 1. Se não tiver criado uma origem de eventos, siga [estas instruções](time-series-insights-how-to-add-an-event-source-eventhub.md) para criá-la.
 
-2. Especifique **deviceTimestamp** como o nome da propriedade timestamp – esta propriedade é utilizada como o timestamp real na amostra c#. O nome da propriedade de carimbo de data/hora é sensível a maiúsculas e minúsculas e os valores têm de estar no formato __aaaa-MM-ddTHH:mm:ss.FFFFFFFK__, se forem enviados como JSON para um hub de eventos. Se a propriedade não existir no evento, é utilizada a hora a que o evento foi colocado em fila no hub de eventos.
+2. Especifique **deviceTimestamp** como o nome da propriedade timestamp – esta propriedade é utilizada como o carimbo de hora real no exemplo de c#. O nome da propriedade de carimbo de data/hora é sensível a maiúsculas e minúsculas e os valores têm de estar no formato __aaaa-MM-ddTHH:mm:ss.FFFFFFFK__, se forem enviados como JSON para um hub de eventos. Se a propriedade não existir no evento, é utilizada a hora a que o evento foi colocado em fila no hub de eventos.
 
   ![Crie a origem de eventos](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Código de exemplo para eventos push
-1. Vá para a política de hub de eventos com o nome **MySendPolicy**. Copiar o **cadeia de ligação** com a chave de política.
+1. Vá para a política do hub de eventos com o nome **MySendPolicy**. Copiar o **cadeia de ligação** com a chave de política.
 
   ![Copie a cadeia de ligação MySendPolicy](media/send-events/sample-code-connection-string.png)
 
@@ -188,7 +188,7 @@ Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido num eve
 
 #### <a name="input"></a>Input
 
-Um objeto JSON com uma matriz JSON aninhada que contenha dois objetos JSON:
+Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON:
 ```json
 {
     "location":"WestUs",
@@ -206,7 +206,7 @@ Um objeto JSON com uma matriz JSON aninhada que contenha dois objetos JSON:
 
 ```
 #### <a name="output---two-events"></a>Saída - dois eventos
-Tenha em atenção de que a propriedade "localização" é copiada através para cada evento.
+Tenha em atenção que a propriedade "location" é copiada para cada evento.
 
 |localização|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -259,4 +259,4 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa 
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
-> [Ver o seu ambiente no Explorador de informações de séries de tempo](https://insights.timeseries.azure.com).
+> [Ver o seu ambiente no Explorador do Time Series Insights](https://insights.timeseries.azure.com).

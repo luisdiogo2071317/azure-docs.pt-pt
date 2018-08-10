@@ -1,9 +1,9 @@
 ---
-title: Instruções de captura do Event Hubs do Azure | Microsoft Docs
-description: Exemplo que utiliza o SDK do Python para demonstrar a utilizar a funcionalidade de captura de Hubs de eventos.
+title: Instruções de captura de Hubs de eventos do Azure | Documentos da Microsoft
+description: Exemplo que utiliza o SDK Python para demonstrar a utilização da funcionalidade de captura de Hubs de eventos.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
@@ -13,49 +13,49 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
-ms.author: sethm
-ms.openlocfilehash: 97cadbde2ddedade1a8688f1380b9ff9194613e7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: shvija
+ms.openlocfilehash: b38e64891ce1065290d46f0fae2d22e151e03e4d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28016462"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005619"
 ---
-# <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs capturar explicação passo a passo: Python
+# <a name="event-hubs-capture-walkthrough-python"></a>Instruções de captura dos Hubs de eventos: Python
 
-Captura é uma funcionalidade do Event Hubs do Azure. Pode utilizá-lo para fornecer automaticamente os dados de transmissão em fluxo no seu hub de eventos para uma conta de armazenamento de Blobs do Azure à sua escolha. Esta capacidade torna mais fácil efetuar o processamento nos dados de transmissão em fluxo em tempo real em lote. Este artigo descreve como utilizar os Hubs de eventos captura com o Python. Para obter mais informações sobre como capturar os Hubs de eventos, consulte o [artigo de descrição geral](event-hubs-capture-overview.md).
+Captura é uma funcionalidade dos Hubs de eventos do Azure. Pode usá-lo para fornecer automaticamente os dados de transmissão em fluxo no seu hub de eventos para uma conta de armazenamento de Blobs do Azure à sua escolha. Esta capacidade torna mais fácil realizar o processamento em lotes nas dados de transmissão em fluxo em tempo real. Este artigo descreve como utilizar a captura de Hubs de eventos com o Python. Para obter mais informações sobre a captura de Hubs de eventos, consulte a [artigo de descrição geral](event-hubs-capture-overview.md).
 
-Este exemplo utiliza o [SDK Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar a funcionalidade de captura. O programa de sender.py envia telemetria ambiental simulada para os Event Hubs no formato JSON. O hub de eventos está configurado para utilizar a funcionalidade de captura para escrever dados para o Blob storage em lotes. A aplicação de capturereader.py lê estes blobs e cria um ficheiro de acréscimo por dispositivo. A aplicação, em seguida, escreve os dados em ficheiros. csv.
+Este exemplo utiliza a [Azure Python SDK](https://azure.microsoft.com/develop/python/) para demonstrar a funcionalidade de captura. O programa de sender.py envia telemetria ambiental simulada para os Hubs de eventos no formato JSON. O hub de eventos está configurado para utilizar a funcionalidade de captura para escrever dados no armazenamento de BLOBs em lotes. A aplicação de capturereader.py lê nestes blobs e cria um ficheiro de acréscimo por dispositivo. A aplicação, em seguida, escreve os dados em ficheiros. csv.
 
 ## <a name="what-youll-accomplish"></a>O que irá realizar
 
-1. Crie uma conta de armazenamento de Blobs do Azure e um contentor do blob dentro da mesma, utilizando o portal do Azure.
-2. Crie um espaço de nomes de Event Hubs, utilizando o portal do Azure.
-3. Crie um hub de eventos com a funcionalidade de captura ativada, utilizando o portal do Azure.
+1. Crie uma conta de armazenamento de Blobs do Azure e um contentor de BLOBs dentro da mesma, utilizando o portal do Azure.
+2. Crie um espaço de nomes de Hubs de eventos, com o portal do Azure.
+3. Crie um hub de eventos com a funcionalidade de captura ativada, ao utilizar o portal do Azure.
 4. Envie dados para o hub de eventos utilizando um script de Python.
-5. Ler os ficheiros da captura e processá-los utilizando outro script de Python.
+5. Ler os ficheiros a captura e processá-las através de outro script de Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Python 2.7.x
-- Uma subscrição do Azure.
-- Um Active Directory [hub de espaço de nomes e eventos de Event Hubs](event-hubs-create.md)
+- Uma subscrição do Azure
+- Um ativo [hub de eventos e de espaço de nomes de Hubs de eventos](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento de Blobs do Azure
 1. Inicie sessão no [Portal do Azure][Azure portal].
-2. No painel esquerdo do portal, selecione **novo** > **armazenamento** > **conta de armazenamento**.
-3. Concluir as seleções no **criar conta de armazenamento** painel e, em seguida, selecione **criar**.
+2. No painel esquerdo do portal, selecione **New** > **armazenamento** > **conta de armazenamento**.
+3. Concluir as seleções na **criar conta de armazenamento** painel e, em seguida, selecione **criar**.
    
    ![Painel "Criar a conta de armazenamento"][1]
-4. Depois de confirmar a **implementações com êxito** da mensagem, selecione o nome da nova conta de armazenamento e no **Essentials** painel e, em seguida, selecione **Blobs**. Quando o **serviço Blob** painel abre, selecione **+ contentor** na parte superior. Nome do contentor **capturar**e, em seguida, feche o **serviço Blob** painel.
-5. Selecione **chaves de acesso** no painel esquerdo e copie o nome da conta de armazenamento e o valor da **chave1**. Guarde estes valores para o bloco de notas ou alguns outra localização temporária.
+4. Depois de confirmar a **implementações bem-sucedidas** da mensagem, selecione o nome da nova conta de armazenamento e, no **Essentials** painel e, em seguida, selecione **Blobs**. Quando o **serviço Blob** painel abre, selecione **+ contentor** na parte superior. Nome do contentor **capturar**e, em seguida, feche a **serviço Blob** painel.
+5. Selecione **chaves de acesso** no painel esquerdo e copie o nome da conta de armazenamento e o valor de **chave1**. Guarde estes valores no Bloco de Notas ou noutra localização temporária.
 
-## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Criar um script do Python para enviar eventos para o hub de eventos
-1. Abra o seu editor favorito de Python, tais como [Visual Studio Code][Visual Studio Code].
-2. Criar um script designado **sender.py**. Este script envia 200 eventos para o hub de eventos. São simples ambientais as leituras dos enviadas em JSON.
-3. Cole o seguinte código sender.py:
+## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Criar um script de Python para enviar eventos para o seu hub de eventos
+1. Abra o seu editor favorito do Python, tal como [Visual Studio Code][Visual Studio Code].
+2. Criar um script chamado **sender.py**. Este script para enviar 200 eventos para o hub de eventos. Eles são simples leituras ambientais enviadas em JSON.
+3. Cole o seguinte código no sender.py:
    
    ```python
    import uuid
@@ -76,13 +76,13 @@ Este exemplo utiliza o [SDK Python do Azure](https://azure.microsoft.com/develop
            sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. Atualize o código anterior para utilizar o seu nome de espaço de nomes, o valor da chave e o nome do hub de eventos que obteve quando criou o espaço de nomes de Event Hubs.
+4. Atualize o código anterior para utilizar o seu espaço de nomes, o valor da chave e o nome do hub de eventos que obteve quando criou o espaço de nomes de Hubs de eventos.
 
-## <a name="create-a-python-script-to-read-your-capture-files"></a>Criar um script do Python para ler os ficheiros de captura
+## <a name="create-a-python-script-to-read-your-capture-files"></a>Criar um script de Python para ler os ficheiros de captura
 
 1. Preencha o painel e selecione **criar**.
-2. Criar um script designado **capturereader.py**. Este script lê os ficheiros capturados e cria um ficheiro por dispositivo para escrever os dados apenas para esse dispositivo.
-3. Cole o seguinte código capturereader.py:
+2. Criar um script chamado **capturereader.py**. Este script lê os arquivos capturados e cria um ficheiro por dispositivo para escrever os dados apenas para esse dispositivo.
+3. Cole o seguinte código no capturereader.py:
    
    ```python
    import os
@@ -129,8 +129,8 @@ Este exemplo utiliza o [SDK Python do Azure](https://azure.microsoft.com/develop
    ```
 4. Cole os valores adequados para o nome da conta de armazenamento e a chave na chamada para `startProcessing`.
 
-## <a name="run-the-scripts"></a>Executar os scripts
-1. Abra uma linha de comandos que tenha o Python no respetivo caminho e, em seguida, execute estes comandos para instalar pacotes de Python pré-requisitos:
+## <a name="run-the-scripts"></a>Execute os scripts
+1. Abra um prompt de comando que tem o Python no respetivo caminho e, em seguida, execute estes comandos para instalar pacotes Python de pré-requisitos:
    
    ```
    pip install azure-storage
@@ -138,33 +138,33 @@ Este exemplo utiliza o [SDK Python do Azure](https://azure.microsoft.com/develop
    pip install avro
    ```
    
-   Se tiver uma versão anterior do **storage do azure** ou **azure**, poderá ter de utilizar o **– atualizar** opção.
+   Se tiver uma versão anterior do **azure-storage** ou **azure**, poderá ter de utilizar o **– atualizar** opção.
    
-   Também poderá ter de executar o seguinte comando (não é necessário na maioria dos sistemas):
+   Poderá também ter de executar o seguinte comando (não necessário na maioria dos sistemas):
    
    ```
    pip install cryptography
    ```
-2. Altere o diretório para onde quer que guardou sender.py e capturereader.py e execute este comando:
+2. Altere o diretório para onde salvou sender.py e capturereader.py e execute este comando:
    
    ```
    start python sender.py
    ```
    
    Este comando inicia um novo processo de Python para executar o remetente.
-3. Aguarde alguns minutos para que a captura ser executada. Em seguida, escreva o seguinte comando numa janela de comando do original:
+3. Aguarde alguns minutos para que a captura executar. Em seguida, escreva o seguinte comando na sua janela de comando original:
    
    ```
    python capturereader.py
    ```
 
-   Este processador de captura utiliza o diretório local para transferir todos os blobs no contentor/conta de armazenamento. Processa os que não estão vazias e escreve os resultados como ficheiros. csv para o diretório local.
+   Este processador de captura utiliza o diretório de local para transferir todos os blobs da conta/contentor de armazenamento. Processa qualquer um que não estão vazias e escreve os resultados como ficheiros. csv para o diretório local.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode saber mais sobre os Event Hubs utilizando as seguintes ligações:
+Pode saber mais sobre os Hubs de eventos, utilizando as ligações seguintes:
 
-* [Captura de descrição geral dos Event Hubs][Overview of Event Hubs Capture]
+* [Captura de descrição geral dos Hubs de eventos][Overview of Event Hubs Capture]
 * [Aplicações de exemplo que utilizam Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 * [Descrição geral dos Hubs de Eventos][Event Hubs overview]
 

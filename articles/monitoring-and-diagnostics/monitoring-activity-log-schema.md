@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917232"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003836"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
 O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./monitoring-diagnostic-logs-schema.md) é fornecido no final do artigo.
@@ -120,7 +120,7 @@ Esta categoria contém o registo de todos os criar, operações de atualização
 | descrição |Descrição de texto estático de um evento. |
 | eventDataId |Identificador exclusivo de um evento. |
 | httpRequest |BLOB que descreve o pedido de Http. Normalmente inclui o "clientRequestId", "clientIpAddress" e "método" (método HTTP. Por exemplo, colocar). |
-| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" e "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado. |
 | resourceProviderName |Nome do fornecedor de recursos para o recurso afetado |
 | resourceId |ID de recurso do recurso afetado. |
@@ -266,7 +266,7 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
 | correlationId | Um GUID no formato de cadeia de caracteres. |
 | descrição |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do evento de alerta. |
-| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" e "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o nome do grupo de recursos que contém o alerta em si. |
 | resourceProviderName |Nome do fornecedor de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o nome do fornecedor de recursos para o alerta em si. |
 | resourceId | Nome do ID do recurso para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o ID de recurso do próprio recurso do alerta. |
@@ -375,7 +375,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 | correlationId | Um GUID no formato de cadeia de caracteres. |
 | descrição |Descrição de texto estático do evento de dimensionamento automático. |
 | eventDataId |Identificador exclusivo do evento de dimensionamento automático. |
-| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" e "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para a definição de dimensionamento automático. |
 | resourceProviderName |Nome do fornecedor de recursos para a definição de dimensionamento automático. |
 | resourceId |ID de recurso da definição de dimensionamento automático. |
@@ -465,7 +465,7 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
 | eventDataId |Identificador exclusivo do evento de segurança. |
 | eventName |Nome amigável do evento de segurança. |
 | ID |Identificador de recurso exclusivo do evento de segurança. |
-| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" ou "Verbose" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" ou "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
 | resourceProviderName |Nome do fornecedor de recursos para o Centro de segurança do Azure. Sempre "Microsoft.Security". |
 | resourceType |O tipo de recurso que gerou o evento de segurança, tais como "Microsoft.Security/locations/alerts" |
@@ -545,7 +545,7 @@ Esta categoria contém o registo de quaisquer novas recomendações que são ger
 | eventDataId | Identificador exclusivo do evento de recomendação. |
 | categoria | Sempre "recomendação" |
 | ID |Identificador de recurso exclusivo do evento de recomendação. |
-| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" ou "Verbose" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" ou "Informativo" |
 | operationName |Nome da operação.  Sempre "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
 | resourceProviderName |Nome do fornecedor de recursos para o recurso que esta recomendação aplica-se, por exemplo, "Microsoft. Compute" |

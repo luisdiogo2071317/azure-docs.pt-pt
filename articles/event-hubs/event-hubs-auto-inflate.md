@@ -3,7 +3,7 @@ title: Dimensionar automaticamente unidades de débito dos Hubs de eventos do Az
 description: Ative ampliação automática num espaço de nomes para a dimensionar automaticamente unidades de débito.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434645"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004797"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224335"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630761"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 Este artigo responde a algumas perguntas que os administradores de TI podem ter sobre as definições e sincronização de dados de aplicações.
@@ -99,7 +99,7 @@ Roaming de estado empresarial armazena todos os dados de sincronização na clou
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Quem tem os dados que estão a ser movidos?
 As empresas próprias ganhar mobilidade os dados por meio de Roaming de estado empresarial. Dados são armazenados num datacenter do Azure. Todos os dados de utilizador são encriptados em trânsito e em inatividade na cloud com o serviço Azure Rights Management do Azure Information Protection. Essa é uma melhoria em comparação comparada a sincronização de definições com base na conta da Microsoft, que criptografa apenas determinados dados confidenciais, como credenciais de utilizador, antes mesmo de sair do dispositivo.
 
-A Microsoft está empenhada em proteger dados do cliente. Dados de definições de um utilizador de enterprise são encriptados automaticamente pelo serviço Azure Rights Management antes mesmo de sair um dispositivo Windows 10, para que nenhum outro utilizador pode ler esses dados. Se a sua organização tiver uma subscrição paga para o serviço Azure Rights Management, pode utilizar outras funcionalidades de proteção, como controlar e revogar documentos, automaticamente proteger os e-mails que contêm informações confidenciais e gerir as suas próprias chaves (o "traga a sua própria chave"solução, também conhecida como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona este serviço de proteção, consulte [o que é o Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+A Microsoft está empenhada em proteger dados do cliente. Dados de definições de um utilizador de enterprise são encriptados automaticamente pelo serviço Azure Rights Management antes mesmo de sair um dispositivo Windows 10, para que nenhum outro utilizador pode ler esses dados. Se a sua organização tiver uma subscrição paga para o serviço Azure Rights Management, pode utilizar outras funcionalidades de proteção, como controlar e revogar documentos, automaticamente proteger os e-mails que contêm informações confidenciais e gerir as suas próprias chaves (o "traga a sua própria chave"solução, também conhecida como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona este serviço de proteção, consulte [o que é o Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Pode gerir a sincronização para uma aplicação específica ou a definição?
 No Windows 10, não existe qualquer definição de diretiva de grupo ou de MDM para desativar o roaming para uma aplicação individual. Os administradores de inquilinos podem desativar a sincronização de appdata para todas as aplicações num dispositivo gerido, mas não existe nenhum um melhor controle a um nível por aplicação ou numa aplicação.

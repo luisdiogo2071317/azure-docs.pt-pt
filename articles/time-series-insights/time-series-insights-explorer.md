@@ -1,111 +1,111 @@
 ---
-title: Explore os dados utilizando o Explorador de informações de séries de tempo do Azure | Microsoft Docs
-description: Este artigo descreve como utilizar o Explorador de informações de séries de tempo do Azure no seu browser para ver rapidamente uma vista global dos seus dados de grandes e validar o seu ambiente de IoT.
+title: Explorar dados com o Explorador do Azure Time Series Insights | Documentos da Microsoft
+description: Este artigo descreve como utilizar o Explorador do Azure Time Series Insights no seu browser para ver rapidamente uma vista global dos seus macrodados e validar o seu ambiente de IoT.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: kfile
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d3b8973e8798e5b1f32d9e882db8a06ad7486ed8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295343"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629145"
 ---
-# <a name="azure-time-series-insights-explorer"></a>Explorador do Azure Insights de séries de tempo
-Este artigo explicar as várias funcionalidades e as opções disponíveis na aplicação de web do Explorador de informações de séries de tempo. Utilize o Explorador de informações de séries de tempo no seu browser para criar as visualizações de dados.
+# <a name="azure-time-series-insights-explorer"></a>Explorador do Time Series Insights do Azure
+Este artigo explora os vários recursos e as opções disponíveis dentro da aplicação de web de Explorador do Time Series Insights. Utilize o Explorador do Time Series Insights no seu browser para criar visualizações dos dados.
  
-O Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido que simplifica a exploração e a análise de milhões de eventos de IoT em simultâneo. Proporciona uma vista global dos seus dados, que permite-lhe validar rapidamente a sua solução de IoT e evitar períodos de indisponibilidade dispendiosos dispositivos fundamentais. Pode detetar tendências ocultas, spot anomalias e realizar a causa raiz estatísticas em tempo real. O Explorador de informações de séries de tempo está atualmente em pré-visualização pública.
+O Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido que simplifica a exploração e a análise de milhões de eventos de IoT em simultâneo. Ele fornece uma vista global dos seus dados, que lhe permite validar rapidamente a sua solução de IoT e evitar o período de indisponibilidade dispendioso para dispositivos fundamentais. Pode descobrir tendências ocultas, detetar anomalias e realizar análises de causa raiz em tempo real. O Explorador do Time Series Insights está atualmente em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder utilizar o Explorador de informações de séries de tempo, tem de:
-- Criar um ambiente de informações de séries de tempo
+Antes de poder utilizar o Explorador do Time Series Insights, faça o seguinte:
+- Criar um ambiente do Time Series Insights
 - Fornecer acesso à sua conta no ambiente
-- Adicionar uma origem de evento para a ingestão de dados e armazená-la
+- Adicionar uma origem de eventos para ingerir dados e armazená-lo
 
-## <a name="explore-and-query-data"></a>Explorar e consultar dados
-Minutos de ligar a sua origem de evento para o seu ambiente de informações de séries de tempo, que possa explorar e consultar os dados de séries de tempo.
+## <a name="explore-and-query-data"></a>Explore e consultar dados
+Dentro de minutos de ligar-se a origem do evento para o seu ambiente do Time Series Insights, pode explorar e consultar os dados de séries de tempo.
 
-1. Para iniciar, abra o [Explorador Insights de séries de tempo](https://insights.timeseries.azure.com/) no web browser e selecione um ambiente no lado esquerdo da janela. Todos os ambientes que tem acesso a são listados por ordem alfabética.
+1. Para iniciar, abra a [Explorador do Time Series Insights](https://insights.timeseries.azure.com/) no seu navegador da web e selecione um ambiente no lado esquerdo da janela. Todos os ambientes que tem acesso ao estão listados em ordem alfabética.
 
-2. Depois de selecionar um ambiente, utilizar o **FROM** e **para** configurações na parte superior, ou clique e arraste ao longo do intervalo de tempo pretendido.  Clique a Lupa na parte superior direita, ou durante o período de tempo selecionado com o botão direito e selecione **pesquisa**.  
+2. Depois de selecionar um ambiente, utilizar o **FROM** e **TO** configurações na parte superior, ou clique e arraste ao longo de seu período de tempo pretendido.  Clique na lupa no canto superior direito, ou ao longo do período de tempo selecionado com o botão direito e selecione **pesquisa**.  
 
-3. Também pode atualizar disponibilidade automaticamente cada minuto, selecionando o **automática no** botão.  Tenha em atenção de que o botão 'Auto-On' só se aplica o gráfico de disponibilidade, não o conteúdo de visualização principal.
+3. Também pode atualizar disponibilidade automaticamente a cada minuto, ao selecionar o **automática no** botão.  Tenha em atenção de que o botão 'Auto-On' aplica-se apenas para o gráfico de disponibilidade, não o conteúdo da visualização principal.
 
-4. Tenha em atenção de que o ícone de nuvem do Azure leva-o para o seu ambiente no portal do Azure.
+4. Observe que o ícone de cloud do Azure leva-o para seu ambiente no portal do Azure.
 
    ![Ambiente de Informações de Série de Tempo](media/time-series-insights-explorer/explorer1.png)
 
-5. Em seguida, verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado.  Aqui, tem um número de controlos:
+5. Em seguida, verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado.  Aqui tem uma série de controles:
 
-    **Painel do Editor de termos**: O espaço do termo é onde consultar o seu ambiente.  É possível encontrá-lo no lado esquerdo do ecrã, ativa 
-      - **Medidas**: Isto pendente mostra todas as colunas numéricas (Doubles)
-      - **Divisão pela**: esta lista pendente mostra colunas categórico (cadeias)
-      - Pode ativar passo interpolação, Mostrar mínima e máxima e ajustar o eixo y do painel de controlo seguinte para medir.  Além disso, pode ajustar se os dados apresentados são uma contagem, média ou soma dos dados.
-      - Pode adicionar até cinco termos para ver no mesmo eixo x.  Utilize o **cópia pendente** botão para adicionar um termo adicional ou clique em de **adicionar** botão para adicionar um termo de raiz.
+    **Painel do Editor de termos**: O espaço de termo é onde consultar o seu ambiente.  Que pode ser encontrada no lado esquerdo do ecrã, ativa 
+      - **Medida**: esta lista pendente mostra todas as colunas numéricas (duplicatas)
+      - **Dividir por**: esta lista pendente mostra colunas categóricas (cadeias de caracteres)
+      - Pode ativar a interpolação linear, Mostrar mínimo e máximo e ajustar o eixo y do painel de controlo, em seguida, para medir.  Além disso, pode ajustar se dados mostrados são uma contagem, média ou a soma dos dados.
+      - Pode adicionar até cinco termos para ver no mesmo eixo x.  Utilize o **cópia pendente** botão para adicionar um termo adicional ou clique nas **Add** botão para adicionar um novo termo.
      
         ![Painel do Editor de termos](media/time-series-insights-explorer/explorer2.png)
 
-      - **Predicado**: O predicado permite-lhe filtrar rapidamente os eventos utilizando o conjunto de operandos listados abaixo. Se realiza uma pesquisa clicando selecionar /, o predicado será automaticamente atualização com base nessa procura.      Os tipos de operando suportados incluem:
+      - **Predicado**: O predicado permite-lhe filtrar rapidamente os seus eventos usando o conjunto de operandos listados abaixo. Se realizar uma pesquisa ao selecionar/clicar, o predicado serão atualizados automaticamente com base no que a pesquisa.      Tipos de operando suportados incluem:
 
          |Operação  |Tipos suportados  |Notas  |
          |---------|---------|---------|
-         |<, >, <=, >=     |  TimeSpan duplo, DateTime,       |         |
-         |=, !=, <>     | String, booleano, Double, DateTime, TimeSpan, nulo        |         |
-         |EM     | String, booleano, Double, DateTime, TimeSpan, nulo        |  Todos os operandos devem ser do mesmo tipo ou ser constante NULL.        |
-         |TEM     | Cadeia        |  Literais de cadeia constante só são permitidas no lado direito. Uma cadeia vazia e NULL não são permitidos.       |
+         |<, >, <=, >=     |  Período de tempo de Double, DateTime,       |         |
+         |=, !=, <>     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |         |
+         |ÍNDIA     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |  Todos os operandos devem ser do mesmo tipo ou ser constante NULL.        |
+         |TEM     | Cadeia        |  Literais de cadeia de caracteres constante só são permitidas no lado direito. Cadeia de caracteres vazia e NULL não são permitidas.       |
 
       - **Exemplos de consultas**
       
          ![Consultas de exemplo](media/time-series-insights-explorer/explorer9.png)
 
-6. O **tamanho do intervalo** ferramenta de controlo de deslize permite-lhe aplicar zoom e para intervalos através do mesmo timespan.  Esta opção fornece um controlo mais preciso de movimento entre grande frações de tempo que mostram as tendências uniforme para baixo para setores tão pequena como milissegundo, permitindo-lhe ver cuts granulares e de alta resolução dos seus dados. Ponto de partida de predefinição do controlo de deslize está definida como a vista ideal dos dados da sua seleção; balanceamento de resolução, velocidade de consulta e granularidade.
+6. O **tamanho do intervalo** ferramenta de controlo de deslize permite-lhe ampliar e intervalos de reduzir durante o período de tempo do mesmo.  Esta opção fornece um controle mais preciso de movimento entre grandes frações de tempo que mostram tendências uniformes para baixo para setores tão pequena como milissegundo, permitindo que veja reduções de alta resolução, granulares dos seus dados. Ponto de partida de predefinição do controlo de deslize está definida como a exibição ideal dos dados da sua seleção; balanceamento de resolução, velocidade de consulta e granularidade.
 
-7. O **tempo Pincel** ferramenta facilita a partir de um intervalo de tempo para outro, colocando frente UX intuitiva e do Centro de movimento totalmente integrado entre os intervalos de tempo.
+7. O **tempo Pincel** ferramenta torna mais fácil navegar a partir de um intervalo de tempo para outro, colocando intuitiva frente de experiência do Usuário e no Centro de movimento totalmente integrado entre intervalos de tempo.
 
-8. O **guardar** comando permite-lhe guardar a consulta atual e ativá-la para a partilha com outros utilizadores do ambiente. Utilizar **abra**, pode ver todas as consultas guardadas e quaisquer consultas partilhadas de outros utilizadores em ambientes que tem acesso. 
+8. O **guardar** comando permite-lhe guardar a consulta atual e ativá-la para a partilha com outros utilizadores do ambiente. Usando **aberto**, pode ver todas as suas consultas guardadas e quaisquer consultas partilhadas de outros usuários em ambientes que tem acesso. 
 
    ![Consultas](media/time-series-insights-explorer/explorer3.png)
 
-9. O **perspetiva vista** ferramenta fornece uma vista de até quatro consultas exclusivas em simultâneo. Pode encontrar o botão de vista de perspetiva no canto superior direito do gráfico.  
+9. O **vista de ponto de vista** ferramenta fornece uma vista simultânea de até quatro consultas exclusivas. Pode encontrar o botão de vista da perspectiva no canto superior direito do gráfico.  
 
    ![Vista de perspetiva](media/time-series-insights-explorer/explorer4.png)
 
-10. O **gráfico** permite-lhe explorar visualmente os dados. Ferramentas do gráfico incluem:
+10. O **gráfico** permite-lhe explorar visualmente os seus dados. Ferramentas de gráfico incluem:
 
-   - Selecione/clique, que permite uma seleção de um timespan específico ou de uma série de dados individual.  
-   - Dentro de um tempo span seleção, pode ampliar ou explorar eventos.  
-   - Dentro de uma série de dados, pode dividir as séries por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir seleccionadas séries, enviar um ping a série ou explorar eventos da série de selecionado.
-   - Na área de filtro para a esquerda do gráfico, pode ver todas as séries de dados apresentados e reordenar por nome ou valor, ver todas as séries de dados ou série especificamente afixado ou alojado.  Pode também selecionar uma série de dados individual e dividir as séries por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir seleccionadas séries, afixar a série ou explorar eventos da série de selecionado.
-   - Ao visualizar várias termos em simultâneo, pode da pilha, unstack, veja dados adicionais sobre uma série de dados e utilizar o mesmo eixo y em todos os termos com os botões no canto superior direito do gráfico.
+   - Selecione/clique, que permite uma seleção de um intervalo de tempo específico ou de uma série de dados individual.  
+   - Num período de tempo span seleção, pode aplicar zoom ou explorar eventos.  
+   - Dentro de uma série de dados, pode dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, enviar um ping a série ou explorar eventos da série selecionada.
+   - Na área de filtro à esquerda do gráfico, pode ver todas as séries de dados exibidos e reordenar por valor ou o nome, ver todas as séries de dados ou séries especificamente afixados ou removidos.  Também pode selecionar uma série de dados individual e dividir as séries por outra coluna, adicionar a série como novo termo, mostrar apenas a série selecionada, excluir a série selecionada, afixar a série ou explorar eventos da série selecionada.
+   - Ao visualizar vários termos em simultâneo, pode de pilha, desempilhar, consulte dados adicionais sobre uma série de dados e utilizar o mesmo eixo y entre todos os termos com os botões no canto superior direito do gráfico.
  
    ![Ferramentas do gráfico](media/time-series-insights-explorer/explorer5.png) 
 
-11. O **heatmap** pode ser utilizado para detetar rapidamente série de dados exclusivo ou anómalos numa consulta especificada. Termo de pesquisa de uma só pode ser visualizado como um heatmap.    
+11. O **mapa térmico** pode ser utilizado para detetar rapidamente a série de dados exclusivos ou anómalos numa determinada consulta. Termo de pesquisa apenas um pode ser visualizado como um mapa térmico.    
 
    ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
 
-12. **Eventos**: Quando escolhe explore eventos ao selecionar ou clicar acima, o painel de eventos é disponibilizado.  Aqui, pode ver todos os eventos não processados e exportar os eventos como JSON ou ficheiros CSV. Tenha em atenção que Insights de séries de tempo armazena todos os dados não processados.
+12. **Eventos**: ao escolher explorar eventos ao selecionar ou clicando com o botão direito acima, o painel de eventos é disponibilizado.  Aqui, pode ver todos os eventos não processados e exportar seus eventos como JSON ou ficheiros CSV. Tenha em atenção que o Time Series Insights armazena todos os dados não processados.
 
    ![Eventos](media/time-series-insights-explorer/explorer7.png)
 
-13. Clique em de **estatísticas** separador após a explorar os eventos para expor os padrões e estatísticas da coluna.  
+13. Clique nas **estatísticas** separador depois explorar eventos para expor os padrões e as estatísticas de coluna.  
 
-   - **Padrões**: esta funcionalidade proativamente analisa os padrões mais estatisticamente significativos numa região de dados selecionada. Isto tal não invalida possa tem de ter que observar milhares de eventos para compreender os padrões garantir mais tempo e energia. Além disso, o Insights de séries de tempo permite-lhe ir diretamente para estes padrões estatisticamente significativos para continuar a realizar uma análise. Esta funcionalidade também é útil para as investigações de post mortem em dados históricos. 
+   - **Padrões**: esta funcionalidade analisam proativamente as os padrões mais estatisticamente significativos numa região de dados selecionada. Isso libera da necessidade de examinar a milhares de eventos para compreender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights permite-lhe passar diretamente para estes padrões estatisticamente significativos para continuar a realizar uma análise. Esta funcionalidade também é útil para investigações de post-mortem a dados históricos. 
 
-   - **Estatísticas de coluna**: estatísticas de coluna fornecem charting e tabelas que dividir dados a partir de cada coluna de série de dados selecionada ao longo do intervalo de tempo selecionado.  
+   - **Estatísticas de coluna**: estatísticas de coluna fornecem a criação de gráficos e tabelas que dividir dados de cada coluna da série de dados selecionadas ao longo do período de tempo selecionado.  
  
       ![ESTATÍSTICAS](media/time-series-insights-explorer/explorer8.png) 
 
-Agora constatou as várias funcionalidades e as opções disponíveis na aplicação de web do Explorador de informações de séries de tempo. 
+Agora viu os vários recursos e as opções disponíveis dentro da aplicação de web de Explorador do Time Series Insights. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
->[Diagnosticar e resolver problemas no seu ambiente de informações de séries de tempo](time-series-insights-diagnose-and-solve-problems.md)
+>[Diagnosticar e resolver problemas no seu ambiente do Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

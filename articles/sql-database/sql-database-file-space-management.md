@@ -2,22 +2,21 @@
 title: Gestão de espaço de ficheiro de base de dados SQL do Azure | Documentos da Microsoft
 description: Esta página descreve como gerir o espaço de ficheiro com a base de dados do Azure SQL e fornece exemplos de código para saber como determinar se necessita de reduzir uma base de dados, bem como a forma como para executar uma base de dados reduzir a operação.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 9d461c2b9b01ef269decbcae920cb4d2a1824f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620506"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003863"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
-
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
 
 ## <a name="overview"></a>Descrição geral
@@ -33,7 +32,7 @@ Existem padrões de carga de trabalho em que a alocação de arquivos de dados s
 O serviço de BD SQL não reduzir automaticamente os ficheiros de dados para recuperar espaço alocado não utilizado devido ao impacto potencial para desempenho da base de dados.  No entanto, os clientes podem reduzir os ficheiros de dados por meio de Self-Service num momento à sua escolha, seguindo os passos descritos em [recuperar não utilizada de espaço em atribuído](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> Ao contrário dos arquivos de dados, o serviço de base de dados SQL diminui automaticamente ficheiros de registo, uma vez que essa operação não afeta o desempenho de base de dados.
+> Ao contrário dos arquivos de dados, o serviço de base de dados SQL diminui automaticamente ficheiros de registo, uma vez que essa operação não afeta o desempenho de base de dados. 
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Compreender os tipos de espaço de armazenamento para uma base de dados
 
@@ -49,7 +48,7 @@ Noções básicas sobre as seguintes quantidades de espaço de armazenamento sã
 
 O diagrama seguinte ilustra a relação entre os diferentes tipos de espaço de armazenamento para uma base de dados.
 
-![tipos de espaço de armazenamento e as relações](./media/sql-database-file-space-management/storage-types.png)
+![tipos de espaço de armazenamento e as relações](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Consultar uma base de dados para obter informações de espaço de armazenamento
 

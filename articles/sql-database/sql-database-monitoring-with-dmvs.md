@@ -1,47 +1,48 @@
 ---
-title: Monitorização de SQL Database do Azure utilizar as vistas de gestão dinâmica | Microsoft Docs
-description: Saiba como detetar e diagnosticar problemas de desempenho comuns utilizando vistas de gestão dinâmica para monitorizar a base de dados do Microsoft Azure SQL.
+title: Monitorização do Azure SQL Database Using Dynamic Management Views | Documentos da Microsoft
+description: Saiba como detetar e diagnosticar problemas de desempenho comuns ao utilizar vistas de gestão dinâmica para monitorizar a base de dados do Microsoft Azure SQL.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: a1333680225923a4e27f96e61a5b6530f32a9329
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d1170bd2fe4acb135c88191b447f734e312723
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647889"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715962"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitorização da Base de Dados SQL do Azure utilizando vistas de gestão dinâmica
-Base de dados do Microsoft Azure SQL permite que um subconjunto de vistas de gestão dinâmica para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de execução longa, congestionamentos de recursos, planos de consulta fraco e assim sucessivamente. Este tópico fornece informações sobre como detetar problemas de desempenho comuns ao utilizar as vistas de gestão dinâmica.
+Base de dados do Microsoft Azure SQL permite que um subconjunto das exibições de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de execução longa, afunilamentos de recursos, planos de consulta fraco e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns ao utilizar vistas de gestão dinâmica.
 
-Base de dados SQL suporta parcialmente três categorias de vistas de gestão dinâmica:
+Base de dados SQL parcialmente oferece suporte a três categorias de vistas de gestão dinâmica:
 
 * Vistas de gestão dinâmica relacionadas com a base de dados.
 * Vistas de gestão dinâmica relacionadas com a execução.
 * Vistas de gestão dinâmica relacionadas com a transação.
 
-Para obter informações detalhadas sobre as vistas de gestão dinâmica, consulte [funções (Transact-SQL) e vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) no SQL Server Books Online.
+Para obter informações detalhadas sobre vistas de gestão dinâmica, consulte [exibições de gerenciamento dinâmico e as funções (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nos manuais Online do SQL Server.
 
 ## <a name="permissions"></a>Permissões
-Necessita de consultar uma vista de gestão dinâmica na base de dados do SQL Server, **vista de estado de base de dados** permissões. O **vista de estado de base de dados** permissão devolve informações sobre todos os objetos na base de dados atual.
-Para conceder a **vista de estado de base de dados** permissão a um utilizador de base de dados específica, execute a seguinte consulta:
+Na base de dados SQL, a consulta de uma vista de gestão dinâmica necessita **estado de banco de dados de EXIBIÇÃO** permissões. O **estado de banco de dados de EXIBIÇÃO** permissão devolve informações sobre todos os objetos na base de dados atual.
+Para conceder a **estado de banco de dados de EXIBIÇÃO** permissão a um utilizador de base de dados específica, execute a seguinte consulta:
 
 ```GRANT VIEW DATABASE STATE TO database_user; ```
 
-Numa instância do SQL Server no local, vistas de gestão dinâmica devolvem informações de estado do servidor. Na base de dados do SQL Server, devolvem informações relativas a lógica base de dados atual apenas.
+Numa instância do SQL Server no local, vistas de gestão dinâmica retornam informações de estado do servidor. Na base de dados SQL, o que elas retornam informações relativas à sua atual base de dados lógica apenas.
 
-## <a name="calculating-database-size"></a>A calcular o tamanho da base de dados
+## <a name="calculating-database-size"></a>Calcular o tamanho de base de dados
 A seguinte consulta devolve o tamanho da base de dados (em megabytes):
 
 ```
 -- Calculates the size of the database.
-SELECT SUM(reserved_page_count)*8.0/1024
-FROM sys.dm_db_partition_stats;
+SELECT SUM(CAST(FILEPROPERTY(name, 'SpaceUsed') AS bigint) * 8192.) / 1024 / 1024 AS DatabaseSizeInMB
+FROM sys.database_files
+WHERE type_desc = 'ROWS';
 GO
 ```
 
@@ -57,7 +58,7 @@ GO
 ```
 
 ## <a name="monitoring-connections"></a>Ligações de monitorização
-Pode utilizar o [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) vista para obter informações sobre as ligações estabelecidas para um servidor específico da SQL Database do Azure e os detalhes de cada ligação. Além disso, o [sys.dm exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) vista é útil ao obter informações sobre todas as ligações de utilizador do Active Directory e tarefas internas.
+Pode utilizar o [sys](https://msdn.microsoft.com/library/ms181509.aspx) para obter informações sobre as ligações estabelecidas para um servidor de base de dados do Azure SQL específico e os detalhes de cada ligação. Além disso, o [exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) vista é útil quando a recuperação das informações sobre todas as ligações de utilizador do Active Directory e tarefas internas.
 A consulta seguinte obtém informações sobre a ligação atual:
 
 ```
@@ -74,15 +75,15 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Ao executar o **sys.dm_exec_requests** e **sys.dm exec_sessions vistas**, se tiver **vista de estado de base de dados** permissão na base de dados, consulte a executar todas as sessões na base de dados; caso contrário, verá apenas a sessão atual.
+> Ao executar o **sys.dm_exec_requests** e **vistas exec_sessions**, se tiver **estado da base de dados de EXIBIÇÃO** permissão na base de dados, verá a execução de todos os sessões na base de dados; caso contrário, verá apenas na sessão atual.
 > 
 > 
 
 ## <a name="monitoring-query-performance"></a>Monitorização do desempenho de consulta
-Lenta ou de longa execução de consultas pode consumir recursos significativos de sistema. Esta secção demonstra como utilizar vistas de gestão dinâmica para detetar alguns problemas de desempenho de consulta comuns. É uma referência anterior, mas ainda útil para resolução de problemas, a [resolução de problemas de desempenho no SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artigo no Microsoft TechNet.
+Lento ou muito tempo a execução de consultas pode consumir recursos significativos do sistema. Esta secção demonstra como usar exibições de gerenciamento dinâmico para detectar alguns problemas de desempenho de consulta comuns. É uma referência mais antiga, mas ainda útil para resolução de problemas, o [resolver problemas de desempenho no SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artigo no Microsoft TechNet.
 
 ### <a name="finding-top-n-queries"></a>Localizar consultas principais N
-O exemplo seguinte devolve informações sobre as consultas de cinco superiores classificado média do tempo de CPU. Neste exemplo agrega as consultas de acordo com os respetivos hash de consulta, para que as consultas logicamente equivalentes são agrupadas pelo respetivo consumo de recursos cumulativa.
+O exemplo seguinte devolve informações sobre as cinco principais consultas classificadas por tempo médio de CPU. Neste exemplo agrega as consultas de acordo com o hash de consulta, para que as consultas logicamente equivalentes são agrupadas pelo respetivo consumo cumulativo de recursos.
 
 ```
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -101,11 +102,11 @@ GROUP BY query_stats.query_hash
 ORDER BY 2 DESC;
 ```
 
-### <a name="monitoring-blocked-queries"></a>Monitorização consultas bloqueadas
-As consultas lentas ou execução longa podem contribuir para o consumo excessivo de recursos e ser consequence de consultas bloqueadas. A causa do bloqueio pode ser design da aplicação fraco, planos de consulta inválido, falta de índices útil e assim sucessivamente. Pode utilizar a vista de sys.dm_tran_locks para obter informações sobre a atividade atual de bloqueio na base de dados SQL do Azure. Por exemplo de código, consulte [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) no SQL Server Books Online.
+### <a name="monitoring-blocked-queries"></a>Monitorização de consultas bloqueadas
+Consultas de longa ou lentas podem contribuir para o consumo excessivo de recursos e ser a conseqüência de consultas bloqueadas. A causa do bloqueio pode ser o design da aplicação insatisfatório, planos de consulta incorreta, a falta de índices úteis e assim por diante. Pode utilizar a vista de sys.dm_tran_locks para obter informações sobre a atividade atual de bloqueio na base de dados SQL do Azure. Por exemplo de código, consulte [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nos manuais Online do SQL Server.
 
-### <a name="monitoring-query-plans"></a>Monitorização planos de consulta
-Um plano de consulta ineficaz também pode aumentar o consumo da CPU. O exemplo seguinte utiliza o [exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) vista para determinar que consulta utiliza a CPU mais cumulativa.
+### <a name="monitoring-query-plans"></a>Monitorização de planos de consulta
+Um plano de consulta ineficientes também pode aumentar o consumo da CPU. O exemplo seguinte utiliza a [DM exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) vista para determinar que consulta usa a CPU mais cumulativa.
 
 ```
 SELECT

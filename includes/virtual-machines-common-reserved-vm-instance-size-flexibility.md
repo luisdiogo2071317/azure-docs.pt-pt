@@ -4,12 +4,12 @@ ms.author: manshuk
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-03-2018
-ms.openlocfilehash: d8e749d7c665bcaef9190bcc572e9552a307aa08
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 41216fe12e10f72f76043f1a8bc361b538259ac1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496210"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39720893"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho de máquina virtual com as instâncias de VM reservadas
 
@@ -22,7 +22,7 @@ Com uma instância de máquina virtual reservada que tem otimizada por exemplo, 
 
 Mas o desconto de reserva não se aplica a tamanhos de VMs que estão listados nas tabelas diferentes, como o que é na tabela de memória de série DSv2: Standard_DS11_v2, Standard_DS12_v2, e assim por diante.
 
-Dentro do grupo de séries de tamanho, o número de VMs, o desconto de reserva se aplica a depende do tamanho VM que escolher quando adquire uma instância reservada. Depende também os tamanhos de VMs que tem em execução. A coluna de índice que está listada nas tabelas a seguir compara os requisitos de espaço relativo para cada tamanho VM nesse grupo. Utilize o valor rácio para calcular como o desconto de reserva se aplica a VMs ter em execução.
+Dentro do grupo de séries de tamanho, o número de VMs, o desconto de reserva se aplica a depende o tamanho da VM que escolher quando adquire uma reserva. Depende também os tamanhos de VMs que tem em execução. A coluna de índice que está listada nas tabelas a seguir compara os requisitos de espaço relativo para cada tamanho VM nesse grupo. Utilize o valor rácio para calcular como o desconto de reserva se aplica a VMs ter em execução.
 
 ## <a name="examples"></a>Exemplos
 

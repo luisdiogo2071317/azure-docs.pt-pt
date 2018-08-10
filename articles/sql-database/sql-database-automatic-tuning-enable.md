@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 147d9ecfa64267322aeef40d84e1f3c79611b2f0
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593002"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631100"
 ---
 # <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
@@ -86,7 +86,7 @@ Para configurar opções de otimização automática individuais através de T-S
    
 Definir a opção de otimização individual on, irá substituir qualquer definição de base de dados herdada e ativar a opção de otimização. Defini-la como OFF, também substituir qualquer definição de base de dados herdada e desativar a opção de otimização. Opção de otimização automática, para que a predefinição é especificada, irá herdar a configuração do nível da base de dados, a definição de otimização automática.  
 
-Encontre opções de T-SQL para configurar a otimização automática, consulte sobre a nossa mais [alterar base de dados definir opções (Transact-SQL) para o servidor lógico de base de dados SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)
+Localizar nossa mais sobre as opções de T-SQL para configurar a otimização automática, consulte [alterar base de dados definir opções (Transact-SQL) para o servidor lógico de base de dados SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
 
 ## <a name="disabled-by-the-system"></a>Desativada pelo sistema
 A otimização automática está a monitorizar todas as ações que demora na base de dados e, em alguns casos ele pode determinar que a otimização automática não é possível trabalhar corretamente no banco de dados. Nesta situação, opção de otimização será desativada pelo sistema. Na maioria dos casos, isto acontece porque Store de consulta não está ativado ou está no estado só de leitura numa base de dados específico.

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7bcfb8d23b9f92db8c5ccae87fceef5fa96ed457
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b59e4898f85de7ad93d9172cdb3c551a17799194
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601998"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630488"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos
 
@@ -34,9 +34,9 @@ Este artigo explica como pode configurar políticas de acesso condicional que ex
 
 Exigir que os dispositivos geridos para ligações de acesso de aplicação na cloud **acesso condicional do Azure AD** e **gestão de dispositivos do Azure AD** em conjunto. Se ainda não está familiarizados com uma dessas áreas, leia os tópicos seguintes, pela primeira vez:
 
-- **[Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -este artigo fornece uma descrição geral conceptual de acesso condicional e a terminologia relacionada.
+- **[Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md) ** -este artigo fornece uma descrição geral conceptual de acesso condicional e a terminologia relacionada.
 
-- **[Introdução à gestão de dispositivos no Azure Active Directory](../devices/overview.md)**  -este artigo dá-lhe uma descrição geral das várias opções, terá de os dispositivos sob controle organizacional. 
+- **[Introdução à gestão de dispositivos no Azure Active Directory](../devices/overview.md) ** -este artigo dá-lhe uma descrição geral das várias opções, terá de os dispositivos sob controle organizacional. 
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -60,11 +60,11 @@ Em termos simples, os dispositivos geridos são dispositivos que estão sob *alg
 
 Para obter um dispositivo registado com o Azure AD, tem três opções:
 
-- **[Dispositivos registados do Azure AD](../devices/overview.md#azure-ad-registered-devices)**  - para obter um dispositivo pessoal registado no Azure AD
+- **[Dispositivos registados do Azure AD](../devices/overview.md#azure-ad-registered-devices) ** - para obter um dispositivo pessoal registado no Azure AD
 
-- **[Dispositivos associados ao Azure AD](../devices/overview.md#azure-ad-joined-devices)**  - para fazer com que um dispositivo Windows 10 organizacional que não está associado com um local do AD registado com o Azure AD. 
+- **[Dispositivos associados ao Azure AD](../devices/overview.md#azure-ad-joined-devices) ** - para fazer com que um dispositivo Windows 10 organizacional que não está associado com um local do AD registado com o Azure AD. 
 
-- **[Dispositivos associados ao Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)**  - para obter um Windows 10 ou dispositivo suportado de nível inferior que esteja associado a uma local do AD registado com o Azure AD.
+- **[Dispositivos associados ao Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices) ** - para obter um Windows 10 ou dispositivo suportado de nível inferior que esteja associado a uma local do AD registado com o Azure AD.
 
 Para se tornar um dispositivo gerido, um dispositivo registado tem de ser um **dispositivo associado ao Azure AD híbrido** ou uma **dispositivo que foi marcado como compatível**.  
 

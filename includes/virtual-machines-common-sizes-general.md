@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37907048"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40026816"
 ---
 Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como débito de armazenamento para tamanhos neste agrupamento. 
 
@@ -21,7 +21,7 @@ Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ide
 
 - A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Baseia-se a mais recente Intel Xeon® E5-2673 v3 da geração 2,4 GHz (Haswell) ou E5 2673 v4 (Broadwell) de 2.3 GHz processadores, com o Intel Turbo Boost Technology 2.0, podendo chegar aos 3,1 GHz. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
-- As funcionalidades da série Dv3 o mesmo processador da série Dv2, mas numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de fins mais gerais e colocar o Dv3 em alinhamento com as VMs para fins gerais da maioria das outras clouds.  Memória foi expandida (a partir de ~3.5 GiB/Vcpus a 4 GiB/vCPU), enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para o hyperthreading.  O Dv3 já não tem os tamanhos VM de elevada da memória das famílias D/Dv2, aqueles foram movidos para a nova família Ev3.
+- A série Dv3 funcionalidades de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) processador ou de mais recente 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) de processador numa configuração de hyper-thread, fornecendo uma proposta de valor melhor para cargas de trabalho de fins mais gerais.  Memória foi expandida (a partir de ~3.5 GiB/Vcpus a 4 GiB/vCPU), enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para o hyperthreading.  O Dv3 já não tem os tamanhos VM de elevada da memória das famílias D/Dv2, aqueles foram movidos para a nova família Ev3.
 
 
 ## <a name="b-series"></a>Série B

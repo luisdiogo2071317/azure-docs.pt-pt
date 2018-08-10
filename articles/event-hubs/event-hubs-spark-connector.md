@@ -1,9 +1,9 @@
 ---
-title: Integração do Apache Spark com o Event Hubs do Azure | Microsoft Docs
-description: Integrar com o Apache Spark para ativar a transmissão em fluxo estruturada com os Event Hubs
+title: Integração do Apache Spark com os Hubs de eventos do Azure | Documentos da Microsoft
+description: Integrar com o Apache Spark para ativar a transmissão em fluxo estruturada com os Hubs de eventos
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -12,30 +12,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
-ms.author: sethm
-ms.openlocfilehash: 9f1cf75fdea1dd7f5842c2efdaeca663d611065c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: shvija
+ms.openlocfilehash: 301770d8950d820ddace6e47eac8cab5950b7ac8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626926"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004587"
 ---
-# <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integração do Apache Spark com o Event Hubs do Azure
+# <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integração do Apache Spark com os Hubs de eventos do Azure
 
-Os Hubs de eventos do Azure integra-se na perfeição com [Apache Spark](https://spark.apache.org/) ativar a criação de aplicações de transmissão em fluxo distribuídas. Esta integração suporta [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [transmissão em fluxo do Spark](http://spark.apache.org/docs/latest/streaming-programming-guide.html), e [a transmissão em fluxo estruturada](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). O conector de Hubs de eventos para o Apache Spark não está disponível na [GitHub](https://github.com/Azure/azure-event-hubs-spark). Esta biblioteca também está disponível para utilização em projetos Maven a partir de [repositório Central Maven](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Os Hubs de eventos do Azure se integra perfeitamente [Apache Spark](https://spark.apache.org/) para ativar modulares distribuídas aplicações de transmissão em fluxo. Esta integração suporta [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), e [transmissão em fluxo estruturada](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). O conector de Hubs de eventos para o Apache Spark está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-spark). Esta biblioteca também está disponível para uso em projetos Maven a partir da [repositório Central Maven](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
-Este artigo descreve como criar uma aplicação contínua [Azure Databricks](https://azure.microsoft.com/services/databricks/). Embora este artigo utiliza Databricks do Azure, os clusters do Spark também estão disponíveis com [HDInsight](../hdinsight/spark/apache-spark-overview.md).
+Este artigo descreve como criar um aplicativo contínuo no [Azure Databricks](https://azure.microsoft.com/services/databricks/). Embora este artigo utiliza o Azure Databricks, os clusters do Spark também estão disponíveis com [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 
-O exemplo neste artigo utiliza dois blocos de notas Scala: um para transmissão em fluxo de eventos a partir de um hub de eventos e outra para o envio de eventos de regressar ao mesmo.
+O exemplo neste artigo utiliza dois blocos de notas Scala: um para transmissão em fluxo de eventos a partir de um hub de eventos e outro para o envio de eventos para ele.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma, [criar uma conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Uma instância de Event Hubs. Se não tiver uma, [criar um](event-hubs-create.md).
-* Um [Azure Databricks](https://azure.microsoft.com/services/databricks/) instância. Se não tiver uma, [criar um](../azure-databricks/quickstart-create-databricks-workspace-portal.md).
-* [Criar uma biblioteca com o maven coordenadas](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.1`.
+* Uma subscrição do Azure. Se não tiver um, [criar uma conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Uma instância de Hubs de eventos. Se não tiver um, [criá-lo](event-hubs-create.md).
+* Uma [Azure Databricks](https://azure.microsoft.com/services/databricks/) instância. Se não tiver um, [criá-lo](../azure-databricks/quickstart-create-databricks-workspace-portal.md).
+* [Criar uma biblioteca com as coordenadas do maven](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.1`.
 
-Eventos de fluxo do seu hub de eventos utilizando o seguinte código:
+Eventos de Stream do seu hub de eventos usando o seguinte código:
 
 ```scala
 import org.apache.spark.eventhubs._
@@ -61,7 +61,7 @@ eventhubs.writeStream
   .start()
   .awaitTermination()
 ```
-O seguinte código envia eventos para o hub de eventos com as APIs do lote de Spark. Também pode escrever uma consulta de transmissão em fluxo para enviar eventos para o hub de eventos:
+O seguinte código para enviar eventos para o hub de eventos com o APIs de batch do Spark. Também pode escrever uma consulta de transmissão em fluxo para enviar eventos para o hub de eventos:
 
 ```scala
 import org.apache.spark.eventhubs._
@@ -87,7 +87,7 @@ df.write
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que sabe como configurar um fluxo dimensionável, com tolerância a falhas utilizando o conector de Hubs de eventos para o Apache Spark. Saiba mais sobre como utilizar os Hubs de eventos com a transmissão em fluxo estruturada e transmissão em fluxo do Spark, seguindo estas ligações:
+Agora que sabe como configurar um fluxo dimensionável, tolerante a falhas utilizando o conector de Hubs de eventos para o Apache Spark. Saiba mais sobre como utilizar os Hubs de eventos com transmissão em fluxo estruturada e Spark Streaming seguindo estes links:
 
-* [A transmissão em fluxo estruturada + guia de integração de Hubs de eventos do Azure](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md)
-* [Transmissão em fluxo do Spark + guia de integração de Hubs de eventos](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/spark-streaming-eventhubs-integration.md)
+* [Transmissão em fluxo estruturada + guia de integração do Hubs de eventos do Azure](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md)
+* [Transmissão em fluxo do Spark + guia de integração do Hubs de eventos](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/spark-streaming-eventhubs-integration.md)

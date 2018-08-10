@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 08/08/2018
 ms.author: rkarlin
-ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a934bd69e63605fd624d06533c4e411bc94b531
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526835"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630923"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
@@ -86,7 +86,7 @@ Sob **subscrições**, há uma lista de subscrições. A primeira coluna apresen
 
   - **Recomendações**: com base nas avaliações realizadas pelo centro de segurança que falharam.
   - **Passados avaliações**: lista de avaliações realizadas pelo centro de segurança passado.
-  - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou porque a subscrição tiver mais de 250 contas.
+  - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou porque a subscrição tiver mais de 600 contas.
 
   Sob **recomendações** é uma lista de recomendações para a subscrição selecionada e a gravidade de cada recomendação.
 

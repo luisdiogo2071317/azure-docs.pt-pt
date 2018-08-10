@@ -11,30 +11,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 1e87704e7d8cf3c7cc21e537d36f95a97265061b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903521"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004771"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Resolver problemas de uma VM do Windows ao anexar o disco do SO a uma VM com o Azure PowerShell de recuperação
-Se a sua máquina virtual (VM) do Windows no Azure encontra um erro de arranque ou disco, se pretender executar passos de resolução de problemas no disco rígido virtual em si. Um exemplo comum seria uma atualização de aplicação com falhas que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o Azure PowerShell para ligar o seu disco rígido virtual a outra VM do Windows para corrigir quaisquer erros, em seguida, voltar a criar a VM original.
+Se a sua máquina virtual (VM) do Windows no Azure encontra um erro de arranque ou disco, terá de efetuar os passos de resolução de problemas no próprio disco. Um exemplo comum seria uma atualização de aplicação com falhas que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o Azure PowerShell para ligar o disco a outra VM do Windows para corrigir quaisquer erros, em seguida, repare a VM original. 
+
+> [!Important]
+> Os scripts neste artigo aplicam-se apenas às VMs que utilizam [disco gerido](managed-disks-overview.md). 
 
 
 ## <a name="recovery-process-overview"></a>Descrição geral do processo de recuperação
+Agora, pode utilizar o Azure PowerShell para alterar o disco do SO para uma VM. Já não precisamos de eliminar e recriar a VM.
+
 O processo de resolução de problemas é o seguinte:
 
-1. Elimine a VM se deparar com problemas, mantendo os discos rígidos virtuais.
-2. Anexe e Monte o disco rígido virtual a outra VM do Windows para fins de resolução de problemas.
-3. Ligue à VM da resolução de problemas. Editar ficheiros ou execute quaisquer ferramentas para corrigir problemas no disco rígido virtual original.
-4. Desmonte e desanexe o disco rígido virtual da VM de resolução de problemas.
-5. Crie uma VM com o disco rígido virtual original.
-
-Para a VM que utiliza o disco gerido, consulte [resolver problemas de uma VM de disco gerido ao anexar um disco de SO novo](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
-
+1. Pare a VM afetada.
+2. Crie um instantâneo de disco do SO da VM.
+3. Crie um disco a partir do instantâneo do disco de SO.
+4. Anexe o disco como um disco de dados a uma VM de recuperação.
+5. Ligue-se para a VM de recuperação. Editar ficheiros ou execute quaisquer ferramentas para corrigir problemas no disco do SO copiado.
+6. Desmonte e desanexe o disco da VM de recuperação.
+7. Altere o disco do SO para a VM afetada.
 
 Certifique-se de que tenha [o Azure PowerShell mais recente](/powershell/azure/overview) instalado e iniciado sessão sua subscrição:
 
@@ -42,8 +46,7 @@ Certifique-se de que tenha [o Azure PowerShell mais recente](/powershell/azure/o
 Connect-AzureRmAccount
 ```
 
-Nos exemplos a seguir, substitua os nomes de parâmetros com seus próprios valores. Os nomes de parâmetros de exemplo incluem `myResourceGroup`, `mystorageaccount`, e `myVM`.
-
+Nos exemplos a seguir, substitua os nomes de parâmetros com seus próprios valores. 
 
 ## <a name="determine-boot-issues"></a>Determinar os problemas de arranque
 Pode ver uma captura de ecrã da sua VM no Azure para ajudar a resolver problemas de arranque. Nesta captura de ecrã pode ajudar a identificar o motivo da falha de uma VM efetuar o arranque. O exemplo seguinte obtém a captura de ecrã da VM Windows com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
@@ -55,88 +58,125 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
 
 Reveja a captura de ecrã para determinar por que a VM está a falhar efetuar o arranque. Tenha em atenção que quaisquer mensagens de erro específicas ou códigos de erro fornecidos.
 
+## <a name="stop-the-vm"></a>Parar a VM
 
-## <a name="view-existing-virtual-hard-disk-details"></a>Ver detalhes do disco rígido virtual existente
-Pode anexar o disco rígido virtual a outra VM, terá de identificar o nome do disco rígido virtual (VHD).
-
-O exemplo seguinte obtém informações para a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
+O seguinte exemplo para a VM com o nome `myVM` do grupo de recursos com o nome `myResourceGroup`:
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
-Procure `Vhd URI` dentro do `StorageProfile` seção da saída do comando anterior. O seguinte truncados saída de exemplo mostra o `Vhd URI` até o final do bloco de código:
+Aguarde até que a VM tiver concluído a eliminação do antes de processar para o passo seguinte.
+
+
+## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>Criar um instantâneo de disco do SO da VM
+
+O exemplo seguinte cria um instantâneo com o nome `mySnapshot` do sistema operacional disco da VM com o nome 'myVM'. 
 
 ```powershell
-RequestId                     : 8a134642-2f01-4e08-bb12-d89b5b81a0a0
-StatusCode                    : OK
-ResourceGroupName             : myResourceGroup
-Id                            : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
-Name                          : myVM
-Type                          : Microsoft.Compute/virtualMachines
-...
-StorageProfile                :
-  ImageReference              :
-    Publisher                 : MicrosoftWindowsServer
-    Offer                     : WindowsServer
-    Sku                       : 2016-Datacenter
-    Version                   : latest
-  OsDisk                      :
-    OsType                    : Windows
-    Name                      : myVM
-    Vhd                       :
-      Uri                     : https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
-    Caching                   : ReadWrite
-    CreateOption              : FromImage
+$resourceGroupName = 'myResourceGroup' 
+$location = 'eastus' 
+$vmName = 'myVM'
+$snapshotName = 'mySnapshot'  
+
+#Get the VM
+$vm = get-azurermvm `
+-ResourceGroupName $resourceGroupName `
+-Name $vmName
+
+#Create the snapshot configuration for the OS disk
+$snapshot =  New-AzureRmSnapshotConfig `
+-SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+-Location $location `
+-CreateOption copy
+
+#Take the snapshot
+New-AzureRmSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
 
+Um instantâneo é uma cópia completa, só de leitura de um VHD. Não pode ser ligado a uma VM. O próximo passo, vamos criar um disco deste instantâneo.
 
-## <a name="delete-existing-vm"></a>Eliminar VM existente
-Os discos rígidos virtuais e as VMs são dois recursos diferentes do Azure. Um disco rígido virtual é onde o próprio sistema operacional, aplicativos e configurações são armazenadas. A VM propriamente dito é apenas de metadados que definem o tamanho ou a localização e faz referência a recursos como um disco rígido virtual ou uma placa de interface de rede virtual (NIC). Cada disco rígido virtual tem uma concessão atribuída quando anexado a uma VM. Embora os discos de dados possam ser anexados e desanexados mesmo se a VM estiver a ser executada, o disco do SO só pode ser desanexado se o recurso da VM for eliminado. A concessão continua a associar o disco do SO a uma VM, mesmo quando a VM está num estado parado e desalocado.
+## <a name="create-a-disk-from-the-snapshot"></a>Criar um disco a partir do instantâneo
 
-O primeiro passo para recuperar a sua VM é eliminar o próprio recurso da VM. Com a eliminação, os discos rígidos virtuais permanecem na sua conta de armazenamento. Depois da VM é eliminada, é anexar o disco rígido virtual a outra VM para resolver os erros.
-
-O exemplo seguinte elimina a VM com o nome `myVM` do grupo de recursos com o nome `myResourceGroup`:
+Este script cria um disco gerido com o nome `newOSDisk` partir do instantâneo com o nome `mysnapshot`.  
 
 ```powershell
-Remove-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+#Set the context to the subscription Id where Managed Disk will be created
+#You can skip this step if the subscription is already selected
+
+$subscriptionId = 'yourSubscriptionId'
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+#Provide the name of your resource group
+$resourceGroupName ='myResourceGroup'
+
+#Provide the name of the snapshot that will be used to create Managed Disks
+$snapshotName = 'mySnapshot' 
+
+#Provide the name of the Managed Disk
+$diskName = 'newOSDisk'
+
+#Provide the size of the disks in GB. It should be greater than the VHD file size.
+$diskSize = '128'
+
+#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
+$storageType = 'StandardLRS'
+
+#Provide the Azure region (e.g. westus) where Managed Disks will be located.
+#This location should be same as the snapshot location
+#Get all the Azure location using command below:
+#Get-AzureRmLocation
+$location = 'eastus'
+
+$snapshot = Get-AzureRmSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+ 
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+ 
+New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 ```
+Agora tem uma cópia do disco do SO original. Pode montar este disco a outra VM do Windows para fins de resolução de problemas.
 
-Aguarde até que a VM tiver concluído a eliminação do antes de anexar o disco rígido virtual a outra VM. A concessão no disco rígido virtual que associa-a com a VM precisa ser liberada antes de pode anexar o disco rígido virtual a outra VM.
+## <a name="attach-the-disk-to-another-windows-vm-for-troubleshooting"></a>Anexar o disco a outra VM do Windows para resolução de problemas
 
-
-## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Anexar o disco rígido virtual existente a outra VM
-Para os passos seguintes, utilize outra VM para fins de resolução de problemas. Anexar o disco rígido virtual existente para esta VM de resolução de problemas para procurar e editar o conteúdo do disco. Este processo permite-lhe corrigir os eventuais erros de configuração ou analisar o aplicativo adicional ou ficheiros de registo do sistema, por exemplo. Escolha ou crie outra VM para utilizar para fins de resolução de problemas.
-
-Ao anexar o disco rígido virtual existente, especificar o URL para o disco de obteve no anterior `Get-AzureRmVM` comando. O exemplo seguinte anexa um disco rígido virtual existente para a VM de resolução de problemas com o nome `myVMRecovery` no grupo de recursos com o nome `myResourceGroup`:
-
-```powershell
-$myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMRecovery"
-Add-AzureRmVMDataDisk -VM $myVM -CreateOption "Attach" -Name "DataDisk" -DiskSizeInGB $null `
-    -VhdUri "https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd"
-Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
-```
+Agora vamos anexar a cópia do disco do SO original para uma VM como um disco de dados. Este processo permite-lhe corrigir os erros de configuração ou reveja adicionais da aplicação ou ficheiros de registo do sistema no disco. O exemplo seguinte anexa o disco com o nome `newOSDisk` para a VM com o nome `RecoveryVM`.
 
 > [!NOTE]
-> Adicionar um disco exige que especifique o tamanho do disco. Como podemos anexar um disco existente, o `-DiskSizeInGB` é especificado como `$null`. Este valor garante que o disco de dados está corretamente ligado e sem a necessidade de determinar o verdadeiro tamanho do disco de dados.
+> Para anexar o disco, a cópia de disco do SO original e a VM de recuperação tem de ser na mesma localização.
 
+```powershell
+$rgName = "myResourceGroup"
+$vmName = "RecoveryVM"
+$location = "eastus" 
+$dataDiskName = "newOSDisk"
+$disk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
 
-## <a name="mount-the-attached-data-disk"></a>Monte o disco de dados anexados
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
 
-1. RDP para a VM de resolução de problemas usando as credenciais apropriadas. O exemplo seguinte transfere o ficheiro de ligação de RDP para a VM com o nome `myVMRecovery` no grupo de recursos com o nome `myResourceGroup`e transfere-o para `C:\Users\ops\Documents`"
+$vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+```
+
+## <a name="connect-to-the-recovery-vm-and-fix-issues-on-the-attached-disk"></a>Ligue-se para a VM de recuperação e corrigir problemas no disco anexado
+
+1. RDP para a sua VM de recuperação com as credenciais apropriadas. O exemplo seguinte transfere o ficheiro de ligação de RDP para a VM com o nome `RecoveryVM` no grupo de recursos com o nome `myResourceGroup`e transfere-o para `C:\Users\ops\Documents`"
 
     ```powershell
-    Get-AzureRMRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "myVMRecovery" `
+    Get-AzureRMRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
         -LocalPath "C:\Users\ops\Documents\myVMRecovery.rdp"
     ```
 
-2. O disco de dados é automaticamente detectado e ligado. Ver a lista de volumes anexados para determinar a letra de unidade da seguinte forma:
+2. O disco de dados deve ser automaticamente detectado e anexado. Ver a lista de volumes anexados para determinar a letra de unidade da seguinte forma:
 
     ```powershell
     Get-Disk
     ```
 
-    O resultado de exemplo seguinte mostra o disco rígido virtual ligado um disco **2**. (Também pode usar `Get-Volume` para ver a letra de unidade):
+    O resultado de exemplo seguinte mostra o disco ligado um disco **2**. (Também pode usar `Get-Volume` para ver a letra de unidade):
 
     ```powershell
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
@@ -144,15 +184,13 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
     ------   -------------   -------------   ------------   -----------------   ----------   ----------
     0        Virtual HD                                     Healthy             Online       127 GB MBR
     1        Virtual HD                                     Healthy             Online       50 GB MBR
-    2        Msft Virtu...                                  Healthy             Online       127 GB MBR
+    2        newOSDisk                                  Healthy             Online       127 GB MBR
     ```
 
-## <a name="fix-issues-on-original-virtual-hard-disk"></a>Corrigir erros no disco rígido virtual original
-Com o disco rígido virtual existente montado, pode agora efetuar qualquer manutenção e passos de resolução de problemas, conforme necessário. Depois de corrigir esses problemas, avance para os passos seguintes.
+Depois da cópia do disco do SO original está montada, pode executar qualquer manutenção e passos de resolução de problemas, conforme necessário. Depois de corrigir esses problemas, avance para os passos seguintes.
 
-
-## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Desmonte e desanexe o disco rígido virtual original
-Assim que os erros são resolvidos, desmonte e desanexe o disco rígido virtual existente da sua VM de resolução de problemas. Não é possível utilizar o seu disco rígido virtual com qualquer outra VM até que a anexar o disco rígido virtual para a VM de resolução de problemas de concessão será libertada.
+## <a name="unmount-and-detach-original-os-disk"></a>Desmonte e desanexe o disco de sistema operacional original
+Assim que os erros são resolvidos, desmonte e desanexe o disco existente da sua VM de recuperação. Não é possível utilizar o disco com qualquer outra VM até que a atribuição do disco para a VM de recuperação de concessão será libertada.
 
 1. Da sua sessão do RDP, desmonte o disco de dados na sua VM de recuperação. Terá do número do disco do anterior `Get-Disk` cmdlet. Em seguida, utilize `Set-Disk` para configurar o disco como offline:
 
@@ -171,46 +209,49 @@ Assim que os erros são resolvidos, desmonte e desanexe o disco rígido virtual 
     2        Msft Virtu...                                  Healthy             Offline      127 GB MBR
     ```
 
-2. A sua sessão do RDP de saída. Da sua sessão do Azure PowerShell, remova o disco rígido virtual a partir da VM de resolução de problemas.
+2. A sua sessão do RDP de saída. Da sua sessão do Azure PowerShell, remova o disco com o nome `newOSDisk` da VM com o nome 'RecoveryVM'.
 
     ```powershell
-    $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMRecovery"
-    Remove-AzureRmVMDataDisk -VM $myVM -Name "DataDisk"
+    $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "RecoveryVM"
+    Remove-AzureRmVMDataDisk -VM $myVM -Name "newOSDisk"
     Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
     ```
 
+## <a name="change-the-os-disk-for-the-affected-vm"></a>Alterar o disco do SO para a VM afetada
 
-## <a name="create-vm-from-original-hard-disk"></a>Criar VM a partir de disco rígido original
-Para criar uma VM a partir do seu disco rígido virtual original, utilize [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). O modelo JSON tenha a seguinte hiperligação:
+Pode utilizar o Azure PowerShell para trocar os discos de SO. Não tem de eliminar e recriar a VM.
 
-- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
-
-O modelo implementa uma VM numa rede virtual existente, utilizando o URL de VHD do comando anterior. O exemplo seguinte implementa o modelo para o grupo de recursos com o nome `myResourceGroup`:
+Este exemplo para a VM com o nome `myVM` e atribui o disco com o nome `newOSDisk` como o novo disco de SO. 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
+# Get the VM 
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM 
+
+# Make sure the VM is stopped\deallocated
+Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
+
+# Get the new disk that you want to swap in
+$disk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name newDisk
+
+# Set the VM configuration to point to the new disk  
+Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name 
+
+# Update the VM with the new OS disk
+Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm 
+
+# Start the VM
+Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup
 ```
 
-Responda aos pedidos para o modelo, como o nome da VM, o tipo de SO e o tamanho da VM. O `osDiskVhdUri` é o mesmo conforme anteriormente usados ao anexar o disco rígido virtual existente para a VM de resolução de problemas.
+## <a name="verify-and-enable-boot-diagnostics"></a>Certifique-se e ativar diagnósticos de arranque
 
-
-## <a name="re-enable-boot-diagnostics"></a>Reativar o diagnóstico de arranque
-
-Quando criar a VM a partir do disco rígido virtual existente, o diagnóstico de arranque pode não ser ativado automaticamente. O exemplo seguinte ativa a extensão de diagnóstico na VM com o nome `myVMDeployed` no grupo de recursos com o nome `myResourceGroup`:
+O exemplo seguinte ativa a extensão de diagnóstico na VM com o nome `myVMDeployed` no grupo de recursos com o nome `myResourceGroup`:
 
 ```powershell
 $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Resolver problemas de uma VM de disco gerido ao anexar um novo disco de SO
-1. Pare a VM resultante do Windows de disco gerido.
-2. [Criar um instantâneo do disco gerido](snapshot-copy-managed-disk.md) do disco do SO da VM de disco gerido.
-3. [Criar um disco gerido a partir do instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Anexar o disco gerido como disco de dados da VM](attach-disk-ps.md).
-5. [Alterar o disco de dados do passo 4 para o disco de SO](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se estiver a ter problemas de ligação à sua VM, veja [ligações de resolução de problemas de RDP para uma VM do Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas com o acesso aos aplicativos em execução na sua VM, consulte [resolver problemas de conectividade de aplicações numa VM do Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

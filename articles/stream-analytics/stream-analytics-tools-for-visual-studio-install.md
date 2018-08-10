@@ -1,5 +1,5 @@
 ---
-title: Configurar as ferramentas do Azure Stream Analytics para o Visual Studio
+title: Configurar as ferramentas do Azure Stream Analytics para Visual Studio
 description: Este artigo descreve os requisitos de instalação e como configurar as ferramentas do Azure Stream Analytics para Visual Studio.
 services: stream-analytics
 author: su-jie
@@ -9,53 +9,53 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 94ed603990859d12f709e4a6121e3736221cf10a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e87fc5b91e9e1d5f4f8449e84b17bcdab9c0b6b2
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651183"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713599"
 ---
-# <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Instalar as ferramentas do Azure Stream Analytics para o Visual Studio
-Ferramentas do Azure Stream Analytics suportam Visual de Studio de 2017, 2015 ou 2013. Este artigo descreve como instalar e desinstalar as ferramentas.
+# <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Instalar as ferramentas do Azure Stream Analytics para Visual Studio
+Ferramentas do Azure Stream Analytics suportam o Visual Studio 2017, 2015 e 2013. Este artigo descreve como instalar e desinstalar as ferramentas.
 
-Para obter mais informações sobre como utilizar as ferramentas, consulte [ferramentas do Stream Analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Para obter mais informações sobre como utilizar as ferramentas, consulte [ferramentas do Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md).
 
 ## <a name="install"></a>Instalar
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-* Transferir [Visual Studio 2017, (15.3 ou superior)](https://www.visualstudio.com/). Enterprise (Ultimate/Premium), Professional e Community são suportadas as edições. Não é suportada a edição Express. 
-* As ferramentas de análise de fluxo fazem parte do **programação do Azure** e **armazenamento de dados e processamento** cargas de trabalho no Visual Studio 2017. Ative uma destas duas cargas de trabalho como parte da sua instalação do Visual Studio.
+* Baixe [Visual Studio 2017 (15.3 ou superior)](https://www.visualstudio.com/). As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada. 
+* Ferramentas do Stream Analytics fazem parte dos **desenvolvimento do Azure** e **armazenamento de dados e processamento** cargas de trabalho no Visual Studio 2017. Ative uma destas duas cargas de trabalho como parte da sua instalação do Visual Studio.
 
-Ativar o **armazenamento de dados e processamento** carga de trabalho conforme mostrado:
+Ativar a **armazenamento de dados e processamento** carga de trabalho conforme mostrado:
 
-![Carga de trabalho de dados, processamento e de armazenamento é seleccionada](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-01.png)
+![Carga de trabalho de dados, armazenamento e processamento está selecionada](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-01.png)
 
-Ativar o **programação do Azure** carga de trabalho conforme mostrado:
+Ativar a **desenvolvimento do Azure** carga de trabalho conforme mostrado:
 
-![Carga de trabalho de desenvolvimento do Azure é seleccionada](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
+![Carga de trabalho de desenvolvimento do Azure está selecionada](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
 
-### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
-* Instale Visual Studio 2015 ou Visual Studio 2013 atualização 4. Enterprise (Ultimate/Premium), Professional e Community são suportadas as edições. Não é suportada a edição Express. 
-* Instalar o Microsoft Azure SDK para .NET versão 2.7.1 ou superior, utilizando o [instalador de plataforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
-* Instalar [ferramentas do Azure Stream Analytics para o Visual Studio](http://aka.ms/asatoolsvs).
+### <a name="visual-studio-2013-2015"></a>O Visual Studio 2013, 2015
+* Instale o Visual Studio 2015 ou Visual Studio 2013 atualização 4. As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada. 
+* Instalar o Microsoft Azure SDK para .NET versão 2.7.1 ou superior ao utilizar o [instalador de plataforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
+* Instale [ferramentas do Azure Stream Analytics para Visual Studio](http://aka.ms/asatoolsvs).
 
 ## <a name="update"></a>Atualizar
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-O lembrete de versão nova aparece na notificação do Visual Studio. 
+O novo lembrete de versão aparece a notificação do Visual Studio. 
 
-### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 e o Visual Studio 2015
-As ferramentas de Stream Analytics instaladas para o Visual Studio verifica a existência de novas versões automaticamente. Siga as instruções na janela de pop-up para instalar a versão mais recente. 
+### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 e Visual Studio 2015
+As ferramentas do Stream Analytics instaladas para o Visual Studio verificar novas versões automaticamente. Siga as instruções na janela de pop-up para instalar a versão mais recente. 
 
 
 ## <a name="uninstall"></a>Desinstalar
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-Faça duplo clique o instalador do Visual Studio e selecione **modificar**. Limpar o **do Azure Data Lake e as ferramentas de análise de fluxo** caixa de verificação a partir de **processamento e armazenamento de dados** carga de trabalho ou o **programação do Azure** carga de trabalho.
+Clique duas vezes o instalador do Visual Studio e selecione **modificar**. Limpar o **do Azure Data Lake e ferramentas do Stream Analytics** caixa de verificação a partir de qualquer uma a **processamento e armazenamento de dados** carga de trabalho ou o **desenvolvimento do Azure** carga de trabalho.
 
-### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 e o Visual Studio 2015
-Aceda ao painel de controlo e desinstalar **Microsoft Azure Data Lake e Stream Analytics tools para Visual Studio**.
+### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 e Visual Studio 2015
+Aceda ao painel de controlo e desinstalar **ferramentas do Microsoft Azure Data Lake e do Stream Analytics para Visual Studio**.
 
 
 

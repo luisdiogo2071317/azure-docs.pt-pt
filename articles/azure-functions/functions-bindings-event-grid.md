@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 0875829a405cafcea755d47214903c6ccab4ff16
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521301"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715391"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -440,12 +440,16 @@ O URL de ngrok não obtém um tratamento especial pelo Event Grid, para que a su
 
 ### <a name="create-a-subscription"></a>Criar uma subscrição
 
-Criar uma subscrição do Event Grid do tipo que pretende testar e atribua o ponto final de ngrok, usando o seguinte padrão:
+Criar uma subscrição do Event Grid do tipo que pretende testar e atribua o ponto final de ngrok.
 
+Utilize este padrão de ponto final para as funções 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Utilize este padrão de ponto final para as funções 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
 
 Eis um exemplo com a CLI do Azure:

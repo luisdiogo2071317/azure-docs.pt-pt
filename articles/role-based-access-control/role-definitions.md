@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116066"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715775"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -141,12 +141,12 @@ O [proprietário](built-in-roles.md#owner) função para Alice e o [contribuinte
 
 Proprietário
 
-&nbsp;&nbsp;&nbsp;&nbsp;ações<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
 Contribuinte de Dados do Armazenamento de Blobs (Pré-visualização)
 
-&nbsp;&nbsp;&nbsp;&nbsp;ações<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
@@ -214,7 +214,7 @@ O `NotDataActions` permissão Especifica as operações de dados que são exclu�
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-O `AssignableScopes` propriedade especifica os âmbitos (grupos de gestão (atualmente em pré-visualização), as subscrições, grupos de recursos ou recursos) que a função está disponível para atribuição. Pode disponibilizar a função para atribuição apenas a subscrições ou grupos de recursos que exigem e não pelo usuário desordem experiência para o restante do subscrições ou grupos de recursos. Tem de utilizar a gestão pelo menos um grupo, subscrição, grupo de recursos ou ID de recurso.
+O `AssignableScopes` propriedade especifica os âmbitos (subscrições, grupos de recursos ou recursos) que a função está disponível para atribuição. Pode disponibilizar a função para atribuição apenas a subscrições ou grupos de recursos que exigem e não pelo usuário desordem experiência para o restante do subscrições ou grupos de recursos. Tem de utilizar, pelo menos, uma subscrição, grupo de recursos ou ID de recurso.
 
 Funções incorporadas têm `AssignableScopes` definido como o âmbito de raiz (`"/"`). O âmbito de raiz indica que a função está disponível para atribuição em todos os âmbitos. Exemplos de âmbitos atribuíveis válidos incluem:
 

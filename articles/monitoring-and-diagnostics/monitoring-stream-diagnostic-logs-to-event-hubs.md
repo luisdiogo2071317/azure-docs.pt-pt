@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258189"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627921"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Registos de diagnóstico do Azure Stream para um hub de eventos
-**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure Cmdlets do PowerShell ou o Azure CLI 2.0.
+**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md) ** podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure Cmdlets do PowerShell ou o Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>O que pode fazer com os registos de diagnóstico e os Hubs de eventos
 Seguem-se apenas algumas maneiras, pode utilizar a capacidade de transmissão em fluxo registos de diagnóstico:
@@ -195,6 +195,6 @@ Também pode transmitir em fluxo registos de diagnóstico a partir dos recursos 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Registos do Azure Active Directory Stream com o Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
-* [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
+* [Registos do Azure Active Directory Stream com o Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Leia mais sobre os Registos de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

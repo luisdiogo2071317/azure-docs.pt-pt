@@ -5,20 +5,20 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 08/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 189484291dd337535fe6988f919326b6e997b290
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506291"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005400"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens do Event Grid e tente novamente 
 
 Este artigo descreve como o Azure Event Grid processa eventos quando entrega não é reconhecida.
 
-Event Grid fornece entrega durável. Ele fornece a cada mensagem, pelo menos, uma vez para cada subscrição. Eventos são enviados para o webhook registado de cada subscrição imediatamente. Se um webhook não reconhece o recebimento de um evento em 60 segundos, da primeira tentativa de entrega, o Event Grid repete a entrega do evento. 
+Event Grid fornece entrega durável. Ele fornece a cada mensagem, pelo menos, uma vez para cada subscrição. Eventos são enviados para o webhook registado de cada subscrição imediatamente. Se um webhook não confirmar a receção de um evento em 60 segundos, da primeira tentativa de entrega, o Event Grid repete a entrega do evento. 
 
 Atualmente, Event Grid envia individualmente cada evento para os subscritores. O subscritor recebe uma matriz com um único evento.
 
@@ -42,15 +42,16 @@ Os seguintes códigos de resposta HTTP indicam que não foi uma tentativa de ent
 - 404 Não Encontrado
 - 408 tempo limite do pedido
 - 414 URI demasiado longo
+- 429 demasiados pedidos
 - 500 Erro de Servidor Interno
 - 503 Serviço Indisponível
 - 504 Tempo Limite do Gateway
 
-Se a grelha de eventos receber um erro que indica que o ponto final está temporariamente indisponível, tentará novamente enviar o evento. Se a grelha de eventos receber um erro que indica a entrega nunca será concluída com êxito e uma [tiver sido configurado o ponto final de mensagens não entregues](manage-event-delivery.md), envia o evento para o ponto final de mensagens não entregues. 
+Se a grelha de eventos receber um erro que indica o ponto final está temporariamente indisponível ou um pedido de futuros, talvez seja bem-sucedida, ela tentará novamente enviar o evento. Se a grelha de eventos receber um erro que indica a entrega nunca será concluída com êxito e uma [tiver sido configurado o ponto final de mensagens não entregues](manage-event-delivery.md), envia o evento para o ponto final de mensagens não entregues. 
 
 ## <a name="retry-intervals-and-duration"></a>Intervalos de repetição e a duração
 
-Grelha de eventos utiliza uma política de repetição de término exponencial para a entrega de eventos. Se o webhook não responde ou retorna um código de falha, o Event Grid repete a entrega na agenda seguinte:
+Grelha de eventos utiliza uma política de repetição de término exponencial para a entrega de eventos. Se o webhook não responder ou retorna um código de falha, o Event Grid repete a entrega na agenda seguinte:
 
 1. 10 segundos
 2. 30 segundos

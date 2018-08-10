@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358671"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628839"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure multi-factor Authentication
 
@@ -50,7 +50,7 @@ O relatório de inícios de sessão pode fornecer informações sobre a utiliza�
 - Quantos utilizadores não conseguem concluir a submissão da MFA?
 - Quais são os problemas mais comuns da MFA com que os utilizadores finais se deparam?
 
-Estes dados estão disponíveis através da [portal do Azure](https://portal.azure.com) e o [API de relatórios](../active-directory-reporting-api-getting-started-azure-portal.md).
+Estes dados estão disponíveis através da [portal do Azure](https://portal.azure.com) e o [API de relatórios](../reports-monitoring/concept-reporting-api.md).
 
 ![Nuvem](./media/howto-mfa-reporting/sign-in-report.png)
 

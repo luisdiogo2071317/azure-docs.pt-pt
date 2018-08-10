@@ -1,5 +1,5 @@
 ---
-title: Consultar os conceitos básicos do Azure Search | Documentos da Microsoft
+title: Consultar os tipos e a composição no Azure Search | Documentos da Microsoft
 description: Noções básicas para a criação de uma consulta de pesquisa no Azure Search, utilizando os parâmetros para filtrar, selecione e ordenar os resultados.
 author: HeidiSteen
 manager: cgronlun
@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: 7e34e5fdfc674804faaba5d1fc19d24b9f51c61e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 098718293cda1699fb07e09fa81af94a95bbdeca
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503062"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715163"
 ---
-# <a name="query-fundamentals-in-azure-search"></a>Conceitos básicos de consulta no Azure Search
+# <a name="query-types-and-composition-in-azure-search"></a>Tipos de consulta e a composição no Azure Search
 
 Composição de consulta na Azure Search é uma especificação completa de um pedido: correspondem a critérios, além de parâmetros para direcionar a execução da consulta e a resposta de formatação. Um pedido especifica os campos a serem incluídos, os campos a devolver para ordenação ou filtro e assim por diante. Não especificado, é executada uma consulta em relação a todos os campos pesquisáveis como uma operação de pesquisa de texto completo, retornando um resultado sem pontuação definido na ordem arbitrária.
 
@@ -55,7 +55,7 @@ Outros parâmetros no exemplo dizem respeito aos resultados de consulta:
 
 **Ativar operações por meio de atributos de índice**
 
-Estrutura de índice e consulta de design são rigidamente integrados no Azure Search. Embora não mostrados aqui, um ponto crítico saber com antecedência é que o *esquema de índice*, com atributos em cada campo, determina o tipo de consulta que pode criar. Atributos de índice num campo determinam permitido operações - se um campo é *pesquisável* no índice, *recuperável* nos resultados, *ordenável*,  *filtrável*, e assim por diante. No exemplo, `"orderby": "listingId"` só funciona se o campo de listingId estiver marcado como *ordenáveis* no esquema do índice. Para obter mais informações sobre os atributos de índice, consulte [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Estrutura de índice e consulta de design são rigidamente integrados no Azure Search. Embora não mostrados aqui, um ponto crítico saber com antecedência é que o *esquema de índice*, com atributos em cada campo, determina o tipo de consulta que pode criar. Atributos de índice num campo determinam permitido operações - se um campo é *pesquisável* no índice, *recuperável* nos resultados, *ordenável*, * filtrável*, e assim por diante. No exemplo, `"orderby": "listingId"` só funciona se o campo de listingId estiver marcado como *ordenáveis* no esquema do índice. Para obter mais informações sobre os atributos de índice, consulte [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 Permitido operações numa base por campo são apenas uma forma que a definição do índice informa a execução da consulta. Outras capacidades ativadas no índice incluem o seguinte:
 

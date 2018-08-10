@@ -1,6 +1,6 @@
 ---
-title: Nome do emissor e chave do emissor nos BizTalk Services | Microsoft Docs
-description: Saiba como obter o nome do emissor e chave do emissor para o Service Bus ou controlo de acesso (ACS) nos BizTalk Services. MABS, WABS
+title: Nome do emissor e chave do emissor dos serviços BizTalk | Documentos da Microsoft
+description: Saiba como obter o nome do emissor e chave do emissor para o Service Bus ou controlo de acesso (ACS) nos serviços do BizTalk. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103434"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628652"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Nome e Chave do Emissor
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-BizTalk Services do Azure utiliza o nome de emissor de barramento de serviço e a chave do emissor e o nome do emissor de controlo de acesso e a chave do emissor. Especificamente:
+Serviços BizTalk do Azure utiliza o nome de emissor do Service Bus e a chave do emissor e o nome de emissor de controlo de acesso e a chave do emissor. Especificamente:
 
 | Tarefa | O nome do emissor e chave do emissor |
 | --- | --- |
-| Implementar a aplicação a partir do Visual Studio |Nome do emissor de controlo de acesso e a chave do emissor |
-| Configurar o Portal de serviços do BizTalk do Azure |Nome do emissor de controlo de acesso e a chave do emissor |
-| Criar reencaminhamentos LOB com os serviços de adaptador de BizTalk no Visual Studio |Nome do emissor de barramento de serviço e a chave do emissor |
+| Implementar a aplicação a partir do Visual Studio |Nome de emissor de controlo de acesso e a chave do emissor |
+| Configurar o Portal de serviços BizTalk do Azure |Nome de emissor de controlo de acesso e a chave do emissor |
+| Criar reencaminhamentos LOB com os serviços de adaptador do BizTalk no Visual Studio |Nome de emissor do Service Bus e a chave do emissor |
 
-Este tópico lista os passos para obter o nome de emissor e chave do emissor. 
+Este tópico lista os passos para obter o nome do emissor e chave do emissor. 
 
-## <a name="access-control-issuer-name-and-issuer-key"></a>Nome do emissor de controlo de acesso e a chave do emissor
-O nome do emissor de controlo de acesso e a chave do emissor são utilizados pelo seguinte:
+## <a name="access-control-issuer-name-and-issuer-key"></a>Nome de emissor de controlo de acesso e a chave do emissor
+O nome de emissor de controlo de acesso e a chave do emissor são utilizados pelo seguinte:
 
-* A aplicação do BizTalk Service do Azure criada no Visual Studio: com êxito a implementar a aplicação do serviço de BizTalk no Visual Studio para o Azure, introduza o nome do emissor de controlo de acesso e a chave do emissor. 
-* BizTalk Services do Portal do Azure: Quando cria um BizTalk Service e abra o Portal de serviços do BizTalk, o nome do emissor de controlo de acesso e a chave do emissor são registados automaticamente para as implementações com os mesmos valores de controlo de acesso.
+* A aplicação do BizTalk Service do Azure criada no Visual Studio: para implementar com êxito a aplicação de serviço BizTalk no Visual Studio para o Azure, introduza o nome de emissor de controlo de acesso e a chave do emissor. 
+* O Portal de serviços BizTalk do Azure: Quando cria um BizTalk Service e abra o Portal de serviços do BizTalk, seu nome de emissor de controlo de acesso e a chave do emissor são automaticamente registrados para as implementações com os mesmos valores de controlo de acesso.
 
-### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Obter o nome do emissor de controlo de acesso e a chave do emissor
+### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Obter o nome de emissor de controlo de acesso e a chave do emissor
 
-Para utilizar ACS para autenticação e obter os valores de nome de emissor e chave do emissor, os passos globais incluem:
+Para usar o ACS para autenticação e obter os valores de nome do emissor e chave do emissor, incluem os passos gerais:
 
-1. Instalar o [cmdlets Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-2. Adicione a sua conta do Azure:`Add-AzureAccount`
-3. Devolva o nome da sua subscrição:`get-azuresubscription`
-4. Selecione a sua subscrição:`select-azuresubscription <name of your subscription>` 
-5. Crie um novo espaço de nomes:`new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
+1. Instalar o [cmdlets do Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+2. Adicione a sua conta do Azure: `Add-AzureAccount`
+3. Devolva o nome da sua subscrição: `get-azuresubscription`
+4. Selecione a sua subscrição: `select-azuresubscription <name of your subscription>` 
+5. Crie um novo espaço de nomes: `new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
 
-    Exemplo:`new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+    Exemplo:    `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
       
-5. Quando o novo espaço de nomes do ACS é criado (que pode demorar vários minutos), os valores de nome de emissor e chave do emissor estão listados na cadeia de ligação: 
+5. Quando o novo espaço de nomes do ACS é criado (o que pode demorar vários minutos), os valores de nome do emissor e chave do emissor são enumerados na cadeia de ligação: 
 
     ```
     Name                  : biztalksbnamespace
@@ -67,32 +67,32 @@ Para utilizar ACS para autenticação e obter os valores de nome de emissor e ch
     NamespaceType         : Messaging
     ```
 
-Resumindo:  
+Para resumir:  
 Nome do emissor = SharedSecretIssuer  
 Chave do emissor = SharedSecretKey
 
-Mais no [New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx) cmdlet. 
+Em mais de [New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace) cmdlet. 
 
-## <a name="service-bus-issuer-name-and-issuer-key"></a>Nome do emissor de barramento de serviço e a chave do emissor
-Nome do emissor de barramento de serviço e a chave do emissor são utilizados pelo BizTalk Services do adaptador. No seu projeto dos BizTalk Services no Visual Studio, utilize o adaptador de BizTalk Services para ligar a um sistema de linha de negócio (LOB) no local. Para ligar, pode criar o reencaminhamento de LOB e introduza os detalhes de sistema LOB. Ao fazê-lo, também é introduzir o nome do emissor de barramento de serviço e a chave do emissor.
+## <a name="service-bus-issuer-name-and-issuer-key"></a>Nome de emissor do Service Bus e a chave do emissor
+Nome de emissor do Service Bus e a chave do emissor são utilizados pelos serviços de adaptador do BizTalk. No seu projeto de serviços do BizTalk no Visual Studio, utilize os serviços de adaptador do BizTalk para ligar a um sistema de linha de negócio (LOB) no local. Para ligar, criar reencaminhamento LOB e introduza os detalhes de sistema LOB. Ao fazer isso, também é introduzir o nome de emissor do Service Bus e a chave do emissor.
 
-### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Para obter o nome do emissor de barramento de serviço e a chave do emissor
-1. Inicie sessão no [Portal do Azure](http://portal.azure.com).
-2. Procurar **Service Bus**e selecione o seu espaço de nomes. 
-3. Abra o **políticas de acesso partilhado** propriedades, selecione a política e ver o **cadeia de ligação** para o nome e valores de chave.  
+### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Para obter o nome de emissor do Service Bus e a chave do emissor
+1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+2. Procure **do Service Bus**e selecione o seu espaço de nomes. 
+3. Abra o **políticas de acesso partilhado** propriedades, selecione a política e ver o **cadeia de ligação** para o nome e os valores de chave.  
 
 ## <a name="next"></a>Seguinte
-Tópicos de BizTalk Services do Azure adicionais:
+Tópicos de serviços BizTalk do Azure adicionais:
 
-* [Instalar os BizTalk Services do Azure SDK](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Tutoriais: BizTalk Services do Azure](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Instalar o SDK dos serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Tutoriais: Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 * [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [BizTalk Services do Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
-## <a name="see-also"></a>Veja Também
-* [Como: utilizar o serviço de gestão de ACS para configurar as identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [Os BizTalk Services: Programador, básicas, Standard e Premium gráfico de edições](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Os BizTalk Services: aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+## <a name="see-also"></a>Consultar Também
+* [Como: utilizar o serviço de gestão de ACS para configurar identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Serviços BizTalk: Programador, básico, Standard e Premium gráfico de edições](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Os serviços BizTalk: aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Serviços BizTalk: Gráfico de Estado de Aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Serviços BizTalk: Cópia de segurança e Restauro](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

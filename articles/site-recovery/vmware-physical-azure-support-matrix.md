@@ -6,18 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc45b9e4a568842b5a935d7c28de5ef0a57e1b86
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442535"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004332"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para o VMware e de replicação de servidor físico para o Azure
 
 Este artigo resume os componentes suportados e configurações para recuperação após desastre de VMs de VMware para o Azure, utilizando [do Azure Site Recovery](site-recovery-overview.md).
+
+Para começar a utilizar o Azure Site Recovery com o cenário de implementação mais simples, visite nosso [tutoriais](tutorial-prepare-azure.md). Pode saber mais sobre a arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md).
 
 ## <a name="replication-scenario"></a>Cenário de replicação
 
@@ -241,12 +243,15 @@ Mover o Cofre entre grupos de recursos<br/><br/> Dentro e entre subscrições | 
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não
 
 
-## <a name="mobility-service"></a>Serviço de mobilidade
+## <a name="download-latest-azure-site-recovery-components"></a>Transferir componentes mais recentes do Azure Site Recovery
 
-**Nome** | **Descrição** | **Versão mais recente** | **Detalhes**
+**Nome** | **Descrição** | **Instruções de transferência de versão mais recente** 
 --- | --- | --- | --- | ---
-Configuração unificada do Azure Site Recovery | Coordena as comunicações entre servidores de VMware no local e o Azure <br/><br/> Instalado em servidores de VMware no local | 9.12.4653.1 (disponível a partir do portal) | [Funcionalidades e correções mais recentes](https://aka.ms/latest_asr_updates)
-Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site do Azure/secundária<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | 9.12.4653.1 (disponível a partir do portal) | [Funcionalidades e correções mais recentes](https://aka.ms/latest_asr_updates)
+Servidor de configuração | Coordena as comunicações entre servidores de VMware no local e o Azure <br/><br/> Instalado em servidores de VMware no local | Para instalação de raiz, clique em [aqui](vmware-azure-deploy-configuration-server.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Servidor de processos|Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.| Para instalação de raiz, clique em [aqui](vmware-azure-set-up-process-server-scale.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site do Azure/secundária<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | Para instalação de raiz, clique em [aqui](vmware-azure-install-mobility-service.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+Para saber mais sobre as funcionalidades e correções mais recentes, clique em [aqui](https://aka.ms/latest_asr_updates).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -4,7 +4,7 @@ description: Compreenda como utilizar acionadores de temporizadores nas funçõe
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 08/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6712fb0865284ccc2b84e3c2fcd49972f541f69b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345247"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004220"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador das funções do Azure 
 
@@ -178,7 +178,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**tipo** | n/d | Tem de ser definido para "timerTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto de timer no código de função. | 
-|**schedule**|**ScheduleExpression**|R [expressão CRON](#cron-expressions) ou uma [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado num plano do serviço de aplicações. Pode colocar a expressão de agendamento numa definição de aplicação e definir esta propriedade para a aplicação encapsulado em do nome da definição **%** sinais, tal como neste exemplo: "% ScheduleAppSetting %". |
+|**schedule**|**ScheduleExpression**|R [expressão CRON](#cron-expressions) ou uma [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado num plano do serviço de aplicações. Pode colocar a expressão de agendamento numa definição de aplicação e definir esta propriedade para a aplicação encapsulado em do nome da definição ** % ** sinais, tal como neste exemplo: "% ScheduleAppSetting %". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, a função é invocada quando o tempo de execução é iniciado. Por exemplo, o tempo de execução é iniciado quando a aplicação de funções reativado depois de ficar ociosa devido a inatividade. Quando a aplicação de funções reinicia devido a alterações de função e, quando a aplicação de funções aumenta horizontalmente. Então **runOnStartup** deve raramente se alguma vez ser definido como `true`, como isso tornará o código executado em momentos imprevisíveis elevada.|
 |**useMonitor**|**UseMonitor**|Defina como `true` ou `false` para indicar se a agenda deve ser monitorizada. Agenda de monitorização mantém as ocorrências de agenda para ajudar a garantir que a agenda é mantida corretamente, mesmo quando reiniciar instâncias de aplicações de função. Se não estiver definido explicitamente, a predefinição é `true` para agendas que têm um intervalo de periodicidade superior a 1 minuto. Para agendamentos que acionam mais de uma vez por minuto, a predefinição é `false`.
 
@@ -259,6 +259,8 @@ Ou crie uma definição de aplicação para a sua aplicação de função com o 
 ```json
 "schedule": "0 0 10 * * *"
 ``` 
+
+Quando utiliza `WEBSITE_TIME_ZONE`, a hora é ajustada para alterações de hora no fuso horário específico, por exemplo, o horário de Verão. 
 
 ## <a name="timespan"></a>Período de tempo
 

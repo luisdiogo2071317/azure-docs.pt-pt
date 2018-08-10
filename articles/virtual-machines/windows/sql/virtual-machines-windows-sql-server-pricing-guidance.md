@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345282"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003564"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientações de preços para as VMs do SQL Server do Azure
 
@@ -90,9 +90,12 @@ Para criar uma VM do SQL Server 2017 do Azure com uma destas imagens de pagament
 >
 >Não inclui adicionais do SQL Server, os custos para as edições Web, Standard e Enterprise de licenciamento. Para obter a estimativa de preço mais precisa, selecione o sistema operativo e edição do SQL Server, na página de preços para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="bring-your-own-license-byol"></a>BYOL (traga a sua própria licença)
+## <a id="byol"></a> Traga a sua própria licença (BYOL)
 
 **Trazer a sua própria licença do SQL Server por meio de mobilidade de licenças**, também referido como **BYOL**, significa que, com uma licença de Volume existente do SQL Server com Software Assurance numa VM do Azure. Uma VM do SQL Server com custos BYOL apenas para o custo de execução da VM, não para o licenciamento do SQL Server, dado que já tenham adquirido licenças e Software Assurance através de um programa de licenciamento por Volume.
+
+> [!IMPORTANT]
+> Imagens BYOL requerem um contrato Enterprise com Software Assurance. Não estão disponíveis como parte do parceiro de soluções do Azure Cloud (CSP) neste momento.
 
 > [!NOTE]
 > As imagens BYOL só estão atualmente disponíveis para as máquinas virtuais do Windows. No entanto, pode instalar manualmente do SQL Server numa VM apenas de Linux. Consulte as diretrizes a [FAQ de VM do Linux SQL](../../linux/sql/sql-server-linux-faq.md).

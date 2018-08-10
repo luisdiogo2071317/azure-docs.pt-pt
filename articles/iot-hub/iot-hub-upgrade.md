@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e1342ed574d84ed5b4edd5060c2d6d3ec8bca1a8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903069"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003116"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Como atualizar o seu hub IoT
 
@@ -27,7 +27,7 @@ Quando tiver mais dispositivos e precisar de mais recursos, existem três formas
 
 Estas alterações podem ocorrer sem interromper operações existentes.
 
-Se quiser mudar o seu hub IoT, pode remover unidades e reduzir o tamanho do IoT hub. No entanto, não pode mudar para um escalão mais baixo. Por exemplo, pode mover do escalão S2 para o escalão S1, mas não a partir da camada de S2 para a camada B1. 
+Se quiser mudar o seu hub IoT, pode remover unidades e reduzir o tamanho do IoT hub. No entanto, não pode mudar para um escalão mais baixo. Por exemplo, pode mover do escalão S2 para o escalão S1, mas não a partir da camada de S2 para a camada B1. Tenha também em atenção que apenas um tipo de [edition](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de uma camada pode ser selecionado por IoT Hub. Por exemplo, pode criar um IoT Hub com múltiplas unidades de S1, mas não com uma mistura de unidades de edições diferentes, por exemplo, S1 e B3, ou S1 e S2.
 
 Esses exemplos destinam-se para o ajudar a compreender como ajustar o seu hub IoT como as alterações de solução. Para obter informações específicas sobre as capacidades de cada camada deve sempre consultar [preços do IoT Hub do Azure](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
@@ -45,7 +45,7 @@ Esses exemplos destinam-se para o ajudar a compreender como ajustar o seu hub Io
 4. Para alterar o número de unidades do seu hub, introduza um novo valor sob **unidades do IoT Hub**. 
 5. Selecione **guardar** para guardar as alterações. 
 
-Agora é ajustado o seu hub IoT e suas configurações permanecem inalteradas. Tenha em atenção que o limite de partição para basic escalão IoT Hub é 8. Este limite será permanece inalterado durante a migração de escalão básico para o escalão standard.
+Agora é ajustado o seu hub IoT e suas configurações permanecem inalteradas. Tenha em atenção que o limite máximo de partição para o IoT Hub de escalão básico é 8 e para o escalão standard é 32. A maioria dos Hubs de IoT precisa apenas de 4 partições. O limite de partição é escolhido ao IoT Hub é criado e se relaciona com as mensagens do dispositivo para a cloud para o número de leitores simultâneos dessas mensagens. Este valor permanece inalterado durante a migração de escalão básico para o escalão standard. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8243f67dee231a896f8d7248f9582c333f797d52
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480630"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716149"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso de utilizador no Azure Active Directory B2C
 
@@ -106,7 +106,7 @@ Os passos seguintes descrevem como pode gerir os termos de utilização:
 Pode capturar os termos de utilização de aceitação nos seguintes cenários:
 
 - Um novo utilizador é inscrever-se. Os termos de utilização são apresentados, e o resultado de aceitação é armazenado.
-- Um utilizador está a iniciar sessão que anteriormente aceitou os termos de Active Directory ou mais recente do contrato. Os termos de utilização não são apresentados.
+- Um utilizador está a iniciar sessão que anteriormente aceitou os termos de Active Directory ou mais recente de utilização. Os termos de utilização não são apresentados.
 - Um utilizador está a iniciar sessão que já não aceitar os termos de Active Directory ou mais recente de utilização. Os termos de utilização são apresentados, e o resultado de aceitação é armazenado.
 - Um utilizador está a iniciar sessão que já aceitou uma versão mais antiga dos termos de utilização, que são atualizadas para a versão mais recente. Os termos de utilização são apresentados, e o resultado de aceitação é armazenado.
 

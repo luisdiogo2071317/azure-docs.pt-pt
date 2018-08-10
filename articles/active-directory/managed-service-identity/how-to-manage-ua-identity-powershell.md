@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 31a632138a4946accfcab858b7b61782fb4e7d72
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389690"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005376"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Criar, lista ou eliminar uma identidade atribuída ao utilizador com o Azure PowerShell
 
@@ -69,7 +69,7 @@ Em resposta, tem identidades de utilizador `"Microsoft.ManagedIdentity/userAssig
 
 Para eliminar uma identidade de utilizador, utilize o [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) comando.  O `-ResourceGroupName` parâmetro especifica o grupo de recursos em que a identidade atribuída ao utilizador foi criado e o `-Name` parâmetro especifica o respetivo nome. Substitua a `<RESOURCE GROUP>` e o `<USER ASSIGNED IDENTITY NAME>` valores de parâmetros com seus próprios valores:
 
- ```azurecli-interactive
+ ```azurepowershell-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 > [!NOTE]
@@ -78,6 +78,3 @@ Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USE
 ## <a name="related-content"></a>Conteúdo relacionado
 
 Para obter uma lista completa e mais detalhes sobre os comandos do Azure PowerShell MSI, consulte [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity).
-
-
- 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6bd07439d4c6b1ccb5919fbfb286f714bac3b628
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b9f0571c88b6ec4aa9e3851d5bf618e5104b0652
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158901"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716251"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como requerer verificação de dois passos para um utilizador
 
@@ -30,7 +30,7 @@ Pode efetuar uma de duas abordagens para exigir a verificação de dois passos. 
 
 Ativado pela política de acesso condicional - esta é a maneira mais flexível para ativar a verificação de dois passos para os seus utilizadores. Ativar através da política de acesso condicional só funciona para o Azure MFA na cloud e é uma funcionalidade premium do Azure AD. Obter mais informações sobre este método podem ser encontradas na [implementar com base na cloud do Azure multi-factor Authentication](howto-mfa-getstarted.md).
 
-Ativada pelo Azure AD Identity Protection – este método utiliza a política de risco do Azure AD Identity Protection para exigir verificação de dois passos com base apenas em risco de início de sessão para todas as aplicações na cloud. Este método requer licenciamento do Azure Active Directory P2. Obter mais informações sobre este método podem ser encontradas no [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md#risky-sign-ins)
+Ativada pelo Azure AD Identity Protection – este método utiliza a política de risco do Azure AD Identity Protection para exigir verificação de dois passos com base apenas em risco de início de sessão para todas as aplicações na cloud. Este método requer licenciamento do Azure Active Directory P2. Obter mais informações sobre este método podem ser encontradas no [do Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins)
 
 > [!Note]
 > Podem encontrar mais informações sobre preços e licenças no [do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

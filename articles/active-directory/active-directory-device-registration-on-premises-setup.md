@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390352"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629077"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local com o registo de dispositivos do Azure Active Directory
 Quando exige que os utilizadores a associação à área de trabalho em seus dispositivos pessoais para o serviço de registo de dispositivos do Azure Active Directory (Azure AD), os dispositivos podem ser marcados como conhecidas para a sua organização. Segue-se um guia passo a passo para ativar o acesso condicional para aplicações no local ao utilizar os serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2.
@@ -158,14 +158,14 @@ Existem muitas formas diferentes de comunicar este URL aos seus utilizadores. Po
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Junte-se um dispositivo Windows 8.1 com o registo de dispositivos do Azure Active Directory
 1. No seu dispositivo Windows 8.1, selecione **definições do PC** > **rede** > **à área de trabalho**.
-2. Introduza o nome de utilizador no formato UPN; Por exemplo, **dan@contoso.com**.
+2. Introduza o nome de utilizador no formato UPN; Por exemplo, ** dan@contoso.com **.
 3. Selecione **associar**.
 4. Quando lhe for pedido, inicie sessão com as suas credenciais. O dispositivo está agora associado.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Associar um dispositivo com Windows 7, utilize o registo de dispositivos do Azure Active Directory
 Para registar dispositivos associados a domínios do Windows 7, precisa implantar o [pacote de software de registo de dispositivos](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Para obter instruções sobre como utilizar o pacote, consulte [pacotes de instalador do Windows para computadores Windows de 10](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
+Para obter instruções sobre como utilizar o pacote, consulte [pacotes de instalador do Windows para computadores Windows de 10](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Certifique-se de que os dispositivos registados é escrita novamente no Active Directory
 Pode ver e certifique-se de que seus objetos de dispositivo tem sido escritos novamente para o Active Directory utilizando LDP.exe ou ADSI Edit. Ambos estão disponíveis com as ferramentas do administrador do Active Directory.

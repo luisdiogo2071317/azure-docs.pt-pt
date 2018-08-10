@@ -1,49 +1,44 @@
 ---
-title: Bibliotecas de gestão de Event Hubs do Azure | Microsoft Docs
-description: Gerir espaços de nomes de Event Hubs e entidades do .NET
+title: Bibliotecas de gestão de Hubs de eventos do Azure | Documentos da Microsoft
+description: Gerir espaços de nomes de Hubs de eventos e entidades do .NET
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: HT
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: 1b158fd3ac3f36b71a76c149e8b6815f576be1c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780978"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006646"
 ---
-# <a name="event-hubs-management-libraries"></a>Bibliotecas de gestão de Hubs de eventos
+# <a name="event-hubs-management-libraries"></a>Bibliotecas de gestão dos Hubs de Eventos
 
-As bibliotecas de gestão de Event Hubs dinamicamente podem aprovisionar espaços de nomes de Event Hubs e entidades. Este natureza dinâmica permite com implementações complexas e cenários de mensagens, para que programaticamente pode determinar que entidades para aprovisionar. Estas bibliotecas estão atualmente disponíveis para o .NET.
+Pode usar as bibliotecas de gestão de Event Hubs do Azure para aprovisionar dinamicamente os espaços de nomes de Hubs de eventos e entidades. Este caráter dinâmico permite implementações complexas e cenários de mensagens, para que por meio de programação pode determinar quais entidades para aprovisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidades suportadas
 
-* Criação de espaço de nomes, a atualização, a eliminação
-* Criação de Hubs de eventos, a atualização, a eliminação
-* A criação do grupo de consumidores, a atualização, a eliminação
+* Criação de espaço de nomes, atualização, eliminação
+* Criação de Hubs de eventos, atualização, eliminação
+* A criação do grupo de consumidor, atualização, eliminação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a utilizar as bibliotecas de gestão de Event Hubs, tem de autenticar com o Azure Active Directory (AAD). AAD requer que o se autenticar como um principal de serviço, que fornece acesso aos recursos do Azure. Para obter informações sobre como criar um serviço principal, consulte um dos seguintes artigos:  
+Para começar a utilizar as bibliotecas de gestão de Hubs de eventos, tem de autenticar com o Azure Active Directory (AAD). AAD requer que se autenticar como um principal de serviço, que fornece acesso aos recursos do Azure. Para obter informações sobre a criação de um serviço principal, consulte um dos seguintes artigos:  
 
-* [Utilizar o portal do Azure para criar aplicação do Active Directory e um principal de serviço que pode aceder a recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Utilizar o portal do Azure para criar um principal de serviço que pode aceder aos recursos e de aplicação do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Utilizar o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Utilizar a CLI do Azure para criar um principal de serviço para aceder aos recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Estes tutoriais fornecem-lhe um `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), todos os que são utilizados para autenticação, as bibliotecas de gestão. Tem de ter **proprietário** permissões para o grupo de recursos no qual pretende executar.
+Estes tutoriais fornecem uma `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), as quais são utilizadas para autenticação, as bibliotecas de gestão. Tem de ter **proprietário** permissões para o grupo de recursos no qual pretende executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
-O padrão para manipular a qualquer recurso dos Event Hubs segue um protocolo comum:
+O padrão para manipular a qualquer recurso de Hubs de eventos segue um protocolo comum:
 
 1. Obter um token do AAD utilizando o `Microsoft.IdentityModel.Clients.ActiveDirectory` biblioteca.
     ```csharp
@@ -78,5 +73,5 @@ O padrão para manipular a qualquer recurso dos Event Hubs segue um protocolo co
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Amostra de gestão de .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
+* [Amostra de gestão .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referência de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

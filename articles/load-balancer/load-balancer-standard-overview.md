@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325256"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005880"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
@@ -64,7 +64,15 @@ O conjunto de back-end pode conter máquinas virtuais autónomas, conjuntos de d
 
 Ao considerar como estruturar o seu conjunto de back-end, pode criar para o menor número de recursos do agrupamento de back-end individuais para otimizar ainda mais a duração das operações de gestão.  Não existe nenhuma diferença no desempenho do plano de dados ou a escala.
 
-## <a name="az"></a>As zonas de disponibilidade
+### <a name="probes"></a>Sondas de estado de funcionamento
+  
+Balanceador de carga Standard adiciona suporte para [sondas de estado de funcionamento do HTTPS](load-balancer-custom-probe-overview.md#httpprobe) (sonda HTTP com o wrapper de Transport Layer Security (TLS)) com precisão a monitorizar as aplicações de HTTPS.  
+
+Além disso, quando o conjunto de back-end toda [sondas para baixo](load-balancer-custom-probe-overview.md#probedown), Balanceador de carga Standard permite das conexões TCP estabelecidas tudo continuar. (O Balanceador de carga básico irá terminar todas as conexões TCP para todas as instâncias).
+
+Revisão [sondas de estado de funcionamento do Balanceador de carga](load-balancer-custom-probe-overview.md) para obter detalhes.
+
+### <a name="az"></a>As zonas de disponibilidade
 
 Balanceador de carga Standard suporta capacidades adicionais nas regiões onde as zonas de disponibilidade estão disponíveis.  Estas funcionalidades são incrementais para todos os Balanceador de carga Standard oferece.  Configurações de zonas de disponibilidade estão disponíveis para o Balanceador de carga Standard público e internos.
 
@@ -167,7 +175,7 @@ SKUs não são mutáveis. Siga os passos nesta secção para mover de um recurso
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migrar do básico para o Standard SKU
 
-1. Crie um novo recurso padrão (Balanceador de carga e IPs públicos, conforme necessário). Recriar suas regras e definições de pesquisa.
+1. Crie um novo recurso padrão (Balanceador de carga e IPs públicos, conforme necessário). Recriar suas regras e definições de pesquisa.  Se estava a utilizar uma sonda TCP para 443/tcp anteriormente, pondere alterar este protocolo de sonda para uma pesquisa HTTPS e adicione um caminho.
 
 2. Criar um novo ou Atualize o NSG existente no NIC ou uma sub-rede para o tráfego com balanceamento de carga de lista branca, pesquisa, bem como qualquer outro tráfego que pretende permitir.
 
@@ -177,7 +185,7 @@ SKUs não são mutáveis. Siga os passos nesta secção para mover de um recurso
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrar do plano padrão para o SKU básico
 
-1. Crie um novo recurso básico (Balanceador de carga e IPs públicos, conforme necessário). Recriar suas regras e definições de pesquisa. 
+1. Crie um novo recurso básico (Balanceador de carga e IPs públicos, conforme necessário). Recriar suas regras e definições de pesquisa.  Altere uma sonda HTTPS para uma sonda TCP para 443/tcp. 
 
 2. Remova os recursos de Standard SKU (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Certifique-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
 
@@ -218,15 +226,16 @@ Balanceador de carga Standard é um produto cobrado com base no número de regra
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Aprenda a usar [Balanceador de carga Standard e zonas de disponibilidade](load-balancer-standard-availability-zones.md)
+- Aprenda a usar [Balanceador de carga Standard e zonas de disponibilidade](load-balancer-standard-availability-zones.md).
+- Saiba mais sobre [sondas de estado de funcionamento](load-balancer-custom-probe-overview.md).
 - Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md).
 - Saiba mais sobre [diagnósticos do Balanceador de carga Standard](load-balancer-standard-diagnostics.md).
 - Saiba mais sobre [suportado métricas multidimensionais](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) para obter um diagnóstico no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md)
-- Saiba mais sobre [Balanceador de carga Standard com regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md)
-- Aprenda a usar [Balanceador de carga com vários front-ends](load-balancer-multivip-overview.md)
+- Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md).
+- Saiba mais sobre [Balanceador de carga Standard com regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md).
+- Aprenda a usar [Balanceador de carga com vários front-ends](load-balancer-multivip-overview.md).
 - Saiba mais sobre [redes virtuais](../virtual-network/virtual-networks-overview.md).
 - Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
-- Saiba mais sobre [pontos finais de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Saiba mais sobre [pontos finais de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) no Azure.
 - Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).

@@ -1,9 +1,9 @@
 ---
-title: Descrição geral do modelo de autenticação e segurança de Event Hubs do Azure | Microsoft Docs
-description: Event Hubs autenticação e segurança descrição geral do modelo.
+title: Descrição geral do modelo de autenticação e segurança de Event Hubs do Azure | Documentos da Microsoft
+description: Event Hubs autenticação e segurança visão geral do modelo.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
@@ -13,37 +13,37 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 484b5109678b04943e59b0e6bc516926f5d61838
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311374"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003160"
 ---
-# <a name="event-hubs-authentication-and-security-model-overview"></a>Event Hubs autenticação e segurança descrição geral do modelo
+# <a name="event-hubs-authentication-and-security-model-overview"></a>Event Hubs autenticação e segurança visão geral do modelo
 
 O modelo de segurança de Event Hubs do Azure cumpre os seguintes requisitos:
 
-* Apenas os clientes que apresentam credenciais válidas podem enviar dados para um hub de eventos.
+* Apenas clientes apresentam credenciais válidas podem enviar dados para um hub de eventos.
 * Um cliente não é possível representar outro cliente.
 * Um cliente não autorizado pode ser impedido de enviar dados para um hub de eventos.
 
 ## <a name="client-authentication"></a>Autenticação de cliente
 
-O modelo de segurança de Event Hubs baseia-se numa combinação de [assinatura de acesso partilhado (SAS)](../service-bus-messaging/service-bus-sas.md) tokens e *publicadores de eventos*. Um publicador de eventos define um ponto de final virtual para um hub de eventos. O publicador só pode ser utilizado para enviar mensagens para um hub de eventos. Não é possível receber mensagens de um publicador.
+O modelo de segurança de Hubs de eventos é baseado numa combinação de [assinatura de acesso partilhado (SAS)](../service-bus-messaging/service-bus-sas.md) tokens e *os publicadores de eventos*. Um publicador de eventos define um ponto final virtual para um hub de eventos. O publicador só pode ser utilizado para enviar mensagens para um hub de eventos. Não é possível receber mensagens de um publicador.
 
-Normalmente, um hub de eventos emprega um publicador por cliente. Todas as mensagens que são enviadas para qualquer um dos publicadores de um hub de eventos são colocados em fila dentro desse hub de eventos. Editores de ativar a limitação e controlo de acesso detalhado.
+Normalmente, um hub de eventos emprega um publicador por cliente. Todas as mensagens enviadas a qualquer um dos editores de um hub de eventos são colocados em fila nesse hub de eventos. Os publicadores ativar o controlo de acesso detalhado e limitação.
 
-Cada cliente dos Event Hubs é atribuído um token exclusivo, que é carregado para o cliente. Os tokens são produzidos de forma a que cada token exclusivo concede acesso a um publicador exclusivo diferente. Um cliente que tiver um token só pode enviar para um publicador, mas nenhum outro publicador. Se vários clientes partilham o mesmo token, em seguida, cada um deles partilhas de um publicador.
+Cada cliente dos Hubs de eventos é atribuído um token exclusivo, que é carregado para o cliente. Os tokens são produzidos, de modo a que cada token exclusivo concede acesso a um outro editor exclusivo. Um cliente que tiver um token só pode enviar para um publicador, mas nenhum outro editor. Se vários clientes partilharem o mesmo token, em seguida, cada um deles compartilha um publicador.
 
-Apesar de não recomendado, é possível equipar dispositivos com tokens que conceda acesso direto para um hub de eventos. Qualquer dispositivo que detém este token pode enviar mensagens diretamente para esse hub de eventos. Essa um dispositivo não serão sujeitos a limitação. Além disso, o dispositivo não pode ser blacklisted de enviar para esse hub de eventos.
+Embora não seja recomendado, é possível equiparem dispositivos com tokens que concedem acesso direto a um hub de eventos. Todos os dispositivos que contém este token podem enviar mensagens diretamente para esse hub de eventos. Tal um dispositivo não estará sujeito a limitação. Além disso, o dispositivo não pode ser bloqueado de enviar para esse hub de eventos.
 
-Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não têm conhecimento da chave; Isto impede que outros clientes de tokens de fabrico.
+Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não têm conhecimento da chave; Isto impede que outros clientes tokens de fabrico.
 
 ### <a name="create-the-sas-key"></a>Criar a chave SAS
 
-Ao criar um espaço de nomes de Event Hubs, o serviço gera automaticamente uma chave SAS de 256 bits denominada **RootManageSharedAccessKey**. Esta regra tem um associado par de chaves primárias e secundárias que conceda envio, escutar e gerir direitos para o espaço de nomes. Também pode criar chaves adicionais. Recomenda-se que produz uma chave que concede enviar permissões para o hub de eventos específico. Para o resto deste tópico, presume-se com o nome desta chave **EventHubSendKey**.
+Ao criar um espaço de nomes de Hubs de eventos, o serviço gera automaticamente uma chave SAS de 256 bits denominada **RootManageSharedAccessKey**. Esta regra tem um associado par de chaves primárias e secundárias que concedem send, escutar e a gestão de direitos para o espaço de nomes. Também pode criar chaves adicionais. Recomenda-se que produza uma chave que concede envia permissões para o hub de eventos específicos. Para o resto deste tópico, presume-se que com o nome desta chave **EventHubSendKey**.
 
 O exemplo seguinte cria uma chave apenas de envio, ao criar o hub de eventos:
 
@@ -67,55 +67,55 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Gerar tokens
 
-Pode gerar tokens utilizando a chave SAS. Tem a produzir apenas um token por cliente. Em seguida, podem ser produzidos tokens utilizando o método seguinte. Todos os tokens são gerados utilizando o **EventHubSendKey** chave. Cada token é atribuído um URI exclusivo.
+Pode gerar tokens utilizando a chave SAS. Tem de produzir o token de apenas um por cliente. Tokens, em seguida, podem ser gerados usando o seguinte método. Todos os tokens são gerados com o **EventHubSendKey** chave. Cada token é atribuído um URI exclusivo.
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-Quando chamar este método, o URI deve ser especificado como `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Para todos os tokens, o URI é idêntico, com exceção do `PUBLISHER_NAME`, que deve ser diferente para cada token. Idealmente, `PUBLISHER_NAME` representa o ID de cliente que recebe esse token.
+Ao chamar esse método, o URI deve ser especificado como `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Para todos os tokens, o URI é idêntico, com exceção do `PUBLISHER_NAME`, que deve ser diferente para cada token. Idealmente, `PUBLISHER_NAME` representa o ID do cliente que recebe esse token.
 
-Este método gera um token com a estrutura seguinte:
+Esse método gera um token com a seguinte estrutura:
 
 ```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
-A hora de expiração do token é especificada em segundos, de 1 de Janeiro de 1970. Segue-se um exemplo de um token:
+O tempo de expiração do token é especificado em segundos a partir de 1 de Janeiro de 1970. Segue-se um exemplo de um token:
 
 ```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
-Normalmente, os tokens têm um tempo de vida que se assemelha ou excede o tempo de vida do cliente. Se o cliente tem a capacidade de obter um novo token, tokens com um tempo de vida mais curto podem ser utilizados.
+Normalmente, os tokens têm um tempo de vida que se assemelha ou exceda o tempo de vida do cliente. Se o cliente tem a capacidade de obter um novo token, tokens com um menor tempo de vida podem ser utilizados.
 
 ### <a name="sending-data"></a>Envio de dados
 
-Quando os tokens de tem sido criados, cada cliente é aprovisionado com a suas próprias token exclusivo.
+Depois dos tokens foram criados, cada cliente é aprovisionada com seu próprio token exclusivo.
 
-Quando o cliente envia dados para um hub de eventos, etiquetas o pedido de envio com o token. Para impedir que um atacante de escutas e roubo o token, a comunicação entre o cliente e o hub de eventos tem de ocorrer num canal encriptado.
+Quando o cliente envia dados para um hub de eventos, as etiquetas seu pedido de envio com o token. Para impedir que um invasor a interceptação e roubar o token, a comunicação entre o cliente e o hub de eventos tem de ocorrer por um canal criptografado.
 
 ### <a name="blacklisting-clients"></a>Clientes blacklisting
 
-Se um token é roubado por um atacante, o atacante pode representar o cliente cujo token foi roubado. Blacklisting um cliente compõe esse cliente não utilizável até receber um novo token que utiliza um editor diferente.
+Se um token for roubado por um atacante, o invasor pode representar o cliente cujo token tenha sido roubado. Blacklisting um cliente renderiza esse cliente inutilizável até receber um novo token que utiliza um outro editor.
 
-## <a name="authentication-of-back-end-applications"></a>Autenticação de aplicações back-end
+## <a name="authentication-of-back-end-applications"></a>Autenticação de aplicações de back-end
 
-Para autenticar as aplicações de back-end que consomem dados gerados por clientes de Event Hubs, os Event Hubs utiliza um modelo de segurança que é semelhante ao modelo que é utilizado para tópicos do Service Bus. Um grupo de consumidores de Event Hubs é equivalente a uma subscrição para um tópico de barramento de serviço. Um cliente pode criar um grupo de consumidores, se o pedido para criar o grupo de consumidores é acompanhado por um token que concede gerir privilégios para o hub de eventos ou para o espaço de nomes ao qual pertence o hub de eventos. Um cliente tem permissão para consumir dados a partir de um grupo de consumidores, se o pedido de receção é acompanhado por um token que atribui direitos de receção nesse grupo de consumidores, o hub de eventos ou o espaço de nomes ao qual pertence o hub de eventos.
+Para autenticar as aplicações de back-end que consomem os dados gerados pelos clientes de Hubs de eventos, os Hubs de eventos emprega um modelo de segurança que é semelhante ao modelo que é utilizado para tópicos do Service Bus. Um grupo de consumidores de Hubs de eventos é equivalente a uma subscrição para um tópico do Service Bus. Um cliente pode criar um grupo de consumidores, se o pedido para criar o grupo de consumidores é acompanhado por um token que concede gerir privilégios para o hub de eventos ou para o espaço de nomes ao qual pertence o hub de eventos. Um cliente tem permissão para consumir dados a partir de um grupo de consumidores, se o pedido de receção é acompanhado por um token que conceda direitos de recebimento nesse grupo de consumidores, o hub de eventos ou o espaço de nomes ao qual pertence o hub de eventos.
 
-A versão atual do barramento de serviço não suporta regras SAS para subscrições individuais. O mesmo se aplica a grupos de consumidores de Event Hubs. SAS será possível adicionar suporte para ambas as funcionalidades no futuro.
+A versão atual do Service Bus não suporta regras SAS para assinaturas individuais. O mesmo se aplica a grupos de consumidores de Hubs de eventos. Suporte SAS será adicionado para os dois recursos no futuro.
 
-Na ausência de autenticação SAS para grupos de consumidores individuais, pode utilizar as chaves SAS para proteger todos os grupos de consumidores com uma chave comuns. Esta abordagem permite que uma aplicação consumir dados a partir de qualquer um dos grupos de consumidores de um hub de eventos.
+Na ausência de autenticação de SAS para grupos de consumidores individuais, pode utilizar chaves SAS para proteger todos os grupos de consumidores com uma chave comum. Esta abordagem permite que um aplicativo consumir dados de qualquer um dos grupos de consumidores de um hub de eventos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre os Event Hubs, consulte os tópicos seguintes:
+Para saber mais sobre os Hubs de eventos, visite os seguintes tópicos:
 
 * [Descrição geral dos Hubs de Eventos]
-* [Descrição geral de assinaturas de acesso partilhado]
+* [Descrição geral das assinaturas de acesso partilhado]
 * [Aplicações de exemplo que utilizam Hubs de Eventos]
 
 [Descrição geral dos Hubs de Eventos]: event-hubs-what-is-event-hubs.md
 [Aplicações de exemplo que utilizam Hubs de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
-[Descrição geral de assinaturas de acesso partilhado]: ../service-bus-messaging/service-bus-sas.md
+[Descrição geral das assinaturas de acesso partilhado]: ../service-bus-messaging/service-bus-sas.md
 

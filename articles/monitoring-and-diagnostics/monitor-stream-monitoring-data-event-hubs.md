@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389614"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628176"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -50,11 +50,11 @@ Consulte também os [FAQ de Hubs de eventos do Azure](../event-hubs/event-hubs-f
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como posso configurar a monitorização dos dados de inquilino do Azure para ser transmitido para um hub de eventos?
 
-A monitorização dos dados de inquilino do Azure está atualmente disponível apenas para o Azure Active Directory. Pode utilizar os dados a partir [do Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md), que contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico.
+A monitorização dos dados de inquilino do Azure está atualmente disponível apenas para o Azure Active Directory. Pode utilizar os dados a partir [do Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md), que contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico.
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Stream dados do Azure Active Directory para um hub de eventos
 
-Para enviar dados de registo do Azure Active Directory num espaço de nomes de Hubs de eventos, configurou uma definição de diagnóstico do inquilino no seu inquilino do AAD. [Siga este guia](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) para configurar uma definição de diagnóstico do inquilino.
+Para enviar dados de registo do Azure Active Directory num espaço de nomes de Hubs de eventos, configurou uma definição de diagnóstico do inquilino no seu inquilino do AAD. [Siga este guia](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) para configurar uma definição de diagnóstico do inquilino.
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como posso configurar a monitorização dos dados de subscrição do Azure para ser transmitido para um hub de eventos?
 

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ebd9943ad7f54a329dee16d57ab980b882d508f3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284171"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715112"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Como exemplos de registos de voz para uma voz personalizada
 
@@ -68,13 +68,13 @@ O ponto de partida de qualquer sessão de gravação de voz personalizada é o s
 
 As expressões no seu script podem vir de qualquer lugar: fiction, não fiction, transcrições de seus discursos, notícias de relatórios e tudo o resto disponíveis no formulário de impressos. Se pretender certificar-se de que sua voz faz bem em tipos específicos de palavras (por exemplo, a terminologia médica ou gíria, programação), pode querer incluir frases de investigadores papers ou documentos técnicos. (No entanto, consulte [serem](#legalities) abaixo.) Também pode escrever seu próprio texto.
 
-Suas expressões com não precisa provenientes da mesma origem ou o mesmo tipo de origem. Eles nem precisa ter algo a ver com uns dos outros. No entanto, se quiser utilizar definir frases (por exemplo, "iniciaram sessão com êxito") na sua aplicação de voz, certifique-se para incluí-los no seu script. Isso dará a voz personalizada uma chance maior de pronouncing essas frases bem. E se deve optar por utilizar uma gravação em vez de fala sintetizada, já terá-na voz mesmo como sua fala sintetizada.
+Suas expressões com não precisa provenientes da mesma origem ou o mesmo tipo de origem. Eles nem precisa ter algo a ver com uns dos outros. No entanto, se quiser utilizar definir frases (por exemplo, "iniciaram sessão com êxito") na sua aplicação de voz, certifique-se para incluí-los no seu script. Isso dará a voz personalizada uma chance maior de pronouncing essas frases bem. E se deve optar por utilizar uma gravação em vez de fala sintetizada, já terá-na voz do mesmo.
 
 Enquanto a consistência é fundamental na escolha de talentos de voz, a variedade é a marca de um script boa. O script deve incluir muitas diferentes palavras e frases com uma variedade de comprimentos de sentença, estruturas e reagem. Cada som no idioma deve ser representada várias vezes e em vários contextos (chamado *cobertura fonética).* 
 
 Além disso, o texto deve incorporar todas as formas que um determinado som podem ser representados por escrito e colocar cada som em diferentes locais nas frases. Frases declarativas e perguntas devem ser incluídas e ler com intonation apropriado.
 
-É difícil escrever um script que fornece *suficiente* dados para permitir ao portal de voz personalizada criar uma voz boa. Na prática, a forma mais simples de fazer um script que alcança cobertura fonética robusta é incluir um grande número de amostras. Vozes de padrão da Microsoft foram criados a partir de dezenas de milhares de expressões. Deve estar preparado para gravar alguns a vários milhares discursos para criar uma voz personalizada de qualidade de produção.
+É difícil escrever um script que fornece *suficiente* dados para permitir ao portal de voz personalizada criar uma voz boa. Na prática, a forma mais simples de fazer um script que alcança cobertura fonética robusta é incluir um grande número de amostras. Vozes de padrão da Microsoft foram criados a partir de dezenas de milhares de expressões. Deve estar preparado para gravar alguns a vários expressões milhares com no mínimo para criar uma voz personalizada de qualidade de produção.
 
 Verifique o script cuidadosamente quanto a erros. Se possível, ter alguém verificá-lo demasiado. Ao executar o script com o seu talento, provavelmente irá capturar alguns erros mais.
 
@@ -85,7 +85,7 @@ Pode escrever o seu script no Microsoft Word. O script é para utilização dura
 Um formato de script básico inclui três colunas:
 
 * O número de expressão, começando em 1. Numeração irá facilitar para todos os utilizadores no studio para fazer referência a uma expressão específica ("Vamos tentar número 356 novamente"). Pode usar o parágrafo do Word numeração funcionalidade numerar as linhas da tabela automaticamente.
-* Uma coluna em branco onde irá escrever o número de take ou vez o código de cada ocorrência de pronunciação para o ajudar a localizá-la de gravação foi concluída.)
+* Uma coluna em branco, onde irá escrever o número de take ou vez o código de cada ocorrência de pronunciação para o ajudar a localizá-la de gravação foi concluída.
 * O texto da expressão em si.
 
 ![Script de exemplo](media/custom-voice/script.png)
@@ -113,7 +113,7 @@ Felizmente, é possível evitar totalmente esses problemas. Existem várias font
 
 ## <a name="recording-your-script"></a>Gravar o seu script
 
-De preferência, deve gravar o script num estúdio de profissional gravar especializada em projetos de voz. Eles terão um stand de gravação, os equipamentos certo e as pessoas certas para trabalhar com ele. Vale a pena não tentados na gravação.
+Registe o seu script num estúdio de profissional gravar especializada em projetos de voz. Eles terão um stand de gravação, os equipamentos certo e as pessoas certas para trabalhar com ele. Vale a pena não tentados na gravação.
 
 Discuta o seu projeto com o engenheiro de gravação do studio e ouça seu Conselho. A gravação deve ter pouco ou nenhum compressão de intervalo dinâmico (máximo de 4:1). É fundamental que o áudio têm volume consistente e uma alta taxa de sinal e ruído, e está livre de sons indesejados.
 
@@ -142,7 +142,7 @@ Ouça diretamente a uma gravação de silêncio no seu "portagens," descobrir on
 > [!TIP]
 > Em alguns casos, poderá usar um equalizer ou um software de redução de ruído Plug-in para o ajudar a remover barulho do seu gravações, embora é sempre melhor interrompê-lo na origem.
 
-Níveis devem ser definidos, para que a maior parte do intervalo dinâmico disponível de gravação de digital é utilizado sem overdriving. Isso significa que voz alta, mas não tão voz alta que distorçam o áudio. Segue-se um exemplo de uma forma de onda de uma gravação de bons.
+Definir níveis, de modo que a maior parte do intervalo dinâmico disponível de gravação de digital é utilizado sem overdriving. Isso significa que voz alta, mas não tão voz alta que distorçam o áudio. Segue-se um exemplo de uma forma de onda de uma gravação de bons.
 
 ![gravação de boa forma de onda](media/custom-voice/good-recording.png)
 
@@ -159,9 +159,9 @@ O ideal é que pessoas diferentes servir nas funções de diretor, engenheiro e 
 Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Embora o talento de voz torna-se familiarizado com o texto, pode clarificar a pronúncia de quaisquer palavras familiarizadas.
 
 > [!NOTE]
-> A maioria dos estúdios de gravação oferecem apresentar eletrónica de scripts no stand a gravação. Neste caso, digite suas anotações de orientação sobre diretamente no documento o script. Continuará QUERENDO uma cópia do documento para tomar notas durante a sessão, no entanto. A maioria dos engenheiros desejará um hardcopy demasiado. E continuará QUERENDO que o terceiro impressa cópia como uma cópia de segurança para o talento, no caso do computador estiver em baixo!
+> A maioria dos estúdios de gravação oferecem apresentar eletrónica de scripts no stand a gravação. Neste caso, digite suas anotações de orientação sobre diretamente no documento o script. Continuará QUERENDO uma cópia do documento para tomar notas durante a sessão, no entanto. A maioria dos engenheiros desejará um hardcopy demasiado. E irá desejar que um terceiro impressa cópia como uma cópia de segurança para o talento, no caso do computador estiver em baixo!
 
-Seu talento de voz pode perguntar qual palavra desejar enfatizadas numa expressão. Atores chamá-lo a "palavra operative". Informe-os de que pretende uma leitura natural com nenhuma ênfase especial. Ênfase pode ser adicionado quando a conversão de voz é sintetizada; não deve ser uma parte da gravação original.
+Seu talento de voz pode perguntar qual palavra desejar enfatizada numa expressão (a "palavra operative"). Informe-os de que pretende uma leitura natural com nenhuma ênfase especial. Ênfase pode ser adicionado quando a conversão de voz é sintetizada; não deve ser uma parte da gravação original.
 
 Direcione o talento pronunciar palavras de forma distinta. Todas as palavras do script devem ser pronunciada como está escrito. Sons não devem ser omitidos ou em conjunto, o que é comum na conversão de voz casual, slurred *, a menos que tenha sido escritos dessa forma no script.*
 
@@ -176,7 +176,7 @@ Deve talento *não* adicionar interrupções distintas entre as palavras. A fras
 
 ### <a name="the-recording-session"></a>A sessão de gravação
 
-Criar uma referência de gravação, ou *correspondência de arquivo,* de uma expressão comum no início da sessão. Faça o talento repetir esta linha de cada página ou a página e meio. Cada vez, compara a gravação de novo para a referência. Essa prática ajuda o talento permanecer consistente no volume, o tempo, o argumento de venda e intonation. Enquanto isso, o engenheiro pode utilizar o ficheiro de correspondência como referência para níveis e a consistência geral de som.
+Criar uma referência de gravação, ou *correspondência de arquivo,* de uma expressão comum no início da sessão. Faça o talento repetir esta linha todas as páginas mais ou menos. Cada vez, compara a gravação de novo para a referência. Essa prática ajuda o talento permanecer consistente no volume, o tempo, o argumento de venda e intonation. Enquanto isso, o engenheiro pode utilizar o ficheiro de correspondência como referência para níveis e a consistência geral de som.
 
 O ficheiro de correspondência é especialmente importante quando a retoma gravação, após uma interrupção ou em outro dia. Desejará reproduzi-lo a algumas vezes para o talento e tê-las a repeti-lo cada vez até que eles correspondem a bem.
 
@@ -185,16 +185,16 @@ Orientá-seu talento para tirar um respire fundo e colocar em pausa por um momen
 Registe um bom cinco segundos, de silêncio antes da gravação de primeira para capturar o "tom sala." Isto ajuda ao portal de voz personalizada compensar qualquer ruído restante nas gravações.
 
 > [!TIP]
-> Tudo o que realmente precisa é de linhas dos talentos de voz, para que possa tomar uma gravação (canal de único) monophonic de apenas linhas. No entanto, se gravar no alto, pode utilizar o segundo canal para registrar o chatter numa sala de controlo para capturar a discussão de linhas específicas ou demora. Remova este Roteiro da versão carregada para o portal de voz personalizada.
+> Tudo o que realmente precisa é o talento de voz, para que possa tomar uma gravação (canal de único) monophonic de apenas linhas. No entanto, se gravar no alto, pode utilizar o segundo canal para registrar o chatter numa sala de controlo para capturar a discussão de linhas específicas ou demora. Remova este Roteiro da versão carregada para o portal de voz personalizada.
 
 Ouça com atenção, utilizar auscultadores, ao desempenho o talento de voz. Está à procura de diction boa mas natural, pronúncia correta e a falta de sons indesejados. Não hesite em fazer o seu talento para registrar novamente uma expressão que não cumpram estas normas. 
 
 > [!TIP] 
-> Ao gravar um grande volume de expressões, uma única expressão não pode ter um impacto considerável sobre a voz personalizada resultante. Portanto, pode ser mais vantajoso simplesmente observar qualquer expressões com problemas, excluí-los a partir do seu conjunto de dados e ver como acontece sua voz personalizada. Pode sempre voltar ao studio e registe os exemplos em falta mais tarde.
+> Se estiver a utilizar um grande número de expressões, uma única expressão não pode ter um impacto considerável sobre a voz personalizada resultante. Portanto, pode ser mais vantajoso simplesmente observar qualquer expressões com problemas, excluí-los a partir do seu conjunto de dados e ver como acontece sua voz personalizada. Pode sempre voltar ao studio e registe os exemplos em falta mais tarde.
 
 Anote o número ou tempo de código no script para cada ocorrência de pronunciação. Peça o engenheiro se eles podem marcar cada ocorrência de pronunciação a gravação metadados ou indicação folha também.
 
-Dê quebras regulares e fornecer uma bebida para ajudar o seu talento de voz, manter a sua voz em bom estado.
+Dê quebras regulares e fornecer um café para ajudar o seu talento de voz, manter a sua voz em bom estado.
 
 ### <a name="after-the-session"></a>Após a sessão
 

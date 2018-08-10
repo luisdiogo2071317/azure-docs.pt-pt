@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39030045"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39720881"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -37,38 +37,44 @@ ms.locfileid: "39030045"
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede - Azure Resource Manager
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
+> [!NOTE]
+> Aumentámos recentemente todos os limites predefinidos para os limites máximos. Se não existir nenhuma **limite máximo** coluna, em seguida, o recurso não tem limites ajustável. Se tiver tem estes limites aumentados em suportam no passado e não vir os limites atualizados conforme mostrado a seguir, pode [abra um pedido de suporte do cliente online sem custos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+
+| Recurso | Limite predefinido | 
+| --- | --- |
+| Redes virtuais |1000 |
+| Sub-redes por rede virtual |3000 |
+| Peerings de rede virtual por rede Virtual |100 |
+| Servidores de DNS por rede virtual |25 |
+| Endereços de IP privados por rede virtual |65536 |
+| Endereços IP privados por interface de rede |256 |
+| Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |
+| Interfaces de Rede (NIC) |24000 |
+| Grupos de Segurança de Rede (NSG) |5000 |
+| Regras do NSG por NSG |1000 |
+| Endereços IP e intervalos especificados para a origem ou destino num grupo de segurança |4000 |
+| Grupos de segurança de aplicações |3000 |
+| Grupos de segurança de aplicação por configuração de IP, por NIC |20 |
+| Configurações de IP por grupo de segurança de aplicações |4000 |
+| Grupos de segurança de aplicações que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |100 |
+| Tabelas da rota definida pelo utilizador |200 |
+| Rotas definidas pelo utilizador por tabela de rota |400 |
+| Certificados de Raiz do Ponto-a-Site por Gateway de VPN |20 |
+
+#### <a name="publicip-address"></a>Limites de endereço IP públicos
+
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |
-| Redes virtuais |50 |1000 |
-| Sub-redes por rede virtual |1000 |10000 |
-| Peerings de rede virtual por rede Virtual |50 * * |100 |
-| Servidores de DNS por rede virtual |9 |25 |
-| Endereços de IP privados por rede virtual |16384 * * |16384 |
-| Endereços IP privados por interface de rede |256 |256 |
-| Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |500 K |
-| Interfaces de Rede (NIC) |24000 * * |24000 |
-| Grupos de Segurança de Rede (NSG) |100 |5000 |
-| Regras do NSG por NSG |1000 * * |1000 |
-| Endereços IP e intervalos especificados para a origem ou destino num grupo de segurança |2000 |4000 |
-| Grupos de segurança de aplicações |500 |3000 |
-| Grupos de segurança de aplicação por configuração de IP, por NIC |10 |20 |
-| Configurações de IP por grupo de segurança de aplicações |1000 |4000 |
-| Grupos de segurança de aplicações que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |50 |100 |
-| Tabelas da rota definida pelo utilizador |100 |200 |
-| Rotas definidas pelo utilizador por tabela de rota |400 * * |400 |
-| Endereços IP públicos - dinâmico |60 (básico) |contactar o suporte |
-| Endereços IP públicos - estáticos |20 (básico) |contactar o suporte |
-| Endereços IP públicos - estáticos |20 (standard) |contactar o suporte |
-| Certificados de Raiz do Ponto-a-Site por Gateway de VPN |20 |20 |
-
-* * Estas atualizado padrão limites aplicam-se a subscrições que não tenham tido anteriormente estes limites aumentados através do suporte. Se tiver tem estes limites aumentados em suporte no passado e gostaria de obtê-los atualizados para as predefinições de novo [abra um pedido de suporte do cliente online sem custos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+| Endereços IP públicos - dinâmico |200 (básico) |contactar o suporte |
+| Endereços IP públicos - estáticos |200 (básico) |contactar o suporte |
+| Endereços IP públicos - estáticos |200 (standard) |contactar o suporte |
 
 #### <a name="load-balancer"></a>Limites do Balanceador de carga
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md)
 
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |
-| Balanceadores de Carga | 100 | 1000 |
+| Balanceador de Carga | 100 | 1000 |
 | Regras por recurso, Basic | 150 | 250 |
 | Regras por recurso, Standard | 1250 | 1500 |
 | Regras por configuração de IP | 299 |299 |
