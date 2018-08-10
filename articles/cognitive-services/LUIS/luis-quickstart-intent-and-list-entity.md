@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: afad3fe725fddd0748cc206517a7274815cf1653
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345785"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495269"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Adicionar entidade de lista
 Neste tutorial, vai criar uma aplicação que demonstra como obter dados que correspondem a uma lista predefinida. 
@@ -35,7 +35,7 @@ Se não tiver a aplicação de Recursos Humanos do tutorial [entidade regex](lui
 Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `list`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
 ## <a name="purpose-of-the-list-entity"></a>Objetivo da entidade de lista
-Esta aplicação prevê expressões sobre como mover um colaborador de um edifício para outro. Esta aplicação utiliza uma entidade de lista para extrair um colaborador. O colaborador pode ser referenciado pelo nome, número de telefone, e-mail ou número de segurança social federal dos E.U.A. 
+Esta aplicação prevê expressões sobre como mover um colaborador de um edifício para outro. Esta aplicação utiliza uma entidade de lista para extrair um colaborador. O colaborador pode ser referenciado pelo nome, número de telefone, e-mail ou número de segurança social federal dos E.U.A.. 
 
 Uma entidade de lista pode conter muitos itens com sinónimos para cada item. Para uma pequena a média empresa, a entidade de lista é utilizada para extrair as informações do colaborador. 
 
@@ -134,15 +134,8 @@ Agora que a intenção **MoveEmployee** tem expressões, o LUIS tem de compreend
     |Número de segurança social federal dos E.U.A.|234-56-7891|
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
-O LUIS desconhece as alterações às intenções e entidades (o modelo), até ser preparado. 
 
-1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar).
-
-    ![Preparar a aplicação](./media/luis-quickstart-intent-and-list-entity/train-button.png)
-
-2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
-
-    ![Preparação concluída com êxito](./media/luis-quickstart-intent-and-list-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
 
@@ -278,7 +271,8 @@ O chatbot tem agora informações suficientes para determinar a ação principal
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados da entidade para executar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências (***…***) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
