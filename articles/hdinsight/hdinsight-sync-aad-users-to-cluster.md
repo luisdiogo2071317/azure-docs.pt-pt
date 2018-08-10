@@ -2,19 +2,19 @@
 title: Sincronizar utilizadores do Azure Active Directory para um cluster - Azure HDInsight
 description: Sincronize utilizadores autenticados do Azure Active Directory para um cluster.
 services: hdinsight
-author: ashishthaps
-editor: jasonwhowell
 ms.service: hdinsight
+author: ashishthaps
+ms.author: ashishth
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.author: ashishth
-ms.openlocfilehash: 08ae8bb1f1ac9b718996d1d4715f28d025aeebcb
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/19/2018
+ms.openlocfilehash: 05ac13fe849f90e3f0dbc60d5c232f469e1f290d
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591613"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714847"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory para um cluster do HDInsight
 
@@ -75,10 +75,10 @@ O método seguinte utiliza o POST com a API de REST do Ambari. Para obter mais i
     }
     ```
 
-4. Para ver o estado de sincronização, execute uma nova `curl` comando com o `href` valor devolvido do comando anterior:
+4. Para ver o estado de sincronização, execute uma nova `curl` comando:
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
     
     A resposta deve ter este aspeto:

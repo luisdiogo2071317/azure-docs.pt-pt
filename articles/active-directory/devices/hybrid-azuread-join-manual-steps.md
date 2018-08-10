@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618528"
+ms.locfileid: "39630624"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar híbrida do Azure Active Directory associados a um dispositivos manualmente 
 
@@ -35,40 +35,18 @@ Se tiver um ambiente do Active Directory no local e pretender associar os dispos
 > Se utilizar o Azure AD Connect é uma opção para si, veja [selecione o seu cenário](hybrid-azuread-join-plan.md#select-your-scenario). Ao utilizar o Azure AD Connect, pode simplificar significativamente a configuração de associação do Azure AD híbrido.
 
 
-## <a name="before-you-begin"></a>Antes de começar
-
-Antes de começar a configurar dispositivos associados ao Azure AD de híbrida no seu ambiente, deve se familiarizar com os cenários suportados e as restrições.  
-
-Se está a depender da [ferramenta de preparação do sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), certifique-se de criar imagens de uma instalação do Windows que não foi ainda registado com o Azure AD.
-
-Todos os dispositivos associados a um domínio em execução de atualização de aniversário do Windows 10 e Windows Server 2016 registem automaticamente com o Azure AD no reinício do dispositivo ou utilizador inicie sessão depois que os passos de configuração mencionados a seguir forem concluídos. **Se este comportamento de registro automática não é preferencial ou se pretender uma distribuição controlada**, siga as instruções na secção "Passo 4: controle implementação e distribua" abaixo para seletivamente ativar ou desativar a implementação automática antes de seguindo os passos de configuração.  
-
-Para melhorar a legibilidade das descrições, este artigo utiliza o termo seguinte: 
-
-- **Dispositivos atuais do Windows** -esse termo refere-se a dispositivos associados a um domínio com Windows 10 ou Windows Server 2016.
-- **Dispositivos de nível inferior do Windows** -esse termo refere-se a todos **suportado** dispositivos Windows associados a um domínio, que estão em execução com o Windows 10 ANI Windows Server 2016.  
-
-### <a name="windows-current-devices"></a>Dispositivos atuais do Windows
-
-- Para dispositivos com o sistema de operativo ambiente de trabalho do Windows, a versão suportada é a atualização de aniversário do Windows 10 (versão 1607) ou posterior. 
-- O registo de dispositivos atuais do Windows **é** suportado nos ambientes de não federadas, tais como configurações de sincronização de hash de palavra-passe.  
-
-
-### <a name="windows-down-level-devices"></a>Dispositivos de nível inferior do Windows
-
-- São suportados os seguintes dispositivos de nível inferior do Windows:
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- O registo de dispositivos de nível inferior do Windows **é** suportado nos ambientes de não federadas por meio de sessão único totalmente integrado [Azure Active Directory totalmente integrada Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- O registo de dispositivos de nível inferior do Windows **není** suportada ao utilizar a autenticação pass-through do Azure AD sem o início de sessão único totalmente integrado.
-- O registo de dispositivos de nível inferior do Windows **není** suportada para dispositivos através de perfis de roaming. Se está a depender de perfis ou as definições de roaming, utilizam o Windows 10.
-
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Este tutorial parte do princípio de que está familiarizado com:
+    
+-  [Introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md)
+    
+-  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
+
+-  [Como controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
+
 
 Antes de iniciar a ativação híbridos associados ao Azure AD dispositivos na sua organização, terá de certificar-se de que:
 
@@ -117,7 +95,6 @@ Utilize a tabela seguinte para obter uma descrição geral dos passos necessári
 | Configurar o ponto de ligação de serviço | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
 | Instalação de emissão de afirmações           |                                        | ![Marcar][1]                    | ![Marcar][1]        |
 | Permitir que os dispositivos não Windows 10      |                                        |                                | ![Marcar][1]        |
-| Controlo de implementação     | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
 | Verifique se os dispositivos associados          | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
 
 
@@ -562,59 +539,6 @@ Para evitar certificado pede-lhe quando os utilizadores nos dispositivos Registr
 
 `https://device.login.microsoftonline.com`
 
-## <a name="control-deployment-and-rollout"></a>Controlo de implementação
-
-Quando tiver concluído os passos necessários, dispositivos associados a um domínio estiver prontos para automaticamente associados ao Azure AD:
-
-- Dispositivos tudo associado a um domínio que executam o Windows 10 Anniversary Update e Windows Server 2016 reiniciar automática e registre-se com o Azure AD no dispositivo ou utilizador inicie sessão. 
-
-- Registem novos dispositivos com o Azure AD quando o dispositivo é reiniciado depois de concluída a operação de associação de domínio.
-
-- Os dispositivos que foram anteriormente do Azure AD registados (por exemplo, para o Intune) a transição para "*associados a um domínio, registado no AAD*"; no entanto, o que demora algum tempo para que este processo ser concluído em todos os dispositivos devido ao fluxo normal de domínio e atividade do utilizador.
-
-### <a name="remarks"></a>Observações
-
-- Pode usar um objeto de diretiva de grupo ou definição para controlar a distribuição do registo automático de computadores associados a um domínio Windows 10 e Windows Server 2016 de cliente do System Center Configuration Manager. **Se não pretender que estes dispositivos para registar automaticamente com o Azure AD ou se pretender controlar o registo**, em seguida, deve implementar política de grupo, desativar o registo automático para todos estes dispositivos pela primeira vez ou se estiver a utilizar a configuração Manager tem de configurar o cliente em serviços Cloud > automaticamente registar novos dispositivos associados a um domínio do Windows 10 com o Azure Active Directory como "Não", antes de iniciar com qualquer um dos passos de configuração. 
-
-> [!Important]
-> Uma vez que existe um atraso de potencial no aplicativo do objeto de política de grupo em recentemente os computadores associados a um domínio durante o qual pode ocorrer a tentativa de registo automático de dispositivos Windows 10, tem de criar uma nova imagem do sysprep de um dispositivo Windows 10 que nunca foi anteriormente registrado automaticamente e que já tenha o GPO para desativar o registo automático de dispositivos Windows 10 e utilizar essa imagem do sysprep para aprovisionar os computadores novos que se irão associar o domínio da sua organização.
-
-Depois de terminar a configurar, e quando estiver pronto para testar, tem de implementar política de grupo, ativar o registo automático apenas para os dispositivos de teste e, em seguida, para todos os outros dispositivos à medida que escolha.
-
-- Para a implementação de computadores de nível inferior do Windows, pode implementar um [pacote Windows Installer](#windows-installer-packages-for-non-windows-10-computers) para computadores que selecionou.
-
-- Se enviar o objeto de diretiva de grupo para dispositivos associados a domínios do Windows 8.1, é tentada uma junção; No entanto, é recomendado que utilize o [pacote Windows Installer](#windows-installer-packages-for-non-windows-10-computers) para associar todos os seus dispositivos de nível inferior de Windows. 
-
-### <a name="create-a-group-policy-object"></a>Criar um objeto de diretiva de grupo 
-
-Para controlar a distribuição de computadores atuais do Windows, deve implementar o **registar computadores associados a domínios como dispositivos** objeto de diretiva de grupo para os dispositivos que pretende registar. Por exemplo, pode implementar a política a uma unidade organizacional ou a um grupo de segurança.
-
-**Para definir a política:**
-
-1. Open **Gestor de servidores**e, em seguida, aceda a `Tools > Group Policy Management`.
-2. Vá para o nó de domínio que corresponde ao domínio em que pretende ativar o registo automático de computadores atuais do Windows.
-3. Com o botão direito **objetos de política de grupo**e, em seguida, selecione **New**.
-4. Escreva um nome para o objeto de diretiva de grupo. Por exemplo, * associação ao Azure AD híbrido. 
-5. Clique em **OK**.
-6. Com o botão direito do novo objeto de diretiva de grupo e, em seguida, selecione **editar**.
-7. Aceda a **configuração do computador** > **políticas** > **modelos administrativos** > **Windows Componentes** > **registo de dispositivos**. 
-8. Com o botão direito **registar computadores associados a domínios como dispositivos**e, em seguida, selecione **editar**.
-   
-   > [!NOTE]
-   > Este modelo de política de grupo foi alterado de versões anteriores do console de gerenciamento de diretiva de grupo. Se estiver a utilizar uma versão anterior da consola, aceda a `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Selecione **Enabled**e, em seguida, clique em **aplicar**. Tem de selecionar **desativado** se pretender que a política para bloquear os dispositivos controlados por esta política de grupo impedir registo automaticamente com o Azure AD.
-
-8. Clique em **OK**.
-9. Ligar o objeto de diretiva de grupo para um local de sua preferência. Por exemplo, pode ligá-la para uma unidade organizacional específica. Também pode ligá-lo a um grupo de segurança específicos de computadores que se Junte-se automaticamente com o Azure AD. Para definir esta política para todos os computadores associados a domínios com o Windows 10 e Windows Server 2016 na sua organização, ligar o objeto de diretiva de grupo ao domínio.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Pacotes de instalador do Windows para computadores não - Windows 10
-
-Para associar computadores associados a domínios de nível inferior de Windows num ambiente federado, pode transferir e instalar estes pacotes de instalador do Windows (. msi) a partir do Centro de transferências no [associação de área de trabalho da Microsoft para computadores Windows de 10](https://www.microsoft.com/en-us/download/details.aspx?id=53554) página.
-
-Pode implementar o pacote através de um sistema de distribuição de software, como o System Center Configuration Manager. O pacote suporta as opções de instalação silenciosa padrão com o *silencioso* parâmetro. System Center Configuration Manager Current Branch oferece benefícios adicionais de versões anteriores, como a capacidade de controlar registos concluídos. Para obter mais informações, consulte [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-O instalador cria uma tarefa agendada no sistema que é executado no contexto do usuário. A tarefa é acionada quando o utilizador inicia sessão Windows. A tarefa silenciosamente associa o dispositivo com o Azure AD com as credenciais de utilizador após a autenticação com a autenticação integrada do Windows. Para ver a tarefa agendada, no dispositivo, aceda à **Microsoft** > **Workplace Join**e, em seguida, vá para a biblioteca do agendador de tarefas.
 
 ## <a name="verify-joined-devices"></a>Verifique se os dispositivos associados
 

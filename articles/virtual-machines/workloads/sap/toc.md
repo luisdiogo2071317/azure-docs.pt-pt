@@ -63,6 +63,7 @@
 ##### [SAP HANA na descrição geral da Disponibilidade do Azure numa região do Azure](sap-hana-availability-one-region.md)
 ##### [SAP HANA na descrição geral da Disponibilidade do Azure pelas regiões do Azure](sap-hana-availability-across-regions.md)
 ## [Azure Site Recovery para Recuperação após Desastre do SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
+## [Conector de SAP LaMa para o Azure](lama-installation.md)
 # Integração de Identidade do AAD SAP e Início de Sessão único
 ## [Integração com o SAP Cloud](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Integração do AAD com a Autenticação de Identidade da Plataforma Cloud do SAP](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
