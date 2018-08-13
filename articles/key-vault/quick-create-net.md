@@ -1,6 +1,6 @@
 ---
-title: Início Rápido do Azure - Configurar uma aplicação Web do Azure para ler um segredo do Cofre de chaves | Microsoft Docs
-description: Início Rápido que mostra como configurar uma aplicação de núcleo ASP.Net para ler um segredo do Cofre de chaves
+title: Início Rápido do Azure - Configurar uma aplicação Web do Azure para definir e obter um segredo do Key Vault | Microsoft Docs
+description: Início Rápido que mostra como configurar uma aplicação ASP.Net Core para definir e obter um segredo do Key Vault
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247830"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480207"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>Início Rápido: Definir e ler um segredo do Cofre de Chaves numa Aplicação Web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web .NET
 
 Neste início rápido, irá conhecer os passos necessários para que uma aplicação Web do Azure leia as informações do Cofre de chaves com identidades de serviço geridas. Saiba como:
 
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 Selecione um nome do Grupo de Recursos e preencha o marcador de posição.
 O exemplo seguinte cria um grupo de recursos com o nome *<YourResourceGroupName>* na localização *eastus*.

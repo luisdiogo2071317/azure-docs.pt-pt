@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f0bfc494894a31a1ee61a4f23d702df38b13c4e7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626503"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003177"
 ---
 # <a name="what-is-baseline-protection-preview"></a>O que é a proteção de linha de base (pré-visualização)?  
 
@@ -51,7 +51,7 @@ Os utilizadores com acesso a contas com privilégios têm acesso irrestrito ao s
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Esta política de linha de base fornece-lhe a opção para excluir os utilizadores e grupos. Pode querer excluir uma *[conta de administrador de acesso de emergência](../users-groups-roles/directory-emergency-access.md)* para garantir que não é bloqueado ao inquilino.
+Esta política de linha de base fornece-lhe a opção para excluir os utilizadores e grupos. Pode querer excluir uma * [conta de administrador de acesso de emergência](../users-groups-roles/directory-emergency-access.md) * para garantir que não é bloqueado ao inquilino.
 
 
 ## <a name="enable-a-baseline-policy"></a>Ativar uma política de linha de base 
@@ -95,6 +95,9 @@ Aplicam políticas de linha de base para fluxos de autenticação legada como PO
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
+Para obter mais informações, consulte:
 
-Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja a [melhores práticas para acesso condicional no Azure Active Directory](best-practices.md). 
+- [Cinco etapas para proteger a sua infraestrutura de identidade](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
+
+- [O que é o acesso condicional no Azure Active Directory?](overview.md) 
+

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: afab1b868f3fc4cdb9d88dea301df9750f55d355
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3b69556c45709629e73aced374db276844e41120
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084458"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618381"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, vai querer enviar detalhes da operação de cópia com êxito (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade de cópia falhar, vai querer enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
@@ -93,8 +93,9 @@ Com o Visual Studio 2015/2017, crie uma aplicação de consola de C# .NET.
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
-2. Add these static variables to the **Program class**. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. Adicione estas variáveis estáticas à **Classe do programa**. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
     ```csharp
         // Set variables

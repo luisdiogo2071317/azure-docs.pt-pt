@@ -2,24 +2,19 @@
 title: Programar para os Ficheiros do Azure com .NET | Microsoft Docs
 description: Saiba como programar aplicações e serviços .NET que utilizam os Ficheiros do Azure para armazenar dados de ficheiros.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 95f890ccbe03fc734b54ac8c5edee2ec7b56d9c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: d9ec9929de6b21aeddf35faf72cf1b2f1bb4c88a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737634"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39561955"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
@@ -220,7 +215,7 @@ if (share.Exists())
 
     // Create a new CloudFile object from the SAS, and write some text to the file.
     CloudFile fileSas = new CloudFile(fileSasUri);
-    fileSas.UploadText("This write operation is authenticated via SAS.");
+    fileSas.UploadText("This write operation is authorized via SAS.");
     Console.WriteLine(fileSas.DownloadText());
 }
 ```
@@ -233,7 +228,7 @@ A partir da versão 5. x da Biblioteca de Clientes do Storage do Azure, pode cop
 Pode também utilizar o AzCopy para copiar um ficheiro para outro, copiar um blob para um ficheiro ou vice-versa. Veja [Transferir dados com o Utilitário de Linha de Comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
-> Se estiver a copiar um blob para um ficheiro ou um ficheiro para um blob, tem de utilizar uma assinatura de acesso partilhado (SAS) para autenticar o objeto de origem, mesmo se estiver a copiar dentro da mesma conta de armazenamento.
+> Se estiver a copiar um blob para um ficheiro ou um ficheiro para um blob, tem de utilizar uma assinatura de acesso partilhado (SAS) para autorizar o acesso ao objeto de origem, mesmo se estiver a copiar dentro da mesma conta de armazenamento.
 > 
 > 
 
@@ -281,7 +276,7 @@ if (share.Exists())
 }
 ```
 
-**Copiar um ficheiro para um blob**: o exemplo seguinte cria um ficheiro e copia-o para um blob na mesma conta de armazenamento. O exemplo cria um SAS para o ficheiro de origem, que o serviço utiliza para autenticar o acesso ao ficheiro de origem durante a operação de cópia.
+**Copiar um ficheiro para um blob**: o exemplo seguinte cria um ficheiro e copia-o para um blob na mesma conta de armazenamento. O exemplo cria um SAS para o ficheiro de origem, que o serviço utiliza para autorizar o acesso ao ficheiro de origem durante a operação de cópia.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -307,7 +302,7 @@ CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
 // Create a SAS for the file that's valid for 24 hours.
 // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
-// to authenticate access to the source object, even if you are copying within the same
+// to authorize access to the source object, even if you are copying within the same
 // storage account.
 string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
 {
@@ -327,7 +322,7 @@ Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
-Pode copiar um blob para um ficheiro da mesma forma. Se o objeto de origem for um blob, crie um SAS para autenticar o acesso a esse blob durante a operação de cópia.
+Pode copiar um blob para um ficheiro da mesma forma. Se o objeto de origem for um blob, crie um SAS para autorizar o acesso a esse blob durante a operação de cópia.
 
 ## <a name="share-snapshots-preview"></a>Instantâneos de partilha (pré-visualização)
 A partir da versão 8.5 da Biblioteca de Clientes do Armazenamento do Azure, pode criar um instantâneo de partilha (pré-visualização). Também pode listar, procurar ou eliminar instantâneos de partilha. Os instantâneos de partilha são só de leitura, pelo que não são permitidas operações de escrita nos mesmos.

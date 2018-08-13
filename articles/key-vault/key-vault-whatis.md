@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
-ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 08331a399044eba17060d15f24af1863df38caf5
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283001"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480258"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -33,6 +33,8 @@ O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segura
 Abaixo encontram-se alguns termos-chave:
 - **Inquilino** - um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É utilizado mais frequentemente de forma exata para fazer referência ao conjunto de serviços do Azure e do Office 365 para uma organização
 - **Proprietário do Key Vault** - pode criar um Key Vault e obter acesso e controlo total sobre o mesmo. O proprietário do Key Vault também pode configurar a auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança, etc.
+- **Recurso** - um item gerível que está disponível através do Azure. Alguns recursos comuns são uma máquina virtual, conta de armazenamento, aplicação web, base de dados e rede virtual, mas existem muitos mais.
+- **Grupo de recursos** - um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Veja Grupos de recursos.
 - **Consumidor do Key Vault** - pode efetuar ações nos recursos dentro do Key Vault quando o proprietário lhe concede acesso, consoante as permissões concedidas.
 - O **[Azure Active Directory](../active-directory/active-directory-whatis.md)** é o serviço do Azure AD para um determinado inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino. 
 - **ID do Inquilino do Azure** - forma exclusiva para identificar um Azure Active Directory numa subscrição do Azure. 

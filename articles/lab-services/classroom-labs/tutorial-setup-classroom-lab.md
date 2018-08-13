@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: fe41728b6f08ba767dbcb40d0595b9f7cdc79615
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216028"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420204"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -47,6 +47,9 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
     7. Selecione **Guardar**.
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+1. Quando o laboratório estiver criado, selecione **Ir para o meu laboratório**. 
+
+    ![Ir para o meu laboratório](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
 1. Verá o **dashboard** para o seu laboratório. 
     
     ![Dashboard de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)

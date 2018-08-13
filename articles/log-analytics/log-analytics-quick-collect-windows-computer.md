@@ -1,5 +1,5 @@
 ---
-title: Recolher dados de computadores Windows no local com o Azure Log Analytics | Microsoft Docs
+title: Configurar o Agente do Azure Log Analytics para Computador Híbrido Windows | Microsoft Docs
 description: Saiba como implementar o agente do Log Analytics para Windows em execução em computadores fora do Azure e ativar a recolha de dados com o Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: b3c3e020a685147411fc784c41d9eca8b7dd8db0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91a656b055dbe882bdd5e5c208cc5d8955c74041
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130998"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480444"
 ---
-# <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>Recolher dados de computadores Windows alojados no seu ambiente
-O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente de computadores Windows físicos ou virtuais e de outros recursos no seu ambiente para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples.  Para as VMs do Windows do Azure, veja o tópico seguinte [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) (Recolher dados sobre as Máquinas Virtuais do Azure).  
+# <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Windows num ambiente híbrido
+O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente do seu computador Windows físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples.  Para as VMs do Windows do Azure, veja o tópico seguinte [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) (Recolher dados sobre as Máquinas Virtuais do Azure).  
 
 Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](log-analytics-concept-hybrid.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
  

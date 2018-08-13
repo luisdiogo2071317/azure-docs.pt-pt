@@ -7,15 +7,15 @@ manager: carmonm
 keywords: cópia de segurança e restauro; serviços de recuperação; soluções de cópia de segurança
 ms.service: backup
 ms.topic: overview
-ms.date: 3/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607104"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480978"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Descrição geral das funcionalidades do Azure Backup
 O Azure Backup é o serviço baseado no Azure que pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Veja a [tabela de componentes do Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais à frente neste artigo) para obter informações sobre os componentes a utilizar para proteger dados, aplicações ou cargas de trabalho específicos.
@@ -157,8 +157,8 @@ A **Cópia de Segurança Incremental** proporciona uma elevada eficiência em te
 ### <a name="security"></a>Segurança
 | Funcionalidade | Agente do Backup do Azure | System Center DPM | Servidor do Backup do Azure | Cópia de segurança da VM do IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Segurança da rede<br/> (para o Azure) |![Sim][green] |![Sim][green] |![Sim][green] |![Parcialmente][yellow] |
-| Segurança de dados<br/> (no Azure) |![Sim][green] |![Sim][green] |![Sim][green] |![Parcialmente][yellow] |
+| Segurança da rede<br/> (para o Azure) |![Sim][green] |![Sim][green] |![Sim][green] |![Sim][green] |
+| Segurança de dados<br/> (no Azure) |![Sim][green] |![Sim][green] |![Sim][green] |![Sim][green] |
 
 ![chave da tabela](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -171,7 +171,7 @@ Todo o tráfego de cópia de segurança dos seus servidores para o cofre dos Ser
 >
 
 #### <a name="data-security"></a>Segurança de dados
-A cópia de segurança das VMs do Azure necessita da configuração da encriptação *na* máquina virtual. Utilize o BitLocker nas máquinas virtuais do Windows e o **dm crypt** nas máquinas virtuais do Linux. O Backup do Azure não encripta automaticamente dados de cópia de segurança fornecidos através deste caminho.
+A cópia de segurança das VMs do Azure necessita da configuração da encriptação *na* máquina virtual. O Azure Backup suporta o Azure Disk Encryption, que utiliza o BitLocker nas máquinas virtuais do Windows e **dm-crypt** nas máquinas virtuais do Linux. No back-end, o Azure Backup utiliza a [encriptação do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md), que protege os dados inativos.
 
 ### <a name="network"></a>Rede
 | Funcionalidade | Agente do Backup do Azure | System Center DPM | Servidor do Backup do Azure | Cópia de segurança da VM do IaaS do Azure |

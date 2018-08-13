@@ -1,6 +1,6 @@
 ---
-title: Início Rápido do Azure – Criar uma CLI do Key Vault | Microsoft Docs
-description: Início rápido que mostra como criar um Azure Key Vault com a CLI
+title: Início Rápido do Azure - Definir e obter um segredo do Key Vault com a CLI do Azure | Microsoft Docs
+description: Início Rápido que mostra como definir e obter um segredo do Azure Key Vault com a CLI do Azure
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dc69d472e38bcc39de35204c26068a98e0549601
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067661"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480923"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Início Rápido: Criar um Azure Key Vault com a CLI
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com a CLI do Azure
 
 O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para obter mais informações sobre o Key Vault, pode ver a [Descrição Geral](key-vault-overview.md). A CLI do Azure é utilizada para criar e gerir recursos do Azure através de comandos ou scripts. Neste início rápido, vai criar um cofre de chaves. Depois de concluir este passo, irá armazenar um segredo.
 

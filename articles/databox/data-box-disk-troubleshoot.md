@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/30/2018
+ms.date: 08/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e1a5cb33bb473daf5b9e45e7c64bcb297eca7733
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362665"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595550"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Resolver problemas no Azure Data Box Disk (Pré-visualização)
 
@@ -81,7 +81,7 @@ Os registos de atividades são mantidos durante 90 dias. Pode consultar qualquer
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | Nenhuma<br><br>A ferramenta de desbloqueio do Data Box Disk falha.                                                                            | O BitLocker não está instalado. Certifique-se de que o computador anfitrião que está a executar a ferramenta de desbloqueio do Data Box Disk tem o BitLocker instalado.                                                                            |
 | A versão atual do .NET Framework não é suportada. As versões suportadas são a 4.5 e posteriores.<br><br>A ferramenta fecha com uma mensagem.  | O .NET 4.5 não está instalado. Instale o .NET 4.5 ou posterior no computador anfitrião que executa a ferramenta de desbloqueio do Data Box Disk.                                                                            |
-| Não foi possível desbloquear ou verificar os volumes. Contacte o Suporte da Microsoft.  <br><br>A ferramenta não consegue desbloquear ou verificar qualquer unidade bloqueada. | A ferramenta não conseguiu desbloquear qualquer uma das unidades desbloqueadas com a chave de acesso fornecida. Contacte o Suporte da Microsoft para saber quais os próximos passos.                                                |
+| Não foi possível desbloquear ou verificar os volumes. Contacte o Suporte da Microsoft.  <br><br>A ferramenta não consegue desbloquear ou verificar qualquer unidade bloqueada. | A ferramenta não conseguiu desbloquear nenhuma das unidades desbloqueadas com a chave de acesso fornecida. Contacte o Suporte da Microsoft para saber quais os próximos passos.                                                |
 | Os volumes seguintes são desbloqueados e verificados. <br>Letras de unidade do volume: E:<br>Não foi possível desbloquear nenhum volume com as chaves de acesso seguintes: werwerqomnf, qwerwerqwdfda <br><br>A ferramenta desbloqueia algumas unidades e lista as letras de unidade com êxito ou falhadas.| Êxito parcial. Não foi possível desbloquear algumas das unidades com a chave de acesso fornecida. Contacte o Suporte da Microsoft para saber quais os próximos passos. |
 | Não foi possível encontrar volumes bloqueados. Certifique-se de que o disco que recebeu da Microsoft está corretamente ligado e no estado bloqueado.          | A ferramenta não consegue encontrar unidades bloqueadas. As unidades já estão desbloqueadas ou não foram detetadas. Certifique-se de que as unidades estão ligadas e bloqueadas.                                                           |
 | Erro fatal: parâmetro inválido<br>Nome do parâmetro: invalid_arg<br>UTILIZAÇÃO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Exemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemplo: DataBoxDiskUnlock /SystemCheck<br>Exemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Obtenha esta chave de acesso na encomenda do Azure DataBox Disk. A chave de acesso desbloqueia os discos.<br>/Help:           Esta opção fornece exemplos e ajuda na utilização do cmdlet.<br>/SystemCheck:    Esta opção verifica se o sistema cumpre os requisitos para executar a ferramenta.<br><br>Prima qualquer tecla para sair. | Foi introduzido um parâmetro inválido. Os únicos parâmetros permitidos são /SystemCheck, /PassKey e /Help.                                                                            |

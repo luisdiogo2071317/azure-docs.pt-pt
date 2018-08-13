@@ -1,54 +1,54 @@
 ---
-title: Melhores práticas para formação JSON em consultas de informações de séries de tempo do Azure.
-description: Saiba como melhorar a eficiência de consulta de informações de séries de tempo.
+title: Melhores práticas para formatação JSON em consultas do Azure Time Series Insights.
+description: Saiba como melhorar sua eficiência de consulta do Time Series Insights.
 services: time-series-insights
 author: ashannon7
-manager: timlt
+manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
-ms.author: bryanla
-ms.openlocfilehash: 29919a3ce8c18982c88f7f0e6bbd774c612e9c44
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: anshan
+ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661092"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628917"
 ---
-# <a name="how-to-shape-json-to-maximize-query-performance"></a>Como a forma JSON para maximizar o desempenho de consulta 
+# <a name="how-to-shape-json-to-maximize-query-performance"></a>Como formatar o JSON para maximizar o desempenho de consulta 
 
-Este artigo fornece orientação para formação JSON, para maximizar a eficiência das suas consultas Insights de séries de tempo do Azure (TSI).
+Este artigo fornece orientações para a formatação do JSON, para maximizar a eficiência das consultas do Azure Time Series Insights (TSI).
 
 ## <a name="best-practices"></a>Melhores práticas
 
-É importante refletir sobre a forma como pode enviar eventos para informações de séries de tempo. Nomeadamente, deve sempre:
+É importante pensar sobre como enviar eventos para o Time Series Insights. Ou seja, deve sempre:
 
 1. envie dados através da rede mais eficientemente possível.
-2. Certifique-se de que os dados são armazenados de forma que lhe permite efetuar agregações adequadas para o seu cenário.
-3. Certifique-se de não atingiu limites de propriedade máximo do TSI do
+2. Certifique-se de que os seus dados são armazenados de forma que lhe permite realizar agregações adequadas para o seu cenário.
+3. Certifique-se de não atingiu limites de propriedade máximo do TSI da
    - 600 propriedades (colunas) para ambientes de S1.
    - 800 propriedades (colunas) para ambientes de S2.
 
 As seguintes orientações ajuda a garantir o melhor desempenho de consulta possíveis:
 
-1. Não utilize as propriedades dinâmicas, tais como um ID de tag como nome de propriedade, como os contribuem para atingir o limite máximo de propriedades.
-2. Não envie propriedades desnecessárias. Se uma propriedade de consulta não é necessária, é melhor não enviá-lo e evitar limitações de armazenamento.
-3. Utilize [referência a dados](time-series-insights-add-reference-data-set.md), para evitar o envio de dados estáticos através da rede.
-4. Propriedades de dimensão entre vários eventos, para enviar dados através da rede de forma mais eficiente da partilha.
-5. Não utilize o aninhamento de matriz profunda. TSI suporta até dois níveis de matrizes aninhadas que contêm objetos. TSI flattens matrizes nas mensagens de em vários eventos com pares de valor de propriedade.
-6. Se apenas existirem algumas medidas para a maioria ou todos os eventos, é melhor enviar estas medidas como propriedades separadas dentro do mesmo objeto. Enviá-los separadamente reduz o número de eventos e poderá fazer consultas mais performant como menos eventos têm de ser processada. Quando existem várias medidas, enviando-as como valores numa única propriedade minimiza a possibilidade de atingir o limite máximo de propriedade.
+1. Não utilize propriedades dinâmicas, como um ID de tag como nome de propriedade, como contribui para atingir o limite máximo de propriedades.
+2. Não envie propriedades desnecessárias. Se uma propriedade de consulta não é necessária, é melhor não enviá-lo e evitar a limitações de armazenamento.
+3. Uso [dados de referência](time-series-insights-add-reference-data-set.md), para evitar o envio de dados estáticos na rede.
+4. Partilhar as propriedades de dimensão entre vários eventos, para enviar dados através da rede com mais eficiência.
+5. Não utilize o aninhamento de matriz profunda. O TSI suporta até dois níveis de matrizes aninhadas que contêm objetos. O TSI nivela as matrizes de nas mensagens, em vários eventos com pares de valor de propriedade.
+6. Se apenas existirem algumas medidas para todas as ou a maioria dos eventos, é melhor enviar essas medidas como propriedades separadas dentro do mesmo objeto. Enviar-lhe em separado reduz o número de eventos e pode fazer consultas com um melhor desempenho, já que menos eventos precisam ser processada. Quando há várias medidas, enviar-lhe como valores numa única propriedade minimiza a possibilidade de atingir o limite máximo de propriedade.
 
 ## <a name="examples"></a>Exemplos
 
-Os seguintes dois exemplos demonstram envio de eventos, para realçar as recomendações anteriores. Os seguintes cada exemplo, pode ver como as recomendações foram aplicadas.
+Os seguintes dois exemplos demonstram o envio de eventos, para realçar as recomendações anteriores. Ao seguir cada exemplo, pode ver como as recomendações foram aplicadas.
 
-Os exemplos são baseados num cenário em que vários dispositivos as enviam medidas ou sinais. Foi possível medidas ou sinais fluxo de velocidade, motor petróleo pressão, temperatura e humidade. No primeiro exemplo, existem algumas medidas em todos os dispositivos. No segundo exemplo, existem vários dispositivos e envia cada muitos valores exclusivos.
+Os exemplos são baseados num cenário em que vários dispositivos enviam medições ou sinais. Foi possível medidas ou sinais de taxa de fluxo, pressão do motor de petróleo, temperatura e humidade. No primeiro exemplo, há algumas medidas em todos os dispositivos. No segundo exemplo, existem vários dispositivos e envia cada muitas medições exclusivas.
 
-### <a name="scenario-only-a-few-measurementssignals-exist"></a>Cenário: existem apenas algumas medidas/sinais
+### <a name="scenario-only-a-few-measurementssignals-exist"></a>Cenário: existem apenas algumas medições/sinais
 
-**Recomendação:** enviar cada medida como uma propriedade/coluna distinta.
+**Recomendação:** enviar cada medição como uma propriedade/coluna separada.
 
-No exemplo seguinte, não há uma única mensagem de IoT Hub, em que a matriz externa contém uma secção partilhada de valores de dimensão comuns. A matriz externa utiliza dados de referência para aumentar a eficiência da mensagem. Dados de referência contém os metadados do dispositivo, que não se altera com cada evento, mas fornece propriedades útil para análise de dados. Os valores de dimensão comuns de criação de batches e utilização de dados de referência, guarda em bytes enviados através da transmissão, deste modo, pelo que a mensagem mais eficiente.
+No exemplo a seguir, há uma única mensagem do IoT Hub, em que a matriz externa contém uma secção partilhada comuns de valores de dimensão. A matriz externa utiliza dados de referência para aumentar a eficiência da mensagem. Dados de referência contém os metadados do dispositivo, que não se altera com cada evento, mas fornece propriedades úteis para análise de dados. Os valores de dimensão comuns de criação de batches e empregando dados de referência, poupa no bytes enviados pela rede, tornando a mensagem mais eficiente.
 
 Payload JSON de exemplo:
 
@@ -81,36 +81,36 @@ Payload JSON de exemplo:
 ]
 ```
 
-Tabela de referência de dados (propriedade da chave é deviceId):
+Tabela de dados de referência (propriedade de chave é deviceId):
 
 | deviceId | messageId | deviceLocation |
 | --- | --- | --- |
 | FXXX | LINHA\_DADOS | UE |
 | FYYY | LINHA\_DADOS | EUA |
 
-Tabela de eventos de informações de séries de tempo (após pelo):
+Tabela de eventos de informações de série de tempo (depois de mesclar):
 
-| deviceId | messageId | deviceLocation | carimbo de data/hora | série. Fluxo de velocidade ft3/s | série. Psi de petróleo pressão do motor |
+| deviceId | messageId | deviceLocation | carimbo de data/hora | série. Taxa de fluxo ft3/s | série. Psi de petróleo pressão do motor |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | LINHA\_DADOS | UE | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
 | FXXX | LINHA\_DADOS | UE | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-| FYYY | LINHA\_DADOS | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+| FYYY | LINHA\_DADOS | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 Tenha em atenção o seguinte no exemplo anterior:
 
-- O **deviceId** coluna funciona como o cabeçalho de coluna para vários dispositivos numa frota. A tentar efetuar deviceId valor seu próprio nome de propriedade, seria limitada total de dispositivos para 595 (S1 ambientes) ou 795 (S2 ambientes), com as outras cinco colunas.
+- O **deviceId** coluna serve como o cabeçalho de coluna para os vários dispositivos numa frota. Tentativa de estabelecer o valor de deviceId seu próprio nome de propriedade, seria limitada total de dispositivos para 595 (ambientes de S1) ou 795 (ambientes de S2), com as outras colunas de cinco.
 
-- Propriedades desnecessárias são evitadas de exemplo, informações de marca e o modelo, etc. Uma vez que estes não serão consultados no futuro, eliminar-los permite um melhor rede e a eficiência de armazenamento.
+- Propriedades desnecessárias são evitadas, por exemplo, informações de marca e modelo, etc. Uma vez que eles não ser consultados no futuro, eliminá-las permite melhor rede e a eficiência de armazenamento.
 
-- Dados de referência são utilizados para reduzir o número de bytes transferidos através da rede. Dois atributos, **messageId** e **deviceLocation** , estão associados a utilizar a propriedade de chave, **deviceId**. Estes dados estão associados com os dados de telemetria ao tempo de entrada e, subsequentemente, armazenados na TSI para consultas.
+- Dados de referência são usados para reduzir o número de bytes transferidos pela rede. Dois atributos, **messageId** e **deviceLocation** , são associadas através da propriedade de chave **deviceId**. Estes dados são associados com os dados de telemetria em tempo de entrada e, em seguida, armazenados no TSI para consultas.
 
-- Duas camadas de aninhamento são utilizadas, que é a quantidade máxima de aninhamento suportado pelo TSI. É fundamental para evitar matrizes profundamente aninhadas.
+- São utilizadas duas camadas de aninhamento, que é a quantidade máxima de aninhamento suportado pelo TSI. É fundamental para evitar matrizes profundamente aninhadas.
 
-- As medidas são enviadas como propriedades separadas dentro do mesmo objeto, uma vez que existem algumas medidas. Aqui, **série. Fluxo psi taxa** e **série. Motor de petróleo pressão ft3/s** colunas exclusivo.
+- Medidas são enviadas como propriedades separadas dentro do mesmo objeto, uma vez que existem algumas medidas. Aqui, **série. Fluxo de psi taxa** e **série. O motor de pressão de petróleo ft3/s** são colunas exclusivas.
 
 ### <a name="scenario-several-measures-exist"></a>Cenário: Existem várias medidas
 
-**Recomendação:** enviar medidas como "type", "unidade", "valor" cadeias de identificação.
+**Recomendação:** enviar medidas como "type", "unidade", "value" cadeias de identificação.
 
 Payload JSON de exemplo:
 
@@ -155,7 +155,7 @@ Payload JSON de exemplo:
 ]
 ```
 
-Dados de referência (as propriedades chave são deviceId e series.tagId):
+Dados de referência (propriedades chave são deviceId e series.tagId):
 
 | deviceId | series.tagId | messageId | deviceLocation | tipo | unidade |
 | --- | --- | --- | --- | --- | --- |
@@ -164,7 +164,7 @@ Dados de referência (as propriedades chave são deviceId e series.tagId):
 | FYYY | pumpRate | LINHA\_DADOS | EUA | Taxa de fluxo | ft3/s |
 | FYYY | oilPressure | LINHA\_DADOS | EUA | Motor petróleo pressão | psi |
 
-Tabela de eventos de informações de séries de tempo (após pelo):
+Tabela de eventos de informações de série de tempo (depois de mesclar):
 
 | deviceId | series.tagId | messageId | deviceLocation | tipo | unidade | carimbo de data/hora | Series.Value |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -173,24 +173,24 @@ Tabela de eventos de informações de séries de tempo (após pelo):
 | FXXX | pumpRate | LINHA\_DADOS | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 |
 | FXXX | oilPressure | LINHA\_DADOS | UE | Motor petróleo pressão | PSI | 2018-01-17T01:17:00Z | 49.2 |
 | FYYY | pumpRate | LINHA\_DADOS | EUA | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-| FYYY | oilPressure | LINHA\_DADOS | EUA | Motor petróleo pressão | psi | 2018-01-17T01:18:00Z | 22.2 |
+| FYYY | oilPressure | LINHA\_DADOS | EUA | Motor petróleo pressão | psi | 2018-01-17T01:18:00Z | 22,2 |
 
-Tenha em atenção o seguinte no exemplo anterior e semelhante ao exemplo primeiro:
+Tenha em atenção o seguinte no exemplo anterior e semelhantes para o primeiro exemplo:
 
-- colunas **deviceId** e **series.tagId** servir como os cabeçalhos de coluna para os vários dispositivos e as etiquetas numa frota. Utilizar cada como o seu próprio atributo seria limitada a consulta 594 (S1 ambientes) ou 794 (S2 ambientes) total de dispositivos com as outras seis colunas.
+- colunas **deviceId** e **series.tagId** servir os cabeçalhos de coluna para os vários dispositivos e as etiquetas numa frota. Uso de cada um como seu próprio atributo seria limitada a consulta para 594 (ambientes de S1) ou 794 (ambientes de S2) totais de dispositivos com as outras seis colunas.
 
-- propriedades desnecessárias foram evitadas pela razão citou no primeiro exemplo.
+- propriedades desnecessárias foram evitadas, para o motivo pelo qual citado no primeiro exemplo.
 
-- dados de referência são utilizados para reduzir o número de bytes transferidos através da rede, introduzindo **deviceId**, para um par único de **messageId** e **deviceLocation**. É utilizada uma chave composta, **series.tagId**, para o par exclusivo de **tipo** e **unidade**. Permite que a chave composta o **deviceId** e **series.tagId** par a ser utilizado para fazer referência aos quatro valores: **messageId, deviceLocation, tipo,** e **unidade** . Estes dados estão associados com os dados de telemetria ao tempo de entrada e, subsequentemente, armazenados na TSI para consultas.
+- dados de referência são usados para reduzir o número de bytes transferidos pela rede, introduzindo **deviceId**, para um par exclusivo de **messageId** e **deviceLocation**. É utilizada uma chave composta, **series.tagId**, para o par exclusivo de **tipo** e **unidade**. A chave composta permite que o **deviceId** e **series.tagId** par a ser utilizado para fazer referência a quatro valores: **messageId, deviceLocation, escrever,** e **unidade **. Estes dados são associados com os dados de telemetria em tempo de entrada e, em seguida, armazenados no TSI para consultas.
 
-- duas camadas de aninhamento são utilizadas para a razão citou no primeiro exemplo.
+- duas camadas de aninhamento, são utilizadas para o motivo pelo qual citado no primeiro exemplo.
 
 ### <a name="for-both-scenarios"></a>Para ambos os cenários
 
 Se tiver uma propriedade com um grande número de valores possíveis, é melhor enviar como valores distintos dentro de uma única coluna, em vez de criar uma nova coluna para cada valor. Dos dois exemplos anteriores:
-  - No primeiro exemplo, existem algumas propriedades que têm vários valores, pelo que é adequado tornar cada uma propriedade de diferente. 
-  - No entanto, o segundo exemplo, pode ver se as medidas não estão especificadas como propriedades individuais, mas em vez disso, uma matriz de valores/medidas sob uma propriedade comum da série. É enviada uma nova chave, **tagId** , que cria uma nova coluna, **series.tagId** na tabela simplificada. Novas propriedades são criadas, **tipo** e **unidade**, utilizando os dados de referência, assim a impedir que o limite de propriedade que está a ser atingido.
+  - No primeiro exemplo, existem algumas propriedades que têm vários valores, para que seja apropriado para cada uma propriedade separada. 
+  - No entanto, no segundo exemplo, pode ver que as medidas não são especificadas como propriedades individuais, mas em vez disso, uma matriz de valores/medidas numa propriedade de série comum. É enviada uma nova chave, **tagId** , que cria uma nova coluna **series.tagId** na tabela simplificada. Novas propriedades são criadas, **tipo** e **unidade**, utilizando dados de referência, impedindo que o limite de propriedade de sendo visitado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para colocar estas diretrizes em prática, consulte [sintaxe de consulta de informações de séries de tempo de Azure](/rest/api/time-series-insights/time-series-insights-reference-query-syntax) para saber mais sobre a sintaxe de consulta para os dados TSI aceder à REST API.
+Para colocar estas diretrizes em prática, consulte [sintaxe de consulta do Azure Time Series Insights](/rest/api/time-series-insights/time-series-insights-reference-query-syntax) para saber mais sobre a sintaxe de consulta para a REST API de acesso os dados do TSI.

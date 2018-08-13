@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 729bd9f83c288cc5a326ddef8fff553c6d7700fb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ed34dcfb2aa488f4e7e34294b46de68624811afd
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711618"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39609043"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar uma aplicação Web para autenticar com as contas utilizando o Azure Active Directory B2C
 
@@ -37,13 +37,13 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="register-web-app"></a>Registar uma aplicação Web
 
-As aplicações têm de ser [registadas](../active-directory/develop/active-directory-dev-glossary.md#application-registration) no inquilino antes de poderem receber [tokens de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) do Azure Active Directory. O registo de aplicações cria um [ID de aplicação](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) para a aplicação no inquilino. 
+As aplicações têm de ser [registadas](../active-directory/develop/developer-glossary.md#application-registration) no inquilino antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registo de aplicações cria um [ID de aplicação](../active-directory/develop/developer-glossary.md#application-id-client-id) para a aplicação no inquilino. 
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Selecione **Azure AD B2C** na lista de serviços no portal do Azure. 
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Já deve estar a utilizar o inquilino que criou no tutorial anterior. 
 
 2. Nas definições do B2C, clique em **Aplicações** e, em seguida, clique em **Adicionar**. 
 
@@ -65,11 +65,11 @@ As aplicações registadas são apresentadas na lista de aplicações para o inq
 
 ![Propriedades da aplicação Web](./media/active-directory-b2c-tutorials-web-app/b2c-web-app-properties.png)
 
-Anote o **ID de Cliente da Aplicação**. O ID identifica exclusivamente a aplicação e é necessário quando configurar a aplicação mais tarde no tutorial.
+Aponte o **ID da Aplicação**. O ID identifica exclusivamente a aplicação e é necessário quando configurar a aplicação mais tarde no tutorial.
 
 ### <a name="create-a-client-password"></a>Criar uma palavra-passe de cliente
 
-O Azure AD B2C utiliza a autorização de OAuth2 para [aplicações cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application). As aplicações Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e requerem um ID de cliente ou um ID de aplicação e um segredo de cliente, palavra-passe de cliente ou chave de aplicação.
+O Azure AD B2C utiliza a autorização de OAuth2 para [aplicações cliente](../active-directory/develop/developer-glossary.md#client-application). As aplicações Web são [clientes confidenciais](../active-directory/develop/developer-glossary.md#web-client) e requerem um ID de cliente ou um ID de aplicação e um segredo de cliente, palavra-passe de cliente ou chave de aplicação.
 
 1. Selecione a página Chaves para a aplicação Web registada e clique em **Gerar chave**.
 
@@ -98,7 +98,7 @@ Para inscrever utilizadores para acederem e iniciarem sessão na aplicação Web
     | **Nome** | SiUpIn | Introduza um **Nome** para a política. O nome da política tem o prefixo **b2c_1_**. Utilize o nome completo da política **b2c_1_SiUpIn** no código de exemplo. | 
     | **Fornecedor de identidade** | Inscrever-se no e-mail | O fornecedor de identidade utilizado para identificar exclusivamente o utilizador. |
     | **Atributos de inscrição** | Nome a Apresentar e Código Postal | Selecione os atributos a recolher do utilizador durante a inscrição. |
-    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, O utilizador é novo, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, O utilizador é novo, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/developer-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Clique em **Criar** para criar a política. 
 
@@ -115,7 +115,7 @@ Para permitir aos utilizadores repor as respetivas informações de perfil por s
     | **Nome** | SiPe | Introduza um **Nome** para a política. O nome da política tem o prefixo **b2c_1_**. Utilize o nome completo da política **b2c_1_SiPe** no código de exemplo. | 
     | **Fornecedor de identidade** | Inscrição da conta local | O fornecedor de identidade utilizado para identificar exclusivamente o utilizador. |
     | **Atributos do perfil** | Nome a Apresentar e Código Postal | Selecione os atributos que os utilizadores podem modificar durante a edição de perfil. |
-    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma edição de perfil com êxito. |
+    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/developer-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma edição de perfil com êxito. |
 
 2. Clique em **Criar** para criar a política. 
 
@@ -131,7 +131,7 @@ Para ativar a reposição de palavras-passe na aplicação, tem de criar uma **p
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | SSPR | Introduza um **Nome** para a política. O nome da política tem o prefixo **b2c_1_**. Utilize o nome completo da política **b2c_1_SSPR** no código de exemplo. | 
     | **Fornecedor de identidade** | Repor a palavra-passe com o endereço de e-mail | Trata-se do fornecedor de identidade utilizado para identificar exclusivamente o utilizador. |
-    | **Afirmações da aplicação** | ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma reposição de palavra-passe com êxito. |
+    | **Afirmações da aplicação** | ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/developer-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma reposição de palavra-passe com êxito. |
 
 2. Clique em **Criar** para criar a política. 
 
@@ -139,7 +139,7 @@ Para ativar a reposição de palavras-passe na aplicação, tem de criar uma **p
 
 Agora que tem uma aplicação Web registada e as políticas criadas, tem de configurar a aplicação para utilizar o inquilino do Azure AD B2C. Neste tutorial, irá configurar uma aplicação Web de exemplo que pode transferir a parir do GitHub. 
 
-[Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
+[Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub. Certifique-se de que extrai o ficheiro de exemplo numa pasta em que o comprimento de carateres total do caminho seja inferior a 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -153,26 +153,13 @@ Existem dois projetos na solução de exemplo:
 
 **Exemplo de aplicação da API Web (TaskService):** API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
-Tem de alterar a aplicação de modo a utilizar o registo de aplicações no seu inquilino, que inclui o ID de cliente ou o ID de aplicação e a palavra-passe de cliente ou a chave de aplicação. Também tem de configurar as políticas que criou. A aplicação Web de exemplo define os valores de configuração como definições da aplicação no ficheiro Web.config. Para alterar as definições da aplicação:
+Tem de alterar a aplicação de modo a utilizar o registo de aplicações no seu inquilino, o que inclui o ID da aplicação e a chave que registou anteriormente. Também tem de configurar as políticas que criou. A aplicação Web de exemplo define os valores de configuração como definições da aplicação no ficheiro Web.config. Para alterar as definições da aplicação:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 
-2. No projeto da aplicação Web **TaskWebApp**, abra o ficheiro **Web.config** e efetue as seguintes atualizações para as chaves existentes:
+2. No projeto da aplicação Web **TaskWebApp**, abra o ficheiro **Web.config**. Substitua o valor de `ida:Tenant` pelo nome do inquilino que criou. Substitua o valor de `ida:ClientId` pelo ID da aplicação que registou. Substitua o valor de `ida:ClientSecret` pela chave que registou.
 
-    ```C#
-    <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
-    
-    <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
-    
-    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
-    ```
-3. Atualize as chaves existentes com os valores dos nomes de política que criou no passo anterior. Não se esqueça de incluir o prefixo *b2c_1_*.
-
-    ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
-    <add key="ida:EditProfilePolicyId" value="b2c_1_SiPe" />
-    <add key="ida:ResetPasswordPolicyId" value="b2c_1_SSPR" />
-    ```
+3. No ficheiro **Web.config**, substitua o valor de `ida:SignUpSignInPolicyId` por `b2c_1_SiUpIn`. Substitua o valor de `ida:EditProfilePolicyId` por `b2c_1_SiPe`. Substitua o valor de `ida:ResetPasswordPolicyId` por `b2c_1_SSPR`.
 
 ## <a name="run-the-sample-web-app"></a>Executar a aplicação Web de exemplo
 

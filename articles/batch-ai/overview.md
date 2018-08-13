@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903480"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627207"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>O que é o Batch AI no Azure?
 O Batch AI é um serviço gerido que permite aos cientistas de dados e investigadores de IA preparar a IA e outros modelos de machine learning em clusters de máquinas virtuais do Azure, incluindo VMs com suporte GPU. Descreve os requisitos do seu trabalho, onde encontrar as entradas e armazenar as saídas, e o Batch AI trata do resto.  
@@ -40,7 +40,7 @@ O Batch AI fornece gestão de recursos e agendamento de tarefas especializados p
 * Dimensionamento manual ou automático de clusters de VMs com GPUs ou CPUs 
 * Configurar a comunicação SSH entre VMs e para acesso remoto 
 * Suporte de qualquer estrutura de Aprendizagem Profunda ou machine learning, com configuração otimizada para toolkits populares, tais como [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/) e [Chainer](https://chainer.org/) 
-* Fila de tarefas com base na prioridade para partilhar clusters e tirar partido de VMs de baixa prioridade e instâncias reservadas  
+* Fila de trabalhos com base na prioridade para partilhar clusters e tirar partido de VMs de baixa prioridade e reservas do Azure  
 * Opções de armazenamento flexíveis, incluindo Ficheiros do Azure e um servidor NFS gerido 
 * Montar as partilhas de ficheiros remota para a VM e um contentor opcional 
 * Fornecer o estado da tarefa e reiniciar em caso de falhas da VM 

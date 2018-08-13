@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7a3e91e8f928f6e7e2df7a26f52bd44b3b3a81b2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38318019"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618959"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: Compilar uma aplicação Web Node.js e MongoDB no Azure
 
@@ -132,7 +132,11 @@ Para o MongoDB, este tutorial utiliza o [Azure Cosmos DB](/azure/documentdb/). O
 
 ### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
 
-No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
+> [!NOTE]
+> A criação das bases de dados do Azure Cosmos DB na sua própria subscrição do Azure neste tutorial não acarreta custos. Para utilizar uma conta gratuita do Azure Cosmos DB durante sete dias, pode utilizar a experiência [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/en-us/try/cosmosdb/). Basta clicar no botão **Criar** no mosaico MongoDB para criar uma base de dados do MongoDB gratuita no Azure. Após a criação da base de dados, navegue para a **cadeia de ligação** no portal e obtenha a cadeia de ligação do Azure Cosmos DB para utilizar mais à frente no tutorial.
+>
+
+No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
 No seguinte comando, substitua um nome do Cosmos DB exclusivo pelo marcador de posição *\<cosmosdb_name>*. Este nome é utilizado como parte do ponto final do Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por isso, o nome tem de ser exclusivo em todas as contas Cosmos DB no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres.
 
@@ -166,7 +170,7 @@ Neste passo, vai ligar a aplicação de exemplo MEAN.js a uma base de dados do C
 
 ### <a name="retrieve-the-database-key"></a>Obter a chave de base de dados
 
-Para ligar à base de dados do Cosmos DB, precisa da chave da base de dados. No Cloud Shell, utilize o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) para obter a chave primária.
+Para ligar à base de dados do Cosmos DB, precisa da chave da base de dados. No Cloud Shell, utilize o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) para obter a chave primária.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -263,7 +267,7 @@ Neste passo, vai implementar a aplicação Node.js ligada ao MongoDB no Serviço
 
 Por predefinição, o projeto do MEAN.js mantém o _config/env/local-production.js_ fora do repositório do Git. Por isso, para a sua aplicação Web do Azure, utilize as definições da aplicação para definir a cadeia de ligação do MongoDB.
 
-Para configurar as definições da aplicação, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell. 
+Para configurar as definições da aplicação, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. 
 
 O exemplo seguinte configura uma definição de aplicação `MONGODB_URI` na sua aplicação Web do Azure. Substitua os marcadores de posição *\<app_name>*, *\<cosmosdb_name>* e *\<primary_master_key>*.
 
@@ -467,7 +471,7 @@ Se tiver adicionado quaisquer artigos anteriormente, ainda pode vê-los. Os dado
 
 Enquanto executa a aplicação Node.js no Serviço de Aplicações do Azure, pode obter os registos de consola direcionados para o seu terminal. Dessa forma, pode obter as mesmas mensagens de diagnóstico para ajudar a depurar erros de aplicações.
 
-Para iniciar a transmissão em fluxo do registo, utilize o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) no Cloud Shell.
+Para iniciar a transmissão em fluxo do registo, utilize o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

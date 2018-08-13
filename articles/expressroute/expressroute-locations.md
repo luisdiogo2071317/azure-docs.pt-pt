@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2018
-ms.author: jaredro
-ms.openlocfilehash: 0cb2c594b75e005732403a5d9753e2eab1f39eb4
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/02/2018
+ms.author: pareshmu
+ms.openlocfilehash: 12cafc5888b46799780e066f7fd0de007670d6cc
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285440"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39481018"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -61,7 +61,8 @@ A tabela abaixo fornece informações sobre regiões e limites geopolíticos par
 | **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
 | **Nuvem para a Administração Pública dos EUA** |US Gov Arizona, US Gov - Iowa, US Gov Texas, Gov (US) - Virginia, US DoD Central, US DoD East  |Chicago, Dallas, Nova Iorque, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
-| **China** |Norte da China, Leste da China |Pequim, Xangai |
+| **Leste da China** |Leste da China, Leste da China 2 |Xangai |
+| **Norte da China** |Norte da China, Norte da China 2 |Pequim |
 | **Alemanha** |Alemanha Central, Leste da Alemanha |Berlim, Frankfurt |
 
 A conectividade em regiões geopolíticas não é suportada no SKU do ExpressRoute standard. Terá de ativar o suplemento ExpressRoute Premium para suportar a conetividade global. A conectividade com ambientes em nuvem nacionais não é suportada. Pode trabalhar com o seu fornecedor de conectividade, se tal for necessário.
@@ -117,7 +118,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Suportado |Suportado |Osaka |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Suportado |Suportado |Melbourne+, Sydney |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportado |Amesterdão, Hong Kong, Londres, Paris, Silicon Valley, Singapura, Sydney, Washington D.C. |
-| **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Suportado |Suportado |Chicago, Silicon Valley |
+| **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **PCCW Global Limited** |Suportado |Suportado |RAE de Hong Kong |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Suportado |Suportado |Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Suportado |Suportado |Chennai, Mumbai |
@@ -162,7 +163,7 @@ Para saber mais, veja [ExpressRoute na China](http://www.windowsazure.cn/home/fe
 ### <a name="germany"></a>Alemanha
 | **Fornecedor de serviços** | **Microsoft Azure** | **Office 365** | **Localizações** |
 | --- | --- | --- | --- |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Não suportado |Berlim+, Frankfurt |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Não suportado |Frankfurt |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Não suportado |Frankfurt |
 | **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Suportado |Não suportado |Berlim |
 | **Interxion** |Suportado |Não suportado |Frankfurt |

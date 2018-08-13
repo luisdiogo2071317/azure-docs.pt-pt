@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227291"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528331"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Início Rápido: adicionar uma imagem corporativa à sua página de início de sessão no Azure AD
 Para evitar confusões, muitas empresas pretendem aplicar um aspeto e funcionalidade consistentes em todos os Web sites e serviços que gerem. O Azure Active Directory (Azure AD) fornece esta capacidade ao permitir-lhe personalizar o aspeto da página de início de sessão com o logótipo da sua empresa e esquemas de cores personalizados. A página de início de sessão é apresentada ao iniciar sessão em aplicações baseadas na Web, como o Office 365, que utilizam o Azure AD como o fornecedor de identidade. Interage com esta página para introduzir as suas credenciais.
@@ -71,7 +71,7 @@ Esta cor é utilizada em vez da imagem de fundo em ligações de largura de band
 ### <a name="square-logo-image"></a>Imagem de logótipo quadrado
 Descrição | Restrições | Recomendações
 ------- | ------- | ----------
-Esta imagem é apresentada durante a configuração de novos PCs Enterprise Windows 10. Fornece contexto aos funcionários quando estiverem a configurar os novos PCs do emprego. A imagem é apresentada aos inquilinos que utilizam o [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) para implementar os dispositivos de trabalho e em páginas de introdução de palavra-passe noutras experiências do Windows 10. | PNG (preferido) ou JPG transparente<br>Dimensões da imagem: 240 x 240 px<br>Tamanho do ficheiro: &lt; 10 KB | Utilize o logótipo da sua organização aqui.<br> Utilize uma imagem transparente.<br>Não parta do princípio que o fundo será branco.<br>Não adicione preenchimento ao logótipo na imagem, pois o logótipo parecerá desproporcionalmente pequeno.
+Esta imagem é apresentada durante a configuração de novos PCs Enterprise Windows 10. Fornece contexto aos funcionários quando estiverem a configurar os novos PCs do emprego. A imagem é apresentada aos inquilinos que utilizam o [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) para implementar os dispositivos de trabalho e em páginas de introdução de palavra-passe noutras experiências do Windows 10.<br>O logótipo quadrado é utilizado exclusivamente na autenticação do Windows. A versão de tema escuro foi preterida e já não é utilizada em nenhum sítio. | PNG (preferido) ou JPG transparente<br>Dimensões da imagem: 240 x 240 px<br>Tamanho do ficheiro: &lt; 10 KB | Utilize o logótipo da sua organização aqui.<br> Utilize uma imagem transparente.<br>Não parta do princípio que o fundo será branco.<br>Não adicione preenchimento ao logótipo na imagem, pois o logótipo parecerá desproporcionalmente pequeno.
 
 ### <a name="show-option-to-remain-signed-in"></a>Mostrar a opção para manter a sessão iniciada
 Descrição | Restrições | Recomendações

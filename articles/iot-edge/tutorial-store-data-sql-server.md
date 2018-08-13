@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cd32d78987ab8d718c813cf8c47018ac2ecbe823
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fa01d2d3f4ab3923129ab1690477d5a8af82d4df
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283550"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448919"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -34,12 +34,22 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O dispositivo Azure IoT Edge que criou no início rápido para dispositivos [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+Um dispositivo Azure IoT Edge:
+
+* Pode seguir os passos no início rápido para [Linux](quickstart-linux.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge.
+* Os módulos Python para o IoT Edge não suportam processadores ARM nem dispositivos Windows.
+
+Recursos da cloud:
+
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão standard no Azure. 
+
+Recursos de desenvolvimento:
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Extensão Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Extensão C# para o Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para o Visual Studio Code. 
+* [Extensão Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para o Visual Studio Code. 
 * [SDK de .NET Core 2.1](https://www.microsoft.com/net/download). 
-* [Docker CE](https://docs.docker.com/install/) instalado no seu computador de desenvolvimento. 
+* [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 Neste tutorial, vai utilizar a extensão Azure IoT Edge para VS Code para criar um módulo e criar uma **imagem de contentor** a partir dos ficheiros. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  

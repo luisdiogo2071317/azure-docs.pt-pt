@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de computadores com Linux no local com o Azure Log Analytics | Microsoft Docs
-description: Saiba como implementar o agente do Log Analytics para Linux e ativar a recolha de dados a partir desse SO com o Log Analytics.
+title: Configurar o Agente do Azure Log Analytics para o Computador Linux Híbrido | Microsoft Docs
+description: Saiba como implementar o agente do Log Analytics para Linux em execução em computadores fora do Azure e ativar a recolha de dados com o Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: aca8ee7305f919068733dfa3cb636a0f9bad7b05
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f1e363351cb214a80652aaef599a1306ad270e3f
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127174"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480814"
 ---
-# <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Recolher dados de computadores com Linux alojados no seu ambiente
-O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente de computadores com Linux físicos ou virtuais e de outros recursos no seu ambiente para um único repositório para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
+# <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Linux num ambiente híbrido
+O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente do seu computador Linux físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
 
 Para compreender a configuração suportada, consulte [sistemas operativos Linux suportados](log-analytics-concept-hybrid.md#supported-linux-operating-systems) e [configuração de firewall de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
 

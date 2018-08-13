@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 08/06/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542037"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578063"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registar-se com o programa de Parceiro CSP e ver dados de custos
 
@@ -43,13 +43,13 @@ Para obter mais informações, consulte [Ligar à API do Centro de Parceiros](ht
 3. Na página **Cost Management**, clique em **Aceder ao Cost Management** para abrir a página de registo do Cloudyn numa nova janela.
 4. Na página de registo da avaliação do portal Cloudyn, escreva o nome da empresa, selecione **Administrador do Programa Parceiro CSP da Microsoft** e, em seguida, clique em **Seguinte**.  
 5. Introduza um **ID de Aplicação**, um **ID de Comércio**, uma **Chave Secreta da Aplicação** e selecione o **Plano de Preços Predefinido**. Se não tiver as informações perto de si, inicie sessão no portal do Centro de Parceiros em [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) com a conta de administrador principal e efetue os seguintes passos:
-  1. Aceda a **Dashboard** > **Definições da Conta** > **Gestão de Aplicações**.
+  1. Aceda ao **Dashboard**, clique no símbolo **Definições**, clique em **Definições do parceiro** e clique em **Gestão de Aplicações**.
   2. Se tiver criado anteriormente uma aplicação Web, ignore este passo. Caso contrário, clique em **Adicionar nova aplicação Web** na secção **Aplicação Web**.
   3. Copie o GUID do **ID da Aplicação** na sua aplicação Web.
   4. Copie o GUID do **ID de Comércio** na sua aplicação Web.
   5. Selecione a duração de validade da chave como um ou dois anos, conforme necessário. Selecione **Adicionar chave** e, em seguida, copie e guarde o valor da chave secreta.  
     ![Centro de Parceiros CSP](./media/quick-register-csp/csp-partner-center.png)
-  6. Volte à página de registo e cole as informações.  
+  6. Volte à página de registo da Cloudyn e cole as informações.  
       ![Credenciais da conta CSP](./media/quick-register-csp/csp-reg.png)
 6. Aceite os Termos de Utilização e, em seguida, valide as suas informações. Clique em **Seguinte** para autorizar o Cloudyn a recolher dados de recursos do Azure. Os dados recolhidos incluem dados de utilização, de desempenho, de faturação e da etiqueta das suas subscrições.  
 7. Em **Convidar outros intervenientes**, pode adicionar utilizadores ao escrever os respetivos endereços de e-mail. Quando terminar, clique em **Seguinte**. Demora cerca de duas horas para todos os dados de faturação serem adicionados ao Cloudyn.

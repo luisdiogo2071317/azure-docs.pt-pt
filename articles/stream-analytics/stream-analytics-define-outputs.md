@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902926"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715425"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
 
 Ao conceber a sua consulta do Stream Analytics, consulte o nome da saída usando o [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Pode usar uma única saída por tarefa ou várias saídas por transmissão em fluxo de trabalho se for necessário, fornecendo várias cláusulas INTO na consulta.
 
-Para criar, editar e testar a tarefa do Stream Analytics produz, pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), e [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+Para criar, editar e testar a tarefa do Stream Analytics produz, pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Algum suporte de tipos de saídas [particionamento](#partitioning), e [tamanhos de lote de saída](#output-batch-size) variar para otimizar o débito.
 
@@ -58,7 +58,7 @@ Saída de Azure Data Lake Store do Stream Analytics não está atualmente dispon
 ### <a name="renew-data-lake-store-authorization"></a>Renovar a autorização do Data Lake Store
 Tem de autenticar a sua conta do Data Lake Store, se a palavra-passe tiver sido alterado, uma vez que a tarefa foi criada ou pela última vez autenticada. Se não autenticar, o seu trabalho não produz resultados de saída e mostra um erro que indica a necessidade de reautorização nos registos de operação. Atualmente, existe uma limitação em que o token de autenticação tem de ser atualizados manualmente todos os 90 dias para todas as tarefas com a saída do Data Lake Store. 
 
-Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data Lake Store > Clique a **renovar a autorização** associar e, por um breve período a página será exibida indicando **redirecionar para autorização...** . A página fecha automaticamente e se tiver êxito, indica **autorização foi renovada com êxito**. Precisa, em seguida, clique em **salvar** na parte inferior da página e pode continuar, mediante a reiniciar a tarefa da **data/hora da última parado** para evitar a perda de dados.
+Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data Lake Store > Clique a **renovar a autorização** associar e, por um breve período a página será exibida indicando **redirecionar para autorização... **. A página fecha automaticamente e se tiver êxito, indica **autorização foi renovada com êxito**. Precisa, em seguida, clique em **salvar** na parte inferior da página e pode continuar, mediante a reiniciar a tarefa da **data/hora da última parado** para evitar a perda de dados.
 
 ![Autorizar o Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 

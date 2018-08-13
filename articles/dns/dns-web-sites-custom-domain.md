@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b39c2c672869bb446e58134a85130d10491fe047
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204947"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621118"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
 
@@ -56,7 +56,7 @@ Depois de criar uma zona e delegá-la ao DNS do Azure, pode criar registos para 
 
 ## <a name="create-an-a-record-and-txt-record"></a>Criar um registo A e um registo TXT
 
-Um registo A é utilizado para mapear um nome para o respetivo endereço IP. No exemplo seguinte, atribua "@" como um registo A com o seu endereço IPv4 da aplicação Web. @ normalmente representa o domínio de raiz.
+Um registo A é utilizado para mapear um nome para o respetivo endereço IP. No exemplo seguinte, atribua "\@" como um registo A com o endereço IPv4 da sua aplicação Web. Normalmente, \@ representa o domínio de raiz.
 
 ### <a name="get-the-ipv4-address"></a>Obter o endereço IPv4
 

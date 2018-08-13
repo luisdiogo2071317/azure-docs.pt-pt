@@ -3,19 +3,19 @@ title: Pré-visualização de controlo de acesso de Event Hubs Role-Based (RBAC)
 description: Controlo de acesso baseado em funções de Hubs de eventos do Azure
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
-ms.author: sethm
-ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: shvija
+ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502141"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005743"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -43,7 +43,7 @@ Se pretender continuar a criar uma conta específica para este cenário [siga es
 
 ### <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) de uma das regiões do Azure com suporte de pré-visualização de Hubs de eventos para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental** . 
+Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) de uma das regiões do Azure com suporte de pré-visualização de Hubs de eventos para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental **. 
 
 Depois de criar o espaço de nomes, navegue até à respetiva **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar** para adicionar a conta de utilizador do Azure AD para a função de proprietário. Se usar sua própria conta de utilizador e criou o espaço de nomes, já está na função de proprietário. Para adicionar uma conta diferente para a função, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
  

@@ -2,27 +2,21 @@
 title: Montar uma partilha de ficheiros do Azure através de SMB com macOS | Microsoft Docs
 description: Saiba como montar uma partilha de ficheiros do Azure através de SMB com macOS.
 services: storage
-documentationcenter: ''
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: eaa59e0568a6fc6ac9c867c6f05b7bfb22b71055
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.component: files
+ms.openlocfilehash: ace77b8a15ace71b5b372564bc10c6f4845e1482
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206516"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527223"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montar uma partilha de ficheiros do Azure através de SMB com macOS
-[Ficheiros do Azure](storage-files-introduction.md) é o serviço da Microsoft que lhe permite criar e utilizar partilhas de ficheiros de rede no Azure com a norma da indústria. As partilhas de ficheiros do Azure podem ser montadas no macOS El Capitan (10.11) e numa versão mais recente. Este artigo mostra duas formas diferentes de montar uma artilha de ficheiros do Azure em macOS com a IU do Finder e o Terminal.
+[Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas com o protocolo padrão da indústria, SMB 3, pelo macOS El Capitan 10.11+. Este artigo mostra duas formas diferentes de montar uma partilha de ficheiros do Azure em macOS com a IU do Finder e o Terminal.
 
 > [!Note]  
 > Antes de montar uma partilha de ficheiros do Azure através de SMB, recomendamos desativar a assinatura de pacotes SMB. Mantê-la ativada pode originar um mau desempenho ao aceder à partilha a partir de macOS. A ligação SMB será encriptada, pelo que a segurança da sua ligação não é afetada. No terminal, os comandos seguintes desativam a assinatura de pacotes SMB, conforme descrito neste [artigo de suporte da Apple relativo à desativação da assinatura de pacotes SMB](https://support.apple.com/HT205926):  

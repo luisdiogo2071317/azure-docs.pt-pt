@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 28b963922b423bb776aa97e9b76392bc484ddcd6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413078"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627812"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Machine Learning como um módulo do IoT Edge (pré-visualização)
 
@@ -46,9 +46,10 @@ Um dispositivo Azure IoT Edge:
 Recursos da cloud:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão standard no Azure. 
+* Uma conta do Azure Machine Learning. Siga as instruções em [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Não precisa de instalar a aplicação do workbench para este tutorial. 
 
 Recursos de desenvolvimento:
-* Uma conta do Azure Machine Learning. Siga as instruções em [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Não precisa de instalar a aplicação do workbench para este tutorial. 
+
 * Gestão de Modelos para o Azure ML. Para configurar o ambiente e criar uma conta, siga as instruções em [Configuração de gestão de modelo](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Durante a configuração da implementação, é recomendado escolher os passos locais em vez do cluster, sempre que possível.
 
 ### <a name="disable-process-identification"></a>Desativar identificação de processo
@@ -56,7 +57,7 @@ Recursos de desenvolvimento:
 >[!NOTE]
 >
 > Enquanto está na pré-visualização, o Azure Machine Learning não suporta a funcionalidade de segurança de identificação do processo ativada por predefinição com o IoT Edge. 
-> Seguem-se os passos para desativá-la. No entanto, não é adequado para utilização em produção. Estes passos apenas são necessários no Linux, uma vez que será concluído durante os passos de configuração de runtime do Windows Edge.
+> Seguem-se os passos para desativá-la. No entanto, não é adequado para utilização em produção. Estes passos só são necessários no Linux, uma vez que será concluído durante a instalação do runtime do Windows Edge.
 
 Para desativar a identificação de processo no dispositivo IoT Edge, terá de indicar o endereço IP e a porta para **workload_uri** e **management_uri** na secção **ligar** da configuração daemon do IoT Edge.
 
@@ -93,7 +94,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>Criar o contentor do Azure ML
 Nesta secção, irá transferir os ficheiros do modelo que recebeu formação e convertê-los num contentor do Azure ML.
 
-No computador que executa a Gestão do Módulo do Azure ML, transfira e guarde [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) e [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) a partir do Toolkit do IoT do Azure ML no GitHub. Estes ficheiros definem o modelo de aprendizagem automática que recebeu formação, que irá implementar no seu dispositivo do Iot Edge.
+No computador que executa a Gestão de Modelos do Azure ML, transfira e guarde [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) e [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) a partir do Toolkit do IoT do Azure ML no GitHub. Estes ficheiros definem o modelo de aprendizagem automática que recebeu formação, que irá implementar no seu dispositivo do Iot Edge.
 
 Utilize o modelo que recebeu formação para criar um contentor que possa ser implementado em dispositivos do IoT Edge. Utilize o seguinte comando para:
 
@@ -187,7 +188,7 @@ Se executar estes comandos num dispositivo Linux, poderá ter de utilizar `sudo`
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Veja os dados que chegam ao seu hub IoT
 
-Pode ver as mensagens do dispositivo para cloud que o hub IoT recebe através do [explorador do Hub IoT](https://github.com/azure/iothub-explorer) ou da [extensão do Toolkit do Azure IoT para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+Pode ver as mensagens do dispositivo para a cloud que o hub IoT recebe através da [extensão do Toolkit do Azure IoT para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 Os passos seguintes mostram como configurar o Visual Studio Code para monitorizar as mensagens do dispositivo para cloud que chegam ao seu hub IoT. 
 
@@ -220,7 +221,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 Para eliminar apenas o Hub IoT, execute o seguinte comando com o nome do hub e o nome do grupo de recursos:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

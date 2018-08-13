@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dfbe931bbe5887e9c0545558c4d2b2565718dd0a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611932"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578495"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo Linux x64
 
@@ -152,7 +152,7 @@ O daemon de segurança é instalado como um serviço de sistema para que o runti
 6. Veja os módulos em execução no seu dispositivo. 
 
    >[!TIP]
-   >Precisa de utilizar o *sudo* para executar `iotedge` comandos primeiro. Termine a sessão do computador e inicie sessão novamente para atualizar as permissões e, em seguida, pode executar `iotedge` comandos sem os privilégios elevados. 
+   >Precisa de utilizar o *sudo* para executar `iotedge` comandos primeiro. Termine a sessão do computador e inicie sessão novamente para atualizar as permissões e, em seguida, pode executar comandos `iotedge` sem privilégios elevados. 
 
    ```bash
    sudo iotedge list
@@ -192,7 +192,7 @@ Depois de encerrar e iniciar sessão, o *sudo* não é preciso para o comando ac
 
 O módulo do sensor de temperatura poderá estar a aguardar pela ligação ao Hub do Edge se a última linha vista no registo for `Using transport Mqtt_Tcp_Only`. Experimente terminar o módulo e permitir que o Agente do Edge o reinicie. Pode terminá-lo com o comando `sudo docker stop tempSensor`.
 
-Também pode ver a telemetria que o dispositivo está a enviar através da ferramenta [Explorador do Hub IoT][lnk-iothub-explorer] ou da [extensão do Toolkit do Azure IoT para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Também pode ver a telemetria que o dispositivo está a enviar com a [extensão Azure IoT Toolkit para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -200,7 +200,7 @@ Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo qu
 
 ### <a name="delete-azure-resources"></a>Eliminar recursos do Azure
 
-Se tiver criado a sua máquina virtual e o IoT hub num novo grupo de recursos, pode eliminar esse grupo e todos os recursos associados. Se tiver alguma coisa nesse grupo de recursos que pretende manter, então basta eliminar os recursos individuais que quer limpar. 
+Se tiver criado a sua máquina virtual e o hub IoT num novo grupo de recursos, pode eliminar esse grupo e todos os recursos associados. Se tiver alguma coisa nesse grupo de recursos que pretende manter, então basta eliminar os recursos individuais que quer limpar. 
 
 Para remover um grupo de recursos, siga estes passos: 
 
@@ -263,4 +263,3 @@ Este início rápido é o pré-requisito para todos os tutoriais do IoT Edge. Po
 <!-- Links -->
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358951"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480888"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -166,7 +166,7 @@ Utilize as informações na tabela seguinte para configurar as **Definições** 
    |Grupo de recursos     |**Utilizar existente**: Test-FW-RG |
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilizar existente**: Test-FW-VN|
-   |Endereço IP público     |Criar novo|
+   |Endereço IP público     |**Crie um novo**. O endereço IP público tem de ser do tipo SKU Standard.|
 
 2. Clique em **Rever + criar**.
 3. Reveja o resumo e clique em **Criar** para criar a firewall.
@@ -175,10 +175,6 @@ Utilize as informações na tabela seguinte para configurar as **Definições** 
 4. Depois de concluída a implementação, vá para o grupo de recursos **Test-FW-RG** e clique na firewall **Test-FW01**.
 6. Anote o endereço IP privado. Vai utilizá-lo mais tarde quando criar a rota predefinida.
 
-> [!NOTE]
-> O endereço IP público tem de ser do tipo SKU Standard.
-
-[//]: # (Lembre-se de anotar o IP privado para a firewall.)
 
 ## <a name="create-a-default-route"></a>Criar uma rota predefinida
 
@@ -229,7 +225,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída padrão para passar
 >- Acesso ao armazenamento do estado dos discos geridos.
 >- Diagnóstico do Windows
 >
-> Pode substituir esta coleção de regras incorporadas na infraestrutura ao criar uma coleção de regras de aplicação *recusar tudo*, que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
+> Pode substituir esta coleção de regras incorporadas na infraestrutura, ao criar uma coleção de regras de aplicação *recusar tudo*, que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
 
 ## <a name="configure-network-rules"></a>Configurar regras de rede
 
@@ -279,7 +275,7 @@ Verificou que as regras de firewall estão a funcionar:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com a firewall.
+Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos elimine o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com a firewall.
 
 
 ## <a name="next-steps"></a>Passos seguintes

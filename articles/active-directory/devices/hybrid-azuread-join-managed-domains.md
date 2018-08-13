@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f61f0649900c27a6aa3a873f60dc60b4985f5d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424192"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004383"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -49,6 +49,9 @@ Este tutorial parte do princípio de que está familiarizado com:
 -  [Introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md)
     
 -  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
+
+-  [Como controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
+  
 
 Para configurar o cenário neste artigo, precisa da [a versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou superior) a serem instalados. 
  
@@ -101,7 +104,7 @@ Para configurar uma associação do Azure AD híbrido com o Azure AD Connect, te
 
     ![Opções do dispositivo](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. Sobre o **SCP** página, para cada floresta que pretende Azure AD Connect para o SCP, execute os seguintes passos e, em seguida, clique em **próxima**: 
+6. Sobre o **SCP** página, para cada floresta que pretende que o Azure AD Connect para configurar o SCP, execute os seguintes passos e, em seguida, clique em **próxima**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -156,15 +159,13 @@ Para concluir com êxito híbrido do Azure AD associar dos seus dispositivos de 
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Além disso, tem de ativar **permitir atualizações à barra de estado por meio de script** na zona de local intranet do usuário.
 
 ## <a name="verify-the-registration"></a>Verifique se o registo
 
-Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet no  **[módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet no ** [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Ao utilizar o **Get-MSolDevice** cmdlet para verificar os detalhes do serviço:
 

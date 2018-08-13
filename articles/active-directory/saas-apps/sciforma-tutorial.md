@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e0c570ea5f77e74448116c453c316a965ac18197
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc7c9c9c702db7c0a10b89d33169a97541f3b30
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448517"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Tutorial: Integração do Azure Active Directory com Sciforma
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Sciforma, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Sciforma início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Sciforma com o Azure AD, terá de adicionar Sc
 
 **Para adicionar Sciforma a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na ** [portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -88,11 +88,11 @@ Sciforma, atribua o valor do **nome de utilizador** no Azure AD como o valor do 
 
 Para configurar e testar o Azure AD início de sessão único com Sciforma, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste Sciforma](#creating-a-sciforma-test-user)**  - para ter um equivalente da Eduarda Almeida na Sciforma que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on) ** - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user) ** - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste Sciforma](#creating-a-sciforma-test-user) ** - para ter um equivalente da Eduarda Almeida na Sciforma que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user) ** - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on) ** - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.sciforma.net/sciforma/saml`
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Sciforma](http://www.sciforma.com/company/contact_us) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Sciforma](https://www.sciforma.com/about/contact) obter esses valores. 
  
 
 
@@ -129,10 +129,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/sciforma-tutorial/tutorial_general_400.png)
 
-1. Para configurar o início de sessão único num **Sciforma** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Sciforma](http://www.sciforma.com/company/contact_us).
+1. Para configurar o início de sessão único num **Sciforma** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Sciforma](https://www.sciforma.com/about/contact).
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a ** Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

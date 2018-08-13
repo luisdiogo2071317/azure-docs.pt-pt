@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589157"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599632"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure
 
@@ -241,7 +241,7 @@ Na página de gestão da aplicação do AD, copie o **ID da Aplicação** para u
 
 Siga os mesmos passos para a aplicação de front-end, mas ignore o último. Não precisa do **ID da Aplicação** para a aplicação de front-end. Mantenha a página **Definições do Azure Active Directory** aberta.
 
-Se preferir, navegue para `http://<front_end_app_name>.azurewebsites.net`. Deve ser agora direcionado para uma página de início de sessão. Depois de iniciar sessão, continua sem poder aceder aos dados da aplicação de back-end, porque ainda tem de fazer três coisas:
+Se preferir, navegue para `http://<front_end_app_name>.azurewebsites.net`. Deve ser agora direcionado para uma página de início de sessão segura. Depois de iniciar sessão, continua sem poder aceder aos dados da aplicação de back-end, porque ainda tem de fazer três coisas:
 
 - Conceder ao front-end o acesso ao back-end
 - Configurar o Serviço de Aplicações para devolver um token utilizável
@@ -322,7 +322,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Volte a iniciar sessão em `http://<front_end_app_name>.azurewebsites.net`. Na página do contrato de utilização de dados do utilizador, clique em **Aceitar**.
+Volte a iniciar sessão em `https://<front_end_app_name>.azurewebsites.net`. Na página do contrato de utilização de dados do utilizador, clique em **Aceitar**.
 
 Deverá ser agora capaz de criar, ler, atualizar e eliminar os dados da aplicação de back-end como antes. A única diferença é que agora ambas as aplicações estão protegidas através da autenticação e autorização do Serviço de Aplicações, incluindo as chamadas de serviço para serviço.
 
@@ -340,7 +340,7 @@ Embora o código do servido tenha acesso aos cabeçalhos dos pedidos, o código 
 
 ### <a name="configure-cors"></a>Configurar o CORS
 
-No Cloud Shell, ative CORS no URL do seu cliente com o comando [`az resource update`](/cli/azure/resource#az_resource_update). Substitua os marcadores de posição _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_.
+No Cloud Shell, ative CORS no URL do seu cliente com o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua os marcadores de posição _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -352,7 +352,7 @@ Este passo não está relacionado com a autenticação e autorização. No entan
 
 No repositório local, abra _wwwroot/index.html_.
 
-Na Linha 51, defina a variável `apiEndpoint` como o URL da aplicação de back-end (`http://<back_end_app_name>.azurewebsites.net`). Substitua _\<back\_end\_app\_name>_ pelo nome da sua aplicação no Serviço de Aplicações.
+Na Linha 51, defina a variável `apiEndpoint` como o URL da aplicação de back-end (`https://<back_end_app_name>.azurewebsites.net`). Substitua _\<back\_end\_app\_name>_ pelo nome da sua aplicação no Serviço de Aplicações.
 
 No repositório local, abra _wwwroot/app/scripts/todoListSvc.js_ e verifique se `apiEndpoint` está anexado a todas as chamadas à API. A sua aplicação Angular.js está agora a chamar as APIs de back-end. 
 
@@ -406,9 +406,13 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Navegue novamente até `http://<front_end_app_name>.azurewebsites.net`. Deverá ser agora capaz de criar, ler, atualizar e eliminar os dados da aplicação de back-end, diretamente na aplicação Angular.js.
+Navegue novamente até `https://<front_end_app_name>.azurewebsites.net`. Deverá ser agora capaz de criar, ler, atualizar e eliminar os dados da aplicação de back-end, diretamente na aplicação Angular.js.
 
 Parabéns! O código do cliente está agora a aceder aos dados do back-end em nome do utilizador autenticado.
+
+## <a name="when-access-tokens-expire"></a>Quando o token de acesso expira
+
+O token de acesso expira ao fim de algum tempo. Para obter informações sobre como atualizar os seus tokens de acesso sem exigir que os utilizadores se voltem a autenticar na sua aplicação, veja [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens) (Atualizar os tokens de acesso).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

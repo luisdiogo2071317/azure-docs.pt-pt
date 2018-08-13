@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: liamca
-ms.openlocfilehash: d90a7b2d12a147b8020abbd51ef055f0e70471fb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7da1f5d54a9dd5b6119b81ef801b674263a98bae
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365433"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716421"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exemplos de consulta de sintaxe Lucene para a criação de consultas avançadas no Azure Search
 Ao construir consultas para o Azure Search, pode substituir a predefinição [analisador de consultas simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) com a alternativa [analisador de consultas do Lucene no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para formular a consulta especializada e avançada definições. 
@@ -27,7 +27,7 @@ O analisador de consultas de Lucene suporta as construções de consulta mais co
 
 ## <a name="formulate-requests-in-postman"></a>Formular pedidos no Postman
 
-Os exemplos seguintes tirar partido de um índice de pesquisa de empregos em nova IORQUE consistindo em tarefas disponíveis com base num conjunto de dados fornecido pelos [cidade de Nova Iorque OpenData](https://nycopendata.socrata.com/) iniciativa. Estes dados não devem ser considerados atual ou completa. O índice é um serviço de proteção de segurança fornecidas pela Microsoft, o que significa que não é necessário uma subscrição do Azure ou o Azure Search para experimentar estas consultas.
+Os exemplos seguintes tirar partido de um índice de pesquisa de empregos em nova IORQUE consistindo em tarefas disponíveis com base num conjunto de dados fornecido pelos [cidade de Nova Iorque OpenData](https://opendata.cityofnewyork.us/) iniciativa. Estes dados não devem ser considerados atual ou completa. O índice é um serviço de proteção de segurança fornecidas pela Microsoft, o que significa que não é necessário uma subscrição do Azure ou o Azure Search para experimentar estas consultas.
 
 O que é necessário é o Postman ou uma ferramenta equivalente para emitir o pedido HTTP na GET. Para obter mais informações, consulte [teste com clientes REST](search-fiddler.md).
 
@@ -63,9 +63,9 @@ Como passo de verificação, cole o seguinte pedido GET e clique em **enviar**. 
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
   ```
 
-A cadeia de consulta **`search=*`**, equivale uma pesquisa não especificada para a pesquisa de nula ou estar vazia. Não é especialmente útil, mas é a pesquisa mais simples, que pode fazer.
+A cadeia de consulta ** `search=*` **, equivale uma pesquisa não especificada para a pesquisa de nula ou estar vazia. Não é especialmente útil, mas é a pesquisa mais simples, que pode fazer.
 
-Opcionalmente, pode adicionar **`$count=true`** para o URL para devolver uma contagem dos documentos correspondentes aos critérios de pesquisa. Numa cadeia de caracteres de pesquisa em branco, trata todos os documentos no índice (2802 no caso de empregos em nova IORQUE).
+Opcionalmente, pode adicionar ** `$count=true` ** para o URL para devolver uma contagem dos documentos correspondentes aos critérios de pesquisa. Numa cadeia de caracteres de pesquisa em branco, trata todos os documentos no índice (2802 no caso de empregos em nova IORQUE).
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Como invocar a análise de Lucene completo
 
@@ -144,7 +144,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-5-term-boosting"></a>Exemplo 5: Aumentos de termos
 Aumentos de termos refere-se a classificação de um documento superior se contiver o termo elevado, em relação ao documentos que contenham o termo. Para aumentar um termo, utilize o sinal de interpolação, "^", símbolo com um fator de aumento (um número) no final do período de vigência esteja a pesquisar. 
 
-Nesta "consulta antes", procure tarefas com o termo *analista de computador* e repare que não há resultados com ambas as palavras *computador* e *analista*, ainda  *computador* tarefas estão na parte superior dos resultados.
+Nesta "consulta antes", procure tarefas com o termo *analista de computador* e repare que não há resultados com ambas as palavras *computador* e *analista*, ainda * computador* tarefas estão na parte superior dos resultados.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 990fe50cefabed7b63eee177b19ec6d74c9929ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494526"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715408"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -177,7 +177,7 @@ ms.locfileid: "39494526"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
+[msdn-set-azurermvmaemextension]:https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaemextension
 
 [planning-guide]:planning-guide.md (Máquinas de virtuais de planeamento e implementação de SAP do Azure)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Recursos)
@@ -835,7 +835,7 @@ Os passos que efetuar para configurar o proxy no Windows são diferentes da form
 Definições de proxy devem ser configuradas corretamente para a conta Sistema Local aceder à Internet. Se as definições de proxy não estão definidas pela diretiva de grupo, pode configurar as definições para a conta Sistema Local.
 
 1. Aceda a **começar**, introduza **gpedit. msc**e, em seguida, selecione **Enter**.
-1. Selecione **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Internet Explorer**. Certifique-se de que a definição **tornar o proxy de definições por computador (em vez de por utilizador)** está desativada ou não configurado.
+1. Selecione **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >  ** Internet Explorer**. Certifique-se de que a definição **tornar o proxy de definições por computador (em vez de por utilizador)** está desativada ou não configurado.
 1. Na **painel de controlo**, aceda à **Centro de compartilhamento e rede** > **opções da Internet**.
 1. Sobre o **ligações** separador, selecione a **definições de LAN** botão.
 1. Limpar o **detetar automaticamente as definições** caixa de verificação.

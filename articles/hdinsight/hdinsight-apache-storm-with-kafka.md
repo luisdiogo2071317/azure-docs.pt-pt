@@ -1,25 +1,20 @@
 ---
-title: 'Tutorial: Apache Kafka com Storm no HDInsight - Azure | Microsoft Docs'
+title: 'Tutorial: Apache Kafka com Storm no HDInsight - Azure '
 description: Saiba como criar um pipeline de transmissão em fluxo com o Apache Storm e o Apache Kafka no HDInsight. Neste tutorial, vai utilizar os componentes KafkaBolt e KafkaSpout para transmitir em fluxo dados a partir do Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/21/2018
-ms.author: larryfr
-ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: jasonh
+ms.openlocfilehash: a20cf616b119d208c9b2baa0f2cf608aa44c21ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626295"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595166"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com Kafka no HDInsight
 
@@ -82,7 +77,7 @@ O Apache Storm disponibiliza vários componentes para trabalhar com Kafka. São 
 
     * `org.apache.kafka.common.serialization.StringSerializer`: configura o bolt para serializar os dados como valor de cadeia.
 
-    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: faz o mapeamento desde a estrutura de dados do tuple utilizada dentro da topologia de Storm para o campos armazenados no Kafka.
+    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: faz o mapeamento da estrutura de dados do tuple utilizada dentro da topologia de Storm para os campos armazenados no Kafka.
 
 Estes componentes estão disponíveis no pacote `org.apache.storm : storm-kafka`. Utilize a versão do pacote que corresponde à versão do Storm. Para o HDInsight 3.6, a versão do Storm é a 1.1.0.
 Também precisa do pacote `org.apache.kafka : kafka_2.10`, que contém os componentes adicionais do Kafka. Utilize a versão do pacote que corresponde à versão do Kafka. Para o HDInsight 3.6, a versão do Kafka é a 0.10.0.0.
@@ -370,7 +365,7 @@ streams:
 
 ### <a name="property-substitutions"></a>Substituições de propriedades
 
-O projeto contém um ficheiro denominado `dev.properties` e que é utilizado para passar os parâmetros que as topologias utilizam. Define as seguintes propriedades:
+O projeto contém um ficheiro denominado `dev.properties` e que é utilizado para transmitir os parâmetros que as topologias utilizam. Define as seguintes propriedades:
 
 | ficheiro dev.properties | Descrição |
 | --- | --- |
@@ -618,7 +613,7 @@ O Kafka armazena os dados num _tópico_. Tem de criar o tópico antes de iniciar
 
 ## <a name="stop-the-topologies"></a>Parar as topologias
 
-A partir de uma sessão do SSH para o cluster do Storm, utilize os comandos seguintes para parar as topologias de leitor:
+A partir de uma sessão do SSH no cluster do Storm, utilize os comandos seguintes para parar as topologias do Storm:
 
   ```bash
   storm kill kafka-writer

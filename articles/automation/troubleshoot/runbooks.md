@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413863"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714490"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -38,18 +38,42 @@ Este erro ocorre se o nome de recurso de credencial não é válido ou se o nome
 
 Para determinar qual é o problema, siga os passos seguintes:  
 
-1. Certifique-se de que não tem carateres especiais, incluindo o **@** caráter no nome do elemento de credencial de automatização que está a utilizar para ligar ao Azure.  
+1. Certifique-se de que não tem carateres especiais, incluindo o ** @ ** caráter no nome do elemento de credencial de automatização que está a utilizar para ligar ao Azure.  
 2. Verifique o que pode usar o nome de utilizador e palavra-passe que são armazenados na credencial da automatização do Azure no seu editor do ISE do PowerShell local. Pode fazê-lo ao executar os seguintes cmdlets no ISE do PowerShell:  
 
    ```powershell
    $Cred = Get-Credential  
-   #Using Azure Service Management   
+   #Using Azure Service Management
    Add-AzureAccount –Credential $Cred  
    #Using Azure Resource Manager  
    Connect-AzureRmAccount –Credential $Cred
    ```
 
 3. Se a autenticação falhar localmente, isso significa que não configurou as suas credenciais do Azure Active Directory corretamente. Consulte a [a autenticação no Azure com o Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) mensagem de blogue para obter a conta do Azure Active Directory configurada corretamente.  
+
+4. Se ela se parece com um erro transitório, tente adicionar a lógica de repetição para sua rotina de autenticação para fazer a autenticação mais robusto.
+
+   ```powershell
+   # Get the connection "AzureRunAsConnection"
+   $connectionName = "AzureRunAsConnection"
+   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
+
+   $logonAttempt = 0
+   $logonResult = $False
+
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+   $LogonAttempt++
+   # Logging in to Azure...
+   $connectionResult = Connect-AzureRmAccount `
+      -ServicePrincipal `
+      -TenantId $servicePrincipalConnection.TenantId `
+      -ApplicationId $servicePrincipalConnection.ApplicationId `
+      -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+
+   Start-Sleep -Seconds 30
+   }
+   ```
 
 ### <a name="unable-to-find-subscription"></a>Cenário: Não é possível encontrar a subscrição do Azure
 
@@ -285,7 +309,7 @@ Algumas razões comuns que um módulo não pode importar com êxito para a autom
 
 Qualquer uma das seguintes soluções resolver o problema:
 
-* Certifique-se de que o módulo segue o seguinte formato: ModuleName.Zip **->** ModuleName ou um número de versão **->** (ModuleName.psm1, ModuleName.psd1)
+* Certifique-se de que o módulo segue o seguinte formato: ModuleName.Zip ** -> ** ModuleName ou um número de versão ** -> ** (ModuleName.psm1, ModuleName.psd1)
 * Abra o ficheiro. psd1 e ver se o módulo tiver dependências. Se assim for, carregar esses módulos para a conta de automatização.
 * Certifique-se de que quaisquer DLLs referenciado estão presentes na pasta do módulo.
 

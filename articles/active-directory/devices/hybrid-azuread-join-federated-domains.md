@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b5cd03098f4b4698c40966ceb79d5263b456a979
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430311"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628993"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios federados
 
@@ -50,6 +50,7 @@ Este tutorial parte do princípio de que está familiarizado com:
 
 -  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
 
+-  [Como controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
 
 
 Para configurar o cenário neste tutorial, terá de:
@@ -185,7 +186,7 @@ Além disso, tem de ativar **permitir atualizações à barra de estado por meio
 
 ## <a name="verify-the-registration"></a>Verifique se o registo
 
-Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet no  **[módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet no ** [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Ao utilizar o **Get-MSolDevice** cmdlet para verificar os detalhes do serviço:
 

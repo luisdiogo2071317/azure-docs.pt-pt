@@ -1,26 +1,21 @@
 ---
-title: Começar com o Apache Kafka – Guia de Início Rápido do Azure HDInsight | Microsoft Docs
+title: Introdução ao Apache Kafka – Início Rápido do Azure HDInsight
 description: Neste guia de início rápido, irá saber como criar um cluster do Apache Kafka no Azure HDInsight através do portal do Azure. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 10d4d4b3c0236cf8a1edd6976fe5af573703b237
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8f8ad9b7cc14d6a3d28832e4d14ef55e8c530c6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779230"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618114"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guia de Início Rápido: Criar um Kafka num cluster do HDInsight
+# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka num cluster do HDInsight
 
 O Kafka é uma plataforma open source de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
@@ -153,7 +148,7 @@ Nesta secção, irá obter as informações do anfitrião da API REST do Ambari 
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Para definir uma variável de ambiente com as informações do anfitrião Zookeeper e do mediador, utilize o comando seguinte:
+5. Para definir uma variável de ambiente com as informações do anfitrião do mediador do Kafka, utilize o comando seguinte:
 
     ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`

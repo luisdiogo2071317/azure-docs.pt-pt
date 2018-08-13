@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2a13a326aee29d002be18a3f40c4be9b4f2da4f1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949871"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523340"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (.NET Core e VS Code)
 
@@ -39,6 +39,10 @@ Neste guia, vai aprender a:
 - [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurar os Espaços de Programador do Azure
+
+A CLI do Azure e a extensão Azure Dev Spaces podem ser instaladas e executadas em computadores Windows, Mac ou Linux. Para Linux, são suportadas as seguintes distribuições: Ubuntu (18.04, 16.04 e 14.04), Debian 8 e 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 e SLES 12.
+
+Siga estes passos para configurar o Azure Dev Spaces:
 
 1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.38 ou superior).
 1. Configure Espaços de Programador no cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
