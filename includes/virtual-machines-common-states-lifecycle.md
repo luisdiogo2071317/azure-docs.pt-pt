@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 798bf5f2b2a408798539c2e30076c2eca15c214a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043836"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "40100002"
 ---
 Máquinas virtuais do Azure (VMs) passar por Estados diferentes que podem ser categorizados em *aprovisionamento* e *power* Estados. O objetivo deste artigo é descrever esses Estados e realçar especificamente quando os clientes são faturados por exemplo utilização. 
 
@@ -44,13 +44,13 @@ Faturação da utilização de instância
 </td>
 <td>
 <p>VM está a ser iniciado.</p>
-<code>"statuses": [</br>
-   {</br>
-      "code": "PowerState/starting",</br>
-       "level": "Info",</br>
-        "displayStatus": "VM starting"</br>
-    }</br>
-    ]</code></br>
+<code>"statuses": [<br>
+   {<br>
+      "code": "PowerState/starting",<br>
+       "level": "Info",<br>
+        "displayStatus": "VM starting"<br>
+    }<br>
+    ]</code><br>
 </td>
 <td>
 <p><b>Não lhe é faturada</b></p>
@@ -62,13 +62,13 @@ Faturação da utilização de instância
 </td>
 <td>
 <p>Estado de funcionamento normal para uma VM</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/running",</br>
- "level": "Info",</br>
- "displayStatus": "VM running"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/running",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM running"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faturado</b></p>
@@ -80,13 +80,13 @@ Faturação da utilização de instância
 </td>
 <td>
 <p>Este é o estado de transição. Quando concluída, será mostrado como **parado**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopping",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopping"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopping",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopping"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faturado</b></p>
@@ -99,13 +99,13 @@ Faturação da utilização de instância
 <td>
 <p>A VM foi encerrada para baixo de dentro do SO convidado ou com as APIs de desligado.</p>
 <p>Hardware ainda está alocado para a VM e permanece no anfitrião. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopped",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopped"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopped",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopped"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Não lhe é faturada&#42;</b></p>
@@ -117,13 +117,13 @@ Faturação da utilização de instância
 </td>
 <td>
 <p>Estado de transição. Quando concluída, a VM será mostrado como **Desalocado**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocating",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocating",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocating"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Não lhe é faturada&#42;</b></p>
@@ -135,13 +135,13 @@ Faturação da utilização de instância
 </td>
 <td>
 <p>A VM foi parada com êxito e removida do anfitrião. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocated",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocated"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocated",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocated"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Não lhe é faturada</b></p>
@@ -186,12 +186,12 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 <p><b>A criar</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating",</br>
- "level": "Info",</br>
- "displayStatus": "Creating"</br>
- }</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Creating"<br>
+ }</code><br>
 </td>
 </tr>
 <tr>
@@ -199,13 +199,13 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 <p><b>A atualizar</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/updating",</br>
- "level": "Info",</br>
- "displayStatus": "Updating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/updating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Updating"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -213,13 +213,13 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 <p><b>A eliminar</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/deleting",</br>
- "level": "Info",</br>
- "displayStatus": "Deleting"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/deleting",<br>
+ "level": "Info",<br>
+ "displayStatus": "Deleting"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -229,21 +229,21 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 <td width="366">
 <p>Se uma VM for criada com uma imagem de SO e não com uma imagem especializada, podem ser observados substates seguintes:</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; a VM está em execução e instalação do SO convidado está em curso. <p /> 
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning In progress"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning In progress"<br>
+ }<br>
+]</code><br>
 <p>2. <b>OSProvisioningComplete</b> &ndash; estado de curta duração. A VM passa rapidamente para **êxito** , a menos que quaisquer extensões têm de ser instalados. Instalar extensões pode demorar tempo. <br />
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning Complete"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning Complete"<br>
+ }<br>
+]</code><br>
 <p><b>Tenha em atenção</b>: aprovisionamento do SO pode fazer a transição para **falha** se ocorrer uma falha de sistema operacional ou o sistema operacional não for instalado no tempo. Os clientes serão faturados pela VM implantada na infraestrutura.</p>
 </td>
 </tr>
@@ -255,14 +255,14 @@ Quando a operação estiver concluída, a VM irão transitar para um dos seguint
 - **Foi efetuada com êxito** – concluíram as ações iniciadas pelo usuário.
 
     ```
- "statuses": \[ 
+ "statuses": [ 
  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
  }
- \]
+ ]
     ```
 
  
@@ -278,6 +278,7 @@ Quando a operação estiver concluída, a VM irão transitar para um dos seguint
       "message": "Operation abandoned due to internal error. Please try again later.",
       "time": "time"
     }
+    ]
     ```
 
 
