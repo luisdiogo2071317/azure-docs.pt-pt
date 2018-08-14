@@ -45,7 +45,7 @@ Neste tutorial, pode criar/atualizar código para efetuar as seguintes tarefas:
 * Siga os passos em <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Configurar o Ambiente de Desenvolvimento</a> para configurar o ambiente de desenvolvimento para o Kindle.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Adicionar uma nova aplicação ao portal de programador
-1. Primeiro, crie uma aplicação no [Portal do programador da Amazon].
+1. Primeiro, crie uma aplicação no [Portal de programador da Amazon].
    
     ![][0]
 2. Copie a **Chave da Aplicação**.
@@ -293,7 +293,7 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos Kin
 >[Enviar notificações push para dispositivos específicos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- URLs. -->
-[Portal do programador da Amazon]: https://developer.amazon.com/home.html
+[Portal de programador da Amazon]: https://developer.amazon.com/home.html
 [transferir o SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
