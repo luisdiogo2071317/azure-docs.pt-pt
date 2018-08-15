@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/30/2018
+ms.date: 8/13/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 5601f8d90f107636d2899a024772dccc8f75b69d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361370"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "40132313"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -79,6 +79,29 @@ O serviço de Firewall do Azure complementa a funcionalidade de grupo de seguran
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como posso configurar o Firewall do Azure com meus pontos finais de serviço?
 
 Para obter acesso seguro aos serviços de PaaS, recomendamos que pontos finais de serviço. Os clientes de Firewall do Azure podem optar por ativar pontos finais de serviço na sub-rede de Firewall do Azure e desativá-la em VNETs spoke ligada para se beneficiar dos dois recursos – segurança de ponto final de serviço e o registo central para todo o tráfego.
+
+### <a name="how-can-i-stop-and-start-azure-firewall"></a>Como parar e iniciar a Firewall do Azure?
+
+Pode utilizar o Azure PowerShell *desalocar* e *alocar* métodos.
+
+Por exemplo:
+
+```azurepowershell
+# Stop an exisitng firewall
+
+$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
+
+```azurepowershell
+#Start a firewall
+
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw.Allocate($vnet,$publicip)
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
 
 ### <a name="what-are-the-known-service-limits"></a>Quais são os limites de serviço conhecidas?
 
