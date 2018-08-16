@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39720881"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40133588"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -38,7 +38,7 @@ ms.locfileid: "39720881"
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Aumentámos recentemente todos os limites predefinidos para os limites máximos. Se não existir nenhuma **limite máximo** coluna, em seguida, o recurso não tem limites ajustável. Se tiver tem estes limites aumentados em suportam no passado e não vir os limites atualizados conforme mostrado a seguir, pode [abra um pedido de suporte do cliente online sem custos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Aumentámos recentemente todos os limites predefinidos para os limites máximos. Se não existir nenhuma **limite máximo** coluna, em seguida, o recurso não tem limites ajustável. Se tenha tido a estes limites aumentados em suporte no passado e não vir os limites atualizados conforme mostrado a seguir, pode [abra um pedido de suporte do cliente online sem custos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Recurso | Limite predefinido | 
 | --- | --- |

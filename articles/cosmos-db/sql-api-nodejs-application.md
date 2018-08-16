@@ -11,17 +11,18 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543859"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628159"
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB (Criar uma aplicação Web Node.js com o Azure Cosmos DB)
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js - Pré-visualização v2.0](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -62,15 +63,21 @@ Agora, vamos aprender a criar um projeto básico Olá, Mundo Node.js com a arqui
 1. Abra o seu terminal favorito, como a linha de comandos Node.js.
 2. Navegue para o diretório no qual pretende armazenar a nova aplicação.
 3. Utilizar o Express generator para gerar uma nova aplicação designada **todo**.
-   
-        express todo
+
+   ```bash
+   express todo
+   ```
 4. Abra o seu novo diretório **todo** e instale as dependências.
-   
-        cd todo
-        npm install
+
+   ```bash
+    cd todo
+    npm install
+   ```
 5. Execute a sua nova aplicação.
-   
-        npm start
+
+   ```bash
+   npm start
+   ```
 6. Pode ver a sua aplicação nova ao navegar para [http://localhost:3000](http://localhost:3000).
    
     ![Saiba Node.js - Captura de ecrã da aplicação Olá, Mundo numa janela do browser](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -81,11 +88,15 @@ Agora, vamos aprender a criar um projeto básico Olá, Mundo Node.js com a arqui
 O ficheiro **package.json** é um dos ficheiros criados na raiz do projeto. Este ficheiro contém uma lista de módulos adicionais que são necessários para a sua aplicação Node.js. Mais tarde, quando implementar esta aplicação em sites do Azure, este ficheiro servirá para determinar quais os módulos que devem estar instalados no Azure para suportar a sua aplicação. Ainda temos de instalar mais dois pacotes para este tutorial.
 
 1. De regresso ao terminal, instale o módulo **async** através do npm.
-   
-        npm install async --save
+
+   ```bash
+   npm install async --save
+   ```
 2. Instalar o módulo **documentdb** através do npm. Este é o módulo onde a magia do Azure Cosmos DB acontece.
-   
-        npm install documentdb --save
+
+   ```bash
+   npm install documentdb --save
+   ```
 
 ## <a name="_Toc395783180"></a>Passo 4: utilizar o serviço do Azure Cosmos DB numa aplicação de nó
 Esta ação toma conta de toda a definição e configuração iniciais. Passemos agora ao que interessa, isto é, escrever alguns códigos utilizando o Azure Cosmos DB.
@@ -377,7 +388,7 @@ Esta ação toma conta de toda a definição e configuração iniciais. Passemos
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. Este código define o ficheiro de configuração a utilizar e prossegue para a leitura de valores deste ficheiro em certas variáveis que iremos brevemente utilizar.
 4. Substitua as duas linhas seguintes no ficheiro **app.js**:

@@ -3,7 +3,7 @@ title: Receber eventos de Hubs de Eventos do Azure com a biblioteca .NET Standar
 description: Começar a receber mensagens com o EventProcessorHost em .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
-ms.author: sethm
-ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 40e81058b539b0ad6d642a6f7b22d75304fe5cdf
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127538"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002720"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Começar a receber mensagens com o Anfitrião do Processador de Eventos em .NET Standard
 
