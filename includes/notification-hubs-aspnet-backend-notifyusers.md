@@ -378,7 +378,7 @@ Em seguida, implemente a aplicação num site do Azure para que seja acessível 
 
 1. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
 
-2. Selecione **Serviço de Aplicações do Microsoft Azure** como o destino da publicação e selecione **Publicar. A janela Criar Serviço de Aplicações é aberta. Aí, pode criar todos os recursos do Azure necessários para executar a aplicação Web ASP.NET no Azure.
+2. Selecione **Serviço de Aplicações do Microsoft Azure** como o destino da publicação e selecione \*\*Publicar. A janela Criar Serviço de Aplicações é aberta. Aí, pode criar todos os recursos do Azure necessários para executar a aplicação Web ASP.NET no Azure.
 
     ![O mosaico do Serviço de Aplicações do Microsoft Azure][B15]
 
