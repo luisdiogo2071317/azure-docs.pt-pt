@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 2223c1ed95675a5091ce91a38a7901d6b61ac8d4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910064"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166970"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 Armazenamento Premium do Azure fornece suporte de discos de elevado desempenho e de baixa latência para máquinas virtuais (VMs) com a entrada/saída (e/s)-cargas de trabalho intensivas. Discos de VM que utilizam o armazenamento Premium armazenam dados em unidades de estado sólido (SSDs). Para tirar partido da velocidade e o desempenho de discos de armazenamento premium, pode migrar os discos de VM existentes para o armazenamento Premium.
@@ -150,7 +150,7 @@ Para obter mais informações, consulte [metas de escalabilidade e desempenho do
 Se estiver a utilizar contas de armazenamento premium para discos não geridos e seu aplicativo excede os destinos de escalabilidade de uma única conta de armazenamento, pode querer migrar para discos geridos. Se não quiser migrar para discos geridos, crie a sua aplicação para utilizar várias contas de armazenamento. Em seguida, particione os dados entre essas contas de armazenamento. Por exemplo, se quiser anexar discos de 51-TB em várias VMs, espalhá-los entre duas contas de armazenamento. 35 TB é o limite para uma conta de armazenamento premium única. Certifique-se de que uma conta de armazenamento premium única nunca tem mais de 35 TB de discos aprovisionados.
 
 ### <a name="premium-storage-disk-limits"></a>Limites de disco de armazenamento Premium
-Quando aprovisiona um disco de armazenamento premium, o tamanho do disco determina o máximo IOPS e débito (largura de banda). O Azure oferece sete tipos de discos de armazenamento premium: P4 (discos geridos apenas), P6 (discos geridos apenas), P10, P20, P30, P40 e P50. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e débito. Limites para os tipos de disco são descritas na tabela a seguir:
+Quando aprovisiona um disco de armazenamento premium, o tamanho do disco determina o máximo IOPS e débito (largura de banda). O Azure oferece oito tipos de discos de armazenamento premium: P4 (discos geridos apenas), P6 (discos geridos apenas), P10, P15, P20, P30, P40 e P50. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e débito. Limites para os tipos de disco são descritas na tabela a seguir:
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
