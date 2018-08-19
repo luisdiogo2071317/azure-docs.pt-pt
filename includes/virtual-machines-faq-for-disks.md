@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935807"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "40210852"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -67,7 +67,7 @@ Não. As VMs num conjunto de disponibilidade tem de utilizar todos os discos ger
 
 **É a opção predefinida no portal do Azure de Managed Disks?**
 
-Sim. 
+Sim.
 
 **Pode criar um disco gerido vazio?**
 
@@ -101,7 +101,6 @@ Os clientes podem tirar um instantâneo de seus discos geridos e, em seguida, ut
 
 Sim, os discos geridos e não são suportados. Recomendamos que utilize discos geridos para novas cargas de trabalho e migrar cargas de trabalho atuais para discos geridos.
 
-
 **Se eu criar um disco de 128 GB e, em seguida, aumente o tamanho para 130 GB, vou ser cobrado para o próximo tamanho de disco (256 GB)?**
 
 Sim.
@@ -130,6 +129,14 @@ Não. Não é possível atualizar a propriedade de nome de computador. A nova VM
 
 Não.
 
+**Ao criar um disco de um blob, existe qualquer relação continuamente existente com esse blob de origem?**
+
+Não, quando é criado o novo disco é uma cópia autônoma completa desse blob nesse momento, e não existe nenhuma ligação entre os dois. Se desejar, depois de criar o disco, o blob de origem pode ser eliminado sem afetar o disco criado recentemente de qualquer forma.
+
+**Posso renomear um disco gerido ou depois de este ter sido criado?**
+
+Para discos geridos não é possível mudar o nome-los. No entanto, pode mudar o nome de um disco não gerido, desde que não está atualmente ligado a um VHD ou VM.
+
 ## <a name="standard-ssd-disks-preview"></a>Discos SSD Standard (pré-visualização)
 
 **Quais são os discos de SSD Standard do Azure?**
@@ -137,7 +144,7 @@ Os discos SSD Standard são apoiados por suporte de dados de estado sólido, com
 
 <a id="standard-ssds-azure-regions"></a>**Quais são as regiões atualmente suportadas para discos de Standard SSD (pré-visualização)?**
 * Europa do Norte
-* Centro de França
+* França Central
 * EUA Leste 2
 * EUA Central
 * Canadá Central
@@ -177,11 +184,11 @@ Não, os discos Standard SSDs só estão disponíveis como Managed Disks.
 **SSD os discos Standard suportam "SLA de VM de instância única"?**
 Não, SSDs padrão não tem SLA de VM de instância única. Utilize discos de Premium SSD para VM SLA de instância única.
 
-## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks 
+## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
 
 **As alterações que são necessárias numa já existente do Azure Backup serviço antes/depois de migração de configuração para os Managed Disks?**
 
-Não são necessárias alterações. 
+Não são necessárias alterações.
 
 **Minhas cópias de segurança VM criadas através do serviço de cópia de segurança do Azure antes da migração continuarão a funcionar?**
 
@@ -189,15 +196,15 @@ Sim, as cópias de segurança funcionam perfeitamente.
 
 **As alterações que são necessárias numa já existente encriptação de discos do Azure antes/depois de migração de configuração para os Managed Disks?**
 
-Não são necessárias alterações. 
+Não são necessárias alterações.
 
 **É a migração automática de um dimensionamento de máquinas virtuais existentes conjuntos de discos não geridos para Managed Disks suportada?**
 
-Não. Pode criar um novo conjunto de dimensionamento com discos geridos com a imagem a partir do antigo conjunto de dimensionamento com discos não geridos. 
+Não. Pode criar um novo conjunto de dimensionamento com discos geridos com a imagem a partir do antigo conjunto de dimensionamento com discos não geridos.
 
 **Pode criar um disco gerido a partir de um instantâneo de blob de página antes de migrar para Managed Disks?**
 
-Não. Pode exportar um instantâneo de blob de página como um blob de página e, em seguida, crie um disco gerido a partir do blob de página exportado. 
+Não. Pode exportar um instantâneo de blob de página como um blob de página e, em seguida, crie um disco gerido a partir do blob de página exportado.
 
 **Pode falhar ao longo de minhas máquinas no local protegidas pelo Azure Site Recovery para uma VM com Managed Disks?**
 
@@ -211,7 +218,7 @@ Sim. Atualmente, a proteção do Azure para o Azure Site Recovery para VMs com d
 
 Sim
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e a encriptação do serviço de armazenamento 
+## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e a encriptação do serviço de armazenamento
 
 **É Azure Storage Service Encryption ativado por predefinição quando crio um disco gerido?**
 
