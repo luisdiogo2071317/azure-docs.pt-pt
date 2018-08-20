@@ -1,95 +1,194 @@
 ---
-title: Único início de sessão em gestão de aplicações empresariais no Azure Active Directory | Documentos da Microsoft
-description: Gerir definições de início de sessão único para aplicações empresariais na sua organização a partir da Galeria de aplicações do Azure Active Directory
+title: Configurar o início de sessão único - Azure Active Directory | Microsoft Docs
+description: Este tutorial utiliza o portal do Azure para configurar o início de sessão único baseado em SAML para uma aplicação com o Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 08/09/2018
 ms.author: barbkess
-ms.reviewer: asmalser
-ms.openlocfilehash: 81b959a08f55f13fd0bcadce32b65ba64f9bb270
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
-ms.translationtype: MT
+ms.reviewer: arvinh,luleon
+ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365496"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40036508"
 ---
-# <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerir o início de sessão único para aplicações empresariais
+# <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar o início de sessão único baseado em SAML para uma aplicação com o Azure Active Directory
 
-Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir definições de início de sessão único para aplicações empresariais. Aplicações empresariais são as aplicações que são implementadas e utilizadas na sua organização. Este artigo aplica-se especialmente para aplicações que foram adicionadas a partir da [Galeria de aplicações do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
+Este tutorial utiliza o portal do [Azure](https://portal.azure.com) para configurar o início de sessão único baseado em SAML para uma aplicação com o Azure Active Directory (Azure AD). Utilize este tutorial para configurar aplicações que não tenham um [tutorial específico](../saas-apps/tutorial-list.md). 
 
-## <a name="finding-your-apps-in-the-portal"></a>Encontrar as suas aplicações no portal
-Todas as aplicações de empresa que esteja configuradas para início de sessão único podem ser vistas e geridas no portal do Azure. Os aplicativos podem ser encontrados no **todos os serviços** &gt; **aplicações empresariais** seção do portal. 
 
-![Painel de aplicações empresariais](./media/configure-single-sign-on-portal/enterprise-apps-blade.png)
+Este tutorial utiliza o portal do Azure para:
 
-Selecione **todos os aplicativos** para ver uma lista de todas as aplicações que tenham sido configurados. Selecionar uma aplicação mostra os recursos para essa aplicação, onde relatórios podem ser visualizados para essa aplicação e uma variedade de definições pode ser gerenciada.
+> [!div class="checklist"]
+> * Selecionar o modo de início de sessão único baseado em SAML
+> * Configurar domínios e URLs específicos de URLs
+> * Configurar os atributos de utilizador
+> * Criar um certificado de assinatura de SAML
+> * Atribuir utilizadores à aplicação
+> * Configurar a aplicação para início de sessão único baseado em SAML
+> * Testar as definições de SAML
 
-Para gerir as definições de início de sessão únicas, selecione **início de sessão único**.
+## <a name="before-you-begin"></a>Antes de começar
 
-![Painel de recursos de aplicação](./media/configure-single-sign-on-portal/enterprise-apps-sso-blade.png)
+1. Se a aplicação não tiver sido adicionada ao seu inquilino do Azure AD, veja [Início Rápido: Adicionar uma aplicação ao seu inquilino do Azure AD](add-application-portal.md).
 
-## <a name="single-sign-on-modes"></a>Modos de início de sessão únicos
-**Início de sessão único** começa com um **modo** menu, que permite que o único início de sessão em modo de ser configurado. As opções disponíveis incluem:
+2. Peça ao fornecedor da sua aplicação as informações descritas em [Configurar domínio e URLs](#configure-domain-and-urls).
 
-* **Baseado em SAML logon** -esta opção está disponível se o aplicativo oferece suporte completo início de sessão único federado no Azure Active Directory utilizando o protocolo SAML 2.0, WS-Federation, ou OpenID connect protocolos.
-* **Com base em palavra-passe de início de sessão** -esta opção está disponível se o Azure AD suporta preenchendo para esta aplicação de formulário de palavra-passe.
-* **Ligado início de sessão** -anteriormente conhecido como "Existente início de sessão único", esta opção permite aos administradores colocar uma ligação a esta aplicação no iniciador de aplicações do painel de acesso do Azure AD ou Office 365 do seu usuário.
+3. Para testar os passos neste tutorial, recomendamos utilizar um ambiente de não produção. Se não tiver um ambiente de não produção do Azure AD, pode [obter uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
-Para obter mais informações sobre esses modos, consulte [como início de sessão único com o trabalho do Azure Active Directory](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+4. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global do inquilino do Azure AD, administrador de uma aplicação na cloud ou administrador de uma aplicação.
 
-## <a name="saml-based-sign-on"></a>Baseado em SAML início de sessão
-O **baseado em SAML logon** opção está dividida em quatro seções:
+## <a name="select-a-single-sign-on-mode"></a>Selecionar o modo de início de sessão único
 
-### <a name="domains-and-urls"></a>Domínios e URLs
-Isso é onde todos os detalhes sobre o domínio e URLs do aplicativo são adicionados ao seu diretório do Azure AD. Todas as entradas necessárias para tornar a aplicação de trabalho de início de sessão único são apresentadas diretamente na tela, enquanto todas as entradas opcionais podem ser visualizadas selecionando o **Mostrar definições de URL avançadas** caixa de verificação. A lista completa de entradas suportadas incluem:
+Depois de uma aplicação ter sido adicionada ao inquilino do Azure AD, está pronto para configurar o início de sessão único para a aplicação.
 
-* **início de sessão no URL** – onde o utilizador acede para iniciar sessão na aplicação. Se a aplicação está configurada para executar iniciadas pelo fornecedor de serviço início de sessão único, quando um utilizador abre este URL, o provedor de serviços redireciona para o Azure AD para autenticar e o utilizador iniciar sessão. 
-  * Se este campo é preenchido, o Azure AD utiliza o URL para iniciar a aplicação do Office 365 e o painel de acesso do Azure AD.
-  * Se este campo for omitido, em seguida, do Azure AD em vez disso, executa iniciada pelo fornecedor de identidade de início de sessão quando a aplicação é iniciada a partir do Office 365, o painel de acesso do Azure AD, ou do Azure AD único início de sessão no URL.
-* **Identificador** -este URI deve identificar exclusivamente o aplicativo para o qual o início de sessão único está a ser configurado. Este é o valor que o Azure AD envia para a aplicação como o parâmetro de audiência do SAML token e espera-se que o aplicativo validá-la. Este valor também é apresentado como o ID de entidade em quaisquer metadados SAML fornecido pela aplicação.
-* **URL de resposta** -o URL de resposta é onde a aplicação espera receber o token SAML. Isto é também referido como o URL do serviço de consumidor de asserção (ACS). Depois de estes serem introduzidas, clique em seguinte para continuar para o ecrã seguinte. Este ecrã fornece informações sobre o que precisa ser configurado no lado do aplicativo para ativá-la aceitar um token SAML do Azure AD.
-* **Estado de reencaminhamento** -o estado de reencaminhamento é um parâmetro opcional que pode ajudar a definir no aplicativo para onde redirecionar o utilizador após a conclusão de autenticação. Normalmente, o valor é um URL válido no aplicativo, no entanto, alguns aplicativos usam esse campo de forma diferente (consulte único início de sessão em documentação a aplicação para obter detalhes). A capacidade de definir o estado de reencaminhamento é um novo recurso que seja exclusivo para o novo portal do Azure.
+Para abrir as definições do início de sessão único:
 
-### <a name="user-attributes"></a>Atributos do Utilizador
-Isso é onde os administradores podem ver e editar os atributos que são enviados no token SAML que o Azure AD emite para a aplicação quando os utilizadores iniciarem sessão.
+1. No [portal do Azure](https://portal.azure.com), no painel de navegação do lado esquerdo, clique em **Azure Active Directory**. 
 
-O atributo editable apenas suportado é o **identificador de utilizador** atributo. O valor deste atributo é o campo no Azure AD que identifica unicamente cada usuário dentro do aplicativo. Por exemplo, se a aplicação foi implementada utilizando o "endereço de E-Mail" como o nome de utilizador e o identificador exclusivo, em seguida, o valor deve ser definido para o campo "user.mail" no Azure AD.
+2. No painel **Azure Active Directory,** clique em **Aplicações empresariais**. É aberto o painel **Todas as aplicações**, que mostra uma amostra aleatória das aplicações no seu inquilino do Azure AD. 
 
-### <a name="saml-signing-certificate"></a>Certificado de Assinatura de SAML
-Esta secção mostra os detalhes do certificado que o Azure AD utiliza para assinar os tokens SAML emitidos para o aplicativo sempre que o utilizador é autenticado. Ele permite que as propriedades do certificado atual que serão verificadas, incluindo a data de expiração.
+3. No menu **Tipo de Aplicação**, selecione **Todas as Aplicações** e clique em **Aplicar**.
 
-### <a name="application-configuration"></a>Configuração da aplicação
-A seção final fornece a documentação e/ou os controlos necessários para configurar a própria aplicação para utilizar o Azure Active Directory como um fornecedor de identidade.
+4. Introduza o nome da aplicação para a qual pretende configurar o início de sessão único. Escolha a sua própria aplicação ou utilize a aplicação GitHub-test que foi adicionada no início rápido [Adicionar uma aplicação](add-application-portal.md).
 
-O **configurar aplicação** submenus menu fornece novas concisas embedded instruções para configurar o aplicativo. Este é outro novo recurso exclusivo para o novo portal do Azure.
+5. Clique em **Início de sessão único**. Em **Modo de Início de Sessão Único**, é apresentado **Início de sessão baseado em SAML** como a opção predefinida. 
 
-> [!NOTE]
-> Para obter um exemplo completo de documentação do embedded, ver a aplicação do Salesforce.com. Documentação de aplicações adicionais está a ser adicionada continuamente.
-> 
-> 
+    ![Opções de configuração](media/configure-single-sign-on-portal/config-options.png)
 
-![Embedded docs](./media/configure-single-sign-on-portal/enterprise-apps-blade-embedded-docs.png)
+6. Clique em **Guardar**, na parte superior do painel. 
 
-## <a name="password-based-sign-on"></a>Com base em palavra-passe de início de sessão
-Se for suportado para a aplicação, selecionar o modo SSO baseado em palavra-passe e selecionando **guardar** instantaneamente configura-o para fazer o SSO baseado em palavra-passe. Para obter mais informações sobre a implementação do SSO de palavra-passe, consulte [como início de sessão único com o trabalho do Azure Active Directory](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+## <a name="configure-domain-and-urls"></a>Configurar domínio e URLs
 
-![Com base em palavra-passe de início de sessão](./media/configure-single-sign-on-portal/enterprise-apps-blade-password-sso.png)
+Para configurar o domínio e os URLs:
 
-## <a name="linked-sign-on"></a>O início de sessão ligado
-Se for suportado para a aplicação, selecionar o modo SSO ligado permite-lhe introduzir o URL que pretende que o painel de acesso do Azure AD ou Office 365 para redirecionar para quando os utilizadores clicam nesta aplicação. Para obter mais informações sobre SSO ligado (anteriormente conhecido como "SSO existente"), consulte [como início de sessão único com o trabalho do Azure Active Directory](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+1. Contacte o fornecedor da aplicação para obter as informações certas para as definições seguintes:
 
-![O início de sessão ligado](./media/configure-single-sign-on-portal/enterprise-apps-blade-linked-sso.png)
+    | Definição de configuração | Iniciado pelo SP | Iniciado pelo idP | Descrição |
+    |:--|:--|:--|:--|
+    | URL de início de sessão | Necessário | Não especificar | Quando um utilizador abre este URL, o fornecedor de serviços redireciona para o Azure AD para autenticar e iniciar a sessão do utilizador. O Azure AD utiliza o URL para iniciar a aplicação no Office 365 e no Painel de Acesso do Azure AD. Se for deixado em branco, o Azure AD realiza o início de sessão único iniciado pelo idP quando um utilizador inicia a aplicação no Office 365, no Painel de Acesso do Azure ou no URL de início de sessão único do Azure Ad.|
+    | Identificador (ID de Entidade) | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação para a qual o início de sessão único está a ser configurado. O Azure AD envia o identificador de volta para a aplicação como o parâmetro Audience do token SAML e espera-se que aquela o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece.|
+    | URL de Resposta | Opcional | Necessário | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). |
+    | Estado de Reencaminhamento | Opcional | Opcional | Especifica à aplicação para onde deve redirecionar o utilizador após a conclusão da autenticação. Normalmente, o valor é um URL válido para a aplicação; no entanto, algumas aplicações utilizam este campo de outra forma. Para obter mais informações, contacte o fornecedor da aplicação.
 
-## <a name="feedback"></a>Comentários
+2. Introduza as informações. Para ver todas as definições, clique em **Mostrar definições de URL avançadas**.
 
-Esperamos que como usar a melhor experiência do Azure AD. Mantenha os comentários chegando! Poste seus comentários e ideias para aprimoramento no **do Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nós estamos muito entusiasmados sobre como criar algo novo e interessante todos os dias e utilize as diretrizes a forma e definir o que devemos criar a seguir.
+    ![Opções de configuração](media/configure-single-sign-on-portal/config-urls.png)
+
+3. Na parte superior do painel, clique em **Guardar**.
+
+4. Esta secção tem um botão **Testar Definições de SAML**. Execute este teste mais à frente no tutorial, na secção [Testar o início de sessão único](#test-single-sign-on).
+
+## <a name="configure-user-attributes"></a>Configurar os atributos de utilizador
+
+Os atributos de utilizador permitem-lhe controlar as informações que o Azure AD envia à aplicação. Por exemplo, pode enviar o nome, o e-mail e o identificador de colaborador dos utilizadores. O Azure AD envia os atributos de utilizador à aplicação no token SAML sempre que um utilizador inicia sessão. 
+
+Estes atributos podem ser obrigatórios ou opcionais para fazer com que o início de sessão único funcione corretamente. Para obter mais informações, veja o [tutorial para aplicações específicas](../saas-apps/tutorial-list.md) ou peça-as ao fornecedor da aplicação.
+
+1. Para ver todas as opções, clique em **Ver e editar todos os outros atributos de utilizador**.
+
+    ![Configurar os atributos de utilizador](media/configure-single-sign-on-portal/config-user-attributes.png)
+
+2. Introduza o **Identificador de Utilizador**.
+
+    O identificador de utilizador identifica exclusivamente cada utilizador da aplicação. Por exemplo, se o endereço de e-mail for o nome de utilizador e o identificador exclusivo, defina o valor como *user.mail*.
+
+3. Para mais atributos do token SAML, clique em **Ver e editar todos os outros atributos de utilizador**.
+
+4. Para adicionar um atributo aos **Atributos do Token SAML**, clique em **Adicionar atributo**. Introduza o **Nome** e selecione o **Valor**, no menu.
+
+5. Clique em **Guardar**. O atributo novo é apresentado na tabela.
+ 
+## <a name="create-a-saml-signing-certificate"></a>Criar um certificado de assinatura de SAML
+
+O Azure AD utiliza um certificado para assinar os tokens SAML que envia à aplicação. 
+
+1. Para ver todas as opções, clique em **Mostrar opções avançadas de assinatura de certificados**.
+
+    ![Configurar os certificados](media/configure-single-sign-on-portal/config-certificate.png)
+
+2. Para configurar um certificado, clique em **Criar Novo Certificado**.
+
+3. No painel **Criar Novo Certificado**, defina a data de expiração e clique em **Guardar**.
+
+4. Clique em **Tornar o certificado novo ativo**.
+
+5. Para saber mais, veja [Advanced certificate signing options](certificate-signing-options.md) (Opções avançadas de assinatura de certificados).
+
+6. Para não perder as alterações que fez até ao momento, confirme que clica em **Guardar**, na parte superior do painel**Início de sessão único**. 
+
+## <a name="assign-users-to-the-application"></a>Atribuir utilizadores à aplicação
+
+Antes de implementar a aplicação na sua organização, a Microsoft recomenda testar o início de sessão único com vários utilizadores ou grupos.
+
+Para atribuir um utilizador ou grupo à aplicação:
+
+1. Abra a aplicação no portal, se ainda não estiver aberto.
+2. No painel da aplicação do lado esquerdo, clique em **Utilizadores e grupos**.
+3. Clique em **Adicionar utilizador**.
+4. No painel **Adicionar Atribuição**, clique em **Utilizadores e grupos**.
+5. Para encontrar um utilizador específico, escreva o nome do mesmo na caixa **Selecionar**, clique na caixa de verificação junto à fotografia de perfil ou ao logótipo do utilizador e clique em **Selecionar**. 
+6. Localize o seu nome de utilizador atual e selecione-o. Pode selecionar mais utilizadores, opcionalmente.
+7. No painel **Adicionar Atribuição**, clique em **Atribuir**. Quando terminar, os utilizadores selecionados aparecem na lista **Utilizadores e grupos**.
+
+## <a name="configure-the-application-to-use-azure-ad"></a>Configurar a aplicação para utilizar o Azure AD
+
+Está quase concluído.  Como último passo, tem de configurar a aplicação para utilizar o Azure AD como o fornecedor de identidade SAML. 
+
+1. Desloque-se até à parte inferior do painel **Início de sessão único** da aplicação. 
+
+    ![Configurar aplicação](media/configure-single-sign-on-portal/configure-app.png)
+
+2. Clique em **Configurar aplicação**, no portal, e siga as instruções.
+3. Crie contas de utilizador manualmente na aplicação, para efeitos de teste do início de sessão único. Crie as contas de utilizador que atribuiu à aplicação na [secção anterior](#assign-users-to-the-application).   Quando estiver pronto para implementar a aplicação na organização, recomendamos utilizar o aprovisionamento automático de utilizadores para criar as contas de utilizador automaticamente na aplicação.
+
+## <a name="test-single-sign-on"></a>Testar o início de sessão único
+
+Está pronto para testar as suas definições.  
+
+1. Abra as definições do início de sessão único para a sua aplicação. 
+2. Desloque-se para a secção **Configurar domínio e URLs**.
+2. Clique em **Testar Definições de SAML**. As opções do teste aparecem.
+
+    ![Opções do teste do início de sessão único](media/configure-single-sign-on-portal/test-single-sign-on.png) 
+
+3. Clique em **Iniciar sessão como o utilizador atual**. Desta forma, pode ver se o início de sessão único funciona consigo, o administrador.
+4. Em caso de erro, é apresentada uma mensagem de erro. Copie e cole os detalhes na caixa **Qual é o aspeto do erro?**.
+
+    ![Obter orientações de resolução](media/configure-single-sign-on-portal/error-guidance.png)
+
+5. Clique em **Obter orientações de resolução**. São apresentadas as causas dos erros e as orientações de resolução.  Neste exemplo, o utilizador não foi atribuído à aplicação.
+
+    ![Corrigir o erro](media/configure-single-sign-on-portal/fix-error.png)
+
+6. Leia as orientações de resolução e, se necessário, clique em **Corrigir**.
+
+7. Execute o teste novamente, até que seja concluído sem erros.
+
+
+
+## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, utilizou o portal do Azure para configurar uma aplicação para início de sessão único com o Azure AD. Encontrou a página de configuração do início de sessão único e configurou as definições do mesmo. Depois de concluída a configuração, atribuiu um utilizador à aplicação e configurou-a para utilizar o início de sessão único baseado em SAML. Depois de ter feito tudo isto, verificou se o início de sessão SAML estava a funcionar corretamente.
+
+Fez tudo isto:
+> [!div class="checklist"]
+> * Selecionou SAML para o modo de início de sessão único
+> * Contacto o fornecedor da aplicação para configurar o domínio e os URLs
+> * Configurou os atributos de utilizador
+> * Criou um certificado de assinatura de SAML
+> * Atribuiu manualmente utilizadores ou grupos à aplicação
+> * Configurou a aplicação para o início de sessão único
+> * Testou o início de sessão único baseado em SAML
+
+Para implementar a aplicação em mais utilizadores da organização, recomendamos utilizar o aprovisionamento automático.
+
+> [!div class="nextstepaction"]
+>[Learn how to assign users with automatic provisioning](configure-automatic-user-provisioning-portal.md) Saiba como atribuir utilizadores com o aprovisionamento automático)
+
 

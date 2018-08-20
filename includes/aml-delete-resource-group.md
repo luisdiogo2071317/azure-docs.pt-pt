@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574992"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513969"
 ---
-Se não pretender continuar a utilizar esta aplicação, elimine todos os recursos criados com este início rápido com os seguintes passos, para não lhe serem cobrados custos:
+>[!IMPORTANT]
+>Os recursos que criou podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do Azure Machine Learning. 
 
->[!NOTE]
->Estes recursos são úteis quando estiver a seguir os outros tutoriais dos serviços do Azure Machine Learning.
+
+Se não quiser utilizá-los, elimine os recursos que acabou de criar com este início rápido, para que não incorra em custos.
 
 1. No portal do Azure, selecione **Grupos de recursos** na extremidade esquerda.  
  
    ![Eliminar no portal do Azure](./media/aml-delete-resource-group/delete-resources.png)
 
-2. Na lista de grupos de recursos, selecione o grupo de recursos criado e, em seguida, clique em **Eliminar grupo de recursos**.
+1. Na lista, selecione o grupo de recursos que criou.
 
-3. Escreva o nome do grupo de recursos a eliminar e, em seguida, clique em **Eliminar**.
+1. Selecione **Eliminar grupo de recursos**.
 
+1. Escreva o nome do grupo de recursos e selecione **Eliminar**.
+
+   Se obtiver o erro “Não é possível eliminar o recurso antes de os recursos aninhados serem eliminados”, tem de eliminar os eventuais recursos aninhados primeiro. [Consulte esta secção da resolução de problemas](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) para obter detalhes. 

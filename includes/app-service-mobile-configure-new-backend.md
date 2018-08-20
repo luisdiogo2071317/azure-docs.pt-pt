@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 05/25/2018
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664013"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513913"
 ---
 1. Clique no botão **Serviços Aplicacionais**, selecione o back-end das Aplicações Móveis, selecione **Início Rápido**e, em seguida, selecione a plataforma de cliente (iOS, Android, Xamarin, Cordova).
 
     ![Portal do Azure com Início Rápido de Aplicações Móveis realçado][quickstart]
 
-2. Se não estiver configurada uma ligação de base de dados, crie uma efetuando o seguinte procedimento:
+1. Se não estiver configurada uma ligação de base de dados, crie uma efetuando o seguinte procedimento:
 
     ![Portal do Azure com Aplicações Móveis Ligar a base de dados][connect]
 
-    a. Crie uma base de dados SQL e o servidor novos.
+    a. Crie uma base de dados SQL e o servidor novos. Para concluir o passo 3, abaixo, poderá ter de deixar o campo do nome da cadeia de ligação com o valor predefinido MS_TableConnectionString.
 
     ![Portal do Azure com Aplicações Móveis criar base de dados e servidor novos][server]
 
@@ -35,9 +35,9 @@ ms.locfileid: "34664013"
 
     ![Notificação do portal do Azure, "Já tem uma ligação de dados"][already-connection]
 
-3. Em **2. Criar uma API de tabela**, selecione Node.js em **Linguagem do back-end**.
+1. Em **2. Criar uma API de tabela**, selecione Node.js em **Linguagem do back-end**.
 
-4. Aceite a confirmação e, em seguida, selecione **Criar tabela TodoItem**.
+1. Aceite a confirmação e, em seguida, selecione **Criar tabela TodoItem**.
     Esta ação cria uma nova tabela de itens pendentes na base de dados.
 
     >[!IMPORTANT]

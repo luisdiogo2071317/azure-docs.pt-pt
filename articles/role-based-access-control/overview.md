@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344754"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714456"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controlo de acesso baseado em funções (RBAC)?
 
@@ -79,16 +79,15 @@ O Azure introduziu operações de dados (atualmente em pré-visualização) que 
 
 O *âmbito* é o limite aplicado ao acesso. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
-No Azure, pode especificar um âmbito em vários níveis: subscrição, grupo de recursos ou recurso. Os âmbitos estão estruturados numa relação principal-subordinado em que cada subordinado terá apenas um principal.
+No Azure, pode especificar um âmbito a vários níveis: [grupo de gestão](../azure-resource-manager/management-groups-overview.md), subscrição, grupo de recursos ou recurso. Os âmbitos são estruturados numa relação de principal-subordinado.
 
 ![Âmbito de uma atribuição de função](./media/overview/rbac-scope.png)
 
-O acesso que atribuir a um âmbito principal é herdado no âmbito subordinado. Por exemplo:
+Quando concede acesso a um âmbito principal, os âmbitos secundários herdam essas permissões. Por exemplo:
 
+- Se atribuir a função [Proprietário](built-in-roles.md#owner) a um utilizador no âmbito de grupo de gestão, esse utilizador pode gerir tudo em todas as subscrições no grupo de gestão.
 - Se atribuir a função [Leitor](built-in-roles.md#reader) a um grupo no âmbito da subscrição, os membros desse grupo pode ver cada grupo de recursos e recurso na subscrição.
 - Se atribuir a função [Contribuidor](built-in-roles.md#contributor) a uma aplicação no âmbito do grupo de recursos, pode gerir recursos de todos os tipos no grupo de recursos, mas não outros grupos de recursos na subscrição.
-
-O Azure também inclui um âmbito acima das subscrições chamado [grupos de gestão](../azure-resource-manager/management-groups-overview.md), que está em pré-visualização. Os grupos de gestão são uma forma de gerir várias subscrições. Quando especificar o âmbito para o RBAC, pode especificar um grupo de gestão ou uma subscrição, grupo de recursos ou hierarquia de recursos.
 
 ### <a name="role-assignment"></a>Atribuição de função
 
