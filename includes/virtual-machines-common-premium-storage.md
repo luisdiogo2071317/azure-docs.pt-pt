@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2223c1ed95675a5091ce91a38a7901d6b61ac8d4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166970"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238996"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 Armazenamento Premium do Azure fornece suporte de discos de elevado desempenho e de baixa latência para máquinas virtuais (VMs) com a entrada/saída (e/s)-cargas de trabalho intensivas. Discos de VM que utilizam o armazenamento Premium armazenam dados em unidades de estado sólido (SSDs). Para tirar partido da velocidade e o desempenho de discos de armazenamento premium, pode migrar os discos de VM existentes para o armazenamento Premium.
@@ -52,7 +52,7 @@ Aqui estão alguns dos recursos do armazenamento Premium:
 
 * **Discos de armazenamento Premium**
 
-    O armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. O armazenamento Premium suporta uma grande variedade de VMs do Azure. Tem uma opção de sete tamanhos de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 e tamanhos de disco P6 ainda são suportados apenas para os Managed Disks. Cada tamanho de disco tem seus próprio especificações de desempenho. Dependendo dos requisitos de aplicação, pode anexar um ou mais discos à sua VM. Descrevemos as especificações de forma mais detalhada [metas de escalabilidade e desempenho do armazenamento Premium](#scalability-and-performance-targets).
+    O armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. O armazenamento Premium suporta uma grande variedade de VMs do Azure. Tem uma opção de sete tamanhos de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 e tamanhos de disco P6 ainda são suportados apenas para os Managed Disks. Cada tamanho de disco tem seus próprio especificações de desempenho. Dependendo dos requisitos de aplicação, pode anexar um ou mais discos à sua VM. Descrevemos as especificações de forma mais detalhada [metas de escalabilidade e desempenho do armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de páginas Premium**
 

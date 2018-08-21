@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40210852"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238296"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -142,18 +142,11 @@ Para discos geridos não é possível mudar o nome-los. No entanto, pode mudar o
 **Quais são os discos de SSD Standard do Azure?**
 Os discos SSD Standard são apoiados por suporte de dados de estado sólido, com a otimização de armazenamento económico para cargas de trabalho que necessitam de um desempenho consistente em níveis inferiores de IOPS de discos standard. Em pré-visualização, eles estão disponíveis num número limitado de regiões, com capacidade de gestão limitada (disponível por meio de modelos do Resource Manager).
 
-<a id="standard-ssds-azure-regions"></a>**Quais são as regiões atualmente suportadas para discos de Standard SSD (pré-visualização)?**
-* Europa do Norte
-* França Central
-* EUA Leste 2
-* EUA Central
-* Canadá Central
-* Ásia Oriental
-* Coreia do Sul
-* Leste da Austrália
+<a id="standard-ssds-azure-regions"></a>**Quais são as regiões atualmente suportadas para discos de Standard SSD?**
+Todas as regiões do Azure suportam agora os discos Standard SSD.
 
 **Como posso criar discos Standard SSD?**
-Atualmente, pode criar discos Standard SSD utilizando modelos Azure Resource Manager. Seguem-se os parâmetros necessários no modelo do Resource Manager para criar os discos de SSD Standard:
+Pode criar discos Standard SSD utilizando modelos do Azure Resource Manager, SDK, PowerShell ou a CLI. Seguem-se os parâmetros necessários no modelo do Resource Manager para criar os discos de SSD Standard:
 
 * *apiVersion* para a Microsoft. Compute tem de ser definido como `2018-04-01` (ou posterior)
 * Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
@@ -177,6 +170,9 @@ Para obter um exemplo de modelo completo de como criar um disco Standard SSD com
 **Posso converter a minha discos existentes para Standard SSD?**
 Sim, pode. Consulte a [converter geridas do Azure o armazenamento de discos de standard para premium e vice-versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) para as diretrizes gerais para a conversão de Managed Disks. E, utilize o seguinte valor para atualizar o tipo de disco para Standard SSD.
 -AccountType StandardSSD_LRS
+
+**O que é a vantagem de utilizar discos de SSD padrão em vez de HDD?**
+Os discos Standard SSD entregar melhor latência, consistência, disponibilidade e fiabilidade em comparação comparada discos HDD. Cargas de trabalho de aplicação executam muito mais facilidade em Standard SSD por causa disso. Tenha em atenção de que os discos de Premium SSD são a solução recomendada para a maioria das cargas de trabalho de produção de e/s intensiva. 
 
 **Pode utilizar SSDs padrão como discos não geridos?**
 Não, os discos Standard SSDs só estão disponíveis como Managed Disks.
