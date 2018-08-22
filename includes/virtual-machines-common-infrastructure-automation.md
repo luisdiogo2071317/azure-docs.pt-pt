@@ -19,8 +19,8 @@ Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à esc
 Aprenda a:
 
 - [Instalar e configurar o Ansible no Linux para utilização com o Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Criar uma VM básica](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Criar um ambiente de VM completo, incluindo recursos de suporte](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Criar uma máquina virtual Linux](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Gerir uma máquina virtual Linux](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef
