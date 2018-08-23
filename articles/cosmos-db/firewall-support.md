@@ -3,20 +3,20 @@ title: Controlo de acesso do Azure Cosmos DB suporte de firewall & IP | Document
 description: Saiba como utilizar políticas de controlo de acesso IP para o suporte de firewall em contas de base de dados do Azure Cosmos DB.
 keywords: Controlo de acesso IP, o suporte de firewall
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
-ms.author: sngun
-ms.openlocfilehash: e67fc5e00a638f116a69dbb36c60cf183cbde808
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: govindk
+ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857835"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055765"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Suporte de firewall do Azure Cosmos DB
 Para proteger os dados armazenados numa conta de base de dados do Azure Cosmos DB, o Azure Cosmos DB forneceu suporte para um segredo com base [modelo de autorização](https://msdn.microsoft.com/library/azure/dn783368.aspx) que utiliza um código de autenticação forte de mensagens baseada em Hash (HMAC). Agora, além do modelo de autorização com base secreta, Azure Cosmos DB suporta a política de controlado por controlos de acesso baseado em IP para o suporte de firewall de entrada. Esse modelo é semelhante para as regras de firewall de um sistema de base de dados tradicionais e fornece um nível adicional de segurança para a conta de base de dados do Azure Cosmos DB. Com esse modelo, agora pode configurar uma conta de base de dados do Azure Cosmos DB para ser acessível apenas a partir de um conjunto aprovado de computadores e/ou serviços em nuvem. Acesso a recursos do Azure Cosmos DB a partir esses aprovados conjuntos de máquinas e serviços ainda exigem o autor da chamada apresentar um token de autorização válida.

@@ -1,65 +1,65 @@
 ---
-title: 'Encriptação de base de dados Inativos: base de dados do Azure Cosmos | Microsoft Docs'
-description: Saiba como base de dados do Azure Cosmos fornece encriptação predefinido de todos os dados.
+title: 'Encriptação de base de dados em repouso: Azure Cosmos DB | Documentos da Microsoft'
+description: Saiba como o Azure Cosmos DB fornece encriptação de padrão de todos os dados.
 services: cosmos-db
-author: voellm
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: voellm
-ms.openlocfilehash: ab22cc64265efe3948256d81f964796b6d21d3d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rafats
+ms.openlocfilehash: 2b54f8c7d9f6427f3104d3c64c65cc555f68738a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611029"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059528"
 ---
-# <a name="azure-cosmos-db-database-encryption-at-rest"></a>Encriptação de base de dados do Cosmos DB do Azure Inativos
+# <a name="azure-cosmos-db-database-encryption-at-rest"></a>Encriptação de base de dados do Azure Cosmos DB em repouso
 
-Encriptação de Inativos é uma expressão que geralmente refere-se para a encriptação de dados nos dispositivos de armazenamento não volátil, tais como unidades de estado sólido (SSDs) e unidades de disco rígido (HDDs). Cosmos DB armazena as suas bases de dados primárias em SSDs. Os anexos de suporte de dados e as cópias de segurança são armazenadas no Blob storage do Azure, que geralmente é feito por HDDs. Com o lançamento da encriptação de Inativos para Cosmos DB, todas as suas bases de dados, anexos de suporte de dados e as cópias de segurança são encriptadas. Os dados agora são encriptados em trânsito (através da rede) e inativos (armazenamento não volátil), dando-lhe encriptação ponto a ponto.
+Encriptação inativa é uma expressão que normalmente refere-se para a encriptação de dados em dispositivos de armazenamento não volátil, como unidades de estado sólido (SSDs) e unidades de disco rígido (HDDs). O cosmos DB armazena seus bancos de dados primários no SSDs. Seus anexos de suporte de dados e as cópias de segurança são armazenadas no armazenamento de Blobs do Azure, que geralmente está protegido por HDDs. Com o lançamento de encriptação em repouso para o Cosmos DB, todos os seus bancos de dados, anexos de suporte de dados e as cópias de segurança são encriptadas. Os dados agora são encriptados em trânsito (através da rede) e em repouso (não-volátil armazenamento), dando-lhe encriptação ponto a ponto.
 
-Como um serviço de PaaS, Cosmos DB é muito fácil de utilizar. Porque todos os dados de utilizador armazenados na base de dados do Cosmos são encriptados em descanso e em transporte, não tem de efetuar qualquer ação. Outra forma coloque isto é que a encriptação de Inativos é "em" por predefinição. Não existem nenhum controlos para ativá-la ou desativar. Podemos fornecer esta funcionalidade, enquanto que continuam a corresponder aos nossos [SLA de disponibilidade e desempenho](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+Como um serviço PaaS, o Cosmos DB é muito fácil de usar. Como de todos os dados de utilizador armazenados no Cosmos DB são encriptados em descanso e em transporte, não precisa de realizar qualquer ação. Outra forma de colocar isso é que a encriptação inativa é "on" por predefinição. Não há nenhum controle para ativá-la ou desativar. Fornecemos esta funcionalidade enquanto Continuamos atender aos nossos [SLAs de disponibilidade e desempenho](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementação de encriptação de Inativos para Azure Cosmos DB
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementação de encriptação em repouso para o Azure Cosmos DB
 
-Encriptação de Inativos é implementada através da utilização de uma série de tecnologias de segurança, incluindo sistemas de armazenamento de chaves segura, redes encriptados e APIs de criptografia. Sistemas que desencriptar e processam os dados têm de comunicar com sistemas que gerir chaves. O diagrama mostra como armazenamento dos dados encriptados e a gestão de chaves são separadas. 
+Encriptação inativa é implementada com um número de tecnologias de segurança, incluindo sistemas de armazenamento de chaves segura, redes encriptadas e APIs criptográficas. Sistemas que desencriptam e processam os dados de tem para comunicar com sistemas que gerem as chaves. O diagrama mostra como o armazenamento de dados encriptados e o gerenciamento de chaves são separados. 
 
 ![Diagrama de design](./media/database-encryption-at-rest/design-diagram.png)
 
 O fluxo básico de um pedido de utilizador é o seguinte:
-- A conta de base de dados do utilizador é efetuada pronta e chaves de armazenamento da mesma são obtidas através de um pedido para o fornecedor de recursos do serviço de gestão.
-- Um utilizador cria uma ligação à base de dados do Cosmos através de transporte HTTPS/secure. (Os SDKs abstrair os detalhes.)
-- O utilizador envia um documento JSON armazenados através da ligação segura criada anteriormente.
-- O documento JSON está indexado, a menos que o utilizador foi desativada a indexação.
-- Ambos os documentos e o índice de dados JSON são escritos para proteger o armazenamento.
-- Periodicamente, os dados são ler a partir do armazenamento seguro e cópias de segurança para o arquivo de Blob do Azure encriptado.
+- A conta de base de dados de utilizador é efetuada pronta e chaves de armazenamento são obtidas através de um pedido para o fornecedor de recursos do serviço de gestão.
+- Um utilizador cria uma ligação ao Cosmos DB por meio de transporte seguro/HTTPS. (Os SDKs abstraem os detalhes.)
+- O usuário envia um documento JSON sejam armazenados através da ligação de segura criada anteriormente.
+- O documento JSON é indexado, a menos que o usuário desativou a indexação.
+- Ambos os dados JSON de índice e documentos são escritos para armazenamento seguro.
+- Periodicamente, os dados são ler a partir do armazenamento seguro e cópia de segurança para o Store de Blobs do Azure encriptado.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: quanto mais armazenamento do Azure custo se estiver ativada a encriptação do serviço de armazenamento?
-R: não há sem custos adicionais.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: como muito mais custa armazenamento do Azure se estiver ativada a encriptação do serviço de armazenamento?
+R: não existe nenhum custo adicional.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>P: quem gere as chaves de encriptação?
 R: as chaves são geridas pela Microsoft.
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>P: frequência rodam chaves de encriptação?
-R: Microsoft tem um conjunto de internas diretrizes para rotação chave de encriptação, o que se segue a BD do Cosmos. Não são publicadas as diretrizes específicas. Microsoft publicar o [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), que é utilizado como um subconjunto de orientação interno e tem as melhores práticas útil para programadores.
+### <a name="q-how-often-are-encryption-keys-rotated"></a>P: a frequência com que são revezadas de chaves de encriptação?
+R: Microsoft tem um conjunto de diretrizes internas para encriptação rotação de chaves, que segue o Cosmos DB. As diretrizes específicas não são publicadas. Microsoft publicar os [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), que é visto como um subconjunto de orientação interno e tem práticas úteis para desenvolvedores.
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso utilizar o meus próprio chaves de encriptação?
-R: cosmos DB é um serviço de PaaS e iremos rígido trabalhado para manter o serviço fáceis de utilizar. Tiver Detetámos que esta questão, muitas vezes, é pedido como uma pergunta de proxy para satisfazer um requisito de conformidade, como PCI-DSS. Como parte da criação desta funcionalidade, iremos trabalhou com auditores de conformidade para garantir que os clientes que utilizam Cosmos DB satisfazem os requisitos do seu sem a necessidade de gerir chaves próprios.
+### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso utilizar minhas própria chaves de encriptação?
+R: cosmos DB é um serviço PaaS e Trabalhamos duro para manter o serviço fácil de usar. Já Reparámos que essa pergunta, muitas vezes, é pedida como uma pergunta de proxy para atender um requisito de conformidade, como PCI-DSS. Como parte da criação desta funcionalidade, trabalhámos com auditores de conformidade para garantir que os clientes que utilizam o Cosmos DB cumprir os respetivos requisitos sem a necessidade de gerir chaves propriamente ditas.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: quais regiões tem a encriptação ativada?
-R: regiões do Azure Cosmos DB todos os tem a encriptação ativada para todos os dados de utilizador.
+R: todos regiões do Azure Cosmos DB tem a encriptação ativada para todos os dados de utilizador.
 
 ### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>P: encriptação afeta a latência de desempenho e débito SLAs?
-R: não há nenhum impacto ou alterações ao nível de desempenho SLAs agora que a encriptação de Inativos está ativada para todas as contas existentes e novas. Pode ler mais sobre o [SLA para a base de dados do Cosmos](https://azure.microsoft.com/support/legal/sla/cosmos-db) página para ver as garantias mais recentes.
+R: não existe impacto ou alterações no desempenho SLAs agora que a encriptação inativa está ativada para todas as contas novas e existentes. Pode ler mais sobre o [SLA para o Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) página para ver as garantias de mais recente.
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: o emulador local suporta a encriptação de Inativos?
-R: o emulador é uma ferramenta de programador/teste autónomo e não utiliza os serviços de gestão de chaves que o serviço de base de dados do Cosmos gerido utiliza. É a nossa recomendação para ativar o BitLocker em unidades onde estão a armazenar dados de teste de emulador confidenciais. O [emulador suporta alterar o diretório de dados predefinido](local-emulator.md) , bem como a utilização de uma localização conhecida.
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: o emulador local suporta a encriptação em repouso?
+R: o emulador é uma ferramenta de desenvolvimento/teste autónoma e não utiliza os serviços de gestão de chaves que utiliza o serviço gerido do Cosmos DB. Nossa recomendação é ativar o BitLocker em unidades em que estiver armazenando dados de teste do emulador confidenciais. O [emulador oferece suporte a alterar o diretório de dados predefinido](local-emulator.md) , bem como através de um local conhecido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma descrição geral de segurança de BD do Cosmos e melhoramentos mais recentes, consulte [segurança da base de dados de base de dados do Azure Cosmos](database-security.md).
-Para mais informações sobre certificações da Microsoft, consulte o [Centro de fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/).
+Para uma descrição geral de segurança do Cosmos DB e as melhorias mais recentes, consulte [segurança de base de dados do Azure Cosmos DB](database-security.md).
+Para obter mais informações sobre as certificações da Microsoft, consulte a [Centro de fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/).

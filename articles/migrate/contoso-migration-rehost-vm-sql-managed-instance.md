@@ -1,20 +1,8 @@
+---Título dos dados: realojar uma aplicação da Contoso no local ao migrar para as VMs do Azure e a instância gerida da base de dados SQL do Azure | Descrição do Microsoft Docs: Saiba como Contoso realojar uma aplicação no local em VMs do Azure e ao utilizar a instância gerida da base de dados SQL do Azure.
+serviços: autor de recuperação de sites: rayne wiselman manager: carmonm MS. Service de: MS. topic de recuperação de sites: MS. Date conceitual: 08/13/2018 MS. Author: raynew
+
 ---
-title: Uma aplicação da Contoso no local de realojamento ao migrar para as VMs do Azure e a instância gerida da base de dados SQL do Azure | Documentos da Microsoft
-description: Saiba como Contoso realojar uma aplicação no local em VMs do Azure e ao utilizar a instância gerida da base de dados SQL do Azure.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: raynew
-ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215344"
----
+
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração de Contoso: realojar a uma aplicação no local numa VM do Azure e a instância gerida do SQL da base de dados
 
 Neste artigo, Contoso migra a sua aplicação SmartHotel VM de front-end para uma VM do Azure com o serviço Azure Site Recovery. Contoso também migra a base de dados de aplicação para a instância gerida da base de dados SQL do Azure.
@@ -94,7 +82,7 @@ Neste cenário:
 
 Serviço | Descrição | Custo
 --- | --- | ---
-[Serviço de gestão de base de dados](https://docs.microsoft.com/azure/dms/dms-overview) | O serviço de gestão de base de dados permite a migração direta de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. | Saiba mais sobre [regiões suportadas](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) e [preços do serviço de gestão de base de dados](https://azure.microsoft.com/pricing/details/database-migration/).
+[Serviço de migração de base de dados](https://docs.microsoft.com/azure/dms/dms-overview) | O serviço de migração de base de dados permite a migração direta de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. | Saiba mais sobre [regiões suportadas](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) e [preços do serviço de migração de base de dados](https://azure.microsoft.com/pricing/details/database-migration/).
 [Instância gerida da base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | A instância gerida é um serviço de base de dados gerida que representa uma instância do SQL Server completamente gerida na cloud do Azure. Ele utiliza o mesmo código que a versão mais recente do motor de base de dados do SQL Server e tem as funcionalidades mais recentes, melhoramentos de desempenho e patches de segurança. | Utilizar uma SQL Database Managed Instance em execução no Azure incorre em encargos com base na capacidade. Saiba mais sobre [preços de instância gerida](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | O serviço Site Recovery orquestra e gere a migração e recuperação após desastre para VMs do Azure e VMs e servidores físicos no local.  | Durante a replicação para o Azure, são cobradas taxas de armazenamento do Azure.  VMs do Azure são criadas e incorrer em custos, quando ocorre a ativação pós-falha. Saiba mais sobre [custos de recuperação de sites e preços](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -117,7 +105,7 @@ Requisitos | Detalhes
 **Inscrever-se na pré-visualização de instância gerida** | Têm de estar inscritos na pré-visualização pública limitada a instância de gerida da base de dados do SQL. Precisa de uma subscrição do Azure para [Inscreva-se](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Inscrição pode demorar alguns dias para concluir, por isso, certifique-se para se inscrever antes de começar a implementar este cenário.
 **Subscrição do Azure** | Deve já tiver criado uma subscrição ao efetuar a avaliação no primeiro artigo desta série. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Se criar uma conta gratuita, será o administrador da sua subscrição e poderá executar todas as ações.<br/><br/> Se utilizar uma subscrição existente e não for o administrador da subscrição, terá de trabalhar com o administrador para lhe atribuir permissões de proprietário ou contribuinte.<br/><br/> Se precisar de permissões mais granulares, veja [utilizar o controlo de acesso baseado em funções para gerir o acesso do Site Recovery](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Recuperação de sites (no local)** | A instância do servidor vCenter no local deve estar a executar a versão 5.5, 6.0 ou 6.5<br/><br/> Um anfitrião ESXi a executar a versão 5.5, 6.0 ou 6.5<br/><br/> Um ou mais VMs de VMware em execução no anfitrião ESXi.<br/><br/> As VMs têm de cumprir [requisitos do Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Suportado [rede](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) e [armazenamento](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) configuração.
-**Serviço de gestão de base de dados** | Para o serviço de gestão de base de dados, é necessário um [compatível no dispositivo VPN local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Tem de ser capaz de configurar o dispositivo VPN no local. Tem de ter um endereço IPv4 público de face externa. O endereço não pode estar localizado atrás de um dispositivo NAT.<br/><br/> Certifique-se de que ter acesso à base de dados do SQL Server no local.<br/><br/> Firewall do Windows deve ser capaz de acessar o motor de base de dados de origem. Saiba como [configurar a Firewall do Windows para acesso ao motor de base de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Se existir uma firewall na frente do seu computador de base de dados, adicione regras para permitir o acesso ao banco de dados e arquivos por meio da porta SMB 445.<br/><br/> As credenciais utilizadas para ligar à instância do SQL Server de origem e que a instância gerida de destino têm de ser membros da função de servidor sysadmin.<br/><br/> Precisa de uma rede partilhar na sua base de dados no local que o serviço de gestão de base de dados pode usar para criar cópias de segurança da base de dados de origem.<br/><br/> Certifique-se de que a conta de serviço a executar a instância do SQL Server de origem tem permissões de escrita na partilha de rede.<br/><br/> Tome nota de um utilizador do Windows e a palavra-passe que tem permissões de controlo total na partilha de rede. O serviço de gestão de base de dados representa estas credenciais de utilizador para carregar ficheiros de cópia de segurança para o contentor de armazenamento do Azure.<br/><br/> O processo de instalação do SQL Server Express define o protocolo de TCP/IP para **desativado** por predefinição. Certifique-se de que está ativada.
+**Serviço de migração de base de dados** | Para o serviço de migração de base de dados, é necessário um [compatível no dispositivo VPN local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Tem de ser capaz de configurar o dispositivo VPN no local. Tem de ter um endereço IPv4 público de face externa. O endereço não pode estar localizado atrás de um dispositivo NAT.<br/><br/> Certifique-se de que ter acesso à base de dados do SQL Server no local.<br/><br/> Firewall do Windows deve ser capaz de acessar o motor de base de dados de origem. Saiba como [configurar a Firewall do Windows para acesso ao motor de base de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Se existir uma firewall na frente do seu computador de base de dados, adicione regras para permitir o acesso ao banco de dados e arquivos por meio da porta SMB 445.<br/><br/> As credenciais utilizadas para ligar à instância do SQL Server de origem e que a instância gerida de destino têm de ser membros da função de servidor sysadmin.<br/><br/> Precisa de uma rede partilhar na sua base de dados no local que o serviço de migração de base de dados pode usar para criar cópias de segurança da base de dados de origem.<br/><br/> Certifique-se de que a conta de serviço a executar a instância do SQL Server de origem tem permissões de escrita na partilha de rede.<br/><br/> Tome nota de um utilizador do Windows e a palavra-passe que tem permissões de controlo total na partilha de rede. O serviço de migração de base de dados representa estas credenciais de utilizador para carregar ficheiros de cópia de segurança para o contentor de armazenamento do Azure.<br/><br/> O processo de instalação do SQL Server Express define o protocolo de TCP/IP para **desativado** por predefinição. Certifique-se de que está ativada.
 
 ## <a name="scenario-steps"></a>Passos do cenário
 
@@ -125,11 +113,11 @@ Eis como Contoso planos configurar a implementação:
 
 > [!div class="checklist"]
 > * **Passo 1: Configurar uma instância gerida do SQL da base de dados**: a Contoso precisa de uma instância gerida previamente criada para o qual irá migrar a base de dados do SQL Server no local.
-> * **Passo 2: Preparar o serviço de gestão de base de dados**: Contoso tem de registar o fornecedor de migração de base de dados, criar uma instância e, em seguida, crie um projeto de serviço de gestão de base de dados. Contoso também tem de configurar uma assinatura de acesso partilhado (SAS) Uniform Resource Identifier (URI) para o serviço de gestão de base de dados. Um URI de SAS fornece acesso delegado a recursos na conta de armazenamento da Contoso, para que a Contoso pode conceder permissões limitadas a objetos de armazenamento. Contoso configura um URI de SAS, para que o serviço de gestão de base de dados pode aceder ao contentor de conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança do SQL Server.
+> * **Passo 2: Preparar o serviço de migração de base de dados**: Contoso tem de registar o fornecedor de migração de base de dados, criar uma instância e, em seguida, crie um projeto de serviço de migração de base de dados. Contoso também tem de configurar uma assinatura de acesso partilhado (SAS) Uniform Resource Identifier (URI) para o serviço de migração de base de dados. Um URI de SAS fornece acesso delegado a recursos na conta de armazenamento da Contoso, para que a Contoso pode conceder permissões limitadas a objetos de armazenamento. Contoso configura um URI de SAS, para que o serviço de migração de base de dados pode aceder ao contentor de conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança do SQL Server.
 > * **Passo 3: Preparar o Azure para o Site Recovery**: Contoso tem de criar uma conta de armazenamento para armazenar dados replicados para o Site Recovery. Ele também tem de criar um cofre dos serviços de recuperação do Azure.
 > * **Passo 4: Preparar o VMware no local para o Site Recovery**: Contoso vai preparar contas para instalação de deteção e o agente VM ligar a VMs do Azure após a ativação pós-falha.
 > * **Passo 5: Replicar VMs**: para configurar a replicação, Contoso configurar os ambientes de origem e destino de recuperação de sites, configura uma política de replicação e começa a replicar VMs para o armazenamento do Azure.
-> * **Passo 6: Migrar a base de dados com o serviço de gestão de base de dados**: Contoso migra a base de dados.
+> * **Passo 6: Migrar a base de dados com o serviço de migração de base de dados**: Contoso migra a base de dados.
 > * **Passo 7: Migrar as VMs com o Site Recovery**: Contoso executa uma ativação pós-falha de teste para verificar se tudo está a funcionar. Em seguida, a Contoso é executada uma ativação pós-falha completa para migrar as VMs para o Azure.
 
 ## <a name="step-1-prepare-a-sql-database-managed-instance"></a>Passo 1: Preparar uma instância gerida da base de dados SQL
@@ -229,36 +217,36 @@ Agora, a Contoso pode aprovisionar uma instância gerida do SQL da base de dados
 
 Saiba como [aprovisionar uma instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-the-database-management-service"></a>Passo 2: Preparar o serviço de gestão de base de dados
+## <a name="step-2-prepare-the-database-migration-service"></a>Passo 2: Preparar o serviço de migração de base de dados
 
-Para preparar o serviço de gestão de base de dados, a Contoso precisa de fazer algumas coisas:
+Para preparar o serviço de migração de base de dados, a Contoso precisa de fazer algumas coisas:
 
-- Registe o fornecedor de serviço de gestão de base de dados no Azure.
-- Fornece o serviço de gestão de base de dados com acesso ao armazenamento do Azure para carregar os ficheiros de cópia de segurança que são utilizados para migrar uma base de dados. Para fornecer acesso ao armazenamento do Azure, a Contoso cria um contentor de armazenamento de Blobs do Azure. Contoso gera um URI de SAS para o contentor de armazenamento de Blobs. 
-- Crie um projeto de serviço de gestão de base de dados.
+- Registe o fornecedor de serviço de migração de base de dados no Azure.
+- Fornece o serviço de migração de base de dados com o acesso ao armazenamento do Azure para carregar os ficheiros de cópia de segurança que são utilizados para migrar uma base de dados. Para fornecer acesso ao armazenamento do Azure, a Contoso cria um contentor de armazenamento de Blobs do Azure. Contoso gera um URI de SAS para o contentor de armazenamento de Blobs. 
+- Crie um projeto de serviço de migração de base de dados.
 
 Em seguida, a Contoso é concluído os passos seguintes:
 
 1. Contoso regista o fornecedor de migração de base de dados na sua subscrição.
-    ![Serviço de gestão de base de dados - registar](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+    ![Serviço de migração de base de dados - registar](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
-2. Contoso cria um contentor de armazenamento de Blobs. Contoso gera um URI de SAS para que o serviço de gestão de base de dados pode acessá-lo.
+2. Contoso cria um contentor de armazenamento de Blobs. Contoso gera um URI de SAS para que o serviço de migração de base de dados pode acessá-lo.
 
-    ![Serviço de gestão de base de dados: gerar um URI de SAS](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
+    ![Serviço de migração de base de dados: gerar um URI de SAS](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
-3. Contoso cria uma instância de serviço de gestão de base de dados. 
+3. Contoso cria uma instância de serviço de migração de base de dados. 
 
-    ![Serviço de gestão de base de dados - criar instância](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
+    ![Serviço de migração de base de dados - criar instância](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
-4. Contoso coloca a instância do serviço de gestão de base de dados no **PROD-DC-EUS2** sub-rede da **VNET-PROD-DC-EUS2** rede virtual.
-    - Contoso coloca o serviço de gestão de base de dados existe porque o serviço tem de estar numa rede virtual que pode aceder a VM do servidor de SQL no local através de um gateway VPN.
-    - O **VNET-PROD-EUS2** é configurar o peering **VNET-HUB-EUS2** e está autorizado a utilizar gateways remotos. O **utilizar gateways remotos** opção garante que o serviço de gestão de base de dados pode comunicar conforme necessário.
+4. Contoso coloca a instância do serviço de migração de base de dados no **PROD-DC-EUS2** sub-rede da **VNET-PROD-DC-EUS2** rede virtual.
+    - Contoso coloca o serviço de migração de base de dados existe porque o serviço tem de estar numa rede virtual que pode aceder a VM do servidor de SQL no local através de um gateway VPN.
+    - O **VNET-PROD-EUS2** é configurar o peering **VNET-HUB-EUS2** e está autorizado a utilizar gateways remotos. O **utilizar gateways remotos** opção garante que o serviço de migração de base de dados pode comunicar conforme necessário.
 
-        ![Serviço de gestão de base de dados - configurar rede](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
+        ![Serviço de migração de base de dados - configurar rede](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
 *Precisa de mais ajuda?*
 
-- Saiba como [configurar o serviço de gestão de base de dados](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
+- Saiba como [configurar o serviço de migração de base de dados](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
 - Saiba como [criar e utilizar a SAS](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
@@ -451,15 +439,15 @@ Agora, a Contoso pode começar WebVM a replicar.
 
 Pode ler um passo a passo completa dos seguintes passos no [ativar a replicação](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>Passo 6: Migrar a base de dados com o serviço de gestão de base de dados
+## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>Passo 6: Migrar a base de dados com o serviço de migração de base de dados
 
-A Contoso precisa de criar um projeto de serviço de gestão de base de dados e, em seguida, migre a base de dados.
+A Contoso precisa de criar um projeto de serviço de migração de base de dados e, em seguida, migre a base de dados.
 
-### <a name="create-a-database-management-service-project"></a>Criar um projeto de serviço de gestão de base de dados
+### <a name="create-a-database-migration-service-project"></a>Criar um projeto de serviço de migração de base de dados
 
-1. Contoso cria um projeto de serviço de gestão de base de dados. Contoso seleciona os **SQL Server** tipo de servidor de origem. Contoso seleciona **instância gerida da base de dados SQL do Azure** como destino.
+1. Contoso cria um projeto de serviço de migração de base de dados. Contoso seleciona os **SQL Server** tipo de servidor de origem. Contoso seleciona **instância gerida da base de dados SQL do Azure** como destino.
 
-     ![Serviço de gestão de base de dados - novo projeto de migração](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
+     ![Serviço de migração de base de dados - novo projeto de migração](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
 
 2. É aberto o Assistente de migração.
 
@@ -467,34 +455,34 @@ A Contoso precisa de criar um projeto de serviço de gestão de base de dados e,
 
 1. No Assistente de migração, a Contoso Especifica a VM de origem onde está localizada a base de dados no local. Contoso insere as credenciais para aceder a base de dados.
 
-    ![Serviço de gestão de base de dados - detalhes da origem](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
+    ![Serviço de migração de base de dados - detalhes da origem](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
 2. Contoso seleciona a base de dados para migrar (**SmartHotel.Registration**):
 
-    ![Serviço de gestão de base de dados - bases de dados de selecionar origem](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Serviço de migração de base de dados - bases de dados de selecionar origem](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
 3. Para o destino, a Contoso introduz o nome da instância gerida no Azure. Contoso introduz as credenciais de acesso para a instância gerida.
 
-    ![Serviço de gestão de base de dados - detalhes do destino](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
+    ![Serviço de migração de base de dados - detalhes do destino](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
 4. Na **nova atividade** > **executar migração**, Contoso Especifica as definições para executar a migração:
     - Credenciais de origem e de destino.
     - A base de dados para migrar.
-    - A rede partilhar esse Contoso criada na VM no local. O serviço de gestão de base de dados leva as cópias de segurança de origem para esta partilha. 
+    - A rede partilhar esse Contoso criada na VM no local. O serviço de migração de base de dados leva as cópias de segurança de origem para esta partilha. 
         - A conta de serviço que executa a instância do SQL Server de origem tem de ter permissões de escrita nesta partilha.
         - O caminho do FQDN para a partilha tem de ser utilizado.
-    - O URI de SAS que fornece o serviço de gestão de base de dados com o acesso ao contentor de conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança para a migração.
+    - O URI de SAS que fornece o serviço de migração de base de dados com o acesso ao contentor de conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança para a migração.
 
-        ![Serviço de gestão de base de dados - configurar definições de migração](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
+        ![Serviço de migração de base de dados - configurar definições de migração](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Contoso guarda a migração e, em seguida, executa-lo.
 6. Na **descrição geral**, Contoso monitoriza o estado de migração.
 
-    ![Serviço de gestão de base de dados - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
+    ![Serviço de migração de base de dados - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
 7. Quando a migração estiver concluída, a Contoso verifica que os bancos de dados de destino existem na instância gerida.
 
-    ![Serviço de gestão de base de dados – verificar a migração de base de dados](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
+    ![Serviço de migração de base de dados – verificar a migração de base de dados](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
 ## <a name="step-7-migrate-the-vm-by-using-site-recovery"></a>Passo 7: Migrar a VM com o Site Recovery
 
@@ -592,7 +580,7 @@ Contoso efetua uma cópia de segurança dos dados no WEBVM com o serviço de có
 
 ## <a name="conclusion"></a>Conclusão
 
-Neste artigo, Contoso realojar a aplicação de SmartHotel no Azure ao migrar a aplicação de VM de front-end para o Azure com o serviço de recuperação de sites. Contoso migra a base de dados no local para uma instância de gerida de base de dados do Azure SQL com o serviço de gestão de base de dados do Azure.
+Neste artigo, Contoso realojar a aplicação de SmartHotel no Azure ao migrar a aplicação de VM de front-end para o Azure com o serviço de recuperação de sites. Contoso migra a base de dados no local para uma instância de gerida de base de dados do Azure SQL utilizando o serviço de migração de base de dados do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

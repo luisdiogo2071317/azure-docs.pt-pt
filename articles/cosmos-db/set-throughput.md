@@ -2,19 +2,19 @@
 title: Débito de aprovisionamento para o Azure Cosmos DB | Documentos da Microsoft
 description: Saiba como configurar o débito aprovisionado para sua containsers, coleções, gráficos e tabelas do Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600164"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055364"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter o débito de contentores do Azure Cosmos DB e a base de dados
 
@@ -262,20 +262,6 @@ Um método para estimar a quantidade de débito reservado exigida pela sua aplic
 > Se tiver de tipos de item que irão muito diferente em termos de tamanho e o número de propriedades indexadas, em seguida, registe as cobranças de unidades de pedido de operação aplicável associada a cada *tipo* de item de típico.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>Obter os encargos de pedidos para contas da API do Gremlin 
-
-Eis um exemplo sobre como obter os encargos de pedidos para contas de API do Gremlin com a biblioteca de Gremlin.Net. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-Além do método acima, também pode utilizar o cabeçalho "x-ms-total-pedido-cobrança" para cálculos de unidades de pedido.
-
 
 ## <a name="throughput-faq"></a>FAQ de débito
 

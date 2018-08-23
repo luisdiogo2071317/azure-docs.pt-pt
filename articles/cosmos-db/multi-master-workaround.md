@@ -1,44 +1,44 @@
 ---
-title: Efetuar multirregião escritas e leituras escolhendo o direito de chave de criação de partições | Microsoft Docs
-description: Saiba mais sobre como conceber arquiteturas de aplicações com locais leituras e escritas em várias regiões geográficas com base de dados do Azure Cosmos escolhendo uma chave de partição.
+title: Executar várias regiões escritas e leituras escolhendo o direito a chave de criação de partições | Documentos da Microsoft
+description: Saiba mais sobre como conceber arquiteturas de aplicativos com locais leituras e escritas em várias regiões geográficas com o Azure Cosmos DB ao escolher uma chave de partição.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 06/6/2018
-ms.author: sngun
+ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18f036a259bbec98382927ad1d9e8f654b56850b
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3d38b7cd7d1f28f706e94782602926abc8fc11e3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850366"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057603"
 ---
-# <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>Efetuar multirregião escritas e leituras escolhendo o direito de chave de criação de partições
+# <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>Executar várias regiões escritas e leituras escolhendo o direito a chave de criação de partições
 
-BD do Azure do Cosmos suporta chave na mão [replicação global](distribute-data-globally.md), que permite-lhe distribuir dados para várias regiões com acesso de latência baixa em qualquer lugar na carga de trabalho. Este modelo é geralmente utilizado para cargas de trabalho do publicador/consumidor onde existe um escritor numa única região geográfica e leitores globalmente distribuídos noutras regiões (leitura). 
+Azure Cosmos DB suporta de chave na mão [replicação global](distribute-data-globally.md), que permite que distribua os dados em várias regiões com acesso de baixa latência em qualquer lugar na carga de trabalho. Esse modelo é geralmente utilizado para cargas de trabalho do publicador/consumidor quando existir um gravador numa única região geográfica e distribuídos globalmente leitores noutras regiões (leitura). 
 
-Também pode utilizar o suporte de replicação global de BD Cosmos do Azure para criar aplicações no qual escritores e leitores globalmente distribuídos. Este documento descreve um padrão que permite a alcançar escrita local e acesso de leitura local para escritores distribuídas através do Azure Cosmos DB.
+Também pode utilizar o suporte de replicação global do Azure Cosmos DB para criar aplicativos em que gravadores e leitores são distribuídos globalmente. Este documento descreve um padrão que permite a obtenção de escrita local e o local de acesso de leitura para os escritores distribuídos com o Azure Cosmos DB.
 
-## <a id="ExampleScenario"></a>Publicar conteúdo - um cenário de exemplo
-Vamos ver um cenário do mundo real para descrever como pode utilizar padrões globalmente distribuída várias-region/várias-master leitura escrita com a base de dados do Azure Cosmos. Considere uma plataforma de publicação conteúda incorporada numa base de dados do Azure Cosmos. Seguem-se alguns requisitos que esta plataforma tem de cumprir para uma experiência de utilizador excelente para consumidores e Publicadores.
+## <a id="ExampleScenario"></a>Publicação de conteúdo - um cenário de exemplo
+Vamos examinar um cenário do mundo real para descrever como é possível usar padrões e distribuída globalmente várias-region/várias-master leitura escrita com o Azure Cosmos DB. Considere uma plataforma de publicação de conteúdo criada no Azure Cosmos DB. Seguem-se alguns requisitos que esta plataforma tem de cumprir para obter uma experiência de utilizador fantástica para os editores e consumidores.
 
-* Autores e os subscritores são distribuídos pelo mundo 
-* Os autores tem de publicar artigos (escrita) para os respetivos região local (mais próximo)
-* Os autores tem leitores/subscritores dos respetivos artigos são distribuídos em todo o mundo. 
-* Os subscritores devem receber uma notificação quando novos artigos são publicados.
-* Subscritores tem de conseguir ler artigos da sua região local. Também deve ser capazes de adicionar revisões para estes artigos. 
-* Qualquer pessoa, incluindo o autor dos artigos deve ser capaz de ver todas as revisões exposta artigos a partir de uma região local. 
+* Autores e os assinantes estão distribuídos pelo mundo 
+* Os autores tem de publicar artigos (escrita) para a respetiva região (mais próxima dos) local
+* Os autores de tem os leitores/subscritores dos respetivos artigos que são distribuídos em todo o mundo. 
+* Os assinantes devem receber uma notificação quando novas publicações são publicadas.
+* Os assinantes tem de ser capazes de ler os artigos da respetiva região local. Também deve ser capazes de adicionar revisões os artigos seguintes. 
+* Qualquer pessoa, incluindo o autor dos artigos deve ser capaz de ver todas as revisões anexados a artigos de uma região local. 
 
-Partindo do princípio de milhões de consumidores e publicadores com billions dos artigos, logo que temos de confront os problemas de dimensionamento, juntamente com guaranteeing localidade de acesso. Tal como acontece com a maior parte dos problemas de escalabilidade, a solução situam-se num boa estratégia de criação de partições. Em seguida, vamos ver como artigos, reveja e notificações como documentos de modelo, configurar contas de base de dados do Azure Cosmos e implementar uma camada de acesso de dados. 
+Partindo do princípio de milhões de consumidores e publicadores com milhares de milhões de artigos, em breve temos que confrontar problemas de dimensionamento, juntamente com assegurando uma localidade de acesso que são. Tal como acontece com a maioria dos problemas de escalabilidade, a solução é uma boa estratégia de particionamento. Em seguida, vamos ver como pode modelar a artigos, revisão e notificações como documentos, configurar contas do Azure Cosmos DB e implemente uma camada de acesso de dados. 
 
-Se quiser saber mais sobre a criação de partições e chaves de partição, consulte o artigo [criação de partições e dimensionamento do BD Azure Cosmos](partition-data.md).
+Se gostaria de saber mais sobre a criação de partições e chaves de partição, veja [criação de partições e dimensionamento no Azure Cosmos DB](partition-data.md).
 
-## <a id="ModelingNotifications"></a>Notificações de modelação
-As notificações são feeds de dados específicos a um utilizador. Por conseguinte, os padrões de acesso para documentos notificações são sempre no contexto de utilizador único. Por exemplo, seria "publicar uma notificação para um utilizador" ou "obter todas as notificações para um determinado utilizador". Por isso, a escolha ideal de chave para este tipo de criação de partições seria `UserId`.
+## <a id="ModelingNotifications"></a>Notificações de modelagem
+As notificações são feeds de dados específicos a um utilizador. Por conseguinte, os padrões de acesso para documentos de notificações estão sempre no contexto de utilizador único. Por exemplo, seria "post uma notificação a um utilizador" ou "obter todas as notificações para um determinado usuário". Por isso, a opção ideal de chave para este tipo de criação de partições seria `UserId`.
 
     class Notification 
     { 
@@ -64,8 +64,8 @@ As notificações são feeds de dados específicos a um utilizador. Por consegui
         public string ArticleId { get; set; } 
     }
 
-## <a id="ModelingSubscriptions"></a>Modelação subscrições
-É possível criar subscrições para vários critérios como uma categoria específica de artigos de interesse ou de um fabricante específico. Por conseguinte, o `SubscriptionFilter` é uma boa opção para a chave de partição.
+## <a id="ModelingSubscriptions"></a>Subscrições de modelagem
+As assinaturas podem ser criadas para diversos critérios, como uma categoria específica de artigos de interesse ou um fabricante específico. Por conseguinte, o `SubscriptionFilter` é uma boa opção para a chave de partição.
 
     class Subscriptions 
     { 
@@ -87,8 +87,8 @@ As notificações são feeds de dados específicos a um utilizador. Por consegui
         } 
     }
 
-## <a id="ModelingArticles"></a>Artigos de modelação
-Assim que for identificado um artigo através de notificações, consultas subsequentes normalmente baseiam o `Article.Id`. Escolher `Article.Id` como partição a chave, por conseguinte, fornece a melhor distribuição para armazenar os artigos dentro de uma coleção de BD do Cosmos do Azure. 
+## <a id="ModelingArticles"></a>Artigos de modelagem
+Depois de um artigo é identificado por meio de notificações, as consultas subseqüentes normalmente se baseiam o `Article.Id`. Escolher `Article.Id` como partição a chave, portanto, fornece a melhor distribuição para armazenar os artigos dentro de uma coleção do Azure Cosmos DB. 
 
     class Article 
     { 
@@ -118,8 +118,8 @@ Assim que for identificado um artigo através de notificações, consultas subse
         //... 
     }
 
-## <a id="ModelingReviews"></a>Modelação revê
-Como artigos, revisões são principalmente escritos e ler no contexto do artigo. Escolher `ArticleId` como uma partição chave fornece melhor distribuição e acesso eficiente de revisões associado artigo. 
+## <a id="ModelingReviews"></a>Revisões de modelagem
+Como artigos, revisões são principalmente escritas e ler no contexto do artigo. Escolher `ArticleId` como uma partição chave fornece melhor distribuição e acesso eficiente de revisões associado artigo. 
 
     class Review 
     { 
@@ -145,7 +145,7 @@ Como artigos, revisões são principalmente escritos e ler no contexto do artigo
     }
 
 ## <a id="DataAccessMethods"></a>Métodos de camada de acesso de dados
-Agora vamos ver os dados principais métodos de acesso, temos de implementar. Eis a lista de métodos de que o `ContentPublishDatabase` tem de:
+Agora vamos examinar os dados principais métodos de acesso é necessário implementar. Eis a lista de métodos que o `ContentPublishDatabase` tem de:
 
     class ContentPublishDatabase 
     { 
@@ -160,19 +160,19 @@ Agora vamos ver os dados principais métodos de acesso, temos de implementar. Ei
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a id="Architecture"></a>Configuração de conta do Cosmos BD do Azure
-Para garantir local lê e escreve, é necessário de partição dados não apenas na partição chave, mas também com base num padrão de acesso geográfica em regiões. O modelo baseia-se em ter uma conta de base de dados de base de dados do Azure Cosmos georreplicação para cada região. Por exemplo, com duas regiões, segue-se um programa de configuração para escritas de multirregião:
+## <a id="Architecture"></a>Configuração de conta do Azure Cosmos DB
+Para garantir local leituras e escritas, que tem de partição dados não apenas na partição chave, mas também com base no padrão de acesso geográfica em regiões. O modelo se baseia em ter uma conta de base de dados georreplicado do Azure Cosmos DB para cada região. Por exemplo, com duas regiões, aqui está um programa de configuração para escritas de várias regiões:
 
 | Nome da Conta | Região de Escrita | Região de Leitura |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
 
-O diagrama seguinte mostra como leituras e escritas são efetuadas numa aplicação com este programa de configuração típica:
+O diagrama seguinte mostra como leituras e gravações são realizadas num aplicativo típico com esta configuração:
 
-![Arquitetura de multi-mestre Cosmos BD do Azure](./media/multi-master-workaround/multi-master.png)
+![Arquitetura de vários mestre do Azure Cosmos DB](./media/multi-master-workaround/multi-master.png)
 
-Eis um fragmento de código que mostra como iniciar, os clientes de uma camada DAL em execução no `West US` região.
+Aqui está um trecho de código que mostra como inicializar os clientes numa DAL em execução no `West US` região.
     
     ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
     writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
@@ -192,21 +192,21 @@ Eis um fragmento de código que mostra como iniciar, os clientes de uma camada D
         readRegionAuthKey,
         readClientPolicy);
 
-Com a configuração anterior, a camada de acesso de dados pode reencaminhar todas as operações de escrita para a conta local, com base nos quais tenha sido implementado. Leituras são efetuadas durante a leitura do ambas as contas para obter a vista de dados global. Esta abordagem pode ser expandida para regiões tantos conforme necessário. Por exemplo, é uma configuração com três regiões geográficas aqui:
+Com a configuração anterior, a camada de acesso a dados pode reencaminhar todas as escritas para a conta local com base nas quais tenha sido implementado. Leituras são executadas pela leitura de ambas as contas para obter a vista global dos dados. Essa abordagem pode ser estendida para tantas regiões conforme necessário. Por exemplo, aqui está uma configuração com três regiões geográficas:
 
-| Nome da Conta | Região de Escrita | Ler região 1 | Ler região 2 |
+| Nome da Conta | Região de Escrita | Região de leitura 1 | Região de leitura 2 |
 | --- | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
 ## <a id="DataAccessImplementation"></a>Implementação de camada de acesso de dados
-Agora vamos ver a implementação de camada de acesso de dados (DAL) para uma aplicação com duas regiões graváveis. A camada DAL tem de implementar os seguintes passos:
+Agora vamos examinar a implementação de camada de acesso de dados (DAL) para uma aplicação com duas regiões graváveis. A DAL deve implementar os seguintes passos:
 
-* Criar várias instâncias do `DocumentClient` para cada conta. Com duas regiões, cada instância da camada DAL tem um `writeClient` e um `readClient`. 
-* Com base na região da aplicação implementada, configure os pontos finais para `writeclient` e `readClient`. Por exemplo, a camada DAL implementada no `West US` utiliza `contentpubdatabase-usa.documents.azure.com` para efetuar operações de escrita. A camada DAL implementado na `NorthEurope` utiliza `contentpubdatabase-europ.documents.azure.com` para escritas.
+* Criar várias instâncias de `DocumentClient` para cada conta. Com duas regiões, cada instância camada DAL tem um `writeClient` e um `readClient`. 
+* Com base na região da aplicação implementada, a configurar os pontos de extremidade `writeclient` e `readClient`. Por exemplo, a DAL implementada no `West US` usa `contentpubdatabase-usa.documents.azure.com` para efetuar operações de escrita. A DAL implementado num `NorthEurope` usa `contentpubdatabase-europ.documents.azure.com` para escritas.
 
-Com a configuração anterior, os métodos de acesso de dados podem ser implementados. Escrever operações reencaminhar a escrever na correspondente `writeClient`.
+Com a configuração anterior, os métodos de acesso de dados podem ser implementados. Escrever operações reencaminhar a gravação para os correspondentes `writeClient`.
 
     public async Task CreateSubscriptionAsync(string userId, string category)
     {
@@ -228,7 +228,7 @@ Com a configuração anterior, os métodos de acesso de dados podem ser implemen
         });
     }
 
-Para ler as notificações e revisões, é necessário de leitura de regiões e union os resultados conforme mostrado no seguinte fragmento:
+Para ler notificações e avaliações, é necessário ler de regiões e União os resultados como mostrado no seguinte fragmento:
 
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
@@ -307,14 +307,14 @@ Para ler as notificações e revisões, é necessário de leitura de regiões e 
         return reviews;
     }
 
-Assim, ao escolher uma chave de criação de partições bom e, em seguida, estático baseado em conta a criação de partições, pode conseguir escritas locais multirregião e lê a utilizar a base de dados do Azure Cosmos.
+Portanto, ao escolher uma chave de particionamento bom e, em seguida, com base na conta de particionamento estático, pode conseguir escritas de locais de várias regiões e leituras com o Azure Cosmos DB.
 
 ## <a id="NextSteps"></a>Passos seguintes
-Neste artigo, vamos descrito como pode utilizar padrões de escrita de leitura de multirregião globalmente distribuída com o Azure Cosmos BD utilizando a publicação de conteúdos como um cenário de exemplo.
+Neste artigo, descrevemos como pode usar padrões de escrita de leitura de várias regiões distribuídas globalmente com o Azure Cosmos DB com a publicação de conteúdos como um cenário de exemplo.
 
-* Saiba mais sobre como base de dados do Azure Cosmos suporta [distribuição global](distribute-data-globally.md)
-* Saiba mais sobre [automáticas e manual as ativações pós-falha na base de dados do Azure Cosmos](regional-failover.md)
-* Saiba mais sobre [global consistência com a base de dados do Azure Cosmos](consistency-levels.md)
-* Desenvolver com várias regiões, utilizando o [Azure Cosmos DB - API do SQL Server](tutorial-global-distribution-sql-api.md)
-* Desenvolver com várias regiões, utilizando o [Azure Cosmos DB - API do MongoDB](tutorial-global-distribution-MongoDB.md)
-* Desenvolver com várias regiões, utilizando o [Azure Cosmos DB - API de tabela](tutorial-global-distribution-table.md)
+* Saiba mais sobre como o Azure Cosmos DB suporta [distribuição global](distribute-data-globally.md)
+* Saiba mais sobre [ativações pós-falha automáticas e manuais no Azure Cosmos DB](regional-failover.md)
+* Saiba mais sobre [consistência global com o Azure Cosmos DB](consistency-levels.md)
+* Desenvolver com várias regiões com o [Azure Cosmos DB - API de SQL](tutorial-global-distribution-sql-api.md)
+* Desenvolver com várias regiões com o [Azure Cosmos DB - API de MongoDB](tutorial-global-distribution-MongoDB.md)
+* Desenvolver com várias regiões com o [Azure Cosmos DB - API de tabela](tutorial-global-distribution-table.md)

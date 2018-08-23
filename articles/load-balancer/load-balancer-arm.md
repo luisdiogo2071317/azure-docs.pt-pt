@@ -1,6 +1,6 @@
 ---
-title: O suporte do Azure Resource Manager para o Balanceador de carga | Microsoft Docs
-description: Utilizar o powershell para o Balanceador de carga com o Azure Resource Manager. Utilizar modelos de Balanceador de carga
+title: O suporte do Azure Resource Manager para o Balanceador de carga | Documentos da Microsoft
+description: Com o powershell para o Balanceador de carga com o Azure Resource Manager. Utilizar modelos de Balanceador de carga
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 43db9db3842d05fa13c3be92df14b905d2ddfc17
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790394"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054333"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Utilizar o suporte do Azure Resource Manager com o Balanceador de carga do Azure
 
 
 
-O Azure Resource Manager é a arquitetura de gestão preferenciais para serviços no Azure. Balanceador de carga do Azure pode ser gerido utilizando APIs do Azure Resource Manager e as ferramentas.
+O Azure Resource Manager é a estrutura de gestão preferenciais para serviços do Azure. O Balanceador de carga do Azure podem ser gerido através de APIs baseadas no Azure Resource Manager e ferramentas.
 
 ## <a name="concepts"></a>Conceitos
 
-Com o Resource Manager, o Balanceador de carga do Azure contém os seguintes recursos subordinados:
+Com o Resource Manager, o Balanceador de carga do Azure contém os seguintes recursos de subordinados:
 
-* Configuração de IP Front-end – um balanceador de carga pode incluir um ou mais front-end endereços IP, caso contrário, conhecidos como um IPs virtuais (VIP). Estes endereços IP servem como entrada para o tráfego.
-* Conjunto de endereços de back-end – são endereços IP associados com a máquina virtual rede NIC placa de Interface () para que a carga é distribuída.
-* Regras de balanceamento de carga – uma propriedade de regra mapeia um IP de front-end especificado e a combinação de porta para um conjunto de endereços IP back-end e a combinação de porta. Um balanceador de carga individual pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e porta e IP back-end e porta associados a VMs.
-* As pesquisas de sondas – permitem-lhe controlar o estado de funcionamento de instâncias VM. Se uma sonda do Estado de funcionamento falhar, a instância VM é retirada rotação automaticamente.
-* Regras NAT de entrada – regras NAT que define o tráfego de entrada que fluem através de IP de front-end e distribuídos para o IP de back-end.
+* Configuração de IP Front-end – um balanceador de carga pode incluir um ou mais front-end endereços IP, também conhecidos como um IPs virtuais (VIPs). Estes endereços IP servem como entrada para o tráfego.
+* Conjunto de endereços de back-end – estes são os endereços IP associados com a máquina virtual Interface de rede cartão (NIC) para que a carga é distribuída.
+* Regras de balanceamento de carga – uma propriedade de regra mapeia um IP de front-end especificado e a combinação de portas para um conjunto de endereços IP de back-end e a combinação de portas. Um balanceador de carga individual pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e porta e IP de back-end e porta associados a VMs.
+* Sondas – sondas permitem controlar o estado de funcionamento de instâncias de VM. Se uma sonda de estado de funcionamento falhar, a instância VM será automaticamente retirada da rotação.
+* Regras NAT de entrada – regras NAT definindo o tráfego de entrada que flui através do IP de front-end e distribuídos para o IP de back-end.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -43,31 +43,31 @@ Com o Resource Manager, o Balanceador de carga do Azure contém os seguintes rec
 
 O Gestor de Recursos do Azure permite utilizar modelos declarativos para aprovisionar as suas aplicações. Num único modelo, pode implementar vários serviços, bem como as respetivas dependências. Pode utilizar o mesmo modelo para implementar repetidamente a sua aplicação durante cada fase do ciclo de vida da aplicação.
 
-Modelos podem incluir definições de máquinas virtuais, redes virtuais, conjuntos de disponibilidade, Interfaces de rede (NICs), as contas do Storage, balanceadores de carga, grupos de segurança de rede e IPs públicos. Com modelos, pode criar tudo o que precisa para uma aplicação complexa. O ficheiro de modelo pode ser verificado no sistema de gestão de conteúdo para o controlo de versão e de colaboração.
+Modelos podem incluir definições de máquinas virtuais, redes virtuais, conjuntos de disponibilidade, Interfaces de rede (NICs), as contas de armazenamento, balanceadores de carga, grupos de segurança de rede e IPs públicos. Com modelos, pode criar tudo o que precisa para um aplicativo complexo. O ficheiro de modelo pode ser verificado no sistema de gerenciamento de conteúdo para controle de versão e colaboração.
 
 [Saiba mais sobre os modelos](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
 [Saiba mais sobre os recursos de rede](../networking/networking-overview.md)
 
-Para modelos de início rápido, utilizando o Balanceador de carga do Azure, consulte o [repositório do GitHub](https://github.com/Azure/azure-quickstart-templates) que aloja um conjunto de modelos de Comunidade gerado.
+Para modelos de início rápido com o Balanceador de carga do Azure, consulte a [repositório do GitHub](https://github.com/Azure/azure-quickstart-templates) que aloja um conjunto de modelos da Comunidade gerado.
 
 Exemplos de modelos:
 
 * [2 VMs num Load Balancer e regras de balanceamento de carga](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 VMs numa VNET com regras de Balanceador de carga e de Balanceador de carga interno](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 VMs num Balanceador de carga e configurar regras NAT no LB](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 VMs numa VNET com regras de Balanceador de carga interno e o Balanceador de carga](http://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 VMs num Balanceador de carga e configurar regras NAT do LB](http://go.microsoft.com/fwlink/?LinkId=544801)
 
-## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Configuração de Balanceador de carga do Azure com o PowerShell ou o CLI
+## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Configuração de Balanceador de carga do Azure com o PowerShell ou a CLI
 
-Começar a utilizar os cmdlets do Azure Resource Manager, as ferramentas de linha de comandos e REST APIs
+Começar a utilizar com os cmdlets, ferramentas de linha de comandos e as APIs REST do Azure Resource Manager
 
-* [Cmdlets de rede do Azure](https://msdn.microsoft.com/library/azure/mt163510.aspx) pode ser utilizado para criar um balanceador de carga.
+* [Cmdlets de rede do Azure](https://docs.microsoft.com/powershell/module/azurerm.network#networking) pode ser utilizado para criar um balanceador de carga.
 * [Como criar um balanceador de carga com o Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
-* [Utilizar a CLI do Azure com gestão de recursos do Azure](../xplat-cli-azure-resource-manager.md)
+* [Utilizar a CLI do Azure com a gestão de recursos do Azure](../xplat-cli-azure-resource-manager.md)
 * [REST APIs do Balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Também pode [começar a criar um Internet Balanceador de carga com acesso à](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento de tráfego de rede de Balanceador de carga específicos.
+Também pode [introdução à criação de um balanceador de carga de acesso à Internet](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento de tráfego de rede de Balanceador de carga específico.
 
-Saiba como gerir [definições de tempo limite TCP para um balanceador de carga de inatividade](load-balancer-tcp-idle-timeout.md). Isto é importante quando a aplicação tem de manter as ligações alive para os servidores protegidos por um balanceador de carga.
+Saiba como gerenciar [definições de tempo limite TCP para um balanceador de carga de inatividade](load-balancer-tcp-idle-timeout.md). Isso é importante quando a sua aplicação precisa para manter as ligações ativas para os servidores por trás de um balanceador de carga.

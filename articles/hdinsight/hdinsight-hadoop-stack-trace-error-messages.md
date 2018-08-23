@@ -3,20 +3,19 @@ title: Mensagens de erro de rastreio de pilha de Hadoop - Azure HDInsight
 description: Índice de Hadoop pilha rastreio mensagens de erro no Azure HDInsight. Determinar o erro na lista para ver informações de resolução de problemas.
 keywords: rastreio de pilha, mensagens de erro
 services: hdinsight
-documentationcenter: NA
-author: jasonwhowell
-editor: jasonwhowell
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 744e9f1517931db20b8a4a7bf3453c61971fdae6
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ecd6ec6d3d72dc5193c82558dbd7c7cae682ecc0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593374"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058164"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice de Hadoop no HDInsight, artigos de resolução de problemas
 Artigos estão organizados por tipos de erros.

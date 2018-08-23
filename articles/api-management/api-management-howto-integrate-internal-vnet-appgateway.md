@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 53c993b6c7ad868c4781ced374b0c1b227a43e6d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595098"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055156"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a gestão de API numa VNET interna com o Gateway de aplicação
 
@@ -45,7 +45,7 @@ Para seguir os passos descritos neste artigo, tem de ter:
 
 ##<a name="scenario"> </a> Cenário
 
-Este artigo aborda como usar um único serviço de gestão de API para consumidores internos e externos e torná-lo para atuar como um único front-end para ambos no local e na cloud APIs. Também verá como expor apenas um subconjunto das APIs (no exemplo que eles são destacados em verde) para consumo externo com a funcionalidade de PathBasedRouting disponível no Gateway de aplicação.
+Este artigo aborda como usar um único serviço de gestão de API para consumidores internos e externos e torná-lo para atuar como um único front-end para ambos no local e na cloud APIs. Também verá como expor apenas um subconjunto das APIs (no exemplo que eles são destacados em verde) para consumo externo com a funcionalidade de encaminhamento disponível no Gateway de aplicação.
 
 No primeiro exemplo de configuração todas as suas APIs são geridas apenas a partir de dentro da sua rede Virtual. Os consumidores internos (destacado na cor de laranja) podem aceder a todas as suas APIs internos e externos. Tráfego nunca sai para Internet um elevado desempenho é entregue através de circuitos do Expressroute.
 
@@ -80,7 +80,7 @@ No primeiro exemplo de configuração todas as suas APIs são geridas apenas a p
 Neste guia, também expõe os **portal do programador** a públicos externos através do Gateway de aplicação. Requer passos adicionais para criar o serviço de escuta do portal do programador, pesquisa, definições e regras. Todos os detalhes são fornecidos nos respetivos passos.
 
 > [!WARNING]
-> Na configuração do portal do programador que está sendo acessado por meio do Gateway de aplicação descrita, poderá ter problemas com a autenticação do AAD e o Facebook.
+> Na configuração do portal do programador que está sendo acessado por meio do Gateway de aplicação descrita, poderá ter problemas com a autenticação do AAD e de terceiros.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Resource Manager
 

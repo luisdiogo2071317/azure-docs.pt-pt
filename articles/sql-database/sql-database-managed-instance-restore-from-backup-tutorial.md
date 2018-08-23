@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949889"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919180"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restaurar uma cópia de segurança da base de dados para uma Instância Gerida da Base de Dados SQL do Azure
 
@@ -29,7 +29,7 @@ Este tutorial demonstra como restaurar uma cópia de segurança de uma base de d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial utiliza como ponto de partida os recursos criados neste tutorial: [Criar uma Instância Gerida da Base de Dados SQL do Azure](sql-database-managed-instance-create-tutorial-portal.md).
+Este tutorial utiliza como ponto de partida os recursos criados neste tutorial: [Criar uma Instância Gerida da Base de Dados SQL do Azure](sql-database-managed-instance-get-started.md).
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>Transferir o Wide World Importers - ficheiro de cópia de segurança Standard
 

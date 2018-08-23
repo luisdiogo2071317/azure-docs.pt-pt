@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916745"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054334"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mapear as redes virtuais em diferentes regiões do Azure
 
@@ -88,16 +88,36 @@ Se a interface de rede da máquina virtual de origem utilizar DHCP, a interface 
 ### <a name="static-ip-address"></a>Endereço IP estático
 Se a interface de rede da máquina virtual de origem utilizar um endereço IP estático, a interface de rede da máquina virtual de destino também é definida para utilizar um endereço IP estático. As secções seguintes descrevem como um endereço IP estático está definido.
 
-#### <a name="same-address-space"></a>Mesmo espaço de endereços
+### <a name="ip-assignment-behavior-during-failover"></a>Comportamento de atribuição de IP durante a ativação pós-falha
+#### <a name="1-same-address-space"></a>1. Mesmo espaço de endereços
 
 Se a sub-rede de origem e a sub-rede de destino tiverem o mesmo espaço de endereços, o endereço IP da interface de rede da máquina virtual de origem está definido como o endereço IP de destino. Se o mesmo endereço IP não estiver disponível, o endereço IP disponível seguinte está definido como o endereço IP de destino.
 
-#### <a name="different-address-spaces"></a>Espaços de endereços diferentes
+#### <a name="2-different-address-spaces"></a>2. Espaços de endereços diferentes
 
 Se a sub-rede de origem e a sub-rede de destino tiverem espaços de endereços diferentes, o endereço seguinte disponível de IP na sub-rede de destino está definido como o endereço IP de destino.
 
-Para modificar o IP de destino em cada interface de rede, vá para o **computação e rede** definições para a máquina virtual.
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>Comportamento de atribuição de IP durante a ativação pós-falha de teste
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Se a rede de destino escolhida é vNet em modo de produção
+- O IP de recuperação (IP de destino) será um IP estático, mas ele **não será o mesmo endereço IP** como reservado para a ativação pós-falha.
+- O endereço IP atribuído será o próximo IP disponível do fim do intervalo de endereços de sub-rede.
+- Para por exemplo, se o IP estático da VM de origem está configurado para ser: 10.0.0.19 e ativação pós-falha de teste foi tentada com a rede de produção configurado: ***dr-PROD-nw***, com o intervalo de sub-rede que 10.0.0.0/24. </br>
+A VM com ativação pós-falha seria atribuída com - próximo IP disponível do fim do intervalo de endereços de sub-rede é: 10.0.0.254 </br>
+
+**Nota:** a terminologia **vNet de produção** é chamado de rede especiais de destino mapeada durante a configuração da recuperação após desastre.
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Se a rede de destino selecionada não é a vNet de produção, mas tem o mesmo intervalo de sub-rede de rede de produção 
+
+- O IP de recuperação (IP de destino) será um IP estático com o **mesmo endereço IP** (ou seja, configurado endereço IP estático) como reservado para a ativação pós-falha. Desde que o mesmo endereço IP está disponível.
+- Se o IP estático configurado já está atribuído a algum outro VM/dispositivo, em seguida, o IP de recuperação será o próximo IP disponível do fim do intervalo de endereços de sub-rede.
+- Para por exemplo, se o IP estático da VM de origem está configurado para ser: 10.0.0.19 e ativação pós-falha de teste foi tentada com uma rede de teste: ***dr-não-PROD-nw***, com o mesmo intervalo de sub-rede da rede de produção - 10.0.0.0/24. </br>
+  A VM com ativação pós-falha seria atribuída com seguinte IP estático </br>
+    - configurado o IP estático: 10.0.0.19 se o IP está disponível.
+    - Próximo IP disponível: 10.0.0.254 se o endereço IP 10.0.0.19 já se encontra em usar.
+
+
+Para modificar o IP de destino em cada interface de rede, vá para o **computação e rede** definições para a máquina virtual.</br>
+Como prática recomendada é sempre aconselhável para escolher uma rede de teste para efetuar a ativação pós-falha de teste.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Revisão [documentação de orientação para replicar máquinas virtuais do Azure de rede](site-recovery-azure-to-azure-networking-guidance.md).

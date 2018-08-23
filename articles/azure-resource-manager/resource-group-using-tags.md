@@ -12,18 +12,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: df9c218c275367852885e67ac2649926ba1d31d3
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466265"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058168"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+
+Para aplicar etiquetas a recursos, o utilizador tem de ter acesso de escrita para esse tipo de recurso. Para aplicar etiquetas a todos os tipos de recursos, utilize o [contribuinte](../role-based-access-control/built-in-roles.md#contributor) função. Para aplicar as etiquetas para o tipo de recurso apenas uma, utilize a função de Contribuidor para esse recurso. Por exemplo, para aplicar etiquetas a máquinas virtuais, utilize o [contribuinte de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 

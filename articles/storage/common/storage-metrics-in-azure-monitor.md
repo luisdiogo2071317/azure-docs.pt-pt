@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 880632a39332f7d9ad24b0f7aa2301660eb2f9b8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528578"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055357"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -332,14 +332,14 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| UsedCapacity | A quantidade de armazenamento utilizado pela conta de armazenamento. Para contas de armazenamento standard, é a soma da capacidade utilizada pelo blob, tabela, ficheiro e fila. Para contas de armazenamento premium e contas de armazenamento de BLOBs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
+| UsedCapacity | A quantidade de armazenamento utilizado pela conta de armazenamento. Para contas de armazenamento standard, é a soma da capacidade utilizada pelo blob, tabela, ficheiro e fila. Para contas de armazenamento premium e contas de armazenamento de BLOBs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Exemplo de valor: 1024 |
 
 ### <a name="blob-storage"></a>Armazenamento de blobs
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| BlobCapacity | O total de armazenamento de BLOBs utilizado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
-| BlobCount    | O número de objetos de BLOBs armazenados na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
+| BlobCapacity | O total de armazenamento de BLOBs utilizado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
+| BlobCount    | O número de objetos de BLOBs armazenados na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([definição](#metrics-dimensions)) |
 | ContainerCount    | O número de contentores na conta de armazenamento. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Exemplo de valor: 1024 |
 
 ### <a name="table-storage"></a>Table Storage

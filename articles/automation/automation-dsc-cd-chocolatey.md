@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f3c008ad58ed7e274ffe0e9f670b4303d057182
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003992"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42061475"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de utilização: A implementação contínua para máquinas virtuais com a configuração de estado de automatização e Chocolatey
 
@@ -194,6 +194,11 @@ Não tem de utilizar um modelo do Resource Manager e a extensão VM para utiliza
 É claro, quando atualizar um pacote numa VM que esteja em produção, precisa colocar essa VM da rotação, enquanto a atualização está instalada. Como fazer isso varia muito. Por exemplo, com uma VM por trás de um balanceador de carga do Azure, pode adicionar uma sonda personalizada. Ao atualizar a VM, tem o ponto final da sonda devolver um 400. O ajuste necessário para fazer com que esta alteração pode ser dentro de sua configuração, como pode o ajuste de alterá-la para retornar um 200 assim que a atualização estiver concluída.
 
 Código-fonte completo para este exemplo de utilização está em [este projeto do Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) no GitHub.
+
+## <a name="related-articles"></a>Artigos relacionados
+* [Descrição geral de DSC de automatização do Azure](automation-dsc-overview.md)
+* [Cmdlets de DSC de automatização do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Integrar computadores para gestão pelo DSC de automatização do Azure](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

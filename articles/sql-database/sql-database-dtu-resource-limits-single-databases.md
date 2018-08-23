@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: effb09cfc68961065ad0b4e4be52255bcd1fe4e0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b8c1a0a0c4f2b3b33338f1f76245fd4bcb66ad61
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414172"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055413"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU 
 
-Este artigo fornece os limites de recursos detalhados para conjuntos elásticos SQL Database do Azure com o modelo de compra baseado em DTU.
+Este artigo fornece os limites de recursos detalhados para a base de dados do Azure SQL únicas bases de dados com o modelo de compra baseado em DTU.
 
 Para baseado em DTU compra modelo limites de recursos para conjuntos elásticos, veja [limites de recursos baseados em DTU - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md). Para limites de recursos baseados em vCore, consulte [limites de recursos baseados em vCore - bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
@@ -42,7 +42,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 
 ### <a name="standard-service-tier"></a>Camada de serviços padrão
 | **Nível de desempenho** | **S0** | **S1** | **S2** | **S3** |
-| :--- |---:| ---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|
 | Máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
@@ -53,7 +53,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 
 ### <a name="standard-service-tier-continued"></a>Camada de serviço Standard (continuada)
 | **Nível de desempenho** | **S4** | **S6** | **S7** | **S9** | **S12** |
-| :--- |---:| ---:|---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|---:|
 | Máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
@@ -124,6 +124,7 @@ Um tamanho máximo superior a 1 TB para P11 e P15 base de dados é suportada nas
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
+- Ver [limites de recursos de visão geral do Azure SQL Database](sql-database-resource-limits.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
 - Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
 - Para obter informações sobre DTUs e eDTUs, veja [DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

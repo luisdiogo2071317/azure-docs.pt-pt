@@ -1,6 +1,6 @@
 ---
-title: Chamada e resposta - guia de introdução do Node.js para serviços do Azure cognitivos, API de pesquisa do Bing imagem | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de pesquisa do Bing imagens nos serviços cognitivos Microsoft no Azure.
+title: 'Início rápido: Consultas de pesquisa de envio com a API REST para a API de pesquisa de imagens do Bing com node. js'
+description: Neste início rápido, envia consultas de pesquisa para a API de pesquisa do Bing para obter uma lista de imagens relevantes com node. js.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,30 +9,30 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 00408677d15a00d58720c142cabed96e310c69b2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 975275bea61a5903c06da394b762b1aceb18023f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354512"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987552"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-for-nodejs"></a>Chamada e resposta: a primeira consulta de pesquisa do Bing imagem para Node.js
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-nodejs"></a>Início rápido: Consultas de pesquisa de envio utilizar a REST API e o node. js
 
-A API de pesquisa do Bing imagem fornece uma experiência semelhante ao Bing.com/Images, permitindo-lhe enviar uma consulta de pesquisa de utilizador para o Bing e voltar a uma lista de imagens relevantes.
+A API de pesquisa de imagens do Bing fornece uma experiência semelhante à Bing.com/Images, permitindo-lhe enviar uma consulta de pesquisa de usuário para o Bing e obter uma lista de imagens relevantes.
 
-Este artigo inclui uma aplicação de consola simples que executa uma consulta de API de pesquisa do Bing imagem e apresenta os resultados da pesquisa em bruto devolvido, que estão no formato JSON. Apesar desta aplicação é escrita em JavaScript e é executada no Node.js, a API é um serviço de RESTful Web compatível com qualquer linguagem de programação que pode efetuar pedidos HTTP e analisar JSON. 
+Este artigo inclui uma aplicação de consola simples que executa uma consulta de API de pesquisa de imagens do Bing e exibe os resultados da pesquisa não processados, que estão no formato JSON. Embora esse aplicativo é escrito em JavaScript e é executado em node. js, a API é um serviço RESTful Web compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Node.js 6](https://nodejs.org/en/download/) para executar este código.
+Precisa [node. js 6](https://nodejs.org/en/download/) executar esse código.
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Executar a aplicação
 
 Para executar esta aplicação, siga estes passos.
 
-1. Crie um novo projeto de Node.js no seu IDE ou editor favorito.
+1. Crie um novo projeto de node. js no seu IDE ou editor favorito.
 2. Adicione o código fornecido.
 3. Substitua o `subscriptionKey` valor com uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -103,7 +103,7 @@ if (subscriptionKey.length === 32) {
 
 ## <a name="json-response"></a>Resposta JSON
 
-Segue uma resposta de amostra. Para limitar o comprimento de JSON, apenas um único resultado é apresentado e outras partes da resposta tem sido truncados. 
+Segue-se uma resposta de exemplo. Para limitar o comprimento do JSON, apenas um único resultado é mostrado, e outras partes da resposta foram truncados. 
 
 ```json
 {
@@ -192,11 +192,11 @@ Segue uma resposta de amostra. Para limitar o comprimento de JSON, apenas um ún
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa de imagem do Bing](../tutorial-bing-image-search-single-page-app.md)
+> [Tutorial de aplicação de página única de pesquisa de imagens Bing](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral de pesquisa de imagem do Bing](../overview.md)  
-[Experimente](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[Descrição geral de pesquisa de imagens Bing](../overview.md)  
+[Experimente-o](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 [Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Referência da API de pesquisa do Bing imagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Referência da API de pesquisa de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

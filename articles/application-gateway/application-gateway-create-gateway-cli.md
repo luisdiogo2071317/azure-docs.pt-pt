@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: ebe22f72d25b8f181e75a263df63fd5a0b4a6a6f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 90c589bce48db11278d034249d1a7a7cc918a074
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436194"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058172"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Criar um gateway de aplicação com a CLI do Azure
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Crie a rede virtual e a sub-rede com [az network vnet create](/cli/azure/vnet#az-vnet-create). Crie o endereço IP público com [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
+Crie a rede virtual e a sub-rede com [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Crie o endereço IP público com [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Crie um gateway de aplicação com [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. Os endereços IP privados das interfaces de rede são adicionados como servidores no conjunto de back-end do gateway de aplicação.
+Crie um gateway de aplicação com [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. Os endereços IP privados das interfaces de rede são adicionados como servidores no conjunto de back-end do gateway de aplicação.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 252e4f9fe5ed6b4ff9997fc41c691636e6d002b3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413543"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055151"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 ## <a name="overview"></a>Descrição geral
@@ -645,7 +645,7 @@ O código a seguir despeja as definições de VNN e define-o por si. Para que a 
 
 Num passo posterior para a migração, tem de atualizar o serviço de escuta Always On com um endereço IP atualizado que faz referência a um balanceador de carga, isso envolve uma remoção de recurso de endereço IP e a adição. Após a atualização IP, terá de garantir que o novo endereço IP foi atualizado na zona DNS e que os clientes estão a atualizar seu cache DNS local.
 
-Se seus clientes residem num segmento de rede diferentes e fazer referência a um servidor DNS diferente, precisa considerar o que acontece com a transferência de zona DNS durante a migração, como voltar a ligar a aplicação de tempo é restrita por, pelo menos, o tempo de transferência de zona de qualquer IP novo endereços para o serviço de escuta. Se está sob a restrição de tempo aqui, deve discutir e testar a forçar uma transferência de zona incremental com suas equipes de Windows, e também colocar o registo de anfitrião DNS para um menor tempo para Live (TTL), portanto, os clientes de atualização. Para obter mais informações, consulte [Incremental transferências de zona](https://technet.microsoft.com/library/cc958973.aspx) e [início DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Se seus clientes residem num segmento de rede diferentes e fazer referência a um servidor DNS diferente, precisa considerar o que acontece com a transferência de zona DNS durante a migração, como voltar a ligar a aplicação de tempo é restrita por, pelo menos, o tempo de transferência de zona de qualquer IP novo endereços para o serviço de escuta. Se está sob a restrição de tempo aqui, deve discutir e testar a forçar uma transferência de zona incremental com suas equipes de Windows, e também colocar o registo de anfitrião DNS para um menor tempo para Live (TTL), portanto, os clientes de atualização. Para obter mais informações, consulte [Incremental transferências de zona](https://technet.microsoft.com/library/cc958973.aspx) e [início DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
 Por predefinição, o valor de TTL para o registo de DNS que estão associados com o serviço de escuta no Always On no Azure é 1200 segundos. Pode pretender reduzi-lo se estiver em tempo de restrição durante a sua migração para garantir que os clientes de atualizar o seu DNS com o endereço IP atualizado para o serviço de escuta. Pode ver e modificar a configuração, despejar a configuração da VNN:
 

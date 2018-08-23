@@ -11,20 +11,18 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247215"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057639"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância gerida da base de dados SQL do Azure
 
-Neste artigo, ficará a conhecer os métodos para migrar um SQL Server 2005 ou uma instância de versão posterior para o Azure SQL da base de dados instância gerida (pré-visualização). 
+Neste artigo, ficará a conhecer os métodos para migrar um SQL Server 2005 ou uma instância de versão posterior [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md) (pré-visualização).
 
-A Instância Gerida da Base de Dados SQL é uma expansão do serviço de Base de Dados SQL existente, que fornece uma terceira opção de implementação juntamente com as bases de dados individuais e conjuntos elásticos.  Ele foi projetado para ativar a base de dados lift-and-shift para um PaaS totalmente gerido, sem ter de redesenhar a aplicação. A Instância Gerida da Base de Dados SQL oferece compatibilidade superior com o modelo de programação SQL Server no local e suporte disponível para a grande maioria das funcionalidades do SQL Server, bem como as ferramentas e serviços que acompanham.
-
-Num alto nível, o processo de migração do aplicativo é semelhante a:
+Num alto nível, o processo de migração de base de dados é semelhante a:
 
 ![Processo de migração](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -41,9 +39,9 @@ Num alto nível, o processo de migração do aplicativo é semelhante a:
 
 Em primeiro lugar, determine se a instância gerida é compatível com os requisitos de base de dados da sua aplicação. Instância gerida foi concebida para proporcionar fácil migração lift- and -shift uma migração para a maioria dos aplicativos existentes que utilizam o SQL Server no local ou em máquinas virtuais. No entanto, às vezes, poderá precisar de funcionalidades ou capacidades que ainda não são suportadas e o custo da implementação de uma solução alternativa sejam demasiado altas. 
 
-Uso [Assistente de migração de dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detetar potencial que podem afetar funcionalidade de banco de dados na base de dados do Azure SQL de problemas de compatibilidade. DMA não suporta ainda a instância gerida como destino de migração, mas é recomendado que execute a avaliação na base de dados do Azure SQL e reveja com cuidado a lista de paridade de funcionalidades comunicadas e problemas de compatibilidade em relação a documentação do produto. A maioria dos problemas de bloqueio impedir uma migração para a base de dados do Azure SQL foram removida com a instância gerida. Para a instância, funcionalidades, como consultas entre bases de dados, transações entre bases de dados dentro da instância do mesmo, servidor ligado para outras origens, o CLR, global temporários tabelas SQL, os modos de exibição de nível de instância, o Service Broker e assim por diante estão disponíveis em instâncias geridas. 
+Uso [Assistente de migração de dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detetar potencial que podem afetar funcionalidade de banco de dados na base de dados do Azure SQL de problemas de compatibilidade. DMA não suporta ainda a instância gerida como destino de migração, mas é recomendado que execute a avaliação na base de dados do Azure SQL e reveja com cuidado a lista de paridade de funcionalidades comunicadas e problemas de compatibilidade em relação a documentação do produto. Consulte a [diferenças entre o Singleton de base de dados do SQL Azure e a instância gerida](sql-database-features.md) para verificar existem alguns bloquear reportados problemas que não bloqueadores na instância gerida, como a maioria do bloqueio de problemas de impedir uma migração para o Base de dados SQL do Azure foram removidos com a instância gerida. Para a instância, funcionalidades, como consultas entre bases de dados, transações entre bases de dados dentro da instância do mesmo, servidor ligado para outras origens, o CLR, global temporários tabelas SQL, os modos de exibição de nível de instância, o Service Broker e assim por diante estão disponíveis em instâncias geridas. 
 
-No entanto, existem alguns casos quando precisa considerar uma opção alternativa, tal como [SQL Server em máquinas virtuais no Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Eis alguns exemplos:
+Se existirem relataram alguns problemas de bloqueio que não são removidos na instância gerida do SQL do Azure, poderá ter de considerar uma opção alternativa, tal como [SQL Server em máquinas virtuais no Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Eis alguns exemplos:
 
 - Se necessitar de acesso direto para o sistema operativo ou o sistema de ficheiros, por exemplo, a instalação de terceiros ou agentes personalizados na mesma máquina virtual com o SQL Server.
 - Se tiver dependência rígida nas funcionalidades que ainda não são suportadas, por exemplo, o FileStream / FileTable, o PolyBase e instância para várias transações.
@@ -52,13 +50,13 @@ No entanto, existem alguns casos quando precisa considerar uma opção alternati
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementar uma instância gerida do tamanho de forma otimizada
 
-Instância gerida é ideal para cargas de trabalho no local que pretende mover para a cloud. Ele introduz um novo modelo de compra que fornece maior flexibilidade para selecionar o nível certo de recursos das cargas de trabalho. No mundo no local, provavelmente está acostumado a estas cargas de trabalho de dimensionamento através da utilização de núcleos físicos. O novo modelo de compra da instância gerida baseia-se após núcleos virtuais, ou "vCores," com o armazenamento adicional e e/s disponíveis separadamente. O modelo de vCore é um simples maneira de compreender os requisitos de computação na cloud versus o que utiliza no local hoje mesmo. Esse novo modelo permite-lhe dimensionar o ambiente de destino na cloud.
+Instância gerida é ideal para cargas de trabalho no local que pretende mover para a cloud. Ele introduz um [novo modelo de compra](sql-database-service-tiers-vcore.md) que fornece maior flexibilidade para selecionar o nível certo de recursos das cargas de trabalho. No mundo no local, provavelmente está acostumado a estas cargas de trabalho de dimensionamento com núcleos físicos e largura de banda de e/s. O novo modelo de compra da instância gerida baseia-se após núcleos virtuais, ou "vCores," com o armazenamento adicional e e/s disponíveis separadamente. O modelo de vCore é um simples maneira de compreender os requisitos de computação na cloud versus o que utiliza no local hoje mesmo. Esse novo modelo permite-lhe dimensionar o ambiente de destino na cloud.
 
-Pode selecionar a computação e recursos de armazenamento na implementação de tempo e, em seguida, alteração-la posteriormente a sem introduzir tempo de inatividade do seu aplicativo.
+Pode selecionar a computação e recursos de armazenamento na implementação de tempo e, em seguida, altere-a posteriormente sem introduzir tempo de inatividade do seu aplicativo com o [portal do Azure](sql-database-scale-resources.md):
 
 ![dimensionamento de instância gerida](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Para saber como criar a infraestrutura VNet e uma instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-create-tutorial-portal.md).
+Para saber como criar a infraestrutura VNet e uma instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
 > É importante manter o seu destino VNet e sub-rede sempre em acordo com o [requisitos de VNET de instância gerida](sql-database-managed-instance-vnet-configuration.md#requirements). Qualquer incompatibilidade pode impedi-lo de criar novas instâncias ou utilizando os que já criou.
@@ -76,8 +74,8 @@ A instância gerida é um serviço totalmente gerido que permite-lhe delegar alg
 
 Instância gerida suporta as seguintes opções de migração de base de dados (atualmente estes são os métodos de migração suportados apenas):
 
-- Serviço de migração de base de dados do Azure - migração com tempo de inatividade quase inexistente
-- Nativo RESTAURO a partir do URL - utiliza cópias de segurança nativas do SQL Server e requer algum período de indisponibilidade
+- Serviço de migração de base de dados do Azure - migração com tempo de inatividade quase inexistente,
+- Nativo `RESTORE DATABASE FROM URL` - utiliza cópias de segurança nativas do SQL Server e requer algum período de indisponibilidade.
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
@@ -105,7 +103,7 @@ A tabela seguinte fornece mais informações sobre os métodos que pode utilizar
 |Restaurar a partir de armazenamento do Azure para a instância gerida|[Restaurar de URL com a CREDENCIAL de SAS](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - Quando migrar uma base de dados protegida pela [Encriptação de Dados Transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) para a Instância Gerida do SQL do Azure com a opção de restauro nativo, o certificado correspondente do SQL Server no local ou de IaaS tem de ser migrado antes do restauro da base de dados. Para obter passos detalhados, consulte [cert TDE de migrar para a instância gerida](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Quando migrar uma base de dados protegida pela [Encriptação de Dados Transparente](transparent-data-encryption-azure-sql.md) para a Instância Gerida do SQL do Azure com a opção de restauro nativo, o certificado correspondente do SQL Server no local ou de IaaS tem de ser migrado antes do restauro da base de dados. Para obter passos detalhados, consulte [cert TDE de migrar para a instância gerida](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Restauro de bases de dados do sistema não é suportado. Para migrar objetos do nível de instância (armazenados nas bases de dados mestra ou msdb), recomendamos que o script-os e executar scripts T-SQL na instância de destino.
 
 Para obter um tutorial completo que inclui a restaurar uma cópia de segurança da base de dados para uma instância gerida utilizando uma credencial SAS, consulte [restaurar a partir de cópia de segurança para uma instância gerida](sql-database-managed-instance-restore-from-backup-tutorial.md).
@@ -121,11 +119,10 @@ Além disso, não é necessário se preocupar sobre como configurar a elevada di
 
 Para reforçar a segurança, considere a utilização de algumas das funcionalidades que estão disponíveis:
 - O Azure ao nível da base de dados a autenticação do Active Directory
-- Auditoria e deteção de ameaças para monitorizar atividades
-- Controlar o acesso a dados confidenciais e com privilégios ([segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) e [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)).
+- Uso [funcionalidades de segurança avançadas](sql-database-security-overview.md) como [auditoria](sql-database-managed-instance-auditing.md), [deteção de ameaças](sql-advanced-threat-protection.md), [segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), e [dinâmico Máscara de dados](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) para proteger a sua instância.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre as instâncias geridas, consulte [o que é uma instância gerida?](sql-database-managed-instance.md).
-- Para obter um tutorial que inclua um restauro da cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter um tutorial que inclua um restauro da cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 - Para a migração do tutorial de apresentação com o DMS, consulte [migrar base de dados no local para a instância gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

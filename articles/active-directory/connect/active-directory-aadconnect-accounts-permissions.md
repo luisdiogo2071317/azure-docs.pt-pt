@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263407"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058786"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>O Azure AD Connect: Contas e permissões
 
@@ -121,7 +121,7 @@ As permissões que necessita depende das funcionalidades opcionais ativa. Se tiv
 
 | Funcionalidade | Permissões |
 | --- | --- |
-| funcionalidade de msDS-ConsistencyGuid |Permissões de escrita para o atributo msDS-ConsistencyGuid documentado em [conceitos de Design - usando o msDS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
+| funcionalidade do MS-DS-ConsistencyGuid |Permissões de escrita para o atributo ms-DS-ConsistencyGuid documentado em [conceitos de Design - usando o ms-DS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Sincronização de hash de palavra-passe |<li>Replicar as alterações de diretório</li>  <li>Diretório de replicar muda tudo |
 | Implementação híbrida do Exchange |Permissões de escrita para os atributos documentados em [repetição de escrita do Exchange híbrido](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para utilizadores, grupos e contactos. |
 | Pasta de públicas de correio do Exchange |Permissões de leitura para os atributos documentados em [pastas públicas de correio Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para as pastas públicas. | 
@@ -181,7 +181,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónomo/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA, gMSA | **gMSA**</br>Conta de domínio |
+| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA, gMSA | **gMSA**</br>Conta do domínio |
 | **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual

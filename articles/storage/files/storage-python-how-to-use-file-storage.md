@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: 7e5c85890585230961f52803b081c636c950c518
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 37c42c5a680b8768d0882ad97fb3f3f2ed4ab821
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531461"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060240"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Programar para os ficheiros do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -177,6 +177,6 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu como manipular ficheiros do Azure com Python, siga estas ligações para saber mais.
 
-* [Centro para Programadores do Python](/develop/python/)
+* [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)
 * [API REST dos Serviços do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)
 * [Armazenamento do Microsoft Azure SDK para Python](https://github.com/Azure/azure-storage-python)

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: ed2d55b8346acb79563a882bbaf2f46110dcf1bb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442722"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056712"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Adicionar um Cluster do Kubernetes para o mercado do Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!note]  
-> O Kubernetes de serviços de contentor do Azure (ACS) no Azure Stack está em pré-visualização privada. Para pedir acesso para o item do Marketplace de Kubernetes necessário para executar as instruções neste artigo, [submeter um pedido para obter acesso](https://aka.ms/azsk8).
+> O Kubernetes de serviços de Kubernetes do Azure (AKS) no Azure Stack está em pré-visualização privada. Para pedir acesso para o item do Marketplace de Kubernetes necessário para executar as instruções neste artigo, [submeter um pedido para obter acesso](https://aka.ms/azsk8).
 
 Pode oferecer um Cluster do Kubernetes como um item do mercado aos seus utilizadores. Os utilizadores podem implementar Kubernetes numa operação única e coordenada.
 

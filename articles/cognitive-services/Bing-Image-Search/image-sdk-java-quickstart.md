@@ -1,6 +1,6 @@
 ---
-title: Guia de introdução do Bing imagem pesquisa SDK Java | Microsoft Docs
-description: Saiba como configurar a aplicação de consola do SDK de pesquisa do Bing imagem.
+title: 'Pedido de início rápido: E filtrar imagens com o SDK do Java'
+description: Neste início rápido, pedir e filtrar as imagens devolvidas pela pesquisa de imagens Bing, através de Java.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,21 +10,21 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0c44bb313328081167a419f3b7d5ce17e49d2c99
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280a4b67d81b0734ea983c1d7fe1389e59651ccd
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355261"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987623"
 ---
-# <a name="bing-image-search-sdk-java-quickstart"></a>Guia de introdução do Bing imagem pesquisa SDK Java
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-java"></a>Início rápido: Imagens de pedido e o filtro utilizar o SDK e o Java
 
-O SDK de pesquisa do Bing imagem fornece a funcionalidade de REST API para consultas de imagem e os resultados da análise. 
+O SDK de pesquisa de imagens do Bing fornece a funcionalidade de REST API para consultas de imagem e os resultados da análise. 
 
-O [código para exemplos do SDK de pesquisa do Java Bing imagem de origem](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) está disponível no Hub de Git. 
+O [da origem de código para exemplos de Java SDK de pesquisa do Bing imagem](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) está disponível no Hub de Git. 
 
-## <a name="application-dependencies"></a>Dependências da aplicação
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **pesquisa**. Instale as dependências do SDK de pesquisa do Bing imagem com o Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro de Maven POM requer a declaração:
+## <a name="application-dependencies"></a>Dependências de aplicações
+Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) sob **pesquisa**. Instale as dependências de SDK de pesquisa de imagens do Bing com o Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro POM do Maven requer a declaração:
 ```
  <dependencies>
     <dependency>
@@ -35,7 +35,7 @@ Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/t
  </dependencies> 
 ```
 ## <a name="image-search-client"></a>Cliente de pesquisa de imagem
-Adicione importações para a implementação de classe.
+Adicione as importações para a implementação da classe.
 ```
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
 import com.microsoft.azure.cognitiveservices.imagesearch.ImageObject;
@@ -54,7 +54,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Implementar o **ImageSearchAPIImpl** cliente, que requer uma instância do **ServiceClientCredentials** classe.
+Implementar o **ImageSearchAPIImpl** cliente, o que requer uma instância da **ServiceClientCredentials** classe.
 ```
 public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
     return new ImageSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -79,7 +79,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Pesquisa para imagens sobre "Rockies no Canadá." Verifique o número de resultados. Imprimir os valores para o **firstImageResult**, **pivotSuggestions**, e **queryExpansions** parâmetros.
+Procure imagens sobre "Rockies canadenses." Verifique se o número de resultados. Imprimir os valores para o **firstImageResult**, **pivotSuggestions**, e **queryExpansions** parâmetros.
 ```
 public static void imageSearch(String subscriptionKey)
 {
@@ -164,7 +164,7 @@ public static void imageSearch(String subscriptionKey)
 }
 
 ```
-Procurar para imagens sobre "Gibraltar" e o filtro GIFs animados e uma grande proporção. Verifique o número de resultados. Imprimir os valores para o **insightsToken**, **thumbnailUrl**, e **webUrl** parâmetros para o resultado primeiro.
+Procure imagens sobre "Gibraltar" e o filtro para GIF animados e uma grande proporção de aspecto. Verifique se o número de resultados. Imprimir os valores para o **insightsToken**, **thumbnailUrl**, e **webUrl** parâmetros para o primeiro resultado.
 ```
 public static void imageSearchWithFilters(String subscriptionKey)
 {
@@ -208,7 +208,7 @@ public static void imageSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Pesquisa para imagens de tendências. Certifique-se a **categorias** e **mosaicos** parâmetros.
+Pesquisa de imagens populares. Verifique se o **categorias** e **mosaicos** parâmetros.
 ```
 public static void imageTrending(String subscriptionKey)
 {
@@ -260,7 +260,7 @@ public static void imageTrending(String subscriptionKey)
 }
 
 ```
-Procure as imagens com a consulta "Degas" e, em seguida, procure para obter detalhes sobre o resultado de imagem primeiro. 
+Procure imagens com a consulta "Degas" e, em seguida, procurar para obter detalhes sobre o primeiro resultado de imagem. 
 ```
 public static void imageDetail(String subscriptionKey)
 {
@@ -396,7 +396,7 @@ public static void imageDetail(String subscriptionKey)
     }
 }
 ```
-Adicione os métodos descritos neste artigo para uma classe com uma função principal para executar o código.
+Adicione os métodos descritos neste artigo para uma classe com uma função main para execução do código.
 ```
 package ImageSDK;
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
@@ -416,4 +416,4 @@ public class ImageSrchSDK {
 ```
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Amostras do SDK de Java serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Amostras do SDK de Java dos serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

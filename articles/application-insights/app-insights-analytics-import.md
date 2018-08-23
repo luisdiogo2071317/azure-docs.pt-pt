@@ -11,22 +11,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2017
+ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989762"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060710"
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para análise
 
 Importar dados de tabela em [Analytics](app-insights-analytics.md), seja para a associar com [Application Insights](app-insights-overview.md) telemetria da sua aplicação, ou, para que pode analisá-los como um fluxo separado. A análise é uma linguagem de consulta poderosa adequada para analisar fluxos de timestamped de grande volume de telemetria.
-
 Pode importar dados para análise com o seu próprio esquema. Não tem de utilizar os esquemas padrão do Application Insights, como o pedido ou de rastreio.
 
 Pode importar JSON ou DSV (delimitador de valores separados - vírgula, ponto e vírgula ou separador) ficheiros.
+
+> [!IMPORTANT]
+> Este artigo tenha sido **preterido**. O método recomendado de obtenção de dados para o Log Analytics é a [API do recoletor de dados do Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 Há três situações em que a importação de análise é útil:
 

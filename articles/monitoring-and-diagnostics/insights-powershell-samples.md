@@ -1,6 +1,6 @@
 ---
 title: Exemplos de início rápido do Azure PowerShell de Monitor
-description: Utilize o PowerShell para aceder às funcionalidades de monitorização do Azure, tais como o dimensionamento automático, alertas, webhooks e procure-os registos de atividade.
+description: Utilize o PowerShell para aceder às funcionalidades do Azure Monitor, como o dimensionamento automático, alertas, webhooks e pesquisar registos de atividades.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,35 +8,35 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: d7275bb0399ae5832e85089e44f4b9a1fe412747
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6189291a9e944acde751a66cdb58f2052c73999
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262424"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054786"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do Azure PowerShell de Monitor
-Este artigo apresenta o exemplo comandos do PowerShell para o ajudar a aceder às funcionalidades de monitorização do Azure.
+Este artigo será apresentado exemplo de comandos do PowerShell para o ajudar a aceder aos recursos do Azure Monitor.
 
 > [!NOTE]
-> Monitor do Azure é o novo nome para o que foi chamado "Informações do Azure" até 25th de Setembro de 2016. No entanto, os espaços de nomes e, consequentemente, os seguintes comandos de conter a palavra "informações".
+> O Azure Monitor é o novo nome para o que foi chamado de "Azure Insights" até dia 25 de Setembro de 2016. No entanto, os espaços de nomes e, portanto, os seguintes comandos ainda contêm a palavra "informações".
 > 
 > 
 
 ## <a name="set-up-powershell"></a>Configurar o PowerShell
-Se ainda não o tiver feito, configure o PowerShell para executar no seu computador. Para obter mais informações, consulte [como instalar e configurar o PowerShell](/powershell/azure/overview).
+Se ainda não o fez, configure o PowerShell para executar no seu computador. Para obter mais informações, consulte [como instalar e configurar o PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemplos neste artigo
-Os exemplos no artigo mostram como pode utilizar os cmdlets de Monitor do Azure. Também pode rever a lista completa dos cmdlets do PowerShell de Monitor do Azure em [Cmdlets de Monitor do Azure (Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
+Os exemplos neste artigo mostram como pode utilizar os cmdlets do Azure Monitor. Também pode rever a lista completa de cmdlets do PowerShell de Monitor do Azure no [Cmdlets do Azure Monitor (informações)](https://docs.microsoft.com/powershell/module/azurerm.insights).
 
-## <a name="sign-in-and-use-subscriptions"></a>A iniciar sessão e utilizar subscrições
-Primeiro, inicie sessão sua subscrição do Azure.
+## <a name="sign-in-and-use-subscriptions"></a>Iniciar sessão e utilizar as subscrições
+Inicie sessão em primeiro lugar, na sua subscrição do Azure.
 
 ```PowerShell
 Connect-AzureRmAccount
 ```
 
-Verá um ecrã de início de sessão. Uma vez que iniciar sessão na sua conta, TenantID, e são apresentados o ID de subscrição predefinido. Todos os cmdlets do Azure funciona no contexto da sua subscrição predefinida. Para ver a lista de subscrições tiver acesso, utilize o seguinte comando:
+Verá um ecrã de início de sessão. Uma vez que iniciar sessão na sua conta, TenantID, e o padrão de ID de subscrição são apresentados. Todos os cmdlets do Azure funciona no contexto de sua assinatura padrão. Para ver a lista de subscrições que tem acesso, utilize o seguinte comando:
 
 ```PowerShell
 Get-AzureRmSubscription
@@ -49,10 +49,10 @@ Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-activity-log-for-a-subscription"></a>Obter o registo de atividade para uma subscrição
+## <a name="retrieve-activity-log-for-a-subscription"></a>Obter o registo de atividades para uma subscrição
 Utilize o `Get-AzureRmLog` cmdlet.  Seguem-se alguns exemplos comuns.
 
-Obter entradas de registo desta data/hora de modo a apresentar:
+Obter entradas de registo a partir desta data e hora para apresentar:
 
 ```PowerShell
 Get-AzureRmLog -StartTime 2016-03-01T10:30
@@ -64,53 +64,53 @@ Obter entradas de registo entre um intervalo de data/hora:
 Get-AzureRmLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
-Obter entradas de registo de um grupo de recurso específico:
+Obter entradas de log do grupo de recursos específico:
 
 ```PowerShell
 Get-AzureRmLog -ResourceGroup 'myrg1'
 ```
 
-Obter entradas de registo a partir de um fornecedor de recursos específico entre um intervalo de data/hora:
+Obter entradas de registo de um fornecedor de recursos específico entre um intervalo de data/hora:
 
 ```PowerShell
 Get-AzureRmLog -ResourceProvider 'Microsoft.Web' -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
-Obter todas as entradas de registo com um emissor específico:
+Obter todas as entradas de log com um chamador específico:
 
 ```PowerShell
 Get-AzureRmLog -Caller 'myname@company.com'
 ```
 
-O seguinte comando obtém os últimas 1 000 eventos de registo de atividade:
+O seguinte comando obtém os últimas 1 000 eventos de registo de atividades:
 
 ```PowerShell
 Get-AzureRmLog -MaxEvents 1000
 ```
 
-`Get-AzureRmLog` suporta muitos outros parâmetros. Consulte o `Get-AzureRmLog` referência para obter mais informações.
+`Get-AzureRmLog` oferece suporte a muitos outros parâmetros. Consulte o `Get-AzureRmLog` referência para obter mais informações.
 
 > [!NOTE]
-> `Get-AzureRmLog` Fornece apenas 15 dias do histórico. Utilizar o **- MaxEvents** parâmetro permite-lhe consultar os eventos de N últimos, para além de 15 dias. Para eventos de acesso com mais de 15 dias, utilize a REST API ou o SDK (c# exemplo utilizando o SDK). Se não incluir **StartTime**, em seguida, o valor predefinido é **EndTime** menos uma hora. Se não incluir **EndTime**, em seguida, o valor predefinido é a hora atual. Todas as horas são em UTC.
+> `Get-AzureRmLog` Fornece apenas 15 dias do histórico. Utilizar o **- MaxEvents** parâmetro permite-lhe consultar os eventos de N últimos, além de 15 dias. Para mais de 15 dias de eventos de acesso, utilize a REST API ou SDK (exemplo de c# com o SDK). Se não incluir **StartTime**, em seguida, o valor predefinido é **EndTime** menos uma hora. Se não incluir **EndTime**, em seguida, o valor predefinido é a hora atual. Todas as horas são em formato UTC.
 > 
 > 
 
-## <a name="retrieve-alerts-history"></a>Obter o histórico de alertas
-Para ver todos os eventos de alerta, pode consultar os registos do Azure Resource Manager utilizando os exemplos seguintes.
+## <a name="retrieve-alerts-history"></a>Obter histórico de alertas
+Para ver todos os eventos de alerta, pode consultar os registos do Azure Resource Manager com os exemplos seguintes.
 
 ```PowerShell
 Get-AzureRmLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
 ```
 
-Para ver o histórico de uma regra de alerta específica, pode utilizar o `Get-AzureRmAlertHistory` cmdlet, passando no ID de recurso de regra de alerta.
+Para ver o histórico para uma regra de alerta específico, pode usar o `Get-AzureRmAlertHistory` cmdlet, passando o ID de recurso de regra de alerta.
 
 ```PowerShell
 Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-O `Get-AzureRmAlertHistory` cmdlet suporta vários parâmetros. Obter mais informações, consulte [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
+O `Get-AzureRmAlertHistory` cmdlet oferece suporte a vários parâmetros. Obter mais informações, consulte [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
 
-## <a name="retrieve-information-on-alert-rules"></a>Obter informações sobre regras de alertas
+## <a name="retrieve-information-on-alert-rules"></a>Obter informações sobre regras de alerta
 Todos os comandos seguintes agirem sobre um grupo de recursos com o nome "montest".
 
 Ver todas as propriedades da regra de alerta:
@@ -119,7 +119,7 @@ Ver todas as propriedades da regra de alerta:
 Get-AzureRmAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
 ```
 
-Obter todos os alertas no grupo de recursos:
+Obter todos os alertas num grupo de recursos:
 
 ```PowerShell
 Get-AzureRmAlertRule -ResourceGroup montest
@@ -131,14 +131,14 @@ Obter todas as regras de alerta definido para um recurso de destino. Por exemplo
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule` suporta outros parâmetros. Consulte [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) para obter mais informações.
+`Get-AzureRmAlertRule` oferece suporte a outros parâmetros. Ver [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) para obter mais informações.
 
-## <a name="create-metric-alerts"></a>Criar métricas alertas
+## <a name="create-metric-alerts"></a>Criar alertas de métricas
 Pode utilizar o `Add-AlertRule` cmdlet para criar, atualizar ou desativar uma regra de alerta.
 
-Pode criar propriedades de e-mail e webhook utilizando `New-AzureRmAlertRuleEmail` e `New-AzureRmAlertRuleWebhook`, respetivamente. O cmdlet de regra de alerta, atribuir estas propriedades como ações para o **ações** propriedade de regra de alerta.
+Pode criar propriedades de e-mail e webhook usando `New-AzureRmAlertRuleEmail` e `New-AzureRmAlertRuleWebhook`, respectivamente. O cmdlet de regra de alerta, atribuir essas propriedades como ações para o **ações** propriedade de regra de alerta.
 
-A tabela seguinte descreve os parâmetros e valores utilizados para criar um alerta utilizando uma métrica.
+A tabela seguinte descreve os parâmetros e valores utilizados para criar um alerta através de uma métrica.
 
 | parâmetro | valor |
 | --- | --- |
@@ -146,13 +146,13 @@ A tabela seguinte descreve os parâmetros e valores utilizados para criar um ale
 | Localização desta regra de alerta |EUA Leste |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName do alerta que é criado |\PhysicalDisk ( total) \Disk escritas/seg. Consulte o `Get-MetricDefinitions` cmdlet sobre como obter os nomes de métricos exatos |
-| operador |GreaterThan |
+| MetricName do alerta que é criado |\Disk \PhysicalDisk ( total) / seg. Consulte o `Get-MetricDefinitions` cmdlet sobre como obter os nomes de métricos exatos |
+| Operador |GreaterThan |
 | Valor de limiar (contagem por segundo para esta métrica) |1 |
 | WindowSize (formato hh: mm:) |00:05:00 |
-| agregador (estatística da métrica, que utiliza a contagem média, neste caso) |Média |
-| mensagens de correio eletrónico personalizadas (matriz de cadeia) |'foo@example.com','bar@example.com' |
-| enviar correio eletrónico para os proprietários, contribuintes e leitores |-SendToServiceOwners |
+| agregador (estatística da métrica, que usa a contagem média, neste caso) |Média |
+| e-mails personalizados (matriz de cadeia de caracteres) |'foo@example.com','bar@example.com' |
+| enviar um e-mail para proprietários, contribuidores e leitores |-SendToServiceOwners |
 
 Criar uma ação de E-Mail
 
@@ -160,13 +160,13 @@ Criar uma ação de E-Mail
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
 ```
 
-Criar uma ação do Webhook
+Criar uma ação de Webhook
 
 ```PowerShell
 $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
 ```
 
-Criar a regra de alerta na métrica de % de CPU numa VM clássica
+Criar a regra de alerta sobre a métrica de % de CPU numa VM clássica
 
 ```PowerShell
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "East US" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
@@ -178,16 +178,16 @@ Obter a regra de alerta
 Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
-O cmdlet de alerta de adicionar também atualiza a regra se já existe uma regra de alerta para as propriedades indicadas. Para desativar uma regra de alerta, inclua o parâmetro **- DisableRule**.
+O cmdlet de alerta de adicionar também atualiza a regra se já existe uma regra de alerta para as propriedades de determinada. Para desativar uma regra de alerta, inclua o parâmetro **- DisableRule**.
 
-## <a name="get-a-list-of-available-metrics-for-alerts"></a>Obter uma lista de métricas disponíveis para os alertas
+## <a name="get-a-list-of-available-metrics-for-alerts"></a>Obter uma lista de métricas disponíveis para alertas
 Pode utilizar o `Get-AzureRmMetricDefinition` cmdlet para ver a lista de todas as métricas para um recurso específico.
 
 ```PowerShell
 Get-AzureRmMetricDefinition -ResourceId <resource_id>
 ```
 
-O exemplo seguinte gera uma tabela com o nome da métrica e a unidade para o mesmo.
+O exemplo a seguir gera uma tabela com a métrica de nome e a unidade para ele.
 
 ```PowerShell
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -195,8 +195,8 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Uma lista completa das opções disponíveis para `Get-AzureRmMetricDefinition` está disponível em [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-## <a name="create-and-manage-activity-log-alerts"></a>Criar e gerir alertas do registo de atividade
-Pode utilizar o `Set-AzureRmActivityLogAlert` cmdlet para definir um alerta de registo de atividade. Um alerta de registo de atividade requer que primeiro definir as condições como um dicionário de condições e criar um alerta que utiliza dessas condições.
+## <a name="create-and-manage-activity-log-alerts"></a>Criar e gerir alertas de registo de atividades
+Pode utilizar o `Set-AzureRmActivityLogAlert` cmdlet para definir um alerta de registo de atividades. Um alerta de registo de atividades requer que primeiro define suas condições como um dicionário de condições, em seguida, criar um alerta que utiliza essas condições.
 
 ```PowerShell
 
@@ -209,28 +209,28 @@ Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -Resou
 
 ```
 
-As propriedades de webhook adicionais são opcionais. Pode obter novamente o conteúdo da utilização de um alerta de registo de atividade `Get-AzureRmActivityLogAlert`.
+As propriedades de webhook adicionais são opcionais. Pode obter novamente o conteúdo de um alerta de registo de atividade usando `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Criar e gerir definições de dimensionamento automático
-Um recurso (uma aplicação Web, VM, o serviço em nuvem ou conjunto de dimensionamento da Máquina Virtual) pode ter apenas uma definição de dimensionamento automático configurada para ele.
-No entanto, cada definição de dimensionamento automático pode ter vários perfis. Por exemplo, um para um perfil de escala com base no desempenho e um segundo para um perfil com base na agenda. Cada perfil pode ter várias regras configuradas no mesmo. Para mais informações sobre o dimensionamento automático, consulte [como uma aplicação de dimensionamento automático](../cloud-services/cloud-services-how-to-scale-portal.md).
+Um recurso (uma aplicação Web, VM, serviço Cloud ou o conjunto de dimensionamento de máquinas virtuais) pode ter apenas uma definição de dimensionamento automático configurada para o mesmo.
+No entanto, cada definição de dimensionamento automático pode ter vários perfis. Por exemplo, um para um perfil de dimensionamento baseados no desempenho e um segundo para um perfil com base na agenda. Cada perfil pode ter várias regras configuradas no mesmo. Para obter mais informações sobre o dimensionamento automático, consulte [como Dimensionar automaticamente um aplicativo](../cloud-services/cloud-services-how-to-scale-portal.md).
 
 Eis os passos a utilizar:
 
 1. Crie Regra (s).
-2. Crie perfis mapeamento as regras que criou anteriormente para os perfis.
-3. Opcional: Crie as notificações de dimensionamento automático ao configurar propriedades de webhook e e-mail.
-4. Crie uma definição de dimensionamento automático, com um nome no recurso de destino, mediante o mapeamento de perfis e as notificações que criou nos passos anteriores.
+2. Crie perfis mapear as regras que criou anteriormente para os perfis.
+3. Opcional: Crie notificações do dimensionamento automático ao configurar as propriedades de e-mail e webhook.
+4. Crie uma definição de dimensionamento automático com um nome do recurso de destino, mapeando os perfis e as notificações que criou nos passos anteriores.
 
-Os exemplos seguintes mostram como pode criar uma definição de dimensionamento automático para um conjunto de dimensionamento de Máquina Virtual para um sistema operativo do Windows com base com a métrica de utilização da CPU.
+Os exemplos seguintes mostram como pode criar uma definição de dimensionamento automático para um conjunto de dimensionamento de Máquina Virtual para um sistema de operativo do Windows com base com a métrica de utilização da CPU.
 
-Em primeiro lugar, crie uma regra para aumentar horizontalmente, com um aumento da contagem de instâncias.
+Primeiro, crie uma regra para aumentar horizontalmente, com um aumento de contagem de instância.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Em seguida, crie uma regra de dimensionamento, com um diminuir de contagem de instâncias.
+Em seguida, crie uma regra para reduzir horizontalmente, com uma diminuição de contagem de instância.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -248,7 +248,7 @@ Crie uma propriedade do webhook.
 $webhook_scale = New-AzureRmAutoscaleWebhook -ServiceUri "https://example.com?mytoken=mytokenvalue"
 ```
 
-Crie a propriedade de notificação para a definição de dimensionamento automático, incluindo e-mail e o webhook que criou anteriormente.
+Crie a propriedade de notificação para a definição de dimensionamento automático, incluindo o e-mail e o webhook que criou anteriormente.
 
 ```PowerShell
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
@@ -263,7 +263,7 @@ Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -Reso
 Para obter mais informações sobre a gestão de definições de dimensionamento automático, consulte [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
 
 ## <a name="autoscale-history"></a>Histórico de dimensionamento automático
-O exemplo seguinte mostra como pode ver eventos de alerta e dimensionamento automático recente. Utilize a pesquisa de registo de atividade para ver o histórico de dimensionamento automático.
+O exemplo seguinte mostra como pode ver o dimensionamento automático recente e eventos de alerta. Utilize a pesquisa de registos de atividade para ver o histórico de dimensionamento automático.
 
 ```PowerShell
 Get-AzureRmLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
@@ -280,13 +280,13 @@ Para obter mais informações, consulte [Get-AutoscaleHistory](https://msdn.micr
 ### <a name="view-details-for-an-autoscale-setting"></a>Ver detalhes de uma definição de dimensionamento automático
 Pode utilizar o `Get-Autoscalesetting` cmdlet para obter mais informações sobre a definição de dimensionamento automático.
 
-O exemplo seguinte mostra os detalhes sobre todas as definições de dimensionamento automático no grupo de recursos 'myrg1'.
+O exemplo seguinte mostra detalhes sobre todas as definições de dimensionamento automático no grupo de recursos "myrg1'.
 
 ```PowerShell
 Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -DetailedOutput
 ```
 
-O exemplo seguinte mostra os detalhes sobre todas as definições de dimensionamento automático o grupo de recursos 'myrg1' e especificamente a definição de dimensionamento automático com o nome 'MyScaleVMSSSetting'.
+O exemplo seguinte mostra detalhes sobre todas as definições de dimensionamento automático no grupo de recursos "myrg1' e especificamente a definição de dimensionamento automático com o nome 'MyScaleVMSSSetting'.
 
 ```PowerShell
 Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -DetailedOutput
@@ -299,13 +299,13 @@ Pode utilizar o `Remove-Autoscalesetting` cmdlet para eliminar uma definição d
 Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
-## <a name="manage-log-profiles-for-activity-log"></a>Gerir perfis de registo para o registo de atividade
-Pode criar um *registo perfil* e exportar dados do seu registo de atividade para uma conta de armazenamento e podem configurar a retenção de dados para o mesmo. Opcionalmente, também pode transmitir os dados para o Hub de eventos. Esta funcionalidade está atualmente em pré-visualização e só pode criar um perfil de registo por subscrição. Pode utilizar os seguintes cmdlets com a sua subscrição atual para criar e gerir perfis de registo. Também pode escolher uma determinada subscrição. Embora as predefinições do PowerShell na subscrição atual, pode sempre alterar esse utilizando `Set-AzureRmContext`. Pode configurar o registo de atividade para dados de rota para qualquer conta de armazenamento ou Hub de eventos dentro dessa subscrição. Dados são escritos como ficheiros do blob no formato JSON.
+## <a name="manage-log-profiles-for-activity-log"></a>Gerir perfis de registo para o registo de atividades
+Pode criar uma *perfil de registo* e exportar dados a partir do seu registo de atividades para uma conta de armazenamento e podem configurar a retenção de dados para o mesmo. Opcionalmente, também pode transmitir os dados ao seu Hub de eventos. Esta funcionalidade está atualmente em pré-visualização e só pode criar um perfil de registo por subscrição. Pode utilizar os seguintes cmdlets com a sua subscrição atual para criar e gerir perfis de registo. Também pode escolher uma subscrição específica. Embora o PowerShell é predefinido para a subscrição atual, pode sempre alterar esses utilizando `Set-AzureRmContext`. Pode configurar o registo de atividades para encaminhar os dados para qualquer conta de armazenamento ou Hub de eventos nessa subscrição. Dados são escritos como ficheiros de blob no formato JSON.
 
 ### <a name="get-a-log-profile"></a>Obter um perfil de registo
-Para obter os seus perfis de registo existente, utilize o `Get-AzureRmLogProfile` cmdlet.
+Para obter os perfis de registo existente, utilize o `Get-AzureRmLogProfile` cmdlet.
 
-### <a name="add-a-log-profile-without-data-retention"></a>Adicionar um perfil de registo sem retenção de dados
+### <a name="add-a-log-profile-without-data-retention"></a>Adicionar um perfil de registo sem a retenção de dados
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
@@ -316,28 +316,28 @@ Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
 
 ### <a name="add-a-log-profile-with-data-retention"></a>Adicionar um perfil de registo com retenção de dados
-Pode especificar o **- RetentionInDays** propriedade com o número de dias, como um número inteiro positivo, onde os dados são mantidos.
+Pode especificar a **- RetentionInDays** propriedade com o número de dias, como um número inteiro, onde os dados são retidos.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
-### <a name="add-log-profile-with-retention-and-eventhub"></a>Adicionar perfil de registo com retenção e EventHub
-Além do encaminhamento dados da sua conta de armazenamento, também pode transmiti-lo para um Hub de eventos. Esta versão de pré-visualização, a configuração de conta de armazenamento é obrigatória, mas a configuração do Hub de eventos é opcional.
+### <a name="add-log-profile-with-retention-and-eventhub"></a>Adicionar perfil de registo com retenção e de EventHub
+Além do encaminhamento seus dados para a conta de armazenamento, pode também transmitir para um Hub de eventos. Nesta versão de pré-visualização, a configuração de conta de armazenamento é obrigatória, mas a configuração do Hub de eventos é opcional.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Configurar os registos de diagnóstico
-Muitos serviços do Azure fornecem registos adicionais e telemetria que pode fazer um ou mais dos seguintes procedimentos: 
- - ser configurado para guardar os dados na sua conta do Storage do Azure
- - enviados para os Event Hubs
- - enviados para uma área de trabalho de análise de registos. 
+Muitos serviços do Azure fornecem registos adicionais e a telemetria que pode fazer um ou mais dos seguintes procedimentos: 
+ - ser configurado para guardar os dados na sua conta de armazenamento do Azure
+ - enviado para os Hubs de eventos
+ - enviado para uma área de trabalho do Log Analytics. 
 
-A operação só pode ser efetuada num nível de recursos. O hub de conta ou evento de armazenamento deve estar presente na mesma região que o recurso de destino em que está configurada a definição de diagnóstico.
+A operação só pode ser executada num nível de recursos. O hub de evento ou a conta de armazenamento deve estar presente na mesma região que o recurso de destino em que a definição de diagnóstico está configurada.
 
-### <a name="get-diagnostic-setting"></a>Obter a definição de diagnóstico
+### <a name="get-diagnostic-setting"></a>Obter definição de diagnóstico
 ```PowerShell
 Get-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```
@@ -360,26 +360,26 @@ Ativar a definição de diagnóstico com retenção
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-Ativar a definição de diagnóstico com o período de retenção para uma categoria de registo específico
+Ativar a definição de diagnóstico com o período de retenção para uma categoria de registo específicos
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-Ativar a definição de diagnóstico para os Event Hubs
+Ativar a definição de diagnóstico para os Hubs de eventos
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Ativar a definição de diagnóstico para análise de registos
+Ativar a definição de diagnóstico para o Log Analytics
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true
 
 ```
 
-Tenha em atenção que a propriedade WorkspaceId demora a *ID de recurso* da área de trabalho. Pode obter o ID de recurso da sua área de trabalho de análise de registos com o seguinte comando:
+Tenha em atenção que a propriedade WorkspaceId leva a *ID de recurso* da área de trabalho. Pode obter o ID de recurso da sua área de trabalho do Log Analytics com o seguinte comando:
 
 ```PowerShell
 (Get-AzureRmOperationalInsightsWorkspace).ResourceId

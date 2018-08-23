@@ -1,49 +1,47 @@
 ---
-title: Introdução ao IoT Hub do Azure módulo identidade e o módulo duplo (C) | Microsoft Docs
-description: Saiba como criar a identidade do módulo e atualizar duplo módulo utilizando SDKs do IoT para C.
+title: Introdução ao IoT Hub do Azure módulo identidade e o módulo duplo (C) | Documentos da Microsoft
+description: Aprenda a criar a identidade do módulo e atualizar o módulo duplo com os SDKs para C.
 author: chrissie926
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 5a9e3fb741563d2804c916dc3db3e02a79147b6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 94c7bd50b9c331370aaac802e0a453c5cdd8b7c1
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036458"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054157"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-back-end-and-c-device"></a>Introdução ao IoT Hub módulo identidade e o módulo duplo utilizando C back-end e dispositivo C
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Introdução ao IoT Hub módulo identidade e o módulo duplo usando o back-end de C e C dispositivo
 
 > [!NOTE]
 > As [identidades de módulo e os módulos duplos](iot-hub-devguide-module-twins.md) assemelham-se à identidade do dispositivo e ao dispositivo duplo do Hub IoT do Azure, exceto no facto de oferecerem melhor granularidade. Enquanto a identidade do dispositivo e o dispositivo duplo do Hub IoT do Azure permitem que a aplicação de back-end configure um dispositivo e conferem visibilidade às condições do dispositivo, uma identidade de módulo e o módulo duplo fornecem estas capacidades para componentes individuais de um dispositivo. Em dispositivos compatíveis com vários componentes, tais como dispositivos baseados no sistema operativo ou dispositivos de firmware, permitem a configuração e condições isoladas para cada componente.
 
-No final deste tutorial, terá de C duas aplicações:
+No final deste tutorial, terá de aplicações de duas C:
 
 * **CreateIdentities**, que cria uma identidade de dispositivo, uma identidade de módulo e a chave de segurança associada para ligar os clientes do dispositivo e do módulo.
+
 * **UpdateModuleTwinReportedProperties**, que envia as propriedades reportadas do módulo duplo atualizadas para o Hub IoT.
 
 > [!NOTE]
-> Para informações sobre os SDKs do Azure IoT que pode utilizar para criar quer as aplicações a executar em dispositivos, quer a sua solução de back-end, veja [Azure IoT SDKs][lnk-hub-sdks].
+> Para obter informações sobre os SDKs IoT do Azure que pode utilizar para criar ambas as aplicações a executar em dispositivos e back-end da solução, consulte [do Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
-* Um IoT Hub.
-* Instalar a versão mais recente [C SDK](https://github.com/Azure/azure-iot-sdk-c).
-
+* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Um Hub IoT.
+* A versão mais recente [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c).
 
 Criou o seu hub IoT e tem agora o nome de anfitrião e a cadeia de ligação do Hub IoT de que precisa para concluir este tutorial.
 
-<a id="DeviceIdentity_csharp"></a>
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade de dispositivo e um módulo do IoT Hub
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade de dispositivo e uma identidade de módulo no IoT Hub
 
-Nesta secção, vai criar uma aplicação de C que cria uma identidade de dispositivo e um módulo de registo de identidade do seu IoT hub. Não é possível ligar um dispositivo ou módulo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para obter mais informações, veja a secção "Identity registry" (Registo de identidades) do [Hub IoT developer guide (Guia do programador do Hub IoT)][lnk-devguide-identity]. Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O dispositivo e o módulo utilizam estes valores para se identificarem quando enviam mensagens do dispositivo para cloud para o Hub IoT. Os IDs são sensíveis às maiúsculas e minúsculas.
+Nesta secção, vai criar uma aplicação C que cria uma identidade de dispositivo e uma identidade de módulo no registo de identidade do IoT hub. Não é possível ligar um dispositivo ou módulo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para obter mais informações, consulte a **registo de identidade** secção a [Guia do programador do IoT Hub](iot-hub-devguide-identity-registry.md). Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O dispositivo e o módulo utilizam estes valores para se identificarem quando enviam mensagens do dispositivo para cloud para o Hub IoT. Os IDs são sensíveis às maiúsculas e minúsculas.
 
-Adicione o seguinte código ao ficheiro C:
+Adicione o seguinte código ao seu ficheiro de C:
 
 ```C
 #include <stdio.h>
@@ -58,7 +56,8 @@ Adicione o seguinte código ao ficheiro C:
 
 static const char* hubConnectionString ="[your hub's connection string]"; // modify
 
-static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHandle, const char* deviceId)
+static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE 
+  iotHubRegistryManagerHandle, const char* deviceId)
 {
     IOTHUB_REGISTRY_DEVICE_CREATE_EX deviceCreateInfo;
     IOTHUB_REGISTRYMANAGER_RESULT result;
@@ -75,7 +74,8 @@ static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHand
     deviceInfoEx.version = 1;
     
     // Create device
-    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, &deviceCreateInfo, &deviceInfoEx);
+    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, 
+      &deviceCreateInfo, &deviceInfoEx);
     if (result == IOTHUB_REGISTRYMANAGER_OK)
     {
         (void)printf("IoTHubRegistryManager_CreateDevice: Device has been created successfully: deviceId=%s, primaryKey=%s\n", deviceInfoEx.deviceId, deviceInfoEx.primaryKey);
@@ -167,22 +167,20 @@ int main(void)
 }
 ```
 
-Esta aplicação cria uma identidade de dispositivo com o ID **myFirstDevice** e uma identidade do módulo com o ID **myFirstModule** em dispositivo **myFirstDevice**. (Se o ID desse módulo já existir no registo de identidade, o código apenas obtém as informações do módulo existente.) De seguida, a aplicação irá apresentar a chave primária para essa identidade. Esta chave vai ser utilizada na aplicação do módulo simulado para ligar ao seu hub IoT.
+Esta aplicação cria uma identidade de dispositivo com o ID **myFirstDevice** e uma identidade de módulo com o ID **myFirstModule** em dispositivos **myFirstDevice**. (Se o ID desse módulo já existir no registo de identidade, o código apenas obtém as informações do módulo existente.) De seguida, a aplicação irá apresentar a chave primária para essa identidade. Esta chave vai ser utilizada na aplicação do módulo simulado para ligar ao seu hub IoT.
 
 > [!NOTE]
-> O registo de identidade do Hub IoT apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub IoT. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação.  Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, veja o [IoT Hub developer guide (Guia do programador do Hub IoT)][lnk-devguide-identity].
+> O registo de identidade do Hub IoT apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub IoT. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação.  Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, consulte [Guia do programador do IoT Hub](iot-hub-devguide-identity-registry.md).
 
+## <a name="update-the-module-twin-using-c-device-sdk"></a>Atualizar o módulo duplo usando o SDK de dispositivo C
 
-<a id="D2C_csharp"></a>
-## <a name="update-the-module-twin-using-c-device-sdk"></a>Atualizar o duplo módulo utilizando C dispositivo SDK
+Nesta secção, vai criar uma aplicação de C para sua simulado no dispositivo que atualiza o duplo do módulo de propriedades comunicadas.
 
-Nesta secção, vai criar uma aplicação de C sua simulada no dispositivo que atualiza o duplo módulo considerado propriedades.
+1. **Obter a cadeia de ligação do módulo** – agora, se iniciar sessão [portal do Azure](https://portal.azure.com). Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e veja se myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
 
-1. **Obtenha a sua cadeia de ligação do módulo** – agora, se iniciar sessão no [portal do Azure][lnk-portal]. Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e veja se myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
+    ![Detalhe do módulo no portal do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 
-    ![Detalhe do módulo no portal do Azure][15]
-
-2. **Criar aplicação UpdateModuleTwinReportedProperties** adicione o seguinte `using` declarações na parte superior do **Program.cs** ficheiro:
+2. **Criar aplicação UpdateModuleTwinReportedProperties** adicione as seguintes `using` declarações na parte superior a **Program.cs** ficheiro:
 
     ```C
     #include <stdio.h>
@@ -238,10 +236,11 @@ Nesta secção, vai criar uma aplicação de C sua simulada no dispositivo que a
     }
     ```
 
-Código de exemplo mostra como obter o duplo módulo e atualizar propriedades comunicadas. 
+Este exemplo de código mostra como obter o módulo duplo e atualizar as propriedades comunicadas. 
 
-## <a name="get-updates-on-the-device-side"></a>Obter as atualizações do lado do dispositivo
-Para além de código acima, pode adicionar abaixo bloco de código para colocar a atualização de duplo mensagem no seu dispositivo.
+## <a name="get-updates-on-the-device-side"></a>Obter atualizações no lado do dispositivo
+
+Além do código acima, pode adicionar abaixo do bloco de código para colocar a atualização de duplo mensagem no seu dispositivo.
 
 ```C
 #include <stdio.h>
@@ -300,7 +299,6 @@ static void reportedStateCallback(int status_code, void* userContextCallback)
 
     g_continueRunning = false;
 }
-
 
 void iothub_module_client_sample_device_twin_run(void)
 {
@@ -373,23 +371,9 @@ int main(void)
 }
 ```
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 
-* [Getting started with device management (Introdução à gestão de dispositivos)][lnk-device-management]
-* [Introdução ao IoT Edge][lnk-iot-edge]
-
-
-<!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [Introdução à gestão de dispositivos](iot-hub-node-node-device-management-get-started.md)
+* [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

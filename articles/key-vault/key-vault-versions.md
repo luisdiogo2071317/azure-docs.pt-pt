@@ -1,9 +1,9 @@
 ---
-title: Versões do Cofre de chaves
-description: As várias versões do Cofre de chaves do Azure
+title: Versões do Key Vault
+description: As várias versões do Azure Key Vault
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
@@ -13,61 +13,61 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: beb73be66f36ccf95fe27d4d8128106cd12722a8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 50d35f0dbfb180628577286d6e658daca3c41dc8
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012139"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060684"
 ---
-# <a name="key-vault-versions"></a>Versões do Cofre de chaves
+# <a name="key-vault-versions"></a>Versões do Key Vault
 
 ## <a name="2016-10-01---managed-storage-account-keys"></a>2016-10-01 - chaves de conta de armazenamento gerido
 
-Summer 2017 - funcionalidade de chaves de conta de armazenamento adicionada mais fácil integração com o Storage do Azure. Consulte o tópico de descrição geral para obter mais informações, [descrição geral de chaves de conta de armazenamento gerido](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
+Verão 2017 - funcionalidade de chaves de conta de armazenamento foi adicionada a integração mais fácil com o armazenamento do Azure. Consulte o tópico de descrição geral para obter mais informações, [descrição geral de chaves de conta de armazenamento geridas pelo](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
 
-## <a name="2016-10-01---soft-delete"></a>2016-10-01-eliminar de forma recuperável
+## <a name="2016-10-01---soft-delete"></a>2016-10-01-eliminação de forma recuperável
 
-Summer 2017 - funcionalidade de eliminação de forma recuperável adicionada melhorada para proteção de dados dos seus cofres de chaves e o Cofre de chaves objetos. Consulte o tópico de descrição geral para obter mais informações, [descrição geral da eliminação de forma recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+Verão 2017 - funcionalidade de eliminação de forma recuperável adicionados para proteção de dados melhorada dos seus cofres de chaves e o Cofre de chaves objetos. Consulte o tópico de descrição geral para obter mais informações, [descrição geral da eliminação de forma recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
 
 ## <a name="2015-06-01---certificate-management"></a>2015-06-01 - gestão de certificados
 
-Gestão de certificados é adicionada como uma funcionalidade para a versão GA 2015-06-01 no 26 de Setembro de 2016.
+Gestão de certificados é adicionada como um recurso para a versão de DG 2015-06-01 de 26 de Setembro de 2016.
 
 ## <a name="2015-06-01---general-availability"></a>2015-06-01 - disponibilidade geral
 
-Disponibilidade geral versão 2015-06-01, anunciado no 24 de Junho de 2015.
+Disponibilidade geral versão 2015-06-01, anunciado em 24 de Junho de 2015.
 
-As seguintes alterações foram efetuadas nesta versão:
+As seguintes alterações foram feitas nesta versão:
 
 - Eliminar uma chave - "utilizar" campo removido.
-- Obter informações sobre uma chave - "utilizar" campo removido.
+- Obtenha informações sobre uma chave - "utilizar" campo removido.
 - Importar uma chave para um cofre - "utilizar" campo removido.
 - Restaurar uma chave - "utilizar" campo removido.
-- Alteradas "RSA_OAEP" para "RSA-OAEP" para algoritmos RSA. Consulte [sobre certificados, chaves e segredos](about-keys-secrets-and-certificates.md).
+- Alterado "RSA_OAEP" para "RSA-OAEP" para algoritmos RSA. Ver [sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md).
 
-## <a name="2015-02-01-preview"></a>2015-02-01-preview 
+## <a name="2015-02-01-preview"></a>2015-02-01-pré-visualização 
 
-Segundo pré-visualização versão 2015-02-01-preview, anunciados no 20 de Abril de 2015. Para obter mais informações, consulte [atualização da API de REST](http://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) blogue.
+Segundo preview versão 2015-02-01-pré-visualização, anunciámos a 20 de Abril de 2015. Para obter mais informações, consulte [atualizações de API do REST](http://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) postagem de blog.
 
 Foram atualizadas as seguintes tarefas:
 
-- Liste as chaves num cofre - paginação adicionado suporte para a operação.
-- Lista as versões de uma chave - adicionar operação de lista as versões de uma chave.
-- Lista os segredos num cofre - suporte de paginação adicionado.
-- Versões do segredo de lista - Adicionar operação de lista as versões do segredo.
-- Todas as operações - Adicionar carimbos criar/atualizar atributos.
-- Criar um segredo - adicionar o tipo de conteúdo a segredos.
-- Criar uma chave - adicionar etiquetas como informações opcionais.
-- Criar um segredo - adicionar etiquetas como informações opcionais.
-- Atualizar uma chave - adicionar etiquetas como informações opcionais.
-- Atualizar um segredo - adicionar etiquetas como informações opcionais.
-- Alterar o tamanho máximo de segredos de 10 mil para KBytes 25. Ver, [sobre certificados, chaves e segredos](about-keys-secrets-and-certificates.md).
+- Liste as chaves num cofre - paginação foi adicionado suporte para a operação.
+- Lista as versões de uma chave - adicionar operação para listar as versões de uma chave.
+- Lista os segredos num cofre - suporte de paginação adicionados.
+- As versões de um segredo de lista - Adicionar operação para listar as versões de um segredo.
+- Todas as operações - adicionado criado/atualizado carimbos a atributos.
+- Criar um segredo - adicionado Content-Type para segredos.
+- Criar uma chave - adicionadas etiquetas como informações opcionais.
+- Criar um segredo - adicionadas etiquetas como informações opcionais.
+- Atualizar uma chave - adicionadas etiquetas como informações opcionais.
+- Atualizar um segredo - adicionadas etiquetas como informações opcionais.
+- Mudou o tamanho máximo para segredos de 10 mil a 25 mil Bytes. Ver, [sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md).
 
-## <a name="2014-12-08-preview"></a>pré-visualização 2014-12-08
+## <a name="2014-12-08-preview"></a>2014-12-08-pré-visualização
 
-Primeiro pré-visualização versão pré-visualização 2014-12-08-, anunciados no 8 de Janeiro de 2015.
+Primeira pré-visualização versão 2014-12-08-pré-visualização, anunciado no dia 8 de Janeiro de 2015.
 
 ## <a name="see-also"></a>Consulte também
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 0d195d5fbede3100c0474ae9614a880cfb3acb19
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 3d835a7bd93426e57c5ab204d277faca22ae0638
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005004"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42057627"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migração de Contoso: reconstrua uma aplicação no local para o Azure
 
@@ -470,7 +470,7 @@ Agora a Contoso pode publicar o site.
     ![Implementar a função](./media/contoso-migration-rebuild/function6.png)
 
 
-7. Eles navegam para a aplicação para testar a IA do Verificador de animal de estimação está a funcionar conforme esperado, em [ http://smarthotel360public.azurewebsites.net/Pets ](http://smarthotel360public.azurewebsites.net/Pets).
+7. Eles navegam para a aplicação para testar a aplicação do Verificador de animal de estimação está a funcionar conforme esperado, em [ http://smarthotel360public.azurewebsites.net/Pets ](http://smarthotel360public.azurewebsites.net/Pets).
 8. Clicarem no avatar para carregar uma imagem.
 
     ![Implementar a função](./media/contoso-migration-rebuild/function7.png)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52024dc414b7f1d420b8196792eeb91bb9a4be6f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6ac3c3d8f2a5ae37f1d32f9781f0cdbec0b293e8
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441119"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42057304"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar a chave do Key Vault e o segredo para VMs encriptadas utilizando o Azure Backup
 Este artigo fala sobre como utilizar o Azure VM Backup para efetuar o restauro de VMs encriptadas do Azure, se a sua chave e segredo não existem no Cofre de chaves. Estes passos também podem ser usados se quiser manter uma cópia separada de chave (chave de encriptação de chave) e o segredo (chave de encriptação do BitLocker) para a VM restaurada.
@@ -113,7 +113,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 > [!NOTE]
 > 1. Valor para $secretname pode ser obtido ao referir-se à saída do US $rp1. KeyAndSecretDetails.SecretUrl e com texto após segredos / por exemplo, o segredo de saída é URL https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 e nome do segredo é B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > 2. Valor da etiqueta DiskEncryptionKeyFileName é igual ao nome do segredo.
-> 3. Valor para DiskEncryptionKeyEncryptionKeyURL pode ser obtido a partir do Cofre de chaves depois de restaurar as chaves de volta e usando [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet
+> 3. Valor para DiskEncryptionKeyEncryptionKeyURL pode ser obtido a partir do Cofre de chaves depois de restaurar as chaves de volta e usando [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

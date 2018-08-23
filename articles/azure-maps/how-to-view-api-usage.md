@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9eb58f41ec89d084cc388eeadb335046fb587bc3
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e62d2ff1fdd6bc94244511a2de95c4268a58d6f9
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581894"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054968"
 ---
 # <a name="how-to-view-the-azure-maps-api-usage"></a>Como ver a utilização da API de mapas do Azure
 Este artigo mostra-lhe como ver as métricas de utilização da API para a sua conta do Azure Maps no [portal](https://portal.azure.com). As métricas são exibidas num formato gráfico conveniente ao longo de um período de tempo personalizáveis. 
@@ -59,10 +59,6 @@ Continue para a secção seguinte, se precisar de personalizar nestes gráficos 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como controlar a utilização de mapas do Azure, pode continuar para saber mais funcionalidades mais avançadas, tais como:
+Agora que aprendeu como controlar a utilização de mapas do Azure, pode continuar a ler mais sobre as APIs que está a utilizar com o:
 
-* [Consumo de veículos](consumption-model.md), ou
-* [Expandir GeoJSON](extend-geojson.md)
-
-Por fim, leia mais sobre as APIs que está a utilizar com o:
 * [Documentação da API de REST de mapas do Azure](https://docs.microsoft.com/rest/api/maps)

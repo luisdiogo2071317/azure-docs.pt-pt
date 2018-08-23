@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442773"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055588"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V para o Azure
 
@@ -25,7 +25,7 @@ Este artigo resume os componentes suportados e configurações para recuperaçã
 
 **Cenário** | **Detalhes**
 --- | ---
-Hyper-V com o Virtual Machine Manager | Pode executar a recuperação após desastre para o Azure para VMs em execução em anfitriões de Hyper-V que são geridos nos recursos de infraestrutura do System Center Virtual Machine Manager.<br/><br/> Pode implementar este cenário no portal do Azure ou através do PowerShell.<br/><br/> Quando os anfitriões de Hyper-V forem geridos pelo Virtual Machine Manager, também pode executar recuperação após desastre para um site secundário no local. Para saber mais sobre este cenário, leia [deste tutorial](tutorial-vmm-to-vmm.md).
+Hyper-V com o Virtual Machine Manager | Pode executar a recuperação após desastre para o Azure para VMs em execução em anfitriões de Hyper-V que são geridos nos recursos de infraestrutura do System Center Virtual Machine Manager.<br/><br/> Pode implementar este cenário no portal do Azure ou através do PowerShell.<br/><br/> Quando os anfitriões de Hyper-V forem geridos pelo Virtual Machine Manager, também pode executar recuperação após desastre para um site secundário no local. Para saber mais sobre este cenário, leia [deste tutorial](hyper-v-vmm-disaster-recovery.md).
 Hyper-V sem o Virtual Machine Manager | Pode executar a recuperação após desastre para o Azure para VMs em execução em anfitriões de Hyper-V que não são geridos pelo Virtual Machine Manager.<br/><br/> Pode implementar este cenário no portal do Azure ou através do PowerShell.
 
 
@@ -44,8 +44,8 @@ A tabela seguinte resume o suporte VM. Recuperação de sites suporta quaisquer 
 
  **Componente** | **Detalhes**
 --- | ---
-Configuração da VM | As VMs que são replicados para o Azure tem de cumprir [requisitos do Azure](#failed-over-azure-vm-requirements).
-Sistema operativo convidado | Qualquer convidado SO suportado pelo Azure.<br/><br/> Windows Server 2016 Nano Server não é suportado.
+Configuração da VM | As VMs que são replicados para o Azure tem de cumprir [requisitos do Azure](#azure-vm-requirements).
+Sistema operativo convidado | Qualquer SO convidado [suportada para o Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)....<br/><br/> Windows Server 2016 Nano Server não é suportado.
 
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco

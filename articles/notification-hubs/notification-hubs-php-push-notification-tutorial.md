@@ -1,6 +1,6 @@
 ---
-title: Como utilizar os Notification Hubs com o PHP
-description: Saiba como utilizar Notification Hubs do Azure de um back-end do PHP.
+title: Como utilizar os Hubs de notificação com PHP
+description: Saiba como utilizar Notification Hubs do Azure a partir de um back-end do PHP.
 services: notification-hubs
 documentationcenter: ''
 author: dimazaid
@@ -14,49 +14,49 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b812d60363ffebf1f4374b6fd44dff5e67497e08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776044"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057638"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Como utilizar os Hubs de notificação de PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Pode aceder a todas as funcionalidades de Notification Hubs a partir de um back-end Java/PHP/Ruby utilizando a interface REST do Notification Hub, conforme descrito no tópico do MSDN [APIs REST do Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Pode acessar todas as funcionalidades dos Hubs de notificação a partir de um back-end Java/PHP/Ruby com a interface REST do Hub de notificação, conforme descrito no tópico do MSDN [APIs de REST dos Hubs de notificação](http://msdn.microsoft.com/library/dn223264.aspx).
 
-Neste tópico mostram como:
+Este tópico vamos mostrar como:
 
-* Criar um cliente REST para funcionalidades de Notification Hubs do PHP;
-* Siga o [tutorial de introdução](notification-hubs-ios-apple-push-notification-apns-get-started.md) para a sua plataforma móvel escolhidas, implementar a parte de back-end no PHP.
+* Criar um cliente REST para as funcionalidades dos Hubs de notificação no PHP;
+* Siga os [tutorial de introdução](notification-hubs-ios-apple-push-notification-apns-get-started.md) para a sua plataforma móvel à escolha, implementando a parte de back-end em PHP.
 
 ## <a name="client-interface"></a>Interface do cliente
-A interface de principal do cliente pode fornecer os mesmos métodos que estão disponíveis no [SDK .NET Dosnotification Hubs](http://msdn.microsoft.com/library/jj933431.aspx), que permite-lhe diretamente traduzir os tutoriais e amostras atualmente disponíveis neste site e contribuídos pelo Comunidade na internet.
+A interface principal do cliente pode fornecer os mesmos métodos que estão disponíveis no [.NET SDK dos Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx), que permite-lhe traduzir diretamente a todos os tutoriais e exemplos está disponíveis neste site e contribuiu o Comunidade na internet.
 
-Pode encontrar o código disponível no [exemplo de wrapper do PHP REST].
+Pode encontrar todo o código disponível na [exemplo de wrapper do REST do PHP].
 
 Por exemplo, para criar um cliente:
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-Enviar um iOS nativa notificação:
+Para enviar um iOS nativa notificação:
 
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementação
-Se ainda não fez, siga o [tutorial de introdução] configurar para a última secção onde tem de implementar o back-end.
-Além disso, se pretender que pode utilizar o código do [exemplo de wrapper do PHP REST] e ir diretamente para o [concluir o tutorial](#complete-tutorial) secção.
+Se ainda não o fez, siga os [tutorial de introdução] a cópia de segurança para a última seção em que precisa implementar o back-end.
+Além disso, se pretender que pode utilizar o código a partir do [exemplo de wrapper do REST do PHP] e aceda diretamente à [concluir o tutorial](#complete-tutorial) secção.
 
-Todos os detalhes para implementar um dispositivo de moldagem REST completo podem ser encontrados no [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Nesta secção, vamos descrever a implementação de PHP dos principais passos necessários para aceder a pontos finais REST de Hubs de notificação:
+Todos os detalhes para implementar um invólucro REST completo podem ser encontrados no [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Nesta seção, descrevemos a implementação de PHP das principais etapas necessárias para aceder a pontos finais REST dos Hubs de notificação:
 
 1. Analisar a cadeia de ligação
 2. Gerar o token de autorização
 3. Efetuar a chamada HTTP
 
 ### <a name="parse-the-connection-string"></a>Analisar a cadeia de ligação
-Segue-se a classe principal de implementar o cliente, cujo construtor que analisa a cadeia de ligação:
+Esta é a classe principal de implementar o cliente, cujos construtor que analisa a cadeia de ligação:
 
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
@@ -91,9 +91,9 @@ Segue-se a classe principal de implementar o cliente, cujo construtor que analis
     }
 
 
-### <a name="create-security-token"></a>Criar o token de segurança
-Os detalhes da criação de token de segurança estão disponíveis [aqui](http://msdn.microsoft.com/library/dn495627.aspx).
-O método seguinte tem de ser adicionado ao **NotificationHub** classe para criar o token com base no URI do pedido atual e as credenciais extraídas da cadeia de ligação.
+### <a name="create-security-token"></a>Criar token de segurança
+Os detalhes da criação do token de segurança estão disponíveis [aqui](http://msdn.microsoft.com/library/dn495627.aspx).
+O seguinte método tem de ser adicionado para o **NotificationHub** classe para criar o token com base no URI do pedido atual e as credenciais extraídas da cadeia de ligação.
 
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
@@ -112,7 +112,7 @@ O método seguinte tem de ser adicionado ao **NotificationHub** classe para cria
     }
 
 ### <a name="send-a-notification"></a>Enviar uma notificação
-Em primeiro lugar, defina informe-numa classe que representa uma notificação.
+Em primeiro lugar, vamos defina uma classe que representa uma notificação.
 
     class Notification {
         public $format;
@@ -133,11 +133,11 @@ Em primeiro lugar, defina informe-numa classe que representa uma notificação.
         }
     }
 
-Esta classe é um contentor para um corpo de notificação nativo, ou um conjunto de propriedades no caso de uma notificação de modelo e um conjunto de cabeçalhos, que contém o formato (plataforma nativa ou modelo) e propriedades específicos da plataforma (como a propriedade de expiração da Apple e WNS cabeçalhos).
+Essa classe é um contentor para um corpo de notificação nativo, ou um conjunto de propriedades no caso de uma notificação de modelo e um conjunto de cabeçalhos, que contém o formato (plataforma nativa ou modelo) e propriedades específicas da plataforma (como propriedade de expiração da Apple e o WNS cabeçalhos).
 
-Consulte o [documentação de APIs de REST do Notification Hubs](http://msdn.microsoft.com/library/dn495827.aspx) e formatos das plataformas específicas de notificação para todas as opções disponíveis.
+Consulte a [documentação de APIs de REST dos Hubs de notificação](http://msdn.microsoft.com/library/dn495827.aspx) e formatos das plataformas de notificação específicos para todas as opções disponíveis.
 
-Armed com esta classe, iremos pode agora escrever enviar notificação métodos dentro de **NotificationHub** classe.
+Munido dessa classe, agora podemos escrever o envio métodos de notificação dentro dos **NotificationHub** classe.
 
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
@@ -196,18 +196,18 @@ Armed com esta classe, iremos pode agora escrever enviar notificação métodos 
         }
     } 
 
-Os métodos acima enviam um pedido POST de HTTP para o ponto final de /messages do notification hub, com o corpo correto e cabeçalhos para enviar a notificação.
+Os métodos acima enviam um pedido HTTP POST para o ponto de extremidade /messages do seu hub de notificação, com o corpo correto e cabeçalhos para enviar a notificação.
 
 ## <a name="complete-tutorial"></a>Concluir o tutorial
 Agora pode concluir o tutorial de introdução ao enviar a notificação de um back-end do PHP.
 
-Inicializar o cliente de Notification Hubs (substitua o nome de hub e a cadeia de ligação com as instruções no [tutorial de introdução]):
+Inicializar o cliente dos Hubs de notificação (substitua o nome de hub e a cadeia de ligação com as instruções na [tutorial de introdução]):
 
     $hub = new NotificationHub("connection string", "hubname");    
 
 Em seguida, adicione o código de envio dependendo da sua plataforma móvel de destino.
 
-### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Loja Windows e Windows Phone 8.1 (não Silverlight)
+### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store e Windows Phone 8.1 (não Silverlight)
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
     $notification = new Notification("windows", $toast);
     $notification->headers[] = 'X-WNS-Type: wns/toast';
@@ -241,17 +241,17 @@ Em seguida, adicione o código de envio dependendo da sua plataforma móvel de d
     $notification = new Notification("adm", $message);
     $hub->sendNotification($notification, null);
 
-Executar o seu código PHP deveria produzir agora uma notificação de apresentação no seu dispositivo de destino.
+Execução do seu código PHP deve produzir agora uma notificação que aparece no seu dispositivo de destino.
 
 ## <a name="next-steps"></a>Próximos Passos
-Neste tópico, vamos mostrou como criar um cliente de REST de Java simple para os Notification Hubs. A partir daqui, pode:
+Neste tópico, mostramos como criar um cliente de Java REST simples para os Hubs de notificação. A partir daqui, pode:
 
-* Transferir o completo [exemplo de wrapper do PHP REST], que contém o código acima.
-* Saber mais sobre os Notification Hubs etiquetagem funcionalidade [tutorial de notícias de última hora]
-* Saiba mais sobre como enviar notificações push a utilizadores individuais [tutorial notificam os utilizadores]
+* Transferir o completo [exemplo de wrapper do REST do PHP], que contém todo o código acima.
+* Saber mais sobre os Hubs de notificação funcionalidade de marcação [tutorial de notícias de última hora]
+* Saiba mais sobre como enviar notificações push para utilizadores individuais [tutorial notificar utilizadores]
 
-Para obter mais informações, consulte também o [Centro para programadores do PHP](/develop/php/).
+Para obter mais informações, consulte também os [Centro de programadores PHP](https://azure.microsoft.com/develop/php/).
 
-[exemplo de wrapper do PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[tutorial de introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Exemplo de wrapper do REST do PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
+[Tutorial de introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 

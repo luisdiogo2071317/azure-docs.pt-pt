@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9469a5827765a9b82469ac1eedc66666231d82d6
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117449"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054163"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implementações de atualização do OMS para o Azure
 
@@ -61,10 +61,12 @@ Para as máquinas atualizar, selecione a pesquisa guardada utilizada pela implem
 | --- | --- |
 |Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Selecione **Linux** ou **Windows**.|
-|Computadores a atualizar |Para as máquinas atualizar, selecione a pesquisa guardada utilizada pela implementação de OMS existente. |
+|Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **máquinas**, a preparação da máquina é mostrada na **preparação do agente de ATUALIZAÇÃO** coluna.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa. CentOS não suporta esta prontos a utilizar.|
 |Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o artigo KB sem o **KB** prefixo. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
 |Definições da agenda|Selecione a hora de começar e, em seguida, selecione **uma vez** ou **periódico** da periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de seis horas. |
+| Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
+| Controlo de reinício| Detemines como devem ser tratadas reinicializações.</br>Opções disponíveis são:</br>Reiniciar, se necessário (predefinição)</br>Reiniciar sempre</br>Nunca reinício</br>Reinício apenas - não irá instalar as atualizações|
 
 Clique em **implementações de atualização agendada** para ver o estado da implementação da atualização recém-criado.
 

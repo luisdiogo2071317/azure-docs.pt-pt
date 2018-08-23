@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/12/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 4db70fa93914ba0544d9beb8e523241513a2e5ce
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009302"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42056744"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limites de disco de caixa de dados do Azure (pré-visualização)
 
@@ -38,7 +38,7 @@ Considere estes limites, como implantar e operar a sua solução de disco do Mic
 
 ## <a name="data-box-disk-performance"></a>Desempenho de disco de caixa de dados
 
-Quando testou com discos ligados através de USB 3.0, o desempenho do disco foi até 430 MB/s. Os números reais variam consoante o tamanho de ficheiro utilizado. Para ficheiros mais pequenos, poderá ver o desempenho inferior.
+Nos testes com discos ligados por USB 3.0, o desempenho dos discos foi de 430 MB/s. A velocidade real pode variar consoante o tamanho do ficheiro utilizado. Para ficheiros mais pequenos, o desempenho poderá ser mais lento.
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
 
@@ -64,7 +64,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho de conta de armazenamento do Azure
 
-Aqui estão os limites no tamanho dos dados que são copiados para a conta de armazenamento. Certifique-se de que os dados carregados estão de acordo com estes limites. Para obter as informações mais atualizadas sobre estes limites, aceda a [metas de dimensionamento de armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) e [alvos de dimensionamento de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Aqui estão os limites no tamanho dos dados que são copiados para a conta de armazenamento. Certifique-se de que os dados carregados estão de acordo com estes limites. Para obter as informações mais atualizadas sobre estes limites, aceda a [metas de dimensionamento de armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [alvos de dimensionamento de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite Predefinido          |
 |---------------------------------------------------------------------|------------------------|
@@ -85,5 +85,5 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 
 | Entidade                                       | Convenções                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Os nomes dos contentores de blob de blocos e BLOBs de páginas | Tem de ser um nome DNS válido é entre 3 e 63 carateres de comprimento. <br>  Tem de começar com uma letra ou um número. <br> Pode conter apenas letras minúsculas, números e hífen (-). <br> Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou número. <br> Hífenes consecutivos não são permitidos em nomes. |
-| Nomes de BLOBs para o blob de blocos e BLOBs de páginas      | Nomes dos BLOBs diferenciam maiúsculas de minúsculas e podem conter qualquer combinação de carateres. <br> Um nome de blob tem de ser entre 1 a 1024 carateres. <br> Carateres do URL reservados devem ser escritos corretamente. <br>O número de segmentos de caminho que inclui o nome do blob não pode exceder 254. Um segmento de caminho é a cadeia de carateres de delimitador consecutivos (por exemplo, a barra "/") que correspondem ao nome de um diretório virtual. |
+| Os nomes dos contentores de blob de blocos e BLOBs de páginas | Tem de ser um nome DNS válido é entre 3 e 63 carateres de comprimento. <br>  Tem de começar com uma letra ou um número. <br> Pode conter apenas letras minúsculas, números e hífen (-). <br> Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. <br> Não são permitidos hífenes consecutivos em nomes. |
+| Nomes de blobs para blob de blocos e blob de páginas      | Os nomes de blobs são sensíveis a maiúsculas e minúsculas e podem conter qualquer combinação de carateres. <br> Um nome de blob tem de ter entre 1 e 1024 carateres de comprimento. <br> Os carateres de URL reservados devem ser escritos corretamente. <br>O número de segmentos de linha que inclui o nome do blob não pode exceder 254. Um segmento de linha é a cadeia de carateres entre os carateres delimitadores consecutivos (por exemplo, uma barra "/") que corresponde ao nome de um diretório virtual. |

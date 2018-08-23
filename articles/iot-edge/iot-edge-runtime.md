@@ -4,16 +4,16 @@ description: Saiba mais sobre o tempo de execução do Azure IoT Edge e como ela
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/05/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526097"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057326"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura
 
@@ -23,9 +23,9 @@ O runtime do IoT Edge efetua as seguintes funções em dispositivos IoT Edge:
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém as normas de segurança do Azure IoT Edge no dispositivo.
-* Garante que [módulos do IoT Edge][lnk-módulos] sempre em execução.
+* Garante que [módulos do IoT Edge] [ lnk-modules] sempre em execução.
 * Reporta o estado de funcionamento dos módulos à cloud, para monitorização remota.
-* Facilita a comunicação entre dispositivos de folha a jusante e o dispositivo IoT Edge.
+* Facilita a comunicação entre os dispositivos de folha a jusante e dispositivos IoT Edge.
 * Facilita a comunicação entre os módulos no dispositivo IoT Edge.
 * Facilita a comunicação entre o dispositivo do Azure IoT e a cloud.
 
@@ -33,7 +33,7 @@ O runtime do IoT Edge efetua as seguintes funções em dispositivos IoT Edge:
 
 As responsabilidades do runtime do IoT Edge enquadram-se em duas categorias: módulo gerenciamento e a comunicação. Estas duas funções são executadas por dois componentes que compõem o runtime do IoT Edge. O hub de IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e os módulos de monitorização. 
 
-O agente do Edge e hub do Edge são módulos, assim como qualquer outro módulo em execução num dispositivo IoT Edge. Para obter mais informações sobre como funcionam os módulos, consulte [lnk-módulos]. 
+O agente do Edge e hub do Edge são módulos, assim como qualquer outro módulo em execução num dispositivo IoT Edge. 
 
 ## <a name="iot-edge-hub"></a>Hub do IoT Edge
 
@@ -52,9 +52,6 @@ Para reduzir a largura de banda sua solução de IoT Edge utiliza, o hub do Edge
 ![Hub do Edge atua como um gateway entre vários dispositivos físicos e a cloud][2]
 
 Hub do Edge pode determinar se está ligado ao IoT Hub. Se a ligação for perdida, o hub do Edge guarda as mensagens ou as atualizações de duplo localmente. Depois de uma conexão for restabelecida, ele sincroniza todos os dados. A localização utilizada para esta cache temporário é determinada por uma propriedade do duplo do módulo de hub do Edge. O tamanho da cache não está limitado e irá aumentar, desde que o dispositivo tem capacidade de armazenamento. 
-
->[!NOTE]
->Adicionar o controle sobre parâmetros adicionais de colocação em cache será adicionado ao produto antes de ele entra em disponibilidade geral.
 
 ### <a name="module-communication"></a>Comunicação de módulo
 
@@ -86,11 +83,11 @@ O desenvolvedor de soluções é responsável por especificar as regras que dete
 
 O agente do IoT Edge é o outro módulo que compõe o tempo de execução do Azure IoT Edge. Ele é responsável por instanciar módulos, garantindo que continuam em execução e comunicar o estado dos módulos de volta para o IoT Hub. Assim como qualquer outro módulo, o agente do Edge usa seu módulo duplo para armazenar estes dados de configuração. 
 
-Para iniciar a execução do agente do Edge, execute o comando start azure-iot-edge-tempo de execução-ctl.py. O agente obtém seu módulo duplo a partir do IoT Hub e inspeciona o dicionário de módulos. O dicionário de módulos é uma coleção de módulos que têm de ser iniciado. 
+O [daemon de segurança de IoT Edge](iot-edge-security-manager.md) inicia o agente do Edge na inicialização do dispositivo. O agente obtém seu módulo duplo a partir do IoT Hub e inspeciona o manifesto de implantação. O manifesto de implantação é um ficheiro JSON que declara os módulos que têm de ser iniciado. 
 
-Cada item no dicionário módulos contém informações específicas sobre um módulo e é utilizado pelo agente do Edge para controlar o ciclo de vida do módulo. Algumas das propriedades mais interessantes são: 
+Cada item no manifesto de implantação contém informações específicas sobre um módulo e é utilizado pelo agente do Edge para controlar o ciclo de vida do módulo. Algumas das propriedades mais interessantes são: 
 
-* **Settings.Image** – a imagem de contentor que o agente do Edge utiliza para iniciar o módulo. O agente do Edge deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. Para configurar o agente do Edge, atualize o `config.yaml` ficheiro. No Linux, utilize o seguinte comando: `sudo nano /etc/iotedge/config.yaml`
+* **Settings.Image** – a imagem de contentor que o agente do Edge utiliza para iniciar o módulo. O agente do Edge deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. As credenciais para o registo de contentor pode ser configurado remotamente utilizando o manifesto de implantação ou no próprio dispositivo Edge ao atualizar o `config.yaml` ficheiro na pasta do programa de IoT Edge.
 * **settings.createOptions** – uma cadeia de caracteres é passada diretamente para o daemon do Docker ao iniciar o contentor de um módulo. A adição de opções de Docker nessa propriedade permite para obter opções avançadas, como a porta de reencaminhamento ou montar volumes para o contentor de um módulo.  
 * **estado** – o estado em que o agente do Edge coloca o módulo. Este valor é geralmente definido para *em execução* como a maioria das pessoas querem o agente do Edge para iniciar imediatamente todos os módulos no dispositivo. No entanto, poderia especificar o estado inicial de um módulo a ser parado e aguarde uma hora no futuro informar o agente do Edge para iniciar um módulo. O agente do Edge relata o status de cada módulo para a cloud nas propriedades comunicadas. Uma diferença entre a propriedade pretendida e a propriedade comunicada é um indicador de um dispositivo com comportamento inadequado. Os Estados suportados são:
    * A transferir
@@ -114,13 +111,13 @@ O agente do IoT Edge envia a resposta de runtime para o IoT Hub. Aqui está uma 
 
 ### <a name="security"></a>Segurança
 
-O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar uma imagem do módulo antes de iniciá-los. Estas funcionalidades serão adicionadas no momento da disponibilidade geral. 
+O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar uma imagem do módulo antes de iniciá-los. 
 
-<!-- For more information about the Azure IoT Edge security framework, see []. -->
+Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge, saiba mais sobre o [Gestor de segurança de IoT Edge](iot-edge-security-manager.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Compreender os módulos do Azure IoT Edge][lnk-módulos]
+[Compreender os módulos do Azure IoT Edge][lnk-modules]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -129,4 +126,4 @@ O agente do IoT Edge desempenha um papel fundamental na segurança de um disposi
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-módulos]: iot-edge-modules.md
+[lnk-modules]: iot-edge-modules.md

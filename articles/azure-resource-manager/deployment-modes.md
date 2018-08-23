@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 00800cb233776878e1fa330ce72cb067b8c698f3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39634618"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054564"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 Quando a implementação de recursos, especifica que a implementação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Resource Manager processa os recursos existentes no grupo de recursos que não estão no modelo.
@@ -82,7 +82,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Para definir o modo de implementação [modelo ligado ou aninhado](resource-group-linked-templates.md), utilize o `mode` propriedade.
+Quando utilizar um [modelo ligado ou aninhado](resource-group-linked-templates.md), tem de definir o `mode` propriedade `Incremental`. Apenas os modelos de nível de raiz suportam o modo de implantação completa.
 
 ```json
 "resources": [

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 79bdab4c7a867117f6473864f1654f77603f7b26
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35649348"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054350"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>O Azure AD Connect: Conceitos de Design
 O objetivo deste documento é descrever áreas que devem ser consideradas por meio de durante o design de implementação do Azure AD Connect. Este documento é uma descrição profunda sobre determinadas áreas e esses conceitos uma breve descrição também outros documentos.
@@ -72,20 +72,20 @@ Por esse motivo, as seguintes restrições aplicam-se ao Azure AD Connect:
 * Se instalou outro servidor do Azure AD Connect, tem de selecionar o mesmo atributo sourceAnchor utilizado como anteriormente. Se anteriormente tiver estado a utilizar o DirSync e mover para o Azure AD Connect, em seguida, tem de utilizar **objectGUID** , pois esse é o atributo utilizado pelo DirSync.
 * Se o valor de sourceAnchor é alterado após o objeto tenha sido exportado para o Azure AD, em seguida, o Azure AD Connect, que emite um erro de sincronização e não permite mais alterações em que o objeto antes do problema e o sourceAnchor é alterado em diretor da origem y.
 
-## <a name="using-msds-consistencyguid-as-sourceanchor"></a>Usando o msDS-ConsistencyGuid como sourceAnchor
-Por predefinição, o Azure AD Connect (versão 1.1.486.0 e mais antigos) utiliza o objectGUID como o atributo sourceAnchor. ObjectGUID é gerado pelo sistema. Não é possível especificar seu valor durante a criação de locais objetos do AD. Conforme explicado na seção [sourceAnchor](#sourceanchor), existem cenários em que tem de especificar o valor de sourceAnchor. Se os cenários são aplicáveis para si, tem de utilizar um atributo de AD configurável (por exemplo, msDS-ConsistencyGuid) como o atributo sourceAnchor.
+## <a name="using-ms-ds-consistencyguid-as-sourceanchor"></a>Usando o ms-DS-ConsistencyGuid como sourceAnchor
+Por predefinição, o Azure AD Connect (versão 1.1.486.0 e mais antigos) utiliza o objectGUID como o atributo sourceAnchor. ObjectGUID é gerado pelo sistema. Não é possível especificar seu valor durante a criação de locais objetos do AD. Conforme explicado na seção [sourceAnchor](#sourceanchor), existem cenários em que tem de especificar o valor de sourceAnchor. Se os cenários são aplicáveis para si, tem de utilizar um atributo de AD configurável (por exemplo, ms-DS-ConsistencyGuid) como o atributo sourceAnchor.
 
-O Azure AD Connect (versão 1.1.524.0 e o depois) agora facilita o uso de msDS-ConsistencyGuid como sourceAnchor atributo. Quando utilizar esta funcionalidade, o Azure AD Connect configura automaticamente as regras de sincronização para:
+O Azure AD Connect (versão 1.1.524.0 e o depois) agora facilita o uso do ms-DS-ConsistencyGuid como sourceAnchor atributo. Quando utilizar esta funcionalidade, o Azure AD Connect configura automaticamente as regras de sincronização para:
 
-1. Utilize o msDS-ConsistencyGuid como o atributo sourceAnchor para objetos de utilizador. ObjectGUID é utilizada para outros tipos de objeto.
+1. Utilize o ms-DS-ConsistencyGuid como o atributo sourceAnchor para objetos de utilizador. ObjectGUID é utilizada para outros tipos de objeto.
 
-2. Para qualquer dado locais AD utilizador cujo atributo msDS-ConsistencyGuid não estiver preenchidas, o Azure escritas AD Connect que seu valor objectGUID de volta para o atributo msDS-ConsistencyGuid no Active Directory no local do objeto. Depois do atributo msDS-ConsistencyGuid é preenchido, o Azure AD Connect exporta, em seguida, o objeto para o Azure AD.
+2. Para qualquer dado locais AD utilizador cujo atributo ms-DS-ConsistencyGuid não estiver preenchidas, o Azure escritas AD Connect que seu valor objectGUID de volta para o atributo ms-DS-ConsistencyGuid no Active Directory no local do objeto. Depois do atributo ms-DS-ConsistencyGuid é preenchido, o Azure AD Connect exporta, em seguida, o objeto para o Azure AD.
 
 >[!NOTE]
-> Uma vez uma local do objeto do AD é importado para o Azure AD Connect (que é, importado para o espaço conector do AD e projetado no Metaverso), não é possível alterar o respetivo valor de sourceAnchor mais. Para especificar o valor de sourceAnchor para uma dada locais AD de objeto, configure seu atributo msDS-ConsistencyGuid antes de serem importado para o Azure AD Connect.
+> Uma vez uma local do objeto do AD é importado para o Azure AD Connect (que é, importado para o espaço conector do AD e projetado no Metaverso), não é possível alterar o respetivo valor de sourceAnchor mais. Para especificar o valor de sourceAnchor para uma dada locais AD de objeto, configure seu atributo ms-DS-ConsistencyGuid antes de serem importado para o Azure AD Connect.
 
 ### <a name="permission-required"></a>Permissão necessária
-Para esta funcionalidade funcione, a conta do AD DS utilizada para sincronizar com o Active Directory no local tem de possuir permissão de escrita para o atributo msDS-ConsistencyGuid no Active Directory no local.
+Para esta funcionalidade funcione, a conta do AD DS utilizada para sincronizar com o Active Directory no local tem de possuir permissão de escrita para o atributo ms-DS-ConsistencyGuid no Active Directory no local.
 
 ### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>Como ativar a funcionalidade de ConsistencyGuid - nova instalação
 Pode habilitar o uso do ConsistencyGuid como sourceAnchor durante a instalação de novo. Esta secção abrange a instalação do Express e personalizados nos detalhes.
@@ -104,7 +104,7 @@ Ao instalar o Azure AD Connect com o modo do Express, o Assistente do Azure AD C
   >[!NOTE]
   > Apenas as versões mais recentes do Azure AD Connect (1.1.524.0 e o depois) informações de arquivos no seu inquilino do Azure AD sobre o atributo sourceAnchor usados durante a instalação. As versões mais antigas do Azure AD Connect não o fizer.
 
-* Se a informações sobre o atributo sourceAnchor utilizado não estiver disponíveis, o assistente verifica o estado do atributo msDS-ConsistencyGuid no Active Directory no local. Se o atributo não está configurado em qualquer objeto no diretório, o assistente utiliza o msDS-ConsistencyGuid como o atributo sourceAnchor. Se o atributo é configurado num ou mais objetos no diretório, o assistente conclui o atributo está a ser utilizado por outros aplicativos e não é adequado, como o atributo sourceAnchor...
+* Se a informações sobre o atributo sourceAnchor utilizado não estiver disponíveis, o assistente verifica o estado do atributo ms-DS-ConsistencyGuid no Active Directory no local. Se o atributo não está configurado em qualquer objeto no diretório, o assistente utiliza o ms-DS-ConsistencyGuid como o atributo sourceAnchor. Se o atributo é configurado num ou mais objetos no diretório, o assistente conclui o atributo está a ser utilizado por outros aplicativos e não é adequado, como o atributo sourceAnchor...
 
 * Nesse caso, o assistente retrocede para utilizar objectGUID como o atributo sourceAnchor.
 
@@ -140,7 +140,7 @@ Para mudar de objectGUID ConsistencyGuid como o atributo de âncora de origem:
 
 3. Introduza as credenciais de administrador do Azure AD e clique em **seguinte**.
 
-4. Assistente do Azure AD Connect analisa o estado do atributo msDS-ConsistencyGuid no Active Directory no local. Se o atributo não está configurado em qualquer objeto no diretório, o Azure AD Connect conclui que nenhuma outra aplicação está atualmente a utilizar o atributo e é segura para utilizá-lo como o atributo de âncora de origem. Clique em **seguinte** para continuar.
+4. Assistente do Azure AD Connect analisa o estado do atributo ms-DS-ConsistencyGuid no Active Directory no local. Se o atributo não está configurado em qualquer objeto no diretório, o Azure AD Connect conclui que nenhuma outra aplicação está atualmente a utilizar o atributo e é segura para utilizá-lo como o atributo de âncora de origem. Clique em **seguinte** para continuar.
 
    ![Ativar ConsistencyGuid para implementação existente - passo 4](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -148,7 +148,7 @@ Para mudar de objectGUID ConsistencyGuid como o atributo de âncora de origem:
 
    ![Ativar ConsistencyGuid para implementação existente – passo 5](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
-6. Uma vez concluída a configuração, o assistente indica que esse msDS-ConsistencyGuid agora está a ser utilizado como o atributo de âncora de origem.
+6. Uma vez concluída a configuração, o assistente indica o que MS-DS-ConsistencyGuid agora está a ser utilizado como o atributo de âncora de origem.
 
    ![Ativar ConsistencyGuid para implementação existente – passo 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
@@ -170,7 +170,7 @@ Se estiver a gerir o AD FS fora do Azure AD Connect ou estiver a utilizar servid
 ![Configuração de Federação de terceiros](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Adição de novos diretórios a implementação existente
-Suponha que tiver implementado o Azure AD Connect com a funcionalidade de ConsistencyGuid ativada e, agora gostaria de adicionar outro diretório para a implementação. Quando tentar adicionar o diretório, o Assistente do Azure AD Connect verifica o estado do atributo mSDS-ConsistencyGuid no diretório. Se o atributo é configurado num ou mais objetos no diretório, o assistente conclui o atributo está a ser utilizado por outros aplicativos e devolve um erro, conforme ilustrado no diagrama abaixo. Se tiver a certeza de que o atributo não é utilizado por aplicações existentes, terá de contactar o suporte para obter informações sobre como suprimir o erro.
+Suponha que tiver implementado o Azure AD Connect com a funcionalidade de ConsistencyGuid ativada e, agora gostaria de adicionar outro diretório para a implementação. Quando tentar adicionar o diretório, o Assistente do Azure AD Connect verifica o estado do atributo ms-DS-ConsistencyGuid no diretório. Se o atributo é configurado num ou mais objetos no diretório, o assistente conclui o atributo está a ser utilizado por outros aplicativos e devolve um erro, conforme ilustrado no diagrama abaixo. Se tiver a certeza de que o atributo não é utilizado por aplicações existentes, terá de contactar o suporte para obter informações sobre como suprimir o erro.
 
 ![Adição de novos diretórios a implementação existente](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235538"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054568"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
@@ -48,11 +48,11 @@ Eliminação de forma recuperável permite-lhe recuperar dados eliminados durant
 
 ## <a name="exporting-customer-data"></a>Exportar dados do cliente
 
-As APIs REST do mesmo, experiência do portal e SDKs que são utilizados para criar cofres, chaves, segredos e certificados e também são contas de armazenamento gerido permitem-lhe ver e exportar esses objetos.
+As APIs REST do mesmo, experiência do portal e SDKs que são utilizados para criar cofres, chaves, segredos e certificados e também a geridos de contas de armazenamento permitem-lhe ver e exportar esses objetos.
 
 O Azure Key Vault, o registo de acesso é uma funcionalidade opcional que pode ser ativada para gerar registos para cada chamada à REST API. Estes registos serão transferidos para uma conta de armazenamento na sua subscrição em que aplicar a política de retenção que cumpre os requisitos da sua organização.
 
-O Azure Key Vault registos de diagnóstico que contêm dados pessoais podem ser obtidos ao fazer um pedido de exportação no portal de privacidade do utilizador. Este pedido deve ser feito pelo administrador de inquilinos.
+O Azure Key Vault os registos de diagnóstico que contêm dados pessoais podem ser obtidos ao fazer um pedido de exportação no portal de privacidade do utilizador. Este pedido deve ser feito pelo administrador de inquilinos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -60,14 +60,10 @@ O Azure Key Vault registos de diagnóstico que contêm dados pessoais podem ser 
 
 - [Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure](key-vault-soft-delete-cli.md)
 
-- [Cofres](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Operações de chave de Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Operações secretas do Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Certificados do Key Vault e as políticas do Azure](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Emissores de certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Operações de conta de armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

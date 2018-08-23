@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/10/2018
 ms.author: routlaw
-ms.openlocfilehash: 65964372cf2a0aa42be967f7c93749c58a9f56dd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d895258a4c8a38d00932d81600dc8633d7d70112
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621774"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42056938"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -26,27 +26,17 @@ ms.locfileid: "39621774"
 
 ## <a name="programming-model"></a>Modelo de programação 
 
-A função do Azure deve ser um método de classe sem monitoração de estado que processa as entradas e produz um resultado. Embora têm permissão para escrever métodos de instância, sua função deve não depender quaisquer campos de instância da classe. Todos os métodos de função tem de ter um `public` modificador de acesso.
+A função do Azure deve ser um método de classe sem monitoração de estado que processa as entradas e produz um resultado. Embora possa escrever métodos de instância, sua função deve não depender quaisquer campos de instância da classe. Todos os métodos de função tem de ter um `public` modificador de acesso.
+
+Pode colocar mais do que uma função num projeto. Evite colocar as suas funções em jars separados.
 
 ## <a name="triggers-and-annotations"></a>Acionadores e as anotações
 
-Normalmente, uma função do Azure é invocada devido a um acionador externo. A função precisa processar esse acionador e das respetivas entradas associadas e produzir um ou mais saídas.
+ As funções do Azure são chamadas por um acionador, como um pedido HTTP, um temporizador ou uma atualização de dados. A função precisa processar esse acionador e todas as outras entradas para produzir uma ou mais saídas.
 
-Anotações de Java estão incluídas no `azure-functions-java-core` pacote para o enlace de entrada e saídas para seus métodos. Os acionadores de entrada suportados e anotações de enlace de saída estão incluídos na tabela a seguir:
+Utilize as anotações de Java incluídas nos [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) pacote para o enlace de entrada e saídas para seus métodos. Usando as anotações de código de exemplo está disponível na [documentos de referência de Java](/java/api/com.microsoft.azure.functions.annotation) cada anotação e na documentação de referência de ligação do funções do Azure, como o existente para [acionadores HTTP](/azure/azure-functions/functions-bindings-http-webhook).
 
-Vínculo | Anotação
----|---
-CosmosDB | N/A
-HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | N/A
-Hubs de Notificação | N/A
-Blob de Armazenamento | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
-Fila de Armazenamento | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
-Tabela de armazenamento | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
-Temporizador | <ul><li>`TimerTrigger`</li></ul>
-Twilio | N/A
-
-Entradas de Acionador e saídas também podem ser definidas na [Function](/azure/azure-functions/functions-reference#function-code) para a sua aplicação.
+Entradas de Acionador e saídas também podem ser definidas na [Function](/azure/azure-functions/functions-reference#function-code) para a função em vez de por meio de anotações. Usando `function.json` em vez de anotações dessa maneira não é recomendado.
 
 > [!IMPORTANT] 
 > Tem de configurar uma conta de armazenamento do Azure no seu [Settings](/azure/azure-functions/functions-run-local#local-settings-file) para executar os acionadores de tabela, fila ou Blob de armazenamento do Azure localmente.
@@ -54,11 +44,9 @@ Entradas de Acionador e saídas também podem ser definidas na [Function](/azure
 Exemplo de uso anotações:
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
-
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+    public String echo(@HttpTrigger(name = "req", 
+      methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
@@ -101,9 +89,13 @@ com o correspondente `function.json`:
 
 ```
 
+## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
+
+As funções do Azure suporta a utilização de bibliotecas de terceiros. Por predefinição, todas as dependências especificado no seu projeto `pom.xml` ficheiro serão automaticamente agrupado durante o `mvn package` objetivo. Para bibliotecas não especificadas como dependências a `pom.xml` de ficheiros, colocá-los num `lib` diretório no diretório de raiz da função. Dependências colocadas o `lib` directory será adicionado ao carregador de classe do sistema no tempo de execução.
+
 ## <a name="data-types"></a>Tipos de Dados
 
-Tem liberdade para utilizar todos os tipos de dados em Java para os dados de entrada e saídos, incluindo tipos nativos; personalizado Java tipos e especializadas do Azure definidos no `azure-functions-java-core` pacote. Funções do Azure, tempo de execução tenta converter a entrada recebida no tipo solicitado pelo seu código.
+Pode usar qualquer tipo de dados no Java para os dados de entrada e saídos, incluindo tipos nativos; personalizado Java tipos e especializadas do Azure definidos no `azure-functions-java-library` pacote. Funções do Azure, tempo de execução tenta converter a entrada recebida no tipo solicitado pelo seu código.
 
 ### <a name="strings"></a>Cadeias
 
@@ -111,7 +103,7 @@ Valores passados para os métodos de função vão ser convertidos para cadeias 
 
 ### <a name="plain-old-java-objects-pojos"></a>Objetos de Java (POJOs) antigos sem formatação
 
-Cadeias de caracteres formatadas com JSON irão ser convertidas para tipos de Java, se a entrada do método função espera que esse tipo de Java. Esta conversão permite-lhe passar entradas JSON para as suas funções e trabalhar com tipos de Java no seu código sem ter de implementar a conversão em seu próprio código.
+Cadeias de caracteres formatadas com JSON irão ser convertidas para tipos de Java, se a assinatura de entrada da função espera que esse tipo de Java. Esta conversão permite-lhe transmitir em JSON e trabalhar com tipos de Java.
 
 Tipos POJO utilizados como entradas para as funções têm o mesmo `public` modificador de acesso como os métodos de função estão a ser utilizados na. Não é necessário declarar os campos de classe POJO `public`. Por exemplo, uma cadeia de caracteres do JSON `{ "x": 3 }` é capaz de ser convertida no tipo POJO seguinte:
 
@@ -150,12 +142,12 @@ public static String echoLength(byte[] content) {
 }
 ```
 
-Utilize `OutputBinding<byte[]>` tipo para tornar um enlace de saída binário.
+Podem ser vazios valores de entrada `null` como seu argumento de funções, mas uma forma recomendada de lidar com potencial de valores vazios consiste em utilizar `Optional<T>`.
 
 
 ## <a name="function-method-overloading"></a>Sobrecarga de método de função
 
-Pode sobrecarregar métodos de função com o mesmo nome mas com tipos diferentes. Por exemplo, pode ter ambos `String echo(String s)` e `String echo(MyType s)` numa classe e as funções do Azure o runtime decide qual para invocar ao examinar o tipo de entrada real (para o tipo MIME de entrada, HTTP `text/plain` leva à `String` enquanto `application/json` representa `MyType`).
+Pode sobrecarregar métodos de função com o mesmo nome mas com tipos diferentes. Por exemplo, pode ter ambos `String echo(String s)` e `String echo(MyType s)` numa classe. As funções do Azure decide qual o método a invocar com base no tipo de entrada (para o tipo MIME de entrada, HTTP `text/plain` leva à `String` enquanto `application/json` representa `MyType`).
 
 ## <a name="inputs"></a>Entradas
 
@@ -164,109 +156,53 @@ Entrada são divididas em duas categorias nas funções do Azure: um é a entrad
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
-import java.util.Optional;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
+    @FunctionName("echo")
+    public static String echo(
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+    ) {
+        return "Hello, " + in + " and " + obj.getKey() + ".";
     }
 
-    private static class MyObject {
+    public static class MyObject {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
 }
 ```
 
-O `@BindingName` anotação aceita um `String` propriedade que representa o nome do acionador/ligação definida no `function.json`:
-
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "put" ],
-      "route": "items/{id}"
-    },
-    {
-      "type": "table",
-      "name": "item",
-      "direction": "in",
-      "tableName": "items",
-      "partitionKey": "Example",
-      "rowKey": "{id}",
-      "connection": "ExampleStorageAccount"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
-
-Portanto, quando esta função é invocada, o payload de pedido HTTP passa opcional `String` para o argumento `in` e um armazenamento de tabelas do Azure `MyObject` tipo passado para o argumento `obj`. Utilize o `Optional<T>` tipo para lidar com entradas para as suas funções que podem ser nulas.
+Quando esta função é acionada, o pedido HTTP é passado para a função por `String in`. Uma entrada será recuperada do armazenamento de tabelas do Azure com base no ID no URL de rota e feitas disponíveis como `obj` no corpo da função.
 
 ## <a name="outputs"></a>Saídas
 
 Podem ser expresso saídas no valor de retorno ou parâmetros de saída. Se existir apenas uma saída, são recomendadas para usar o valor de retorno. Para várias saídas, precisa usar parâmetros de saída.
 
-Valor de retorno é a forma mais simples de saída, basta retornar o valor de qualquer tipo e tempo de execução de funções do Azure irá tentar o empacota novamente para o tipo real (por exemplo, uma resposta HTTP). Na `functions.json`, utilize `$return` como o nome da ligação de saída.
+Valor de retorno é a forma mais simples de saída, basta retornar o valor de qualquer tipo e tempo de execução de funções do Azure irá tentar o empacota novamente para o tipo real (por exemplo, uma resposta HTTP).  Pode aplicar qualquer anotações de saída para o método de função (a propriedade de nome da anotação tem de ser $return) para definir a saída do valor de retorno.
 
-Para produzir vários valores de saída, utilize `OutputBinding<T>` tipo definido no `azure-functions-java-core` pacote. Se precisar de fazer uma resposta HTTP e enviar uma mensagem para uma fila também, pode escrever algo como:
+Para produzir vários valores de saída, utilize `OutputBinding<T>` tipo definido no `azure-functions-java-library` pacote. Se precisar de fazer uma resposta HTTP e enviar uma mensagem para uma fila também, pode escrever algo como:
+
+Por exemplo, um conteúdo de blob de cópia de função pode ser definido como o código a seguir. `@StorageAccount` anotação é utilizada aqui para evitar a duplicação de propriedade de ligação para os dois `@BlobTrigger` e `@BlobOutput`.
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputBinding;
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(String body, 
-    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
-        String result = "Hello, " + body + ".";
-        queue.setValue(result);
-        return result;
+    @FunctionName("copy")
+    @StorageAccount("AzureWebJobsStorage")
+    @BlobOutput(name = "$return", path = "samples-output-java/{name}")
+    public static String copy(@BlobTrigger(name = "blob", path = "samples-input-java/{name}") String content) {
+        return content;
     }
 }
 ```
 
-qual deve definir o enlace de saída no `function.json`:
+Utilizar `OutputBinding<byte[]`> tornar um binário de saída do valor (para os parâmetros); para valores de retorno, basta utilizar `byte[]`.
 
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "post" ]
-    },
-    {
-      "type": "queue",
-      "name": "queue",
-      "direction": "out",
-      "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
 ## <a name="specialized-types"></a>Tipos de especializadas
 
 Por vezes, uma função tem têm detalhados controle sobre entradas e saídas. Especializada tipos no `azure-functions-java-core` pacote são fornecidos manipular as informações de pedido e adaptar o status de retorno de um acionador HTTP:
@@ -289,7 +225,8 @@ Por exemplo, o `queryValue` no código a seguir o trecho de código será `"test
 package com.example;
 
 import java.util.Optional;
-import com.microsoft.azure.serverless.functions.annotation.*;
+import com.microsoft.azure.functions.annotation.*;
+
 
 public class MyClass {
     @FunctionName("metadata")
@@ -302,9 +239,9 @@ public class MyClass {
 }
 ```
 
-## <a name="functions-execution-context"></a>Contexto de execução de funções
+## <a name="execution-context"></a>Contexto de execução
 
-Interagir com o ambiente de execução de funções do Azure através da `ExecutionContext` objeto definido no `azure-functions-java-core` pacote. Utilizar o `ExecutionContext` objeto para usar as informações de invocação e informações de tempo de execução de funções no seu código.
+Interagir com o ambiente de execução de funções do Azure através da `ExecutionContext` objeto definido no `azure-functions-java-library` pacote. Utilizar o `ExecutionContext` objeto para usar as informações de invocação e informações de tempo de execução de funções no seu código.
 
 ### <a name="logging"></a>Registo
 
@@ -313,8 +250,9 @@ Acesso para o agente de log de tempo de execução de funções está disponíve
 O seguinte código de exemplo regista uma mensagem de aviso quando o corpo do pedido recebido está vazio.
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
 
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
@@ -328,9 +266,9 @@ public class Function {
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Muitas vezes, é desejável para extrair informações secretas do código-fonte por motivos de segurança. Isso permite que o código a ser publicado para repositórios de código de origem, sem fornecer acidentalmente as credenciais para outros desenvolvedores. Isso pode ser conseguido simplesmente usando variáveis de ambiente, ao executar as funções do Azure localmente e quando implementar as suas funções no Azure.
+Manter informações secretas, tais como chaves ou tokens fora do seu código-fonte por motivos de segurança. Utilizar chaves e tokens no código da função, lendo-los a partir de variáveis de ambiente.
 
-Para definir facilmente as variáveis de ambiente durante a execução das funções do Azure localmente, pode optar por adicionar essas variáveis para o ficheiro Settings. Se não houver no diretório de raiz do seu projeto de função, fique à vontade criar um. Eis o que o ficheiro deverá ser semelhante:
+Para definir as variáveis de ambiente durante a execução das funções do Azure localmente, pode optar por adicionar essas variáveis para o ficheiro Settings. Se não houver no diretório de raiz do seu projeto de função, pode criar um. Eis o que o ficheiro deverá ser semelhante:
 
 ```xml
 {
@@ -345,9 +283,9 @@ Para definir facilmente as variáveis de ambiente durante a execução das funç
 Cada chave / valor mapeamento no `values` mapa estarão disponível em tempo de execução como uma variável de ambiente, acessível ao chamar `System.getenv("<keyname>")`, por exemplo, `System.getenv("AzureWebJobsStorage")`. Adicionar chave adicional / pares valor são aceites e recomendado prática.
 
 > [!NOTE]
-> Se estiver atribuída essa abordagem, ser-se de que a ter em consideração se adicionar o Settings ficheiro para o seu repositório ignorar ficheiros, para que não está consolidada.
+> Se estiver atribuída essa abordagem, ser-se de que para adicionar o Settings ficheiro para o seu repositório ignorar ficheiros, para que não está consolidada.
 
-Com o seu código agora consoante estas variáveis de ambiente, pode iniciar sessão Portal do Azure para definir a mesma chave / valor pares de contratos nas suas definições de aplicação de função, para que seu código funciona de forma equivalente quando testar localmente e quando implementada no Azure.
+Com o seu código agora consoante estas variáveis de ambiente, pode iniciar sessão portal do Azure para definir a mesma chave / valor pares de contratos nas suas definições de aplicação de função, para que seu código funciona de forma equivalente quando testar localmente e quando implementada no Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:

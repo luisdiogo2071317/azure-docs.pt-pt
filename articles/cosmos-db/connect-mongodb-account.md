@@ -1,76 +1,76 @@
 ---
-title: Cadeia de ligação do MongoDB para uma conta de base de dados do Azure Cosmos | Microsoft Docs
-description: Saiba como ligar a aplicação de MongoDB a uma conta de base de dados do Azure Cosmos através da utilização de uma cadeia de ligação do MongoDB.
+title: Cadeia de ligação do MongoDB para uma conta do Azure Cosmos DB | Documentos da Microsoft
+description: Saiba como ligar a sua aplicação do MongoDB para uma conta do Azure Cosmos DB ao utilizar uma cadeia de ligação do MongoDB.
 keywords: cadeia de ligação do mongodb
 services: cosmos-db
-author: SnehaGunda
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: 441f6725b96dc7a099304e06db6d46a65e7f9c81
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: sclyon
+ms.openlocfilehash: ad8d6fe36c289c4c9e37689e1c7d755dc3bf9048
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795963"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057613"
 ---
-# <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação do MongoDB à base de dados do Azure Cosmos
-Saiba como ligar a aplicação de MongoDB a uma conta de base de dados do Azure Cosmos através da utilização de uma cadeia de ligação do MongoDB. Em seguida, pode utilizar uma base de dados de base de dados do Azure Cosmos como os dados de arquivo para a sua aplicação do MongoDB. 
+# <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação MongoDB ao Azure Cosmos DB
+Saiba como ligar a sua aplicação do MongoDB para uma conta do Azure Cosmos DB ao utilizar uma cadeia de ligação do MongoDB. Em seguida, pode utilizar uma base de dados do Azure Cosmos DB como os dados de arquivo para a sua aplicação MongoDB. 
 
-Este tutorial fornece duas formas de obter as informações de cadeia de ligação:
+Este tutorial fornece duas formas de obter informações da cadeia de ligação:
 
-- [Método de início rápido](#QuickstartConnection), para utilização com controladores de .NET, Node.js, MongoDB Shell, Java e Python
-- [O método de cadeia de ligação personalizada](#GetCustomConnection), para utilização com outros controladores
+- [Método de início rápido](#QuickstartConnection), para utilização com drivers de .NET, node. js, MongoDB Shell, Java e Python
+- [O método de cadeia de caracteres de conexão personalizada](#GetCustomConnection), para utilização com outros controladores
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure. Se não tiver uma conta do Azure, crie um [conta do Azure gratuita](https://azure.microsoft.com/free/) agora. 
-- Uma conta do Azure Cosmos DB. Para obter instruções, consulte [compilar uma aplicação de web API do MongoDB com .NET e o portal do Azure](create-mongodb-dotnet.md).
+- Uma conta do Azure. Se não tiver uma conta do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) agora. 
+- Uma conta do Azure Cosmos DB. Para obter instruções, consulte [criar uma aplicação de web API do MongoDB com .NET e o portal do Azure](create-mongodb-dotnet.md).
 
-## <a id="QuickstartConnection"></a>Obter a cadeia de ligação do MongoDB utilizando o início rápido
-1. Num browser da Internet, a iniciar sessão para o [portal do Azure](https://portal.azure.com).
-2. No **Azure Cosmos DB** painel, selecione a API para a conta do MongoDB. 
-3. No painel esquerdo do painel de conta, clique em **início rápido**. 
-4. Escolha a sua plataforma (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). Se não vir o controlador ou a ferramenta listado, não se preocupe – é continuamente o documento mais fragmentos de código de ligação. Comente abaixo na qual gostaria de ver. Para saber como craft a sua própria ligação, leia [obter as informações de cadeia de ligação da conta](#GetCustomConnection).
-5. Copie e cole o fragmento de código a sua aplicação do MongoDB.
+## <a id="QuickstartConnection"></a>Obter a cadeia de ligação do MongoDB com o início rápido
+1. Num browser da Internet, inicie sessão para o [portal do Azure](https://portal.azure.com).
+2. Na **do Azure Cosmos DB** painel, selecione a API para a conta do MongoDB. 
+3. No painel esquerdo do painel de conta, clique em **guia de introdução**. 
+4. Escolha a sua plataforma (**.NET**, **node. js**, **Shell de MongoDB**, **Java**, **Python**). Se não vir o controlador ou a ferramenta listada, não se preocupe, vamos continuar a documentar mais fragmentos de código de ligação. Comentário abaixo sobre o que gostaria de ver. Para saber como criar sua própria ligação, leia [obter informações de cadeia de ligação da conta](#GetCustomConnection).
+5. Copie e cole o fragmento de código na sua aplicação MongoDB.
 
     ![Painel de início rápido](./media/connect-mongodb-account/QuickStartBlade.png)
 
 ## <a id="GetCustomConnection"></a> Obter a cadeia de ligação do MongoDB para personalizar
-1. Num browser da Internet, a iniciar sessão para o [portal do Azure](https://portal.azure.com).
-2. No **Azure Cosmos DB** painel, selecione a API para a conta do MongoDB. 
+1. Num browser da Internet, inicie sessão para o [portal do Azure](https://portal.azure.com).
+2. Na **do Azure Cosmos DB** painel, selecione a API para a conta do MongoDB. 
 3. No painel esquerdo do painel de conta, clique em **cadeia de ligação**. 
-4. O **cadeia de ligação** abre o painel. Tem todas as informações necessárias para ligar à conta utilizando um controlador para o MongoDB, incluindo uma cadeia de ligação preconstructed.
+4. O **cadeia de ligação** é aberto o painel. Ele tem todas as informações necessárias para ligar à conta com um driver para o MongoDB, incluindo uma cadeia de ligação preconstructed.
 
-    ![Painel de cadeia de ligação](./media/connect-mongodb-account/ConnectionStringBlade.png)
+    ![Painel Cadeia de Ligação](./media/connect-mongodb-account/ConnectionStringBlade.png)
 
 ## <a name="connection-string-requirements"></a>Requisitos de cadeia de ligação
 > [!Important]
-> BD do Azure do Cosmos tem requisitos de segurança estritos e normas. As contas do Azure do Cosmos DB requerem autenticação e comunicação segura via *SSL*. 
+> Azure Cosmos DB tem requisitos de segurança rigorosas e padrões. As contas do Azure Cosmos DB requerem autenticação e comunicação segura através de *SSL*. 
 >
 >
 
-BD do Azure do Cosmos suporta o MongoDB ligação cadeia URI formato padrão, embora com algumas requisitos específicos: as contas de base de dados do Azure Cosmos requerem comunicação segura através de SSL e autenticação. Por isso, o formato de cadeia de ligação é:
+Azure Cosmos DB suporta o MongoDB ligação cadeia URI formato padrão, com alguns requisitos específicos: contas do Azure Cosmos DB requerem autenticação e comunicação segura através de SSL. Por isso, é o formato de cadeia de ligação:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
-Os valores desta cadeia estão disponíveis no **cadeia de ligação** painel apresentada anteriormente:
+Os valores da cadeia de caracteres estão disponíveis no **cadeia de ligação** painel mostrado anteriormente:
 
-* Nome de utilizador (obrigatório): o nome de conta de base de dados do Azure Cosmos.
-* Palavra-passe (obrigatório): palavra-passe da conta de base de dados do Azure Cosmos.
-* Anfitrião (obrigatório): o FQDN da conta de base de dados do Azure Cosmos.
-* Porta (obrigatório): 10255.
-* Base de dados (opcional): A base de dados que utiliza a ligação. Se nenhuma base de dados for fornecido, a base de dados predefinido é de "teste".
+* Nome de utilizador (obrigatório): nome da conta do Azure Cosmos DB.
+* Palavra-passe (obrigatório): palavra-passe de conta do Azure Cosmos DB.
+* Anfitrião (obrigatório): o FQDN da conta do Azure Cosmos DB.
+* Porta (obrigatória): 10255.
+* Base de dados (opcional): A base de dados que utiliza a ligação. Não se for fornecida nenhuma base de dados, a base de dados predefinido é "teste".
 * SSL = true (obrigatório)
 
-Por exemplo, considere a conta apresentada no **cadeia de ligação** painel. Uma cadeia de ligação válida é:
+Por exemplo, considere a conta mostrada na **cadeia de ligação** painel. Uma cadeia de ligação válida é:
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [utilizar Studio 3T (MongoChef)](mongodb-mongochef.md) com uma API de BD do Cosmos do Azure para a conta do MongoDB.
-* Explore a API de BD do Cosmos do Azure para o MongoDB visualizando [amostras](mongodb-samples.md).
+* Saiba como [utilizar Studio 3T (MongoChef)](mongodb-mongochef.md) com uma API do Azure Cosmos DB para a conta do MongoDB.
+* Explore a API do Azure Cosmos DB para o MongoDB, visualizando [amostras](mongodb-samples.md).

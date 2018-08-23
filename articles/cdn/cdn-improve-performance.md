@@ -1,10 +1,10 @@
 ---
-title: Melhorar o desempenho através da compressão de ficheiros na CDN do Azure | Microsoft Docs
-description: Saiba como melhorar a velocidade de transferência de ficheiro e melhorar o desempenho de carregamento de páginas por a compressão os ficheiros na CDN do Azure.
+title: Melhorar o desempenho ao comprimir ficheiros na CDN do Azure | Documentos da Microsoft
+description: Saiba como melhorar a velocidade de transferência de ficheiro e aumentar o desempenho de carregamento da página, comprimir os ficheiros na CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,64 +12,68 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/15/2018
+ms.author: magattus
+ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260401"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056753"
 ---
-# <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho através da compressão de ficheiros na CDN do Azure
-A compressão do ficheiro é um método simple e eficaz para melhorar a velocidade de transferência de ficheiro e melhorar o desempenho de carregamento da página ao reduzir o tamanho do ficheiro antes de ser enviada do servidor. Compressão de ficheiros pode reduzir os custos de largura de banda e fornecer uma experiência mais reativa para os seus utilizadores.
+# <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho ao comprimir ficheiros na CDN do Azure para
+Compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiro e aumentar o desempenho de carregamento da página, reduzindo o tamanho de um ficheiro antes do envio do servidor. Compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência de maior capacidade de resposta para os seus utilizadores.
 
-Existem duas formas de ativar a compressão do ficheiro:
+Existem duas formas de ativar a compressão de ficheiros:
 
-- Ative a compressão no seu servidor de origem. Neste caso, a CDN do Azure passa ao longo de ficheiros comprimidos e fornece-los aos clientes que solicitam-los.
-- Ativar a compressão diretamente nos servidores POP do CDN (*compressão no momento*). Neste caso, a CDN comprime os ficheiros e serve-las para os utilizadores finais, mesmo não foram comprimidos pelo servidor de origem.
+- Ative a compressão em seu servidor de origem. Neste caso, a CDN do Azure passa junto os arquivos compactados e fornece aos clientes que solicitam-los.
+- Ativar a compressão diretamente nos servidores POP da CDN (*compressão num piscar de olhos*). Neste caso, a CDN compacta os arquivos e serve-los para os usuários finais, mesmo que eles não terem sido compactados pelo servidor de origem.
 
 > [!IMPORTANT]
 > As alterações de configuração do Azure CDN podem demorar algum tempo para propagar através da rede: 
 - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
 - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
-- Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** perfis, propagação normalmente conclui em 10 minutos. 
+- Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída em 10 minutos. 
 >
-> Se estiver a configurar a compressão pela primeira vez para o ponto final CDN, considere a aguardar 1-2 horas antes de resolver para garantir que as definições de compressão terem sido propagados para os POPs.
+> Se estiver a configurar a compressão da primeira vez para o ponto final da CDN, considere a aguardar 1-2 horas antes de resolver problemas para garantir que as definições de compressão terem sido propagados para os POPs.
 > 
 > 
 
 ## <a name="enabling-compression"></a>Ativar a compressão
-As camadas standard e premium da CDN fornecem a mesma funcionalidade de compressão, mas a interface de utilizador diferente. Para obter mais informações sobre as diferenças entre camadas CDN standard e premium, consulte [descrição geral da CDN do Azure](cdn-overview.md).
+Os escalões CDN standard e premium fornecem a mesma funcionalidade de compactação, mas a interface do usuário é diferente. Para obter mais informações sobre as diferenças entre as camadas CDN standard e premium, consulte [descrição geral da CDN do Azure](cdn-overview.md).
 
-### <a name="standard-cdn-profiles"></a>Perfis da CDN padrão 
+### <a name="standard-cdn-profiles"></a>Perfis de CDN Standard 
 > [!NOTE]
-> Esta secção aplica-se a **CDN do Azure Standard da Microsoft**, **CDN do Azure Standard da Verizon**, e **CDN do Azure Standard da Akamai** perfis.
+> Esta secção aplica-se ao **CDN Standard do Microsoft Azure**, **CDN do Azure Standard da Verizon**, e **CDN do Azure Standard da Akamai** perfis.
 > 
 > 
 
 1. Na página de perfil de CDN, selecione o ponto final da CDN que pretende gerir.
    
-    ![Pontos finais de perfil CDN](./media/cdn-file-compression/cdn-endpoints.png)
+    ![Pontos finais do perfil CDN](./media/cdn-file-compression/cdn-endpoints.png)
    
-    Abre a página de ponto final da CDN.
+    É aberta a página de ponto final CDN.
 2. Selecione **compressão**.
 
     ![Seleção de compressão de CDN](./media/cdn-file-compression/cdn-compress-select-std.png)
    
-    Abre a página de compressão.
+    É aberta a página de compressão.
 3. Selecione **no** para ativar a compressão.
    
-    ![Opções de compressão do ficheiro de CDN](./media/cdn-file-compression/cdn-compress-standard.png)
-4. Utilize os tipos de MIME predefinido ou modifique a lista ao adicionar ou remover tipos de MIME.
+    ![Opções de compactação de arquivo CDN](./media/cdn-file-compression/cdn-compress-standard.png)
+4. Utilize os tipos de MIME predefinido ou modificar a lista ao adicionar ou remover tipos de MIME.
    
    > [!TIP]
-   > Embora seja possível, não se recomenda a aplicar a compressão para formatos comprimidos. Por exemplo, ZIP, MP3, MP4 ou JPG.
+   > Embora seja possível, não é recomendado para aplicar a compressão para formatos de compressão. Por exemplo, ZIP, MP3, MP4 ou JPG.
+   > 
+   
+   > [!NOTE]
+   > Modificar a lista predefinida de tipos de MIME não é suportado atualmente na CDN Standard do Microsoft Azure.
    > 
  
-5. Depois de efetuar as alterações, selecione **guardar**.
+5. Depois de fazer as alterações, selecione **guardar**.
 
-### <a name="premium-cdn-profiles"></a>Perfis da CDN Premium
+### <a name="premium-cdn-profiles"></a>Perfis de CDN Premium
 > [!NOTE]
 > Esta secção aplica-se apenas ao **CDN do Azure Premium da Verizon** perfis.
 > 
@@ -78,41 +82,41 @@ As camadas standard e premium da CDN fornecem a mesma funcionalidade de compress
    
     ![Selecione gerir CDN](./media/cdn-file-compression/cdn-manage-btn.png)
    
-    É aberto o portal de gestão do CDN.
-2. Coloque o cursor sobre o **HTTP grande** separador, em seguida, coloque o cursor sobre o **definições da Cache** flyout. Selecione **compressão**.
+    É aberto o portal de gestão da CDN.
+2. Paire o rato sobre o **HTTP grandes** separador, em seguida, coloque o cursor sobre o **definições de Cache** submenu. Selecione **compressão**.
 
     ![Seleção de compressão de CDN](./media/cdn-file-compression/cdn-compress-select.png)
    
     São apresentadas as opções de compressão.
    
-    ![Opções de compressão do ficheiro de CDN](./media/cdn-file-compression/cdn-compress-files.png)
-3. Ativar a compressão selecionando **ativar a compressão**. Introduza os tipos de MIME que pretende comprimir como uma lista delimitada por vírgulas (sem espaços) a **tipos de ficheiro** caixa.
+    ![Opções de compactação de arquivo CDN](./media/cdn-file-compression/cdn-compress-files.png)
+3. Ativar a compressão, selecionando **compressão ativada**. Introduza os tipos de MIME que pretende comprimir como uma lista delimitada por vírgulas (sem espaços) na **tipos de ficheiro** caixa.
    
    > [!TIP]
-   > Embora seja possível, não se recomenda a aplicar a compressão para formatos comprimidos. Por exemplo, ZIP, MP3, MP4 ou JPG.
+   > Embora seja possível, não é recomendado para aplicar a compressão para formatos de compressão. Por exemplo, ZIP, MP3, MP4 ou JPG.
    > 
     
-4. Depois de efetuar as alterações, selecione **atualização**.
+4. Depois de fazer as alterações, selecione **atualização**.
 
 ## <a name="compression-rules"></a>Regras de compressão
 
-### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Azure CDN padrão de perfis da Microsoft
+### <a name="azure-cdn-standard-from-microsoft-profiles"></a>CDN Standard do Azure de perfis da Microsoft
 
-Para **CDN do Azure Standard da Microsoft** perfis, todos os ficheiros são elegíveis para compressão. No entanto, tem de ser um ficheiro de um tipo MIME que foi [configurado para compressão](#enabling-compression).
+Para **CDN Standard do Microsoft Azure** perfis, todos os ficheiros são elegíveis para compressão. No entanto, tem de ser um ficheiro de um tipo MIME que tem sido [configurado para compressão](#enabling-compression).
 
 Estes perfis suportam as seguintes codificações de compressão:
 - gzip (GNU zip)
 - brotli 
  
-Se o pedido de suportar mais do que um tipo de compressão, os tipos de compressão têm precedência sobre brotli compressão.
+Se o pedido de suportar mais do que um tipo de compactação, esses tipos de compressão precedência sobre brotli compressão.
 
-Quando um pedido para um recurso Especifica os resultados de pedido e da compressão de gzip uma falha de acerto na cache, o CDN do Azure efetua gzip compressão do elemento diretamente no servidor POP. Posteriormente, o ficheiro comprimido é servido a partir da cache.
+Quando um pedido para um recurso Especifica compactação gzip e os resultados do pedido numa falha de acerto na cache, CDN do Azure realiza a compactação gzip do elemento de diretamente no servidor POP. Depois disso, o ficheiro comprimido é servido a partir da cache.
 
 ### <a name="azure-cdn-from-verizon-profiles"></a>CDN do Azure da Verizon perfis
 
-Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** são comprimidos perfis, apenas ficheiros elegíveis. Para ser elegível para compressão, um ficheiro tem de:
+Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** perfis, apenas os ficheiros elegíveis são compactados. Para ser elegível para compressão, um ficheiro tem de:
 - Ser maior do que 128 bytes
-- Pode ser inferior a 1 MB
+- Ser menor que 1 MB
  
 Estes perfis suportam as seguintes codificações de compressão:
 - gzip (GNU zip)
@@ -120,41 +124,41 @@ Estes perfis suportam as seguintes codificações de compressão:
 - bzip2
 - brotli 
  
-Se o pedido de suportar mais do que um tipo de compressão, os tipos de compressão têm precedência sobre brotli compressão.
+Se o pedido de suportar mais do que um tipo de compactação, esses tipos de compressão precedência sobre brotli compressão.
 
-Quando um pedido para um recurso Especifica brotli compressão (cabeçalho HTTP é `Accept-Encoding: br`) e os resultados de pedido numa cache falha de acerto na, CDN do Azure efetua brotli compressão do elemento diretamente no servidor POP. Posteriormente, o ficheiro comprimido é servido a partir da cache.
+Quando um pedido para um recurso Especifica brotli compressão (cabeçalho HTTP é `Accept-Encoding: br`) e os resultados do pedido num erro de cache da CDN do Azure efetua brotli compressão do elemento de diretamente no servidor POP. Depois disso, o ficheiro comprimido é servido a partir da cache.
 
-### <a name="azure-cdn-standard-from-akamai-profiles"></a>Azure CDN Standard da Akamai perfis
+### <a name="azure-cdn-standard-from-akamai-profiles"></a>CDN Standard do Azure da Akamai perfis
 
-Para **CDN do Azure Standard da Akamai** perfis, todos os ficheiros são elegíveis para compressão. No entanto, tem de ser um ficheiro de um tipo MIME que foi [configurado para compressão](#enabling-compression).
+Para **CDN do Azure Standard da Akamai** perfis, todos os ficheiros são elegíveis para compressão. No entanto, tem de ser um ficheiro de um tipo MIME que tem sido [configurado para compressão](#enabling-compression).
 
-Estes perfis suportam gzip compressão codificação apenas. Quando um ponto final do perfil pede um ficheiro com codificação gzip, sempre que for solicitada da origem, independentemente do pedido do cliente. 
+Estes perfis suportam gzip compressão codificação apenas. Quando um ponto final do perfil solicita um ficheiro com codificação gzip, sempre que for solicitada na origem, independentemente do pedido do cliente. 
 
-## <a name="compression-behavior-tables"></a>Tabelas de comportamento da compressão
+## <a name="compression-behavior-tables"></a>Tabelas de comportamento de compressão
 As tabelas seguintes descrevem o comportamento de compressão da CDN do Azure para cada cenário:
 
-### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>A compressão está desativada ou ficheiro não é elegível para compressão
-| Formato de pedido de cliente (através do cabeçalho de codificação de aceitar) | Formato de ficheiro em cache | A resposta da CDN para o cliente | Notas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>Compressão está desativada ou não é elegível para compressão de ficheiros
+| Formato de pedido de cliente (por meio do cabeçalho Accept-Encoding) | Formato de ficheiro armazenados em cache | A resposta CDN ao cliente | Notas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Comprimidos |Comprimidos |Comprimidos | |
 | Comprimidos |Não comprimida |Não comprimida | |
-| Comprimidos |Não colocar em cache |Comprimidos ou descomprimidos |A resposta de origem determina se o CDN efetua uma compressão. |
+| Comprimidos |Não colocar em cache |Comprimidos ou descomprimidos |A resposta de origem determina se a CDN faz uma compressão. |
 | Não comprimida |Comprimidos |Não comprimida | |
 | Não comprimida |Não comprimida |Não comprimida | |
 | Não comprimida |Não colocar em cache |Não comprimida | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>A compressão está ativada e o ficheiro é elegível para compressão
-| Formato de pedido de cliente (através do cabeçalho de codificação de aceitar) | Formato de ficheiro em cache | Resposta da CDN para o cliente | Notas |
+| Formato de pedido de cliente (por meio do cabeçalho Accept-Encoding) | Formato de ficheiro armazenados em cache | Resposta CDN ao cliente | Notas |
 | --- | --- | --- | --- |
-| Comprimidos |Comprimidos |Comprimidos |CDN transcodes entre formatos suportados. |
-| Comprimidos |Não comprimida |Comprimidos |CDN efetua uma compressão. |
-| Comprimidos |Não colocar em cache |Comprimidos |CDN executa uma compressão se a origem devolve um ficheiro descomprimido. <br/>**CDN do Azure da Verizon** passa o um ficheiro no primeiro pedido e, em seguida, comprimir e coloca em cache o ficheiro para pedidos subsequentes. <br/>Ficheiros com o `Cache-Control: no-cache` cabeçalho nunca são comprimidos. |
-| Não comprimida |Comprimidos |Não comprimida |CDN efetua uma falha de descompressão. |
+| Comprimidos |Comprimidos |Comprimidos |CDN transcodifica entre os formatos suportados. |
+| Comprimidos |Não comprimida |Comprimidos |CDN faz uma compressão. |
+| Comprimidos |Não colocar em cache |Comprimidos |CDN faz uma compressão se a origem devolve um arquivo descompactado. <br/>**A CDN do Azure da Verizon** transmite o arquivo descompactado na primeira solicitação e, em seguida, compacta e armazena em cache o ficheiro para pedidos subsequentes. <br/>Ficheiros com o `Cache-Control: no-cache` cabeçalho nunca são compactados. |
+| Não comprimida |Comprimidos |Não comprimida |CDN faz um descompressão. |
 | Não comprimida |Não comprimida |Não comprimida | |
 | Não comprimida |Não colocar em cache |Não comprimida | |
 
-## <a name="media-services-cdn-compression"></a>Serviços de multimédia compressão de CDN
-Para pontos finais ativados para a CDN de serviços de multimédia de transmissão em fluxo, a compressão está ativada por predefinição para os seguintes tipos MIME: 
+## <a name="media-services-cdn-compression"></a>Compressão de CDN dos serviços de multimédia
+Para pontos finais ativados para CDN de serviços de multimédia de transmissão em fluxo, a compressão está ativada por predefinição para os seguintes tipos MIME: 
 - application/vnd.ms-sstr+xml 
 - aplicação/dash + xml
 - application/vnd.apple.mpegurl

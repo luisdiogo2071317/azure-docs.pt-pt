@@ -3,19 +3,19 @@ title: Online backup e restauração com o Azure Cosmos DB | Documentos da Micro
 description: Saiba como fazer cópia de segurança automática e restaurar uma base de dados do Azure Cosmos DB.
 keywords: cópia de segurança e restauro, a cópia de segurança online
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.author: govindk
+ms.openlocfilehash: 613c61d9b881b7d736a50cadbf313c1f9aac57c9
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343164"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059201"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Cópia de segurança online automática e restauro com o Azure Cosmos DB
 O Azure Cosmos DB tira automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas separadamente em outro serviço de armazenamento, e essas cópias de segurança são replicadas globalmente para resiliência contra desastres regionais. As cópias de segurança automáticas destinam-se a cenários quando acidentalmente eliminar o contentor do Cosmos DB e mais tarde necessitam de recuperação de dados ou uma solução de recuperação após desastre.  

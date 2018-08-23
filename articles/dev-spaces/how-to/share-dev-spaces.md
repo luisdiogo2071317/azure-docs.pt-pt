@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 6fb50f985f6d4f3c5d8644498316fb6229e2eaee
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1d7d665c20baddb3a94bfe53568ab56a5a961630
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054683"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42059226"
 ---
 # <a name="share-azure-dev-spaces"></a>Espaços de desenvolvimento do Azure de partilha
 

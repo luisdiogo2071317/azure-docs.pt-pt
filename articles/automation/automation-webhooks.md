@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345717"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060237"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook da automatização do Azure com um webhook
 
@@ -110,21 +110,21 @@ O cliente recebe um dos seguintes códigos de retornados da solicitação POST.
 | Código | Texto | Descrição |
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite e o runbook com êxito foi colocado em fila. |
-| 400 |Pedido Incorreto |O pedido não foi aceite para um dos seguintes motivos: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |
+| 400 |Pedido Inválido |O pedido não foi aceite para um dos seguintes motivos: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |
 | 404 |Não Encontrado |O pedido não foi aceite para um dos seguintes motivos: <ul> <li>O webhook não foi encontrado.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
 | 500 |Erro Interno do Servidor |O URL era válido, mas ocorreu um erro. Volte a submeter o pedido. |
 
-Partindo do princípio de que a solicitação for bem-sucedida, a resposta do webhook contém o id da tarefa no formato JSON da seguinte forma. Ele conterá uma id de tarefa única, mas permite que o formato JSON para aperfeiçoamentos futuros potenciais.
+Partindo do princípio de que a solicitação for bem-sucedida, a resposta do webhook contém o ID da tarefa no formato JSON da seguinte forma. Ele conterá uma ID de tarefa única, mas permite que o formato JSON para aperfeiçoamentos futuros potenciais.
 
 ```json
 {"JobIds":["<JobId>"]}
 ```
 
-O cliente não consegue determinar quando a tarefa de runbook é concluída ou o estado de conclusão de que o webhook. Ele pode determinar essas informações com o id da tarefa com outro método, como [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) ou o [API de automação de Azure](/rest/api/automation/job).
+O cliente não consegue determinar quando a tarefa de runbook é concluída ou o estado de conclusão de que o webhook. Ele pode determinar essas informações com o ID da tarefa com outro método, como [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou o [API de automação de Azure](/rest/api/automation/job).
 
 ## <a name="sample-runbook"></a>Runbook de exemplo
 
-O runbook de exemplo seguintes aceita o aceita dados de webhook e inicia as máquinas virtuais especificadas no corpo do pedido. Para testar este runbook na conta de automatização sob **Runbooks**, clique em **+ adicionar um runbook**. Se não sabe como criar um runbook, consulte [criar um runbook](automation-quickstart-create-runbook.md).
+O runbook de exemplo seguintes aceita os dados de webhook e inicia as máquinas virtuais especificadas no corpo do pedido. Para testar este runbook na conta de automatização sob **Runbooks**, clique em **+ adicionar um runbook**. Se não sabe como criar um runbook, consulte [criar um runbook](automation-quickstart-create-runbook.md).
 
 ```powershell
 param
@@ -201,7 +201,7 @@ O exemplo seguinte mostra o corpo do pedido que está disponível para o runbook
 ]
 ```
 
-A imagem seguinte mostra a solicitação a ser enviada pelo Windows PowerShell e a resposta resultante. O id da tarefa é extraído da resposta e convertido numa cadeia.
+A imagem seguinte mostra a solicitação a ser enviada pelo Windows PowerShell e a resposta resultante. O ID da tarefa é extraído da resposta e convertido numa cadeia.
 
 ![Botão de Webhooks](media/automation-webhooks/webhook-request-response.png)
 

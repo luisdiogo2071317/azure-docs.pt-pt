@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036402"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058496"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos de métricas no Application Insights
 Anotações no [Explorador de métricas](app-insights-metrics-explorer.md) gráficos mostram onde implementou uma nova compilação ou outro evento significativo. Eles facilitam ver se as suas alterações tinham qualquer impacto no desempenho da sua aplicação. Eles podem ser criados automaticamente pelos [sistema de compilação do Visual Studio Team Services](https://docs.microsoft.com/vsts/pipelines/tasks/). Também pode criar anotações para sinalizar a qualquer evento desejar [criá-los a partir do PowerShell](#create-annotations-from-powershell).
@@ -34,7 +34,7 @@ Notas de versão são uma funcionalidade da compilação com base na cloud e ver
 ### <a name="install-the-annotations-extension-one-time"></a>Instalar a extensão de anotações (uma vez)
 Para poder criar notas de versão, terá de instalar uma das extensões de serviço do Team muitos disponíveis no Visual Studio Marketplace.
 
-1. Inicie sessão no seu [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) projeto.
+1. Inicie sessão no seu [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) projeto.
 2. No Visual Studio Marketplace [obter a extensão de notas de versão](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations)e adicione-o à sua conta do Team Services.
 
 ![AT principais direita da página da web do Team Services, Marketplace aberto. Selecione Visual Team Services e, em seguida, na criação e versão, escolha ver mais.](./media/app-insights-annotations/10.png)

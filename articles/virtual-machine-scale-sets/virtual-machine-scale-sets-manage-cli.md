@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308058"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42055581"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerir um conjunto de dimensionamento com a CLI 2.0 do Azure
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos comuns do CLI 2.0 do Azure que lhe permite executar essas tarefas.
@@ -92,7 +92,7 @@ São necessários alguns minutos para atualizar a capacidade do seu conjunto de 
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Parar e iniciar VMs num conjunto de dimensionamento
-Para parar uma ou mais VMs num conjunto de dimensionamento, utilize [stop do az vmss](/cli/azure/vmss/stop). O parâmetro `--instance-ids` permite-lhe especificar uma ou mais VMs que deverão ser paradas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar de várias VMs, separe cada ID de instância com um espaço.
+Para parar uma ou mais VMs num conjunto de dimensionamento, utilize [stop do az vmss](/cli/azure/vmss#az-vmss-stop). O parâmetro `--instance-ids` permite-lhe especificar uma ou mais VMs que deverão ser paradas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar de várias VMs, separe cada ID de instância com um espaço.
 
 O exemplo seguinte para a instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Fornece seus próprios valores da seguinte forma:
 

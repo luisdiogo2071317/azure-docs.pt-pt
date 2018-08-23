@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113345"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058495"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de gestão de dados - elevada disponibilidade e escalabilidade (pré-visualização)
 > [!NOTE]
@@ -169,7 +169,7 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 - Os certificados de caráter universal são suportados. Se o nome FQDN for **node1.domain.contoso.com**, pode utilizar ***. domain.contoso.com** como nome do requerente do certificado.
 - Certificados SAN não são recomendados uma vez que será utilizado apenas o último item dos nomes alternativos do requerente e todos os outros serão ignorados devido a limitação atual. Por exemplo, tem um certificado SAN é cujo SAN **node1.domain.contoso.com** e **node2.domain.contoso.com**, só pode utilizar este certificado no computador cujo FQDN for **node2.domain.contoso.com**.
 - Suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados SSL.
-- Usando a CNG de certificado não são suportadas chaves. Doesrted DoesDoes não suportam certificados que utilizam chaves CNG.
+- Usando a CNG de certificado não são suportadas chaves.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>FAQ: Quando eu não permitiria esta encriptação?
 Ativar a encriptação pode adicionar determinados custos à sua infra-estrutura (proprietário certificado público), por conseguinte, pode ignorar a ativação da encriptação no abaixo casos:

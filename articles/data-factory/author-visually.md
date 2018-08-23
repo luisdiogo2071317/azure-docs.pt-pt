@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/14/2018
 ms.author: shlo
-ms.openlocfilehash: 7f186a819e2142bef6e736c7f7b5d0c733413fd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: b457d1ae01e523ac99c6171fa8d2123023ebcd2c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716336"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060903"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -42,10 +42,10 @@ Ao utilizar a experiência do Usuário **tela de criação** para criar diretame
 Criação visual com a integração de Git do VSTS suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório de conta do VSTS Git para controlo de origem, colaboração, controlo de versões e assim por diante. Uma única conta de Git do VSTS pode ter vários repositórios, mas um repositório de Git do VSTS pode ser associado a fábrica de dados apenas uma. Se não tiver uma conta do VSTS ou um repositório, siga [estas instruções](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) para criar os seus recursos.
 
 > [!NOTE]
-> Pode armazenar ficheiros de dados e de script num repositório de GIT do VSTS. No entanto, terá de carregar os ficheiros manualmente para o armazenamento do Azure. Um pipeline do Data Factory não automaticamente carregar ficheiros de script ou dados armazenados num repositório de GIT do VSTS para o armazenamento do Azure.
+> Pode armazenar ficheiros de dados e de script num repositório de Git do VSTS. No entanto, terá de carregar os ficheiros manualmente para o armazenamento do Azure. Um pipeline do Data Factory não automaticamente carregar ficheiros de script ou dados armazenados num repositório de Git do VSTS para o armazenamento do Azure.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurar um repositório de Git do VSTS com o Azure Data Factory
-Pode configurar um repositório de GIT do VSTS com uma fábrica de dados por meio de dois métodos.
+Pode configurar um repositório de Git do VSTS com uma fábrica de dados por meio de dois métodos.
 
 #### <a name="method1"></a> Método de configuração 1 (repositório de Git do VSTS): página Vamos começar
 
@@ -77,13 +77,17 @@ Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica d
 
 ![Configurar as definições de repositório de código para a criação da experiência do Usuário](media/author-visually/configure-repo-2.png)
 
+## <a name="use-a-different-azure-active-directory-tenant"></a>Utilizar um inquilino diferente do Azure Active Directory
+
+Pode criar um repositório de Git do VSTS noutro inquilino do Azure Active Directory. Para especificar um inquilino do Azure AD, tem de ter permissões de administrador para a subscrição do Azure que está a utilizar.
+
 ## <a name="switch-to-a-different-git-repo"></a>Mude para um repositório de Git diferente
 
 Para mudar para um repositório de Git diferente, localize o ícone no canto superior direito da página de descrição geral do Data Factory, conforme mostrado na seguinte captura de ecrã. Se não pode ver o ícone, limpe a cache do browser de local. Selecione o ícone para remover a associação com o repositório atual.
 
 Depois de remover a associação com o repositório atual, pode configurar as definições de Git para utilizar um repositório diferente. Em seguida, pode importar recursos do Data Factory existentes para o novo repositório.
 
-![Remova a associação com o repositório de Git atual.](media/author-visually/remove-repo.png)
+![Remova a associação com o repositório de Git atual](media/author-visually/remove-repo.png)
 
 ## <a name="use-version-control"></a>Usar o controle de versão
 Sistemas de controle de versão (também conhecido como _controle de fonte_) permitem que os desenvolvedores colaborar em código e acompanhar alterações feitas no código bases. Controlo de origem é uma ferramenta essencial para projetos com vários desenvolvedores.
@@ -92,7 +96,7 @@ Cada repositório de Git do VSTS que está associada uma fábrica de dados tem u
 
 ![Alterar o código, a sincronização ou de publicação](media/author-visually/sync-publish.png)
 
-Quando estiver preparado com o desenvolvimento de recursos no seu ramo de funcionalidade, pode clicar em **criar pedido pull**. Esta ação lhe VSTS GIT, onde pode fazer pedidos pull, revisões de código e intercalar as alterações ao ramo de colaboração. (`master` é a predefinição). Só são permitidas para publicar para o serviço Data Factory do ramo de colaboração. 
+Quando estiver preparado com o desenvolvimento de recursos no seu ramo de funcionalidade, pode clicar em **criar pedido pull**. Esta ação lhe VSTS Git, onde pode fazer pedidos pull, revisões de código e intercalar as alterações ao ramo de colaboração. (`master` é a predefinição). Só são permitidas para publicar para o serviço Data Factory do ramo de colaboração. 
 
 ![Criar um novo pedido pull](media/author-visually/create-pull-request.png)
 
@@ -106,10 +110,21 @@ Depois de foram mescladas alterações para o ramo de colaboração (`master` é
 
 ## <a name="author-with-github-integration"></a>Autor com integração do GitHub
 
-Criação de Visual com integração do GitHub suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório de conta do GitHub para o controlo de origem, colaboração, controlo de versões. Uma única conta GitHub pode ter vários repositórios, mas um repositório do GitHub pode ser associado a fábrica de dados apenas uma. Se não tiver aGitHub conta ou o repositório, siga [estas instruções](https://github.com/join) para criar os seus recursos. A integração do GitHub com o Data Factory suporta tanto públicas GitHub, bem como GitHub Enterprise.
+Criação de Visual com integração do GitHub suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório de conta do GitHub para o controlo de origem, colaboração, controlo de versões. Uma única conta GitHub pode ter vários repositórios, mas um repositório do GitHub pode ser associado a fábrica de dados apenas uma. Se não tiver uma conta do GitHub ou o repositório, siga [estas instruções](https://github.com/join) para criar os seus recursos. A integração do GitHub com o Data Factory suporta tanto públicas GitHub, bem como GitHub Enterprise.
 
-> [!NOTE]
-> Pode armazenar ficheiros de dados e de script num repositório do GitHub. No entanto, terá de carregar os ficheiros manualmente para o armazenamento do Azure. Um pipeline do Data Factory não automaticamente carregar arquivos de script ou de dados armazenados num repositório do GitHub para o armazenamento do Azure.
+Para configurar um repositório do GitHub, terá de ter permissões de administrador para a subscrição do Azure que está a utilizar.
+
+Para obter uma introdução de nove minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
+
+### <a name="limitations"></a>Limitações
+
+- Pode armazenar ficheiros de dados e de script num repositório do GitHub. No entanto, terá de carregar os ficheiros manualmente para o armazenamento do Azure. Um pipeline do Data Factory não automaticamente carregar arquivos de script ou de dados armazenados num repositório do GitHub para o armazenamento do Azure.
+
+- GitHub Enterprise com uma versão mais antiga do que 2.14.0 não funciona no browser Microsoft Edge.
+
+- Integração do GitHub com as ferramentas de criação visual de fator de dados funciona apenas na versão em disponibilidade geral do Data Factory.
 
 ### <a name="configure-a-public-github-repository-with-azure-data-factory"></a>Configurar um repositório do GitHub público com o Azure Data Factory
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413108"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056934"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: repor a palavra-passe self-service do Azure AD
 
@@ -94,6 +94,9 @@ Quando utiliza uma aplicação móvel, como a aplicação Microsoft Authenticato
 | Funcionalidades de aplicações móveis disponíveis | Código | Código ou de notificação |
 
 Os utilizadores não têm a opção para registar a aplicação móvel quando efetuar o registo para reposição de palavra-passe self-service do [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Os utilizadores podem registar a sua aplicação móvel [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), ou a nova pré-visualização de registo de informações de segurança por [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+
+> [!WARNING]
+> Tem de ativar a [de registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication (pré-visualização pública) de convergência](concept-registration-mfa-sspr-converged.md) antes dos utilizadores serão capazes de aceder a nova experiência em [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Alterar o método de autenticação
 

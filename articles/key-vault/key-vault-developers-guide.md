@@ -2,19 +2,19 @@
 title: Guia do programador do Cofre de chaves do Azure
 description: Os programadores podem utilizar o Azure Key Vault para gerir chaves criptográficas dentro do ambiente do Microsoft Azure.
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: alleonar
-ms.openlocfilehash: 3a2ab6bbe2470fa12113ca4367316cf7a21190b8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: bryanla
+ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626733"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057313"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do programador do Cofre de chaves do Azure
 
@@ -23,7 +23,7 @@ Key Vault permite-lhe aceder de forma segura informações confidenciais em seus
 - Chaves e segredos estão protegidos sem ter de escrever o código por conta própria e facilmente pode utilizá-los a partir das suas aplicações.
 - É possível ter seus próprios de clientes e gerir as suas próprias chaves para que pode se concentrar em fornecer as principais funcionalidades de software. Dessa forma, as aplicações não possui a responsabilidade ou um potencial encargo para chaves de inquilino dos seus clientes e segredos.
 - Seu aplicativo pode usar as chaves para assinatura e encriptação ainda mantém a gestão de chaves externas à sua aplicação, permitindo que a sua solução adequada como uma aplicação distribuída geograficamente.
-- No momento do lançamento de Setembro de 2016 do Cofre de chaves, seus aplicativos podem agora utilizar o Key Vault [certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-operations). Para obter mais informações, consulte [sobre chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- No momento do lançamento de Setembro de 2016 do Cofre de chaves, seus aplicativos agora podem gerir certificados do Key Vault. Para obter mais informações, consulte [sobre chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Para obter mais informações sobre o Azure Key Vault, consulte [o que é o Key Vault](key-vault-whatis.md).
 

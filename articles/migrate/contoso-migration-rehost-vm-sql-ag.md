@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: cd7a5832faf0fbb15349edee8ed504c1f94d1aa9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359211"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054567"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração de Contoso: realojar a uma aplicação no local em VMs do Azure e o grupo de Disponibilidade AlwaysOn do SQL Server
 
@@ -76,8 +76,8 @@ Neste cenário:
 
 **Serviço** | **Descrição** | **Custo**
 --- | --- | ---
-[Serviço de gestão de base de dados](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso irá migrar a camada de dados de aplicação com o DMS. DMS irá ligar a máquina SQLVM no local através de uma VPN de site a site e migrar migrações totalmente integradas do DMS ativa de várias origens de base de dados para plataformas de dados do Azure, com o período de indisponibilidade mínimo. | Saiba mais sobre [regiões suportadas](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) DMS e get [os detalhes dos preços](https://azure.microsoft.com/pricing/details/database-migration/).
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Contoso usará o Site Recovery para uma migração lift-and-shift de aplicações front-end VM. Site Recovery orquestra e gere a migração e recuperação após desastre para VMs do Azure e VMs e servidores físicos no local.  | Durante a replicação para o Azure, são cobradas taxas de armazenamento do Azure.  VMs do Azure são criadas e incorrer em custos, quando ocorre a ativação pós-falha. [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre preços e custos.
+[Serviço de migração de base de dados](https://docs.microsoft.com/azure/dms/dms-overview) | O DMS permite migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure, com o período de indisponibilidade mínimo. | Saiba mais sobre [regiões suportadas](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) DMS e get [os detalhes dos preços](https://azure.microsoft.com/pricing/details/database-migration/).
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site Recovery orquestra e gere a migração e recuperação após desastre para VMs do Azure e VMs e servidores físicos no local.  | Durante a replicação para o Azure, são cobradas taxas de armazenamento do Azure.  VMs do Azure são criadas e incorrer em custos, quando ocorre a ativação pós-falha. [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre preços e custos.
 
  
 
@@ -114,7 +114,7 @@ Eis como Contoso será executada a migração:
 > [!div class="checklist"]
 > * **Passo 1: Criar as VMs do SQL Server no Azure**: para elevada disponibilidade, Contoso pretende implementar uma base de dados em cluster no Azure. Eles implementam duas VMs do SQL Server e um balanceador de carga interno do Azure.
 > * **Passo 2: Implementar o cluster**: depois de implementar as VMs do SQL Server, eles preparam um cluster de servidor SQL do Azure.  Estes irá migrar a base de dados para este cluster previamente criada.
-> * **Passo 3: Preparar o DMS**: para preparar o DMS eles registram o fornecedor de migração de base de dados, criar uma instância do DMS e um projeto. Configuraram uma assinatura de acesso partilhado (SAS) Uniform Resource Identifier (URI). O DMS utiliza o URI de SA para aceder ao contentor da conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança do SQL Server.
+> * **Passo 3: Preparar o DMS**: para preparar o DMS eles registram o fornecedor de migração de base de dados, criar uma instância do DMS e um projeto. Configuraram uma assinatura de acesso partilhado (SAS) Uniform Resource Identifier (URI). O DMS utiliza o URI de SAS para aceder ao contentor da conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança do SQL Server.
 > * **Passo 4: Preparar o Azure para o Site Recovery**: criação de uma conta de armazenamento do Azure para manter os dados replicados e um cofre dos serviços de recuperação.
 > * **Passo 5: Preparar o VMware no local para o Site Recovery**: preparar contas para instalação de deteção e o agente da VM e preparar VMs no local para que se possam ligar a VMs do Azure após a ativação pós-falha.
 > * **Passo 6: Replicar VMs**: configurar as definições de replicação e ativar a replicação de VM.

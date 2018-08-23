@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619411"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054782"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas & limitações do Azure Cloud Shell
 
@@ -31,6 +31,11 @@ Resoluções conhecidas para a resolução de problemas no Azure Cloud Shell inc
 
 - **Detalhes**: Cloud Shell utiliza um websocket aberto para passar a entrada/saída ao seu navegador. FireFox tem políticas predefinidas que podem fechar o websocket prematuramente esgotando antecipada no Cloud Shell.
 - **Resolução**: FireFox aberto e navegue para "sobre: config" na caixa URL. Procure "network.websocket.timeout.ping.request" e altere o valor de 0 a 10.
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Desativar o Cloud Shell uma rede bloqueada ambiente
+
+- **Detalhes**: os administradores podem pretender desativar o acesso ao Cloud Shell para os seus utilizadores. Utiliza o acesso ao cloud Shell a `ux.console.azure.com` domínio que pode ser negado, parar qualquer acesso à entrypoints do Cloud Shell, incluindo portal.azure.com, shell.azure.com, a extensão de conta do Azure de código do Visual Studio e o docs.microsoft.com.
+- **Resolução**: restringir o acesso ao `ux.console.azure.com` através das definições de rede para o seu ambiente. O ícone do Cloud Shell continuarão a existir em portal.azure.com, mas não irá ligar com êxito para o serviço.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Diálogo de armazenamento - erro: RequestDisallowedByPolicy 403
 

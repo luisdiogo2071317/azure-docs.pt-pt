@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525557"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056948"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
 ## <a name="quotas-and-throttling"></a>Quotas e limitação
 Cada subscrição do Azure pode ter no máximo, 50 hubs IoT e no máximo, 1 hub gratuito.
 
-Cada hub IoT é aprovisionada com um determinado número de unidades de um escalão específico. Para obter mais informações, consulte [preços do Azure IoT Hub][lnk-pricing]. O escalão e o número de unidades de determinam a quota diária máxima de mensagens que pode enviar.
+Cada hub IoT é aprovisionada com um determinado número de unidades de um escalão específico. O escalão e o número de unidades de determinam a quota diária máxima de mensagens que pode enviar. O tamanho da mensagem utilizado para calcular que a quota diária é 0,5 KB para um hub de escalão gratuito e de 4KB para todos os outros escalões. Para obter mais informações, consulte [preços do Azure IoT Hub][lnk-pricing].
 
 A camada também determina os limites de limitação que o IoT Hub impõe em todas as operações.
 

@@ -6,32 +6,32 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: b44a57fe8ebcc985d3ab66ea04936a1558d00863
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 48bd548ec977d2dc4dd3b5b2f34df04562a6e918
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598271"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058494"
 ---
-# <a name="renew-application-gateway-certificates"></a>Renovar os certificados de Gateway de aplicação
+# <a name="renew-application-gateway-certificates"></a>Renovar certificados de Gateway de aplicação
 
-Em algum momento, terá de renovar os certificados, se tiver configurado o gateway de aplicação para a encriptação de SSL.
+Em algum momento, terá de renovar os certificados, se tiver configurado o gateway de aplicação para encriptação SSL.
 
-Pode renovar um certificado associado a um serviço de escuta com o portal do Azure, Azure PowerShell ou a CLI do Azure:
+Pode renovar um certificado associado a um serviço de escuta com o portal do Azure, o Azure PowerShell ou da CLI do Azure:
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Para renovar um certificado de serviço de escuta do portal, navegue para os serviços de escuta do gateway de aplicação. Clique no serviço de escuta que tenha um certificado que tem de ser renovado e, em seguida, clique em **renovar ou editar o certificado selecionado**.
+Para renovar um certificado de serviço de escuta do portal, navegue para os serviços de escuta do gateway de aplicação. Clique em serviço de escuta que tem um certificado que tem de ser renovado e, em seguida, clique em **renovar ou editar certificado selecionado**.
 
-![Renovar o certificado](media/renew-certificate/ssl-cert.png)
+![Renovar certificado](media/renew-certificate/ssl-cert.png)
 
 Carregar o novo certificado PFX, atribua um nome, escreva a palavra-passe e, em seguida, clique em **guardar**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Para renovar o certificado com o Azure PowerShell, utilize o seguinte cmdlet:
+Para renovar o certificado com o Azure PowerShell, utilize o seguinte script:
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -45,6 +45,8 @@ $password = ConvertTo-SecureString `
 
 set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 ## <a name="azure-cli"></a>CLI do Azure
 
@@ -59,4 +61,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como configurar a descarga de SSL com o Gateway de aplicação do Azure, consulte [configurar a descarga de SSL](application-gateway-ssl-portal.md)
+Para saber como configurar a descarga de SSL com o Gateway de aplicação do Azure, veja [configurar a descarga de SSL](application-gateway-ssl-portal.md)

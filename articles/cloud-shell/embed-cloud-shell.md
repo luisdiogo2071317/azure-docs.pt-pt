@@ -1,6 +1,6 @@
 ---
-title: Incorporar Shell em nuvem do Azure | Microsoft Docs
-description: Saiba como incorporar a Shell de nuvem do Azure.
+title: Incorporar o Azure Cloud Shell | Documentos da Microsoft
+description: Aprenda a incorporar o Azure Cloud Shell.
 services: cloud-shell
 documentationcenter: ''
 author: jluk
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0bd5382e5ea37f7c3c52d119e9d39fe7e0bfdc7c
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27864889"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42059521"
 ---
-# <a name="embed-azure-cloud-shell"></a>Incorporar Shell em nuvem do Azure
+# <a name="embed-azure-cloud-shell"></a>Incorporar o Azure Cloud Shell
 
-Ao incorporar Shell da nuvem permite aos programadores e escritores conteúdos abrir diretamente Shell de nuvem a partir de um URL dedicado, [shell.azure.com](https://shell.azure.com). Isto coloca imediatamente a capacidade total de autenticação da Shell de nuvem, ferramentas, e atualizada do Azure CLI/Azure PowerShell ferramentas aos seus utilizadores.
+Incorporar o Cloud Shell permite que os programadores e criadores de conteúdo abrir o Cloud Shell diretamente a um URL dedicado [shell.azure.com](https://shell.azure.com). Isso traz imediatamente todo o potencial da autenticação do Cloud Shell, ferramentas, e atualizados do Azure CLI/Azure PowerShell ferramentas aos seus utilizadores.
 
-Botão de tamanho normal
+Botão de tamanho regular
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Inicie o Shell de nuvem do Azure")](https://shell.azure.com)
+[![](https://shell.azure.com/images/launchcloudshell.png "Inicie o Azure Cloud Shell")](https://shell.azure.com)
 
 Botão de tamanho grande
 
-[![](https://shell.azure.com/images/launchcloudshell@2x.png "Inicie o Shell de nuvem do Azure")](https://shell.azure.com)
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Inicie o Azure Cloud Shell")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Procedimentos
 
-Integre no botão de início da nuvem Shell ficheiros markdown copiando o seguinte:
+Integre o botão de lançamento do Cloud Shell em ficheiros de markdown ao copiar o seguinte:
 
 ```markdown
 [![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 ```
 
-HTML para incorporar um pop-up que shell de nuvem é abaixo:
+O HTML para incorporar um pop-up, o Cloud Shell é abaixo:
 ```html
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><img alt="Launch Azure Cloud Shell" src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
 
 ## <a name="customize-experience"></a>Personalizar a experiência
 
-Defina uma experiência de shell específica, aumentar o seu URL.
-|Experiência   |URL   |
+Defina uma experiência de shell específica ao aumentar o seu URL.
+|Experiência   |do IdP   |
 |---|---|
-|A maioria utilizados recentemente shell   |shell.azure.com           |
-|Bash                       |shell.azure.com/bash       |
-|PowerShell                 |shell.azure.com/powershell |
+|Mais recentemente utilizado shell   |[shell.azure.com](https://shell.azure.com)           |
+|Bash                       |[shell.Azure.com/bash](https://shell.azure.com/bash)       |
+|PowerShell                 |[shell.Azure.com/PowerShell](https://shell.azure.com/powershell) |
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Bash no início rápido da Shell de nuvem](quickstart.md)<br>
-[PowerShell no início rápido da Shell de nuvem](quickstart-powershell.md)
+[Guia de introdução do Cloud Shell de bash](quickstart.md)<br>
+[PowerShell no início rápido do Cloud Shell](quickstart-powershell.md)

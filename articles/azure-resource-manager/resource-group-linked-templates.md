@@ -1,6 +1,6 @@
 ---
-title: Ligação a modelos de implementação do Azure | Microsoft Docs
-description: Descreve como utilizar modelos ligados num modelo Azure Resource Manager para criar uma solução de modelo modulares. Mostra como passar valores de parâmetros, especifique um ficheiro de parâmetros e URLs criados dinamicamente.
+title: Ligar a modelos para a implementação do Azure | Documentos da Microsoft
+description: Descreve como utilizar modelos ligados num modelo Azure Resource Manager para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especifique um ficheiro de parâmetros e URLs criados dinamicamente.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602820"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058789"
 ---
-# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligado e aninhada modelos quando implementar recursos do Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
-Para implementar a sua solução, pode utilizar um único modelo ou um modelo de principal com vários modelos relacionados. O modelo relacionado pode ser o ficheiro separado que está ligado a partir do modelo de principal ou um modelo que está aninhado no modelo principal.
+Para implantar sua solução, pode utilizar um modelo único ou um modelo principal com muitos modelos relacionados. O modelo relacionado pode ser um arquivo separado que está ligado a partir do modelo de principal ou um modelo que esteja aninhado dentro do modelo principal.
 
-Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Pode ver todos os recursos e os valores num único ficheiro. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para componentes de destino e reutilizar modelos.
+Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Pode ver todos os recursos e os valores num único arquivo. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para os componentes-alvo e reutilizar os modelos.
 
-Ao utilizar o modelo ligado, criar um modelo de principal que recebe os valores de parâmetros durante a implementação. O modelo de principal contém todos os modelos ligados e transmite os valores para esses modelos conforme necessário.
+Ao utilizar o modelo ligado, criar um modelo principal que recebe os valores de parâmetro durante a implementação. O modelo principal contém todos os modelos ligados e transmite valores para esses modelos, conforme necessário.
 
 ## <a name="link-or-nest-a-template"></a>Associar ou aninhar um modelo
 
-Para ligar a outro modelo, adicione um **implementações** recursos ao seu modelo principal.
+Para ligar a outro modelo, adicione uma **implementações** recursos ao seu modelo principal.
 
 ```json
 "resources": [
@@ -47,11 +47,13 @@ Para ligar a outro modelo, adicione um **implementações** recursos ao seu mode
 ]
 ```
 
-As propriedades de que fornecer para o recurso de implementação variam com base em se estão ligar a um modelo externo ou um modelo de inline no modelo principal de aninhamento.
+As propriedades que fornecer para o recurso de implantação variam consoante se estiver a criar uma ligação para um modelo externo ou aninhar um modelo inline no modelo principal.
+
+Para ambos ligados e aninhados modelos, só pode utilizar [Incremental](deployment-modes.md) modo de implementação.
 
 ### <a name="nested-template"></a>Modelo aninhado
 
-Para aninhar o modelo no modelo principal, utilize o **modelo** propriedade e especifique a sintaxe do modelo.
+Para aninhar o modelo dentro do modelo principal, utilize o **modelo** propriedade e especifique a sintaxe do modelo.
 
 ```json
 "resources": [
@@ -82,15 +84,15 @@ Para aninhar o modelo no modelo principal, utilize o **modelo** propriedade e es
 ```
 
 > [!NOTE]
-> Os modelos aninhados, não é possível utilizar parâmetros ou variáveis que estão definidas no modelo aninhado. Pode utilizar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` obtém um valor a partir do modelo de principal, não o modelo aninhado. Esta restrição não se aplica aos modelos externos.
+> Para aninhados modelos, é possível utilizar parâmetros ou variáveis que estão definidas dentro do modelo aninhado. Pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor a partir do modelo principal, não o modelo aninhado. Esta restrição não é aplicável a modelos externos.
 >
-> Não é possível utilizar o `reference` função na secção saídas de um modelo de aninhada. Para devolver os valores para um recurso implementado num modelo aninhado, converta o modelo aninhado num modelo ligado.
+> Não é possível utilizar o `reference` função na secção de saídas de um modelo aninhado. Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
 
-O modelo aninhado requer o [propriedades mesmas](resource-group-authoring-templates.md) como um modelo padrão.
+O modelo aninhado requer o [as mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
 
 ### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
 
-Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLink** e **parametersLink**. Quando ligar a um modelo, o serviço do Gestor de recursos tem de ser capaz de aceder ao mesmo. Não é possível especificar um ficheiro local ou um ficheiro que só está disponível na sua rede local. Apenas pode fornecer um valor URI que inclui um **http** ou **https**. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e utilizar o URI para que o item.
+Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLink** e **parametersLink**. Quando cria uma ligação a um modelo, o serviço de Gestor de recursos tem de ser capaz de aceder ao mesmo. Não é possível especificar um ficheiro local ou um ficheiro que só está disponível na sua rede local. Apenas pode fornecer um valor URI que inclui qualquer um **http** ou **https**. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e utilizar o URI para esse item.
 
 ```json
 "resources": [
@@ -113,11 +115,11 @@ Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLi
 ]
 ```
 
-Não tem de fornecer o `contentVersion` propriedade do modelo ou parâmetros. Se não fornecer um valor de versão do conteúdo, a versão atual do modelo de implementação. Se fornecer um valor para a versão do conteúdo, tem de corresponder a versão do modelo de ligado; caso contrário, a implementação falha com um erro.
+Não é necessário fornecer o `contentVersion` propriedade do modelo ou parâmetros. Se não fornecer um valor de versão do conteúdo, a versão atual do modelo é implementada. Se fornecer um valor para a versão do conteúdo, tem de corresponder a versão no modelo ligado; caso contrário, a implementação falhar com um erro.
 
 ### <a name="external-template-and-inline-parameters"></a>Parâmetros de modelo e inline externos
 
-Em alternativa, pode fornecer o parâmetro inline. Para transferir um valor do modelo de principal para o modelo ligado, utilize **parâmetros**.
+Em alternativa, pode fornecer o parâmetro inline. Transmita um valor a partir do modelo de principal para o modelo ligado, utilize **parâmetros**.
 
 ```json
 "resources": [
@@ -139,9 +141,9 @@ Em alternativa, pode fornecer o parâmetro inline. Para transferir um valor do m
 ]
 ```
 
-## <a name="using-variables-to-link-templates"></a>Utilizar variáveis para ligar os modelos
+## <a name="using-variables-to-link-templates"></a>Usando variáveis para associar modelos
 
-Os exemplos anteriores mostrou valores codificados de URL para as ligações de modelo. Esta abordagem poderá funcionar para um modelo simples, mas não funciona bem quando trabalhar com um grande conjunto de modelos modulares. Em vez disso, pode criar uma variável estática que armazena um URL de base para o modelo de principal e, em seguida, criar dinamicamente os URLs para os modelos ligados desse URL base. A vantagem desta abordagem é facilmente pode mover ou copiar o modelo porque apenas precisar de alterar a variável estática no modelo principal. O modelo de principal transmite os URIs em todo o modelo decomposed correto.
+Os exemplos anteriores mostraram valores codificados de URL para as ligações de modelo. Essa abordagem possa funcionar para um modelo simples, mas não funciona bem quando trabalhar com um grande conjunto de modelos modulares. Em vez disso, pode criar uma variável estática que armazena um URL de base para o modelo de principal e, em seguida, criar dinamicamente os URLs para os modelos ligados a partir desse URL base. A vantagem dessa abordagem é que pode facilmente transitar ou bifurcar o modelo porque só precisa de alterar a variável estática no modelo principal. O modelo principal passa os URIs correta em todo o modelo decomposto.
 
 O exemplo seguinte mostra como utilizar um URL de base para criar dois URLs para modelos ligados (**sharedTemplateUrl** e **vmTemplate**).
 
@@ -153,7 +155,7 @@ O exemplo seguinte mostra como utilizar um URL de base para criar dois URLs para
 }
 ```
 
-Também pode utilizar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter o URL de base para o modelo atual e utilize-a para obter o URL para outros modelos na mesma localização. Esta abordagem é útil se pretender que as alterações de localização do modelo ou evitar a codificação rígido URLs no ficheiro de modelo. A propriedade templateLink só é devolvida quando ligar a um modelo remoto com um URL. Se estiver a utilizar um modelo local, essa propriedade não está disponível.
+Também pode utilizar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter o URL de base para o modelo atual e usá-lo para obter o URL de outros modelos na mesma localização. Essa abordagem é útil se as alterações de localização do modelo ou que quiser evitar codificarem URLs no ficheiro de modelo. A propriedade templateLink apenas é retornada quando criar uma ligação para um modelo remoto com um URL. Se estiver a utilizar um modelo de local, essa propriedade não está disponível.
 
 ```json
 "variables": {
@@ -161,11 +163,11 @@ Também pode utilizar [deployment()](resource-group-template-functions-deploymen
 }
 ```
 
-## <a name="get-values-from-linked-template"></a>Obter os valores a partir do modelo ligado
+## <a name="get-values-from-linked-template"></a>Obter valores de modelo ligado
 
-Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com sintaxe como: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com a sintaxe, como: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
 
-Os exemplos seguintes demonstram como fazer referência a um modelo ligado e obter um valor de saída. O modelo ligado devolve uma mensagem simple.
+Os exemplos seguintes demonstram como fazer referência um modelo ligado e obter um valor de saída. O modelo ligado devolve uma mensagem simple.
 
 ```json
 {
@@ -183,7 +185,7 @@ Os exemplos seguintes demonstram como fazer referência a um modelo ligado e obt
 }
 ```
 
-O modelo de principal implementa o modelo ligado e obtém o valor devolvido. Tenha em atenção que referencia o recurso de implementação por nome e utiliza o nome da propriedade devolvido pelo modelo de ligado.
+O modelo principal implanta o modelo ligado e obtém o valor retornado. Tenha em atenção que referencia o recurso de implantação por nome, e utiliza o nome da propriedade devolvido pelo modelo de ligado.
 
 ```json
 {
@@ -214,7 +216,7 @@ O modelo de principal implementa o modelo ligado e obtém o valor devolvido. Ten
 }
 ```
 
-Como outros tipos de recursos, pode definir as dependências entre o modelo ligado e outros recursos. Por conseguinte, quando a outros recursos necessitam de um valor de saída do modelo ligado, certifique-se do que modelo ligado é implementado antes de lhes. Em alternativa, quando o modelo ligado depende de outros recursos, certifique-se a que outros recursos são implementados antes do modelo ligado.
+Como outros tipos de recursos, pode definir as dependências entre o modelo ligado e outros recursos. Por conseguinte, quando outros recursos requerem um valor de saída do modelo ligado, certifique-se do que modelo ligado é implementado antes-los. Ou, quando o modelo ligado depende de outros recursos, certifique-se de que outros recursos são implementados antes do modelo ligado.
 
 O exemplo seguinte mostra um modelo que implementa um endereço IP público e devolve o ID de recurso:
 
@@ -251,7 +253,7 @@ O exemplo seguinte mostra um modelo que implementa um endereço IP público e de
 }
 ```
 
-Para utilizar o endereço IP público do modelo anterior, quando implementar um balanceador de carga, ligue para o modelo e adicionar uma dependência no recurso de implementação. O endereço IP público no balanceador de carga está definido para o valor de saída do modelo ligado.
+Para utilizar o endereço IP público do modelo anterior ao implementar um balanceador de carga, ligar para o modelo e adicionar uma dependência no recurso de implantação. O endereço IP público no balanceador de carga está definido para o valor de saída do modelo ligado.
 
 ```json
 {
@@ -318,11 +320,11 @@ Para utilizar o endereço IP público do modelo anterior, quando implementar um 
 
 ## <a name="linked-and-nested-templates-in-deployment-history"></a>Modelos ligados e aninhados no histórico de implementação
 
-O Resource Manager processa cada modelo como uma implementação separada no histórico de implementação. Por conseguinte, é apresentado um modelo de principal com três modelos de ligado ou aninhados no histórico de implementação, como:
+Resource Manager processa cada modelo como uma implementação separada no histórico de implementação. Por conseguinte, um modelo principal com três modelos ligados ou aninhados é apresentada no histórico de implementação, como:
 
 ![Histórico de implementações](./media/resource-group-linked-templates/deployment-history.png)
 
-Pode utilizar estas entradas separadas no histórico para obter valores de saída após a implementação. O modelo seguinte cria um endereço IP público e produz o endereço IP:
+Pode utilizar estas entradas separadas no histórico para recuperar os valores de saída após a implementação. O modelo seguinte cria um endereço IP público e produz o endereço IP:
 
 ```json
 {
@@ -360,7 +362,7 @@ Pode utilizar estas entradas separadas no histórico para obter valores de saíd
 }
 ```
 
-As seguintes ligações de modelo para o modelo anterior. Cria três endereços IP públicos.
+As seguintes ligações de modelo para o modelo anterior. Ele cria três endereços IP públicos.
 
 ```json
 {
@@ -393,7 +395,7 @@ As seguintes ligações de modelo para o modelo anterior. Cria três endereços 
 }
 ```
 
-Após a implementação, pode obter os valores de saída com o seguinte script do PowerShell:
+Após a implementação, pode recuperar os valores de saída com o seguinte script do PowerShell:
 
 ```powershell
 $loopCount = 3
@@ -419,11 +421,11 @@ done
 
 ## <a name="securing-an-external-template"></a>Proteger um modelo externo
 
-Embora o modelo ligado tem de estar disponível externamente, não precisa de ser geralmente disponível para o público. Pode adicionar o seu modelo para uma conta de armazenamento privada que seja acessível para apenas o proprietário da conta de armazenamento. Em seguida, crie um token de assinatura (SAS) de acesso partilhado para ativar o acesso durante a implementação. Adicionar esse token SAS para o URI para o modelo ligado. Apesar do token é transmitido como uma cadeia segura, o URI do modelo ligado, incluindo o token SAS, é registado nas operações de implementação. Para limitar a exposição, defina uma expiração para o token.
+Embora o modelo ligado tem de estar disponível externamente, ele não precisa estar disponível ao público. É possível adicionar o seu modelo para uma conta de armazenamento privado que esteja acessível para apenas o proprietário da conta de armazenamento. Depois, vai criar um token de assinatura (SAS) de acesso partilhado para ativar o acesso durante a implementação. Adicionar esse token SAS para o URI para o modelo ligado. Mesmo que o token é passado como uma cadeia segura, o URI do modelo ligado, incluindo o token SAS, é registado nas operações de implementação. Para limitar a exposição, defina uma expiração para o token.
 
-O ficheiro de parâmetros também pode ser limitado para acesso através de um token SAS.
+O ficheiro de parâmetros pode também ser limitado a acesso por meio de um token SAS.
 
-O exemplo seguinte mostra como transmitir um token SAS aquando da associação a um modelo de incidente:
+O exemplo seguinte mostra como passar um token SAS quando ligar a um modelo:
 
 ```json
 {
@@ -451,7 +453,7 @@ O exemplo seguinte mostra como transmitir um token SAS aquando da associação a
 }
 ```
 
-No PowerShell, obter um token para o contentor e implementar modelos com os seguintes comandos. Tenha em atenção que o **containerSasToken** parâmetro está definido no modelo. Não tem um parâmetro no **New-AzureRmResourceGroupDeployment** comando.
+No PowerShell, obter um token para o contentor e implementar modelos com os seguintes comandos. Tenha em atenção que o **containerSasToken** parâmetro é definido no modelo. Não é um parâmetro no **New-AzureRmResourceGroupDeployment** comando.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -460,7 +462,7 @@ $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Da CLI do Azure, pode obter um token para o contentor e implementar modelos com o seguinte código:
+Na CLI do Azure, obter um token para o contentor e implementar modelos com o código a seguir:
 
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -485,16 +487,16 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os exemplos seguintes mostram utilizações comuns dos modelos ligados.
+Os exemplos seguintes mostram as utilizações comuns dos modelos ligados.
 
-|Modelo de principal  |Modelo ligado |Descrição  |
+|Modelo principal  |Modelo ligado |Descrição  |
 |---------|---------| ---------|
-|[Olá Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Devolve a cadeia do modelo ligado. |
-|[O Balanceador de carga com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado conjuntos e que o valor do Balanceador de carga. |
-|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
+|[Olá Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Devolve a cadeia de modelo ligado. |
+|[Balanceador de carga com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público a partir de modelo ligado e define esse valor no balanceador de carga. |
+|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre a definir a ordem de implementação para os seus recursos, consulte [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md).
-* Para saber como definir um recurso mas criar várias instâncias do mesmo, consulte o artigo [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para obter passos sobre como configurar um modelo de uma conta de armazenamento e de gerar um token SAS, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md) ou [implementar recursos com modelos do Resource Manager e CLI do Azure](resource-group-template-deploy-cli.md).
+* Para saber mais sobre o tipo de definir a ordem de implementação para os seus recursos, veja [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md).
+* Para saber como definir um recurso, mas criar várias instâncias do mesmo, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para obter passos sobre como configurar um modelo numa conta de armazenamento e gerar um token SAS, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md) ou [implementar recursos com modelos do Resource Manager e CLI do Azure](resource-group-template-deploy-cli.md).

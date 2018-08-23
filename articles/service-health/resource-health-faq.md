@@ -1,5 +1,5 @@
 ---
-title: Estado de funcionamento de recursos do Azure FAQ | Microsoft Docs
+title: FAQ do Estado de funcionamento do recurso do Azure | Documentos da Microsoft
 description: Descrição geral do Estado de funcionamento de recursos do Azure
 services: Resource health
 documentationcenter: dev-center-name
@@ -14,95 +14,95 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1e22c62c291909bb4079ebaf389cfbd15ae9d8d5
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264239"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42060657"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ do Estado de funcionamento do recurso do Azure
-Saiba as respostas a questões recorrentes sobre o estado de funcionamento de recursos de Azure.
+Aprenda as respostas a perguntas comuns sobre o Azure Resource Health.
 
-## <a name="what-is-azure-resource-health"></a>O que é o estado de funcionamento de recursos de Azure?
+## <a name="what-is-azure-resource-health"></a>O que é o Azure Resource Health?
 O estado de funcionamento dos recursos ajuda-o a diagnosticar e a obter suporte quando um problema do Azure afeta os seus recursos. Este serviço informa-o do estado de funcionamento atual e antigo dos seus recursos e ajuda-o a mitigar problemas. O estado de funcionamento dos recursos fornece suporte técnico quando precisa de ajuda para resolver problemas relacionados com o serviço do Azure.  
 
-## <a name="what-is-the-resource-health-intended-for"></a>O que o estado de funcionamento do recurso destina?
-Assim que foi detetado um problema com um recurso, o estado de funcionamento do recurso pode ajudar a diagnosticar a causa raiz. Fornece ajuda a mitigar o problema e o suporte técnico quando precisar de mais ajuda com problemas de serviço do Azure.
+## <a name="what-is-the-resource-health-intended-for"></a>O que é o estado de funcionamento do recurso destinado a?
+Assim que foi detetado um problema com um recurso, o estado de funcionamento do recurso pode ajudar a diagnosticar a causa raiz. Ele fornece ajuda a mitigar o problema e o suporte técnico quando precisar de mais ajuda com problemas de serviço do Azure.
 
-## <a name="what-health-checks-are-performed-by-resource-health"></a>Verifica o estado de funcionamento são efetuadas pelo Estado de funcionamento do recurso?
-Estado de funcionamento do recurso efetua várias verificações com base no [tipo de recurso](resource-health-checks-resource-types.md). Estas verificações foram concebidas para implementar três tipos de problemas: 
-- Eventos não planeados, por exemplo, um reinício inesperado de anfitrião
-- Eventos planeados, como atualizações do SO do anfitrião agendada
-- Eventos acionados pelas ações do utilizador, por exemplo, um utilizador iniciar uma máquina virtual
+## <a name="what-health-checks-are-performed-by-resource-health"></a>Verifica o estado de funcionamento são efetuados pelo Resource Health?
+Estado de funcionamento do recurso executa várias verificações com base na [tipo de recurso](resource-health-checks-resource-types.md). Estas verificações foram concebidas para implementar três tipos de problemas: 
+- Eventos não planeados, por exemplo um reinício de anfitrião inesperado
+- Eventos programados, como atualizações de SO do host agendada
+- Eventos acionados pelas ações do usuário, por exemplo, um utilizador reiniciar uma máquina virtual
 
-## <a name="what-does-each-of-the-health-status-mean"></a>O que cada um do Estado de funcionamento significa?
+## <a name="what-does-each-of-the-health-status-mean"></a>O que cada um o estado de funcionamento significa?
 Existem três Estados de funcionamento de diferentes:
-- Está disponível: Sabemos de quaisquer problemas conhecidos na plataforma do Azure que pode estar a afetar este recurso
-- Indisponível: Estado de funcionamento do recurso detetou problemas que têm maior impacto no recurso
-- Desconhecido: Estado de funcionamento do recurso não é possível determinar o estado de funcionamento de um recurso porque foi parado receber informações acerca do mesmo. 
+- Disponível: Existem não problemas conhecidos na plataforma do Azure que pode estar a afetar este recurso
+- Indisponível: Estado de funcionamento do recurso detetou problemas que estejam a afetar o recurso
+- Desconhecido: Estado de funcionamento de recursos pode não determinar o estado de funcionamento de um recurso uma vez que parou de receber informações sobre ele. 
 
-## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>O que significa o estado desconhecido? Algo está errado os meus recursos?
-O estado de funcionamento está definido para desconhecido quando o estado de funcionamento do recurso para receber informações sobre um recurso específico. Enquanto este estado não é uma indicação definitiva do Estado do recurso, nos casos em que existem problemas, pode indicar que há um problema do Azure.
+## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>O que significa o estado desconhecido? Há algo de errado com o meu recurso?
+O estado de funcionamento é definido como unknown quando o estado de funcionamento do recurso para receber informações sobre um recurso específico. Enquanto este estado não é uma indicação definitiva do Estado do recurso, nos casos em que estiver tendo problemas, ele pode indicar que existe um problema do Azure.
 
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>Como posso obter ajuda para um recurso que não está disponível?
-Pode submeter um pedido de suporte no painel Estado de funcionamento do recurso. Não é necessário um contrato de suporte com a Microsoft para abrir um pedido quando o recurso não está disponível porque os eventos de plataforma.
+Pode submeter um pedido de suporte a partir do painel de estado de funcionamento do recurso. Não é necessário um contrato de suporte com a Microsoft para abrir um pedido, quando o recurso não está disponível porque os eventos de plataforma.
 
-## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>Estado de funcionamento do recurso distinguir entre indisponibilidade cased por problemas de plataforma versus algo que posso foi?
-Sim, quando um recurso não está disponível, o estado de funcionamento do recurso identifica a causa raiz, dentro de uma destas categorias: 
+## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>Estado de funcionamento do recurso diferenciar entre indisponibilidade Case por problemas de plataforma em comparação com algo que fiz?
+Sim, quando um recurso não está disponível, o estado de funcionamento do recurso identifica a causa de raiz dentro de uma destas categorias: 
 -   Ação iniciada pelo utilizador
 -   Evento planeado 
 -   Evento não planeado
 
-No portal, ações iniciada pelo utilizador são apresentadas utilizando um ícone de notificação azul, enquanto eventos planeados e não são apresentados utilizando um ícone de aviso vermelho. São fornecidos mais detalhes no [descrição geral do Estado de funcionamento do recurso](Resource-health-overview.md).  
+No portal, as ações iniciadas pelo utilizador são apresentadas com um ícone de notificação azul, enquanto planeados e não planeados de eventos são apresentados com um ícone de aviso vermelho. Obter mais detalhes são fornecidos na [descrição geral do Estado de funcionamento do recurso](Resource-health-overview.md).  
 
-## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Pode integrar o estado de funcionamento do recurso com a minha ferramentas de monitorização?
-Estado de funcionamento de recursos é um serviço concebido para ajudar a diagnosticar e atenuar problemas de serviço do Azure que afetam os seus recursos. Apesar de poder utilizar a API de estado de funcionamento de recursos através de programação obter o estado de funcionamento, recomendamos que utilize métricas para monitorizar os recursos. Quando é detetado um problema, o estado de funcionamento do recurso ajuda-o a determinar a causa de raiz e orienta-o ações para resolvê-los. Visite [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para saber mais sobre como pode utilizar as métricas para verificar os seus recursos.
+## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Posso integrar o estado de funcionamento de recursos com minhas ferramentas de monitoramento?
+Estado de funcionamento do recurso é um serviço concebido para o ajudar a diagnosticar e mitigar problemas de serviço do Azure que afetam seus recursos. Embora seja possível usar a API de estado de funcionamento do recurso para obter programaticamente o estado de funcionamento, recomendamos que utilize métricas para monitorizar os seus recursos. Quando é detetado um problema, o estado de funcionamento do recurso ajuda a determinar a causa raiz e orienta-o através de ações para resolvê-los. Visite [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para saber mais sobre como pode utilizar métricas para verificar seus recursos.
 
-## <a name="where-do-i-find-resource-health"></a>Onde posso encontrar o estado de funcionamento do recurso?
-Depois de iniciar sessão portal do Azure, existem várias formas, pode aceder ao estado de funcionamento de recursos:
-- Navegue para o recurso. No painel de navegação esquerdo, selecione **estado de funcionamento de recursos**
-- Aceda ao painel de monitorização do Azure.  No painel de navegação esquerdo, selecione **estado de funcionamento do recurso**.
-- Abra o **ajuda + suporte** painel, selecionando o ponto de interrogação no canto superior direito do portal e, em seguida, selecionar **ajuda + suporte**. Uma vez que abre o painel, selecionar **estado de funcionamento de recursos**
+## <a name="where-do-i-find-resource-health"></a>Onde posso encontrar o Resource Health?
+Depois de iniciar sessão portal do Azure, existem várias formas de acessar o estado de funcionamento do recurso:
+- Navegue para o seu recurso. No painel de navegação esquerdo, selecione **estado de funcionamento do recurso**
+- Aceda ao painel do Azure Service Health.  No painel de navegação esquerdo, selecione **estado de funcionamento do recurso**.
+- Abra o **ajuda + suporte** painel selecionar o ponto de interrogação no canto superior direito do portal e selecionando **ajuda + suporte**. Quando abre o painel, selecione **estado de funcionamento do recurso**
 
-Também pode utilizar a API de estado de funcionamento de recursos para obter informações sobre o estado de funcionamento dos seus recursos.
+Também pode utilizar a API de estado de funcionamento do recurso para obter informações sobre o estado de funcionamento dos seus recursos.
 
 ## <a name="is-resource-health-available-for-all-resource-types"></a>Estado de funcionamento do recurso está disponível para todos os tipos de recursos?
-A lista de verificações de estado de funcionamento e tipos de recurso suportados através do Estado de funcionamento de recursos pode ser encontrada [aqui](resource-health-checks-resource-types.md).
+A lista de verificações de estado de funcionamento e os tipos de recursos oferecidos por meio do Estado de funcionamento do recurso pode ser encontrada [aqui](resource-health-checks-resource-types.md).
 
-## <a name="what-should-i-do-if-my-resource-is-showing-available-but-i-believe-it-is-not"></a>O que devo fazer se os meus recursos está a ser mostrada disponível, mas se considerar que não é?"
-Quando a verificação do Estado de funcionamento de um recurso, imediatamente abaixo o estado de funcionamento, pode clicar em **comunicar o estado de funcionamento incorreto**. Antes de submeter o relatório, tem a opção de fornecer detalhes adicionais sobre o motivo pelo qual considerar que o atual estado de funcionamento está incorreto.
+## <a name="what-should-i-do-if-my-resource-is-showing-available-but-i-believe-it-is-not"></a>O que devo fazer se o meu recurso está a mostrar disponível, mas acredito que não é?"
+Ao verificar o estado de funcionamento de um recurso, o estado de funcionamento em pode clicar em **comunicou o estado de funcionamento incorreto**. Antes de submeter o relatório, tem a opção de fornecer detalhes adicionais sobre por que ache que o estado de funcionamento atual está incorreto.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Estado de funcionamento do recurso está disponível para todas as regiões do Azure? 
-Estado de funcionamento do recurso está disponível em todos os geos do Azure, exceto as seguintes regiões:
+Estado de funcionamento do recurso está disponível em todas as geos do Azure, exceto as seguintes regiões:
 - Gov (US) - Virginia
-- Gov (US) - Iowa
+- US Gov - Iowa
 - US DoD Leste
 - US DoD Centro
 - Alemanha Central
 - Alemanha Nordeste
 
-## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Como estado de funcionamento do recurso é diferente do Estado do Azure ou do dashboard de estado de funcionamento do serviço?
-As informações fornecidas pelo Estado de funcionamento do recurso são mais específicas que o que é fornecido pelo Estado do Azure ou do dashboard de estado de funcionamento do serviço.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Como é diferente do Estado do Azure ou o dashboard de estado de funcionamento do serviço Resource Health?
+As informações fornecidas pelo Estado de funcionamento do recurso são mais específicas do que o que é fornecido pelo Estado do Azure ou o dashboard de estado de funcionamento do serviço.
 
-Enquanto [Estado Azure](https://status.azure.com) e o dashboard de estado de funcionamento do serviço informam sobre problemas de serviço que afetam a um conjunto amplo de clientes (por exemplo uma região do Azure), o estado de funcionamento do recurso expõe mais granular sobre eventos que são relevantes apenas para o recurso específico. Por exemplo, se um anfitrião inesperadamente é reiniciado, o estado de funcionamento do recurso alerta apenas esses clientes cujas máquinas virtuais estavam a ser executadas nesse anfitrião.
+Enquanto [estado do Azure](https://status.azure.com) e o dashboard de estado de funcionamento do serviço informá-lo sobre problemas de serviço que afetam um vasto leque de clientes (por exemplo uma região do Azure), o estado de funcionamento do recurso expõe mais granulares eventos que são relevantes apenas para o recurso específico. Por exemplo, se um anfitrião reinicia inesperadamente, o Resource Health alerta apenas aqueles clientes cujas máquinas virtuais estavam em execução nesse anfitrião.
 
-É importante notar que, ao fornecer-lhe visibilidade completa dos eventos afetar os recursos, o estado de funcionamento de recursos também apresenta eventos publicados no dashboard do Estado de funcionamento do serviço.
+É importante observar que para lhe fornecer visibilidade completa de eventos que afetem seus recursos, o estado de funcionamento do recurso também apresenta eventos publicados no dashboard do Estado de funcionamento do serviço.
 
-## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>É necessário ativar o estado de funcionamento de recursos para cada recurso?
+## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>É necessário ativar o estado de funcionamento do recurso para cada recurso?
 Não, as informações de estado de funcionamento estão disponíveis para todos os tipos de recursos disponíveis através do Estado de funcionamento do recurso. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>É necessário ativar o estado de funcionamento do recurso para a minha organização?
 Não.  Estado de funcionamento de recursos do Azure está acessível no portal do Azure sem quaisquer requisitos de configuração.
 
-## <a name="is-resource-health-available-free-of-charge"></a>É o estado de funcionamento de recursos disponíveis gratuitamente?
-Sim.  Estado de funcionamento de recursos do Azure é gratuitamente.
+## <a name="is-resource-health-available-free-of-charge"></a>É o Resource Health disponíveis gratuitamente?
+Sim.  Estado de funcionamento de recursos do Azure é gratuito.
 
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Quais são as recomendações que fornece o estado de funcionamento do recurso?
-Com base no estado de funcionamento, o estado de funcionamento do recurso fornece recomendações com o objetivo de reduzir o tempo que gasto a resolução de problemas. Para obter recursos disponíveis, encontrar o foco de recomendações sobre como resolver os clientes de problemas mais comuns. Se o recurso está indisponível devido a um evento não planeado do Azure, o foco será na prestar assistência, durante e após o processo de recuperação. 
+Com base no estado de funcionamento, estado de funcionamento do recurso fornece recomendações com o objetivo de reduzir o tempo que gasto na solução de problemas. Para recursos disponíveis, o foco de recomendações sobre como resolver os clientes de problemas mais comuns encontrados. Se o recurso está indisponível devido a um evento não planeado do Azure, o foco será nos ajudar o usuário durante e após o processo de recuperação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o estado de funcionamento de recursos:
+Saiba mais sobre o estado de funcionamento do recurso:
 -  [Descrição geral do Estado de funcionamento de recursos do Azure](Resource-health-overview.md)
 -  [Os tipos de recursos e verificações do estado de funcionamento disponíveis através do Azure Resource Health](resource-health-checks-resource-types.md)

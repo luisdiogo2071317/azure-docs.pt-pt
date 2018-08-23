@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990018"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059204"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Como localizar um endereço com o serviço de pesquisa do Azure Maps
 
@@ -164,19 +164,11 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
     | Chave | Valor |
     |-----|------------|
-    | spatialKeys | true |
-
-    Quando o [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta contém informações proprietárias da chave geoespacial para uma localização especificada.
-
-6. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
-
-    | Chave | Valor |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     Quando o [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definir o parâmetro de consulta, a resposta de retorno do limite de velocidade postado.
 
-7. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
+6. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
     | Chave | Valor |
     |-----|------------|
@@ -184,7 +176,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
     Quando o [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta retorna a matriz de utilização de estrada para reversegeocodes no nível de rua.
 
-8. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
+7. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
     | Chave | Valor |
     |-----|------------|

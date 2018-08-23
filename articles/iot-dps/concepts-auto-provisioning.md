@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521283"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054775"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de aprovisionamento automático
 
@@ -62,7 +62,7 @@ O diagrama seguinte resume as funções e a seqüência de operações durante o
 [![Sequência de aprovisionamento automático de mensagens em fila para um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> Opcionalmente, o fabricante também pode efetuar a operação "Inscrever a identidade de dispositivo", com APIs de serviço de aprovisionamento de dispositivos (em vez de através do operador). Para uma discussão detalhada sobre esse sequenciamento e muito mais, consulte a [registo de dispositivos Zero touch com vídeo do Azure IoT](https://myignite.microsoft.com/sessions/55087) (começando em 41:00 de marcador)
+> Opcionalmente, o fabricante também pode efetuar a operação "Inscrever a identidade de dispositivo", com APIs de serviço de aprovisionamento de dispositivos (em vez de através do operador). Para uma discussão detalhada sobre esse sequenciamento e muito mais, consulte a [registo de dispositivos Zero touch com vídeo do Azure IoT](https://youtu.be/cSbDRNg72cU?t=2460) (começando em 41:00 de marcador)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

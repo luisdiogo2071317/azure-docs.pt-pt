@@ -1,6 +1,6 @@
 ---
-title: Atividade ForEach no Azure Data Factory | Microsoft Docs
-description: Para cada atividade define um fluxo de controlo de repetidos no seu pipeline. É utilizado para iterating através de uma coleção e executar atividades especificadas.
+title: Atividade ForEach no Azure Data Factory | Documentos da Microsoft
+description: A atividade de cada para define um fluxo de controlo de repetição no seu pipeline. Ele é usado para iterar através de uma coleção e executar atividades especificadas.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: a029cb815f7765e6fe4e2fdbf81d437d5ac4ebe3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047586"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42057623"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
-A atividade ForEach define um fluxo de controlo de repetidos no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
+A atividade ForEach define um fluxo de controlo de repetição no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
 
 ## <a name="syntax"></a>Sintaxe
-As propriedades são descritas neste artigo. A propriedade de itens é uma coleção e cada item na coleção é referido utilizando o `@item()` conforme mostrado na seguinte sintaxe:  
+As propriedades são descritas posteriormente neste artigo. A propriedade items é uma coleção e cada item na coleção é referida usando o `@item()` conforme mostrado na seguinte sintaxe:  
 
 ```json
 {  
@@ -74,17 +74,18 @@ Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 nome | Nome da atividade para cada. | Cadeia | Sim
 tipo | Tem de ser definido como **ForEach** | Cadeia | Sim
-isSequential | Especifica se o ciclo deve ser executado sequencialmente ou em paralelo.  Máximo de 20 iterações de ciclo pode ser executado em simultâneo em paralelo). Por exemplo, se tiver uma atividade de ForEach iterating através de uma atividade de cópia com 10 diferentes origem e dependente conjuntos de dados com **isSequential** definido como FALSO, todas as cópias são executadas em simultâneo. Predefinição é False. <br/><br/> Se "isSequential" estiver definido como False, certifique-se de que não existe uma configuração correta para executar executáveis vários. Caso contrário, esta propriedade deve ser utilizada com cuidado para evitar incorrer em conflitos de escrita. Para obter mais informações, consulte [execução paralela](#parallel-execution) secção. | Booleano | Não. Predefinição é False.
-Itens | Uma expressão que devolve uma matriz JSON para iterated através de mensagens em fila. | Expressão (que devolve uma matriz JSON) | Sim
-Atividades | As atividades para ser executada. | Lista de atividades | Sim
+isSequential | Especifica se o loop deve ser executado em seqüência ou em paralelo.  Máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo). Por exemplo, se tiver uma atividade de ForEach iterar através de uma atividade de cópia com 10 origem e sink conjuntos de dados diferentes com **isSequential** definido como False, todas as cópias são executadas ao mesmo tempo. A predefinição é False. <br/><br/> Se "isSequential" estiver definido como False, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser utilizada com cuidado para evitar conflitos de escrita. Para obter mais informações, consulte [execução paralela](#parallel-execution) secção. | Booleano | Não. A predefinição é False.
+batchCount | Contagem de lotes para ser utilizado para controlar o número de execução paralela (quando isSequential está definido como false). | Número inteiro (máximo de 50) | Não. A predefinição é 20.
+Itens | Uma expressão que devolve uma matriz JSON para ser iterado. | Expressão (que devolve uma matriz JSON) | Sim
+Atividades | As atividades a ser executado. | Lista de atividades | Sim
 
 ## <a name="parallel-execution"></a>Execução paralela
-Se **isSequential** está definido como FALSO, a atividade itera em paralelo com um máximo de 20 iterações em simultâneo. Esta definição deve ser utilizada com cuidado. Se estiver a escrever iterações em simultâneo na mesma pasta, mas a ficheiros diferentes, esta abordagem é adequada. Se iterações simultâneas estiver a escrever simultaneamente no mesmo ficheiro exata, esta abordagem provavelmente causa um erro. 
+Se **isSequential** é definido como FALSO, a atividade itera em paralelo com um máximo de 20 iterações simultâneas. Esta definição deve ser utilizada com cuidado. Se estiver a escrever as iterações simultâneas para a mesma pasta, mas para arquivos diferentes, esta abordagem é adequada. Se as iterações simultâneas são escrever simultaneamente no mesmo ficheiro exata, essa abordagem faz com que é muito provável que um erro. 
 
-## <a name="iteration-expression-language"></a>Idioma de expressão iteração
-A atividade ForEach, fornecem uma matriz para ser iterated através da propriedade **itens**. " Utilize `@item()` para iterar uma única enumeração na atividade ForEach. Por exemplo, se **itens** é uma matriz: [1, 2, 3], `@item()` devolve 1 numa iteração primeiro, 2 na segundo iteração e 3 na terceira iteração.
+## <a name="iteration-expression-language"></a>Linguagem de expressão de iteração
+Na atividade ForEach, fornecer uma matriz para ser iterado para a propriedade **itens**. " Utilize `@item()` para iterar sobre uma enumeração única na atividade ForEach. Por exemplo, se **itens** é uma matriz: [1, 2, 3], `@item()` devolve 1 na primeira iteração, 2 na segunda iteração e 3 na terceira iteração.
 
-## <a name="iterating-over-a-single-activity"></a>Iterating através de uma única atividade
+## <a name="iterating-over-a-single-activity"></a>Fazendo a iteração através de uma única atividade
 **Cenário:** cópia do mesmo ficheiro de origem no Blob do Azure para vários ficheiros de destino no Blob do Azure.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
@@ -153,7 +154,7 @@ A atividade ForEach, fornecem uma matriz para ser iterated através da proprieda
 
 ```
 
-### <a name="blob-dataset-definition"></a>Definição do conjunto de dados de BLOBs
+### <a name="blob-dataset-definition"></a>Definição do conjunto de dados de blob
 
 ```json
 {  
@@ -180,7 +181,7 @@ A atividade ForEach, fornecem uma matriz para ser iterated através da proprieda
 
 ```
 
-### <a name="run-parameter-values"></a>Execute os valores de parâmetros
+### <a name="run-parameter-values"></a>Execute os valores de parâmetro
 
 ```json
 {
@@ -190,8 +191,8 @@ A atividade ForEach, fornecem uma matriz para ser iterated através da proprieda
 
 ```
 
-## <a name="iterate-over-multiple-activities"></a>Iterar múltiplas atividades
-É possível iterar múltiplas atividades (por exemplo: atividades web e de cópia) numa atividade ForEach. Neste cenário, recomendamos que abstracta saída múltiplas atividades no pipeline de separado. Em seguida, pode utilizar o [ExecutePipeline atividade](control-flow-execute-pipeline-activity.md) no pipeline com atividade ForEach para invocar o pipeline separado com várias atividades. 
+## <a name="iterate-over-multiple-activities"></a>Iterar sobre várias atividades
+É possível iterar em várias atividades (por exemplo: atividades de cópia e web) numa atividade ForEach. Neste cenário, recomendamos que abstrair múltiplas atividades num pipeline separado. Em seguida, pode utilizar o [atividade ExecutePipeline](control-flow-execute-pipeline-activity.md) no pipeline com atividade ForEach para invocar o pipeline separado com várias atividades. 
 
 
 ### <a name="syntax"></a>Sintaxe
@@ -236,7 +237,7 @@ A atividade ForEach, fornecem uma matriz para ser iterated através da proprieda
 
 ```
 ### <a name="example"></a>Exemplo
-**Cenário:** Iterate através de um InnerPipeline numa atividade ForEach com atividade de executar o Pipeline. O pipeline interno copia com definições de esquema parametrizadas.
+**Cenário:** Iterate ao longo de um InnerPipeline dentro de uma atividade ForEach com a atividade executar Pipeline. Copia o pipeline interno com definições de esquema parametrizadas.
 
 #### <a name="master-pipeline-definition"></a>Definição de Pipeline mestre
 
@@ -404,7 +405,7 @@ A atividade ForEach, fornecem uma matriz para ser iterated através da proprieda
 
 ```
 
-#### <a name="sink-dataset-definition"></a>Sink definição do conjunto de dados
+#### <a name="sink-dataset-definition"></a>Definição do conjunto de dados de sink
 
 ```json
 {
@@ -438,7 +439,7 @@ A atividade ForEach, fornecem uma matriz para ser iterated através da proprieda
 
 ```
 
-#### <a name="master-pipeline-parameters"></a>Parâmetros de pipeline principal
+#### <a name="master-pipeline-parameters"></a>Parâmetros do pipeline principal
 ```json
 {
     "inputtables": [
@@ -471,11 +472,11 @@ A atividade ForEach, fornecem uma matriz para ser iterated através da proprieda
 }
 
 ```
-## <a name="aggregating-metric-output"></a>Agregar saída métrica
-Recolha o resultado de todas as iterações de um ForEach na expressão `@activity('NameofInnerActivity')`. Por exemplo, se uma atividade ForEach iterated através de um "MyCopyActivity", a sintaxe seria: `@activity('MyCopyActivity')`. O resultado é uma matriz, com cada item detalhes sobre uma iteração específica a dar.
+## <a name="aggregating-metric-output"></a>Saída de métrica de agregação
+Expressão para a recolha a saída de todas as iterações de um ForEach é `@activity('NameofInnerActivity')`. Por exemplo, se uma atividade ForEach iterado "MyCopyActivity", a sintaxe seria: `@activity('MyCopyActivity')`. O resultado é uma matriz, com cada item, fornecendo detalhes sobre uma iteração específica.
 
 > [!NOTE]
-> Se pretender detalhes sobre uma iteração específica, a sintaxe seria: `@activity('NameofInnerActivity')[0]` para a iteração mais recente. Utilize o número de parênteses para aceder a iteração específica da matriz. Para aceder a uma propriedade específica de uma iteração específica, teria de utilizar: `@activity('NameofInnerActivity')[0].output` ou `@activity('NameofInnerActivity')[0].pipelineName`.
+> Se pretender detalhes sobre uma iteração específica, a sintaxe seria: `@activity('NameofInnerActivity')[0]` para a iteração mais recente. Utilize o número entre colchetes para aceder a iteração específica da matriz. Para aceder a uma propriedade específica de uma iteração específica, usaria: `@activity('NameofInnerActivity')[0].output` ou `@activity('NameofInnerActivity')[0].pipelineName`.
 
 **Detalhes de saída de matriz de todas as iterações:**
 ```json
@@ -572,9 +573,9 @@ Recolha o resultado de todas as iterações de um ForEach na expressão `@activi
 
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
+Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade de Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)

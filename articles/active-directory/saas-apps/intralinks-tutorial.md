@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424782"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: Integração do Azure Active Directory com Intralinks
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Intralinks, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Intralinks logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Intralinks com o Azure AD, terá de adicionar 
 
 **Para adicionar Intralinks a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Intralinks](https://www.intralinks.com/contact-1) para obter este valor. 
+    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Intralinks](https://www.intralinks.com/contact) para obter este valor. 
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -125,7 +125,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. Para configurar o início de sessão único num **Intralinks** lado, terá de enviar o transferido **XML de metadados** [equipa de suporte de Intralinks](https://www.intralinks.com/contact-1). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **Intralinks** lado, terá de enviar o transferido **XML de metadados** [equipa de suporte de Intralinks](https://www.intralinks.com/contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-an-intralinks-test-user"></a>Criar um utilizador de teste Intralinks
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Intralinks. Trabalhe em conjunto com [equipa de suporte de Intralinks](https://www.intralinks.com/contact-1) para adicionar os utilizadores na plataforma Intralinks.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Intralinks. Trabalhe em conjunto com [equipa de suporte de Intralinks](https://www.intralinks.com/contact) para adicionar os utilizadores na plataforma Intralinks.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
@@ -204,7 +204,7 @@ Depois disso, pode seguir a seguir o procedimento para adicionar outro aplicativ
 >[!NOTE]
 >Esta funcionalidade está disponível apenas para clientes de SKU Premium do Azure AD e não está disponível para clientes gratuito ou SKU básico.
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -237,7 +237,7 @@ Depois disso, pode seguir a seguir o procedimento para adicionar outro aplicativ
  
     ![Configurar o início de sessão único](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Obter o URL de SSO SP iniciada a partir [Intralinks equipe](https://www.intralinks.com/contact-1) para o outro aplicativo Intralinks e introduza-a na **URL de início de sessão de configurar** conforme mostrado abaixo. 
+1. Obter o URL de SSO SP iniciada a partir [Intralinks equipe](https://www.intralinks.com/contact) para o outro aplicativo Intralinks e introduza-a na **URL de início de sessão de configurar** conforme mostrado abaixo. 
     
      ![Configurar o início de sessão único](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

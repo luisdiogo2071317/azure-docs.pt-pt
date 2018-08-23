@@ -1,6 +1,6 @@
 ---
-title: Gerir o Azure Data Lake Analytics com o Python
-description: Este artigo descreve como utilizar o Python para gerir contas de Data Lake Analytics, origens de dados, os utilizadores e tarefas.
+title: Gerir o Azure Data Lake Analytics com Python
+description: Este artigo descreve como utilizar Python para gerir contas do Data Lake Analytics, origens de dados, os utilizadores e tarefas.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
@@ -10,33 +10,33 @@ editor: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6f97f7bad6eada962623e7efc5d7ed010dc9ebe
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261465"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055779"
 ---
-# <a name="manage-azure-data-lake-analytics-using-python"></a>Gerir o Azure Data Lake Analytics com o Python
+# <a name="manage-azure-data-lake-analytics-using-python"></a>Gerir o Azure Data Lake Analytics com Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Este artigo descreve como gerir contas de Azure Data Lake Analytics, origens de dados, os utilizadores e tarefas utilizando o Python.
+Este artigo descreve como gerir contas do Azure Data Lake Analytics, origens de dados, os utilizadores e tarefas com o Python.
 
 ## <a name="supported-python-versions"></a>Versões suportadas do Python
 
 * Utilize uma versão de 64 bits do Python.
-* Pode utilizar o padrão de distribuição do Python encontrada em  **[Python.org transfere](https://www.python.org/downloads/)**. 
-* Os programadores muitos localizar conveniente utilizar o  **[distribuição Anaconda Python](https://www.continuum.io/downloads)**.  
-* Este artigo foi escrito utilizando o Python versão 3.6 da distribuição de Python padrão
+* Pode usar o padrão de distribuição da Python encontrada na  **[Python.org downloads](https://www.python.org/downloads/)**. 
+* Os desenvolvedores consideram útil para utilização a  **[distribuição Anaconda Python](https://www.anaconda.com/download/)**.  
+* Este artigo foi escrito com o Python versão 3.6 da distribuição de Python padrão
 
 ## <a name="install-azure-python-sdk"></a>Instalar o SDK de Python para o Azure
 
 Instale os seguintes módulos:
 
-* O **azure-mgmt-recurso** módulo inclui outros módulos do Azure para o Active Directory, etc.
-* O **datalake-azure-arquivo** módulo inclui as operações de sistema de ficheiros do Azure Data Lake Store. 
-* O **do azure-mgmt-datalake-store** módulo inclui as operações de gestão de conta do Azure Data Lake Store.
-* O **-mgmt-datalake-análise do azure** módulo inclui as operações do Azure Data Lake Analytics. 
+* O **azure-mgmt-resource** módulo inclui outros módulos do Azure para o Active Directory, etc.
+* O **azure-datalake-store** módulo inclui as operações de sistema de ficheiros do Azure Data Lake Store. 
+* O **azure-mgmt-datalake-store** módulo inclui as operações de gestão de conta do Azure Data Lake Store.
+* O **azure-mgmt-datalake-analytics** módulo inclui as operações do Azure Data Lake Analytics. 
 
 Em primeiro lugar, certifique-se de que tem a versão mais recente `pip` executando o seguinte comando:
 
@@ -44,7 +44,7 @@ Em primeiro lugar, certifique-se de que tem a versão mais recente `pip` executa
 python -m pip install --upgrade pip
 ```
 
-Este documento foi escrito utilizando `pip version 9.0.1`.
+Este documento foi escrito usando `pip version 9.0.1`.
 
 Utilize o seguinte `pip` comandos para instalar os módulos de linha de comandos:
 
@@ -55,7 +55,7 @@ pip install azure-mgmt-datalake-store
 pip install azure-mgmt-datalake-analytics
 ```
 
-## <a name="create-a-new-python-script"></a>Criar um novo script do Python
+## <a name="create-a-new-python-script"></a>Criar um novo script de Python
 
 Cole o seguinte código para o script:
 
@@ -96,11 +96,11 @@ Execute este script para verificar que os módulos podem ser importados.
 
 ## <a name="authentication"></a>Autenticação
 
-### <a name="interactive-user-authentication-with-a-pop-up"></a>Autenticação de utilizador interativo com um pop-up
+### <a name="interactive-user-authentication-with-a-pop-up"></a>Autenticação de utilizador interativa com um pop-up
 
 Este método não é suportado.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>Autenticação de utilizador interativo com um código de dispositivo
+### <a name="interactive-user-authentication-with-a-device-code"></a>Autenticação de utilizador interativa com um código de dispositivo
 
 ```python
 user = input('Enter the user to authenticate with that has permission to subscription: ')
@@ -157,7 +157,7 @@ adlsAcctResult = adlsAcctClient.account.create(
     )
 ).wait()
 ```
-Em seguida, crie uma conta ADLA que utiliza este arquivo.
+Em seguida, crie uma conta ADLA utiliza esse arquivo.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
@@ -211,8 +211,8 @@ while(jobResult.state != JobState.ended):
 print ('Job finished with result: ' + jobResult.result.value)
 ```
 
-## <a name="list-pipelines-and-recurrences"></a>Lista pipelines e recurrences
-Dependendo se as tarefas têm de metadados de pipeline ou periodicidade ligado, pode listar pipelines e recurrences.
+## <a name="list-pipelines-and-recurrences"></a>Lista de pipelines e recorrências
+Dependendo se suas tarefas têm de metadados de pipeline ou de periodicidade anexado, pode listar os pipelines e recorrências.
 
 ```python
 pipelines = adlaJobClient.pipeline.list(adla)
@@ -226,11 +226,11 @@ for r in recurrences:
 
 ## <a name="manage-compute-policies"></a>Gerir políticas de computação
 
-O objeto de DataLakeAnalyticsAccountManagementClient fornece métodos para gerir as políticas de computação para uma conta de Data Lake Analytics.
+O objeto de DataLakeAnalyticsAccountManagementClient fornece métodos para gerir as políticas de computação para uma conta do Data Lake Analytics.
 
-### <a name="list-compute-policies"></a>Listar políticas de computação
+### <a name="list-compute-policies"></a>Políticas de computação de lista
 
-O código seguinte obtém uma lista das políticas de computação para uma conta de Data Lake Analytics.
+O código a seguir recupera uma lista de políticas de computação para uma conta do Data Lake Analytics.
 
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
@@ -240,7 +240,7 @@ for p in policies:
 
 ### <a name="create-a-new-compute-policy"></a>Criar uma nova política de computação
 
-O código seguinte cria uma nova política de computação para uma conta de Data Lake Analytics, definir os AUs máximas disponíveis para o utilizador especificado para 50 e a prioridade do trabalho mínimo para 250.
+O código seguinte cria uma nova política de computação para uma conta do Data Lake Analytics, definir o AUs máximo disponível para o utilizador especificado como 50 e a prioridade do trabalho mínimo para 250.
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"

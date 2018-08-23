@@ -13,29 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 69af189ce04d8bcfb2fe0c6842c845cc988b5380
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577918"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42056747"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
-O Azure Load Balancer utiliza sondas de estado de funcionamento para determinar a quais instâncias de conjunto de back-end irão receber novos fluxos. Pode utilizar sondas de estado de funcionamento para detetar a falha de um aplicativo numa instância de back-end. Também pode gerar uma resposta personalizada para uma sonda de estado de funcionamento e utilizar a sonda de estado de funcionamento para controlo de fluxo e sinalizar ao balanceador de carga se pretende continuar a enviar novos fluxos ou parar o envio de novos fluxos para uma instância de back-end. Isso pode ser utilizado para gerir a carga ou períodos de indisponibilidade planeados.
+O Azure Load Balancer utiliza sondas de estado de funcionamento para determinar a quais instâncias de conjunto de back-end irão receber novos fluxos. Pode utilizar sondas de estado de funcionamento para detetar a falha de um aplicativo numa instância de back-end. Também pode gerar uma resposta personalizada para uma sonda de estado de funcionamento e utilizar a sonda de estado de funcionamento para controlo de fluxo e sinalizar ao balanceador de carga se pretende continuar a enviar novos fluxos ou parar o envio de novos fluxos para uma instância de back-end. Isso pode ser utilizado para gerir a carga ou períodos de indisponibilidade planeados. Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento.
 
-Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento. O comportamento de fluxos de novos e existentes depende se um fluxo é TCP ou UDP como bem como que SKU do Balanceador de carga que está a utilizar.  Revisão [sonda inativo comportamento para obter detalhes](#probedown).
+Os tipos de sondas de estado de funcionamento disponíveis e a forma como se comportam de sondas de estado de funcionamento depende em qual SKU do Balanceador de carga que estão a utilizar. Por exemplo, o comportamento de fluxos de novos e existentes depende se um fluxo é TCP ou UDP como bem como que SKU do Balanceador de carga que está a utilizar.
+
+| | SKU Standard | SKU Básico |
+| --- | --- | --- |
+| [Tipos de sonda](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
+| [Sonda de comportamento](#probedown) | Todas as sondas, continuam a todos os fluxos TCP. | Todas as sondas para baixo, terminam a todos os fluxos TCP. | 
 
 > [!IMPORTANT]
 > As sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 e não tem de ser bloqueadas para sondas marcar sua instância.  Revisão [endereço IP de origem de sonda](#probesource) para obter detalhes.
 
 ## <a name="types"></a>Tipos de sonda de estado de funcionamento
 
-Sondas de estado de funcionamento podem observar qualquer porta numa instância de back-end, incluindo a porta em que o serviço real é fornecido. A sonda de estado de funcionamento suporta serviços de escuta TCP ou pontos de extremidade HTTP. 
+Sondas de estado de funcionamento podem observar qualquer porta numa instância de back-end, incluindo a porta em que o serviço real é fornecido. O protocolo de sonda de estado de funcionamento pode ser configurado para três tipos diferentes de sondas de estado de funcionamento:
 
-Para o balanceamento de carga UDP, deve gerar um sinal de sonda de estado de funcionamento personalizados para a instância de back-end através de sonda de estado de funcionamento de um TCP ou HTTP.
+- [Serviços de escuta TCP](#tcpprobe)
+- [Pontos de extremidade HTTP](#httpprobe)
+- [Pontos finais de HTTPS](#httpsprobe)
+
+Os tipos de sondas de estado de funcionamento disponíveis variam consoante o SKU do Balanceador de carga selecionado:
+
+|| TCP | HTTP | HTTPS |
+| --- | --- | --- | --- |
+| SKU Standard |    &#9989; |   &#9989; |   &#9989; |
+| SKU Básico |   &#9989; |   &#9989; | &#10060; |
+
+Para balanceamento de carga UDP, deve gerar um sinal de sonda de estado de funcionamento personalizados para a instância de back-end com um TCP, HTTP, ou a sonda de estado de funcionamento HTTPS.
 
 Ao usar [regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md) com [Balanceador de carga Standard](load-balancer-standard-overview.md), todas as portas têm balanceada de carga e uma resposta de sonda de estado de funcionamento único deve refletir o estado de toda a instância.  
 
@@ -43,7 +59,7 @@ Deve ser não NAT ou de um Estado de funcionamento da pesquisa por meio da inst�
 
 Se desejar testar uma falha de sonda de estado de funcionamento ou marcar para baixo de uma instância individual, pode utilizar um grupo de segurança para a sonda de estado de funcionamento de bloqueio explícita (destino ou [origem](#probesource)).
 
-### <a name="tcpprobe"></a>Sonda TCP
+### <a name="tcpprobe"></a> Sonda TCP
 
 Sondas TCP iniciam uma ligação ao efetuar um handshake TCP aberto de três vias com a porta definido.  Isto é, em seguida, seguido de um handshake TCP fechar de quatro vias.
 
@@ -53,19 +69,60 @@ Uma sonda TCP falha quando:
 * O serviço de escuta TCP na instância não responde durante o período de tempo limite.  Uma sonda é marcada para baixo com base no número de solicitações de sonda com falha, o que foram configuradas para ir sem resposta antes de os marcar a sonda.
 * A sonda recebe uma reposição da instância TCP.
 
-### <a name="httpprobe"></a>Sonda HTTP
+#### <a name="resource-manager-template"></a>Modelo do Resource Manager
 
-Sondas HTTP estabelecer uma ligação de TCP e emitir um HTTP GET com o caminho especificado. Sondas HTTP suportam caminhos relativos para o HTTP GET. A sonda de estado de funcionamento está marcado como cópia de segurança quando a instância responde com um Estado HTTP 200 dentro do período de tempo limite.  Tentativa de sondas de estado de funcionamento HTTP para verificar a cada 15 segundos da porta de sonda de estado de funcionamento configurado por predefinição. O intervalo de sonda mínimo é de 5 segundos. A duração total não pode exceder os 120 segundos. 
+```json
+    {
+      "name": "tcp",
+      "properties": {
+        "protocol": "Tcp",
+        "port": 1234,
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
 
+### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS de sonda
 
-Sondas HTTP também podem ser útil se pretender implementar sua própria lógica para remover instâncias de rotação do Balanceador de carga. Por exemplo, pode decidir remover uma instância se ele for superior a 90% da CPU e devolver um Estado de HTTP não 200. 
+> [!NOTE]
+> Sonda HTTPS apenas está disponível para [Balanceador de carga Standard](load-balancer-standard-overview.md).
+
+Sondas HTTP e HTTPS estabelecer uma ligação de TCP e emitir um HTTP GET com o caminho especificado. Ambas estas sondas suportam caminhos relativos para o HTTP GET. Sondas HTTPS são os mesmos, como as sondas HTTP com a adição da Transport Layer Security (TLS, anteriormente conhecido como SSL) wrapper. A sonda de estado de funcionamento está marcado como cópia de segurança quando a instância responde com um Estado HTTP 200 dentro do período de tempo limite.  Estes estado de funcionamento da tentam de sondas verificar a cada 15 segundos da porta de sonda de estado de funcionamento configurado por predefinição. O intervalo de sonda mínimo é de 5 segundos. A duração total não pode exceder os 120 segundos. 
+
+HTTP / HTTPS sondas também podem ser útil se pretender implementar sua própria lógica para remover instâncias de rotação do Balanceador de carga. Por exemplo, pode decidir remover uma instância se ele for superior a 90% da CPU e devolver um Estado de HTTP não 200. 
 
 Se utilizar os serviços Cloud e ter funções da web que utilizam w3wp.exe, alcança automáticas, monitorização do seu Web site. Falhas no código do seu site devolver um Estado que não 200 para a sonda de Balanceador de carga.  A sonda HTTP substitui a sonda de agente de convidado de predefinida. 
 
-Uma sonda HTTP falha quando:
-* Ponto final da sonda HTTP devolve um código de resposta HTTP que não 200 (por exemplo, 403, 404 ou 500). Esta ação marca a sonda de estado de funcionamento para baixo imediatamente. 
-* Ponto final da sonda HTTP não responder durante a um período de tempo limite do segundo 31. Dependendo do valor de tempo limite que está definido, várias solicitações de sondagem podem passar sem resposta antes da sonda é marcada como não está em execução (ou seja, antes de SuccessFailCount sondas são enviadas).
-* Ponto final da sonda HTTP fecha a ligação através de uma reposição TCP.
+Um HTTP / HTTPS sonda falha quando:
+* Ponto final da sonda devolve um código de resposta HTTP que não 200 (por exemplo, 403, 404 ou 500). Esta ação marca a sonda de estado de funcionamento para baixo imediatamente. 
+* Ponto final da sonda não responder durante a um período de tempo limite do segundo 31. Dependendo do valor de tempo limite que está definido, várias solicitações de sondagem podem passar sem resposta antes da sonda é marcada como não está em execução (ou seja, antes de SuccessFailCount sondas são enviadas).
+* Ponto final da sonda fecha a ligação através de uma reposição TCP.
+
+#### <a name="resource-manager-templates"></a>Modelos do Resource Manager
+
+```json
+    {
+      "name": "http",
+      "properties": {
+        "protocol": "Http",
+        "port": 80,
+        "requestPath": "/",
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
+
+```json
+    {
+      "name": "https",
+      "properties": {
+        "protocol": "Https",
+        "port": 443,
+        "requestPath": "/",
+        "intervalInSeconds": 5,
+        "numberOfProbes": 2
+      },
+```
 
 ### <a name="guestagent"></a>Pesquisa do agente convidado (apenas clássica)
 
@@ -83,7 +140,7 @@ Quando utiliza uma função da web, normalmente, executa o código de site no w3
 
 ## <a name="probehealth"></a>Sonda de estado de funcionamento
 
-Sondas de estado de funcionamento TCP e HTTP são consideradas íntegros e marcar a instância de função em bom estado quando:
+Sondas de estado de funcionamento TCP, HTTP e HTTPS são consideradas íntegros e marcar a instância de função em bom estado quando:
 
 * A sonda de estado de funcionamento é efetuada com êxito pela primeira vez que a VM é inicializado.
 * O número para SuccessFailCount (descrita anteriormente) define o valor de sondas com êxito, que são necessárias para marcar a instância de função em bom estado. Se uma instância de função tiver sido removida, o número de sondas com êxito, sucessivas tem de ser igual ou exceder o valor de SuccessFailCount para marcar a instância de função em execução.
@@ -122,7 +179,6 @@ UDP é sem ligações e não existe nenhum Estado de fluxo controlado por UDP. S
 
 Se todas as sondas para todas as instâncias de um conjunto de back-end falharem, os fluxos UDP existentes irão terminar para básico e Standard balanceadores de carga.
 
-
 ## <a name="probesource"></a>Endereço IP de origem de sonda
 
 Todas as sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 como a origem.  Quando levam seus próprios endereços IP para rede Virtual do Azure, é garantido que este endereço IP de origem de sonda de estado de funcionamento para que seja exclusivo como globalmente está reservado para a Microsoft.  Este endereço é o mesmo em todas as regiões e não se altera. Ele não deve ser considerado um risco de segurança porque apenas a plataforma do Azure interna pode obter um pacote a partir deste endereço IP. 
@@ -137,17 +193,18 @@ Se tiver várias interfaces na sua VM, terá de assegurar a que responder à son
 
 ## <a name="monitoring"></a>Monitorização
 
-Todos os [Balanceador de carga Standard](load-balancer-standard-overview.md) expõe o estado de sonda de estado de funcionamento como métricas multidimensionais por instância através do Azure Monitor.
+Públicas e internas [Balanceador de carga Standard](load-balancer-standard-overview.md) expor por ponto final e de back-end estado de sonda de estado de funcionamento de instância, como métricas multidimensionais através do Azure Monitor. Em seguida, podem ser consumido por outros serviços do Azure ou o 3º aplicativos de terceiros. 
 
-Balanceador de carga básico expõe o estado de sonda de estado de funcionamento por conjunto de back-end através do Log Analytics.  Só está disponível para balanceadores de carga básico público e não está disponível para balanceadores de carga básico interno.  Pode usar [do log analytics](load-balancer-monitor-log.md) para verificar o estado de funcionamento de sonda de Balanceador de carga público e a contagem de sonda. O registo pode ser utilizado com o Power BI ou informações operacionais do Azure para fornecer estatísticas sobre o estado de funcionamento do Balanceador de carga.
-
+Balanceador de carga básico público expõe o estado de sonda de estado de funcionamento resumido por conjunto de back-end através do Log Analytics.  Isso não está disponível para balanceadores de carga básico interno.  Pode usar [do log analytics](load-balancer-monitor-log.md) para verificar o estado de funcionamento de sonda de Balanceador de carga público e a contagem de sonda. O registo pode ser utilizado com o Power BI ou informações operacionais do Azure para fornecer estatísticas sobre o estado de funcionamento do Balanceador de carga.
 
 ## <a name="limitations"></a>Limitações
 
--  Sonda de estado de funcionamento HTTP não suporta a TLS (HTTPS).  Utilize uma sonda TCP para a porta 443.
+-  Sondas HTTPS não suportam autenticação mútua com um certificado de cliente.
+-  SDK, PowerShell não suportam HTTPS sondas neste momento.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
 - [Introdução à criação de um balanceador de carga público no Resource Manager com o PowerShell](load-balancer-get-started-internet-arm-ps.md)
-- [API de REST para sondas de estado de funcionamento](https://docs.microsoft.com/en-us/rest/api/load-balancer/loadbalancerprobes/get)
-
+- [API de REST para sondas de estado de funcionamento](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- Pedir novas capacidades de sonda de estado de funcionamento com [Uservoice do Balanceador de carga](https://aka.ms/lbuservoice)

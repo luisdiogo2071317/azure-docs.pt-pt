@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435698"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060870"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de ligação na automatização do Azure
 
@@ -42,7 +42,7 @@ As atividades na tabela seguinte são utilizadas para aceder a ligações num ru
 
 |Atividades|Descrição|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtém uma ligação a utilizar. Devolve uma tabela de hash com as propriedades da ligação.|
+|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtém uma ligação a utilizar. Devolve uma tabela de hash com as propriedades da ligação.|
 
 >[!NOTE] 
 >Deve evitar utilizar variáveis com o parâmetro – Name de **Get - AutomationConnection** , uma vez que isso pode dificultar a deteção de dependências entre runbooks ou configurações de DSC e ativos de ligação em tempo de design.

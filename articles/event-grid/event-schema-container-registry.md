@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188786"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42061505"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos do Azure Event Grid para o registo de contentor
 
@@ -117,8 +117,6 @@ O objeto de dados tem as seguintes propriedades:
 | action | cadeia | A ação que abrange o evento fornecido. |
 | destino | objeto | O destino do evento. |
 | pedido | objeto | O pedido que gerou o evento. |
-| ator | objeto | O agente que iniciou o evento. Na maioria das situações, este valor pode ser do contexto de autorização do pedido. |
-| source | objeto | O nó de registo que gerou o evento. Colocar de forma diferente, enquanto o ator inicia o evento, a origem gera-lo. |
 
 O objeto de destino tem as seguintes propriedades:
 
@@ -129,7 +127,6 @@ O objeto de destino tem as seguintes propriedades:
 | Resumo | cadeia | O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2. |
 | Comprimento | inteiro | O número de bytes do conteúdo. Mesmo que o campo de tamanho. |
 | Repositório | cadeia | O nome do repositório. |
-| url | cadeia | O URL direto para o conteúdo. |
 | etiqueta | cadeia | O nome da etiqueta. |
 
 O objeto de solicitação tem as seguintes propriedades:
@@ -141,19 +138,6 @@ O objeto de solicitação tem as seguintes propriedades:
 | anfitrião | cadeia | O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião http em solicitações de entrada. |
 | método | cadeia | O método de pedido que gerou o evento. |
 | USERAGENT | cadeia | O cabeçalho do agente de utilizador do pedido. |
-
-O objeto de ator tem as seguintes propriedades:
-
-| Propriedade | Tipo | Descrição |
-| -------- | ---- | ----------- |
-| nome | cadeia | O requerente ou nome de utilizador associadas com o contexto de solicitação que gerou o evento. |
-
-O objeto de origem tem as seguintes propriedades:
-
-| Propriedade | Tipo | Descrição |
-| -------- | ---- | ----------- |
-| Ender | cadeia | O IP ou nome de anfitrião e a porta do nó de registo que gerou o evento. Geralmente, este valor será resolvido pelo sistema operacional. Hostname() juntamente com a porta em execução. |
-| instanceID | cadeia | A instância em execução de um aplicativo. Alterações após cada reinício. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

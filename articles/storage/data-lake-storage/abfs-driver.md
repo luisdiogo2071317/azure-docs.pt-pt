@@ -9,12 +9,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 8be6df5f4098b8a97e41c73edc5664799fd3edbe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520824"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056713"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver de sistema de ficheiros do Azure Blob (ABFS): um driver de armazenamento do Azure dedicado para o Hadoop
 
@@ -45,7 +45,11 @@ Internamente, o driver ABFS traduz-se o recurso ou recursos especificados no URI
 
 ### <a name="authentication"></a>Autenticação
 
-O driver ABFS atualmente suporta a autenticação de chave partilhada para que a aplicação do Hadoop com segurança pode aceder aos recursos contidos dentro de geração 2 de armazenamento do Data Lake. A chave é encriptada e armazenada na configuração do Hadoop.
+O driver ABFS suporta duas formas de autenticação para que a aplicação do Hadoop com segurança pode aceder aos recursos contidos dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake. Todos os detalhes de esquemas de autenticação disponíveis são fornecidos na [guia de segurança do armazenamento do Azure](../common/storage-security-guide.md). São:
+
+- **Chave partilhada:** isso permite aos utilizadores acesso a todos os recursos na conta. A chave é encriptada e armazenada na configuração do Hadoop.
+
+- **O Azure Active Directory OAuth Token de portador:** os tokens de portador do Azure AD são obtidos e atualizados pelo driver usando a identidade do utilizador final ou um Principal de serviço configurado. Usando esse modelo de autenticação, todo o acesso está autorizado numa base por chamada usando a identidade associada ao token fornecido e avaliados em relação a atribuído POSIX controlo lista acesso (ACL).
 
 ### <a name="configuration"></a>Configuração
 

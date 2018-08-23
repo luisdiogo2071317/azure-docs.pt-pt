@@ -1,6 +1,6 @@
 ---
-title: Consulta elástica - aceder a dados no Azure SQL Data Warehouse da SQL Database do Azure | Microsoft Docs
-description: Saiba melhores práticas para utilizar a consulta elástico a utilizar para aceder a dados no Azure SQL Data Warehouse da SQL Database do Azure.
+title: Consulta elástica - aceder a dados no Azure SQL Data Warehouse da SQL Database do Azure | Documentos da Microsoft
+description: Aprenda as melhores práticas para a utilização de consulta elástica da base de dados do Azure SQL para aceder a dados no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: hirokib
 manager: craigg-msft
@@ -10,69 +10,69 @@ ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: ceda0399ae98e2a36fd41b954a741e0379c77fe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 344cb1bed56b0b6af7bd3704f8674ae30695f885
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797163"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058813"
 ---
-# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Melhores práticas para utilizar a consulta elástico na SQL Database do Azure para aceder a dados no Azure SQL Data Warehouse
-Saiba melhores práticas para utilizar a consulta elástico para aceder a dados no Azure SQL Data Warehouse da SQL Database do Azure. 
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Melhores práticas para utilizar a consulta elástica na base de dados do Azure SQL para aceder a dados no Azure SQL Data Warehouse
+Aprenda as melhores práticas para a utilização de consulta elástica da base de dados do Azure SQL para aceder a dados no Azure SQL Data Warehouse. 
 
 ## <a name="what-is-an-elastic-query"></a>O que é uma consulta elástica?
-Uma consulta elástica permite-lhe utilizar o T-SQL e tabelas externas para escrever uma consulta numa base de dados SQL do Azure que é enviado remotamente um armazém de dados SQL do Azure. Se utilizar esta funcionalidade fornece reduções de custos e arquiteturas de performant mais, dependendo do cenário.
+Uma consulta elástica permite-lhe utilizar o T-SQL e tabelas externas para escrever uma consulta numa base de dados SQL do Azure que é enviada remotamente para um armazém de dados SQL do Azure. Ao utilizar esta funcionalidade fornece a economia de custos e mais arquiteturas de alto desempenho, dependendo do cenário.
 
 Esta funcionalidade permite que os dois cenários principais:
 
 1. Isolamento de domínio
-2. Execução da consulta remota
+2. Execução de consulta remota
 
 ### <a name="domain-isolation"></a>Isolamento de domínio
 
-Isolamento de domínio refere-se o cenário de mart dados clássico. Em certos cenários, um poderá pretender fornecer um domínio lógico de dados aos utilizadores a jusante que são isolados do resto do armazém de dados, por diversos motivos, incluindo, mas não se limitando a:
+Isolamento de domínio refere-se para o cenário de mart dados clássico. Em determinados cenários, um talvez queira fornecer um domínio de lógico de dados aos utilizadores downstream isolados do restante do armazém de dados, por uma série de motivos, incluindo, mas não se limitando a:
 
-1. Isolamento de recursos - base de dados SQL está otimizado para servir de uma base de utilizadores em simultâneo que serve ligeiramente diferentes cargas de trabalho que as consultas analíticas grande que o armazém de dados está reservado para grande. Isolamento assegura que as cargas de trabalho à direita são servidas pelas ferramentas de direita.
-2. Isolamento de segurança - para separar um subconjunto de dados autorizados seletivamente através de determinados esquemas.
-3. Sandboxing - fornecem um conjunto de amostra de dados como um "playground" para explorar as consultas de produção etc.
+1. Isolamento de recursos - base de dados SQL é otimizado para servir uma grande base de utilizadores em simultâneo que servem as cargas de trabalho ligeiramente diferentes do que as consultas de análise de grandes que o armazém de dados está reservado para. Isolamento garante que as cargas de trabalho direito são servidas pelas ferramentas certas.
+2. Isolamento de segurança - separar um subconjunto de dados autorizados seletivamente por meio de determinados esquemas.
+3. Áreas de segurança - fornecer um conjunto de dados de exemplo como um "recreio" para explorar as consultas de produção etc.
 
-Consulta elástica pode fornecer a capacidade de facilmente selecione subconjuntos de dados de armazém de dados do SQL Server e movê-la numa instância de base de dados do SQL Server. Além disso, este isolamento não preclude a capacidade de ativar também a execução de consulta remota permite cenários de "cache" mais interessantes.
+Consulta elástica pode fornecer a capacidade de facilmente selecionar subconjuntos de dados de armazém de dados SQL e mova-o para uma instância de base de dados SQL. Além disso, esse isolamento não impedir a capacidade de ativar também a execução de consulta remota, permite cenários de "cache" mais interessantes.
 
-### <a name="remote-query-execution"></a>Execução da consulta remota
+### <a name="remote-query-execution"></a>Execução de consulta remota
 
-Consulta elástica permite a execução de consulta remota numa instância de armazém de dados do SQL Server. Um pode utilizar o máximo proveito de base de dados SQL e SQL data warehouse, separando os dados de acesso frequente e amovíveis entre as duas bases de dados. Os utilizadores podem manter os dados mais recentes dentro de uma base de dados do SQL Server, que pode fornecer relatórios e grande número de utilizadores de empresas de média. No entanto, quando é necessário mais dados ou cálculo, um utilizador pode descarregar a parte da consulta para uma instância de armazém de dados do SQL Server onde podem ser processados em grande escala agregados muito mais rápido e mais eficiente.
+Consulta elástica permite a execução da consulta remota numa instância de armazém de dados SQL. Um pode utilizar o melhor da base de dados SQL e SQL data warehouse, separando os seus dados frequentes e esporádica entre duas bases de dados. Os usuários podem manter os dados mais recentes numa base de dados SQL, que pode servir um grande número de utilizadores de empresas de médio e de relatórios. No entanto, quando for necessário mais dados ou computação, um utilizador pode descarregar a parte da consulta para uma instância de armazém de dados SQL, onde podem ser processadas em grande escala agregações muito mais rapidamente e com mais eficiência.
 
-## <a name="elastic-query-process"></a>Processo de consulta elástico
-Uma consulta elástica pode ser utilizada para disponibilizar dados localizados dentro de um de dados SQL do armazém de instâncias de base de dados do SQL Server. Consulta elástica permite consultas de uma base de dados do SQL Server, consulte a tabelas numa instância de armazém de dados remota do SQL Server. 
+## <a name="elastic-query-process"></a>Processo de consulta elástica
+Uma consulta elástica pode ser utilizada para disponibilizar dados localizados dentro de um SQL data warehouse para instâncias de base de dados SQL. Consulta elástica permite consultas a partir de uma base de dados SQL, consulte a tabelas numa instância de armazém de dados remota do SQL. 
 
-O primeiro passo é criar uma definição de origem de dados externas refere-se para a instância de armazém de dados do SQL Server, que utiliza as credenciais de utilizador existente no SQL data warehouse. Sem alterações são necessárias na instância de armazém de dados do SQL Server remota. 
+A primeira etapa é criar uma definição de origem de dados externos que refere-se para a instância de armazém de dados SQL, que utiliza as credenciais de utilizador existente no SQL data warehouse. Nenhuma alteração é necessária na instância de armazém de dados do SQL remota. 
 
 > [!IMPORTANT] 
 > 
-> Precisa de ter permissão ALTER qualquer origem de dados externa. Esta permissão está incluído com a permissão ALTER DATABASE. São necessárias permissões de ALTER qualquer origem de dados externa para fazer referência a origens de dados remota.
+> Precisa de ter permissão de alterar qualquer origem de dados externa. Esta permissão está incluída com a permissão ALTER DATABASE. Para fazer referência a origens de dados remoto, são necessárias permissões de alterar qualquer origem de dados externa.
 
-Em seguida, crie uma definição de tabela externa remoto na instância de base de dados SQL, que aponta para uma tabela remota no armazém de dados do SQL Server. Quando uma consulta utiliza uma tabela externa, a parte da consulta consultar a tabela externa é enviada para a instância de armazém de dados do SQL Server para ser processado. Depois de concluída a consulta, o conjunto de resultados é enviado para a instância de base de dados do SQL Server chamada. Para um tutorial breve de configuração de uma consulta elástico entre a base de dados SQL e do armazém de dados do SQL Server, consulte o [configurar consulta elástico com o SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+Em seguida, crie uma definição de tabela externa remoto numa instância de base de dados SQL, que aponta para uma tabela remota no armazém de dados SQL. Quando uma consulta utiliza uma tabela externa, a parte da consulta que faça referência a tabela externa é enviada para a instância de armazém de dados SQL a ser processado. Depois de concluída a consulta, o conjunto de resultados é enviado para a instância de base de dados SQL chamada. Para um breve tutorial de configuração de uma consulta elástica entre a base de dados SQL e SQL data warehouse, consulte a [configurar consulta elástica com o SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
-Para obter mais informações sobre consulta elástico com base de dados do SQL Server, consulte o [descrição geral de consulta elástico de SQL Database do Azure][Azure SQL Database elastic query overview].
+Para obter mais informações sobre a consulta elástica de base de dados SQL, consulte a [descrição geral de consulta elástica de base de dados do Azure SQL][Azure SQL Database elastic query overview].
 
 ## <a name="best-practices"></a>Melhores práticas
-Utilize estas melhores práticas para utilizar eficazmente consulta elástica.
+Utilize estas melhores práticas para utilizar a consulta elástica com eficiência.
 
 ### <a name="general"></a>Geral
 
-- Quando utilizar a execução da consulta remota, certifique-se apenas estiver a seleção de colunas necessárias e aplicar os filtros à direita. Não só este aumento computação necessária, mas também aumenta o tamanho do conjunto de resultados e, por conseguinte, a quantidade de dados que têm de ser movidos entre as duas instâncias.
-- Manter os dados para fins analíticos no armazém de dados do SQL Server e base de dados SQL no columnstore em cluster para um desempenho analytiIcal.
-- Certifique-se de que as tabelas de origem são particionadas para movimento de dados e de consulta.
-- Certifique-se de que as instâncias de base de dados do SQL Server utilizadas como uma cache são divididos em partições para ativar as atualizações mais granulares e uma gestão mais fácil. 
-- Idealmente, utilize PremiumRS bases de dados porque fornecem as vantagens analíticas de columnstore em cluster indexação com um foco em cargas de trabalho de e/s intensivas com um desconto de bases de dados Premium.
-- Após o carregamentos, utilize load ou colunas de identificação de data efetiva para upserts nas instâncias de base de dados do SQL Server para manter a integridade da origem de cache. 
-- Crie um início de sessão separado e o utilizador na sua instância de armazém de dados SQL para as credenciais de início de sessão remoto do SQL Server da base de dados definido na origem de dados externas. 
+- Ao utilizar a execução da consulta remota, certifique-se de que está apenas selecionar as colunas necessárias e aplicar os filtros corretos. Não apenas faz esse aumento de computação necessário, mas também aumenta o tamanho do conjunto de resultados e, portanto, a quantidade de dados que precisam de ser movidos entre as duas instâncias.
+- Manter os dados para fins analíticos no SQL Data Warehouse e base de dados SQL no columnstore em cluster para um desempenho analytiIcal.
+- Certifique-se de que as tabelas de origem são particionadas para movimento de dados e de consultas.
+- Certifique-se de que as instâncias do SQL da base de dados usadas como cache são particionadas para permitir atualizações mais granulares e uma gestão mais fácil. 
+- O ideal é que utilize bases de dados do PremiumRS porque fornecem os benefícios analíticos de indexação com foco em cargas de trabalho de e/s intensivas com um desconto de bases de dados Premium de columnstore em cluster.
+- Depois de cargas, utilize colunas de identificação de data efetiva para upserts nas instâncias de base de dados SQL para manter a integridade de origem de cache ou de carga. 
+- Crie um início de sessão separado e um utilizador na sua instância do armazém de dados SQL para as credenciais de início de sessão remoto do SQL da base de dados definidas na origem de dados externa. 
 
-### <a name="elastic-querying"></a>Consultar elástico
+### <a name="elastic-querying"></a>Consulta elástica
 
-- Em muitos casos, um pode pretender gerir um tipo de tabela Stretch, onde é uma parte da sua tabela na base de dados SQL como dados em cache para um desempenho com o resto dos dados armazenados no armazém de dados do SQL Server. Precisa de dois objetos na base de dados SQL: uma tabela externa na base de dados do SQL Server que referencia a tabela base do armazém de dados do SQL Server e a parte "em cache" da tabela na base de dados SQL. Considere criar uma vista ao longo da parte superior da parte da tabela e a tabela externa em cache de que as uniões de tabelas e aplica os filtros que separam dados materializados nos dados de base de dados SQL e SQL Data Warehouse expostos através de tabelas externas.
+- Em muitos casos, um poderá querer gerir um tipo de tabela Stretch, em que é uma parte da sua tabela na base de dados SQL que os dados em cache o desempenho com o resto dos dados armazenados no SQL Data Warehouse. Precisa de dois objetos na base de dados SQL: uma tabela externa na base de dados do SQL que referencia a tabela base no SQL Data Warehouse e a parte "em cache" da tabela na base de dados SQL. Considere criar uma vista ao longo da parte superior da parte em cache da tabela e a tabela externa que ambas as tabelas e aplica-se de filtros que separam dados materializados na base de dados SQL e SQL Data Warehouse dados expostos por meio de tabelas externas.
 
-  Imagine que pretende manter o ano mais recente dos dados numa instância de base de dados do SQL Server. O **ext. As ordens** as referências de tabela no armazém de dados ordena tabelas. O **dbo. As ordens** representa o mais recente visão de anos de dados a instância de base de dados do SQL Server. Em vez de pedir aos utilizadores para decidir se pretende consultar uma tabela ou o outro, crie uma vista ao longo da parte superior do ambas as tabelas no ponto de partição do ano mais recente.
+  Imagine que pretende manter o ano mais recente dos dados numa instância de base de dados SQL. O **ext. Pedidos** referências de tabela orders de armazém de dados de tabelas. O **dbo. Pedidos** representa o valor mais recente de anos de dados dentro da instância de base de dados SQL. Em vez de pedir aos utilizadores para decidir se pretende consultar uma tabela ou outro, crie uma vista ao longo da parte superior das duas tabelas no ponto de partição do ano mais recente.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -97,57 +97,57 @@ Utilize estas melhores práticas para utilizar eficazmente consulta elástica.
     YEAR([o_orderdate]) < '<Most Recent Year>'
   ```
 
-  Uma vista produzidos de forma vamos o compilador de consulta determinar se tem de utilizar a instância de armazém de dados para responder a consulta de utilizadores. 
+  Uma vista produzidos de maneira vamos o compilador de consulta determinar se necessita de utilizar a instância de armazém de dados para responder à consulta de utilizadores. 
 
-  Não há custos gerais da submeter, a compilação, em execução e mover dados associados a cada consulta elástica contra a instância de armazém de dados. Ser cognizant que cada consulta elástica é contabilizada nas suas ranhuras de concorrência e utiliza os recursos.  
+  Há sobrecarga de envio, compilar, executar e mover os dados associados a cada consulta elástica em relação a instância de armazém de dados. Ter conhecimento de que cada consulta elástica é deduzida da sua ranhuras de simultaneidade e utiliza recursos.  
 
 
-- Se um planos desagregar ainda mais para o conjunto de resultados da instância de armazém de dados, considere a materialização-la numa tabela temporária na base de dados do SQL Server para um desempenho e para impedir a utilização de recursos desnecessários.
+- Se um planos desagregar mais detalhadamente o conjunto de resultados a partir da instância de armazém de dados, considere materializá-lo numa tabela temporária na base de dados SQL para o desempenho e para impedir a utilização de recursos desnecessários.
 
 ### <a name="moving-data"></a>Mover dados 
 
-- Se for possível, manter a gestão de dados mais fácil e com tabelas de origem acrescentar-só de forma a que as atualizações são facilmente sustentável entre as instâncias de base de dados e do armazém de dados.
-- Mover dados ao nível da partição com esvaziar e semântica de preenchimento para minimizar o custo de consulta nos dados do armazém de nível e a quantidade de dados movidas para manter a instância de base de dados atualizados. 
+- Se possível, mantenha a gestão de dados mais fácil com as tabelas de origem só de acréscimo, de modo a que as atualizações são facilmente passível de manutenção entre as instâncias de base de dados e de armazém de dados.
+- Mover dados no nível da partição com remoção da cache e semântica de preenchimento para minimizar o custo de consultas nos dados do armazém de nível e a quantidade de dados movidos para manter a instância de base de dados atualizados. 
 
-### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>Quando escolher o Analysis Services do Azure vs SQL Database
+### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>Quando escolher a base de dados SQL do Azure Analysis Services vs
 
 Utilizar o Azure Analysis Services quando:
 
-- Tencione utilizar a sua cache com uma ferramenta de BI submete grande número de consultas pequenos
-- Tem de subsecond latência de consulta
-- Tem experiência na gestão/desenvolver modelos para o Analysis Services 
+- Tencione utilizar a sua cache com uma ferramenta de BI que envia um grande número de consultas pequeno
+- Precisa subsecond latência da consulta
+- Têm experiência no gerenciamento/desenvolvimento de modelos para o Analysis Services 
 
 Utilizar o Azure SQL da base de dados quando:
 
-- Pretende consultar os dados da cache com o SQL Server
-- Terá de execução remota para determinados consultas
-- Tem maiores requisitos de cache
+- Que pretende consultar dados da cache com o SQL
+- Terá de execução remota para determinadas consultas
+- Tiver maiores requisitos de cache
 
 ## <a name="faq"></a>FAQ
 
-P: Posso utilizar bases de dados dentro de um agrupamento elástico com elástico consulta?
+P: Posso utilizar bases de dados dentro de um conjunto elástico com consulta elástica?
 
-R: Sim. Bases de dados SQL num agrupamento elástico pode utilizar a consulta elástico. 
+R: Sim. Bases de dados SQL num conjunto elástico que pode utilizar a consulta elástica. 
 
-P: existe um limite para quantas bases de dados posso utilizar para a consulta elástico?
+P: existe um limite para quantas bases de dados que pode utilizar para a consulta elástica?
 
-R: não há nenhum disco rígida extremidade na como muitas bases de dados podem ser utilizados para a consulta elástico. No entanto, cada consulta elástico (consultas acessos do armazém de dados do SQL Server) será contam para limites de concorrência normal.
+R: não existe nenhum limite de máximo de disco rígido em quantos bancos de dados podem ser utilizados para a consulta elástica. No entanto, cada consulta elástica (consultas que atingem o SQL Data Warehouse) serão revertidas em limites de simultaneidade normal.
 
-P: existem limites DTU envolvidos elástico consulta?
+P: existem limites DTU envolvidas com a consulta elástica?
 
-R: limites DTU de não são impostas qualquer forma diferente com consulta elástico. A política padrão é que servidores lógicas têm limites DTU no local para impedir que os clientes overspending acidental. Se pretende ativar a várias bases de dados para a consulta elástica juntamente com uma instância de armazém de dados do SQL Server, pode atingir a cap inesperadamente. Se isto ocorrer, submeta um pedido para aumentar o limite DTU no seu servidor lógico. Pode aumentar a quota por [criar um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Quota* como o tipo de pedido
+R: limites de DTU de não são impostas qualquer modo diferente com a consulta elástica. A política padrão é, de modo a que os servidores lógicos têm limites DTU em vigor para impedir que os clientes ultrapassar o limite acidental. Se pretende ativar a vários bancos de dados para a consulta elástica juntamente com uma instância do SQL Data Warehouse, pode atingir o limite máximo de inesperadamente. Se isto ocorrer, submeta um pedido para aumentar o limite DTU no seu servidor lógico. Pode aumentar a quota por [criar um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Quota* como o tipo de pedido
 
-P: Posso utilizar dados linha nível segurança/dinâmico máscara com elástico consulta?
+P: Posso utilizar dados de linha nível segurança/dinâmico máscara com consulta elástica?
 
-R: que os clientes que pretendem utilizar as funcionalidades mais avançadas de segurança com a base de dados SQL podem fazê-lo pelo primeiro mover e armazenar os dados na base de dados SQL. Atualmente não é possível aplicar a segurança ao nível da linha ou de ddm de autor nos dados consultados através de tabelas externas. 
+R: clientes que pretendem utilizar recursos de segurança mais avançados com base de dados SQL podem fazê-lo, primeiro mover e armazenar os dados na base de dados SQL. Atualmente não é possível aplicar a segurança ao nível da linha ou de ddm de autor em dados consultados por meio de tabelas externas. 
 
-P: posso efetuar do meu instância de base de dados do SQL Server para instância de armazém de dados?
+P: posso escrever da minha instância de base de dados SQL para a instância do armazém de dados?
 
-R: atualmente esta funcionalidade não é suportada. Visite a nossa [página comentários] [ Feedback page] para criar/voto para esta funcionalidade se esta é uma funcionalidade que gostaria de ver no futuro. 
+R: atualmente esta funcionalidade não é suportada. Visite nosso [página de comentários] [ Feedback page] para criar/um voto para esta funcionalidade se se tratar de uma funcionalidade que gostaria de ver no futuro. 
 
 P: Posso utilizar tipos geográficos como geometria/geografia?
 
-R: pode armazenar os tipos geográficos no armazém de dados do SQL Server como valores de varbinary (Max). Quando consultar estas colunas utilizando consulta elástica, pode convertê-los para os tipos de adequada no tempo de execução.
+R: pode armazenar tipos espaciais no SQL Data Warehouse como valores de varbinary (Max). Quando consultar estas colunas com uma consulta elástica, pode convertê-los para os tipos apropriados em tempo de execução.
 
 ![tipos geográficos](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 

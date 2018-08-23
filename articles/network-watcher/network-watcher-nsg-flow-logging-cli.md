@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e4e3d331665ddb6c45e47ce8b2cf8170ca622690
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 43552ae2d7601a63156ac74104b85a90326ff473
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089796"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42058800"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar registos de fluxo do grupo de segurança da rede com o CLI do Azure
 
@@ -51,7 +51,9 @@ O comando para ativar os registos de fluxo é mostrado no exemplo a seguir:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-A conta de armazenamento que especificou não pode ter regras de rede configuradas para o mesmo que restringem o acesso de rede apenas aos serviços da Microsoft ou as redes virtuais específicas. A conta de armazenamento pode ser o mesmo, ou uma subscrição do Azure diferente, que o NSG que ativar o registo de fluxo para. Se usar a subscrições diferentes, têm ambos de ser associados ao mesmo inquilino do Azure Active Directory. A conta que utiliza para cada subscrição tem de ter o [as permissões necessárias](required-rbac-permissions.md).
+A conta de armazenamento que especificou não pode ter regras de rede configuradas para o mesmo que restringem o acesso de rede apenas aos serviços da Microsoft ou as redes virtuais específicas. A conta de armazenamento pode ser o mesmo, ou uma subscrição do Azure diferente, que o NSG que ativar o registo de fluxo para. Se usar a subscrições diferentes, têm ambos de ser associados ao mesmo inquilino do Azure Active Directory. A conta que utiliza para cada subscrição tem de ter o [as permissões necessárias](required-rbac-permissions.md). 
+
+Se a conta de armazenamento é num grupo de recursos diferente ou subscrição, que o grupo de segurança de rede, especifica o ID completo da conta de armazenamento, em vez de seu nome. Por exemplo, se a conta de armazenamento está no grupo de recursos chamado *RG-Storage*, em vez de especificar *storageAccountName* no comando anterior, deve especificar   */subscrições / { SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## <a name="disable-network-security-group-flow-logs"></a>Registos de fluxo de desativar o grupo de segurança de rede
 

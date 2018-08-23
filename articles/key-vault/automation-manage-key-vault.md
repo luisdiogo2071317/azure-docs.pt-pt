@@ -1,6 +1,6 @@
 ---
-title: Gerir o Cofre de chaves do Azure através da automatização do Azure | Microsoft Docs
-description: Saiba mais sobre como o serviço de automatização do Azure pode ser utilizado para gerir o Cofre de chaves do Azure.
+title: Gerir o Azure Key Vault com a automatização do Azure | Documentos da Microsoft
+description: Saiba mais sobre como o serviço de automatização do Azure pode ser utilizado para gerir o Azure Key Vault.
 services: Key-Vault, automation
 documentationcenter: ''
 author: mgoedtel
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte
-ms.openlocfilehash: b5f8a1b826717d51729b0bb621bf26e35d4bdd36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6484c8c9ae1ad109820c3b3912c3a7ea8d49c2a2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406879"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054161"
 ---
-# <a name="managing-azure-key-vault-using-azure-automation"></a>Gerir o Cofre de chaves do Azure através da automatização do Azure
-Este guia apresenta-lhe o serviço de automatização do Azure e como podem ser utilizada para simplificar a gestão das suas chaves e segredos no Cofre de chaves do Azure.
+# <a name="managing-azure-key-vault-using-azure-automation"></a>Gerir o Azure Key Vault com a automatização do Azure
+Este guia apresenta-lhe para o serviço de automatização do Azure e como ele pode ser usado para simplificar a gestão das chaves e segredos no Azure Key Vault.
 
 ## <a name="what-is-azure-automation"></a>O que é a Automatização do Azure?
-[A automatização do Azure](../automation/automation-intro.md) é um serviço do Azure para simplificar a gestão de nuvem através de automatização de processos e a configuração de estado pretendido. Utilizar a automatização do Azure, manual, repetido, tarefas demoradas e propensas ao erro podem ser automatizadas para aumentar a fiabilidade, a eficiência e a hora para o valor para a sua organização.
+[A automatização do Azure](../automation/automation-intro.md) é um serviço do Azure para simplificar a gestão da cloud através de automatização de processos e configuração do estado pretendido. Utilizar a automatização do Azure, manual, repetido, tarefas de execução demorada e propensa a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e a hora de valor para a sua organização.
 
-A automatização do Azure fornece um motor de execução do fluxo de trabalho altamente fiável, de elevada disponibilidade preparada para satisfazer as suas necessidades. Na automatização do Azure, os processos podem ser arrancou manualmente, por sistemas de terceiros 3rd ou em intervalos agendados para que as tarefas acontecer exatamente quando necessário.
+A automatização do Azure fornece um motor de execução do fluxo de trabalho altamente confiável de elevada disponibilidade que se dimensiona para atender às suas necessidades. Na automatização do Azure, processos podem ser iniciados manualmente, por sistemas de terceiros 3rd ou em intervalos agendados, de modo a que tarefas acontecem exatamente quando necessário.
 
-Reduzir a sobrecarga operacional e libertar IT e a equipa de DevOps focar-se no trabalho que adiciona o valor de negócio, movendo as tarefas de gestão de nuvem a ser executada automaticamente pela automatização do Azure.
+Reduzir o overhead operacional e liberar IT e a equipa do DevOps para se dedicar ao trabalho que acrescenta valor ao negócio, movendo as tarefas de gestão na cloud a ser executada automaticamente pela automatização do Azure.
 
-## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Como pode que o automatização do Azure ajuda a gerir o Cofre de chaves do Azure?
-O Cofre de chaves que podem ser gerido na automatização do Azure utilizando o [cmdlets do Cofre de chaves AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e [cmdlets do Cofre de chaves do Azure clássico](https://msdn.microsoft.com/library/azure/dn868052.aspx). O módulo do Azure para gerir o Cofre de chaves clássico está disponível automaticamente na automatização do Azure e pode importar o [AzureRM KeyVault módulo](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) na automatização do Azure, para que possam executar muitas das suas tarefas de gestão do Cofre de chaves no âmbito do serviço. Também pode ser emparelhado estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em todos os serviços do Azure e 3rd sistemas de terceiros.
+## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Como pode automatização do Azure ajudar a gerir o Azure Key Vault?
+Key Vault pode ser gerido na automatização do Azure utilizando o [cmdlets do AzureRM Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e [cmdlets do Cofre de chaves do Azure clássico](https://docs.microsoft.com/powershell/module/servicemanagement/azure). O módulo do Azure para gerir o Cofre de chave clássico está disponível automaticamente na automatização do Azure e pode importar os [módulo do AzureRM KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a automatização do Azure, para que possam realizar muitas de suas tarefas de gestão do Cofre de chaves no serviço. Também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em serviços do Azure e 3º sistemas de terceiros.
 
-Com os cmdlets do Cofre de chaves do Azure pode efetuar estas tarefas das restantes: 
+Com os cmdlets do Azure Key Vault pode realizar estas tarefas, entre outras: 
 
 * Criar e configurar um cofre de chaves
 * Criar ou importar uma chave
 * Criar ou atualizar um segredo
-* Atualizar os atributos de uma chave
+* Atributos de atualização de uma chave
 * Obter uma chave ou segredo
 * Eliminar uma chave ou segredo
 
-Seguem-se alguns exemplos de utilização do PowerShell para gerir o Cofre de chaves:  
+Aqui estão alguns exemplos de utilização do PowerShell para gerir o Cofre de chaves:  
 
 * [Cofre de chaves do Azure - passo a passo](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step)
-* [Definir e configurar um cofre de chaves do Azure](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault)
+* [Definir e configurar um cofre de chave do Azure](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas de automatização do Azure e como podem ser utilizada para gerir o Cofre de chaves do Azure, siga estas ligações para saber mais sobre a automatização do Azure.
+Agora que aprendeu as noções básicas da automatização do Azure e como ele pode ser usado para gerir o Azure Key Vault, siga estas ligações para saber mais sobre a automatização do Azure.
 
 * Consulte a automatização do Azure [Tutorial de introdução](../automation/automation-first-runbook-graphical.md).
-* Consulte o [scripts do PowerShell do Cofre de chaves do Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5).
+* Consulte a [scripts do PowerShell do Azure Key Vault](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5).
 

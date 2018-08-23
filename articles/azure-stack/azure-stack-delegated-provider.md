@@ -6,31 +6,32 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 161a17f2360767dacc4f418a078c695d7cb8daa7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449751"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060212"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Como o operador do Azure Stack, muitas vezes, pretende colocar a outras pessoas responsável pela criação de ofertas e inscrever-se os utilizadores. Por exemplo, se for um fornecedor de serviços, poderá revendedores Inscreva-se os clientes e geri-los em seu nome. Ou, se é membro de um grupo de TI central numa empresa, pode querer delegar início de sessão de utilizador até outra a equipe de TI.
+Como o operador do Azure Stack, muitas vezes, pretende colocar a outras pessoas responsável por inscrever-se os utilizadores e a criação de subscrições. Por exemplo, se for um fornecedor de serviços, poderá revendedores Inscreva-se os clientes e geri-los em seu nome. Ou, se é membro de um grupo de TI central numa empresa, pode querer delegar início de sessão de utilizador até outra a equipe de TI.
 
-Delegação torna mais fácil aceder e gerir mais utilizadores que pode fazer por mesmo. A ilustração seguinte mostra um nível de delegação, mas o Azure Stack oferece suporte a mais de um nível. Fornecedores delegados (DPs) podem delegar a outros fornecedores, até cinco níveis.
+Delegação torna mais fácil aceder e gerir mais utilizadores que pode fazer por mesmo, conforme mostrado na ilustração seguinte. 
 
 ![Níveis de delegação](media/azure-stack-delegated-provider/image1.png)
+
+Com a delegação, o fornecedor delegado gere uma oferta (a oferta delegada) e clientes finais obter subscrições sob essa oferta sem o envolvimento do administrador do sistema. 
 
 ## <a name="understand-delegation-roles-and-steps"></a>Compreender as funções de delegação e os passos
 
@@ -38,9 +39,9 @@ Delegação torna mais fácil aceder e gerir mais utilizadores que pode fazer po
 
 As seguintes funções fazem parte da delegação:
 
-* O *operador do Azure Stack* gere a infraestrutura do Azure Stack e cria um modelo de oferta. O operador delega a outras pessoas para fornecer ofertas aos respetivos utilizadores.
+* O *operador do Azure Stack* gere a infraestrutura do Azure Stack e cria um modelo de oferta. O operador delega a outras pessoas para fornecer ofertas para o respetivo inquilino.
 
-* Os operadores do Azure Stack delegados são chamados *delegado fornecedores*. Eles podem pertencer a outras organizações, como a outros utilizadores do Azure Active Directory (Azure AD).
+* Os operadores do Azure Stack delegados são os utilizadores com *proprietário* ou *contribuinte* direitos nas subscrições chamado *delegada fornecedores*. Eles podem pertencer a outras organizações, como outros inquilinos do Azure Active Directory (Azure AD).
 
 * *Os utilizadores* Inscreva-se as ofertas e utilizá-los para gerir as cargas de trabalho, criação de VMs, armazenamento de dados e assim por diante.
 
@@ -48,9 +49,9 @@ As seguintes funções fazem parte da delegação:
 
 Existem dois passos básicos para configurar a delegação:
 
-1. *Criar um fornecedor delegado* inscrevendo-se um utilizador a uma oferta com base num plano que tem apenas o serviço de assinaturas. Os utilizadores que subscrevem esta oferta, em seguida, podem expandir as ofertas e inscrição de utilizadores para as ofertas.
+1. *Criar uma subscrição do fornecedor delegado* inscrevendo-se um utilizador a uma oferta que contém apenas o serviço de assinaturas. Os utilizadores que subscrevem esta oferta, em seguida, podem expandir as ofertas delegadas a outros utilizadores inscrevendo-os para essas ofertas.
 
-1. *Delegar uma oferta para o fornecedor delegado*. Esta oferta é um modelo para o que o fornecedor de delegado pode oferecer. O fornecedor de delegado pode levar a oferta e oferecê-lo a outros utilizadores.
+2. *Delegar uma oferta para o fornecedor delegado*. Esta oferta permite que o fornecedor delegado criar subscrições ou expandir a oferta para seus usuários. O fornecedor de delegado pode levar a oferta e oferecê-lo a outros utilizadores.
 
 O gráfico seguinte mostra os passos para configurar a delegação.
 
@@ -58,7 +59,7 @@ O gráfico seguinte mostra os passos para configurar a delegação.
 
 **Requisitos do fornecedor delegado**
 
-Para atuar como um fornecedor de delegados, um utilizador tem de estabelecer uma relação com o principal fornecedor através da criação de uma subscrição. Esta subscrição identifica o fornecedor de delegados como tendo o direito de ofertas presentes em nome do fornecedor de principal.
+Para atuar como um fornecedor de delegados, um utilizador tem de estabelecer uma relação com o principal fornecedor através da criação de uma subscrição. Esta subscrição identifica o fornecedor de delegados como tendo o direito de apresentar as ofertas de delegado em nome do fornecedor de principal.
 
 Depois desta relação é estabelecida, o operador do Azure Stack pode delegar uma oferta para o fornecedor de delegado. O fornecedor de delegado pode levar a oferta, mude o nome (mas não alterar seu substância) e oferecê-lo aos seus clientes.
 
@@ -121,11 +122,11 @@ Inicie sessão no portal de utilizador como o fornecedor de delegado e, em segui
    ![Atribuir um nome](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >É importante compreender que ao contrário de um operador do Azure Stack, um fornecedor delegado não construir uma oferta de planos base e planos de suplementos. Fornecedores delegados só podem escolher ofertas são delegadas a eles, eles não é possível efetuar alterações a essas ofertas.
+   >É importante compreender que Fornecedores delegados apenas podem escolher ofertas são delegadas a eles. Eles não podem fazer alterações para essas ofertas. Apenas um operador do Azure Stack pode alterar estas ofertas, por exemplo, alterar seus planos e quotas. Um fornecedor delegado não construir uma oferta de planos base e planos de suplementos. 
 
-1. Fazer com que a oferta pública, selecionando **navegue**e, em seguida **oferece**. Selecione a oferta e, em seguida, selecione **alterar estado**.
+3. O fornecedor de delegado pode fazer com que estas ofertas público através do portal de sua própria URL. Para tornar a oferta pública, selecione **navegue**e, em seguida **oferece**. Selecione a oferta e, em seguida, selecione **alterar estado**.
 
-1. O fornecedor delegado expõe estas ofertas através do portal de sua própria URL. Estas ofertas são visíveis apenas através do portal do delegado. Para localizar e altere este URL:
+4. As ofertas delegadas públicas agora estão visíveis apenas através do portal do delegado. Para localizar e altere este URL:
 
     a.  Selecione **navegue** > **mais serviços** > **subscrições**. Em seguida, selecione a subscrição do fornecedor delegado. Por exemplo, **DPSubscription** > **propriedades**.
 
@@ -148,14 +149,14 @@ Inicie sessão no portal de utilizador como o fornecedor de delegado e, em segui
 
 O processo indesejado de delegar uma oferta é concluído. Agora um utilizador pode inscrever-se para esta oferta ao obter uma subscrição para o mesmo.
 
-## <a name="multiple-tier-delegation"></a>Delegação de múltiplas camadas
+## <a name="move-subscriptions-between-delegated-providers"></a>Mover subscrições entre fornecedores delegados
 
-Delegação de múltiplas camadas permite que um fornecedor de delegado delegar a oferta para outras entidades. Por exemplo criar mais profundo revendedor canais where:
+Se for necessário, uma subscrição pode ser movida entre subscrições do fornecedor delegado novo ou existente que pertencem ao mesmo inquilino do diretório. Isso é usando o cmdlet do PowerShell [movimentação AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
 
-* O fornecedor que está a gerir o Azure Stack delega uma oferta para um distribuidor.
-* Os delegados de distribuidor para um revendedor.
+Isso é útil quando:
+- Carregar um novo membro da Equipe que irá assumir a função de fornecedor delegado e pretende atribuir a esta equipa membro-subscrições do utilizador que foram anteriormente criadas na subscrição do fornecedor predefinido.
+- Tem várias subscrições de fornecedores delegados no mesmo diretório-inquilino (Azure Active Directory) e precisa de mover subscrições do utilizador entre eles. Isto pode ser o caso em que um membro da equipe se move entre equipes e a subscrição tem de ser alocada para o novo agrupamento.
 
-Para criar várias camadas de delegação de oferta, o fornecedor delegado delega a oferta para o fornecedor seguinte. O processo é o mesmo para o fornecedor de delegado que para o operador do Azure Stack. Para obter mais informações, consulte [operador do Azure Stack cria a oferta delegada](#cloud-operator-creates-the-delegated-offer).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

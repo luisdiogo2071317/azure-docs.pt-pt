@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502513"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41987963"
 ---
 # <a name="anomaly-detection-c-application"></a>Aplicação de anomalias deteção c#
 
@@ -77,7 +77,8 @@ Rever como a API Restful, é utilizada no aplicativo de exemplo, vamos examinar 
             // ----------------------------------------------------------------------
 
 ```
-**Request(...)**  Abaixo código o trecho de código mostra como utilizar o HttlClient submeter a sua subscrição chave e dados pontos para o ponto final da API de deteção de anomalias.
+### <a name="request"></a>**Pedido**
+O trecho de código abaixo mostra como utilizar o HttpClient para submeter a sua subscrição chave e dados pontos para o ponto final da API de deteção de anomalias.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

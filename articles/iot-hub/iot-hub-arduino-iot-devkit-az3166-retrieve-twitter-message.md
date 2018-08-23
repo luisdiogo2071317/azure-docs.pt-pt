@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 33d7c7f7f2e127647b43a62541fbc29c8417743c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595999"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058470"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Abane, abane para um Tweet – obter uma mensagem do Twitter com as funções do Azure
 
@@ -163,7 +163,7 @@ Para fins de teste, esse projeto de exemplo usa um token de portador do Twitter 
 
 1. Aceda a [portal do programador do Twitter](https://dev.twitter.com/) para registar uma nova aplicação do Twitter.
 
-2. [Obter chave de consumidor e segredos de consumidor](https://support.yapsody.com/hc/en-us/articles/203068116-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) da sua aplicação.
+2. [Obter chave de consumidor e segredos de consumidor](https://support.yapsody.com/hc/en-us/articles/360003291573-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) da sua aplicação.
 
 3. Uso [alguma utilidade](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) para gerar um token de portador do Twitter a partir dessas duas chaves.
 

@@ -1,6 +1,6 @@
 ---
-title: Registar o utilizador atual para notificações push utilizando a Web API | Microsoft Docs
-description: Saiba como pedir o registo da notificação push numa aplicação iOS com Notification Hubs do Azure quando o registo é efetuado através da API Web do ASP.NET.
+title: Registar o utilizador atual para as notificações push utilizando a Web API | Documentos da Microsoft
+description: Saiba como solicitar o registo de notificação push numa aplicação iOS com Notification Hubs do Azure quando o registo é executado pela ASP.NET Web API.
 services: notification-hubs
 documentationcenter: ios
 author: dimazaid
@@ -14,37 +14,37 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776377"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054787"
 ---
-# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registar o utilizador atual para notificações push utilizando o ASP.NET
+# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registar o utilizador atual para as notificações push utilizando o ASP.NET
 > [!div class="op_single_selector"]
 > * [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 > 
 > 
 
 ## <a name="overview"></a>Descrição geral
-Este tópico mostra como pedir o registo da notificação push com Notification Hubs do Azure quando o registo é efetuado através da API Web do ASP.NET. Este tópico expande o tutorial [notificar os utilizadores com os Notification Hubs]. Tem já tiver concluído os passos necessários que tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário de utilizadores notificar, consulte [notificar os utilizadores com os Notification Hubs].
+Este tópico mostra-lhe como pedir o registo de notificação push com Notification Hubs do Azure quando o registo é executado pela ASP.NET Web API. Este tópico complementa o tutorial [notificar os utilizadores com os Hubs de notificação]. Tem de ter já concluído os passos necessários esse tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário do notificar os utilizadores, consulte [notificar os utilizadores com os Hubs de notificação].
 
 ## <a name="update-your-app"></a>Atualizar a sua aplicação
-1. No seu MainStoryboard_iPhone.storyboard, adicione os seguintes componentes da biblioteca do objeto:
+1. No seu MainStoryboard_iPhone.storyboard, adicione os seguintes componentes da biblioteca de objeto:
    
-   * **Etiqueta**: "Push para utilizadores com os Notification Hubs"
+   * **Etiqueta**: "Enviar para o utilizador com os Hubs de notificação"
    * **Etiqueta**: "InstallationId"
    * **Etiqueta**: "Utilizador"
    * **Campo de texto**: "Utilizador"
-   * **Etiqueta**: "Password"
-   * **Campo de texto**: "Password"
+   * **Etiqueta**: "Palavra-passe"
+   * **Campo de texto**: "Palavra-passe"
    * **Botão**: "Início de sessão"
      
-     Neste momento, o storyboard o seguinte aspeto:
+     Neste momento, seu guião gráfico é semelhante ao seguinte:
      
       ![][0]
-2. No editor do assistente, criar saídas para todos os controlos desativados-los, ligar os campos de texto com o controlador de vista (delegado) e criar um **ação** para o **início de sessão** botão.
+2. No editor do assistente, criar de comunicação para todos os controles comutadas e chamá-los, ligar os campos de texto com o controlador de vista (delegado) e criar uma **ação** para o **início de sessão** botão.
    
        ![][1]
    
@@ -55,11 +55,11 @@ Este tópico mostra como pedir o registo da notificação push com Notification 
         @property (weak, nonatomic) IBOutlet UITextField *Password;
    
         - (IBAction)login:(id)sender;
-3. Crie uma classe com o nome **DeviceInfo**e copie o seguinte código para a secção de interface do ficheiro DeviceInfo.h:
+3. Criar uma classe chamada **DeviceInfo**e copie o seguinte código para a secção de interface do arquivo DeviceInfo.h:
    
         @property (readonly, nonatomic) NSString* installationId;
         @property (nonatomic) NSData* deviceToken;
-4. Copie o seguinte código na secção de implementação do ficheiro DeviceInfo.m:
+4. Copie o seguinte código na secção de implementação do arquivo DeviceInfo.m:
    
             @synthesize installationId = _installationId;
    
@@ -93,29 +93,29 @@ Este tópico mostra como pedir o registo da notificação push com Notification 
 5. No PushToUserAppDelegate.h, adicione o seguinte singleton de propriedade:
    
         @property (strong, nonatomic) DeviceInfo* deviceInfo;
-6. No **didFinishLaunchingWithOptions** método PushToUserAppDelegate.m, adicione o seguinte código:
+6. Na **didFinishLaunchingWithOptions** método na PushToUserAppDelegate.m, adicione o seguinte código:
    
         self.deviceInfo = [[DeviceInfo alloc] init];
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    A primeira linha inicializa a **DeviceInfo** singleton. A segunda linha inicia o registo para as notificações push, que já está presente se já tiver concluído a [introdução aos Hubs de notificação] tutorial.
-7. No PushToUserAppDelegate.m, implementa o método **didRegisterForRemoteNotificationsWithDeviceToken** no seu AppDelegate e adicione o seguinte código:
+    A primeira linha inicializa a **DeviceInfo** singleton. A segunda linha inicia o registo para notificações push, que já está presente, se já tiver concluído a [introdução aos Hubs de notificação] tutorial.
+7. No PushToUserAppDelegate.m, implementar o método **didRegisterForRemoteNotificationsWithDeviceToken** no seu AppDelegate e adicione o seguinte código:
    
         self.deviceInfo.deviceToken = deviceToken;
    
-    Isto define o token do dispositivo para o pedido.
+    Isso define o token do dispositivo para o pedido.
    
    > [!NOTE]
-   > Neste momento, não existe não deve ser quaisquer outras código neste método. Se já tiver uma chamada para o **registerNativeWithDeviceToken** método que foi adicionado ao concluiu a [introdução aos Hubs de notificação](/manage/services/notification-hubs/get-started-notification-hubs-ios/) tutorial, tem comente ou remover esse chamada.
+   > Neste momento, deve não existir qualquer outro código nesse método. Se já tiver uma chamada para o **registerNativeWithDeviceToken** método que foi adicionado quando concluiu a [introdução aos Hubs de notificação](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial, tem comente ou remova esta chamada.
    > 
    > 
-8. No ficheiro PushToUserAppDelegate.m, adicione o seguinte método do processador:
+8. No ficheiro PushToUserAppDelegate.m, adicione o seguinte método de manipulador:
    
-   * aplicação (nulo):(UIApplication *) aplicação didReceiveRemoteNotification:(NSDictionary *) userInfo {NSLog (@"% @", userInfo);   UIAlertView * alerta = [[UIAlertView alocação] initWithTitle:@"Notification" mensagem: [userInfo objectForKey:@"inAppMessage"] delegado: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];   [alerta Mostrar]; }
+   * aplicação (void):(UIApplication *) aplicação didReceiveRemoteNotification:(NSDictionary *) userInfo {NSLog (@"% @", userInfo);   UIAlertView * alerta = [[UIAlertView alocação] initWithTitle:@"Notification" mensagem: [userInfo objectForKey:@"inAppMessage"] delegado: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];   [alerta show]; }
    
-   Este método apresenta um alerta na IU quando a aplicação recebe notificações enquanto estiver em execução.
-9. Abra o ficheiro de PushToUserViewController.m e devolver o teclado na implementação seguinte:
+   Esse método apresenta um alerta na interface do Usuário quando a aplicação recebe notificações durante a execução.
+9. Abra o ficheiro de PushToUserViewController.m e retornar o teclado na seguinte implementação:
    
         - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
             if (theTextField == self.User || theTextField == self.Password) {
@@ -123,11 +123,11 @@ Este tópico mostra como pedir o registo da notificação push com Notification 
             }
             return YES;
         }
-10. No **viewDidLoad** método no ficheiro PushToUserViewController.m, inicializar a etiqueta de installationId da seguinte forma:
+10. Na **viewDidLoad** método no arquivo PushToUserViewController.m, inicializar a etiqueta de installationId da seguinte forma:
     
          DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
          Self.installationId.text = deviceInfo.installationId;
-11. Adicione as seguintes propriedades de interface no PushToUserViewController.m:
+11. Adicione as seguintes propriedades na interface na PushToUserViewController.m:
     
         @property (readonly) NSOperationQueue* downloadQueue;
         - (NSString*)base64forData:(NSData*)theData;
@@ -174,7 +174,7 @@ Este tópico mostra como pedir o registo da notificação push com Notification 
     
                 return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             }
-13. Copie o seguinte código para o **início de sessão** método do processador criado pelo XCode:
+13. Copie o seguinte código para o **início de sessão** método de manipulador criado pelo XCode:
     
             DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     
@@ -207,9 +207,9 @@ Este tópico mostra como pedir o registo da notificação push com Notification 
                 }
             }];
     
-    Este método obtém um ID de instalação e o canal para notificações push e envia-, juntamente com o tipo de dispositivo, para o método Web API autenticado, que cria um registo dos Notification Hubs. Esta API Web foi definido na [notificar os utilizadores com os Notification Hubs].
+    Este método obtém um ID de instalação e o canal para notificações push e a envia, juntamente com o tipo de dispositivo, para o método de Web API autenticado, que cria um registo nos Hubs de notificação. Esta API da Web foi definido no [notificar os utilizadores com os Hubs de notificação].
 
-Agora que a aplicação de cliente foi atualizada, voltar para o [notificar os utilizadores com os Notification Hubs] e atualizar o serviço móvel para enviar notificações com os Notification Hubs.
+Agora que a aplicação de cliente foi atualizada, retornar para o [notificar os utilizadores com os Hubs de notificação] e atualizar o serviço móvel para enviar notificações com os Hubs de notificação.
 
 <!-- Anchors. -->
 
@@ -218,6 +218,6 @@ Agora que a aplicação de cliente foi atualizada, voltar para o [notificar os u
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[notificar os utilizadores com os Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Notificar os utilizadores com os Hubs de notificação]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[introdução aos Hubs de notificação]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Introdução aos Hubs de notificação]: notification-hubs-ios-apple-push-notification-apns-get-started.md

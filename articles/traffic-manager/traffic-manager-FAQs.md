@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399182"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054547"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -286,7 +286,7 @@ O Azure Resource Manager requer que todos os grupos de recursos especificar uma 
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Como posso determinar o estado de funcionamento atual de cada ponto final?
 
-O estado de monitorização atual de cada ponto de extremidade, além do perfil de geral, é apresentado no portal do Azure. Essas informações também estão disponíveis através do Monitor de tráfego [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [cmdlets do PowerShell](https://msdn.microsoft.com/library/mt125941.aspx), e [CLI do Azure de várias plataformas](../cli-install-nodejs.md).
+O estado de monitorização atual de cada ponto de extremidade, além do perfil de geral, é apresentado no portal do Azure. Essas informações também estão disponíveis através do Monitor de tráfego [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager), e [CLI do Azure de várias plataformas](../cli-install-nodejs.md).
 
 Também pode utilizar o Azure Monitor para controlar o estado de funcionamento dos seus pontos finais e ver uma representação visual dos mesmos. Para obter mais informações sobre como utilizar o Azure Monitor, consulte a [documentação de monitorização do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 

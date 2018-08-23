@@ -1,20 +1,20 @@
 ---
 title: Ferramentas do Azure HDInsight - Use Visual Studio Code para Hive, LLAP ou pySpark
 description: Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code para criar e submeter consultas e scripts.
-Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
+keywords: Código VS, ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, interativas do Hive, Interactive Query
+services: hdinsight
 author: jejiang
-editor: jasonwhowell jgao
-ms.service: HDInsight
+ms.author: jejiang
+editor: jasonwhowell
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.author: jejiang
-ms.openlocfilehash: 7bf74155cba65d2b5abdc80103a46047aec1b5b7
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 255f1ecb3c55ef94b6f4f3393257b3054ff1b725
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592405"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055368"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -317,7 +317,7 @@ Configuração do Livy é suportada, foi possível definir as configurações de
     | state |   O estado de batch | cadeia |
 
 
-## <a name="additional-features"></a>Recursos adicionais
+## <a name="additional-features"></a>Funcionalidades adicionais
 
 HDInsight para o VS Code suporta as seguintes funcionalidades:
 

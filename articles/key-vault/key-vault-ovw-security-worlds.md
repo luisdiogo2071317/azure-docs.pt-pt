@@ -1,46 +1,46 @@
 ---
 ms.assetid: ''
-title: Universos de segurança do Cofre de chaves do Azure | Microsoft Docs
+title: Mundos de segurança do Azure Key Vault | Documentos da Microsoft
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
 ms.date: 07/03/2017
-ms.openlocfilehash: aeab36153d3a4e004d12206bab92cea9b30400ad
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 7fd7357a317d5059d6169de2c1536568a254e016
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27928105"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054153"
 ---
-# <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Universos de segurança do Cofre de chaves do Azure e limites geográficos
+# <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mundos de segurança do Cofre de chaves do Azure e limites geográficos
 
-O Cofre de chaves do Azure é um serviço de multi-inquilino e utiliza um conjunto de módulos de segurança de Hardware (HSMs) em cada localização do Azure. 
+O Azure Key Vault é um serviço de multi-inquilino e utiliza um conjunto de módulos de segurança de Hardware (HSMs) em cada localização do Azure. 
 
-Todos os HSMs do Azure localizações na mesma região geográfica partilham o mesmo limite de criptografia (universo de segurança da Thales). Por exemplo, EUA leste e EUA oeste partilham o mesmo universo de segurança porque pertencem a localização de georreplicação EUA. Da mesma forma, todas as localizações do Azure no Japão partilham o mesmo universo de segurança e todas as localizações do Azure da Austrália, Índia e assim sucessivamente. 
+Todos os HSMs nas localizações do Azure na mesma região geográfica partilham o mesmo limite de criptografia (universo de segurança da Thales). Por exemplo, E.U.A. leste e E.U.A. oeste partilham o mesmo universo de segurança porque pertencem à geolocalização dos EUA. Da mesma forma, todas as localizações do Azure no Japão partilham o mesmo universo de segurança e todas as localizações do Azure na Austrália, Índia e assim por diante. 
 
 ## <a name="backup-and-restore-behavior"></a>Comportamento de cópia de segurança e restauro
 
-É possível restaurar uma cópia de segurança criada uma chave de um cofre de chaves numa única localização do Azure para um cofre de chaves noutra localização do Azure, desde que ambas estas condições forem verdadeiras:
+Uma cópia de segurança retirada de uma chave de um cofre de chaves num único local do Azure pode ser restaurada para um cofre de chaves em outro local do Azure, desde que ambas estas condições forem verdadeiras:
 
 - Ambas as localizações do Azure pertencem à mesma localização geográfica
 - Ambos os cofres de chaves de pertencer à mesma subscrição do Azure
 
-Por exemplo, uma cópia de segurança criada por uma determinada subscrição de uma chave de um cofre de chaves no oeste da Índia, só pode ser restaurado para outro Cofre de chaves na mesma subscrição e localização georreplicação; Índia Ocidental, Índia Central ou sul da Índia
+Por exemplo, uma cópia de segurança criada por uma determinada subscrição de uma chave num cofre de chaves na Índia Ocidental, só pode ser restaurado para outro Cofre de chaves na mesma subscrição e localização geográfica; Índia Ocidental, Índia Central ou sul da Índia.
 
-## <a name="regions-and-products"></a>Regiões e produtos
+## <a name="regions-and-products"></a>Produtos e regiões
 
 - [Regiões do Azure](https://azure.microsoft.com/regions/)
 - [Produtos da Microsoft por região](https://azure.microsoft.com/regions/services/)
 
-Regiões estão mapeadas para universos de segurança, mostrados como cabeçalhos de principais nas tabelas:
+Regiões são mapeadas para os mundos de segurança, mostrados como cabeçalhos principais nas tabelas:
 
-Os produtos por artigo de região, por exemplo, o **Americas** separador contém Leste dos EUA, EUA CENTRAL, EUA oeste todos os mapeamentos para a região Americas. 
+Nos produtos de artigo de região, por exemplo, o **Americas** separador contém Leste dos E.U.A. CENTRAL, E.U.A. oeste todos os mapeamentos para a região do Americas. 
 
 >[!NOTE]
->Uma exceção é que dos EUA Leste DOD e nos DOD CENTRAL têm os seus próprios universos de segurança. 
+>Uma exceção é que o US DOD EAST e US DOD CENTRAL tem seus próprios universos de segurança. 
 
-Da mesma forma, no **Europa** separador, Europa do Norte e Europa Ocidental estão ambos mapeados para a região Europa. O mesmo é verdadeiro no **Ásia-Pacífico** separador.
+Da mesma forma, sobre o **Europa** separador, Europa do Norte e Europa Ocidental ambos mapeados para a região da Europa. O mesmo também se aplica no **Ásia-Pacífico** separador.
 
 
 

@@ -3,7 +3,7 @@ title: Cópia de segurança do Azure Stack | Documentos da Microsoft
 description: Efetue uma cópia de segurança a pedido no Azure Stack com cópia de segurança no local.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
@@ -12,63 +12,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/08/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: c9e7ffae1b988d0940d10acdb1b387a25e0466ec
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242891"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058160"
 ---
 # <a name="back-up-azure-stack"></a>Criar cópias de segurança do Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Efetue uma cópia de segurança a pedido no Azure Stack com cópia de segurança no local. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para o Azure Stack ](azure-stack-powershell-install.md). Para iniciar sessão no Azure Stack, veja [configurar o ambiente de operador e inicie sessão no Azure Stack](azure-stack-powershell-configure-admin.md).
+Efetue uma cópia de segurança a pedido no Azure Stack com cópia de segurança no local. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para o Azure Stack ](azure-stack-powershell-install.md). Para iniciar sessão no Azure Stack, veja [com o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Iniciar cópia de segurança do Azure Stack
 
-Utilize AzSBackup iniciar para iniciar uma nova cópia de segurança com a variável de - AsJob para controlar o progresso. 
+### <a name="start-a-new-backup-without-job-progress-tracking"></a>Iniciar uma nova cópia de segurança sem o progresso da tarefa de controlo
+Utilize o início AzSBackup para iniciar uma nova cópia de segurança imediatamente com nenhum progresso da tarefa de controlo.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+   Start-AzsBackup -Force
 ```
 
-## <a name="confirm-backup-completed-via-powershell"></a>Confirmar cópia de segurança concluída através do PowerShell
+### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Iniciar a cópia de segurança do Azure Stack com o progresso da tarefa de controlo
+Utilize AzSBackup iniciar para iniciar uma nova cópia de segurança com a variável de - AsJob para controlar o progresso da tarefa de cópia de segurança.
 
 ```powershell
+    $backupjob = Start-AzsBackup -Force -AsJob 
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
+    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
+    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+
     if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
 ```
 
-- O resultado deverá ser semelhante a seguinte saída:
+## <a name="confirm-backup-has-completed"></a>Confirmar cópia de segurança foi concluída
 
-  ```powershell
-      BackupDataVersion : 1.0.1
-      BackupId          : <backup ID>
-      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
-      Status            : Succeeded
-      CreatedDateTime   : 7/6/2018 6:46:24 AM
-      TimeTakenToCreate : PT20M32.364138S
-      DeploymentID      : <deployment ID>
-      StampVersion      : 1.1807.0.41
-      OemVersion        : 
-      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
-      Name              : local/<local name>
-      Type              : Microsoft.Backup.Admin/backupLocations/backups
-      Location          : local
-      Tags              : {}
-  ```
+### <a name="confirm-backup-has-completed-using-powershell"></a>Confirmar cópia de segurança foi concluída com o PowerShell
+Utilize os seguintes comandos do PowerShell para se certificar que cópia de segurança foi concluída com êxito:
 
-## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirmar cópia de segurança concluída no portal de administração
+```powershell
+   Get-AzsBackup
+```
 
-1. Abra o portal de administração do Azure Stack em [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+O resultado deverá ser semelhante a seguinte saída:
+
+```powershell
+    BackupDataVersion : 1.0.1
+    BackupId          : <backup ID>
+    RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+    Status            : Succeeded
+    CreatedDateTime   : 7/6/2018 6:46:24 AM
+    TimeTakenToCreate : PT20M32.364138S
+    DeploymentID      : <deployment ID>
+    StampVersion      : 1.1807.0.41
+    OemVersion        : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+    Name              : local/<local name>
+    Type              : Microsoft.Backup.Admin/backupLocations/backups
+    Location          : local
+    Tags              : {}
+```
+
+### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>Confirmar cópia de segurança foi concluída no portal de administração
+Utilize o portal de administração do Azure Stack para verificar que essa cópia de segurança foi concluída com êxito ao seguir estes passos:
+
+1. Abra o [portal de administração do Azure Stack](azure-stack-manage-portals.md).
 2. Selecione **mais serviços** > **cópia de segurança da infraestrutura**. Escolher **Configuration** no **cópia de segurança da infraestrutura** painel.
 3. Encontrar o **Name** e **data concluída** da cópia de segurança no **cópias de segurança disponíveis** lista.
 4. Verifique se o **estado** é **Succeeded**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o fluxo de trabalho para recuperar a partir de um evento de perda de dados. Ver [recuperar da perda catastrófica de dados](azure-stack-backup-recover-data.md).
+Saiba mais sobre o fluxo de trabalho para recuperar a partir de um evento de perda de dados. Ver [recuperar da perda catastrófica de dados](azure-stack-backup-recover-data.md).

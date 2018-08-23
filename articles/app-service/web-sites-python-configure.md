@@ -15,12 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: f1859660d2370093ab582c417233b25d363ce952
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 796de682df28c28bc66f2409e486dfdc221aedd1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228180"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055786"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configurar Python com aplicações Web do serviço de aplicações do Azure
 Este tutorial descreve as opções de criação e configuração de uma aplicação básica para o Web Server Gateway Interface (WSGI) em conformidade com Python no [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -356,7 +356,7 @@ Conteúdo de `ptvs_virtualenv_proxy.py`:
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte o [Centro para Programadores do Python](/python/azure/).
+Para obter mais informações, consulte o [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/).
 
 > [!NOTE]
 > Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://azure.microsoft.com/try/app-service/), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.

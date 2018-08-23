@@ -3,20 +3,20 @@ title: Níveis de consistência no Azure Cosmos DB | Documentos da Microsoft
 description: Azure Cosmos DB tem cinco níveis de consistência para o ajudar a equilibrar eventual consistência, disponibilidade e latência vantagens e desvantagens.
 keywords: a consistência eventual, do azure cosmos db, do azure, do Microsoft azure
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857189"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060231"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência sincronizáveis dados no Azure Cosmos DB
 O Azure Cosmos DB foi concebido desde o backup com a distribuição global, lembre-se para cada modelo de dados. Foi concebido para fornecer garantias de latência baixa previsível e vários modelos de consistência bem definidos de flexível. Atualmente, o Azure Cosmos DB oferece cinco níveis de consistência: sólido, prescrição vinculada, sessão, prefixo de consistência e eventual. Prescrição vinculada, sessão, prefixo consistente e eventual são referidas como "modelos de consistência relaxados" que fornecem menos consistência forte, que o que é o modelo a maioria dos consistente altamente disponível. 
@@ -132,7 +132,7 @@ Se deseja ler mais sobre os níveis de consistência e os compromissos, recomend
 * [Consistência de dados replicados explicada através do basebol (vídeo) por Doug Tiago](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Consistência de dados replicados explicada através do basebol (documento técnico), por Doug Tiago](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [Garantias de sessão para os dados replicados consistentes tem rigidez](http://dl.acm.org/citation.cfm?id=383631)
-* [Vantagens e desvantagens de consistência no moderno Design de sistemas de banco de dados distribuído: limite é apenas uma parte da história](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Vantagens e desvantagens de consistência no moderno Design de sistemas de banco de dados distribuído: limite é apenas uma parte da história](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Probabilístico estagnação limitada (PBS) para práticos Quorums parciais](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * [Eventual consistentes – Revisitada](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [A carga, a capacidade e a disponibilidade dos sistemas de quórum, diário SIAM sobre computação](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

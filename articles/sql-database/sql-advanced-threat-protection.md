@@ -1,6 +1,6 @@
 ---
-title: Proteção avançada contra ameaças - base de dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre a funcionalidade para detetar e classificar os dados confidenciais, gerir as vulnerabilidades de base de dados e detetar atividades anómalas que pode indicar uma ameaça à sua base de dados SQL do Azure.
+title: Proteção avançada contra ameaças - base de dados SQL do Azure | Documentos da Microsoft
+description: Saiba mais sobre a funcionalidade para detetar e classificar os dados confidenciais, gerenciar sua vulnerabilidades de base de dados e detetar atividades anómalas que poderá indicar uma ameaça à base de dados SQL do Azure.
 services: sql-database
 author: ronitr
 manager: craigg
@@ -9,77 +9,77 @@ ms.topic: conceptual
 ms.date: 5/17/2018
 ms.author: ronitr
 ms.reviewer: carlrab
-ms.openlocfilehash: da21a0b66d86b4cc3e2dc59bdd972d4e24d7e5ec
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8881f66a73a2368696ee16cc0f9bb0b16d2f6d7e
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305508"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42061416"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção avançada contra ameaças para a base de dados SQL do Azure
 
-Proteção contra ameaças avançadas do SQL Server é um pacote unificado para capacidades avançadas de segurança do SQL Server. Inclui uma funcionalidade para detetar e classificar os dados confidenciais, gerir as vulnerabilidades de base de dados e detetar atividades anómalas que pode indicar uma ameaça à sua base de dados. Fornece uma localização única aceda a para ativar e gerir estas capacidades. 
+O SQL Advanced Threat Protection é um pacote unificado para capacidades avançadas de segurança do SQL. Ele inclui a funcionalidade para detetar e classificar dados confidenciais, analisar e atenuante vulnerabilidades potenciais de base de dados e detetar atividades anómalas que poderá indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades. 
 
 ## <a name="overview"></a>Descrição geral
 
-SQL Server avançadas Threat Protection (ATP) fornece um conjunto de capacidades avançadas de segurança SQL, incluindo dados de deteção & classificação, avaliação de vulnerabilidade e a deteção de ameaças. 
+Da proteção contra ameaças avançadas SQL (ATP) fornece um conjunto de funções de segurança SQL avançadas, incluindo dados de deteção e classificação, avaliação de vulnerabilidade e a deteção de ameaças. 
 
-- [Deteção de dados & classificação](sql-database-data-discovery-and-classification.md) (atualmente em pré-visualização) fornece capacidades incorporadas no SQL Database do Azure para detetar, classificar, Etiquetar e proteger os dados confidenciais nas suas bases de dados. Pode ser utilizado para dar visibilidade sobre o estado de classificação de base de dados e para controlar o acesso aos dados sensíveis na base de dados e os respetivos limites.
-- [Avaliação da vulnerabilidade](sql-vulnerability-assessment.md) é uma fácil de configurar o serviço que pode detetar, controlar e ajudar a remediar potenciais vulnerabilidades de base de dados. -Lhe visibilidade para o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e para melhorar a sua fortifications de base de dados.
-- [Deteção de ameaças](sql-database-threat-detection.md) Deteta atividades anómalas, indicando invulgar e potencialmente prejudicial tenta aceder ou explorar menores, a base de dados. Continuamente monitoriza a base de dados relativos a atividades suspeitas e fornece alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção de SQL e padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças fornecem detalhes da atividade suspeita e recomendamos ação sobre a investigar e mitigar a ameaça.
+- A [Deteção de Dados e Classificação](sql-database-data-discovery-and-classification.md) (atualmente em pré-visualização) oferece capacidades incorporadas na Base de Dados SQL do Azure para detetar, classificar, etiquetar e proteger os dados confidenciais nas suas bases de dados. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites.
+- A [Avaliação da Vulnerabilidade](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode detetar, controlar e ajudar a corrigir potenciais vulnerabilidades da base de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
+- A [Deteção de Ameaças](sql-database-threat-detection.md) deteta ameaças anómalas que indicam tentativas potencialmente perigosas e invulgares para aceder ou explorar a sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Os alertas da Deteção de Ameaças mostram detalhes da atividade suspeita e a ação recomendada para investigar e mitigar essa ameaça.
 
-Ative SQL ATP depois de ativar todos estes incluídos funcionalidades. Com um clique, pode ativar ATP no seu servidor de base de dados completa, aplicar a todas as bases de dados no servidor. 
+Ative o ATP de SQL uma vez permitir que todos esses incluído funcionalidades. Com um clique, pode ativar o ATP em todo o servidor da sua base de dados, aplicando-se a todas as bases de dados no servidor. 
 
-Preços ATP está alinhada com escalão standard do Centro de segurança do Azure em 15 $/ nó/mês, onde cada servidor de base de dados do SQL Server protegido é contabilizado como um nó. Os primeiro 60 dias após a ativação da são considerados um período de avaliação gratuita e não serem cobrados. Para obter mais informações, consulte o [página de preços do Centro de segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/).
+Preços do ATP se alinha com o escalão standard do Centro de segurança do Azure us $15/nó/mês, em que cada servidor de base de dados SQL protegido é contabilizado como um nó. Os primeiros 60 dias após a ativação são considerados um período de avaliação gratuito e não são cobrados. Para obter mais informações, consulte a [Centro de segurança do Azure página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-## <a name="getting-started-with-atp"></a>Introdução ao ATP 
-Os passos seguintes ajudá-lo a começar a utilizar ATP. 
+## <a name="getting-started-with-atp"></a>Guia de introdução do ATP 
+Os seguintes passos ajudá-lo a começar a ATP. 
 
-## <a name="1-enable-atp"></a>1. Ativar ATP
+## <a name="1-enable-atp"></a>1. Ativar o ATP
 
-Ativar ATP navegando para **Advanced Threat Protection** sob o **segurança** cabeçalho no seu painel SQL Database do Azure. Para ativar ATP para todas as bases de dados no servidor, clique em **ativar proteção avançada contra ameaças no servidor**.
+Ativar o ATP ao navegar até **proteção avançada contra ameaças** sob a **segurança** cabeçalho no seu painel de base de dados do Azure SQL. Para ativar o ATP para todas as bases de dados no servidor, clique em **ativar a proteção avançada contra ameaças no servidor**.
 
-![Ativar ATP](./media/sql-advanced-protection/enable_atp.png) 
+![Ativar o ATP](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> O custo de ATP é $15/nó/mês em que um nó é todo do SQL Server lógico. Deste modo, pagar com apenas uma vez para todas as bases de dados no servidor com ATP a proteger. Os primeiro 60 dias são considerados uma avaliação gratuita.
+> O custo da ATP é US $15/nó/mês, em que um nó é todo servidor lógico SQL. É, portanto, pagando apenas uma vez para proteger todas as bases de dados com o ATP no servidor. Os primeiros 60 dias são considerados uma avaliação gratuita.
 
-## <a name="2-configure-vulnerability-assessment"></a>2. Configurar a avaliação da vulnerabilidade
+## <a name="2-configure-vulnerability-assessment"></a>2. Configurar a avaliação de vulnerabilidade
 
-Para começar a utilizar a avaliação da vulnerabilidade, terá de configurar uma conta do storage onde os resultados da análise são guardados. Para tal, clique no cartão avaliação da vulnerabilidade.
+Para começar a utilizar a avaliação de vulnerabilidades, terá de configurar uma conta de armazenamento onde são guardados os resultados da análise. Para tal, clique no cartão de avaliação de vulnerabilidades.
 
-![Configurar VA](./media/sql-advanced-protection/configure_va.png) 
+![Configurar a avaliação de vulnerabilidades](./media/sql-advanced-protection/configure_va.png) 
 
-Selecione ou crie uma conta de armazenamento para guardar os resultados da análise. Também pode ativar o periódicas análises recorrentes para configurar a avaliação da vulnerabilidade executar análises automáticas, uma vez por semana. Um resumo de resultados de análise é enviado para os endereços de e-mail que fornecer.
+Selecione ou crie uma conta de armazenamento para guardar os resultados da análise. Pode também ativar as análises periódicas recorrentes para configurar a avaliação de vulnerabilidade para executar a análise automática de uma vez por semana. Um resumo de resultados de análise é enviado para os endereços de e-mail que indicar.
 
-![Definições de VA](./media/sql-advanced-protection/va_settings.png) 
+![Definições de avaliação de vulnerabilidades](./media/sql-advanced-protection/va_settings.png) 
 
-## <a name="3-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>3. Iniciar classificar dados, ao controlar a vulnerabilidades e investigar alertas de ameaça
+## <a name="3-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>3. Começar a classificar dados, ao controlar a vulnerabilidades e investigar alertas de ameaça
 
-Clique em de **deteção de dados e a classificação** cartão Consulte recomendado colunas confidenciais para classificar e classificar os dados com etiquetas de sensibilidade persistente. Clique em de **avaliação da vulnerabilidade** cartão para ver e gerir relatórios e análises de vulnerabilidade e para controlar o stature de segurança. Se receber os alertas de segurança, clique em de **a deteção de ameaças** cartão para ver os detalhes dos alertas e para ver um relatório consolidado em todos os alertas na sua subscrição do Azure através da página de alertas de segurança do Centro de segurança do Azure.
+Clique nas **dados de deteção e classificação** recomendado de cartão para ver colunas confidenciais para classificar e classificar os dados com etiquetas de sensibilidade persistente. Clique nas **avaliação de vulnerabilidade** cartão para ver e gerir relatórios e análises de vulnerabilidade e para controlar o escritor de segurança. Se receber os alertas de segurança, clique nas **deteção de ameaças** cartão para ver detalhes dos alertas e para ver um relatório consolidado em todos os alertas na sua subscrição do Azure através da página de alertas de segurança do Centro de segurança do Azure.
 
-## <a name="4-manage-atp-settings-on-your-sql-server"></a>4. Gerir definições de ATP no seu SQL server
+## <a name="4-manage-atp-settings-on-your-sql-server"></a>4. Gerir as definições do ATP no SQL server
 
-Para ver e gerir as definições da proteção avançada contra ameaças, navegue até à **Advanced Threat Protection** sob o **segurança** cabeçalho no painel de servidor do SQL Server. Nesta página, pode ativar ou desativar ATP e modificar as definições de deteção de ameaças para o servidor SQL completo.
+Para ver e gerir definições de proteção avançada contra ameaças, navegue para **proteção avançada contra ameaças** sob a **segurança** cabeçalho no seu painel de servidor SQL. Nesta página, pode ativar ou desativar o ATP e modificar as definições de deteção de ameaças para o servidor SQL completo.
 
 ![Definições do servidor](./media/sql-advanced-protection/server_settings.png) 
 
-## <a name="5-manage-atp-settings-for-a-sql-database"></a>5. Gerir definições de ATP para uma base de dados do SQL Server
+## <a name="5-manage-atp-settings-for-a-sql-database"></a>5. Gerir as definições do ATP para uma base de dados SQL
 
-Para substituir definições de deteção de ameaças ATP para uma determinada base de dados, verifique o **ativar proteção avançada contra ameaças ao nível da base de dados** caixa de verificação. Utilize esta opção apenas se tiver um requisito específico para receber alertas de deteção de ameaças separado para a base de dados individuais, em vez de ou para além dos alertas recebidos para todas as bases de dados no servidor. 
+Para substituir definições de deteção de ameaças do ATP para uma base de dados específica, consulte a **ativar a proteção avançada contra ameaças ao nível da base de dados** caixa de verificação. Utilize esta opção apenas se tiver uma necessidade específica para receber alertas de deteção de ameaças separados para a base de dados individual, em vez de ou em conjunto com os alertas recebidos para todas as bases de dados no servidor. 
 
 Assim que a caixa de verificação está selecionada, clique em **definições de deteção de ameaças para esta base de dados** e, em seguida, configure as definições relevantes para esta base de dados.
 
-![Definições de deteção da base de dados e de ameaça](./media/sql-advanced-protection/database_threat_detection_settings.png) 
+![Definições de deteção de ameaças e base de dados](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
-Definições de proteção contra ameaças avançadas para o servidor também podem ser contactadas a partir do painel de base de dados de ATP. Clique em **definições** no painel de ATP principal e, em seguida, clique em **as definições do servidor de vista Advanced Threat Protection**. 
+Também podem ser contatadas definições de proteção contra ameaças avançadas para o servidor a partir do painel da base de dados de ATP. Clique em **configurações** no painel principal do ATP e, em seguida, clique **definições do servidor de proteção do vista avançada contra ameaças**. 
 
 ![Definições da base de dados](./media/sql-advanced-protection/database_settings.png) 
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
-- Saiba mais sobre [dados de deteção & classificação](sql-database-data-discovery-and-classification.md) 
-- Saiba mais sobre [avaliação da vulnerabilidade](sql-vulnerability-assessment.md) 
+- Saiba mais sobre [dados de deteção e classificação](sql-database-data-discovery-and-classification.md) 
+- Saiba mais sobre [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) 
 - Saiba mais sobre [a deteção de ameaças](sql-database-threat-detection.md)
 - Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

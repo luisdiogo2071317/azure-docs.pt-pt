@@ -3,7 +3,7 @@ title: Testes de intrusão | Documentos da Microsoft
 description: O artigo fornece uma visão geral do processo (teste) de teste de penetração e como executar o teste em relação a seus aplicativos em execução na infraestrutura do Azure.
 services: security
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: a64316eda25bd02f89b5afdd7b98c0193381d023
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4096cf3a44b7c32ed94fdd2ef5dcbad9db08a386
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970824"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055586"
 ---
 # <a name="pen-testing"></a>Testes de intrusão
 Uma das vantagens da utilização do Azure para teste de aplicativos e a implantação é que pode obter rapidamente ambientes criados.  Não precisa se preocupar sobre requisitioning, aquisição e "montagens e empilhamentos" seu próprio hardware no local.
 
 Isso é ótimo, mas ainda tem de certificar-se de que executar a sua segurança normal auditoria detalhada. Uma das coisas que precisa fazer é penetração testar as aplicações que implementar no Azure.
 
-Já deve saber que a Microsoft efetua [testes de penetração do nosso ambiente do Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Isto ajuda a orientar melhorias do Azure. 
+Já deve saber que a Microsoft efetua [testes de penetração do nosso ambiente do Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Isto ajuda a orientar melhorias do Azure.
 
 Nós não a caneta testar seu aplicativo para, mas estamos cientes de será pretendido e precisar de executar testes em seus próprios aplicativos de caneta. Isso é algo bom, porque quando é aprimorar a segurança das suas aplicações, ajudar a tornar o todo o ecossistema do Azure mais segura.
 
 O que fazer?
 
-A partir de 15 de Junho de 2017, a Microsoft já não requer aprovação prévia para um de penetração testes em recursos do Azure. Os clientes que pretendem formalmente documento futuros testes de penetração compromissos no Microsoft Azure são incentivados a preencher o [formulário de notificação de teste do Azure Service penetração](https://portal.msrc.microsoft.com/en-us/engage/pentest). Esse processo está relacionado apenas para o Microsoft Azure e não aplicável a qualquer outro serviço Cloud da Microsoft. 
+A partir de 15 de Junho de 2017, a Microsoft já não requer aprovação prévia para um de penetração testes em recursos do Azure. Os clientes que pretendem formalmente documento futuros testes de penetração compromissos no Microsoft Azure são incentivados a preencher o [formulário de notificação de teste do Azure Service penetração](https://portal.msrc.microsoft.com/en-us/engage/pentest). Esse processo está relacionado apenas para o Microsoft Azure e não aplicável a qualquer outro serviço Cloud da Microsoft.
 
->[!IMPORTANT] 
->Embora já não é necessário notificar a Microsoft de atividades de teste de caneta clientes ainda devem ser compatível com o [Microsoft Cloud Unified penetração teste regras de envolvimento](https://technet.microsoft.com/mt784683). 
+>[!IMPORTANT]
+>Embora já não é necessário notificar a Microsoft de atividades de teste de caneta clientes ainda devem ser compatível com o [Microsoft Cloud Unified penetração teste regras de envolvimento](https://technet.microsoft.com/mt784683).
 
 Pode realizar de testes padrão incluem:
 
@@ -47,4 +47,4 @@ Pode realizar de testes padrão incluem:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Está pronto para começar com caneta teste suas aplicações alojadas no Microsoft Azure? Se Sim, em seguida, vá para o [descrição geral do teste de penetração](https://technet.microsoft.com/library/mt784683.aspx) página (e clique em criar um botão de pedido de teste na parte inferior da página. 
+- Está pronto para começar com caneta teste suas aplicações alojadas no Microsoft Azure? Se Sim, em seguida, vá para o [penetração teste regras de envolvimento](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) e preencha o formulário de notificação de teste.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857536"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060901"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Para guardar e configurar a sua configuração do serviço de gestão de API com o Git
 
@@ -107,7 +107,7 @@ Utilize a palavra-passe codificada, juntamente com a sua localização de nome e
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-Assim que o repositório for clonado pode ver e trabalhar com eles no sistema de arquivos local. Para obter mais informações, consulte [referência de repositório de Git local de estrutura de arquivo e pasta](#file-and-folder-structure-reference-of-local-git-repository).
+Assim que o repositório é clonado, pode ver e trabalhar com eles no sistema de arquivos local. Para obter mais informações, consulte [referência de repositório de Git local de estrutura de arquivo e pasta](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para atualizar o seu repositório local com a configuração de instância de serviço mais recente
 
@@ -166,7 +166,7 @@ Cada pasta pode conter um ou mais ficheiros e, em alguns casos, um ou mais pasta
 | xml |Instruções de política |
 | CSS |Folhas de estilo para personalização do portal de programador |
 
-Estes ficheiros podem ser criados, eliminados, editados e geridos no seu sistema de arquivos local e as alterações implementadas de volta para a sua instância do serviço de gestão de API.
+Estes ficheiros podem ser criados, eliminados, editados e geridos no seu sistema de arquivos local e as alterações de implementado novamente para a instância de serviço de gestão de API.
 
 > [!NOTE]
 > As seguintes entidades não estão contidas no repositório do Git e não podem ser configuradas com o Git.
@@ -177,7 +177,7 @@ Estes ficheiros podem ser criados, eliminados, editados e geridos no seu sistema
 > * Entidades de portais de programador que não seja estilos
 > 
 
-### <a name="root-api-management-folder"></a>Pasta raiz de gestão de api
+### <a name="root-api-management-folder"></a>pasta raiz de gestão de api
 A raiz `api-management` pasta contém um `configuration.json` ficheiro que contém informações de nível superior sobre a instância de serviço no seguinte formato.
 
 ```json
@@ -217,11 +217,11 @@ As próximas quatro definições (`DelegationEnabled`, `DelegationUrl`, `Delegat
 A definição final, `$ref-policy`, mapeia para o ficheiro de instruções de política global para a instância do serviço.
 
 ### <a name="apis-folder"></a>pasta de APIs
-O `apis` pasta contém uma pasta para cada API numa instância de serviço que contém os seguintes itens.
+O `apis` pasta contém uma pasta para cada API numa instância de serviço, que contém os seguintes itens.
 
 * `apis\<api name>\configuration.json` -Esta é a configuração para a API e contém informações sobre o URL do serviço de back-end e as operações. Isso é que as mesmas informações que seriam devolvidas se chamar [obter uma API específica](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) com `export=true` no `application/json` formato.
 * `apis\<api name>\api.description.html` -Esta é a descrição da API e corresponde à `description` propriedade o [entidade de API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Esta pasta contém `<operation name>.description.html` arquivos que mapeiam para as operações na API. Cada ficheiro contém a descrição de uma única operação na API que mapeia para o `description` propriedade o [entidade de operação](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) na REST API.
+* `apis\<api name>\operations\` -Esta pasta contém `<operation name>.description.html` arquivos que mapeiam para as operações na API. Cada ficheiro contém a descrição de uma única operação na API, que mapeia para o `description` propriedade o [entidade de operação](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) na REST API.
 
 ### <a name="groups-folder"></a>pasta de grupos
 O `groups` pasta contém uma pasta para cada grupo definido na instância do serviço.
@@ -259,8 +259,8 @@ O `templates` pasta contém a configuração para o [modelos de e-mail](api-mana
 Para obter informações sobre outras formas de gerir a sua instância de serviço, consulte:
 
 * Gerir a sua instância de serviço com os seguintes cmdlets do PowerShell
-  * [Referência do cmdlet do Powershell de implementação do serviço](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Referência de cmdlets do PowerShell da gestão de serviço](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Referência do cmdlet do Powershell de implementação do serviço](https://docs.microsoft.com/powershell/module/wds)
+  * [Referência de cmdlets do PowerShell da gestão de serviço](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gerir a sua instância de serviço com a API REST
   * [Referência da API de REST de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

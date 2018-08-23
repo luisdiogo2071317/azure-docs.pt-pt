@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099969"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057647"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>Migrar dados do StorSimple 5000-7000 série 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados de séries StorSimple 5000 a 7000 para o Azure File Sync
 
 Migração de dados é o processo de mover dados de uma localização de armazenamento para outro. Isso envolve fazer uma cópia exata de dados atual de uma organização de um dispositivo para outro dispositivo — preferencialmente, sem interromper ou desativar a aplicativos ativos — e, em seguida, redirecionar atividade (e/s) de todos os de entrada/saída para o novo dispositivo. 
 
@@ -67,17 +67,17 @@ Migrar dados do StorSimple 5000 a 7000 para AFS é um processo de dois passos:
 
 Execute os seguintes passos para migrar a partilha de ficheiros do Windows configurada nos volumes do StorSimple para uma partilha de sincronização de ficheiros do Azure. 
 1.  Efetue estes passos no mesmo anfitrião Windows Server em que os volumes do StorSimple estão montados ou utilizam um sistema diferente. 
-    - [Preparar o Windows Server para utilizar com o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Instalar o agente do Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Implementar o serviço de sincronização de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Registar o Windows Server com o serviço de sincronização de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Criar um grupo de sincronização e um ponto final da cloud] (https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Grupos de sincronização tem de ser feitas para cada partilha de ficheiros Windows que tem de ser migrados do anfitrião.
-    - [Criar um ponto de final de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Especifique o caminho como o caminho do volume do StorSimple que contém os dados de partilha de ficheiros. Por exemplo, se o volume do StorSimple é a unidade `J`, e seus dados residem em `J:/<myafsshare>`, em seguida, adicionar este caminho como um ponto final do servidor. Deixe o **disposição em camadas** como **desativado**.
+    - [Preparar o Windows Server para utilizar com o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
+    - [Instalar o agente do Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [Implementar o serviço de sincronização de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
+    - [Registar o Windows Server com o serviço de sincronização de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
+    - [Criar um grupo de sincronização e um ponto final da cloud](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Grupos de sincronização tem de ser feitas para cada partilha de ficheiros Windows que tem de ser migrados do anfitrião.
+    - [Criar um ponto de final de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Especifique o caminho como o caminho do volume do StorSimple que contém os dados de partilha de ficheiros. Por exemplo, se o volume do StorSimple é a unidade `J`, e seus dados residem em `J:/<myafsshare>`, em seguida, adicionar este caminho como um ponto final do servidor. Deixe o **disposição em camadas** como **desativado**.
 2.  Aguarde até que a sincronização de servidor de ficheiros estiver concluída. Para cada servidor num grupo de sincronização de determinado, certifique-se:
     - Os carimbos de data / para a última tentativa de sincronização para carregamento e transferência é recentes.
     - O estado está verde para carregamento e transferência.
-    - A atividade de sincronização mostra muito poucos ou nenhum arquivo restantes para sincronização.
-    - Os ficheiros não sincronizar é 0 para carregamento e transferência.
+    - O **atividade de sincronização** mostra muito poucos ou nenhum arquivo restantes para sincronização.
+    - O **ficheiros não sincronizar** é 0 para carregamento e transferência.
     Para obter mais informações sobre o quando a sincronização de servidor estiver concluída, aceda a [resolver problemas relacionados com o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). A sincronização poderá demorar várias horas ou dias, dependendo do tamanho dos dados e a largura de banda. Quando a sincronização estiver concluída, todos os seus dados estão em segurança na partilha de ficheiros do Azure. 
 3.  Vá para as partilhas nos volumes do StorSimple. Selecionar uma partilha, o botão direito do mouse e selecione **propriedades**. Tenha em atenção as permissões de partilha sob **segurança**. Estas permissões tem de ser aplicadas manualmente a partilha de novo no passo posterior.
 4.  Dependendo se utilizar o mesmo anfitrião do Windows Server ou outro, as próximas etapas serão diferentes.

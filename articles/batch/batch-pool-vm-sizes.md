@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 08/09/2018
 ms.author: danlep
-ms.openlocfilehash: 8f428df07de029bc79f26d5941d22e7472addb95
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1669d5a2237322f72dce3b172c32e7199900a4e0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916001"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054549"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para nós de computação num conjunto do Azure Batch
 
@@ -41,6 +41,7 @@ Os conjuntos do batch na configuração da Máquina Virtual suportam todos os ta
 | Série básico | Basic_A0 (A0) |
 | Série A | Standard_A0 |
 | Série B | Todos |
+| Série M | Todos |
 
 
 

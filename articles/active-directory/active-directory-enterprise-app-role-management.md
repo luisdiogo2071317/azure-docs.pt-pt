@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/10/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8bf7f18f8051f1647a86bbe9c0be638045781a72
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cb4c9f91c7a116e6171a8e94030b6bb40fdb38ea
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989916"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056749"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configurar a afirmação de função emitida no token SAML para aplicações empresariais no Azure Active Directory
 
@@ -67,6 +67,9 @@ Se seu aplicativo espera funções personalizadas a serem passados numa resposta
     c. Selecione as seguintes permissões na lista (se ainda não tiver estas) e selecione **modificar permissões**.
 
       ![Lista de permissões e botão "Modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    > [!Note]
+    > Função de administrador da aplicação de cloud e o administrador da aplicação não irá funcionar neste cenário, porque temos as permissões de Administrador Global para o diretório de leitura e escrita.
 
     d. Aceite o consentimento. Tem sessão iniciada para o sistema novamente.
 

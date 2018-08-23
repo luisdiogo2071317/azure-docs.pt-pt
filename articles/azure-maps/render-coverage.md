@@ -1,38 +1,38 @@
 ---
-title: Cobertura do Azure Maps de composição | Microsoft Docs
-description: Saiba mais sobre a cobertura de composição Maps do Azure
-author: jinzh-azureiot
+title: Cobertura do Azure Maps de composição | Documentos da Microsoft
+description: Saiba mais sobre a cobertura de composição no Azure Maps
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600583"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054962"
 ---
-# <a name="azure-maps-render-coverage"></a>Cobertura de composição de mapas do Azure
+# <a name="azure-maps-render-coverage"></a>Cobertura de composição do Azure Maps
 
-Mapas do Azure utiliza quadrícula mosaicos e vetor mosaicos para criar o maps. Na sua resolução mais baixa, o mundo inteiro encaixa num mosaico único. A sua resolução máxima, um único mosaico representa 38 medidores quadrados. Como ampliar num mapa, por conseguinte, pode ver cada vez mais mais detalhes sobre continentes, regiões, cidades e streets individuais. Para obter mais informações, consulte [níveis de Zoom e mosaico grelha](zoom-levels-and-tile-grid.md).
+Mapas do Azure utiliza quadrícula mosaicos e mosaicos em vetor, a criação de mapas. Em sua resolução menor, todo o mundo se encaixa num único mosaico. Em sua resolução mais elevada, um único mosaico representa 38 metros quadrados. Como aplicar zoom num mapa, por conseguinte, pode ver cada vez mais detalhes sobre continentes, regiões, cidades e ruas individuais. Para obter mais informações, consulte [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md).
 
-No entanto, o Maps não tem o mesmo nível de informações e a precisão para todas as regiões. As tabelas seguintes fornecem informações sobre o nível de detalhe composto pode esperar da cada região.
+No entanto, o Maps não tem o mesmo nível de informações e a precisão em todas as regiões. As tabelas seguintes fornecem informações sobre o nível de detalhe composto que pode esperar de cada região.
 
 ## <a name="legend"></a>Legenda
 
 | Símbolo | Significado |
 |--------|---------|
 | ✓ | Região é representada com dados detalhados.   |
-| Ø | Região é representada com dados simplificados. |
+| Ø | Região é representada com dados simplificada. |
 
 
 ## <a name="africa"></a>África 
 
 
-| Região | Mosaicos de quadrícula unificados | Mosaicos de vetor unificados |
+| Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Argélia                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -84,7 +84,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Sudão do Sul                      |   | Ø |
 | Sudão                            |   | Ø |
 | Suazilândia                        | ✓ | ✓ |
-| República Unida da Tanzânia      | ✓ | ✓ |
+| Unidos República Unida da Tanzânia      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunísia                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -93,7 +93,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 
 ## <a name="americas"></a>Américas
 
-| Região | Mosaicos de quadrícula unificados | Mosaicos de vetor unificados |
+| Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Anguila                  | ✓ | ✓ |
 | Antígua e Barbuda       | ✓ | ✓ |
@@ -103,13 +103,13 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
 | Bermudas                   |   | ✓ |
-| Estado de Plurinational de Bolivia |   | ✓ |
+| Estado Plurinacional da Bolívia |   | ✓ |
 | Bonaire, Santo Eustáquio e Saba |   | ✓ |
 | Brasil                    | ✓ | ✓ |
 | Canadá                    | ✓ | ✓ |
 | Ilhas Caimão            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| Clipperton ilha         |   | ✓ |
+| Ilha de Clipperton         |   | ✓ |
 | Colômbia                  | ✓ | ✓ |
 | Costa Rica                |   | ✓ |
 | Cuba                      | ✓ | ✓ |
@@ -136,14 +136,14 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Paraguai                  |   | ✓ |
 | Peru                      | ✓ | ✓ |
 | Porto Rico               | ✓ | ✓ |
-| Quebec (Canadá)           |   | ✓ |
+| Quebeque (Canadá)           |   | ✓ |
 | São Bartolomeu          | ✓ | ✓ |
 | São Cristóvão e Neves     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
-| São Martin (francês)     | ✓ | ✓ |
+| São Martinho (francês)     | ✓ | ✓ |
 | São Pedro e Miquelão |   | ✓ |
 | São Vicente e Granadinas | ✓ | ✓ |
-| Santo Maarten (Neerlandês)      | ✓ | ✓ |
+| Sint Maarten (Holandês)      | ✓ | ✓ |
 | Ilhas Geórgia do Sul e Sandwich do Sul |   | ✓ |
 | Suriname                  |   | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
@@ -156,7 +156,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 
 ## <a name="asia"></a>Ásia 
 
-| Região | Mosaicos de quadrícula unificados | Mosaicos de vetor unificados |
+| Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Afeganistão               |   | Ø |
 | Bahrain                   | ✓ | ✓ |
@@ -208,9 +208,9 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Vietname                   | ✓ | ✓ |
 | Iémen                     | ✓ | ✓ |
 
-## <a name="oceania"></a>Oceania
+## <a name="oceania"></a>Oceânia
 
-| Região | Mosaicos de quadrícula unificados | Mosaicos de vetor unificados |
+| Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Samoa Americana            |   | ✓ |
 | Austrália                 | ✓ | ✓ |
@@ -240,7 +240,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 
 ## <a name="europe"></a>Europa
 
-| Região | Mosaicos de quadrícula unificados | Mosaicos de vetor unificados |
+| Região | Mosaicos de varredura unificados | Mosaicos em vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Albânia                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
@@ -249,7 +249,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Azerbaijão                |   | Ø |
 | Bielorrússia                   | Ø | ✓ |
 | Bélgica                   | ✓ | ✓ |
-| Marco convertível        | ✓ | ✓ |
+| Bósnia e Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
 | Croácia                   | ✓ | ✓ |
 | Chipre                    | ✓ | ✓ |
@@ -266,7 +266,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Guernsey                  |   | ✓ |
 | Hungria                   | ✓ | ✓ |
 | Islândia                   | ✓ | ✓ |
-| Irlanda (República das)     | ✓ | ✓ |
+| Irlanda (República da)     | ✓ | ✓ |
 | Ilha de Man               |   | ✓ |
 | Itália                     | ✓ | ✓ |
 | Jan Mayen                 |   | ✓ |
@@ -290,7 +290,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Sérvia                    | ✓ | ✓ |
 | Eslováquia                  | ✓ | ✓ |
 | Eslovénia                  | ✓ | ✓ |
-| Kurils Austrais           |   | ✓ |
+| Territórios Austrais Kurils           |   | ✓ |
 | Espanha                     | ✓ | ✓ |
 | Svalbard                  |   | ✓ |
 | Suécia                    | ✓ |   |
@@ -302,6 +302,6 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a composição de mapas do Azure, consulte [níveis de Zoom e mosaico grelha](zoom-levels-and-tile-grid.md).
+Para obter mais informações sobre a composição do Azure Maps, consulte [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md).
 
-Saiba mais sobre o [cobertura as áreas para os serviço de encaminhamento de Maps](routing-coverage.md). 
+Saiba mais sobre o [áreas de cobertura para os mapas de serviço de encaminhamento](routing-coverage.md). 

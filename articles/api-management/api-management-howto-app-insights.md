@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001808"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055393"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar a gestão de API do Azure com o Azure Application Insights
 
@@ -111,9 +111,15 @@ Uma solicitação com falha é um pedido, que:
 
 Com base nos testes de carga interno, a ativação desta funcionalidade por uma redução de 40% a 50% na taxa de transferência quando a taxa de pedidos excedeu a 1000 pedidos por segundo. O Azure Application Insights foi concebido para utilizar a análise estatística para avaliar os desempenhos do aplicativo. Ele não se destina a ser um sistema de auditoria e não é adequado para cada pedido individual para APIs de grande volume de registo.
 
-Pode manipular o número de pedidos que está a ser conectado ao ajustar a **amostragem** definição (consulte os passos acima). Valor de meios de 100%, todas as solicitações são registadas, enquanto 0% não reflete em todos os nenhum registo. **Amostragem** ajuda a reduzir o volume de telemetria, com eficiência a impedir que monitorizava significativa do desempenho, ao mesmo tempo ainda com os benefícios do Registro em log.
+Pode manipular o número de pedidos que está a ser conectado ao ajustar a **amostragem** definição (consulte os passos acima). Valor de meios de 100%, todas as solicitações são registadas, enquanto 0% não reflete em todos os nenhum registo. **Amostragem** ajuda a reduzir o volume de telemetria, com eficiência a impedir que degradação significativa do desempenho, ao mesmo tempo ainda com os benefícios do Registro em log.
 
 A ignorar o registo de cabeçalhos e o corpo de solicitações e respostas também terão um impacto positivo resolvendo problemas de problemas de desempenho.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>Passos Seguintes
 

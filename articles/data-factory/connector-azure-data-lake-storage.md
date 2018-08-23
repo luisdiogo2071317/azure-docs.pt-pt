@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 172747032990bb16d19ecf9d53adbd3da2f5887c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592062"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058781"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Copiar dados de ou para o Azure Data Lake Storage Gen2 pré-visualização com o Azure Data Factory (pré-visualização)
 
@@ -33,7 +33,7 @@ Especificamente, este conector suporta:
 - Copiar ficheiros como-está ou análise ou ficheiros com a gerar [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Não se ativar o espaço de nomes hierárquico, existe atualmente nenhum interoperabilidade de operações entre BLOBs e as APIs de geração 2 do ADLS. No caso de atingir o erro de "código de erro = FilesystemNotFound" com a mensagem detalhada como "o sistema de ficheiros especificado não existe.", é provocado por coletor especificado sistema de ficheiros foi criado através da API de Blob em vez da API de geração 2 do ADLS em outro lugar. Para corrigir o problema, utilize um nome de sistema de ficheiros que não existia e ADF irá copiar os dados corretamente.
+>Não se ativar o espaço de nomes hierárquico, existe atualmente nenhum interoperabilidade de operações entre BLOBs e as APIs de geração 2 do ADLS. No caso de atingir o erro de "código de erro = FilesystemNotFound" com a mensagem detalhada como "o sistema de ficheiros especificado não existe.", é provocado por coletor especificado sistema de ficheiros foi criado através da API de Blob em vez da API de geração 2 do ADLS em outro lugar. Para corrigir o problema, especifique um novo sistema de ficheiros com um nome que não existe como o nome de um contentor de BLOBs e ADF criará automaticamente esse sistema de ficheiros durante a cópia de dados.
 
 ## <a name="get-started"></a>Introdução
 

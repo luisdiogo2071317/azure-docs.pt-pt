@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115678"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054789"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -213,12 +213,14 @@ Para criar uma nova implementação de atualização, selecione **agendar a impl
 
 | Propriedade | Descrição |
 | --- | --- |
-|Nome |O nome exclusivo para identificar a implementação de atualizações. |
-|Sistema Operativo| Selecione **Linux** ou **Windows**.|
-|Computadores a atualizar |Selecione uma procura guardada ou selecione **máquina** na lista pendente e, em seguida, selecione máquinas individuais. |
-|Classificações de atualizações|Selecione todas as classificações de atualização que precisa. CentOS não suporta esta prontos a utilizar.|
-|Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o artigo KB sem o **KB** prefixo. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
-|Definições da agenda|Selecione a hora de começar e, em seguida, selecione **uma vez** ou **periódico** da periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de seis horas. |
+| Nome |O nome exclusivo para identificar a implementação de atualizações. |
+|Sistema Operativo| Linux ou Windows|
+| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **máquinas**, a preparação da máquina é mostrada na **preparação do agente de ATUALIZAÇÃO** coluna.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
+|Atualizações a excluir|Introduza as atualizações a excluir. Para o Windows introduza KB sem o prefixo "KB. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
+|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
+| Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
+| Controlo de reinício| Detemines como devem ser tratadas reinicializações.</br>Opções disponíveis são:</br>Reiniciar, se necessário (predefinição)</br>Reiniciar sempre</br>Nunca reinício</br>Reinício apenas - não irá instalar as atualizações|
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
@@ -273,7 +275,7 @@ Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas 
 Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página: [documentação de procurar API do Log Analytics](
 https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Amostras de consultas
+### <a name="sample-queries"></a>Consultas de exemplo
 
 As secções seguintes fornecem consultas de registo de exemplo para registos de atualizações que são recolhidos por esta solução:
 

@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247332"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059230"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -63,6 +63,27 @@ No Visual Studio:
 2. Alterar as definições de **verbosidade de saída da compilação de projeto do MSBuild** ao **Detailed** ou **diagnóstico**.
 
     ![Caixa de diálogo Opções de captura de ecrã de ferramentas](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Resolução de nomes DNS falha por um URL público associado a um serviço de espaços de desenvolvimento
+
+Quando isto acontecer, poderá ver um erro "não é possível aceder este site" em seu navegador da web quando tentar ligar-se para o URL público associado a um serviço de espaços de desenvolvimento ou de "Não é possível apresentar a página".
+
+### <a name="try"></a>Experimente:
+
+Pode utilizar o seguinte comando para listar todas as URLs associadas com os serviços de espaços de desenvolvimento:
+
+```cmd
+azds list-uris
+```
+
+Se um URL no *pendente* Estado, o que significa que os espaços de desenvolvimento ainda está a aguardar concluir o registo de DNS. Às vezes, demora alguns minutos para que isso aconteça. Espaços de desenvolvimento também é aberto um túnel de localhost para cada serviço, que pode utilizar enquanto estiver aguardando o registo de DNS.
+
+Se um URL continuará a ser o *pendente* de estado durante mais de 5 minutos, tal poderá indicar um problema com o pod DNS externo que cria o ponto final público e/ou o pod de controlador de entrada nginx adquire o ponto final público. Pode utilizar os comandos seguintes para eliminar estas pods. Eles serão recriados automaticamente.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>Erro "Necessário ferramentas e configurações estão em falta"
 
@@ -119,6 +140,14 @@ A iniciar o depurador do VS Code, às vezes, pode resultar em erro. Este é um p
 1. Feche e reabra o VS Code.
 2. Aperte F5 novamente.
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Depuração de erro 'Falha ao localizar a extensão de depurador para o tipo: coreclr'
+Executar o depurador do VS Code reporta o erro: `Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>Razão
+Não tem a extensão do VS Code para c# instalado no computador de desenvolvimento que inclui a depuração de suporte para .net Core (CoreCLR).
+
+### <a name="try"></a>Experimente:
+Instalar o [extensão do VS Code para c#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Depuração de erro 'o tipo de depuração de configurado 'coreclr' não é suportado'
 Executar o depurador do VS Code reporta o erro: `Configured debug type 'coreclr' is not supported.`

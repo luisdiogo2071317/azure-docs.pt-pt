@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444944"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060896"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 Um gateway de dados no local é necessário quando um ou mais servidores do Azure Analysis Services na mesma região que se ligam a origens de dados no local. Para saber mais sobre o gateway, veja [gateway de dados no local](analysis-services-gateway.md).
@@ -38,6 +38,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 * Instale o gateway num computador que permanece no e não entra em suspensão.
 * Não instale o gateway num computador wirelessly ligado à sua rede. Pode ser reduzido o desempenho.
 * Inicie sessão no Azure com uma conta no Azure AD para o mesmo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que a subscrição que está a registar o gateway. B2B do Azure contas (convidado) não são suportadas quando instalar e registar um gateway.
+* Se a origens de dados estiverem numa rede Virtual do Azure (VNet), tem de configurar o [AlwaysUseGateway](analysis-services-vnet-gateway.md) propriedade do servidor.
 * O gateway (unificado) descrito aqui não é suportado nas regiões de soberania Azure Government, Azure Alemanha e China do Azure. Uso **gateway no local dedicado para o Azure Analysis Services**, instalado a partir do seu servidor **início rápido** no portal. 
 
 
@@ -114,4 +115,5 @@ E já está. Se precisar de abrir as portas ou fazer qualquer solução de probl
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Gerir os serviços de análise](analysis-services-manage.md)   
-* [Obter dados do Azure Analysis Services](analysis-services-connect.md)
+* [Obter dados do Azure Analysis Services](analysis-services-connect.md)   
+* [Utilizar o gateway para origens de dados numa rede Virtual do Azure](analysis-services-vnet-gateway.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626816"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060875"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -82,7 +82,7 @@ Obter uma estimativa de tempo para concluir: uma hora para menos de 1.000 usuár
 
 Saiba mais: [identidade Noções básicas sobre o Office 365 e Azure Active Directory - identidade federada](https://support.office.com/article/Understanding-Office-365-identity-and-Azure-Active-Directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9#bk_federated)
 
-## <a name="branding"></a>Imagem corporativa
+## <a name="branding"></a>Personalização
 
 Obter uma estimativa de tempo para concluir: 15 minutos
 
@@ -185,7 +185,7 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 | --- | --- |
 | Instalar a extensão de browser | [Extensão do painel de acesso para o IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do painel de acesso para o Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do painel de acesso para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar a aplicação da Galeria | [O que há de novo no gerenciamento de aplicativo empresarial no Azure Active Directory: A Galeria de aplicações de novas e melhoradas](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe no](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Atribuir a aplicação para o grupo identificado nos pré-requisitos | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso |  |
 | Clique no mosaico da aplicação que acabou de ser criado. | [O que é o painel de acesso?: SSO baseado em palavra-passe sem o aprovisionamento de identidade](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -220,7 +220,7 @@ Obter uma estimativa de tempo para concluir: 30 minutos
 | --- | --- |
 | Instalar a extensão de browser | [Extensão do painel de acesso para o IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do painel de acesso para o Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do painel de acesso para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar a aplicação da Galeria | [O que há de novo no gerenciamento de aplicativo empresarial no Azure Active Directory: A Galeria de aplicações de novas e melhoradas](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe no](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Atribuir a aplicação para o grupo identificado nos pré-requisitos ao atribuir-lhes credenciais | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Iniciar sessão, como diferentes usuários, essa aplicação de acesso, como o **mesmo partilhado conta.**  |  |
 | Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |

@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342791"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055603"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37342791"
 Utilize as orientações neste artigo para implementar o serviço de aplicações no Azure Stack.
 
 >[!IMPORTANT]  
->Aplicar a atualização de 1804 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.2 de serviço de aplicações do Azure.
+>Aplicar a atualização de 1807 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.3 de serviço de aplicações do Azure.
 
 Pode dar a capacidade de criar aplicações de API web e os seus utilizadores. Para permitir aos utilizadores criar esses aplicativos, terá de:
 
@@ -131,6 +131,18 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     > [!NOTE]
     > O instalador tentará testar a conectividade ao SQL Server antes de continuar. No entanto, se estiver a implementar uma rede virtual existente, este teste de conectividade pode de ficheiros. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
+    >
+    > Do serviço de aplicações do Azure no Azure 1.3 de pilha e posteriores, o instalador irá verificar que o SQL Server tem de contenção da base de dados ativada ao nível do servidor SQL.  Se não for, será solicitado com a seguinte exceção:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Consulte a [notas de versão do serviço de aplicações do Azure no Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para obter mais detalhes.
 
     ![Instalador do serviço de aplicações][11]
 

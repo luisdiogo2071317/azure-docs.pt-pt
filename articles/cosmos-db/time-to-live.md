@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480561"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059232"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar dados nas coleções do Azure Cosmos DB automaticamente com o tempo de duração
 Aplicações podem produzir e armazenar grandes quantidades de dados. Alguns destes dados, como o computador gerado dados, registos e utilizador a sessão do evento informações só são úteis para um período finito de tempo. Depois dos dados se torna surplus às necessidades do aplicativo, é seguro remover estes dados e reduzir as necessidades de armazenamento de um aplicativo.
@@ -41,11 +41,11 @@ Assim que o documento expirou (`ttl`  +  `_ts` < = hora atual do servidor), o do
 
 A lógica acima pode ser apresentada na matriz seguinte:
 
-|  | DefaultTTL em falta ou não definido na coleção de | DefaultTTL = -1 na coleção | DefaultTTL = "n" na coleção |
+|  | DefaultTTL em falta ou não definido na coleção de | DefaultTTL = -1 na coleção | DefaultTTL = n "na coleção |
 | --- |:--- |:--- |:--- |
-| TTL em falta no documento |Nada para substituir no nível de documento, uma vez que o documento e a coleção não tem nenhum conceito de TTL. |Não existem documentos nesta coleção irão expirar. |Os documentos nesta coleção irão expirar quando o período de intervalo n. |
-| TTL = -1 no documento |Nada para substituir a nível de documento, uma vez que a coleção não define a propriedade de DefaultTTL que pode substituir um documento. TTL num documento é não interpretado pelo sistema. |Não existem documentos nesta coleção irão expirar. |O documento com valor de TTL =-1 nesta coleção nunca irá expirar. Todos os outros documentos irão expirar após o intervalo de "n". |
-| TTL = n no documento |Nada para substituir a nível de documento. TTL num documento é não interpretado pelo sistema. |O documento com valor de TTL = n irá expirar após n de intervalo, em segundos. Outros documentos irão herdar intervalo de -1 e nunca expirar. |O documento com valor de TTL = n irá expirar após n de intervalo, em segundos. Outros documentos irão herdar intervalo de "n" da coleção. |
+| TTL em falta no documento |Nada para substituir no nível de documento, uma vez que o documento e a coleção não tem nenhum conceito de TTL. |Não existem documentos nesta coleção irão expirar. |Os documentos nesta coleção irão expirar quando n de intervalo "decorrida. |
+| TTL = -1 no documento |Nada para substituir a nível de documento, uma vez que a coleção não define a propriedade de DefaultTTL que pode substituir um documento. TTL num documento é não interpretado pelo sistema. |Não existem documentos nesta coleção irão expirar. |O documento com valor de TTL =-1 nesta coleção nunca irá expirar. Todos os outros documentos irão expirar após n' intervalo. |
+| TTL = n no documento |Nada para substituir a nível de documento. TTL num documento é não interpretado pelo sistema. |O documento com valor de TTL = n irá expirar após n de intervalo, em segundos. Outros documentos irão herdar intervalo de -1 e nunca expirar. |O documento com valor de TTL = n irá expirar após n de intervalo, em segundos. Outros documentos herdará n' intervalo da coleção. |
 
 ## <a name="configuring-ttl"></a>Configurar o valor de TTL
 Por predefinição, o TTL é desativado por predefinição em todas as coleções do Cosmos DB e em todos os documentos. Valor de TTL pode ser definido por meio de programação ou através do portal do Azure. Utilize os seguintes passos para configurar o TTL a partir do portal do Azure:

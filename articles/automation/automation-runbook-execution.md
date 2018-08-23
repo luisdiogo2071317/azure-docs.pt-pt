@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214640"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055571"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -38,7 +38,7 @@ A tabela seguinte descreve os diferentes Estados possíveis para uma tarefa.
 
 | Estado | Descrição |
 |:--- |:--- |
-| Concluída |A tarefa foi concluída com êxito. |
+| Concluído |A tarefa foi concluída com êxito. |
 | Com Falhas |Para [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), não foi possível iniciar o runbook ou a tarefa encontrou uma exceção. |
 | Falha ao aguardar que recursos |A tarefa falhou porque atingiu o [justa](#fair-share) limitar três vezes e iniciado a partir do ponto de verificação mesmo ou desde o início do runbook cada vez. |
 | Em Fila |A tarefa está a aguardar para recursos num trabalho de automatização fique disponível para que ele pode ser iniciado. |
@@ -88,7 +88,7 @@ Pode utilizar os seguintes passos para ver as tarefas de um runbook.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>A obter o estado da tarefa com o Windows PowerShell
 
-Pode utilizar o [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) para obter as tarefas criadas para um runbook e os detalhes de uma tarefa específica. Se iniciar um runbook com o Windows PowerShell através de [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), em seguida, ele retorna a tarefa resultante. Uso [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)o resultado de saída para obter uma tarefa.
+Pode utilizar o [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) para obter as tarefas criadas para um runbook e os detalhes de uma tarefa específica. Se iniciar um runbook com o Windows PowerShell através de [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), em seguida, ele retorna a tarefa resultante. Uso [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para uma tarefa de obter o resultado.
 
 Os seguintes comandos de exemplo recuperar a última tarefa de um runbook de exemplo e exibir o respetivo estado, os valores fornecidos para os parâmetros do runbook e o resultado da tarefa.
 
@@ -145,7 +145,7 @@ Isso serve para proteger o serviço de runbooks em execução indefinidamente se
 
 Se o runbook tiver sem pontos de verificação ou a tarefa não tinha alcançado o primeiro ponto de verificação antes de a ser descarregado, em seguida, reinicia desde o início.
 
-Para execução prolongada tarefas, é recomendado utilizar um [Runbook Worker híbrido](automation-hrw-run-runbooks.md#job-behavior). Os Runbook Workers híbridos não estão limitados pelo justa e não tem uma limitação quanto um runbook pode executar.
+Para tarefas de execução prolongadas, é recomendado utilizar uma [Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md#job-behavior). As Funções de Trabalho de Runbook Híbridas não estão limitadas pela fração justa e não têm limites quanto à duração de execução de um runbook.
 
 Se estiver a utilizar um runbook de fluxo de trabalho do PowerShell no Azure, ao criar um runbook, deve garantir que o tempo para executar todas as atividades entre dois pontos de verificação não exceda três horas. Poderá ter de adicionar pontos de verificação ao runbook para se certificar de que não atingir este limite de três horas ou divida de longa execução de operações. Por exemplo, o runbook pode executar um reindex num banco de dados SQL. Se esta operação única não for concluída dentro do limite de cota razoável, a tarefa é descarregada e reiniciada desde o início. Neste caso, deve dividir a operação de reindex em várias etapas, como a reindexação uma tabela por vez e, em seguida, inserir um ponto de verificação após cada operação para que a tarefa foi retomada após a última operação seja concluída.
 

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2a447931ea850c4ccbe618270de5fbbc9b9eaea7
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95ab06685452f647884bf92f110e3ab56f3c2714
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366601"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055160"
 ---
 # <a name="azure-stack-registration"></a>Registo do Azure Stack
 Pode registrar sua instalação do Azure Stack Development Kit (ASDK) com o Azure para transferir itens do marketplace do Azure e configurar relatórios de volta à Microsoft de dados de comércio. É necessário Registro para dar suporte a todas as funcionalidades do Azure Stack, incluindo a distribuição de mercado. Registo é recomendado porque permite-lhe testar a funcionalidade importante do Azure Stack, como relatórios de utilização e distribuição de mercado. Depois de registar o Azure Stack, a utilização é comunicada ao Azure commerce. Pode vê-lo sob a subscrição utilizada para o registo. No entanto, os utilizadores ASDK para não são cobrados qualquer utilização que reportam.
@@ -47,23 +47,26 @@ Siga estes passos para registar o ASDK com o Azure.
 
 2. Execute os seguintes comandos do PowerShell para registar a sua instalação ASDK com o Azure. Terá de iniciar sessão na sua subscrição do Azure e a instalação de ASDK local. Se não tiver uma subscrição do Azure, ainda, pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registar o Azure Stack, incorre em sem custos na sua subscrição do Azure.  
 
+Se estiver a executar o script de Registro em mais de uma instância do Azure Stack com o mesmo ID de subscrição do Azure, defina um nome exclusivo para o registo ao executar o **Set-AzsRegistration** cmdlet. O **RegistrationName** parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se utilizar o mesmo nome em mais de uma instância do Azure Stack, o script falhará.
+
   ```PowerShell  
-  # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
-  Add-AzureRmAccount -EnvironmentName "AzureCloud"
+    # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
+    Add-AzureRmAccount -EnvironmentName "AzureCloud"
 
-  # Register the Azure Stack resource provider in your Azure subscription
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+    # Register the Azure Stack resource provider in your Azure subscription
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+    #Import the registration module that was downloaded with the GitHub tools
+    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  #Register Azure Stack
-  $AzureContext = Get-AzureRmContext
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
-  Set-AzsRegistration `
-      -PrivilegedEndpointCredential $CloudAdminCred `
-      -PrivilegedEndpoint AzS-ERCS01 `
-      -BillingModel Development
+    #Register Azure Stack
+    $AzureContext = Get-AzureRmContext
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    Set-AzsRegistration `
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName "<Unique-name>"
   ```
 3. Quando o script tiver concluído, deverá ver esta mensagem: **seu ambiente está agora registado e ativado usando os parâmetros fornecidos.**
 

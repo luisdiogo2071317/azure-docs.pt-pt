@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599219"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054991"
 ---
 # <a name="os-patching-for-hdinsight"></a>Sistema operacional a aplicação de patches para HDInsight 
 Como um serviço gerido do Hadoop HDInsight assume o controlo de aplicação de patches de SO das VMs subjacentes utilizados pelos clusters do HDInsight. A partir de 1 de Agosto de 2016, alteramos a política de aplicação de patches de SO convidado para clusters do HDInsight baseado em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido a aplicação de patches. A nova política irá continuar a máquinas de virtuais de patch (VMs) em clusters do Linux cada segunda-feira ou a partir de 12 AM UTC de forma escalonada em todos os nós em qualquer determinado cluster de quinta-feira. No entanto, qualquer VM especificada só será reiniciado no máximo uma vez a cada 30 dias devido a aplicação de patches de SO convidado. Além disso, o primeiro reinício para um cluster recém-criado não acontece mais cedo do que 30 dias a partir da data de criação do cluster. Patches entrarão em vigor assim que as VMs são reiniciadas.
@@ -59,7 +59,7 @@ Se aplicar o script como parte do processo de criação do cluster, ele é manti
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para passos específicos sobre como utilizar a ação de script, consulte as secções seguintes a [HDInsight baseado em Linuz personalizar clusters com ação de script](hdinsight-hadoop-customize-cluster-linux.md):
+Para passos específicos sobre como utilizar a ação de script, consulte as secções seguintes a [HDInsight baseado em Linux personalizar clusters com ação de script](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Utilize uma ação de script durante a criação do cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Aplicar uma ação de script para um cluster em execução](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

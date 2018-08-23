@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162019"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054348"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
 
@@ -28,7 +28,7 @@ Líderes da indústria a informá-lo para não utilizar a mesma palavra-passe em
 
 ## <a name="global-banned-password-list"></a>Lista de palavra-passe banidas global
 
-Microsoft sempre está trabalhando para estar um passo à frente dos cibercriminosos. Portanto a equipa do Azure AD Identity Protection continuamente procure palavras-passe comprometidas e comumente utilizadas. Eles bloqueiam, em seguida, essas palavras-passe que são consideradas muito comuns em que é chamado a lista de palavra-passe banidas global. Os cibercriminosos também utilizam estratégias semelhantes em seus ataques, portanto Microsoft não publica o conteúdo desta lista publicamente. Estas palavras-passe vulneráveis é bloqueados antes de se tornarem uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços de segurança atual, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
+A Microsoft está sempre a trabalhar para estar um passo à frente dos cibercriminosos. Portanto a equipa do Azure AD Identity Protection continuamente procure palavras-passe comprometidas e comumente utilizadas. Eles bloqueiam, em seguida, essas palavras-passe que são consideradas muito comuns em que é chamado a lista de palavra-passe banidas global. Os cibercriminosos também utilizam estratégias semelhantes em seus ataques, portanto Microsoft não publica o conteúdo desta lista publicamente. Estas palavras-passe vulneráveis é bloqueados antes de se tornarem uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços de segurança atual, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
 
 ## <a name="preview-custom-banned-password-list"></a>Pré-visualização: Personalizado banida lista de palavra-passe
 
@@ -54,11 +54,10 @@ Sempre que um utilizador repõe ou altera a palavra-passe do Azure AD, flui por 
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
-Os benefícios da lista de palavra-passe banidas global aplicam-se a todos os utilizadores do Azure Active Directory (Azure AD).
-
-A lista de palavras-passe banidas personalizado requer licenças do Azure AD básico.
-
-Proteção de palavra-passe do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium. 
+|   | Proteção de palavra-passe do Azure AD com a lista de palavra-passe banidas global | Proteção de palavra-passe do Azure AD com a lista de palavras-passe banidas personalizado|
+| --- | --- | --- |
+| Utilizadores apenas na cloud | Azure AD Gratuito | Azure AD Básico |
+| Os utilizadores sincronizados no local Windows Server Active Directory | O Azure AD Premium P1 ou P2 | O Azure AD Premium P1 ou P2 |
 
 Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas no [do Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
 

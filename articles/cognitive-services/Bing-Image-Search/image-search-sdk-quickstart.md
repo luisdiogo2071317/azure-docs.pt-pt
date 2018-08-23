@@ -1,6 +1,6 @@
 ---
-title: Pesquisa de imagem início rápido SDK c# | Microsoft Docs
-description: Configure a pesquisa de imagem SDK na aplicação de consola c#.
+title: 'Pedido de início rápido: E filtrar imagens com o SDK com c#'
+description: Neste início rápido, pedir e filtrar as imagens devolvidas pela pesquisa de imagens Bing, usando a linguagem c#.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
 author: mikedodaro
@@ -10,42 +10,42 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
-ms.openlocfilehash: f58556f13bb25c3ea2ed9378c0669d649554a8c0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 81375019e53b49b531fde1f81fbcb9a061cc5562
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355256"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987604"
 ---
-# <a name="image-search-sdk-c-quickstart"></a>Imagem pesquisa SDK c# início rápido
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-c"></a>Pedido de início rápido: E filtrar imagens com o SDK e c#
 
-O SDK de pesquisa do Bing imagem contém as funcionalidades da API REST para pedidos de imagem e resultados de análise. 
+O SDK de pesquisa de imagens do Bing contém a funcionalidade da API REST para solicitações de imagem e os resultados da análise. 
 
-O [origem código para amostras de c# Bing imagem SDK Search](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) está disponível no Hub de Git.
+O [da origem de código para exemplos de c# SDK do Bing imagens pesquisa](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) está disponível no Hub de Git.
 
-## <a name="application-dependencies"></a>Dependências da aplicação
+## <a name="application-dependencies"></a>Dependências de aplicações
 
-Para configurar uma aplicação de consola utilizando o SDK de pesquisa do Bing imagens, navegue para o `Manage NuGet Packages` opção do Explorador de soluções no Visual Studio.  Adicionar o `Microsoft.Azure.CognitiveServices.Search.ImageSearch` pacote.
+Para configurar uma aplicação de consola com o SDK de pesquisa de imagens do Bing, navegue para o `Manage NuGet Packages` opção a partir do Explorador de soluções no Visual Studio.  Adicionar o `Microsoft.Azure.CognitiveServices.Search.ImageSearch` pacote.
 
-Instalar o [pacote NuGet imagem pesquisa](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) também instala as dependências, incluindo:
+Instalar o [pacote de pesquisa de imagens do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) também instala as dependências, incluindo:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft
 
 ## <a name="image-search-client"></a>Cliente de pesquisa de imagem
-Para criar uma instância do `ImageSearchAPI` cliente, adicione as diretivas de a utilizar:
+Para criar uma instância do `ImageSearchAPI` cliente, adicionar com diretivas:
 ```
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
 
 ```
-Em seguida, instanciar o cliente:
+Em seguida, criar uma instância do cliente:
 ```
 var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-Utilize o cliente para a pesquisa com um texto de consulta:
+Utilize o cliente para pesquisar com um texto de consulta:
 ```
 // Search for "Yosemite National Park"
 var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
@@ -75,7 +75,7 @@ Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.Tota
 
 ## <a name="complete-console-application"></a>Aplicação de consola concluída
 
-A aplicação de consola seguinte executa a consulta definida anteriormente "Rockies no Canadá" para obter os resultados de pesquisa, em seguida, primeiro insights token, miniatura o url da imagem e o url da imagem de conteúdo de impressão:
+A aplicação de consola seguinte executa a consulta de previamente definida "Rockies canadense" para obter os resultados de pesquisa, em seguida, imprimir primeira imagem em miniatura, token url de informações e o url de conteúdo de imagem:
 
 ```
 using System;
@@ -186,11 +186,11 @@ namespace ImageSrchSDK
 
 ## <a name="search-options"></a>Opções de pesquisa
 
-Os exemplos de pesquisa do Bing demonstram diversas funcionalidades do SDK.  Adicione as seguintes funções para definida anteriormente `ImageSrchSDK` classe.
+Os exemplos de pesquisa do Bing demonstram vários recursos do SDK.  Adicione as seguintes funções para definido anteriormente `ImageSrchSDK` classe.
 
-### <a name="search-using-a-filter"></a>Utilizando um filtro de pesquisa
+### <a name="search-using-a-filter"></a>Utilizar um filtro de pesquisa
 
-Imagens de pesquisa para "studio ghibli", filtrada para gifs animado e wide aspeto, em seguida, verifique o número de resultados e imprimir insightsToken, url em miniatura e url do resultado primeiro.
+Imagens de pesquisa para "studio ghibli", filtrada para os GIF animados e amplo aspecto, em seguida, verifique se o número de resultados e imprimir insightsToken, url de miniaturas e url do primeiro resultado.
 
 ```
         public static void ImageSearchWithFilters(ImageSearchAPI client)
@@ -234,7 +234,7 @@ Imagens de pesquisa para "studio ghibli", filtrada para gifs animado e wide aspe
 
 ### <a name="trending-images"></a>Imagens populares
 
-Procure imagens tendências e, em seguida, verifique as categorias e mosaicos.
+Procurar imagens populares e, em seguida, certifique-se de categorias e mosaicos.
 
 ```
         public static void ImageTrending(ImageSearchAPI client)
@@ -288,7 +288,7 @@ Procure imagens tendências e, em seguida, verifique as categorias e mosaicos.
 
 ### <a name="image-details"></a>Detalhes da imagem
 
-Procure imagens "Degas" e, em seguida, procure os detalhes da imagem da imagem do primeiro.
+Procure imagens "Degas" e, em seguida, procure os detalhes da imagem da primeira imagem.
 ```
         public static void ImageDetail(ImageSearchAPI client)
         {
@@ -406,4 +406,4 @@ Procure imagens "Degas" e, em seguida, procure os detalhes da imagem da imagem d
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Serviços cognitivos amostras de SDK do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Amostras do .NET SDK dos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

@@ -1,181 +1,52 @@
 ---
-title: Execute Ansible com Bash na Shell de nuvem do Azure
-description: Saiba como efetuar várias tarefas de Ansible com Bash na Shell de nuvem do Azure
+title: Executar o Ansible com o Bash no Azure Cloud Shell
+description: Saiba como efetuar várias tarefas do Ansible com o Bash no Azure Cloud Shell
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, manual de comunicação social, bash
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
-ms.date: 02/01/2018
+ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9928f646905dd0da4b15166ec55e5d8a183cb210
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150384"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056711"
 ---
-# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Execute Ansible com Bash na Shell de nuvem do Azure
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Executar o Ansible com o Bash no Azure Cloud Shell
 
-Neste tutorial, irá aprender a efetuar várias tarefas de Ansible de Bash na Shell de nuvem. Estas tarefas incluem a ligar a uma máquina virtual e criar Ansible playbooks para criar e eliminar um grupo de recursos do Azure.
+Neste tutorial, irá aprender a utilizar o Bash no Cloud Shell para configurar uma subscrição do Azure como a sua área de trabalho do Ansible. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Subscrição do Azure** - se não tiver uma subscrição do Azure, criar um [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Subscrição do Azure** – se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- **Credenciais do Azure** - [Azure criar credenciais e configurar Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- **Configurar o Azure Cloud Shell** – se estiver familiarizado com o Azure Cloud Shell, o artigo [início rápido para o Bash no Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart), ilustra como iniciar e configurar o Cloud Shell. 
 
-- **Configurar a Shell de nuvem do Azure** - se estiver familiarizado com a Shell de nuvem do Azure, o artigo [início rápido para Bash na Shell de nuvem do Azure](https://docs.microsoft.com/azure/cloud-shell/quickstart) ilustra como iniciar e configurar a Shell de nuvem. Inicie o Web site dedicado de nuvem Shell aqui:
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[![Inicie o Shell de nuvem](https://shell.azure.com/images/launchcloudshell.png "inicie o Shell de nuvem")](https://shell.azure.com)
+## <a name="automatic-credential-configuration"></a>Configuração da credencial automática
 
-## <a name="use-ansible-to-connect-to-a-vm"></a>Utilizar Ansible para ligar a uma VM
-Ansible criou um script de Python chamado [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) que gera um inventário dinâmicas dos seus recursos do Azure ao efetuar pedidos de API para o Azure Resource Manager. Os seguintes passos guiá-lo utilizando o `azure_rm.py` script para ligar a uma máquina virtual do Azure:
+Quando iniciar sessão no Cloud Shell, Ansible autentica com o Azure para gerir a infraestrutura sem qualquer configuração adicional. Se tiver mais de uma subscrição, pode escolher qual assinatura do Ansible deve funcionar com exportando o `AZURE_SUBSCRIPTION_ID` variável de ambiente. Para listar todas as suas subscrições do Azure, execute o seguinte comando:
 
-1. Abra Bash na Shell de nuvem. Tipo de shell é a designação no lado esquerdo da janela da Shell de nuvem.
+```azurecli-interactive
+az account list
+```
 
-1. Se não tiver uma máquina virtual para utilizar, introduza os seguintes comandos para a Shell de nuvem para criar uma máquina virtual com o qual pretende testar:
+Utilizar o **id** da subscrição com a qual pretende trabalhar, definir o **AZURE_SUBSCRIPTION_ID** da seguinte forma:
 
-  ```azurecli-interactive
-  az group create --resource-group ansible-test-rg --location eastus
-  ```
+```azurecli-interactive
+export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
+```
 
-  ```azurecli-interactive
-  az vm create --resource-group ansible-test-rg --name ansible-test-vm --image UbuntuLTS --generate-ssh-keys
-  ```
+## <a name="verify-the-configuration"></a>Verifique a configuração
+Para verificar a configuração com êxito, utilize o Ansible para criar um grupo de recursos.
 
-1. Utilize o GNU `wget` comando para obter o `azure_rm.py` script:
-
-  ```azurecli-interactive
-  wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
-  ```
-
-1. Utilize o `chmod` comando para alterar as permissões de acesso para o `azure_rm.py` script. O seguinte comando utiliza o `+x` parâmetro para permitir a execução (em execução) do ficheiro especificado (`azure_rm.py`):
-
-  ```azurecli-interactive
-  chmod +x azure_rm.py
-  ```
-
-1. Utilize o [ansible comando](https://docs.ansible.com/ansible/2.4/ansible.html) para ligar à máquina virtual: 
-
-  ```azurecli-interactive
-  ansible -i azure_rm.py ansible-test-vm -m ping
-  ```
-
-  Assim que estiver ligado, deverá ver resultados semelhantes à saída de:
-
-  ```Output
-  The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
-  ECDSA key fingerprint is SHA256:&lt;some value>.
-  Are you sure you want to continue connecting (yes/no)? yes
-  test-ansible-vm | SUCCESS => {
-      "changed": false,
-      "failed": false,
-      "ping": "pong"
-  }
-  ```
-
-1. Se tiver criado um grupo de recursos e a máquina virtual nesta secção
-
-  ```azurecli-interactive
-  az group delete -n <resourceGroup>
-  ```
-
-## <a name="run-a-playbook-in-cloud-shell"></a>Executar um manual de comunicação no Cloud Shell
-O [manual de comunicação social ansible](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) comando executa playbooks Ansible, as tarefas em execução em anfitriões de destino. Esta secção explica como utilizar a Shell de nuvem para criar e executar dois playbooks - uma para criar um grupo de recursos e um segundo para eliminar o grupo de recursos. 
-
-1. Crie um ficheiro denominado `rg.yml` da seguinte forma:
-
-  ```azurecli-interactive
-  vi rg.yml
-  ```
-
-1. Copie o seguinte conteúdo para a janela da Shell de nuvem (agora a alojar uma instância do VI editor):
-
-  ```yml
-  - name: My first Ansible Playbook
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Create a resource group
-      azure_rm_resourcegroup:
-        name: demoresourcegroup
-        location: eastus
-  ```
-
-1. Guarde o ficheiro e saia do editor de VI introduzindo `:wq` e premindo &lt;Enter >.
-
-1. Utilize o `ansible-playbook` comando a executar o `rg.yml` manual de comunicação social:
-
-  ```azurecli-interactive
-  ansible-playbook rg.yml
-  ```
-
-1. Deverá ver resultados semelhantes ao seguinte resultado:
-
-  ```Output
-  PLAY [My first Ansible Playbook] **********
-
-  TASK [Gathering Facts] **********
-  ok: [localhost]
-
-  TASK [Create a resource group] **********
-  changed: [localhost]
-
-  PLAY RECAP **********
-  localhost : ok=2 changed=1 unreachable=0 failed=0
-  ```
-
-1. Verificar a implementação:
-
-  ```azurecli-interactive
-  az group show -n demoresourcegroup
-  ```
-
-1. Agora que criou o grupo de recursos, crie uma segunda manual de Ansible para eliminar o grupo de recursos:
-
-  ```azurecli-interactive
-  vi rg2.yml
-  ```
-
-1. Copie o seguinte conteúdo para a janela da Shell de nuvem (agora a alojar uma instância do VI editor):
-
-  ```yml
-  - name: My second Ansible Playbook
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Delete a resource group
-      azure_rm_resourcegroup:
-        name: demoresourcegroup
-        state: absent
-  ```
-
-1. Guarde o ficheiro e saia do editor de VI introduzindo `:wq` e premindo &lt;Enter >.
-
-1. Utilize o `ansible-playbook` comando a executar o `rg2.yml` manual de comunicação social:
-
-  ```azurecli-interactive
-  ansible-playbook rg.yml
-  ```
-
-1. Deverá ver resultados semelhantes ao seguinte resultado:
-
-  ```Output
-  The output is as following. 
-  PLAY [My second Ansible Playbook] **********
-
-  TASK [Gathering Facts] **********
-  ok: [localhost]
-
-  TASK [Delete a resource group] **********
-  changed: [localhost]
-
-  PLAY RECAP **********
-  localhost : ok=2 changed=1 unreachable=0 failed=0
-  ```
+[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-create-resource-group.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"] 
-> [Criar uma máquina virtual básica no Azure com Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Criar uma máquina virtual básica no Azure com o Ansible](/azure/virtual-machines/linux/ansible-create-vm)

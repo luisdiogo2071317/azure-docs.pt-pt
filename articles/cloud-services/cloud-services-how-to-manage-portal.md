@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3e4520df5c1ca8477abf5a9c4b4e7e124bb38282
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005762"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057610"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerir serviços Cloud no portal do Azure
 Na **serviços Cloud** área do portal do Azure, pode:
@@ -83,7 +83,7 @@ Existem dois pré-requisitos chave para uma troca de implementação com êxito:
 
 - Se pretender utilizar um endereço IP estático para o bloco de produção, tem de reservar um para o bloco de teste. Caso contrário, a troca falha.
 
-- Tem de executar todas as instâncias de suas funções antes de realizar a troca. Pode verificar o estado das suas instâncias do **descrição geral** painel do portal do Azure. Em alternativa, pode utilizar o [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) comando no Windows PowerShell.
+- Tem de executar todas as instâncias de suas funções antes de realizar a troca. Pode verificar o estado das suas instâncias do **descrição geral** painel do portal do Azure. Em alternativa, pode utilizar o [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) comando no Windows PowerShell.
 
 Tenha em atenção que as atualizações do SO convidado e o serviço de recuperação operações também podem causar trocas de implementação efetuar a ativação. Para obter mais informações, consulte [problemas de implementação de serviço de nuvem de resolução de problemas](cloud-services-troubleshoot-deployment-problems.md).
 

@@ -3,7 +3,7 @@ title: Práticas recomendadas do serviço de cópia de segurança de infra-estru
 description: Pode seguir o conjunto de melhores práticas quando implementar e gerir o Azure Stack no seu datacenter para o ajudar a minimizar a perda de dados, se houver uma falha catastrófica.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 4a0166856cf4d3f91c6cadf3e71f93000fbf158d
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242976"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057295"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Práticas recomendadas de serviço de cópia de segurança de infra-estrutura
 
@@ -34,7 +34,7 @@ Deve rever as melhores práticas em intervalos regulares para verificar que a in
 
 ### <a name="deployment"></a>Implementação
 
-Ative a infraestrutura de cópia de segurança após a implementação de cada nuvem do Azure Stack. Pode agendar cópias de segurança de qualquer cliente/servidor com acesso ao ponto de final de API de gestão do operador de ferramentas de AzureStack a utilizar.
+Ative a infraestrutura de cópia de segurança após a implementação de cada nuvem do Azure Stack. Com o Azure Stack PowerShell pode agendar cópias de segurança de qualquer cliente/servidor com acesso ao ponto de final de API de gestão do operador.
 
 ### <a name="networking"></a>Redes
 

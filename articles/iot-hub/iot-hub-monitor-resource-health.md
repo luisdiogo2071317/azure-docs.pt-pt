@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611376"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060893"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente
 
@@ -58,7 +58,7 @@ O dispositivo de faixas de categoria ligações ligar e desligar eventos a parti
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>Comandos do cloud-para-dispositivo
+#### <a name="cloud-to-device-commands"></a>Comandos de cloud para dispositivo
 
 A categoria de comandos do cloud-para-dispositivo rastreia erros ocorridos no IoT hub e estão relacionadas com o pipeline de mensagens da cloud para o dispositivo. Esta categoria inclui erros que ocorrem quando enviar mensagens da cloud para o dispositivo (por exemplo, o remetente não autenticado), receber mensagens da cloud para o dispositivo (por exemplo, a contagem de entrega excedida) e receber comentários de mensagem de cloud-para-dispositivo (como comentários expiraram). Esta categoria não detectar erros de um dispositivo que trata incorretamente uma mensagem de cloud para o dispositivo se a mensagem de cloud para o dispositivo foi entregue com êxito.
 
@@ -155,7 +155,7 @@ Esta categoria não pode detetar erros que ocorram diretamente enquanto o dispos
 
 #### <a name="cloud-to-device-twin-operations"></a>Operações de cloud para o dispositivo duplo
 
-A categoria de operações na cloud para o dispositivo duplo regista os eventos de iniciadas pelo serviço em dispositivos duplos. Estas operações podem incluir duplo de get, atualizar propriedades comunicadas e subscrever as propriedades pretendidas
+A categoria de operações na cloud para o dispositivo duplo regista os eventos de iniciadas pelo serviço em dispositivos duplos. Estas operações podem incluir get duplo, atualizar ou substituir marcas e atualizar ou substituir as propriedades pretendidas. 
 
 ```json
 {
@@ -172,7 +172,7 @@ A categoria de operações na cloud para o dispositivo duplo regista os eventos 
 
 #### <a name="device-to-cloud-twin-operations"></a>Operações de gémeos de dispositivo para a cloud
 
-A categoria de operações de gémeos de dispositivo-para-cloud regista os eventos de iniciadas por dispositivos em dispositivos duplos. Estas operações podem incluir get duplo, atualizar ou substituir marcas e atualizar ou substituir as propriedades pretendidas. 
+A categoria de operações de gémeos de dispositivo-para-cloud regista os eventos de iniciadas por dispositivos em dispositivos duplos. Estas operações podem incluir duplo de get, atualizar propriedades comunicadas e subscrever as propriedades pretendidas.
 
 ```json
 {

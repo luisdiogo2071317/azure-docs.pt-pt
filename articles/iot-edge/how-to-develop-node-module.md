@@ -9,16 +9,16 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390542"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060686"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Desenvolver e depurar módulos node. js com o Azure IoT Edge para Visual Studio Code
 
-Pode enviar a lógica de negócio a funcionar no limite, ativá-la em módulos do Azure IoT Edge. Este artigo fornece instruções detalhadas para utilizar o Visual Studio Code (código de VS) como a ferramenta de desenvolvimento principal para desenvolver módulos do c#.
+Pode enviar a lógica de negócio a funcionar no limite, ativá-la em módulos do Azure IoT Edge. Este artigo fornece instruções detalhadas para utilizar o Visual Studio Code (código de VS) como a ferramenta de desenvolvimento principal para desenvolver módulos do node. js.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que está a utilizar um computador ou máquina virtual a executar o Windows ou Linux da máquina de desenvolvimento. Dispositivo IoT Edge pode ser outro dispositivo físico ou pode simular o seu dispositivo IoT Edge no computador de desenvolvimento.
@@ -43,7 +43,7 @@ Para testar seu módulo num dispositivo, precisa de um hub IoT Active Directory 
 
 ## <a name="create-a-new-solution-template"></a>Criar um novo modelo de solução
 
-Os seguintes passos mostram como criar um módulo do IoT Edge com base no .NET Core 2.0 usando o Visual Studio Code e a extensão Azure IoT Edge. Comece por criar uma solução e, em seguida, gerar primeiro módulo nessa solução. Cada solução pode conter vários módulos. 
+Os seguintes passos mostram como criar um módulo do IoT Edge com base em node. js usando o Visual Studio Code e a extensão Azure IoT Edge. Comece por criar uma solução e, em seguida, gerar primeiro módulo nessa solução. Cada solução pode conter vários módulos. 
 
 1. No Visual Studio Code, selecione **View** > **Terminal integrado**.
 2. No terminal integrado, introduza o seguinte comando para instalar (ou atualizar) a versão mais recente do modelo de módulo do Azure IoT Edge para node. js:
@@ -67,22 +67,22 @@ Código VS usa as informações fornecidas, cria uma solução de IoT Edge, e ca
 Dentro da solução tem três itens: 
 * R **.vscode** pasta contém as configurações de depuração.
 * R **módulos** pasta contém subpastas para cada módulo. Neste momento tiver apenas uma, mas pode adicionar mais na paleta de comandos com o comando **do Azure IoT Edge: Adicionar módulo do IoT Edge**. 
-* R **. env** ficheiro apresenta uma lista de variáveis do seu ambiente. Se for ACR como seu registro, certo, agora tem ACR nome de utilizador e palavra-passe no mesmo. 
+* R **. env** ficheiro apresenta uma lista de variáveis do seu ambiente. Se o Azure Container Registry é o seu registo, terá um nome de utilizador do Azure Container Registry e a palavra-passe no mesmo.
 
    >[!NOTE]
    >Só é criado o ficheiro de ambiente se fornecer um repositório de imagens para o módulo. Se aceitou os padrões de localhost para testar e depurar localmente, não tem de declarar as variáveis de ambiente. 
 
 * R **deployment.template.json** seu novo módulo juntamente com um exemplo apresenta uma lista de ficheiros **tempSensor** módulo que simula dados que pode utilizar para fins de teste. Para obter mais informações sobre como o trabalho de manifestos de implantação, consulte [compreender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
-## <a name="devlop-your-module"></a>Devlop seu módulo
+## <a name="develop-your-module"></a>Desenvolver o seu módulo
 
-O código de função do Azure de predefinição que vem com a solução está localizado em **módulos** > **\<seu nome de módulo\>**   >   **App. js**. O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
+O código de node. js predefinida que é fornecido com a solução está localizado em **módulos** > **\<seu nome de módulo\>** > **App. js** . O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
 
 Quando estiver pronto para personalizar o modelo de node. js com o seu próprio código, utilize o [SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos esse endereço tem da chave para soluções de IoT, como segurança, gestão de dispositivos e confiabilidade. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>Crie e implemente o seu módulo para depuração
 
-Em cada pasta de módulo, existem vários ficheiros de Docker para tipos de contentor diferente. Pode usar qualquer um destes ficheiros que terminam com a extensão **.debug** para criar o seu módulo para fins de teste. Atualmente, o c# módulos só suportam a depuração em contentores de linux-amd64.
+Em cada pasta de módulo, existem vários ficheiros de Docker para tipos de contentor diferente. Pode usar qualquer um destes ficheiros que terminam com a extensão **.debug** para criar o seu módulo para fins de teste. Atualmente, o módulos node. js só suportam a depuração em contentores de linux-amd64, windows-amd64 e arm32v7 do linux.
 
 1. No VS Code, navegue para o `deployment.template.json` ficheiro. Atualizar o seu URL de imagem do módulo adicionando **.debug** ao fim.
 2. Substitua o createOptions do módulo de node. js em **deployment.template.json** com abaixo conteúdo e guarde este ficheiro: 

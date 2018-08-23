@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 60868ceb58a9ed4935ea540ad15abd0e5d35f559
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b23662ccda090b4d8a4cbb5eae3029affd075c33
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595533"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059233"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gira clusters Hadoop no HDInsight com o Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-O Azure PowerShell pode ser utilizado para controlar e automatizar a implementação e gestão das cargas de trabalho no Azure. Neste artigo, irá aprender a gerir clusters do Hadoop no HDInsight do Azure com o Azure PowerShell. Para obter a lista dos cmdlets do PowerShell do HDInsight, consulte [referência de cmdlets do HDInsight][hdinsight-powershell-reference].
+O Azure PowerShell pode ser utilizado para controlar e automatizar a implementação e gestão das cargas de trabalho no Azure. Neste artigo, irá aprender a gerir clusters do Hadoop no HDInsight do Azure com o Azure PowerShell. Para obter a lista dos cmdlets do PowerShell do HDInsight, consulte [referência de cmdlets do HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Pré-requisitos**
 
@@ -231,7 +231,7 @@ Ver [Oozie de utilização com o Hadoop para definir e executar um fluxo de trab
 Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Consultar Também
-* [Documentação de referência de cmdlets do HDInsight][hdinsight-powershell-reference]
+* [Documentação de referência de cmdlets do HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Administrar o HDInsight com o portal do Azure][hdinsight-admin-portal]
 * [Administrar o HDInsight, através de uma interface de linha de comandos][hdinsight-admin-cli]
 * [Criar clusters do HDInsight][hdinsight-provision]

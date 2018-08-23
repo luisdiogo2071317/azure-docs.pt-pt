@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413757"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919183"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavra-passe do Azure AD no ecrã de início de sessão
 
@@ -86,8 +86,6 @@ Estão disponíveis mais informações sobre a criação de grupos no artigo [Ma
 Criou e atribuiu agora uma política de configuração de dispositivos para ativar a ligação Repor palavra-passe no ecrã de início de sessão com o Intune.
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configurar a ligação Repor palavra-passe com o registo
-
-Recomendamos que utilize este método apenas para testar a alteração da definição.
 
 1. Utilizar credenciais administrativas para iniciar sessão no PC Windows
 2. Execute **regedit** como administrador

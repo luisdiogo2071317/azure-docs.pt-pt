@@ -1,6 +1,6 @@
 ---
-title: Microsoft tradutor texto dinâmico de API dicionário | Microsoft Docs
-description: Como utilizar a funcionalidade de dicionário dinâmica da API de texto do conversor de Microsoft.
+title: Dicionário de dinâmica de API de texto do Microsoft Translator | Documentos da Microsoft
+description: Como utilizar a funcionalidade de dicionário dinâmica da API de texto do Microsoft Translator.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -9,28 +9,28 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a18348c9786669ac41c4e149577d97cd631d5531
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dbc754093827730b8709d67f314e5b327518ef50
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355651"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41987532"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Como utilizar a funcionalidade de dicionário dinâmica da Microsoft tradutor texto API
+# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Como utilizar a funcionalidade de dicionário dinâmica da API de texto do Microsoft Translator
 
-Se já conhece a tradução de que pretende aplicar a uma palavra ou uma frase de acesso, pode fornecê-lo como markup dentro do pedido. O dicionário dinâmico apenas é seguro para substantivos compostos como nomes de adequado e produto. 
+Se já sabe a tradução que pretende aplicar a uma palavra ou frase, pode fornecer como marcação dentro do pedido. O dicionário dinâmico só é seguro para substantivos compostos, como nomes próprios e nomes de produtos. 
 
 **Sintaxe:** 
 
-< mstrans:dictionary tradução = "conversão de expressão" > expressão < / mstrans:dictionary >
+< a tradução de mstrans:dictionary = "tradução de frase" > frase < / mstrans:dictionary >
 
-**Exemplo: en-Alemanha:**
+**Exemplo: en-de:**
 
-Origem de entrada: A palavra < mstrans:dictionary tradução =\"wordomatic\"> palavra ou expressão < / mstrans:dictionary > é uma entrada de dicionário.
+Entrada de origem: A palavra < mstrans:dictionary tradução =\"wordomatic\"> palavra ou frase < / mstrans:dictionary > é uma entrada de dicionário.
 
 Saída de destino: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
-Esta funcionalidade funciona da mesma forma com e sem o modo HTML. 
+Esta funcionalidade funciona da mesma forma com e sem modo HTML. 
 
-A funcionalidade deve ser utilizada com moderação. A forma adequada e até que ponto melhor da personalização tradução é utilizando o Microsoft tradutor Hub. O Hub faz com que a utilização total de contexto e análises probabilidades. Se tiver ou pode suportar os dados de formação que mostra o seu trabalho ou frase no contexto de criar, obter muito melhores resultados. Pode encontrar mais informações sobre o hub em [ http://hub.microsofttranslator.com ](http://hub.microsofttranslator.com).
+O recurso deve ser usado com moderação. A forma adequada e muito melhor de personalização de tradução é com o Translator personalizado. Tradutor personalizado utiliza completa de contexto e probabilidades de estatísticas. Se tiver ou pode criar dados de treinamento que mostra a sua empresa ou frase no contexto, obtém resultados muito melhores. Pode encontrar mais informações sobre o Translator personalizado na [ http://aka.ms/CustomTranslator ](http://aka.ms/CustomTranslator).
 

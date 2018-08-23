@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f98817802478853e8d176223a9a9a3081531897f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528379"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054147"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure 
 Os ficheiros do Azure fornece a capacidade para tirar instantâneos de partilha de partilhas de ficheiros. Partilhe instantâneos captura o estado de partilha nesse ponto no tempo. Neste artigo, descrevemos de que fornecem instantâneos de partilha de capacidades e como pode tirar partido dos mesmos no seu caso de utilização personalizado.
@@ -86,4 +86,5 @@ Instantâneos de partilha fornecem apenas uma proteção ao nível do ficheiro. 
     - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
     - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
     - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [FAQ de instantâneo de partilha](storage-files-faq.md#share-snapshots)

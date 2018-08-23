@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 3fe717cb60791d24637ccd5b9a3c08fd34801524
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617946"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056748"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -35,9 +35,9 @@ Como muitos outros serviços que suportam webhooks, EventGrid tem de provar a "p
 
 Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acionador HTTP com base em função do Azure, o código de ponto final tem de participar de um handshake de validação com EventGrid. EventGrid oferece suporte a dois modelos de handshake de validação diferente:
 
-1. Handshake ValidationCode com base em: no momento da criação de subscrição de eventos, EventGrid publica um "evento do validação de subscrição" para o ponto final. O esquema deste evento é semelhante a qualquer outro EventGridEvent e a parte de dados deste evento inclui uma propriedade de "validationCode". Assim que a sua aplicação ter verificado que o pedido de validação é para uma subscrição de evento esperado, o código da aplicação tem de responder ao repetir o código de validação para EventGrid. Esse mecanismo de handshake é suportado em todas as versões de EventGrid.
+1. **ValidationCode handshake**: no momento da criação de subscrição de eventos, EventGrid publica um "evento do validação de subscrição" para o ponto final. O esquema deste evento é semelhante a qualquer outro EventGridEvent e a parte de dados deste evento inclui um `validationCode` propriedade. Assim que a sua aplicação ter verificado que o pedido de validação é para uma subscrição de evento esperado, o código da aplicação tem de responder ao repetir o código de validação para EventGrid. Esse mecanismo de handshake é suportado em todas as versões de EventGrid.
 
-2. O handshake de ValidationURL com base (Manual handshake): em certos casos, pode não ter controle do código-fonte do ponto de extremidade para poder implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir responder através de programação com o código de validação. Por conseguinte, a partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com o SDK/ferramentas que utilizam esta nova versão de API (2018-05-01-pré-visualização), EventGrid enviará uma propriedade de "validationUrl" (além da propriedade de "validationCode") como parte da parte de dados a validação de subscrição evento. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O validationUrl fornecido é válido apenas para cerca de 10 minutos, para que se não concluir a validação manual dentro desta vez, o provisioningState a subscrição de evento farão a transição para "Falhado" e terá que repita a tentativa de criação do evento subscrição antes de tentar fazer a validação manual novamente.
+2. **O handshake de ValidationURL (Manual handshake)**: em certos casos, pode não ter controle do código-fonte do ponto de extremidade para poder implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir responder através de programação com o código de validação. Por conseguinte, a partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com o SDK/ferramentas que utilizam este novo EventGrid envia do API versão (2018-05-01-pré-visualização), um `validationUrl` propriedade (além do `validationCode` propriedade) como parte da parte de dados do evento de validação de subscrição. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O URL de validação fornecido é válido apenas para cerca de 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de repita a tentativa de criação de subscrição de evento antes de tentar fazer a validação manual novamente.
 
 Esse mecanismo de validação manual está em pré-visualização. Para a utilizar, tem de instalar a [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a [AZ CLI 2.0](/cli/azure/install-azure-cli). Pode instalá-la com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, verifique se está a utilizar `api-version=2018-05-01-preview`.
 
@@ -48,7 +48,7 @@ Esse mecanismo de validação manual está em pré-visualização. Para a utiliz
 * O corpo do evento tem o mesmo esquema que outros eventos do Event Grid.
 * A propriedade eventType do evento é "Microsoft.EventGrid.SubscriptionValidationEvent".
 * A propriedade de dados do evento inclui uma propriedade de "validationCode" com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13...".
-* Se estiver usando a versão de 2018-05-01-a pré-visualização da API, os dados de evento também incluem uma propriedade de "validationUrl" com um URL para a subscrição a validação manual.
+* Se estiver usando a versão de 2018-05-01-a pré-visualização da API, os dados de evento também incluem um `validationUrl` propriedade com um URL para a subscrição a validação manual.
 * A matriz contém apenas o evento de validação. Outros eventos são enviados numa solicitação separada depois de recuperar o código de validação.
 * Os SDKs do plano de dados de EventGrid possuem classes correspondentes para os dados de eventos de validação de subscrição e a resposta de validação de subscrição.
 
