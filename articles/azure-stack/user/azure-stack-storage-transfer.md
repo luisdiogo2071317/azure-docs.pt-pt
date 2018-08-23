@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444141"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139735"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utilizar ferramentas de transferência de dados para o armazenamento do Azure Stack
 
@@ -146,13 +146,13 @@ Módulos do Azure Stack compatíveis do PowerShell do Azure são necessários pa
 
 Este exemplo partem do princípio de que tem com êxito [PowerShell instalado para o Azure Stack](azure-stack-powershell-install.md). Este script irá ajudá-lo a concluir a configuração e peça ao seu inquilino do Azure Stack credenciais para adicionar a sua conta para o ambiente local do PowerShell. Em seguida, o script irá definir o padrão de subscrição do Azure, criar uma nova conta de armazenamento no Azure, criar um novo contentor nesta nova conta de armazenamento e carregar um ficheiro de imagem existente (blob) para esse contentor. Depois do script apresenta uma lista de todos os blobs existentes nesse contentor, irá criar um novo diretório de destino no seu computador local e transfira o ficheiro de imagem.
 
-1. Para o Azure Stack, [blobEndpoint](azure-stack-powershell-install.md) tem de ser especificado para além de accountName, accountKey/sasToken, containerName, ao configurar as credenciais da conta de armazenamento no passo de preparação para a montagem.
+1. Instale [módulos do Azure Stack compatível com o Azure PowerShell](azure-stack-powershell-install.md).
 2. No desenvolvimento do [Azure Stack Kit, deve ser o blobEndpoint](azure-stack-powershell-download.md) .
-3. Num sistema integrado do Azure Stack, contacte o administrador da nuvem se não tiver a certeza sobre o ponto final.
-4. Lembre accountKey e sasToken só podem ser configurado um de cada vez.
-5. Quando a chave de conta de armazenamento for fornecida, é o ficheiro de configuração de credenciais no seguinte formato:
+3. Open **ISE do Windows PowerShell** e **executar como administrador**, clique em **ficheiro** > **New** para criar um novo ficheiro de script.
+4. Copie o script abaixo e cole no novo ficheiro de script.
+5. Atualize as variáveis de script com base nas suas definições de configuração.
    > [!NOTE]
-   > Quando é fornecido o token de acesso partilhado, o ficheiro de configuração de credenciais é no seguinte formato:
+   > Este script tem de ser executado no diretório de raiz para **AzureStack_Tools**.
 
 ```PowerShell  
 # begin
@@ -219,11 +219,11 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ````
 
-### <a name="powershell-known-issues"></a>Ligar o Explorador de armazenamento a uma subscrição do Azure Stack
+### <a name="powershell-known-issues"></a>Problemas conhecidos do PowerShell
 
-Introdução ao Explorador de armazenamento Armazenamento consistentes do Azure: diferenças e considerações Introdução ao armazenamento do Microsoft Azure
+A atual versão de módulo de PowerShell do Azure compatível para o Azure Stack é 1.2.11 para as operações de utilizador. É diferente da versão mais recente do Azure PowerShell. Essa diferença tem impacto sobre a operação de serviços de armazenamento:
 
-* O formato do valor de retorno dos `Get-AzureRmStorageAccountKey` na versão 1.3.0 tem duas propriedades: `Key1` e `Key2`, enquanto a versão atual do Azure devolve uma matriz que contém todas as chaves de conta.
+* O formato do valor de retorno dos `Get-AzureRmStorageAccountKey` na versão 1.2.11 tem duas propriedades: `Key1` e `Key2`, enquanto a versão atual do Azure devolve uma matriz que contém todas as chaves de conta.
 
    ```
    # This command gets a specific key for a storage account, 
