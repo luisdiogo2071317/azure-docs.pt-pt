@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f84b9555343d0f902e887160845099cbc49e8ef2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 13f37f1b0efaa8169d272220362290bac9b3aac1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441396"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41921022"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicação que aloja vários sites através da CLI do Azure
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Crie a rede virtual denominada e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az-net). Em seguida, pode adicionar a sub-rede que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
+Crie a rede virtual denominada e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az-net). Em seguida, pode adicionar a sub-rede que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -78,7 +78,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/application-gateway#create) para criar o gateway de aplicação. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#create) para criar o gateway de aplicação. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-backend-pools"></a>Adicionar os conjuntos de back-end
 
-Adicione os conjuntos de back-end que são necessários para conter os servidores de back-end, com [az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address_pool_create).
+Adicione os conjuntos de back-end que são necessários para conter os servidores de back-end, com [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address_pool_create).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -122,7 +122,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-backend-listeners"></a>Adicionar serviços de escuta de back-end
 
-Adicione os serviços de escuta de back-end que são necessários para encaminhar o tráfego, com [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create).
+Adicione os serviços de escuta de back-end que são necessários para encaminhar o tráfego, com [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 As regras são processadas pela ordem em que são apresentadas, e o tráfego é direcionado com a primeira regra que corresponder, independentemente da especificidade. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
 
-Neste exemplo, vai criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
+Neste exemplo, vai criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

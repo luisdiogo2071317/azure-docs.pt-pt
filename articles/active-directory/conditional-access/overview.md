@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 08/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b191e041d219ad629c2f3ac6a0ac689551187eca
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3e96e251e655c7c7ad862fbf875111e08c0dfbdf
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630213"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42023823"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>O que é o acesso condicional no Azure Active Directory?
 
@@ -47,7 +47,7 @@ Seguem-se algumas preocupações comuns relativas ao acesso e com as quais o ace
 
 
 
-- **[Risco de início de sessão](conditions.md#sign-in-risk)**: o Azure AD Identity Protection deteta riscos de início de sessão. Como restringe o acesso se um risco de início de sessão detetado indicar um ator malicioso? E se quiser ter provas mais sólidas de que um início de sessão foi feito por um utilizador legítimo? E se as suas dúvidas forem tão fundamentadas para o levarem inclusivamente a impedir utilizadores específicos de aceder a uma aplicação? Ao configurar 
+- **[Risco de início de sessão](conditions.md#sign-in-risk)**: o Azure AD Identity Protection deteta riscos de início de sessão. Como restringe o acesso se um risco de início de sessão detetado indicar um ator malicioso? E se quiser ter provas mais sólidas de que um início de sessão foi feito por um utilizador legítimo? E se as suas dúvidas forem tão fundamentadas para o levarem inclusivamente a impedir utilizadores específicos de aceder a uma aplicação?  
 
 - **[Localização da rede](location-condition.md)**: o Azure AD está acessível em todo o lado. E se alguém tentar aceder numa localização de rede que não está sob o controlo do seu departamento de TI? A utilização de uma combinação de nome de utilizador e palavra-passe pode ser uma prova de identidade suficientemente forte para tentativas de acesso aos seus recursos feitas a partir da rede da sua empresa. E se precisar de uma prova de identidade mais sólida para as tentativas de acesso que são iniciadas noutros países ou regiões do mundo inesperados? E se quiser até bloquear tentativas de acesso em determinadas localizações?  
 

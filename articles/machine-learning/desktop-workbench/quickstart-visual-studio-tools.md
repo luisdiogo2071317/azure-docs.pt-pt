@@ -2,22 +2,20 @@
 title: Artigo de início rápido para Visual Studio Tools para Machine Learning no Azure | Microsoft Docs
 description: Este artigo descreve como começar a utilizar o Visual Studio Tools para Machine Learning, desde criar uma experimentação a preparar um modelo e operar um serviço Web.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.workload: data-services
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.custom: mvc
+ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: 735bfd911a738d4e71974f5cdcd94afa50acc502
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 94bca4d7670b1ec6fba5057b8295f7a3caac2968
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932987"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42024373"
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools para IA
 O Visual Studio Tools para IA é uma extensão de desenvolvimento para criar, testar e implementar soluções de Aprendizagem Profunda e IA. Proporciona integração total com o Azure Machine Learning, nomeadamente uma vista de histórico de execução que detalha o desempenho de preparações anteriores e métricas personalizadas. Oferece uma vista de explorador de amostras que permite procurar e efetuar o arranque de sistema do novo projeto com o [Microsoft Cognitive Toolkit (anteriormente designado CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org)e outra arquitetura de aprendizagem profunda. Por fim, fornece um explorador de destinos de computação que permite submeter tarefas de preparação de modelos em ambientes remotos como as Máquinas Virtuais do Azure ou os servidores Linux com GPU. Também proporciona um acesso facilitado ao [Azure Batch AI (Preview)](https://docs.microsoft.com/azure/batch-ai/).

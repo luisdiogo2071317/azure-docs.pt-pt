@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e61c96d754c240df89607db0cf84dca0e0ccd17e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: de5c9810b234a93643321d1ba299a66a3ae965a3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347424"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022636"
 ---
 # <a name="two-step-verification-overview"></a>Descrição geral da verificação de dois passos
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Recebeu um e-mail de uma pessoa do departamento de TI ou do seu chefe a dizer que a organização acrescentou uma verificação de segurança adicional à sua conta. O que é que isso significa? Significa que a organização está a tomar medidas extra para garantir que os utilizadores são quem dizem ser quando iniciam sessão. Esta verificação extra, também conhecida como verificação de dois passos, é feita através de uma combinação do nome de utilizador, da palavra-passe e de um dispositivo móvel ou telefone.
 

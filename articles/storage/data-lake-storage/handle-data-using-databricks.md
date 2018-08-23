@@ -2,19 +2,19 @@
 title: Saiba como realizar operações de extração, carregamento e transferência com o Azure Databricks
 description: Aprenda a extrair dados da Pré-visualização do Armazenamento do Azure Data Lake Ger2 para o Azure Databricks, transformá-los e carregá-los para o Azure SQL Data Warehouse.
 services: azure-databricks
-author: jamesbak
-ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
+author: jamesbak
+ms.author: jamesbak
+ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: jamesbak
-ms.openlocfilehash: dcc0cb6d761fde5af16dbc86c674e2fc00dad58a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ed8230b76300d6b7fee06761133ebbea779fe3cb
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522293"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41920574"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados com o Azure Databricks
 

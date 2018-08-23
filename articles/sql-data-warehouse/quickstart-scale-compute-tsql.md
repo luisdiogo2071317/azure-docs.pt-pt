@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01ff741cd47e26000e971fd4a417d5ac1f11284e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792458"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022999"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início Rápido: Dimensionar computação no Azure SQL Data Warehouse utilizando T-SQL
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
  
 ## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
 
@@ -33,7 +33,7 @@ Utilize [Início Rápido: criar e Ligar - portal](create-data-warehouse-portal.m
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
-Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
+Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 

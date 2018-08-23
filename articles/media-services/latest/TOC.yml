@@ -1,140 +1,149 @@
+items:
 - name: Documentação dos Serviços de Multimédia
   href: ./index.yml
 - name: Descrição geral
   items:
-    - name: Sobre os Serviços de Multimédia
-      href: media-services-overview.md
+  - name: Sobre os Serviços de Multimédia
+    href: media-services-overview.md
 - name: Inícios rápidos
-  expanded: true
   items:
-    - name: Transmitir ficheiros vídeo com o .NET
-      href: stream-files-dotnet-quickstart.md
+  - name: Transmitir ficheiros vídeo com o .NET
+    href: stream-files-dotnet-quickstart.md
+  expanded: true
 - name: Tutoriais
   items:
-    - name: 'Carregar, codificar e transmitir'
-      items:
-        - name: Com o .NET
-          href: stream-files-tutorial-with-api.md
-        - name: Com o REST
-          href: stream-files-tutorial-with-rest.md
-    - name: Transmissão em direto
-      items:
-        - name: Com .NET Core
-          href: stream-live-tutorial-with-api.md
-    - name: Analisar o seu vídeo
-      items:
-        - name: Com o .NET
-          href: analyze-videos-tutorial-with-api.md
+  - name: Carregar, codificar e transmitir
+    items:
+    - name: Com o .NET
+      href: stream-files-tutorial-with-api.md
+    - name: Com o REST
+      href: stream-files-tutorial-with-rest.md
+  - name: Transmissão em direto
+    items:
+    - name: Com .NET Core
+      href: stream-live-tutorial-with-api.md
+  - name: Analisar o seu vídeo
+    items:
+    - name: Com o .NET
+      href: analyze-videos-tutorial-with-api.md
 - name: Amostras
   items:
-    - name: Exemplos de código do Azure
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: CLI do Azure
-      href: cli-samples.md
+  - name: Exemplos de código do Azure
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3
+  - name: CLI do Azure
+    href: cli-samples.md
 - name: Conceitos
   items:
-    - name: Elementos
-      href: assets-concept.md
-    - name: Proteção de conteúdo
-      items:
-        - name: Descrição geral
-          href: content-protection-overview.md
-        - name: Sistema multi-DRM com controlo de acesso
-          href: design-multi-drm-system-with-access-control.md
-    - name: Codificação
-      items:
-        - name: Descrição geral
-          href: encoding-concept.md
-        - name: Degraus de bitrate adaptativo auto-generativo
-          href: autogen-bitrate-ladder.md
-    - name: Transmissão em direto
-      href: live-streaming-overview.md
-    - name: Informações de multimédia
-      href: intelligence-concept.md
-    - name: Reagir a eventos
-      href: reacting-to-media-services-events.md
-    - name: Contas de armazenamento
-      href: storage-account-concept.md
-    - name: Transformações e tarefas
-      href: transform-concept.md
+  - name: Elementos
+    href: assets-concept.md
+  - name: Proteção de conteúdo
+    items:
+    - name: Descrição geral
+      href: content-protection-overview.md
+    - name: Sistema multi-DRM com controlo de acesso
+      href: design-multi-drm-system-with-access-control.md
+  - name: Codificação
+    items:
+    - name: Descrição geral
+      href: encoding-concept.md
+    - name: Degraus de bitrate adaptativo auto-generativo
+      href: autogen-bitrate-ladder.md
+  - name: Transmissão em direto
+    href: live-streaming-overview.md
+  - name: Informações de multimédia
+    href: intelligence-concept.md
+  - name: Reagir a eventos
+    href: reacting-to-media-services-events.md
+  - name: Contas de armazenamento
+    href: storage-account-concept.md
+  - name: Transformações e tarefas
+    href: transform-concept.md
 - name: Guias de procedimentos
   items:
-    - name: Migrar a partir da v2 para v3
-      href: migrate-from-v2-to-v3.md
-    - name: Criar uma conta - CLI
-      href: create-account-cli-how-to.md
-    - name: Aceder a APIs - CLI
-      href: access-api-cli-how-to.md
-    - name: Monitorizar eventos de estado de tarefa - CLI
-      href: job-state-events-cli-how-to.md
-    - name: Personalizar predefinições de Transformação - .NET Core
-      href: customize-encoder-presets-how-to.md
-    - name: Carregar conteúdo
-      items:
-        - name: A partir de HTTP(s) - .NET
-          href: job-input-from-http-how-to.md
-        - name: A partir de um ficheiro local - .NET
-          href: job-input-from-local-file-how-to.md
-    - name: Proteger conteúdo
-      items:
-        - name: Com AES-128 - .NET
-          href: protect-with-aes128.md
-        - name: Com DRM - .NET
-          href: protect-with-drm.md
+  - name: Migrar a partir da v2 para v3
+    href: migrate-from-v2-to-v3.md
+  - name: Criar uma conta - CLI
+    href: create-account-cli-how-to.md
+  - name: Aceder a APIs - CLI
+    href: access-api-cli-how-to.md
+  - name: Monitorizar eventos de estado de tarefa - CLI
+    href: job-state-events-cli-how-to.md
+  - name: Personalizar predefinições de Transformação - .NET Core
+    href: customize-encoder-presets-how-to.md
+  - name: Carregar conteúdo
+    items:
+    - name: A partir de HTTP(s) - .NET
+      href: job-input-from-http-how-to.md
+    - name: A partir de um ficheiro local - .NET
+      href: job-input-from-local-file-how-to.md
+  - name: Proteger conteúdo
+    items:
+    - name: Com AES-128 - .NET
+      href: protect-with-aes128.md
+    - name: Com DRM - .NET
+      href: protect-with-drm.md
 - name: Referência
   items:
-    - name: Especificação de OpenAPI (Swagger)
-      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
-    - name: CLI do Azure
-      href: 'https://aka.ms/ams-v3-cli-ref'
-    - name: REST
-      href: 'https://aka.ms/ams-v3-rest-ref'
-    - name: .NET
-      href: 'https://aka.ms/ams-v3-dotnet-ref'
-    - name: Java
-      href: 'https://aka.ms/ams-v3-java-ref'
-    - name: Python
-      href: 'https://aka.ms/ams-v3-python-ref'
-    - name: Node .js
-      href: 'https://aka.ms/ams-v3-nodejs-ref'
-    - name: Esquemas de eventos
-      href: media-services-event-schemas.md
-    - name: Licenças DRM
-      items:
-        - name: Modelo de licença PlayReady
-          href: playready-license-template-overview.md
-        - name: Modelo de licença do Widevine
-          href: widevine-license-template-overview.md
-        - name: Requisitos de licença do FairPlay
-          href: fairplay-license-overview.md
+  - name: Especificação de OpenAPI (Swagger)
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview
+  - name: CLI do Azure
+    href: https://aka.ms/ams-v3-cli-ref
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref
+  - name: .NET
+    href: https://aka.ms/ams-v3-dotnet-ref
+  - name: Java
+    href: https://aka.ms/ams-v3-java-ref
+  - name: Python
+    href: https://aka.ms/ams-v3-python-ref
+  - name: Node .js
+    href: https://aka.ms/ams-v3-nodejs-ref
+  - name: Ir
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/mediaservices/mgmt/2018-06-01-preview/media
+  - name: Esquemas de eventos
+    href: media-services-event-schemas.md
+  - name: Licenças DRM
+    items:
+    - name: Modelo de licença PlayReady
+      href: playready-license-template-overview.md
+    - name: Modelo de licença do Widevine
+      href: widevine-license-template-overview.md
+    - name: Requisitos de licença do FairPlay
+      href: fairplay-license-overview.md
 - name: Recursos
   items:
-    - name: Mapa do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/media-services/'
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
-    - name: SDKs
-      items:
-        - name: CLI do Azure
-          href: 'https://aka.ms/ams-v3-cli'
-        - name: REST
-          href: 'https://aka.ms/ams-v3-rest-sdk'
-        - name: .NET
-          href: 'https://aka.ms/ams-v3-dotnet-sdk'
-        - name: Java
-          href: 'https://aka.ms/ams-v3-java-sdk'
-        - name: Python
-          href: 'https://aka.ms/ams-v3-python-sdk'
-        - name: Node .js
-          href: 'https://aka.ms/ams-v3-nodejs-sdk'
-    - name: Notas de versão
-    - name: Notas de versão
-      href: release-notes.md
-    - name: Quotas e limitações
-      href: limits-quotas-constraints.md
-    - name: FAQ
-      href: frequently-asked-questions.md
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/?category=web-mobile
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/media-services/
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/regions/services/
+  - name: Vídeos
+    href: https://azure.microsoft.com/resources/videos/index/?services=media-services
+  - name: SDKs
+    items:
+    - name: CLI do Azure
+      href: https://aka.ms/ams-v3-cli
+    - name: REST
+      href: https://aka.ms/ams-v3-rest-sdk
+    - name: .NET
+      href: https://aka.ms/ams-v3-dotnet-sdk
+    - name: Java
+      href: https://aka.ms/ams-v3-java-sdk
+    - name: Python
+      href: https://aka.ms/ams-v3-python-sdk
+    - name: Node .js
+      href: https://aka.ms/ams-v3-nodejs-sdk
+  - name: Notas de versão
+  - name: Notas de versão
+    href: release-notes.md
+  - name: Quotas e limitações
+    href: limits-quotas-constraints.md
+  - name: FAQ
+    href: frequently-asked-questions.md
+ms.openlocfilehash: f68492799ce9066e2e70bb1c3056deef20805413
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41927061"

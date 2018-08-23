@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 78dc9eceba11ce07deb7fe0d10df1fea9cd74a75
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b17df81dd1d972f3e559140e9f43963e9c8cab2a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426127"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022991"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Início Rápido: Criar um registo de contentores com a CLI do Azure
 
@@ -40,9 +40,7 @@ Neste início rápido, vai criar um registo *Básico*. O Azure Container Registr
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Crie uma instância do ACR com o comando [az acr create][az-acr-create].
-
-O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado *myContainerRegistry007*. Atualize para um valor exclusivo.
+Crie uma instância do ACR com o comando [az acr create][az-acr-create]. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado *myContainerRegistry007*. Atualize para um valor exclusivo.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic

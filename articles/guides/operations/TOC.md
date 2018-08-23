@@ -78,7 +78,7 @@
 ### [How to use Azure File Storage with Linux (Como utilizar o Armazenamento de Ficheiros do Azure com o Linux)](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introdução ao armazenamento de Tabelas do Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introdução ao armazenamento de Filas do Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md)
 ### [Using Azure PowerShell with Azure Storage (Utilizar o Azure PowerShell com o Armazenamento do Azure)](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Utilizar a CLI do Azure com o Armazenamento do Azure.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Ferramentas de cliente do Armazenamento do Azure](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

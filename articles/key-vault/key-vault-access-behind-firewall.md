@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6bb757fe072f0fc3ecbda5ae125aa2bf928479fb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736253"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920092"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Aceder ao Cofre de Chaves do Azure protegido por firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>P: A minha aplicação cliente do cofre de chaves tem de estar protegida por uma firewall. Que portas, anfitriões ou endereços IP devo abrir para ativar o acesso a um cofre de chaves?
@@ -43,7 +43,7 @@ As aplicações cliente do Cofre de Chaves terão de aceder a pontos finais do A
 | Principal de utilizador ou serviço com uma conta escolar ou profissional com o Azure AD (por exemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443 |
 | Principal de utilizador ou serviço com uma conta escolar ou profissional, mais Serviços de Federação do Active Directory (AD FS) ou outro ponto final federado (por exemplo, user@contoso.com) |Todos os pontos finais para uma conta escolar ou profissional, mais AD FS ou outros pontos finais federados |
 
-Existem outros cenários possíveis complexos. Consulte [Fluxo de Autenticação do Azure Active Directory](/documentation/articles/active-directory-authentication-scenarios/), [Integrar Aplicações com o Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) e [Protocolos de Autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) para obter informações adicionais.  
+Existem outros cenários possíveis complexos. Consulte [Fluxo de Autenticação do Azure Active Directory](../active-directory/develop/authentication-scenarios.md), [Integrar Aplicações com o Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) e [Protocolos de Autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) para obter informações adicionais.  
 
 ## <a name="key-vault-management"></a>Gestão do Cofre de Chaves
 Para a gestão do Cofre de Chaves (CRUD e definição da política de acesso), a aplicação cliente do cofre de chaves tem de aceder a um ponto final do Azure Resource Manager.  

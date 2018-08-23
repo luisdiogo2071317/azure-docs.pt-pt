@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: dc69d472e38bcc39de35204c26068a98e0549601
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 958fbd507efeb161b169c01abf32012883017f18
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480923"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022768"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com a CLI do Azure
 
@@ -100,4 +100,4 @@ az group delete --name ContosoResourceGroup
 Neste início rápido, criou um Key Vault e armazenou um segredo. Para saber mais sobre o Key Vault e como utilizá-lo com as suas aplicações, avance para o tutorial referente às aplicações Web que funcionam com o Key Vault.
 
 > [!div class="nextstepaction"]
-> Para saber como ler um segredo no Key Vault através de uma aplicação Web com identidades do serviço gerido, avance para o seguinte tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md) (Configurar uma aplicação Web do Azure para ler um segredo no Key Vault)
+> Para saber como ler um segredo no Key Vault através de uma aplicação Web com identidades do serviço gerido, avance para o seguinte tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md) (Configurar uma aplicação Web do Azure para ler um segredo no Key Vault)

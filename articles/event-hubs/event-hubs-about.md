@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8437b1c10facc28c5fd71b70dd7acf01b7d39e8e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425814"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022834"
 ---
 # <a name="what-is-azure-event-hubs"></a>O que são os Hubs de Eventos do Azure?
 
@@ -81,7 +81,8 @@ A imagem seguinte mostra a arquitetura do processamento de fluxos dos Hubs de Ev
 
 Para começar a utilizar os Hubs de Eventos, veja os seguintes artigos:
 
-* [Ingerir para os Hubs de Eventos](event-hubs-quickstart-powershell.md)
+* [Ingerir para os Hubs de Eventos](event-hubs-quickstart-portal.md)
 * [Descrição geral das funcionalidades dos Hubs de Eventos](event-hubs-features.md)
+* [Perguntas mais frequentes](event-hubs-faq.md)
 
 

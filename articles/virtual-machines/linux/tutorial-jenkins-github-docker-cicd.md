@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931733"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41921051"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
 
@@ -151,7 +151,7 @@ No seu site do Jenkins, selecione **Criar novas tarefas** na home page:
 - Na secção **Geral**, selecione o projeto **GitHub** e introduza o URL do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world*
 - Na secção  **Gestão de código fonte**, selecione o projeto **Git** e introduza o URL *.git* do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Na secção **Criar Acionadores**, selecione **Acionador de hook do GitHub para consulta GITScm**.
-- Na secção **Compilar**, escolha **Adicionar passo de compilação**. Selecione **Executar shell** e introduza `echo "Testing"` na janela de comandos.
+- Na secção **Compilar**, escolha **Adicionar passo de compilação**. Selecione **Executar shell** e introduza `echo "Test"` na janela de comandos.
 - Selecione **Guardar** na parte inferior da janela de tarefas.
 
 

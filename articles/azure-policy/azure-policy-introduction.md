@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364433"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023229"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -119,19 +119,7 @@ Por exemplo, poderá criar uma lista de opções de valor numa definição de in
 
 ## <a name="maximum-count-of-policy-objects"></a>Contagem máxima de objetos do Azure Policy
 
-Existe um número máximo para cada tipo de objeto do Azure Policy. Uma entrada de _Âmbito_ significa a subscrição ou o grupo de gestão.
-
-| Onde | O quê | Contagem máxima |
-|---|---|---|
-| Âmbito | Definições de Política | 250 |
-| Âmbito | Definições de Iniciativa | 100 |
-| Inquilino | Definições de Iniciativa | 1000 |
-| Âmbito | Atribuições de Política/Iniciativa | 100 |
-| Definição de Política | Parâmetros | 20 |
-| Definição de Iniciativa | Políticas | 100 |
-| Definição de Iniciativa | Parâmetros | 100 |
-| Atribuições de Política/Iniciativa | Exclusões (notScopes) | 100 |
-| Regra de Política | Condicionais Aninhadas | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>Recomendações para a gestão de políticas
 

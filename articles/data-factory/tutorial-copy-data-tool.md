@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7dd560a40eda2439e88d66771e2e22c90442bfd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6e63973f2545abefc030edc4c6bb6b35c28729f7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421520"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919595"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL com a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -38,7 +38,7 @@ Neste tutorial, vai executar os seguintes passos:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: utilize o Armazenamento de blobs como arquivo de dados de _origem_. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* **Conta de armazenamento do Azure**: utilize o Armazenamento de blobs como arquivo de dados de _origem_. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 * **Base de Dados SQL do Azure**: utilize uma base de dados SQL como arquivo de dados _sink_. Se não tem uma base de dados SQL, veja as instruções apresentadas em [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL

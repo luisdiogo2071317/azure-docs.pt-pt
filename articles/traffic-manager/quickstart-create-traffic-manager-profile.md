@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: kumud
-ms.openlocfilehash: b3a9bbe8b88df4ac7dcb96903341e92261a2649b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c969dbc347f0463f6f675a11f69776948d45a9e2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39532002"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022404"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Início Rápido: Criar um perfil do Gestor de Tráfego para uma aplicação Web de elevada disponibilidade
 
@@ -128,7 +128,7 @@ Quando já não for necessário, elimine os grupos de recursos, as aplicações 
 Neste início rápido, criou um perfil do Gestor de Tráfego que lhe permite direcionar o tráfego do utilizador para uma aplicação Web de elevada disponibilidade. Para saber mais sobre o encaminhamento, avance para os tutoriais do Gestor de Tráfego.
 
 > [!div class="nextstepaction"]
-> [Traffic Manager tutorials](traffic-manager-configure-performance-routing-method.md) (Tutoriais do Gestor de Tráfego)
+> [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md) (Tutoriais do Gestor de Tráfego)
 
 
 
