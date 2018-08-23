@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 6474b34abeceb58c2eff9e7a2d2237ec47e61933
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 225fd7800f05514e989ec0153b5de22e63b62bde
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447528"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054807"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Configurar uma máquina virtual Managed Service Identity (MSI) com a CLI do Azure do conjunto de dimensionamento
 
@@ -43,7 +43,10 @@ Neste artigo, aprenderá a efetuar as seguintes operações de identidade do ser
 - Para executar os exemplos de script da CLI, tem três opções:
     - Uso [Azure Cloud Shell](../../cloud-shell/overview.md) do portal do Azure (consulte a secção seguinte).
     - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
-    - [Instalar a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou posterior) se preferir utilizar uma consola CLI local. 
+    - [Instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se preferir utilizar uma consola CLI local. 
+      
+      > [!NOTE]
+      > Os comandos foram atualizados para refletir a versão mais recente dos [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -116,7 +119,7 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
 
 Nesta secção, saiba como ativar e remover uma identidade atribuída ao utilizador com a CLI do Azure.
 
-### <a name="assign-a-user-assigned-identity-during-the-creation-of-an-azure-vmss"></a>Atribuir um utilizador a identidade atribuído durante a criação de um VMSS do Azure
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Atribuir uma identidade atribuída ao utilizador durante a criação de um conjunto de dimensionamento de máquinas virtuais
 
 Esta secção orienta-o através da criação de um VMSS e atribuição de um utilizador atribuído a identidade para o VMSS. Se já tiver um VMSS que pretende utilizar, ignore esta secção e avance para a próxima.
 
@@ -150,13 +153,13 @@ Esta secção orienta-o através da criação de um VMSS e atribuição de um ut
    }
    ```
 
-3. Criar uma com VMSS [az vmss criar](/cli/azure/vmss/#az-vmss-create). O exemplo seguinte cria um VMSS associados à identidade atribuída ao utilizador novo, como especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY ID>` pelos seus próprios valores. Para `<USER ASSIGNED IDENTITY ID>`, utilizar o recurso a identidade de utilizador atribuída `id` propriedade criada no passo anterior: 
+3. Criar uma com VMSS [az vmss criar](/cli/azure/vmss/#az-vmss-create). O exemplo seguinte cria um VMSS associados à identidade atribuída ao utilizador novo, como especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY>` pelos seus próprios valores. 
 
    ```azurecli-interactive 
-   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY ID>
+   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
    ```
 
-### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Atribuir um utilizador a identidade atribuído a uma VM do Azure existente
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>Atribuir uma identidade de utilizador atribuída a um conjunto de dimensionamento de máquina virtual existente
 
 1. Criar um utilizador atribuído através de identidade [identidade az criar](/cli/azure/identity#az-identity-create).  O `-g` parâmetro especifica o grupo de recursos onde o identidade atribuída ao utilizador é criado, e o `-n` parâmetro especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
@@ -166,7 +169,7 @@ Esta secção orienta-o através da criação de um VMSS e atribuição de um ut
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-A resposta contém detalhes para a identidade atribuída ao utilizador que criou, semelhante ao seguinte. O recurso `id` valor atribuído para a identidade atribuída ao utilizador é utilizado no passo seguinte.
+A resposta contém detalhes para a identidade atribuída ao utilizador que criou, semelhante ao seguinte.
 
    ```json
    {
@@ -183,18 +186,18 @@ A resposta contém detalhes para a identidade atribuída ao utilizador que criou
    }
    ```
 
-2. Atribuir a identidade atribuída ao utilizador para a sua utilização de VMSS [identidade do vmss az atribuir](/cli/azure/vmss/identity#az-vm-assign-identity). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY ID>` será o recurso a identidade de utilizador atribuída `id` propriedade, como foi criado no passo anterior:
+2. Atribuir a identidade atribuída ao utilizador para a sua utilização de VMSS [identidade do vmss az atribuir](/cli/azure/vmss/identity#az-vm-assign-identity). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY>` é o recurso da identidade de utilizador atribuída `name` propriedade, como foi criado no passo anterior:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Remover uma identidade de utilizador atribuída a um conjunto de dimensionamento de máquina virtual do Azure
 
-Para remover uma identidade de utilizador atribuída a uma utilização de conjunto de dimensionamento de máquina virtual [remover a identidade do vmss az](/cli/azure/vmss/identity#az-vmss-identity-remove). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<MSI NAME>` será a identidade de utilizador atribuída `name` propriedade, que pode ser encontrada na secção da identidade da VM usando `az vmss identity show`:
+Para remover uma identidade de utilizador atribuída a uma utilização de conjunto de dimensionamento de máquina virtual [remover a identidade do vmss az](/cli/azure/vmss/identity#az-vmss-identity-remove). Se esta é a identidade atribuída ao utilizador apenas atribuída ao conjunto de dimensionamento de máquina virtual, `UserAssigned` será removida do valor de tipo de identidade.  Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY>` será a identidade de utilizador atribuída `name` propriedade, que pode ser encontrada na secção da identidade do conjunto com o dimensionamento da máquina virtual `az vmss identity show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
 ```
 
 Se o conjunto de dimensionamento de máquina virtual não tem um sistema de identidade atribuído e que pretende remover o utilizador de todas as identidades atribuídas da mesma, utilize o seguinte comando:
@@ -203,13 +206,13 @@ Se o conjunto de dimensionamento de máquina virtual não tem um sistema de iden
 > O valor `none` diferencia maiúsculas de minúsculas. Tem de estar em minúsculas.
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
+az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
 ```
 
 Se o conjunto de dimensionamento de máquina virtual tem o sistema atribuída e as identidades de atribuída ao utilizador, pode remover todos os utilizadores identidades atribuídos ao mudar para utilizar apenas o sistema atribuído. Utilize o seguinte comando:
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
+az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

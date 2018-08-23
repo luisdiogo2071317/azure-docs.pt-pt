@@ -1,6 +1,6 @@
 ---
-title: Explorar dados em tabelas do Hive com consultas do Hive | Microsoft Docs
-description: Explore dados em tabelas do Hive através de consultas do Hive.
+title: Explorar os dados em tabelas do Hive com consultas do Hive | Documentos da Microsoft
+description: Explore os dados nas tabelas do Hive com consultas do Hive.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,36 +15,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: b0156cc32348a086a9aeb720acfbbfe31efb285c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 79d40617ae4f9cd83d04cad213e5d8fd76b03876
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837111"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056078"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorar dados em tabelas do Hive com consultas do Hive
-Este documento fornece scripts do Hive de exemplo que são utilizados para explorar dados em tabelas do Hive num cluster do HDInsight Hadoop.
+Este documento fornece scripts de Hive de exemplo que são utilizadas para explorar dados em tabelas do Hive num cluster do HDInsight Hadoop.
 
-O seguinte **menu** ligações para tópicos que descrevem como utilizar as ferramentas para explorar dados vários ambientes de armazenamento.
+O seguinte procedimento **menu** ligações para tópicos que descrevem como utilizar ferramentas para explorar os dados de vários ambientes de armazenamento.
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem:
 
-* Criar uma conta de armazenamento do Azure. Se precisar de instruções, consulte [criar uma conta de armazenamento do Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Aprovisionar um cluster de Hadoop personalizado com o serviço de HDInsight. Se precisar de instruções, consulte [personalizar Azure HDInsight Clusters do Hadoop para análise avançada](customize-hadoop-cluster.md).
-* Os dados terem sido carregados para as tabelas do Hive no Azure HDInsight Hadoop clusters. Se não tiver, siga as instruções em [criar e carregar dados para as tabelas do Hive](move-hive-tables.md) carregar dados para as tabelas do Hive primeiro.
-* Ativar o acesso remoto para o cluster. Se precisar de instruções, consulte [aceder a Head nó de Cluster do Hadoop](customize-hadoop-cluster.md).
-* Se precisar de obter instruções sobre como submeter consultas do Hive, consulte [como submeter consultas do Hive](move-hive-tables.md#submit)
+* Criar uma conta de armazenamento do Azure. Se precisar de instruções, consulte [criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md)
+* Aprovisionar um cluster do Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [personalizar o Azure HDInsight Hadoop Clusters do Advanced Analytics](customize-hadoop-cluster.md).
+* Os dados tem sido carregados para tabelas do Hive em clusters do Hadoop de HDInsight do Azure. Se não tiver, siga as instruções em [criar e carregar dados para tabelas do Hive](move-hive-tables.md) para carregar dados para tabelas do Hive em primeiro lugar.
+* Ativar o acesso remoto para o cluster. Se precisar de instruções, consulte [aceder a cabeça nó de Cluster do Hadoop](customize-hadoop-cluster.md).
+* Se precisar de instruções sobre como submeter consultas do Hive, veja [como submeter consultas do Hive](move-hive-tables.md#submit)
 
-## <a name="example-hive-query-scripts-for-data-exploration"></a>Scripts de consulta de Hive de exemplo para a exploração de dados
-1. Obter a contagem das observações por partição  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Obter a contagem das observações por dia  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+## <a name="example-hive-query-scripts-for-data-exploration"></a>Scripts de consulta do Hive de exemplo para exploração de dados
+1. Obter a contagem de observações por partição  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Obter a contagem de observações por dia  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 3. Obter os níveis numa coluna categórico  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. Obter o número de níveis numa combinação de duas colunas categórico  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. Obter a distribuição para colunas numéricos  
+4. Obter o número de níveis na combinação de duas colunas categóricas  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+5. Obter a distribuição para colunas numéricas  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extrair os registos de associar as duas tabelas
    
@@ -73,6 +73,6 @@ Este artigo pressupõe que tem:
             ) b
             ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
-## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Scripts de consulta adicionais para cenários de dados do taxi viagem
-Exemplos de consultas que são específicas para [NYC Taxi viagem dados](http://chriswhong.com/open-data/foil_nyc_taxi/) cenários também são fornecidos no [repositório do GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas já tem o esquema de dados especificado e estão prontas para ser submetido para executar.
+## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Scripts de consulta adicionais para cenários de dados de viagens de táxis
+Exemplos de consultas que são específicas [dados de viagens de táxis NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) cenários também são fornecidos na [repositório do GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas já tem o esquema de dados especificado e estão prontas para serem submetidas para executar.
 

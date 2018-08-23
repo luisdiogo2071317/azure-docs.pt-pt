@@ -18,11 +18,11 @@ ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776555"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918972"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Localização| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -62,8 +62,8 @@ A criação da VM demora alguns minutos. Não continue com os restantes passos a
 
 Se já tiver um observador de rede ativado na região EUA Leste, avance para [Registar o fornecedor do Insights](#register-insights-provider).
 
-1. No portal, selecione **Todos os serviços**. Na **caixa Filtro**, introduza *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados, selecione-o.
-2. Selecione **Regiões** para expandir e, em seguida, **...** à direita de **EUA Leste**, conforme apresentado na imagem seguinte:
+1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+2. Selecione **Regiões**, para expandir e, em seguida, selecione **...** à direita de **E.U.A. Leste**, conforme apresentado na seguinte imagem:
 
     ![Ativar o Observador de Rede](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
@@ -89,7 +89,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     | Definição        | Valor                                                        |
     | ---            | ---   |
     | Nome           | 3 a 24 carateres de comprimento, só pode conter letras minúsculas e números e tem de ser exclusivo em todas as contas de Armazenamento do Microsoft Azure.                                                               |
-    | Localização       | Selecione **E.U.A. Leste**.                                           |
+    | Localização       | Selecione **E.U.A. Leste**                                           |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
 
     A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento.

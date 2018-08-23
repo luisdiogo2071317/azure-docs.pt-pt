@@ -1,6 +1,6 @@
 ---
-title: Recomendações de recuperação (BCDR) de desastre e continuidade comercial para o Runtime de integração de SSIS do Azure | Documentos da Microsoft
-description: Este artigo descreve as recomendações de recuperação de desastre e continuidade comercial para o Runtime de integração Azure-SSIS.
+title: Configurar o Runtime de integração Azure-SSIS para a ativação pós-falha da base de dados SQL | Documentos da Microsoft
+description: Este artigo descreve como configurar o Runtime de integração Azure-SSIS com georreplicação de base de dados do Azure SQL e a ativação pós-falha para a base de dados do SSISDB
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,23 +8,69 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 37347df2d543116085f52fed76c692b60fac2ad6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285863"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055196"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-recommendations-for-azure-ssis-integration-runtime"></a>Recomendações de recuperação (BCDR) de desastre e continuidade comercial para o Runtime de integração Azure-SSIS
+# <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar o Runtime de integração Azure-SSIS com georreplicação de base de dados do Azure SQL e ativação pós-falha
 
-Para fins de recuperação após desastre, pode parar o runtime de integração Azure-SSIS na região em que está em execução e mudar para outra região para iniciá-lo novamente. Recomendamos que utilize [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md) para esta finalidade.
+Este artigo descreve como configurar o Runtime de integração Azure-SSIS com georreplicação SQL Database do Azure para a base de dados SSISDB. Quando ocorre uma ativação pós-falha, pode certificar-se de que o IR Azure-SSIS mantém trabalhar com a base de dados secundário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+Para mais informações sobre a georreplicação e ativação pós-falha para a base de dados SQL, veja [descrição geral: grupos de georreplicação e ativação pós-falha automática Active Directory](../sql-database/sql-database-geo-replication-overview.md).
+
+## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Cenário 1 - IR Azure-SSIS está a apontar para o ponto final de escuta de leitura / escrita
+
+### <a name="conditions"></a>Condições
+
+Esta secção aplica-se quando as condições seguintes forem verdadeiras:
+
+- O IR Azure-SSIS está a apontar para o ponto de extremidade do serviço de escuta de leitura / escrita do grupo de ativação pós-falha.
+
+  E
+
+- O servidor de base de dados SQL está *não* configurado com a regra de ponto final de serviço de rede virtual.
+
+### <a name="solution"></a>Solução
+
+Quando ocorre a ativação pós-falha, é transparente para o ir Azure-SSIS. O IR Azure-SSIS liga-se automaticamente para a nova principal do grupo de ativação pós-falha.
+
+## <a name="scenario-2---azure-ssis-ir-is-pointing-to-primary-server-endpoint"></a>Cenário 2 - IR Azure-SSIS está a apontar para o ponto final do servidor primário
+
+### <a name="conditions"></a>Condições
+
+Esta secção aplica-se quando uma das seguintes condições for verdadeira:
+
+- O IR Azure-SSIS está a apontar para o ponto de final do servidor primário do grupo de ativação pós-falha. Este ponto final é alterado quando ocorre a ativação pós-falha.
+
+  OU
+
+- O servidor de base de dados do Azure SQL está configurado com a regra de ponto final de serviço de rede virtual.
+
+  OU
+
+- O servidor de base de dados é uma base de dados a instância gerida SQL configurado com uma rede virtual.
+
+### <a name="solution"></a>Solução
+
+Quando ocorre a ativação pós-falha, terá de efetue os seguintes procedimentos:
+
+1. Parar o ir Azure-SSIS.
+
+2. Reconfigure o runtime de integração para apontar para o novo ponto final primário e a uma rede virtual na nova região.
+
+3. Reinicie o IR.
+
+As seções a seguir descrevem essas etapas mais detalhadamente.
+
+### <a name="prerequisites"></a>Pré-requisitos
 
 - Certifique-se de que ativou a recuperação após desastre para o seu servidor de base de dados do Azure SQL no caso do servidor tem um período de indisponibilidade, ao mesmo tempo. Para mais informações, veja [descrição geral da continuidade do negócio com a base de dados do Azure SQL](../sql-database/sql-database-business-continuity.md).
 
@@ -32,13 +78,13 @@ Para fins de recuperação após desastre, pode parar o runtime de integração 
 
 - Se estiver a utilizar uma configuração personalizada, terá de preparar noutro URI de SAS para o contentor de BLOBs que armazena o seu script de configuração personalizada e os ficheiros associados, para que ele continua a estar acessíveis durante um período de indisponibilidade. Para mais informações, veja [configurar uma configuração personalizada num runtime de integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-## <a name="steps"></a>Passos
+### <a name="steps"></a>Passos
 
 Siga estes passos para parar o runtime de integração Azure-SSIS, mude o IR para uma nova região e iniciá-lo novamente.
 
 1. Pare o runtime de integração na região original.
 
-2. Chamar o seguinte comando no PowerShell para atualizar o runtime de integração
+2. Chame o seguinte comando no PowerShell para atualizar o runtime de integração com as novas definições.
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `

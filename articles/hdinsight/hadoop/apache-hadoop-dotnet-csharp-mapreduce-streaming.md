@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 7c9a4a0fdbc362a1c2856e35f112deaabddeb229
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ef0001d5693d96abc128acf6c052dbedc0983b51
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594384"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056998"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Utilizar c# com o MapReduce de transmissão em fluxo do Hadoop no HDInsight
 
@@ -41,7 +41,7 @@ O processo básico usado para transmissão em fluxo neste documento é o seguint
 4. O reducer lê os pares chave/valor delimitado por tabulação, processa os dados e, em seguida, emite o resultado como pares de chave/valor delimitado por tabulação no STDOUT.
 5. O resultado é de leitura ao Hadoop e gravado no diretório de saída.
 
-Para obter mais informações sobre a transmissão em fluxo, consulte [transmissão em fluxo do Hadoop (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
+Para obter mais informações sobre a transmissão em fluxo, consulte [transmissão em fluxo do Hadoop](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

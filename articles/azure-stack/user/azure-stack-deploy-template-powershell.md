@@ -1,9 +1,9 @@
 ---
-title: Implementar modelos com o PowerShell na pilha do Azure | Microsoft Docs
-description: Implemente um modelo de pilha do Azure com o PowerShell.
+title: Implementar modelos com o PowerShell no Azure Stack | Documentos da Microsoft
+description: Implemente um modelo para o Azure Stack com o PowerShell.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
@@ -12,32 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 445628679a09a1884f63cdce446adec476af39af
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359820"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060322"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implementar um modelo para a pilha do Azure com o PowerShell
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implementar um modelo para o Azure Stack com o PowerShell
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pode utilizar o PowerShell para implementar modelos Azure Resource Manager para a pilha do Azure. Este artigo mostra como utilizar o PowerShell para implementar um modelo.
+Pode utilizar o PowerShell para implementar os modelos Azure Resource Manager para o Azure Stack. Este artigo mostra-lhe como utilizar o PowerShell para implementar um modelo.
 
-## <a name="run-azurerm-powershell-cmdlets"></a>Executar os cmdlets do AzureRM PowerShell
+## <a name="run-azurerm-powershell-cmdlets"></a>Executar cmdlets do AzureRM PowerShell
 
 Este exemplo utiliza os cmdlets do AzureRM PowerShell e um modelo armazenado no GitHub. O modelo cria uma máquina virtual do Windows Server 2012 R2 Datacenter.
 
 >[!NOTE]
->Antes de tentar neste exemplo, certifique-se de que já [configurado PowerShell](azure-stack-powershell-configure-user.md) para um utilizador de pilha do Azure.
+>Antes de tentar neste exemplo, certifique-se de que [configurado PowerShell](azure-stack-powershell-configure-user.md) para um utilizador do Azure Stack.
 
-1. Aceda a <http://aka.ms/AzureStackGitHub> e localize o **101-simples-windows-vm** modelo. Guardar o modelo a esta localização: c:\\modelos\\azuredeploy-101-simples-windows-vm.json.
+1. Aceda a <http://aka.ms/AzureStackGitHub> e localize o **101-simples-windows-vm** modelo. Guardar o modelo nesta localização: c:\\modelos\\azuredeploy-101-simples-windows-vm.json.
 2. Abra uma linha de comandos elevada do PowerShell.
-3. Substitua *username* e *palavra-passe* no seguinte script com o nome de utilizador e palavra-passe e, em seguida, execute o script.
+3. Substitua *nome de utilizador* e *palavra-passe* no seguinte script com o seu nome de utilizador e palavra-passe e, em seguida, execute o script.
 
    ```PowerShell
        # Set Deployment Variables
@@ -62,9 +62,9 @@ Este exemplo utiliza os cmdlets do AzureRM PowerShell e um modelo armazenado no 
    ```
 
    >[!IMPORTANT]
-   >Everytime tem de executar este script, aumentar o valor do parâmetro "$myNum" para impedir a sua implementação de substituição.
+   >Sempre que executar esse script, incrementar o valor do parâmetro "$myNum" para impedir a substituição de sua implementação.
 
-4. Abra selecionar portal, Azure pilha **procurar**e, em seguida, selecione **máquinas virtuais** para localizar a máquina virtual nova (*myDeployment001*).
+4. Abra a selecione portal, do Azure Stack **navegue**e, em seguida, selecione **máquinas virtuais** para localizar a sua nova máquina virtual (*myDeployment001*).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 463a00823997f1acfb65fdd739a093e556982a61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411955"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056500"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
 
@@ -63,7 +63,8 @@ O JSON seguinte mostra o esquema para a extensão.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ O JSON seguinte mostra o esquema para a extensão.
 | apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | cadeia |
 | tipo | NvidiaGpuDriverWindows | cadeia |
-| typeHandlerVersion | 1.0 | Int |
+| typeHandlerVersion | 1.2 | Int |
 
 
 ## <a name="deployment"></a>Implementação
@@ -103,7 +104,8 @@ O exemplo a seguir supõe que a extensão é aninhada dentro do recurso de máqu
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
   }'
 ```
@@ -164,7 +166,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operação bem-sucedida |
 | 1 | Operação concluída com êxito. Reinício requerido. |
-| 4, 10 | Tempo limite da operação. | Repita a operação.
+| 100 | Operação não suportada ou não foi possível concluir. | As causas possíveis: PowerShell versão não suportada, tamanho da VM não é uma VM de série N, falha de transferência de dados. Verifique os ficheiros de registo para determinar a causa do erro. |
+| 240, 840 | Tempo limite da operação. | Repita a operação. |
 | -1 | Ocorreu uma exceção. | Verifique os ficheiros de registo para determinar a causa de exceção. |
 | -5 x | Operação interrompida devido a reinício pendente. | Reinicie a VM. A instalação irá continuar após a reinicialização. Desinstalar deve ser invocada manualmente. |
 

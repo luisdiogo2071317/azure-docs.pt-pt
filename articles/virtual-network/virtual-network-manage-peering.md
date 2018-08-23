@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1b9807b587b6b52594133e8c792c72b21e8bd4ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503626"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055207"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
-Saiba como criar, alterar ou eliminar um peering de rede virtual. Peering de rede virtual permite-lhe ligar redes virtuais através da rede de backbone do Azure. Uma vez executado o peering, as redes virtuais continuam a ser geridas como recursos separados. Se estiver familiarizado com o peering de rede virtual, pode saber mais sobre isso na [descrição geral de peering de rede virtual](virtual-network-peering-overview.md) ou ao preencher um [tutorial](tutorial-connect-virtual-networks-portal.md).
+Saiba como criar, alterar ou eliminar um peering de rede virtual. Peering de rede virtual permite-lhe ligar redes virtuais na mesma região e entre regiões (também conhecido como Global VNet Peering) através da rede de backbone do Azure. Uma vez executado o peering, as redes virtuais continuam a ser geridas como recursos separados. Se estiver familiarizado com o peering de rede virtual, pode saber mais sobre isso na [descrição geral de peering de rede virtual](virtual-network-peering-overview.md) ou ao preencher um [tutorial](tutorial-connect-virtual-networks-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -112,10 +112,10 @@ Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, 
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações 
 
-- <a name="cross-region"></a>Pode configurar o peering entre redes virtuais na mesma região ou regiões diferentes. As seguintes restrições não se aplicam quando ambas as redes virtuais na *mesmo* região, mas que se aplicam quando as redes virtuais global em modo de peering: 
-    - As redes virtuais podem existir em qualquer região de cloud pública do Azure, mas não em clouds nacionais do Azure.
-    - Recursos numa rede virtual não consegue comunicar com o endereço IP do Balanceador de carga interno do Azure na rede virtual em modo de peering. O Balanceador de carga e os recursos que se comunicam com o mesmo tem de ser na mesma rede virtual.
-    - Não é possível utilizar gateways remotos ou permitir que o trânsito de gateway. Para utilizar gateways remotos ou permitir que o trânsito de gateway, ambas as redes virtuais no peering tem de existir na mesma região. 
+- <a name="cross-region"></a>Pode configurar o peering entre redes virtuais na mesma região ou regiões diferentes. Peering de redes virtuais em diferentes regiões também é referido como *global peering*. 
+- Ao criar um peering global, as redes virtuais em modo de peering podem existir em qualquer região de cloud pública do Azure, mas não em clouds nacionais do Azure. Pode apenas configurar o peering entre redes virtuais na mesma região em clouds nacionais.
+- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end do Balanceador de carga interno do Azure numa rede virtual em modo de peering global. O Balanceador de carga e os recursos que se comunicam com o mesmo tem de ser numa rede virtual na mesma região. Se as redes virtuais em modo de peering na mesma região no entanto, os recursos em qualquer rede virtual podem comunicar com o endereço IP Front-end do Balanceador de carga interno do Azure em qualquer rede virtual no peering.
+- Não é possível utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais global em modo de peering. Para utilizar gateways remotos ou permitir que o trânsito de gateway, as redes virtuais em modo de peering tem de ser na mesma região.
 - As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando configurar o peering de redes virtuais em diferentes subscrições, ambas as subscrições têm de estar associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criá-lo](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições que estão associadas aos diferentes inquilinos do Active Directory.
 - As redes virtuais que configurar o peering tem de ter espaços de endereços IP não sobrepostos.
 - Não é possível adicionar intervalos de endereços para ou eliminar intervalos de endereços do espaço de endereços da rede virtual depois de uma rede virtual é executado o peering com outra rede virtual. Para adicionar ou remover intervalos de endereços, eliminar o peering, adicionar ou remover os intervalos de endereços, em seguida, recrie o peering. Para intervalos de endereços para adicionar ou remover intervalos de endereços das redes virtuais, veja [gerir redes virtuais](manage-virtual-network.md).

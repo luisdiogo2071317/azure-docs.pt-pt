@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630430"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055622"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Como utilizar diferentes mecanismos de atestado com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C
 
@@ -147,7 +147,7 @@ Se estiver a utilizar o TPM, siga as instruções em [“Criar e aprovisionar um
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o serviço DPS.
+2. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o Serviço Aprovisionamento de Dispositivos.
    - Inscrição Individual X **.** 509: no painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique no botão **Adicionar**, na parte superior. Selecione **X**.**509** como o *Mecanismo* de atestado de identidades e carregue o certificado da folha conforme indicado pelo painel. Quando tiver terminado, clique no botão **Guardar**. 
    - Inscrição em Grupo X **.** 509: no painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições em Grupo** e clique no botão **Adicionar**, na parte superior. Selecione **X**.**509** como o *Mecanismo* de atestado de identificações, introduza um nome para o grupo e um nome para a certificação e carregue o certificado de CA/Intermédio, conforme indicado pelo painel. Quando tiver terminado, clique no botão **Guardar**. 
 

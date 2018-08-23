@@ -1,6 +1,6 @@
 ---
-title: Saída de Stream Analytics do Azure à base de dados do Cosmos
-description: Este artigo descreve como utilizar o Azure Stream Analytics para guardar a saída à base de dados do Azure Cosmos da saída JSON, para o arquivo de dados e consultas de latência baixa em dados não estruturados de JSON.
+title: Saída do Azure Stream Analytics para o Cosmos DB
+description: Este artigo descreve como utilizar o Azure Stream Analytics para guardar a saída para o Azure Cosmos DB para a saída JSON, para o arquivo de dados e consultas de baixa latência nos dados não estruturados de JSON.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,53 +9,55 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112756"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057094"
 ---
-# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída de Stream Analytics do Azure à base de dados do Azure Cosmos  
-Pode visar do Stream Analytics [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo consultas de arquivo e baixa latência de dados em dados não estruturados de JSON. Este documento inclui algumas melhores práticas para implementar esta configuração.
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics ao Azure Cosmos DB  
+Stream Analytics pode visar [do Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo que consultas de arquivamento e baixa latência de dados em dados não estruturados de JSON. Este documento abrange algumas das melhores práticas para implementar esta configuração.
 
-Os utilizadores que não está familiarizado com a base de dados do Cosmos, observe [percurso de aprendizagem da BD do Azure Cosmos](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para começar a utilizar. 
+Para aqueles que não estão familiarizados com o Cosmos DB, dê uma olhada [percurso de aprendizagem do Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para começar a utilizar. 
 
 > [!Note]
-> Neste momento, o Azure Stream Analytics suporta apenas a ligação à base de dados do Azure Cosmos utilizando **API do SQL Server**.
-> APIs de BD do Cosmos outros Azure ainda não são suportadas. Se o ponto de Azure Stream Analytics para as contas de base de dados do Azure Cosmos criado com outras APIs, os dados poderão não ser corretamente armazenados. 
+> Neste momento, o Azure Stream Analytics suporta apenas a ligação para utilizar o Azure Cosmos DB **API do SQL**.
+> Outras APIs do Azure Cosmos DB ainda não são suportados. Se ponto Azure Stream Analytics para as contas do Azure Cosmos DB criado com as outras APIs, os dados poderão não ser corretamente armazenados. 
 
-## <a name="basics-of-cosmos-db-as-an-output-target"></a>Noções básicas da BD do Cosmos como um destino de saída
-A saída de BD do Cosmos Azure Stream Analytics permite escrita sua transmissão em fluxo processar os resultados como saída JSON na sua collection(s) de BD do Cosmos. Do Stream Analytics não criar coleções na base de dados, em vez disso, exigir a criação de compromisso. Isto é, de modo a que os custos de faturação da BD do Cosmos coleções são controlados por si e para que pode otimizar o desempenho, a consistência e a capacidade do seu coleções diretamente utilizando a [APIs de BD do Cosmos](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
+## <a name="basics-of-cosmos-db-as-an-output-target"></a>Noções básicas do Cosmos DB como um destino de saída
+A saída do Azure Cosmos DB no Stream Analytics permite escrever a sua transmissão em fluxo processando os resultados como saída JSON em suas coleções de Cosmos DB. Stream Analytics não criar coleções na base de dados, em vez disso, que seja necessário criá-los de antemão. Isto é, para que os custos de faturas de coleções do Cosmos DB são controlados por si e para que pode ajustar o desempenho, a consistência e a capacidade de seus conjuntos de diretamente com o [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
 
-Algumas das opções de recolha de BD do Cosmos detalhadas abaixo.
+Algumas das opções de coleção do Cosmos DB são detalhadas abaixo.
 
-## <a name="tune-consistency-availability-and-latency"></a>Otimizar a consistência, disponibilidade e a latência
-Para fazer corresponder os seus requisitos de aplicações, o Azure Cosmos DB permite-lhe ajustar e otimizar a base de dados e coleções compromissos entre consistência, disponibilidade e a latência. Consoante os níveis de consistência de leitura as necessidades de cenário contra ler e escrever latência, que pode escolher um nível de consistência na sua conta de base de dados. Também por predefinição, a base de dados do Azure Cosmos permite a indexação síncrona de cada operação CRUD à sua coleção. Esta é outra opção útil para controlar o desempenho de leitura/escrita na base de dados do Azure Cosmos. Para obter mais informações, consulte o [alterar os níveis de consistência da base de dados e a consulta](../cosmos-db/consistency-levels.md) artigo.
+## <a name="tune-consistency-availability-and-latency"></a>Ajustar a consistência, disponibilidade e latência
+Para corresponder aos requisitos de aplicação, o Azure Cosmos DB permite-lhe bem otimizar a base de dados e coleções e fazer compensações entre consistência, disponibilidade e latência. Dependendo do que níveis de consistência de leitura suas necessidades de cenário em relação a ler e escrever a latência, que pode escolher um nível de consistência na sua conta de base de dados. Também por predefinição, a Azure Cosmos DB permite a indexação síncrona de cada operação CRUD à sua coleção. Essa é outra opção útil para controlar o desempenho de leitura/escrita no Azure Cosmos DB. Para obter mais informações, reveja os [alterar os níveis de consistência da base de dados e consulta](../cosmos-db/consistency-levels.md) artigo.
 
-## <a name="upserts-from-stream-analytics"></a>Upserts a partir do Stream Analytics
-Integração de análise de fluxo com base de dados do Azure Cosmos permite-lhe inserir ou atualizar os registos na sua coleção com base numa coluna ID do documento fornecida. Isto também é referido como um *Upsert*.
+## <a name="upserts-from-stream-analytics"></a>Upserts do Stream Analytics
+Integração do Stream Analytics com o Azure Cosmos DB permite-lhe inserir ou atualizar registos na sua coleção com base numa determinada coluna de ID do documento. Isso também é referido como um *Upsert*.
 
-Do Stream Analytics utiliza uma abordagem de upsert otimista, onde as atualizações apenas são efetuadas quando insert falha com um conflito de ID do documento. Esta atualização é executada como uma correção, pelo que permite que as atualizações parciais o documento, ou seja, a adição de novas propriedades ou substituir que uma propriedade existente é executada de forma incremental. No entanto, as alterações nos valores de propriedades de matriz no seu resultado de documentos JSON na matriz todo obter substituída, ou seja, a matriz não está intercalada.
+Stream Analytics utiliza uma abordagem de upsert otimista, onde as atualizações apenas são efetuadas quando insert falha com um conflito de ID do documento. Esta atualização é executada como um PATCH, para que ele permite que as atualizações parciais para o documento, ou seja, a adição de novas propriedades ou substituir que uma propriedade existente é realizada de forma incremental. No entanto, as alterações nos valores das propriedades de matriz no seu resultado de documento JSON da matriz todo getting substituído, ou seja, a matriz não está intercalado.
 
-## <a name="data-partitioning-in-cosmos-db"></a>Criação de partições de dados na base de dados do Cosmos
-BD do Azure do Cosmos [ilimitados](../cosmos-db/partition-data.md) são a abordagem recomendada para a criação de partições de dados, como a base de dados do Azure Cosmos automaticamente dimensiona partições com base na sua carga de trabalho. Quando são escritos para contentores ilimitados, o Stream Analytics utiliza tantos escritores paralelas como passo consulta anterior ou introduza a criação de partições de esquema.
+## <a name="data-partitioning-in-cosmos-db"></a>Criação de partições de dados no Cosmos DB
+O Azure Cosmos DB [ilimitado](../cosmos-db/partition-data.md) são a abordagem recomendada para a partição dos dados, como o Azure Cosmos DB automaticamente dimensiona-se partições com base na carga de trabalho. Ao escrever os contentores ilimitados, o Stream Analytics utiliza os escritores paralelas como passo de consulta anterior ou de uma entrada de esquema de particionamento.
+> [!Note]
+> Neste momento, o Azure Stream Analytics suporta apenas coleções ilimitadas com chaves de partição no nível superior. Por exemplo, `/region` é suportada. Aninhados chaves de partição (por exemplo, `/region/name`) não são suportadas. 
 
-Para coleções de base de dados do Azure Cosmos fixas, o Stream Analytics não permite nenhuma forma de aumentar verticalmente ou horizontalmente assim que estiverem completas. Têm um limite superior de 10 GB e 10 000 de RU/s débito.  Para migrar os dados a partir de um contentor fixo para um contentor ilimitado (por exemplo, um com, pelo menos, 1000 RU/s e uma chave de partição), tem de utilizar o [ferramenta de migração de dados](../cosmos-db/import-data.md) ou [alteração feed biblioteca](../cosmos-db/change-feed.md).
+Para coleções do Azure Cosmos DB fixas, o Stream Analytics não permite nenhuma forma de aumentar vertical ou horizontalmente, uma vez que estão cheias. Eles têm um limite superior de 10 GB e 10 000 de RU/s débito.  Para migrar os dados a partir de um contentor fixo para um contentor ilimitado (por exemplo, um com uma chave de partição e, pelo menos, 1.000 RU/s), tem de utilizar o [ferramenta de migração de dados](../cosmos-db/import-data.md) ou o [biblioteca de feed de alterações](../cosmos-db/change-feed.md).
 
-Escrever em vários contentores fixos está a ser preterido e não é a abordagem recomendada para aumentar horizontalmente a tarefa de Stream Analytics. O artigo [divisão em partições e o dimensionamento na base de dados do Cosmos](../cosmos-db/sql-api-partition-data.md) fornece mais detalhes.
+Gravar em vários contentores fixos está a ser preterida e não é a abordagem recomendada para aumentar horizontalmente a tarefa de Stream Analytics. O artigo [criação de partições e dimensionamento no Cosmos DB](../cosmos-db/sql-api-partition-data.md) fornecem mais detalhes.
 
-## <a name="cosmos-db-settings-for-json-output"></a>Definições de cosmos base de dados de saída JSON
-Criar BD do Cosmos como uma saída no Stream Analytics gera uma linha de comandos para obter informações, como mostrado abaixo. Esta secção fornece uma explicação da definição de propriedades.
+## <a name="cosmos-db-settings-for-json-output"></a>Definições de cosmos DB para a saída JSON
+Criar o Cosmos DB como uma saída no Stream Analytics gera uma linha de comandos para obter informações, como mostrado abaixo. Esta seção fornece uma explicação sobre a definição de propriedades.
 
 
 ![ecrã de saída do documentdb stream analytics](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
 Campo           | Descrição 
 -------------   | -------------
-Alias de saída    | Um alias para fazer referência este resultado da consulta do ASA   
-Nome da Conta    | O nome ou o ponto final o URI da conta de base de dados do Azure Cosmos 
-Chave da Conta     | A chave de acesso partilhado para a conta de base de dados do Azure Cosmos
-Base de Dados        | O nome de base de dados de base de dados do Azure Cosmos
-Nome da Coleção | O nome da coleção para a coleção ser utilizado. `MyCollection` é um exemplo de entrada válido - uma coleção designada `MyCollection` tem de existir.  
-ID do documento     | Opcional. O nome de coluna em eventos de saída utilizado como a chave exclusiva no qual insert ou update operações devem basear-se. Se deixado em branco, todos os eventos serão inseridos, sem qualquer opção de atualização.
+Alias de Saída    | Um alias para fazer referência este resultado na sua consulta do ASA   
+Nome da Conta    | O nome ou o ponto final do URI de conta do Azure Cosmos DB 
+Chave da Conta     | A chave de acesso partilhado para a conta do Azure Cosmos DB
+Base de Dados        | O nome de base de dados do Azure Cosmos DB
+Nome da Coleção | O nome da coleção para a coleção a ser utilizado. `MyCollection` é uma entrada válida de exemplo - uma coleção com o nome `MyCollection` tem de existir.  
+ID do documento     | Opcional. O nome da coluna em eventos de saída utilizado como a chave exclusiva no qual inserção ou atualização de operações devem basear-se. Se deixado em branco, serão possível inserir todos os eventos, sem qualquer opção de atualização.

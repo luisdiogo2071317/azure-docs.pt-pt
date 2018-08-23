@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004816"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058823"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -178,7 +178,10 @@ Não diretamente. Pode sincronizar entre bases de dados do SQL Server no local i
 Sim. Pode sincronizar entre bases de dados do SQL que pertencem a grupos de recursos pertencentes a subscrições diferentes.
 -   Se as subscrições pertencem ao mesmo inquilino, e tem permissão para todas as subscrições, pode configurar o grupo de sincronização no portal do Azure.
 -   Caso contrário, terá de utilizar o PowerShell para adicionar os membros de sincronização que pertencem a subscrições diferentes.
-   
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>Pode utilizar a sincronização de dados para sincronizar entre bases de dados do SQL que pertencem a nuvens diferentes (como nuvem pública do Azure e Azure China)?
+Sim. Pode sincronizar entre bases de dados do SQL que pertencem a nuvens diferentes, tem de utilizar o PowerShell para adicionar os membros de sincronização que pertencem a subscrições diferentes.
+
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Posso utilizar a sincronização de dados para dados de seed da minha base de dados de produção para uma base de dados vazia e, em seguida, sincronizá-los?
 
 Sim. Crie o esquema manualmente na nova base de dados, criação de scripts em relação ao original. Depois de criar o esquema e adicionar as tabelas para um grupo de sincronização para copiar os dados e manter sincronizados.

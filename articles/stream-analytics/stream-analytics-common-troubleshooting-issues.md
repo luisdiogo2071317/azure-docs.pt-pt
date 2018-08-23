@@ -1,6 +1,6 @@
 ---
 title: Problemas comuns para resolver problemas no Azure Stream Analytics
-description: Este artigo descreve alguns problemas comuns do Azure Stream Analytics e passos para resolver esses problemas.
+description: Este artigo descreve vários problemas comuns no Azure Stream Analytics e passos para resolver esse problema.
 services: stream-analytics
 author: jasonwhowell
 manager: kfile
@@ -9,83 +9,85 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: e04d1072acee635235b0a5bd8465ca38c861017b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3b01e75a9b34ce4e38138816935bdae2e0ea778
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523528"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056484"
 ---
-# <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemas comuns do Stream Analytics e passos para resolver problemas
+# <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemas comuns no Stream Analytics e passos para resolver problemas
 
 ## <a name="troubleshoot-malformed-input-events"></a>Resolver problemas de eventos de entrada com formato incorreto
 
- Problemas de serialização são causados quando o fluxo de entrada da tarefa do Stream Analytics contém mensagens mal formadas. Por exemplo, uma mensagem incorretamente formada pode ser causado por um parêntesis em falta ou uma chaveta num objeto JSON em falta ou incorretos hora em formato de carimbo de data / no campo de hora. 
+ Problemas de serialização são causados quando o fluxo de entrada da sua tarefa do Stream Analytics contém mensagens com formato incorreto. Por exemplo, uma mensagem incorretamente formada pode ser causado por um parêntesis de em falta ou uma chave em falta num objeto JSON ou incorreto formato de carimbo de data / num campo de tempo de tempo. 
  
- Quando uma tarefa de Stream Analytics recebe uma mensagem incorretamente formada de entrada, ignora a mensagem e notifica o utilizador com um aviso. Um símbolo de aviso é apresentado no **entradas** mosaico da tarefa do Stream Analytics (esta sessão de aviso existe, desde que a tarefa está em estado de execução):
+ Quando uma tarefa do Stream Analytics recebe uma mensagem incorretamente formada de entrada, ele ignora a mensagem e notifica o utilizador com um aviso. Um símbolo de aviso é apresentado no **entradas** mosaico da sua tarefa do Stream Analytics (início de sessão este aviso existe, desde que a tarefa está no estado de execução):
 
-![Entradas do mosaico](media/stream-analytics-malformed-events/inputs_tile.png)
+![Mosaico de entradas](media/stream-analytics-malformed-events/inputs_tile.png)
 
-Para obter mais informações, ative os registos de diagnóstico para ver os detalhes sobre o aviso. Para eventos de entrada com formato incorreto, os registos de execução contém uma entrada com a mensagem que se assemelha: "mensagem: não foi possível anular a serialização do evento de entrada do recurso <blob URI> como json". 
+Para obter mais informações, ative os registos de diagnóstico para ver os detalhes do aviso. Para eventos de entrada com formato incorreto, os registos de execução contém uma entrada com a mensagem que se assemelha: "mensagem: não foi possível anular a serialização do evento ou eventos entrado de recurso <blob URI> como json". 
 
 ### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
 1. Navegue para o mosaico de entrada e clique para ver os avisos.
 
-2. O mosaico de entrada de detalhes apresenta um conjunto de avisos com detalhes sobre o problema. Segue-se uma mensagem de aviso de exemplo, a mensagem de aviso mostra a partição, o desvio e números de sequência em que contém dados JSON com formato incorreto. 
+2. O mosaico de detalhes de entrada apresenta um conjunto de avisos com detalhes sobre o problema. Segue-se uma mensagem de aviso de exemplo, a mensagem de aviso mostra a partição, o deslocamento e a números de sequência em que há dados JSON com formato incorreto. 
 
-   ![Mensagem de aviso com desvio igual a](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Mensagem de aviso com o deslocamento](media/stream-analytics-malformed-events/warning_message_with_offset.png)
 
-3. Para obter os dados JSON tem um formato incorreto, execute o código de CheckMalformedEvents.cs. Este exemplo está disponível no [repositório do GitHub exemplos](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código leituras o ID de partição, deslocamento e impressões os dados que estão localizados em que o desvio. 
+3. Para obter os dados JSON que tem um formato incorreto, execute o código de CheckMalformedEvents.cs. Neste exemplo está disponível na [repositório de exemplos do GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código leituras o ID de partição, deslocamento e imprime os dados que estão localizados no deslocamento. 
 
-4. Depois de ler os dados, pode analisar e corrigir o formato de serialização. 
+4. Depois de ler os dados, pode analisar e corrigir o formato de serialização.
+
+5. Também pode [ler eventos a partir de um IoT Hub com o Explorador do Service Bus](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
 
 ## <a name="delayed-output"></a>Saída atrasada
 
-### <a name="first-output-is-delayed"></a>Saída primeiro está atrasada
-Quando é iniciada uma tarefa de Stream Analytics, os eventos de entrada são lidas, mas pode haver um atraso na saída que está a ser produzida em determinadas circunstâncias.
+### <a name="first-output-is-delayed"></a>Saída primeiro é atrasada
+Quando uma tarefa do Stream Analytics é iniciada, os eventos de entrada são lidas, mas pode haver um atraso na saída a ser produzida em determinadas circunstâncias.
 
-Valores de tempo em elementos de consulta temporal podem contribuir para o atraso de saída. Para produzir o resultado correto através do windows de tempo, a tarefa de transmissão em fluxo é iniciado através da leitura de dados de possíveis de tempo mais recente (há até sete dias) para preencher a janela de tempo. Durante este período, nenhuma saída é produzida até que a leitura dos eventos de entrada pendentes catch-up esteja concluída. Este problema pode superfície quando o sistema atualiza as tarefas de transmissão em fluxo, deste modo, reiniciar a tarefa. Essas atualizações ocorrerem, geralmente, uma vez cada alguns meses. 
+Valores de tempo grande em elementos de consulta temporal podem contribuir com o atraso de saída. Para produzir o resultado correto durante as janelas de tempo grande, a tarefa de transmissão em fluxo é iniciado, lendo dados a partir da mais recente possível de tempo (até sete dias atrás) para preencher a janela de tempo. Durante esse período, nenhuma saída é produzida até que a leitura catch-up de eventos de entrada pendentes esteja concluída. Esse problema pode surgir quando o sistema atualiza as tarefas de transmissão em fluxo, portanto, reiniciar a tarefa. Essas atualizações ocorram, geralmente, uma vez cada dois meses. 
 
-Por conseguinte, utilize o critério ao conceber a sua consulta do Stream Analytics. Se utilizar uma janela de tempo (mais de várias horas, até sete dias) para elementos temporais na sintaxe de consulta da tarefa, pode levar a um atraso na primeira saída quando a tarefa é iniciada ou reiniciada.  
+Por conseguinte, utilize critério ao conceber a sua consulta do Stream Analytics. Se utilizar uma janela de tempo grande (mais de várias horas, até sete dias) para elementos temporais na sintaxe de consulta da tarefa, ele pode levar a um atraso na saída primeiro quando a tarefa é iniciada ou reiniciada.  
 
-Uma mitigação para este tipo de primeiro atraso de saída é utilize técnicas de parallelization de consulta (os dados de criação de partições) ou adicione mais unidades de transmissão em fluxo de mensagens em fila para melhorar o débito até intercete a tarefa de cópia de segurança.  Para obter mais informações, consulte [considerações ao criar tarefas do Stream Analytics](stream-analytics-concepts-checkpoint-replay.md)
+Uma atenuação para esse tipo de atraso de saída primeira é usar técnicas de paralelização de consultas (criação de partições de dados) ou adicionar mais unidades de transmissão em fluxo de mensagens em fila para melhorar o débito até que a tarefa de captura a cópia de segurança.  Para obter mais informações, consulte [considerações ao criar tarefas do Stream Analytics](stream-analytics-concepts-checkpoint-replay.md)
 
-Estes fatores afetam a pontualidade de saída primeiro que é gerada:
+Estes fatores que afetam a pontualidade do primeiro resultado que é gerado:
 
-1. Utilização de agregados Next (grupo através de em cascata, salto e a deslizante windows)
-   - Para em cascata ou hopping agregados de janela, os resultados são gerados no fim do período de tempo janela. 
+1. Utilização de agregados em janelas (grupo por de em cascata, saltos e deslizante windows)
+   - Para em cascata ou saltos agregados de janela, os resultados são gerados no final do período de tempo de janela. 
    - Para uma janela deslizante, os resultados são gerados quando um evento entra ou sai da janela deslizante. 
-   - Se estiver a planear utilizar o tamanho da janela elevado (> 1 hora), é melhor escolher a janela de salto ou deslizante, para que possa ver o resultado com mais frequência.
+   - Se estiver a planear utilizar o tamanho da janela grandes (> 1 hora), é melhor escolher a janela de salto que remonte há ou deslizante para que pode ver a saída com mais frequência.
 
-2. Utilização das associações temporais (associação com DATEDIFF)
-   - Correspondências são geradas, assim como quando chegam ambos os lados dos eventos correspondentes.
-   - Dados que não possui uma correspondência (associação externa à esquerda) são gerados no fim da janela DATEDIFF relativamente a cada evento no lado esquerdo.
+2. Utilização de junções temporais (associação com DATEDIFF)
+   - Correspondências são geradas, assim como quando chegam a ambos os lados dos eventos correspondentes.
+   - Dados que não tem uma correspondência (LEFT OUTER JOIN) são gerados no fim da janela DATEDIFF em relação a cada evento no lado esquerdo.
 
-3. Utilização de funções analíticas temporais (ISFIRST, LAST e desfasamento com LIMIT DURATION)
-   - Para as funções analíticas, o resultado é gerado para cada evento, não existe nenhum atraso.
+3. Utilização de funções de análise temporais (ISFIRST, LAST e desfasamento com duração de limite)
+   - Para funções de análise, a saída é gerada para cada evento, não existe nenhum atraso.
 
 ### <a name="output-falls-behind"></a>Saída se situe atrás
-Durante o funcionamento normal da tarefa, se encontrar o que resultado da tarefa é baixar atrás (latência maior e mais), pode identificar as causas raiz, examinando estes fatores:
-- Indica se o sink a jusante está limitado
+Durante o funcionamento normal do trabalho, se achar que a saída da tarefa é atrasado (latência mais e mais tempo), pode identificar as causas de raiz, examinando esses fatores:
+- Se está limitado o jusante sink
 - Se está limitada a origem a montante
-- Indica se a lógica de processamento da consulta está intensivas de computação
+- Se a lógica de processamento da consulta é a computação intensiva
 
-Para ver os detalhes, no portal do Azure, selecione a tarefa de transmissão em fluxo e selecione o **diagrama de tarefa**. Para cada entrada, há um por métrica de eventos de registo de segurança de partição. Se a métrica de eventos de registo de segurança mantém aumentar, é um indicador de que os recursos do sistema são restringidos. Potencialmente que é devido a limitação de sink de saída ou elevada da CPU. Para obter mais informações sobre como utilizar o diagrama de tarefa, consulte [condicionada por dados depuração utilizando o diagrama de tarefa](stream-analytics-job-diagram-with-metrics.md).
+Para ver os detalhes, no portal do Azure, selecione a tarefa de transmissão em fluxo e selecione o **diagrama de tarefas**. Para cada entrada, há um por métrica de eventos de registo de segurança de partição. Se a aumentar a métrica de eventos do registo de segurança, é um indicador de que os recursos do sistema são restringidos. Potencialmente que é devido a limitação de sink de saída ou elevada da CPU. Para obter mais informações sobre como utilizar o diagrama de tarefas, consulte [condicionada por dados de depuração usando o diagrama de tarefas](stream-analytics-job-diagram-with-metrics.md).
 
-## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Processar registos duplicados na saída da SQL Database do Azure
+## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Tratar registos duplicados na saída de base de dados do Azure SQL
 
-Quando configura a base de dados SQL do Azure como saída para uma tarefa de Stream Analytics, mesmo em massa insere registos na tabela de destino. Em geral, do Azure stream analytics garante que [entrega, pelo menos, uma vez]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) para o sink de saída, um pode ainda [alcançar exatamente-uma vez entrega]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) para SQL Server de saída quando a tabela SQL tem uma restrição exclusiva definida. 
+Ao configurar a base de dados SQL do Azure como saída para uma tarefa do Stream Analytics, em massa inserir registros na tabela de destino. Em geral, do Azure stream analytics garante [, pelo menos, uma entrega]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) para o sink de saída, uma ainda pode [obter exatamente-uma entrega]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) para SQL de saída quando a tabela SQL tem uma restrição exclusiva definida. 
 
-Depois de restrições de chave exclusivas são configuradas na tabela de SQL e existem registos duplicados, que está a ser inseridos na tabela SQL, o Azure Stream Analytics remove o registo duplicado. -Divide os dados em lotes e recursivamente inserir os lotes até é encontrado um único registo duplicado. Se a tarefa de transmissão em fluxo tem um número de linhas duplicadas, esta divisão considerável e inserir o processo tem de ignorar os duplicados um de cada, que é menos eficiente e morosa. Se vir várias mensagens de aviso de violação da chave no registo de atividades dentro da hora anterior, é provável que a saída do SQL Server é abrandamento a tarefa de toda. 
+Depois de restrições de chave exclusivas são configuradas na tabela de SQL e existem registos duplicados, sendo inseridos na tabela SQL, o Azure Stream Analytics remove o registo duplicado. Ele divide os dados em lotes e recursivamente inserir os lotes até que seja encontrado um único registo duplicado. Se a tarefa de transmissão em fluxo tem um número considerável de linhas duplicadas, esta divisão e inserir o processo deve ignorar os duplicados individualmente, que é menos eficiente e demorado. Se vir várias mensagens de aviso de violação de chave no seu registo de atividades dentro de última hora, é provável que a saída SQL está diminuindo o trabalho inteiro. 
 
-Para resolver este problema, deve [configurar o índice]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) que está a causar a violação de chave ao ativar a opção IGNORE_DUP_KEY. A ativação desta opção permite especificar valores duplicados e ignorados pelo SQL durante inserções em massa e SQL Azure simplesmente produz uma mensagem de aviso em vez de um erro. O Azure Stream Analytics não produz já erros de violação da chave primária.
+Para resolver este problema, deve [configurar o índice]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) que está a causar a violação de chave ao ativar a opção IGNORE_DUP_KEY. Ativar esta opção permite que os valores duplicados ignorada pelo SQL durante inserções em massa e do SQL Azure simplesmente gera uma mensagem de aviso em vez de um erro. O Azure Stream Analytics não produzir mais erros de violação de chave primária.
 
-Quando configurar IGNORE_DUP_KEY para vários tipos de índices, tenha em atenção as de observações seguintes:
+Quando configurar IGNORE_DUP_KEY para vários tipos de índices, tenha em atenção as seguintes observações:
 
 * Não é possível definir IGNORE_DUP_KEY numa chave primária ou uma restrição exclusiva que utilize ALTER INDEX, terá de remover e recriar o índice.  
-* Pode definir a opção IGNORE_DUP_KEY utilizando ALTER INDEX para um índice exclusivo, que é diferente da restrição de chave primária/exclusivos e criado com a definição de índice ou CREATE INDEX.  
-* IGNORE_DUP_KEY não se aplicar aos índices de arquivo de colunas não é possível impor a exclusividade nessas índices.  
+* Pode definir a opção IGNORE_DUP_KEY utilizando ALTER INDEX para um índice exclusivo, que é diferente da restrição de chave primária/recursos exclusivos e criados com a definição de índice ou CREATE INDEX.  
+* IGNORE_DUP_KEY não se aplica a índices de arquivo de colunas, uma vez que é possível impor a exclusividade nesses índices.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)

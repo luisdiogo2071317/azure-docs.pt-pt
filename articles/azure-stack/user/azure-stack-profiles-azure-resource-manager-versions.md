@@ -1,88 +1,88 @@
 ---
-title: Versões do fornecedor da API de recurso suportadas pelos perfis na pilha do Azure | Microsoft Docs
-description: Saiba mais sobre a versão do Gestor de recursos do Azure suportada pelos perfis na pilha do Azure.
+title: Versões de API do fornecedor de recursos suportadas pelo perfis no Azure Stack | Documentos da Microsoft
+description: Saiba mais sobre a versão do Azure Resource Manager suportada pelo perfis no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
-ms.author: mabrigg
+ms.date: 08/17/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054386"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059926"
 ---
-# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões do fornecedor da API de recurso suportadas pelos perfis na pilha do Azure
+# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do fornecedor de recursos suportadas pelo perfis no Azure Stack
 
-Pode encontrar o fornecedor de recursos e os números de versão para cada perfil de API utilizada pela pilha de Azure neste artigo. As tabelas neste artigo listam as versões suportadas para cada fornecedor de recursos e as versões de API dos perfis. Cada fornecedor de recursos contém um conjunto de tipos de recursos e números de versão específica.
+Pode encontrar o fornecedor de recursos e os números de versão para cada perfil de API utilizada pelo Azure Stack neste artigo. As tabelas neste artigo listam as versões suportadas para cada fornecedor de recursos e as versões de API dos perfis. Cada fornecedor de recursos contém um conjunto de tipos de recursos e os números de versão específica.
 
 O perfil de API utiliza três convenções de nomenclatura:
  - mais recente
- - aaaa-mm-dd-híbrida
+ - Aaaa-mm-dd-híbrida
  - aaaa-mm-dd-perfil
 
-Para obter uma explicação sobre perfis de API e cadência de lançamento da versão para a pilha do Azure, consulte [perfis de versão de API gerir no Azure pilha](azure-stack-version-profiles.md).
+Para obter uma explicação de perfis de API e cadência de lançamento de versão para o Azure Stack, veja [perfis de versão de API de gerir no Azure Stack](azure-stack-version-profiles.md).
 
 > [!Note]  
-> O **mais recente** perfil API contém a versão mais recente da versão de API do fornecedor de recursos e não está listado neste artigo.
+> O **mais recente** perfil de API contém a versão mais recente da versão de API do fornecedor de recursos e não está listado neste artigo.
 
-## <a name="overview-of-2018--03-01-hybrid"></a>Descrição geral do 2018 – 03-01-híbrida
+## <a name="overview-of-2018--03-01-hybrid"></a>Descrição geral de 2018 – 03-01-híbrida
 
 | Fornecedor de recursos | versão de API |
 |-----------------------------------------------|-----------------------------------------------------|
 | Microsoft.Compute | 2017-03-30 |
 | Microsoft.Network | 2017-10-01<br>Gateway de VPN será 2017-03-01 |
-| Microsoft (dados Plane) | 2017-04-17 |
-| Microsoft (Plane de controlo) | 2016-01-01 |
+| Microsoft. Storage (plano de dados) | 2017-04-17 |
+| Microsoft. Storage (plano de controlo) | 2016-01-01 |
 | Microsoft. Web | 2016-08-01<br>qual é a versão mais recente (a partir de agora) no Azure |
-| Microsoft.KeyVault | 2016-10-01 (não alterar) |
-| Microsoft.Resources (Azure Resource Manager propriamente dito) | 2016-02-01 |
+| Microsoft.KeyVault | 01 de 10 de 2016 (não alterar) |
+| Microsoft.Resources (Azure Resource Manager em si) | 2016-02-01 |
 | Microsoft.Authorization (operações de política) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
-| Keyvault | 2016-10-01 |
+| Microsoft. keyvault | 2016-10-01 |
 | Política | 2016-10-01 |
 | Recursos | 2016-10-01 |
 | Resources_Links | 2016-10-01 |
 | Resources_Locks | 2016-10-01 |
 | Subscrições | 2016-10-01 |
 
-Para mais uma lista das versões para cada tipo de recurso para os fornecedores no perfil de api, consulte [detalhes para a 2018-03-01-híbrida](#details-for-the-2018-03-01-hybrid) perfil.
+Para mais uma lista das versões para cada tipo de recurso para os fornecedores no perfil de api, consulte [detalhes para a definição de 2018-03-01-híbrida](#details-for-the-2018-03-01-hybrid) perfil.
 
-## <a name="overview-of-2017-03-09-profile"></a>Descrição geral de 2017-03-09-perfil
+## <a name="overview-of-2017-03-09-profile"></a>Descrição geral do perfil-de-03-09-2017
 
 | Fornecedor de recursos | versão de API |
 |------------------------------------------------|------------------------------|
 | Microsoft.Compute | 2016-03-30 |
 | Microsoft.Network | 2015-06-15 |
-| Microsoft (dados Plane) | 2015-04-05  |
-| Microsoft (Plane de controlo) | 2016-01-01   |
+| Microsoft. Storage (plano de dados) | 2015-04-05  |
+| Microsoft. Storage (plano de controlo) | 2016-01-01   |
 | Microsoft.Websites | 2016-01-01 |
 | Microsoft.KeyVault | 2016-10-01<br>(Não alterar) |
-| Microsoft.Resources<br>(O azure Resource Manager propriamente dito) | 2016-02-01 |
+| Microsoft.Resources<br>(O azure Resource Manager em si) | 2016-02-01 |
 | Microsoft.Authorization<Br>(operações de política) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
-| Keyvault | 2016-10-01 |
-| Política | 2015-10-01-preview |
+| Microsoft. keyvault | 2016-10-01 |
+| Política | 2015-10-01-pré-visualização |
 | Recursos | 2016-02-01 |
 | Resources_Links | 2016-09-01 |
 | Resources_Locks | 2016-09-01 |
 | Subscrições | 2016-06-1 |
 
-Para mais uma lista das versões para cada tipo de recurso para os fornecedores no perfil de api, consulte [detalhes 2017-03-09-perfil](#details-for-the-2017-03-09-profile)
+Para mais uma lista das versões para cada tipo de recurso para os fornecedores no perfil de api, consulte [detalhes para o 2017-03-09-perfil](#details-for-the-2017-03-09-profile)
 
-## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes para a 2018-03-01-híbrida
+## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes para a definição de 2018-03-01-híbrida
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-Utilize o controlo de acesso baseado em funções para gerir as ações de utilizadores na sua organização podem efetuar nos recursos. Este conjunto de operações permite-lhe definir funções, atribuir funções a utilizadores ou grupos e obter informações sobre as permissões. Para obter mais informações, consulte [autorização](https://docs.microsoft.com/rest/api/authorization/).
+Utilize o controlo de acesso baseado em funções para gerir as ações que os utilizadores na sua organização podem executar nos recursos. Este conjunto de operações permite-lhe definir funções, atribuir funções a utilizadores ou grupos e obter informações sobre permissões. Para obter mais informações, consulte [autorização](https://docs.microsoft.com/rest/api/authorization/).
 
 | Tipos de Recurso | Versões de API |
 |---------------------|--------------------|
@@ -91,24 +91,24 @@ Utilize o controlo de acesso baseado em funções para gerir as ações de utili
 | Permissões | 2015-07-01 |
 | Atribuições de Política | 2016-12-01 (2017-06-01-pré-visualização) |
 | Definições de Política | 2016-12-01 |
-| Operações de fornecedor | 2015-07-01-preview |
-| Atribuições de função | 2015-07-01 |
-| Definições de função | 2015-07-01 |
+| Operações de fornecedor | 2015-07-01-pré-visualização |
+| Atribuições de Funções | 2015-07-01 |
+| Definições de funções | 2015-07-01 |
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 | Tipo de Recurso | Versão da API |
 |----------------------------------|----------------------|
-| Subscrições de delegado do fornecedor | 2015-06-01 - pré-visualize |
-| Utilização de delegados agregados | 2015-06-01 - pré-visualize |
-| Recurso de estimativa gastam | 2015-06-01-pré-visualize |
-| Operações | 2015-06-01 - pré-visualize |
-| Agregados de utilização de subscritor | 2015-06-01 - pré-visualize |
-| Agregados de Utilização | 2015-06-01 - pré-visualize |
+| Subscrições do fornecedor delegado | 2015-06-01 - pré-visualização |
+| Agregados de utilização de delegados | 2015-06-01 - pré-visualização |
+| Recursos de estimativa de gastos | 2015-06-01 – pré-visualização |
+| Operações | 2015-06-01 - pré-visualização |
+| Agregados de utilização do subscritor | 2015-06-01 - pré-visualização |
+| Agregados de Utilização | 2015-06-01 - pré-visualização |
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-As APIs de computação do Azure dão-lhe acesso programático para máquinas virtuais e os respetivos recursos de suporte. Para obter mais informações, consulte [computação do Azure](https://docs.microsoft.com/rest/api/compute/).
+As APIs de computação do Azure dão-lhe acesso programático a máquinas virtuais e seus recursos de suporte. Para obter mais informações, consulte [computação do Azure](https://docs.microsoft.com/rest/api/compute/).
 
 | Tipo de Recurso | Versão da API |
 |---------------------------------------------------------------|-------------|
@@ -120,12 +120,12 @@ As APIs de computação do Azure dão-lhe acesso programático para máquinas vi
 | Localizações/vmSizes | 2016-03-30 |
 | Operações | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
-| Máquinas virtuais/extensões | 2016-03-30 |
+| Extensões de máquinas virtuais / | 2016-03-30 |
 | Conjuntos de Dimensionamento de Máquinas Virtuais | 2016-03-30 |
-| Conjuntos de dimensionamento da máquina virtual/extensões | 2016-03-30 |
-| Interfaces de rede/conjuntos de dimensionamento da máquina virtual | 2016-03-30 |
+| Conjuntos de dimensionamento de máquinas virtuais/extensões | 2016-03-30 |
+| Interfaces de rede/conjuntos de dimensionamento de máquinas virtuais | 2016-03-30 |
 | Máquinas virtuais/conjuntos de dimensionamento de máquina virtual | 2016-03-30 |
-| Define/virtualMachines/networkInterfaces da escala de máquinas virtuais | 2016-03-30 |
+| Conjuntos de dimensionamento de máquinas virtuais/virtualMachines/networkInterfaces | 2016-03-30 |
 
 ### <a name="microsoftgallery"></a>Microsoft.Gallery
 
@@ -134,7 +134,7 @@ As APIs de computação do Azure dão-lhe acesso programático para máquinas vi
 | Organização | 2015-04-01 |
 | Conteúdo de Organização | 2015-04-01 |
 | Extrato de Organização | 2015-04-01 |
-| Itens de galeria | 2015-04-01 |
+| Itens da Galeria | 2015-04-01 |
 | Operações | 2015-04-01 |
 | Portal | 2015-04-01 |
 | Pesquisa | 2015-04-01 |
@@ -149,30 +149,30 @@ As APIs de computação do Azure dão-lhe acesso programático para máquinas vi
 | Categorias de eventos | 2015-04-01 |
 | Definições de Métricas | 2018-01-01 |
 | Métricas | 2018-01-01 |
-| Definições de diagnóstico | 2017-05-01-preview |
-| Categorias de definições de diagnóstico | 2017-05-01-preview |
+| Definições de diagnóstico | 2017-05-01-pré-visualização |
+| Categorias de definições de diagnóstico | 2017-05-01-pré-visualização |
 
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-Gerir a sua chave de cofres dos, bem como as chaves, os segredos e certificados dentro da sua cofres de chaves. Para obter mais informações, consulte [referência da API de REST do Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/).
+Gestão da chave de cofres dos, bem como as chaves, segredos e certificados em seus cofres de chaves. Para obter mais informações, consulte [referência de API de REST do Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/).
 
 | Tipos de Recurso | Versões de API |
 |-------------------------|--------------|
 | Operações | 2016-10-01 |
-| cofres | 2016-10-01 |
+| Cofres | 2016-10-01 |
 | Cofres dos / políticas de acesso | 2016-10-01 |
 | Vaults/secrets | 2016-10-01 |
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Resultado da chamada de operações é uma representação de lista de operações de nuvem de rede disponíveis. Para obter mais informações, consulte [API de REST de operação](https://docs.microsoft.com/rest/api/operation/).
+Resultado da chamada de operações é uma representação da lista de operações de cloud de rede disponíveis. Para obter mais informações, consulte [operação REST API](https://docs.microsoft.com/rest/api/operation/).
 
 | Tipos de Recurso | Versões de API |
 |---------------------------|--------------|
 | Ligações | 2015-06-15 |
 | Zonas DNS | 2016-04-01 |
-| Balanceadores de Carga | 2015-06-15 |
+| Balanceador de Carga | 2015-06-15 |
 | Gateway de Rede Local | 2015-06-15 |
 | Localizações | 2016-04-01 |
 | Location/operationResults | 2016-04-01 |
@@ -188,39 +188,39 @@ Resultado da chamada de operações é uma representação de lista de operaçõ
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-O Azure Resource Manager permite-lhe implementar e gerir a infraestrutura para as suas soluções do Azure. Pode organizar os recursos relacionados em grupos de recursos e implementar os recursos com modelos JSON. Para uma introdução ao implementar e gerir recursos com o Resource Manager, consulte [descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+O Azure Resource Manager permite-lhe implementar e gerir a infraestrutura para as suas soluções do Azure. Organizar os recursos relacionados em grupos de recursos e implementar os recursos com modelos JSON. Para obter uma introdução para implementar e gerir recursos com o Resource Manager, consulte [descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 | Tipos de Recurso | Versões de API |
 |-----------------------------------------|-------------------|
-| Registos de aplicações | 2015-01-01 |
-| Verificar Nome do Recurso | 2015-012016-09-01 |
-| Fornecedores de delegado | 2015-01-01 |
-| Fornecedores de delegado/ofertas | 2015-01-01 |
+| Registos de aplicação | 2015-01-01 |
+| Verificar Nome do Recurso | 2016-09-01 |
+| Fornecedores delegados | 2015-01-01 |
+| Fornecedores/ofertas delegadas | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Implementações | 2016-0209-01 |
 | Implementações/operações | 2016-0209-01 |
 | Metadados de extensões | 2015-01-01 |
-| Ligações | 2015-012016-09-01 |
+| Ligações | 2016-09-01 |
 | Localizações | 2015-01-01 |
 | Ofertas | 2015-01-01 |
 | Operações | 2015-01-01 |
 | Fornecedores | 2015-012017-08-01 |
-| Grupos de Recursos | 2015-012016-09-01 |
-| Recursos | 2015-012016-09-01 |
-| Subscrições | 2015-012016-09-01 |
-| Subscrições/localização | 2015-012016-09-01 |
-| Resultados de subscrições/operação | 2015-012016-09-01 |
+| Grupos de Recursos | 2016-09-01 |
+| Recursos | 2016-09-01 |
+| Subscrições | 2016-09-01 |
+| Subscrições/localização | 2016-09-01 |
+| Resultados de subscrições/operação | 2016-09-01 |
 | Subscrições/fornecedores | 2015-012017-08-01 |
-| Grupos de recursos/subscrições | 2015-012016-09-01 |
-| Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
-| Subscrições/recursos | 2015-012016-09-01 |
+| Grupos de subscrições/recursos | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
+| Subscrições/recursos | 2016-09-01 |
 | Subscrições/tagNames | 2016-0609-01 |
 | Subscriptions/tagNames/tagValues | 2016-0609-01 |
 | Inquilinos | 2015-012017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
-O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de armazenamento e as chaves através de programação. Para obter mais informações, consulte [Azure armazenamento recursos fornecedor referência da API REST](https://docs.microsoft.com/rest/api/storagerp/).
+O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de armazenamento e as chaves através de programação. Para obter mais informações, consulte [os referência do API de REST do fornecedor de recursos do Azure Storage](https://docs.microsoft.com/rest/api/storagerp/).
 
 | Tipos de Recurso | Versões de API |
 |-------------------------|--------------|
@@ -231,7 +231,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | StorageAccounts | 2016-01-01 |
 | Utilizações | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>Detalhes de 2017-03-09-perfil
+## <a name="details-for-the-2017-03-09-profile"></a>Detalhes para o 2017-03-09-perfil
 
 ### <a name="microsoft-authorization"></a>Autorização da Microsoft
 
@@ -242,9 +242,9 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Permissões | 2015-07-01 |
 | Atribuições de Política | 2016-12-01 (2017-06-01-pré-visualização) |
 | Definições de Política | 2016-12-01 |
-| Operações de fornecedor | 2015-07-01-preview |
-| Atribuições de função | 2015-07-01 |
-| Definições de função | 2015-07-01 |
+| Operações de fornecedor | 2015-07-01-pré-visualização |
+| Atribuições de Funções | 2015-07-01 |
+| Definições de funções | 2015-07-01 |
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -258,12 +258,12 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Localizações/vmSizes | 2016-03-30 |
 | Operações | 2016-03-30 |
 | Virtual Machines | 2016-03-30 |
-| Máquinas virtuais/extensões | 2016-03-30 |
+| Extensões de máquinas virtuais / | 2016-03-30 |
 | Conjuntos de Dimensionamento de Máquinas Virtuais | 2016-03-30 |
-| Conjuntos de dimensionamento da máquina virtual/extensões | 2016-03-30 |
-| Interfaces de rede/conjuntos de dimensionamento da máquina virtual | 2016-03-30 |
+| Conjuntos de dimensionamento de máquinas virtuais/extensões | 2016-03-30 |
+| Interfaces de rede/conjuntos de dimensionamento de máquinas virtuais | 2016-03-30 |
 | Máquinas virtuais/conjuntos de dimensionamento de máquina virtual | 2016-03-30 |
-| Define/virtualMachines/networkInterfaces da escala de máquinas virtuais | 2016-03-30 |
+| Conjuntos de dimensionamento de máquinas virtuais/virtualMachines/networkInterfaces | 2016-03-30 |
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -271,7 +271,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 |---------------------------|--------------|
 | Ligações | 2015-06-15 |
 | Zonas DNS | 2016-04-01 |
-| Balanceadores de Carga | 2015-06-15 |
+| Balanceador de Carga | 2015-06-15 |
 | Gateway de Rede Local | 2015-06-15 |
 | Localizações | 2016-04-01 |
 | Location/operationResults | 2016-04-01 |
@@ -289,10 +289,10 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 
 | Tipos de Recurso | Versões de API |
 |-----------------------------------------|--------------|
-| Registos de aplicações | 2015-01-01 |
+| Registos de aplicação | 2015-01-01 |
 | Verificar Nome do Recurso | 2016-09-01 |
-| Fornecedores de delegado | 2015-01-01 |
-| Fornecedores de delegado/ofertas | 2015-01-01 |
+| Fornecedores delegados | 2015-01-01 |
+| Fornecedores/ofertas delegadas | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Implementações | 2016-09-01 |
 | Implementações/operações | 2016-09-01 |
@@ -308,7 +308,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 | Subscrições/localização | 2016-09-01 |
 | Resultados de subscrições/operação | 2016-09-01 |
 | Subscrições/fornecedores | 2017-08-01 |
-| Grupos de recursos/subscrições | 2016-09-01 |
+| Grupos de subscrições/recursos | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Subscrições/recursos | 2016-09-01 |
 | Subscriptiosn/tagNames | 2016-09-01 |
@@ -329,4 +329,4 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md)
-* [Configurar o Azure pilha ambiente do utilizador do PowerShell](azure-stack-powershell-configure-user.md)  
+* [Configurar o ambiente do PowerShell do utilizador do Azure Stack](azure-stack-powershell-configure-user.md)  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 4c368c3f06347b1164731d056a7341bdabb759b4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b368bf76516b0b6f87ad8ff57ca886a44b71926c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837349"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060355"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados de equipa em ação – usando um Cluster de Hadoop do HDInsight do Azure num conjunto de dados de 1 TB
 
@@ -64,7 +64,7 @@ Dois problemas de predição de exemplo são abordados nestas instruções:
 
 Configure o ambiente de ciência de dados do Azure para a criação de soluções de Análise Preditiva com clusters do HDInsight em três passos:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md): esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
+1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
 2. [Personalizar Clusters do Hadoop do Azure HDInsight para ciência de dados](customize-hadoop-cluster.md): este passo cria um cluster do Azure HDInsight Hadoop com 64 bits Anaconda Python 2.7 instalados em todos os nós. Existem dois passos importantes (descritos neste tópico) para concluir ao personalizar o cluster do HDInsight.
    
    * Tem de associar a conta de armazenamento que criou no passo 1 com o seu cluster do HDInsight quando é criado. Esta conta de armazenamento é utilizada para aceder aos dados que podem ser processados dentro do cluster.

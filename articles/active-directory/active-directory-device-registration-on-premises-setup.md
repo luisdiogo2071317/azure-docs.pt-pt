@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629077"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060941"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local com o registo de dispositivos do Azure Active Directory
 Quando exige que os utilizadores a associação à área de trabalho em seus dispositivos pessoais para o serviço de registo de dispositivos do Azure Active Directory (Azure AD), os dispositivos podem ser marcados como conhecidas para a sua organização. Segue-se um guia passo a passo para ativar o acesso condicional para aplicações no local ao utilizar os serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2.
@@ -48,7 +48,7 @@ Estas capacidades estão disponíveis para os clientes que comprarem uma licenç
 * Licença para o Azure Active Directory Premium
 * Windows Server 2012 R2 serviços de Federação, configurada para SSO para o Azure AD
 * Proxy de aplicações Web do Windows Server 2012 R2 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(transferir o Azure AD Connect)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(transferir o Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
 * Domínio verificado
 
 ## <a name="known-issues-in-this-release"></a>Problemas conhecidos nesta versão
@@ -158,7 +158,7 @@ Existem muitas formas diferentes de comunicar este URL aos seus utilizadores. Po
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Junte-se um dispositivo Windows 8.1 com o registo de dispositivos do Azure Active Directory
 1. No seu dispositivo Windows 8.1, selecione **definições do PC** > **rede** > **à área de trabalho**.
-2. Introduza o nome de utilizador no formato UPN; Por exemplo, ** dan@contoso.com **.
+2. Introduza o nome de utilizador no formato UPN; Por exemplo, **dan@contoso.com**.
 3. Selecione **associar**.
 4. Quando lhe for pedido, inicie sessão com as suas credenciais. O dispositivo está agora associado.
 

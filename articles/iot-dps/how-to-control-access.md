@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522871"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054609"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
-Este artigo descreve as opções para proteger o seu serviço de aprovisionamento de dispositivos de IoT. O serviço de aprovisionamento utiliza *permissões* para conceder acesso a cada ponto de extremidade. As permissões limitam o acesso a uma instância de serviço com base na funcionalidade.
+Este artigo descreve as opções para proteger o seu serviço aprovisionamento de dispositivos de IoT. O serviço de aprovisionamento utiliza *permissões* para conceder acesso a cada ponto de extremidade. As permissões limitam o acesso a uma instância de serviço com base na funcionalidade.
 
 Este artigo descreve:
 
@@ -34,7 +34,7 @@ Pode conceder [permissões](#device-provisioning-service-permissions) das seguin
 
 * **Partilhado políticas de autorização de acesso**. Políticas de acesso partilhado podem conceder a qualquer combinação dos [permissões](#device-provisioning-service-permissions). Pode definir políticas no [portal do Azure][lnk-management-portal], ou por meio de programação, utilizando o [APIs de REST do serviço de aprovisionamento de dispositivo][lnk-resource-provider-apis]. Um serviço de aprovisionamento recém-criado tem a seguinte política predefinida:
 
-  * **provisioningserviceowner**: política com todas as permissões.
+   **provisioningserviceowner**: política com todas as permissões.
 
 > [!NOTE]
 > Ver [permissões](#device-provisioning-service-permissions) para obter informações detalhadas.
@@ -51,12 +51,16 @@ Para obter mais informações sobre como construir e utilizar tokens de seguran�
 O HTTP é o único protocolo suportado e ela implementa a autenticação, incluindo um token válido na **autorização** cabeçalho do pedido.
 
 #### <a name="example"></a>Exemplo
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > O [SDKs de serviço de aprovisionamento do Azure IoT dispositivo] [ lnk-sdks] gerar automaticamente os tokens ao ligar ao serviço.
 
 ## <a name="security-tokens"></a>Tokens de segurança
+
 O serviço de aprovisionamento de dispositivos utiliza tokens de segurança para autenticar a serviços para evitar o envio de chaves na conexão. Além disso, os tokens de segurança são limitados em âmbito e validade de tempo. [O Azure IoT Device aprovisionamento serviço SDK] [ lnk-sdks] automaticamente gerar tokens sem a necessidade de nenhuma configuração especial. Alguns cenários requerem que gerar e utilizar tokens de segurança diretamente. Tais cenários incluem a utilização direta da superfície HTTP.
 
 ### <a name="security-token-structure"></a>Estrutura de token de segurança
@@ -131,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Uma vez que a validade de tempo do token é validada em máquinas de serviço de aprovisionamento de dispositivos do IoT, descompassos no relógio da máquina que gera o token tem de ser um mínimo.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Utilizar tokens de segurança de componentes do serviço
 
 Componentes do serviço apenas podem gerar tokens de segurança através de políticas de acesso partilhado conceder as permissões adequadas, conforme explicado anteriormente.
@@ -150,9 +153,9 @@ Por exemplo, um serviço gerado usando uma pré-criada partilhado chamada de pol
 * URI do recurso: `{mydps}.azure-devices-provisioning.net`,
 * chave de assinatura: uma das chaves do `enrollmentread` política,
 * nome da política: `enrollmentread`,
-* hora de expiração.
+* qualquer time.backn de expiração
 
-![Criar uma política de acesso partilhado para a sua instância do DPS no portal][img-add-shared-access-policy]
+![Criar uma política de acesso partilhado para sua instância do serviço aprovisionamento de dispositivos no portal][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -170,17 +173,17 @@ O resultado, o que concederia acesso para ler todos os registos de inscrição, 
 
 Os seguintes tópicos de referência fornecem mais informações sobre como controlar o acesso ao seu serviço de aprovisionamento de dispositivos de IoT.
 
-## <a name="device-provisioning-service-permissions"></a>Permissões de serviço de aprovisionamento de dispositivos
+### <a name="device-provisioning-service-permissions"></a>Permissões de serviço de aprovisionamento de dispositivos
 
 A tabela seguinte lista as permissões que pode utilizar para controlar o acesso ao seu serviço de aprovisionamento de dispositivos de IoT.
 
 | Permissão | Notas |
 | --- | --- |
-| **ServiceConfig** |Concede acesso para alterar as configurações de serviço. <br/>Esta permissão é utilizada pelos serviços cloud de back-end. |
-| **EnrollmentRead** |Concede acesso de leitura às inscrições de dispositivos e grupos de inscrição. <br/>Esta permissão é utilizada pelos serviços cloud de back-end. |
-| **EnrollmentWrite** |Concede acesso de escrita para as inscrições de dispositivos e grupos de inscrição. <br/>Esta permissão é utilizada pelos serviços cloud de back-end. |
-| **RegistrationStatusRead** |Concede acesso para o estado de registo do dispositivo de leitura. <br/>Esta permissão é utilizada pelos serviços cloud de back-end. |
-| **RegistrationStatusWrite**  |Concede elimina acesso para o estado de registo do dispositivo. <br/>Esta permissão é utilizada pelos serviços cloud de back-end. |
+| **ServiceConfig** |Concede acesso para alterar as configurações de serviço. <br/>Esta permissão é utilizada pelos serviços de cloud de back-end. |
+| **EnrollmentRead** |Concede acesso de leitura às inscrições de dispositivos e grupos de inscrição. <br/>Esta permissão é utilizada pelos serviços de cloud de back-end. |
+| **EnrollmentWrite** |Concede acesso de escrita para as inscrições de dispositivos e grupos de inscrição. <br/>Esta permissão é utilizada pelos serviços de cloud de back-end. |
+| **RegistrationStatusRead** |Concede acesso para o estado de registo do dispositivo de leitura. <br/>Esta permissão é utilizada pelos serviços de cloud de back-end. |
+| **RegistrationStatusWrite**  |Concede elimina acesso para o estado de registo do dispositivo. <br/>Esta permissão é utilizada pelos serviços de cloud de back-end. |
 
 <!-- links and images -->
 

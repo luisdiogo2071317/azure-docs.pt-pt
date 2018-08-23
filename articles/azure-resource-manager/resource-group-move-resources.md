@@ -4,22 +4,20 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503585"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617295"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -113,11 +111,11 @@ Contacte [suportar](https://portal.azure.com/#blade/Microsoft_Azure_Support/Help
 
 Os serviços que permitem mover para um novo grupo de recursos e uma subscrição são:
 
+* Analysis Services
 * Gestão de API
 * Aplicações de serviço de aplicações (aplicações web) – consulte [limitações do serviço de aplicações](#app-service-limitations)
 * Certificados de Serviço de Aplicações
 * Application Insights
-* Analysis Services
 * Automatização
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -133,6 +131,8 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Serviços Cognitivos
 * Registo de Contentor
 * Content Moderator
+* Gestão de Custos
+* Informações do Cliente
 * Catálogo de Dados
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +141,14 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Event Grid
 * Hubs de Eventos
 * Clusters do HDInsight - veja [limitações do HDInsight](#hdinsight-limitations)
+* Centro de IOT
 * Hubs IoT
 * Cofre de Chaves
 * Balanceadores de carga - veja [limitações de Balanceador de carga](#lb-limitations)
 * Log Analytics
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
+* Identidade gerida - atribuído ao utilizador
 * Serviços de Multimédia
 * Mobile Engagement
 * Hubs de Notificação
@@ -160,6 +162,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Pesquisa
 * Service Bus
 * Service Fabric
+* Malha de recursos de infraestrutura do serviço
 * Serviço SignalR
 * Armazenamento
 * Armazenamento (clássica) – consulte [limitações da implementação clássica](#classic-deployment-limitations)
@@ -187,15 +190,19 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Azure Databricks
 * Batch AI
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
+* Container Instances
 * Serviço de Contentor
+* Data Box
+* Espaços de desenvolvimento
 * Dynamics LCS
 * ExpressRoute
-* Serviço do Kubernetes
+* Serviço Kubernetes
 * Serviços de laboratório - mudança para o novo grupo de recursos na mesma subscrição está ativada, mas a movimentação entre subscrições não está ativada.
 * Balanceadores de carga - veja [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Geridas
 * Managed Disks – consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * IP público - veja [limitações de IP público](#pip-limitations)
 * Cofre de serviços de recuperação - também não mover os recursos de computação, rede e armazenamento associados ao Cofre de serviços de recuperação, consulte [limitações dos serviços de recuperação](#recovery-services-limitations).
 * SAP HANA no Azure
@@ -225,7 +232,7 @@ Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas p
 
 ## <a name="virtual-networks-limitations"></a>Limitações de redes virtuais
 
-Ao mover uma rede virtual, também tem de mover os recursos dependentes. Por exemplo, tem de mover gateways com a rede virtual.
+Ao mover uma rede virtual, também tem de mover os recursos dependentes. Para Gateways de VPN, tem de mover os endereços IP, gateways de rede virtual e todos os recursos de ligação associada. Gateways de rede local podem estar num grupo de recursos diferente.
 
 Para mover uma rede virtual em modo de peering, tem primeiro de desativar o peering de rede virtual. Uma vez desativada, pode mover a rede virtual. Após a mudança, reativar o peering de rede virtual.
 

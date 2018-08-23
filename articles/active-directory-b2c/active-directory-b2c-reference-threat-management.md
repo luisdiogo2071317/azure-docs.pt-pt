@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7957fdf245090cbca3726cb1e4788ec34f63faca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1801fe9695aa15850d600300b957df2c7d7cd9ef
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440424"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058231"
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Do Azure Active Directory B2C: Gestão de ameaças
 
@@ -29,4 +29,4 @@ Azure AD B2C utiliza deteção e atenuação técnicas, como cookies SYN e limit
 
 O Azure AD B2C também tem as técnicas de atenuação para ataques de palavra-passe. Atenuação inclui os ataques de palavra-passe de dicionário e ataques de força bruta a senhas. Palavras-passe que são definidas por utilizadores têm de ser razoavelmente complexo. Ao utilizar vários sinais, o Azure AD B2C analisa a integridade dos pedidos. O Azure AD B2C foi concebido para inteligência diferenciar usuários de hackers e botnets. O Azure AD B2C fornece uma estratégia sofisticada para bloquear as contas com base em palavras-passe introduzidas na probabilidade de um ataque.
 
-Para obter mais informações, visite o [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx).
+Para obter mais informações, visite o [Microsoft Trust Center](https://www.microsoft.com/trustcenter/default.aspx).

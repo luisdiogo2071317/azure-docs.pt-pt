@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 5039399ac875add02319e1a745d99344956c7bee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860219"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42312168"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para Oracle com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,6 +64,12 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 
 >[!TIP]
 >Se tiver atingido o ditado de erro "ORA 01025: parâmetro UPI fora do intervalo" e o Oracle é de versões 8i, adicionar `WireProtocolMode=1` para sua cadeia de ligação e tente novamente.
+
+Para ativar a encriptação na ligação do Oracle, tem duas opções:
+
+1.  No lado do servidor Oracle, vá para Oracle Advanced Security (OAS) e configure as definições de encriptação, que suporta a encriptação de Triple-DES (3DES) e encriptação AES (Advanced Standard), consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Conector ADF Oracle negocia automaticamente o método de encriptação a utilizar um que configurar no OAS quando estabelecer ligação ao Oracle.
+
+2.  No lado do cliente, pode adicionar `EncryptionMethod=1` na cadeia de ligação. Isto irá utilizar SSL/TLS como método de encriptação. Para utilizá-lo, terá de desativar o SSL não as definições de encriptação no OAS no lado do servidor Oracle para evitar conflitos de encriptação.
 
 **Exemplo:**
 

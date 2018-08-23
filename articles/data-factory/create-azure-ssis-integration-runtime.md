@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 08/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d55139a6b0c4da4869c65f0a19eb3f6f3bf31066
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a497ceab45bb3ace4e3f1ea063ef9c3e33818426
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39481037"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055807"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar o runtime de integração Azure-SSIS no Azure Data Factory
 Este artigo fornece os passos para aprovisionar um runtime de integração Azure-SSIS no Azure Data Factory. Em seguida, pode utilizar o SQL Server Data Tools (SSDT) ou o SQL Server Management Studio (SSMS) para implementar e executar pacotes de SQL Server Integration Services (SSIS) neste runtime no Azure. 
@@ -68,7 +68,7 @@ A tabela seguinte compara determinadas funcionalidades de base de dados SQL e a 
 | **Autenticação** | Pode criar uma base de dados com uma conta de utilizador de base de dados contida que representa a qualquer utilizador do Azure Active Directory na **dbmanager** função.<br/><br/>Ver [ativar o Azure AD na base de dados SQL do Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Não é possível criar uma base de dados com uma conta de utilizador de base de dados contida que representa a qualquer utilizador do Azure Active Directory que não seja um administrador do Azure AD. <br/><br/>Ver [ativar o Azure AD na instância gerida de base de dados SQL do Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Camada de serviços** | Quando criar o IR Azure-SSIS na base de dados SQL, pode selecionar o escalão de serviço para SSISDB. Existem várias camadas de serviços. | Ao criar o IR Azure-SSIS numa instância gerida, é possível selecionar o escalão de serviço para SSISDB. Todas as bases de dados na instância gerida do mesmo partilham o mesmo recurso atribuído a essa instância. |
 | **Rede virtual** | Suporta o Azure Resource Manager e redes virtuais clássicas. | Suporta apenas a rede virtual do Azure Resource Manager. A rede virtual é necessária.<br/><br/>Se associar o runtime de integração Azure-SSIS à mesma rede virtual que a instância gerida, certifique-se de que o IR Azure-SSIS é numa sub-rede diferente, que a instância gerida. Se associar o IR Azure-SSIS a uma rede virtual diferente do que a instância gerida, recomendamos o peering de rede virtual (que está limitado à mesma região) ou uma rede virtual para a ligação de rede virtual. Ver [ligar a sua aplicação para a instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Transações distribuídas** | Suportado por meio de transações elásticas e código personalizado. Transações do coordenador de transações distribuídas ' (MSDTC) da Microsoft não são suportadas. Se os pacotes de usar o MSDTC para coordenar transações distribuídas, considere a migração para transações elásticas da base de dados SQL. Para usar transações elásticas em seu pacote do SSIS, tem de escrever código personalizado numa tarefa de Script, como SSIS não tem suporte incorporado para transações elásticas. Para mais informações, veja [transações distribuídas entre bases de dados de cloud](../sql-database/sql-database-elastic-transactions-overview.md). | Não suportado. |
+| **Transações distribuídas** | Transações do coordenador de transações distribuídas ' (MSDTC) da Microsoft não são suportadas. Se os pacotes de usar o MSDTC para coordenar transações distribuídas, poderá implementar uma solução temporária com transações elásticas da base de dados SQL. Neste momento, o SSIS não tem suporte incorporado para transações elásticas. Para usar transações elásticas em seu pacote do SSIS, precisa escrever código personalizado do ADO.NET numa tarefa de Script. Esta tarefa de script tem de incluir o início e fim da transação e todas as ações que têm de ocorrer dentro da transação.<br/><br/>Para mais informações sobre transações elásticas de codificação, veja [transações de base de dados elásticas com o Azure SQL Database](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Para mais informações sobre transações elásticas em geral, veja [transações distribuídas entre bases de dados de cloud](../sql-database/sql-database-elastic-transactions-overview.md). | Não suportado. |
 | | | |
 
 ## <a name="azure-portal"></a>Portal do Azure

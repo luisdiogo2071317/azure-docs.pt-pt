@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 08/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 6712fb0865284ccc2b84e3c2fcd49972f541f69b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 270228e73243e6b2670e7ccb30765526a5db6463
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004220"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058237"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador das funções do Azure 
 
@@ -50,6 +50,7 @@ Veja o exemplo de idioma específico:
 * [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="c-example"></a>Exemplo do c#
 
@@ -151,6 +152,21 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### <a name="java-example"></a>Exemplo de Java
+
+A seguinte função de exemplo aciona e executa a cada cinco minutos. O `@TimerTrigger` anotação na função define a agenda com o mesmo formato de cadeia de caracteres que [expressões CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ## <a name="attributes"></a>Atributos
 
 Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
@@ -178,7 +194,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**tipo** | n/d | Tem de ser definido para "timerTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto de timer no código de função. | 
-|**schedule**|**ScheduleExpression**|R [expressão CRON](#cron-expressions) ou uma [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado num plano do serviço de aplicações. Pode colocar a expressão de agendamento numa definição de aplicação e definir esta propriedade para a aplicação encapsulado em do nome da definição ** % ** sinais, tal como neste exemplo: "% ScheduleAppSetting %". |
+|**schedule**|**ScheduleExpression**|R [expressão CRON](#cron-expressions) ou uma [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado num plano do serviço de aplicações. Pode colocar a expressão de agendamento numa definição de aplicação e definir esta propriedade para a aplicação encapsulado em do nome da definição **%** sinais, tal como neste exemplo: "% ScheduleAppSetting %". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, a função é invocada quando o tempo de execução é iniciado. Por exemplo, o tempo de execução é iniciado quando a aplicação de funções reativado depois de ficar ociosa devido a inatividade. Quando a aplicação de funções reinicia devido a alterações de função e, quando a aplicação de funções aumenta horizontalmente. Então **runOnStartup** deve raramente se alguma vez ser definido como `true`, como isso tornará o código executado em momentos imprevisíveis elevada.|
 |**useMonitor**|**UseMonitor**|Defina como `true` ou `false` para indicar se a agenda deve ser monitorizada. Agenda de monitorização mantém as ocorrências de agenda para ajudar a garantir que a agenda é mantida corretamente, mesmo quando reiniciar instâncias de aplicações de função. Se não estiver definido explicitamente, a predefinição é `true` para agendas que têm um intervalo de periodicidade superior a 1 minuto. Para agendamentos que acionam mais de uma vez por minuto, a predefinição é `false`.
 

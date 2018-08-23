@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39d98a39fb8692d696adfbedc9bb1a34f8be4d6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: d4bbf26f6535f50b15068125d911df6a1ca20a72
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358839"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057073"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
-> Ser notificado sobre quando rever esta página para obter atualizações ao subscrever o [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+>Ser notificado sobre quando rever esta página para obter atualizações adicionando isso [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) para sua ![ícone RSS](./media/whats-new/feed-icon-16x16.png) feed leitor.
 
 O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -39,7 +39,25 @@ Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente.
 
 ## <a name="july-2018"></a>Julho de 2018
 
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Notificações por e-mail melhorias ao Azure Active Directory
+### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Alterações para intervalos de endereços IP do Active Directory do Azure
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** outros  
+**Capacidade de produto:** plataforma
+
+Estamos a introduzir maior intervalos IP para o Azure AD, que significa que, se tiver configurado a intervalos de endereços IP do Azure AD para seus firewalls, routers ou grupos de segurança de rede, terá de atualizá-los. Estamos a disponibilizar esta atualização para que não tenha de alterar a firewall, o roteador ou a configurações de intervalo de IP de grupos de segurança de rede novamente quando o Azure AD adiciona novos pontos de extremidade. 
+
+Tráfego de rede está a mudar para estes intervalos de novo nos próximos dois meses. Para continuar com o serviço ininterrupto, tem de adicionar estes valores atualizados para os endereços IP antes de 10 de Setembro de 2018:
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+É altamente recomendável não remover os intervalos de endereço IP antigos até que todo seu tráfego de rede foi movido para os intervalos de novo. Para obter atualizações sobre a mudança e para saber quando é possível remover os intervalos de antigos, consulte [intervalos de endereços IP e URLs do Office 365](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+---
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Melhorias às notificações de e-mail do Azure Active Directory
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** outros  
@@ -63,7 +81,7 @@ Para obter um exemplo de alguns dos novos designs de email e obter mais informa�
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Registos de atividade do Azure AD estão agora disponíveis através do Azure Monitor
+### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Os Registos de Atividade do Azure AD estão agora disponíveis através do Azure Monitor
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** relatórios  
@@ -81,7 +99,7 @@ Para obter mais informações sobre estas novas capacidades, consulte o nosso bl
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Informações de acesso condicional adicionadas para o relatório de inícios de sessão do Azure AD
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Informações de acesso condicional adicionadas ao relatório de inícios de sessão do Azure AD
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** relatórios  
@@ -101,7 +119,7 @@ Com a introdução do **aplicação de cliente** registos de campo da atividade 
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Julho de 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - Julho de 2018
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicações empresariais  
@@ -115,7 +133,7 @@ Para obter mais informações sobre as aplicações, consulte [integração de a
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Novo utilizador aprovisionamento integrações de aplicação SaaS - Julho de 2018
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Novas integrações de aplicações SaaS para aprovisionamento de utilizadores - Julho de 2018
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aprovisionamento de aplicações  
@@ -133,7 +151,7 @@ Para obter uma lista de todas as aplicações que suportam o aprovisionamento de
 
 ---
 
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health para sincronização - uma maneira mais fácil para corrigir erros de sincronização do atributo órfãos e duplicados
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health para Sincronização - Uma forma mais fácil de corrigir os erros de sincronização de atributos duplicados e órfãos
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** AD Connect  
@@ -151,7 +169,7 @@ Para obter mais informações, consulte [diagnosticar e resolver erros de sincro
 
 ---
 
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Elemento visual atualiza para o Azure AD e experiências de MSA início de sessão
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Atualizações visuais às experiências de início de sessão do Azure AD e MSA
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** do Azure AD  
@@ -161,7 +179,7 @@ Atualizámos a interface do Usuário para a experiência da Microsoft online ser
 
 ---
 
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nova versão do Azure AD Connect – Julho de 2018
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nova versão do Azure AD Connect - Julho de 2018
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** aprovisionamento de aplicações  
@@ -179,7 +197,7 @@ Para obter mais informações sobre esta atualização, consulte [do Azure AD Co
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Atualizações para o utilizador final de termos de utilização (ToU) da interface do Usuário
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Atualizações à IU de utilizador final dos Termos de Utilização (TdU)
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** termos de utilização  
@@ -193,7 +211,7 @@ Estamos a atualizar a cadeia de caracteres de aceitação na IU do utilizador fi
 
 ---
  
-### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>Autenticação pass-through suporta protocolos legados e aplicações
+### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>A autenticação pass-through suporta agora aplicações e protocolos de rede legados
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** autenticações (inícios de sessão)  
@@ -213,7 +231,7 @@ Agora a autenticação pass-through suporta protocolos legados e aplicações. A
 
 ---
  
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Gerenciamento de informações de segurança convergida para reposição de palavra-passe self-service e o multi-factor Authentication
+### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Gestão de informações de segurança convergidas para reposição de palavra-passe self-service e Autenticação Multifator
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** SSPR  
@@ -227,7 +245,7 @@ Esta é uma participação ativa pré-visualização pública. Os administradore
 
 ---
  
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Utilizar a aplicação Microsoft Authenticator para verificar a sua identidade ao repor a palavra-passe
+### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Utilize a aplicação Microsoft Authenticator para verificar a sua identidade ao repor a palavra-passe
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** SSPR  
@@ -795,7 +813,7 @@ Saiba mais sobre isso em nossa [mensagem de blogue](https://cloudblogs.microsoft
 
 Para obter mais informações, consulte:
 
-- [Configurar o acesso condicional com base na aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Configurar o acesso condicional com base na aplicação](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Configurar políticas de browser gerido](https://aka.ms/managedbrowser)  
 
@@ -1155,7 +1173,7 @@ As seguintes aplicações serão adicionadas ao final de Fevereiro:
 Para obter mais informações, consulte:
 
 - [Requisito de aplicação aprovada do cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [O Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [O Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1447,13 +1465,13 @@ Para obter mais informações, consulte [acesso condicional no Azure AD](https:/
 
 As seguintes aplicações estão na lista de [aplicações de cliente aprovadas](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 Para obter mais informações, consulte:
 
 - [Requisito de aplicação aprovada do cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [O Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [O Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1491,9 +1509,9 @@ Para obter mais informações, consulte [integração no local](https://docs.mic
 **Categoria de serviço:** do Azure AD  
 **Capacidade de produto:** proteção e segurança de identidade
 
-Agora pode restringir o acesso ao Office 365 e outras aplicações de cloud do Azure AD-ligado ao [aplicações de cliente aprovadas](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) que suportam políticas de proteção de aplicações do Intune ao utilizar [acesso condicional com base na aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Políticas de proteção de aplicações do Intune são utilizadas para configurar e proteger os dados da empresa nesses aplicativos de cliente.
+Agora pode restringir o acesso ao Office 365 e outras aplicações de cloud do Azure AD-ligado ao [aplicações de cliente aprovadas](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) que suportam políticas de proteção de aplicações do Intune ao utilizar [acesso condicional com base na aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Políticas de proteção de aplicações do Intune são utilizadas para configurar e proteger os dados da empresa nesses aplicativos de cliente.
 
-Ao combinar [com base na aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) com [com base no dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) políticas de acesso condicional, tem a flexibilidade para proteger dados pessoais e dispositivos da empresa.
+Ao combinar [com base na aplicação](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) com [com base no dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) políticas de acesso condicional, tem a flexibilidade para proteger dados pessoais e dispositivos da empresa.
 
 As seguintes condições e os controles estão agora disponíveis para utilização com o acesso condicional com base na aplicação:
 
@@ -1510,7 +1528,7 @@ As seguintes condições e os controles estão agora disponíveis para utilizaç
 
 - Requer aplicação aprovada do cliente
 
-Para obter mais informações, consulte [acesso condicional com base na aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+Para obter mais informações, consulte [acesso condicional com base na aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1607,7 +1625,7 @@ As seguintes aplicações foram adicionadas à lista de [aplicações de cliente
 Para obter mais informações, consulte:
 
 - [Requisito de aplicação aprovada do cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [O Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [O Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---

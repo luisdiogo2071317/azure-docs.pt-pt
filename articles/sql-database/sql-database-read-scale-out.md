@@ -9,12 +9,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: sashan
-ms.openlocfilehash: 7ca033be8a27802db55aec827509b46fed8e471e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2fe27f93bb48e0581902fd380813c878a4883a5c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090069"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057023"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utilizar réplicas só de leitura para carregar saldo consulta só de leitura cargas de trabalho (pré-visualização)
 
@@ -22,7 +22,11 @@ ms.locfileid: "39090069"
 
 ## <a name="overview-of-read-scale-out"></a>Descrição geral da expansão de leitura
 
-Cada base de dados no escalão Premium ([modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)) ou no escalão crítico para a empresa ([modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)) é automaticamente aprovisionada com várias réplicas AlwaysON para suporta o SLA de disponibilidade. Essas réplicas são aprovisionadas com o mesmo nível de desempenho, como a réplica de leitura / escrita utilizado pelas conexões de banco de dados regulares. O **Escalamento leitura** funcionalidade permite-lhe carregar saldo base de dados SQL só de leitura cargas de trabalho com a capacidade de uma das réplicas só de leitura em vez de partilhar a réplica de leitura / escrita. Desta forma, a carga de trabalho só de leitura será isolada de carga de trabalho de leitura / escrita principal e não irá afetar o desempenho dele. O recurso foi desenvolvido para as aplicações que incluem logicamente separados cargas de trabalho só de leitura, tais como análises e isso foi possível obter os benefícios de desempenho com essa capacidade adicional na não custos adicionais.
+Cada base de dados no escalão Premium ([modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)) ou no escalão crítico para a empresa ([modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)) é automaticamente aprovisionada com várias réplicas AlwaysON para suporta o SLA de disponibilidade.
+
+![Réplicas só de leitura](media/sql-database-managed-instance/business-critical-service-tier.png)
+
+Essas réplicas são aprovisionadas com o mesmo nível de desempenho, como a réplica de leitura / escrita utilizado pelas conexões de banco de dados regulares. O **Escalamento leitura** funcionalidade permite-lhe carregar saldo base de dados SQL só de leitura cargas de trabalho com a capacidade de uma das réplicas só de leitura em vez de partilhar a réplica de leitura / escrita. Desta forma, a carga de trabalho só de leitura será isolada de carga de trabalho de leitura / escrita principal e não irá afetar o desempenho dele. O recurso foi desenvolvido para as aplicações que incluem logicamente separados cargas de trabalho só de leitura, tais como análises e isso foi possível obter os benefícios de desempenho com essa capacidade adicional na não custos adicionais.
 
 Para utilizar a funcionalidade de expansão de leitura com determinada base de dados, tem de ativar explicitamente-lo ao criar a base de dados ou, depois, alterando a respetiva configuração com o PowerShell, invocando o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou o [ Novo-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets ou por meio da API de REST do Azure Resource Manager com o [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate) método. 
 
@@ -112,7 +116,7 @@ Para obter mais informações, consulte [bases de dados - criar ou atualizar](/r
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Usando o Escalamento de leitura com bancos de dados de georreplicação
 
-Se está a usando o Escalamento horizontal leitura carregar saldo só de leitura cargas de trabalho num banco de dados que está a georreplicação (por exemplo, como um membro de um grupo de ativação pós-falha), certifique-se de que leitura Escalamento horizontal está ativado no principal e os georreplicado bases de dados secundárias. Isto irá garantir o mesmo efeito de balanceamento de carga quando seu aplicativo se conecta à nova principal após a ativação pós-falha. Se estiver a ligar para o georreplicada secundária da base de dados com escala de leitura ativada, as sessões com `ApplicationIntent=ReadOnly` serão encaminhados para uma das réplicas da mesma forma, podemos encaminhar as ligações na base de dados primária.  As sessões sem `ApplicationIntent=ReadOnly` serão encaminhados para a réplica primária da secundária georreplicada, que também é só de leitura. Porque a base de dados secundária georreplicada tem um ponto de extremidade diferente da base de dados primária, historicamente para acessar o secundário é não era necessária para definir `ApplicationIntent=ReadOnly`. Para garantir a compatibilidade com versões anteriores, `sys.geo_replication_links` DMV mostra `secondary_allow_connections=2` (qualquer ligação de cliente é permitida).
+Se estiver a utilizar o Escalamento horizontal leitura carregar saldo só de leitura cargas de trabalho num banco de dados que está a georreplicação (por exemplo, como um membro de um grupo de ativação pós-falha), certifique-se de que leitura Escalamento horizontal está ativado no principal e os georreplicado bases de dados secundárias. Isto irá garantir o mesmo efeito de balanceamento de carga quando seu aplicativo se conecta à nova principal após a ativação pós-falha. Se estiver a ligar para o georreplicada secundária da base de dados com escala de leitura ativada, as sessões com `ApplicationIntent=ReadOnly` serão encaminhados para uma das réplicas da mesma forma, podemos encaminhar as ligações na base de dados primária.  As sessões sem `ApplicationIntent=ReadOnly` serão encaminhados para a réplica primária da secundária georreplicada, que também é só de leitura. Porque a base de dados secundária georreplicada tem um ponto de extremidade diferente da base de dados primária, historicamente para acessar o secundário é não era necessária para definir `ApplicationIntent=ReadOnly`. Para garantir a compatibilidade com versões anteriores, `sys.geo_replication_links` DMV mostra `secondary_allow_connections=2` (qualquer ligação de cliente é permitida).
 
 > [!NOTE]
 > Durante a pré-visualização, não iremos efetuar round robin ou qualquer outro tipo de carga com balanceamento de encaminhamento entre as réplicas de base de dados secundária locais. 

@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: e3be74fbb571a806fc03a92d0b1b373e35d196be
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363619"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059904"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o aprovisionamento de contas de utilizadores automático
 
 
-O Azure Active Directory inclui uma [conta de utilizador do serviço de aprovisionamento](active-directory-saas-app-provisioning.md) que ajuda a automatizar o aprovisionamento Desconfiguração de contas de utilizador em aplicações SaaS e outros sistemas, para efeitos de ciclo de vida de identidade de ponto a ponto gestão. O Azure AD suporta conectores para todos os aplicativos e sistemas na seção "Em destaque" de provisionamento de usuários previamente integrados a [Galeria de aplicações do Azure AD](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+O Azure Active Directory inclui uma [conta de utilizador do serviço de aprovisionamento](active-directory-saas-app-provisioning.md) que ajuda a automatizar o aprovisionamento Desconfiguração de contas de utilizador em aplicações SaaS e outros sistemas, para efeitos de ciclo de vida de identidade de ponto a ponto gestão. O Azure AD suporta conectores para todos os aplicativos e sistemas na seção "Em destaque" de provisionamento de usuários previamente integrados a [Galeria de aplicações do Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 Este artigo descreve como verificar o estado do aprovisionamento tarefas depois de eles foram configurados e como resolver problemas de aprovisionamento de utilizadores individuais e grupos.
 

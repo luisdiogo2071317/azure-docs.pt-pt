@@ -2,36 +2,36 @@
 title: Pacote FPGA para a aceleração de hardware para o Azure Machine Learning
 description: Saiba mais sobre os pacotes de python disponíveis para utilizadores do Azure Machine Learning.
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832983"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055991"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Pacote de aceleração de Hardware do Machine Learning do Azure
 
-O pacote de aceleração de Hardware do Azure Machine Learning é uma extensão de pip instalável do Python para o Azure Machine Learning que permite a cientistas de dados e aos programadores AI rapidamente:
+O pacote de aceleração de Hardware do Azure Machine Learning é uma extensão de instaláveis no pip do Python para o Azure Machine Learning, que permite aos cientistas de dados e programadores de inteligência artificial para rapidamente:
 
-+ Imagens de Featurize com uma versão quantized do ResNet 50
++ Caracterização de imagens com uma versão quantificada de utilizar o ResNet 50
 
-+ Preparar os classificadores com base nessas funcionalidades
++ Treinar classificadores com base nesses recursos
 
-+ Implementar modelos para [campo matrizes de porta programável (FPGA)](concept-accelerate-with-fpgas.md) no Azure para inferencing ultra-baixa latência
++ Implemente modelos para [campo (FPGA) de matrizes de porta programável por](concept-accelerate-with-fpgas.md) no Azure para inferência de latência ultrabaixa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-1. Tem de criar uma conta de gestão de modelo do Azure Machine Learning. Para obter mais informações sobre como criar a conta, consulte o [instalação de início rápido do Azure Machine Learning e Workbench](../service/quickstart-installation.md) documento. 
+1. Tem de criar uma conta de gestão de modelos do Azure Machine Learning. Para obter mais informações sobre como criar a conta, consulte a [instalação manual de início rápido do Azure Machine Learning e Bancada de trabalho](../service/quickstart-installation.md) documento. 
 
-1. O pacote tem de estar instalado. 
+1. O pacote tem de ser instalado. 
 
  
 ## <a name="how-to-install-the-package"></a>Como instalar o pacote
@@ -40,18 +40,18 @@ O pacote de aceleração de Hardware do Azure Machine Learning é uma extensão 
 
 2. Instalar [Anaconda (Python 3.6)](https://conda.io/miniconda.html)
 
-3. Para transferir um ambiente de Anaconda pré-configurado, utilize o seguinte comando da linha de comandos do Git:
+   Para transferir um ambiente de Anaconda previamente configurado, utilize o comando seguinte a partir da linha do Git:
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. Para criar o ambiente, abra uma **Anaconda Prompt** e utilize o seguinte comando:
+1. Para criar o ambiente, abra um **Anaconda Prompt** e utilize o seguinte comando:
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. Para ativar o ambiente, utilize o seguinte comando:
+1. Para ativar o ambiente, utilize o seguinte comando:
 
     ```
     conda activate amlrealtimeai
@@ -59,7 +59,7 @@ O pacote de aceleração de Hardware do Azure Machine Learning é uma extensão 
 
 ## <a name="sample-code"></a>Código de exemplo
 
-Este código de exemplo orienta utilizando o SDK para implementar um modelo para um FPGA.
+Este código de exemplo explica como utilizar o SDK para implementar um modelo para um FPGA.
 
 1. Importe o pacote:
    ```python
@@ -67,7 +67,7 @@ Este código de exemplo orienta utilizando o SDK para implementar um modelo para
    from amlrealtimeai import resnet50
    ```
 
-1. Pré-processo de a imagem:
+1. Pré-processe a imagem:
    ```python 
    from amlrealtimeai.resnet50.model import LocalQuantizedResNet50
    model_path = os.path.expanduser('~/models')
@@ -75,7 +75,7 @@ Este código de exemplo orienta utilizando o SDK para implementar um modelo para
    print(model.version)
    ```
 
-1. Featurize as imagens:
+1. Caracterização de imagens:
    ```python 
    from amlrealtimeai.resnet50.model import LocalQuantizedResNet50
    model_path = os.path.expanduser('~/models')
@@ -104,7 +104,7 @@ Este código de exemplo orienta utilizando o SDK para implementar um modelo para
    print(service_def_path)
    ```
  
-1. Prepare o modelo com um FPGA:
+1. Prepare o modelo para serem executadas num FPGA:
    ```python
    from amlrealtimeai import DeploymentClient
 
@@ -118,7 +118,7 @@ Este código de exemplo orienta utilizando o SDK para implementar um modelo para
    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account)
    ```
 
-1. Implemente o modelo com um FPGA:
+1. Implemente o modelo para serem executadas num FPGA:
    ```python
    service = deployment_client.get_service_by_name(service_name)
    model_id = deployment_client.register_model(model_name, service_def_path)
@@ -141,9 +141,9 @@ Este código de exemplo orienta utilizando o SDK para implementar um modelo para
    results = client.score_image(image_file)
    ```
 
-## <a name="reporting-issues"></a>Relatórios de problemas
+## <a name="reporting-issues"></a>Problemas de relatórios
 
-Utilize o [fórum](https://aka.ms/aml-forum) para reportar a quaisquer problemas que encontrar com o pacote.
+Utilize o [fórum](https://aka.ms/aml-forum) para reportar quaisquer problemas que encontrar com o pacote.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

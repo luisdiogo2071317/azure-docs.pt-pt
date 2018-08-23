@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 92b505e698f2d56a2678ac53f42bb49dbaf22463
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cc87985404ef8c9ee625f32b359e6ac1a29e73ae
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046775"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com o JIRA SAML SSO pela Microsoft
 
@@ -42,7 +42,7 @@ Utilize a sua conta do Microsoft Azure Active Directory com o servidor de Atlass
 
 Para configurar a integração do Azure AD com JIRA SAML SSO pela Microsoft, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Núcleo do JIRA e 6.0 do Software para 7.8 ou 3.0 de suporte técnico de serviço no JIRA a 3.2 devem instalado e configurado na versão Windows de 64 bits
 - Servidor JIRA é ativadas por HTTPS
 - Tenha em atenção de que as versões suportadas para o plug-in do JIRA mencionadas abaixo de secção.
@@ -77,7 +77,7 @@ Para configurar a integração do JIRA SAML SSO pela Microsoft para o Azure AD, 
 
 **Para adicionar JIRA SAML SSO pela Microsoft a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -148,7 +148,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon1.png)
 
-8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Carregar manualmente o plug-in fornecido pela Microsoft usando **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/en-us/servicesagreement/).
+8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56506). Carregar manualmente o plug-in fornecido pela Microsoft usando **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/servicesagreement/).
 
     ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon12.png)
 
@@ -283,7 +283,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -293,7 +293,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

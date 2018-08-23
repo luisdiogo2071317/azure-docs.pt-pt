@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413676"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055857"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de controladores de NVIDIA GPU para Linux
 
@@ -63,7 +63,8 @@ O JSON seguinte mostra o esquema para a extensão.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ O JSON seguinte mostra o esquema para a extensão.
 | apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | cadeia |
 | tipo | NvidiaGpuDriverLinux | cadeia |
-| typeHandlerVersion | 1.0 | Int |
+| typeHandlerVersion | 1.1 | Int |
 
 
 ## <a name="deployment"></a>Implementação
@@ -103,7 +104,8 @@ O exemplo a seguir supõe que a extensão é aninhada dentro do recurso de máqu
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```
@@ -166,6 +168,8 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 | 1 | Utilização incorreta de extensão. | Contacte o suporte com o log de saída de execução. |
 | 10 | Serviços de integração do Linux para Hyper-V e o Azure não disponível ou instalado. | Saída de verificação do lspci. |
 | 11 | NVIDIA GPU não encontrado neste tamanho VM. | Utilize um [tamanho da VM e de SO suportadas](../linux/n-series-driver-setup.md). |
+| 12 | Oferta de imagem não suportada |
+| 13 | Tamanho da VM não suportado | Utilizar uma VM de série N para implementar |
 | 14 | Operação concluída com êxito | |
 | 21 | Atualização falhou no Ubuntu | Verificação de saída de "sudo apt-get atualização" |
 

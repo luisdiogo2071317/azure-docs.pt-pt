@@ -1,84 +1,85 @@
 ---
-title: Preparar para publicar ou implementar um serviço em nuvem do Visual Studio | Microsoft Docs
-description: Saiba os procedimentos para configurar os serviços de conta de nuvem e de armazenamento e configurar a sua aplicação do Azure.
+title: Preparar para publicar ou implementar um serviço de Cloud a partir do Visual Studio | Documentos da Microsoft
+description: Saiba os procedimentos para configurar serviços de nuvem e de armazenamento de contas e configurar a sua aplicação do Azure.
 services: visual-studio-online
 author: ghogen
 manager: douge
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ghogen
-ms.openlocfilehash: 7656f0ea7ddc283d430eacdccb60a1a2df6e3b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 084ba64389e2f3f8d62b77697df368dac7e09eac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798986"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059606"
 ---
-# <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Preparar para publicar ou implementar um serviço em nuvem do Visual Studio
+# <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Preparar para publicar ou implementar um serviço de cloud a partir do Visual Studio
 
-Para publicar um projeto de serviço em nuvem, tem de configurar os seguintes serviços, tal como descrito neste artigo:
+Para publicar um projeto de serviço em nuvem, tem de configurar os seguintes serviços conforme descrito neste artigo:
 
-* A **serviço em nuvem** para executar as funções no ambiente do Azure, e 
-* A **conta de armazenamento** que fornece acesso aos serviços tabela, fila e Blob.
+* R **serviço em nuvem** para executar suas funções no ambiente do Azure e 
+* R **conta de armazenamento** que fornece acesso aos serviços Blob, filas e tabelas.
 
 ## <a name="create-a-cloud-service"></a>Criar um serviço cloud
 
-Um serviço em nuvem executa as funções no ambiente do Azure. Pode criar um serviço em nuvem no Visual Studio ou através de [portal do Azure](https://portal.azure.com/) conforme descrito nas secções que se seguem.
+Um serviço em nuvem executa suas funções no ambiente do Azure. Pode criar um serviço em nuvem no Visual Studio ou através da [portal do Azure](https://portal.azure.com/) conforme descrito nas seções a seguir.
 
 ### <a name="create-a-cloud-service-from-visual-studio"></a>Criar um serviço em nuvem a partir do Visual Studio
 
-1. Com um projeto de serviço em nuvem criado anteriormente, clique com botão direito a projeto, selecione **publicar**.
-1. Se necessário, inicie sessão com a Microsoft ou uma conta organizacional associada à sua subscrição do Azure, em seguida, selecione **seguinte** para avançar para o **definições** página.
-1. A **criar serviço de nuvem e de conta de armazenamento** é apresentada a caixa de diálogo (se não, selecione **criar novo** do **serviço em nuvem** lista).
-1. Introduza um nome sensível do serviço em nuvem, o que faz parte do seu URL e tem de ser exclusivo. Também escolher uma região ou grupo de afinidade e selecione uma opção de replicação.
+1. Com um projeto de serviço em nuvem criado anteriormente, com o botão direito de projeto, selecione **publicar**.
+1. Se necessário, inicie sessão com a Microsoft ou uma conta organizacional associado à sua subscrição do Azure, em seguida, selecione **próxima** para avançar para o **definições** página.
+1. R **criar serviço de nuvem e de conta de armazenamento** é apresentada a caixa de diálogo (se não estiver, selecione **criar nova** do **serviço em nuvem** lista).
+1. Introduza um nome de maiúsculas e minúsculas do serviço em nuvem, o que faz parte da sua URL e tem de ser exclusivo. Também escolher uma região ou o grupo de afinidade e selecionar uma opção de replicação.
 
 ### <a name="create-a-cloud-service-through-the-azure-portal"></a>Criar um serviço em nuvem através do portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **serviços em nuvem (clássica)** no lado esquerdo da página.
-1. Selecione **+ adicionar**, em seguida, forneça as informações necessárias (DNS nome, subscrição, grupo de recursos e localização). Não é necessário carregar um pacote neste momento, porque, fazê-lo mais tarde no Visual Studio.
+1. Selecione **serviços Cloud (clássico)** no lado esquerdo da página.
+1. Selecione **+ adicionar**, em seguida, forneça as informações necessárias (DNS nome, subscrição, grupo de recursos e localização). Não é necessário carregar um pacote neste momento porque, fazê-lo mais tarde no Visual Studio.
 1. Selecione **criar** para concluir o processo.
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Uma conta do storage fornece acesso aos serviços tabela, fila e Blob. Pode criar uma conta do storage através do Visual Studio ou o [portal do Azure](https://portal.azure.com/).
+Uma conta de armazenamento fornece acesso aos serviços Blob, filas e tabelas. Pode criar uma conta de armazenamento através do Visual Studio ou o [portal do Azure](https://portal.azure.com/).
 
-### <a name="create-a-storage-account-from-visual-studio"></a>Criar uma conta do storage a partir do Visual Studio
+### <a name="create-a-storage-account-from-visual-studio"></a>Criar uma conta de armazenamento a partir do Visual Studio
 
-1. No **Explorador de soluções** com um projeto de serviço em nuvem criado anteriormente, localize o **serviços ligados** nós dentro de um projeto de função, rato e selecione **Adicionar serviço ligado**. (No Visual Studio 2015, clique com botão direito do **armazenamento** nó e selecione **criar conta de armazenamento**.)
-1. No **serviços ligados** lista que é apresentada, selecione **armazenamento na nuvem com o Storage do Azure**.
-1. Na caixa de diálogo Storage do Azure que aparece, selecione **+ criar nova conta do Storage**, uma caixa de diálogo que pode especificar a sua subscrição, um nome que aparece fo a conta, um preço camada, grupo de recursos e localização.
-1. Selecione **criar** quando tiver terminado. A nova conta de armazenamento é apresentado na lista de contas de armazenamento disponível na sua subscrição.
-1. Selecione de que a conta e selecione **adicionar**.
+1. Na **Explorador de soluções** com um projeto de serviço em nuvem criado anteriormente, localize a **serviços ligados** nó dentro de um projeto de função, botão direito do mouse e selecione **Adicionar serviço ligado**. (No Visual Studio 2015 com o botão direito a **armazenamento** nó e selecione **criar conta de armazenamento**.)
+1. Na **serviços ligados** lista que é apresentada, selecione **armazenamento na Cloud com o armazenamento do Azure**.
+1. Na caixa de diálogo a armazenamento do Azure que aparece, selecione **+ criar nova conta de armazenamento**, o que exibe uma caixa de diálogo em que especificar a sua subscrição, um nome fo a conta, um preço camada, grupo de recursos e localização.
+1. Selecione **criar** quando terminar. A nova conta de armazenamento é apresentada na lista de contas de armazenamento disponível na sua subscrição.
+1. Selecione essa conta e selecione **adicionar**.
 
 ### <a name="create-a-storage-account-through-the-azure-portal"></a>Criar uma conta de armazenamento através do portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **+ novo** na parte superior esquerda.
-1. Selecione **armazenamento** em "Azure Marketplace,", em seguida, **conta de armazenamento - BLOBs, ficheiro, tabela, fila** do lado direito.
-1. Forneça as informações necessárias (nome, modelo de implementação e assim sucessivamente.
+1. Selecione **+ novo** no canto superior esquerdo.
+1. Selecione **armazenamento** em "Azure Marketplace,", em seguida, **conta de armazenamento - blob, ficheiro, tabela, fila** do lado direito.
+1. Indique as informações necessárias (nome, modelo de implementação e assim por diante.
 1. Selecione **criar** para concluir o processo.
 
-## <a name="configure-your-app-to-use-the-storage-account"></a>Configure a sua aplicação utilizar a conta de armazenamento
+## <a name="configure-your-app-to-use-the-storage-account"></a>Configurar a sua aplicação para utilizar a conta de armazenamento
 
-Depois de criar uma conta de armazenamento, ligar a partir do Visual Studio automaticamente atualiza as configurações de serviço para o projeto, incluindo URLs e as chaves de acesso.
+Depois de criar uma conta de armazenamento, ligar à mesma a partir do Visual Studio automaticamente atualiza as configurações de serviço para o projeto, incluindo URLs e as chaves de acesso.
 
-Se criou um serviço em nuvem do Visual Studio com o **adicionar o serviço ligado**, pode verificar as ligações abrindo `ServiceConfiguration.Cloud.cscfg` e `ServiceConfiguration.Local.cscfg`.
+Se criou um serviço em nuvem do Visual Studio com o **Adicionar serviço ligado**, pode verificar as ligações ao abrir `ServiceConfiguration.Cloud.cscfg` e `ServiceConfiguration.Local.cscfg`.
 
-Se tiver criado um serviço em nuvem através do portal do Azure, siga os mesmos passos no [criar uma conta do storage a partir do Visual Studio](#create-a-storage-account-from-visual-studio) mas selecione a conta existente em vez de criar um novo. Visual Studio, em seguida, atualiza a configuração por si.
+Se tiver criado um serviço em nuvem através do portal do Azure, siga as mesmas etapas em [criar uma conta de armazenamento a partir do Visual Studio](#create-a-storage-account-from-visual-studio) , mas selecione a conta existente em vez de criar uma nova. Visual Studio, em seguida, atualiza a configuração para.
 
-Para configurar as definições de utilizam manualmente, as páginas de propriedades no Visual Studio para a função aplicável no seu projeto de serviço em nuvem (a função com o botão direito e selecione **propriedades**). Para obter mais informações, consulte [configurar uma cadeia de ligação para uma conta de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-multiple-services-project-configurations#configuring-a-connection-string-to-a-storage-account).
+Para configurar as definições de utilizam manualmente, as páginas de propriedade no Visual Studio para a função aplicável no seu projeto de serviço cloud (a função com o botão direito e selecione **propriedades**). Para obter mais informações, consulte [configurar uma cadeia de ligação para uma conta de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-multiple-services-project-configurations#configuring-a-connection-string-to-a-storage-account).
 
 ### <a name="about-access-keys"></a>Sobre chaves de acesso
 
-O portal do Azure mostra os URLs que pode utilizar para aceder a recursos em cada um dos serviços de armazenamento do Azure bem como as chaves de acesso primária e secundária para a sua conta. Utilize estas chaves para autenticar pedidos efetuados contra os serviços de armazenamento.
+O portal do Azure mostra os URLs que pode utilizar para aceder a recursos em cada um dos serviços de armazenamento do Azure e também as chaves de acesso primária e secundária para a sua conta. Utilize estas chaves para autenticar pedidos feitos contra os serviços de armazenamento.
 
-A chave de acesso secundária fornece o mesmo acesso à sua conta de armazenamento como a chave de acesso primária e é gerada uma cópia de segurança a chave de acesso primária comprometida. Além disso, é recomendado que voltar a gerar as chaves de acesso regularmente. Pode modificar uma definição de cadeia de ligação para utilizar a chave secundária ao regenerar a chave primária, em seguida, pode modificar-a para utilizar a chave primária regenerada ao regenerar a chave secundária.
+A chave de acesso secundária fornece o mesmo acesso à sua conta de armazenamento como a chave de acesso primária e é gerada como uma cópia de segurança a chave de acesso primária estiver comprometida. Além disso, é recomendável que regenerar as chaves de acesso em intervalos regulares. É possível modificar uma definição da cadeia de ligação para utilizar a chave secundária enquanto volta a gerar a chave primária, em seguida, pode modificá-la para utilizar a chave primária regenerada enquanto volta a gerar a chave secundária.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a publicação de aplicações para o Azure a partir do Visual Studio, consulte [publicação de um serviço em nuvem com as ferramentas do Azure](vs-azure-tools-publishing-a-cloud-service.md).
+Para saber mais sobre a publicação de aplicações para o Azure a partir do Visual Studio, veja [publicação de um serviço de nuvem usando as ferramentas do Azure](vs-azure-tools-publishing-a-cloud-service.md).

@@ -11,22 +11,24 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0d47b89a468aade8cec51ec04709ed99bfd4684c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857949"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058509"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como ativar a virtualização aninhada na VM do Azure
 
-Virtualização aninhada é suportada da série Dv3 e Ev3 máquinas virtuais do Azure. Esta capacidade fornece grande flexibilidade no suporte aos cenários, como ambientes de desenvolvimento, teste, treinamento e demonstração. 
+Virtualização aninhada é suportada em várias famílias de máquina virtual do Azure. Esta capacidade fornece grande flexibilidade no suporte aos cenários, como ambientes de desenvolvimento, teste, treinamento e demonstração.   
 
-Máquinas de virtuais de série de todos os Dv3 e Ev3 suporta virtualização aninhada sem qualquer configuração adicional.  Este artigo explica ativar Hyper-V numa VM do Azure e configurar a ligação à Internet para que a máquina virtual convidada.
+Este artigo explica ativar Hyper-V numa VM do Azure e configurar a ligação à Internet para que a máquina virtual convidada.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Criar uma série Dv3 ou Ev3 VM do Azure
+## <a name="create-a-nesting-capable-azure-vm"></a>Criar uma VM do Azure com capacidade de aninhamento
 
-Criar um novo Azure VM do Windows Server 2016 e escolha um tamanho da série Dv3 ou Ev3. Certifique-se de que escolha um tamanho grande o suficiente para suportar as necessidades de uma máquina virtual convidada. Neste exemplo, estamos a utilizar um tamanho de D3_v3 VM do Azure. 
+Crie um novo Azure VM do Windows Server 2016.  Para refernce rápida, todas as máquinas de virtuais de v3 suporta virtualização aninhada. Para os tamanhos de uma lista completa de máquina virtual que aninhamento de suporte, consulte a [artigo de unidade de computação do Azure](acu.md).
+
+Lembre-se de escolher um tamanho VM grande o suficiente para suportar as necessidades de uma máquina virtual convidada. Neste exemplo, estamos a utilizar um tamanho de D3_v3 VM do Azure. 
 
 Pode ver a disponibilidade regional de máquinas virtuais da série Dv3 ou Ev3 [aqui](https://azure.microsoft.com/regions/services/).
 

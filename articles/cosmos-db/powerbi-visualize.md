@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 3734c30dad0735164d4501d1d63d8ffe301396a3
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249119"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057005"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial de BI de energia para o Azure Cosmos DB: visualizar dados utilizando o conector do Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) é um serviço online onde pode criar e partilhar dashboards e relatórios com dados que são importantes para e sua organização.  O ambiente de trabalho do Power BI é um ferramenta que permite-lhe recuperar dados de várias origens de dados, intercalar e transformar os dados, criar relatórios avançados e visualizações e publicar os relatórios no Power BI de criação de relatórios dedicado.  Com a versão mais recente do Power BI Desktop, pode agora ligar à sua conta do Azure Cosmos DB através do conector do Azure Cosmos DB para o Power BI.   
@@ -42,8 +42,8 @@ Antes de seguir as instruções neste tutorial do Power BI, certifique-se de que
 * [A versão mais recente do Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Acesso a nossa conta de demonstração ou dados na sua conta do Azure Cosmos DB.
   * A conta de demonstração é preenchida com os dados de volcano mostrados neste tutorial. Esta conta de demonstração não está vinculada a qualquer SLAs e destina-se apenas a fins de demonstração.  Podemos reservar o direito de fazer modificações para esta conta de demonstração incluindo mas não se limitando a, encerrando a conta, alterar a chave, restringir o acesso, a alteração e eliminar os dados, a qualquer momento sem aviso ou motivo.
-    * URL: https://analytics.documents.azure.com
-    * Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
+    * URL: `https://analytics.documents.azure.com`
+    * Chave só de leitura: `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
   * Ou, para criar sua própria conta, veja [criar uma conta de base de dados do Azure Cosmos DB no portal do Azure](https://azure.microsoft.com/documentation/articles/create-account/). Em seguida, para obter volcano exemplo dados que é semelhantes ao que são utilizados neste tutorial (mas não contém os blocos de GeoJSON), consulte a [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e, em seguida, importar os dados com o [ferramenta de migração de dados do Azure Cosmos DB](import-data.md).
 
 Para partilhar os seus relatórios no PowerBI.com, tem de ter uma conta no PowerBI.com.  Para saber mais sobre o Power BI para gratuito e o Power BI Pro, visite [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).

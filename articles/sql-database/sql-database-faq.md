@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/21/2018
 ms.author: carlrab
-ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308818"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056323"
 ---
 # <a name="sql-database-faq"></a>FAQ da Base de Dados SQL
 
@@ -46,7 +46,6 @@ O [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybri
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Existem direitos de uso de dupla com o benefício híbrido do Azure para o SQL Server?
 Terá de 180 dias de direitos de uso dual da licença para garantir que as migrações executem de forma totalmente integrada. Depois desse período de 180 dias, a licença do SQL Server só pode ser utilizada na nuvem na base de dados SQL e não tem uso dual direitos no local e na cloud.
-
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Azure Hybrid Benefit para o SQL Server difere da mobilidade de licenças?
 Hoje em dia, podemos oferecer benefícios da mobilidade de licenças para clientes do SQL Server com Software Assurance, que permite a reatribuição de suas licenças para servidores compartilhados de terceiros. Este benefício pode ser utilizado no IaaS do Azure e AWS EC2.
@@ -168,7 +167,10 @@ A auditoria está incorporada no serviço base de dados SQL não adicionais de c
 Na [portal do Azure](https://portal.azure.com), clique em **SQL Servers**, selecione o servidor da lista e, em seguida, clique em **Repor palavra-passe**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Como posso gerir bases de dados e inícios de sessão?
-Ver [gestão de bases de dados e inícios de sessão](sql-database-manage-logins.md).
+Ver [gestão de bases de dados e inícios de sessão](sql-database-manage-logins.md). 
+
+> [!NOTE]
+> Não é possível alterar o nome da conta de administrador do servidor depois de criado.
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Como me certifico de que apenas endereços IP autorizados têm permissão para aceder a um servidor?
 Ver [como: configurar as definições da firewall na base de dados SQL](sql-database-configure-firewall-settings.md).

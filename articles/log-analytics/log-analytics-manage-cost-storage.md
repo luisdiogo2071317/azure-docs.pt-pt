@@ -1,6 +1,6 @@
 ---
-title: Gerir o custo de dados do Log Analytics do Azure | Microsoft Docs
-description: Saiba como alterar o plano de preços e gestão da política de volume e a retenção de dados para a sua área de trabalho de análise de registos no Azure.
+title: Gerir o custo de dados no Log Analytics do Azure | Documentos da Microsoft
+description: Saiba como alterar o plano de preços e gerir a política de volume e retenção de dados para a área de trabalho do Log Analytics no Azure.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -12,112 +12,118 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3586804a8384273e5c0589bef9c586cee162939e
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130933"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057663"
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção na análise de registos
-Análise de registos está concebido para escala e a recolha de suporte, a indexação e armazenar as quantidades enormes de dados por dia de uma origem na sua empresa ou implementado no Azure.  Apesar de este número pode ser um controlador primário para a sua organização, eficiência de custos é basicamente o controlador subjacente. Para esse fim importante compreender que o custo de uma área de trabalho do registo Analytisc não se encontra apenas com base no volume dos dados recolhidos, também está dependente do plano selecionado e o período de tempo que escolheu armazenar dados gerados a partir de origens de ligado.  
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics
+
+> [!NOTE]
+> Este artigo descreve como controlar os custos do Log Analytics ao definir o período de retenção de dados.  Veja os artigos seguintes para obter informações relacionadas.
+> - [Analisar a utilização de dados do Log Analytics](log-analytics-manage-cost-storage.md) descreve como analisar e alerta sobre a utilização de dados.
+> - [Monitorizar a utilização e custos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
+
+O log Analytics é criado para dimensionamento e suporte a recolher, indexação e armazenamento de grandes quantidades de dados por dia a partir de qualquer origem na sua empresa ou implementado no Azure.  Embora isso possa ser um controlador primário para a sua organização, relação custo-benefício é, por fim, o driver subjacente. Para esse fim, é importante compreender que o custo de uma área de trabalho do Log Analytisc não é apenas com base no volume de dados recolhidos, também é dependente do plano selecionado e o tempo que optar por armazenar os dados gerados a partir de origens ligadas.  
 
 Neste artigo, vamos rever como pode proativamente monitorizar crescimento de volume e o armazenamento de dados e definir limites para controlar os custos associados. 
 
-O custo dos dados pode ser considerável consoante os seguintes fatores: 
+O custo de dados pode ser considerável consoante os seguintes fatores: 
 
-- Número de sistemas, os componentes de infraestrutura, recursos de nuvem, etc., que está a recolher 
-- Tipo de dados criados pela origem, tais como filas de mensagens, os registos, eventos, dados relacionados com segurança ou métricas de desempenho 
-- Volume de dados gerados destas origens e ingeridos à área de trabalho 
-- Os dados períodos são mantidos na área de trabalho  
-- Número de soluções de gestão ativado, a origem de dados e a frequência de recolha 
-
-> [!NOTE]
-> Consulte a documentação de cada solução como fornece uma estimativa da quantidade de dados recolhe.   
-
-Clientes com um Enterprise Agreement assinados antes de 1 de Julho de 2018 ou que já criado uma área de trabalho de análise de registos numa subscrição, continua a ter acesso para o *livres* plano. Se a sua subscrição não está associada a uma inscrição EA existente, o *livres* camada não está disponível quando criar uma área de trabalho numa nova subscrição depois de 2 de Abril de 2018.  Dados estão limitados a retenção de 7 dias para o *livres* camada.  Para o *autónomo* ou *Paid* camada, os dados recolhidos estão disponíveis nos últimos 31 dias. O *livres* escalão tem o limite de ingestão diário de 500 MB e se achar que exceder consistentemente as quantidades permitidas volume, pode alterar a sua área de trabalho para um plano pago para recolher dados além este limite. 
+- Número de sistemas, componentes de infraestrutura, recursos de nuvem, etc. que recolhemos de 
+- Tipo de dados criados a origem, tais como filas de mensagens, os registos, eventos, dados relacionados com a segurança ou métricas de desempenho 
+- Volume de dados gerados por estas origens e ingeridos à área de trabalho 
+- Os dados de período são mantidos na área de trabalho  
+- Número de soluções de gestão ativado, a origem de dados e a frequência de coleção 
 
 > [!NOTE]
-> Se optar por selecionar um período de retenção mais longo para a camada paga são aplicáveis encargos. Pode alterar o tipo de plano em qualquer altura e para obter mais informações sobre preços, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
+> Consulte a documentação para cada solução pois ele fornece uma estimativa da quantidade de dados que recolhe.   
 
-Existem duas formas em que o volume de dados pode ser limitada e ajudar a controlam o custo, estes são diária retenção de dados e de extremidade.  
+Os clientes com um Enterprise Agreement assinado antes de 1 de Julho de 2018 ou que já criou uma área de trabalho do Log Analytics numa subscrição, ainda terá acesso para o *gratuito* plano. Se a sua subscrição não está vinculada a uma inscrição EA já existente, o *gratuito* escalão não está disponível quando criar uma área de trabalho numa nova subscrição depois de 2 de Abril de 2018.  Dados estão limitados a retenção de 7 dias para o *gratuito* escalão.  Para o *autónomo* ou *pago* camada, os dados recolhidos estão disponíveis nos últimos 31 dias. O *gratuito* escalão tem o limite de ingestão de diário de 500 MB e, se encontrar exceder consistentemente as quantidades permitidas volume, pode alterar sua área de trabalho para um plano pago para recolher dados para lá deste limite. 
+
+> [!NOTE]
+> Encargos se optar por selecionar um período de retenção mais longo para o escalão pago. Pode alterar o tipo de plano em qualquer altura para obter mais informações sobre os preços, consulte [os detalhes dos preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
+
+Existem duas formas em que o volume de dados pode ser limitada e ajudar a controlam o custo, estes são diária cap e retenção de dados.  
 
 ## <a name="review-estimated-cost"></a>Reveja o custo estimado
-Torna de análise do registo facilitam a compreender o que são provável que os custos com base nos padrões de utilização recente.  Para tal, execute os seguintes passos.  
+Log Analytics torna isso fácil de entender o que são provável que os custos basear-se nos padrões de utilização recente.  Para tal, execute os seguintes passos.  
 
 1. Inicie sessão no [Portal do Azure](http://portal.azure.com). 
 2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. No painel de subscrições de análise de registos, selecione a sua área de trabalho e, em seguida, clique em **utilização e os custos estimados** do painel da esquerda.<br><br> ![Página de custos estimados e utilização](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+3. No painel de subscrições do Log Analytics, selecione a sua área de trabalho e, em seguida, clique em **utilização e custos estimados** no painel esquerdo.<br><br> ![Utilização e a página de custos estimados](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
-Aqui pode rever o volume de dados para o mês. Isto inclui todos os dados recebidos e mantidas na sua área de trabalho de análise de registos.  Clique em **detalhes de utilização** da parte superior da página para ver o dashboard de utilização com informações sobre tendências de volume de dados por origem, computadores e oferta. Para visualizar e definir um limite diário ou modificar o período de retenção, clique em **gestão de volumes de dados**.
+A partir daqui pode rever o volume dos seus dados para o mês. Isto inclui todos os dados recebidos e mantidas na sua área de trabalho do Log Analytics.  Clique em **detalhes de utilização** da parte superior da página para ver o dashboard de utilização com informações sobre as tendências de volume de dados de origem, computadores e oferta. Para ver e definir um máximo diário ou para modificar o período de retenção, clique em **gestão de volumes de dados**.
  
-Os encargos de análise do registo são adicionados à fatura do Azure. Pode ver os detalhes do seu Azure cobrar na secção de faturação do portal do Azure ou no [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
+Custos de análise de registo são adicionados à sua fatura do Azure. Pode ver detalhes do seu do Azure são faturadas na secção de faturação do portal do Azure ou no [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Extremidade diária
-Quando criar uma área de trabalho de análise de registos no portal do Azure e escolha o *livres* plano, está definido para um 500 MB por limite de dia. Não há nenhum limite para os planos de preços. Pode configurar um limite diário e limitar a ingestão de diariamente para a sua área de trabalho, mas utilizar cuidado, como o seu objetivo não deve ser para atingiu o limite diário.  Caso contrário, perderá os dados para o resto do dia, o que pode afetar outros serviços do Azure e soluções cuja funcionalidade pode depender de dados atualizados estejam disponíveis na área de trabalho.  Como resultado, a capacidade de observar e receber alertas quando as condições de estado de funcionamento de recursos que suportam serviços de TI são afetadas.  A extremidade diária destina-se a ser utilizado como uma forma de gerir o aumento inesperado no volume de dados dos seus recursos geridos e permanecer dentro do seu limite ou quando pretender limitar simplesmente encargos não planeados para a sua área de trabalho.  
+Quando criar uma área de trabalho do Log Analytics a partir do portal do Azure, escolha o *gratuito* plano, ele é definido como um 500 MB por limite de dias. Não existe nenhum limite para os planos de preços. Pode configurar um máximo diário e limitar a ingestão diária da sua área de trabalho, mas usar cuidados de saúde, como o seu objetivo não deve ser atingir o limite diário.  Caso contrário, perde os dados para o resto do dia, que pode afetar outros serviços do Azure e soluções cuja funcionalidade pode depender de dados atualizados estarem disponíveis na área de trabalho.  Como resultado, a sua capacidade de observar e receber alertas quando as condições de estado de funcionamento de recursos que suportam serviços de TI são afetadas.  O limite diário destina-se para ser utilizado como uma forma de gerir o aumento inesperado no volume de dados a partir de recursos geridos e mantenha-se no seu limite, ou quando quiser simplesmente a limitar Cobranças não planeadas à sua área de trabalho.  
 
-Quando for atingido o limite diário, interrompe a coleção de tipos de dados sujeito a faturação para o resto do dia. É apresentada uma faixa de aviso na parte superior da página para a área de trabalho de análise de registos selecionada e um evento de operação é enviado para o *operação* tabela em **LogManagement** categoria. Retoma a recolha de dados depois do tempo de reposição definidos em *limite diário será definido em*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para enviar notificações quando for alcançado o limite diário de dados. 
+Quando for atingido o limite diário, a coleção de tipos de dados cobrar deixa para o resto do dia. É apresentada uma faixa de aviso na parte superior da página para a área de trabalho do Log Analytics selecionada e um evento de operação é enviado para o *operação* tabela sob **LogManagement** categoria. Recolha de dados retoma após a hora de reposição definidas em *limite diário terá o valor*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para ser notificado quando for atingido o limite diário de dados. 
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diárias para definir 
-Reveja [utilização de análise do registo e os custos estimados](log-analytics-usage.md) para compreender a tendência de ingestão de dados e o que é a extremidade de volume diária para definir. Devem ser considerada com cuidado, dado que não conseguirá monitorizar os recursos após ter sido atingido o limite. 
+### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir 
+Revisão [utilização do Log Analytics e custos estimados](log-analytics-usage.md) para compreender as tendências de ingestão de dados e o que é o limite de volume diário para definir. Deve ser considerado com cuidado, uma vez que não será possível monitorizar os seus recursos após ter sido atingido o limite. 
 
-### <a name="manage-the-maximum-daily-data-volume"></a>Gerir o volume de dados diária máximo 
-Os passos seguintes descrevem como configurar um limite para gerir o volume de dados que irá ingestão de análise de registos por dia.  
+### <a name="manage-the-maximum-daily-data-volume"></a>Gerir o volume de dados máximo diário 
+Os passos seguintes descrevem como configurar um limite para gerir o volume de dados do Log Analytics será ingerir por dia.  
 
-1. Na área de trabalho, selecione **utilização e os custos estimados** no painel esquerdo.
-2. No **utilização e os custos estimados** página para a área de trabalho selecionada, clique em **gestão de volumes de dados** da parte superior da página. 
-5. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, definir o limite de volume de dados no diário GB.<br><br> ![Análise de registos configurar o limite de dados](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
+1. Na área de trabalho, selecione **utilização e custos estimados** no painel à esquerda.
+2. Sobre o **utilização e custos estimados** para a área de trabalho selecionada, clique em **gestão de volumes de dados** da parte superior da página. 
+5. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, defina o limite de volume de dados em GB/dia.<br><br> ![Configurar o limite de dados do log Analytics](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
-### <a name="alert-when-limit-reached"></a>Quando atingido o limite de alertas
-Enquanto que apresentam um visual rectângulos no portal do Azure quando é cumprido o limiar de limite de dados, este comportamento não necessariamente são alinhados com como gerir problemas operacionais que necessite de atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Monitor do Azure.  Para obter mais informações, consulte [como criar, ver e gerir alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
+### <a name="alert-when-limit-reached"></a>Alertar quando atingido o limite
+Embora, apresentamos uma indicação visual no portal do Azure quando o limiar de limite de dados for cumprido, esse comportamento não necessariamente alinhados com como gerir os problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para obter mais informações, consulte [como criar, ver e gerir alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
 
 Para começar, seguem-se as definições recomendadas para o alerta:
 
-* Destino: Selecione o recurso de análise de registos
-* Critérios de: 
-   * Nome de sinal: pesquisa de registo personalizado
-   * Consulta de pesquisa: operação | em que o detalhe tem 'OverQuota'
-   * Com base na: número de resultados
-   * Condição: Superior a
+* Destino: Selecione o recurso do Log Analytics
+* Critérios: 
+   * Nome do sinal: pesquisa de registos personalizado
+   * Consulta de pesquisa: operação | em que detalhes tem 'OverQuota'
+   * Com base em: número de resultados
+   * Condição: Maior do que
    * Limiar: 0
    * Período: 5 (minutos)
    * Frequência: 5 (minutos)
-* Nome da regra de alerta: foi atingido o limite de dados diária
+* Nome da regra de alerta: limite diário de dados foi atingido
 * Gravidade: Aviso (gravidade 1)
 
-Depois do alerta está definido e o limite é atingido, o alerta é acionado e efetua a resposta definida num grupo de ação. Pode notificar a equipa através de mensagens de e-mail e texto ou automatizar ações utilizando webhooks, runbooks de automatização ou [integrar uma solução ITSM externa](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+Assim que o alerta é definido e o limite for atingido, um alerta é acionado e executa a resposta definida no grupo de ação. Pode notificar a sua equipa através de e-mail e mensagens de texto, ou automatize ações através de webhooks, runbooks de automatização ou [integrar com uma solução ITSM externa](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados 
 Os passos seguintes descrevem como configurar o registo quanto dados são mantidos na sua área de trabalho.
  
-1. Na área de trabalho, selecione **utilização e os custos estimados** no painel esquerdo.
-2. No **utilização e os custos estimados** página, clique em **gestão de volumes de dados** da parte superior da página.
-5. No painel, mova o controlo de deslize para aumentar ou reduzir o número de dias e, em seguida, clique em **OK**.  Se tiver o *livre* camada, não será possível modificar o período de retenção de dados e tem de atualizar para o escalão pago para controlar esta definição.<br><br> ![Alteração da definição de retenção de dados de área de trabalho](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
+1. Na área de trabalho, selecione **utilização e custos estimados** no painel à esquerda.
+2. Sobre o **utilização e custos estimados** página, clique em **gestão de volumes de dados** da parte superior da página.
+5. No painel, mova o controlo de deslize para aumentar ou diminuir o número de dias e, em seguida, clique em **OK**.  Se estiver a utilizar o *gratuita* escalão, não será capaz de modificar o período de retenção de dados e terá de atualizar para o escalão pago para poder controlar esta definição.<br><br> ![Alteração da definição de retenção de dados de área de trabalho](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-**Pergunta**: como resolver se a análise de registos já não está a recolher dados? 
-**Resposta**: Se estiver a livre no escalão de preço e ter enviado a mais do que 500 MB de dados dentro de um dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
-Análise de registos cria um evento do tipo operação quando é iniciado e deixa de recolha de dados.  
-Execute a seguinte consulta em pesquisa para verificar se está a atingir o limite diário e dados em falta: operação | onde OperationCategory = = 'Status de recolha de dados'   
-Quando parar a recolha de dados, o OperationStatus indica um aviso. Quando inicia a recolha de dados, o OperationStatus é concluída com êxito.  
-A tabela seguinte descreve as razões que deixa de recolha de dados e uma ação sugerida para retomar a recolha de dados:  
+**Pergunta**: como posso resolver problemas se o Log Analytics já não está a recolher dados? 
+**Resposta**: se são gratuito no escalão de preço e ter enviado a mais de 500 MB de dados num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
+O log Analytics cria um evento do tipo operação quando a recolha de dados é iniciada e interrompida.  
+Execute a seguinte consulta na pesquisa para verificar se estiver a atingir o limite diário e dados em falta: operação | onde OperationCategory = = "Estado de recolha de dados"   
+Quando parar a recolha de dados, o OperationStatus indica um aviso. Quando inicia a recolha de dados, o OperationStatus é concluído com êxito.  
+A tabela seguinte descreve as razões que pára de recolha de dados e uma ação sugerida para retomar a recolha de dados:  
 
-|Interrompe a recolha de razão| Solução| 
+|Deixa de coleção de razão| Solução| 
 |-----------------------|---------|
-|Atingiu o limite diário de dados gratuitos<sup>1</sup>|Aguarde até ao dia seguinte para a coleção reiniciar automaticamente ou altere para um escalão de preço pago.|
-|Atingiu o limite diário definidos na gestão de volumes de dados|Aguarde até ao dia seguinte para a coleção reiniciar automaticamente, ou aumentar o limite de volume de dados diária descrito [gerir o volume de dados diária máximo](#manage-the-maximum-daily-volume)|
-|Subscrição do Azure está num estado suspenso devido a:<br> Avaliação gratuita terminada<br> Passagem do Azure expirou<br> Limite de gastos mensalmente atingido (por exemplo, numa subscrição MSDN ou Visual Studio)|Converter uma subscrição paga<br> Remover o limite ou aguarde que o limite repõe|
+|Foi atingido o limite diário de dados gratuitos<sup>1</sup>|Aguarde até ao dia seguinte para a coleção reiniciar automaticamente ou alterar para um escalão de preço pago.|
+|Foi atingido o limite diário que definiu na gestão de volumes de dados|Aguarde até ao dia seguinte para a coleção reiniciar automaticamente ou aumentar o limite de volume de dados diário descrito [gerir o volume de dados máximo diário](#manage-the-maximum-daily-volume)|
+|Subscrição do Azure está num estado suspenso devido a:<br> Versão de avaliação gratuita terminada<br> Passagem do Azure expirou<br> Atingido o limite de gastos mensal (por exemplo, numa assinatura do MSDN ou o Visual Studio)|Converter numa subscrição paga<br> Remover o limite, ou aguarde até que o limite é zerado|
 
-<sup>1</sup> se a sua área de trabalho é no escalão de preço gratuito, está limitado a enviar 500 MB de dados por dia para o serviço. Quando atingir o limite diário, deixa de recolha de dados até ao dia seguinte. Dados enviados enquanto a recolha de dados está parada não estão indexados e não estão disponíveis para pesquisa. Quando é retomada a recolha de dados, processamento ocorre apenas para novos dados enviados. 
+<sup>1</sup> se sua área de trabalho no escalão de preço gratuito, está limitado ao envio de 500 MB de dados por dia para o serviço. Quando atingir o limite diário, deixa de recolha de dados até ao dia seguinte. Dados enviados, enquanto a recolha de dados está parada não indexados e não estão disponíveis para pesquisa. Quando a retoma a recolha de dados, o processamento ocorre apenas para novos dados enviados. 
 
-Análise de registos utiliza a hora UTC. O tempo de reposição varia entre áreas de trabalho para impedir que todas as áreas de trabalho limitado início, a ingestão de dados ao mesmo tempo. Se a área de trabalho atingir o limite diário, processamento retoma depois do tempo de reposição definidos no **limite diário será definido em**.<br><br> ![Análise de registos limita fuso horário UTC](media/log-analytics-manage-cost-storage/data-volume-mgmt-limit-utc.png)
+O log Analytics utiliza hora UTC. O tempo de reposição varia entre as áreas de trabalho para impedir que todos os de áreas de trabalho de limite de início, a ingestão de dados ao mesmo tempo. Se a área de trabalho atinge o limite diário, o processamento continua após a hora de reposição definido no **limite diário terá o valor**.<br><br> ![Fuso horário UTC de limitar o log Analytics](media/log-analytics-manage-cost-storage/data-volume-mgmt-limit-utc.png)
 
-**Pergunta**: como podem posso ser notificado quando parar a recolha de dados? 
-**Resposta**: utilizar os passos descritos no *extremidade de dados diária criar* alerta para ser notificado quando parar a recolha de dados e siga os passos utilizam os passos descritos no adicionam ações de regras de alerta configurar um e-mail, o webhook ou o runbook ação de regra de alerta. 
+**Pergunta**: como posso ser notificado quando parar a recolha de dados? 
+**Resposta**: Utilize os passos descritos no *criar limite de dados diário* alerta para ser notificado quando parar a recolha de dados e siga os passos utilizam os passos descritos em adicionam ações a regras de alerta de configurar um e-mail, webhook ou runbook ação para a regra de alerta. 
 
 ## <a name="next-steps"></a>Passos Seguintes  
 
-Para determinar a quantidade de dados é recolhido, as origens de estão a enviar e os diferentes tipos de dados enviados para o ajudar a gerir consumo e o custo, consulte [analisar a utilização de dados na análise de registos](log-analytics-usage.md).
+Para determinar a quantidade de dados é recolhido, quais fontes estão a enviar e os diferentes tipos de dados enviados para o ajudar a gerenciar o consumo e o custo, veja [analisar a utilização de dados do Log Analytics](log-analytics-usage.md).

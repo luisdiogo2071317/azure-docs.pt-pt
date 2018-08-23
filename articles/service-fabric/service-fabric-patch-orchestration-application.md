@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036943"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42062107"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -391,6 +391,10 @@ Um administrador deve intervir e determinar por que a aplicação ou o cluster s
 - Correção de erro na criação de tarefas de RM devido à qual estado de funcionamento da verificação durante a preparação de tarefas de reparo não estava acontecendo conforme esperado.
 - Alterar o modo de inicialização de windows service POANodeSvc de automática para automático atrasado.
 
-### <a name="version-121-latest"></a>Versão 1.2.1 (mais recente)
+### <a name="version-121"></a>Versão 1.2.1
 
 - Correção de erro no fluxo de trabalho de redução vertical de cluster. Introduziu a lógica de coleta de lixo para tarefas de reparo POA que pertencem a nós não existente.
+
+### <a name="version-122-latest"></a>Versão 1.2.2 (mais recente)
+
+- Diversas correções de bugs.

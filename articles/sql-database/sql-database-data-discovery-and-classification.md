@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950815"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054600"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
 Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados do Azure SQL para **detetar**, **classificar**, **etiquetagem**  &  **proteger** os dados confidenciais em seus bancos de dados.
@@ -107,6 +107,13 @@ Pode usar o T-SQL para adicionar ou remover as classificações de coluna, bem c
 * Adicionar/atualizar a classificação de uma ou mais colunas: [adicionar a classificação de sensibilidade](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 * Remover a classificação de uma ou mais colunas: [remover classificação de sensibilidade](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 * Ver todas as classificações na base de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+Também pode utilizar as APIs REST para gerir programaticamente classificações. As APIs REST publicados suportam as seguintes operações:
+* [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – cria ou atualiza a etiqueta de sensibilidade de uma determinada coluna
+* [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -elimina a etiqueta de sensibilidade de uma determinada coluna
+* [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -obtém a etiqueta de sensibilidade de uma determinada coluna
+* [Lista por base de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -obtém as etiquetas de sensibilidade de um determinado banco de dados
+
 
 ## <a id="subheading-5"></a>Passos seguintes
 

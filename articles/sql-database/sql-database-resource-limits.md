@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412115"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061041"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Limites de recursos de base de dados do Azure SQL de descrição geral 
 
@@ -22,15 +22,15 @@ Este artigo fornece uma descrição geral do recurso de base de dados do Azure S
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>O que é o número máximo de servidores e bases de dados?
 
-| Máximo | Valor |
-| :--- | :--- |
-| Bases de dados por servidor | 5000 |
-| Número de servidores por subscrição em qualquer região predefinido | 20 |
-| Número máx. de servidores por subscrição em qualquer região | 200 |
-| DTU / quota de eDTU por servidor | 54,000 |
-| quota de vCore por servidor | 540 |
-| Conjuntos de máx. por servidor | limitado pelo número de DTUs ou vCores |
-|||
+| Máximo | Servidor lógico | Instância gerida |
+| :--- | :--- | :--- |
+| Bases de dados por instância do servidor | 5000 | 100 |
+| Número de servidores por subscrição em qualquer região predefinido | 20 | N/A |
+| Número máx. de servidores por subscrição em qualquer região | 200 | N/A | 
+| DTU / quota de eDTU por servidor | 54,000 | N/A |  
+| quota de vCore por instância do servidor | 540 | 80 |
+| Conjuntos de máx. por servidor | limitado pelo número de DTUs ou vCores | N/A |
+||||
 
 > [!NOTE]
 > Para obter mais quota de /eDTU DTU, quota de vCore ou mais servidores que o valor predefinido, pode ser submetido um novo pedido de suporte no portal do Azure para a subscrição com o tipo de problema "Quota". As DTU / limite de quota e base de dados de eDTU por servidor restringe o número de conjuntos elásticos por servidor. 

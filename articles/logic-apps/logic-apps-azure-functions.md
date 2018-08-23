@@ -7,21 +7,21 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 20ad738541554279ff9fd6dd6babe90a38676c00
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a63bd8e3b071ed996db8ad5aeaeb5e451b4d92e9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263195"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057693"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Adicionar e executar fragmentos de código personalizado no Azure Logic Apps com as funções do Azure
 
-Quando deseja criar e executar apenas suficiente código que corrige um problema específico nas suas aplicações lógicas, pode criar suas próprias funções usando [as funções do Azure](../azure-functions/functions-overview.md). Este serviço fornece a capacidade para criar e executar fragmentos de código personalizado escritos com node. js ou c# nas suas aplicações lógicas, sem se preocupar sobre a criação de uma aplicação completa ou a infraestrutura para a execução do seu código. As funções do Azure fornece computação sem servidor na cloud e é útil para realizar tarefas, como nestes exemplos:
+Quando quiser executar apenas suficiente código que executa uma tarefa específica nas suas aplicações lógicas, pode criar suas próprias funções com [as funções do Azure](../azure-functions/functions-overview.md). Este serviço ajuda-o a criar o node. js, c# e F # trechos de código para que não tenha de criar uma aplicação completa ou a infraestrutura para a execução do seu código. As funções do Azure fornece computação sem servidor na cloud e é útil para realizar tarefas como nestes exemplos:
 
-* Estenda o comportamento da sua aplicação lógica com as funções suportadas pelo node. js ou c#.
+* Estenda o comportamento da sua aplicação lógica com as funções em node. js ou c#.
 * Realizar cálculos em seu fluxo de trabalho de aplicação lógica.
 * Aplicar a formatação avançada ou campos nas suas aplicações lógicas de computação.
 
@@ -29,69 +29,57 @@ Também pode [chamar aplicações lógicas do dentro das funções do Azure](#ca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este artigo, aqui estão os itens que precisa:
+Para seguir este artigo, precisa destes itens:
 
 * Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>. 
 
-* A aplicação de lógica onde pretende adicionar a função
+* Uma aplicação de função do Azure, que é um contentor para as funções do Azure e a função do Azure. Se não tiver uma aplicação de funções [primeiro a criar a sua aplicação function app](../azure-functions/functions-create-first-azure-function.md). Pode, em seguida, criar a sua função seja [separadamente fora da sua aplicação lógica](#create-function-external), ou [de dentro da sua aplicação lógica](#create-function-designer) no Estruturador da aplicação lógica.
+
+  Existentes e novas aplicações de funções e as funções têm os mesmos requisitos para trabalhar com o logic apps:
+
+  * A aplicação de função tem de ter a mesma subscrição do Azure que a sua aplicação lógica.
+
+  * A função utiliza um acionador HTTP, por exemplo, o **acionador HTTP** modelo de função para **JavaScript** ou **c#**. 
+
+    O modelo de Acionador HTTP pode aceitar o conteúdo que tenha `application/json` tipo da sua aplicação lógica. 
+    Quando adiciona uma função do Azure à sua aplicação lógica, o Estruturador da aplicação lógica mostra as funções personalizadas criadas através deste modelo na sua subscrição do Azure. 
+
+  * A função não usa rotas personalizadas, a menos que definiu uma [definição de OpenAPI](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](http://swagger.io/). 
+  
+  * Se definiu uma definição de OpenAPI para a função, o Designer de aplicações lógicas dá-lhe uma experiência mais rica para trabalhar com parâmetros da função. Antes da aplicação lógica pode localizar e acessar as funções com as definições de OpenAPI [configure a sua aplicação de função, seguindo estes passos](#function-swagger).
+
+* A aplicação de lógica onde pretende adicionar a função, incluindo uma [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) como a primeira etapa na sua aplicação lógica 
+
+  Antes de poder adicionar ações que podem executar as funções, tem de iniciar a aplicação lógica com um acionador.
 
   Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-* R [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) como a primeira etapa na sua aplicação lógica 
-
-  Antes de poder adicionar ações para executar funções, tem de iniciar a aplicação lógica com um acionador.
-
-* Uma aplicação de função do Azure, que é um contentor para as funções do Azure e a função do Azure. Se não tiver uma aplicação de funções, deve [primeiro a criar a sua aplicação function app](../azure-functions/functions-create-first-azure-function.md). Pode, em seguida, criar a sua função seja [separadamente fora da sua aplicação lógica](#create-function-external), ou [de dentro da sua aplicação lógica](#create-function-designer) no Estruturador da aplicação lógica.
-
-  Aplicações de novas e existentes funções do Azure e as funções têm os mesmos requisitos para trabalhar com as logic apps:
-
-  * A aplicação de função têm de pertencer à mesma subscrição do Azure que a sua aplicação lógica.
-
-  * A função tem de utilizar o **webhook genérico** modelo de função por qualquer **JavaScript** ou **c#**. Este modelo pode aceitar o conteúdo que tenha `application/json` tipo da sua aplicação lógica. Estes modelos também ajudam o Estruturador da aplicação lógica encontrar e mostrar as funções personalizadas que pode criar com estes modelos quando adicionar essas funções às suas aplicações lógicas.
-
-  * Verifique se seu modelo de função **modo** estiver definida como **Webhook** e o **tipo de Webhook** propriedade está definida como **JSON genérica**.
-
-    1. Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
-    2. No menu principal do Azure, selecione **aplicações de funções**. 
-    3. Na **aplicações Function App** lista, selecione a sua aplicação de função, expanda a sua função e selecione **integrar**. 
-    4. Verifique o seu modelo **modo** estiver definida como **Webhook** e que o **tipo de Webhook** propriedade está definida como **JSON genérica**. 
-
-  * Se a sua função tem um [definição de API](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](http://swagger.io/), o estruturador de aplicações lógicas oferece uma experiência mais rica para trabalhar com os parâmetros da função. 
-  Antes da aplicação lógica pode localizar e acessar as funções que tenham uma descrição do Swagger, [configure a sua aplicação de função, seguindo estes passos](#function-swagger).
 
 <a name="create-function-external"></a>
 
 ## <a name="create-functions-outside-logic-apps"></a>Criar aplicações lógicas fora de funções
 
-Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, criar a sua aplicação de função do Azure, que tem de ter a mesma subscrição do Azure que a sua aplicação lógica e, em seguida, criar a sua função do Azure. Se estiver familiarizado com as funções do Azure, saiba como [criar a primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md), mas tenha em atenção estes requisitos para a criação de funções do Azure que pode adicionar e chamar a partir de aplicações lógicas.
+Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, criar a sua aplicação de função do Azure, que tem de ter a mesma subscrição do Azure que a sua aplicação lógica e, em seguida, criar a sua função do Azure.
+Se estiver familiarizado com a criação de funções do Azure, saiba como [criar a primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md), mas tenha em atenção estes requisitos para a criação de funções que pode chamar a partir das aplicações lógicas:
 
-* Certifique-se de que seleciona os **webhook genérico** modelo de função por qualquer **JavaScript** ou **c#**.
+* Certifique-se de que seleciona os **acionador HTTP** modelo de função por qualquer **JavaScript** ou **c#**.
 
-  ![Webhook genérico - JavaScript ou em C#](./media/logic-apps-azure-functions/generic-webhook.png)
-
-* Depois de criar a função do Azure, verifique se o modelo **modo** e **tipo de Webhook** propriedades estão definidas corretamente.
-
-  1. Na **aplicações Function App** listar, expanda a sua função e selecione **integrar**. 
-
-  2. Verifique se seu modelo **modo** estiver definida como **Webhook** e que o **tipo de Webhook** propriedade está definida como **JSON genérica**. 
-
-     ![Propriedades do seu modelo de função "Integrar"](./media/logic-apps-azure-functions/function-integrate-properties.png)
+  ![Acionador HTTP - JavaScript ou em C#](./media/logic-apps-azure-functions/http-trigger-function.png)
 
 <a name="function-swagger"></a>
 
-* Opcionalmente, se [gerar uma definição de API](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](http://swagger.io/), por sua função, pode obter uma experiência mais rica ao trabalhar com parâmetros de função no Designer de aplicações lógicas. Para configurar a sua aplicação de funções para que a aplicação lógica pode encontrar e aceder às funções que tenham uma descrição do Swagger:
+* Opcionalmente, se [gerar uma definição de API](../azure-functions/functions-openapi-definition.md), anteriormente conhecido como um [ficheiro Swagger](http://swagger.io/), por sua função, pode obter uma experiência mais rica ao trabalhar com parâmetros de função no Designer de aplicações lógicas. Para configurar a sua aplicação de funções para que a aplicação lógica pode encontrar e utilizar as funções que tenham uma descrição do Swagger, siga estes passos:
 
-  * Certifique-se de que a sua aplicação function app está ativamente em execução.
+  1. Certifique-se de que a sua aplicação function app está ativamente em execução.
 
-  * Na sua aplicação de função, configure [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para que todas as origens são permitidas:
+  2. Na sua aplicação de função, configure [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para que todas as origens são permitidas ao seguir estes passos:
 
-    1. A partir do **aplicações Function App** , selecione a aplicação de função > **recursos da plataforma** > **CORS**.
+     1. Do **aplicações Function App** , selecione a aplicação de função > **recursos da plataforma** > **CORS**.
 
-       ![Selecione a sua aplicação de função > "Funcionalidades de plataforma" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+        ![Selecione a sua aplicação de função > "Funcionalidades de plataforma" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-    2. Sob **CORS**, adicione o `*` caráter universal de caracteres, mas remova todas as outras origens na lista e escolha **guardar**.
+     2. Sob **CORS**, adicione o `*` caráter universal de caracteres, mas remova todas as outras origens na lista e escolha **guardar**.
 
-       ![Selecione a sua aplicação de função > "Funcionalidades de plataforma" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
+        ![Definir "CORS * para o caráter universal" * "](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
 ### <a name="access-property-values-inside-http-requests"></a>Valores de propriedade de acesso no interior de pedidos de HTTP
 
@@ -130,7 +118,11 @@ Antes de poder criar uma função do Azure a partir de dentro da sua aplicação
 
 1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, abra a aplicação lógica no Estruturador da aplicação lógica. 
 
-2. No passo para criar e adicionar a função onde pretende, escolha **novo passo** > **adicionar uma ação**. 
+2. Para criar e adicionar a sua função, siga o passo que se aplica ao seu cenário:
+
+   * No último passo no fluxo de trabalho da sua aplicação lógica, escolha **novo passo**.
+
+   * Entre os passos existentes no fluxo de trabalho da sua aplicação lógica, mova o rato por cima da seta, selecione o sinal de adição (+) iniciar sessão e, em seguida, selecione **adicionar uma ação**.
 
 3. Na caixa de pesquisa, introduza "azure functions" como o filtro.
 Na lista de ações, selecione a ação: **escolher uma função do Azure - as funções do Azure** 
@@ -145,36 +137,34 @@ Na lista de ações, selecione a ação: **escolher uma função do Azure - as f
 
    1. Na **nome da função** caixa, indique um nome para a função. 
 
-   2. Na **código** caixa, adicione o código de função para o modelo, incluindo a resposta e a carga que pretende devolvido à sua aplicação lógica após a conclusão da sua função em execução. 
-   O objeto de contexto no código de modelo descreve a mensagem e o conteúdo que a aplicação lógica passa para a sua função, por exemplo:
+   2. Na **código** caixa, adicione o seu código para o modelo de função, incluindo a resposta e a carga que pretende devolvido à sua aplicação lógica após a conclusão da sua função em execução. 
 
       ![Definir a sua função](./media/logic-apps-azure-functions/function-definition.png)
 
-      Dentro da sua função, pode referenciar as propriedades no objeto de contexto, utilize esta sintaxe:
+      No código do modelo, o  *`context` objeto* refere-se para a mensagem que a aplicação lógica envia através da **corpo do pedido** campo num passo posterior. 
+      Para o acesso a `context` do objeto de propriedades a partir de dentro da sua função, utilize esta sintaxe: 
 
-      ```text
-      context.<token-name>.<property-name>
-      ```
-      Neste exemplo, eis a sintaxe que usaria:
+      `context.body.<property-name>`
 
-      ```text
-      context.body.content
-      ```
+      Por exemplo, para referência a `content` propriedade dentro do `context` de objeto, utilize esta sintaxe: 
 
+      `context.body.content`
+
+      O código de modelo também inclui uma `input` variável, que armazena o valor da `data` parâmetro para que sua função pode executar operações nesse valor. 
+      Dentro de funções de JavaScript, o `data` variável também é um atalho para `context.body`.
+
+      > [!NOTE]
+      > O `body` propriedade aqui aplica-se para o `context` objeto e não é igual a **corpo** token a partir de uma ação de saída do, que também poderá passar para a sua função. 
+ 
    3. Quando tiver terminado, escolha **Create** (Criar).
 
-6. Na **corpo do pedido** caixa, especifique o objeto de contexto para passar como entrada, a função do que têm de ser formatado em JavaScript Object Notation (JSON). Ao clicar no **corpo do pedido** , lista de conteúdo dinâmico é aberta a caixa pelo que pode selecionar tokens para propriedades disponíveis dos passos anteriores. 
+6. Na **corpo do pedido** caixa, forneça a sua função entrada do, que tem de ser formatado como um objeto JavaScript Object Notation (JSON). 
 
-   Neste exemplo, o objeto no passa a **corpo** tokens de Acionador de e-mail:  
+   Esta entrada é o *objeto context* ou mensagem de que a aplicação lógica envia para a sua função. Ao clicar no **corpo do pedido** campo, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar tokens para saídas dos passos anteriores. Este exemplo Especifica que a carga de contexto contém uma propriedade chamada `content` que tenha o **partir** token do valor do acionador de e-mail:
 
    ![Exemplo de "Corpo do pedido" - payload de objeto de contexto](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Com base no conteúdo no objeto de contexto, o Estruturador da aplicação lógica gera um modelo de função que, em seguida, pode editar inline. 
-   O Logic Apps também cria variáveis com base no objeto de contexto de entrada.
-
-   Neste exemplo, o objeto de contexto não é converter como uma cadeia de caracteres, para que o conteúdo é adicionado diretamente para o payload JSON. 
-   No entanto, se o objeto não é um token JSON, que tem de ser uma cadeia de caracteres, um objeto JSON ou uma matriz JSON, obterá um erro. 
-   Converter o objeto de contexto como uma cadeia de caracteres, adicione aspas, por exemplo:
+   Aqui, não é converter o objeto de contexto como uma cadeia de caracteres, para que o conteúdo do objeto é adicionado diretamente para o payload JSON. No entanto, quando o objeto de contexto não é um token JSON que transmite uma cadeia de caracteres, um objeto JSON ou uma matriz JSON, receberá um erro. Deste modo, se este exemplo utilizou os **hora de receção** token em vez disso, pode converter o objeto de contexto como uma cadeia de caracteres, adicionando as aspas:  
 
    ![Converter o objeto como cadeia de caracteres](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
@@ -199,20 +189,17 @@ Na lista de ações, selecione a ação: **escolher uma função do Azure - as f
 
    ![Selecione a aplicação de funções e a função do Azure](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
-   Para as funções que têm as definições da API (Swagger descrições) e que são [para que a sua aplicação lógica pode encontrar e aceder essas funções](#function-swagger), pode selecionar **ações de Swagger**:
+   Para as funções que têm definições de API (Swagger descrições) e são [para que a sua aplicação lógica pode encontrar e aceder essas funções](#function-swagger), pode selecionar **ações de Swagger**:
 
    ![Selecione a aplicação de funções, "Swagger ações" "e sua função do Azure](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
-5. Na **corpo do pedido** caixa, especifique o objeto de contexto para passar como entrada, a função do que têm de ser formatado em JavaScript Object Notation (JSON). Este objeto de contexto descreve a mensagem e o conteúdo que a aplicação lógica envia para a sua função. 
+5. Na **corpo do pedido** caixa, forneça a sua função entrada do, que tem de ser formatado como um objeto JavaScript Object Notation (JSON). 
 
-   Ao clicar no **corpo do pedido** , lista de conteúdo dinâmico é aberta a caixa pelo que pode selecionar tokens para propriedades disponíveis dos passos anteriores. 
-   Neste exemplo, o objeto no passa a **corpo** tokens de Acionador de e-mail:
+   Esta entrada é o *objeto context* ou mensagem de que a aplicação lógica envia para a sua função. Ao clicar no **corpo do pedido** campo, é apresentada uma lista de conteúdo dinâmico pelo que pode selecionar tokens para saídas dos passos anteriores. Este exemplo Especifica que a carga de contexto contém uma propriedade chamada `content` que tenha o **partir** token do valor do acionador de e-mail:
 
    ![Exemplo de "Corpo do pedido" - payload de objeto de contexto](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Neste exemplo, o objeto de contexto não é converter como uma cadeia de caracteres, para que o conteúdo é adicionado diretamente para o payload JSON. 
-   No entanto, se o objeto não é um token JSON, que tem de ser uma cadeia de caracteres, um objeto JSON ou uma matriz JSON, obterá um erro. 
-   Converter o objeto de contexto como uma cadeia de caracteres, adicione aspas, por exemplo:
+   Aqui, não é converter o objeto de contexto como uma cadeia de caracteres, para que o conteúdo do objeto é adicionado diretamente para o payload JSON. No entanto, quando o objeto de contexto não é um token JSON que transmite uma cadeia de caracteres, um objeto JSON ou uma matriz JSON, receberá um erro. Deste modo, se este exemplo utilizou os **hora de receção** token em vez disso, pode converter o objeto de contexto como uma cadeia de caracteres, adicionando as aspas: 
 
    ![Converter o objeto como cadeia de caracteres](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
@@ -222,7 +209,7 @@ Na lista de ações, selecione a ação: **escolher uma função do Azure - as f
 
 ## <a name="call-logic-apps-from-functions"></a>Chamar aplicações lógicas a partir de funções
 
-Para acionar uma aplicação lógica a partir de dentro de uma função do Azure, essa aplicação lógica tem de ter um ponto de extremidade pode ser chamado, ou, mais especificamente, um **pedir** acionador. Em seguida, de dentro da sua função, envie um pedido HTTP POST para o URL para que **pedido** acionar e incluem o payload desejar essa aplicação lógica para processar. Para obter mais informações, consulte [chamar, acionar, ou aninhar aplicações lógicas](../logic-apps/logic-apps-http-endpoint.md). 
+Quando deseja acionar uma aplicação lógica a partir de dentro de uma função do Azure, tem de iniciar a aplicação lógica com um acionador que fornece um ponto final que pode ser chamado. Por exemplo, pode iniciar a aplicação lógica com o **HTTP**, **pedir**, **filas do Azure**, ou **Event Grid** acionador. Dentro da sua função, enviar um pedido HTTP POST para o URL do acionador e incluem o payload que desejar essa aplicação lógica para processar. Para obter mais informações, consulte [chamar, acionar, ou aninhar aplicações lógicas](../logic-apps/logic-apps-http-endpoint.md). 
 
 ## <a name="get-support"></a>Obter suporte
 

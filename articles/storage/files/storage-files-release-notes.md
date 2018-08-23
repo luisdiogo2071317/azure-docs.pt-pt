@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/21/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525142"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445027"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,7 +25,8 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Etapa | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
-| Disponibilidade geral | 3.1 | 19 de Julho de 2018 | Suportado (versão recomendada) |
+| Pacote cumulativo de atualizações de Agosto | 3.2.0.0 | 15 de Agosto de 2018 | Suportado (versão recomendada) |
+| Disponibilidade geral | 3.1.0.0 | 19 de Julho de 2018 | Suportadas |
 | Rollup de atualização de Junho | 3.0.13.0 | 29 de Junho de 2018 | Versão do agente irá expirar em 4 de Setembro de 2018 |
 | Atualização 2 | 3.0.12.0 | 22 de maio de 2018 | Versão do agente irá expirar em 4 de Setembro de 2018 |
 | Rollup de atualização de Abril | 2.3.0.0 | 8 de Maio de 2018 | Versão do agente irá expirar em 4 de Setembro de 2018 |
@@ -39,6 +40,12 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-3200"></a>Versão do agente 3.2.0.0
+As notas de versão seguintes destinam-se a versão 3.2.0.0 do agente do Azure File Sync disponibilizada 15 de Agosto de 2018. Estas notas são adicionais as notas de versão enumeradas para a versão 3.1.0.0.
+
+Esta versão inclui a correção seguinte:
+- Falha de sincronização com fora de erro de memória (0x8007000e) devido a fuga de memória
 
 ## <a name="agent-version-3100"></a>Versão do agente 3.1.0.0
 As notas de versão seguintes destinam-se a versão 3.1.0.0 do agente do Azure File Sync (disponibilizada a 19 de Julho de 2018).
@@ -84,6 +91,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 
 ### <a name="cloud-endpoint"></a>Ponto final da cloud
 - O Azure File Sync suporta diretamente a efetuar alterações à partilha de ficheiros do Azure. No entanto, todas as alterações feitas na partilha de ficheiros do Azure primeiro tem de ser detetado por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração de início, de um ponto final da cloud, uma vez a cada 24 horas. Além disso, as alterações feitas para uma partilha de ficheiros do Azure através do protocolo REST não atualizará a hora da última modificação de SMB e não irão ser vistas como uma alteração por sincronização.
+- O serviço de sincronização de armazenamento e/ou a conta de armazenamento pode ser movida para um grupo de recursos diferente ou uma subscrição. Se a conta de armazenamento for movida, precisa dar o acesso de serviço de sincronização de ficheiros de híbrida para a conta de armazenamento (veja [Certifique-se o Azure File Sync tem acesso à conta de armazenamento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud
 - Se um ficheiro disposto em camadas for copiado para outra localização com o Robocopy, o ficheiro resultante não é disposto em camadas. O atributo offline pode estar definido porque o Robocopy inclui incorretamente esse atributo nas operações de cópia.

@@ -1,5 +1,5 @@
 ---
-title: Configurar e utilizar o emulador de armazenamento com o Visual Studio | Microsoft Docs
+title: Configurar e utilizar o emulador de armazenamento com o Visual Studio | Documentos da Microsoft
 description: Configurar e utilizar o emulador de armazenamento com o Visual Studio
 services: visual-studio-online
 author: ghogen
@@ -7,50 +7,51 @@ manager: douge
 assetId: c8e7996f-6027-4762-806e-614b93131867
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: c502d5e0869d35ded5c3ba7e790da0558d219e0e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792247"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055896"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurar e utilizar o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## <a name="overview"></a>Descrição geral
-O ambiente de desenvolvimento de SDK do Azure inclui o emulador de armazenamento, um utilitário que simula os Blob, tabela e fila, serviços de armazenamento disponíveis no Azure no seu computador de desenvolvimento local. Se estiver a criar um serviço em nuvem que utiliza os serviços de armazenamento do Azure ou escrever qualquer aplicação externa que chama os serviços de armazenamento, pode testar código localmente contra o emulador de armazenamento. As ferramentas do Azure para o Microsoft Visual Studio integrar a gestão do emulador de armazenamento para o Visual Studio. As ferramentas Azure inicializar a base de dados de emulador de armazenamento na primeira utilização, inicia o serviço de emulador de armazenamento, quando executa ou depurar o seu código a partir do Visual Studio e fornece acesso só de leitura para os dados de emulador de armazenamento através do Explorador de armazenamento do Azure.
+O ambiente de desenvolvimento do SDK do Azure inclui o emulador de armazenamento, um utilitário que simula a serviços de armazenamento Blob, filas e tabelas disponíveis no Azure no seu computador de desenvolvimento local. Se estiver criar um serviço em nuvem que utiliza os serviços de armazenamento do Azure ou programar qualquer aplicativo externo que chama os serviços de armazenamento, pode testar seu código localmente relativamente o emulador de armazenamento. As ferramentas do Azure para Microsoft Visual Studio integrar a gestão de emulador de armazenamento para o Visual Studio. As ferramentas do Azure inicializar a base de dados de emulador de armazenamento na primeira utilização, inicia o serviço de emulador de armazenamento, quando executa ou depura o código do Visual Studio e fornece acesso só de leitura para os dados de emulador de armazenamento através do Explorador de armazenamento do Azure.
 
-Para obter informações detalhadas sobre o emulador de armazenamento, incluindo os requisitos de sistema e instruções de configuração personalizada, consulte [utilizar o emulador do Storage do Azure para desenvolvimento e teste](storage/common/storage-use-emulator.md).
+Para obter informações detalhadas sobre o emulador de armazenamento, incluindo requisitos de sistema e obter instruções de configuração personalizada, consulte [utilizar o emulador de armazenamento do Azure para programação e teste](storage/common/storage-use-emulator.md).
 
 > [!NOTE]
-> Existem algumas diferenças de funcionalidade entre a simulação de emulador de armazenamento e os serviços de armazenamento do Azure. Consulte [diferenças entre o armazenamento emulador e serviços de armazenamento do Azure](storage/common/storage-use-emulator.md) na documentação do Azure SDK para obter informações sobre as diferenças específicas.
+> Existem algumas diferenças de funcionalidade entre a simulação de emulador de armazenamento e os serviços de armazenamento do Azure. Ver [diferenças entre o armazenamento Emulator e serviços de armazenamento do Azure](storage/common/storage-use-emulator.md) na documentação do SDK do Azure para obter informações sobre as diferenças específicas.
 > 
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configurar uma cadeia de ligação para o emulador de armazenamento
-Para aceder ao emulador do storage a partir do código de uma função, irá querer configurar uma cadeia de ligação que aponta para o emulador de armazenamento e que mais tarde pode ser alterado para apontar para uma conta de armazenamento do Azure. Uma cadeia de ligação é uma definição de configuração que pode ler a função no tempo de execução para ligar a uma conta de armazenamento. Para obter mais informações sobre como criar cadeias de ligação, consulte [configurar a aplicação Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Para acessar o emulador de armazenamento do código dentro de uma função, desejará configurar uma cadeia de ligação que aponta para o emulador de armazenamento e que posteriormente pode ser alterado para apontar para uma conta de armazenamento do Azure. Uma cadeia de ligação é uma definição de configuração que sua função pode ler em tempo de execução para ligar a uma conta de armazenamento. Para obter mais informações sobre como criar cadeias de ligação, veja [configurar a aplicação Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
 
 > [!NOTE]
-> Pode devolver uma referência à conta de emulador do storage a partir do código utilizando a **DevelopmentStorageAccount** propriedade. Esta abordagem funciona corretamente se pretender aceder ao emulador do storage a partir do código, mas se planeia publicar a aplicação no Azure, terá de criar uma cadeia de ligação para aceder à sua conta de armazenamento do Azure e modificar o código para utilizar essa ligação cadeia antes de o publicar. Se estiver oscila frequentemente entre a conta de emulador do storage e uma conta de armazenamento do Azure, uma cadeia de ligação irá simplificar este processo.
+> Pode retornar uma referência à conta de emulador de armazenamento a partir do código ao utilizar o **DevelopmentStorageAccount** propriedade. Essa abordagem funciona corretamente se desejar acessar o emulador de armazenamento a partir do código, mas se planeja publicar a aplicação no Azure, terá de criar uma cadeia de ligação para aceder à sua conta de armazenamento do Azure e modificar o código para usar essa ligação cadeia de caracteres antes de o publicar. Se estiver oscila frequentemente entre a conta de emulador de armazenamento e uma conta de armazenamento do Azure, uma cadeia de ligação irá simplificar este processo.
 > 
 > 
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>A inicializar e executar o emulador de armazenamento
-Pode especificar que quando executa ou depurar o seu serviço no Visual Studio, Visual Studio inicia automaticamente o emulador de armazenamento. No Explorador de soluções, abra o menu de atalho para a sua **Azure** projeto e escolha **propriedades**. No **desenvolvimento** separador o **iniciar emulador do Storage de Azure** lista, escolha **verdadeiro** (se já não está definido para esse valor).
+Pode especificar que quando executa ou depura o seu serviço no Visual Studio, o Visual Studio automaticamente inicia o emulador de armazenamento. No Explorador de soluções, abra o menu de atalho para sua **Azure** do projeto e escolha **propriedades**. Sobre o **desenvolvimento** separador a **iniciar o emulador de armazenamento do Azure** lista, escolha **verdadeiro** (se já não está definido como esse valor).
 
-Na primeira vez que executa ou de depuração do serviço do Visual Studio, o emulador do storage inicia um processo de inicialização. Este processo reserva portas locais para o emulador do storage e cria a base de dados do emulador de armazenamento. Depois de concluído, este processo não precisa de executar novamente a menos que a base de dados do emulador de armazenamento é eliminado.
+Na primeira vez que executa ou depura o seu serviço a partir do Visual Studio, o emulador de armazenamento inicia um processo de inicialização. Este processo reserva portas locais para o emulador do storage e cria a base de dados do emulador de armazenamento. Depois de concluído, este processo não precisa de executar novamente se a base de dados do emulador de armazenamento for eliminado.
 
 > [!NOTE]
-> A partir de Junho de 2012 versão das ferramentas do Azure, o emulador de armazenamento é executado, por predefinição, no SQL Server Express LocalDB. Nas versões anteriores das ferramentas do Azure, o emulador de armazenamento é executada relativamente a uma instância predefinida do SQL Express 2005 ou 2008, que é necessário instalar antes de instalar o SDK do Azure. Também pode executar o emulador de armazenamento em relação a uma instância nomeada do SQL Server Express ou com um nome ou a instância predefinida do Microsoft SQL Server. Se precisar de configurar o emulador de armazenamento para executar uma instância diferente a instância predefinida, consulte [utilizar o emulador do Storage do Azure para desenvolvimento e teste](storage/common/storage-use-emulator.md).
+> A partir da versão de Junho de 2012 das ferramentas do Azure, o emulador de armazenamento é executado, por predefinição, no SQL Express LocalDB. Nas versões anteriores das ferramentas do Azure, o emulador de armazenamento é executado em relação a uma instância predefinida do SQL Express 2005 ou 2008, que é necessário instalar antes de pode instalar o SDK do Azure. Também pode executar o emulador de armazenamento em relação a uma instância nomeada do SQL Express ou uma determinada ou uma instância predefinida do Microsoft SQL Server. Se precisar de configurar o emulador de armazenamento para executar uma instância que não seja a instância predefinida, consulte [utilizar o emulador de armazenamento do Azure para programação e teste](storage/common/storage-use-emulator.md).
 > 
 > 
 
-O emulador do storage fornece uma interface de utilizador para ver o estado dos serviços de armazenamento local e para iniciar, parar e repô-las. Assim que foi iniciado o serviço de emulador de armazenamento, pode apresentar a interface de utilizador de modo a iniciar ou parar o serviço clicando no ícone da área de notificação para o emulador do Microsoft Azure na barra de tarefas do Windows.
+O emulador do storage fornece uma interface de utilizador para ver o estado dos serviços de armazenamento local e para iniciar, parar e repô-los. Assim que tiver sido iniciado o serviço de emulador de armazenamento, pode apresentar a interface do usuário de modo a iniciar ou parar o serviço clicando no ícone de área de notificação para o emulador do Microsoft Azure na barra de tarefas do Windows.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Visualizar os dados de emulador de armazenamento no Explorador de servidores
-O nó de armazenamento do Azure no Explorador de servidores permite-lhe ver os dados e alterar as definições para os dados de BLOBs e de tabela na suas contas do storage, incluindo o emulador de armazenamento. Consulte [recursos de gerir o armazenamento de Blobs do Azure com o Explorador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
+O nó de armazenamento do Azure no Explorador de servidores permite-lhe ver os dados e alterar as definições para os dados de blob e tabela nas suas contas de armazenamento, incluindo o emulador de armazenamento. Ver [recursos de gerir o armazenamento de Blobs do Azure com o Explorador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
 

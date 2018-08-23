@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422422"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055995"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -91,10 +91,10 @@ A solução de exemplo é intencionalmente simples. Foi concebido para lhe mostr
 Se não tiver uma subscrição do Azure, pode criar rapidamente uma conta de avaliação gratuita. Para obter mais informações, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
-Utilize uma conta de armazenamento para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento, consulte [criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account). A solução de exemplo utiliza o armazenamento de Blobs.
+Utilize uma conta de armazenamento para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento, consulte [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). A solução de exemplo utiliza o armazenamento de Blobs.
 
 #### <a name="azure-batch-account"></a>Conta de Batch do Azure
-Criar uma conta do Batch com o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [criar e gerir uma conta do Batch](../../batch/batch-account-create-portal.md). Tenha em atenção a chave de conta e o nome da conta de Batch. Também pode utilizar o [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet para criar uma conta do Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [introdução aos cmdlets do PowerShell do Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Criar uma conta do Batch com o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [criar e gerir uma conta do Batch](../../batch/batch-account-create-portal.md). Tenha em atenção a chave de conta e o nome da conta de Batch. Também pode utilizar o [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet para criar uma conta do Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [introdução aos cmdlets do PowerShell do Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo utiliza o Batch (indiretamente por meio de um pipeline de fábrica de dados) para processar dados de forma paralela num conjunto de nós de computação (uma coleção gerida de VMs).
 

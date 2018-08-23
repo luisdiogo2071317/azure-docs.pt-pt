@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714490"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056399"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -38,7 +38,7 @@ Este erro ocorre se o nome de recurso de credencial não é válido ou se o nome
 
 Para determinar qual é o problema, siga os passos seguintes:  
 
-1. Certifique-se de que não tem carateres especiais, incluindo o ** @ ** caráter no nome do elemento de credencial de automatização que está a utilizar para ligar ao Azure.  
+1. Certifique-se de que não tem carateres especiais, incluindo o **@** caráter no nome do elemento de credencial de automatização que está a utilizar para ligar ao Azure.  
 2. Verifique o que pode usar o nome de utilizador e palavra-passe que são armazenados na credencial da automatização do Azure no seu editor do ISE do PowerShell local. Pode fazê-lo ao executar os seguintes cmdlets no ISE do PowerShell:  
 
    ```powershell
@@ -137,7 +137,43 @@ Este erro pode dever-se através da utilização de módulos do Azure desatualiz
 
 Este erro pode ser resolvido através da atualização de seus módulos do Azure para a versão mais recente.
 
-Na sua conta de automatização, clique em **módulos**e clique em **módulos do Azure de atualização**. A atualização demora aproximadamente 15 minutos, uma vez concluídos volte a executar o runbook que era a falhar.
+Na sua conta de automatização, clique em **módulos**e clique em **módulos do Azure de atualização**. A atualização demora aproximadamente 15 minutos, uma vez concluídos volte a executar o runbook que era a falhar. Para saber mais sobre a atualização de seus módulos, consulte [módulos do Azure de atualização na automatização do Azure](../automation-update-azure-modules.md).
+
+### <a name="child-runbook-auth-failure"></a>Cenário: O runbook subordinado Falha ao lidar com várias subscrições
+
+#### <a name="issue"></a>Problema
+
+Ao executar runbooks subordinados com `Start-AzureRmRunbook`, o runbook subordinado não consegue gerir recursos do Azure.
+
+#### <a name="cause"></a>Causa
+
+O runbook subordinado não está a utilizar o contexto correto quando em execução.
+
+#### <a name="resolution"></a>Resolução
+
+Ao trabalhar com várias subscrições o contexto da subscrição poderão perder-se ao invocar runbooks subordinados. Para garantir que o contexto da subscrição é transferido para os runbooks subordinados, adicione o `DefaultProfile` parâmetro para o cmdlet e passe o contexto para o mesmo.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>Cenário: O runbook falhar devido a um cmdlet em falta
 
@@ -189,6 +225,8 @@ Qualquer uma das seguintes soluções resolver o problema:
 * Os métodos sugeridos para funcionar dentro do limite de memória são para dividir a carga de trabalho entre vários runbooks, não processar a quantidade de dados na memória, não para escrever a saída desnecessária de seus runbooks ou considere quantos pontos de verificação escrever em seu fluxo de trabalho do PowerShell runbooks.  
 
 * Atualizar os módulos do Azure ao seguir os passos [como atualizar módulos do Azure PowerShell na automatização do Azure](../automation-update-azure-modules.md).  
+
+* Outra solução é executar o runbook num [Runbook Worker híbrido](../automation-hrw-run-runbooks.md). Funções de trabalho híbridas não estão limitadas pelos [justa](../automation-runbook-execution.md#fair-share) limita o que são áreas de segurança do Azure.
 
 ### <a name="fails-deserialized-object"></a>Cenário: O Runbook falhar devido ao objeto de serialização anulado
 
@@ -309,7 +347,7 @@ Algumas razões comuns que um módulo não pode importar com êxito para a autom
 
 Qualquer uma das seguintes soluções resolver o problema:
 
-* Certifique-se de que o módulo segue o seguinte formato: ModuleName.Zip ** -> ** ModuleName ou um número de versão ** -> ** (ModuleName.psm1, ModuleName.psd1)
+* Certifique-se de que o módulo segue o seguinte formato: ModuleName.Zip **->** ModuleName ou um número de versão **->** (ModuleName.psm1, ModuleName.psd1)
 * Abra o ficheiro. psd1 e ver se o módulo tiver dependências. Se assim for, carregar esses módulos para a conta de automatização.
 * Certifique-se de que quaisquer DLLs referenciado estão presentes na pasta do módulo.
 

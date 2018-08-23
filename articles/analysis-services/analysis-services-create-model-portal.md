@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441680"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054402"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Criar um modelo no portal do Azure
 
@@ -23,9 +23,10 @@ Tenha em mente, é o web designer **pré-visualização**. A funcionalidade é l
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Um servidor Azure Analysis Services no escalão Standard ou o desenvolvedor. Novos modelos criados com o Web designer são DirectQuery, só suportada por estas camadas.
+- Seu servidor Azure Analysis Services tem de estar no escalão Standard ou o desenvolvedor. Novos modelos criados com o Web designer são DirectQuery, só suportada por estas camadas.
 - Uma base de dados do Azure SQL, o Azure SQL Data Warehouse ou o ficheiro do Power BI Desktop (. pbix) como uma origem de dados. Novos modelos criados a partir de suporte de ficheiros do Power BI Desktop SQL Database do Azure e Azure SQL Data Warehouse.
 - Uma conta do SQL Server e a palavra-passe para ligar a origens de dados de base de dados do Azure SQL ou armazém de dados SQL do Azure.
+- Tem de ter privilégios de administrador de servidor para criar um novo modelo. São necessários privilégios de administrador de base de dados para editar e consultar um modelo utilizando o estruturador.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

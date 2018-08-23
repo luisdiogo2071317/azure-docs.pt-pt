@@ -1,69 +1,70 @@
 ---
-title: Introdução ao armazenamento de filas e o Visual Studio ligado serviços (WebJob projetos) | Microsoft Docs
-description: Como começar a utilizar o armazenamento de filas do Azure num projeto WebJob depois de ligar a uma conta de armazenamento com o Visual Studio ligado serviços.
+title: Introdução ao armazenamento de filas e o Visual Studio ligados (projetos de trabalho Web) de serviços | Documentos da Microsoft
+description: Como começar a utilizar o armazenamento de filas do Azure num projeto do trabalho Web depois de ligar a uma conta de armazenamento com o Visual Studio serviços ligados.
 services: storage
 author: ghogen
 manager: douge
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 332d682147ba832f631052d8348039f74b46c438
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f94a9d71dab4320e561d2de00af0e2af77ab4c3f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798574"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42062076"
 ---
-# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (projetos de trabalho Web)
+# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligados (projetos de trabalho Web) de serviços
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este artigo descreve como começar a utilizar o armazenamento de filas do Azure num projeto trabalho de Web do Visual Studio do Azure, depois de ter criado ou referenciada uma conta de armazenamento do Azure utilizando o Visual Studio **adicionar serviços ligados** caixa de diálogo. Quando adicionar uma conta de armazenamento para um projeto do trabalho Web utilizando o Visual Studio **adicionar serviços ligados** caixa de diálogo, os pacotes de NuGet de armazenamento do Azure adequados são instalados, as referências de .NET adequadas são adicionadas ao projeto, e cadeias de ligação para a conta de armazenamento são atualizadas no ficheiro App. config.  
+Este artigo descreve como começar a utilizar o armazenamento de filas do Azure num projeto de trabalho de Web do Visual Studio do Azure depois de ter criado ou referenciados uma conta de armazenamento do Azure utilizando o Visual Studio **adicionar serviços ligados** caixa de diálogo. Quando adiciona uma conta de armazenamento para um projeto do trabalho Web utilizando o Visual Studio **adicionar serviços ligados** caixa de diálogo, são instalados os pacotes de NuGet de armazenamento do Azure adequados, as referências apropriadas do .NET são adicionadas ao projeto, e cadeias de ligação para a conta de armazenamento são atualizadas no ficheiro App. config.  
 
-Este artigo fornece c# exemplos de código que mostram como utilizar a versão do SDK de WebJobs do Azure 1. x com o serviço de armazenamento de filas do Azure.
+Este artigo fornece c# exemplos de código que mostram como utilizar a versão do SDK de WebJobs do Azure 1.x com o serviço de armazenamento de filas do Azure.
 
-O Armazenamento de Filas do Azure é um serviço para armazenar um grande número de mensagens que podem ser acedidas a partir de qualquer local no mundo através de chamadas autenticadas com HTTP ou HTTPS. Uma mensagem de fila única pode ter até 64 KB e uma fila pode conter milhões de mensagens, até ao limite da capacidade total de uma conta de armazenamento. Consulte [introdução ao armazenamento de filas do Azure através do .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações. Para mais informações sobre o ASP.NET, consulte [ASP.NET](http://www.asp.net).
+O Armazenamento de Filas do Azure é um serviço para armazenar um grande número de mensagens que podem ser acedidas a partir de qualquer local no mundo através de chamadas autenticadas com HTTP ou HTTPS. Uma mensagem de fila única pode ter até 64 KB e uma fila pode conter milhões de mensagens, até ao limite da capacidade total de uma conta de armazenamento. Ver [introdução ao armazenamento de filas do Azure com o .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações. Para obter mais informações sobre o ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
-## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Como acionar a uma função quando é recebida uma mensagem de fila
-Para escrever uma função que o SDK de WebJobs chama quando é recebida uma mensagem de fila, utilize o **QueueTrigger** atributo. O construtor de atributos assume um parâmetro de cadeia que especifica o nome da fila para consultar. Para ver como definir o nome da fila de forma dinâmica, consulte [como definir opções de configuração](#how-to-set-configuration-options).
+## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Como acionar uma função quando é recebida uma mensagem de fila
+Para escrever uma função que o SDK do WebJobs chama quando é recebida uma mensagem de fila, utilize o **QueueTrigger** atributo. O construtor de atributo assume um parâmetro de cadeia de caracteres que especifica o nome da fila para consultar. Para ver como definir o nome da fila dinamicamente, confira [como definir opções de configuração](#how-to-set-configuration-options).
 
-### <a name="string-queue-messages"></a>Mensagens de filas de cadeia
-No exemplo seguinte, a fila contém uma mensagem de cadeia, por isso, **QueueTrigger** é aplicado a um parâmetro de cadeia denominado **logMessage** que contém o conteúdo da mensagem de fila. A função [escreve uma mensagem de registo para o Dashboard](#how-to-write-logs).
+### <a name="string-queue-messages"></a>Mensagens de fila de cadeia de caracteres
+No exemplo seguinte, a fila contém uma mensagem de cadeia de caracteres, então **QueueTrigger** é aplicada a um parâmetro de cadeia de caracteres chamado **logMessage** que contém o conteúdo da mensagem de fila. A função [escreve uma mensagem de registo para o Dashboard](#how-to-write-logs).
 
         public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
         {
             logger.WriteLine(logMessage);
         }
 
-Besides **cadeia**, o parâmetro pode ser uma matriz de bytes, um **CloudQueueMessage** objeto ou um POCO por si.
+Além disso **cadeia de caracteres**, o parâmetro pode ser uma matriz de bytes, uma **CloudQueueMessage** objeto ou um POCO que definir.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(simples objeto antigo de CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
-No exemplo seguinte, a mensagem da fila contém um JSON para um **BlobInformation** objeto que inclui um **BlobName** propriedade. O SDK deserializes automaticamente o objeto.
+### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
+No exemplo seguinte, a mensagem de fila contém JSON para um **BlobInformation** objeto que inclui um **BlobName** propriedade. O SDK automaticamente desserializa o objeto.
 
         public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
         {
             logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
         }
 
-O SDK utiliza o [pacote NuGet newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e anular a serialização de mensagens. Se criar a fila de mensagens num programa que não utiliza o SDK de WebJobs, pode escrever o código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO pode analisar o SDK.
+O SDK utiliza o [pacote NuGet newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar mensagens. Se criar a fila de mensagens num programa que não usa o SDK do WebJobs, pode escrever código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO que o SDK pode analisar.
 
         BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
         var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
         logQueue.AddMessage(queueMessage);
 
-### <a name="async-functions"></a>Async funções
-A seguinte função async [escreve um registo para o Dashboard](#how-to-write-logs).
+### <a name="async-functions"></a>Funções de Async
+A seguinte função de async [registra um log para o Dashboard](#how-to-write-logs).
 
         public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
         {
             await logger.WriteLineAsync(logMessage);
         }
 
-Funções de assíncrona poderão demorar um [token de cancelamento](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), conforme mostrado no exemplo seguinte, que copia um blob. (Para obter uma explicação sobre o **queueTrigger** marcador de posição, consulte o [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) secção.)
+Funções de Async podem demorar um [token de cancelamento](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), conforme mostrado no exemplo a seguir, que copia um blob. (Para obter uma explicação do **queueTrigger** marcador de posição, consulte a [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) seção.)
 
         public async static Task ProcessQueueMessageAsyncCancellationToken(
             [QueueTrigger("blobcopyqueue")] string blobName,
@@ -74,8 +75,8 @@ Funções de assíncrona poderão demorar um [token de cancelamento](http://www.
             await blobInput.CopyToAsync(blobOutput, 4096, token);
         }
 
-## <a name="types-the-queuetrigger-attribute-works-with"></a>O atributo QueueTrigger funciona com os tipos
-Pode utilizar **QueueTrigger** com os seguintes tipos:
+## <a name="types-the-queuetrigger-attribute-works-with"></a>Tipos de que atributo QueueTrigger funciona com
+Pode usar **QueueTrigger** com os seguintes tipos:
 
 * **string**
 * Um tipo POCO serializado como JSON
@@ -83,30 +84,30 @@ Pode utilizar **QueueTrigger** com os seguintes tipos:
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Algoritmo de consulta
-O SDK implementa um aleatório exponencial término algoritmo para minimizar o efeito da fila de inatividade de consulta em custos de transação de armazenamento.  Quando é encontrada uma mensagem, o SDK tem de aguardar dois segundos e, em seguida, verifica a existência de outra mensagem; Quando não é encontrada nenhuma mensagem aguarda cerca de quatro segundos antes de tentar novamente. Depois de tentativas falhadas subsequentes para receber uma mensagem de fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, que está predefinida para um minuto. [O tempo de espera máximo é configurável](#how-to-set-configuration-options).
+O SDK implementa um aleatório exponencial término algoritmo para minimizar o efeito da fila de inatividade de consulta nos custos de transação de armazenamento.  Quando é encontrada uma mensagem, o SDK tem de aguardar dois segundos e, em seguida, verifica a existência de outra mensagem; Quando não é encontrada nenhuma mensagem que ele espera cerca de quatro segundos antes de tentar novamente. Depois de tentativas falhadas subsequentes para obter uma mensagem de fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, o que está predefinida para um minuto. [O tempo de espera máximo é configurável](#how-to-set-configuration-options).
 
 ## <a name="multiple-instances"></a>Várias instâncias
-Se a sua aplicação web é executada em várias instâncias, executa um WebJobs contínuos em cada máquina e cada máquina será Aguarde acionadores e tente executar funções. Alguns cenários em que esta funcionalidade pode originar algumas funções de processar os mesmos dados duas vezes, por isso, funções devem ser idempotent (escrito para que repetidamente ao chamá-los com os mesmos dados de entrada não produz resultados duplicados).  
+Se a sua aplicação web é executado em várias instâncias, um WebJobs contínuos é executado em cada máquina, e cada máquina irá esperar para acionadores e tentar executar as funções. Então, em alguns cenários, que isso pode levar a algumas funções de processar os mesmos dados duas vezes, as funções devem de ser idempotentes (escrito para que a chamá-los repetidamente com os mesmos dados de entrada não produz resultados duplicados).  
 
 ## <a name="parallel-execution"></a>Execução paralela
-Se tiver várias funções que está a escutar filas diferentes, o SDK chamam-los em paralelo quando as mensagens são recebidas em simultâneo.
+Se tiver várias funções de escutar em filas diferentes, o SDK irá chamá-los em paralelo quando as mensagens são recebidas em simultâneo.
 
-O mesmo se aplica quando várias mensagens são recebidas para uma fila única. Por predefinição, o SDK obtém um lote de 16 mensagens de fila de cada vez e executa a função que processa-os em paralelo. [O tamanho do lote é configurável](#how-to-set-configuration-options). Quando o número a ser processado obtém-se para baixo para metade do tamanho do lote, o SDK obtém outro lote e começa a processar as mensagens. Por conseguinte, o número máximo de mensagens em simultâneo a ser processado por função é um e um meio vezes o tamanho de lote. Este limite aplica-se em separado para cada função que tenha um **QueueTrigger** atributo. Se não quiser execução paralela de mensagens recebidas uma fila, defina o tamanho de lote para 1.
+O mesmo se aplica quando várias mensagens são recebidas para uma única fila. Por predefinição, o SDK obtém um lote de 16 mensagens em fila por vez e executa a função que processa-as em paralelo. [O tamanho do lote é configurável](#how-to-set-configuration-options). Quando o número a ser processado chega à metade do tamanho do batch, o SDK é outro lote e começa a processar essas mensagens. Por conseguinte, o número máximo de mensagens em simultâneo a ser processado por função é um vezes e meia o tamanho de lote. Este limite aplica-se em separado para cada função que tem um **QueueTrigger** atributo. Se não pretender que a execução paralela para mensagens recebidas numa fila, defina o tamanho de lote para 1.
 
 ## <a name="get-queue-or-queue-message-metadata"></a>Obter a fila ou metadados de mensagem de fila
-Pode obter as seguintes propriedades da mensagem ao adicionar parâmetros para a assinatura de método:
+Pode obter as seguintes propriedades de mensagem adicionando parâmetros para a assinatura do método:
 
 * **DateTimeOffset** expirationTime
 * **DateTimeOffset** insertionTime
 * **DateTimeOffset** nextVisibleTime
-* **cadeia** queueTrigger (contém o texto da mensagem)
-* **cadeia** id
-* **cadeia** popReceipt
+* **cadeia de caracteres** queueTrigger (contém o texto da mensagem)
+* **cadeia de caracteres** id
+* **cadeia de caracteres** popReceipt
 * **Int** dequeueCount
 
-Se pretende trabalhar diretamente com o armazenamento do Azure API, também pode adicionar um **CloudStorageAccount** parâmetro.
+Se quiser trabalhar diretamente com a API de armazenamento do Azure, também pode adicionar um **CloudStorageAccount** parâmetro.
 
-O exemplo seguinte escreve todos estes metadados um registo de informações da aplicação. No exemplo, logMessage e queueTrigger contêm o conteúdo da mensagem de fila.
+O exemplo seguinte grava todos esses metadados para um log de aplicativo de informações. No exemplo, logMessage e queueTrigger contêm o conteúdo da mensagem de fila.
 
         public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
             DateTimeOffset expirationTime,
@@ -133,7 +134,7 @@ O exemplo seguinte escreve todos estes metadados um registo de informações da 
                 queueTrigger);
         }
 
-Segue-se um registo de exemplo escrito pelo código de exemplo:
+Este é um registo de exemplo escrito por código de exemplo:
 
         logMessage=Hello world!
         expirationTime=10/14/2014 10:31:04 PM +00:00
@@ -146,9 +147,9 @@ Segue-se um registo de exemplo escrito pelo código de exemplo:
         queueTrigger=Hello world!
 
 ## <a name="graceful-shutdown"></a>Encerramento correto
-Uma função que é executado num WebJob contínuo pode aceitar um **CancellationToken** parâmetro que permite que o sistema operativo notificar a função quando o trabalho Web está prestes a ser terminada. Pode utilizar esta notificação para se certificar de que a função não terminar inesperadamente de uma forma que mantém os dados num estado inconsistente.
+Uma função que é executado num trabalho Web contínuo pode aceitar uma **CancellationToken** parâmetro que permite que o sistema operativo notificar a função quando o WebJob está prestes a ser terminada. Pode utilizar esta notificação para se certificar de que a função não terminar inesperadamente de uma forma que mantém os dados num estado inconsistente.
 
-O exemplo seguinte mostra como procurar iminente WebJob terminação de uma função.
+O exemplo seguinte mostra como verificar a existência de terminação de WebJob iminente numa função.
 
     public static void GracefulShutdownDemo(
                 [QueueTrigger("inputqueue")] string inputText,
@@ -167,15 +168,15 @@ O exemplo seguinte mostra como procurar iminente WebJob terminação de uma fun�
         }
     }
 
-**Nota:** Dashboard não poderá mostrar corretamente o estado e a saída de funções que foi encerrado.
+**Nota:** o Dashboard não poderá mostrar corretamente o estado e a saída das funções que foram encerradas.
 
-Para obter mais informações, consulte [encerramento correto WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
+Para obter mais informações, consulte [encerramento correto de WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
 ## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Como criar uma mensagem de fila ao processar uma mensagem de fila
-Para escrever uma função que cria uma nova mensagem da fila, utilize o **fila** atributo. Como **QueueTrigger**, passa o nome da fila como uma cadeia ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
+Para escrever uma função que cria uma nova mensagem de fila, utilize o **fila** atributo. Como **QueueTrigger**, passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
 
-### <a name="string-queue-messages"></a>Mensagens de filas de cadeia
-O exemplo de código não async seguinte cria uma nova mensagem da fila na fila com o nome "outputqueue" com os mesmos conteúdos, como a mensagem de fila recebida da fila com o nome "inputqueue". (Assíncrona utilizam funções **IAsyncCollector<T>**  conforme mostrado posteriormente nesta secção.)
+### <a name="string-queue-messages"></a>Mensagens de fila de cadeia de caracteres
+O exemplo de código não-async seguinte cria uma nova mensagem de fila na fila com o nome "outputqueue" com o mesmo conteúdo, como a mensagem de fila recebida na fila com o nome "inputqueue". (Para async funções usam **IAsyncCollector<T>**  conforme mostrado posteriormente nesta seção.)
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -184,8 +185,8 @@ O exemplo de código não async seguinte cria uma nova mensagem da fila na fila 
             outputQueueMessage = queueMessage;
         }
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(simples objeto antigo de CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
-Para criar uma mensagem de fila que contém um POCO em vez de uma cadeia, passar o tipo POCO como um parâmetro de saída para o **fila** construtor de atributos.
+### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
+Para criar uma mensagem de fila que contém um POCO, em vez de uma cadeia de caracteres, transmita o tipo POCO como um parâmetro de saída para o **fila** construtor de atributo.
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
@@ -194,10 +195,10 @@ Para criar uma mensagem de fila que contém um POCO em vez de uma cadeia, passar
             blobInfoOutput = blobInfoInput;
         }
 
-O SDK serializa automaticamente o objeto em JSON. Uma mensagem de fila é criada sempre, mesmo que o objecto é nulo.
+O SDK automaticamente serializa o objeto em JSON. Uma mensagem de fila é sempre criada, mesmo que o objeto é nulo.
 
-### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou nas funções de assíncrona
-Para criar várias mensagens, se o tipo de parâmetro para a fila de saída **ICollector<T>**  ou **IAsyncCollector<T>**, conforme mostrado no exemplo seguinte.
+### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou nas funções de async
+Para criar várias mensagens, verifique o tipo de parâmetro para a fila de saída **ICollector<T>**  ou **IAsyncCollector<T>**, conforme mostrado no exemplo a seguir.
 
         public static void CreateQueueMessages(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -211,21 +212,21 @@ Para criar várias mensagens, se o tipo de parâmetro para a fila de saída **IC
 
 Cada mensagem de fila é criada imediatamente quando o **adicionar** método é chamado.
 
-### <a name="types-that-the-queue-attribute-works-with"></a>Tipos de que o atributo de fila funciona com o
+### <a name="types-that-the-queue-attribute-works-with"></a>Tipos de que o atributo de fila funciona com
 Pode utilizar o **fila** atributo nos seguintes tipos de parâmetro:
 
-* **saída cadeia** (cria a mensagem da fila se o valor do parâmetro for não nulo quando a função termina)
-* **saída byte []** (funciona como **cadeia**)
-* **saída CloudQueueMessage** (funciona como **cadeia**)
-* **saída POCO** (um tipo serializável, cria uma mensagem com um objeto nulo se o parâmetro é nulo quando a função termina)
+* **cadeia de caracteres de** (cria a mensagem de fila se o valor do parâmetro não nulo quando termina a função)
+* **o byte []** (como funciona **cadeia**)
+* **out CloudQueueMessage** (como funciona **cadeia**)
+* **out POCO** (um tipo serializável, cria uma mensagem com um objeto nulo se o parâmetro for nulo quando termina a função)
 * **ICollector**
 * **IAsyncCollector**
-* **CloudQueue** (para criar mensagens manualmente utilizando a API de armazenamento do Azure diretamente)
+* **CloudQueue** (para criar mensagens manualmente usando a API de armazenamento do Azure diretamente)
 
-### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Utilizar o SDK de WebJobs atributos no corpo de uma função
-Se precisar de fazer alguns cálculos na sua função antes de o utilizar como um atributo do SDK de WebJobs **fila**, **Blob**, ou **tabela**, pode utilizar o **IBinder**interface.
+### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Utilizar atributos do SDK do WebJobs no corpo de uma função
+Se precisar de fazer algum trabalho na sua função antes de utilizar, tais como um atributo de SDK do WebJobs **fila**, **Blob**, ou **tabela**, pode utilizar o **IBinder**interface.
 
-O exemplo seguinte utiliza uma mensagem de fila de entrada e cria uma nova mensagem com o mesmo conteúdo de uma fila de saída. O nome da fila de saída está definido por código no corpo da função.
+O exemplo a seguir usa uma mensagem de fila de entrada e cria uma nova mensagem com o mesmo conteúdo numa fila de saída. O nome da fila de saída é definido pelo código no corpo da função.
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -239,14 +240,14 @@ O exemplo seguinte utiliza uma mensagem de fila de entrada e cria uma nova mensa
 
 O **IBinder** interface também pode ser utilizada com o **tabela** e **Blob** atributos.
 
-## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Como de leitura e escrita de blobs e tabelas ao processar uma mensagem de fila
-O **Blob** e **tabela** atributos permitem-lhe ler e escrever os blobs e tabelas. Os exemplos nesta secção aplicam-se para blobs. Para exemplos de código que mostram como acionar a processos quando blobs são criados ou atualizados, consulte [como utilizar o blob storage do Azure com o SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Como ler e escrever os blobs e tabelas ao processar uma mensagem de fila
+O **Blob** e **tabela** atributos permitem-lhe ler e escrever os blobs e tabelas. Os exemplos nesta secção aplicam-se aos blobs. Para exemplos de código que mostram como acionar processos quando blobs são criados ou atualizados, consulte [como utilizar o armazenamento de Blobs do Azure com o SDK do WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 <!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
-### <a name="string-queue-messages-triggering-blob-operations"></a>Mensagens de filas de cadeia acionar operações de BLOBs
-Para uma mensagem de fila que contém uma cadeia, **queueTrigger** é um marcador de posição pode utilizar o **Blob** do atributo **blobPath** parâmetro contém o conteúdo do mensagem.
+### <a name="string-queue-messages-triggering-blob-operations"></a>Mensagens de fila de cadeia de caracteres acionar operações de BLOBs
+Para uma mensagem de fila que contém uma cadeia de caracteres **queueTrigger** é um espaço reservado que pode utilizar na **Blob** do atributo **blobPath** parâmetro que inclui o conteúdo do mensagem.
 
-O exemplo seguinte utiliza **fluxo** objetos a leitura e escrita de blobs. A mensagem da fila é o nome de um blob localizado no contentor do textblobs. Uma cópia do blob com "-novo" acrescentado para o nome é criado no mesmo contentor.
+O exemplo seguinte utiliza **Stream** objetos para leitura e escrita de blobs. A mensagem de fila é o nome de um blob localizado no contentor de textblobs. Uma cópia do blob com "-novo" acrescentado para o nome é criado no mesmo contentor.
 
         public static void ProcessQueueMessage(
             [QueueTrigger("blobcopyqueue")] string blobName,
@@ -256,11 +257,11 @@ O exemplo seguinte utiliza **fluxo** objetos a leitura e escrita de blobs. A men
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-O **Blob** demora de construtor de atributos um **blobPath** parâmetro que especifica o nome de contentor e BLOBs. Para mais informações sobre esta marcador de posição, consulte [como utilizar o blob storage do Azure com o SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+O **Blob** demora de construtor de atributo um **blobPath** parâmetro que especifica o nome de contentor e blob. Para obter mais informações sobre este marcador de posição, consulte [como utilizar o armazenamento de Blobs do Azure com o SDK do WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
-Quando o atributo decorates um **fluxo** objeto, de outro construtor parâmetro especifica o **FileAccess** modo como a leitura, escrita ou leitura/escrita.
+Quando o atributo decora uma **Stream** objeto, o outro parâmetro do construtor Especifica a **FileAccess** modo como leitura, escrita ou leitura/escrita.
 
-O exemplo seguinte utiliza uma **CloudBlockBlob** objeto para eliminar um blob. A mensagem da fila é o nome do blob.
+O exemplo seguinte utiliza uma **CloudBlockBlob** objeto para eliminar um blob. A mensagem de fila é o nome do blob.
 
         public static void DeleteBlob(
             [QueueTrigger("deleteblobqueue")] string blobName,
@@ -269,10 +270,10 @@ O exemplo seguinte utiliza uma **CloudBlockBlob** objeto para eliminar um blob. 
             blobToDelete.Delete();
         }
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(simples objeto antigo de CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
-Para um POCO armazenado como JSON na mensagem de fila, pode utilizar os marcadores de posição pelo nome propriedades do objeto no **fila** do atributo **blobPath** parâmetro. Também pode utilizar nomes de propriedade de metadados de filas como marcadores de posição. Consulte [obter a fila ou metadados de mensagem de fila](#get-queue-or-queue-message-metadata).
+### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) mensagens da fila
+Para um POCO armazenado como JSON na mensagem de fila, pode usar os marcadores de posição esse nome propriedades do objeto no **fila** do atributo **blobPath** parâmetro. Também pode utilizar nomes de propriedade de metadados de fila como espaços reservados. Ver [obter a fila ou metadados de mensagem de fila](#get-queue-or-queue-message-metadata).
 
-O exemplo seguinte copia um blob para um blob novo com uma extensão diferente. A mensagem de fila é uma **BlobInformation** objeto inclui **BlobName** e **BlobNameWithoutExtension** propriedades. Os nomes de propriedade são utilizados como marcadores de posição no caminho do blob para o **Blob** atributos.
+O exemplo seguinte copia um blob para um blob novo com uma extensão diferente. A mensagem de fila é uma **BlobInformation** objeto que inclui **BlobName** e **BlobNameWithoutExtension** propriedades. Os nomes de propriedade são utilizados como marcadores de posição no caminho do blob para o **BLOBs** atributos.
 
         public static void CopyBlobPOCO(
             [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
@@ -282,38 +283,38 @@ O exemplo seguinte copia um blob para um blob novo com uma extensão diferente. 
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-O SDK utiliza o [pacote NuGet newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e anular a serialização de mensagens. Se criar a fila de mensagens num programa que não utiliza o SDK de WebJobs, pode escrever o código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO pode analisar o SDK.
+O SDK utiliza o [pacote NuGet newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar mensagens. Se criar a fila de mensagens num programa que não usa o SDK do WebJobs, pode escrever código semelhante ao seguinte exemplo para criar uma mensagem de fila POCO que o SDK pode analisar.
 
         BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
         var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
         logQueue.AddMessage(queueMessage);
 
-Se precisar de fazer alguns cálculos na sua função antes de um blob do enlace a um objeto, pode utilizar o atributo no corpo da função, conforme mostrado no [atributos de utilizar o SDK de WebJobs no corpo de uma função](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Se precisar de fazer algum trabalho na sua função antes de um blob de enlace a um objeto, pode usar o atributo no corpo da função, conforme mostrado na [atributos de utilizar o SDK do WebJobs no corpo de uma função](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
 ### <a name="types-you-can-use-the-blob-attribute-with"></a>Tipos que pode utilizar o atributo de Blob com o
-O **Blob** atributo pode ser utilizado com os seguintes tipos:
+O **BLOBs** atributo pode ser utilizado com os seguintes tipos:
 
-* **Fluxo** (leitura ou escrita, utilizando o parâmetro de construtor FileAccess)
+* **Stream** (leitura ou escrita, especificado utilizando o parâmetro de construtor FileAccess)
 * **TextReader**
 * **TextWriter**
-* **cadeia** (leitura)
-* **saída cadeia** (escrever; cria um blob apenas se o parâmetro de cadeia não nulo quando a função devolve)
+* **cadeia de caracteres** (ler)
+* **cadeia de caracteres de** (escrever; cria um blob apenas se o parâmetro de cadeia de caracteres não-nulo quando a função devolve)
 * POCO (leitura)
-* saída POCO (escrever; sempre cria um blob, cria como um objeto nulo se POCO parâmetro é nulo quando a função devolve)
+* out POCO (escrever; sempre cria um blob, cria-se como um objeto nulo se POCO parâmetro for nulo quando a função devolve)
 * **CloudBlobStream** (escrita)
-* **ICloudBlob** (ler ou escrever)
-* **CloudBlockBlob** (ler ou escrever)
-* **CloudPageBlob** (ler ou escrever)
+* **ICloudBlob** (leitura ou escrita)
+* **CloudBlockBlob** (leitura ou escrita)
+* **CloudPageBlob** (leitura ou escrita)
 
-## <a name="how-to-handle-poison-messages"></a>Como processar mensagens nocivas
-Mensagens cujo conteúdo faz com que uma função de falha são denominadas *poison mensagens*. Quando a função falha, a mensagem da fila não é eliminada e, eventualmente, é captada novamente, fazendo com que o ciclo de ser repetido. O SDK automaticamente pode interromper o ciclo após um número limitado de iterações ou pode fazê-lo manualmente.
+## <a name="how-to-handle-poison-messages"></a>Como lidar com mensagens suspeitas
+As mensagens cujo conteúdo faz com que uma função falha são chamadas *mensagens não processáveis*. Quando a função falhar, a mensagem de fila não é eliminada e, eventualmente, é escolhida novamente, fazendo com que o ciclo de ser repetido. O SDK automaticamente pode interromper o ciclo de após um número limitado de iterações, ou pode fazê-lo manualmente.
 
-### <a name="automatic-poison-message-handling"></a>Processamento de mensagens nocivas automática
-O SDK ligará para uma função de até 5 vezes para processar uma mensagem de fila. Se o tentar quinto falhar, a mensagem é movida para uma fila nocivas. Pode ver como configurar o número máximo de tentativas em [como definir opções de configuração](#how-to-set-configuration-options).
+### <a name="automatic-poison-message-handling"></a>Processamento de mensagens não processáveis automática
+O SDK chamará uma função até 5 vezes para processar uma mensagem de fila. Se o tentar quinto falhar, a mensagem é movida para uma fila não processáveis. Pode ver como configurar o número máximo de repetições em [como definir opções de configuração](#how-to-set-configuration-options).
 
-A fila nocivas é denominada *{originalqueuename}*-nocivas. Pode escrever uma função para processar mensagens da fila nocivas pelo registá-los ou enviar uma notificação que atenção manual é necessária.
+Com o nome da fila não processáveis *{originalqueuename}*-não processáveis. Pode escrever uma função para processar mensagens da fila não processáveis por registar ou enviar uma notificação que atenção manual é necessária.
 
-No exemplo a seguir a **CopyBlob** função irão falhar quando uma mensagem de fila contém o nome de um blob que não existe. Quando isso acontece, a mensagem é movida da fila copyblobqueue para a fila de copyblobqueue poison. O **ProcessPoisonMessage** , em seguida, regista a mensagem corrompida foi.
+No exemplo a seguir a **CopyBlob** função irão falhar quando uma mensagem de fila contém o nome de um blob que não existe. Quando isso acontece, a mensagem é movida da fila copyblobqueue para a fila de veneno copyblobqueue. O **ProcessPoisonMessage** , em seguida, regista as mensagens não processáveis.
 
         public static void CopyBlob(
             [QueueTrigger("copyblobqueue")] string blobName,
@@ -329,12 +330,12 @@ No exemplo a seguir a **CopyBlob** função irão falhar quando uma mensagem de 
             logger.WriteLine("Failed to copy blob, name=" + blobName);
         }
 
-A ilustração seguinte mostra o resultado destas funções consola quando uma mensagem corrompida foi for processada.
+A ilustração seguinte mostra a saída da consola por estas funções quando uma mensagem não processáveis é processada.
 
-![Resultado da consola para processamento de mensagens nocivas](./media/vs-storage-webjobs-getting-started-queues/poison.png)
+![Resultado da consola para a manipulação de mensagens não processáveis](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
-### <a name="manual-poison-message-handling"></a>Processamento de mensagens nocivas manual
-Pode obter o número de vezes que uma mensagem foi captada para processamento através da adição de um **int** com o nome de parâmetro **dequeueCount** a sua função. Em seguida, pode verificar a contagem de dequeue no código de função e executar a sua própria mensagem corrompida foi processamento quando o número exceder um limiar, conforme mostrado no exemplo seguinte.
+### <a name="manual-poison-message-handling"></a>Processamento de mensagens não processáveis manual
+Pode obter o número de vezes que uma mensagem foi recolhida para processamento, adicionando um **int** com o nome do parâmetro **dequeueCount** à sua função. Em seguida, pode verificar a contagem de dequeue no código de função e realizar suas próprias mensagens não processáveis manipuladores quando o número excede um limiar, conforme mostrado no exemplo a seguir.
 
         public static void CopyBlob(
             [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
@@ -356,11 +357,11 @@ Pode obter o número de vezes que uma mensagem foi captada para processamento at
 Pode utilizar o **JobHostConfiguration** tipo para definir as opções de configuração seguinte:
 
 * Defina as cadeias de ligação do SDK no código.
-* Configurar **QueueTrigger** definições, tais como o máximo anular contagem.
-* Obter os nomes de fila de configuração.
+* Configurar **QueueTrigger** definições, tais como o máximo da fila contagem.
+* Obter nomes de filas a partir da configuração.
 
-### <a name="set-sdk-connection-strings-in-code"></a>Definir cadeias de ligação do SDK no código
-Definir as cadeias de ligação do SDK no código permite utilizar os seus próprios nomes de cadeia de ligação em ficheiros de configuração ou variáveis de ambiente, conforme mostrado no exemplo seguinte.
+### <a name="set-sdk-connection-strings-in-code"></a>Definir as cadeias de ligação do SDK no código
+Definir as cadeias de ligação do SDK no código permite-lhe utilizar os seus próprios nomes de cadeia de ligação em arquivos de configuração ou variáveis de ambiente, conforme mostrado no exemplo a seguir.
 
         static void Main(string[] args)
         {
@@ -381,12 +382,12 @@ Definir as cadeias de ligação do SDK no código permite utilizar os seus próp
             host.RunAndBlock();
         }
 
-### <a name="configure-queuetrigger--settings"></a>Configurar definições de QueueTrigger
+### <a name="configure-queuetrigger--settings"></a>Configurar as definições de QueueTrigger
 Pode configurar as seguintes definições que se aplicam ao processamento de mensagens de fila:
 
-* O número máximo de fila de mensagens que são captado em simultâneo para ser executado em paralelo (a predefinição é 16).
-* O número máximo de tentativas antes do envio de uma mensagem de fila para uma fila nocivas (a predefinição é 5).
-* O número máximo de tempo antes de consulta novamente quando uma fila está vazia de espera (a predefinição é 1 minuto).
+* O número máximo de mensagens em fila que são aplicadas ao mesmo tempo a ser executado em paralelo (a predefinição é 16).
+* O número máximo de tentativas antes do envio de uma mensagem de fila para uma fila não processáveis (a predefinição é 5).
+* O número máximo de tempo antes da consulta novamente quando a fila está vazia de espera (a predefinição é 1 minuto).
 
 O exemplo seguinte mostra como configurar estas definições:
 
@@ -400,19 +401,19 @@ O exemplo seguinte mostra como configurar estas definições:
             host.RunAndBlock();
         }
 
-### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Definir valores para o SDK de WebJobs os parâmetros do construtor no código
-Por vezes, pretende especificar um nome de fila, um nome de blob ou contentor ou nome de uma tabela no código em vez de codificá-lo. Por exemplo, poderá pretender especificar o nome da fila para **QueueTrigger** numa variável de ambiente ou ficheiro de configuração.
+### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Definir valores para o SDK do WebJobs parâmetros do construtor no código
+Por vezes, pretende especificar um nome de fila, um nome de blob ou contentor ou nome de uma tabela no código, em vez de codificá-lo. Por exemplo, pode pretender especificar o nome da fila **QueueTrigger** numa variável de ambiente ou ficheiro de configuração.
 
-Pode fazê-lo mediante a transmissão num **NameResolver** de objeto para o **JobHostConfiguration** tipo. Incluir marcadores de posição especiais rodeados por sinais de sinal de percentagem () nos parâmetros de construtor de atributo do SDK de WebJobs e os seus **NameResolver** código especifica os valores reais para ser utilizado em vez dos marcadores de posição.
+Pode fazê-lo ao transmitir uma **NameResolver** objeto para o **JobHostConfiguration** tipo. Inclui marcadores de posição especiais rodeados por sinais de sinal de percentagem () nos parâmetros do construtor de atributo de SDK do WebJobs e a sua **NameResolver** código especifica os valores reais para ser utilizado em vez dos marcadores de posição.
 
-Por exemplo, suponha que pretende utilizar uma fila com o nome logqueuetest no ambiente de teste e uma logqueueprod nomeado em produção. Em vez de um nome de fila hard-coded, pretender especificar o nome de uma entrada no **appSettings** coleção que teria o nome da fila real. Se o **appSettings** chave é logqueue, a função foi ter um aspeto semelhante ao seguinte exemplo.
+Por exemplo, suponha que pretende utilizar uma fila com o nome logqueuetest no ambiente de teste e um logqueueprod nomeado em produção. Em vez de um nome de fila codificada, pretender especificar o nome de uma entrada no **appSettings** coleção que tem o nome de fila real. Se o **appSettings** chave é logqueue, sua função pode ter um aspeto semelhante ao seguinte exemplo.
 
         public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
         {
             Console.WriteLine(logMessage);
         }
 
-O **NameResolver** classe, em seguida, foi possível obter o nome da fila de **appSettings** conforme mostrado no exemplo seguinte:
+Sua **NameResolver** classe, em seguida, foi possível obter o nome da fila de **appSettings** conforme mostrado no exemplo a seguir:
 
         public class QueueNameResolver : INameResolver
         {
@@ -422,7 +423,7 @@ O **NameResolver** classe, em seguida, foi possível obter o nome da fila de **a
             }
         }
 
-Passa o **NameResolver** de classe para o **JobHost** objeto conforme mostrado no exemplo seguinte.
+Passa o **NameResolver** classe para o **JobHost** objeto conforme mostrado no exemplo a seguir.
 
         static void Main(string[] args)
         {
@@ -432,10 +433,10 @@ Passa o **NameResolver** de classe para o **JobHost** objeto conforme mostrado n
             host.RunAndBlock();
         }
 
-**Nota:** fila, tabela e dos nomes blob são resolvidos sempre que uma função é chamada, mas os nomes de contentor do blob são resolvidos apenas quando iniciar a aplicação. Não é possível alterar o nome do contentor de blob enquanto a tarefa está em execução.
+**Nota:** fila, tabela e nomes de BLOBs são resolvidos sempre que uma função é chamada, mas os nomes dos contentores de BLOBs são resolvidos apenas quando o aplicativo é iniciado. Não é possível alterar o nome do contentor de BLOBs, enquanto a tarefa está em execução.
 
-## <a name="how-to-trigger-a-function-manually"></a>Como acionar manualmente uma função
-Para acionar manualmente uma função, utilize o **chamar** ou **CallAsync** método no **JobHost** objeto e o **NoAutomaticTrigger** atributo da função, conforme mostrado no exemplo seguinte.
+## <a name="how-to-trigger-a-function-manually"></a>Como acionar uma função manualmente
+Para acionar manualmente uma função, utilize o **chamar** ou **CallAsync** método no **JobHost** objeto e a **NoAutomaticTrigger** atributo na função, conforme mostrado no exemplo a seguir.
 
         public class Program
         {
@@ -456,20 +457,20 @@ Para acionar manualmente uma função, utilize o **chamar** ou **CallAsync** mé
             }
         }
 
-## <a name="how-to-write-logs"></a>Como escrever os registos
-O Dashboard apresenta os registos em dois locais: a página para o trabalho Web e a página de uma invocação de WebJob específica.
+## <a name="how-to-write-logs"></a>Como escrever registos
+O Dashboard mostra os registos em dois locais: a página para o trabalho Web e a página de uma invocação de trabalho Web específica.
 
-![Registos na página do trabalho Web](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Registos na página de WebJob](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 ![Registos na página de invocação de função](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Saída de métodos de consola que chamam de uma função ou no **main ()** método é apresentado na página do Dashboard para o trabalho Web e não na página para um determinado método de invocação. Saída do objeto TextWriter que obtém a partir de um parâmetro na sua assinatura do método é apresentado na página do Dashboard para um método de invocação.
+Saída dos métodos de consola que chamar uma função ou no **main ()** método é apresentado na página do Dashboard para o trabalho Web e não na página para uma invocação de método em particular. Saída do objeto TextWriter que obtém a partir de um parâmetro na sua assinatura do método é apresentado na página do Dashboard para uma invocação de método.
 
-Resultado da consola não pode ser associado a um determinado método de invocação porque a consola é single-threaded, enquanto muitas funções de tarefas poderão estar em execução ao mesmo tempo. É por esse motivo o SDK fornece cada invocação de função com o seu próprio objeto de escritor do registo exclusivo.
+Resultado da consola não pode ser associado a uma invocação de método em particular, porque a consola é um único thread, embora muitas funções de trabalho podem ser executadas ao mesmo tempo. É por isso que o SDK fornece cada invocação de função com seu próprio objeto de escritor de log exclusivos.
 
-Escrever [registos de rastreio de aplicação](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), utilize **Console.Out** (cria registos marcados como informação) e **Console.Error** (cria registos marcados como erro). Uma alternativa consiste em utilizar [rastreio ou TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que fornece verboso, aviso, e os níveis de crítico para além das informações e o erro. Os registos de rastreio de aplicações são apresentados nos ficheiros de registo de aplicação web, as tabelas do Azure, ou de blobs do Azure, dependendo de como configurar a sua aplicação web do Azure. Como é verdadeiro de todos os resultados da consola, os registos da 100 aplicação mais recentes também aparecem na página do Dashboard para o trabalho Web, não a página de uma invocação de função.
+Escrever [dos logs de rastreamento do aplicativo](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), utilize **out** (cria registos marcados como informação) e **Error** (cria registos marcados como erro). Uma alternativa é usar [rastreio ou TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que fornece verboso, aviso, e os níveis de crítico para além das informações e erro. Registos de rastreio de aplicações são apresentadas nos ficheiros de registo de aplicação web, as tabelas do Azure, ou blobs do Azure, dependendo de como configurar a aplicação web do Azure. Como é verdadeiro para todos os saída da consola, os registos de 100 aplicativos mais recentes também aparecem na página do Dashboard para o trabalho Web, não a página de uma invocação de função.
 
-Resultado da consola é apresentado no Dashboard do apenas se o programa está em execução num trabalho Web do Azure, não se o programa é executada localmente ou alguns outros ambiente.
+Resultado da consola é apresentado no Dashboard apenas se o programa está em execução num trabalho Web do Azure, não se o programa está em execução localmente ou em algum outro ambiente.
 
 Pode desativar o registo ao definir a cadeia de ligação do Dashboard como nulo. Para obter mais informações, consulte [como definir opções de configuração](#how-to-set-configuration-options).
 
@@ -485,30 +486,30 @@ O exemplo seguinte mostra várias formas de escrever os registos:
             logger.WriteLine("TextWriter - " + logMessage);
         }
 
-No Dashboard de SDK de WebJobs, o resultado do **TextWriter** objeto mostra cópias de segurança quando aceda à página para um determinado invocação de função e selecione **alternar saída**:
+No Dashboard de SDK do WebJobs, o resultado do **TextWriter** objeto é exibida quando passa para a página para um determinado invocação de função e selecione **Ativar/desativar saída**:
 
 ![Ligação de invocação](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Registos na página de invocação de função](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-No Dashboard do SDK de WebJobs, as linhas de 100 mais recentes da consola de saída Mostrar cópias de segurança quando, visite a página para o trabalho Web (e não para a invocação de função) e selecionar **alternar saída**.
+No Dashboard do SDK do WebJobs, as mais recentes 100 linhas de Console de saída show cópia de segurança quando aceder à página para o trabalho Web (não para a invocação de função) e selecione **saída de alternância**.
 
-![Saída de ativar/desativar](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Ativar/desativar de saída](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Num WebJob contínuo, os registos de aplicações apresentada na/dados/tarefas/contínua/*{webjobname}*/job_log.txt no sistema de ficheiros de aplicação web.
+Num trabalho Web contínuo, registos de aplicações apresentada na/dados/tarefas/contínua/*{webjobname}*/job_log.txt no sistema de ficheiros de aplicação web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Num Azure blob o aspeto de registos de aplicações como esta: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Olá, mundo!, 2014-09-26T21:01:13, erro, contosoadsnew, 491e54, 635473620738373502,0,17404,19,Console.Error - Olá, mundo!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Olá, mundo!,
+No Azure blob a aparência de registos de aplicações como esta: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Olá, mundo!, 2014-09-26T21:01:13, erro, contosoadsnew, 491e54, 635473620738373502,0,17404,19,Console.Error - Olá, mundo!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Olá, mundo!,
 
-E uma tabela do Azure a **Console.Out** e **Console.Error** registos tem o seguinte aspeto:
+E uma tabela do Azure a **out** e **Error** registos ter este aspeto:
 
 ![Registo de informações na tabela](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
 ![Registo de erros na tabela](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com as filas do Azure. Para obter mais informações sobre como utilizar WebJobs do Azure e o SDK de WebJobs, consulte [recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Este artigo fornece exemplos de código que mostram como lidar com cenários comuns para trabalhar com as filas do Azure. Para obter mais informações sobre como utilizar o WebJobs do Azure e o SDK de WebJobs, consulte [recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 

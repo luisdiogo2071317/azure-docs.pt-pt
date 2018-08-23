@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 0140c34a14f67064eaa28df65360cee6e92ff31a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: faf4e06b714714fce206ef8227a934df8c290447
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618459"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056152"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -87,19 +87,12 @@ A seção a seguir lista os sistemas operativos suportados para o agente de depe
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 
-### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-
-| Versão do SO | Versão de kernel |
-|:--|:--|
-| 5.8 | 2.6.18-308 |
-| 5.9 | 2.6.18-348 |
-| 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
-
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
+| Ubuntu 18.04 | o kernel 4.15. * |
+| Ubuntu 16.04.3 | o kernel 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
@@ -119,13 +112,12 @@ A seção a seguir lista os sistemas operativos suportados para o agente de depe
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
-### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
+## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | Versão do SO | Versão de kernel
 |:--|:--|
-| 11 SP2 | 3.0.101-0.7 |
-| 11 SP3 | 3.0.101-0.47 |
-| 11 SP4 | 3.0.101-65 |
+|12 SP2 | 4.4. * |
+|12 SP3 | 4.4. * |
 
 ## <a name="dependency-agent-downloads"></a>Downloads do agente de dependência
 
@@ -264,7 +256,7 @@ O agente de dependência é instalado em computadores com Linux do `InstallDepen
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador Linux:
 
-1.  Instalar o agente do OMS a seguir um dos métodos descritos [recolher dados num ambiente híbrido com o agente do Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Instalar o agente de Log Analytics, um dos métodos descritos a seguir [recolher dados num ambiente híbrido com o agente do Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
 2.  Instale o agente de dependência de Linux como raiz, executando o seguinte comando:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -394,9 +386,9 @@ Se a instalação do agente de dependência foi concluída com êxito, mas não 
 
 * É o seu registo de envio do servidor e dados de desempenho para o Log Analytics? Vá para a pesquisa de registos e execute a seguinte consulta para o seu computador: 
 
-        * Computer="<your computer name here>" | measure count() by Type
-        
-  Obteve uma variedade de eventos nos resultados? Os dados são recentes? Nesse caso, o agente do OMS está operando corretamente e se comunicar com o Log Analytics. Caso contrário, verifique o agente do OMS no seu servidor: [resolução de problemas do agente do OMS para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [agente do OMS para Linux de resolução de problemas](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+        Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+
+Obteve uma variedade de eventos nos resultados? Os dados são recentes? Se assim for, o agente do Log Analytics está operando corretamente e ao comunicar com o Log Analytics. Caso contrário, verifique o agente no seu servidor: [agente do Log Analytics para resolução de problemas do Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [agente do Log Analytics para resolução de problemas do Linux](../log-analytics/log-analytics-agent-linux-support.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servidor é apresentado no mapa de serviço, mas não tem nenhum processo
 Se vir o seu servidor no mapa de serviço, mas ele não tem processo ou ligação de dados, que indica que o agente de dependência é instalado e em execução, mas não carregou o driver do kernel. 

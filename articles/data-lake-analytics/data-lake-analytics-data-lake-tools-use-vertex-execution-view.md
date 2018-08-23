@@ -1,6 +1,6 @@
 ---
-title: Utilize a vista de execução de vértice nas ferramentas do Data Lake para Visual Studio
-description: Este artigo descreve como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics exam.
+title: Utilizar a vista de execução de vértice no Data Lake Tools para Visual Studio
+description: Este artigo descreve como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics de exame.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: mumian
@@ -11,47 +11,47 @@ ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735446"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059630"
 ---
-# <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilize a vista de execução de vértice nas ferramentas do Data Lake para Visual Studio
-Saiba como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics exam.
+# <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilizar a vista de execução de vértice no Data Lake Tools para Visual Studio
+Saiba como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics de exame.
 
 
-## <a name="open-the-vertex-execution-view"></a>Abrir a vista de execução de vértice
-Abra uma tarefa de U-SQL no Data Lake Tools para Visual Studio. Clique em **vista de execução de vértice** no canto inferior esquerdo. Poderá ser-lhe pedido para carregar perfis pela primeira vez e pode demorar algum tempo consoante a conectividade de rede.
+## <a name="open-the-vertex-execution-view"></a>Abrir a vista de execução do vértice
+Abra uma tarefa U-SQL no Data Lake Tools para Visual Studio. Clique em **vista de execução de vértice** no canto inferior esquerdo. Poderá ser solicitado para perfis de carga em primeiro lugar e pode demorar algum tempo consoante a conectividade da rede.
 
 ![Vista de execução de vértice de ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
-## <a name="understand-vertex-execution-view"></a>Compreender a vista de execução de vértice
-A vista de execução de vértice tem três partes:
+## <a name="understand-vertex-execution-view"></a>Compreender a vista de execução do vértice
+A vista de execução de vértice possui três partes:
 
 ![Vista de execução de vértice de ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
-O **Seletor de vértice** no esquerda permite selecionar vértices as funcionalidades (tais como dados de 10 de principais de leitura ou optar por fase). Um dos filtros mais utilizadas normalmente é ver o **vértices no caminho crítico**. O **caminho crítico** é mais longo cadeia de vértices de uma tarefa de U-SQL. Noções sobre o caminho crítico é útil para otimizar as suas tarefas, verificando qual vértice demora o tempo mais longo.
+O **Seletor de vértice** no esquerdo permite selecionar vértices pelos recursos (como top 10 dados de leitura ou optar por fase). Um dos filtros mais utilizados é ver os **vértices no caminho crítico**. O **caminho crítico** é a mais longa cadeia de vértices de uma tarefa de U-SQL. Noções básicas sobre o caminho crítico é útil para otimizar as suas tarefas, verificando qual vértice demora muito tempo.
   
 ![Vista de execução de vértice de ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
-Mostra o painel de parte superior ao centro de **com o estado de todos os vértices**.
+Mostra de painel a parte superior ao centro do **com o estado de todos os vértices**.
   
 ![Vista de execução de vértice de ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
-Painel na parte inferior central mostra informações sobre cada vertex:
-* Nome do processo: O nome da instância do vértice. -Lo é composto por diferentes partes no StageName | VertexName | VertexRunInstance. Por exemplo, o vertex de .v1 [62] SV7_Split representa a segunda instância em execução (.v1, índice a partir de 0) número vértice 62 na fase SV7_Split.
-* Leitura de dados total/Written: Os dados estavam a leitura/escrita por esta vértice.
+Painel central na parte inferior mostra informações sobre cada vértice:
+* Nome do processo: O nome da instância do vértice. Ele é composto por diferentes partes no StageName | VertexName | VertexRunInstance. Por exemplo, o vértice de .v1 [62] SV7_Split representa a instância em execução segundo (.v1, índice a partir de 0) do número de vértice 62 no estágio SV7_Split.
+* Leitura de dados total/Written: Os dados foram lidos/escritos por esta vértice.
 * Estado de estado/saída: O estado final quando o vértice é terminado.
 * Tipo de falha do código de saída: O erro quando o vértice falhou.
-* Razão de criação: Por que motivo o vértice foi criado.
-* Latência de fila de latência/PN de latência/processe de recursos: o tempo do vértice aguardar recursos, para processar os dados e para se manter na fila.
-* GUID de processo/criador: GUID para o vértice atual em execução ou o criador.
-* Versão: a N-ésimo instância do vértice em execução (o sistema pode agendar a novas instâncias de um vértice para muitos motivos, por exemplo, ativação pós-falha, computação redundância, etc.)
-* Versão criada tempo.
-* Processar criar início tempo/processe em fila tempo/processe início tempo/processe concluída tempo: quando o processo de vértice começa criação; Quando o processo de vértice começa a fila; Quando inicia o processo de vértice determinadas; Quando a determinados vértice está concluída.
+* Razão de criação: Por que o vértice foi criado.
+* Latência de fila de latência/PN de latência/processos de recursos: o tempo necessário para o vértice de esperar por recursos, para processar dados e para se manter na fila.
+* GUID de processo/criador: GUID do vértice em execução atual ou o seu criador.
+* Versão: a N-th instância do vértice em execução (o sistema poderá agendar novas instâncias de um vértice para computação de muitos motivos pelos quais, por exemplo, ativação pós-falha, redundância, etc.)
+* Versão criada a tempo.
+* Criar início tempo/processo em fila tempo/processo início tempo/processo concluído de processar tempo: quando o processo de vértice começa a criar; Quando o processo de vértice é iniciado para a fila; Quando é iniciado o processo de vértice determinados; Quando a determinados vértice está concluída.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter informações de diagnóstico de registo, veja [Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 * Para ver uma consulta mais complexa, consulte [Analisar registos de site através da Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
-* Para ver os detalhes da tarefa, consulte [Browser de tarefa de utilização e a vista de tarefas para tarefas do Azure Data lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md)
+* Para ver os detalhes da tarefa, consulte [utilizar o Browser de trabalho e a vista de tarefas para tarefas de Azure Data lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md)

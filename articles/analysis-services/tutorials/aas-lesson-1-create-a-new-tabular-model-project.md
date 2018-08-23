@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17abcc7dea2f695b4678b30fe7448b0bcbb11590
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441508"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055012"
 ---
 # <a name="create-a-tabular-model-project"></a>Criar um projeto de modelo em tabela
 
-Nesta lição, vai utilizar o Visual Studio com o SQL Server Data Tools (SSDT) para criar um projeto de modelo em tabela novo, no nível de compatibilidade 1400. Depois de o projeto estar criado, pode começar a adicionar dados e a criar o modelo. Esta lição também mostra uma breve introdução ao ambiente de criação de modelos em tabela no Visual Studio.  
+Nesta lição, utiliza o Visual Studio com projetos do Analysis Services ou o SQL Server Data Tools (SSDT) para criar um novo projeto de modelo em tabela no nível de compatibilidade 1400. Depois de o projeto estar criado, pode começar a adicionar dados e a criar o modelo. Esta lição também mostra uma breve introdução ao ambiente de criação de modelos em tabela no Visual Studio.  
   
 Tempo estimado para concluir esta lição: **10 minutos**  
   
@@ -49,7 +49,7 @@ Este tópico é a primeira lição num tutorial de criação de modelo em tabela
     Se não vir SQL Server 2017 / Azure Analysis Services (1400) na caixa de listagem do Nível de compatibilidade, significa que não está a utilizar a mais recente versão do SQL Server Data Tools. Para obter esta versão, veja [Install SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) (Instalar o SQL Server Data Tools).  
       
   
-## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Compreender o ambiente de criação do modelo em tabela do SSDT  
+## <a name="understanding-the-visual-studio-tabular-model-authoring-environment"></a>Compreender o modelo em tabela do Visual Studio ambiente de criação  
 Agora que já criou um projeto de modelo em tabela novo, vamos aproveitar para explorar o ambiente de criação no Visual Studio.  
   
 Quando o projeto estiver criado, é aberto no Visual Studio. No lado direito, em **Explorador de Modelos em Tabela**, pode ver uma vista de árvore dos objetos no modelo. Uma vez que ainda não importou dados, as pastas estão vazias. Pode clicar com o botão direito do rato numa pasta de objetos para realizar ações, de forma semelhante à barra de menus. À medida que avança neste tutorial, vai utilizar o Explorador de Modelos em Tabela para navegar pelos diferentes objetos no projeto de modelo.
@@ -68,7 +68,7 @@ Quando cria um projeto de modelo, são definidas automaticamente determinadas pr
 
 No **Explorador de Soluções**, clique com o botão direito do rato em **AW Internet Sales** (projeto) e clique em **Propriedades**. É apresentada a caixa de diálogo **Páginas de Propriedades de AW Internet Sales**. Algumas destas definições são definidas mais tarde, quando o modelo for implementado.  
   
-No momento em que instalou o SSDT, foram adicionados vários itens de menu novos ao ambiente do Visual Studio. Clique no menu **Modelo**. Aqui, pode importar dados, atualizar dados da área de trabalho, navegar no projeto no Excel, criar perspetivas e funções, selecionar a vista do modelo e definir opções de cálculo. Clique no menu **Tabela**. Aqui, pode criar e gerir relações, especificar definições das tabelas de datas, criar partições e editar propriedades da tabela. Se clicar no menu **Coluna**, pode adicionar e eliminar colunas em tabelas, fixar colunas e especificar a ordenação. O SSDT também adiciona alguns botões à barra. O mais útil é a funcionalidade Soma Automática, para criar uma medida de agregação standard para colunas específicas. Outros botões da barra de ferramentas dão acesso rápido a funcionalidades e comandos utilizados frequentemente.  
+Quando instalou os projetos de Analysis Services ou o SSDT, foram adicionados vários itens de menu novos ao ambiente do Visual Studio. Clique no menu **Modelo**. Aqui, pode importar dados, atualizar dados da área de trabalho, navegar no projeto no Excel, criar perspetivas e funções, selecionar a vista do modelo e definir opções de cálculo. Clique no menu **Tabela**. Aqui, pode criar e gerir relações, especificar definições das tabelas de datas, criar partições e editar propriedades da tabela. Se clicar no menu **Coluna**, pode adicionar e eliminar colunas em tabelas, fixar colunas e especificar a ordenação. O Visual Studio também adiciona alguns botões à barra de. O mais útil é a funcionalidade Soma Automática, para criar uma medida de agregação standard para colunas específicas. Outros botões da barra de ferramentas dão acesso rápido a funcionalidades e comandos utilizados frequentemente.  
   
 Explore algumas das caixas de diálogo e localizações de várias funcionalidades específicas para a criação de modelos em tabela. Embora alguns itens ainda não estejam ativos, pode ficar com uma ideia clara do ambiente de criação de modelos em tabela.  
   

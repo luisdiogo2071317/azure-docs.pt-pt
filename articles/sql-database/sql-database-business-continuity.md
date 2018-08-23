@@ -12,43 +12,60 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263151"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444153"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
+
+Base de dados SQL do Azure é uma implementação de stabilní motor de base de dados do SQL Server configurado e otimizadas para o ambiente de cloud do Azure que fornece [elevada disponibilidade](sql-database-high-availability.md) e resiliência para os erros que podem afetar sua processo de negócio. **Continuidade do negócio** na base de dados do Azure SQL refere-se para os mecanismos, políticas e procedimentos que permitem uma empresa continuar a funcionar em caso de interrupção, especialmente para a sua infraestrutura de computação.  Em que a maioria dos casos, a base de dados do Azure SQL irá processar os eventos disruptivos que podem ocorrer no ambiente de cloud e manter os seus processos de negócios em execução. No entanto, existem alguns eventos disruptivos que não podem ser processados pela base de dados SQL, tais como:
+ - Utilizador acidentalmente eliminou ou atualizou uma linha numa tabela.
+ - Invasor mal-intencionado foi concluída com êxito para eliminar dados ou remover bases de dados.
+ - Sismo causado uma queda de energia e temporário Centro de dados desativado.
+ 
+Nestes casos não podem ser controlados pela base de dados SQL do Azure, por isso terá de utilizar as funcionalidades de continuidade de negócio na base de dados SQL permite-lhe recuperar os seus dados e manter as suas aplicações em execução.
 
 Esta descrição geral descreve as capacidades que a Base de Dados SQL do Azure fornece para a continuidade empresarial e a recuperação após desastre. Saiba mais sobre as opções, recomendações e tutoriais para recuperar de eventos disruptivos que podem causar perda de dados ou fazer com que a sua base de dados e a aplicação fiquem indisponíveis. Saiba o que fazer quando um erro de utilizador ou aplicação afeta a integridade dos dados, uma região do Azure fica indisponível ou a aplicação requerer manutenção.
 
 ## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>Funcionalidades da Base de Dados SQL que pode utilizar para proporcionar continuidade empresarial
 
-A Base de Dados SQL fornece várias funcionalidades de continuidade empresarial, incluindo cópias de segurança automáticas e a replicação opcional da base de dados. Cada uma possui características diferentes para o tempo de recuperação estimado (ERT) e a potencial perda de dados de transações recentes. Assim que compreender estas opções, pode escolher entre elas - e, na maioria dos cenários, utilizá-las em conjunto para cenários diferentes. À medida que elabora o seu plano de continuidade empresarial, tem de saber qual o tempo máximo aceitável antes de a aplicação recuperar totalmente após o evento problemático – este é o objetivo de tempo de recuperação (RTO). Também precisa de saber a quantidade máxima de dados recentes atualizações (intervalo de tempo) da aplicação pode tolerar perder ao recuperar após o evento problemático – este é o objetivo de ponto de recuperação (RPO).
+Da perspectiva da base de dados, existem quatro principais cenários de interrupções potenciais:
+- **Falhas de hardware ou software locais** que afetam o nó de base de dados como uma falha de unidade de disco.
+- **Danos em dados ou eliminação** – normalmente causado por um bug de aplicação ou o erro humano.  Tais falhas são intrinsecamente específico do aplicativo e não não como uma regra ser detetada ou mitigada automaticamente a infraestrutura.
+- **Falha do Datacenter**, possivelmente causada por um desastre natural.  Este cenário requer algum nível de redundância geográfica com o failover de aplicativos para um datacenter alternativo.
+- **Erros de atualização ou manutenção** – problemas imprevistos que ocorrem durante planeada atualizações ou manutenção para uma aplicação ou a base de dados pode exigir a reversão rápida para um estado anterior da base de dados.
+
+Base de dados SQL fornece várias funcionalidades de continuidade de negócio, incluindo cópias de segurança automáticas e os replicação de base de dados opcional capazes de atenuar esses cenários. Em primeiro lugar, precisa entender como base de dados SQL [arquitetura de elevada disponibilidade](sql-database-high-availability.md) fornece 99,99% de disponibilidade e resiliência a alguns eventos disruptivos que podem afetar o processo de negócios.
+Em seguida, pode aprender sobre os mecanismos adicionais que pode utilizar para recuperar a partir de eventos disruptivos que não podem ser processados pela arquitetura de elevada disponibilidade da base de dados SQL, tais como:
+ - [Tabelas temporais](sql-database-temporal-tables.md) permitem-lhe restaurar versões de linha a partir de qualquer ponto no tempo.
+ - [Incorporado de cópias de segurança automatizadas](sql-database-automated-backups.md) e [um ponto anterior no tempo de restauro](sql-database-recovery-using-backups.md#point-in-time-restore) permite-lhe restaurar o banco de dados completo para algum ponto no tempo nos últimos 35 dias.
+ - Pode [restaurar uma base de dados eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) para o ponto em que tiver sido eliminado se a **servidor lógico não foi eliminado**.
+ - [Retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) permite-lhe acompanhar as cópias de segurança para os 10 anos.
+ - [Replicação geográfica](sql-database-geo-replication-overview.md) permite que o aplicativo efetuar a recuperação após desastre rápida no caso de uma falha de dimensionamento do Centro de dados.
+
+Cada uma possui características diferentes para o tempo de recuperação estimado (ERT) e a potencial perda de dados de transações recentes. Assim que compreender estas opções, pode escolher entre elas - e, na maioria dos cenários, utilizá-las em conjunto para cenários diferentes. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após o evento problemático. O tempo necessário para a aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de Atualizações recentes de dados (intervalo de tempo) da aplicação pode tolerar perder ao recuperar após o evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO).
 
 A tabela seguinte compara o ERT e o RPO para cada camada de serviço para os três cenários mais comuns.
 
 | Capacidade | Básica | Standard | Premium  | Fins Gerais | Crítico para a Empresa
 | --- | --- | --- | --- |--- |--- |
-| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro num período de 7 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro no período configurado (até 35 dias)|Qualquer ponto de restauro no período configurado (até 35 dias)|
-| Georrestauro a partir de cópias de segurança georreplicado |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
+| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro dentro de sete dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro no período configurado (até 35 dias)|Qualquer ponto de restauro no período configurado (até 35 dias)|
+| Georrestauro a partir de cópias de segurança georreplicado |ERT < 12h, RPO < 1 hora |ERT < 12h, RPO < 1 hora |ERT < 12h, RPO < 1 hora |ERT < 12h, RPO < 1 hora|ERT < 12h, RPO < 1 hora|
 | Restaurar a partir de retenção de longa duração de SQL |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem|ERT < 12h, RPO < 1 sem|
-| Georreplicação ativa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
+| Georreplicação ativa |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
-### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utilize o restauro de ponto no tempo para recuperar uma base de dados
+## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente
 
-Base de dados SQL efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanalmente, uma vez por hora cópias de segurança de base de dados diferencial e transação backups de log a cada cinco - dez minutos para proteger a sua empresa contra perda de dados. Se estiver a utilizar o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), em seguida, estas cópias de segurança são armazenadas no armazenamento RA-GRS durante 35 dias para bases de dados nos escalões de serviço Standard e Premium e 7 dias para bases de dados na camada de serviço básico. Se o período de retenção da camada de serviços não for de encontro aos seus requisitos empresariais, pode aumentar o período de retenção ao [alterar a camada de serviços](sql-database-single-database-scale.md). Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), a retenção de cópias de segurança é configurável até uma máximo de 35 dias nos fins gerais e camadas de críticas de negócios. As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md).
+Base de dados SQL efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanalmente, uma vez por hora cópias de segurança de base de dados diferencial e transação backups de log a cada 5 - 10 minutos para proteger a sua empresa contra perda de dados. As cópias de segurança são armazenadas no armazenamento RA-GRS durante 35 dias para todos os escalões de serviço, exceto os escalões de serviço básico DTU onde as cópias de segurança são armazenadas durante sete dias. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md). Pode restaurar um formulário de base de dados existente as cópias de segurança automáticas para um ponto anterior no tempo como uma nova base de dados no mesmo servidor lógico com o portal do Azure, PowerShell ou a API REST. Para obter mais informações, consulte [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-Se o máximo suportado ponto anterior no tempo restaurar (PITR), o período de retenção não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (LTR) de longo prazo para as bases de dados. Para obter mais informações, consulte [cópias de segurança automatizada](sql-database-automated-backups.md) e [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md).
+Se o máximo suportado ponto anterior no tempo restaurar (PITR), o período de retenção não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (LTR) de longo prazo para as bases de dados. Para obter mais informações, consulte [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md).
 
-Pode utilizar estas cópias de segurança automáticas da base de dados para recuperar uma base de dados após vários eventos problemáticos, tanto no seu centro de dados como para outro centro de dados. Ao utilizar cópias de segurança automáticas de bases de dados, o tempo estimado de recuperação depende de vários fatores, incluindo o número total de bases de dados a recuperar na mesma região ao mesmo tempo, o tamanho da base de dados, o tamanho do registo de transações e a largura de banda de rede. O tempo de recuperação é normalmente inferior a 12 horas. Pode demorar mais tempo para recuperar uma base de dados muito grande ou Active Directory. Para obter mais detalhes sobre o tempo de recuperação, consulte [hora da recuperação de base de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar para outra região de dados, a potencial perda de dados está limitada a 1 hora pelo armazenamento georredundante de cópias de segurança de bases de dados diferenciais de hora a hora.
+Pode utilizar estas cópias de segurança automáticas da base de dados para recuperar uma base de dados após vários eventos problemáticos, tanto no seu centro de dados como para outro centro de dados. Ao utilizar cópias de segurança automáticas de bases de dados, o tempo estimado de recuperação depende de vários fatores, incluindo o número total de bases de dados a recuperar na mesma região ao mesmo tempo, o tamanho da base de dados, o tamanho do registo de transações e a largura de banda de rede. O tempo de recuperação é normalmente inferior a 12 horas. Pode demorar mais tempo para recuperar uma base de dados muito grande ou Active Directory. Para obter mais informações sobre o tempo de recuperação, consulte [hora da recuperação de base de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar para outra região de dados, a potencial perda de dados está limitada a 1 hora pelo armazenamento georredundante de cópias de segurança de bases de dados diferenciais de hora a hora.
 
-> [!IMPORTANT]
-> Para recuperar através de cópias de segurança automáticas, tem de ser um membro da função de Contribuinte do SQL Server ou o proprietário da subscrição - veja [RBAC: funções incorporadas](../role-based-access-control/built-in-roles.md). Pode recuperar através do portal do Azure, do PowerShell ou da API REST. Não é possível utilizar Transact-SQL.
->
-
-Utilize cópias de segurança automáticas como o mecanismo de continuidade empresarial e de recuperação se a aplicação:
+Utilizar cópias de segurança automáticas e [restauro de ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) como o mecanismo de recuperação e continuidade de negócio se seu aplicativo:
 
 * Não for considerada fundamental para a atividade crítica.
 * Não tem um SLA de enlace - um período de indisponibilidade de 24 horas ou já não resulta em encargos financeiros.
@@ -57,60 +74,32 @@ Utilize cópias de segurança automáticas como o mecanismo de continuidade empr
 
 Se precisar de uma recuperação mais rápida, utilize [georreplicação ativa](sql-database-geo-replication-overview.md) (abordada a seguir). Se tiver de ser capaz de recuperar dados de um período com mais de 35 dias, utilize [retenção a longo prazo](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Utilizar grupos Active Directory, georreplicação e ativação pós-falha automática para reduzir o tempo de recuperação e limitar a perda de dados associada a uma recuperação
+## <a name="recover-a-database-to-another-region"></a>Recuperar uma base de dados para outra região
+<!-- Explain this scenario -->
 
-Além de utilizar cópias de segurança da base de dados para recuperação de base de dados se ocorrer uma interrupção do negócio, pode usar [georreplicação ativa](sql-database-geo-replication-overview.md) para configurar um banco de dados para até quatro secundárias bases de dados legíveis em regiões da sua preferência. Estas bases de dados secundárias são mantidas sincronizadas com a base de dados primária através de um mecanismo de replicação assíncrona. Esta funcionalidade é utilizada para proteger contra interrupções de negócio se ocorrer uma indisponibilidade do Centro de dados ou durante uma atualização da aplicação. Georreplicação ativa também pode ser utilizada para fornecer um melhor desempenho de consulta para consultas só de leitura aos utilizadores geograficamente dispersos.
+Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando ocorre uma indisponibilidade, esta causa uma interrupção do negócio que poderá demorar apenas alguns minutos ou pode durar horas.
 
-Para ativar automatizado e ativação pós-falha transparente deve organizar seus bancos de dados de georreplicação em grupos com o [grupo de ativação pós-falha automática](sql-database-geo-replication-overview.md) funcionalidade de base de dados SQL.
+* Uma opção é aguardar que a base de dados volte a ficar online quando a indisponibilidade do centro de dados terminar. Isto funciona para as aplicações que podem dar-se ao luxo de ter a base de dados offline. Por exemplo, um projeto de desenvolvimento ou uma versão de avaliação gratuita nos quais não tem de trabalhar constantemente. Quando um centro de dados fica indisponível, não sabe quanto pode durar a indisponibilidade, pelo que esta opção só funciona se não precisar de sua base de dados durante algum tempo.
+* Outra opção consiste em restaurar uma base de dados em qualquer servidor em qualquer região do Azure, utilizando [cópias de segurança da base de dados georredundante](sql-database-recovery-using-backups.md#geo-restore) (georrestauro). O restauro geográfico utiliza uma cópia de segurança georredundante como origem e pode ser usado para recuperar uma base de dados, mesmo que a base de dados ou o Centro de dados não está acessível devido a uma falha.
+* Por fim, pode promover rapidamente uma secundária em outra região de dados primária (também chamado de ativação pós-falha) e configurar aplicações para ligar para o primário promovido se estiver a utilizar a georreplicação ativa. Pode haver uma pequena quantidade de perda de dados de transações recentes devido à natureza da replicação assíncrona. Utilizar grupos de ativação pós-falha automática, pode personalizar a política de ativação pós-falha para minimizar a potencial perda de dados. Em todos os casos, os utilizadores passam por um pequeno período de indisponibilidade e têm de restabelecer a ligação. A ativação pós-falha demora apenas alguns segundos enquanto a recuperação de base de dados de cópias de segurança demora horas.
 
-Se a base de dados primária fica offline inesperadamente ou se tiver de colocá-la offline para atividades de manutenção, pode promover rapidamente uma secundária para primária (também chamado de ativação pós-falha) e configurar aplicações para ligar para o primário promovido. Se a sua aplicação está a ligar às bases de dados com o serviço de escuta do grupo de ativação pós-falha, não precisa de alterar a configuração de cadeia de ligação SQL após a ativação pós-falha. Com uma ativação pós-falha planeada, não existe nenhuma perda de dados. Com uma ativação pós-falha não planeada, poderá existir uma pequena quantidade de perda de dados para transações muito recentes devido à natureza da replicação assíncrona. Utilizar grupos de ativação pós-falha automática, pode personalizar a política de ativação pós-falha para minimizar a potencial perda de dados. Após uma ativação pós-falha, pode fazer a reativação pós-falha posteriormente - de acordo com um plano ou quando o centro de dados voltar a ficar online. Em todos os casos, os utilizadores passam por um pequeno período de indisponibilidade e têm de restabelecer a ligação.
+Para efetuar a ativação pós-falha para outra região, pode usar [georreplicação ativa](sql-database-geo-replication-overview.md) para configurar um banco de dados para até quatro secundárias bases de dados legíveis em regiões da sua preferência. Estas bases de dados secundárias são mantidas sincronizadas com a base de dados primária através de um mecanismo de replicação assíncrona. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
+
 
 > [!IMPORTANT]
 > Para utilizar a georreplicação ativa e grupos de ativação pós-falha automática, tem de ser o proprietário da subscrição ou ter permissões administrativas no SQL Server. Pode configurar e efetuar a ativação pós-falha utilizando o Azure portal, PowerShell ou a API de REST com permissões de subscrição do Azure ou com o Transact-SQL com permissões do SQL Server.
 > 
 
-Utilize grupos de georreplicação e ativação pós-falha automática Active Directory se a sua aplicação cumprir qualquer um dos seguintes critérios:
+Esta funcionalidade é utilizada para proteger contra interrupções de negócio se ocorrer uma indisponibilidade do Centro de dados ou durante uma atualização da aplicação. Para ativar automatizado e ativação pós-falha transparente deve organizar seus bancos de dados de georreplicação em grupos com o [grupo de ativação pós-falha automática](sql-database-geo-replication-overview.md) funcionalidade de base de dados SQL. Utilize grupos de georreplicação e ativação pós-falha automática Active Directory se a sua aplicação cumprir qualquer um dos seguintes critérios:
 
 * É fundamental para a atividade crítica.
 * Tem um contrato de nível de serviço (SLA) que não permite 24 horas ou mais de períodos de indisponibilidade.
 * Tempo de inatividade pode resultar em encargos financeiros.
 * Tem uma taxa elevada de alteração de dados e perder uma hora não é aceitável.
 * O custo adicional da georreplicação ativa é inferior aos potenciais encargos financeiros e perda empresarial associada.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-
-## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperar uma base de dados após um erro de utilizador ou aplicação
-
-Ninguém é perfeito! Um utilizador poderá acidentalmente eliminar alguns dados, inadvertidamente remover uma tabela importante ou até mesmo remover uma base de dados completa. Ou uma aplicação poderá substituir acidentalmente dados corretos por dados incorretos devido a um defeito da aplicação.
-
-Neste cenário, estas são as opções de recuperação.
-
-### <a name="perform-a-point-in-time-restore"></a>Efetuar um restauro para um ponto anterior no tempo
-Pode utilizar as cópias de segurança automáticas para recuperar uma cópia da base de dados para um ponto anterior no tempo válido e conhecido, desde que esse ponto esteja dentro do período de retenção da base de dados. Depois de restaurar a base de dados, pode substituir a base de dados original pela base de dados restaurada ou copiar os dados necessários a partir dos dados restaurados para a base de dados original. Se a base de dados utilizar a georreplicação ativa, é recomendável copiar os dados necessários da cópia restaurada para a base de dados original. Se substituir a base de dados original pela base de dados restaurada, terá de reconfigurar e ressincronizar a georreplicação ativa (o que pode demorar algum tempo para uma base de dados grandes). Embora isto restaura uma base de dados para o último ponto disponível no tempo, restaurar geo-secundária para qualquer ponto anterior no tempo não é atualmente suportado.
-
-Para obter mais informações e passos detalhados para restaurar uma base de dados para um ponto anterior no tempo através do portal do Azure ou através do PowerShell, veja [restauro para um ponto anterior no tempo](sql-database-recovery-using-backups.md#point-in-time-restore). Não é possível recuperar com o Transact-SQL.
-
-### <a name="restore-a-deleted-database"></a>Restaurar uma base de dados eliminada
-Se a base de dados tiver sido eliminada, mas o servidor lógico não tiver sido eliminado, pode restaurar a base de dados eliminada para o ponto anterior no tempo em que foi eliminada. Isto restaura uma cópia de segurança da base de dados para o mesmo servidor SQL lógico do qual foi eliminada. Pode restaurá-la com o nome original ou fornecer um novo nome para a base de dados restaurada.
-
-Para obter mais informações e passos detalhados para restaurar uma base de dados eliminada através do portal do Azure ou através do PowerShell, veja [restaurar uma base de dados eliminada](sql-database-recovery-using-backups.md#deleted-database-restore). Não é possível restaurar com o Transact-SQL.
-
-> [!IMPORTANT]
-> Se o servidor lógico tiver sido eliminado, não é possível recuperar uma base de dados eliminada.
-
-
-### <a name="restore-backups-from-long-term-retention"></a>Restaurar cópias de segurança de retenção de longa duração
-
-Se a perda de dados ocorreu fora do período de retenção atual para cópias de segurança automáticas e a base de dados está configurada para utilizar o armazenamento de Blobs do Azure de retenção de longa duração, pode restaurar a partir de uma cópia de segurança completa no armazenamento de Blobs do Azure para uma nova base de dados. Nesse momento, pode substituir a base de dados original pela base de dados restaurada ou copiar os dados necessários da base de dados restaurada para a base de dados original. Se precisar de obter uma versão antiga da base de dados antes de uma atualização principal da aplicação, responder a um pedido de auditores ou uma ordem legal, que pode criar uma base de dados com uma cópia de segurança completa guardada no armazenamento de Blobs do Azure.  Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
-
-## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recuperar uma base de dados para outra região a partir de uma indisponibilidade do centro de dados regional do Azure
-<!-- Explain this scenario -->
-
-Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando ocorre uma indisponibilidade, esta causa uma interrupção do negócio que poderá demorar apenas alguns minutos ou pode durar horas.
-
-* Uma opção é aguardar que a base de dados volte a ficar online quando a indisponibilidade do centro de dados terminar. Isto funciona para as aplicações que podem dar-se ao luxo de ter a base de dados offline. Por exemplo, um projeto de desenvolvimento ou uma versão de avaliação gratuita nos quais não tem de trabalhar constantemente. Quando um centro de dados fica indisponível, não sabe quanto pode durar a indisponibilidade, pelo que esta opção só funciona se não precisar de sua base de dados durante algum tempo.
-* Outra opção é a reprovação ao longo para outra região de dados se estiver a utilizar a georreplicação ativa ou a recuperar uma base de dados com cópias de segurança da base de dados georredundantes (georrestauro). A ativação pós-falha demora apenas alguns segundos enquanto a recuperação de base de dados de cópias de segurança demora horas.
 
 Quando tomar medidas, o período de tempo que demora a recuperar e a perda de dados incorrida depende de como optar por utilizar estas funcionalidades de continuidade de negócio na sua aplicação. Na verdade, pode optar por utilizar uma combinação de cópias de segurança da base de dados e a georreplicação ativa consoante os requisitos da aplicação. Para um debate das considerações de estrutura de aplicações para bases de dados autónomas e para conjuntos elásticos com estas funcionalidades de continuidade empresarial, veja [Estruturar uma aplicação para recuperação após desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação após desastre do Conjunto Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 

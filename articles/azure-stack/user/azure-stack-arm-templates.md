@@ -1,9 +1,9 @@
 ---
-title: Utilizar modelos Azure Resource Manager na pilha do Azure | Microsoft Docs
-description: Saiba como utilizar os modelos Azure Resource Manager na pilha do Azure para Aprovisionar recursos.
+title: Utilizar modelos Azure Resource Manager no Azure Stack | Documentos da Microsoft
+description: Saiba como utilizar modelos Azure Resource Manager no Azure Stack para Aprovisionar recursos.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
@@ -12,65 +12,65 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: brenduns
-ms.reviewer: ''
-ms.openlocfilehash: 9c4d538f77ae056163fd17aa547162a4ad3eff63
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 08/15/2018
+ms.author: sethm
+ms.reviewer: jeffgo
+ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301683"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058523"
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utilizar modelos Azure Resource Manager na pilha do Azure
+# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utilizar modelos Azure Resource Manager no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pode utilizar modelos Azure Resource Manager para implementar e aprovisionar todos os recursos para a sua aplicação numa operação única e coordenada. Também pode voltar a implementar modelos para efetuar alterações aos recursos num grupo de recursos.
+Pode utilizar modelos Azure Resource Manager para implementar e aprovisionar todos os recursos para a sua aplicação numa operação única e coordenada. Também pode voltar a implementar modelos para fazer alterações aos recursos num grupo de recursos.
 
-Estes modelos podem ser implementados com o portal de pilha do Microsoft Azure, PowerShell, a linha de comandos e o Visual Studio.
+Estes modelos podem ser implementados com o portal do Microsoft Azure Stack, PowerShell, a linha de comandos e o Visual Studio.
 
-Os modelos de início rápido seguintes estão disponíveis no [GitHub](http://aka.ms/azurestackgithub).
+Os seguintes modelos de início rápido estão disponíveis na [GitHub](http://aka.ms/azurestackgithub).
 
-## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implementar o servidor do SharePoint (implementação de não-elevada disponibilidade)
+## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implantar o SharePoint Server (implementação de não-elevada disponibilidade)
 
-Utilize a extensão de DSC do PowerShell para criar um farm do SharePoint Server 2013 que inclui os seguintes recursos:
+Utilize a extensão DSC do PowerShell para criar um farm do SharePoint Server 2013 que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Três contas de armazenamento
 * Dois balanceadores de carga externo
-* Máquinas virtuais (VM) configurada como um controlador de domínio para uma nova floresta com um único domínio
+* Uma máquina de virtual (VM) configurada como um controlador de domínio para uma nova floresta com um único domínio
 * Uma VM configurada como um servidor autónomo do SQL Server 2014
 * Uma VM configurada como um farm do SharePoint Server 2013 de uma máquina
 
-## <a name="deploy-ad-non-high-availability-deployment"></a>Implementar AD (não-elevado--implementação de disponibilidade)
+## <a name="deploy-ad-non-high-availability-deployment"></a>Implementar AD (não-alto--implementação de disponibilidade)
 
-Utilize a extensão de DSC do PowerShell para criar um servidor de controlador de domínio do AD que inclui os seguintes recursos:
+Utilize a extensão DSC do PowerShell para criar um servidor de controlador de domínio do AD que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Uma conta de armazenamento
 * Um balanceador de carga externo
-* Máquinas virtuais (VM) configurada como um controlador de domínio para uma nova floresta com um único domínio
+* Uma máquina de virtual (VM) configurada como um controlador de domínio para uma nova floresta com um único domínio
 
-## <a name="deploy-adsql-non-high-availability-deployment"></a>Implementar AD/SQL (não-elevado--implementação de disponibilidade)
+## <a name="deploy-adsql-non-high-availability-deployment"></a>Implementar o AD/SQL (não-alto--implementação de disponibilidade)
 
-Utilize a extensão de DSC do PowerShell para criar um servidor autónomo do SQL Server 2014 que inclui os seguintes recursos:
+Utilize a extensão DSC do PowerShell para criar um servidor autónomo do SQL Server 2014 que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Duas contas de armazenamento
 * Um balanceador de carga externo
-* Máquinas virtuais (VM) configurada como um controlador de domínio para uma nova floresta com um único domínio
+* Uma máquina de virtual (VM) configurada como um controlador de domínio para uma nova floresta com um único domínio
 * Uma VM configurada como um servidor autónomo do SQL Server 2014
 
 ## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
 
-Utilize a extensão de DSC do PowerShell para configurar uma máquina virtual existente Gestor de configuração Local (MMC) e registá-lo para um servidor de solicitação de DSC do Azure Automation conta.
+Utilize a extensão DSC do PowerShell para configurar uma máquina virtual existente Gestor de configuração Local (LCM) e registá-lo para um servidor de solicitação de DSC do Azure Automation conta.
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Criar uma máquina virtual a partir de uma imagem de utilizador
 
-Crie uma máquina virtual a partir de uma imagem de utilizador personalizadas. Este modelo também implementa uma rede virtual (com o DNS), o endereço IP público e uma interface de rede.
+Crie uma máquina virtual a partir de uma imagem de utilizador personalizada. Este modelo também implementa uma rede virtual (com o DNS), o endereço IP público e uma interface de rede.
 
-## <a name="basic-virtual-machine"></a>Máquinas virtuais básica
+## <a name="basic-virtual-machine"></a>Máquinas virtuais básico
 
 Implemente uma VM do Windows que inclui uma rede virtual (com o DNS), o endereço IP público e uma interface de rede.
 

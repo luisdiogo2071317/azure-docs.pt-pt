@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449779"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617254"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: PaaS Web de hospedagem de aplicativos para cargas de trabalho oficial do Reino Unido
 
@@ -23,7 +23,7 @@ Planos gráficos do Azure é composto por documentos de diretrizes e modelos de 
 
 ## <a name="overview"></a>Descrição geral
 
-Este Azure no Security and Compliance Blueprint fornece scripts de automação e diretrizes para entregar um Microsoft Azure [plataforma como serviço (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) alojado adequada para processar cargas de trabalho classificadas da arquitetura de aplicativos web como [oficial do Reino Unido](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). Esta classificação de segurança abrange a maioria das informações criado ou processados do setor público. Isto inclui operações de negócios de rotina e serviços, que, se perdido, roubado ou publicado no suporte de dados, algumas das quais podem ter conseqüências graves. O perfil de ameaça típico para a classificação OFFICIAL é muito semelhante a uma empresa privada que fornece serviços e informações valiosas. Reino Unido oficial prevê a necessidade de se proteger dados do Governo do Reino Unido ou serviços contra ameaças ou compromisso pelos atacantes com estagnação capacidades e recursos, tais como (mas não está limitado a) hactivists single-issue de pressão de grupos, jornalistas investigativos, competente hackers individuais e a maioria dos grupos e indivíduos criminais.
+Este Azure no Security and Compliance Blueprint fornece scripts de automação e diretrizes para entregar um Microsoft Azure [plataforma como serviço (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) alojado adequada para processar cargas de trabalho classificadas da arquitetura de aplicativos web como [oficial do Reino Unido](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Esta classificação de segurança abrange a maioria das informações criado ou processados do setor público. Isto inclui operações de negócios de rotina e serviços, que, se perdido, roubado ou publicado no suporte de dados, algumas das quais podem ter conseqüências graves. O perfil de ameaça típico para a classificação OFFICIAL é muito semelhante a uma empresa privada que fornece serviços e informações valiosas. Reino Unido oficial prevê a necessidade de se proteger dados do Governo do Reino Unido ou serviços contra ameaças ou compromisso pelos atacantes com estagnação capacidades e recursos, tais como (mas não está limitado a) hactivists single-issue de pressão de grupos, jornalistas investigativos, competente hackers individuais e a maioria dos grupos e indivíduos criminais.
 
 Este esquema tiver sido revisto pelo do Reino Unido National Cyber Security Centre (NCSC) e alinha os princípios de segurança de Cloud de 14 NCSC.
 

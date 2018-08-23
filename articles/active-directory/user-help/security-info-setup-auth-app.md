@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: bd62ff03c3158743337ce958eb1bda7c7bd2a7f6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e7b07ba892f8f904b1b2127fa8e76649eb004388
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348526"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42062061"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Definir informações de segurança para utilizar uma aplicação de autenticação (pré-visualização)
 
@@ -60,6 +60,9 @@ Para transferir e obter mais informações sobre a aplicação Microsoft Authent
 6. Utilize a aplicação Microsoft Authenticator para aprovar a notificação para ativar a aplicação.
 
     As informações de segurança é atualizada para utilizar a aplicação Microsoft Authenticator para verificar a sua identidade quando utilizar a reposição de palavra-passe de verificação ou Self-Service de dois passos.
+
+    >[!Note]
+    >Se sua organização permitir, também obterá um código de verificação junto com a notificação de aplicação Microsoft Authenticator. Se quiser tornar o código de seu método padrão, siga as instruções em [gerir as suas informações de segurança](security-info-setup-auth-app.md).
 
 ## <a name="additional-security-info-options"></a>Opções de informações de segurança adicionais
 

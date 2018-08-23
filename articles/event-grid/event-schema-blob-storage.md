@@ -1,34 +1,35 @@
 ---
-title: Azure esquema de eventos do armazenamento de BLOBs de grelha de eventos
-description: Descreve as propriedades que são fornecidas para eventos de armazenamento de Blobs com a grelha de eventos do Azure
+title: Esquema do evento de armazenamento de Blobs do Azure Event Grid
+description: Descreve as propriedades que são fornecidas para eventos de armazenamento de Blobs com o Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301394"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060267"
 ---
-# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de grelha de eventos do Azure para o Blob storage
+# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos do Azure Event Grid para armazenamento de BLOBs
 
-Este artigo fornece as propriedades e o esquema para eventos de armazenamento de Blobs. Para uma introdução para esquemas de eventos, consulte [esquema de eventos de grelha de eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de armazenamento de Blobs. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem de eventos de armazenamento](event-sources.md#storage).
+
+## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 Armazenamento de BLOBs emite os seguintes tipos de evento:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.Storage.BlobCreated | É desencadeado quando é criado um blob. |
-| Microsoft.Storage.BlobDeleted | É desencadeado quando um blob é eliminado. |
+| Microsoft.Storage.BlobCreated | Desencadeado quando um blob é criado. |
+| Microsoft.Storage.BlobDeleted | Desencadeado quando um blob é eliminado. |
 
-## <a name="example-event"></a>Eventos de exemplo
+## <a name="example-event"></a>Evento de exemplo
 
 O exemplo seguinte mostra o esquema de um blob criado eventos: 
 
@@ -89,32 +90,32 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
-| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de armazenamento de Blobs. |
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | api | cadeia | A operação que acionou o evento. |
-| clientRequestId | cadeia | Um valor opaco gerados pelo cliente, com um limite de caracteres de 1 KB. Quando tiver ativado o registo de análise de armazenamento, é registada nos registos de análise. |
-| requestId | cadeia | O identificador exclusivo para o pedido. Utilizá-lo para o pedido de resolução de problemas. |
-| ETag | cadeia | O valor que pode utilizar para executar operações condicionalmente. |
+| clientRequestId | cadeia | Um valor gerado pelo cliente, opaco com um limite de carateres de 1 KB. Quando tiver ativado o registo de análise de armazenamento, ele será gravado em registos de análise. |
+| requestId | cadeia | O identificador exclusivo para o pedido. Utilize-o para o pedido de resolução de problemas. |
+| eTag | cadeia | O valor que pode utilizar para efetuar operações de forma condicional. |
 | contentType | cadeia | O tipo de conteúdo especificado para o blob. |
 | contentLength | inteiro | O tamanho do blob em bytes. |
-| blobType | cadeia | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
+| blobType | cadeia | O tipo de blob. Valores válidos são "BlockBlob" ou "PageBlob". |
 | url | cadeia | O caminho para o blob. |
-| sequencer | cadeia | Um valor controlados pelo utilizador que pode utilizar para monitorizar os pedidos. |
-| storageDiagnostics | objeto | Informações sobre o diagnóstico de armazenamento. |
+| Sequenciador | cadeia | Um valor controlada pelo utilizador que pode utilizar para monitorizar os pedidos. |
+| storageDiagnostics | objeto | Informações sobre os diagnósticos de armazenamento. |
  
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma introdução à grelha de eventos do Azure, consulte [Novidades grelha de evento?](overview.md)
-* Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).
-* Para uma introdução ao trabalhar com eventos de armazenamento de BLOBs, consulte [eventos de armazenamento de BLOBs de rota - CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
+* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).
+* Para obter uma introdução para trabalhar com eventos de armazenamento de BLOBs, veja [eventos de armazenamento de BLOBs de rotas - CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

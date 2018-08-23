@@ -3,19 +3,19 @@ title: Criar Hubs de eventos do Azure do Apache Kafka ativada | Documentos da Mi
 description: Criar um Kafka ativado o espaço de nomes de Hubs de eventos do Azure com o portal do Azure
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: shvija
-ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285093"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061700"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Criar os hubs de eventos do Apache Kafka ativada
 
@@ -29,29 +29,29 @@ Este artigo descreve como criar um espaço de nomes de Hubs de eventos e obter a
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um Kafka ativado o espaço de nomes de Hubs de eventos
+## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos ativado para Kafka
 
 1. Inicie sessão para o [portal do Azure][Azure portal]e clique em **criar um recurso** na parte superior esquerda do ecrã.
 
-2. Procure os Hubs de eventos e selecione as opções mostradas aqui:
+2. Procure por Hubs de Eventos e selecione as opções mostradas aqui:
     
-    ![Procure Hubs de eventos no portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
+    ![Procurar por Hubs de Eventos no portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Forneça um nome exclusivo e ativar o Kafka no espaço de nomes. Clique em **Criar**.
+3. Indique um nome exclusivo e ative o Kafka no espaço de nomes. Clique em **Criar**.
     
     ![Criar um espaço de nomes](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
-4. Depois de criar o espaço de nomes, diante a **definições** separador clique **políticas de acesso partilhado** para obter a cadeia de ligação.
+4. Quando o espaço de nomes for criado, no separador **Definições**, clique em **Políticas de acesso partilhado** para obter a cadeia de ligação.
 
-    ![Clique em políticas de acesso partilhado](./media/event-hubs-create/create-event-hub7.png)
+    ![Clique em Políticas de acesso partilhado](./media/event-hubs-create/create-event-hub7.png)
 
-5. Pode escolher a predefinição **RootManageSharedAccessKey**, ou adicionar uma nova política. Clique no nome de política e copie a cadeia de ligação. 
+5. Pode escolher **RootManageSharedAccessKey** predefinida ou adicionar uma política nova. Clique no nome da política e copie a cadeia de ligação. 
     
-    ![Selecione uma política](./media/event-hubs-create/create-event-hub8.png)
+    ![Selecionar uma política](./media/event-hubs-create/create-event-hub8.png)
  
-6. Adicione esta cadeia de ligação à sua configuração de aplicação do Kafka.
+6. Adicione essa cadeia de ligação à sua configuração do Kafka.
 
-Agora pode transmitir eventos a partir das suas aplicações que utilizam o protocolo de Kafka nos Hubs de eventos.
+Agora, já pode transmitir em fluxo eventos das suas aplicações que utilizam o protocolo Kafka para os Hubs de eventos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

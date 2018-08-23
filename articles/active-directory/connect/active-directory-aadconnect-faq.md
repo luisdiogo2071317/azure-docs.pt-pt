@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265000"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055952"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
 
@@ -65,7 +65,7 @@ Para simplificar as coisas, é recomendável que os utilizadores que instalar o 
 Todos os softwares de sistema de rede, dispositivos físicos ou qualquer outra coisa que limita o tempo máximo que ligações podem permanecer abertas deve utilizar um limiar de, pelo menos, cinco minutos (300 segundos) para conectividade entre o servidor onde está instalado o cliente do Azure AD Connect e o Azure Active Directory. Esta recomendação aplica-se também de todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
 
 **P: são suportados domínios de etiqueta única (SLDs)?**  
-Enquanto é altamente recomendável em relação a esta configuração de rede ([consulte o artigo](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), através do Azure AD Connect com um domínio de etiqueta única for suportada, enquanto a configuração de rede para o domínio de nível único está a funcionar corretamente.
+Enquanto é altamente recomendável em relação a esta configuração de rede ([consulte o artigo](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), através do Azure AD Connect com um domínio de etiqueta única for suportada, enquanto a configuração de rede para o domínio de nível único está a funcionar corretamente.
 
 **P: são florestas com domínios de AD não contíguos suportados?**  
 Não, do Azure AD Connect não suporta florestas no local que contêm espaços de nomes não contíguos.
@@ -91,8 +91,8 @@ Não. Alterar o nome do servidor renderiza o motor de sincronização não é po
 **P: por que o atributo userPrincipalName (UPN) no Azure AD não corresponde ao UPN no local?**  
 Para obter informações, veja estes artigos:
 
-* [Nomes de utilizador no Office 365, o Azure ou o Intune não correspondem o UPN no local ou o ID de início de sessão alternativo](https://support.microsoft.com/en-us/kb/2523192)
-* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois de alterar o UPN de uma conta de utilizador para utilizar um domínio federado diferente](https://support.microsoft.com/en-us/kb/2669550)
+* [Nomes de utilizador no Office 365, o Azure ou o Intune não correspondem o UPN no local ou o ID de início de sessão alternativo](https://support.microsoft.com/kb/2523192)
+* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois de alterar o UPN de uma conta de utilizador para utilizar um domínio federado diferente](https://support.microsoft.com/kb/2669550)
 
 Também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualizar o UPN, conforme descrito em [funcionalidades de serviço de sincronização do Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
@@ -134,11 +134,11 @@ Para executar o script do PowerShell [transferir o script](https://aka.ms/repair
 
 Para atualizar manualmente, tem de transferir e executar a versão mais recente do ficheiro AADConnect.msi.
  
--  Se a sua versão atual é anterior 1.1.750.0, [transferir e atualizar para a versão mais recente](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+-  Se a sua versão atual é anterior 1.1.750.0, [transferir e atualizar para a versão mais recente](https://www.microsoft.com/download/details.aspx?id=47594).
 - Se a sua versão do Azure AD Connect é 1.1.750.0 ou posterior, não é necessária nenhuma ação adicional. Já está a utilizar a versão que contém a correção de atualização automática. 
 
 **P: foi recebido um e-mail informando-me para atualizar para a versão mais recente para voltar a ativar atualização automática. Estou usando a versão 1.1.654.0. É necessário atualizar?**  
-Sim, terá de atualizar para versão 1.1.750.0 ou posterior para ativar novamente a atualização automática. [Transferir e atualizar para a versão mais recente](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+Sim, terá de atualizar para versão 1.1.750.0 ou posterior para ativar novamente a atualização automática. [Transferir e atualizar para a versão mais recente](https://www.microsoft.com/download/details.aspx?id=47594).
 
 **P: foi recebido um e-mail informando-me para atualizar para a versão mais recente para voltar a ativar atualização automática. Se o ter utilizado o PowerShell para ativar a atualização automática, é ainda necessário instalar a versão mais recente?**  
 Sim, ainda terá de atualizar para versão 1.1.750.0 ou posterior. Ativar o serviço de atualização automática com o PowerShell não mitigar o problema de atualização automática encontrado nas versões antes 1.1.750.0.
@@ -190,7 +190,7 @@ Se precisar de ajuda a atualizar para uma versão mais recente do Azure AD Conne
 ## <a name="troubleshooting"></a>Resolução de problemas
 **P: como posso obter ajuda com o Azure AD Connect?**
 
-[Pesquise na Base de dados de Conhecimento Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Pesquise na Base de dados de Conhecimento Microsoft (KB)](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 * Procure o KB para soluções técnicas para questões de break-fix comuns sobre o suporte do Azure AD Connect.
 

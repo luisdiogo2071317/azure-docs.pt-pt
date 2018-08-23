@@ -1,5 +1,5 @@
 ---
-title: Criar e carregar um VHD de Linux Ubuntu no Azure
+title: Criar e carregar um VHD do Linux Ubuntu no Azure
 description: Saiba como criar e carregar um Azure disco rígido virtual (VHD) que contenha um sistema de operativo Ubuntu Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: f9a4588a444b5bfeb37f0bd98ada6a336baabb04
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5b2f902389b96136e0ea0c4c58f5e8be8144a248
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908872"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056145"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="official-ubuntu-cloud-images"></a>Imagens de nuvem Ubuntu oficiais
-Ubuntu agora publica oficial do Azure VHDs para transferência em [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Se precisar de criar a sua própria imagem Ubuntu especializada para o Azure, em vez disso que utilize o procedimento manual abaixo se recomenda para começar a utilizar estas conhecido trabalhar VHDs e personalizar conforme necessário. As versões mais recentes de imagem sempre podem ser encontradas nas seguintes localizações:
+## <a name="official-ubuntu-cloud-images"></a>Imagens de cloud oficiais do Ubuntu
+Ubuntu agora publica oficial VHDs do Azure para download em [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Se precisar de criar sua própria imagem de Ubuntu especializada para o Azure, em vez disso, que utilize o procedimento manual abaixo recomenda-se começar com estes conhecido VHDs de funcionar e ser personalizados conforme necessário. As versões de imagem mais recente sempre podem ser encontradas nas seguintes localizações:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linux para um disco rígido virtual. Existem várias ferramentas para criar ficheiros. vhd, por exemplo uma solução de virtualização, tais como o Hyper-V. Para obter instruções, consulte [instalar a função Hyper-V e configurar uma Máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
+Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linux para um disco rígido virtual. Existem várias ferramentas para criar ficheiros. vhd, por exemplo uma solução de virtualização, como o Hyper-V. Para obter instruções, consulte [instalar a função Hyper-V e configurar uma Máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
-**Notas de instalação do Ubuntu**
+**Observações de instalação do Ubuntu**
 
-* Consulte também [geral notas de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para mais sugestões no preparar Linux para o Azure.
+* Consulte também [observações de instalação de Linux geral](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
 * O formato VHDX não é suportado no Azure, apenas **fixo VHD**.  Pode converter o disco para o formato VHD utilizando o Gestor de Hyper-V ou o cmdlet convert-vhd.
-* Ao instalar o sistema Linux é recomendado que utilize partições padrão em vez de LVM (muitas vezes, a predefinição para instalações muitos). Evitará LVM nome entra em conflito com VMs Clonadas, particularmente se um disco de SO alguma vez precisar de ser ligado a outra VM para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser utilizado em discos de dados se preferencial.
-* Não configure uma partição de comutação no disco do SO. O agente Linux pode ser configurado para criar um ficheiro de comutação no disco de recursos temporário.  Podem encontrar mais informações sobre esta nos passos abaixo.
-* Todos os VHDs no Azure tem de ter um tamanho virtual alinhado com 1MB. Ao converter de um disco não processado para o VHD tem de se certificar de que o tamanho do disco não processados é um múltiplo de 1MB antes de conversão. Consulte [Linux instalação notas](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
+* Ao instalar o sistema Linux é recomendado que utilize partições padrão em vez de LVM (muitas vezes, o padrão para muitas instalações). Isso evitará LVM nome entra em conflito com VMs Clonadas, especialmente se um disco de SO algum dia precisar ser anexados a outra VM para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser utilizada em discos de dados, se preferirem.
+* Não configure uma partição de troca no disco do SO. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporário.  Podem encontrar mais informações sobre este assunto nos passos abaixo.
+* Todos os VHDs no Azure tem de ter um tamanho virtual alinhado para 1MB. Ao converter a partir de um disco não processado para o VHD tem de se certificar de que o tamanho de disco bruto é um múltiplo de 1MB antes da conversão. Ver [observações de instalação de Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ## <a name="manual-steps"></a>Passos manuais
 > [!NOTE]
-> Antes de tentar criar a sua imagem personalizada do Ubuntu para o Azure, considere utilizar as imagens previamente concebidas e testadas do [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) em vez disso.
+> Antes de tentar criar a sua própria imagem personalizada do Ubuntu para o Azure,. considere utilizar as imagens previamente criadas e testadas partir [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) em vez disso.
 > 
 > 
 
@@ -53,9 +53,9 @@ Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linu
 
 2. Clique em **Connect** para abrir a janela para a máquina virtual.
 
-3. Substitua os atuais repositórios na imagem a utilizar repos do Azure do Ubuntu. Os passos variam ligeiramente dependendo da versão Ubuntu.
+3. Substitua os repositórios atuais na imagem para utilizar transparente de repositórios do Azure do Ubuntu. Os passos são ligeiramente diferentes consoante a versão do Ubuntu.
    
-    Antes de editar `/etc/apt/sources.list`, é recomendado que faça uma cópia de segurança:
+    Antes de editar `/etc/apt/sources.list`, recomenda-se para fazer uma cópia de segurança:
    
         # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -74,7 +74,7 @@ Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linu
         # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
         # sudo apt-get update
 
-4. As imagens de Ubuntu Azure estão agora a seguir a *ativação hardware* kernel (HWE). Atualize o sistema operativo para o kernel mais recente, executando os seguintes comandos:
+4. As imagens do Ubuntu Azure estão agora a seguir a *ativação de hardware* kernel (HWE). Atualize o sistema operativo para o kernel mais recente ao executar os comandos seguintes:
 
     Ubuntu 12.04:
    
@@ -107,13 +107,13 @@ Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linu
     - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
 
-5. Modifique a linha de arranque de kernel para Grub incluir parâmetros de kernel adicionais para o Azure. Para fazer este open `/etc/default/grub` num editor de texto, localizar a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicioná-la, se necessário) e editá-lo para incluir os seguintes parâmetros:
+5. Modificar a linha de arranque de kernel para Grub incluir parâmetros de kernel adicionais para o Azure. Para fazer este open `/etc/default/grub` no editor de texto, encontre a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicioná-lo se necessário) e editá-la para incluir os seguintes parâmetros:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
-    Guarde e feche este ficheiro e, em seguida, execute `sudo update-grub`. Isto irá garantir que todas as mensagens de consola são enviadas para a primeira porta série, que pode ajudar o suporte técnico do Azure com problemas de depuração.
+    Guardar e fechar este ficheiro e, em seguida, execute `sudo update-grub`. Isto irá garantir que todas as mensagens de consola são enviadas para a primeira porta serial, que pode ajudar o suporte técnico do Azure com a depuração de problemas.
 
-6. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento do arranque.  Normalmente, esta é a predefinição.
+6. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento da inicialização.  Normalmente, esta é a predefinição.
 
 7. Instale o agente Linux do Azure:
    
@@ -121,22 +121,22 @@ Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linu
         # sudo apt-get install walinuxagent
 
     >[!Note]
-    O `walinuxagent` pacote pode remover o `NetworkManager` e `NetworkManager-gnome` pacotes e, se estiverem instalados.
+    O `walinuxagent` poderá remover o pacote a `NetworkManager` e `NetworkManager-gnome` pacotes e, se estiverem instalados.
 
-8. Execute os seguintes comandos para retirar o aprovisionamento da máquina virtual e prepará-la para o aprovisionamento no Azure:
+8. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD de Linux está agora pronto para ser carregado para o Azure.
-
-## <a name="next-steps"></a>Passos Seguintes
-Agora, está pronto a utilizar o seu disco rígido virtual Ubuntu Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, consulte [criar uma VM com Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
+9. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD do Linux está agora pronto para ser carregado para o Azure.
 
 ## <a name="references"></a>Referências
-Ubuntu kernel de ativação (HWE) de hardware:
+[Kernel de ativação (HWE) de hardware do Ubuntu](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 
-* [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
-* [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
+## <a name="next-steps"></a>Passos Seguintes
+Agora, está pronto para utilizar o seu disco rígido virtual do Ubuntu Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, veja [criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
+
+
+
 

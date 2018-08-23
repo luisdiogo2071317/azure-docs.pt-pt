@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: extensões de diretórios | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: extensões de diretórios | Documentos da Microsoft'
 description: Este tópico descreve a funcionalidade de extensões de diretório no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,54 +15,54 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a19fa124396bf9c9db4a60591b74f5425ce9670b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593637"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055950"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões de diretórios
-Pode utilizar extensões de diretórios para expandir o esquema no Azure Active Directory (Azure AD) com os seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações de LOB ao consumir atributos que continua a gerir no local. Estes atributos podem ser consumidos através de [extensões de diretórios do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Pode ver os atributos disponíveis utilizando [Explorador do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer), respetivamente.
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões de diretório
+Pode utilizar extensões de diretório para expandir o esquema no Azure Active Directory (Azure AD) com seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações LOB ao consumo de atributos que continua a gerir no local. Estes atributos podem ser consumidos por meio [extensões de diretório do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Pode ver os atributos disponíveis utilizando [do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [de API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
 
-Atualmente, não carga de trabalho do Office 365 consome estes atributos.
+No momento, nenhuma carga de trabalho do Office 365 consome esses atributos.
 
-Configurar os atributos adicionais que pretende sincronizar no caminho de definições personalizadas no Assistente de instalação.
+Configurar quais atributos adicionais que pretende sincronizar no caminho de definições personalizadas no Assistente de instalação.
 
 ![Assistente de extensão de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
 
 A instalação mostra os seguintes atributos, são candidatos válidos:
 
 * Tipos de objeto de utilizador e grupo
-* Atributos de valor único: String, booleano, número inteiro, binário
-* Atributos com múltiplos valores: cadeia, binário
+* Atributos de valor único: cadeia, booleano, número inteiro, binário
+* Atributos com múltiplos valores: cadeia de caracteres, o binário
 
 
 >[!NOTE]
-> Azure AD Connect suporta sincronizar atributos do Active Directory com múltiplos valores para o Azure AD como extensões de diretórios com múltiplos valores. Mas não existem funcionalidades no Azure AD atualmente suportam a utilização de extensões de diretórios com múltiplos valores.
+> Azure AD Connect suporta sincronizar atributos com múltiplos valores do Active Directory para o Azure AD como extensões de diretório com múltiplos valores. Mas não existem recursos no Azure AD atualmente suportam a utilização de extensões de diretório com múltiplos valores.
 
-A lista de atributos é lido a partir da cache do esquema que é criada durante a instalação do Azure AD Connect. Se tiver expandido o esquema do Active Directory com atributos adicionais, tem de [atualizar o esquema](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) antes destes novos atributos estão visíveis.
+A lista de atributos é lidos a partir da cache do esquema que é criada durante a instalação do Azure AD Connect. Se tiver expandido o esquema do Active Directory com atributos adicionais, terá [atualizar o esquema](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) antes destes novos atributos estão visíveis.
 
-Um objeto no Azure AD pode ter até 100 atributos de extensões de diretórios. O comprimento máximo é 250 caracteres. Se um valor de atributo é maior, o motor de sincronização trunca-lo.
+Um objeto no Azure AD pode ter até 100 atributos de extensões de diretório. O comprimento máximo é 250 carateres. Se um valor de atributo superior, o motor de sincronização trunca-lo.
 
-Durante a instalação do Azure AD Connect, uma aplicação está registada em que estes atributos estão disponíveis. Pode ver esta aplicação no portal do Azure.
+Durante a instalação do Azure AD Connect, um aplicativo está registado em que esses atributos estão disponíveis. Pode ver esta aplicação no portal do Azure.
 
-![Aplicação de extensões de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
+![Aplicação de extensão de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
-Os atributos têm o prefixo com a extensão \_{AppClientId}\_. AppClientId tem o mesmo valor para todos os atributos no inquilino do Azure AD.
+Os atributos são prefixados com a extensão \_{AppClientId}\_. AppClientId tem o mesmo valor para todos os atributos no inquilino do Azure AD.
 
-Estes atributos estão agora disponíveis através da Azure AD Graph API. Pode consultá-los utilizando [Explorador do Azure AD Graph](https://graphexplorer.azurewebsites.net/).
+Esses atributos estão agora disponíveis por meio da API do Azure AD Graph. Pode consultá-los usando [do Azure AD Graph](https://graphexplorer.azurewebsites.net/).
 
-![Explorador do Azure AD Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+![API do Azure AD Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Ou pode consultar os atributos através do Microsoft Graph API, utilizando [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#).
+Ou pode consultar os atributos através do Microsoft Graph API, utilizando [API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Terá de voltar a pedir os atributos a ser devolvido. Selecionar explicitamente os atributos como esta: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
+> Terá de pedir os atributos a serem retornados. Selecionar explicitamente os atributos como este: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> Para obter mais informações, consulte [Microsoft Graph: utilizar os parâmetros de consulta](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
+> Para obter mais informações, consulte [Microsoft Graph: utilizam parâmetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
+Saiba mais sobre o [do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

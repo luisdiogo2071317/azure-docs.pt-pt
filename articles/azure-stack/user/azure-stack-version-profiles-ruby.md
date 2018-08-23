@@ -3,7 +3,7 @@ title: Através de perfis de versão de API com Ruby no Azure Stack | Documentos
 description: Saiba como utilizar perfis de versão de API com o Ruby no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: B82E4979-FB78-4522-B9A1-84222D4F854B
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 4d62c192b4e74980fc8cd8a671a702ba2ddfdbcb
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: a000a54f79e479567168992cdd0786eb9e8b5c32
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866598"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058826"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Utilizar perfis de versão de API com o Ruby no Azure Stack
 
@@ -87,7 +87,7 @@ Para utilizar o SDK do Ruby do Azure com o Azure Stack, tem de indicar os valore
 | Valor | Variáveis de ambiente | Descrição | 
 | --- | --- | --- | --- |
 | ID do inquilino | AZURE_TENANT_ID | O valor do seu Azure Stack [ID de inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
-| ID de cliente | AZURE_CLIENT_ID | O serviço de ID da aplicação principal guardado quando principal de serviço foi criado na secção anterior deste documento.  |
+| ID de Cliente | AZURE_CLIENT_ID | O serviço de ID da aplicação principal guardado quando principal de serviço foi criado na secção anterior deste documento.  |
 | ID da subscrição | AZURE_SUBSCRIPTION_ID | O [ID de subscrição](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como acessa ofertas no Azure Stack. |
 | Segredo do Cliente | AZURE_CLIENT_SECRET | A aplicação do principal de serviço segredo guardado quando principal de serviço foi criado. |
 | Ponto final do Gestor de recursos | ARM_ENDPOINT | Ver [o Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
@@ -232,7 +232,7 @@ Para executar o exemplo, certifique-se de que tem instalado o Ruby. Se estiver a
 
   Valores necessários são:
   - ID do inquilino
-  - ID de cliente
+  - ID de Cliente
   - Segredo do Cliente
   - ID da subscrição
   - Ponto final do Gestor de recursos

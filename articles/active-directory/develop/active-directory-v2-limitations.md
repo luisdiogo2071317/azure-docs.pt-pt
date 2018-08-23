@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590754"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055980"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v2.0?
 
@@ -101,6 +101,7 @@ Atualmente, o suporte de biblioteca para o ponto final v2.0 é limitado. Se quis
 * Se estiver criando um aplicativo de desktop ou mobile, pode utilizar um da bibliotecas de autenticação da Microsoft (MSAL) de pré-visualização. Essas bibliotecas estão em pré-visualização suportado de produção, portanto, é seguro para usá-los em aplicações de produção. Pode ler mais sobre os termos de pré-visualização e as bibliotecas disponíveis no [referência de bibliotecas de autenticação](reference-v2-libraries.md).
 * Para plataformas não abrangidas por bibliotecas da Microsoft, pode integrar com o ponto final v2.0 diretamente enviar e receber mensagens de protocolo no código da aplicação. Os protocolos de OpenID Connect e OAuth v2.0 [estão documentados explicitamente](active-directory-v2-protocols.md) para ajudar a efetuar uma integração desse tipo.
 * Por fim, pode utilizar bibliotecas de código-fonte aberto abrir ID Connect e OAuth para integrar com o ponto final v2.0. O protocolo de v2.0 deve ser compatível com muitas bibliotecas de protocolo aberto sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia consoante o idioma e plataforma. O [abrir ID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) Web sites manter uma lista de implementações populares. Para obter mais informações, consulte [bibliotecas de autenticação e a versão 2.0 do Azure Active Directory](reference-v2-libraries.md)e a lista de bibliotecas de cliente de código-fonte aberto e exemplos que foram testados com o ponto final v2.0.
+  * Para referência, o `.well-known` ponto final para o ponto de extremidade comum v2.0 é `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Substitua `common` com o seu ID de inquilino para obter os dados específicos ao seu inquilino.  
 
 ## <a name="restrictions-on-protocols"></a>Restrições em protocolos
 
@@ -109,7 +110,6 @@ O ponto final v2.0 não suporta SAML ou WS-Federation; ela oferece suporte apena
 As seguintes funcionalidades de protocolo e capacidades estão atualmente *não está disponível* o ponto final de v2.0:
 
 * Atualmente, o `email` afirmação é devolvida apenas se uma afirmação de opcional é configurada e escopo é o âmbito = correio eletrónico foi especificado no pedido. No entanto, este comportamento será alterado à medida que o ponto final v2.0 é atualizado para ainda mais estar em conformidade com as normas de abrir ID Connect e OAuth2.0.
-* O ponto de extremidade UserInfo de ligação OpenID não está implementado no ponto final v2.0. No entanto, todos os dados de perfil de utilizador que potencialmente seria recebida neste ponto final está disponível no Microsoft Graph `/me` ponto final.
 * O ponto final v2.0 não suporta a emissoras declarações de função ou grupo nos tokens de ID.
 * O [concessão de credenciais de palavra-passe do OAuth 2.0 recursos proprietário](https://tools.ietf.org/html/rfc6749#section-4.3) não é suportado pelo ponto final v2.0.
 

@@ -1,34 +1,32 @@
 ---
 title: Inícios de sessão e utilizadores do SQL do Azure | Microsoft Docs
-description: Saiba mais sobre a gestão da segurança da Base de Dados SQL, mais concretamente como gerir o acesso às bases de dados e a segurança dos inícios de sessão através da conta principal ao nível do servidor.
+description: Saiba mais sobre a gestão de segurança de base de dados SQL e SQL Data Warehouse, mais concretamente como gerir a segurança de acesso e o início de sessão da base de dados através da conta do principal ao nível do servidor.
 keywords: segurança de base de dados sql,gestão de segurança da base de dados,segurança de início de sessão,segurança de base de dados,acesso de base de dados
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 08/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 8529256313d8e3cb3b7155bb1b79764c17274397
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649810"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056756"
 ---
-# <a name="controlling-and-granting-database-access"></a>Controlar e conceder acesso à base de dados
+# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlar e conceder acesso de base de dados para a base de dados SQL e SQL Data Warehouse
 
-Depois de tem configuradas regras de firewall, as pessoas podem ligar a uma base de dados do SQL Server como uma das contas de administrador, como o proprietário da base de dados ou um utilizador de base de dados na base de dados.  
+Após a configuração de regras de firewall, pode ligar ao Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) como uma das contas administrador, como o proprietário da base de dados ou como um utilizador de base de dados na base de dados.  
 
 >  [!NOTE]  
->  Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. 
->
+>  Este tópico aplica-se ao servidor SQL do Azure e a base de dados SQL e SQL Data Warehouse bases de dados criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. 
 
 > [!TIP]
-> Para um tutorial, consulte [proteger a base de dados do SQL do Azure](sql-database-security-tutorial.md).
->
-
+> Para obter um tutorial, veja [proteger a sua base de dados do SQL Azure](sql-database-security-tutorial.md).
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas sem restrições
 Existem duas contas administrativas (**Administrador de servidor** e **Administrador do Active Directory**) que atuam como administradores. Para identificar estas contas de administrador para o seu servidor SQL, abra o portal do Azure e navegue para as propriedades do servidor SQL.
@@ -38,17 +36,17 @@ Existem duas contas administrativas (**Administrador de servidor** e **Administr
 - **Administrador de servidor**   
 Quando cria um servidor SQL do Azure, tem de designar um **Início de sessão de administrador do servidor**. O servidor SQL cria essa conta como um início de sessão na base de dados mestra. Liga-se através da autenticação do SQL Server (nome de utilizador e palavra-passe). Só pode existir uma destas contas.   
 - **Administrador do Azure Active Directory**   
-Também é possível configurar uma conta do Azure Active Directory, seja esta individual ou de grupo de segurança, como administrador. Configurar um administrador do Azure AD é opcional. Contudo, este tem de ser configurado se quiser utilizar contas do Azure AD para ligar à Base de Dados SQL. Para obter mais informações sobre a configuração do acesso do Azure Active Directory, veja [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication (Ligar à Base de Dados SQL ou ao SQL Data Warehouse Com a Autenticação do Azure Active Directory)](sql-database-aad-authentication.md) e [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication (Suporte do SSMS para Azure AD MFA com Base de Dados SQL e SQL Data Warehouse)](sql-database-ssms-mfa-authentication.md).
+Também é possível configurar uma conta do Azure Active Directory, seja esta individual ou de grupo de segurança, como administrador. É opcional configurar um administrador do Azure AD, mas o administrador do Azure AD **tem** ser configurado se quiser utilizar contas do Azure AD para ligar à base de dados SQL. Para obter mais informações sobre a configuração do acesso do Azure Active Directory, veja [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication (Ligar à Base de Dados SQL ou ao SQL Data Warehouse Com a Autenticação do Azure Active Directory)](sql-database-aad-authentication.md) e [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication (Suporte do SSMS para Azure AD MFA com Base de Dados SQL e SQL Data Warehouse)](sql-database-ssms-mfa-authentication.md).
  
 
 As contas de **Administrador de servidor** e de **Administrador do Azure AD** têm as seguintes características:
-- São as únicas contas que podem ligar automaticamente a qualquer Base de Dados SQL no servidor. (Para ligar a uma base de dados de utilizador, as outras contas têm de ser o proprietário da base de dados ou ter uma conta de utilizador na base de dados de utilizador.)
+- São as únicas contas que podem ligar automaticamente a qualquer base de dados SQL no servidor. (Para ligar a uma base de dados de utilizador, as outras contas têm de ser o proprietário da base de dados ou ter uma conta de utilizador na base de dados de utilizador.)
 - Estas contas introduzem bases de dados de utilizador como o utilizador `dbo` e têm todas as permissões nas bases de dados de utilizador. (O proprietário de uma base de dados de utilizador também introduz a base de dados como o utilizador `dbo`.) 
-- Estas contas não introduzem a base de dados `master` como o utilizador `dbo` e têm permissões limitadas na base de dados mestra. 
-- Estas contas não são membros da função de servidor fixa `sysadmin` standard do SQL Server, a qual não está disponível na base de dados SQL.  
-- Estas contas podem criar, alterar e remover bases de dados, inícios de sessão, utilizadores na base de dados mestra e regras de firewall ao nível do servidor.
-- Estas contas podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
-- Estas contas podem ver a tabela de sistema `sys.sql_logins`.
+- Não introduza o `master` da base de dados como o `dbo` utilizador e têm permissões limitadas na mestra. 
+- São **não** membros do standard SQL Server `sysadmin` função de servidor fixa, o que não está disponível na base de dados SQL.  
+- Pode criar, alterar e remover bases de dados, inícios de sessão, utilizadores nas regras de firewall mestre e ao nível do servidor.
+- Pode adicionar e remover membros para o `dbmanager` e `loginmanager` funções.
+- Pode ver o `sys.sql_logins` tabela de sistema.
 
 ### <a name="configuring-the-firewall"></a>Configurar a firewall
 Quando a firewall ao nível do servidor está configurada para um endereço IP individual ou intervalo de IP, o **administrador de servidor SQL** e o **administrador do Azure Active Directory** podem ligar-se à base de dados mestra e a todas as bases de dados de utilizador. A firewall ao nível do servidor inicial pode ser configurada através do [portal do Azure](sql-database-get-started-portal.md), com o [PowerShell](sql-database-get-started-powershell.md) ou com a [API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Depois de estabelecida uma ligação, também podem ser configuradas regras de firewall ao nível do servidor adicionais através do [Transact-SQL](sql-database-configure-firewall-settings.md).
@@ -89,7 +87,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
@@ -133,7 +131,7 @@ ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
 > [!NOTE]
-> É um motivo comum para criar um utilizador de base de dados com base num início de sessão do servidor lógico para os utilizadores que necessitam de aceder a várias bases de dados. Uma vez que continha os utilizadores de base de dados são entidades individuais, cada base de dados mantém o seu próprio utilizador e a sua própria palavra-passe. Isto pode provocar overhead à medida que o utilizador tem, em seguida, lembre-se de cada palavra-passe para cada base de dados, pode ficar untenable quando ter de alterar várias palavras-passe para muitas bases de dados. No entanto, ao utilizar inícios de sessão do SQL Server e de elevada disponibilidade (georreplicação ativa e grupos de ativação pós-falha), os inícios de sessão do SQL Server tem de definir manualmente em cada servidor. Caso contrário, o utilizador de base de dados serão já não é mapeado para o início de sessão do servidor depois de ocorre uma ativação pós-falha e não será capaz de aceder a ativação pós-falha post de base de dados. Para obter mais informações sobre como configurar inícios de sessão para georreplicação, consulte [configurar e gerir a segurança de SQL Database do Azure para georrestauro ou de ativação pós-falha](sql-database-geo-replication-security-config.md).
+> É uma das razões comuns para criar um utilizador de base de dados com base num início de sessão do servidor lógico para os utilizadores que necessitam de aceder a várias bases de dados. Uma vez que continha os utilizadores de base de dados são entidades individuais, cada base de dados mantém sua própria de utilizador e a sua própria palavra-passe. Isso pode causar overhead à medida que o utilizador tem, em seguida, lembre-se de cada palavra-passe para cada base de dados, e ele pode se tornar untenable quando precisar alterar várias palavras-passe para muitas bases de dados. No entanto, ao utilizar inícios de sessão do SQL Server e de elevada disponibilidade (georreplicação ativa e grupos de ativação pós-falha), os inícios de sessão do SQL Server tem de ser definidos manualmente em cada servidor. Caso contrário, o utilizador de base de dados será já não está mapeado para o início de sessão do servidor depois de ocorre uma ativação pós-falha e não será capaz de aceder a ativação pós-falha de postagem de base de dados. Para obter mais informações sobre como configurar os inícios de sessão para georreplicação, veja [configurar e gerir a segurança de base de dados do Azure SQL para o restauro geográfico ou de ativação pós-falha](sql-database-geo-replication-security-config.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Configurar a firewall ao nível da base de dados
 Como melhor prática, os utilizadores não administradores só devem ter acesso às bases de dados que utilizam através da firewall. Em vez de autorizar os endereços IP deles através da firewall ao nível do servidor e conceder acesso a todas as bases de dados, utilize a instrução [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) para configurar a firewall ao nível da base de dados. Não é possível configurar a firewall ao nível da base de dados no portal.
@@ -187,6 +185,6 @@ Ao gerir inícios de sessão e utilizadores na Base de Dados SQL, considere o se
 
 - Para saber mais sobre regras de firewall, veja [Firewall da Base de Dados SQL do Azure](sql-database-firewall-configure.md).
 - Para obter uma descrição geral de todas as funcionalidades de segurança da Base de Dados SQL, veja a [Descrição geral da segurança de SQL](sql-database-security-overview.md).
-- Para um tutorial, consulte [proteger a base de dados do SQL do Azure](sql-database-security-tutorial.md).
+- Para obter um tutorial, veja [proteger a sua base de dados do SQL Azure](sql-database-security-tutorial.md).
 - Para obter informações sobre vistas e procedimentos armazenados, veja [Creating views and stored procedures (Criar vistas e procedimentos armazenados)](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para obter informações sobre como conceder acesso a um objeto de base de dados, veja [Granting Access to a Database Object (Conceder Acesso a um Objeto de Base de Dados)](https://msdn.microsoft.com/library/ms365327.aspx)

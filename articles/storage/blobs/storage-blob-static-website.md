@@ -5,20 +5,20 @@ services: storage
 author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/18
+ms.date: 08/17/18
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 65a1cd85baf18ac1f0d193e7e6d6c3139919fb59
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397480"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617402"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Alojamento de Web site estático no armazenamento do Azure (pré-visualização)
-O armazenamento do Azure oferece agora o Web site estático (pré-visualização) de alojamento, permitindo-lhe implementar aplicações web modernas, económica e dimensionável no Azure. Num Web site estático, páginas da Web contém conteúdo estático e o JavaScript ou outro código do lado do cliente. Por outro lado, depender de código do lado do servidor Web sites dinâmicos e pode ser hospedados usando [aplicações Web do Azure](/app-service/app-service-web-overview.md).
+O armazenamento do Azure oferece agora o Web site estático (pré-visualização) de alojamento, permitindo-lhe implementar aplicações web modernas, económica e dimensionável no Azure. Num Web site estático, páginas da Web contém conteúdo estático e o JavaScript ou outro código do lado do cliente. Por outro lado, depender de código do lado do servidor Web sites dinâmicos e pode ser hospedados usando [aplicações Web do Azure](/azure/app-service/app-service-web-overview).
 
-Como implementações mudança no sentido de modelos flexíveis e econômicos, a capacidade de fornecer conteúdo da web sem a necessidade de gestão de servidor é fundamental. A introdução de hospedagem de Web site estático no armazenamento do Azure torna isso possível, habilitando recursos avançados de back-end com arquiteturas sem servidor, tirando partido [as funções do Azure](/azure-functions/functions-overview.md) e outros serviços PaaS.
+Como implementações mudança no sentido de modelos flexíveis e econômicos, a capacidade de fornecer conteúdo da web sem a necessidade de gestão de servidor é fundamental. A introdução de hospedagem de Web site estático no armazenamento do Azure torna isso possível, habilitando recursos avançados de back-end com arquiteturas sem servidor, tirando partido [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
 
 ## <a name="how-does-it-work"></a>Como funciona?
 Quando ativar os Web sites estáticos na sua conta de armazenamento, um novo ponto de final de serviço de web é criado do formulário `<account-name>.<zone-name>.web.core.windows.net`.
@@ -31,14 +31,14 @@ Ao carregar o conteúdo para o seu Web site, utilize o ponto final de armazename
 
 
 ## <a name="custom-domain-names"></a>Nomes de domínio personalizados
-Pode utilizar um domínio personalizado para alojar o seu conteúdo da web. Para tal, siga as orientações no [configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure](storage-custom-domain-name.md). Para aceder ao seu Web site hospedado num nome de domínio personalizado através de HTTPS, consulte [utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md).
+Pode utilizar um domínio personalizado para alojar o seu conteúdo da web. Para tal, siga as orientações no [configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure](storage-custom-domain-name.md). Para aceder ao seu Web site hospedado num nome de domínio personalizado através de HTTPS, consulte [utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md). Aponte o CDN para o ponto final web em vez do ponto final do blob e lembre-se de que a configuração de CDN não acontece instantaneamente, por isso terá de aguardar alguns minutos até que seu conteúdo está visível.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 Alojamento de Web site estático é fornecido sem custos adicionais. Para obter mais detalhes sobre os preços para o armazenamento de Blobs do Azure, consulte a [página de preços do Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Início Rápido
 ### <a name="azure-portal"></a>Portal do Azure
-Para começar a alojar a sua aplicação web no armazenamento do Azure, pode configurar a funcionalidade com o Portal do Azure e clique em "Web site estático (pré-visualização)" em "Definições", na barra de navegação esquerdo. Clique em "Ativada" e introduza o nome do documento de índice e (opcionalmente) o caminho do documento de erro personalizada.
+Se ainda não o fez, [criar uma conta de armazenamento GPv2](../common/storage-quickstart-create-account.md) para começar a alojar a sua aplicação web, pode configurar a funcionalidade com o Portal do Azure e clique em "Web site estático (pré-visualização)" em "Definições", na barra de navegação esquerdo. Clique em "Ativada" e introduza o nome do documento de índice e (opcionalmente) o caminho do documento de erro personalizada.
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
@@ -49,6 +49,29 @@ Carregue os seus ativos de web para o contentor de "$web" que foi criado como pa
 
 Por fim, navegue para o ponto final de web para testar o seu Web site.
 
+### <a name="azure-cli"></a>CLI do Azure
+Instale a extensão de pré-visualização de armazenamento:
+
+```azurecli-interactive
+az extension add --name storage-preview
+```
+Ative a funcionalidade:
+
+```azurecli-interactive
+az storage blob service-properties update --account-name <account-name> --static-website --404-document <error-doc-name> --index-document <index-doc-name>
+```
+Consulta para o URL de ponto final web:
+
+```azurecli-interactive
+az storage account show -n <account-name> -g <resource-group> --query "primaryEndpoints.web" --output tsv
+```
+
+Carregar objetos para o contentor de $web:
+
+```azurecli-interactive
+az storage blob upload-batch -s deploy -d $web --account-name <account-name>
+```
+
 ## <a name="faq"></a>FAQ
 **Os Web sites estáticos está disponível para todos os tipos de conta de armazenamento?**  
 Não, o alojamento de Web site estático apenas está disponível nas contas de armazenamento padrão de GPv2.
@@ -56,9 +79,12 @@ Não, o alojamento de Web site estático apenas está disponível nas contas de 
 **São armazenamento VNET e regras de firewall suportadas no novo ponto final web?**  
 Sim, o novo ponto final da web obedeça as regras VNET e de firewall configuradas para a conta de armazenamento.
 
+**O ponto final web diferencia maiúsculas de minúsculas?**  
+Sim, o ponto final web diferencia maiúsculas de minúsculas tal como o ponto final do blob. 
+
 ## <a name="next-steps"></a>Passos Seguintes
 * [Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar um nome de domínio personalizado para o ponto final do blob ou web](storage-custom-domain-name.md)
-* [Funções do Azure](/azure-functions/functions-overview.md)
-* [Aplicações Web do Azure](/app-service/app-service-web-overview.md)
+* [Funções do Azure](/azure/azure-functions/functions-overview)
+* [Aplicações Web do Azure](/azure/app-service/app-service-web-overview)
 * [Crie seu primeiro aplicativo da web sem servidor](https://aka.ms/static-serverless-webapp)

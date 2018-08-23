@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436013"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918539"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -75,7 +75,7 @@ Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um ar
 1. Na vista de árvore, clique com o botão direito do rato na base de dados que criou e selecione **Nova Consulta**.
 
 ### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
-Neste tutorial, utiliza uma conta de armazenamento do Azure para fins gerais (mais concretamente, o Armazenamento de blobs) como arquivo de dados de destino/sink. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account). O pipeline da fábrica de dados que vai criar neste tutorial copia dados desta base de dados do SQL Server no local (origem) para o armazenamento de Blobs (sink). 
+Neste tutorial, utiliza uma conta de armazenamento do Azure para fins gerais (mais concretamente, o Armazenamento de blobs) como arquivo de dados de destino/sink. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). O pipeline da fábrica de dados que vai criar neste tutorial copia dados desta base de dados do SQL Server no local (origem) para o armazenamento de Blobs (sink). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome e a chave da conta de armazenamento
 Utilize o nome e a chave da sua conta de armazenamento neste tutorial. Para obter o nome e a chave da sua conta de armazenamento, siga os passos seguintes: 
@@ -269,15 +269,15 @@ O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguint
 
 1. Deverá regressar à janela com o conjunto de dados de sink aberto. No separador **Ligação**, siga os passos abaixo: 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. Em **Serviço ligado**, confirme que **AzureStorageLinkedService** está selecionado.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. Para a **pasta**/ **Diretório** parte de **Caminho do ficheiro**, introduza **adftutorial/fromonprem**. Se a pasta de saída não existir no contentor adftutorial, o Data Factory cria-a automaticamente.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. Para o **nome de ficheiro** parte de **Caminho do ficheiro**, selecione **Adicionar conteúdo dinâmico**.   
 
     ![valor do nome de ficheiro dinâmico](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Adicione `@CONCAT(pipeline().RunId, '.txt')`, selecione **Concluir**. Isto irá mudar o nome do ficheiro com o PipelineRunID.txt. 
 
     ![expressão dinâmica para resolver o nome de ficheiro](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 

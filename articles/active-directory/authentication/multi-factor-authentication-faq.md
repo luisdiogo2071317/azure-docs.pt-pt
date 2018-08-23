@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159846"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057678"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Azure multi-factor Authentication
 
@@ -218,7 +218,7 @@ Uma solução alternativa para este erro é fazer com que o utilizador em separa
 
 Se a sua pergunta não respondida aqui,. Deixe-nos comentários na parte inferior da página. Em alternativa, aqui estão algumas opções adicionais para obter ajuda:
 
-* Pesquisa o [Base de dados de conhecimento de suporte Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para soluções para problemas técnicos comuns.
+* Pesquisa o [Base de dados de conhecimento de suporte Microsoft](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para soluções para problemas técnicos comuns.
 * Procurar e navegue perguntas técnicas e respostas da Comunidade ou fazer sua própria pergunta no [fóruns do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Se for um cliente herdado do PhoneFactor e tiver alguma dúvida ou precisa de ajuda para repor uma palavra-passe, utilize o [reposição de palavra-passe](mailto:phonefactorsupport@microsoft.com) link para abrir um incidente de suporte.
 * Entre em contato com um analista de suporte por meio [suporte do Azure multi-factor Authentication Server (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando contactar-nos, é útil se pode incluir o máximo de informações sobre o seu problema quanto possível. Pode fornecer as informações incluem a página em que viu o erro, o código de erro específico, o ID de sessão específico e o ID do utilizador que viu o erro.

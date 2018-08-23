@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 07/31/2018
+ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6162ee59689df12e2dace9a0419490979a13d4c5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622080"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616868"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -122,6 +122,8 @@ Depois de termos de utilização é criado e imposta, os utilizadores que estão
 O ecrã seguinte mostra o aspeto dos Termos de utilização em dispositivos móveis.
 
 ![Evento de Auditoria](media/active-directory-tou/mobile-tou.png)
+
+Os utilizadores só têm de aceitar os termos de utilização de uma vez e não irão ver os termos de utilização novamente no subsequentes inícios de sessão.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Como os utilizadores podem rever os Termos de utilização
 Os utilizadores podem rever e ver os termos de utilização que aceitaram, utilizando o procedimento seguinte.

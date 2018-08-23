@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020446"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617422"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Além disso, instale a [CLI do Service Fabric](service-fabric-cli.md).
 O Service Fabric fornece ferramentas estruturais que irão ajudá-lo a criar uma aplicação Java do Service Fabric a partir do terminal, através do gerador de modelos Yeoman.  Se o Yeoman ainda não estiver instalado, consulte [Introdução ao Service Fabric com o Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) para obter instruções de configuração do Yeoman. Execute o seguinte comando para instalar o gerador de modelo do Service Fabric Yeoman para Java.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>Conceitos básicos
@@ -220,18 +220,18 @@ Após a implementação da aplicação, abra um browser e navegue até [Service 
 Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implementar a aplicação para um cluster com Linux segura no Azure, terá de configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Se o fizer, permite que os seus serviços Reliable Actors comunicar com o tempo de execução do Service Fabric subjacente APIs. Para obter mais informações, consulte [configurar uma aplicação Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implementar a aplicação a um cluster Linux seguro no Azure, terá de configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Se o fizer, permite que os seus serviços de Reliable Actors comunicar com o tempo de execução do Service Fabric subjacente APIs. Para obter mais informações, consulte [configurar uma aplicação de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Iniciar o cliente de teste e executar uma ativação pós-falha
 Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lhes envie mensagens. O modelo de ator inclui um script de teste simples, que pode utilizar para interagir com o serviço de ator.
 
 > [!Note]
-> O cliente de teste utiliza a classe de ActorProxy para comunicar com atores, que tem de executar dentro do mesmo cluster que o serviço de atores ou partilhar o mesmo espaço de endereços IP.  Pode executar o cliente de teste no mesmo computador do cluster de desenvolvimento local.  Para comunicar com atores num cluster remoto, no entanto, tem de implementar um gateway no cluster que processa comunicação externa com os atores.
+> O cliente de teste utiliza a classe ActorProxy para comunicar com actors, que tem de ser executado no mesmo cluster que o serviço de ator ou partilhar o mesmo espaço de endereços IP.  Pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  No entanto, para comunicar com atores num cluster remoto, tem de implementar um gateway no cluster que lida com a comunicação externa com os atores.
 
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.  O script de teste chama o método `setCountAsync()` no ator para incrementar um contador, chama o método `getCountAsync()` no ator para obter o valor do novo contador e apresenta esse valor à consola.
 
-   Em caso de MAC OS X, tem de copiar a pasta de HelloWorldTestClient na algumas localização no interior do contentor, executando os seguintes comandos adicionais.    
+   Em caso de MAC OS X, precisa copiar a pasta de HelloWorldTestClient para a algum local dentro do contentor ao executar os seguintes comandos adicionais.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home

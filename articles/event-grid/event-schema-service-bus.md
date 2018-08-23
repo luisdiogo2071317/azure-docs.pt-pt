@@ -6,18 +6,20 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/23/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226548"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055212"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos do Azure Event Grid para o Service Bus
 
 Este artigo fornece as propriedades e o esquema de eventos do Service Bus. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+
+Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem do evento do Service Bus](event-sources.md#service-bus).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 

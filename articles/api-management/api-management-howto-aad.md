@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436323"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054379"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de programador com o Azure Active Directory na gestão de API do Azure
 
@@ -63,7 +63,7 @@ Este artigo mostra-lhe como permitir o acesso ao portal do programador para os u
     O **criar** é apresentado o painel à direita. Que é onde introduz as informações relevantes para a aplicação do Azure AD.
 1. Introduza um nome para a aplicação.
 1. Para o tipo de aplicação, selecione **aplicação/API Web**.
-1. Para o URL de início de sessão, introduza o URL de início de sessão do portal do programador. Neste exemplo, o URL de início de sessão é https://apimwithaad.portal.azure-api.net/signin.
+1. Para o URL de início de sessão, introduza o URL de início de sessão do portal do programador. Neste exemplo, o URL de início de sessão é `https://apimwithaad.portal.azure-api.net/signin`.
 1. Selecione **criar** para criar o aplicativo.
 1. Para localizar a sua aplicação, selecione **registos das aplicações** e procurar por nome.
 

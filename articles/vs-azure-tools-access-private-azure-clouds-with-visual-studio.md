@@ -1,48 +1,49 @@
 ---
-title: Acesso a nuvens privadas do Azure com o Visual Studio | Microsoft Docs
-description: Saiba como aceder a recursos de nuvem privada utilizando o Visual Studio.
+title: Aceder a nuvens privadas do Azure com o Visual Studio | Documentos da Microsoft
+description: Saiba como aceder aos recursos de nuvem privada com o Visual Studio.
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: 9d733c8d-703b-44e7-a210-bb75874c45c8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: ghogen
-ms.openlocfilehash: 0160ac6db2b92d5a30a19dd444d01a8558b3eed3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 669d8fe2141016924432f8128256c3deb7c44db3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "31792996"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058216"
 ---
-# <a name="accessing-private-azure-clouds-with-visual-studio"></a>Acesso a nuvens privadas do Azure com o Visual Studio
+# <a name="accessing-private-azure-clouds-with-visual-studio"></a>Aceder a nuvens privadas do Azure com o Visual Studio
 
-Por predefinição, o Visual Studio suporta pontos finais REST de nuvem do Azure. Neste artigo, irá aprender a utilizar o certificado da sua nuvem privada para aceder e interagir com a nuvem privada a partir do Visual Studio.
+Por predefinição, o Visual Studio suporta pontos finais REST de cloud do Azure. Neste artigo, saiba como utilizar o certificado de sua nuvem privada para aceder e interagir com a nuvem privada a partir do Visual Studio.
 
 1. No portal do Azure para a nuvem privada, transfira o ficheiro de definições de publicação ou contacte o administrador para um ficheiro de definições de publicação. (O ficheiro tem a extensão `.publishsettings`.)
 
-1. No Visual Studio **Explorador de servidores**, clique com botão direito do **Azure** nó e selecione **gerir e subscrições de filtro**.
+1. No Visual Studio **Explorador de servidores**, clique com botão direito a **Azure** nó e selecione **gerir e subscrições de filtro**.
 
     ![Gerir o comando de subscrições](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790778.png)
 
-1. No **gerir subscrições do Microsoft Azure** caixa de diálogo, selecione o **certificados** separador, em seguida, selecione **importação**.
+1. Na **gerir subscrições do Microsoft Azure** caixa de diálogo, selecione a **certificados** separador, em seguida, selecione **importar**.
 
     ![Importação de certificados do Azure](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790779.png)
 
-1. No **importar Microsoft Azure subscrições** caixa de diálogo, selecione **procurar**.
+1. Na **Import Microsoft Azure subscrições** caixa de diálogo, selecione **procurar**.
 
-    ![Procurar botão na caixa de diálogo Importar Microsoft Azure subscrições](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/browse-button.png)
+    ![Procure o botão na caixa de diálogo de subscrições do Azure de Microsoft de importação](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/browse-button.png)
 
-1. No **abra** caixa de diálogo, navegue para o diretório onde guardou o ficheiro de definições de publicação, selecione o ficheiro e, em seguida, selecione **abra**.
+1. Na **aberto** caixa de diálogo, navegue para o diretório onde guardou o ficheiro de definições de publicação, selecione o ficheiro e, em seguida, selecione **aberto**.
 
     ![Selecione o ficheiro de definições de publicação](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/select-publish-settings-file.png)
 
-1. Quando devolvido para o **importar Microsoft Azure subscrições** caixa de diálogo, selecione **importação**.
+1. Quando devolvidos para o **Import Microsoft Azure subscrições** caixa de diálogo, selecione **importação**.
 
     ![Importar o ficheiro de definições de publicação](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790780.png)
 
-    Os certificados são importados a partir do ficheiro de definições de publicação para Visual Studio e, agora pode interagir com os recursos de nuvem privada.
+    Os certificados são importados a partir do ficheiro de definições de publicação para Visual Studio e, agora pode interagir com os seus recursos de nuvem privada.
 

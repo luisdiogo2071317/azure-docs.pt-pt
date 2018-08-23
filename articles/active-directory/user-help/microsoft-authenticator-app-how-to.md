@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346492"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055850"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Comece com a aplicação Microsoft Authenticator
 
-A aplicação Microsoft Authenticator ajudar a impedir o acesso não autorizado a contas e a parar transações fraudulentas, dando-lhe um nível adicional de segurança para o seu trabalho conta escolar ou profissional (por exemplo, alain@contoso.com) ou a sua conta Microsoft pessoal (para exemplo, alain@outlook.com). Pode utilizá-lo como um segundo método de verificação ou como uma substituição para a sua palavra-passe ao utilizar o início de sessão no telefone. Para obter mais informações sobre como configurar e utilizar o início de sessão no telefone passe, consulte [iniciar sessão com o seu telemóvel, não a palavra-passe](microsoft-authenticator-app-phone-signin-faq.md).
+A aplicação Microsoft Authenticator ajudar a impedir o acesso não autorizado a contas e a parar transações fraudulentas, dando-lhe um nível adicional de segurança para o seu trabalho conta escolar ou profissional (por exemplo, alain@contoso.com) ou a sua conta Microsoft pessoal (para exemplo, alain@outlook.com).
 
 Quando utilizar a aplicação para a verificação de dois passos, pode trabalhar em uma das seguintes formas:
 
@@ -110,8 +110,6 @@ Se optar por utilizar códigos de verificação na aplicação, começará a vê
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Se tiver dúvidas mais gerais sobre a aplicação, consulte o artigo [FAQs do Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
-- Se tiver dúvidas sobre como utilizar o início de sessão no telefone, consulte o artigo [iniciar sessão com o seu telemóvel, não a palavra-passe](microsoft-authenticator-app-phone-signin-faq.md)
 
 - Se pretender obter mais informações sobre a verificação de dois passos, veja [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md)
 

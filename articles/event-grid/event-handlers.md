@@ -1,25 +1,24 @@
 ---
-title: Processadores de eventos de grelha de eventos do Azure
-description: Descreve os processadores de eventos suportados para a grelha de eventos do Azure
+title: Manipuladores de eventos do Azure Event Grid
+description: Descreve os manipuladores de eventos suportados do Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7c012bdf025a352788aec2d2d70bab33d7914577
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 08658c42687626779dea0de7dd724d9431a296da
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849547"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617146"
 ---
-# <a name="event-handlers-in-azure-event-grid"></a>Processadores de eventos na grelha de eventos do Azure
+# <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos no Azure Event Grid
 
-Um processador de eventos é o local onde o evento é enviado. O processador demora algumas medidas adicionais para processar o evento. Vários serviços do Azure são automaticamente configurados para processar eventos. Também pode utilizar quaisquer webhook para processar eventos. O webhook não precisa de ser alojado no Azure para processar eventos. Grelha de evento só suporta pontos finais de webhook HTTPS.
+Um manipulador de eventos é o local em que o evento é enviado. O manipulador demora alguns mais nenhuma ação ao processar o evento. Vários serviços do Azure são automaticamente configurados para manipular eventos. Também pode utilizar qualquer WebHook para manipular eventos. O WebHook não precisa ser alojado no Azure para manipular eventos. Event Grid suporta apenas pontos finais do WebHook de HTTPS.
 
-Este artigo fornece ligações para conteúdo para o processador de eventos.
+Este artigo fornece ligações para conteúdo para cada manipulador de eventos.
 
 ## <a name="azure-automation"></a>Automatização do Azure
 
@@ -27,54 +26,58 @@ Utilize a automatização do Azure para processar eventos com runbooks automatiz
 
 |Cargo  |Descrição  |
 |---------|---------|
-|[Integração da automatização do Azure com grelha de eventos e equipas da Microsoft](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, o que envia um evento. O evento é acionado um runbook de automatização que a máquina virtual de etiquetas e aciona uma mensagem que é enviada para um canal Teams da Microsoft. |
+|[Tutorial: Automatização do Azure com o Event Grid e o Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento é acionado um runbook da automatização que a máquina virtual de etiquetas e aciona uma mensagem que é enviada para um canal do Microsoft Teams. |
 
 ## <a name="azure-functions"></a>Funções do Azure
 
-Utilize as funções do Azure para resposta sem servidor eventos.
+Utilize as funções do Azure para resposta sem servidor a eventos.
 
 Se utilizar as Funções do Azure como o processador, utilize o acionador do Event Grid em vez dos acionadores HTTP genéricos. O Event Grid valida automaticamente os acionadores de função do Event Grid. Com os acionadores HTTP genéricos, tem de implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Acionador de grelha de eventos para as funções do Azure](../azure-functions/functions-bindings-event-grid.md) | Descrição geral de utilizar o acionador de grelha de evento nas funções. |
-| [Utilizar o Event Grid para automatizar o redimensionamento de imagens carregadas](resize-images-on-storage-blob-upload-event.md) | Utilizadores carregar imagens através da aplicação web para a conta de armazenamento. Quando é criado um blob de armazenamento, o evento grelha enviará um evento para a aplicação de função, redimensiona a imagem carregada. |
-| [Transmitir macrodados em fluxo para um armazém de dados](event-grid-event-hubs-integration.md) | Quando os Event Hubs cria um ficheiro de captura, o evento grelha enviará um evento para uma aplicação de função. A aplicação obtém o ficheiro de captura e migra dados para um armazém de dados. |
-| [Service Bus do Azure para exemplos de integração da grelha de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens do tópico de barramento de serviço para a função de aplicação e aplicação lógica. |
+| [Acionador do Event Grid para as funções do Azure](../azure-functions/functions-bindings-event-grid.md) | Descrição geral da utilização do acionador do Event Grid nas funções de mensagens em fila. |
+| [Tutorial: automatizar o redimensionamento de imagens carregadas com o Event Grid](resize-images-on-storage-blob-upload-event.md) | Os utilizadores carregar imagens através da aplicação web para a conta de armazenamento. Quando um blob de armazenamento é criado, o Event Grid envia um evento para a aplicação de função, que redimensiona a imagem carregada. |
+| [Tutorial: transmitir grandes quantidades de dados para um armazém de dados](event-grid-event-hubs-integration.md) | Quando os Hubs de eventos cria um ficheiro de captura, o Event Grid envia um evento para uma aplicação de funções. A aplicação obtém o arquivo de captura e migra os dados para um armazém de dados. |
+| [Tutorial: O Azure Service Bus para exemplos de integração do Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens de tópico do Service Bus para a função de aplicação e a aplicação lógica. |
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Hubs de Eventos
 
-Utilize os Hubs de eventos quando a sua solução obtém os eventos mais rapidamente do que pode processar os eventos. A aplicação processa os eventos provenientes dos Hubs de eventos-la própria agenda. Pode dimensionar o seu processamento para processar os eventos de entrada de eventos.
+Utilize os Hubs de eventos quando a sua solução obtém os eventos mais rapidamente do que consegue processar os eventos. Seu aplicativo processa os eventos dos Hubs de eventos para ele próprio agendamento. Pode dimensionar o processamento para manipular os eventos de entrada de eventos.
+
+Os Hubs de eventos podem agir como uma origem de evento ou de manipulador de eventos. O artigo seguinte mostra como utilizar os Hubs de eventos como um manipulador.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Encaminhar eventos personalizados para os Hubs de eventos do Azure com a CLI do Azure e a grelha de eventos](custom-event-to-eventhub.md) | Envia um evento personalizado para um hub de eventos para processamento por uma aplicação. |
+| [Início rápido: encaminhar eventos personalizados para os Hubs de eventos do Azure com a CLI do Azure e o Event Grid](custom-event-to-eventhub.md) | Envia um evento personalizado para um hub de eventos para processamento por um aplicativo. |
+
+Para obter exemplos de Hubs de eventos como uma origem, consulte [origem dos Hubs de eventos](event-sources.md#event-hubs).
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
-Utilize as ligações de híbridas de reencaminhamento do Azure para enviar eventos para aplicações que estão dentro de uma rede empresarial e não tem um ponto final acessível publicamente.
+Utilize ligações híbridas do reencaminhamento do Azure para enviar eventos para aplicativos que estejam numa rede empresarial e não tem um ponto final acessível publicamente.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Enviar eventos da ligação híbrida](custom-event-to-hybrid-connection.md) | Envia um evento personalizado para uma ligação híbrida existente para processar uma aplicação de serviço de escuta. |
+| [Tutorial: enviar eventos para a ligação híbrida](custom-event-to-hybrid-connection.md) | Envia um evento personalizado para uma ligação híbrida existente para processamento por um aplicativo de serviço de escuta. |
 
 ## <a name="logic-apps"></a>Aplicações Lógicas
 
-Utilize as Logic Apps para automatizar os processos de negócio para responder a eventos.
+Utilize o Logic Apps para automatizar processos de negócios para responder a eventos.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Monitorizar alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza as alterações a uma máquina virtual e envia mensagens de correio eletrónico sobre essas alterações. |
-| [Enviar notificações por e-mail sobre eventos de IoT Hub do Azure utilizando as Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação, sempre que um dispositivo é adicionado ao seu IoT hub. |
-| [Service Bus do Azure para exemplos de integração da grelha de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens do tópico de barramento de serviço para a função de aplicação e aplicação lógica. |
+| [Tutorial: monitorizar as alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza alterações a uma máquina virtual e envia e-mails sobre essas alterações. |
+| [Tutorial: enviar notificações por e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu hub IoT. |
+| [Tutorial: O Azure Service Bus para exemplos de integração do Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens de tópico do Service Bus para a função de aplicação e a aplicação lógica. |
 
 ## <a name="queue-storage"></a>Armazenamento de filas
 
-Utilize o armazenamento de filas para receber eventos que têm de ser solicitados. Poderá utilizar o armazenamento de filas quando tiver um processo de execução longa que demora demasiado tempo a responder. Através do envio de eventos para o armazenamento de filas, a aplicação pode solicitar e processar os eventos na sua própria agenda.
+Utilize o armazenamento de filas para receber eventos que têm de ser obtidas. Poderá utilizar o armazenamento de filas quando tiver um processo de execução longa que demora muito tempo a responder. Ao enviar eventos para o armazenamento de filas, a aplicação pode extrair e processar eventos em sua própria agenda.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Eventos personalizados de rota para o armazenamento de filas do Azure com a CLI do Azure e a grelha de eventos](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de filas. |
+| [Início rápido: encaminhar eventos personalizados para o armazenamento de filas do Azure com a CLI do Azure e o Event Grid](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de filas. |
 
 ## <a name="webhooks"></a>WebHooks
 
@@ -82,9 +85,12 @@ Utilize webhooks para pontos finais personalizáveis que respondem a eventos.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Receber eventos para um ponto final HTTP](receive-events.md) | Descreve como validar um ponto final de HTTP para receber eventos a partir de uma subscrição de evento e receber e anular a serialização de eventos. |
+| Início rápido: criar e encaminhar eventos personalizados com - [CLI do Azure](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md), e [portal](custom-event-quickstart-portal.md). | Mostra como enviar eventos personalizados para um WebHook. |
+| Início rápido: encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com - [CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json), e [portal](blob-event-quickstart-portal.md). | Mostra como enviar eventos de armazenamento de BLOBs para um WebHook. |
+| [Início rápido: enviar eventos de registo de contentor](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de registo de contentor. |
+| [Descrição geral: receber eventos para um ponto de final HTTP](receive-events.md) | Descreve como validar um ponto de final HTTP para receber eventos a partir de uma subscrição de evento e receber e anular a serialização de eventos. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
-* Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).
+* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

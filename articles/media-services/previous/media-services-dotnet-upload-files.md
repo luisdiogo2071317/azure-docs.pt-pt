@@ -1,6 +1,6 @@
 ---
-title: Carregar ficheiros para uma conta de Media Services utilizando o .NET | Microsoft Docs
-description: Saiba como obter o conteúdo do suporte de dados para os serviços de suporte de dados através da criação e carregar recursos.
+title: Carregar ficheiros para uma conta de serviços de multimédia com .NET | Documentos da Microsoft
+description: Saiba como obter o conteúdo de mídia para os serviços multimédia criando e carregando ativos.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 4b7383c4d2ee29a77120531041389b944a787763
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261870"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444634"
 ---
-# <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar ficheiros para uma conta de Media Services utilizando o .NET
+# <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar ficheiros para uma conta de serviços de multimédia com .NET
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
@@ -29,14 +29,14 @@ ms.locfileid: "35261870"
 > 
 > 
 
-Nos Media Services, pode carregar (ou inserir) os seus ficheiros digitais num elemento. O **Asset** entidade pode conter vídeo, áudio, imagens, coleções de miniaturas, texto controla e legendas ficheiros (e os metadados sobre estes ficheiros.)  Assim que os ficheiros são carregados, o seu conteúdo é armazenado em segurança na nuvem para processamento adicional e a transmissão em fluxo.
+Nos Media Services, pode carregar (ou inserir) os seus ficheiros digitais num elemento. O **Asset** entidade pode conter vídeo, áudio, imagens, coleções de miniaturas, texto faixas e legendagem de áudio ficheiros (e os metadados relativos a esses ficheiros.)  Assim que os ficheiros são carregados, o seu conteúdo é armazenado em segurança na nuvem para processamento adicional e a transmissão em fluxo.
 
-Os ficheiros no elemento são denominados **Ficheiros de Elemento**. O **AssetFile** instância e o ficheiro de multimédia real são dois objetos distintos. A instância de AssetFile contém metadados sobre o ficheiro de suporte de dados, enquanto o ficheiro de suporte de dados contém o conteúdo de multimédia real.
+Os ficheiros no elemento são denominados **Ficheiros de Elemento**. O **AssetFile** instância e o ficheiro de multimédia real são dois objetos distintos. A instância de AssetFile contém metadados sobre o ficheiro de multimédia, ao passo que o ficheiro de suporte de dados contém o conteúdo de mídia real.
 
 > [!NOTE]
-> Aplicam as seguintes considerações:
+> As seguintes considerações aplicam-se:
 > 
-> * Os Media Services utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para os conteúdos de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por este motivo, por cento de codificação não é permitida. O valor da **nome** propriedade não pode ter qualquer um dos seguintes [por cento codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
+> * Serviços de multimédia utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, por cento de codificação não é permitida. O valor do **Name** propriedade não pode ter qualquer um dos seguintes [carateres por cento de codificação-reservados](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
 > * O comprimento do nome não deve ser superior a 260 carateres.
 > * Existe um limite para o tamanho máximo dos ficheiros suportado para processamento nos Serviços de Multimédia. Veja [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre as limitações relativas aos tamanhos de ficheiros.
 > * Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
@@ -44,24 +44,24 @@ Os ficheiros no elemento são denominados **Ficheiros de Elemento**. O **AssetFi
 
 Ao criar recursos, pode especificar as seguintes opções de encriptação:
 
-* **Nenhum** - Não é utilizada qualquer encriptação. Este é o valor predefinido. Ao utilizar esta opção não está protegido o conteúdo em trânsito ou inativo no armazenamento.
-  Se planear distribuir um MP4 utilizando transferência progressiva, utilize esta opção: 
-* **CommonEncryption** -Utilize esta opção se estiver a carregar conteúdo que já foi encriptado e protegido com encriptação comum ou PlayReady DRM (por exemplo, transmissão em fluxo uniforme protegida com PlayReady DRM).
+* **Nenhum** - Não é utilizada qualquer encriptação. Este é o valor predefinido. Ao utilizar esta opção não está protegido seu conteúdo em trânsito ou inativos no armazenamento.
+  Se planear distribuir um MP4 utilizando uma transferência progressiva, utilize esta opção: 
+* **CommonEncryption** -Utilize esta opção se estiver a carregar o conteúdo que já tenha sido encriptado e protegido com encriptação comum ou PlayReady DRM (por exemplo, transmissão em fluxo uniforme protegida com PlayReady DRM).
 * **EnvelopeEncrypted** – Utilize esta opção se estiver a carregar HLS encriptado com AES. Tenha em atenção que os ficheiros têm de ser codificados e encriptados pelo Gestor de Transformação.
-* **StorageEncrypted** - encripta o seu conteúdo transparente localmente utilizando AES 256 bits encriptação e, em seguida, esta carrega-o ao Storage do Azure onde é armazenado encriptados em pausa. Os elementos protegidos com Encriptação do Storage são desencriptados automaticamente e colocados num sistema de ficheiros encriptados antes da codificação, sendo opcionalmente encriptados novamente antes de serem carregados novamente como um novo elemento de saída. O principal caso de utilização da Encriptação do Storage ocorre quando pretende proteger os seus ficheiros de multimédia de entrada de alta qualidade inativos no disco com uma encriptação forte.
+* **StorageEncrypted** - criptografa o seu conteúdo transparente localmente utilizando a encriptação de AES-256 bits e, em seguida, carrega-o para o armazenamento do Azure onde estão armazenados encriptados em inatividade. Os elementos protegidos com Encriptação do Storage são desencriptados automaticamente e colocados num sistema de ficheiros encriptados antes da codificação, sendo opcionalmente encriptados novamente antes de serem carregados novamente como um novo elemento de saída. O principal caso de utilização da Encriptação do Storage ocorre quando pretende proteger os seus ficheiros de multimédia de entrada de alta qualidade inativos no disco com uma encriptação forte.
   
-    Os Media Services fornecem encriptação de armazenamento no disco para os recursos, não a ativação pós-falha a transmissão, como o Gestor de direitos digitais (DRM).
+    Serviços de multimédia fornece encriptação de armazenamento em disco para os seus ativos, não over-the-wire, como o Gestor de direitos digitais (DRM).
   
-    Se o seu elemento armazenamento encriptado, tem de configurar política de entrega de elementos. Para obter mais informações, consulte [configurar política de entrega de elemento](media-services-dotnet-configure-asset-delivery-policy.md).
+    Se o seu elemento estiver armazenamento encriptado, é necessário configurar a política de entrega de elementos. Para obter mais informações, consulte [configurar a política de entrega de elemento](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Se especificar para o seu elemento seja encriptado com uma **CommonEncrypted** opção, ou um **EnvelopeEncypted** opção, tem de associar o seu elemento com um **ContentKey**. Para obter mais informações, consulte [como criar um ContentKey](media-services-dotnet-create-contentkey.md). 
+Se especificar para o seu elemento seja encriptado com uma **CommonEncrypted** opção, ou uma **EnvelopeEncypted** opção, precisa associar o seu elemento com um **ContentKey**. Para obter mais informações, consulte [como criar um ContentKey](media-services-dotnet-create-contentkey.md). 
 
 Se especificar para o seu elemento seja encriptado com uma **StorageEncrypted** opção, o SDK de Media Services para .NET cria um **StorateEncrypted** **ContentKey** para o seu elemento.
 
-Este artigo mostra como utilizar o SDK .NET dos Media Services, bem como as extensões do SDK .NET dos Media Services para carregar ficheiros para um recurso dos Media Services.
+Este artigo mostra como utilizar o SDK .NET dos Media Services, bem como as extensões do SDK .NET dos Media Services para carregar ficheiros para um recurso de serviços de multimédia.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Carregar um único ficheiro com o SDK .NET dos Media Services
-O código seguinte utiliza o .NET para carregar um único ficheiro. O localizador e AccessPolicy são criadas e destruído pela função de carregamento. 
+O código a seguir usa o .NET para carregar um único ficheiro. O localizador e AccessPolicy são criados e destruído pela função de carregamento. 
 
 ```csharp
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -88,19 +88,19 @@ O código seguinte utiliza o .NET para carregar um único ficheiro. O localizado
 
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Carregar vários ficheiros com o SDK .NET dos Media Services
-O código seguinte mostra como criar um elemento e carregar vários ficheiros.
+O código a seguir mostra como criar um elemento e carregar vários ficheiros.
 
 O código faz o seguinte:
 
-* Cria um elemento vazio utilizando o método de CreateEmptyAsset definido no passo anterior.
-* Cria um **AccessPolicy** instância que define a duração de acesso e permissões para o elemento.
+* Cria um elemento vazio com o método de CreateEmptyAsset definido no passo anterior.
+* Cria um **AccessPolicy** instância que define as permissões e a duração de acesso ao elemento.
 * Cria um **localizador** instância que fornece acesso ao elemento.
-* Cria um **BlobTransferClient** instância. Este tipo representa um cliente que opera em blobs do Azure. Neste exemplo, o cliente monitoriza o progresso do carregamento. 
-* Enumera através de ficheiros no diretório especificado e cria um **AssetFile** instância para cada ficheiro.
-* Carrega os ficheiros para os Media Services utilizando o **UploadAsync** método. 
+* Cria um **BlobTransferClient** instância. Este tipo representa um cliente que funciona nos blobs do Azure. Neste exemplo, o cliente monitoriza o progresso do carregamento. 
+* Enumera os ficheiros no diretório especificado e cria um **AssetFile** instância para cada ficheiro.
+* Carrega os ficheiros para os serviços de multimédia a utilizar o **UploadAsync** método. 
 
 > [!NOTE]
-> Utilize o método de UploadAsync para garantir que não estão a bloquear as chamadas e os ficheiros são carregados em paralelo.
+> Utilize o método UploadAsync para garantir que não estão a bloquear as chamadas e os ficheiros são carregados em paralelo.
 > 
 > 
 
@@ -163,22 +163,22 @@ O código faz o seguinte:
 ```
 
 
-Quando carregar um grande número de ativos, considere o seguinte:
+Ao carregar um grande número de ativos, considere o seguinte:
 
-* Crie um novo **CloudMediaContext** objeto por thread. O **CloudMediaContext** classe não é seguro para thread.
-* Aumente NumberOfConcurrentTransfers do valor predefinido de 2 para um valor superior, como 5. Definir esta propriedade afeta todas as instâncias de **CloudMediaContext**. 
-* Manter ParallelTransferThreadCount no valor predefinido de 10.
+* Criar uma nova **CloudMediaContext** objeto por thread. O **CloudMediaContext** classe não é thread-safe.
+* Aumente NumberOfConcurrentTransfers do valor predefinido de 2 para um valor maior como 5. Definir essa propriedade afeta todas as instâncias de **CloudMediaContext**. 
+* Manter ParallelTransferThreadCount com o valor predefinido de 10.
 
-## <a id="ingest_in_bulk"></a>Inserção dos elementos em massa utilizando o SDK .NET dos Media Services
-Carregar ficheiros grandes recurso pode ser um estrangulamento durante a criação do recurso. Inserção dos elementos em massa ou "Em massa ingestão relacionadas", envolve desassociar a criação de recurso do processo de carregamento. Para utilizar um volume ingestão relacionadas abordagem, crie um manifesto (IngestManifest) que descrevem o elemento e os ficheiros associados. Em seguida, utilize o método de carregamento à sua escolha para carregar os ficheiros associados para o contentor de blob do manifesto. Serviços de suporte de dados do Microsoft Azure controla o contentor de blob associado o manifesto. Depois de um ficheiro é carregado para o contentor de blob, Media Services do Microsoft Azure conclui a criação de recursos com base na configuração do elemento no manifesto (IngestManifestAsset).
+## <a id="ingest_in_bulk"></a>Inserção dos elementos em massa com o SDK .NET dos Media Services
+Carregar ficheiros de recursos grandes pode ser um estrangulamento durante a criação do recurso. Inserção dos elementos em massa ou "Ingestão em massa", envolve a dissociação de criação de recurso do processo de carregamento. Para utilizar uma em massa a ingestão de abordagem, crie um manifesto (IngestManifest), que descreve o elemento e seus arquivos associados. Em seguida, use o método de carregamento da sua preferência para carregar os ficheiros associados para o contentor de Blobs do manifesto. Serviços de multimédia do Microsoft Azure controla o contentor de blob associado com o manifesto. Depois de um ficheiro é carregado para o contentor de BLOBs, serviços de multimédia do Microsoft Azure conclui a criação de recursos com base na configuração de ativo no manifesto (IngestManifestAsset).
 
-Para criar um novo IngestManifest, chame o método de criação exposto pela coleção IngestManifests no CloudMediaContext. Este método cria uma nova IngestManifest com o nome do manifesto que fornecer.
+Para criar um novo IngestManifest, chame o método de criar exposto pela coleção IngestManifests no CloudMediaContext. Este método cria um novo IngestManifest com o nome do manifesto que fornecer.
 
 ```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
 ```
 
-Crie os recursos que estão associados a IngestManifest em volume. Configure as opções de encriptação desejado no elemento para ingestão relacionadas em massa.
+Crie os recursos que estão associados a maior parte IngestManifest. Configure as opções de encriptação desejado no ativo para a ingestão em massa.
 
 ```csharp
     // Create the assets that will be associated with this bulk ingest manifest
@@ -186,9 +186,9 @@ Crie os recursos que estão associados a IngestManifest em volume. Configure as 
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 ```
 
-Um IngestManifestAsset associa um recurso em massa IngestManifest para ingestão relacionadas em massa. Também associa o AssetFiles que constitui a cada recurso. Para criar um IngestManifestAsset, utilize o método Create no contexto de servidor.
+Um IngestManifestAsset associa um recurso em massa IngestManifest para a ingestão em massa. Ele também associa o AssetFiles que compõe cada ativo. Para criar um IngestManifestAsset, utilize o método Create no contexto de servidor.
 
-O exemplo seguinte demonstra o manifesto de inserção de adição dois IngestManifestAssets novos que associam os dois recursos que criou anteriormente para o volume. Cada IngestManifestAsset também associa um conjunto de ficheiros que são carregados para cada recurso durante ingestão relacionadas em massa.  
+O exemplo seguinte demonstra o manifesto de ingestão de adição dois IngestManifestAssets novos que associam os dois recursos que criou anteriormente para a maior parte. Cada IngestManifestAsset associa também um conjunto de ficheiros que são carregados para cada recurso durante a ingestão em massa.  
 
 ```csharp
     string filename1 = _singleInputMp4Path;
@@ -199,16 +199,18 @@ O exemplo seguinte demonstra o manifesto de inserção de adição dois IngestMa
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-Pode utilizar qualquer aplicação cliente de alta velocidade com capacidade de carregar os ficheiros de recurso para o contentor de blob storage URI fornecido pelo **IIngestManifest.BlobStorageUriForUpload** propriedade o IngestManifest. É um serviço de carregamento de alta velocidade acentuadas [Aspera a pedido para a aplicação Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). Também pode escrever código para carregar os ficheiros de recursos, conforme mostrado no exemplo de código seguinte.
+Pode usar qualquer aplicativo de alta velocidade do cliente com capacidade de carregar os ficheiros de recursos para o contentor de armazenamento de BLOBs URI fornecido pelos **IIngestManifest.BlobStorageUriForUpload** propriedade do IngestManifest. 
+
+O código seguinte mostra como utilizar o SDK de .NET para carregar os ficheiros de recursos.
 
 ```csharp
-    static void UploadBlobFile(string destBlobURI, string filename)
+    static void UploadBlobFile(string containerName, string filename)
     {
         Task copytask = new Task(() =>
         {
             var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
             CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
+            CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 
             string[] splitfilename = filename.Split('\\');
             var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
@@ -226,7 +228,7 @@ Pode utilizar qualquer aplicação cliente de alta velocidade com capacidade de 
     }
 ```
 
-O código para carregar os ficheiros de recurso para o exemplo utilizado neste artigo é mostrado no exemplo de código seguinte:
+O código para carregar os ficheiros de recursos para o exemplo utilizada neste artigo é mostrado no exemplo de código a seguir:
 
 ```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
@@ -234,9 +236,9 @@ O código para carregar os ficheiros de recurso para o exemplo utilizado neste a
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
 ```
 
-Pode determinar o progresso da ingestão relacionadas em massa para todos os recursos associados a um **IngestManifest** através de consultas de propriedade de estatísticas do **IngestManifest**. Para atualizar as informações de progresso, tem de utilizar um novo **CloudMediaContext** sempre que poderá consulta a propriedade de estatísticas.
+Pode determinar o progresso da ingestão em massa para todos os recursos associados com uma **IngestManifest** através de consultas a propriedade de estatísticas da **IngestManifest**. Para atualizar as informações de progresso, deve usar uma nova **CloudMediaContext** sempre que consultar a propriedade de estatísticas.
 
-O exemplo seguinte demonstra a consulta um IngestManifest pelo respetivo **Id**.
+O exemplo seguinte demonstra a consulta uma IngestManifest pelo respetivo **Id**.
 
 ```csharp
     static void MonitorBulkManifest(string manifestID)
@@ -274,7 +276,7 @@ O exemplo seguinte demonstra a consulta um IngestManifest pelo respetivo **Id**.
 
 
 ## <a name="upload-files-using-net-sdk-extensions"></a>Carregar ficheiros através de extensões do SDK do .NET
-O exemplo seguinte mostra como carregar um único ficheiro através de extensões do SDK do .NET. Neste caso, o **CreateFromFile** método é utilizado, mas também está disponível a versão assíncrona (**CreateFromFileAsync**). O **CreateFromFile** método permite-lhe especificar o nome de ficheiro, a opção de encriptação e uma chamada de retorno para comunicar o progresso do carregamento do ficheiro.
+O exemplo seguinte mostra como carregar um único ficheiro com as extensões do SDK do .NET. Neste caso o **CreateFromFile** método é usado, mas também está disponível a versão assíncrona (**CreateFromFileAsync**). O **CreateFromFile** método permite-lhe especificar o nome de ficheiro, a opção de encriptação e um retorno de chamada para comunicar o progresso do carregamento do ficheiro.
 
 ```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -293,7 +295,7 @@ O exemplo seguinte mostra como carregar um único ficheiro através de extensõe
     }
 ```
 
-O exemplo seguinte chamadas de função UploadFile e especifica a encriptação de armazenamento como a opção de criação do recurso.  
+O exemplo seguinte chama a função de UploadFile e especifica a encriptação de armazenamento como a opção de criação do recurso.  
 
 ```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
@@ -312,7 +314,7 @@ Também pode utilizar as Funções do Azure para acionar uma tarefa de codifica�
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Passo seguinte
-Agora que tenha carregado um recurso aos Media Services, vá para o [como obter um processador de multimédia] [ How to Get a Media Processor] artigo.
+Agora que tenha carregado um recurso para os serviços de multimédia, vá para o [como obter um processador de multimédia] [ How to Get a Media Processor] artigo.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
 

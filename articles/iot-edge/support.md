@@ -1,5 +1,5 @@
 ---
-title: O suporte da plataforma do Azure IoT Edge | Microsoft Docs
+title: Suporte de plataforma do Azure IoT Edge | Documentos da Microsoft
 description: Plataformas suportadas pelo Azure IoT Edge
 author: kgremban
 manager: timlt
@@ -8,59 +8,60 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91821d66ac0be265e6b66fd9eb2378169e337430
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130714"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055913"
 ---
-# <a name="azure-iot-edge-support"></a>Suporte de limite de IoT do Azure
-Existem várias formas para procurar o ressarcimento de suporte para o produto de limite de IoT do Azure.
+# <a name="azure-iot-edge-support"></a>Suporte do Azure IoT Edge
+Existem várias formas para buscar suporte para o produto do Azure IoT Edge.
 
-**Relatório de erros** – a maioria das desenvolvimento entra no produto Azure IoT Edge acontece no projeto de open source do limite de IoT. Erros podem ser comunicados no [página problemas](https://github.com/azure/iotedge/issues) do projeto. Correções tornar rapidamente os seus forma do projeto em atualizações de produto.
+**Relatório de bugs** – a maior parte do desenvolvimento que vai para o produto do Azure IoT Edge acontece no projeto de código-fonte aberto do IoT Edge. Bugs podem ser comunicados sobre o [página problemas](https://github.com/azure/iotedge/issues) do projeto. Correções rapidamente se tornam do projeto para atualizações de produtos.
 
-**Equipa de suporte ao cliente da Microsoft** – os utilizadores que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) pode interagir com a equipa de suporte ao cliente da Microsoft através da criação de um pedido de suporte diretamente a partir de [portal do Azure]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Equipa de suporte ao cliente da Microsoft** – os utilizadores que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) pode envolver a equipe de suporte ao cliente da Microsoft através da criação de um pedido de suporte diretamente a partir do [portal do Azure]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Funcionalidade pedidos** – produto o limite de IoT do Azure controla os pedidos de funcionalidades através do produto [página de voz do utilizador](https://feedback.azure.com/forums/907045-azure-iot-edge).
+**Pedidos de funcionalidades** – produto o Azure IoT Edge controla as solicitações de recursos através do produto [página de voz do utilizador](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
-## <a name="operating-systems"></a>Sistemas Operativos
-Limite de IoT do Azure é executado na maioria dos sistemas operativos que podem ser executados contentores; No entanto, todos estes não são igualmente suportados. Sistemas operativos estão agrupados em camadas que representam o nível de suporte, os utilizadores podem esperar.
+## <a name="operating-systems"></a>Sistemas operativos
+O Azure IoT Edge é executado na maioria dos sistemas operacionais que possam executar contentores; No entanto, todos esses não são igualmente suportados. Sistemas operativos são agrupados em camadas que representam o nível de suporte, os usuários podem esperar.
 
 ### <a name="tier-1"></a>Escalão 1
-Sistemas de camada 1 podem considerar como oficialmente suportado. Isto significa que Microsoft:
-* tem estes sistema operativo nos testes automatizados
-* Fornece pacotes de instalação para os mesmos
+Sistemas de escalão 1 podem ser considerados como oficialmente suportada. Isso significa que Microsoft:
+* tem estas sistema operacional em testes automatizados
+* Fornece os pacotes de instalação das mesmas
 
-Geralmente disponível
-* Ubuntu Server 18.04
-* Ubuntu Server 16.04
-* Raspbian stretch
+Disponível em geral
+| Sistema Operativo | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu Server 18.04 | Sim | Não |
+| Ubuntu Server 16.04 | Sim | Não |
+| Raspbian stretch | Não | Sim|
 
 Pré-visualização pública
-* Servidor do Windows 10 1803
-* Windows 10 Enterprise de IoT (com de 2018 de Abril de atualização)
-* Windows 10 IoT Core (com de 2018 de Abril de atualização)
+| Sistema Operativo | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Servidor do Windows 10 versão 1803 | Sim | Não |
+| Windows 10 IoT Enterprise (atualização de Abril de 2018) | Sim | Não |
+| Windows 10 IoT Core (atualização de Abril de 2018) | Sim | Não |
 
 ### <a name="tier-2"></a>Escalão 2
-Podem considerar como compatível com o Azure IoT Edge e podem ser utilizados relativamente facilmente sistemas de camada 2. Isto significa que:
-* Efetuou ad-hoc testar nas plataformas da Microsoft ou sabe de um parceiro a ser executada com êxito do Azure IoT Edge na plataforma
-* Pacotes de instalação para outras plataformas podem funcionar nas plataformas seguintes
+Os sistemas de camada 2 podem ser considerados como compatível com o Azure IoT Edge e podem ser utilizados com relativa facilidade. Isso significa que:
+* A Microsoft fez ad-hoc nas plataformas de teste ou sabe-se de um parceiro com êxito com o Azure IoT Edge na plataforma
+* Pacotes de instalação para outras plataformas podem funcionar nessas plataformas
 
-Ubuntu 18.04
+| Sistema Operativo | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu 18.04 | Sim | Não |
+| Ubuntu 16.04 | Sim | Não |
+| O rio de vento 8 | Sim | Não |
+| Yocto | Sim | Não |
+| Debian | Sim | Não |
+| Mac | Sim | Não |
 
-Ubuntu 16.04
-
-Vento River 8
-
-Yocto
-
-Debian
-
-Mac
-
-## <a name="container-engines"></a>Motores de contentor
-Limite de IoT do Azure necessita de um motor de contentor para iniciar módulos, independentemente do sistema operativo no qual está a ser executado. A Microsoft fornece um motor de contentor, moby-motor para cumprir este requisito. Se baseia no projeto Moby open source. Docker CE e Docker EE são outros motores de contentor populares. Estes também são baseadas no projeto de origem é aberto Moby e são compatíveis com o Azure IoT Edge. A Microsoft fornece melhor esforço suporte para sistemas com os motores de contentor; No entanto, a Microsoft não têm a capacidade para enviar correções para problemas nas mesmas. Por este motivo, a Microsoft recomenda a utilização de motor de moby em sistemas de produção.
+## <a name="container-engines"></a>Mecanismos de contentor
+O Azure IoT Edge tem um mecanismo de contentor para iniciar módulos, independentemente do sistema operativo no qual está em execução. A Microsoft fornece um mecanismo de contentor, o mecanismo moby, para cumprir este requisito. Baseia-se no projeto de código-fonte aberto Moby. Docker CE e o Docker EE são outros mecanismos de contentores populares. Eles também são baseados no projeto de código é aberto Moby e são compatíveis com o Azure IoT Edge. A Microsoft fornece o melhor de esforço de suporte para sistemas usando esses mecanismos de contentor; No entanto, a Microsoft não tem a capacidade de enviarem correções para problemas nas mesmas. Por esse motivo, a Microsoft recomenda a utilização de mecanismo de moby em sistemas de produção.
 
 
 <!-- Links -->

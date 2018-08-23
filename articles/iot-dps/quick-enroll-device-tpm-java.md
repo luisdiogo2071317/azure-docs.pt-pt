@@ -4,18 +4,18 @@ description: Manual de Início Rápido do Azure - Inscrever o dispositivo TPM no
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
-ms.topic: quickstatrt
+ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 60b46a4fc55f66e80d40305c03b626c0b5a49b64
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: MT
+ms.openlocfilehash: 68f8125ddc0691346813bb31124fa3abd4976296
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528614"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40234098"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK do serviço Java
 
@@ -147,7 +147,7 @@ Se quiser explorar o exemplo de serviço Java, não limpe os recursos criados ne
 1. Feche a janela do simulador TPM que pode ter criado para simular o seu dispositivo TPM.
 1. Navegue até ao seu serviço de Aprovisionamento de Dispositivos no portal do Azure, clique em **Gerir inscrições** e, em seguida, selecione o separador **Inscrições Individuais**. Selecione o *ID de Registo* do dispositivo que inscreveu com este Manual de Início Rápido e clique no botão **Eliminar** na parte superior do painel. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste Manual de Início Rápido, inscreveu um dispositivo TPM simulado no seu serviço de Aprovisionamento de Dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]

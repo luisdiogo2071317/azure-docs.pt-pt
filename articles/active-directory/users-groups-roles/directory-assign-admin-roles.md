@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/21/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505516"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057119"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -59,7 +59,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Gravadores de diretórios](#directory-writers)**: Esta é uma função legada que está a ser atribuída às aplicações que não suportam a [consentimento Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Não deve ser atribuído a quaisquer utilizadores.
 
-* **[Administrador de serviços do Dynamics 365 / administrador de serviço CRM](#dynamics-365-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [utilizar a função de administrador de serviço para gerir o seu inquilino](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Administrador de serviços do Dynamics 365 / administrador de serviço CRM](#dynamics-365-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [utilizar a função de administrador de serviço para gerir o seu inquilino](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Administrador de serviços do Exchange](#exchange-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Exchange Online, quando o serviço está presente. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -74,7 +74,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador do Information Protection](#information-protection-administrator)**: os utilizadores com esta função têm todas as permissões no serviço do Azure Information Protection. Esta função permite configurar etiquetas para a política do Azure Information Protection, gestão de modelos de proteção e ativar a proteção. Esta função não concede quaisquer permissões no Centro de proteção de identidade, o Privileged Identity Management, o Monitor Office 365 Service Health, ou o segurança do Office 365 e o Centro de conformidade.
 
-* **[Administrador de serviço do Intune](#intune-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos para associar a política, bem como criar e gerir grupos. Mais informações em [o controlo de administração baseada em funções (RBAC) com o Microsoft Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control)
+* **[Administrador de serviço do Intune](#intune-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos para associar a política, bem como criar e gerir grupos. Mais informações em [o controlo de administração baseada em funções (RBAC) com o Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
 
 * **[Leitor do Centro de mensagens](#message-center-reader)**: os utilizadores nesta função podem monitorizar notificações e atualizações de estado de funcionamento de aviso [Centro de mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para a sua organização em serviços configurados como o Exchange, o Intune e o Microsoft Teams. Os leitores de centro de mensagens recebem resumos de e-mail semanal de postagens, atualizações e podem partilhar publicações do Centro de mensagens no Office 365. No Azure AD, os utilizadores atribuídos a esta função só terão acesso só de leitura nos serviços do Azure AD, como utilizadores e grupos. 
 
@@ -89,7 +89,7 @@ As seguintes funções de administrador estão disponíveis:
   >
   >
   
-* **[Administrador de serviço do Power BI](#power-bi-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Power BI, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [compreender a função de administrador do Power BI](https://docs.microsoft.com/en-us/power-bi/service-admin-role).
+* **[Administrador de serviço do Power BI](#power-bi-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Power BI, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [compreender a função de administrador do Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Com privilégios administrador de função](#privileged-role-administrator)**: os utilizadores com esta função podem gerir atribuições de funções no Azure Active Directory, assim como no Azure AD Privileged Identity Management. Além disso, esta função permite a gestão de todos os aspetos do Privileged Identity Management.
 
@@ -163,7 +163,7 @@ As tabelas seguintes descrevem as permissões específicas no Azure Active Direc
 Pode criar e gerir todos os aspetos de registos de aplicações e aplicações empresariais.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -198,7 +198,7 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 Pode criar registos de aplicações independentemente do **os utilizadores podem registar aplicações** definição.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -213,7 +213,7 @@ Pode criar registos de aplicações independentemente do **os utilizadores podem
 Pode executar tarefas de faturação comuns, como atualizar as informações de pagamento.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -235,7 +235,7 @@ Pode executar tarefas de faturação comuns, como atualizar as informações de 
 Pode criar e gerir todos os aspetos de registos de aplicações e aplicações empresariais, exceto o Proxy de Aplicações.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -318,7 +318,7 @@ Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam iden
 Pode ler e gerir a configuração de conformidade e os relatórios no Azure AD e no Office 365.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -341,7 +341,7 @@ Pode ler e gerir a configuração de conformidade e os relatórios no Azure AD e
 Pode gerir capacidades de acesso condicional.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -360,7 +360,7 @@ Pode gerir capacidades de acesso condicional.
 Os utilizadores com esta função tornam-se administradores de computadores locais em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivo no Azure Active Directory.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -472,7 +472,7 @@ Pode ler e gravar informações de diretório básicas. Para conceder acesso a a
 Pode gerir todos os aspetos do produto Dynamics 365.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -493,7 +493,7 @@ Pode gerir todos os aspetos do produto Dynamics 365.
 Pode gerir todos os aspetos do produto Exchange.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -536,7 +536,7 @@ Pode convidar utilizadores convidados independentemente do **os membros podem co
 Pode repor palavras-passe para não administradores e Administradores de Suporte Técnico.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -553,7 +553,7 @@ Pode repor palavras-passe para não administradores e Administradores de Suporte
 Pode gerir todos os aspetos do produto Azure Information Protection.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -574,7 +574,7 @@ Pode gerir todos os aspetos do produto Azure Information Protection.
 Pode gerir todos os aspetos do produto Intune.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -615,7 +615,7 @@ Pode gerir todos os aspetos do produto Intune.
 Pode gerir todos os aspetos do produto Skype para Empresas.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -654,7 +654,7 @@ Pode ler as mensagens e atualizações para a sua organização apenas no Centro
 Não utilize – não se destina a utilização geral.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -690,7 +690,7 @@ Não utilize – não se destina a utilização geral.
 Não utilize – não se destina a utilização geral.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -729,7 +729,7 @@ Não utilize – não se destina a utilização geral.
 Pode gerir todos os aspetos do produto Power BI.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -750,7 +750,7 @@ Pode gerir todos os aspetos do produto Power BI.
 Pode gerir atribuições de funções no Azure AD
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -787,7 +787,7 @@ Pode ler relatórios de auditoria e inícios de sessão.
 Pode ler as informações de segurança e relatórios
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -836,7 +836,7 @@ Pode ler as informações de segurança e os relatórios no Azure AD e no Office
 Consegue ler as informações do Service Health e gerir pedidos de suporte.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -856,7 +856,7 @@ Consegue ler as informações do Service Health e gerir pedidos de suporte.
 Pode gerir todos os aspetos do serviço do SharePoint.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -876,7 +876,7 @@ Pode gerir todos os aspetos do serviço do SharePoint.
 Pode gerir todos os aspetos de utilizadores e grupos
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 

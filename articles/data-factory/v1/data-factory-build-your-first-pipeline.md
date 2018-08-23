@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial de fábrica de dados: primeiro pipeline de dados | Microsoft Docs'
-description: Este tutorial do Azure Data Factory mostra como criar e agendar uma fábrica de dados que processa dados utilizando o script de ramo de registo num cluster de Hadoop.
+title: 'Tutorial de fábrica de dados: primeiro pipeline de dados | Documentos da Microsoft'
+description: Este tutorial do Azure Data Factory mostra-lhe como criar e agendar uma fábrica de dados que processa dados através de script do Hive num cluster do Hadoop.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8f86bcf5ecf38f0f1054fce82b66e63f0509f1c8
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050051"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057099"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Criar o seu primeiro pipeline para transformar dados utilizando o cluster de Hadoop
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Criar seu primeiro pipeline para transformar dados com o cluster do Hadoop
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
 > * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -33,37 +33,37 @@ ms.locfileid: "37050051"
 
 
 > [!NOTE]
-> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [início rápido: criar uma fábrica de dados utilizando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja o [Início Rápido: criar uma fábrica de dados com o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
-Neste tutorial, pode cria a primeira fábrica de dados do Azure com um pipeline de dados. O pipeline transforma os dados de entrada ao executar o script de ramo de registo num cluster do Azure HDInsight (Hadoop) para produzir os dados de saída.  
+Neste tutorial, vai criar a primeira fábrica de dados do Azure com um pipeline de dados. O pipeline transforma dados de entrada ao executar o script do Hive num cluster do Azure HDInsight (Hadoop) para produzir dados de saída.  
 
-Este artigo fornece descrição geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, que pode fazer o tutorial, utilizando uma das ferramentas/SDKs seguintes: portal do Azure, o Visual Studio, o PowerShell, do modelo do Resource Manager, REST API. Selecione uma das opções na lista pendente no início (ou) hiperligações no fim deste artigo para fazer o tutorial, utilizando uma destas opções.    
+Este artigo fornece a visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, pode fazer o tutorial, utilizando uma das ferramentas/SDKs seguintes: portal do Azure, Visual Studio, PowerShell, o modelo do Resource Manager, REST API. Selecione uma das opções na lista suspensa no início (ou) ligações no final deste artigo para fazer o tutorial com uma destas opções.    
 
 ## <a name="tutorial-overview"></a>Descrição geral do tutorial
 Neste tutorial, vai executar os seguintes passos:
 
-1. Criar um **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines de dados que moverem e transforme dados. 
+1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines de dados que movimentam e transformam dados. 
 
     Neste tutorial, vai criar um pipeline na fábrica de dados. 
-2. Criar um **pipeline**. Um pipeline pode ter uma ou mais atividades (exemplos: Atividade de Cópia, Atividade Hive do HDInsight). Este exemplo utiliza a atividade do ramo de registo do HDInsight que executa um script de ramo de registo num cluster do HDInsight Hadoop. O script cria uma tabela que faça referência a dados de registo em bruto web armazenados no blob storage do Azure pela primeira vez e, em seguida, particiona os dados não processados por ano e mês.
+2. Criar uma **pipeline**. Um pipeline pode ter uma ou mais atividades (exemplos: Atividade de Cópia, Atividade Hive do HDInsight). Este exemplo utiliza a atividade de Hive do HDInsight que executa um script do Hive num cluster HDInsight Hadoop. O script cria primeiro uma tabela que faz referência aos dados de registo de web não processados armazenados no armazenamento de Blobs do Azure e, em seguida, particiona os dados não processados por ano e mês.
 
-    Neste tutorial, o pipeline utiliza a atividade do ramo de registo para transformar dados ao executar uma consulta do Hive num cluster do Azure HDInsight Hadoop. 
-3. Criar **serviços ligados**. Cria um serviço ligado para ligar um arquivo de dados ou um serviço de computação à fábrica de dados. Um arquivo de dados como o Armazenamento do Azure contém dados de entrada/saída de atividades no pipeline. Um serviço de computação, tais como o cluster do HDInsight Hadoop processos/transformações dados.
+    Neste tutorial, o pipeline utiliza a atividade do Hive para transformar dados executando uma consulta do Hive num cluster do Azure HDInsight Hadoop. 
+3. Crie **serviços ligados**. Cria um serviço ligado para ligar um arquivo de dados ou um serviço de computação à fábrica de dados. Um arquivo de dados como o Armazenamento do Azure contém dados de entrada/saída de atividades no pipeline. Um serviço de computação, como cluster de Hadoop do HDInsight processa/transforma dados.
 
-    Neste tutorial, criará dois serviços ligados: **Storage do Azure** e **Azure HDInsight**. Storage do Azure serviço ligado liga uma conta de armazenamento do Azure que contém os dados de entrada/saída à fábrica de dados. O Azure HDInsight serviço ligado liga um cluster do HDInsight do Azure que é utilizado para transformar dados à fábrica de dados. 
+    Neste tutorial, vai criar dois serviços ligados: **armazenamento do Azure** e **Azure HDInsight**. O armazenamento do Azure serviço ligado liga uma conta de armazenamento do Azure que contém os dados de entrada/saída à fábrica de dados. O Azure HDInsight serviço ligado liga um cluster do HDInsight do Azure que é utilizado para transformar dados à fábrica de dados. 
 3. Criar **conjuntos de dados** de entrada e de saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
 
-    Neste tutorial, os conjuntos de dados de entrada e de saída, especifique as localizações de dados de entrada e de saída no armazenamento de Blobs do Azure. O serviço ligado do Storage do Azure Especifica que a conta de armazenamento do Azure é utilizado. Especifica um conjunto de dados de entrada onde se encontram os ficheiros de entrada e um conjunto de dados de saída, especifica onde são colocados ficheiros de saída. 
+    Neste tutorial, os conjuntos de dados de entrada e saídos especificar localizações de dados de entrada e saídas no armazenamento de Blobs do Azure. O serviço ligado do armazenamento do Azure Especifica o que a conta de armazenamento do Azure é utilizado. Um conjunto de dados de entrada especifica onde se encontram os ficheiros de entrada e um conjunto de dados de saída especifica onde os ficheiros de saída são colocados. 
 
 
-Consulte [introdução ao Azure Data Factory](data-factory-introduction.md) artigo para obter uma descrição detalhada do Azure Data Factory.
+Ver [introdução ao Azure Data Factory](data-factory-introduction.md) artigo para uma visão geral detalhada do Azure Data Factory.
   
-Eis o **vista de diagrama** da fábrica de dados de exemplo que cria neste tutorial. **MyFirstPipeline** tem uma atividade do tipo ramo de registo que consome **AzureBlobInput** conjunto de dados como uma entrada e produz **AzureBlobOutput** conjunto de dados como resultado. 
+Aqui está o **vista de diagrama** da fábrica de dados de exemplo que criar neste tutorial. **MyFirstPipeline** tem uma atividade do tipo de Hive que consome **AzureBlobInput** conjunto de dados como entrada e produz **AzureBlobOutput** conjunto de dados como uma saída. 
 
 ![Vista de diagrama no tutorial do Data Factory](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
-Neste tutorial, **inputdata** pasta o **adfgetstarted** contentor de Blobs do Azure contém um ficheiro com o nome input.log. Este ficheiro de registo tem entradas de três meses: Janeiro, Fevereiro e Março de 2016. Seguem-se as linhas de exemplo para cada mês no ficheiro de entrada. 
+Neste tutorial, **inputdata** pasta da **adfgetstarted** contentor de Blobs do Azure contém um ficheiro com o nome Input. log. Este ficheiro de registo tem entradas de três meses: Janeiro, Fevereiro e Março de 2016. Seguem-se as linhas de exemplo para cada mês no ficheiro de entrada. 
 
 ```
 2016-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
@@ -79,18 +79,18 @@ adfgetstarted/partitioneddata/year=2016/month=2/000000_0
 adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 ```
 
-De linhas de exemplo mostradas acima, a uma primeira (com 2016-01-01) é escrita no ficheiro 000000_0 no mês = 1 pasta. Do mesmo modo, a segunda é escrita no ficheiro na pasta month=2 e a terceira é escrita no ficheiro na pasta month=3.  
+De linhas de exemplo mostradas acima, aquela primeira (com 2016-01-01) é escrita no ficheiro 000000_0 na pasta Month=1. Do mesmo modo, a segunda é escrita no ficheiro na pasta month=2 e a terceira é escrita no ficheiro na pasta month=3.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, tem de ter os seguintes pré-requisitos:
 
 1. **Subscrição do Azure** - Se não tiver uma subscrição do Azure, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Veja o artigo [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre como poderá obter uma conta de avaliação gratuita.
-2. **Armazenamento do Azure** – Utilize uma conta de armazenamento do Azure para armazenar os dados deste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Depois de ter criado a conta de armazenamento, tome nota do **nome da conta** e **chave de acesso**. Veja [Ver, copiar e voltar a gerar chaves de acesso ao armazenamento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Transferir e rever o ficheiro de consulta do Hive (**HQL**), localizado em: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma os dados de entrada para produzir os dados de saída. 
-4. Transferir e rever o ficheiro de entrada de exemplo (**input.log**), localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
-5. Criar um contentor do blob denominado **adfgetstarted** no armazenamento de Blobs do Azure. 
-6. Carregar **partitionweblogs.hql** do ficheiro para o **script** pasta o **adfgetstarted** contentor. Utilize ferramentas como [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/). 
-7. Carregar **input.log** do ficheiro para o **inputdata** pasta o **adfgetstarted** contentor. 
+2. **Armazenamento do Azure** – Utilize uma conta de armazenamento do Azure para armazenar os dados deste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, tome nota da **nome da conta** e **chave de acesso**. Veja [Ver, copiar e voltar a gerar chaves de acesso ao armazenamento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+3. Transfira e reveja o ficheiro de consulta do Hive (**HQL**) localizado em: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma dados de entrada para produzir dados de saída. 
+4. Transfira e reveja o ficheiro de entrada de exemplo (**Input. log**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
+5. Criar um contentor de BLOBs denominado **adfgetstarted** no armazenamento de Blobs do Azure. 
+6. Carregue **partitionweblogs. hql** do ficheiro para o **script** pasta no **adfgetstarted** contentor. Utilize ferramentas como [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/). 
+7. Carregue **Input. log** do ficheiro para o **inputdata** pasta no **adfgetstarted** contentor. 
 
 Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/SDKs para fazer o tutorial: 
 
@@ -100,7 +100,7 @@ Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/S
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Portal do Azure e o Visual Studio fornecem a forma de GUI da criação do seu fábricas de dados. Enquanto, opções do PowerShell, o modelo do Resource Manager e REST API forma de scripting/programação de criação do seu fábricas de dados.
+Portal do Azure e o Visual Studio fornecem a forma de GUI da criação de fábricas de dados. Ao passo que, opções de PowerShell, o modelo do Resource Manager e REST API fornece a forma de criação de scripts/programação da criação de fábricas de dados.
 
 > [!NOTE]
 > O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Não copia dados de um de dados de origem para um arquivo de dados de destino. Para um tutorial sobre como copiar dados com o Azure Data Factory, consulte [Tutorial: Copy data from Blob Storage to SQL Database (Tutorial: copiar dados do Armazenamento de Blobs para a Base de Dados SQL)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

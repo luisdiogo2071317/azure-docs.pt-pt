@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: d97388732f0b5cf4570026d5b23a64b2d689e5d4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9ee61ae931f08d2087835eaa9cb1c0b0fde23fde
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056856"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058824"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada | Atenuações 
 | Produtos/serviços | Artigo |
@@ -49,7 +49,7 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Exemplo
-Se estiver a utilizar com o MSXML 6.0, XSLT de scripts está desativada por padrão. No entanto, tem de se certificar de que ele não foi explicitamente ativado por meio da propriedade de objeto do XML DOM AllowXsltScript. 
+Se estiver a utilizar o MSXML 6.0, XSLT de scripts está desativada por padrão. No entanto, tem de se certificar de que ele não foi explicitamente ativado por meio da propriedade de objeto do XML DOM AllowXsltScript. 
 
 ```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false

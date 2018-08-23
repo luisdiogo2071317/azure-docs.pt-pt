@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: da1619c5dc536ee143a8cc5ed17e995bc2d1eab7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35647224"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056157"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar itens do Marketplace
 
@@ -102,7 +102,7 @@ ms.locfileid: "35647224"
 
 6. Pode remover um item do mercado, utilizando o **Remove-AzureRMGalleryItem** cmdlet. Exemplo:
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > A interface do Usuário do Marketplace pode mostrar um erro depois de remover um item. Para corrigir o erro, clique em **definições** no portal. Em seguida, selecione **rejeitar modificações** sob **personalização do Portal**.

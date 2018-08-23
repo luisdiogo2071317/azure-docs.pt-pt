@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324576"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987584"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no ambiente de trabalho do Windows utilizando o SDK de voz
 
@@ -55,7 +55,7 @@ No canto superior direito, no **origem do pacote** campo, escolha "Nuget.org".
 Do **navegue** separador, procure o pacote "Microsoft.CognitiveServices.Speech", selecioná-lo e verificar o **projeto** e **helloworld** caixas no lado direito e selecione **Instalar** para instalá-lo para o projeto helloworld.
 
 > [!NOTE]
-> A versão atual do SDK de voz dos serviços cognitivos é `0.5.0`.
+> A versão atual do SDK de voz dos serviços cognitivos é `0.6.0`.
 
 ![Instalar o pacote de NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 

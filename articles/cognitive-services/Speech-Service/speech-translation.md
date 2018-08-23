@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7d653a17212c727d65820382e22196d62af086e9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3559a25f3073f88e99379e98bc4562209b0c0825
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324413"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42108449"
 ---
 # <a name="about-the-speech-translation-api"></a>Sobre a API de tradução de voz
 
@@ -43,3 +43,5 @@ As diferenças entre os modelos são internas para o mecanismo de tradução. Os
 
 * [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como a conversão de voz em c#](how-to-translate-speech-csharp.md)
+* [Veja como a conversão de voz em C++](how-to-translate-speech-cpp.md)
+* [Veja como a conversão de voz em Java](how-to-translate-speech-java.md)

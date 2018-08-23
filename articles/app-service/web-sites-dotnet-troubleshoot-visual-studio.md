@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224114"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059239"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como utilizar ferramentas do Visual Studio para ajudar a depurar uma aplicação web no [serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714), executando [modo de depuração](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotamente ou ao visualizar registos de aplicações e registos do servidor web.
+Este tutorial mostra como utilizar ferramentas do Visual Studio para ajudar a depurar uma aplicação web no [serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714), executando [modo de depuração](https://docs.microsoft.com/visualstudio/debugger/) remotamente ou ao visualizar registos de aplicações e registos do servidor web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Defina um ponto de interrupção](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) sobre o `ViewBag.Message` linha.
+
+4. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) sobre o `ViewBag.Message` linha.
 
 5. Na **Explorador de soluções**, clique com o botão direito no projeto e clique em **Publish**.
 
@@ -185,7 +186,7 @@ Depuração remota só funciona com o WebJobs contínuos. WebJobs agendadas e so
 
 2. No projeto ContosoAdsWebJob, abra *Functions.cs*.
 
-3. [Defina um ponto de interrupção](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) na primeira instrução no `GnerateThumbnail` método.
+3. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) na primeira instrução no `GnerateThumbnail` método.
 
     ![Ponto de interrupção do conjunto](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ Se a função [escreveu logs](https://github.com/Azure/azure-webjobs-sdk/wiki), 
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Se achar que o depurador não avance para o código que deseja depurar, poderá ter de alterar a definição de Just My Code.  Para obter mais informações, consulte [restringir passar para o Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Se achar que o depurador não avance para o código que deseja depurar, poderá ter de alterar a definição de Just My Code.  Para obter mais informações, consulte [Especifique se pretende depurar o código de utilizador apenas usando o Just My Code no Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Um temporizador é iniciada no servidor quando ativar a funcionalidade de depuração remota e, após 48 horas a funcionalidade é desativada automaticamente. Este limite de 48 horas é feito por razões de segurança e desempenho. Pode facilmente voltar a ativá a funcionalidade de quantas vezes desejar. É recomendável deixá-lo desativada quando não estiver depurando ativamente.
 * Pode anexar manualmente o depurador a qualquer processo, não apenas o web app processo (w3wp.exe). Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 

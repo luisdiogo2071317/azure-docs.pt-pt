@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 68d8ba6b08811b96df8b8b2daa074166301ffcd0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 856809d6eb480d0112eb7ed85c33560950be7d64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421995"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com confluência SAML SSO pela Microsoft
 
@@ -42,7 +42,7 @@ Utilize a sua conta do Microsoft Azure Active Directory com o servidor de conflu
 
 Para configurar a integração do Azure AD com confluência SAML SSO pela Microsoft, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Aplicação de servidor confluência instalada num servidor Windows de 64 bits (no local ou na cloud em infraestrutura IaaS)
 - Servidor de confluência é ativadas por HTTPS
 - Tenha em atenção de que as versões suportadas para o plug-in do confluência mencionadas abaixo de secção.
@@ -76,7 +76,7 @@ Para configurar a integração do confluência SAML SSO pela Microsoft para o Az
 
 **Para adicionar confluência SAML SSO pela Microsoft a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -150,7 +150,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon1.png)
 
-1. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/en-us/servicesagreement/). 
+1. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/servicesagreement/). 
     
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon12.png)
 

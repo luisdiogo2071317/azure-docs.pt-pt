@@ -3,7 +3,7 @@ title: Ativar cópia de segurança para o Azure Stack com o PowerShell | Documen
 description: Ative o serviço de cópia de segurança de infraestrutura com o Windows PowerShell para que o Azure Stack pode ser restaurado se ocorrer uma falha.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2018
-ms.author: mabrigg
+ms.date: 08/16/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 76a24e7096cbc2a9bcea8bf68e2b333345dbff68
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 8fe7f0ddd630cfca0242af6cc1d728bdef163352
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242959"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060917"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Ativar cópia de segurança para o Azure Stack com o PowerShell
 
@@ -44,31 +44,26 @@ Na mesma sessão do PowerShell, edite o seguinte script do PowerShell ao adicion
 | Variável        | Descrição   |
 |---              |---                                        |
 | $username       | Tipo de **nome de utilizador** com o domínio e o nome de utilizador para o local de unidade compartilhada com acesso suficiente para ler e escrever ficheiros. Por exemplo, `Contoso\backupshareuser`. |
-| $key            | Tipo de **chave de encriptação** utilizado para encriptar cada cópia de segurança. |
 | $password       | Tipo de **palavra-passe** para o utilizador. |
 | $sharepath      | Escreva o caminho para o **localização de armazenamento de cópia de segurança**. Tem de utilizar uma cadeia de caracteres de convenção de Nomenclatura Universal (UNC) para o caminho para uma partilha de ficheiros hospedado num dispositivo separado. Uma cadeia de caracteres UNC Especifica a localização de recursos, tais como ficheiros partilhados ou dispositivos. Para garantir a disponibilidade dos dados de cópia de segurança, o dispositivo deve estar num local separado. |
+| $frequencyInHours | A frequência em horas determina com que frequência as cópias de segurança são criadas. O valor predefinido é 12. O Scheduler suporta um máximo de 12 e um mínimo de 4.|
+| $retentionPeriodInDays | O período de retenção em dias determina o número de dias de cópias de segurança é mantido na localização externa. O valor predefinido é de 7. O Scheduler suporta um máximo de 14 e um mínimo de 2. Mais antigas do que o período de retenção de cópias de segurança são eliminadas automaticamente da localização externa.|
+|     |     |
 
    ```powershell
+    # Example username:
     $username = "domain\backupadmin"
-   
-    $Secure = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
-    $Encrypted = ConvertFrom-SecureString -SecureString $Secure
-    $password = ConvertTo-SecureString -String $Encrypted
-    
-    $BackupEncryptionKeyBase64 = ""
-    $tempEncryptionKeyString = ""
-    foreach($i in 1..64) { $tempEncryptionKeyString += -join ((65..90) + (97..122) | Get-Random | % {[char]$_}) }
-    $tempEncryptionKeyBytes = [System.Text.Encoding]::UTF8.GetBytes($tempEncryptionKeyString)
-    $BackupEncryptionKeyBase64 = [System.Convert]::ToBase64String($tempEncryptionKeyBytes)
-    $BackupEncryptionKeyBase64
-    
-    $Securekey = ConvertTo-SecureString -String $BackupEncryptionKeyBase64 -AsPlainText -Force
-    $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
-    $key = ConvertTo-SecureString -String $Encryptedkey
-    
+    # Example share path:
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+   
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+    
+    # The encryption key is generated using the New-AzsEncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
+    # Make sure to store your encryption key in a secure location after it is generated.
+    $Encryptionkey = New-AzsEncryptionKeyBase64
+    $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
-    Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
+    Set-AzsBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
    
 ##  <a name="confirm-backup-settings"></a>Confirme as definições de cópia de segurança
@@ -76,15 +71,36 @@ Na mesma sessão do PowerShell, edite o seguinte script do PowerShell ao adicion
 Na mesma sessão do PowerShell, execute os seguintes comandos:
 
    ```powershell
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName
    ```
 
-O resultado deverá ser semelhante a seguinte saída:
+O resultado deverá ser semelhante à saída de exemplo seguinte:
 
    ```powershell
-    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
+    UserName                    : domain\backupadmin
+   ```
+
+## <a name="update-backup-settings"></a>Atualizar as definições de cópia de segurança
+Na mesma sessão do PowerShell, pode atualizar os valores predefinidos para o período de retenção e a frequência de cópias de segurança. 
+
+   ```powershell
+    #Set the backup frequency and retention period values.
+    $frequencyInHours = 10
+    $retentionPeriodInDays = 5
+
+    Set-AzsBackupShare -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
+   ```
+
+O resultado deverá ser semelhante à saída de exemplo seguinte:
+
+   ```powershell
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
     UserName                    : domain\backupadmin
     AvailableCapacity           : 60 GB
+    BackupFrequencyInHours      : 10
+    BackupRetentionPeriodInDays : 5
    ```
 
 ## <a name="next-steps"></a>Passos Seguintes

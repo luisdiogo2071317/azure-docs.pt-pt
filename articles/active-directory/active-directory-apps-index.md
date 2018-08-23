@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621536"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055630"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista abrangente de cada documento escrito sobre os vários recursos relacionados com a aplicação no Azure Active Directory (Azure AD).
@@ -96,7 +96,7 @@ Se sua organização mantém um Windows Server Active Directory no local, juntam
 |:---:| --- |
 | Uma descrição geral sobre as opções de início de sessão únicas oferecidos no Azure AD Connect, bem como informações sobre como gerir os ambientes híbridos |[Início de sessão do utilizador sobre as opções no Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Orientação geral para o gerenciamento de ambientes com ambos no local do Active Directory e Azure Active Directory |[Considerações de Design de identidade híbrida do Azure AD](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrar as identidades no local com o Azure Active Directory](active-directory-aadconnect.md) |
-| Documentação de orientação sobre como utilizar a sincronização de palavra-passe para ativar o SSO |[Implementar a sincronização de palavra-passe com o Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Resolver problemas de sincronização de palavra-passe](https://support.microsoft.com/en-us/kb/2855271) |
+| Documentação de orientação sobre como utilizar a sincronização de palavra-passe para ativar o SSO |[Implementar a sincronização de palavra-passe com o Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Resolver problemas de sincronização de palavra-passe](https://support.microsoft.com/kb/2855271) |
 | Documentação de orientação sobre como utilizar a repetição de escrita de palavra-passe para ativar o SSO |[Introdução à gestão de palavra-passe no Azure AD](authentication/quickstart-sspr.md)<br /><br />[Resolver problemas na Repetição de Escrita de Palavras-passe](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Documentação de orientação sobre como utilizar fornecedores de identidade de terceiros para ativar o SSO |[Lista de fornecedores de identidade de terceiros compatíveis que podem ser utilizadas para ativar o início de sessão único](https://aka.ms/ssoproviders) |
 | Como os utilizadores do Windows 10 podem desfrutar dos benefícios de início de sessão único através de associação do Azure AD |[Junte-se aumentar as capacidades de Cloud para o Windows 10 dispositivos através do Azure Active Directory](active-directory-azureadjoin-overview.md) |

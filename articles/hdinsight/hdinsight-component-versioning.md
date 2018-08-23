@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: a11d8d8ab255a3e0a6adff3d488bcdaf0716f35e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1dda09896bfe8db5fc78ea64cd20baa78666c593
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594999"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444330"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -50,7 +50,7 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 | O Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (apenas Windows) |-|-|
 | Apache Livy |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
@@ -232,12 +232,12 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
   | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | Servidor de ML |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeça: tamanho VM predefinido |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
-  | HEAD: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Cabeça: tamanho VM predefinido |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
+  | HEAD: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
   | Função de trabalho: tamanho VM predefinido |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
   | Função de trabalho: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: tamanho da VM predefinida | |A3 | |A2 | | |
-  | ZooKeeper: recomendado tamanhos de VM | |A3, A4, A5 | | A2, A3, A4 | | |
+  | ZooKeeper: tamanho da VM predefinida | |A4 v2 | |A2 v2 | | |
+  | ZooKeeper: recomendado tamanhos de VM | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
   | Edge: tamanho da VM predefinida | | | | | |Windows: D12 v2; Linux: D4 v2 |
   | Edge: tamanho VM de recomendado | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Sul do Brasil e oeste do Japão apenas (não existem tamanhos v2):

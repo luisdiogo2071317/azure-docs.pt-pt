@@ -1,32 +1,287 @@
 ---
 title: As funções de referência de linguagem de definição de fluxo de trabalho - Azure Logic Apps | Documentos da Microsoft
-description: Saiba mais sobre as funções para criar aplicações lógicas com a linguagem de definição de fluxo de trabalho
+description: Saiba mais sobre as funções de linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263781"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42062082"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
-Este artigo descreve as funções que pode utilizar quando criar fluxos de trabalho com automatizados [do Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para saber mais sobre as funções em definições de aplicação lógica, consulte [linguagem de definição de fluxo de trabalho para o Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+Algumas [expressões](../logic-apps/logic-apps-workflow-definition-language.md#expressions) na [Azure Logic Apps](../logic-apps/logic-apps-overview.md) obter os valores de ações de tempo de execução que ainda poderão não existir quando a definição de fluxo de trabalho de aplicação lógica começa a ser executada. Para referenciar ou trabalhar com esses valores em expressões, pode usar *funções* fornecido pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md). Por exemplo, pode usar funções matemáticas para cálculos, como o [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) função, que devolve a soma de números inteiros ou floats. Seguem-se algumas tarefas de exemplo mais que pode realizar com as funções:
+
+| Tarefa | Sintaxe da função | Resultado | 
+| ---- | --------------- | ------ | 
+| Retorne uma cadeia de caracteres no formato em minúsculas. | toLower ("<*texto*>") <p>Por exemplo: toLower('Hello') | "hello" | 
+| Devolve um identificador exclusivo global (GUID). | GUID() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
+|||| 
+
+Este artigo descreve as funções que pode utilizar ao criar a lógica de definições de aplicação.
+Para encontrar funções [com base em suas finalidades gerais](#ordered-by-purpose), prossiga com as tabelas seguintes. Ou, para obter informações detalhadas sobre cada função, consulte a [lista alfabética](#alphabetical-list). 
 
 > [!NOTE]
 > A sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece depois de um parâmetro significa que o parâmetro é opcional. Por exemplo, veja [getFutureTime()](#getFutureTime).
 
+## <a name="functions-in-expressions"></a>Funções em expressões
+
+Para mostrar como utilizar uma função numa expressão, este exemplo mostra como pode obter o valor do `customerName` parâmetro e atribuir esse valor para o `accountName` propriedade utilizando o [parameters()](#parameters) função numa expressão:
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+Aqui estão algumas outras formas gerais que pode utilizar funções em expressões de:
+
+| Tarefa | Sintaxe da função numa expressão | 
+| ---- | -------------------------------- | 
+| Realizar o trabalho com um item passando esse item para uma função. | "\@<*functionName*> (<*item*>)" | 
+| 1. Obter o *parameterName*do valor utilizando aninhada `parameters()` função. </br>2. Executar o trabalho com o resultado ao passar esse valor para *functionName*. | "\@<*functionName*> (parâmetros (" <*parameterName*> "))" | 
+| 1. Obter o resultado da função interna aninhada *functionName*. </br>2. Passar o resultado para a função externa *functionName2*. | "\@<*functionName2*> (<*functionName*> (<*item*>))" | 
+| 1. Obter o resultado da *functionName*. </br>2. Uma vez que o resultado é um objeto com a propriedade *propertyName*, obter o valor dessa propriedade. | "\@<*functionName*>(<*item*>). <*propertyName*>" | 
+||| 
+
+Por exemplo, o `concat()` função pode assumir dois ou mais valores de cadeia de caracteres como parâmetros. Esta função combina essas cadeias de caracteres numa cadeia de caracteres. Pode passar em literais de cadeia de caracteres, por exemplo, "Sophia" e "Owen", para que obtém uma cadeia de caracteres combinada, "SophiaOwen":
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+Em alternativa, pode obter valores de cadeia de caracteres de parâmetros. Este exemplo utiliza a `parameters()` função em cada `concat()` parâmetro e o `firstName` e `lastName` parâmetros. Então, passa as cadeias de caracteres resultantes para o `concat()` funcionar para que obtém uma cadeia de caracteres combinada, por exemplo, "SophiaOwen":
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+De qualquer forma, os dois exemplos atribuir o resultado para o `customerName` propriedade. 
+
+Aqui estão as funções disponíveis, ordenadas por suas finalidades gerais ou pode procurar as funções com base na [ordem alfabética](#alphabetical-list).
+
+<a name="ordered-by-purpose"></a>
+<a name="string-functions"></a>
+
+## <a name="string-functions"></a>Funções de cadeia
+
+Para trabalhar com cadeias de caracteres, pode usar essas funções de cadeia de caracteres e também alguns [funções de coleção](#collection-functions). Funções de cadeia só funcionam em cadeias de caracteres. 
+
+| Função de cadeia de caracteres | Tarefa | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combinar dois ou mais cadeias de caracteres e retornar a cadeia de caracteres combinada. | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verifique se uma cadeia de caracteres termina com a subcadeia especificada. | 
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um identificador exclusivo global (GUID) como uma cadeia de caracteres. | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devolve a posição inicial para uma subcadeia. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devolve a posição final para uma subcadeia. | 
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia com a cadeia especificada e retornar a cadeia de caracteres atualizada. | 
+| [dividir](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devolva uma matriz que tem todos os carateres de uma cadeia de caracteres e separa cada caractere com o caráter delimitador específico. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verificar se uma cadeia de caracteres começa com uma subcadeia específica. | 
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Devolva carateres de uma cadeia de caracteres, a partir da posição especificada. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retorne uma cadeia de caracteres no formato em minúsculas. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retorne uma cadeia de caracteres no formato em maiúsculas. | 
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remover espaços em branco à esquerda e à direita de uma cadeia de caracteres e retornar a cadeia de caracteres atualizada. | 
+||| 
+
+<a name="collection-functions"></a>
+
+## <a name="collection-functions"></a>Funções de coleção
+
+Para trabalhar com coleções, em geral, matrizes, cadeias de caracteres e, às vezes, dicionários, pode utilizar estas funções de coleção. 
+
+| Função de coleção | Tarefa | 
+| ------------------- | ---- | 
+| [Contém](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. | 
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Devolva o primeiro item a partir de uma coleção. | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retornar uma coleção que tenha *apenas* os itens comuns em coleções especificadas. | 
+| [aderir](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retornar uma cadeia de caracteres que tenha *todos os* os itens de uma matriz, separados pelo caractere especificado. | 
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Devolva o último item a partir de uma coleção. | 
+| [Comprimento](../logic-apps/workflow-definition-language-functions-reference.md#length) | Devolva o número de itens numa cadeia ou matriz. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remover itens da frente de uma coleção e devolver *todas as outras* itens. | 
+| [tirar](../logic-apps/workflow-definition-language-functions-reference.md#take) | Itens de retorno da frente de uma coleção. | 
+| [União](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retornar uma coleção que tenha *todos os* os itens de coleções especificadas. | 
+||| 
+
+<a name="comparison-functions"></a>
+
+## <a name="logical-comparison-functions"></a>Funções de comparação lógica
+
+Para trabalhar com condições, comparar valores e resultados de expressão ou avaliar os vários tipos de lógica, pode utilizar estas funções de comparação lógica. Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Função de comparação lógica | Tarefa | 
+| --------------------------- | ---- | 
+| [e](../logic-apps/workflow-definition-language-functions-reference.md#and) | Verifique se todas as expressões forem verdadeiras. | 
+| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifique se os dois valores são equivalentes. | 
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Verifique se o primeiro valor é maior do que o segundo valor. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Verifique se o primeiro valor é maior que ou igual ao segundo valor. | 
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, devolva um valor especificado. | 
+| [menos](../logic-apps/workflow-definition-language-functions-reference.md#less) | Verifique se o primeiro valor é menor que o segundo valor. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Verifique se o primeiro valor é menor ou igual ao segundo valor. | 
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Verifique se uma expressão é falsa. | 
+| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Verifique se, pelo menos, uma expressão é verdadeira. |
+||| 
+
+<a name="conversion-functions"></a>
+
+## <a name="conversion-functions"></a>Funções de conversão
+
+Para alterar o tipo ou formato de um valor, pode usar essas funções de conversão. Por exemplo, pode alterar um valor de um valor booleano para um número inteiro. Para saber como as aplicações lógicas processam os tipos de conteúdo durante a conversão, veja [lidar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md). Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Função de conversão | Tarefa | 
+| ------------------- | ---- | 
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Devolva uma matriz de um único especificado de entrada. Para várias entradas, consulte [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Devolva a versão codificada em base64 para uma cadeia de caracteres. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Devolva a versão binária para uma cadeia de caracteres codificada em base64. | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Devolva a versão de cadeia de caracteres para uma cadeia de caracteres codificada em base64. | 
+| [binário](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Devolva a versão binária para um valor de entrada. | 
+| [Bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Devolva a versão booleana para um valor de entrada. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Retornar uma matriz de várias entradas. | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Devolve o URI de dados para um valor de entrada. | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Devolva a versão binária para um URI de dados. | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Devolva a versão de cadeia de caracteres para um URI de dados. | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Devolva a versão de cadeia de caracteres para uma cadeia de caracteres codificada em base64. | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Devolva a versão binária para um URI de dados. | 
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Devolver uma cadeia de caracteres que substitui o escape de caracteres com versões decodificadas. | 
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Retorne uma cadeia de caracteres que substitui os carateres não seguros de URL com carateres de escape. | 
+| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Devolver a flutuante ponto número para um valor de entrada. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Devolva a versão de número inteiro para uma cadeia de caracteres. | 
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Devolve o valor de tipo JavaScript Object Notation (JSON) ou o objeto para uma cadeia ou XML. | 
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devolva a versão de cadeia de caracteres para um valor de entrada. | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Devolve a versão codificada de URI para um valor de entrada ao substituir carateres não seguros de URL com carateres de escape. | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Devolva a versão binária para uma cadeia codificada de URI. | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Devolva a versão de cadeia de caracteres para uma cadeia codificada de URI. | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Devolva a versão XML para uma cadeia de caracteres. | 
+||| 
+
+<a name="math-functions"></a>
+
+## <a name="math-functions"></a>Funções matemáticas
+
+Para trabalhar com números inteiros e floats, pode usar essas funções matemáticas. Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Função de matemática | Tarefa | 
+| ------------- | ---- | 
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Devolva o resultado da adição de dois números. | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Retornar o resultado da divisão de dois números. | 
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Devolva o valor mais alto de um conjunto de números ou uma matriz. | 
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Devolva o valor mais baixo de um conjunto de números ou uma matriz. | 
+| [MOD](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Devolva o resto da divisão de dois números. | 
+| [MUL](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Devolva o produto da multiplicação de dois números. | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Devolva um número inteiro aleatório de um intervalo especificado. | 
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Devolva uma matriz de inteiros que começa a partir de um número inteiro especificado. | 
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Devolva o resultado da subtração o segundo número do primeiro número. | 
+||| 
+
+<a name="date-time-functions"></a>
+
+## <a name="date-and-time-functions"></a>Funções de data e hora
+
+Para trabalhar com datas e horas, pode usar essas funções de data e hora.
+Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Função de data ou hora | Tarefa | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Adicione um número de dias a um carimbo. | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Adicione um número de horas para um carimbo. | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Adicione um número de minutos para um carimbo. | 
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Adicione um número de segundos a um carimbo. |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Adiciona um número de unidades de tempo para um carimbo. Consulte também [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Converta um carimbo de Universal tempo coordenada (UTC) para o fuso horário de destino. | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Converta um carimbo de fuso horário de origem para o fuso horário de destino. | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Converta um carimbo de fuso horário de origem para Universal tempo coordenada (UTC). | 
+| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Devolva o dia do componente de mês a partir de um carimbo. | 
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Devolva o dia do componente da semana de um carimbo. | 
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Devolva o dia do componente de ano a partir de um carimbo. | 
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Devolva a data de um carimbo. | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Devolva o timestamp atual, bem como as unidades de tempo especificado. Consulte também [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Devolva o carimbo de hora atual menos as unidades de tempo especificado. Consulte também [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Devolva o início do dia para um carimbo. | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Devolva o início da hora para um carimbo. | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Devolva o início do mês para um carimbo. | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Subtrai um número de unidades de tempo de um carimbo. Consulte também [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). | 
+| [ticks](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | Devolver o `ticks` valor da propriedade para um carimbo especificado. | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | Devolva o timestamp atual como uma cadeia de caracteres. | 
+||| 
+
+<a name="workflow-functions"></a>
+
+## <a name="workflow-functions"></a>Funções de fluxo de trabalho
+
+Estas funções de fluxo de trabalho podem ajudá-lo a:
+
+* Obtenha detalhes sobre uma instância de fluxo de trabalho em tempo de execução. 
+* Trabalhar com as entradas utilizadas para criar uma instância de aplicações lógicas.
+* Referenciam as saídas de acionadores e ações.
+
+Por exemplo, pode referenciar as saídas da ação de um e utilizar esses dados numa ação posterior. Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Função de fluxo de trabalho | Tarefa | 
+| ----------------- | ---- | 
+| [ação](../logic-apps/workflow-definition-language-functions-reference.md#action) | Devolva a saída da ação atual em tempo de execução ou valores de outros pares de nome e valor JSON. Consulte também [ações](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Devolver uma ação `body` de saída em tempo de execução. Consulte também [corpo](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Devolva o resultado de uma ação em tempo de execução. Ver [ações](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [Ações](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Devolva o resultado de uma ação em tempo de execução ou valores de outros pares de nome e valor JSON. Consulte também [ação](../logic-apps/workflow-definition-language-functions-reference.md#action).  | 
+| [Corpo](#body) | Devolver uma ação `body` de saída em tempo de execução. Consulte também [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Criar uma matriz com os valores que correspondem ao nome da chave no *dados de formulário* ou *formulário codificado* saídas da ação. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Devolver um valor único que corresponde ao nome da chave numa ação *dados de formulário* ou *saída de formulário codificado*. | 
+| [Item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando dentro de uma ação de repetição numa matriz, retorna o item atual na matriz durante a iteração da ação de atual. | 
+| [itens](../logic-apps/workflow-definition-language-functions-reference.md#items) | Quando dentro de um para cada ou fazer até o loop, retorno o item atual do ciclo especificado.| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Devolva o "URL de retorno de chamada" que chama um acionador ou ação. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devolve o corpo de uma parte específica na saída de uma ação que tem várias partes. | 
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Devolva o valor para um parâmetro que é descrito na sua definição da aplicação lógica. | 
+| [Acionador](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Devolva o resultado de um acionador no tempo de execução ou a partir de outros pares de nome e valor JSON. Consulte também [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Devolver um acionador `body` de saída em tempo de execução. Ver [acionador](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Devolver um valor único que corresponda um nome de chave na *dados de formulário* ou *formulário codificado* acionar saídas. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Devolve o corpo de uma parte específica na saída de várias partes de um acionador. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Criar uma matriz cujos valores corresponde ao nome da chave no *dados de formulário* ou *formulário codificado* acionar saídas. | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Devolva o resultado de um acionador no tempo de execução ou valores de outros pares de nome e valor JSON. Ver [acionador](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [Variáveis](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Devolva o valor para uma variável especificada. | 
+| [Fluxo de trabalho](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Devolva todos os detalhes sobre o próprio fluxo de trabalho durante o tempo de execução. | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+## <a name="uri-parsing-functions"></a>Funções de análise do URI
+
+Para trabalhar com os identificadores de recurso uniforme (URIs) e obter vários valores de propriedade para estes URIs, pode utilizar estas funções de análise do URI. Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Função de análise do URI | Tarefa | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Devolver o `host` valor para um identificador de recurso uniforme (URI). | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Devolver o `path` valor para um identificador de recurso uniforme (URI). | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Devolver o `path` e `query` valores para um identificador de recurso uniforme (URI). | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Devolver o `port` valor para um identificador de recurso uniforme (URI). | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Devolver o `query` valor para um identificador de recurso uniforme (URI). | 
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Devolver o `scheme` valor para um identificador de recurso uniforme (URI). | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+## <a name="manipulation-functions-json--xml"></a>Funções de manipulação: JSON e XML
+
+Para trabalhar com objetos JSON e nós XML, pode usar essas funções de manipulação. Para obter a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Função de manipulação | Tarefa | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Adicionar uma propriedade e seu valor ou o par nome / valor, a um objeto JSON e devolver do objeto atualizado. | 
+| [Coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Devolva o primeiro valor não nulo de um ou mais parâmetros. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Remover uma propriedade de um objeto JSON e retornar do objeto atualizado. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Defina o valor de propriedade de um objeto JSON e retornar do objeto atualizado. | 
+| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Verificar o XML de nós ou valores que correspondem a uma expressão XPath (linguagem de caminho de XML) e devolver os valores ou nós correspondentes. | 
+||| 
+
+<a name="alphabetical-list"></a>
 <a name="action"></a>
 
-## <a name="action"></a>action
+### <a name="action"></a>action
 
 Devolver o *atual* saída em tempo de execução, ou valores de outros pares de nome e valor JSON, que pode atribuir a uma expressão de ação. Por predefinição, esta função referencia o objeto de ação inteiro, mas, opcionalmente, pode especificar uma propriedade de valor que pretende. Consulte também [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
@@ -53,7 +308,7 @@ action().outputs.body.<property>
 
 <a name="actionBody"></a>
 
-## <a name="actionbody"></a>actionBody
+### <a name="actionbody"></a>actionBody
 
 Devolver uma ação `body` de saída em tempo de execução. Um atalho para `actions('<actionName>').outputs.body`. Ver [body()](#body) e [actions()](#actions).
 
@@ -98,7 +353,7 @@ E devolve o resultado:
 
 <a name="actionOutputs"></a>
 
-## <a name="actionoutputs"></a>actionOutputs
+### <a name="actionoutputs"></a>actionOutputs
 
 Devolva o resultado de uma ação em tempo de execução. Um atalho para `actions('<actionName>').outputs`. Ver [actions()](#actions).
 
@@ -161,7 +416,7 @@ E devolve o resultado:
 
 <a name="actions"></a>
 
-## <a name="actions"></a>ações
+### <a name="actions"></a>Ações
 
 Devolva o resultado de uma ação em tempo de execução ou valores de outros pares de nome e valor JSON, que pode atribuir a uma expressão. Por predefinição, a função referencia o objeto de ação inteiro, mas, opcionalmente, pode especificar uma propriedade cujo valor que pretende. Para versões de forma abreviada, consulte [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), e [body()](#body). Para a ação atual, consulte [action()](#action).
 
@@ -196,7 +451,7 @@ E devolve o resultado: `"Succeeded"`
 
 <a name="add"></a>
 
-## <a name="add"></a>adicionar
+### <a name="add"></a>adicionar
 
 Devolva o resultado da adição de dois números.
 
@@ -226,7 +481,7 @@ E devolve o resultado: `2.5`
 
 <a name="addDays"></a>
 
-## <a name="adddays"></a>addDays
+### <a name="adddays"></a>addDays
 
 Adicione um número de dias a um carimbo.
 
@@ -268,7 +523,7 @@ E devolve o resultado: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
-## <a name="addhours"></a>addHours
+### <a name="addhours"></a>addHours
 
 Adicione um número de horas para um carimbo.
 
@@ -310,7 +565,7 @@ E devolve o resultado: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
-## <a name="addminutes"></a>addMinutes
+### <a name="addminutes"></a>addMinutes
 
 Adicione um número de minutos para um carimbo.
 
@@ -352,7 +607,7 @@ E devolve o resultado: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
-## <a name="addproperty"></a>addProperty
+### <a name="addproperty"></a>addProperty
 
 Adicionar uma propriedade e seu valor ou o par nome / valor, a um objeto JSON e devolver do objeto atualizado. Se o objeto já existe no tempo de execução, a função emite um erro.
 
@@ -382,7 +637,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="addSeconds"></a>
 
-## <a name="addseconds"></a>addSeconds
+### <a name="addseconds"></a>addSeconds
 
 Adicione um número de segundos a um carimbo.
 
@@ -393,7 +648,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
-| <*Segundos*> | Sim | Número inteiro | O número positivo ou negativo de segundos a adicionar | 
+| <*segundos*> | Sim | Número inteiro | O número positivo ou negativo de segundos a adicionar | 
 | <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
@@ -424,7 +679,7 @@ E devolve o resultado: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
-## <a name="addtotime"></a>addToTime
+### <a name="addtotime"></a>addToTime
 
 Adiciona um número de unidades de tempo para um carimbo. Consulte também [getFutureTime()](#getFutureTime).
 
@@ -467,7 +722,7 @@ E devolve o resultado com o formato "D" opcional: `"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
-## <a name="and"></a>e
+### <a name="and"></a>e
 
 Verifique se todas as expressões forem verdadeiras. Devolve verdadeiro quando todas as expressões forem verdadeiras, ou retornar false quando, pelo menos, uma expressão é falsa.
 
@@ -519,7 +774,7 @@ E retorna esses resultados:
 
 <a name="array"></a>
 
-## <a name="array"></a>array
+### <a name="array"></a>array
 
 Devolva uma matriz de um único especificado de entrada. Para várias entradas, consulte [createArray()](#createArray). 
 
@@ -549,7 +804,7 @@ E devolve o resultado: `["hello"]`
 
 <a name="base64"></a>
 
-## <a name="base64"></a>base64
+### <a name="base64"></a>base64
 
 Devolva a versão codificada em base64 para uma cadeia de caracteres.
 
@@ -579,7 +834,7 @@ E devolve o resultado: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
-## <a name="base64tobinary"></a>base64ToBinary
+### <a name="base64tobinary"></a>base64ToBinary
 
 Devolva a versão binária para uma cadeia de caracteres codificada em base64.
 
@@ -611,7 +866,7 @@ E devolve o resultado:
 
 <a name="base64ToString"></a>
 
-## <a name="base64tostring"></a>base64ToString
+### <a name="base64tostring"></a>base64ToString
 
 Devolva a versão de cadeia de caracteres para uma cadeia codificada em base64, efetivamente descodificar a cadeia base64. Utilize esta função vez [decodeBase64()](#decodeBase64). Embora ambas as funções funcionam da mesma maneira, `base64ToString()` é preferencial.
 
@@ -641,7 +896,7 @@ E devolve o resultado: `"hello"`
 
 <a name="binary"></a>
 
-## <a name="binary"></a>binário 
+### <a name="binary"></a>binário 
 
 Devolva a versão binária para uma cadeia de caracteres.
 
@@ -673,7 +928,7 @@ E devolve o resultado:
 
 <a name="body"></a>
 
-## <a name="body"></a>Corpo
+### <a name="body"></a>corpo
 
 Devolver uma ação `body` de saída em tempo de execução. Um atalho para `actions('<actionName>').outputs.body`. Ver [actionBody()](#actionBody) e [actions()](#actions).
 
@@ -718,7 +973,7 @@ E devolve o resultado:
 
 <a name="bool"></a>
 
-## <a name="bool"></a>Bool
+### <a name="bool"></a>Bool
 
 Devolva a versão de um valor booleana.
 
@@ -752,7 +1007,7 @@ E retorna esses resultados:
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>Coalesce
+### <a name="coalesce"></a>Coalesce
 
 Devolva o primeiro valor não nulo de um ou mais parâmetros. Objetos vazios, prázdná pole e as cadeias vazias não são nulos.
 
@@ -788,7 +1043,7 @@ E retorna esses resultados:
 
 <a name="concat"></a>
 
-## <a name="concat"></a>concat
+### <a name="concat"></a>concat
 
 Combinar dois ou mais cadeias de caracteres e retornar a cadeia de caracteres combinada. 
 
@@ -818,7 +1073,7 @@ E devolve o resultado: `"HelloWorld"`
 
 <a name="contains"></a>
 
-## <a name="contains"></a>contém
+### <a name="contains"></a>contém
 
 Verifique se uma coleção tem um item específico. Devolve verdadeiro quando o item for encontrado, ou retornar falso quando não encontrado. Esta função diferencia maiúsculas de minúsculas.
 
@@ -862,7 +1117,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-## <a name="convertfromutc"></a>convertFromUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
 Converta um carimbo de Universal tempo coordenada (UTC) para o fuso horário de destino.
 
@@ -904,7 +1159,7 @@ E devolve o resultado: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
-## <a name="converttimezone"></a>convertTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
 Converta um carimbo de fuso horário de origem para o fuso horário de destino.
 
@@ -947,7 +1202,7 @@ E devolve o resultado: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
-## <a name="converttoutc"></a>convertToUtc
+### <a name="converttoutc"></a>convertToUtc
 
 Converta um carimbo de fuso horário de origem para Universal tempo coordenada (UTC).
 
@@ -989,7 +1244,7 @@ E devolve o resultado: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
-## <a name="createarray"></a>createArray
+### <a name="createarray"></a>createArray
 
 Retornar uma matriz de várias entradas. Para matrizes de entrada únicas, consulte [array()](#array).
 
@@ -1019,7 +1274,7 @@ E devolve o resultado: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
-## <a name="datauri"></a>dataUri
+### <a name="datauri"></a>dataUri
 
 Devolve um identificador de recurso uniforme (URI) de dados para uma cadeia de caracteres. 
 
@@ -1049,7 +1304,7 @@ E devolve o resultado: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
-## <a name="datauritobinary"></a>dataUriToBinary
+### <a name="datauritobinary"></a>dataUriToBinary
 
 Devolva a versão binária de um identificador de recurso uniforme (URI) de dados. Utilize esta função vez [decodeDataUri()](#decodeDataUri). Embora ambas as funções funcionam da mesma maneira, `decodeDataUri()` é preferencial.
 
@@ -1084,7 +1339,7 @@ E devolve o resultado:
 
 <a name="dataUriToString"></a>
 
-## <a name="datauritostring"></a>dataUriToString
+### <a name="datauritostring"></a>dataUriToString
 
 Devolva a versão de cadeia de caracteres de um identificador de recurso uniforme (URI) de dados.
 
@@ -1114,7 +1369,7 @@ E devolve o resultado: `"hello"`
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>dayOfMonth
+### <a name="dayofmonth"></a>dayOfMonth
 
 Devolva o dia do mês de um carimbo. 
 
@@ -1144,7 +1399,7 @@ E devolve o resultado: `15`
 
 <a name="dayOfWeek"></a>
 
-## <a name="dayofweek"></a>dayOfWeek
+### <a name="dayofweek"></a>dayOfWeek
 
 Devolva o dia da semana de um carimbo.  
 
@@ -1174,7 +1429,7 @@ E devolve o resultado: `3`
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>dayOfYear
+### <a name="dayofyear"></a>dayOfYear
 
 Devolva o dia do ano a partir de um carimbo. 
 
@@ -1204,7 +1459,7 @@ E devolve o resultado: `74`
 
 <a name="decodeBase64"></a>
 
-## <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64"></a>decodeBase64
 
 Devolva a versão de cadeia de caracteres para uma cadeia codificada em base64, efetivamente descodificar a cadeia base64. Considere a utilização [base64ToString()](#base64ToString) vez `decodeBase64()`. Embora ambas as funções funcionam da mesma maneira, `base64ToString()` é preferencial.
 
@@ -1234,7 +1489,7 @@ E devolve o resultado: `"hello"`
 
 <a name="decodeDataUri"></a>
 
-## <a name="decodedatauri"></a>decodeDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
 Devolva a versão binária de um identificador de recurso uniforme (URI) de dados. Considere a utilização [dataUriToBinary()](#dataUriToBinary), em vez `decodeDataUri()`. Embora ambas as funções funcionam da mesma maneira, `dataUriToBinary()` é preferencial.
 
@@ -1269,7 +1524,7 @@ E devolve o resultado:
 
 <a name="decodeUriComponent"></a>
 
-## <a name="decodeuricomponent"></a>decodeUriComponent
+### <a name="decodeuricomponent"></a>decodeUriComponent
 
 Devolver uma cadeia de caracteres que substitui o escape de caracteres com versões decodificadas. 
 
@@ -1299,7 +1554,7 @@ E devolve o resultado: `"https://contoso.com"`
 
 <a name="div"></a>
 
-## <a name="div"></a>div
+### <a name="div"></a>div
 
 Devolva o resultado de número inteiro de divisão de dois números. Para obter o resultado de resto, consulte [mod()](#mod).
 
@@ -1331,7 +1586,7 @@ E retornar esse resultado: `2`
 
 <a name="encodeUriComponent"></a>
 
-## <a name="encodeuricomponent"></a>encodeUriComponent
+### <a name="encodeuricomponent"></a>encodeUriComponent
 
 Devolve uma versão de identifier (URI) com codificação de recurso uniforme para uma cadeia de caracteres ao substituir carateres não seguros de URL com carateres de escape. Considere a utilização [uriComponent()](#uriComponent), em vez `encodeUriComponent()`. Embora ambas as funções funcionam da mesma maneira, `uriComponent()` é preferencial.
 
@@ -1361,7 +1616,7 @@ E devolve o resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-## <a name="empty"></a>Vazio
+### <a name="empty"></a>Vazio
 
 Verifique se uma coleção está vazia. Devolve verdadeiro quando a coleção está vazia ou retornar falso quando não está vazio.
 
@@ -1396,7 +1651,7 @@ E retorna esses resultados:
 
 <a name="endswith"></a>
 
-## <a name="endswith"></a>endsWith
+### <a name="endswith"></a>endsWith
 
 Verifique se uma cadeia de caracteres termina com uma subcadeia específica. Devolve verdadeiro quando a subcadeia for encontrada, ou retornar falso quando não encontrado. Esta função não diferencia maiúsculas de minúsculas.
 
@@ -1437,7 +1692,7 @@ E devolve o resultado: `false`
 
 <a name="equals"></a>
 
-## <a name="equals"></a>é igual a
+### <a name="equals"></a>é igual a
 
 Verifique se os valores, expressões ou objetos são equivalentes. Devolve verdadeiro quando ambos são equivalentes ou retornam falsas quando eles não são equivalentes.
 
@@ -1471,7 +1726,7 @@ E retorna esses resultados:
 
 <a name="first"></a>
 
-## <a name="first"></a>primeiro
+### <a name="first"></a>primeiro
 
 Devolva o primeiro item a partir de uma cadeia ou matriz.
 
@@ -1506,7 +1761,7 @@ E retornar esses resultados:
 
 <a name="float"></a>
 
-## <a name="float"></a>número de vírgula flutuante
+### <a name="float"></a>flutuante
 
 Converta uma versão de cadeia de caracteres para um número de vírgula flutuante para um número real de ponto flutuante. Pode utilizar esta função apenas quando passar parâmetros personalizados para uma aplicação, por exemplo, uma aplicação lógica.
 
@@ -1521,7 +1776,7 @@ float('<value>')
 
 | Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de vírgula flutuante*> | número de vírgula flutuante | O número de vírgula flutuante para a cadeia especificada | 
+| <*valor de vírgula flutuante*> | Flutuante | O número de vírgula flutuante para a cadeia especificada | 
 |||| 
 
 *Exemplo*
@@ -1536,7 +1791,7 @@ E devolve o resultado: `10.333`
 
 <a name="formatDateTime"></a>
 
-## <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>formatDateTime
 
 Devolve um carimbo no formato especificado.
 
@@ -1567,7 +1822,7 @@ E devolve o resultado: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
-## <a name="formdatamultivalues"></a>formDataMultiValues
+### <a name="formdatamultivalues"></a>formDataMultiValues
 
 Retornar uma matriz com valores que correspondem ao nome da chave numa ação *dados de formulário* ou *formulário codificado* saída. 
 
@@ -1598,7 +1853,7 @@ E retorna o texto do assunto numa matriz, por exemplo: `["Hello world"]`
 
 <a name="formDataValue"></a>
 
-## <a name="formdatavalue"></a>formDataValue
+### <a name="formdatavalue"></a>formDataValue
 
 Devolver um valor único que corresponde ao nome da chave numa ação *dados de formulário* ou *formulário codificado* saída. Se a função encontrar mais do que uma correspondência, a função emite um erro.
 
@@ -1629,7 +1884,7 @@ E retorna o texto do assunto como uma cadeia, por exemplo: `"Hello world"`
 
 <a name="getFutureTime"></a>
 
-## <a name="getfuturetime"></a>getFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
 Devolva o timestamp atual, bem como as unidades de tempo especificado.
 
@@ -1671,7 +1926,7 @@ E devolve o resultado: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
-## <a name="getpasttime"></a>getPastTime
+### <a name="getpasttime"></a>getPastTime
 
 Devolva o carimbo de hora atual menos as unidades de tempo especificado.
 
@@ -1713,7 +1968,7 @@ E devolve o resultado: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-## <a name="greater"></a>maior
+### <a name="greater"></a>maior
 
 Verifique se o primeiro valor é maior do que o segundo valor. Devolve verdadeiro quando o primeiro valor é mais ou retornar false quando menos.
 
@@ -1749,7 +2004,7 @@ E retornar esses resultados:
 
 <a name="greaterOrEquals"></a>
 
-## <a name="greaterorequals"></a>greaterOrEquals
+### <a name="greaterorequals"></a>greaterOrEquals
 
 Verifique se o primeiro valor é maior que ou igual ao segundo valor.
 Devolve verdadeiro quando o primeiro valor é maior ou igual ou retornar falso quando o primeiro valor é menor.
@@ -1786,7 +2041,7 @@ E retornar esses resultados:
 
 <a name="guid"></a>
 
-## <a name="guid"></a>GUID
+### <a name="guid"></a>GUID
 
 Gere um identificador exclusivo global (GUID) como uma cadeia, por exemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce": 
 
@@ -1822,7 +2077,7 @@ E devolve o resultado: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-## <a name="if"></a>IF
+### <a name="if"></a>IF
 
 Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, devolva um valor especificado.
 
@@ -1852,7 +2107,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-## <a name="indexof"></a>indexOf
+### <a name="indexof"></a>indexOf
 
 Devolve a posição inicial ou o valor de índice para uma subcadeia. Esta função não diferencia maiúsculas de minúsculas e índices começam com o número de 0. 
 
@@ -1883,7 +2138,7 @@ E devolve o resultado: `6`
 
 <a name="int"></a>
 
-## <a name="int"></a>Int
+### <a name="int"></a>Int
 
 Devolva a versão de número inteiro para uma cadeia de caracteres.
 
@@ -1913,7 +2168,7 @@ E devolve o resultado: `10`
 
 <a name="item"></a>
 
-## <a name="item"></a>Item
+### <a name="item"></a>Item
 
 Quando utilizado dentro de uma ação de repetição numa matriz, retornar o item atual na matriz durante a iteração da ação de atual. Também pode obter os valores de propriedades desse item. 
 
@@ -1936,7 +2191,7 @@ item().body
 
 <a name="items"></a>
 
-## <a name="items"></a>itens
+### <a name="items"></a>itens
 
 Devolva o item atual de cada ciclo num loop para cada. Utilize esta função dentro de cada ciclo.
 
@@ -1964,7 +2219,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>json
+### <a name="json"></a>json
 
 Devolve o valor de tipo JavaScript Object Notation (JSON) ou o objeto para uma cadeia ou XML.
 
@@ -2033,7 +2288,7 @@ E devolve o resultado:
 
 <a name="intersection"></a>
 
-## <a name="intersection"></a>intersecção
+### <a name="intersection"></a>intersecção
 
 Retornar uma coleção que tenha *apenas* os itens comuns em coleções especificadas. A aparecer no resultado, um item tem de aparecer em todas as coleções transmitidas para esta função. Se um ou mais itens têm o mesmo nome, o último item com esse nome aparece no resultado.
 
@@ -2064,7 +2319,7 @@ E retorna uma matriz com *apenas* estes itens: `[1, 2]`
 
 <a name="join"></a>
 
-## <a name="join"></a>aderir
+### <a name="join"></a>aderir
 
 Devolver uma cadeia de caracteres que tem todos os itens de uma matriz tem cada caractere separada por um *delimitador*.
 
@@ -2095,7 +2350,7 @@ E devolve o resultado: `"a.b.c"`
 
 <a name="last"></a>
 
-## <a name="last"></a>última
+### <a name="last"></a>última
 
 Devolva o último item a partir de uma coleção.
 
@@ -2130,7 +2385,7 @@ E retorna esses resultados:
 
 <a name="lastindexof"></a>
 
-## <a name="lastindexof"></a>lastIndexOf
+### <a name="lastindexof"></a>lastIndexOf
 
 Devolva o valor de índice ou a posição final para uma subcadeia. Esta função não diferencia maiúsculas de minúsculas e índices começam com o número de 0.
 
@@ -2161,7 +2416,7 @@ E devolve o resultado: `10`
 
 <a name="length"></a>
 
-## <a name="length"></a>Comprimento
+### <a name="length"></a>Comprimento
 
 Devolva o número de itens numa coleção.
 
@@ -2193,7 +2448,7 @@ E retornar esse resultado: `4`
 
 <a name="less"></a>
 
-## <a name="less"></a>menos
+### <a name="less"></a>menos
 
 Verifique se o primeiro valor é menor que o segundo valor.
 Devolve verdadeiro quando o primeiro valor é menor ou retornar falso quando o primeiro valor é mais.
@@ -2230,7 +2485,7 @@ E retornar esses resultados:
 
 <a name="lessOrEquals"></a>
 
-## <a name="lessorequals"></a>lessOrEquals
+### <a name="lessorequals"></a>lessOrEquals
 
 Verifique se o primeiro valor é menor ou igual ao segundo valor.
 Devolve verdadeiro quando o primeiro valor é menor ou igual ou retornar falso quando o primeiro valor é mais.
@@ -2267,7 +2522,7 @@ E retornar esses resultados:
 
 <a name="listCallbackUrl"></a>
 
-## <a name="listcallbackurl"></a>listCallbackUrl
+### <a name="listcallbackurl"></a>listCallbackUrl
 
 Devolva o "URL de retorno de chamada" que chama um acionador ou ação. Esta função só funciona com acionadores e ações para o **HttpWebhook** e **ApiConnectionWebhook** tipos de conector, mas não o **Manual**,  **Periodicidade**, **HTTP**, e **APIConnection** tipos. 
 
@@ -2288,7 +2543,7 @@ Este exemplo mostra um URL de retorno de chamada de exemplo que essa função po
 
 <a name="max"></a>
 
-## <a name="max"></a>máx.
+### <a name="max"></a>máx.
 
 Devolva o valor mais alto de uma lista ou uma matriz com números que é, inclusivos em ambas as extremidades. 
 
@@ -2321,7 +2576,7 @@ E retornar esse resultado: `3`
 
 <a name="min"></a>
 
-## <a name="min"></a>min.
+### <a name="min"></a>min.
 
 Devolva o valor mais baixo de um conjunto de números ou uma matriz.
 
@@ -2354,7 +2609,7 @@ E retornar esse resultado: `1`
 
 <a name="mod"></a>
 
-## <a name="mod"></a>MOD
+### <a name="mod"></a>MOD
 
 Devolva o resto da divisão de dois números. Para obter o resultado de número inteiro, consulte [div()](#div).
 
@@ -2385,7 +2640,7 @@ E retornar esse resultado: `1`
 
 <a name="mul"></a>
 
-## <a name="mul"></a>MUL
+### <a name="mul"></a>MUL
 
 Devolva o produto da multiplicação de dois números.
 
@@ -2420,7 +2675,7 @@ E retornar esses resultados:
 
 <a name="multipartBody"></a>
 
-## <a name="multipartbody"></a>multipartBody
+### <a name="multipartbody"></a>multipartBody
 
 Devolve o corpo de uma parte específica na saída de uma ação que tem várias partes.
 
@@ -2441,7 +2696,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-## <a name="not"></a>não
+### <a name="not"></a>não
 
 Verifique se uma expressão é falsa. Devolve verdadeiro quando a expressão é falsa ou retornar falso quando verdadeiro.
 
@@ -2489,7 +2744,7 @@ E retornar esses resultados:
 
 <a name="or"></a>
 
-## <a name="or"></a>ou
+### <a name="or"></a>ou
 
 Verifique se, pelo menos, uma expressão é verdadeira. Devolve verdadeiro quando pelo menos uma expressão é verdadeira ou retornar false quando todas forem falsos.
 
@@ -2537,7 +2792,7 @@ E retornar esses resultados:
 
 <a name="parameters"></a>
 
-## <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>parâmetros
 
 Devolva o valor para um parâmetro que é descrito na sua definição da aplicação lógica. 
 
@@ -2575,7 +2830,7 @@ E devolve o resultado: `"Sophia Owen"`
 
 <a name="rand"></a>
 
-## <a name="rand"></a>rand
+### <a name="rand"></a>rand
 
 Devolva um número inteiro aleatório de um intervalo especificado, o que é, inclusive apenas no final de partida.
 
@@ -2606,7 +2861,7 @@ E devolve um desses números como resultado: `1`, `2`, `3`, ou `4`
 
 <a name="range"></a>
 
-## <a name="range"></a>Intervalo
+### <a name="range"></a>Intervalo
 
 Devolva uma matriz de inteiros que começa a partir de um número inteiro especificado.
 
@@ -2637,7 +2892,7 @@ E devolve o resultado: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-## <a name="replace"></a>substituir
+### <a name="replace"></a>substituir
 
 Substituir uma subcadeia com a cadeia especificada e retornar a cadeia de caracteres do resultado. Esta função diferencia maiúsculas de minúsculas.
 
@@ -2669,7 +2924,7 @@ E devolve o resultado: `"the new string"`
 
 <a name="removeProperty"></a>
 
-## <a name="removeproperty"></a>removeProperty
+### <a name="removeproperty"></a>removeProperty
 
 Remover uma propriedade de um objeto e retornar do objeto atualizado.
 
@@ -2698,7 +2953,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 <a name="setProperty"></a>
 
-## <a name="setproperty"></a>setProperty
+### <a name="setproperty"></a>setProperty
 
 Defina o valor de propriedade de um objeto e retornar do objeto atualizado. Para adicionar uma nova propriedade, pode usar esta função ou o [addProperty()](#addProperty) função.
 
@@ -2728,7 +2983,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>ignorar
+### <a name="skip"></a>ignorar
 
 Remover itens da frente de uma coleção e devolver *todas as outras* itens.
 
@@ -2759,7 +3014,7 @@ E retornará essa matriz com os itens restantes: `[1,2,3]`
 
 <a name="split"></a>
 
-## <a name="split"></a>dividir
+### <a name="split"></a>dividir
 
 Devolver uma matriz que tem todos os carateres de uma cadeia de caracteres e tem a cada caractere separada por um *delimitador*.
 
@@ -2790,7 +3045,7 @@ E devolve o resultado: `[a, b, c]`
 
 <a name="startOfDay"></a>
 
-## <a name="startofday"></a>startOfDay
+### <a name="startofday"></a>startOfDay
 
 Devolva o início do dia para um carimbo. 
 
@@ -2821,7 +3076,7 @@ E devolve o resultado: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
-## <a name="startofhour"></a>startOfHour
+### <a name="startofhour"></a>startOfHour
 
 Devolva o início da hora para um carimbo. 
 
@@ -2852,7 +3107,7 @@ E devolve o resultado: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
-## <a name="startofmonth"></a>startOfMonth
+### <a name="startofmonth"></a>startOfMonth
 
 Devolva o início do mês para um carimbo. 
 
@@ -2883,7 +3138,7 @@ E devolve o resultado: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
-## <a name="startswith"></a>startsWith
+### <a name="startswith"></a>startsWith
 
 Verificar se uma cadeia de caracteres começa com uma subcadeia específica. Devolve verdadeiro quando a subcadeia for encontrada, ou retornar falso quando não encontrado. Esta função não diferencia maiúsculas de minúsculas.
 
@@ -2924,7 +3179,7 @@ E devolve o resultado: `false`
 
 <a name="string"></a>
 
-## <a name="string"></a>cadeia
+### <a name="string"></a>cadeia
 
 Devolva a versão de cadeia de caracteres para um valor.
 
@@ -2964,7 +3219,7 @@ E devolve o resultado: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-## <a name="sub"></a>sub
+### <a name="sub"></a>sub
 
 Devolva o resultado da subtração o segundo número do primeiro número.
 
@@ -2995,7 +3250,7 @@ E devolve o resultado: `10`
 
 <a name="substring"></a>
 
-## <a name="substring"></a>subcadeia
+### <a name="substring"></a>subcadeia
 
 Devolva carateres de uma cadeia de caracteres, a partir da posição especificada, ou o índice. Início de valores de índice com o número de 0. 
 
@@ -3027,7 +3282,7 @@ E devolve o resultado: `"world"`
 
 <a name="subtractFromTime"></a>
 
-## <a name="subtractfromtime"></a>subtractFromTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 Subtrai um número de unidades de tempo de um carimbo. Consulte também [getPastTime](#getPastTime).
 
@@ -3070,7 +3325,7 @@ E retorna esse resultado com o formato "D" opcional: `"Monday, January, 1, 2018"
 
 <a name="take"></a>
 
-## <a name="take"></a>tirar
+### <a name="take"></a>tirar
 
 Itens de retorno da frente de uma coleção. 
 
@@ -3106,7 +3361,7 @@ E retornar esses resultados:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>ticks
+### <a name="ticks"></a>tiques
 
 Devolver o `ticks` valor da propriedade para um carimbo especificado. R *escala* é um intervalo de 100 nanossegundos.
 
@@ -3126,7 +3381,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-## <a name="tolower"></a>toLower
+### <a name="tolower"></a>toLower
 
 Retorne uma cadeia de caracteres no formato em minúsculas. Se um caráter na cadeia não tiver uma versão em minúsculas, esse caractere permanece inalterado na cadeia devolvida.
 
@@ -3156,7 +3411,7 @@ E devolve o resultado: `"hello world"`
 
 <a name="toUpper"></a>
 
-## <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toUpper
 
 Retorne uma cadeia de caracteres no formato em maiúsculas. Se um caráter na cadeia não tiver uma versão em maiúsculas, esse caractere permanece inalterado na cadeia devolvida.
 
@@ -3186,7 +3441,7 @@ E devolve o resultado: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
-## <a name="trigger"></a>Acionador
+### <a name="trigger"></a>Acionador
 
 Devolva o resultado de um acionador no tempo de execução ou valores de outros pares de nome e valor JSON, que pode atribuir a uma expressão. 
 
@@ -3207,7 +3462,7 @@ trigger()
 
 <a name="triggerBody"></a>
 
-## <a name="triggerbody"></a>triggerBody
+### <a name="triggerbody"></a>triggerBody
 
 Devolver um acionador `body` de saída em tempo de execução. Um atalho para `trigger().outputs.body`. Ver [trigger()](#trigger). 
 
@@ -3222,7 +3477,7 @@ triggerBody()
 
 <a name="triggerFormDataMultiValues"></a>
 
-## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
+### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
 Retornar uma matriz com valores que correspondem ao nome da chave num acionador *dados de formulário* ou *formulário codificado* saída. 
 
@@ -3252,7 +3507,7 @@ E retornará essa matriz como um resultado de exemplo: `["http://feeds.reuters.c
 
 <a name="triggerFormDataValue"></a>
 
-## <a name="triggerformdatavalue"></a>triggerFormDataValue
+### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
 Retornar uma cadeia de caracteres com um valor único que corresponde ao nome da chave num acionador *dados de formulário* ou *formulário codificado* saída. Se a função encontrar mais do que uma correspondência, a função emite um erro.
 
@@ -3300,7 +3555,7 @@ triggerMultipartBody(<index>)
 
 <a name="triggerOutputs"></a>
 
-## <a name="triggeroutputs"></a>triggerOutputs
+### <a name="triggeroutputs"></a>triggerOutputs
 
 Devolva o resultado de um acionador no tempo de execução ou valores de outros pares de nome e valor JSON. Um atalho para `trigger().outputs`. Ver [trigger()](#trigger). 
 
@@ -3315,7 +3570,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-## <a name="trim"></a>Cortar
+### <a name="trim"></a>Cortar
 
 Remover espaços em branco à esquerda e à direita de uma cadeia de caracteres e retornar a cadeia de caracteres atualizada.
 
@@ -3345,7 +3600,7 @@ E devolve o resultado: `"Hello World"`
 
 <a name="union"></a>
 
-## <a name="union"></a>União
+### <a name="union"></a>União
 
 Retornar uma coleção que tenha *todos os* os itens de coleções especificadas. A aparecer no resultado, um item pode aparecer em qualquer coleção transmitida para esta função. Se um ou mais itens têm o mesmo nome, o último item com esse nome aparece no resultado. 
 
@@ -3376,7 +3631,7 @@ E devolve o resultado: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
-## <a name="uricomponent"></a>uriComponent
+### <a name="uricomponent"></a>uriComponent
 
 Devolve uma versão de identifier (URI) com codificação de recurso uniforme para uma cadeia de caracteres ao substituir carateres não seguros de URL com carateres de escape. Utilize esta função vez [encodeUriComponent()](#encodeUriComponent). Embora ambas as funções funcionam da mesma maneira, `uriComponent()` é preferencial.
 
@@ -3406,7 +3661,7 @@ E devolve o resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
-## <a name="uricomponenttobinary"></a>uriComponentToBinary
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
 Devolva a versão binária de um componente do uniform resource identifier (URI).
 
@@ -3441,7 +3696,7 @@ E devolve o resultado:
 
 <a name="uriComponentToString"></a>
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
 Devolva a versão de cadeia de caracteres de um identificador de recurso uniforme (URI) codificado em cadeia de caracteres, com eficiência descodificar a cadeia codificada de URI.
 
@@ -3471,7 +3726,7 @@ E devolve o resultado: `"https://contoso.com"`
 
 <a name="uriHost"></a>
 
-## <a name="urihost"></a>uriHost
+### <a name="urihost"></a>uriHost
 
 Devolver o `host` valor para um identificador de recurso uniforme (URI).
 
@@ -3501,7 +3756,7 @@ E devolve o resultado: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
-## <a name="uripath"></a>uriPath
+### <a name="uripath"></a>uriPath
 
 Devolver o `path` valor para um identificador de recurso uniforme (URI). 
 
@@ -3531,7 +3786,7 @@ E devolve o resultado: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
-## <a name="uripathandquery"></a>uriPathAndQuery
+### <a name="uripathandquery"></a>uriPathAndQuery
 
 Devolver o `path` e `query` valores para um identificador de recurso uniforme (URI).
 
@@ -3561,7 +3816,7 @@ E devolve o resultado: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
-## <a name="uriport"></a>uriPort
+### <a name="uriport"></a>uriPort
 
 Devolver o `port` valor para um identificador de recurso uniforme (URI).
 
@@ -3591,7 +3846,7 @@ E devolve o resultado: `8080`
 
 <a name="uriQuery"></a>
 
-## <a name="uriquery"></a>uriQuery
+### <a name="uriquery"></a>uriQuery
 
 Devolver o `query` valor para um identificador de recurso uniforme (URI).
 
@@ -3621,7 +3876,7 @@ E devolve o resultado: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>uriScheme
 
 Devolver o `scheme` valor para um identificador de recurso uniforme (URI).
 
@@ -3651,7 +3906,7 @@ E devolve o resultado: `"http"`
 
 <a name="utcNow"></a>
 
-## <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>utcNow
 
 Devolva o timestamp atual. 
 
@@ -3694,7 +3949,7 @@ E devolve o resultado: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
-## <a name="variables"></a>Variáveis
+### <a name="variables"></a>Variáveis
 
 Devolva o valor para uma variável especificada. 
 
@@ -3724,7 +3979,7 @@ E devolve o resultado: `20`
 
 <a name="workflow"></a>
 
-## <a name="workflow"></a>fluxo de trabalho
+### <a name="workflow"></a>fluxo de trabalho
 
 Devolva todos os detalhes sobre o próprio fluxo de trabalho durante o tempo de execução. 
 
@@ -3747,7 +4002,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-## <a name="xml"></a>xml
+### <a name="xml"></a>xml
 
 Devolva a versão XML para uma cadeia que contém um objeto JSON. 
 
@@ -3805,7 +4060,7 @@ E devolve o resultado XML:
 
 <a name="xpath"></a>
 
-## <a name="xpath"></a>XPath
+### <a name="xpath"></a>XPath
 
 Verificar o XML de nós ou valores que correspondem a uma expressão XPath (linguagem de caminho de XML) e devolver os valores ou nós correspondentes. Uma expressão XPath, ou apenas "XPath", ajuda-o a percorrer uma estrutura de documento XML para que possa selecionar nós ou valores de computação no conteúdo XML.
 

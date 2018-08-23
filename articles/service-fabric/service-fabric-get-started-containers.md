@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577293"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061695"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -204,6 +204,8 @@ O serviço de contentor precisa de um ponto final para comunicação. Adicione u
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Pontos finais adicionais para um serviço podem ser adicionados ao declarar os elementos de ponto final adicionais com valores de propriedade aplicável. Cada porta só pode declarar um valor de protocolo.
 
 Ao definir um ponto final, o Service Fabric publica o ponto final no serviço de Nomes. Este contentor pode ser resolvido por outros serviços em execução no cluster. Também pode realizar comunicação de contentor para contentor através do [proxy inverso](service-fabric-reverseproxy.md). Para realizar a comunicação, forneça a porta de escuta HTTP do proxy inverso e o nome dos serviços com os quais quer comunicar como variáveis de ambiente.
 
@@ -247,6 +249,8 @@ Configure uma porta de anfitrião utilizada para comunicar com o contentor. O en
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> PortBindings adicionais para um serviço podem ser adicionados ao declarar elementos PortBinding adicionais com valores de propriedade aplicável.
 
 ## <a name="configure-container-registry-authentication"></a>Configurar a autenticação do registo de contentor
 Configure a autenticação do registo de contentor ao adicionar `RepositoryCredentials` a `ContainerHostPolicies` do ficheiro ApplicationManifest.xml. Adicione a conta e a palavra-passe do registo de contentor myregistry.azurecr.io, o que permite ao serviço transferir a imagem de contentor a partir do repositório.
@@ -598,13 +602,13 @@ O tempo de execução do Service Fabric aloca 20 minutos para transferir e extra
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +630,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

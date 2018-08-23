@@ -1,34 +1,36 @@
 ---
-title: Utilizar o Azure PowerShell para configurar o carregamento de ficheiros | Microsoft Docs
-description: Como utilizar os cmdlets do PowerShell do Azure para configurar o seu IoT hub para ativar o ficheiro de carregamentos de dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino.
+title: Utilizar o Azure PowerShell para configurar o carregamento de ficheiros | Documentos da Microsoft
+description: Como utilizar cmdlets do Azure PowerShell para configurar o hub IoT para ativar o arquivo carrega a partir dos dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1a4a52b6a028f4c656404e90fe05f201ac77204d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9cf13589fb83f100dd024e65dfe9178cb54802f2
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631858"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058204"
 ---
-# <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar o IoT Hub carregamentos de ficheiros com o PowerShell
+# <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar o IoT Hub, carregamentos de ficheiros com o PowerShell
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Para utilizar o [funcionalidade de carregamento de ficheiros no IoT Hub][lnk-upload], tem primeiro de associar uma conta de armazenamento do Azure com o seu IoT hub. Pode utilizar uma conta de armazenamento existente ou crie um novo.
+Para utilizar o [funcionalidade de carregamento de ficheiros no IoT Hub](iot-hub-devguide-file-upload.md), primeiro tem de associar uma conta de armazenamento do Azure com o seu hub IoT. Pode utilizar uma conta de armazenamento existente ou crie um novo.
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* [Cmdlets do PowerShell do Azure][lnk-powershell-install].
-* Um hub IoT do Azure. Se não tiver um IoT hub, pode utilizar o [cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] para criar um ou utilizar o portal para [criar um hub IoT][lnk-portal-hub].
-* Uma conta de armazenamento do Azure. Se não tiver uma conta de armazenamento do Azure, pode utilizar o [cmdlets do PowerShell de armazenamento do Azure] [ lnk-powershell-storage] para criar um ou utilizar o portal para [criar uma conta de armazenamento] [lnk-portal-storage].
+* Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-## <a name="sign-in-and-set-your-azure-account"></a>A iniciar sessão e definir a sua conta do Azure
+* [Cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+* Um hub IoT do Azure. Se não tiver um hub IoT, pode utilizar o [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) para criar ou utilizar o portal para [criar um hub IoT](iot-hub-create-through-portal.md).
+
+* Uma conta de armazenamento do Azure. Se não tiver uma conta de armazenamento do Azure, pode utilizar o [cmdlets do PowerShell do armazenamento do Azure](https://docs.microsoft.com/powershell/module/azurerm.storage/) para criar ou utilizar o portal para [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md)
+
+## <a name="sign-in-and-set-your-azure-account"></a>Iniciar sessão e definir a sua conta do Azure
 
 Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
@@ -38,24 +40,24 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
     Connect-AzureRmAccount
     ```
 
-1. Se tiver várias subscrições do Azure, o início de sessão Azure concede acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis para que possa utilizar:
+2. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis que pode utilizar:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para gerir o seu IoT hub. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
+    Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para gerir o seu hub IoT. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
 
     ```powershell
     Select-AzureRMSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-## <a name="retrieve-your-storage-account-details"></a>Obter os detalhes de conta de armazenamento
+## <a name="retrieve-your-storage-account-details"></a>Obter os detalhes da conta de armazenamento
 
-Os seguintes passos partem do princípio de que criou a conta de armazenamento utilizando o **Resource Manager** modelo de implementação e não o **clássico** modelo de implementação.
+Os passos seguintes partem do princípio de que criou a sua conta de armazenamento com o **Resource Manager** modelo de implementação e não a **clássico** modelo de implementação.
 
-Para configurar os carregamentos de ficheiros dos seus dispositivos, precisa de cadeia de ligação para uma conta de armazenamento do Azure. A conta de armazenamento tem de ser na mesma subscrição do seu IoT hub. Também tem o nome de um contentor de blob na conta de armazenamento. Utilize o seguinte comando para obter as chaves de conta de armazenamento:
+Para configurar os carregamentos de ficheiros a partir dos seus dispositivos, precisa da cadeia de ligação para uma conta de armazenamento do Azure. A conta de armazenamento tem de ser na mesma subscrição que o seu hub IoT. Também precisa do nome de um contentor de BLOBs na conta de armazenamento. Utilize o seguinte comando para obter as chaves de conta de armazenamento:
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -63,11 +65,11 @@ Get-AzureRmStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-Anote o **chave1** valor de chave de conta de armazenamento. Terá nos passos seguintes.
+Anote o **chave1** valor de chave de conta de armazenamento. Precisa nos passos seguintes.
 
-Pode utilizar um contentor de blob existente para carregamentos de ficheiros ou crie uma nova:
+Pode utilizar um contentor de BLOBs existentes para carregamentos de ficheiros ou crie uma nova:
 
-* Para listar os contentores de blob existente na sua conta de armazenamento, utilize os seguintes comandos:
+* Para listar os contentores de BLOBs existentes na sua conta de armazenamento, utilize os seguintes comandos:
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -88,23 +90,23 @@ Pode utilizar um contentor de blob existente para carregamentos de ficheiros ou 
         -Context $ctx
     ```
 
-## <a name="configure-your-iot-hub"></a>Configurar o seu IoT hub
+## <a name="configure-your-iot-hub"></a>Configurar o hub IoT
 
-Agora pode configurar o seu IoT hub para ativar [funcionalidade de carregamento de ficheiros] [ lnk-upload] utilizando os detalhes de conta de armazenamento.
+Agora pode configurar o seu hub IoT para [carregar ficheiros para o hub IoT](iot-hub-devguide-file-upload.md) com os detalhes da conta de armazenamento.
 
 A configuração requer os seguintes valores:
 
-**Contentor de armazenamento**: um contentor do blob numa conta de armazenamento do Azure na sua subscrição do Azure atual para associar o seu IoT hub. Obter as informações de conta de armazenamento necessário na secção anterior. IoT Hub gera automaticamente SAS URIs com permissões de escrita para este contentor de BLOBs para os dispositivos a utilizar ao carregam estes ficheiros.
+* **Contentor de armazenamento**: um contentor de BLOBs numa conta de armazenamento do Azure na sua subscrição do Azure atual para associar o seu hub IoT. Obter as informações de conta de armazenamento necessário na secção anterior. IoT Hub gera automaticamente os URIs de SAS com permissões de escrita para este contentor de BLOBs para os dispositivos a utilizar quando eles carregam ficheiros.
 
-**Receber notificações para os ficheiros carregados**: Ativar ou desativar notificações de carregamento de ficheiros.
+* **Receber notificações sobre os ficheiros carregados**: Ativar ou desativar notificações de carregamento do ficheiro.
 
-**TTL de SAS**: esta definição é o tempo-to-live do URI de SAS devolvido para o dispositivo ao IoT Hub. Defina uma hora por predefinição.
+* **TTL de SAS**: esta definição é o tempo de vida dos URIs de SAS retornado para o dispositivo ao IoT Hub. Definido como uma hora por predefinição.
 
-**Notificação de definições predefinidas TTL ficheiros**: O time-to-live de um ficheiro a carregar notificação antes de expirar. Definido para um dia por predefinição.
+* **TTL de padrão de definições de notificação de ficheiros**: O tempo de vida de um ficheiro a carregar notificação antes de expirar. Definido como um dia por predefinição.
 
-**Contagem máxima de entrega de notificação de ficheiros**: O número de vezes que o IoT Hub tenta fornecer um ficheiro de notificação de carregar. Definido para 10 por predefinição.
+* **Contagem máxima de entrega de notificação de ficheiros**: O número de vezes o IoT Hub tentará entregar um arquivo carregar notificação. Definido como 10, por predefinição.
 
-Utilize o seguinte cmdlet do PowerShell para configurar o ficheiro de carregar as definições no seu IoT hub:
+Utilize o seguinte cmdlet do PowerShell para configurar o ficheiro de carregar as definições no seu hub IoT:
 
 ```powershell
 Set-AzureRmIotHub `
@@ -120,32 +122,16 @@ Set-AzureRmIotHub `
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre as capacidades de carregamento do ficheiro do IoT Hub, consulte [carregar ficheiros a partir de um dispositivo][lnk-upload].
+Para obter mais informações sobre as capacidades de carregamento de arquivo do IoT Hub, veja [carregar ficheiros a partir de um dispositivo](iot-hub-devguide-file-upload.md).
 
-Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
+Siga estas ligações para saber mais sobre como gerir o IoT Hub do Azure:
 
-* [Em massa gerir dispositivos de IoT][lnk-bulk]
-* [Métricas de IoT Hub][lnk-metrics]
-* [Operações de monitorização][lnk-monitor]
+* [Gerir dispositivos IoT em massa](iot-hub-bulk-identity-mgmt.md)
+* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Monitorização de operações](iot-hub-operations-monitoring.md)
 
-Para explorar ainda mais as capacidades do IoT Hub, consulte:
+Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
-* [Proteger a sua solução de IoT a partir do zero cópias de segurança][lnk-securing]
-
-[lnk-upload]: iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: iot-hub-security-ground-up.md
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
-[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
-[lnk-portal-hub]: iot-hub-create-through-portal.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
+* [guia para programadores do IoT Hub](iot-hub-devguide.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Proteger a sua solução de IoT desde o backup](/../iot-fundamentals/iot-security-ground-up.md)

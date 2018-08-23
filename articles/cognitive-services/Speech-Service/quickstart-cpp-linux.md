@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: b8bc24123fe75e876f607b07e37423ae68d92ee4
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324783"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987538"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Linux com o SDK de voz
 
@@ -37,7 +37,7 @@ Neste artigo, saiba como criar uma aplicação de consola C++ no Linux (Ubuntu 1
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de voz dos serviços cognitivos é `0.5.0`.
+A versão atual do SDK de voz dos serviços cognitivos é `0.6.0`.
 
 O SDK de voz dos serviços cognitivos para Linux está disponível para criação de aplicativos de 64 bits e 32 bits.
 Os ficheiros necessários podem ser baixados como um ficheiro de destino da https://aka.ms/csspeech/linuxbinary.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 8fbce92c8c703b86d86367f83329cfa853bc5e4d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 15c2ec0aa8b795a826eae29026b7039491dbb64f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003506"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056207"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Receber eventos de Hubs de Eventos do Azure com o .NET Framework
 
@@ -164,7 +164,7 @@ Parabéns! Recebeu agora mensagens de um hub de eventos com o Anfitrião do Proc
 
 
 > [!NOTE]
-> Este tutorial utiliza uma única instância do [EventProcessorHost][EventProcessorHost]. Para aumentar o débito, recomendamos que execute várias instâncias do [EventProcessorHost][EventProcessorHost], como mostrado no exemplo de [Processamento de eventos aumentados horizontalmente][Processamento de eventos aumentados horizontalmente]. Nesses casos, as várias instâncias coordenam-se automaticamente entre si para equilibrarem a carga dos eventos recebidos. Se pretender várias recetores para que cada um processe *todos* os eventos, terá de utilizar o conceito **ConsumerGroup**. Se receber eventos de vários computadores, poderá ser útil especificar os nomes das instâncias do [EventProcessorHost][EventProcessorHost] com base nos computadores (ou funções) em que estão implementadas. Para obter mais informações sobre estes tópicos, veja [Event Hubs overview][Event Hubs overview] (Descrição geral dos Hubs de Eventos) e [Event Hubs programming guide][Event Hubs Programming Guide] (Guia de programação dos Hubs de Eventos).
+> Este tutorial utiliza uma única instância do [EventProcessorHost][EventProcessorHost]. Para aumentar o débito, recomenda-se que execute várias instâncias [EventProcessorHost][EventProcessorHost], conforme mostrado no [processamento de eventos aumentados horizontalmente](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) exemplo. Nesses casos, as várias instâncias coordenam-se automaticamente entre si para equilibrarem a carga dos eventos recebidos. Se pretender várias recetores para que cada um processe *todos* os eventos, terá de utilizar o conceito **ConsumerGroup**. Se receber eventos de vários computadores, poderá ser útil especificar os nomes das instâncias do [EventProcessorHost][EventProcessorHost] com base nos computadores (ou funções) em que estão implementadas. Para obter mais informações sobre estes tópicos, veja [Event Hubs overview][Event Hubs overview] (Descrição geral dos Hubs de Eventos) e [Event Hubs programming guide][Event Hubs Programming Guide] (Guia de programação dos Hubs de Eventos).
 > 
 > 
 

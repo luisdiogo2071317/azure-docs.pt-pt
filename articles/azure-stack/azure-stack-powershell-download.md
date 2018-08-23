@@ -1,6 +1,6 @@
 ---
-title: Descarregar as ferramentas de pilha do Azure a partir do GitHub | Microsoft Docs
-description: Saiba como transferir as ferramentas que são necessárias para trabalhar com a pilha do Azure.
+title: Transferir ferramentas do Azure Stack a partir do GitHub | Documentos da Microsoft
+description: Saiba como descarregar as ferramentas necessárias para trabalhar com o Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5800cb1bf0badce6e1d0c53c3164f7d2bd2d8b1b
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075294"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056489"
 ---
-# <a name="download-azure-stack-tools-from-github"></a>Descarregar as ferramentas de pilha do Azure a partir do GitHub
+# <a name="download-azure-stack-tools-from-github"></a>Transferir ferramentas do Azure Stack a partir do GitHub
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-**Ferramentas de AzureStack** é um repositório do GitHub que aloja os módulos do PowerShell para gerir e implementar recursos com pilha do Azure. Se estiver a planear estabelecer conectividade VPN, pode transferir estes módulos do PowerShell para o Kit de desenvolvimento de pilha do Azure ou para um cliente externo baseado em Windows. Para obter estas ferramentas, clone o repositório do GitHub ou transferir o **AzureStack ferramentas** pasta executando o seguinte script:
+**Ferramentas de AzureStack** é um [repositório do GitHub](https://github.com/Azure/AzureStack-Tools) que aloja os módulos do PowerShell para gerir e implementar recursos no Azure Stack. Se estiver a planear estabelecer a conectividade VPN, pode baixar esses módulos do PowerShell para o Development Kit do Azure Stack ou para um cliente externo com base em Windows. Para obter essas ferramentas, clone o repositório do GitHub ou transfira o **AzureStack ferramentas** pasta ao executar o seguinte script:
 
 ```PowerShell
 # Change directory to the root directory. 
@@ -47,20 +47,20 @@ cd AzureStack-Tools-master
 
 ```
 
-## <a name="functionality-provided-by-the-modules"></a>Funcionalidade fornecida por módulos
+## <a name="functionality-provided-by-the-modules"></a>Funcionalidade fornecida pelos módulos
 
-O **AzureStack ferramentas** repositório inclui módulos do PowerShell que suportam as seguintes funcionalidades para a pilha do Azure:  
+O **AzureStack ferramentas** repositório contém módulos do PowerShell que suportam as seguintes funcionalidades para o Azure Stack:  
 
 | Funcionalidade | Descrição | Quem pode utilizar este módulo? |
 | --- | --- | --- |
-| [Capacidades de nuvem](user/azure-stack-validate-templates.md) | Utilize este módulo para obter as capacidades de nuvem de uma nuvem. Por exemplo, ao utilizar este módulo, pode obter as capacidades de nuvem, tais como versão de API e de recursos do Azure Resource Manager. Também pode obter as extensões VM para a pilha do Azure e nuvens do Azure utilizando este módulo. | Os operadores da nuvem e de utilizadores |
-| [Política do Gestor de recursos para a pilha do Azure](user/azure-stack-policy-module.md) | Utilize este módulo para configurar uma subscrição do Azure ou um grupo de recursos do Azure com a disponibilidade de serviço e controlo de versões do mesma como pilha do Azure. | Os operadores da nuvem e de utilizadores |
-| [Registar com o Azure](azure-stack-register.md) | Utilize este módulo para registar a sua instância do kit de desenvolvimento com o Azure. Após o registo, pode transferir os itens do marketplace a partir do Azure e utilizá-los na pilha do Azure. | Operadores da nuvem |
-| [Implementação de pilha do Azure](azure-stack-run-powershell-script.md) | Utilize este módulo para preparar o computador do anfitrião de pilha do Azure para implementar e volte a implementar utilizando a imagem de disco rígido virtual (VHD) de pilha do Azure. | Operadores da nuvem|
-| [Ligar a pilha do Azure](azure-stack-connect-powershell.md) | Utilize este módulo para configurar a conectividade VPN pilha do Azure. | Os operadores da nuvem e de utilizadores |
-| [A validação do modelo](user/azure-stack-validate-templates.md) | Utilize este módulo para verificar se um existente ou um novo modelo pode ser implementado com pilha do Azure. | Os operadores da nuvem e de utilizadores|
+| [Recursos de nuvem](user/azure-stack-validate-templates.md) | Utilize este módulo para obter os recursos de nuvem de uma nuvem. Por exemplo, ao utilizar este módulo, pode obter os recursos de nuvem, como a versão de API e recursos do Azure Resource Manager. Também pode obter as extensões VM para o Azure Stack e clouds do Azure através deste módulo. | Operadores da nuvem e de utilizadores |
+| [Política do Gestor de recursos para o Azure Stack](user/azure-stack-policy-module.md) | Utilize este módulo para configurar uma subscrição do Azure ou um grupo de recursos do Azure com a mesmo controle de versão e disponibilidade do serviço como o Azure Stack. | Operadores da nuvem e de utilizadores |
+| [Registe-se com o Azure](azure-stack-register.md) | Utilize este módulo para registar a sua instância do kit de desenvolvimento com o Azure. Após o registro, pode transferir os itens do marketplace do Azure e utilizá-los no Azure Stack. | Operadores da nuvem |
+| [Implementação de pilha do Azure](azure-stack-run-powershell-script.md) | Utilize este módulo para preparar o computador de anfitrião do Azure Stack de implantação e reimplantação utilizando a imagem de disco rígido virtual (VHD) do Azure Stack. | Operadores da nuvem|
+| [Ligar ao Azure Stack](azure-stack-connect-powershell.md) | Utilize este módulo para configurar a conectividade VPN para o Azure Stack. | Operadores da nuvem e de utilizadores |
+| [A validação do modelo](user/azure-stack-validate-templates.md) | Utilize este módulo para verificar se um existente ou um novo modelo pode ser implementado para o Azure Stack. | Operadores da nuvem e de utilizadores|
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Configurar o Azure pilha ambiente do utilizador do PowerShell](user/azure-stack-powershell-configure-user.md)   
-* [Ligar ao Kit de desenvolvimento de pilha do Azure através de uma VPN](azure-stack-connect-azure-stack.md)  
+* [Configurar o ambiente do PowerShell do utilizador do Azure Stack](user/azure-stack-powershell-configure-user.md)   
+* [Ligar ao Kit de desenvolvimento do Azure Stack através de uma VPN](azure-stack-connect-azure-stack.md)  

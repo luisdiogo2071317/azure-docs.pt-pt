@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020550"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617091"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -41,27 +41,19 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar aplicaçõ
 
 1. Instalar nodejs e NPM no seu computador
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (suporte de pré-visualização do Service Fabric)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. Instalar o gerador de modelos [Yeoman](http://yeoman.io/) no seu computador a partir do NPM
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. Instalar o gerador de aplicações C# Yeoman do Service Fabric a partir do NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>Criar a aplicação
@@ -109,7 +101,7 @@ Os parâmetros desses comandos encontram-se nos manifestos gerados dentro do pac
 Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implementar a aplicação para um cluster com Linux segura no Azure, terá de configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Se o fizer, permite que os seus serviços Reliable Services comunicar com o tempo de execução do Service Fabric subjacente APIs. Para obter mais informações, consulte [configurar uma aplicação Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implementar a aplicação a um cluster Linux seguro no Azure, terá de configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Se o fizer, permite que os seus serviços de Reliable Services comunicar com o tempo de execução do Service Fabric subjacente APIs. Para obter mais informações, consulte [configurar uma aplicação de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Iniciar o cliente de teste e executar uma ativação pós-falha
@@ -117,7 +109,7 @@ Os projetos de ator não fazem nada só por si. Precisam de outro serviço ou cl
 
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.
 
-   Em caso de MAC OS X, tem de copiar a pasta de myactorsvcTestClient na algumas localização no interior do contentor, executando os seguintes comandos adicionais.
+   Em caso de MAC OS X, precisa copiar a pasta de myactorsvcTestClient para a algum local dentro do contentor ao executar os seguintes comandos adicionais.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

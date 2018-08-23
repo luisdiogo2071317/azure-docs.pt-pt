@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: a6b987d9815cfabed6dd986a0d9842a97f5b5868
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2378a4d5bb7d7f52ee2e96224db01e5e386b4c46
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092057"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057082"
 ---
 # <a name="scale-database-resources"></a>Dimensionar os recursos da base de dados
 
@@ -38,10 +38,12 @@ Pode criar a sua primeira aplicação numa base de dados pequena e individual a 
 > A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade.
 >
 
-
 Uma Base de Dados SQL do Azure única suporta a escalabilidade dinâmica manual, mas não o dimensionamento automático. Para uma experiência mais *automática*, considere utilizar conjuntos elásticos, que permitem que as bases de dados partilhem recursos num conjunto com base nas necessidades individuais da base de dados.
 No entanto, existem scripts que podem ajudar a automatizar a escalabilidade para uma única base de dados do Azure SQL. Por exemplo, veja [Utilizar o PowerShell para monitorizar e dimensionar uma Base de Dados SQL única](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
+Pode alterar [escalões de serviço DTU](sql-database-service-tiers-dtu.md) ou [características de vCore](sql-database-vcore-resource-limits-single-databases.md) em qualquer altura com o período de indisponibilidade mínimo para a sua aplicação (em média, menos de quatro segundos). Para muitas empresas e aplicações, ser capaz de criar bases de dados e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Para este cenário, utilize um conjunto elástico com um determinado número de eDTUs que são partilhados entre várias bases de dados no conjunto.
+
+![Introdução à Base de Dados SQL: DTUs de base de dados individual por camada e nível](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Todos os três tipos de base de dados do Azure SQL oferecem alguma possibilidade de dimensionar dinamicamente o seus bancos de dados:
 -   Na [base de dados do Azure SQL única](sql-database-single-database-scale.md), pode utilizar tanto [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) modelos para definir a quantidade máxima de recursos que serão atribuídos a cada base de dados.

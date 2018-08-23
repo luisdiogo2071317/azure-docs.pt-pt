@@ -5,24 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3dd90fc862e64812c0ba17bef74818d18788f4b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440993"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055815"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um ficheiro do Power BI Desktop
 
 Pode importar um modelo de dados no ficheiro do Power BI Desktop (pbix) para o Azure Analysis Services. Metadados de modelo, dados em cache e ligações de origem de dados são importadas. Relatórios e visualizações não são importadas. Importar dados de modelos do Power BI Desktop são no nível de compatibilidade 1400.
 
 **Restrições**   
-- O modelo de pbix pode ligar à **base de dados do Azure SQL** e **Azure SQL Data Warehouse** apenas origens de dados. 
+
+- Importar a partir de um ficheiro pbix utiliza a funcionalidade de designer da web no portal, o que é **pré-visualização**. A funcionalidade é limitada. Para mais avançados modelo desenvolvimento e teste, é melhor usar o Visual Studio (SSDT) e o SQL Server Management Studio (SSMS).
+- Tem de ter permissões de administrador do servidor para importar a partir de um ficheiro pbix.
+- O modelo de pbix pode ligar à **base de dados do Azure SQL** e **Azure SQL Data Warehouse** apenas origens de dados.
 - O modelo de pbix não pode ter ao vivo ou ligações do DirectQuery. 
 - Importação poderá falhar se o seu modelo de dados do pbix contém metadados não suportado no Analysis Services.
+
 
 ## <a name="to-import-from-pbix"></a>Para importar a partir do pbix
 
@@ -41,6 +45,27 @@ Pode importar um modelo de dados no ficheiro do Power BI Desktop (pbix) para o A
 4. Na **importação**, localize e selecione o seu ficheiro.
 
      ![Ligue-se a caixa de diálogo no portal do Azure](./media/analysis-services-import-pbix/aas-import-pbix-select-file.png)
+
+## <a name="change-credentials"></a>Alterar credenciais
+
+Ao importar um modelo de dados de um ficheiro pbix, por predefinição, as credenciais utilizadas para ligar a uma origem de dados são definidas como ServiceAccount. Depois de um modelo foi importado de um pbix, pode alterar as credenciais através dos seguintes métodos:
+
+- Utilização de Julho de 2018 (versão 17.8.1) ou versão posterior do SSMS para editar credenciais. Esta é a maneira mais fácil.
+- Utilizar TMSL [Alter comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/alter-command-tmsl) sobre o [objeto de origens de dados](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/datasources-object-tmsl) para modificar a propriedade de cadeia de ligação. 
+- Abrir o modelo no Visual Studio, edite as credenciais para a ligação de origem de dados e, em seguida, voltar a implementar o modelo.
+
+Para alterar as credenciais com o SSMS. 
+
+1. No SSMS, expanda a base de dados > **ligações**. 
+2. Com o botão direito a ligação de base de dados e, em seguida, clique em **atualizar credenciais**. 
+
+    ![Atualizar credenciais](./media/analysis-services-import-pbix/aas-import-pbix-creds.png)
+
+3. Na caixa de diálogo credenciais, selecione um tipo de credencial e introduza as credenciais. Para a autenticação de SQL, selecione a base de dados. Para a conta de organização (OAuth), selecione a conta Microsoft.
+    ![Editar credenciais](./media/analysis-services-import-pbix/aas-import-pbix-edit-creds.png)
+
+A versão de Julho de 2018 do Power BI Desktop inclui uma nova funcionalidade para alterar as permissões de origem de dados. Sobre o **home page** separador, clique em **editar consultas**  > **definições da origem de dados**. Selecione a ligação de origem de dados e, em seguida, clique em **editar permissões**.
+
 
 ## <a name="see-also"></a>Consulte também
 

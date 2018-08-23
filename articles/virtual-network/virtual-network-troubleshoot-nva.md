@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621410"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060965"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicação virtual de rede no Azure
 
@@ -132,5 +132,5 @@ Capturar um rastreio de rede simultâneo na VM de origem, a NVA e o VM de destin
 
 Se não vir os pacotes para o rastreio da VM de back-end, é provável que um NSG ou UDR esteja a interferir ou as tabelas de roteamentos da NVA estão incorretas.
 
-Se vir que os pacotes estão a ser enviados, mas que não há resposta, poderá ter de resolver um problema da aplicação de VM ou de firewall. Para qualquer um desses problemas, [contacte o fornecedor NVA para obter assistência, conforme necessário](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Se vir que os pacotes estão a ser enviados, mas que não há resposta, poderá ter de resolver um problema da aplicação de VM ou de firewall. Para qualquer um desses problemas, [contacte o fornecedor NVA para obter assistência, conforme necessário](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 

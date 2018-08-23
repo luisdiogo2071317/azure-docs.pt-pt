@@ -2,25 +2,22 @@
 title: Publicar aplicações com o Proxy da Aplicação do Azure AD | Microsoft Docs
 description: Publicar aplicações no local para a cloud com o Proxy de aplicações do Azure AD no portal do Azure.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364262"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059943"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicar aplicações com o Proxy da Aplicação do Azure AD
 
@@ -72,6 +69,7 @@ Siga estes passos para publicar as suas aplicações com o Proxy de aplicações
    ![Configurar a aplicação](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Se for necessário, configure as definições adicionais. Para a maioria dos aplicativos, deve manter estas definições em seus Estados de predefinição. 
    - **Tempo limite da aplicação de back-end**: defina este valor para **longo** apenas se a sua aplicação está lenta autenticar e ligar. 
+   - **Utilizar HTTP-Only Cookie**: defina este valor para **Sim** para que o Proxy de aplicações cookies incluem o sinalizador de HTTPOnly no cabeçalho de resposta HTTP.
    - **Traduzir URLs em cabeçalhos**: manter este valor como **Sim** , a menos que seu aplicativo necessário o cabeçalho de anfitrião original no pedido de autenticação.
    - **Traduzir URLs no corpo do aplicativo**: manter este valor como **não** a menos que tenha inserido no código HTML links para outras aplicações no local e não utilizar domínios personalizados. Para obter mais informações, consulte [vincular a tradução com Proxy de aplicações](application-proxy-configure-hard-coded-link-translation.md).
    

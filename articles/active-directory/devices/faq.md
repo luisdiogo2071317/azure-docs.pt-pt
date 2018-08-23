@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597158"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058839"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -99,12 +99,12 @@ Para versões de SO do Windows de nível inferior que estão no local AD associa
 
 **P: os usuários não consegue pesquisar impressoras dos dispositivos associados do Azure AD. Como posso ativar a impressão a partir de dispositivos associados do Azure AD?**
 
-**R:** para implantando impressoras para dispositivos associados do Azure AD, consulte [impressão de cloud híbrida](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Precisará de um servidor do Windows no local para implementar a impressão de cloud híbrida. Atualmente, o serviço de impressão baseado na nuvem não está disponível. 
+**R:** para implantando impressoras para dispositivos associados do Azure AD, consulte [impressão de cloud híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Precisará de um servidor do Windows no local para implementar a impressão de cloud híbrida. Atualmente, o serviço de impressão baseado na nuvem não está disponível. 
 
 ---
 
 **P: como posso ligar a um remoto do Azure AD associado a um dispositivo? ** 
- **R:** veja o artigo https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc para obter detalhes.
+ **R:** veja o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter detalhes.
 
 ---
 

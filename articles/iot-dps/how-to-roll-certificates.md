@@ -1,6 +1,6 @@
 ---
 title: Certificados de como implementar X.509 no serviço de aprovisionamento de dispositivos do Azure IoT Hub | Documentos da Microsoft
-description: Como implementar certificados X.509 com a sua instância do serviço de aprovisionamento de dispositivos
+description: Como implementar certificados X.509 com a instância de serviço aprovisionamento de dispositivos
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9c73ce159ae7cf5778210e0fb587135f37c73f57
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025156"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055811"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implementar certificados de dispositivo X.509
 
@@ -46,7 +46,7 @@ Se estiver a gerir o seus próprios certificados de dispositivo, terá de criar 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Implementar o certificado no IoT hub
 
-O certificado do dispositivo pode ser adicionado manualmente para um hub IoT. O certificado também pode ser automatizado com uma instância do serviço aprovisionamento de dispositivos. Neste artigo, vamos supor que uma instância de serviço de aprovisionamento está a ser utilizada para suportar o aprovisionamento automático.
+O certificado do dispositivo pode ser adicionado manualmente para um hub IoT. O certificado também pode ser automatizado com uma instância de serviço aprovisionamento de dispositivos. Neste artigo, vamos supor que uma instância do serviço aprovisionamento de dispositivos está a ser utilizada para suportar o aprovisionamento automático.
 
 Quando um dispositivo é inicialmente aprovisionado através do aprovisionamento automático, o que inicializações de segurança e entra em contacto com o serviço de aprovisionamento. O serviço de aprovisionamento responde ao efetuar uma verificação de identidade antes de criar uma identidade de dispositivo num hub IoT com o certificado de folha do dispositivo como a credencial. O serviço de aprovisionamento, em seguida, informa o dispositivo está atribuída a que hub IoT e, em seguida, o dispositivo utiliza o seu certificado de folha para autenticar e ligar ao IoT hub. 
 
@@ -104,7 +104,7 @@ Para atualizar uma inscrição de grupo em resposta a uma violação de seguran�
 
 #### <a name="update-compromised-root-ca-certificates"></a>Atualizar certificados de AC de raiz comprometido
 
-1. Clique nas **certificados** separador para a sua instância de serviço de aprovisionamento.
+1. Clique nas **certificados** separador para a sua instância de serviço aprovisionamento de dispositivos.
 
 2. Clique no certificado comprometido na lista e, em seguida, clique nas **eliminar** botão. Confirme a eliminação ao introduzir o nome do certificado e clique em **OK**. Repita este processo para todos os certificados comprometidos.
 
@@ -112,7 +112,7 @@ Para atualizar uma inscrição de grupo em resposta a uma violação de seguran�
 
 3. Siga os passos descritos em [verificado de configurar certificados de AC](how-to-verify-certificates.md) para adicionar e verificar novos certificados de AC de raiz.
 
-4. Clique nas **gerir inscrições** separador para a sua instância de serviço de aprovisionamento e clique nas **grupos de inscrição** lista. Clique no nome do grupo de inscrição na lista.
+4. Clique nas **gerir inscrições** separador para a sua instância de serviço aprovisionamento de dispositivos e clique nas **grupos de inscrição** lista. Clique no nome do grupo de inscrição na lista.
 
 5. Clique em **certificado de AC**e selecione o novo certificado de AC de raiz. Em seguida, clique em **Guardar**. 
 
@@ -149,13 +149,13 @@ Mais tarde ao secundário também certificado está prestes a expirar e tem de s
 
 1. Siga os passos descritos em [verificado de configurar certificados de AC](how-to-verify-certificates.md) para adicionar e verificar novos certificados de AC de raiz.
 
-2. Clique nas **gerir inscrições** separador para a sua instância de serviço de aprovisionamento e clique nas **grupos de inscrição** lista. Clique no nome do grupo de inscrição na lista.
+2. Clique nas **gerir inscrições** separador para a sua instância de serviço aprovisionamento de dispositivos e clique nas **grupos de inscrição** lista. Clique no nome do grupo de inscrição na lista.
 
 3. Clique em **certificado de AC**e selecione o novo certificado de AC de raiz sob a **certificado secundário** configuração. Em seguida, clique em **Guardar**. 
 
     ![Selecione o novo certificado de AC de raiz](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Mais tarde quando o certificado principal tiver expirado, clique nas **certificados** separador para a sua instância de serviço de aprovisionamento. Clique no certificado expirado na lista e, em seguida, clique nas **eliminar** botão. Confirmar a eliminação de ao introduzir o nome do certificado e clique em **OK**.
+4. Mais tarde quando o certificado principal tiver expirado, clique nas **certificados** separador para a sua instância de serviço aprovisionamento de dispositivos. Clique no certificado expirado na lista e, em seguida, clique nas **eliminar** botão. Confirmar a eliminação de ao introduzir o nome do certificado e clique em **OK**.
 
     ![Eliminar certificado de AC de raiz](./media/how-to-roll-certificates/delete-root-cert.png)
 

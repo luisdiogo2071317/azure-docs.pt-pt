@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872395"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057380"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminar um inquilino do Azure Active Directory
 Quando um inquilino é eliminado, também são eliminados todos os recursos que estão contidos no inquilino. Tem de preparar o inquilino ao minimizarem os seus recursos associados antes de eliminar. Apenas um administrador global do Azure Active Directory (Azure AD) pode eliminar um inquilino do Azure AD a partir do portal.
@@ -63,7 +63,7 @@ Desaprovisionada (30 dias após desativado) | Dados eliminados (eliminado automa
 
 Pode colocar uma subscrição para um **Deprovisoned** estado para ser eliminada em 3 dias, com a Microsoft Store para o Centro de administração de negócios. Esta funcionalidade estará disponível em breve para o Centro de administração do Office 365.
 
-1. Inicie sessão para o [Microsoft Store para o Centro de administração empresarial](https://businessstore.microsoft.com/en-us/manage/) com uma conta que seja um Administrador Global no inquilino. Se estiver a tentar eliminar o inquilino de "Contoso" que tem o contoso.onmicrosoft.com de domínio predefinido inicial, inicie sessão com um UPN como admin@contoso.onmicrosoft.com.
+1. Inicie sessão para o [Microsoft Store para o Centro de administração empresarial](https://businessstore.microsoft.com/manage/) com uma conta que seja um Administrador Global no inquilino. Se estiver a tentar eliminar o inquilino de "Contoso" que tem o contoso.onmicrosoft.com de domínio predefinido inicial, inicie sessão com um UPN como admin@contoso.onmicrosoft.com.
 
 2. Vá para o **Manage** separador e selecione **produtos e serviços**, em seguida, escolha a subscrição que pretende cancelar. Depois de clicar em **Cancelar**, atualize a página.
   

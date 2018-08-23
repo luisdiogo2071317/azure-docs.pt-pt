@@ -4,7 +4,7 @@ description: Este detalhes de documento post tarefas de configuração necessár
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916552"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055627"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD híbrido
 
@@ -62,7 +62,7 @@ Se a sua organização utilizar um serviço de Federação para iniciar sessão 
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Permitir que os dispositivos de nível inferior do Azure AD totalmente integrada SSO para Windows
 
-Se sua organização utiliza a sincronização de Hash de palavra-passe ou autenticação pass-through para iniciar sessão Azure AD, ativar o SSO totalmente integrado do Azure AD com esse método de início de sessão para autenticar dispositivos de nível inferior do Windows: https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Se sua organização utiliza a sincronização de Hash de palavra-passe ou autenticação pass-through para iniciar sessão Azure AD, ativar o SSO totalmente integrado do Azure AD com esse método de início de sessão para autenticar dispositivos de nível inferior do Windows: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Definir a política do Azure AD para dispositivos de nível inferior do Windows
 
@@ -81,7 +81,7 @@ Se estiver a utilizar [SSO totalmente integrado](https://aka.ms/hybrid/sso), tam
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instalar o Microsoft Workplace Join em dispositivos de nível inferior do Windows
 
-Este instalador cria uma tarefa agendada no sistema de dispositivo que é executado no contexto do usuário. A tarefa é acionada quando o utilizador inicia sessão Windows. A tarefa silenciosamente associa o dispositivo com o Azure AD com as credenciais de utilizador após a autenticação com a autenticação integrada do Windows. O Centro de download é em https://www.microsoft.com/en-us/download/details.aspx?id=53554. 
+Este instalador cria uma tarefa agendada no sistema de dispositivo que é executado no contexto do usuário. A tarefa é acionada quando o utilizador inicia sessão Windows. A tarefa silenciosamente associa o dispositivo com o Azure AD com as credenciais de utilizador após a autenticação com a autenticação integrada do Windows. O Centro de download é em https://www.microsoft.com/download/details.aspx?id=53554. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurar a política de grupo para permitir o registo do dispositivo
 

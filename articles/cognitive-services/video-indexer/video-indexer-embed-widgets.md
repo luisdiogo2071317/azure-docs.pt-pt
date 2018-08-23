@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 4ce1eedac69b06f491510be93fcfbdfbc879ff7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398137"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41987643"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
@@ -241,6 +241,4 @@ Reprodução automática – por predefinição, que o jogador irá começar a r
 
 Para obter informações sobre como ver e editar informações do indexador de vídeo, consulte [isso](video-indexer-view-edit.md) artigo.
 
-## <a name="see-also"></a>Consulte também
-
-[Descrição geral do indexador vídeo](video-indexer-overview.md)
+Além disso, confira [codepen do indexador de vídeo](https://codepen.io/videoindexer/pen/eGxebZ).

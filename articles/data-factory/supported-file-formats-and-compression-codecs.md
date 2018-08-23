@@ -1,43 +1,43 @@
 ---
-title: Formatos de ficheiro suportados no Azure Data Factory | Microsoft Docs
-description: Este tópico descreve os formatos de ficheiro e códigos de compressão que são suportados pelo conectores baseados em ficheiros no Azure Data Factory.
+title: Formatos de ficheiro suportados no Azure Data Factory | Documentos da Microsoft
+description: Este tópico descreve os formatos de ficheiro e códigos de compressão suportados pelo conectores baseados em ficheiros no Azure Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052295"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444617"
 ---
-# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e compressão codecs no Azure Data Factory
+# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
-*Este tópico aplica-se para os conectores que se seguem: [Amazon S3](connector-amazon-simple-storage-service.md), [Blob do Azure](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-data-lake-store.md), [File Storage do Azure](connector-azure-file-storage.md), [ Sistema de ficheiros](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), e [SFTP](connector-sftp.md).*
+*Este tópico aplica-se para os conectores seguintes: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOBs do Azure](connector-azure-blob-storage.md), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md), [Gen2 de armazenamento do Azure Data Lake](connector-azure-data-lake-storage.md), [Armazenamento de ficheiros do azure](connector-azure-file-storage.md), [sistema de ficheiros](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), e [SFTP](connector-sftp.md).*
 
-Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. Se pretender **analisar ou gerar ficheiros com um formato específico**, do Azure Data Factory suporta os seguintes tipos de formato de ficheiro:
+Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. Se quiser **analisar ou gerar arquivos com um formato específico**, Azure Data Factory suporta os seguintes tipos de formato de ficheiro:
 
 * [Formato de texto](#text-format)
 * [Formato JSON](#json-format)
 * [Formato Avro](#avro-format)
 * [Formato ORC](#orc-format)
-* [Formato de parquet](#parquet-format)
+* [Formato parquet](#parquet-format)
 
 > [!TIP]
-> Saiba como a atividade de cópia mapeia os dados de origem para sink do [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md), incluindo a forma como os metadados é determinado com base nas suas definições do formato de ficheiro e sugestões no quando especificar o [dataset `structure` ](concepts-datasets-linked-services.md#dataset-structure) secção.
+> Saiba como a atividade de cópia mapeia os dados de origem para o sink de [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md), incluindo como os metadados é determinado com base nas suas definições do formato de ficheiro e sugestões sobre quando especificar o [conjunto de dados `structure` ](concepts-datasets-linked-services.md#dataset-structure) secção.
 
 ## <a name="text-format"></a>Formato de texto
 
-Se pretender ler e escrever para um ficheiro de texto de um ficheiro de texto, defina o `type` propriedade no `format` secção do conjunto de dados para **TextFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de TextFormat](#textformat-example) sobre como configurar.
+Se quiser ler um arquivo de texto ou escrever num ficheiro de texto, defina o `type` propriedade no `format` secção do conjunto de dados para **TextFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de TextFormat](#textformat-example) sobre como configurar.
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar utilizar um caráter unprintable raro, que não exista nos seus dados. Por exemplo, especifique "\u0001", que representa o início do cabeçalho (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)**. <br/><br/>Para utilizar um caráter Unicode, consulte [carateres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
+| columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar para utilizar um caráter não imprimíveis raro que pode não existir nos seus dados. Por exemplo, especifica "\u0001", que representa o início do cabeçalho (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)**. <br/><br/>Para utilizar um caráter Unicode, veja [caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
 | rowDelimiter |O caráter utilizado para separar linhas num ficheiro. |Só é permitido um caráter. O valor **predefinido** é um dos seguintes valores: **["\r\n", "\r", "\n"]** na leitura e **"\r\n"** na escrita. |Não |
 | escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: "Olá, mundo"), pode definir “$” como caráter de escape e utilizar a cadeia "Olá$, mundo" na origem. |Não |
 | quoteChar |O caráter utilizado para colocar um valor de cadeia entre aspas. Os delimitadores de colunas e linhas dentro dos carateres de aspas são tratados como parte do valor de cadeia. Esta propriedade é aplicável a conjuntos de dados de entrada e de saída.<br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: <Olá, mundo>), pode definir " (aspas duplas) como caráter de aspas e utilizar a cadeia "Olá, mundo" na origem. |Não |
@@ -49,7 +49,7 @@ Se pretender ler e escrever para um ficheiro de texto de um ficheiro de texto, d
 
 ### <a name="textformat-example"></a>Exemplo de TextFormat
 
-No seguinte definição JSON para um conjunto de dados, algumas das propriedades opcionais especificadas.
+Na seguinte definição JSON para um conjunto de dados, algumas das propriedades opcionais são especificadas.
 
 ```json
 "typeProperties":
@@ -84,9 +84,9 @@ Para utilizar um `escapeChar` em vez de `quoteChar`, substitua a linha por `quot
 
 ## <a name="json-format"></a>Formato JSON
 
-Para **importar/exportar um ficheiro JSON como-é na/da base de dados do Azure Cosmos**, consulte a secção documentos JSON de importação/exportação [mover os dados da base de dados do Azure Cosmos](connector-azure-cosmos-db.md) artigo.
+Para **importar/exportar um ficheiro JSON como-é em/do Azure Cosmos DB**, consulte a secção documentos JSON de importação/exportação [mover dados de/para o Azure Cosmos DB](connector-azure-cosmos-db.md) artigo.
 
-Se pretender analisar os ficheiros JSON ou escrever os dados no formato JSON, defina o `type` propriedade no `format` secção para **JsonFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
+Se quiser analisar os ficheiros JSON ou escrever os dados no formato JSON, defina o `type` propriedade no `format` secção a **JsonFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Se pretender analisar os ficheiros JSON ou escrever os dados no formato JSON, de
 
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
 
-Atividade de cópia pode analisar os padrões de ficheiros JSON seguintes:
+Atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
 
 - **Tipo I: setOfObjects**
 
@@ -191,7 +191,7 @@ Atividade de cópia pode analisar os padrões de ficheiros JSON seguintes:
 
 **Caso 1: Copiar dados de ficheiros JSON**
 
-Consulte os seguintes dois exemplos ao copiar dados de ficheiros JSON. Tenha em atenção os pontos genéricos:
+Consulte os seguintes dois exemplos de quando se copiam dados a partir de ficheiros JSON. Os pontos genéricos observar:
 
 **Exemplo 1: extrair dados de objeto e matriz**
 
@@ -230,7 +230,7 @@ e quiser copiá-lo para uma tabela do SQL do Azure no formato seguinte mediante 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode utilizar `array[x].property` para extrair o valor da propriedade indicada do `xth` objeto, ou utilizar `array[*].property` para encontrar o valor de qualquer objeto que contém essa propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados de matriz, pode usar `array[x].property` para extrair o valor da propriedade específica do `xth` objeto ou pode usar `array[*].property` para encontrar o valor a partir de qualquer objeto que contenha essa propriedade.
 
 ```json
 "properties": {
@@ -305,8 +305,8 @@ e quiser copiá-lo para uma tabela SQL do Azure no seguinte formato, ao simplifi
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference` indica ao iterar e extrair dados de objetos com o mesmo padrão em **matriz** `orderlines`.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate`, e `city` estão sob o objecto raiz com o caminho JSON começadas `$.`, enquanto `order_pd` e `order_price` estão definidos com o caminho derivado o elemento de matriz sem `$.` .
+- `jsonNodeReference` Indica a iteração e extrair dados de objetos com o mesmo padrão em **matriz** `orderlines`.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate`, e `city` são no objeto de raiz com JSON caminho começado por `$.`, enquanto `order_pd` e `order_price` são definidas com o caminho derivado do elemento de matriz sem `$.` .
 
 ```json
 "properties": {
@@ -353,7 +353,7 @@ O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte
 
 **Caso 2: Escrever dados no ficheiro JSON**
 
-Se tiver a tabela seguinte na base de dados do SQL Server:
+Se tiver a tabela seguinte na base de dados SQL:
 
 | ID | order_date | order_price | order_by |
 | --- | --- | --- | --- |
@@ -361,7 +361,7 @@ Se tiver a tabela seguinte na base de dados do SQL Server:
 | 2 | 20170120 | 3500 | José |
 | 3 | 20170121 | 4000 | João |
 
-e para cada registo, o que esperar escrever um objeto JSON no seguinte formato:
+e para cada registo, espera escrever num objeto JSON no seguinte formato:
 
 ```json
 {
@@ -374,7 +374,7 @@ e para cada registo, o que esperar escrever um objeto JSON no seguinte formato:
 }
 ```
 
-O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente, `structure` secção define os nomes das propriedades personalizadas no ficheiro de destino, `nestingSeparator` (predefinição é ".") são utilizados para identificar a camada de aninhamento do nome. Esta secção é **opcional**, exceto se quiser alterar o nome da propriedade para o equiparar ao nome da coluna de origem ou aninhar algumas das propriedades.
+O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente, `structure` secção define os nomes de propriedade personalizados no ficheiro de destino, `nestingSeparator` (a predefinição é ".") são utilizados para identificar a camada aninhada do nome. Esta secção é **opcional**, exceto se quiser alterar o nome da propriedade para o equiparar ao nome da coluna de origem ou aninhar algumas das propriedades.
 
 ```json
 "properties": {
@@ -420,7 +420,7 @@ Para utilizar o formato Avro numa tabela do Hive, veja o [tutorial do Apache Hiv
 
 Tenha em atenção os seguintes pontos:
 
-* [Tipos de dados complexos](http://avro.apache.org/docs/current/spec.html#schema_complex) não são suportados (regista, enumerações, matrizes, mapas, as uniões e fixo).
+* [Tipos de dados complexos](http://avro.apache.org/docs/current/spec.html#schema_complex) não são suportados (registos, enumerações, matrizes, mapas, uniões e fixo).
 
 ## <a name="orc-format"></a>Formato ORC
 
@@ -434,7 +434,7 @@ Se quiser analisar os ficheiros ORC ou escrever os dados em formato ORC, defina 
 ```
 
 > [!IMPORTANT]
-> Para copiar dado o poder pelo tempo de execução de integração de Self-hosted por exemplo, entre no local e nuvem armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o 8 JRE (ambiente de tempo de execução Java) no seu computador de resposta a incidentes. Uma resposta a incidentes 64 bits requer JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenha em atenção os seguintes pontos:
@@ -442,9 +442,9 @@ Tenha em atenção os seguintes pontos:
 * Os tipos de dados complexos não são suportados (ESTRUTURA, MAPA, LISTA, UNIÃO)
 * O ficheiro ORC tem três [opções relacionadas com a compressão](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
 
-### <a name="data-type-mapping-for-orc-files"></a>Tipo de dados de mapeamento de ficheiros ORC
+### <a name="data-type-mapping-for-orc-files"></a>Tipo de dados de mapeamento para ficheiros ORC
 
-| Tipo de dados intermédio de fábrica de dados | Tipos ORC |
+| Tipo de dados intermediárias de fábrica de dados | Tipos ORC |
 |:--- |:--- |
 | Booleano | Booleano |
 | SByte | Byte |
@@ -457,16 +457,16 @@ Tenha em atenção os seguintes pontos:
 | UInt64 | Cadeia |
 | Único | Flutuante |
 | Valor de duplo | Valor de duplo |
-| Decimal | Decimal |
+| decimal | decimal |
 | Cadeia | Cadeia |
 | DateTime | Carimbo de data/hora |
 | DateTimeOffset | Carimbo de data/hora |
-| TimeSpan | Carimbo de data/hora |
+| Período de tempo | Carimbo de data/hora |
 | ByteArray | Binário |
 | GUID | Cadeia |
 | char | Char(1) |
 
-## <a name="parquet-format"></a>Formato de parquet
+## <a name="parquet-format"></a>Formato parquet
 
 Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet, defina a propriedade `format` `type` como **ParquetFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
 
@@ -478,33 +478,33 @@ Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet,
 ```
 
 > [!IMPORTANT]
-> Para copiar dado o poder pelo tempo de execução de integração de Self-hosted por exemplo, entre no local e nuvem armazena os dados, se não estiver a copiar ficheiros Parquet **como-é**, tem de instalar o 8 JRE (ambiente de tempo de execução Java) no seu computador de resposta a incidentes. Uma resposta a incidentes 64 bits requer JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros Parquet **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenha em atenção os seguintes pontos:
 
 * Os tipos de dados complexos não são suportados (MAPA, LISTA)
-* O ficheiro Parquet tem as seguintes opções relacionadas com a compressão: NENHUM, SNAPPY, GZIP e LZO. Fábrica de dados suporta a leitura de dados a partir do ficheiro de Parquet em qualquer um destes formatos comprimidos. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
+* O ficheiro Parquet tem as seguintes opções relacionadas com a compressão: NENHUM, SNAPPY, GZIP e LZO. O Data Factory suporta a leitura de dados do ficheiro Parquet em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
 
-### <a name="data-type-mapping-for-parquet-files"></a>Tipo de dados de mapeamento de ficheiros de Parquet
+### <a name="data-type-mapping-for-parquet-files"></a>Tipo de dados de mapeamento para ficheiros Parquet
 
-| Tipo de dados intermédio de fábrica de dados | Tipo primitivo parquet | Parquet tipo Original (anular a serialização) | Parquet tipo Original (serializar) |
+| Tipo de dados intermediárias de fábrica de dados | Tipo de primitivo parquet | Parquet tipo Original (anular a serialização) | Parquet tipo Original (serialização) |
 |:--- |:--- |:--- |:--- |
 | Booleano | Booleano | N/A | N/A |
-| SByte | Int32 | int8 | int8 |
+| SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/binário | UInt64 | Decimal |
+| UInt64 | Int64/binário | UInt64 | decimal |
 | Único | Flutuante | N/A | N/A |
 | Valor de duplo | Valor de duplo | N/A | N/A |
-| Decimal | Binário | Decimal | Decimal |
+| decimal | Binário | decimal | decimal |
 | Cadeia | Binário | Utf8 | Utf8 |
 | DateTime | Int96 | N/A | N/A |
-| TimeSpan | Int96 | N/A | N/A |
+| Período de tempo | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |
 | ByteArray | Binário | N/A | N/A |
 | GUID | Binário | Utf8 | Utf8 |
@@ -513,12 +513,12 @@ Tenha em atenção os seguintes pontos:
 
 ## <a name="compression-support"></a>Suporte de compressão
 
-O Azure Data Factory suporta dados comprimir/descomprimir durante a cópia. Quando especificar `compression` propriedade de um conjunto de dados de entrada, a atividade de cópia ler os dados comprimidos de origem e descomprimi-los; e, quando especificar a propriedade num conjunto de dados de saída, a atividade de cópia comprimir, em seguida, escrever dados para o sink. Seguem-se alguns cenários de exemplo:
+O Azure Data Factory suporta descomprimir/comprimir dados durante a cópia. Quando especificar `compression` propriedade num conjunto de dados de entrada, a atividade de cópia ler os dados comprimidos de origem e descompactá-lo; e, quando especificar a propriedade num conjunto de dados de saída, a atividade de cópia comprimir, em seguida, escrever dados para o sink. Seguem-se alguns cenários de exemplo:
 
-* Dados comprimidos de GZIP de leitura de um blob do Azure, descomprimi-lo e escrever dados de resultados para uma base de dados SQL do Azure. Definir o conjunto de dados de Blobs do Azure entrado com o `compression` `type` propriedade como GZIP.
-* Ler dados a partir de um ficheiro de texto simples do sistema de ficheiros no local, comprimi-los utilizando o formato de GZip e escrever os dados comprimidos para um blob do Azure. Definir um conjunto de dados de Blobs do Azure de saída com o `compression` `type` propriedade como GZip.
-* Descomprimir o ficheiro. zip de leitura do servidor FTP, para obter os ficheiros dentro e encaminhado para esses ficheiros no Azure Data Lake Store. Definir um conjunto de dados do FTP entrado com o `compression` `type` propriedade como ZipDeflate.
-* Ler um GZIP compressão de dados de um blob do Azure, descomprimi-lo, comprimi-los utilizando BZIP2 e escrever dados de resultados para um blob do Azure. Definir o conjunto de dados de Blobs do Azure entrado com `compression` `type` definida como GZIP e o conjunto de dados de saída com `compression` `type` definido como BZIP2.
+* Dados comprimidos GZIP de leitura de um blob do Azure, descompactá-lo e escrever dados de resultado para uma base de dados SQL do Azure. Defina o conjunto de dados de Blobs do Azure entrado com o `compression` `type` propriedade como GZIP.
+* Ler dados a partir de um ficheiro de texto sem formatação do sistema de arquivos no local, comprimi-los usando o formato GZip e escrever os dados compactados para um blob do Azure. Define um conjunto de dados de Blobs do Azure de saída com o `compression` `type` propriedade como GZip.
+* Ficheiro. zip de leitura do servidor FTP, descompactá-lo para obter os ficheiros dentro e encaminhado para esses ficheiros do Azure Data Lake Store. Define um conjunto de dados FTP de entrada com o `compression` `type` propriedade como ZipDeflate.
+* Ler uma compressão de GZIP de dados de um blob do Azure, descompactá-lo, comprimi-los usando BZIP2 e escrever dados de resultado para um blob do Azure. Defina o conjunto de dados de Blobs do Azure entrado com `compression` `type` definido como GZIP e o conjunto de dados de saída com `compression` `type` definido como BZIP2.
 
 Para especificar a compressão para um conjunto de dados, utilize o **compressão** propriedade no conjunto de dados JSON como no exemplo seguinte:   
 
@@ -549,25 +549,25 @@ Para especificar a compressão para um conjunto de dados, utilize o **compressã
 O **compressão** secção tem duas propriedades:
 
 * **Tipo:** o codec de compressão, que pode ser **GZIP**, **Deflate**, **BZIP2**, ou **ZipDeflate**.
-* **Nível:** o rácio de compressão, o que pode ser **Optimal** ou **Fastest**.
+* **Nível:** taxa de compressão, que pode ser **Optimal** ou **Fastest**.
 
-  * **Mais rápido:** compressão concluir a operação deve mais rapidamente possível, mesmo que o ficheiro resultante não será comprimido forma ideal.
-  * **Ideal**: A operação de compressão deve ser executadas de forma ideal comprimida, mesmo que a operação demora mais tempo a concluir.
+  * **O mais rápido:** a operação de compactação deve ser concluído mais rápido possível, mesmo que o ficheiro resultante não será compactado ideal.
+  * **Ideal**: A operação de compactação deve ser ideal compactada, mesmo que a operação demora mais tempo a concluir.
 
-    Para obter mais informações, consulte [nível de compressão](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) tópico.
+    Para obter mais informações, consulte [nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) tópico.
 
 > [!NOTE]
-> Definições de compressão não são suportadas para os dados no **AvroFormat**, **OrcFormat**, ou **ParquetFormat**. Quando a leitura de ficheiros nestes formatos, fábrica de dados Deteta e utiliza o codec de compressão nos metadados. Ao escrever em ficheiros nestes formatos, o Data Factory escolhe o codec de compressão predefinido para esse formato. Por exemplo, ZLIB para OrcFormat e SNAPPY para ParquetFormat.
+> As definições de compressão não são suportadas para os dados no **AvroFormat**, **OrcFormat**, ou **ParquetFormat**. Durante a leitura de ficheiros nesses formatos, o Data Factory Deteta e utiliza o codec de compressão existente nos metadados. Ao escrever ficheiros nesses formatos, o Data Factory escolhe o codec de compressão predefinido para esse formato. Por exemplo, ZLIB para OrcFormat e SNAPPY para ParquetFormat.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte os artigos seguintes para os arquivos de dados de ficheiros suportados pelo Azure Data Factory:
+Veja os artigos seguintes para arquivos de dados de ficheiros suportados pelo Azure Data Factory:
 
 - [Conector de armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
 - [Conector do Azure Data Lake Store](connector-azure-data-lake-store.md)
 - [Conector do Amazon S3](connector-amazon-simple-storage-service.md)
-- [Conector sistema de ficheiros](connector-file-system.md)
+- [Conector do sistema de ficheiros](connector-file-system.md)
 - [Conector FTP](connector-ftp.md)
-- [Conector SFTP](connector-sftp.md)
+- [Conector do SFTP](connector-sftp.md)
 - [Conector do HDFS](connector-hdfs.md)
 - [Conector HTTP](connector-http.md)

@@ -1,9 +1,9 @@
 ---
-title: Desenvolver aplicações para a pilha do Azure | Microsoft Docs
-description: Considerações de desenvolvimento de aplicações de fazer o protótipo na pilha do Azure
+title: Desenvolver aplicações para o Azure Stack | Documentos da Microsoft
+description: Considerações de programação para aplicativos de criação de protótipos no Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a1b5a90ca40ce2b19186220344b22ec0ae77e34b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a6f89f9a7e5960e4749c14fc9a4adb648f6781f4
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199199"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057656"
 ---
 # <a name="develop-for-azure-stack"></a>Desenvolver para o Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pode começar hoje, a desenvolver aplicações, mesmo se não tiver acesso a um ambiente de pilha do Azure. Porque a pilha do Azure fornece serviços do Microsoft Azure que executam no seu centro de dados, pode utilizar as ferramentas e processos semelhantes para desenvolver em relação a pilha do Azure, tal como faria com o Azure. Com alguma preparação e utilizar as orientações nos seguintes tópicos, pode utilizar o Azure para emular um ambiente de pilha do Azure.
+Pode começar a desenvolver aplicativos de hoje em dia, mesmo que não tenha acesso a um ambiente do Azure Stack. Porque o Azure Stack oferece serviços Microsoft Azure que executar no seu datacenter, pode utilizar ferramentas e processos semelhantes para desenvolver no Azure Stack, tal como faria com o Azure. Com alguma preparação e através da orientação nos tópicos seguintes, pode utilizar o Azure para emular um ambiente do Azure Stack.
 
-* No Azure, pode criar modelos do Azure Resource Manager são implementáveis com pilha do Azure. Consulte [considerações sobre os modelos](azure-stack-develop-templates.md) para obter orientações sobre como desenvolver modelos para garantir a portabilidade.
-* Não existem diferenças na disponibilidade do serviço e o controlo de versões do serviço do Azure e pilha do Azure. Pode utilizar o [módulo de política do Azure pilha](azure-stack-policy-module.md) para restringir os tipos de recursos e a disponibilidade do serviço do Azure para o que está disponível na pilha do Azure. Restrições serviços assegura que as aplicações baseiam-se nos serviços disponíveis para a pilha do Azure.
-* O [modelos de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates) são exemplos de cenário comum que mostram como desenvolver modelos que podem ser implementados para o Azure e pilha do Azure.
+* No Azure, pode criar modelos do Azure Resource Manager implementáveis no Azure Stack. Ver [considerações sobre os modelos](azure-stack-develop-templates.md) para obter orientações sobre como desenvolver modelos para garantir a portabilidade.
+* Existem diferenças na disponibilidade do serviço e o controlo de versões de serviço entre o Azure e o Azure Stack. Pode utilizar o [módulo de política do Azure Stack](azure-stack-policy-module.md) para restringir os tipos de recursos e a disponibilidade do serviço do Azure para o que está disponível no Azure Stack. Restrição de serviços garante que as aplicações dependem de serviços disponíveis para o Azure Stack.
+* O [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) são exemplos comuns de cenário que mostram como desenvolver modelos que podem ser implementados no Azure e o Azure Stack.

@@ -1,22 +1,49 @@
 ---
-title: Documentação do SDK de voz de serviços cognitivos
+title: Documentação do SDK de voz de serviços cognitivos | Documentos da Microsoft
 description: Notas de versão – o que foi alterado nas versões mais recentes
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502463"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987521"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>SDK de voz dos serviços cognitivos 0.6.0: versão de Agosto de 2018
+
+**Novos recursos**
+
+* Aplicações do UWP criadas com o SDK de voz agora podem passar o Kit de certificação de aplicações de Windows (WACK).
+  Confira nosso [guia de introdução do UWP](quickstart-csharp-uwp.md).
+* Suporte para .NET Standard 2.0 no Linux (Ubuntu 16.04 x64).
+* Experimental: Suportar Java 8 (64-bit) do Windows e Linux (Ubuntu 16.04 x64).
+  Confira o [início rápido do ambiente de tempo de execução de Java](quickstart-java-jre.md)
+
+**Alterações funcionais**
+
+* Expor informações de detalhes de erro adicionais sobre os erros de ligação.
+
+**Alterações recentes**
+
+* No Java (Android), o `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não necessita de um parâmetro de caminho. Agora, o caminho é detetado automaticamente em todas as plataformas suportadas.
+* O acessador get da propriedade `EndpointUrl` em Java e c# foi removido.
+
+**Correções de erros**
+
+* No Java, o resultado de síntese de áudio no reconhecedor de tradução é agora implementado.
+* Foi corrigido um erro, que pode causar threads Inativas e um número maior de soquetes abertos e não utilizados.
+* Foi corrigido um problema, onde um reconhecimento de longa execução foi possível terminar no meio da transmissão.
+* Fixo, uma condição de corrida em encerramento do reconhecedor.
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK de voz dos serviços cognitivos versão 0.5.0: versão de Julho de 2018
 

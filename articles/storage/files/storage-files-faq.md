@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 51b54de39e24cfd69b7823c17dc5f7c9d7e885a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31f5b2792aa83d15a1478cf201ca674995816430
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524078"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057106"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -191,6 +191,10 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Estou a ter um problema com o Azure File Sync em meu servidor (sincronização, na cloud a disposição em camadas, etc). Posso remover e recriar o ponto final do meu servidor?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
+    
+* <a id="afs-resource-move"></a>
+**Posso mover o serviço de sincronização de armazenamento e/ou a conta de armazenamento para um grupo de recursos diferente ou uma subscrição?**  
+   Sim, o serviço de sincronização de armazenamento e/ou a conta de armazenamento pode ser movida para um grupo de recursos diferente ou uma subscrição. Se a conta de armazenamento for movida, precisa dar o acesso de serviço de sincronização de ficheiros de híbrida para a conta de armazenamento (veja [Certifique-se o Azure File Sync tem acesso à conta de armazenamento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ## <a name="security-authentication-and-access-control"></a>Segurança, a autenticação e controlo de acesso
 * <a id="ad-support"></a>
@@ -221,7 +225,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="data-compliance-policies"></a>
 **Que políticas de conformidade de dados suporta ficheiros do Azure?**  
-   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode transferir e consulte a [documento de proteção de dados do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acesso no local
 * <a id="expressroute-not-required"></a>

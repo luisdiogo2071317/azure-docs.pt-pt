@@ -8,22 +8,21 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a53bcbe90f39999a838c84807ca834a1e6cd1813
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446151"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058518"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services- tutorial da Adventure Works
 
-Este tutorial fornece lições sobre como criar e implementar um modelo de tabela no nível de compatibilidade 1400, ao utilizar o Visual Studio com o [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
+Este tutorial fornece lições sobre como criar e implementar um modelo em tabela no nível de compatibilidade 1400 com o Visual Studio [projetos de Analysis Services](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) ou [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 Se não estiver familiarizado com o Analysis Services e a modelagem de tabela, conclua este tutorial da forma mais rápida que lhe permita criar e implementar um modelo de tabela básico com o Visual Studio. Quando tiver definido os pré-requisitos, deve demorar entre duas a três horas para concluir.  
   
 ## <a name="what-you-learn"></a>O que irá aprender   
   
--   Como criar um novo projeto de modelo de tabela no **nível de compatibilidade 1400** no Visual Studio com SSDT.
+-   Como criar um novo projeto de modelo em tabela no **nível de compatibilidade 1400** no Visual Studio.
   
 -   Como importar dados de uma base de dados relacional para uma base de dados de área de trabalho de projeto de modelo de tabela.  
   
@@ -37,7 +36,7 @@ Se não estiver familiarizado com o Analysis Services e a modelagem de tabela, c
   
 -   Como proteger dados e objetos de modelo, criando funções com membros de utilizador.  
   
--   Como implementar um modelo de tabela para um servidor **Azure Analysis Services** ou um servidor **SQL Server 2017 Analysis Services** com o SSDT.  
+-   Como implementar um modelo de tabela para uma **do Azure Analysis Services** server ou **SQL Server 2017 Analysis Services** servidor com o Visual Studio.  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
 Para concluir este tutorial, precisa de:  

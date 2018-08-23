@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443771"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057668"
 ---
 # <a name="get-data"></a>Obter dados
 
@@ -52,11 +52,11 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
   
 5.  No Navigator, selecione a base de dados **AdventureWorksDW2014** e, em seguida, clique em **OK**. Isso cria a ligação à base de dados. 
   
-6.  No Navigator, selecione a caixa de verificação para as seguintes tabelas: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** e **FactInternetSales**.  
+6.  No Navigator, selecione a caixa de verificação para as seguintes tabelas: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**,  **DimProductCategory**, **DimProductSubcategory**, e **FactInternetSales**e, em seguida, clique em **editar**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Depois de clicar em OK, é aberto o Editor de consultas. Na próxima secção, selecione somente os dados que pretende importar.
+    É aberto o Editor de consultas. Na próxima secção, selecione somente os dados que pretende importar.
 
   
 ## <a name="filter-the-table-data"></a>Filtrar os dados da tabela  

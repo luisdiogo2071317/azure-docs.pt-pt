@@ -3,7 +3,7 @@ title: Através da recuperação de desastres de implementar a cópia de seguran
 description: Saiba como utilizar a cópia de segurança e restaurar para efetuar a recuperação após desastre na gestão de API do Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283106"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056300"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre com o serviço backup e restaurar na gestão de API do Azure
 
@@ -39,8 +39,6 @@ Este guia mostra como autenticar os pedidos do Azure Resource Manager e como faz
 
 > [!IMPORTANT]
 > A API REST para cópia de segurança e restauro utiliza o Azure Resource Manager e tem um mecanismo de autenticação diferentes que as APIs REST para gerir as entidades de gestão de API. Os passos nesta secção descrevem como autenticar os pedidos do Azure Resource Manager. Para obter mais informações, consulte [pedidos de autenticação do Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 Todas as tarefas que fazer em recursos com o Azure Resource Manager tem de ser autenticadas com o Azure Active Directory com os seguintes passos:
 
@@ -63,7 +61,7 @@ Todas as tarefas que fazer em recursos com o Azure Resource Manager tem de ser a
 6. Introduza um URL de marcador de posição, como `http://resources` para o **URI de redirecionamento**, conforme é um campo obrigatório, mas o valor não é utilizado mais tarde. Clique na caixa de verificação para guardar a aplicação.
 7. Clique em **Criar**.
 
-### <a name="add-an-application"></a>Adicionar uma Aplicação
+### <a name="add-an-application"></a>Adicionar uma aplicação
 
 1. Assim que o aplicativo for criado, clique em **definições**.
 2. Clique em **permissões obrigatórias**.
@@ -209,15 +207,16 @@ Restauro é uma operação de longa execução que poderá demorar até 30 ou ma
 > Operações de backup e restauração também podem ser realizadas com o Powershell *Backup-AzureRmApiManagement* e *restauro-AzureRmApiManagement* comandos, respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Confira os seguintes blogues da Microsoft para dois diferente orientações passo a passo do processo de cópia de segurança/restauro.
+
+Confira os seguintes recursos para diferente orientações passo a passo do processo de cópia de segurança/restauro.
 
 * [Replicar contas de gestão de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Gestão de API do Azure: Criar cópias de segurança e restaurar a configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * A abordagem mais, Stuart não coincide com as diretrizes oficiais, mas é interessante.
+* [Automatizando cópia de segurança de gestão de API e restauro com o Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
+* [Gestão de API do Azure: Cópia de segurança e restauro de configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+  *a abordagem mais, Stuart não coincide com as diretrizes oficiais, mas é interessante.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

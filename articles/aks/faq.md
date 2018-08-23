@@ -1,19 +1,19 @@
 ---
-title: Perguntas mais frequentes sobre o Azure Kubernetes Service
-description: Fornece respostas para algumas das perguntas comuns sobre o Azure Kubernetes Service.
+title: Perguntas mais frequentes sobre para o Azure Kubernetes Service (AKS)
+description: Fornece respostas para algumas das perguntas comuns sobre o Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345859"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057395"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o Azure Kubernetes Service (AKS)
 
@@ -21,73 +21,87 @@ Este artigo aborda o frequentes perguntas sobre o Azure Kubernetes Service (AKS)
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Que regiões do Azure fornecem o Azure Kubernetes Service (AKS) hoje em dia?
 
-Veja o Azure Kubernetes Service [regiões e disponibilidade] [ aks-regions] documentação para obter uma lista completa.
-
-## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Atualizações de segurança são aplicadas a nós de agente do AKS?
-
-Azure aplica automaticamente patches de segurança para os nós do cluster com base numa agenda noturna. No entanto, é responsável por assegurar que nós são reiniciados conforme necessário. Tem várias opções para a execução de reinicializações de nó:
-
-- Manualmente, por meio do portal do Azure ou a CLI do Azure.
-- Ao atualizar o seu cluster do AKS. Atualizações do cluster automaticamente [cordão e drenagem de nós](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), em seguida, colocá-los a cópia de segurança com a imagem mais recente do Ubuntu. Atualizar a imagem de sistema operacional em seus nós sem alteração da versão do Kubernetes ao especificar a versão atual do cluster em `az aks upgrade`.
-- Usando [Kured](https://github.com/weaveworks/kured), um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Em seguida, gere os reinícios de sistema operacional no cluster, seguindo a mesma cordon e o processo de drenagem descrito anteriormente.
+Para obter uma lista completa de regiões disponíveis, consulte [AKS regiões e disponibilidade][aks-regions].
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS suporta o dimensionamento automático de nó?
 
-Sim, o dimensionamento automático está disponível através da [dimensionamento automático do Kubernetes] [ auto-scaler] no momento da elaboração 1.10 de Kubernetes.
+Sim, o dimensionamento automático está disponível através da [dimensionamento automático do Kubernetes] [ auto-scaler] no momento da elaboração 1.10 de Kubernetes. Para obter mais informações sobre como configurar e utilizar o dimensionamento automático de cluster, consulte [dimensionamento automático de Cluster no AKS][aks-cluster-autoscale].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>O AKS suporta Kubernetes controlo de acesso baseado em funções (RBAC)?
 
-Sim, o RBAC pode ser ativada quando [implementar um cluster do AKS do modelo da CLI do Azure ou Azure Resource Manager](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Esta funcionalidade chegará em breve no portal do Azure.
+Sim, RBAC do Kubernetes está ativada por predefinição, quando os clusters são criados com a CLI do Azure. RBAC pode ser ativado nos clusters criados com o portal do Azure ou a modelos.
+
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Pode implementar AKS em minha rede virtual existente?
+
+Sim, pode implementar um cluster do AKS numa rede virtual existente com o [funcionalidade de rede avançada][aks-advanced-networking].
+
+## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Posso restringir o servidor de API do Kubernetes para apenas ser acessível em minha rede virtual?
+
+Neste momento, não. O servidor de API do Kubernetes é exposto como um público (FQDN) do nome de domínio completamente qualificado. Pode controlar o acesso ao seu cluster com [Kubernetes com base em função de controlo de acesso (RBAC) e Azure Active Directory (AAD)][aks-rbac-aad]
+
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Atualizações de segurança são aplicadas a nós de agente do AKS?
+
+Sim, o Azure aplica automaticamente a patches de segurança para os nós do cluster com base numa agenda noturna. No entanto, é responsável por assegurar que nós são reiniciados conforme necessário. Tem várias opções para a execução de reinicializações de nó:
+
+- Manualmente, por meio do portal do Azure ou a CLI do Azure.
+- Ao atualizar o seu cluster do AKS. Atualizações do cluster automaticamente [cordão e drenagem de nós][cordon-drain], colocar cada nó de cópia de segurança com a imagem mais recente do Ubuntu e uma nova versão de patch ou uma versão secundária do Kubernetes. Para obter mais informações, consulte [atualizar um cluster do AKS][aks-upgrade].
+- Usando [Kured](https://github.com/weaveworks/kured), um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Os reinícios de sistema operacional são geridos no cluster com o mesmo [cordão e drenagem processo] [ cordon-drain] como uma atualização do cluster.
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que dois grupos de recursos são criados com o AKS?
+
+Cada implementação do AKS abrange dois grupos de recursos:
+
+- O primeiro grupo de recursos é criado por si e contém apenas o recurso de serviço do Kubernetes. O fornecedor de recursos do AKS cria automaticamente o um segundo durante a implementação, como *MC_myResourceGroup_myAKSCluster_eastus*.
+- Este recurso segundo grupo, tal como *MC_myResourceGroup_myAKSCluster_eastus*, contém todos os recursos de infraestrutura associados ao cluster. Esses recursos incluem a VMs de nó do Kubernetes, redes virtuais e armazenamento. Este grupo de recursos separado é criado para simplificar a limpeza de recursos.
+
+Se criar recursos para utilização com o seu cluster do AKS, como contas de armazenamento ou endereços IP públicos reservados, colocá-los no grupo de recursos gerada automaticamente.
+
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Posso modificar as etiquetas e outras propriedades de recursos do AKS no grupo de recursos MC_ *?
+
+Modificar e eliminar as etiquetas e outras propriedades de recursos no *MC_** grupo de recursos pode levar a resultados inesperados, tais como o dimensionamento e atualização de erros. Modificação de recursos sob o *MC_** no AKS cluster divide o SLO.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Os controladores de admissão do Kubernetes AKS oferece suporte? Controladores de admissão podem ser adicionados ou removidos?
 
 AKS suporta as seguintes [controladores de admissão][admission-controllers]:
 
-* NamespaceLifecycle
-* LimitRanger
-* ServiceAccount
-* DefaultStorageClass
-* DefaultTolerationSeconds
-* MutatingAdmissionWebhook
-* ValidatingAdmissionWebhook
-* ResourceQuota
-* DenyEscalatingExec
-* AlwaysPullImages
+- *NamespaceLifecycle*
+- *LimitRanger*
+- *ServiceAccount*
+- *DefaultStorageClass*
+- *DefaultTolerationSeconds*
+- *MutatingAdmissionWebhook*
+- *ValidatingAdmissionWebhook*
+- *ResourceQuota*
+- *DenyEscalatingExec*
+- *AlwaysPullImages*
 
 Não é atualmente possível modificar a lista de controladores de admissão no AKS.
 
-## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Pode implementar AKS em minha rede virtual existente?
-
-Sim, pode implementar um cluster do AKS numa rede virtual existente com o [funcionalidade de rede avançada](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
-
-## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Posso restringir o servidor de API do Kubernetes para apenas ser acessível em minha rede virtual?
-
-Neste momento, não. O servidor de API do Kubernetes é exposto como um público (FQDN) do nome de domínio completamente qualificado. Deve controlar o acesso ao seu cluster através de [Kubernetes com base em função de controlo de acesso (RBAC) e Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
-
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault está integrado com o AKS?
 
-AKS não é integrado de forma nativa com o Azure Key Vault neste momento. No entanto, o [projeto de Volume flexíveis do Cofre de chaves](https://github.com/Azure/kubernetes-keyvault-flexvol) permite direcionar a integração de pods do Kubernetes a segredos do Cofre de chaves.
+AKS não está atualmente nativamente integrado com o Azure Key Vault. No entanto, o [FlexVolume de Cofre de chave do Azure para o projeto de Kubernetes] [ keyvault-flexvolume] permite direcionar a integração de pods do Kubernetes a segredos do Cofre de chaves.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Pode executar contentores do Windows Server no AKS?
 
 Para executar contentores do Windows Server, terá de executar nós com base no Windows Server. Neste momento, o Windows baseado em servidor nós não estão disponíveis no AKS. No entanto, pode usar o Virtual Kubelet agendar contentores do Windows no Azure Container Instances e geri-los como parte do cluster do AKS. Para obter mais informações, consulte [utilização Virtual Kubelet com o AKS][virtual-kubelet].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que dois grupos de recursos são criados com o AKS?
-
-Cada implementação do AKS abrange dois grupos de recursos. A primeira é criada por si e contém apenas o recurso de serviço do Kubernetes. O fornecedor de recursos do AKS cria automaticamente o um segundo durante a implementação com um nome como *MC_myResourceGroup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, redes e armazenamento. Ele é criado para simplificar a limpeza de recursos.
-
-Se estiver a criar recursos que serão utilizados com o seu cluster do AKS, como contas de armazenamento ou endereços IP públicos reservados, deve colocá-los no grupo de recursos gerada automaticamente.
-
 ## <a name="does-aks-offer-a-service-level-agreement"></a>O AKS oferece um contrato de nível de serviço?
 
-Num contrato ao nível de serviço, (SLA), o fornecedor concorda em reembolsar o cliente para o custo do serviço deve o nível de serviço publicadas não ser cumprido. Como AKS em si é gratuito, não há nenhum custo disponível para reembolsar e, portanto, não existe SLA formal. No entanto, o AKS procura manter a disponibilidade de, pelo menos, a 99,5% para o servidor de API do Kubernetes.
+Num contrato ao nível de serviço, (SLA), o fornecedor concorda em reembolsar o cliente para o custo do serviço se o nível de serviço publicadas não for cumprido. Como AKS em si é gratuito, não há nenhum custo disponível para reembolsar e, portanto, não existe SLA formal. No entanto, o AKS procura manter a disponibilidade de, pelo menos, a 99,5% para o servidor de API do Kubernetes.
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md
+[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-upgrade]: ./upgrade-cluster.md
+[aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
+[aks-advanced-networking]: ./networking-overview.md#advanced-networking
+[aks-rbac-aad]: ./aad-integration.md
 
 <!-- LINKS - external -->
+
 [auto-scaler]: https://github.com/kubernetes/autoscaler
+[cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
+[keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495303"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616849"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar fábricas de dados através do Azure Monitor
 Aplicações na cloud são complexas com muitas partes móveis. A monitorização fornece dados para garantir que seu aplicativo mantém-se e em execução em bom estado. Também ajuda-o a protele potenciais problemas ou resolução de problemas anteriores são. Além disso, pode utilizar dados de monitorização para obter informações aprofundadas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a capacidade de manutenção, ou automatize ações que caso contrário, requer intervenção manual.
@@ -26,7 +26,7 @@ Aplicações na cloud são complexas com muitas partes móveis. A monitorizaçã
 O Azure Monitor proporciona registos e métricas de infraestrutura de nível de base para a maioria dos serviços no Microsoft Azure. Para obter detalhes, consulte [descrição geral da monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Registos de diagnóstico do Azure são registos emitidos por um recurso que fornecem dados avançados e frequentes sobre o funcionamento desse recurso. Fábrica de dados devolve registos de diagnóstico no Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Manter os dados de fábrica de dados
-Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Se pretender manter os dados por mais de 45 dias, de execução do pipeline através do Azure Monitor, pode não apenas encaminhar os registos de diagnóstico para análise, pode mantê-los para uma conta de armazenamento, para que tenha informações de fábrica durante o período de sua chossing.
+Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Se pretender manter os dados por mais de 45 dias, de execução do pipeline através do Azure Monitor, pode não apenas encaminhar os registos de diagnóstico para análise, pode mantê-los para uma conta de armazenamento, para que tenha informações de fábrica durante o período de sua escolha.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
@@ -398,6 +398,70 @@ ADFV2 emite as métricas seguintes
 | TriggerFailedRuns    | Falha de métricas de execuções do acionador     | Contagem    | Total                | Total de execuções do acionador com falhas dentro de uma janela de minutos      |
 
 Para acessar as métricas, siga as instruções no artigo- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Monitorizar métricas de fábrica de dados com o Azure Monitor
+
+Pode utilizar a integração do Azure Data Factory com o Azure Monitor para encaminhar os dados para o Azure Monitor. Esta integração é útil nos seguintes cenários:
+
+1.  Quer escrever consultas complexas num conjunto avançado de métricas, que são publicadas pela fábrica de dados para o Azure Monitor. Também pode criar alertas personalizados nestas consultas através do Azure Monitor.
+
+2.  Pretende monitorizar em fábricas de dados. Pode encaminhar os dados de diferentes fábricas de dados para um único espaço de trabalho do Azure Monitor.
+
+Para obter uma introdução de sete minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Configurar definições de diagnóstico e de área de trabalho
+
+Ative as definições de diagnóstico para a fábrica de dados.
+
+1.  Selecione **do Azure Monitor** -> **as definições de diagnóstico** -> selecionar a fábrica de dados -> ativar diagnósticos.
+
+    ![Monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Fornece definições de diagnóstico, incluindo a configuração da área de trabalho.
+
+    ![Monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Instalar o Analytics de fábrica de dados do Azure a partir do Azure Marketplace
+
+![Monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![Monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Clique em **criar** e selecione a área de trabalho e definições.
+
+![Monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Monitorizar as métricas de fábrica de dados
+
+A instalar **do Azure Data Factory Analytics** cria um conjunto de padrão de modos de exibição que permite que as métricas seguintes:
+
+- Execuções de Pipeline do ADF execuções-1) pelo Data Factory
+
+- Execuções de atividades do ADF execuções-2) pelo Data Factory
+
+- Execuções do acionador de execuções do ADF a 3) pelo Data Factory
+
+- Erros de Pipeline do ADF erros-1) os 10 principais pela fábrica de dados
+
+- Execuções de atividades do ADF erros-2) os 10 principais pela fábrica de dados
+
+- Erros de Acionador do ADF erros a 3) os 10 principais pela fábrica de dados
+
+- Execuções de atividades do ADF estatísticas-1) por tipo
+
+- Execuções de Acionador do ADF estatísticas-2) por tipo
+
+- Duração de execuções do Pipeline de máx. de estatísticas do ADF a 3)
+
+![Monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![Monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+Pode visualizar as métricas acima, examinar as consultas por trás estas métricas, editar as consultas, criar alertas e assim por diante.
+
+![Monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Alertas
 

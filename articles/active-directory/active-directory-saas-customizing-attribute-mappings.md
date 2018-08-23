@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365197"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056194"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários
 Microsoft Azure AD fornece suporte para aprovisionamento de utilizadores para aplicações de SaaS de terceiros, como o Salesforce, Google Apps e outros. Se tiver de aprovisionamento de utilizadores para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de mapeamentos de atributos.
@@ -121,7 +121,7 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
 * **Valores múltiplos?** -Ou não o atributo oferece suporte a vários valores.
 * **Maiúsculas ou minúsculas?** -Ou não os valores de atributos são avaliados de uma forma de maiúsculas e minúsculas.
 * **Expressão de API** -não utilizar, exceto se instruído a fazer isso, a documentação para um conector de aprovisionamento específico (por exemplo, o dia de trabalho).
-* **Referenciado atributo de objeto** - se se tratar de um atributo de tipo de referência, em seguida, esse menu permite-lhe selecionar a tabela e o atributo no aplicativo de destino que contém o valor associado com o atributo. Por exemplo, se tiver um atributo com o nome "Departamento", cujo valor armazenado referencia um objeto numa tabela de "Departamentos" separada, deve selecionar "Departments.Name". Tenha em atenção que as tabelas de referência e os campos de ID principal suportados para um determinado aplicativo pré-configuradas e atualmente não podem ser editados com o portal do Azure, mas podem ser editados utilizando o [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Referenciado atributo de objeto** - se se tratar de um atributo de tipo de referência, em seguida, esse menu permite-lhe selecionar a tabela e o atributo no aplicativo de destino que contém o valor associado com o atributo. Por exemplo, se tiver um atributo com o nome "Departamento", cujo valor armazenado referencia um objeto numa tabela de "Departamentos" separada, deve selecionar "Departments.Name". Tenha em atenção que as tabelas de referência e os campos de ID principal suportados para um determinado aplicativo pré-configuradas e atualmente não podem ser editados com o portal do Azure, mas podem ser editados utilizando o [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Para adicionar um novo atributo, desloque-se para o final da lista de atributos suportados, preencha os campos acima usando entradas fornecidas e selecione **adicionar atributo**. Selecione **guardar** quando concluir a adição de atributos. Em seguida, terá de recarregar o **aprovisionamento** separador para os novos atributos fiquem disponíveis no editor de mapeamento do atributo.
 

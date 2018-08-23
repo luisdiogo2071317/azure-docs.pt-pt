@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 202ee9da94fc93e7301c29b62dc61ad443685807
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450152"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055893"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerir dados de utilizador no Azure Active Directory B2C
 
- Este artigo descreve como pode gerir os dados de utilizador no Azure Active Directory (Azure AD) B2C usando as operações que são fornecidas pelos [do Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog). Gestão de dados de utilizador inclui a eliminar ou exportar dados de registos de auditoria.
+ Este artigo descreve como pode gerir os dados de utilizador no Azure Active Directory (Azure AD) B2C usando as operações que são fornecidas pelos [do Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog). Gestão de dados de utilizador inclui a eliminar ou exportar dados de registos de auditoria.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 

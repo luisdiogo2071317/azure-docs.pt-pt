@@ -1,6 +1,6 @@
 ---
-title: Pagar para as subscrições do Azure por fatura | Microsoft Docs
-description: Descreve como paga por fatura subscrições do Azure
+title: Comprar subscrições do Azure por fatura | Documentos da Microsoft
+description: Descreve como comprar subscrições do Azure por fatura
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: ac8262da05837dcdb4ebddd5029f9b5ece3dbc6f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cc174822af436e7c31eb5ad4bfa419e1fa022f44
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067952"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617374"
 ---
-# <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Submeter um pedido de pagar a subscrição do Azure por fatura
+# <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Submeter um pedido para pagar a subscrição do Azure por fatura
 
-Pode alterar o método de pagamento para a sua subscrição do Azure para fatura por submeter um pedido de suporte do Azure. Quando o pedido é aprovado, são fornecidas instruções sobre como configurar a sua subscrição para o método de pagamento da fatura.
+Pode alterar o método de pagamento para a sua subscrição do Azure criar uma fatura ao submeter um pedido de suporte do Azure. Depois do pedido for aprovado, são fornecidas instruções sobre como configurar a sua subscrição para o método de pagamento da nota fiscal.
 
 > [!IMPORTANT]
-> * Pay fatura só está disponível para contas de negócio.
-> * [Serviços externos e de terceiros](billing-understand-your-azure-marketplace-charges.md) não pode ser adquirido ou paga para utilizar o pagamento da fatura. Se a sua subscrição contém recursos a partir de serviços externos como ClearDB ou SendGrid, tem de ser eliminados antes de alterar a fatura pagamento. Para comprar serviços externos após mudar a fatura pay, terá uma subscrição separada com um cartão de crédito ou de débito.
-> * Depois de mudar a fatura pay, não é possível mudar para o pagamento de cartão de crédito ou de débito.
+> * O pagamento de nota fiscal só está disponível para contas de empresas.
+> * [Serviços externos e de terceiros](billing-understand-your-azure-marketplace-charges.md) não pode ser adquirido ou pagas com o pagamento de nota fiscal. Se a sua subscrição contém recursos a partir de serviços externos, como o SendGrid, tem de ser eliminados antes de alterar para o pagamento de nota fiscal. Para comprar serviços externos depois de mudar para o pagamento de nota fiscal, precisa de uma subscrição separada com um cartão de crédito ou débito.
+> * Depois de mudar para o pagamento de nota fiscal, não é possível voltar a mudar para pagamento de cartão de crédito ou débito.
 
 ## <a name="request-pay-by-invoice"></a>Pedido de pagamento por fatura
 
@@ -36,20 +36,20 @@ Pode alterar o método de pagamento para a sua subscrição do Azure para fatura
 
     ![Ajuda e suporte do botão](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. Selecione **faturação** como o tipo de problema, selecione a subscrição para o qual pretende pagar por fatura, selecione um plano de suporte e, em seguida, selecione **seguinte**.
+1. Selecione **Faturação** como o tipo de problema, selecione a subscrição para a qual quer pagar por fatura, selecione um plano de suporte e, em seguida, selecione **Seguinte**.
 
-1. Selecione **pagar por fatura** no **tipo de problema** caixa.
+1. Selecione **Pagar por Fatura** na caixa **Tipo de Problema**.
 
-1. Introduza as seguintes informações no **detalhes** caixa e, em seguida, selecione **seguinte**.
+1. Introduza as seguintes informações na **detalhes** caixa e, em seguida, selecione **próxima**.
 
     * Nome da empresa
     * Endereço para faturação
-    * [Endereço de correio eletrónico do administrador de conta](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [Endereço de e-mail do administrador de conta](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
 
-1. Certifique-se de que o método de contacto preferido e informações de contacto e, em seguida, clique em **criar**.
+1. Verifique as informações de contacto e o método de contacto preferencial e, em seguida, clique em **Criar**.
 
-Se é necessário executar uma verificação de crédito devido à quantidade de crédito que precisa, enviar-lhe que um crédito selecionar aplicação. Depois de submeter a aplicação, a aplicação de crédito pode demorar 5 a 7 dias para processar.
+Se necessário, execute uma verificação de crédito devido à quantidade de crédito que precisa, enviamos que um crédito verificar aplicação. Depois de submeter a aplicação, a aplicação de crédito pode demorar dias de 5 a 7 para processar.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.
+Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

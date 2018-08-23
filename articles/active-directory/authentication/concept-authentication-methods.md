@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622257"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056125"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -136,6 +136,8 @@ A aplicação Microsoft Authenticator pode ajudar a impedir o acesso não autori
 >
 > Quando dois métodos são necessários os utilizadores poderão repor usando **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
 >
+
+Se ativar a utilização de ambos os notificação através do código de verificação da aplicação móvel, os utilizadores que registar a aplicação Microsoft Authenticator usando uma notificação de aplicações móveis e são capazes de utilizar de notificação e o código para verificar a respetiva identidade.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 

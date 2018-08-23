@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: markvi
-ms.openlocfilehash: c2c94f488da6399965c59f761ff9f0539cf4de2f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c1332679af57a4994f4337e241845a87bf16b341
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228119"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055819"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Descrição geral do Roaming de Estado Empresarial
-Com o Windows 10, [do Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) os utilizadores obtêm a capacidade de sincronizar com segurança os seus dados de definições de aplicação para a cloud e as definições do utilizador. Roaming de estado empresarial fornece aos usuários uma experiência unificada em todos os seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. Roaming de estado empresarial opera semelhante ao padrão [sincronização de definições de consumidor](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) que foi introduzido pela primeira vez no Windows 8. Além disso, Roaming de estado empresarial oferece:
+Com o Windows 10, [do Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) os utilizadores obtêm a capacidade de sincronizar com segurança os seus dados de definições de aplicação para a cloud e as definições do utilizador. Roaming de estado empresarial fornece aos usuários uma experiência unificada em todos os seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. Roaming de estado empresarial opera semelhante ao padrão [sincronização de definições de consumidor](http://windows.microsoft.com/windows-8/sync-settings-pcs) que foi introduzido pela primeira vez no Windows 8. Além disso, Roaming de estado empresarial oferece:
 
 * **Separação da empresa e dados de consumidor** – as organizações estão no controlo dos seus dados e não há mistura de dados da empresa numa conta do consumidor na cloud ou de consumidor os dados numa conta empresarial na cloud.
 * **Segurança avançada** – automaticamente os dados são encriptados antes de deixarem o dispositivo do utilizador com o Windows 10 com o Azure Rights Management (Azure RMS) e dados permanecem encriptados em inatividade na cloud. Todos os conteúdos permanecem encriptados em inatividade na cloud, exceto para os espaços de nomes, como nomes de definições e nomes de aplicações do Windows.  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971541"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057381"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
@@ -27,11 +27,11 @@ Existem muitas perguntas freqüentes sobre o Service Fabric pode fazer e como el
 
 ## <a name="cluster-setup-and-management"></a>A configuração do cluster e gestão
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Como posso fazer a reversão do meu certificado de cluster do Service Fabric?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Como eu agrego volta meu certificado de cluster do Service Fabric?
 
 A reverter qualquer atualização ao seu aplicativo requer a deteção de falhas de estado de funcionamento antes do quórum de cluster do Service Fabric consolidação da alteração; só podem ser efetuadas o alterações confirmadas rollforward. Engenheiro de escalonamento através de serviços de suporte ao cliente, poderá ser necessária para recuperar o cluster, se foi introduzida uma alteração de certificado de quebra de não monitorizado.  [Atualização da aplicação do Service Fabric](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica-se [parâmetros da atualização da aplicação](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), e oferece promessa de atualização de um período de indisponibilidade de zero.  Após a nossa aplicação recomendada monitorizados de modo de atualização, progresso automática nos domínios de atualização é baseado em verificações de estado de funcionamento falha back sem interrupção, passando automaticamente se atualizar um serviço predefinido.
  
-Se o cluster ainda está aproveitando a propriedade clássica de Thumbprint do certificado no modelo do Resource Manager, recomendado [cluster de alteração de thumbprint do certificado para o nome comum](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para tirar partido dos segredos modernos funcionalidades de gestão.
+Se o cluster ainda está aproveitando a propriedade clássica de Thumbprint do certificado no modelo do Resource Manager, é recomendado que [cluster de alteração de thumbprint do certificado para o nome comum](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para tirar partido dos segredos modernos funcionalidades de gestão.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Pode criar um cluster que abranja diversas regiões do Azure ou o meus próprio centros de dados?
 
@@ -119,6 +119,12 @@ Sim.  Para obter mais informações, consulte [criar um cluster com discos de da
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como o meu aplicativo pode autenticar para o Cofre de chaves para obter segredos?
+Seguem-se significa para a sua aplicação obter as credenciais para autenticar no Cofre de chaves:
+
+A. Durante a tarefa de compilação/remessa seus aplicativos, pode extrair um certificado para o pacote de dados da sua aplicação SF e utilizá-lo para autenticar para o Cofre de chaves.
+B. Para anfitriões MSI ativada do conjunto de dimensionamento de máquinas virtuais, pode desenvolver um SetupEntryPoint simples do PowerShell para a sua aplicação SF conseguir [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do Cofre de chaves](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+
 ## <a name="application-design"></a>Design do aplicativo
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>O que é a melhor forma de consultar dados em partições de uma coleção fiável?

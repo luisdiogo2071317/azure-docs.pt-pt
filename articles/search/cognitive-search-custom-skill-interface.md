@@ -1,45 +1,48 @@
 ---
-title: Definição de competências personalizadas num pipeline pesquisa cognitivos (Azure Search) de interface | Microsoft Docs
-description: Interface de extração de dados personalizados para skill personalizada da web api no pipeline de cognitivos pesquisa na Azure Search.
+title: Interface de definição de competências personalizadas num pipeline pesquisa cognitiva (Azure Search) | Documentos da Microsoft
+description: Interface de extração de dados personalizados para habilidade personalizado da web api no pipeline de pesquisa cognitiva no Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 8f21a56982189aa13745f27f0fae49310ae55aa0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2218a96702a02a32df18da9640ea9946d05acdb1
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640324"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055423"
 ---
-# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar um skill personalizado para um pipeline de pesquisa cognitivos
+# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada para um pipeline de pesquisa cognitiva
 
-Neste artigo, irá aprender a adicionar um skill personalizado para um pipeline de pesquisa cognitivos. A [pipeline de indexação da pesquisa cognitivos](cognitive-search-concept-intro.md) na pesquisa do Azure pode ser assembled de [predefinidas competências](cognitive-search-predefined-skills.md) e competências personalizadas que criar e adicionar ao pipeline pessoal.
+R [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montada a partir de [predefinidos habilidades](cognitive-search-predefined-skills.md) , bem como as competências personalizadas que criar e adicionar ao pipeline pessoal. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite para ser incluída num pipeline de pesquisa cognitiva. 
 
-Criar um skill personalizado dá-lhe uma forma de inserir transformações exclusivas para o conteúdo. Um skill personalizado executa independentemente, aplicar qualquer passo sem causa precisa. Por exemplo, pode definir entidades personalizadas específicas do campo, criar modelos de classificação personalizada para diferenciar o negócio e contratos financeiros e os documentos ou adicionar um skill de reconhecimento de voz para chegar a mais profundo áudio ficheiros para o conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: criar um skill personalizado](cognitive-search-create-custom-skill-example.md).
+Criar uma habilidade personalizada dá-lhe uma forma de inserir transformações exclusivas ao seu conteúdo. Uma habilidade personalizada é executado de forma independente, aplicar qualquer passo de enriquecimento necessitar. Por exemplo, poderia definir entidades personalizadas de campo específico, criar modelos de classificação personalizada para diferenciar empresariais e contratos financeiros e documentos ou adicionar uma habilidade de reconhecimento de voz para alcançar-se em arquivos de áudio para conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md).
 
- Qualquer precisa, não há uma interface simple e desmarque para ligar um skill personalizado para o resto do pipeline sem causa de capacidade personalizado. O único requisito para inclusão num [skillset](cognitive-search-defining-skillset.md) é a capacidade de aceitar as entradas e saídas de tal forma que é consumíveis dentro skillset como um todo de emissão. O foco deste artigo é os formatos de entrada e de saída que requer que o pipeline sem causa.
+ Seja qual for necessitar, existe uma interface simples e clara para ligar uma habilidade personalizada para o resto do pipeline enriquecimento de capacidade personalizado. O único requisito para inclusão numa [conjunto de capacidades](cognitive-search-defining-skillset.md) é a capacidade de aceitar entradas e emitir as saídas de formas consumidas no conjunto de capacidades como um todo. O foco deste artigo é sobre os formatos de entrada e saídos que requer que o pipeline de melhoria.
 
-## <a name="web-api-custom-skill-interface"></a>Interface de skill personalizada de API Web
+## <a name="web-api-custom-skill-interface"></a>Interface de habilidades personalizado da API Web
 
-Atualmente, o mecanismo de apenas para interagir com um skill personalizado é através de uma interface de Web API. A API Web necessidades têm de cumprir os requisitos descritos nesta secção.
+WebAPI habilidade os pontos finais personalizados tem de devolver uma resposta dentro de um período de 5 minutos. O pipeline de indexação é síncrono e indexação produzirá um erro de tempo limite se não for recebida uma resposta nessa janela."
+
+Atualmente, o mecanismo de apenas para interagir com uma habilidade personalizada é através de uma interface de Web API. A API Web precisa têm de cumprir os requisitos descritos nesta secção.
 
 ### <a name="1--web-api-input-format"></a>1.  Formato de entrada de API Web
 
-A API Web tem de aceitar uma matriz de registos a serem processados. Cada registo tem de conter um "conjunto de propriedades" que é a entrada fornecida para a API Web. 
+A API Web tem de aceitar uma matriz de registos a serem processados. Cada registo tem de conter um "recipiente" Isto é a entrada fornecida para a sua API Web. 
 
-Suponha que pretende criar um enricher simple que identifica a data da primeira mencionada no texto de um contrato. Neste exemplo, o skill aceita uma única entrada *contractText* como o texto de contrato. O skill também tem um resultado único, que é a data de contrato. Para tornar o enricher mais interessante, devolver *contractDate* na forma de um tipo complexo com várias parte.
+Suponha que deseja criar um enricher simple que identifica a primeira data mencionada no texto de um contrato. Neste exemplo, a habilidade aceita uma entrada única *contractText* como o texto do contrato. A habilidade também tem uma única saída, o que é a data do contrato. Para tornar o enricher mais interessantes, devolver *contractDate* na forma de um tipo complexo com várias parte.
 
-A API Web deve estar pronta para receber um lote de registos de entrada. Cada membro de *valores* matriz representa a entrada de um registo específico. Cada registo é necessário ter os seguintes elementos:
+A API Web deve estar pronta para receber um lote de registos de entrada. Cada membro de *valores* matriz representa a entrada de um registo específico. Cada registro é necessário para ter os seguintes elementos:
 
-+ A *recordId* membro que é o identificador único para um determinado registo. Quando o enricher devolve os resultados, deve fornecer esta *recordId* para permitir que o autor da chamada fazer corresponder os resultados de registo para a sua entrada.
++ R *recordId* membro que é o identificador exclusivo de um determinado registo. Quando seu enricher retorna os resultados, deve fornecer isso *recordId* para permitir que o autor da chamada de acordo com os resultados de registo para o seu parecer.
 
-+ A *dados* membro, o que é, essencialmente, uma matriz de campos de entrada para cada registo.
++ R *dados* membro, o que é essencialmente um conjunto de campos de entrada para cada registo.
 
-Para ser mais concreta, por exemplo acima, a API Web deve esperar pedidos que este aspeto:
+Para ser mais concreta, por exemplo acima, a API Web deve esperar que os pedidos que ter o seguinte aspeto:
 
 ```json
 {
@@ -70,11 +73,11 @@ Para ser mais concreta, por exemplo acima, a API Web deve esperar pedidos que es
     ]
 }
 ```
-Na realidade, o serviço pode obter chamado com centenas ou milhares de registos em vez de apenas três mostrados aqui.
+Na realidade, o seu serviço pode obter chamado com centenas ou milhares de registos em vez de apenas três mostrado aqui.
 
-### <a name="2-web-api-output-format"></a>2. Formato de saída de API Web
+### <a name="2-web-api-output-format"></a>2. Formato de saída da API Web
 
-O formato de saída é um conjunto de registos que contêm um *recordId*e uma matriz de propriedades 
+O formato de saída é um conjunto de registos que contém um *recordId*e uma matriz de propriedades 
 
 ```json
 {
@@ -105,15 +108,15 @@ O formato de saída é um conjunto de registos que contêm um *recordId*e uma ma
 }
 ```
 
-Este exemplo em concreto tem apenas uma saída, mas foi saída mais do que uma propriedade. 
+Esse exemplo específico tem apenas uma saída, mas poderia transmitir mais de uma propriedade. 
 
 ### <a name="errors-and-warning"></a>Erros e de aviso
 
-Como é mostrado no exemplo anterior, pode devolver o erro e mensagens de aviso para cada registo.
+Conforme mostrado no exemplo anterior, podem devolver erros e mensagens de aviso para cada registo.
 
-## <a name="consuming-custom-skills-from-skillset"></a>Consumir personalizadas competências de skillset
+## <a name="consuming-custom-skills-from-skillset"></a>Consumir competências personalizadas do conjunto de capacidades
 
-Quando cria um enricher Web API, pode descrevem os cabeçalhos de HTTP e os parâmetros como parte do pedido. O fragmento abaixo mostra como os parâmetros do pedido e cabeçalhos de HTTP podem ser descritos como parte da definição de skillset.
+Quando cria um enricher de Web API, pode descrever os cabeçalhos HTTP e os parâmetros como parte do pedido. O fragmento abaixo mostra como parâmetros do pedido e cabeçalhos HTTP podem ser descritos como parte da definição do conjunto de capacidades.
 
 ```json
 {
@@ -145,7 +148,7 @@ Quando cria um enricher Web API, pode descrevem os cabeçalhos de HTTP e os par�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ [Exemplo: Criar um skill personalizado para a API para traduzir texto](cognitive-search-create-custom-skill-example.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Como mapear os campos avançados](cognitive-search-output-field-mapping.md)
++ [Exemplo: Criar uma habilidade personalizada para a API de texto a traduzir](cognitive-search-create-custom-skill-example.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
++ [Criar conjunto de capacidades (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Como mapear campos plena](cognitive-search-output-field-mapping.md)

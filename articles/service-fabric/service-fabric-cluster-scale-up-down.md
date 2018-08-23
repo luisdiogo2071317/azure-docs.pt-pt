@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 1869b25756693a4a3626d713b6bd2adab035cea6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d820898b1a0cc26d6832be9d302c74306fa4882f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717055"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057009"
 ---
+# <a name="read-before-you-scale"></a>Leia antes de aumentar
+Dimensionar recursos de computação para a origem a carga de trabalho de aplicação requer um planejamento intencional, quase sempre irá demorar mais de uma hora para concluir para um ambiente de produção e exige que compreender a sua carga de trabalho e o contexto de negócios; na verdade se nunca tiver feito essa atividade antes, recomenda-se começar por ler e entender [considerações de planeamento de capacidade do cluster de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity), antes de continuar o restante deste documento. Esta recomendação é evitar problemas de LiveSite indesejados, e também é recomendável que testar com êxito as operações que decidir executar em relação a um ambiente de não produção. Em qualquer altura, pode [comunicar problemas de produção ou pedido de suporte pago para o Azure](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Para os engenheiros alocados para executar estas operações que possuem o contexto apropriado, este artigo descreverá as operações de dimensionamento, mas tem de decidir e compreender as operações são adequadas para seu caso de utilização; Por exemplo, quais recursos para dimensionamento (CPU, armazenamento, memória), que direção de dimensionamento (vertical ou horizontalmente) e quais operações a serem executadas (modelo do Resource a implementação, do Portal, o PowerShell/CLI).
+
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Dimensionar um cluster do Service Fabric dentro ou para fora usando regras de dimensionamento automático ou manual
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido no cluster do Service Fabric é configurado como um conjunto de dimensionamento de máquina virtual separada. Cada tipo de nó, em seguida, pode ser reduzido horizontalmente ou horizontalmente de forma independente, têm conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. Saiba mais sobre ele na [nodetypes do Service Fabric](service-fabric-cluster-nodetypes.md) documento. Uma vez que os tipos de nós no cluster do Service Fabric são constituídos por conjuntos de dimensionamento de máquinas virtuais no back-end, terá de configurar regras de dimensionamento automático para cada conjunto de dimensionamento de máquina de Virtual/tipo de nó.
 
 > [!NOTE]
-> A sua subscrição tem de ter núcleos suficientes para adicionar as VMs novas que compõem este cluster. Não existe nenhuma validação de modelo atualmente, para que tenha uma falha de tempo de implementação, se qualquer um dos limites são atingidos.
+> A sua subscrição tem de ter núcleos suficientes para adicionar as VMs novas que compõem este cluster. Não existe nenhuma validação de modelo atualmente, para que tenha uma falha de tempo de implementação, se qualquer um dos limites são atingidos. Também um tipo de nó único não pode simplesmente exceder 100 nós por VMSS. Poderá ter de adicionar o VMSS alcançar a dimensão de destino, e o dimensionamento automático não pode automagicamente adicionar do VMSS. Adição direta do VMSS a um cluster ativo é uma tarefa desafiadora e normalmente isso resulta em novos clusters de aprovisionamento com os tipos de nó adequado aprovisionados no momento de criação de utilizadores [planear a capacidade de cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity) em conformidade. 
 > 
 > 
 

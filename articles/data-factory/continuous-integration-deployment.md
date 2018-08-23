@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448446"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058258"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e implementação no Azure Data Factory
 
@@ -47,6 +47,10 @@ Esta ação leva-o para o portal do Azure, onde é possível importar o modelo e
 Selecione **carregar ficheiro** para selecionar o modelo do Resource Manager exportado e forneça todos os valores de configuração (por exemplo, serviços ligados).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Cadeias de ligação**. Pode encontrar as informações necessárias para criar cadeias de ligação nos artigos sobre os conectores individuais. Por exemplo, para a base de dados SQL do Azure, consulte [copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory](connector-azure-sql-database.md). Para verificar a cadeia de ligação correta - para um serviço ligado, por exemplo, - também pode abrir a vista de código para o recurso na IU do Data Factory. No entanto, na vista de código, é removida a palavra-passe ou conta parte da chave a cadeia de ligação. Para abrir a vista de código, selecione o ícone realçado na captura de ecrã seguinte.
+
+![Vista de código aberto para ver a cadeia de ligação](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de integração contínua
 Aqui está todo o ciclo de vida para integração contínua e implementação que pode utilizar depois de ativar a integração de VSTS GIT na IU do Data Factory:
@@ -174,11 +178,7 @@ Se tentar atualizar os acionadores de Active Directory, a implementação pode f
 
 Pode seguir passos semelhantes e utilizar um código semelhante (com o `Start-AzureRmDataFactoryV2Trigger` função) para reiniciar os disparadores após a implementação.
 
-## <a name="sample-template-and-script"></a>Modelo de exemplo e script
-Aqui estão dois exemplos que pode utilizar para começar a utilizar com a integração contínua e implementação para o Data Factory:
-
--   Um modelo de implementação de exemplo que pode ser importado no VSTS.
--   Um script de exemplo para acionadores antes da implantação de parar e reiniciar aciona posteriormente. O script também inclui o código para eliminar os recursos que foram removidos.
+## <a name="sample-deployment-template"></a>Modelo de implementação de exemplo
 
 Aqui está um modelo de implementação de exemplo que pode ser importado no VSTS.
 
@@ -718,7 +718,9 @@ Aqui está um modelo de implementação de exemplo que pode ser importado no VST
 }
 ```
 
-Eis um script de exemplo para acionadores antes da implantação de parar e reiniciar acionadores posteriormente:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Exemplo de script para parar e reiniciar acionadores e limpar
+
+Eis um script de exemplo para acionadores antes da implantação de parar e reiniciar acionadores posteriormente. O script também inclui código para eliminar os recursos que foram removidos.
 
 ```powershell
 param

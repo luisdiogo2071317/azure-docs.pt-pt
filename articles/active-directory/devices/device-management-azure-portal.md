@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd810f6e5a4211f64044a88ae6ca6bb6dc044e28
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415226"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056988"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestão de dispositivos no portal do Azure
 
@@ -46,7 +46,7 @@ O portal do Azure fornece um local central para gerir os seus dispositivos. Pode
 
 3. Na **Manage** secção, clique em **dispositivos**.
 
-    ![Configurar definições do dispositivo](./media/device-management-azure-portal/11.png)
+    ![Configurar definições do dispositivo](./media/device-management-azure-portal/74.png)
  
 O **dispositivos** página permite-lhe:
 
@@ -70,13 +70,13 @@ A página de definições de dispositivo permite-lhe configurar:
 ![Gerir um dispositivo do Intune](./media/device-management-azure-portal/21.png)
 
 
-- **Os utilizadores podem associar dispositivos ao Azure AD** -esta definição permite-lhe selecionar os utilizadores que podem [associar dispositivos](overview.md#azure-ad-joined-devices) para o Azure AD. A predefinição é **todos os**.
+- **Os utilizadores podem associar dispositivos ao Azure AD** -esta definição permite-lhe selecionar os utilizadores que podem [associar dispositivos](overview.md#azure-ad-joined-devices) para o Azure AD. A predefinição é **todos os**. Esta definição só é aplicável a associação do Azure AD no Windows 10.
 
 - **Dispositivos associados de administradores locais adicionais no Azure AD** -pode selecionar os utilizadores que são concedidos direitos de administrador local num dispositivo. Utilizadores adicionados aqui são adicionados para o *administradores de dispositivos* função no Azure AD. Os administradores globais no Azure AD e os proprietários do dispositivo são concedidos direitos de administrador local por predefinição. Esta opção é um recurso de edição premium disponível por meio de produtos como o Azure AD Premium ou Enterprise Mobility Suite (EMS). 
 
 - **Os utilizadores podem registar os seus dispositivos com o Azure AD** -tem de configurar esta definição para permitir que os dispositivos sejam [registado](overview.md#azure-ad-registered-devices) com o Azure AD. Se selecionou **None**, dispositivos não têm permissão para registar quando não estão associados ao Azure AD ou Azure AD híbrido. Inscrição com o Microsoft Intune ou gestão de dispositivos móveis (MDM) para o Office 365 requer o registo. Se tiver configurado qualquer um destes serviços, **todos os** está selecionado e **NONE** não está disponível.
 
-- **Exigir multi-Factor Auth associar dispositivos** -pode escolher se os utilizadores têm de fornecer um segundo fator de autenticação para [associação](overview.md#azure-ad-joined-devices) respetivo dispositivo para o Azure AD. A predefinição é **não**. Recomendamos que requerem a autenticação multifator ao registar um dispositivo. Antes de ativar a autenticação multifator para este serviço, certifique-se de que a autenticação multifator está configurada para os utilizadores que registem os seus dispositivos. Para obter mais informações sobre serviços diferentes multi-factor authentication, consulte [introdução ao multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Exigir multi-Factor Auth associar dispositivos** -pode escolher se os utilizadores têm de fornecer um segundo fator de autenticação para [associação](overview.md#azure-ad-joined-devices) respetivo dispositivo para o Azure AD. A predefinição é **não**. Recomendamos que requerem a autenticação multifator ao registar um dispositivo. Antes de ativar a autenticação multifator para este serviço, certifique-se de que a autenticação multifator está configurada para os utilizadores que registem os seus dispositivos. Para obter mais informações sobre serviços diferentes multi-factor authentication, consulte [introdução ao multi-factor authentication](../authentication/concept-mfa-whichversion.md). Esta definição não afeta a associação ao híbrido para o Windows 10 ou Windows 7. Isto só é aplicável a associação do Azure AD no registo de dispositivos Windows 10 e BYO para Windows 10, iOS e Android. 
 
 - **Número máximo de dispositivos** -esta definição permite-lhe selecionar o número máximo de dispositivos que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, eles não são conseguir adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes são removidas. A citação de dispositivo é contada para todos os dispositivos que estão associados ao Azure AD ou do Azure AD, registadas-se hoje. O valor predefinido é **20**.
 

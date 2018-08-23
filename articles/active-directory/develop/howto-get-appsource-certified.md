@@ -13,46 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 83436fe7f47c156f70995d66922e9fc0564ef872
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601949"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057719"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter o AppSource certificada para Azure Active Directory
+
 [Microsoft AppSource](https://appsource.microsoft.com/) é um destino para usuários empresariais para detetar, experimentar e gerir aplicações de SaaS de linha de negócio (autónomo SaaS e suplementos para produtos de SaaS da Microsoft já existentes).
 
-Para listar uma aplicação autónoma de SaaS no AppSource, a aplicação tem de aceitar início de sessão único de contas de trabalho a partir de qualquer empresa ou organização que tenha o Azure Active Directory. O processo de início de sessão tem de utilizar o [OpenID Connect](v1-protocols-openid-connect-code.md) ou [OAuth 2.0](v1-protocols-oauth-code.md) protocolos. Integração de SAML não é aceite para obter uma certificação do AppSource.
+Para listar uma aplicação autónoma de SaaS no AppSource, a aplicação tem de aceitar início de sessão único de contas de trabalho a partir de qualquer empresa ou organização que tenha o Azure Active Directory (Azure AD). O processo de início de sessão tem de utilizar o [OpenID Connect](v1-protocols-openid-connect-code.md) ou [OAuth 2.0](v1-protocols-oauth-code.md) protocolos. Integração de SAML não é aceite para obter uma certificação do AppSource.
 
 ## <a name="guides-and-code-samples"></a>Exemplos de código e guias
-Se quiser saber mais sobre como integrar o seu aplicativo com o Azure Active Directory com o ID de Open ligar, siga os nossos guias e exemplos de código a [Guia do programador do Azure Active Directory](azure-ad-developers-guide.md#get-started "introdução ao Azure AD para os desenvolvedores").
+
+Se quiser saber mais sobre como integrar o seu aplicativo com o Azure AD com o ID de Open ligar, siga os nossos guias e exemplos de código a [Guia do programador do Azure Active Directory](azure-ad-developers-guide.md#get-started "introdução ao Azure AD para os desenvolvedores").
 
 ## <a name="multi-tenant-applications"></a>Aplicações multi-inquilino
 
-Uma aplicação que aceite inícios de sessão dos utilizadores de qualquer empresa ou organização que tenham o Azure Active Directory sem a necessidade de uma instância separada, a configuração ou a implementação é conhecida como um *aplicação multi-inquilino*. AppSource recomenda que as aplicações implementar vários inquilinos para ativar a *clique único* gratuitos a experiência de avaliação.
+R *aplicação multi-inquilino* é uma aplicação que aceite inícios de sessão dos utilizadores de qualquer empresa ou organização que tem o Azure AD sem a necessidade de uma instância separada, a configuração ou a implementação. AppSource recomenda que as aplicações implementar vários inquilinos para ativar a *clique único* gratuitos a experiência de avaliação.
 
-Para habilitar vários inquilinos na sua aplicação:
-- Definir `Multi-Tenanted` propriedade `Yes` nas informações do registo de aplicação a [Portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (por predefinição, as aplicações criadas no Portal do Azure são configuradas como *deinquilinoúnico*)
-- Atualizar seu código para enviar pedidos para o '`common`' ponto de extremidade (atualizar o ponto final da *https://login.microsoftonline.com/{yourtenant}* para *https://login.microsoftonline.com/common*)
-- Em algumas plataformas, como o ASP.NET, também precisa atualizar seu código para aceitar vários emissores
+Para permitir que vários inquilinos na sua aplicação, siga estes passos:
+1. Definir `Multi-Tenanted` propriedade `Yes` nas informações do registo de aplicação a [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por predefinição, as aplicações criadas no portal do Azure são configuradas como  *[inquilino único](#single-tenant-applications)*.
+1. Atualizar seu código para enviar pedidos para o `common` ponto final. Para tal, atualizar o ponto final da `https://login.microsoftonline.com/{yourtenant}` para `https://login.microsoftonline.com/common*`.
+1. Em algumas plataformas, como no ASP .NET, terá também de atualizar o seu código aceite vários emissores.
 
-Para obter mais informações sobre vários inquilinos, consulte: [como iniciar sessão a qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md).
+Para obter mais informações sobre vários inquilinos, consulte [como iniciar sessão a qualquer utilizador do Azure Active Directory (Azure AD) utilizando o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Aplicações de inquilino único
-Aplicativos que apenas aceitam inícios de sessão dos utilizadores de uma instância do Azure Active Directory definido são conhecidos como *aplicação de inquilino único*. Utilizadores externos (incluindo contas de trabalho ou escolares de outras organizações ou conta pessoal) podem iniciar sessão a uma aplicação de inquilino único depois de adicionar cada utilizador como *conta de convidado* para o Azure Active Directory da instância que o aplicação fica registada. Pode adicionar utilizadores como contas de convidado para um Azure Active Directory através do [ *colaboração B2B do Azure AD* ](../b2b/what-is-b2b.md) - e ele pode ser feito [programaticamente](../../active-directory-b2c/code-samples.md). Quando adicionar um utilizador como conta de convidado para um Azure Active Directory, é enviado um e-mail de convite ao utilizador, que tem de aceitar o convite ao clicar na ligação no e-mail de convite. Os convites que são enviados para um utilizador adicional numa organização de convite que também seja membro da organização de parceiro não são necessários aceitar um convite para iniciar sessão.
 
-Aplicações de inquilino único podem ativar a *contactar-Me* experiência, mas se pretender ativar a experiência de avaliação gratuita / de clique único que recomenda o AppSource, ativar vários inquilinos na sua aplicação em vez disso.
+R *aplicação de inquilino único* é uma aplicação que aceite apenas inícios de sessão dos utilizadores de um Azure definido instância do AD. Utilizadores externos (incluindo contas pessoais ou contas escolares de outras organizações ou trabalho) podem iniciar sessão a uma aplicação de inquilino único depois de adicionar cada usuário como uma conta de convidado para a instância do Azure AD que a aplicação fica registada. 
 
+Pode adicionar utilizadores como contas de convidado para o Azure AD através da [colaboração B2B do Azure AD](../b2b/what-is-b2b.md) e pode fazê-lo [programaticamente](../../active-directory-b2c/code-samples.md). Quando utilizar B2B, os utilizadores podem criar um portal self-service que não necessita de um convite para iniciar sessão. Para mais informações, veja [portal self-service para inscrição de colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+
+Aplicações de inquilino único podem ativar a *contactar-Me* experiência, mas se pretender ativar a experiência de avaliação de único clique/gratuitos que recomenda o AppSource, ativar vários inquilinos na sua aplicação em vez disso.
 
 ## <a name="appsource-trial-experiences"></a>Experiências de avaliação do AppSource
 
 ### <a name="free-trial-customer-led-trial-experience"></a>Versão de avaliação gratuita (por um instrutor cliente experiência de avaliação) 
-O *avaliação liderada por cliente* é a experiência que AppSource recomenda que oferece um acesso de clique único à sua aplicação. Abaixo como obter uma ilustração desta experiência é semelhante a:<br/><br/>
+
+A avaliação liderada por cliente é a experiência que AppSource recomenda que oferece um acesso de clique único à sua aplicação. Abaixo como obter uma ilustração desta experiência é semelhante a:<br/><br/>
 
 <table >
 <tr>
@@ -67,8 +72,9 @@ O *avaliação liderada por cliente* é a experiência que AppSource recomenda q
 </tr>
 </table>
 
-### <a name="contact-me-partner-led-trial-experience"></a>Contactar-Me (liderada por parceiros experiência de avaliação)
-O *experiência de avaliação de parceiros* podem ser utilizados quando um manual ou uma operação de longa duração precisa acontecer ao aprovisionar o utilizador / da empresa: por exemplo, a sua aplicação necessita para aprovisionar máquinas virtuais, as instâncias de base de dados ou operações que demorar muito tempo a concluir. Neste caso, após o utilizador seleciona o *versão de pedir avaliação* botão e preenche um formulário, AppSource envia-lhe as informações de contacto do utilizador. Após receber essas informações, em seguida, provisionar o ambiente e enviar as instruções para o usuário sobre como aceder a experiência de avaliação:<br/><br/>
+### <a name="contact-me-partner-led-trial-experience"></a>Contactar-me (liderada por parceiros experiência de avaliação)
+
+Pode utilizar a experiência de avaliação do parceiro quando um manual ou uma operação de longa duração precisa acontecer ao aprovisionar que a utilizador/da empresa – por exemplo, a aplicação tem de aprovisionar máquinas virtuais, as instâncias de base de dados ou operações que demoram muito tempo a concluir. Neste caso, depois do utilizador selecionar o **pedir avaliação** botão e preenche um formulário, AppSource envia-lhe as informações de contacto do utilizador. Quando receber estas informações, em seguida, provisionar o ambiente e enviar as instruções para o usuário sobre como aceder a experiência de avaliação:<br/><br/>
 
 <table valign="top">
 <tr>
@@ -101,17 +107,18 @@ O *experiência de avaliação de parceiros* podem ser utilizados quando um manu
 </table>
 
 ### <a name="more-information"></a>Mais informações
+
 Para obter mais informações sobre a experiência de avaliação do AppSource, consulte [este vídeo](https://aka.ms/trialexperienceforwebapps). 
  
 ## <a name="next-steps"></a>Próximos Passos
 
-- Para obter mais informações sobre a criação de aplicações que suportam a inícios de sessão do Azure Active Directory, consulte [cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
-
+- Para obter mais informações sobre a criação de aplicações que suportam a inícios de sessão do Azure AD, consulte [cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - Para informações sobre como listar a sua aplicação SaaS no AppSource, aceda a ver [informações do parceiro de AppSource](https://appsource.microsoft.com/partners)
 
 
-## <a name="get-support"></a>Obter Suporte
-Para a integração do Azure Active Directory, utilizamos [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a Comunidade para fornecer suporte. 
+## <a name="get-support"></a>Obter suporte
+
+Para a integração do Azure AD, utilizamos [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a Comunidade para fornecer suporte. 
 
 É altamente recomendável colocar as suas questões no Stack Overflow pela primeira vez e procurar problemas existentes para ver se alguém recebe sua pergunta antes de o pedido. Certifique-se de que suas perguntas ou comentários são marcados com [ `[azure-active-directory]` e `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 

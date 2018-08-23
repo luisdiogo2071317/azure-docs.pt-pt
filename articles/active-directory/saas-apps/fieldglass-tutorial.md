@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 446eac2bf6eed10f919d6c64de1d7b9dbba1f35d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420363"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integração do Azure Active Directory com Fieldglass
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Fieldglass, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Fieldglass logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Fieldglass com o Azure AD, terá de adicionar 
 
 **Para adicionar Fieldglass a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `https://<company name>.fgvms.com/<company name>`|
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de Fieldglass](http://www.fieldglass.com/solutions/support) obter esses valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de Fieldglass](https://www.fieldglass.com/customer-support) obter esses valores.
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -135,7 +135,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-1. Para configurar o início de sessão único num **Fieldglass** lado, terá de enviar o transferido **Certificate(Base64)** e **URL de fim de sessão, o ID de entidade de SAML** para [ Equipa de suporte de Fieldglass](http://www.fieldglass.com/solutions/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **Fieldglass** lado, terá de enviar o transferido **Certificate(Base64)** e **URL de fim de sessão, o ID de entidade de SAML** para [ Equipa de suporte de Fieldglass](https://www.fieldglass.com/customer-support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-a-fieldglass-test-user"></a>Criar um utilizador de teste Fieldglass
 
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no FieldGlass. Trabalhe em conjunto com seus [equipa de suporte de Fieldglass](http://www.fieldglass.com/solutions/support) para adicionar os utilizadores na conta Fieldglass.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no FieldGlass. Trabalhe em conjunto com seus [equipa de suporte de Fieldglass](https://www.fieldglass.com/customer-support) para adicionar os utilizadores na conta Fieldglass.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

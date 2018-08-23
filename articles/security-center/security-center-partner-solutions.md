@@ -1,5 +1,5 @@
 ---
-title: Gerir ligado soluções no Centro de segurança do Azure de parceiros | Microsoft Docs
+title: Gerir ligada a soluções no Centro de segurança do Azure de parceiros | Documentos da Microsoft
 description: Este documento vai ajudá-lo a compreender como o Centro de Segurança do Azure lhe permite monitorizar rapidamente o estado de funcionamento das suas soluções de parceiros integradas na sua subscrição do Azure.
 services: security-center
 documentationcenter: na
@@ -12,58 +12,58 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 181e1e00716987732ee809df6171c2f71087f3e1
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 3d4c9c79ff90ee816719f0179fbb5096b0035854
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
-ms.locfileid: "23891028"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060969"
 ---
-# <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Gerir soluções de parceiros ligadas Centro de segurança do Azure
-Este artigo explica como gerir e monitorizar soluções de segurança ligado no Centro de segurança do Azure.
+# <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Gerir soluções de parceiros ligadas com o Centro de segurança do Azure
+Este artigo explica como gerir e monitorizar soluções de segurança ligada no Centro de segurança do Azure.
 
 ## <a name="monitoring-partner-solutions"></a>Monitorizar soluções de parceiros
-Para monitorizar o estado de funcionamento de soluções de segurança ligado e efetuar a gestão básicas:
+Para monitorizar o estado de funcionamento das soluções de segurança ligadas e realizar o gerenciamento básico:
 
-1. Em **Centro de segurança - descrição geral**, selecione **soluções de segurança**.
+1. Sob **Centro de segurança - descrição geral**, selecione **soluções de segurança**.
 
-  ![Selecione as soluções de segurança][1]
+  ![Selecione soluções de segurança][1]
 
-  O **ligado soluções** secção inclui as soluções de segurança que estão ligadas ao centro de segurança e informações sobre o estado de funcionamento de cada solução.
+  O **soluções ligadas** secção inclui soluções de segurança que estão ligadas ao centro de segurança e informações sobre o estado de funcionamento de cada solução.
 
   ![Soluções de parceiros][2]
 
-   O estado de uma solução de parceiros pode ser:
+   O estado de uma solução de parceiro pode ser:
 
-   * Bom estado de funcionamento (verde) - não há nenhum problema de estado de funcionamento.
+   * Bom estado de funcionamento (verde) – não há nenhum problema de estado de funcionamento.
    * Mau estado de funcionamento (vermelho) – existe um problema de estado de funcionamento que exige atenção imediata.
-   * Problemas de estado de funcionamento (cor de laranja) - a solução deixou o estado de funcionamento de relatórios.
-   * Não reportada (cinzento) – a solução não comunicou qualquer coisa ainda, estado de uma solução pode ser não reportado se recentemente foi ligada e ainda está a implementar, ou não existem dados de estado de funcionamento estão disponíveis.
+   * Problemas de estado de funcionamento (cor de laranja), a solução deixou seu estado de funcionamento de relatórios.
+   * Não reportada (cinzento) – a solução não comunicou qualquer coisa, mas o estado de uma solução pode ser não reportado se ele recentemente foi ligado e ainda está a ser implementado, ou não existem dados de estado de funcionamento estão disponíveis.
 
    > [!NOTE]
-   > Se os dados de estado de funcionamento não estiver disponíveis, o Centro de segurança mostra a data e hora do último evento recebida para indicar se a solução estiver a comunicar ou não. Se não existem dados de estado de funcionamento estão disponíveis e não existem alertas são recebidas nos últimos 14 dias, o Centro de segurança indica que a solução está danificado ou não Reporting Services.
+   > Se os dados de estado de funcionamento não estiverem disponíveis, o Centro de segurança mostra a data e hora do último evento recebido para indicar se a solução está a comunicar ou não. Se não existem dados de estado de funcionamento estão disponíveis e não existem alertas são recebidas dentro dos últimos 14 dias, o Centro de segurança indica que a solução está danificado ou não de relatórios.
    >
    >
 
-2. Selecione **vista** para opções e informações adicionais, que inclui:
+2. Selecione **vista** para obter informações adicionais e opções, que inclui:
 
   - **Consola de soluções**. Abre a experiência de gestão para esta solução.
-  - **Associar a VM**. Abre o painel de aplicações de ligação. Aqui pode ligar recursos à solução de parceiros.
-  - **Eliminar a solução**.
+  - **Associar VM**. Abre o painel de ligar aplicações. Aqui pode ligar recursos à solução de parceiros.
+  - **Eliminar solução**.
   - **Configurar**.
 
    ![Detalhe de solução de parceiros][3]
 
-## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a gerir e monitorizar soluções de segurança ligado no Centro de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
+## <a name="next-steps"></a>Passos Seguintes
+Neste artigo, aprendeu a gerir e monitorizar soluções de segurança ligada no Centro de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Descrição geral das soluções de segurança](security-center-partner-integration.md) — Saiba como ligar e gerir soluções de segurança.
-* [Ligar o Microsoft Advanced Threat Analytics (ATA)](security-center-ata-integration.md) — Saiba como ligar alertas do ATA.
-* [Ligar o Azure Active Directory (AD) Identity Protection ](security-center-aadip-integration.md) — Saiba como ligar alertas do Azure AD Identity Protection.
-* [Integração e soluções de parceiros](security-center-partner-integration.md) -uma descrição geral da integração de outras soluções de segurança.
-* [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md) — Saiba como gerir e responder a alertas de segurança.
+* [Descrição geral das soluções de segurança](security-center-partner-integration.md) – Saiba como ligar e gerir soluções de segurança.
+* [Ligar o Microsoft Advanced Threat Analytics (ATA)](security-center-ata-integration.md) – Saiba como ligar os alertas do ATA.
+* [Ligação do Azure Active Directory (AD) Identity Protection ](security-center-aadip-integration.md) – Saiba como ligar os alertas do Azure AD Identity Protection.
+* [Integração de parceiros e soluções](security-center-partner-integration.md) -obtenha uma visão geral da integração de outras soluções de segurança.
+* [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 * [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
 

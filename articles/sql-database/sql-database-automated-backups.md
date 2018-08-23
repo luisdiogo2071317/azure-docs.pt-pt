@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620135"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056503"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança automáticas da base de dados SQL
 
@@ -26,7 +26,7 @@ Base de dados SQL cria cópias de segurança da base de dados e utiliza o armaze
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é uma cópia de segurança da base de dados SQL?
 
-Base de dados SQL utiliza a tecnologia do SQL Server para criar [completo](https://msdn.microsoft.com/library/ms186289.aspx), [diferencial](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), e [log de transação](https://msdn.microsoft.com/library/ms191429.aspx) (PITR) de restauro de cópias de segurança para os objetivos de ponto no tempo. Os backups de log de transação ocorram, geralmente, a cada 5 a 10 minutos e cópias de segurança diferenciais ocorram, geralmente, a cada 12 horas, com a frequência com a base do nível de desempenho e a quantidade de atividade da base de dados. Backups de log de transação, com cópias de segurança completas e diferenciais, permitem-lhe restaurar uma base de dados para um específico ponto anterior no tempo para o mesmo servidor que aloja a base de dados. Ao restaurar uma base de dados, o serviço descobre qual log completas, diferenciais e transação cópias de segurança tem de ser restaurada.
+Base de dados SQL utiliza a tecnologia do SQL Server para criar [completo](https://msdn.microsoft.com/library/ms186289.aspx), [diferencial](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), e [log de transação](https://msdn.microsoft.com/library/ms191429.aspx) (PITR) de restauro de cópias de segurança para os objetivos de ponto no tempo. Os backups de log de transação ocorram, geralmente, a cada 5 a 10 minutos e cópias de segurança diferenciais ocorram, geralmente, a cada 12 horas, com a frequência com a base do nível de desempenho e a quantidade de atividade da base de dados. Backups de log de transação, com cópias de segurança completas e diferenciais, permitem-lhe restaurar uma base de dados para um específico ponto anterior no tempo para o mesmo servidor que aloja a base de dados. As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Ao restaurar uma base de dados, o serviço descobre qual log completas, diferenciais e transação cópias de segurança tem de ser restaurada.
 
 
 Pode utilizar estas cópias de segurança para:
@@ -51,12 +51,14 @@ Se precisar de manter as cópias de segurança por mais tempo do que o período 
 > [!IMPORTANT]
 > Se eliminar o servidor de SQL do Azure que aloja as bases de dados SQL, tudo de dados elásticas e bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor foi eliminado. Mas se tiver configurado a retenção de longa duração, as cópias de segurança das bases de dados com LTR não serão eliminadas e esses bancos de dados podem ser restaurados.
 
-### <a name="pitr-retention-for-dtu-based-service-tiers"></a>Retenção de PITR para os escalões de serviço baseado em DTU
+### <a name="pitr-retention-period"></a>Período de retenção PITR
 O período de retenção predefinido para uma base de dados criada com o modelo de compra baseado em DTU depende do escalão de serviço:
 
 * O escalão de serviço básico é 1 semana.
 * Camada de serviço Standard é cinco semanas.
 * Escalão de serviço Premium é cinco semanas.
+
+Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de cópias de segurança é configurável até um máximo de 35 dias. 
 
 Se reduzir o período de retenção PITR atual, todas as cópias de segurança existentes mais antigas do que o novo período de retenção já não estará disponíveis. 
 

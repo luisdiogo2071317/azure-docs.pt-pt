@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4322f1837c9b7fffba180f7106911d010a9ad8aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8525dd443e80bb7d67bc48cc007ab1632ee3e611
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448541"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057692"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carregar dados para o Azure SQL Data Warehouse com o Azure Data Factory
 
@@ -40,7 +40,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * O Azure SQL Data Warehouse: O armazém de dados contém os dados que são copiados através da base de dados SQL. Se não tiver um armazém de dados SQL do Azure, veja as instruções em [criar um SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Base de dados SQL do Azure: O neste tutorial copia dados de uma base de dados SQL do Azure com dados de exemplo do Adventure Works LT. Pode criar uma base de dados do SQL ao seguir as instruções em [criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md). 
-* Conta de armazenamento do Azure: armazenamento do Azure é utilizado como o _teste_ blob na operação de cópia em massa. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Conta de armazenamento do Azure: armazenamento do Azure é utilizado como o _teste_ blob na operação de cópia em massa. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 

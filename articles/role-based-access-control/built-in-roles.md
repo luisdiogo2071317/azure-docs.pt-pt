@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619054"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617163"
 ---
 # <a name="built-in-roles-in-azure"></a>Funções incorporadas no Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -47,6 +47,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Operador de tarefas de automatização](#automation-job-operator) | Criar e Gerir Tarefas através de Runbooks de Automatização. |
 | [Operador de automatização](#automation-operator) | Os Operadores de Automatização podem iniciar, parar, suspender e retomar tarefas |
 | [Operador de Runbook de automatização](#automation-runbook-operator) | Ler as propriedades do Runbook para que possa criar Tarefas do runbook. |
+| [Função de administrador de Cluster do serviço Kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Ação de credencial de administrador de cluster de lista. |
+| [Função de utilizador de Cluster do serviço Kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Listar a ação de credenciais de utilizador do cluster. |
 | [Proprietário do registo do Azure Stack](#azure-stack-registration-owner) | Permite-lhe gerir os registos do Azure Stack. |
 | [Contribuidor de cópia de segurança](#backup-contributor) | Permite-lhe gerir o serviço de cópia de segurança mas não pode criar cofres e conceder o acesso a outros |
 | [Operador de cópia de segurança](#backup-operator) | Permite-lhe gerir serviços de cópia de segurança, exceto de remoção de cópia de segurança, criação de cofre e concessão de acesso a outros |
@@ -60,8 +62,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor de Rede Clássica](#classic-network-contributor) | Permite-lhe gerir redes virtuais, mas não aceder-lhes. |
 | [Contribuinte de conta de armazenamento clássicas](#classic-storage-account-contributor) | Permite-lhe gerir contas de armazenamento clássico, mas não aceder às mesmas. |
 | [Função do serviço de operador de chave de conta de armazenamento clássicas](#classic-storage-account-key-operator-service-role) | Os Operadores de Chave da Conta de Armazenamento Clássica têm permissão para listar e regenerar chaves em Contas de Armazenamento Clássicas |
-| [Contribuinte de Máquina Virtual clássica](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
-| [Contribuinte de base de dados do ClearDB MySQL](#cleardb-mysql-db-contributor) | Permite-lhe gerir bases de dados MySQL ClearDB, mas não aceder-lhes. |
+| [Contribuinte de Máquina Virtual clássica](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas.|
 | [Função de leitor de conta do cosmos DB](#cosmos-db-account-reader-role) | Pode ler os dados da conta do Azure Cosmos DB. Ver [contribuinte de conta do DocumentDB](#documentdb-account-contributor) para a gestão de contas do Azure Cosmos DB. |
 | [Contribuinte de caixa de dados](#data-box-contributor) | Permite-lhe gerir tudo no serviço do Data Box, exceto que lhe dá acesso a outras pessoas. |
 | [Operador de caixa de dados](#data-box-operator) | Permite-lhe gerir o serviço do Data Box, exceto a ordem de criação ou edição de detalhes do pedido e que lhe dá acesso a outras pessoas. |
@@ -84,6 +85,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuinte do grupo de gestão](#management-group-contributor) | Função de Contribuinte do Grupo de Gestão |
 | [Leitor do grupo de gestão](#management-group-reader) | Função de Leitor de Grupo de Gestão |
 | [Contribuidor de monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Monitorização de métricas de publicador](#monitoring-metrics-publisher) | Permite a publicação de métricas em recursos do Azure |
 | [Leitor de monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Contribuidor de Rede](#network-contributor) | Permite-lhe gerir redes, mas não aceder-lhes. |
 | [Contribuinte de conta APM do novo Relic](#new-relic-apm-account-contributor) | Permite-lhe gerir contas e aplicações do New Relic Application Performance Management, mas não aceder-lhes. |
@@ -275,13 +277,14 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Lê recursos de trabalho de Runbook híbrida |
 > | Microsoft.Automation/automationAccounts/jobs/read | Obtém uma tarefa da automatização do Azure |
 > | Microsoft.Automation/automationAccounts/jobs/resume/action | Retoma uma tarefa da automatização do Azure |
 > | Microsoft.Automation/automationAccounts/jobs/stop/action | Para uma tarefa da automatização do Azure |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Lê recursos de trabalho de Runbook híbrida |
 > | Microsoft.Automation/automationAccounts/jobs/streams/read | Obtém um fluxo de tarefas de automatização do Azure |
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspende uma tarefa da automatização do Azure |
 > | Microsoft.Automation/automationAccounts/jobs/write | Cria uma tarefa da automatização do Azure |
+> | Microsoft.Automation/automationAccounts/jobs/output/read | Obtém o resultado de uma tarefa |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta de Insights |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
@@ -329,6 +332,24 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Função de administrador de Cluster do serviço Kubernetes do Azure
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Ação de credencial de administrador de cluster de lista. |
+> | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **Ações** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial de clusterAdmin de um cluster gerido |
+
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Função de utilizador de Cluster do serviço Kubernetes do Azure
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Listar a ação de credenciais de utilizador do cluster. |
+> | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **Ações** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial de clusterUser de um cluster gerido |
 
 ## <a name="azure-stack-registration-owner"></a>Proprietário do Registo do Azure Stack
 > [!div class="mx-tableFixed"]
@@ -631,21 +652,6 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
-
-## <a name="cleardb-mysql-db-contributor"></a>Contribuinte de Base de Dados MySQL ClearDB
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Descrição** | Permite-lhe gerir bases de dados MySQL ClearDB, mas não aceder-lhes. |
-> | **Id** | 9106cda0-8a86-4E81-b686-29a22c54effe |
-> | **Ações** |  |
-> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
-> | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
-> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
-> | successbricks.cleardb/databases/* | Criar e gerir bases de dados MySQL do ClearDB |
 
 ## <a name="cosmos-db-account-reader-role"></a>Função do Leitor da Conta do Cosmos DB
 > [!div class="mx-tableFixed"]
@@ -1030,7 +1036,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Ler definições de métrica (lista de tipos de métricas disponíveis para um recurso). |
 > | Microsoft.Insights/Metrics/* | Ler métricas para um recurso. |
-> | Microsoft.Insights/Register/Action | Registar o fornecedor de Microsoft Insights |
+> | Microsoft.Insights/Register/Action | Registar o fornecedor do Microsoft Insights |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Testes web do Application Insights de leitura/escrita/eliminar. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Pacotes de soluções do Log Analytics de leitura/escrita/eliminar. |
@@ -1041,6 +1047,19 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
+
+## <a name="monitoring-metrics-publisher"></a>Monitorização de métricas de publicador
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite a publicação de métricas em recursos do Azure |
+> | **Id** | 3913510d-42f4-4E42-8a64-420c390055eb |
+> | **Ações** |  |
+> | Microsoft.Insights/Register/Action | Registar o fornecedor do Microsoft Insights |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | **DataActions** |  |
+> | Microsoft.Insights/Metrics/Write | Escrever métricas |
 
 ## <a name="monitoring-reader"></a>Leitor de Monitorização
 > [!div class="mx-tableFixed"]

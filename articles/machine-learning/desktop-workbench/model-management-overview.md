@@ -1,129 +1,127 @@
 ---
-title: Descrição geral concetual de gestão de modelo do Azure Machine Learning | Microsoft Docs
-description: Este documento explica os conceitos de gestão de modelo do Azure Machine Learning.
+title: Descrição geral conceptual da gestão de modelos do Azure Machine Learning | Documentos da Microsoft
+description: Este documento explica os conceitos de gestão de modelos do Azure Machine Learning.
 services: machine-learning
-author: nk773
-ms.author: padou
-manager: mwinkle
-ms.reviewer: jasonwhowell, mldocs
+author: hjerezmsft
+ms.author: hjerez
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 6fac3fa0207d942c5a7f5fa438ba8262ea5b7a22
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 041f7147f171514d941555ff2f6144bac2062b06
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832232"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056404"
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestão de Modelos do Azure Machine Learning
 
-O Azure Machine Learning modelo Management permite-lhe gerir e implementar os fluxos de trabalho e modelos de machine learning. 
+Gestão de modelos de aprendizagem do Azure Machine permite-lhe gerir e implementar fluxos de trabalho e modelos de machine learning. 
 
-Gestão de modelo fornece capacidades para:
-- Controlo de versões do modelo
-- Modelos de controlo na produção
-- Implementação de modelos para produção através do ambiente de computação do AzureML com [serviço de contentor Azure](https://azure.microsoft.com/services/container-service/) e [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
-- Criar contentores de Docker com os modelos e testá-los localmente
-- Reparametrização modelo automatizado
-- Captura de telemetria de modelo para conhecimentos acionáveis. 
+Gestão de modelos fornece capacidades para:
+- Controle de versão do modelo
+- Modelos de controle na produção
+- Implementação de modelos para produção através de ambiente de computação do AzureML com [Azure Container Service](https://azure.microsoft.com/services/container-service/) e [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+- A criação de contentores do Docker com os modelos e testá-los localmente
+- Reparametrização do modelo automatizado
+- Captura de telemetria de modelo para obter informações acionáveis. 
 
-O Azure Machine Learning modelo Management fornece um registo das versões do modelo. Também permite fluxos de trabalho automatizados empacotamento e implementação de contentores de Machine Learning como REST APIs. Os modelos e as respetivas dependências de tempo de execução são reunidas no contentor de Docker baseado em Linux com a API de predição. 
+Gestão de modelo do Azure Machine Learning fornece um registo das versões do modelo. Ele também fornece fluxos de trabalho automatizados para empacotamento e implementação de contentores de aprendizagem automática como REST APIs. Os modelos e suas dependências de tempo de execução são empacotadas num contentor do Docker baseado em Linux com a API de predição. 
 
-Azure Machine Learning computação ambientes ajudam a configurar e gerir clusters escaláveis para alojar os modelos. O ambiente de computação baseia-se nos serviços de contentor do Azure. Serviços de contentor do Azure fornece exposição automática das APIs do Machine Learning como pontos finais da API de REST com as seguintes funcionalidades:
+Ambientes de computação de aprendizagem de máquina do Azure ajudam a configurar e gerir clusters dimensionáveis para os modelos de hospedagem. O ambiente de computação baseia-se nos serviços de contentor do Azure. O Azure Container Service fornece automática exposição de APIs de Machine Learning, como pontos finais da API de REST com as seguintes funcionalidades:
 
 - Autenticação
 - Balanceamento de carga
-- Automático de escalamento horizontal
+- Escalamento horizontal automática
 - Encriptação
 
-O Azure Machine Learning modelo Management fornece mais capacidades através da CLI, API e o portal do Azure. 
+Gestão de modelo do Azure Machine Learning oferece estas capacidades através da CLI, API e o portal do Azure. 
 
-A gestão de modelo do Azure Machine Learning utiliza as seguintes informações:
+Gestão de modelos do Azure Machine Learning utiliza as seguintes informações:
 
- - Ficheiro de modelo ou um diretório com os ficheiros de modelo
- - Criada ficheiro de Python implementar um modelo de classificação de função de utilizador
- - Ficheiro de dependência de Conda listagem dependências de tempo de execução
- - Opção de ambiente de tempo de execução, e 
+ - Ficheiro de modelo ou um diretório com os arquivos de modelo
+ - Utilizador criado o ficheiro de Python implementar um modelo de função de classificação
+ - Ficheiro de dependências de Conda listagem dependências de tempo de execução
+ - Escolha de ambiente de tempo de execução, e 
  - Ficheiro de esquema para os parâmetros de API 
 
-Estas informações são utilizadas quando efetuar as seguintes ações:
+Estas informações são utilizadas ao realizar as seguintes ações:
 
 - Registar um modelo
 - Criar um manifesto que é utilizado ao criar um contentor
-- Criar um Docker imagem de contentor
-- Implementar um contentor para o serviço de contentor do Azure
+- Criando um Docker imagem de contentor
+- Implementar um contentor no Azure Container Service
  
-A figura seguinte mostra uma descrição geral de como os modelos são registados e implementados no cluster. 
+A figura seguinte mostra uma descrição geral de como os modelos são registados e implementados no cluster do. 
 
 ![](media/model-management-overview/modelmanagement.png)
 
 ## <a name="create-and-manage-models"></a>Criar e gerir modelos 
-Pode registar modelos com a gestão de modelo do Azure Machine Learning para controlar as versões do modelo na produção. Para facilitar a reproducibility e governação, o serviço de captura todas as dependências e informações associadas. Para obter informações mais aprofundadas no desempenho, pode capturar a telemetria de modelo utilizando o SDK fornecido. Telemetria de modelo é arquivada no armazenamento fornecidos pelo utilizador. A telemetria de modelo pode ser utilizada mais tarde para analisar o desempenho do modelo, reparametrização e obtenham insights para a sua empresa.
+Pode registrar modelos com gestão de modelos do Azure Machine Learning para controlar as versões do modelo na produção. Para facilitar a capacidade de reprodução e governação, o serviço captura todas as dependências e as informações associadas. Para obter informações mais detalhadas sobre o desempenho, pode capturar a telemetria de modelo com o SDK fornecido. Telemetria de modelo é arquivada no armazenamento fornecidos pelo usuário. A telemetria de modelo pode ser utilizada mais tarde para analisar o desempenho do modelo, reparametrização e obtendo conhecimentos aprofundados para a sua empresa.
 
 ## <a name="create-and-manage-manifests"></a>Criar e gerir manifestos 
-Modelos requerem artefactos adicionais para implementar em produção. O sistema fornece a capacidade de criar um manifesto que abrange o modelo, dependências, o script de inferência (também conhecido como a classificação de script), dados de exemplo, esquema etc. Este manifesto atua como uma receitas para criar uma imagem de contentor do Docker. As empresas podem gerar automaticamente o manifesto, versões diferentes de criar e gerir os manifestos. 
+Modelos de exigem artefatos adicionais para implementar para produção. O sistema fornece a capacidade de criar um manifesto que abrange o modelo, dependências, o script de inferência de tipos (também conhecido como classificação script), dados de exemplo, o esquema etc. Esse manifesto atua como uma receita para criar uma imagem de contentor do Docker. As empresas podem gerar automaticamente manifesto, versões diferentes de criar e gerir o seus manifestos. 
 
 ## <a name="create-and-manage-docker-container-images"></a>Criar e gerir imagens de contentor do Docker 
-Pode utilizar o manifesto do passo anterior para criar imagens de contentor de Docker baseado no seus respetivos ambientes. As imagens de baseada em Docker, indique as empresas a flexibilidade para executar estas imagens nos seguintes ambientes de computação:
+Pode usar o manifesto do passo anterior para criar imagens de contentor Docker com base em seus respectivos ambientes. As imagens em contentores, baseado no Docker fornecem as empresas com a flexibilidade para executar essas imagens nos seguintes ambientes de computação:
 
-- [Kubernetes com base em serviço de contentor do Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
-- Serviços de contentor no local
+- [Kubernetes com a base do Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+- Serviços de contentores no local
 - Ambientes de desenvolvimento
 - Dispositivos IoT
 
-Estas imagens de com base em Docker são autónomo com todas as dependências necessárias necessárias para gerar as predições. 
+Estas imagens baseadas no Docker em contentores são autônomas com todas as dependências necessárias necessárias para gerar as previsões de indisponibilidade. 
 
 ## <a name="deploy-docker-container-images"></a>Implementar imagens de contentor do Docker 
-Com a gestão de modelo do Azure Machine Learning, pode implementar imagens do contentor de Docker baseado com um comando único para o serviço de contentor do Azure gerida pelo ambiente de computação de ML. Estas implementações são criadas com um servidor front-end que fornece as seguintes funcionalidades:
+Com a gestão de modelos do Azure Machine Learning, pode implantar imagens de contentor Docker com base em com um único comando para o Azure Container Service geridos pelo ambiente de computação de ML. Estas implementações são criadas com um servidor front-end que fornece as seguintes funcionalidades:
 
-- Predições de latência baixa à escala
+- Previsões de baixa latência à escala
 - Balanceamento de carga
-- O dimensionamento automático de pontos finais de ML
+- Dimensionamento automático de pontos de extremidade de ML
 - Autorização da chave de API
-- Documento swagger de API
+- Documento de swagger da API
 
-Pode controlar a telemetria através de definições de configuração seguintes e escala de implementação:
+Pode controlar a escala de implementação e a telemetria por meio das seguintes definições de configuração:
 
-- Registo do sistema e telemetria de modelo para cada nível de serviço web. Se estiver ativada, todos os registos de stdout são transmissão em fluxo para [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Telemetria de modelo é arquivada no armazenamento que fornecer. 
-- Limites de dimensionamento automático e concorrência. Estas definições aumentam automaticamente o número de contentores implementados com base na carga dentro do cluster existente. Também controlar o débito e a consistência da latência de predição.
+- Registo do sistema e telemetria de modelo para cada nível de serviço da web. Se estiver ativada, todos os registos de stdout são transmitidos para [do Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Telemetria de modelo é arquivada no armazenamento que fornece. 
+- Limites de dimensionamento automático e simultaneidade. Estas definições aumentam automaticamente o número de contentores implementados com base na carga dentro do cluster existente. Eles também controlam o débito e consistência da latência de predição.
 
 ## <a name="consumption"></a>Consumo 
-O Azure Machine Learning modelo Management cria REST API para o modelo implementado juntamente com o documento swagger. Pode consumir modelos implementados por chamar as APIs REST API de chave e modelo entradas para obter as predições como parte das aplicações de linha de negócio. O código de exemplo está disponível no GitHub para idiomas Java, [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py)e a c# para chamar as APIs REST. A CLI de gestão do Azure Machine Learning modelo fornece uma forma fácil de trabalhar com estas APIs REST. Pode consumir APIs com um único comando da CLI, aplicações com capacidade para swagger, ou utilizando curl. 
+Gestão de modelo do Azure Machine Learning cria a REST API para o modelo implementado juntamente com o documento swagger. Pode consumir modelos implementados ao chamar as APIs de REST com API de chave e modelar entradas para obter as previsões como parte dos aplicativos de linha de negócio. O código de exemplo está disponível no GitHub para linguagens Java, [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py)e o c# para chamar as APIs REST. O CLI de gestão de modelo do Azure Machine Learning fornece uma forma fácil de trabalhar com essas APIs REST. Pode consumir as APIs com um único comando da CLI, aplicativos ativada no swagger, ou com o curl. 
 
 ## <a name="retraining"></a>Reparametrização 
-O Azure Machine Learning modelo Management fornece APIs que pode utilizar para a reparametrização dos seus modelos. Também pode utilizar as APIs para atualizar as implementações existentes com versões atualizadas do modelo. Como parte do fluxo de trabalho de ciências de dados, recrie o modelo no seu ambiente de experimentação. Em seguida, pode registar o modelo com o modelo de gestão e atualizar as implementações existentes. As atualizações são executadas com um único comando da CLI de ATUALIZAÇÃO. O comando de ATUALIZAÇÃO atualiza as implementações existentes sem alterar o URL da API ou a chave. As aplicações do modelo de consumo continuam a funcionar sem qualquer alteração de código e comece a obter um melhor predições utilizando o novo modelo.
+Gestão de modelo do Azure Machine Learning fornece APIs que pode utilizar para voltar a preparar seus modelos. Também pode utilizar as APIs para atualizar as implementações existentes com as versões atualizadas do modelo. Como parte do fluxo de trabalho de ciência de dados, é possível recriar o modelo no seu ambiente de experimentação. Em seguida, registe o modelo com a gestão de modelos e atualizar as implementações existentes. As atualizações são executadas com um único comando CLI de ATUALIZAÇÃO. O comando de ATUALIZAÇÃO atualiza as implementações existentes sem alterar o URL da API ou a chave. Os aplicativos consumir o modelo de continuam a funcionar sem qualquer alteração no código e começar a obter a obter melhores predições com o novo modelo.
 
-O fluxo de trabalho completo que descrevem estes conceitos é capturado na figura seguinte:
+O fluxo de trabalho completo, que descrevem esses conceitos é capturado na figura a seguir:
 
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) 
-- **São suportados os tipos de dados? Pode passar NumPy matrizes diretamente como entrada para o serviço web?**
+- **Que tipos de dados são suportados? Pode transmitir matrizes NumPy diretamente como entrada para o serviço web?**
 
-   Se está a fornecer o ficheiro de esquema que foi criado utilizando generate_schema SDK, em seguida, pode passar NumPy e/ou Pandas DF. Também pode passar quaisquer entradas de serializáveis JSON. Pode passar imagem como binária codificada cadeia bem.
+   Se está a fornecer o ficheiro de esquema que foi criado com generate_schema SDK, em seguida, pode passar NumPy e/ou Pandas DF. Também é possível passar qualquer entradas serializáveis de JSON. Pode passar a imagem como cadeia com codificação binária também.
 
-- **O serviço web suportam várias entradas ou analisar entradas diferentes?**
+- **O web service suporte várias entradas ou analisar entradas diferentes?**
 
-   Sim, pode demorar várias entradas empacotadas num pedido JSON como um dicionário. Cada entrada iria corresponder a uma chave de dicionário exclusivo único.
+   Sim, pode demorar várias entradas empacotadas numa solicitação JSON como um dicionário. Cada entrada seria correspondem a uma chave de único dicionário exclusivo.
 
-- **A chamada ativada por um pedido para o web service uma chamada de bloqueio ou uma chamada assíncrona**
+- **É a chamada ativada por um pedido para o web service uma chamada de bloqueio ou uma chamada assíncrona?**
 
-   Se o serviço foi criado utilizando a opção de em tempo real como parte da CLI ou API, é uma chamada para bloquear/síncronas. É esperado para ser rápido em tempo real. Apesar do lado do cliente que pode chamá-la utilizando async HTTP biblioteca para evitar bloquear o thread de cliente.
+   Se o serviço foi criado usando a opção em tempo real como parte da CLI ou API, em seguida, é uma chamada de bloqueio/síncrona. Espera-se para ser rápido em tempo real. Embora no lado do cliente, que pode chamá-lo a utilizar a biblioteca de async HTTP para evitar bloquear o thread de cliente.
 
-- **O número de pedidos de serviço web em simultâneo processa o?**
+- **O número de pedidos pode o serviço web processar em simultâneo?**
 
-   Depende da escala de serviço web e de cluster. Pode ampliar o serviço x 100 das réplicas e, em seguida, pode processar vários pedidos em simultâneo. Também pode configurar o pedido simultâneo máximo pela réplica para aumentar o débito de serviço.
+   Depende da escala de serviço web e de cluster. Pode aumentar horizontalmente o seu serviço para 100 x de réplicas e, em seguida, ele pode lidar com muitos pedidos em simultâneo. Também pode configurar o máximo do pedido em simultâneo por réplica para aumentar o débito de serviço.
 
-- **O número de pedidos pode o serviço web em fila?**
+- **O número de pedidos pode enfileirar o serviço web?**
 
-   É configurável. Por predefinição, está definido para 10 ~ por única réplica, mas pode aumentar/diminui-lo aos seus requisitos de aplicação. Normalmente, aumentar a o número de pedidos colocados na fila aumenta o débito de serviço, mas efetua a worse latências em percentiles superiores. Para manter as latências consistente, poderá pretender definir a colocação em fila para um valor baixo (1-5) e aumentar o número de réplicas para processar o débito. Também pode ativar o dimensionamento automático para que o número de réplicas ajustar automaticamente com base na carga. 
+   É configurável. Por predefinição, está definido como 10 ~ por réplica individual, mas pode aumentar/diminuir a ele para os requisitos da aplicação. Normalmente,-lo a aumentar o número de pedidos em fila aumenta o débito de serviço, mas torna o pior de latências em percentis superior. Para manter as latências consistente, poderá querer definir a colocação em fila para um valor baixo (1 a 5) e aumentar o número de réplicas para lidar com a taxa de transferência. Também pode ativar o dimensionamento automático para fazer com que o número de réplicas ajustar automaticamente com base na carga. 
 
-- **Do mesmo computador ou cluster pode ser utilizado para vários pontos finais do serviço web?**
+- **A mesma máquina ou o cluster pode ser utilizado para vários pontos de extremidade de serviço web?**
 
-   Com certeza. Pode executar 100 x de pontos finais / no mesmo cluster. 
+   Com certeza. Pode executar 100 x de serviços/pontos finais no mesmo cluster. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para começar a trabalhar com a gestão de modelo, consulte [configurar a gestão de modelo](deployment-setup-configuration.md).
+Para começar a trabalhar com a gestão de modelos, consulte [configurar a gestão de modelo](deployment-setup-configuration.md).

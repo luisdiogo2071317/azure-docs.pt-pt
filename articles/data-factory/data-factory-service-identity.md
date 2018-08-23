@@ -1,5 +1,5 @@
 ---
-title: Identidade de serviço do Azure Data Factory | Microsoft Docs
+title: Identidade de serviço do Azure Data Factory | Documentos da Microsoft
 description: Saiba mais sobre a identidade de serviço de fábrica de dados no Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -10,50 +10,50 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050870"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061699"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidade de serviço do Azure Data Factory
 
-Este artigo ajuda-o a compreender o que é a identidade de serviço do data factory e como funciona.
+Este artigo ajuda-o a compreender o que é a identidade de serviço do data factory e como ela funciona.
 
 ## <a name="overview"></a>Descrição geral
 
-Ao criar uma fábrica de dados, uma identidade de serviço pode ser criada, juntamente com a criação de fábrica. A identidade de serviço é uma aplicação gerida registada para o diretório de atividade do Azure e representa nesta fábrica de dados específica.
+Ao criar uma fábrica de dados, uma identidade de serviço pode ser criada juntamente com a criação de fábrica. A identidade de serviço é um aplicativo gerenciado registrado para o diretório de atividade do Azure e representa nesta fábrica de dados específico.
 
-Identidade de serviço do Data factory é vantajosa as duas seguintes funcionalidades:
+Identidade do serviço de fábrica de dados beneficia as seguintes funcionalidades:
 
-- [Armazenar credenciais no Cofre de chaves do Azure](store-credentials-in-key-vault.md), caso em que a identidade de serviço de fábrica de dados é utilizada para autenticação de Cofre de chaves do Azure.
-- [Copiar dados de/para o Azure Data Lake Store](connector-azure-data-lake-store.md), caso em que a identidade de serviço de fábrica de dados pode ser utilizada como um dos tipos suportados para a autenticação de Data Lake Store.
+- [Store credencial no Azure Key Vault](store-credentials-in-key-vault.md), caso em que a identidade do serviço de fábrica de dados é utilizada para autenticação do Azure Key Vault.
+- Conectores, incluindo [armazenamento de Blobs do Azure](connector-azure-blob-storage.md), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md), [SQL Database do Azure](connector-azure-sql-database.md), e [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 
 ## <a name="generate-service-identity"></a>Gerar uma identidade de serviço
 
 Identidade de serviço do Data factory é gerada da seguinte forma:
 
-- Ao criar a fábrica de dados através de **portal do Azure ou o PowerShell**, uma identidade de serviço será sempre criada automaticamente.
-- Ao criar a fábrica de dados através de **SDK**, será criada uma identidade de serviço só se especificar "identidade = FactoryIdentity() novo" no objeto de fábrica para a criação. Consulte o exemplo na [guia de introdução do .NET - criar fábrica de dados](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Ao criar a fábrica de dados através de **REST API**, será criada uma identidade de serviço só se especificar a secção "identity" no corpo do pedido. Consulte o exemplo na [REST início rápido - criar fábrica de dados](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Ao criar a fábrica de dados por meio **portal do Azure ou o PowerShell**, identidade do serviço será sempre criada automaticamente.
+- Ao criar a fábrica de dados por meio **SDK**, identidade de serviço será criada apenas se especificar "identidade = FactoryIdentity() nova" no objeto de fábrica para a criação. Veja o exemplo na [guia de introdução do .NET - criar fábrica de dados](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Ao criar a fábrica de dados por meio **REST API**, identidade de serviço será criada apenas se especificou a secção "identity" no corpo do pedido. Veja o exemplo na [REST de início rápido - criar a fábrica de dados](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
-Se encontrar a fábrica de dados não tem uma identidade de serviço associada seguir [obter a identidade de serviço](#retrieve-service-identity) instrução, pode explicitamente gerar um atualizando a fábrica de dados com o iniciador de identidade através de programação:
+Se achar que a fábrica de dados não tem uma identidade de serviço associada seguindo [obter a identidade do serviço](#retrieve-service-identity) instrução, pode explicitamente gerar uma através da atualização da fábrica de dados com o iniciador de identidade por meio de programação:
 
 - [Gerar uma identidade de serviço com o PowerShell](#generate-service-identity-using-powershell)
-- [Gerar uma identidade de serviço utilizando a REST API](#generate-service-identity-using-rest-api)
-- [Gerar uma identidade de serviço utilizando o SDK](#generate-service-identity-using-sdk)
+- [Gerar uma identidade de serviço com a REST API](#generate-service-identity-using-rest-api)
+- [Gerar uma identidade de serviço com o SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
->- Não é possível alterar a identidade de serviço. Atualizar uma fábrica de dados que já tem uma identidade de serviço não terá qualquer impacto, a identidade de serviço é mantida inalterada.
->- Se atualizar uma fábrica de dados que já tem uma identidade de serviço sem especificar o parâmetro de "identity" no objeto de fábrica ou sem especificar a secção "identity" no corpo do pedido REST, irá receber um erro.
+>- Não é possível alterar a identidade do serviço. A atualizar uma fábrica de dados que já têm uma identidade de serviço não terá qualquer impacto, a identidade de serviço é mantida inalterada.
+>- Se atualizar uma fábrica de dados que já tem uma identidade de serviço sem especificar o parâmetro de "identity" no objeto de fábrica ou sem especificar a secção "identity" no corpo do pedido REST, obterá um erro.
 >- Quando elimina uma fábrica de dados, será eliminada a identidade de serviço associado ao longo.
 
 ### <a name="generate-service-identity-using-powershell"></a>Gerar uma identidade de serviço com o PowerShell
 
-Chamar **conjunto AzureRmDataFactoryV2** utilizar novamente o comando, em seguida, consulte o "Identity" campos gerados recentemente:
+Chamar **Set-AzureRmDataFactoryV2** novamente, o comando, em seguida, verá "Identity" campos gerados recentemente:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -67,7 +67,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-### <a name="generate-service-identity-using-rest-api"></a>Gerar uma identidade de serviço utilizando a REST API
+### <a name="generate-service-identity-using-rest-api"></a>Gerar uma identidade de serviço com a REST API
 
 Chamar abaixo API com a secção "identity" no corpo do pedido:
 
@@ -111,9 +111,9 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-service-identity-using-sdk"></a>Gerar uma identidade de serviço utilizando o SDK
+### <a name="generate-service-identity-using-sdk"></a>Gerar uma identidade de serviço com o SDK
 
-Chamada à função de create_or_update de fábrica de dados com a identidade = FactoryIdentity() novo. Código de exemplo através do .NET:
+Chamar a função de create_or_update de fábrica de dados com a identidade = FactoryIdentity() novo. Código de exemplo através do .NET:
 
 ```csharp
 Factory dataFactory = new Factory
@@ -129,21 +129,21 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 Pode obter a identidade de serviço a partir do portal do Azure ou através de programação. As secções seguintes mostram alguns exemplos.
 
 >[!TIP]
-> Se não vir a identidade de serviço, [gerar uma identidade de serviço](#generate-service-identity) atualizando a fábrica.
+> Se não vir a identidade de serviço, [gerar uma identidade de serviço](#generate-service-identity) através da atualização da sua fábrica.
 
-### <a name="retrieve-service-identity-using-azure-portal"></a>Obter a identidade de serviço através do portal do Azure
+### <a name="retrieve-service-identity-using-azure-portal"></a>Obter a identidade do serviço através do portal do Azure
 
-Pode encontrar as informações de identidade de serviço do portal do Azure -> a fábrica de dados -> Definições -> propriedades:
+Pode encontrar as informações de identidade de serviço do portal do Azure -> sua fábrica de dados -> Definições -> propriedades:
 
-- ID DO SERVIÇO DE IDENTIDADE
-- INQUILINO DE IDENTIDADE DO SERVIÇO
-- **ID de aplicação do serviço identidade** > copiar este valor
+- ID DE IDENTIDADE DE SERVIÇO
+- INQUILINO DE IDENTIDADE DE SERVIÇO
+- **ID de aplicação do serviço de identidade** > Copie este valor
 
 ![Obter a identidade de serviço](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
 ### <a name="retrieve-service-identity-using-powershell"></a>Obter a identidade de serviço com o PowerShell
 
-A identidade de serviço, ID de principal e o ID de inquilino será devolvida ao obter uma fábrica de dados específicos da seguinte forma:
+A identidade de serviço, ID de principal e o ID de inquilino será retornada quando obtém uma fábrica de dados específicos da seguinte forma:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -153,7 +153,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Copie o ID de principal, em seguida, executar abaixo comandos do Azure Active Directory com o ID de principal como parâmetro para obter o **ApplicationId**, que utiliza para conceder acesso:
+Copie o ID de principal, em seguida, executar abaixo comandos do Azure Active Directory com o principal ID como parâmetro para obter o **ApplicationId**, que utiliza para conceder acesso:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -166,9 +166,9 @@ Type                  : ServicePrincipal
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte os tópicos seguintes que introduzem quando e como utilizar a identidade de serviço de fábrica de dados:
+Consulte os tópicos seguintes que introduzir quando e como utilizar a identidade de serviço de fábrica de dados:
 
-- [Armazenar credenciais no Cofre de chaves do Azure](store-credentials-in-key-vault.md)
-- [Copiar dados de/para o Azure Data Lake Store utilizando a autenticação de identidade de serviço geridas](connector-azure-data-lake-store.md)
+- [Credencial de Store no Azure Key Vault](store-credentials-in-key-vault.md)
+- [Copiar dados de/para o Azure Data Lake Store utilizando a autenticação de identidade do serviço gerido](connector-azure-data-lake-store.md)
 
-Consulte [descrição geral do MSI](~/articles/active-directory/msi-overview.md) para em segundo plano mais na identidade de serviço geridas, que identidade de serviço de fábrica de dados é baseada no. 
+Ver [descrição geral de MSI](~/articles/active-directory/msi-overview.md) para obter mais informações sobre a identidade do serviço gerido, que identidade de serviço de fábrica de dados se baseia. 

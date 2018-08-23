@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 725a705f746bbf5e32fcc410ba4153ac29e3fc3d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003858"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056075"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à monitorização do serviço Cloud
 
@@ -58,7 +58,7 @@ Monitorização avançada envolve a utilização a **diagnóstico do Azure** ext
 
 ## <a name="setup-diagnostics-extension"></a>Extensão de diagnóstico de configuração
 
-Primeiro, se não tiver uma **clássica** conta de armazenamento [criar um](../storage/common/storage-create-storage-account.md#create-a-storage-account). Certifique-se a conta de armazenamento é criada com o **modelo de implementação clássica** especificado.
+Primeiro, se não tiver uma **clássica** conta de armazenamento [criar um](../storage/common/storage-quickstart-create-account.md). Certifique-se a conta de armazenamento é criada com o **modelo de implementação clássica** especificado.
 
 Em seguida, navegue para o **conta de armazenamento (clássico)** recursos. Selecione **configurações** > **chaves de acesso** e copie o **cadeia de ligação primária** valor. Este valor é necessário para o serviço cloud. 
 

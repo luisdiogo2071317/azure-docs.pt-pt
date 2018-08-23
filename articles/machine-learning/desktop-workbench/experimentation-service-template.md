@@ -1,34 +1,32 @@
 ---
-title: Criar o Azure Machine Learning experimentação com um modelo Azure Resource Manager | Microsoft Docs
-description: Este artigo fornece um exemplo para criar uma conta do Azure Machine Learning experimentação através de um modelo Azure Resource Manager.
+title: Criar a experimentação do Azure Machine Learning com um modelo Azure Resource Manager | Documentos da Microsoft
+description: Este artigo fornece um exemplo para criar uma conta de experimentação do Azure Machine Learning com um modelo Azure Resource Manager.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 65efee0eea5e2595ef8833788281c5ba60ca3a43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830787"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060966"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurar o serviço de experimentação do Azure Machine Learning
 
 ## <a name="overview"></a>Descrição geral
-Conta de serviço de experimentação do Machine Learning do Azure, área e projeto são recursos do Azure. Como tal, que podem ser implementados através de modelos do Gestor de recursos. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Conta de serviço de experimentação do Machine Learning do Azure, a área de trabalho e projeto são recursos do Azure. Como tal, eles podem ser implementados com modelos do Gestor de recursos. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Implementar um modelo
-A implementação de um modelo requer apenas alguns passos na Interface de linha de comandos do Azure ou no portal do Azure.
+Implementar um modelo requer apenas algumas etapas na Interface de linha de comandos do Azure ou no portal do Azure.
 
-### <a name="deploy-a-template-from-the-command-line"></a>Implementar um modelo na linha de comandos
-Utilizar a interface de linha de comandos, um único comando pode implementar um modelo a um grupo de recursos existente.
-Consulte seguinte para obter informações sobre como criar um modelo.
+### <a name="deploy-a-template-from-the-command-line"></a>Implementar um modelo a partir da linha de comandos
+Usando a interface de linha de comandos, um único comando pode implementar um modelo para um grupo de recursos existente.
+Veja o seguinte para obter informações sobre como criar um modelo.
 
 ```sh
 # Login and validate your are in the right subscription context
@@ -43,23 +41,23 @@ az group deployment create -n testdeploy -g <resource group name> --template-fil
 Se preferir, também pode utilizar o portal do Azure para criar e implementar um modelo. Proceda do seguinte modo:
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** e procure "modelos."
+2. Selecione **todos os serviços** e procure "templates".
 3. Selecione **modelos**.
-4. Clique em **+ adicionar** e copie as suas informações de modelo. 
-5. Selecione o modelo que criou no passo #4 e clique em **implementar**.
+4. Clique em **+ adicionar** e copie as informações de modelo. 
+5. Selecione o modelo que criou no passo #4 e clique em **Deploy**.
 
 
 ## <a name="create-a-template-from-an-existing-azure-resource-in-the-azure-portal"></a>Criar um modelo a partir de um recurso do Azure existente no portal do Azure
-Se já tiver uma experimentação de máquina do Azure de conta disponíveis, em [portal do Azure](https://portal.azure.com), pode gerar um modelo a partir desse recurso. 
+Se já tiver uma experimentação de máquina do Azure conta disponíveis, em [portal do Azure](https://portal.azure.com), pode gerar um modelo a partir desse recurso. 
 
 1. Navegue para uma conta de experimentação do Azure no [portal do Azure](https://portal.azure.com).
-2. Em **definições**, clique em **scripts de automatização**.
-3. Transferir o modelo. 
+2. Sob **configurações**, clique em **script de automação**.
+3. Transfira o modelo. 
 
-Em alternativa, pode editar manualmente os ficheiros de modelo. Consulte o seguinte para obter um exemplo de um modelo e os parâmetros de ficheiros. 
+Em alternativa, pode editar manualmente os arquivos de modelo. Consulte o seguinte para obter um exemplo de um modelo e parâmetros de ficheiros. 
 
 ### <a name="template-file-example"></a>Exemplo de ficheiro de modelo
-Crie um ficheiro chamado "modelo file.json" com abaixo conteúdo. 
+Crie um arquivo chamado "file.json de modelo" com abaixo conteúdo. 
 
 ```json
 {
@@ -136,10 +134,10 @@ Crie um ficheiro chamado "modelo file.json" com abaixo conteúdo.
 ### <a name="parameters"></a>Parâmetros 
 Crie um ficheiro com abaixo conteúdo e guarde-o como < Parameters. JSON >. 
 
-Existem três valores que podem ser alteradas. 
+Há três valores que podem ser alteradas. 
 * AccountName: O nome da conta de experimentação.
-* Localização: Uma das regiões do Azure suportadas.
-* Conta de armazenamento SKU: Azure ML só suporta o armazenamento standard, premium não. Para obter mais informações sobre o armazenamento, consulte [introdução de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
+* Localização: Uma das regiões do Azure suportados.
+* SKU da conta de armazenamento: O Azure ML só suporta armazenamento standard, premium não. Para obter mais informações sobre o armazenamento, consulte [introdução de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

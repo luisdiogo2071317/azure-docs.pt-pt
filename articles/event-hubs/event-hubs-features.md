@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 09/08/2018
 ms.author: shvija
-ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c41612b46102dc8fef67887c164ff6e48a8cf6c6
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006637"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056494"
 ---
 # <a name="event-hubs-features-overview"></a>Visão geral dos recursos de Hubs de eventos
 
@@ -94,7 +94,10 @@ Qualquer entidade que leia os dados de eventos de um hub de eventos é um *consu
 
 O mecanismo de publicação/subscrição de Hubs de Eventos é ativado através de *grupos de consumidores*. Um grupo de consumidores é uma vista (estado, posição ou desvio) de um hub de eventos completo. Os grupos de consumidores ativam várias aplicações de consumo e cada uma tem uma vista separada do fluxo de eventos e lê o fluxo de forma independente ao seu próprio ritmo e com os seus próprios desvios.
 
-Na arquitetura de processamento de transmissão, cada aplicação a jusante equaciona um grupo de consumidores. Se pretender escrever dados de eventos para armazenamento de longa duração, essa aplicação de escrita de armazenamento é um grupo de consumidores. O processamento de eventos complexos pode ser efetuado por outro grupo de consumidores, em separado. Só pode aceder a partições através de um grupo de consumidores. Pode haver no máximo 5 leitores simultâneos numa partição por grupo de consumidores No entanto **recomenda-se que existe apenas um recetor ativo numa partição por grupo de consumidores**. Há sempre um grupo de consumidores predefinido num hub de eventos e pode criar até 20 grupos de consumidores para um hub de eventos de camada Standard.
+Na arquitetura de processamento de transmissão, cada aplicação a jusante equaciona um grupo de consumidores. Se pretender escrever dados de eventos para armazenamento de longa duração, essa aplicação de escrita de armazenamento é um grupo de consumidores. O processamento de eventos complexos pode ser efetuado por outro grupo de consumidores, em separado. Só pode aceder a partições através de um grupo de consumidores. Há sempre um grupo de consumidores predefinido num hub de eventos e pode criar até 20 grupos de consumidores para um hub de eventos de camada Standard.
+
+Pode haver no máximo 5 leitores simultâneos numa partição por grupo de consumidores No entanto **recomenda-se que existe apenas um recetor ativo numa partição por grupo de consumidores**. Dentro de uma única partição, cada leitor recebe todas as mensagens. Se tiver vários leitores na mesma partição, em seguida, processa mensagens duplicadas. Terá de lidar com isso em seu código, que pode não ser trivial. No entanto, é uma abordagem válida em alguns cenários.
+
 
 Apresentamos a seguir exemplos da convenção de URI do grupo de consumidores:
 

@@ -1,6 +1,6 @@
 ---
-title: Ponto final da chamada utilizando c# - pesquisa de personalizados do Bing - Microsoft serviços cognitivos
-description: Este guia de introdução mostra como pedir os resultados da pesquisa da sua instância de pesquisa personalizada utilizando c# para chamar o ponto final de pesquisa personalizados do Bing.
+title: Chamar o ponto de extremidade usando o c# - pesquisa personalizada do Bing - serviços cognitivos da Microsoft
+description: Este início rápido mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o c# para chamar o ponto final de pesquisa personalizada do Bing.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,32 +9,32 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352856"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41987505"
 ---
-# <a name="call-bing-custom-search-endpoint-c"></a>Ponto final de pesquisa do Bing personalizada de chamada (c#)
+# <a name="call-bing-custom-search-endpoint-c"></a>Chamar o ponto final de pesquisa personalizada do Bing (c#)
 
-Este guia de introdução mostra como pedir os resultados da pesquisa da sua instância de pesquisa personalizada utilizando c# para chamar o ponto final de pesquisa personalizados do Bing. 
+Este início rápido mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o c# para chamar o ponto final de pesquisa personalizada do Bing. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--  Uma instância de pesquisa personalizada prontos a utilizar. Consulte [criar a primeira instância de pesquisa do Bing personalizada](quick-start.md).
+-  Uma instância de pesquisa personalizada do prontos a utilizar. Ver [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).
 -  [.NET core](https://www.microsoft.com/net/download/core) instalado.
-- A [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.  
+- R [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para este início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode usar uma chave de subscrição paga do dashboard do Azure.  
 
   >[!NOTE]  
-  >Os clientes de pesquisa do Bing personalizado existentes que tem uma chave de pré-visualização aprovisionada no ou antes do dia 15 de Outubro de 2017 poderá utilizar as respetivas chaves até 30 de Novembro de 2017, ou até que possam tem esgotado o número máximo de consultas permitido. Seguidamente, precisam de migrar para a versão geralmente disponível no Azure. 
+  >Os clientes de pesquisa personalizada do Bing existentes que tem uma chave de pré-visualização aprovisionada em ou antes de 15 de Outubro de 2017 será capazes de utilizar as respetivas chaves até 30 de Novembro de 2017, ou até que eles tem esgotado o número máximo de consultas permitido. Em seguida, terá de migrar para a versão disponível em geral no Azure. 
  
 ## <a name="run-the-code"></a>Executar o código
 
 Para executar este exemplo, siga estes passos:
 
 1. Crie uma pasta para o seu código.
-2. Uma linha de comandos ou terminal, navegue para a pasta que acabou de criar.
+2. A partir de uma linha de comandos ou terminal, navegue para a pasta que acabou de criar.
 3. Execute os seguintes comandos:
     ```
     dotnet new console -o BingCustomSearch
@@ -44,7 +44,7 @@ Para executar este exemplo, siga estes passos:
    ```
 
 4. Copie o seguinte código a Program.cs.
-5. Substitua **sua-SUBSCRIPTION-KEY** e **sua-personalizada-CONFIG-ID** com o ID de chave e a configuração.
+5. Substitua **seu-SUBSCRIPTION-KEY** e **seu-personalizada-CONFIG-ID** com o ID de chave e a configuração.
 
     ``` CSharp
     using System;
@@ -118,16 +118,18 @@ Para executar este exemplo, siga estes passos:
         }
     }
     ```
-6. Crie a aplicação utilizando o seguinte comando. Tenha em atenção o caminho da dll referenciado pela saída do comando.
+6. Crie a aplicação com o seguinte comando. Tenha em atenção o caminho da dll referenciado pela saída do comando.
+
     <pre>
     dotnet build 
     </pre>
-7. Executar a aplicação utilizando o seguinte comando substituir **caminho a saída** com o caminho referenciado pelo passo de compilação.
+7. Executar o aplicativo usando o comando a seguir, substituindo **caminho para saída** com o caminho referenciado pelo passo de compilação.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
-- [Utilizar marcadores decoration para realçar texto](./hit-highlighting.md)
-- [Páginas de página Web](./page-webpages.md)
+- [Configurar a sua experiência de interface do Usuário alojada](./hosted-ui.md)
+- [Utilizar marcadores decoration para realçar o texto](./hit-highlighting.md)
+- [Páginas Web de página](./page-webpages.md)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629655"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060313"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planear a sua implementação híbrida do Azure Active Directory
 
@@ -97,7 +97,7 @@ Se está contando com um instantâneo da Máquina Virtual (VM) para criar VMs ad
 
 O registo de dispositivos de nível inferior do Windows não é suportado para dispositivos configurados para o perfil de utilizador itinerantes ou mobilidade de credenciais. Se está a depender de perfis ou as definições de roaming, utilizam o Windows 10.
 
-- O registo de dispositivos de nível inferior do Windows **é** suportado nos ambientes de não federadas por meio de sessão único totalmente integrado [Azure Active Directory totalmente integrada Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- O registo de dispositivos de nível inferior do Windows **é** suportado nos ambientes de não federadas por meio de sessão único totalmente integrado [Azure Active Directory totalmente integrada Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
  
 - O registo de dispositivos de nível inferior do Windows **není** suportada ao utilizar a autenticação pass-through do Azure AD sem o início de sessão único totalmente integrado.
 

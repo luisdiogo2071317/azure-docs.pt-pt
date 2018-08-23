@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160108"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056525"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto usando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -175,7 +175,7 @@ Políticas de autorização de conexão de área de trabalho remoto (CAPs de RD)
 
   ![Serviços de Ambiente de Trabalho Remoto](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. No Manager de Gateway de RD, clique com botão direito  **\[nome do servidor\] (Local)** e clique em **propriedades**.
+3. Com o botão direito no Gerenciador de Gateway de RD  **\[nome do servidor\] (Local)** e clique em **propriedades**.
 
   ![Nome do Servidor](./media/howto-mfa-nps-extension-rdg/image9.png)
 
@@ -226,7 +226,7 @@ Para garantir que há tempo para validar as credenciais dos utilizadores, efetua
 Por predefinição, quando configurar o Gateway de RD para utilizar um arquivo de política central de diretivas de autorização de conexão, o Gateway de RD está configurado para reencaminhar pedidos de limite para o servidor NPS. O servidor NPS com a extensão de MFA do Azure instalada, processa o pedido de acesso RADIUS. Os passos seguintes mostram-lhe como verificar a política de pedido de ligação predefinida. 
 
 1. No Gateway de RD, na consola do NPS (Local), expanda **políticas**e selecione **políticas de pedido de ligação**.
-2. Com o botão direito **ligar diretivas de solicitação**e faça duplo clique em **política de autorização de GATEWAY do TS**.
+2. Faça duplo clique em **política de autorização de GATEWAY do TS**.
 3. Na **propriedades de política de autorização de GATEWAY do TS** caixa de diálogo, clique no **definições** separador.
 4. No **configurações** separador, em reencaminhamento de solicitação de conexão, clique em **autenticação**. Cliente RADIUS está configurado para reencaminhar pedidos de autenticação.
 
@@ -266,8 +266,8 @@ O Gateway de ambiente de trabalho remoto tem de ser configurado como um cliente 
 ### <a name="configure-network-policy"></a>Configurar a política de rede
 Lembre-se de que o servidor NPS com a extensão de MFA do Azure é o arquivo de política central designado para a política de autorização de ligação (CAP). Portanto, precisa implementar um limite no servidor NPS para autorizar solicitações de conexão válida.  
 
-1. Na consola do NPS (Local), expanda **políticas**e clique em **políticas de rede**.
-2. Com o botão direito **ligações para outros servidores de acesso**e clique em **política de duplicação**. 
+1. No servidor NPS, abra a consola NPS (Local), expanda **políticas**e clique em **políticas de rede**.
+2. Com o botão direito **ligações para outros servidores de acesso**e clique em **duplicar política**. 
 
  ![Política de Duplicação](./media/howto-mfa-nps-extension-rdg/image19.png)
 

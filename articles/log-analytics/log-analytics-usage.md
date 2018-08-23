@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128569"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057346"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
+
+> [!NOTE]
+> Este artigo descreve como analisar a utilização de dados do Log Analytics.  Veja os artigos seguintes para obter informações relacionadas.
+> - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](log-analytics-manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
+> - [Monitorizar a utilização e custos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
+
 O Log Analytics inclui informações sobre a quantidade de dados recolhidos, as origens que enviaram dados e os diferentes tipos de dados enviados.  Utilize o dashboard **Utilização do Log Analytics** para rever e analisar a utilização de dados. O dashboard mostra quantos dados são recolhidos por cada solução e a quantidade de dados que os seus computadores estão a enviar.
 
 ## <a name="understand-the-usage-dashboard"></a>Compreender o dashboard Utilização
@@ -36,7 +42,7 @@ O dashboard **Utilização do Log Analytics** apresenta as informações seguint
     - Computadores que estão a enviar dados
     - Computadores sem dados nas últimas 24 horas
 - Ofertas
-    - Nós Insight e Análise de Dados
+    - Nós das Informações e Análise de Dados
     - Nós de Automatização e Controlo
     - Nós de segurança  
 - Desempenho

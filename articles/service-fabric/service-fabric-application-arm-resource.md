@@ -1,6 +1,6 @@
 ---
-title: Implementar e atualizar aplicações e serviços com o Azure Resource Manager | Microsoft Docs
-description: Saiba como implementar aplicações e serviços para um cluster de Service Fabric utilizando um modelo Azure Resource Manager.
+title: Implementar e atualizar aplicações e serviços com o Azure Resource Manager | Documentos da Microsoft
+description: Saiba como implementar aplicações e serviços em cluster do Service Fabric com um modelo Azure Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 8c8ee30a603d439c0fadd0c1569813762bdf4351
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205302"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058217"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Azure Resource Manager
 
-Pode implementar aplicações e serviços em cluster do Service Fabric através do Azure Resource Manager. Isto significa que, em vez de implementar e gerir aplicações através do PowerShell ou o CLI depois de ter de aguardar que o cluster para estar pronto, pode agora express aplicações e serviços no JSON e implementá-las no mesmo modelo do Resource Manager do seu cluster. O processo de registo de aplicação, aprovisionamento e implementação de todos os acontece num único passo.
+Pode implementar aplicações e serviços em cluster do Service Fabric através do Azure Resource Manager. Isso significa que, em vez de implementar e gerir aplicações através do PowerShell ou CLI depois de ter de esperar para o cluster estar pronto, pode agora express aplicações e serviços em JSON e implementá-los no mesmo modelo do Resource Manager em seu cluster. O processo de registo de aplicação, aprovisionamento e implementação de todos os acontece num único passo.
 
-Esta é a forma recomendada para a implementação de qualquer configuração, governação ou aplicações de gestão de cluster que necessita no seu cluster. Isto inclui o [Patch Orchestration aplicação](service-fabric-patch-orchestration-application.md), Watchdogs ou aplicações que precisam de estar em execução no seu cluster antes de outros serviços ou aplicações são implementados. 
+Esta é a forma recomendada para a implementação de qualquer programa de configuração, governação ou aplicativos de gerenciamento de cluster que necessita no seu cluster. Isto inclui a [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), Watchdogs ou aplicações que têm de estar em execução no seu cluster antes de outros serviços ou aplicações serem implementados. 
 
-Quando aplicável, gerir as suas aplicações como recursos do Resource Manager para melhorar a:
-* Registo de auditoria: o Gestor de recursos auditorias de cada operação e mantém um detalhadas *registo de atividade* que podem ajudar a analisar as modificações feitas a estas aplicações e o cluster.
-* O controlo de acesso baseado em funções (RBAC): Gerir o acesso aos clusters, bem como as aplicações implementadas no cluster pode ser efetuado através do mesmo modelo do Resource Manager.
-* O Azure Resource Manager (através do portal do Azure) torna-se um uma-stop-cafetaria para gerir o cluster e as implementações de aplicações críticos.
+Quando aplicável, gerir as suas aplicações como recursos do Resource Manager para melhorar:
+* Registo de auditoria: Resource Manager todas as operações de auditorias e mantém uma detalhada *registo de atividades* que pode ajudá-lo a rastrear todas as alterações efetuadas a esses aplicativos e o seu cluster.
+* Controlo de acesso baseado em funções (RBAC): Gerir o acesso aos clusters, bem como as aplicações implementadas no cluster pode ser feito por meio do mesmo modelo do Resource Manager.
+* O Azure Resource Manager (através do portal do Azure) se torna um um--centralizar a gestão de cluster e implementações de aplicações críticas.
 
 O fragmento seguinte mostra os diferentes tipos de recursos que podem ser geridos através de um modelo:
 
@@ -62,12 +62,12 @@ O fragmento seguinte mostra os diferentes tipos de recursos que podem ser gerido
 ```
 
 
-## <a name="add-a-new-application-to-your-resource-manager-template"></a>Adicionar uma nova aplicação ao seu modelo do Resource Manager
+## <a name="add-a-new-application-to-your-resource-manager-template"></a>Adicionar uma nova aplicação ao modelo do Resource Manager
 
-1. Prepare o modelo de Gestor de recursos do cluster para a implementação. Consulte [criar um cluster do Service Fabric com o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre este.
-2. Pensa sobre algumas das aplicações que planeia implementar no cluster. Existem os que será sempre executado que outras aplicações podem demorar dependências? Planear implementar qualquer governação de cluster ou aplicações de configuração? Estes tipos de aplicações melhor geridos através de um modelo do Resource Manager, tal como explicado acima. 
-3. Depois de ter figured saída que aplicações pretende que sejam implementados desta forma, as aplicações tem de ser compactadas, zipado e colocada numa partilha de ficheiros. A partilha tem de estar acessível através de um ponto final de REST do Azure Resource Manager para consumir durante a implementação.
-4. O modelo do Resource Manager, abaixo da declaração de cluster, descreve as propriedades de cada aplicação. Estas propriedades incluem a contagem de instâncias ou de réplica e quaisquer cadeias de dependência entre os recursos (outros serviços ou aplicações). Para obter uma lista de propriedades completos, consulte o [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Tenha em atenção que isto não substitui a aplicação ou serviço manifestos, mas em vez disso descreve algumas das novidades no-los como parte do modelo de Gestor de recursos do cluster. Segue-se um modelo de exemplo que inclui a implementar um serviço sem estado *Service1* e um serviço com estado *Service2* como parte da *Application1*:
+1. Prepare o modelo do Resource Manager do seu cluster para a implementação. Ver [criar um cluster do Service Fabric com o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre isso.
+2. Pense sobre algumas das aplicações que planeia implementar no cluster. Existem qualquer um que será sempre executado que outros aplicativos podem assumir dependências? Planeja implantar qualquer governação de cluster ou aplicações de programa de configuração? Esses tipos de aplicativos melhor geridos através de um modelo do Resource Manager, conforme mencionado acima. 
+3. Assim que já descobriu que aplicações pretende ser implementado desta forma, as aplicações têm de ser empacotado, comprimido e colocar numa partilha de ficheiros. A partilha tem de ser acessíveis através de um ponto de final do REST para o Azure Resource Manager para consumir durante a implementação.
+4. No modelo do Resource Manager, abaixo de sua declaração de cluster, descrevem propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias ou de réplica e de quaisquer cadeias de dependência entre recursos (outros serviços ou aplicações). Para obter uma lista de propriedades completas, consulte a [especificações do Swagger da API REST](https://aka.ms/sfrpswaggerspec). Tenha em atenção que isto não substitui a aplicação ou serviço manifestos, mas em vez disso, descreve algumas das novidades no-los como parte do modelo do Resource Manager do cluster. Aqui está um modelo de exemplo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte da *Application1*:
 
   ```json
   {
@@ -255,17 +255,19 @@ O fragmento seguinte mostra os diferentes tipos de recursos que podem ser gerido
   ```
 
   > [!NOTE] 
-  > O *apiVersion* deve ser definido como `"2017-07-01-preview"`. Também é possível implementar este modelo independentemente do cluster, desde que o cluster já foi implementado.
+  > O *apiVersion* tem de ser definido como `"2017-07-01-preview"`. Também é possível implementar este modelo independentemente do cluster, desde que o cluster já foi implementado.
 
 5. Implemente! 
 
-## <a name="manage-an-existing-application-via-resource-manager"></a>Gerir uma aplicação existente através do Gestor de recursos
+## <a name="manage-an-existing-application-via-resource-manager"></a>Gerir uma aplicação existente através do Resource Manager
 
-Se o cluster já está operacional e obter algumas aplicações que pretende gerir recursos do Gestor de recursos já são implementados no mesmo, em vez de remoção das aplicações e reimplementação-los, pode utilizar uma chamada PUT com as APIs do mesmas para que as aplicações confirmada como recursos do Resource Manager. 
+Se o cluster já está ativo e obtém alguns aplicativos que gostaria de gerir recursos do Gestor de recursos já estão implementados na mesma, em vez de remover as aplicações e reimplementá-los, pode usar uma chamada PUT usando as mesmas APIs para que as aplicações confirmou como recursos do Resource Manager. 
 
+> [!NOTE]
+> Para permitir uma atualização de cluster para ignorar as aplicações de mau estado de funcionamento do cliente pode especificar "maxPercentUnhealthyApplications: 100" na secção "upgradeDescription/healthPolicy"; descrições detalhadas para todas as definições estão na [documentação de recursos de infraestrutura REST API Cluster atualizar política do serviço](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Utilize o [CLI de recursos de infraestrutura de serviço](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) para implementar outras aplicações em cluster. 
-* [Atualize o cluster do Service Fabric](service-fabric-cluster-upgrade.md)
+* Utilize o [CLI do Service Fabric](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) para implementar outras aplicações no seu cluster. 
+* [Atualizar o seu cluster do Service Fabric](service-fabric-cluster-upgrade.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Utilizar o portal do Azure para configurar o carregamento de ficheiros | Microsoft Docs
-description: Como utilizar o portal do Azure para configurar o seu IoT hub para ativar os carregamentos de ficheiros de dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino.
+title: Utilizar o portal do Azure para configurar o carregamento de ficheiros | Documentos da Microsoft
+description: Como utilizar o portal do Azure para configurar o hub IoT para permitir carregamentos de ficheiros a partir dos dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,63 +8,49 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 0100cbe4bbc66d0c4ef940cc40f4fa3441176a1a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9f9eeaed2716c5d492099568fd6f90080471af2
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633211"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055202"
 ---
-# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar o IoT Hub carregamentos de ficheiros no portal do Azure
+# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar o IoT Hub, carregamentos de ficheiros com o portal do Azure
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 ## <a name="file-upload"></a>Carregamento de ficheiros
 
-Para utilizar o [funcionalidade de carregamento de ficheiros no IoT Hub][lnk-upload], primeiro tem de associar uma conta de armazenamento do Azure com o seu hub. Selecione **carregamento de ficheiros** para apresentar uma lista de propriedades de carregamento de ficheiros para o IoT hub que está a ser modificado.
+Para utilizar o [funcionalidade de carregamento de ficheiros no IoT Hub](iot-hub-devguide-file-upload.md), primeiro tem de associar uma conta de armazenamento do Azure com o seu hub. Selecione **carregamento de ficheiros** para apresentar uma lista de propriedades de carregamento de ficheiro para o hub de IoT que está a ser modificado.
 
-![Ficheiro de IoT Hub da vista carregar definições no portal][13]
+![Definições no portal de carregamento de ficheiros do IoT Hub de vista](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-**Contentor de armazenamento**: utilizar o portal do Azure para selecionar um contentor do blob numa conta de armazenamento do Azure na sua subscrição do Azure atual para associar o seu IoT Hub. Se necessário, pode criar uma conta de armazenamento do Azure no **contas do Storage** painel e BLOBs de contentor no **contentores** painel. IoT Hub gera automaticamente SAS URIs com permissões de escrita para este contentor de BLOBs para os dispositivos a utilizar ao carregam estes ficheiros.
+* **Contentor de armazenamento**: Utilize o portal do Azure para selecionar um contentor de BLOBs numa conta de armazenamento do Azure na sua subscrição do Azure atual para associar o seu IoT Hub. Se necessário, pode criar uma conta de armazenamento do Azure no **contas de armazenamento** contentor de BLOBs e do painel no **contentores** painel. IoT Hub gera automaticamente os URIs de SAS com permissões de escrita para este contentor de BLOBs para os dispositivos a utilizar quando eles carregam ficheiros.
 
-![Ver os contentores de armazenamento para o carregamento de ficheiros no portal][14]
+   ![Ver os contentores de armazenamento para o carregamento de ficheiros no portal](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-**Receber notificações para os ficheiros carregados**: Ativar ou desativar notificações de carregamento de ficheiros através do botão de alternar.
+* **Receber notificações sobre os ficheiros carregados**: Ativar ou desativar notificações de carregamento do ficheiro através do botão de alternar.
 
-**TTL de SAS**: esta definição é o tempo-to-live do URI de SAS devolvido para o dispositivo ao IoT Hub. Definido como uma hora, por predefinição, mas pode ser personalizado para outros valores utilizando o controlo de deslize.
+* **TTL de SAS**: esta definição é o tempo de vida dos URIs de SAS retornado para o dispositivo ao IoT Hub. Definido como uma hora por padrão, mas pode ser personalizado para outros valores no controlo de deslize.
 
-**Notificação de definições predefinidas TTL ficheiros**: O time-to-live de um ficheiro a carregar notificação antes de expirar. Definido como um dia, por predefinição, mas pode ser personalizado para outros valores utilizando o controlo de deslize.
+* **TTL de padrão de definições de notificação de ficheiros**: O tempo de vida de um ficheiro a carregar notificação antes de expirar. Definido como um dia por padrão, mas pode ser personalizado para outros valores no controlo de deslize.
 
-**Contagem máxima de entrega de notificação de ficheiros**: O número de vezes que o IoT Hub tenta fornecer um ficheiro de notificação de carregar. Definido para 10 por predefinição, mas pode ser personalizado para outros valores utilizando o controlo de deslize.
+* **Contagem máxima de entrega de notificação de ficheiros**: O número de vezes o IoT Hub tentará entregar um arquivo carregar notificação. Definido como 10, por predefinição, mas pode ser personalizado para outros valores no controlo de deslize.
 
-![Configurar o carregamento de ficheiros do IoT Hub no portal][15]
+   ![Configurar o carregamento de ficheiros do IoT Hub no portal](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre as capacidades de carregamento do ficheiro do IoT Hub, consulte [carregar ficheiros a partir de um dispositivo] [ lnk-upload] no guia de programadores do IoT Hub.
+Para obter mais informações sobre as capacidades de carregamento de arquivo do IoT Hub, veja [carregar ficheiros a partir de um dispositivo](iot-hub-devguide-file-upload.md) no Guia do programador do IoT Hub.
 
-Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
+Siga estas ligações para saber mais sobre como gerir o IoT Hub do Azure:
 
-* [Em massa gerir dispositivos de IoT][lnk-bulk]
-* [Métricas de IoT Hub][lnk-metrics]
-* [Operações de monitorização][lnk-monitor]
+* [Gerir dispositivos IoT em massa](iot-hub-bulk-identity-mgmt.md)
+* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Monitorização de operações](iot-hub-operations-monitoring.md)
 
-Para explorar ainda mais as capacidades do IoT Hub, consulte:
+Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
-* [Proteger a sua solução de IoT a partir do zero cópias de segurança][lnk-securing]
-
-[13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
-[14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
-[15]: ./media/iot-hub-configure-file-upload/file-upload-selected-container.png
-
-[lnk-upload]: iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: iot-hub-security-ground-up.md
+* [guia para programadores do IoT Hub](iot-hub-devguide.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Proteger a sua solução de IoT desde o backup](../iot-fundamentals/iot-security-ground-up.md)

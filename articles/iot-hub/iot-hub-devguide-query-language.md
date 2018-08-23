@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444189"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054177"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do IoT Hub para twins de dispositivo e o módulo, tarefas e encaminhamento de mensagens
 
@@ -309,7 +309,7 @@ Atualmente, a consulta no **devices.jobs** não suportam:
 
 Usando [rotas de dispositivo-para-cloud][lnk-devguide-messaging-routes], pode configurar o IoT Hub para expedir as mensagens do dispositivo para a cloud para diferentes pontos de extremidade. Expedição baseia-se em expressões avaliadas em comparação com as mensagens individuais.
 
-A rota [condição] [ lnk-query-expressions] utiliza a mesma linguagem de consulta do IoT Hub como condições em consultas de gémeos e tarefa. Rota condições são avaliadas nos cabeçalhos de mensagem e o corpo. A expressão de consulta de encaminhamento pode envolver apenas os cabeçalhos de mensagens, apenas o corpo da mensagem, ou ambos. IoT Hub pressupõe um esquema específico para os cabeçalhos e o corpo da mensagem para encaminhar mensagens. As secções seguintes descrevem o que é necessário para o IoT Hub encaminhar corretamente.
+A rota [condição] [ lnk-query-expressions] utiliza a sintaxe de linguagem de consulta do IoT Hub como condições em consultas de gémeos e tarefa, mas apenas um subconjunto das funções estão disponíveis. Rota condições são avaliadas nos cabeçalhos de mensagem e o corpo. A expressão de consulta de encaminhamento pode envolver apenas cabeçalhos de mensagens, apenas o corpo da mensagem, ou os dois cabeçalhos de mensagens e corpo da mensagem. IoT Hub assume um esquema específico para os cabeçalhos e o corpo da mensagem para encaminhar mensagens e as secções seguintes descrevem o que é necessário para o IoT Hub encaminhar corretamente.
 
 ### <a name="routing-on-message-headers"></a>Roteamento de cabeçalhos de mensagens
 

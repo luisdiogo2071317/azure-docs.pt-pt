@@ -3,7 +3,7 @@ title: DNS no Azure Stack | Documentos da Microsoft
 description: Através de DNS no Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
-ms.author: mabrigg
-ms.openlocfilehash: 8459a5f88bf660ac460f778f67618e9805afa29d
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: acb8b262256031ae8615180e0f55c98cb56b538d
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970712"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057659"
 ---
 # <a name="using-dns-in-azure-stack"></a>Através de DNS no Azure Stack
 
@@ -78,7 +78,7 @@ Para saber mais sobre o DNS do Azure, veja [zonas e registos DNS](../../dns/dns-
 
 O DNS do Azure Stack oferece suporte a utilizar etiquetas do Azure Resource Manager nos recursos de zona DNS. Não suporta etiquetas em conjuntos de registos de DNS, embora como uma alternativa "metadados" é suportada em conjuntos de registos DNS conforme explicado em seguida.
 
-**Metadados**
+**metadados**
 
 Como alternativa às marcas de conjunto de registos, o DNS do Azure Stack suporta anotar os conjuntos de registos com "metadados". Semelhante às etiquetas, metadados permite-lhe associar pares nome-valor de cada conjunto de registos. Por exemplo, isso pode ser útil para registrar a finalidade de cada conjunto de registos. Ao contrário de etiquetas, os metadados não podem ser utilizado para fornecer uma vista filtrada da fatura do Azure e não não possível especificar numa política do Azure Resource Manager.
 

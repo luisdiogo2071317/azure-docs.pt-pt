@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 41a06846e914eb79e15aa47c7203b17166731ae0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fa4d40786fdc61183c119a17b6e36bd853a6fd64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502333"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056193"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Serviços de domínio do Azure AD - guia de resolução de problemas
 Este artigo fornece sugestões de resolução de problemas para problemas que poderá encontrar ao configurar ou administração dos serviços de domínio do Azure Active Directory (AD).
@@ -139,7 +139,7 @@ Se um ou mais utilizadores no inquilino do Azure AD não conseguem iniciar sess�
 * **As contas externas:** Certifique-se de que a conta de utilizador afetada não é uma conta externa no inquilino do Azure AD. As contas externas exemplos de contas Microsoft (por exemplo, "joe@live.com") ou contas de utilizador a partir de um externo diretório do Azure AD. Uma vez que o Azure AD Domain Services não tem as credenciais para essas contas de utilizador, estes utilizadores não é possível iniciar sessão no domínio gerido.
 * **Sincronizar contas:** se as contas de utilizador afectado são sincronizadas a partir de um diretório no local, certifique-se de que:
 
-  * Implementar ou atualizado para o [mais recente versão recomendada do Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * Implementar ou atualizado para o [mais recente versão recomendada do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * Tiver configurado o Azure AD Connect para [efetuar uma sincronização completa](active-directory-ds-getting-started-password-sync.md).
   * Dependendo do tamanho do seu diretório, ele poderá demorar algum tempo para contas de utilizador e fiquem disponíveis no Azure AD Domain Services, os hashes de credenciais. Certifique-se de que espera tempo suficiente antes de repetir a operação de autenticação.
   * Se o problema persistir depois de verificar os passos anteriores, tente reiniciar o serviço de sincronização do Microsoft Azure AD. A partir do computador de sincronização, inicie uma linha de comandos e execute os seguintes comandos:

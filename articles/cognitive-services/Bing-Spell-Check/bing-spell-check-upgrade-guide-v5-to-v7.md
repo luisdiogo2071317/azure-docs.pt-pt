@@ -1,5 +1,5 @@
 ---
-title: Atualizar Bing ortográfica verificação API v5 para v7 | Microsoft Docs
+title: Atualizar do Bing descrever a API de verificação v5 para v7 | Documentos da Microsoft
 description: Identifica as partes da sua aplicação que tem de atualizar para utilizar a versão 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,45 +10,45 @@ ms.component: bing-spell-check
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 1b0406641053fac8a4b3f4721728ad3b6c313ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 305139e45ee93614eab17c5798cb1105e3e8f8cb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351452"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41988480"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guia de atualização de API de verificação ortográfica
 
-Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de verificação ortográfica do Bing. Utilize este guia para ajudar a identificar as partes da sua aplicação que tem de atualizar para utilizar a versão 7.
+Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de verificação de ortografia do Bing. Utilize este guia para ajudar a identificar as partes da sua aplicação que tem de atualizar para utilizar a versão 7.
 
 ## <a name="breaking-changes"></a>Alterações interruptivas
 
 ### <a name="endpoints"></a>Pontos Finais
 
-- Número de versão do ponto final alterado de v5 para v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\ * \*v 7.0 * * / spellcheck.
+- Número da versão do ponto final foi alterado de v5 para v7. Por exemplo, `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
 - Todos os pedidos falhados agora devem incluir um `ErrorResponse` objeto no corpo da resposta.
 
-- Adicionar os seguintes campos ao `Error` objeto.  
-  - `subCode`&mdash;Partições o código de erro para registos discretos, se possível
-  - `moreDetails`&mdash;Informações adicionais sobre o erro descrita o `message` campo
+- Adicionados os seguintes campos para o `Error` objeto.  
+  - `subCode`&mdash;O código de erro de partições em grupos discretos, se possível
+  - `moreDetails`&mdash;Informações adicionais sobre o erro descrita a `message` campo
    
 
-- Substituir os códigos de erro v5 com os seguintes possíveis `code` e `subCode` valores.  
+- Substituído os códigos de erro v5 com os seguintes possíveis `code` e `subCode` valores.  
   
 |Código|SubCode|Descrição
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NãoImplementado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições código secundárias. A resposta inclui estes erros se o código de estado HTTP 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não é válido. Por exemplo, um parâmetro necessário está em falta ou um valor de parâmetro não é válido.<br/><br/>Se o erro é ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro é HttpNotAllowed, o código de estado HTTP 410.
-|RateLimitExceeded||Bing devolve RateLimitExceeded sempre que excedem o consultas por segundo (QPS) ou consultas por quota do mês (QPM).<br/><br/>Bing devolve o código de estado HTTP 429 se excedido QPS e 403 se excedido QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing devolve InvalidAuthorization quando Bing não é possível autenticar o autor da chamada. Por exemplo, o `Ocp-Apim-Subscription-Key` cabeçalho está em falta ou a chave de subscrição não é válida.<br/><br/>Redundância ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro é InvalidAuthorization, o código de estado HTTP é 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing devolve InsufficientAuthorization quando o autor da chamada não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição foi desativada ou não expirou. <br/><br/>Se o erro é InsufficientAuthorization, o código de estado HTTP é 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NãoImplementado|O Bing devolve ServerError sempre que qualquer uma das condições subcode ocorrer. A resposta inclui estes erros se o código de estado HTTP é 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing devolve InvalidRequest sempre que qualquer parte do pedido não é válido. Por exemplo, um parâmetro necessário está em falta ou um valor de parâmetro não é válido.<br/><br/>Se o erro é ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro é HttpNotAllowed, o código de estado HTTP 410.
+|RateLimitExceeded||O Bing devolve RateLimitExceeded sempre que excedem suas consultas por segundo (QPS) ou consultas por quota do mês (QPM).<br/><br/>O Bing devolve o código de estado HTTP 429 se excedido QPS e 403 se excedido QPM.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing devolve InvalidAuthorization ao Bing não é possível autenticar o chamador. Por exemplo, o `Ocp-Apim-Subscription-Key` cabeçalho está em falta ou a chave de subscrição não é válida.<br/><br/>Redundância ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de estado HTTP é 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing devolve InsufficientAuthorization quando o chamador não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição foi desativada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de estado HTTP é 403.
 
-- O seguinte mapeia os códigos de erro anterior para os novos códigos de erro. Se tiver criado uma dependência no v5 códigos de erro, atualize o código em conformidade.  
+- O seguinte mapeia os códigos de erro anteriores para os códigos de novo. Se obtém uma dependência sobre códigos de erros de v5, atualize o seu código em conformidade.  
   
-|Código de versão 5|Versão 7 code.subCode
+|Código da versão 5|Versão 7 code.subCode
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
@@ -72,4 +72,4 @@ Bloqueado|InvalidRequest.Blocked
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Requisitos de utilização e apresentar](./UseAndDisplayRequirements.md)
+> [Requisitos de utilização e a exibição](./UseAndDisplayRequirements.md)

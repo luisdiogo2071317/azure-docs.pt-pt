@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492897"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055833"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Convergida registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication (pré-visualização pública)
 
@@ -55,6 +55,9 @@ Os utilizadores que recebem um pedido para registar-se ao iniciar sessão irão 
 > Esta experiência só será apresentada quando um utilizador deve registar ao iniciar sessão. Os utilizadores que vão diretamente para a nova experiência em aka.ms/setupsecurityinfo irão ver uma versão diferente da experiência, que está descrita neste artigo.
 
 Os métodos de autenticação mostrados mudar com base nos métodos ativados nas políticas de MFA ou SSPR. O usuário será solicitado para registar o número mínimo de métodos de autenticação necessário para estar em conformidade com a política da MFA, política SSPR ou ambos. Se houver flexibilidade nos quais métodos de autenticação do utilizador pode registar, pode selecionar **escolher as informações de segurança** escolher outros métodos de autenticação.  
+
+> [!NOTE]
+> Se ativar a utilização de notificação de aplicação móvel e o código de aplicação móvel, os utilizadores que registar a aplicação Microsoft Authenticator usando uma notificação conseguem utilizar a notificação e código para verificar a respetiva identidade.
 
 Ao contrário da experiência de registo anterior do MFA, os utilizadores não serão solicitados para registar uma palavra-passe de aplicação quando falar sobre a nova experiência de registo. Em vez disso, eles devem seguir os passos apresentados no nosso tutorial de palavras-passe de aplicações para registar as palavras-passe de aplicação na nova experiência.  
 

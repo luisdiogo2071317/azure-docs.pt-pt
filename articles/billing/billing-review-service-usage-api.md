@@ -13,31 +13,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alleonar
-ms.openlocfilehash: 1b7b1455413fb4886b317d468e6d278111c094b1
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2af87c87916dd272026a3bd7e1438507c655053b
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40225961"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616998"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Reveja a utilização de recursos do Azure com a API REST
 
+Ajuda de APIs de gestão de custos do Azure, reveja e gira o consumo de recursos do Azure.
 
-Azure [APIs de consumo](https://docs.microsoft.com/rest/api/consumption/) ajuda examinar os dados de custos e utilização para os seus recursos do Azure.
+Neste artigo, irá aprender a criar um relatório diário que irá gerar um documento de valores separados por vírgulas com suas informações de utilização por hora e, em seguida, como utilizar filtros para personalizar o relatório para que pode consultar a utilização de máquinas virtuais, bases de dados e etiquetados recursos num grupo de recursos do Azure.
 
-Neste artigo, irá aprender a obter e agregar informações de utilização de recursos para os recursos num grupo de recursos do Azure, bem como a forma como filtrar esses resultados com base na [etiquetas do Gestor de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+>[!NOTE]
+> A API de gestão de custos está atualmente em pré-visualização privada.
 
-## <a name="get-usage-for-a-resource-group"></a>Obter a utilização de um grupo de recursos
+## <a name="create-a-basic-cost-management-report"></a>Criar um relatório de gestão de custos básico
 
-Para obter a utilização de recursos de computação, base de dados e outros recursos num grupo de recursos, utilize o `usageDetails` operação REST e filtrar os resultados por grupo de recursos.
+Utilize o `reports` operação na API de gestão de custos para definir como os relatórios de custo é gerado e onde os relatórios serão publicados.
 
 ```http
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30&filter=properties/resourceGroup eq '{resource-group}]
+https://management.azure.com/subscriptions/{subscriptionGuid}/providers/Microsoft.CostManagement/reports/{reportName}?api-version=2018-09-01-preview
 Content-Type: application/json   
 Authorization: Bearer
 ```
 
-O `{subscription-id}` parâmetro é obrigatório e deve conter um ID de subscrição que pode acessar o grupo de recursos de {resource-group} com uma função de leitor. 
+O `{subscriptionGuid}` parâmetro é obrigatório e deve conter um ID de subscrição que pode ser lidos com o provieed de credenciais no token de API. o `{reportName}`
 
 Os seguintes cabeçalhos são necessários: 
 
@@ -46,91 +48,111 @@ Os seguintes cabeçalhos são necessários:
 |*Tipo de conteúdo:*| Necessário. Definido como `application/json`. |  
 |*Autorização:*| Necessário. Definido como válido `Bearer` token. |
 
-### <a name="response"></a>Resposta  
-
-É devolvido o código de estado 200 (OK) para uma resposta com êxito, que contém uma lista de estatísticas de utilização para cada recurso do Azure no grupo de recursos com o ID de subscriptipon `00000000-0000-0000-0000-000000000000`.
+Configure os parâmetros do relatório no corpo do pedido HTTP. No exemplo abaixo, o relatório está definido para gerar todos os dias, quando é um ficheiro CSV escrito para um contentor de BLOBs de armazenamento do Azure Active Directory e contém informações de custo para todos os recursos no grupo de recursos de hora a hora `westus`.
 
 ```json
 {
-  "value": [
-    {
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
-      "name": "usageDetailsId1",
-      "type": "Microsoft.Consumption/usageDetails",
-      "properties": {
-        "billingPeriodId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702",
-        "invoiceId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/invoices/201703-123456789",
-        "usageStart": "2017-02-13T00:00:00Z",
-        "usageEnd": "2017-02-13T23:59:59Z",
-        "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group/providers/Microsoft.Web/sites/shared1",
-        "instanceLocation": "eastasia",
-        "currency": "USD",
-        "usageQuantity": 0.00328,
-        "billableQuantity": 0.00328,
-        "pretaxCost": 0.67,
-        "isEstimated": false,
-        "meterId": "00000000-0000-0000-0000-000000000000",
-        "partNumber": "Part Number 1",
-        "resourceGuid": "00000000-0000-0000-0000-000000000000",
-        "offerId": "Offer Id 1",
-        "chargesBilledSeparately": true,
-        "location": "EU West"
-      }
-    } ] }
-```
-
-## <a name="get-usage-for-tagged-resources"></a>Obter a utilização de recursos com etiquetas
-
-Para obter a utilização de recursos para recursos no organizados por etiquetas, utilizam o `usageDetails` operação REST e filtrar os resultados com o nome de etiqueta a `$filter` parâmetro de consulta.
-
-```http
-https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/usageDetails?$filter=tags eq 'tag1'&api-version=2018-06-30
-Content-Type: application/json   
-Authorization: Bearer
-```
-
-O `{subscription-id}` parâmetro é obrigatório e deve conter um ID de subscrição que pode aceder os recursos com etiquetas.
-
-
-### <a name="response"></a>Resposta  
-
-É devolvido o código de estado 200 (OK) para uma resposta com êxito, que contém uma lista de estatísticas de utilização para cada recurso do Azure no grupo de recursos com o ID de subscriptipon `00000000-0000-0000-0000-000000000000` e é par de Cofre de chaves de nome de etiqueta `dev` e `tools`. 
-
-Resposta de exemplo:
-
-```json
-{
-  "value": [
-    {
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
-      "name": "usageDetailsId1",
-      "type": "Microsoft.Consumption/usageDetails",
-      "tags": {
-        "dev": "tools"
-      },
-      "properties": {
-        "billingPeriodId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702",
-        "invoiceId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/invoices/201703-123456789",
-        "usageStart": "2017-02-13T00:00:00Z",
-        "usageEnd": "2017-02-13T23:59:59Z",
-        "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
-        "instanceLocation": "eastasia",
-        "currency": "USD",
-        "usageQuantity": 0.00328,
-        "billableQuantity": 0.00328,
-        "pretaxCost": 0.67,
-        "isEstimated": false,
-        "meterId": "00000000-0000-0000-0000-000000000000",
-        "partNumber": "Part Number 1",
-        "resourceGuid": "00000000-0000-0000-0000-000000000000",
-        "offerId": "Offer Id 1",
-        "chargesBilledSeparately": true,
-        "location": "EU West"
-      }
+    "properties": {
+        "schedule": {
+            "status": "Inactive",
+            "recurrence": "Daily",
+            "recurrencePeriod": {
+                "from": "2018-08-21",
+                "to": "2019-10-31"
+            }
+        },
+        "deliveryInfo": {
+            "destination": {
+                "resourceId": "/subscriptions/{subscriptionGuid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}",
+                "container": "MyReportContainer",
+                "rootFolderPath": "MyScheduleTest"
+            }
+        },
+        "format": "Csv",
+        "definition": {
+            "type": "Usage",
+            "timeframe": "MonthToDate",
+            "dataSet": {
+                "granularity": "Hourly",
+                "filter": {
+                    "dimensions": {
+                        "name": "ResourceLocation",
+                        "operator": "In",
+                        "values": [
+                            "westus"
+                        ]
+                    }
+                }
+            }
+        }
     }
-  ]
+}
+```
+
+o
+
+## <a name="filtering-reports"></a>Filtragem de relatórios
+
+O `filter` e `dimensions` seção do corpo do pedido durante a criação de um relatório permitem-lhe focam-se nos custos para tipos de recurso específico. O corpo do pedido anterior mostra como filtrar por todos os recursos numa região. 
+
+### <a name="get-all-compute-usage"></a>Obter todas as utilizações de computação
+
+Utilize o `ResourceType` dimensão para comunicar os custos de máquina virtual do Azure na sua subscrição em todas as regiões.
+
+```json
+"filter": {
+    "dimensions": {
+        "name": "ResourceType",
+        "operator": "In",
+        "values": [
+                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.Compute/virtualMachines"
+        ] 
+    }
+}
+```
+
+### <a name="get-all-database-usage"></a>Obter toda a utilização da base de dados
+
+Utilize o `ResourceType` dimensão para os custos da base de dados do Azure SQL de relatório na sua subscrição em todas as regiões.
+
+```json
+"filter": {
+    "dimensions": {
+        "name": "ResourceType",
+        "operator": "In",
+        "values": [
+                "Microsoft.Sql/servers"
+        ] 
+    }
+}
+```
+
+### <a name="report-on-specific-instances"></a>Relatório sobre instâncias específicas
+
+O `Resource` dimensão permite-lhe comunicar os custos para recursos específicos.
+
+```json
+"filter": {
+    "dimensions": {
+        "name": "Resource",
+        "operator": "In",
+        "values": [
+            "subscriptions/{subscriptionGuid}/resourceGroups/{resourceGroup}/providers/Microsoft.ClassicCompute/virtualMachines/{ResourceName}"
+        ]
+    }
+}
+```
+
+### <a name="changing-timeframes"></a>Alterar os períodos de tempo
+
+Definir o `timeframe` definição para `Custom` para definir um período de tempo fora da semana para a data e mês até à data incorporada nas opções.
+
+```json
+"timeframe": "Custom",
+"timePeriod": {
+    "from": "2017-12-31T00:00:00.000Z",
+    "to": "2018-12-30T00:00:00.000Z"
 }
 ```
 

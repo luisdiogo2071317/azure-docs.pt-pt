@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494969"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059709"
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -213,4 +213,4 @@ Para obter mais informações, consulte [Automate user provisioning and deprovis
 - - -
 **P: Posso configurar uma ligação LDAP segura ao Azure AD?** 
 
-**R:** Não. O Azure AD não suporta o protocolo LDAP.
+**R:** Não. O Azure AD não suporta o protocolo LDAP. No entanto, pode configurar o secure LDAP com os serviços de domínio do Azure AD.

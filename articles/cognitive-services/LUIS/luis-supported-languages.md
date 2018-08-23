@@ -1,24 +1,24 @@
 ---
-title: Suporte à localização com o LUIS aplicações no Azure | Documentos da Microsoft
-description: Saiba mais sobre os idiomas que suporte o LUIS.
+title: Suporte de localização - compreensão de idiomas (LUIS) - serviços cognitivos do Azure | Documentos da Microsoft
+description: LUIS tem uma variedade de funcionalidades no serviço. Nem todas as funcionalidades são em paridade de linguagem mesmo. Certifique-se de que os recursos de que interesse são suportados na cultura do idioma que estiver a filtrar. Uma aplicação do LUIS é específica da cultura e não pode ser alterada depois de definida.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/17/2017
 ms.author: diberry
-ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 4fa58843f7e888a8fc1cfbbf76a8131bba6c488a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248422"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41988149"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Compreensão de cultura específicas nas aplicações de LUIS
 
-Uma aplicação do LUIS é específica da cultura e não pode ser alterada depois de definida. 
+LUIS tem uma variedade de funcionalidades no serviço. Nem todas as funcionalidades são em paridade de linguagem mesmo. Certifique-se de que os recursos de que interesse são suportados na cultura do idioma que estiver a filtrar. Uma aplicação do LUIS é específica da cultura e não pode ser alterada depois de definida. 
 
 ## <a name="multi-language-luis-apps"></a>Aplicações de vários idiomas LUIS
 Se precisar de uma aplicação de cliente do LUIS de vários idioma, como um chatbot, tem algumas opções. Se o LUIS suportar todos os idiomas, vai desenvolver uma aplicação LUIS para cada idioma. Cada aplicação LUIS tem um ID de aplicação exclusivo e o registo do ponto final. Se tiver de fornecer a linguagem de compreensão de um idioma não suporta o LUIS, pode utilizar [API do Microsoft Translator](../Translator/translator-info-overview.md) para traduzir a expressão num idioma suportado, submeta a expressão para o ponto de extremidade do LUIS e receber o pontuações resultantes.
@@ -27,7 +27,7 @@ Se precisar de uma aplicação de cliente do LUIS de vários idioma, como um cha
 LUIS compreende expressões com nos seguintes idiomas:
 
 
-| Idioma |Região  |  Domínio pré-criado | Entidade pré-criados | Sugestões de frase | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+| Idioma |Região  |  Domínio pré-criado | Entidade pré-criados | Sugestões de frase | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimentos e<br>Palavras-chave)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
 | Francês canadense |`fr-CA` |-|   -   |-|✔|

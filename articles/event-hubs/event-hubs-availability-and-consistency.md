@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 67a7a701eb7700fab9aa9d0ec22354cc1618f856
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004699"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054193"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de eventos
 
@@ -37,7 +37,7 @@ O Teorema do Brewer define consistência e a disponibilidade da seguinte forma:
 Os Hubs de eventos é criada sobre um modelo de dados particionados. Pode configurar o número de partições do seu hub de eventos durante a configuração, mas não pode alterar este valor mais tarde. Uma vez que tem de utilizar partições com os Hubs de eventos, terá de tomar uma decisão sobre a disponibilidade e consistência para a sua aplicação.
 
 ## <a name="availability"></a>Disponibilidade
-A forma mais simples para começar a utilizar com os Hubs de eventos é usar o comportamento padrão. Se criar um novo ** [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) ** objeto e usar o ** [enviar](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_) ** método, os eventos são automaticamente distribuídos entre partições do seu hub de eventos. Este comportamento permite que a maior quantidade de tempo.
+A forma mais simples para começar a utilizar com os Hubs de eventos é usar o comportamento padrão. Se criar um novo **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** objeto e usar o **[enviar](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** método, os eventos são automaticamente distribuídos entre partições do seu hub de eventos. Este comportamento permite que a maior quantidade de tempo.
 
 Para casos de utilização que exigem o máximo de tempo de atividade, esse modelo é preferencial.
 

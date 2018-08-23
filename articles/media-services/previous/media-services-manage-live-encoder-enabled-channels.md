@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436196"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055865"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -228,7 +228,8 @@ Tenha em atenção que se precisar de configurações predefinidas personalizada
 | 200 |340 |192 |30 |Linha de base |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Stream de áudio de saída
-Áudio está codificado para estéreo AAC-LC em 64 kbps, taxa de amostragem de 44.1 kHz.
+
+Áudio está codificado para estéreo AAC-LC em 128 kbps, taxa de amostragem de 48 kHz.
 
 ## <a name="signaling-advertisements"></a>Sinalização de anúncios
 Quando seu canal tem Live Encoding ativado, que tem um componente no seu pipeline, que é o processamento de vídeo e pode manipulá-lo. Pode sinalizar ao canal a inserção de slates e/ou anúncios no fluxo de velocidade de transmissão adaptável de saída. Imagens fixas são imagens que podem ser utilizadas para cobrir o feed entrado em direto em certos casos (por exemplo, durante). Sinais de publicidade, são a hora sincronizada sinais que incorporar no fluxo de saída para informar o player de vídeo para adotar nenhuma medida especial – por exemplo, para mudar para um anúncio no momento adequado. Ver isso [blogue](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para uma descrição geral do mecanismo de sinalização SCTE 35 utilizado para esta finalidade. Segue-se um cenário típico, que poderia implementar no seu evento em direto.
@@ -244,7 +245,7 @@ Seguem-se as propriedades que pode definir se os anúncios de sinalização.
 A duração, em segundos, da quebra comercial. Isso deve ser um valor positivo diferente de zero para iniciar a garantia de reparação comercial. Quando uma quebra de comercial está em curso e a duração é definida como zero com o CueId correspondentes a quebra de comercial em curso, em seguida, essa garantia de reparação foi cancelada.
 
 ### <a name="cueid"></a>CueId
-Um ID exclusivo para a quebra comercial, para ser utilizadas pela aplicação a jusante para efetuar ações adequadas. Tem de ser um número inteiro positivo. Pode definir este valor para qualquer número inteiro aleatório ou usar um sistema a montante para controlar os Ids de indicação. Certifique-se normalizar qualquer ids para números inteiros positivos antes de submeter por meio da API.
+Um ID exclusivo para a quebra comercial, para ser utilizadas pela aplicação a jusante para efetuar ações adequadas. Tem de ser um número inteiro positivo. Pode definir este valor para qualquer número inteiro aleatório ou usar um sistema a montante para controlar os Ids de indicação. Certifique-se normalizar qualquer IDs para números inteiros positivos antes de submeter por meio da API.
 
 ### <a name="show-slate"></a>Show slate
 Opcional. Sinaliza o codificador em direto para mudar para o [predefinido slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) de imagem, durante e ocultar a transmissão de vídeo de entrada. Áudio também ficará sem áudio durante a imagem fixa. A predefinição é **false**. 
@@ -281,7 +282,7 @@ Se o **predefinição azulado Id do elemento** não for especificado, e **Inseri
 ## <a name="channels-programs"></a>Programas do canal
 Um canal está associado a programas que permitem controlar a publicação e armazenamento de segmentos numa transmissão em fluxo em direto. Canais gerem Programas. A relação de canal e o programa é muito semelhante à multimédia tradicional onde um canal tem um fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.
 
-Pode especificar o número de horas que pretenda manter o conteúdo gravado para o programa através da configuração da duração da **Janela de Arquivo**. Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas. A duração da janela de arquivo dita também o tempo máximo que os clientes podem recuar a partir da posição atual em direto. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
+Pode especificar o número de horas que pretenda manter o conteúdo gravado para o programa através da configuração da duração da **Janela de Arquivo**. Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas. Duração da janela de arquivo dita também que o número máximo de clientes de tempo pode recuar a partir da posição atual em direto. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
 
 Cada programa está associado um recurso que armazena o conteúdo de transmissão em fluxo contínuo. Um elemento é mapeado para um contentor de BLOBs de blocos na conta de armazenamento do Azure e ficheiros no elemento são armazenados como blobs existentes nesse contentor. Para publicar o programa, para que seus clientes podem ver o fluxo tem de criar um localizador OnDemand para o elemento associado. Ter este localizador irá permitir compilar um URL de transmissão em fluxo que pode fornecer aos seus clientes.
 
@@ -336,9 +337,9 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 * A predefinição de codificação usa a noção de "taxa de quadros máximo" de 30 fps. Então, se a entrada é 60fps / 59.94i, os quadros de entrada são ignorados/desaprovisionamento-interlaced para 30/29.97 fps. Se a entrada for 50fps/50i, os quadros de entrada são ignorados/desaprovisionamento-interlaced para 25 fps. Se a entrada for 25 fps, a saída permanece em 25 fps.
 * Não se esqueça de parar de canais do seu quando tiver terminado. Se não o fizer, irá continuar a faturação.
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 * Tempo de inicialização canal foi aperfeiçoado para uma média de 2 minutos, mas às vezes à demanda aumentada pode ainda demorar até mais de 20 minutos.
-* Imagens de imagem fixa devem estar em conformidade com restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se tentar criar um canal com uma ficha de predefinição que é maior do que 1920 x 1080, o pedido irá expirar com o erro.
+* Imagens de imagem fixa devem estar em conformidade com restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se está tentando criar um canal com uma ficha de predefinição que é maior do que 1920 x 1080, o pedido, por fim, irá apresentar um erro.
 * Mais uma vez... não se esqueça de canais de seu parar quando tiver terminado de transmissão em fluxo. Se não o fizer, irá continuar a faturação.
 
 ## <a name="next-step"></a>Passo seguinte

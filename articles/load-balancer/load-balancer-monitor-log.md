@@ -1,6 +1,6 @@
 ---
-title: Monitorizar operações, eventos e contadores de Balanceador de carga | Microsoft Docs
-description: Saiba como ativar a eventos de alerta e a sonda de registo de estado de funcionamento para o Balanceador de carga do Azure
+title: Monitorizar operações, eventos e contadores para o Balanceador de carga básico público | Documentos da Microsoft
+description: Saiba como ativar eventos de alerta e a sonda de registo de estado de funcionamento para o Balanceador de carga básico público
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,34 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c196a24d5cc9e4343762e55b5885c1264c2fcad
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179060"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056520"
 ---
-# <a name="log-analytics-for-azure-load-balancer"></a>Log Analytics para o Balanceador de Carga do Azure
+# <a name="log-analytics-for-public-basic-load-balancer"></a>Análise de registos para o Balanceador de carga básico público
 
->[!NOTE] 
->O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para mais informações sobre o Balanceador de carga padrão, consulte [descrição geral do Balanceador de carga padrão](load-balancer-standard-overview.md).
+>[!IMPORTANT] 
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de carga Standard, veja [descrição geral do Balanceador de carga Standard](load-balancer-standard-overview.md) que expõe a telemetria por meio de métricas multidimensionais no Azure Monitor.
 
-Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de balanceadores de carga. Alguns destes registos podem ser acedidos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como o Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista abaixo.
+Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de balanceadores de carga básico. Alguns destes registos podem ser acedidos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como o Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos na lista abaixo.
 
-* **Registos de auditoria:** pode utilizar [registos de auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecida como registos operacionais) para ver todas as operações que está a ser submetidas para as subscrições do Azure e o respetivo estado. Os registos de auditoria são ativados por predefinição e podem ser visualizados no portal do Azure.
-* **Registos de eventos de alertas:** pode utilizar este registo para ver os alertas gerados pelo balanceador de carga. O estado para o Balanceador de carga é recolhido a cada cinco minutos. Este registo só é escrito se é gerado um evento de alerta de Balanceador de carga.
-* **Os registos de pesquisa de estado de funcionamento:** pode utilizar este registo para ver os problemas detetados pela sua pesquisa de estado de funcionamento, como o número de instâncias do conjunto de back-end que não são receção de pedidos do Balanceador de carga devido a falhas de sonda de estado de funcionamento. Este registo é escrito quando existe uma alteração do Estado de sonda de estado de funcionamento.
+* **Registos de auditoria:** pode usar [registos de auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecido como registos operacionais) para ver todas as operações que está a ser submetidas para a sua subscrição ou subscrições do Azure e o respetivo estado. Registos de auditoria estão ativados por predefinição e podem ser visualizados no portal do Azure.
+* **Registos de eventos de alertas:** pode utilizar este registo para ver os alertas gerados pelo balanceador de carga. O estado para o Balanceador de carga é recolhido a cada cinco minutos. Este registo só é escrito se um evento de alerta de Balanceador de carga é gerado.
+* **Registos de sonda de estado de funcionamento:** pode utilizar este registo para ver problemas detetados pelo seu sonda de estado de funcionamento, como o número de instâncias no seu conjunto de back-end que não estão a receber pedidos do Balanceador de carga devido a falhas de sonda de estado de funcionamento. Este registo é escrito quando ocorre uma alteração no estado de sonda de estado de funcionamento.
 
 > [!IMPORTANT]
-> Análise de registo atualmente funciona apenas para a Internet com balanceadores de carga. Os registos apenas estão disponíveis para os recursos implementados no modelo de implementação Resource Manager. Não é possível utilizar os registos de recursos de no modelo de implementação clássica. Para obter mais informações sobre os modelos de implementação, consulte [Gestor de recursos de compreender implementação clássica e](../azure-resource-manager/resource-manager-deployment-model.md).
+> Do log analytics atualmente balanceadores de carga funciona apenas para básico público. Registos apenas estão disponíveis para recursos implementados no modelo de implementação do Resource Manager. Não é possível utilizar registos para os recursos no modelo de implementação clássica. Para obter mais informações sobre os modelos de implementação, consulte [implementação do Gestor de recursos de compreensão e a implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Ativar registo
 
-Um registo de auditoria é ativado automaticamente para todos os recursos do Resource Manager. Tem de ativar o evento e o registo de pesquisa de estado de funcionamento para iniciar a recolha de dados disponíveis através desses registos. Utilize os seguintes passos para ativar o registo.
+Um registo de auditoria é ativado automaticamente para todos os recursos do Resource Manager. Tem de ativar o registo de sonda de estado de funcionamento para iniciar a recolha de dados disponíveis por meio desses registos e eventos. Utilize os seguintes passos para ativar o registo.
 
-Início de sessão para o [portal do Azure](http://portal.azure.com). Se ainda não tiver um balanceador de carga, [criar um balanceador de carga](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
+Início de sessão para o [portal do Azure](http://portal.azure.com). Se ainda não tiver um balanceador de carga [criar um balanceador de carga](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
 
 1. No portal, clique em **procurar**.
 2. Selecione **balanceadores de carga**.
@@ -47,27 +47,29 @@ Início de sessão para o [portal do Azure](http://portal.azure.com). Se ainda n
     ![Portal – Balanceador de carga](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
 3. Selecione um balanceador de carga existente >> **todas as definições**.
-4. No lado direito da caixa de diálogo sob o nome do Balanceador de carga, desloque-se para **monitorização**, clique em **diagnóstico**.
+4. No lado direito da caixa de diálogo no nome do Balanceador de carga, desloque-se para **monitorização**, clique em **diagnóstico**.
 
     ![Portal – definições de Balanceador de carga](./media/load-balancer-monitor-log/load-balancer-settings.png)
 
-5. No **diagnóstico** painel, em **estado**, selecione **no**.
+5. Na **diagnóstico** painel, em **estado**, selecione **no**.
 6. Clique em **conta de armazenamento**.
-7. Em **registos**, selecione uma conta de armazenamento existente ou crie um novo. Utilize o controlo de deslize para determinar quantos dias, mas de dados de eventos serão armazenados nos registos de evento. 
+7. Sob **registos**, selecione uma conta de armazenamento existente ou crie um novo. Utilize o controlo de deslize para determinar o número de dias que vale a pena de dados de eventos será armazenado nos logs de eventos. 
 8. Clique em **Guardar**.
 
-    ![Portal – registos de diagnóstico](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+Diagnóstico será guardado no armazenamento de tabelas na conta de armazenamento especificada. Se não estiverem a ser guardados registos, é porque não existem registos relevantes estão a ser produzidos.
+
+![Portal – registos de diagnóstico](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
-> Os registos de auditoria não necessitam de uma conta de armazenamento separada. A utilização do armazenamento de estado de funcionamento e eventos de registo de pesquisa resultará em encargos serviço.
+> Registos de auditoria não necessitam de uma conta de armazenamento separada. A utilização do armazenamento para o estado de funcionamento e eventos de sonda de registo incorre em custos de serviço.
 
 ## <a name="audit-log"></a>Registo de auditoria
 
-O registo de auditoria é gerado por predefinição. Os registos são preservados durante 90 dias no arquivo de registos de eventos do Azure. Saiba mais sobre estes registos o lendo o [ver eventos e registos de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md) artigo.
+O registo de auditoria é gerado por predefinição. Os registos são mantidos durante 90 dias no arquivo de registos de eventos do Azure. Saiba mais sobre estes registos, lendo o [ver eventos e registos de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md) artigo.
 
 ## <a name="alert-event-log"></a>Alerta de registo de eventos
 
-Este registo só é gerado se ativou-num por base de Balanceador de carga. Os eventos são registados no formato JSON e armazenados na conta de armazenamento que especificou quando ativou o registo. Segue-se um exemplo de um evento.
+Este registo só é gerado se tiver habilitado num por base de Balanceador de carga. Os eventos são registados no formato JSON e armazenados na conta de armazenamento que especificou quando ativou o registo. Segue-se um exemplo de um evento.
 
 ```json
 {
@@ -86,11 +88,11 @@ Este registo só é gerado se ativou-num por base de Balanceador de carga. Os ev
 }
 ```
 
-O JSON de saída apresenta o *eventname* propriedade que descreve o motivo para o Balanceador de carga criado um alerta. Neste caso, o alerta gerado se deveu a esgotamento de porta TCP causado pela origem IP NAT limites (realizar o SNAT).
+O JSON de saída mostra o *eventname* propriedade que descreve o motivo para o Balanceador de carga criado um alerta. Neste caso, o alerta gerado se deveu a exaustão de porta TCP causado por IP NAT de origem (SNAT) de limites.
 
-## <a name="health-probe-log"></a>Registo de pesquisa de estado de funcionamento
+## <a name="health-probe-log"></a>Registo de sonda de estado de funcionamento
 
-Este registo só é gerado se ativou-num por carga balanceador base conforme detalhado acima. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. É criado um contentor com o nome 'insights-registos-loadbalancerprobehealthstatus' e os dados seguintes foram registados:
+Este registo só é gerado se tiver habilitado num por carga balanceador base, conforme detalhado acima. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. É criado um contentor com o nome "insights-logs-loadbalancerprobehealthstatus" e os seguintes dados estão registados:
 
 ```json
 {
@@ -126,26 +128,26 @@ Este registo só é gerado se ativou-num por carga balanceador base conforme det
 }
 ```
 
-A saída JSON no campo propriedades mostra as informações básicas para o estado de funcionamento da pesquisa. O *dipDownCount* propriedade mostra o número total de instâncias no back-end que não está a receber o tráfego de rede devido ao respostas de falhas de sonda.
+A saída JSON no campo de propriedades mostra as informações básicas para o estado de funcionamento da pesquisa. O *dipDownCount* propriedade mostra o número total de instâncias no back-end que não estão a receber o tráfego de rede devido a respostas de sonda com falha.
 
-## <a name="view-and-analyze-the-audit-log"></a>Ver e analisar o registo de auditoria
+## <a name="view-and-analyze-the-audit-log"></a>Veja e analise o registo de auditoria
 
 Pode ver e analisar dados de registo de auditoria utilizando qualquer um dos seguintes métodos:
 
-* **Ferramentas do Azure:** obter informações a partir de registos de auditoria através do Azure PowerShell, a Interface de linha de comandos (CLI do Azure), a API de REST do Azure ou o portal de pré-visualização do Azure. Instruções passo a passo para cada método passo são detalhadas no [auditar operações com o Resource Manager](../azure-resource-manager/resource-group-audit.md) artigo.
-* **Power BI:** se já tiver um [Power BI](https://powerbi.microsoft.com/pricing) conta, pode experimentar, gratuitamente. Utilizar o [conteúdo de registos de auditoria do Azure pack para o Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), pode analisar os dados com dashboards previamente configuradas ou pode personalizar vistas de acordo com as suas necessidades.
+* **Ferramentas do Azure:** obter informações a partir de registos de auditoria através do Azure PowerShell, a Interface de linha de comandos (CLI do Azure), a API de REST do Azure ou o portal de pré-visualização do Azure. Instruções passo a passo para cada método são detalhadas no [auditar operações com o Resource Manager](../azure-resource-manager/resource-group-audit.md) artigo.
+* **Power BI:** se ainda não tiver um [Power BI](https://powerbi.microsoft.com/pricing) conta, pode experimentar gratuitamente. Utilizar o [pacote para o Power BI de conteúdos de registos de auditoria do Azure](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), pode analisar os seus dados com dashboards previamente configuradas ou pode personalizar vistas para atender às suas necessidades.
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Ver e analisar a sonda de estado de funcionamento e o registo de eventos
 
-Terá de ligar à sua conta de armazenamento e obter as entradas de registo JSON para os registos de sonda de estado de funcionamento e de eventos. Depois de transferir os ficheiros JSON, pode convertê-las em CSV e vista no Excel, PowerBI ou qualquer outra ferramenta de visualização de dados.
+Terá de ligar à sua conta de armazenamento e obter as entradas de registo JSON para registos da sonda de estado de funcionamento e de eventos. Depois de transferir os ficheiros JSON, pode convertê-los em CSV e view no Excel, Power BI ou qualquer outra ferramenta de visualização de dados.
 
 > [!TIP]
-> Se estiver familiarizado com conceitos básicos do alterar os valores de constantes e variáveis em c# e o Visual Studio, pode utilizar o [iniciar ferramentas de conversor](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis a partir do GitHub.
+> Se estiver familiarizado com os conceitos básicos do Visual Studio para alterar os valores de constantes e variáveis em C#, pode utilizar as [ferramentas de conversor de registo](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Visualizar os registos de auditoria do Azure com Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogue.
-* [Ver e analisar os registos de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogue.
+* [Visualize os seus registos de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) postagem de blog.
+* [Ver e analisar registos de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) postagem de blog.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

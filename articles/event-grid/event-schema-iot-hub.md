@@ -1,6 +1,6 @@
 ---
-title: Esquema de grelha de eventos do Azure para o IoT Hub | Microsoft Docs
-description: Página de referência para o formato de esquema de eventos e as propriedades do IoT Hub
+title: Esquema de grelha de eventos do Azure para o IoT Hub | Documentos da Microsoft
+description: Página de referência para o formato de esquema de eventos e propriedades do IoT Hub
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -8,31 +8,33 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34303543"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055015"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de grelha de eventos do Azure para o IoT Hub
+# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos do Azure Event Grid para o IoT Hub
 
-Este artigo fornece as propriedades e esquema de eventos do IoT Hub do Azure. Para uma introdução para esquemas de eventos, consulte [esquema de eventos de grelha de eventos do Azure](event-schema.md). 
+Este artigo fornece as propriedades e o esquema para eventos do IoT Hub do Azure. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md). 
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem de evento do IoT Hub](event-sources.md#iot-hub).
 
-IoT Hub do Azure emite os seguintes tipos de evento:
+## <a name="available-event-types"></a>Tipos de eventos disponíveis
+
+O IoT Hub do Azure emite os seguintes tipos de evento:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registado para um hub IoT. |
-| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado a partir de um hub IoT. | 
+| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. | 
 
-## <a name="example-event"></a>Eventos de exemplo
+## <a name="example-event"></a>Evento de exemplo
 
-O esquema para eventos DeviceCreated e DeviceDeleted ter a mesma estrutura. Este evento de exemplo mostra o esquema de um evento é desencadeado quando um dispositivo é registado para um hub IoT:
+O esquema para eventos DeviceCreated e DeviceDeleted têm a mesma estrutura. Este evento de exemplo mostra o esquema de um evento que ocorre quando um dispositivo é registado para um hub IoT:
 
 ```json
 [{
@@ -83,45 +85,45 @@ O esquema para eventos DeviceCreated e DeviceDeleted ter a mesma estrutura. Este
 
 ### <a name="event-properties"></a>Propriedades do evento
 
-Todos os eventos contêm o mesmo nível superior de dados: 
+Todos os eventos contêm os mesmos dados de nível superior: 
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | ID | cadeia | Identificador exclusivo para o evento. |
-| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
-| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | dados | objeto | Dados de eventos do IoT Hub.  |
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
-O conteúdo do objeto de dados é diferente para cada publicador de eventos. Para eventos de IoT Hub, o objeto de dados contém as seguintes propriedades:
+O conteúdo do objeto de dados é diferente para cada editor de eventos. Eventos do IoT, Hub o objeto de dados contém as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| hubName | cadeia | Nome do IoT Hub onde o dispositivo foi criado ou eliminado. |
-| deviceId | cadeia | O identificador exclusivo do dispositivo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres alfanuméricos ASCII 7 bits plus os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | cadeia | O carimbo de ISO8601 da operação. |
-| opType | cadeia | O tipo de evento especificado para esta operação pelo IoT Hub: o `DeviceCreated` ou `DeviceDeleted`.
-| duplo | objeto | Informações sobre o dispositivo duplo, que é o represenation de nuvem de metadados do dispositivo de aplicação. | 
+| HubName | cadeia | Nome do IoT Hub em que o dispositivo foi criado ou eliminado. |
+| deviceId | cadeia | O identificador exclusivo do dispositivo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| operationTimestamp | cadeia | O carimbo de hora ISO8601 da operação. |
+| opType | cadeia | O tipo de evento especificado para esta operação pelo IoT Hub: seja `DeviceCreated` ou `DeviceDeleted`.
+| duplo | objeto | Informações sobre o dispositivo duplo, que é o represenation de cloud de metadados de dispositivo do aplicativo. | 
 | deviceID | cadeia | O identificador exclusivo do dispositivo duplo. | 
-| ETag | cadeia | Um elemento de informação que descreva o conteúdo do dispositivo duplo. Cada etag é garantido ser únicos por dispositivo duplo. | 
-| status | cadeia | Indica se o dispositivo duplo é ativado ou desativado. | 
-| statusUpdateTime | cadeia | Atualizar o carimbo de ISO8601 o último duplo do estado dos dispositivos. |
+| ETag | cadeia | Uma parte da informação que descreve o conteúdo do dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. | 
+| status | cadeia | Se o dispositivo duplo está ativado ou desativado. | 
+| statusUpdateTime | cadeia | Atualizar o carimbo de hora ISO8601 do último Estado de twin do dispositivo. |
 | connectionState | cadeia | Se o dispositivo está ligado ou desligado. | 
-| lastActivityTime | cadeia | O carimbo de ISO8601 da última atividade. | 
-| cloudToDeviceMessageCount | inteiro | Contagem de nuvem para as mensagens do dispositivo enviadas para este dispositivo. | 
-| authenticationType | cadeia | Tipo de autenticação utilizado para este dispositivo: um `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
-| X509Thumbprint | cadeia | O thumbprint é um valor exclusivo para o x509 certificado, normalmente utilizado para localizar um determinado certificado num arquivo de certificados. O thumbprint dinamicamente é gerado utilizando o algoritmo SHA1 e não existe fisicamente no certificado. | 
+| lastActivityTime | cadeia | O carimbo de hora ISO8601 da última atividade. | 
+| cloudToDeviceMessageCount | inteiro | Contagem da cloud para mensagens de dispositivo enviadas para este dispositivo. | 
+| authenticationType | cadeia | Tipo de autenticação utilizado para este dispositivo: ambos `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
+| x509Thumbprint | cadeia | O thumbprint é um valor exclusivo para o x509 certificado, frequentemente utilizado para localizar um determinado certificado num arquivo de certificados. O thumbprint é gerado dinamicamente usando o algoritmo SHA1 e não existem fisicamente no certificado. | 
 | primaryThumbprint | cadeia | Thumbprint primário para o x509 certificado. |
 | secondaryThumbprint | cadeia | Thumbprint secundário para o x509 certificado. | 
-| versão | inteiro | Tempo de um número inteiro que é aumentado em cada dispositivo duplo é atualizado. |
-| pretendida | objeto | Uma parte das propriedades que podem ser escritos apenas pelo back-end da aplicação e ler pelo dispositivo. | 
-| comunicado | objeto | Uma parte das propriedades que podem ser escritos apenas pelo dispositivo e o back-end da aplicação de leitura. |
-| lastUpdated | cadeia | Atualizar o carimbo de ISO8601 da propriedade de duplo última do dispositivo. | 
+| versão | inteiro | Um número inteiro que é incrementado em um cada vez que o dispositivo duplo é atualizado. |
+| pretendido | objeto | Uma parte das propriedades que podem ser gravados apenas pelo back-end da aplicação e ler pelo dispositivo. | 
+| comunicado | objeto | Uma parte das propriedades que pode ser escrito apenas pelo dispositivo e ler o back-end da aplicação. |
+| lastUpdated | cadeia | Atualizar o carimbo de hora ISO8601 da última propriedade de twin do dispositivo. | 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma introdução à grelha de eventos do Azure, consulte [Novidades grelha de evento?](overview.md)
-* Para saber mais sobre como o IoT Hub e eventos grelha funcionam em conjunto, consulte [reagir a eventos de IoT Hub, utilizando a grelha de evento a acionar ações](../iot-hub/iot-hub-event-grid.md).
+* Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
+* Para saber mais sobre como o IoT Hub e o Event Grid funcionam em conjunto, consulte [reagir a eventos do IoT Hub com o Event Grid para realizar ações](../iot-hub/iot-hub-event-grid.md).

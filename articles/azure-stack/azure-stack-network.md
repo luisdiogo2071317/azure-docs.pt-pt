@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414430"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617026"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudar a decidir como integrar melhor o Azure Stack em seu ambiente de rede existente. 
@@ -41,7 +41,7 @@ A tabela seguinte mostra as redes lógicas e os intervalos de sub-rede de IPv4 a
 
 | Rede lógica | Descrição | Tamanho | 
 | -------- | ------------- | ------------ | 
-| VIP público | O Azure Stack utiliza um total de 32 endereços desta rede. Oito endereços IP públicos são utilizados para um pequeno conjunto de serviços do Azure Stack, e o resto são utilizados por máquinas virtuais inquilinas. Se planeja usar o serviço de aplicações e os fornecedores de recursos do SQL, 7 mais endereços são utilizados. | / 26 (62 anfitriões) - /22 (1022 anfitriões)<br><br>Recomendado = /24 (254 anfitriões) | 
+| VIP público | O Azure Stack utiliza um total de 31 endereços desta rede. Oito endereços IP públicos são utilizados para um pequeno conjunto de serviços do Azure Stack, e o resto são utilizados por máquinas virtuais inquilinas. Se planeja usar o serviço de aplicações e os fornecedores de recursos do SQL, 7 mais endereços são utilizados. Os IPs de 15 restantes estão reservados para futuros serviços do Azure. | / 26 (62 anfitriões) - /22 (1022 anfitriões)<br><br>Recomendado = /24 (254 anfitriões) | 
 | Infraestrutura de comutador | Endereços IP de ponto a ponto para fins de encaminhamento, dedicados mudam interfaces de gerenciamento e os endereços de loopback atribuídos ao comutador. | /26 | 
 | Infraestrutura | Utilizado para componentes internos do Azure Stack para comunicar. | /24 |
 | Privado | Utilizado para a rede de armazenamento e VIPs privadas. | /24 | 

@@ -1,6 +1,6 @@
 ---
-title: Implementar o serviço de aplicações num ambiente offline na pilha do Azure | Microsoft Docs
-description: Orientações detalhadas sobre como implementar o serviço de aplicações num ambiente desligado de pilha do Azure protegidos pelo AD FS.
+title: Implementar o serviço de aplicações num ambiente offline no Azure Stack | Documentos da Microsoft
+description: Documentação de orientação detalhada sobre como implementar o serviço de aplicações num ambiente do Azure Stack desligado protegido pelo AD FS.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,33 +12,33 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604289"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057655"
 ---
-# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado de pilha do Azure protegido pelo AD FS
+# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado do Azure Stack protegido pelo AD FS
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização 1804 ao seu sistema de pilha do Azure integrado ou implementar o kit de desenvolvimento de pilha do Azure mais recente antes de implementar 1.2 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1807 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.3 de serviço de aplicações do Azure.
 >
 >
 
-Ao seguir as instruções neste artigo, pode instalar o [fornecedor de recursos do serviço de aplicações](azure-stack-app-service-overview.md) num ambiente de pilha do Azure é:
+Ao seguir as instruções neste artigo, pode instalar o [fornecedor de recursos do serviço de aplicações](azure-stack-app-service-overview.md) para um ambiente do Azure Stack que é:
 
 - não ligado à Internet
-- protegidos por serviços de Federação do Active Directory (AD FS).
+- protegida por serviços de Federação do Active Directory (AD FS).
 
-Para adicionar o fornecedor de recursos do serviço de aplicações para a sua implementação do Azure pilha offline, tem de concluir estas tarefas de nível superior:
+Para adicionar o fornecedor de recursos do serviço de aplicações para a sua implementação do Azure Stack offline, tem de concluir estas tarefas de nível superior:
 
-1. Concluir o [os passos dos pré-requisitos](azure-stack-app-service-before-you-get-started.md) (como comprar certificados, o que pode demorar de alguns dias para receber).
-2. [Transferir e extraia os ficheiros de instalação e do programa auxiliar](azure-stack-app-service-before-you-get-started.md) a uma máquina ligada à Internet.
+1. Concluir o [passos de pré-requisitos](azure-stack-app-service-before-you-get-started.md) (como comprar certificados, o que pode demorar alguns dias para receber).
+2. [Transfira e extraia os ficheiros de instalação e auxiliar](azure-stack-app-service-before-you-get-started.md) a um computador ligado à Internet.
 3. Crie um pacote de instalação offline.
 4. Execute o ficheiro de instalador appservice.exe.
 
@@ -52,117 +52,127 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
     ![Instalador do serviço de aplicações][1]
 
-3. O instalador do serviço de aplicações, cria um pacote de instalação offline e apresenta o caminho para o mesmo. Pode clicar em **Abrir pasta** para abrir a pasta no Explorador de ficheiros.
+3. O instalador do serviço de aplicações cria um pacote de instalação offline e apresenta o caminho para o mesmo. Pode clicar em **Abrir pasta** para abrir a pasta no Explorador de ficheiros.
 
     ![Instalador do serviço de aplicações](media/azure-stack-app-service-deploy-offline/image02.png)
 
-4. Copie o instalador (AppService.exe) e o pacote de instalação offline para a máquina de anfitrião de pilha do Azure.
+4. Copie o instalador (AppService.exe) e o pacote de instalação offline à sua máquina de anfitrião do Azure Stack.
 
-## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>Concluir a instalação offline do serviço de aplicações na pilha do Azure
+## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>Concluir a instalação offline do serviço de aplicações no Azure Stack
 
-1. Execute appservice.exe como um administrador de um computador que pode alcançar o ponto final de gestão de recursos do Azure de administração do Azure pilha.
+1. Execute appservice.exe como um administrador de um computador que pode alcançar o ponto de final de gestão de recursos do Azure de administrador do Azure Stack.
 
-2. Clique em **avançadas** > **concluir a instalação offline**.
+2. Clique em **avançadas** > **concluir instalação offline**.
 
     ![Instalador do serviço de aplicações][2]
 
-3. Navegue para a localização do pacote de instalação offline que criou anteriormente e, em seguida, clique em **seguinte**.
+3. Navegue até à localização do pacote de instalação offline que criou anteriormente e, em seguida, clique em **seguinte**.
 
     ![Instalador do serviço de aplicações](media/azure-stack-app-service-deploy-offline/image04.png)
 
-4. Reveja e aceite os termos de licenciamento de Software Microsoft e, em seguida, clique em **seguinte**.
+4. Reveja e aceite os termos de licença de Software Microsoft e, em seguida, clique em **seguinte**.
 
 5. Reveja e aceite os termos de licença de terceiros e, em seguida, clique em **seguinte**.
 
-6. Certifique-se de que as informações de configuração do serviço de aplicações em nuvem estão corretas. Se utilizou as predefinições durante a implementação do Kit de desenvolvimento de pilha do Azure, pode aceitar os valores predefinidos aqui. No entanto, se as opções personalizado quando implementado pilha do Azure ou estiver a implementar um sistema integrado, tem de editar os valores nesta janela para refletir que. Por exemplo, se utilizar o mycloud.com de sufixo de domínio, o ponto final do Azure pilha inquilino do Azure Resource Manager tem de alterar para gestão. <region>. mycloud.com. Depois de confirmar as suas informações, clique em **seguinte**.
+6. Certifique-se de que as informações de configuração do serviço de aplicações na cloud estão corretas. Se usou as configurações padrão durante a implementação do Development Kit do Azure Stack, pode aceitar os valores predefinidos aqui. No entanto, se as opções personalizado quando implementado o Azure Stack ou estiver a implementar num sistema integrado, tem de editar os valores nesta janela para refletir a alteração. Por exemplo, se usar o mycloud.com de sufixo de domínio, o ponto de final do Gestor de recursos do Azure de inquilino do Azure Stack tem de alterar para gestão. <region>. mycloud.com. Depois de confirmar suas informações, clique em **seguinte**.
 
     ![Instalador do serviço de aplicações][3]
 
 7. Na página seguinte:
-    1. Clique em de **Connect** junto ao **subscrições de pilha do Azure** caixa.
+    1. Clique nas **Connect** junto aos **subscrições do Azure Stack** caixa.
         - Forneça a sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Introduza a palavra-passe e clique em **sessão**.
-    2. No **subscrições de pilha do Azure** caixa, selecione o **subscrição do fornecedor predefinido**.
+    2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
     
     > [!NOTE]
-    > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido** neste momento.  Numa atualização futura do serviço de aplicações irá implementar para a nova subscrição de medição introduzida no Azure pilha 1804 e todas as implementações existentes serão migradas para esta nova subscrição também.
+    > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido** neste momento.  Numa atualização futura o serviço de aplicações irá implementar para a nova subscrição de medição introduzida no Azure Stack 1804 e todas as implementações existentes serão migradas para esta nova subscrição também.
     >
     >
     
-    3. No **localizações de pilha do Azure** caixa, selecione a localização que corresponde à região estiver a implementar. Por exemplo, seleccione **local** se a implementar o Kit de desenvolvimento de pilha do Azure.
+    3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
     4. Clique em **Seguinte**.
 
     ![Instalador do serviço de aplicações][4]
 
-8. Tem agora a opção de implementar numa rede Virtual existente, como configurado através dos passos [aqui](azure-stack-app-service-before-you-get-started.md#virtual-network), ou permitir que o instalador do serviço de aplicações criar uma rede Virtual e sub-redes associadas.
-    1. Selecione **criar VNet com configurações predefinidas**, aceite as predefinições e, em seguida, clique em **seguinte**, ou;
-    2. Selecione **utilizar VNet existente e sub-redes**.
-        1. Selecione o **grupo de recursos** que contém a rede Virtual;
+8. Agora tem a opção de implementar numa rede Virtual existente, conforme configurado através dos passos [aqui](azure-stack-app-service-before-you-get-started.md#virtual-network), ou permitir que o instalador do serviço de aplicações criar uma rede Virtual e sub-redes associadas.
+    1. Selecione **criar VNet com configurações padrão**, aceite as predefinições e, em seguida, clique em **próxima**, ou;
+    2. Selecione **utilizar a VNet existente e sub-redes**.
+        1. Selecione o **grupo de recursos** que contém a sua rede Virtual;
         2. Escolha o correto **rede Virtual** nome que pretende implementar numa;
-        3. Selecione o correto **sub-rede** valores para cada um das sub-redes de função necessários;
+        3. Selecione o correto **sub-rede** valores para cada uma das sub-redes de função necessários;
         4. Clique em **Seguinte**
 
     ![Instalador do serviço de aplicações][5]
 
-9. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites
+9. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites
 
     > [!NOTE]
-    > O instalador tenta testar a conectividade à partilha de ficheiros antes de continuar.  No entanto, se optar por implementar uma rede Virtual existente, o instalador poderá não conseguir ligar à partilha de ficheiros e apresenta um aviso, perguntar se pretende continuar.  Verifique as informações da partilha de ficheiros e continuar se estes estão corretos.
+    > O instalador tentará testar a conectividade para a partilha de ficheiros antes de continuar.  No entanto, se optar por implementar numa rede Virtual existente, o instalador pode não ser capaz de se ligar à partilha de ficheiros e apresenta um aviso, perguntando se deseja continuar.  Verifique as informações de partilha de ficheiros e continuar se eles estão corretos.
     >
     >
 
    ![Instalador do serviço de aplicações][8]
 
 10. Na página seguinte:
-    1. No **ID da aplicação de identidade** box, introduza o GUID para a aplicação estiver a utilizar para a identidade (a partir do Azure AD).
-    2. No **ficheiro de certificado de identidade aplicação** caixa, introduza (ou navegue até à) a localização do ficheiro de certificado.
-    3. No **palavra-passe de certificado de identidade aplicação** caixa, introduza a palavra-passe do certificado. Esta palavra-passe é aquele que anotou quando utilizou o script para criar os certificados.
-    4. No **ficheiro de certificado de raiz do Azure Resource Manager** caixa, introduza (ou navegue até à) a localização do ficheiro de certificado.
+    1. Na **ID da Identity Application** , introduza o GUID para a aplicação estiver a utilizar para a identidade (a partir do Azure AD).
+    2. Na **o ficheiro de certificado de aplicação de identidade** caixa, introduza (ou navegar até) a localização do ficheiro de certificado.
+    3. Na **palavra-passe de certificado de aplicação de identidade** , introduza a palavra-passe para o certificado. Esta palavra-passe é aquela que anotou quando utilizou o script para criar os certificados.
+    4. Na **ficheiro de certificado de raiz do Azure Resource Manager** caixa, introduza (ou navegar até) a localização do ficheiro de certificado.
     5. Clique em **Seguinte**.
 
     ![Instalador do serviço de aplicações][10]
 
-11. Para cada uma a três caixas de ficheiro de certificado, clique em **procurar** e, em seguida, navegue para o ficheiro de certificado adequado. Tem de fornecer a palavra-passe para cada certificado. Estes certificados são aqueles que criou no [passo de certificados necessários criar](azure-stack-app-service-before-you-get-started.md#get-certificates). Clique em **seguinte** após introduzir todas as informações.
+11. Para cada uma a três caixas de arquivo de certificados, clique em **procurar** e, em seguida, navegue para o ficheiro de certificado adequado. Tem de fornecer a palavra-passe para cada certificado. Estes certificados são aqueles que criou no [passo de certificados necessários criar](azure-stack-app-service-before-you-get-started.md#get-certificates). Clique em **seguinte** após introduzir todas as informações.
 
     | Box | Exemplo de nome de ficheiro de certificado |
     | --- | --- |
     | **Ficheiro de certificado SSL do serviço de aplicações predefinido** | \_.appservice.local.AzureStack.external.pfx |
-    | **Ficheiro de certificado SSL de API do serviço de aplicações** | api.appservice.local.AzureStack.external.pfx |
+    | **Ficheiro de certificado SSL do serviço de aplicações API** | api.appservice.local.AzureStack.external.pfx |
     | **Ficheiro de certificado de SSL de publicador do serviço de aplicações** | ftp.appservice.local.AzureStack.external.pfx |
 
-    Se utilizou um sufixo de domínio diferente ao criar os certificados, não utilizem os nomes de ficheiro de certificado *local. AzureStack.external*. Em alternativa, utilize as informações de domínio personalizado.
+    Se utilizou um sufixo de domínio diferente ao criar os certificados, os nomes de ficheiro de certificado não utilizem *local. AzureStack.external*. Em vez disso, utilize as informações de domínio personalizado.
 
     ![Instalador do serviço de aplicações][11]
 
-12. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, clique em **seguinte**. O instalador valida as propriedades de ligação do SQL Server. **Tem** introduza o ip interno ou o nome de domínio completamente qualificado para o nome do SQL Server.
+12. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, clique em **seguinte**. O instalador valida as propriedades de ligação de SQL. **Tem** introduza o ip interno ou o nome de domínio completamente qualificado para o nome do SQL Server.
 
     > [!NOTE]
-    > O instalador tenta testar a conectividade com o SQl Server antes de continuar.  No entanto, se optar por implementar uma rede Virtual existente, o instalador poderá não conseguir ligar ao SQL Server e apresenta um aviso a perguntar se pretende continuar.  Verifique as informações do SQL Server e continuar se estes estão corretos.
+    > O instalador tentará testar a conectividade ao SQl Server antes de continuar.  No entanto, se optar por implementar numa rede Virtual existente, o instalador poderá não conseguir ligar ao SQL Server e apresenta um aviso, perguntando se deseja continuar.  Verifique as informações do SQL Server e continue a se eles estão corretos.
     >
-    >
+    > Do serviço de aplicações do Azure no Azure 1.3 de pilha e posteriores, o instalador irá verificar que o SQL Server tem de contenção da base de dados ativada ao nível do servidor SQL.  Se não for, será solicitado com a seguinte exceção:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Consulte a [notas de versão do serviço de aplicações do Azure no Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para obter mais detalhes.
    
    ![Instalador do serviço de aplicações][12]
 
-13. Reveja as opções de SKU e a instância de função. As predefinições são preenchidas com o número mínimo de instância e o SKU mínimo para cada função numa implementação ASDK. É fornecido um resumo dos requisitos vCPU e memória para o ajudar a planear a implementação. Depois de efetuar as seleções, clique em **seguinte**.
+13. Reveja as opções de SKU e a instância de função. As predefinições são preenchidas com o número mínimo de instâncias e o SKU mínimo para cada função numa implantação ASDK. Para ajudar a planear a implementação, é fornecido um resumo dos requisitos de memória e vCPU. Depois de fazer as seleções, clique em **seguinte**.
 
      > [!NOTE]
-     > Para implementações de produção, siga as orientações no [planeamento de capacidade de funções de servidor do App Service do Azure na pilha de Azure](azure-stack-app-service-capacity-planning.md).
+     > Para implementações de produção, siga as orientações no [planeamento de capacidade de funções de servidor do App Service do Azure no Azure Stack](azure-stack-app-service-capacity-planning.md).
      >
      >
 
-    | Função | Instâncias mínimas | SKU mínima | Notas |
+    | Função | Instâncias mínimas | SKU mínimo | Notas |
     | --- | --- | --- | --- |
-    | Controlador | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gere e mantém o estado de funcionamento da nuvem do serviço de aplicações. |
-    | Gestão | 1 | Standard_A2 - (vCPUs 2, 3584 MB) | Gere os pontos finais App Service do Azure Resource Manager e API, extensões portais (administrador inquilino, portal das funções) e o serviço de dados. Para suportar a ativação pós-falha, aumentar as instâncias recomendadas para 2. |
-    | Publicador | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica conteúdo através da implementação web e FTP. |
-    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Encaminha os pedidos a aplicações de serviço de aplicações. |
-    | Trabalho partilhado | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Anfitriões ou aplicações API aplicações web e funções do Azure. Pode querer adicionar mais instâncias. Como um operador, pode definir a sua oferta e escolha qualquer camada SKU. As camadas tem de ter um mínimo de um vCPU. |
+    | Controlador | 1 | Standard_A2 - (2 vCPU, 3584 MB) | Gerencia e mantém o estado de funcionamento da cloud do serviço de aplicações. |
+    | Gestão | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Gere os pontos finais de API e aplicação de serviço do Azure Resource Manager, portais extensões (administração, inquilino, o portal de funções) e o serviço de dados. Para suportar a ativação pós-falha, aumento as instâncias recomendadas para 2. |
+    | Publicador | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica conteúdo através de implementação de FTP e web. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Encaminha os pedidos para aplicativos de serviço de aplicações. |
+    | Trabalho partilhado | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Web de anfitriões ou aplicações de API e aplicações de funções do Azure. Pode querer adicionar mais instâncias. Como um operador, pode definir a sua oferta e escolha qualquer escalão SKU. Os escalões tem de ter um mínimo de um vCPU. |
 
     ![Instalador do serviço de aplicações][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core não é uma imagem de plataforma suportada para utilização com o Azure App Service na pilha do Azure.  Não utilize imagens de avaliação para implementações de produção.**
+    > **Windows Server 2016 Core não é uma imagem de plataforma suportada para utilização com o serviço de aplicações do Azure no Azure Stack.  Não utilize imagens de avaliação para implementações de produção.  Serviço de aplicações do Azure no Azure Stack requer que o Microsoft.Net 3.5.1 SP1 está ativado na imagem utilizada para a implementação.   Marketplace distribuídos imagens não tem esta funcionalidade ativada do Windows Server 2016.**
 
-14. No **selecione a imagem de plataforma** caixa, selecione a imagem de máquina virtual de implementação do Windows Server 2016 das disponíveis no fornecedor de recursos de computação para a nuvem de serviço de aplicações. Clique em **Seguinte**.
+14. Na **selecione a imagem de plataforma** caixa, escolha a sua imagem de máquina virtual de implantação do Windows Server 2016 daqueles disponíveis no fornecedor de recursos de computação para a cloud de serviço de aplicações. Clique em **Seguinte**.
 
 15. Na página seguinte:
      1. Introduza o nome de utilizador de administrador de máquina virtual de função de trabalho e a palavra-passe.
@@ -172,32 +182,32 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     ![Instalador do serviço de aplicações][16]
 
 16. Na página de resumo:
-    1. Certifique-se seleções que fez. Para efetuar alterações, utilize o **anterior** botões para visitar às páginas anteriores.
+    1. Certifique-se seleções que fez. Para fazer alterações, utilize o **Previous** botões para visitar as páginas anteriores.
     2. Se as configurações estão corretas, selecione a caixa de verificação.
     3. Para iniciar a implementação, clique em **seguinte**.
 
     ![Instalador do serviço de aplicações][17]
 
 17. Na página seguinte:
-    1. Controle o progresso da instalação. Serviço de aplicações na pilha de Azure demora cerca de 60 minutos para implementar com base nas seleções predefinido.
-    2. Depois do programa de instalação for concluída com êxito, clique em **saída**.
+    1. Controle o progresso da instalação. Serviço de aplicações no Azure Stack demora cerca de 60 minutos para implementar com base nas seleções padrão.
+    2. Depois do instalador for concluída com êxito, clique em **saída**.
 
     ![Instalador do serviço de aplicações][18]
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validar o serviço de aplicações numa instalação de pilha do Azure
+## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validar o serviço de aplicações numa instalação do Azure Stack
 
-1. No portal de administração de pilha do Azure, aceda a **administração - App Service**.
+1. No portal de administração do Azure Stack, aceda a **administração - serviço de aplicações**.
 
-2. Na descrição geral em estado, certifique-se que o **estado** mostra **todas as funções, estará pronto**.
+2. Na descrição geral em estado, verifique que o **Status** mostra **todas as funções estão prontas**.
 
     ![Gestão de serviço de aplicações](media/azure-stack-app-service-deploy/image12.png)
     
 > [!NOTE]
-> Se optar por implementar uma rede virtual existente e um endereço IP interno para conenct para o servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB.  Para fazê-lo, aceda a WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
-> * Origem: nenhuma
+> Se optar por implementar numa rede virtual existente e um endereço IP para ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+> * Origem: qualquer
 > * Intervalo de portas de origem: *
 > * Destino: Endereços IP
-> * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
+> * Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de ficheiros
 > * Intervalo de portas de destino: 445
 > * Protocolo: TCP
 > * Ação: permitir
@@ -205,47 +215,47 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 > * Nome: Outbound_Allow_SMB445
 >
 
-## <a name="test-drive-app-service-on-azure-stack"></a>Testar o serviço de aplicações na pilha do Azure
+## <a name="test-drive-app-service-on-azure-stack"></a>Experimente o serviço de aplicações no Azure Stack
 
-Depois de implementar e registar o fornecedor de recursos do serviço de aplicações, testá-lo para se certificar de que os utilizadores podem implementar web e API apps.
+Depois de implementar e registar o fornecedor de recursos do serviço de aplicações, testá-lo para certificar-se de que os utilizadores podem implementar aplicações web e API.
 
 > [!NOTE]
-> Terá de criar uma oferta que tenha o espaço de nomes Microsoft. Web dentro do plano. Em seguida, terá de ter uma subscrição de inquilino subscreve esta oferta. Para obter mais informações, consulte [criar oferta](azure-stack-create-offer.md) e [criar plano](azure-stack-create-plan.md).
+> Terá de criar uma oferta que tenha o espaço de nomes Microsoft. Web dentro do plano. Em seguida, tem de ter uma subscrição de inquilino que se inscreve para esta oferta. Para obter mais informações, consulte [criar oferta](azure-stack-create-offer.md) e [criar plano](azure-stack-create-plan.md).
 >
-*Tem* ter uma subscrição de inquilino para criar aplicações que utilizam o serviço de aplicações na pilha do Azure. As capacidades de apenas um administrador de serviço pode ser no portal de administração estão relacionadas com a administração de fornecedor de recursos do App Service. Estas capacidades incluem adicionar capacidade, configurar origens de implementação e adicionar camadas de trabalho e SKUs.
+*Tem* tem uma subscrição de inquilino para criar aplicativos que usam o serviço de aplicações no Azure Stack. As capacidades de apenas um administrador de serviço pode ser no portal de administração estão relacionados com a administração de fornecedor de recursos do serviço de aplicações. Esses recursos incluem adicionar capacidade, a configuração de origens de implementação e a adição de escalões de Worker e SKUs.
 >
-A partir do technical preview terceiro criar web, a API e o Azure funciona aplicações, tem de utilizar o portal de inquilinos e ter uma subscrição de inquilino.
+A partir do terceiro technical preview criar a web, API e o Azure funciona aplicações, tem de utilizar o portal de inquilinos e ter uma subscrição de inquilino.
 
-1. No portal de inquilinos pilha do Azure, clique em **novo** > **Web + móvel** > **aplicação Web**.
+1. No portal de inquilino do Azure Stack, clique em **New** > **Web + móvel** > **aplicação Web**.
 
-2. No **aplicação Web** painel, escreva um nome no **aplicação Web** caixa.
+2. Sobre o **aplicação Web** painel, escreva um nome na **aplicação Web** caixa.
 
-3. Em **grupo de recursos**, clique em **novo**. Escreva um nome no **grupo de recursos** caixa.
+3. Sob **grupo de recursos**, clique em **New**. Escreva um nome na **grupo de recursos** caixa.
 
 4. Clique em **plano do Serviço de Aplicações/Localização** > **Criar Novo**.
 
-5. No **plano do App Service** painel, escreva um nome no **plano do App Service** caixa.
+5. Na **plano do App Service** painel, escreva um nome no **plano do App Service** caixa.
 
-6. Clique em **escalão de preço** > **livres partilhados** ou **partilhados partilhados** > **selecione**  >   **OK** > **criar**.
+6. Clique em **escalão de preço** > **gratuito partilhado** ou **partilhado partilhado** > **selecione**  >   **OK** > **criar**.
 
-7. Na sob um minuto, um mosaico para a nova aplicação web aparece no dashboard. Clique no mosaico.
+7. Em menos de um minuto, para a nova aplicação web é apresentado um mosaico no dashboard. Clique no mosaico.
 
-8. No **aplicação Web** painel, clique em **procurar** para ver o Web site predefinido para esta aplicação.
+8. Sobre o **aplicação Web** painel, clique em **procurar** para ver o Web site predefinido para esta aplicação.
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Implementar um site WordPress, DNN ou Django (opcional)
 
-1. No portal de inquilinos pilha do Azure, clique em **+**, vá para o Azure Marketplace, implementar um site do Django e aguarde pela conclusão com êxito. A plataforma de web Django utiliza um ficheiro com base no sistema base de dados do. Não requer quaisquer fornecedores de recursos adicionais, tais como SQL Server ou MySQL.
+1. No portal de inquilino do Azure Stack, clique em **+**, vá para o Azure Marketplace, implemente um Web site Django e aguarde pela conclusão com êxito. A plataforma de web Django utiliza um ficheiro com base no sistema base de dados do. Ele não requer quaisquer fornecedores de recursos adicionais, tais como SQL ou MySQL.
 
-2. Se implementou também um fornecedor de recursos do MySQL, pode implementar um site WordPress no Marketplace. Quando lhe for pedida para parâmetros de base de dados, introduza o nome de utilizador como *User1@Server1*, com o nome de utilizador e o nome do servidor da sua preferência.
+2. Se implementou também um provedor de recursos do MySQL, pode implementar um Web site WordPress no Marketplace. Quando lhe for pedido para os parâmetros de base de dados, introduza o nome de utilizador como *User1@Server1*, com o nome de utilizador e o nome do servidor da sua preferência.
 
-3. Se implementou também um fornecedor de recursos do SQL Server, pode implementar um site DNN do Marketplace. Quando lhe for pedida para parâmetros de base de dados, escolha uma base de dados no computador que executa o SQL Server que está ligada ao seu fornecedor de recursos.
+3. Se implementou também um provedor de recursos do SQL Server, pode implementar um Web site DNN do Marketplace. Quando lhe for pedido para os parâmetros de base de dados, escolha uma base de dados no computador que executa o SQL Server que está ligada ao seu fornecedor de recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Também pode experimentar o outro [plataforma como dos serviços de serviço (PaaS)](azure-stack-tools-paas-services.md).
+Também pode tentar outros [plataforma como um serviço de serviço (PaaS)](azure-stack-tools-paas-services.md).
 
 - [Fornecedor de recursos do SQL Server](azure-stack-sql-resource-provider-deploy.md)
-- [Fornecedor de recursos de MySQL](azure-stack-mysql-resource-provider-deploy.md)
+- [Fornecedor de recursos MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531

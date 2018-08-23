@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 6b5796bf4d049579dbdede2251f2ca67cc9c4bfd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326064"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987569"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Informações sobre o SDK de voz dos serviços cognitivos
 
@@ -26,39 +26,56 @@ O Cognitive Services voz Software Development Kit (SDK) fornece a seus aplicativ
 
 ## <a name="get-the-sdk"></a>Obtenha o SDK
 
-### <a name="get-the-windows-sdk"></a>Obtenha o SDK do Windows
+### <a name="windows"></a>Windows
 
-A versão do Windows do SDK de voz inclui bibliotecas de cliente de C/C++ de 32 bits e 64 bits, bem como as bibliotecas gerenciadas de (.NET) para utilização com o c#. O SDK pode ser instalado no Visual Studio usando o NuGet; Basta procurar `Microsoft.CognitiveServices.Speech`.
+Para Windows, oferecemos suporte a idiomas seguintes:
 
-### <a name="get-the-linux-sdk"></a>Obtenha o SDK do Linux
+* C# (UWP e .NET), C++: pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz.
+  O pacote inclui bibliotecas de cliente de 32 bits e 64 bits, bem como bibliotecas de gerenciadas (.NET).
+  O SDK pode ser instalado no Visual Studio usando o NuGet; Basta procurar `Microsoft.CognitiveServices.Speech`.
 
-Certifique-se de que tem o compilador necessário e as bibliotecas executando os seguintes comandos de shell:
+* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz, que suporta apenas o Windows x64.
+  No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` como uma dependência. 
+
+### <a name="linux"></a>Linux
+
+> [!NOTE]
+> Atualmente, apenas suportamos o Ubuntu 16.04 um PC (x86 ou x64 para desenvolvimento em C++, x64 para .NET Core e Java).
+
+Certifique-se de que tem o compilador necessário e as bibliotecas instaladas ao executar os seguintes comandos de shell:
 
 ```sh
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
-> [!NOTE]
-> Estas instruções partem do princípio de que está a executar o Ubuntu 16.04 num PC (x86 ou x64). Numa versão diferente do Ubuntu ou uma distribuição Linux diferente, adapte estes passos para seu ambiente.
+* C#: Pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz.
+  Para referenciar o SDK, adicione a seguinte referência de pacote para o seu projeto:
 
-Em seguida, [transferir o SDK](https://aka.ms/csspeech/linuxbinary) e Descompacte os arquivos num diretório à sua escolha. Esta tabela mostra a estrutura de pastas do SDK.
+  ```xml
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="0.6.0" />
+  ```
 
-|Caminho|Descrição|
-|-|-|
-|`license.md`|Licença|
-|`third-party-notices.md`|Anúncios de terceiros|
-|`include`|Arquivos de cabeçalho para C e C++|
-|`lib/x64`|X64 nativo biblioteca para a ligação com a sua aplicação|
-|`lib/x86`|X86 nativo biblioteca para a ligação com a sua aplicação|
+* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz.
+  No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` como uma dependência. 
 
-Para criar uma aplicação, copiar ou mover os binários necessários (e as bibliotecas) para o ambiente de desenvolvimento e incluí-las conforme necessário em seu processo de compilação.
+* C++: Transferir o SDK como um [pacote. tar](https://aka.ms/csspeech/linuxbinary) e Descompacte os arquivos num diretório à sua escolha. A tabela seguinte mostra a estrutura de pastas do SDK.
 
-### <a name="get-the-java-sdk"></a>Obtenha o Java SDK
+  |Caminho|Descrição|
+  |-|-|
+  |`license.md`|Licença|
+  |`ThirdPartyNotices.md`|Anúncios de terceiros|
+  |`include`|Arquivos de cabeçalho para C e C++|
+  |`lib/x64`|X64 nativo biblioteca para a ligação com a sua aplicação|
+  |`lib/x86`|X86 nativo biblioteca para a ligação com a sua aplicação|
+
+  Para criar uma aplicação, copiar ou mover os binários necessários (e as bibliotecas) para o ambiente de desenvolvimento e incluí-las conforme necessário em seu processo de compilação.
+
+### <a name="android"></a>Android
 
 O SDK de Java para Android é empacotado como uma [AAR (biblioteca do Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias, bem como permissões Android necessárias para o utilizar.
-Ele está hospedado num repositório Maven na `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
-O consume o pacote do seu projeto do Android Studio, efetue as seguintes alterações:
+Ele está hospedado num repositório Maven na `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
+Para consumir o pacote do seu projeto do Android Studio, efetue as seguintes alterações:
 
 * No nível do projeto `build.gradle` de ficheiros, adicione o seguinte para o `repository` secção:
 
@@ -69,7 +86,7 @@ O consume o pacote do seu projeto do Android Studio, efetue as seguintes altera�
 * No nível do módulo `build.gradle` de ficheiros, adicione o seguinte para o `dependencies` secção:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.6.0'
   ```
 
 O SDK do Java também é parte dos [SDK de dispositivos de voz](speech-devices-sdk.md).

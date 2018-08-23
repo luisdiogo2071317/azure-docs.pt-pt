@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: dbb95c8aadc66e7ece93fa800055a0f6be81f015
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 7e7952a327134197f1e8492931d7ada871789395
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161417"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058837"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o servidor de autenticação de multi-factor do Azure mais recente
 
 Este artigo orienta-o processo de atualização do servidor multi-factor Authentication (MFA) do Azure v6.0 ou superior. Se precisar de atualizar uma versão antiga do PhoneFactor Agent, consulte [atualizar o PhoneFactor Agent para o servidor do Azure multi-factor Authentication](howto-mfaserver-deploy-upgrade-pf.md).
 
-Se estiver a atualizar a partir de v6.x ou mais antigo para o v7.x ou mais recente, alterar todos os componentes do .NET 2.0 para o .NET 4.5. Todos os componentes também requerem o Microsoft Visual C++ 2015 a atualização redistribuível 1 ou superior. O instalador do servidor MFA instala as versões x86 e x64 desses componentes, se ainda não estiverem instalados. Se o Portal de utilizador e o serviço Web da aplicação móvel são executados em servidores separados, terá de instalar os pacotes antes de atualizar esses componentes. Pode pesquisar para a atualização mais recente do Microsoft Visual C++ 2015 Redistributable sobre o [Microsoft Download Center](https://www.microsoft.com/en-us/download/). 
+Se estiver a atualizar a partir de v6.x ou mais antigo para o v7.x ou mais recente, alterar todos os componentes do .NET 2.0 para o .NET 4.5. Todos os componentes também requerem o Microsoft Visual C++ 2015 a atualização redistribuível 1 ou superior. O instalador do servidor MFA instala as versões x86 e x64 desses componentes, se ainda não estiverem instalados. Se o Portal de utilizador e o serviço Web da aplicação móvel são executados em servidores separados, terá de instalar os pacotes antes de atualizar esses componentes. Pode pesquisar para a atualização mais recente do Microsoft Visual C++ 2015 Redistributable sobre o [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Instale a versão mais recente do servidor MFA do Azure
 

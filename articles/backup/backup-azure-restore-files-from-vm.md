@@ -7,14 +7,14 @@ manager: shivamg
 keywords: recuperação ao nível do item; recuperação de ficheiros de cópia de segurança de VM do Azure; restaurar ficheiros a partir da VM do Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493386"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616914"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir de cópia de segurança da máquina virtual do Azure
 
@@ -33,9 +33,13 @@ Para restaurar ficheiros ou pastas do ponto de recuperação, vá para a máquin
 
 2. No menu da máquina virtual, clique em **cópia de segurança** para abrir o dashboard de cópia de segurança.
 
-    ![Item aberto de cópia de segurança do cofre dos serviços de recuperação](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![Item aberto de cópia de segurança do cofre dos serviços de recuperação](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. No menu do dashboard de cópia de segurança, clique em **recuperação de ficheiros** para abrir respetivo menu.
+3. No menu do dashboard de cópia de segurança, clique em **recuperação de ficheiros**.
+
+    ![Botão de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    O **recuperação de ficheiros** é aberto o menu.
 
     ![Menu de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
@@ -95,7 +99,7 @@ Depois de identificar os ficheiros e copiá-los para uma localização de armaze
 
 ![Desmontar discos](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-Quando os discos foram desmontados, receberá uma mensagem a informá-lo foi concluída com êxito-lo. Pode demorar alguns minutos para que a ligação atualizar para que pode remover os discos.
+Assim que os discos foram desmontados, receberá uma mensagem. Pode demorar alguns minutos para que a ligação atualizar para que pode remover os discos.
 
 No Linux, depois da ligação ao ponto de recuperação é severed, o sistema operacional não remove os correspondentes caminhos de montagem automaticamente. Os caminhos de montagem existem como volumes "órfãos" e se encontram visíveis, mas lançar um erro quando acesso/gravação as arquivos. Eles podem ser removidos manualmente. O script, quando executado, identifica quaisquer esses volumes existente a partir de pontos de recuperação anterior e limpa-los com o consentimento.
 
@@ -213,7 +217,7 @@ Se tiver problemas ao recuperar ficheiros a partir de máquinas virtuais, veja a
 | Saída do exe: *ligar para o destino de exceção* |Script não é capaz de aceder ao ponto de recuperação    | Verifique se o computador cumpre os requisitos de acesso anterior. |  
 | Saída do exe: *o destino já foi registado através de uma sessão de iSCSI.* | O script já foi executado no mesmo computador e as unidades que tenham sido vinculadas | Os volumes de ponto de recuperação já tenham sido vinculados. NÃO pode ser montadas com as mesmas letras de unidade da original VM. Procurar por meio de todos os volumes disponíveis no Explorador de ficheiros para o ficheiro |
 | Saída do exe: *este script é inválido porque os discos têm sido desmontados através do portal/12-RH de excedeu o limite. Transfira um novo script a partir do portal.* |    Os discos têm sido desmontados partir do portal ou excedida o limite de 12 horas | Nesse exe particular agora é inválido e não pode ser executado. Se pretender aceder aos ficheiros dessa recuperação ponto anterior no tempo, visite o portal para um novo. exe|
-| No computador onde é executado no exe: novos volumes não são desmontados depois de clica no botão de desmontagem | O Iniciador do iSCSI na máquina é não responder/atualizar a sua ligação para o destino e a manutenção da cache |    Aguarde alguns minutos após o botão de desmontagem é pressionado. Se não, os novos volumes ainda são desmontados,. navegue por meio de todos os volumes. Isso força o iniciador para atualizar a ligação e o volume é desmontado com uma mensagem de erro que o disco não está disponível|
+| No computador onde é executado no exe: novos volumes não são desmontados depois de clica no botão de desmontagem | O Iniciador do iSCSI na máquina é não estabelecer ligação com o destino de responder/atualizar e manter a cache. |  Depois de clicar em **desmontar**, aguarde alguns minutos. Se a novos volumes não são desmontados, procure os todos os volumes. Todos os volumes de navegação na força o iniciador para atualizar a ligação e o volume é desmontado com uma mensagem de erro que o disco não está disponível.|
 | Saída do exe: Script é executado com êxito, mas "Novos volumes anexados" não são apresentados na saída do script |    Este é um erro transitório    | Os volumes seriam tenha sido vinculados já. Abra o Explorador para procurar. Se estiver a utilizar o mesmo computador para executar scripts sempre, considere reiniciar o computador e deve ser apresentada a lista nas execuções subsequentes exe. |
 | Específicas do Linux: não é possível ver os volumes pretendidos | O sistema operacional da máquina em que o script é executado talvez não reconheça o sistema de ficheiros subjacente da VM protegido | Verifique se o ponto de recuperação está consistente com ficheiros ou consistentes de falhas. Se o ficheiro consistente, execute o script em outro computador cujo sistema operacional reconhece o sistema de ficheiros da VM protegido |
 | Específico do Windows: não é possível ver os volumes pretendidos | Os discos tenha sido vinculados, mas os volumes não foram configurados | A partir do ecrã de gestão do disco, identifique os discos adicionais relacionadas com o ponto de recuperação. Se qualquer um destes discos estiverem offline no Estado tente torná-los online clicando no disco e clique em "Online"|

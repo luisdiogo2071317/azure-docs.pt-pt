@@ -1,108 +1,137 @@
 ---
-title: Origens de eventos de grelha de eventos do Azure
-description: Descreve as origens de eventos suportados para a grelha de eventos do Azure
+title: Origens de eventos do Azure Event Grid
+description: Descreve as origens de eventos suportados do Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: f9c3bcb6b92b43fe5b5bad72c99e6ce199c17448
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34302131"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617357"
 ---
-# <a name="event-sources-in-azure-event-grid"></a>Origens de eventos na grelha de eventos do Azure
+# <a name="event-sources-in-azure-event-grid"></a>Origens de eventos no Azure Event Grid
 
-Uma origem de evento é onde ocorre o evento. Vários serviços do Azure são automaticamente configurados para enviar eventos. Também pode criar aplicações personalizadas que enviam eventos. Aplicações personalizadas não precisam de ser alojado no Azure para utilizar a grelha de eventos para distribuição de eventos.
+Uma origem de evento é onde acontece o evento. Vários serviços do Azure são automaticamente configurados para enviar eventos. Também pode criar aplicações personalizadas que enviam eventos. Aplicativos personalizados não precisam de ser alojado no Azure para utilizar o Event Grid para distribuição de eventos.
 
 Este artigo fornece ligações para conteúdo para cada origem de evento.
 
 ## <a name="azure-subscriptions"></a>Subscrições do Azure
 
-Subscreve eventos de subscrições do Azure para responder a alterações em recursos através de uma subscrição do Azure.
+Subscreva eventos de subscrições do Azure para responder a alterações em recursos numa subscrição do Azure.
 
 |Cargo |Descrição  |
 |---------|---------|
-| [Integração da automatização do Azure com grelha de eventos e equipas da Microsoft](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, o que envia um evento. O evento é acionado um runbook de automatização que a máquina virtual de etiquetas e aciona uma mensagem que é enviada para um canal Teams da Microsoft. |
-| [Esquema de eventos](event-schema-subscriptions.md) | Mostra os campos em eventos de subscrição do Azure. |
+| [Tutorial: Automatização do Azure com o Event Grid e o Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento é acionado um runbook da automatização que a máquina virtual de etiquetas e aciona uma mensagem que é enviada para um canal do Microsoft Teams. |
+| [Como: assinar eventos através do portal](subscribe-through-portal.md) | Utilize o portal para subscrever eventos para uma subscrição do Azure. |
+| [CLI do Azure: subscrever eventos para uma subscrição do Azure](./scripts/event-grid-cli-azure-subscription.md) |Script de exemplo que cria uma subscrição do Event Grid para uma subscrição do Azure e envia eventos para um WebHook. |
+| [PowerShell: subscrever eventos para uma subscrição do Azure](./scripts/event-grid-powershell-azure-subscription.md)| Script de exemplo que cria uma subscrição do Event Grid para uma subscrição do Azure e envia eventos para um WebHook. |
+| [Esquema de eventos](event-schema-subscriptions.md) | Mostra os campos nos eventos de subscrição do Azure. |
+
+## <a name="container-registry"></a>Registo de Contentor
+
+Subscreva eventos de registo de contentor para responder a alterações em imagens.
+
+|Cargo |Descrição  |
+|---------|---------|
+| [Início rápido: enviar eventos de registo de contentor](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de registo de contentor. |
+| [Esquema de eventos](event-schema-container-registry.md) | Mostra os campos nos eventos de registo de contentor. |
 
 ## <a name="custom-topics"></a>Tópicos personalizados
 
-Subscreve tópicos personalizados para responder a eventos de aplicações.
+Subscreva tópicos personalizados para responder a eventos do aplicativo.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Criar e encaminhar eventos personalizados com a CLI do Azure](custom-event-quickstart.md) | Mostra como utilizar a CLI do Azure para enviar eventos personalizados. |
-| [Criar e encaminhar eventos personalizados com o Azure PowerShell](custom-event-quickstart-powershell.md) | Mostra como utilizar o Azure PowerShell para enviar eventos personalizados. |
-| [Criar e encaminhar eventos personalizados com o portal do Azure](custom-event-quickstart-portal.md) | Mostra como utilizar o portal para enviar eventos personalizados. |
-| [Publicar tópico personalizado](post-to-custom-topic.md) | Mostra como publicar um evento para um tópico personalizado. |
-| [Eventos personalizados de rota para o armazenamento de filas do Azure](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de filas. |
-| [Esquema de eventos](event-schema.md) | Mostra os campos de eventos personalizados. |
+| [Início rápido: criar e encaminhar eventos personalizados com a CLI do Azure](custom-event-quickstart.md) | Mostra como utilizar a CLI do Azure para enviar eventos personalizados. |
+| [Início rápido: criar e encaminhar eventos personalizados com o Azure PowerShell](custom-event-quickstart-powershell.md) | Mostra como utilizar o Azure PowerShell para enviar eventos personalizados. |
+| [Início rápido: criar e encaminhar eventos personalizados com o portal do Azure](custom-event-quickstart-portal.md) | Mostra como utilizar o portal para enviar eventos personalizados. |
+| [Início rápido: encaminhar eventos personalizados para o armazenamento de filas do Azure](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de filas. |
+| [Como: publicar em tópico personalizado](post-to-custom-topic.md) | Mostra como publicar um evento para um tópico personalizado. |
+| [CLI do Azure: criar o tópico personalizado do Event Grid](./scripts/event-grid-cli-create-custom-topic.md)|Script de exemplo que cria um tópico personalizado. O script obtém o ponto de extremidade e uma chave.|
+| [CLI do Azure: subscrever eventos para um tópico personalizado](./scripts/event-grid-cli-subscribe-custom-topic.md)|Script de exemplo que cria uma subscrição para um tópico personalizado. Envia eventos para um WebHook.|
+| [PowerShell: criar o tópico personalizado do Event Grid](./scripts/event-grid-powershell-create-custom-topic.md)|Script de exemplo que cria um tópico personalizado. O script obtém o ponto de extremidade e uma chave.|
+| [PowerShell: subscrever eventos para um tópico personalizado](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Script de exemplo que cria uma subscrição para um tópico personalizado. Envia eventos para um WebHook.|
+| [Modelo do Resource Manager: um tópico personalizado e o ponto final do WebHook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Um modelo do Resource Manager que cria um tópico personalizado e uma subscrição para esse tópico personalizado. Envia eventos para um WebHook. |
+|
+| [Modelo do Resource Manager: um tópico personalizado e um ponto final de Hubs de eventos](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| Um modelo do Resource Manager que cria uma subscrição para um tópico personalizado. Envia eventos para um Event Hubs do Azure. |
+| [Esquema de eventos](event-schema.md) | Mostra campos de eventos personalizados. |
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Hubs de Eventos
 
-Subscreve eventos de Event Hubs para responder a eventos de ficheiro de captura.
+Subscreva eventos de Hubs de eventos para responder a capturar eventos de ficheiro. Os Hubs de eventos podem agir como uma origem de evento ou de manipulador de eventos. Os artigos seguintes mostram como utilizar os Hubs de eventos como uma origem.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Transmitir macrodados em fluxo para um armazém de dados](event-grid-event-hubs-integration.md) | Quando os Event Hubs cria um ficheiro de captura, o evento grelha enviará um evento para uma aplicação de função. A aplicação obtém o ficheiro de captura e migra dados para um armazém de dados. |
-| [Esquema de eventos](event-schema-event-hubs.md) | Mostra os campos em eventos de Event Hubs. |
+| [Tutorial: transmitir grandes quantidades de dados para um armazém de dados](event-grid-event-hubs-integration.md) | Quando os Hubs de eventos cria um ficheiro de captura, o Event Grid envia um evento para uma aplicação de funções. A aplicação obtém o arquivo de captura e migra os dados para um armazém de dados. |
+| [Esquema de eventos](event-schema-event-hubs.md) | Mostra os campos nos eventos de Hubs de eventos. |
+
+Para obter exemplos dos Hubs de eventos como um manipulador de mensagens em fila, consulte [manipulador de Hubs de eventos](event-handlers.md#event-hubs).
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Subscrever ao IoT Hub eventos para responder ao dispositivo criado e eliminar eventos.
+Subscrever ao IoT Hub eventos para responder a dispositivo criado em eliminado eventos.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Enviar notificações por e-mail sobre eventos de IoT Hub do Azure utilizando as Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação, sempre que um dispositivo é adicionado ao seu IoT hub. |
-| [Reagir a eventos de IoT Hub, utilizando a grelha de eventos para ações de Acionador](../iot-hub/iot-hub-event-grid.md) | Descrição geral de integrar os Hubs Iot a grelha de eventos. |
-| [Esquema de eventos](event-schema-iot-hub.md) | Mostra os campos do IoT Hub de eventos. |
+| [Tutorial: enviar notificações por e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu hub IoT. |
+| [Descrição geral: reagir a eventos do IoT Hub com o Event Grid para realizar ações](../iot-hub/iot-hub-event-grid.md) | Descrição geral da integração do Iot Hubs com o Event Grid. |
+| [Esquema de eventos](event-schema-iot-hub.md) | Mostra campos do IoT Hub de eventos. |
 
 ## <a name="media-services"></a>Serviços de Multimédia
 
-Subscreve eventos de Media Services para responder a eventos de estado de tarefa.
+Subscreva eventos de serviços de multimédia para responder a eventos de estado de tarefa.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [A agir os eventos de Media Services](../media-services/latest/reacting-to-media-services-events.md) | Descrição geral da integração dos Media Services com o evento grelha. |
-| [Eventos de Media Services do Azure de rota para um ponto final de web personalizado ao utilizar a CLI](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como enviar eventos a partir dos Media Services. |
-| [Esquema de eventos](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra os campos em eventos de Media Services. |
+| [Descrição geral: reagir a eventos de serviços de multimédia](../media-services/latest/reacting-to-media-services-events.md) | Descrição geral da integração dos serviços de multimédia com o Event Grid. |
+| [Tutorial: encaminhar eventos de serviços de multimédia do Azure para um ponto final web personalizado com a CLI](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como enviar eventos a partir dos serviços de multimédia. |
+| [Esquema de eventos](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra os campos nos eventos de serviços de multimédia. |
 
 ## <a name="resource-groups"></a>Grupos de recursos
 
-Subscreve eventos do grupo de recursos para responder a alterações em recursos através de um grupo de recursos.
+Subscreva eventos para responder a alterações em recursos num grupo de recursos do grupo de recursos.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Monitorizar alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza as alterações a uma máquina virtual e envia mensagens de correio eletrónico sobre essas alterações. |
-| [Esquema de Eventos](event-schema-resource-groups.md) | Mostra os campos no recurso de eventos de grupo. |
+| [Tutorial: monitorizar as alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza alterações a uma máquina virtual e envia e-mails sobre essas alterações. |
+| [CLI do Azure: subscrever eventos para um grupo de recursos](./scripts/event-grid-cli-resource-group.md)| Script de exemplo que subscreve eventos para um grupo de recursos. Envia eventos para um WebHook. |
+| [CLI do Azure: subscrever eventos para um grupo de recursos e o filtro para um recurso](./scripts/event-grid-cli-resource-group-filter.md) | Script de exemplo que subscreve eventos para um grupo de recursos e filtra eventos para um recurso. |
+| [PowerShell: subscrever eventos para um grupo de recursos](./scripts/event-grid-powershell-resource-group.md) | Script de exemplo que subscreve eventos para um grupo de recursos. Envia eventos para um WebHook. |
+| [PowerShell: subscrever eventos para um grupo de recursos e o filtro para um recurso](./scripts/event-grid-powershell-resource-group-filter.md) | Script de exemplo que subscreve eventos para um grupo de recursos e filtra eventos para um recurso. |
+| [Modelo do Resource Manager: subscrição do grupo de recursos](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | Subscreve eventos para um grupo de recursos. Envia eventos para um WebHook. |
+| [Esquema de Eventos](event-schema-resource-groups.md) | Mostra campos no recurso de eventos do grupo. |
 
 ## <a name="service-bus"></a>Service Bus
 
-Subscreve eventos de Service Bus para responder a mensagens sem um serviço de escuta do Active Directory.
+Subscreva eventos do Service Bus para responder a mensagens sem um serviço de escuta ativo.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Service Bus do Azure para exemplos de integração da grelha de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens do tópico de barramento de serviço para a função de aplicação e aplicação lógica. |
-| [Service Bus do Azure para descrição geral da integração de grelha de eventos](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Descrição geral da integração de Service Bus com o evento grelha. |
-| [Esquema de eventos](event-schema-service-bus.md) | Mostra os campos em eventos de Service Bus. |
+| [Tutorial: O Azure Service Bus para exemplos de integração do Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens de tópico do Service Bus para a função de aplicação e a aplicação lógica. |
+| [Descrição geral: Azure Service Bus para integração do Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Descrição geral da integração do Service Bus com o Event Grid. |
+| [Esquema de eventos](event-schema-service-bus.md) | Mostra campos de eventos do Service Bus. |
 
 ## <a name="storage"></a>Armazenamento
 
-Subscreve eventos de armazenamento de BLOBs para responder a eventos criados e eliminados do blob.
+Subscreva eventos de armazenamento de BLOBs para responder a eventos criados e eliminados de Blobs.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Eventos de armazenamento de BLOBs de rota para um ponto de final web personalizado com a CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de armazenamento de Blobs. |
-| [Eventos de armazenamento de BLOBs de rota para um ponto de final web personalizado com o PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar o Azure PowerShell para enviar eventos de armazenamento de Blobs. |
-| [Reagir aos eventos de armazenamento de Blobs](../storage/blobs/storage-blob-event-overview.md) | Descrição geral da integração de armazenamento de Blobs com o evento grelha. |
-| [Esquema de eventos](event-schema-blob-storage.md) | Mostra os campos em eventos de armazenamento de Blobs. |
+| [Início rápido: encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com a CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de armazenamento de BLOBs para um WebHook. |
+| [Início rápido: encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com o PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar o Azure PowerShell para enviar eventos de armazenamento de BLOBs para um WebHook. |
+| [Início rápido: criar e encaminhar eventos de armazenamento de Blobs com o portal do Azure](blob-event-quickstart-portal.md) | Mostra como utilizar o portal para enviar eventos de armazenamento de BLOBs para um WebHook. |
+| [CLI do Azure: subscrever eventos para uma conta de armazenamento de BLOBs](./scripts/event-grid-cli-blob.md) | Script de exemplo que subscreve eventos para uma conta de armazenamento de Blobs. Envia o evento para um WebHook. |
+| [PowerShell: subscrever eventos para uma conta de armazenamento de BLOBs](./scripts/event-grid-powershell-blob.md) | Script de exemplo que subscreve eventos para uma conta de armazenamento de Blobs. Envia o evento para um WebHook. |
+| [Modelo do Resource Manager: criar o armazenamento de BLOBs e subscrição](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Implementa uma conta de armazenamento de Blobs do Azure e subscreve eventos para essa conta de armazenamento. Envia eventos para um WebHook. |
+| [Descrição geral: reagir a eventos de armazenamento de BLOBs](../storage/blobs/storage-blob-event-overview.md) | Descrição geral da integração do armazenamento de Blobs com o Event Grid. |
+| [Esquema de eventos](event-schema-blob-storage.md) | Mostra os campos nos eventos de armazenamento de Blobs. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
-* Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).
+* Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
+* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

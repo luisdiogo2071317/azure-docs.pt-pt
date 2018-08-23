@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113597"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444515"
 ---
 # <a name="reference-architecture-simple-enterprise-integration"></a>Arquitetura de referência: integração empresarial simples
 
@@ -38,7 +38,7 @@ A arquitetura é composta pelos seguintes componentes:
 - **Portal de programador da gestão de API do Azure**. Cada instância da gestão de API do Azure é fornecido com o acesso para o [portal do programador](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). O portal do programador da gestão de API fornece acesso a exemplos de código e documentação. Pode testar as APIs no portal do programador.
 - **Azure Logic Apps**. [O Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) é uma plataforma sem servidor que é utilizada para criar o fluxo de trabalho empresariais e de integração.
 - **Conectores**. O Logic Apps utiliza [conectores](https://docs.microsoft.com/azure/connectors/apis-list) ligar ao normalmente utilizou os serviços. O Logic Apps já tenha centenas de conectores diferentes, mas também pode criar um conector personalizado.
-- **Endereço IP**. O serviço de gestão de API do Azure tem uma pública fixa [endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) e um nome de domínio. O nome de domínio é um subdomínio do azure-api.net, por exemplo, contoso. Azure-api.net. Logic Apps e do Service Bus também tem um endereço IP público. No entanto, nesta arquitetura, podemos restringir o acesso para chamar pontos finais de Logic Apps para o endereço IP de gestão de API (para segurança). As chamadas para o Service Bus são protegidas por uma assinatura de acesso partilhado (SAS).
+- **Endereço IP**. O serviço de gestão de API do Azure tem uma pública fixa [endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) e um nome de domínio. O nome de domínio predefinido é um subdomínio de azure-api.net, por exemplo, contoso. Azure-api.net, mas [domínios personalizados](https://docs.microsoft.com/azure/api-management/configure-custom-domain) também podem ser configuradas. Logic Apps e do Service Bus também tem um endereço IP público. No entanto, nesta arquitetura, podemos restringir o acesso para chamar pontos finais de Logic Apps para o endereço IP de gestão de API (para segurança). As chamadas para o Service Bus são protegidas por uma assinatura de acesso partilhado (SAS).
 - **DNS do Azure**. [O DNS do Azure](https://docs.microsoft.com/azure/dns/) é um serviço de alojamento para domínios DNS. O DNS do Azure oferece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os registos DNS ao utilizar as mesmas credenciais, APIs, ferramentas e de faturação que utiliza para os outros serviços do Azure. Para utilizar um nome de domínio personalizado, como contoso.com, crie registos DNS que mapeiam o nome de domínio personalizado para o endereço IP. Para obter mais informações, consulte [configurar um nome de domínio personalizado na gestão de API](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Uso [do Azure AD](https://docs.microsoft.com/azure/active-directory/) ou outro fornecedor de identidade para a autenticação. O Azure AD fornece autenticação para aceder a pontos finais da API, passando uma [JSON Web Token para a gestão de API](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) para validar. O Azure AD pode proteger o acesso ao portal do Programador de gestão de API (apenas escalões Standard e Premium).
 

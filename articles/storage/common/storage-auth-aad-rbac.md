@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520933"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058208"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gerir os direitos de acesso a dados de armazenamento do Azure com o RBAC (pré-visualização)
 
@@ -32,7 +32,7 @@ O armazenamento do Azure suporta funções do RBAC incorporadas e personalizadas
 
 Para obter mais informações sobre como as funções incorporadas são definidas para o armazenamento do Azure, consulte [compreender as definições de função](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
-Também pode definir funções personalizadas para utilização com contentores e filas. Para obter mais informações, consulte [criar funções personalizadas para controlo de acesso](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
+Também pode definir funções personalizadas para utilização com contentores e filas. Para obter mais informações, consulte [criar funções personalizadas para controlo de acesso](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
 > [!IMPORTANT]
 > Esta pré-visualização destina-se apenas a utilização de não produção. Contratos de nível de serviço de produção (SLAs) não estarão disponíveis até que a integração do Azure AD para o armazenamento do Azure é declarada em disponibilidade geral. Se a integração do Azure AD ainda não é suportada para o seu cenário, continue a usar a autorização de chave partilhada ou SAS tokens em seus aplicativos. Para obter mais informações sobre a pré-visualização, veja [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: a86c4c4227795a712dd51ace1fbefe9d2b96518a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116117"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445682"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Arquitetura de referência: integração empresarial com filas e eventos
 
@@ -42,7 +42,7 @@ A arquitetura é composta pelos seguintes componentes:
 - **Conectores**. O Logic Apps utiliza [conectores](https://docs.microsoft.com/azure/connectors/apis-list) ligar ao normalmente utilizou os serviços. O Logic Apps já tenha centenas de conectores diferentes, mas também pode criar um conector personalizado.
 - **O Azure Service Bus**. [Do Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) fornece mensagens seguras e fiáveis. Sistema de mensagens pode ser utilizado para desassociar os aplicativos e integrar com outros sistemas baseados em mensagens.
 - **Azure Event Grid**. [Grelha de eventos](https://docs.microsoft.com/azure/event-grid/overview) é uma plataforma sem servidor que é utilizada para publicar e entregar eventos de aplicativo.
-- **Endereço IP**. O serviço de gestão de API do Azure tem uma pública fixa [endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) e um nome de domínio. O nome de domínio é um subdomínio do azure-api.net, por exemplo, contoso. Azure-api.net. Logic Apps e do Service Bus também tem um endereço IP público. No entanto, nesta arquitetura, podemos restringir o acesso para chamar pontos finais de Logic Apps para o endereço IP de gestão de API (para segurança). As chamadas para o Service Bus são protegidas por uma assinatura de acesso partilhado (SAS).
+- **Endereço IP**. O serviço de gestão de API do Azure tem uma pública fixa [endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) e um nome de domínio. O nome de domínio predefinido é um subdomínio de azure-api.net, por exemplo, contoso. Azure-api.net, mas [domínios personalizados](https://docs.microsoft.com/azure/api-management/configure-custom-domain) também podem ser configuradas. Logic Apps e do Service Bus também tem um endereço IP público. No entanto, nesta arquitetura, podemos restringir o acesso para chamar pontos finais de Logic Apps para o endereço IP de gestão de API (para segurança). As chamadas para o Service Bus são protegidas por uma assinatura de acesso partilhado (SAS).
 - **DNS do Azure**. [O DNS do Azure](https://docs.microsoft.com/azure/dns/) é um serviço de alojamento para domínios DNS. O DNS do Azure oferece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os registos DNS ao utilizar as mesmas credenciais, APIs, ferramentas e de faturação que utiliza para os outros serviços do Azure. Para utilizar um nome de domínio personalizado (como contoso.com), crie registos DNS que mapeiam o nome de domínio personalizado para o endereço IP. Para obter mais informações, consulte [configurar um nome de domínio personalizado na gestão de API](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Uso [do Azure AD](https://docs.microsoft.com/azure/active-directory/) ou outro fornecedor de identidade para a autenticação. O Azure AD fornece autenticação para aceder a pontos finais da API, passando uma [JSON Web Token para a gestão de API](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) para validar. O Azure AD pode proteger o acesso ao portal do Programador de gestão de API (apenas escalões Standard e Premium).
 

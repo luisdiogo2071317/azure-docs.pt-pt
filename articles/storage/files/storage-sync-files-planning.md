@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521827"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617197"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -151,7 +151,7 @@ Como o antivírus funciona através da análise de ficheiros para o código mali
 As seguintes soluções são conhecidas para suportar a ignorar ficheiros offline:
 
 - [O Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - O Windows Defender automaticamente ignora a leitura esses ficheiros. Temos testado Defender e identificou um problema menor: ao adicionar um servidor a um grupo de sincronização existente, arquivos de tamanho inferior de 800 bytes são recuperados (transferido) no novo servidor. Estes ficheiros permanecerão no novo servidor e não pode ser camados, uma vez que estas não cumprem o requisito de tamanho de camadas (> 64kb).
+    - O Windows Defender ignora automaticamente ficheiros de leitura com o atributo offline definido. Temos testado Defender e identificou um problema menor: ao adicionar um servidor a um grupo de sincronização existente, arquivos de tamanho inferior de 800 bytes são recuperados (transferido) no novo servidor. Estes ficheiros permanecerão no novo servidor e não pode ser camados, uma vez que estas não cumprem o requisito de tamanho de camadas (> 64kb).
 - [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP funciona da mesma forma Defender; Veja acima
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Sudeste da Austrália | Victoria |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
+| Índia Central | Pune |
 | EUA Central | Iowa |
 | Ásia Oriental | RAE de Hong Kong |
 | EUA Leste | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
 | Europa do Norte | Irlanda |
+| Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
 | Reino Unido Oeste | Cardiff |
@@ -212,15 +214,17 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 
 | Região primária      | Região emparelhada      |
 |---------------------|--------------------|
-| Leste da Austrália      | Austrália Southest |
+| Leste da Austrália      | Sudeste da Austrália |
 | Sudeste da Austrália | Leste da Austrália     |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
+| Índia Central       | Sul da Índia        |
 | EUA Central          | EUA Leste 2          |
 | Ásia Oriental           | Sudeste Asiático     |
 | EUA Leste             | EUA Oeste            |
 | EUA Leste 2           | EUA Central         |
 | Europa do Norte        | Europa Ocidental        |
+| Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |
 | Reino Unido Sul            | Reino Unido Oeste            |
 | Reino Unido Oeste             | Reino Unido Sul           |

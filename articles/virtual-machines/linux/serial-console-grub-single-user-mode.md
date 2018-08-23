@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e0b5978f1c0254cdd4c0216a4188e84f67eb4263
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177661"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057412"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 Modo de utilizador único é um ambiente mínimo com a funcionalidade mínima. Pode ser útil para os problemas de rede ou investigar problemas de arranque como menos de serviços podem ser executadas em segundo plano, e, consoante o runlevel, um sistema de ficheiros poderá não até mesmo ser automaticamente montado. Isto é útil para investigar situações como um sistema de ficheiros danificado, um fstab quebrada, ou (configuração de iptables incorreta) de conectividade de rede.
@@ -64,7 +64,7 @@ Se tiver configurado o GRUB e raiz aceder com as instruções acima, em seguida,
 1. Prima Ctrl + X para sair e reiniciar com as definições aplicadas
 1. Será solicitado a palavra-passe de administrador antes de poder entrar no modo de utilizador único – Esta é a mesma palavra-passe que criou nas instruções acima    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-systemd-unit-rescue-target.png)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Introduza o modo de utilizador único sem conta raiz habilitada no RHEL
 Se não passou os passos acima para permitir que o utilizador de raiz, ainda pode repor a palavra-passe de raiz. Utilize as instruções seguintes:
@@ -81,7 +81,7 @@ Se não passou os passos acima para permitir que o utilizador de raiz, ainda pod
 1. Depois de efetuar o arranque no modo de utilizador único, escreva `chroot /sysroot` alternar para o `sysroot` desbloqueado por
 1. Agora, está raiz. Pode repor a palavra-passe de raiz com `passwd` e, em seguida, utilize as instruções acima para entrar no modo de utilizador único. Tipo de `reboot -f` para reiniciar o computador quando tiver terminado.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-rd-break.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Nota: A executar as instruções acima irá diminuir o no shell de emergência, pelo que também pode executar tarefas como edição `fstab`. No entanto, a sugestão geralmente aceita é para repor a palavra-passe de raiz e usá-lo para entrar no modo de utilizador único. 
 
@@ -136,7 +136,7 @@ Acesso GRUB no SLES requer a configuração do carregador de inicialização por
 1. Para introduzir GRUB, reinicie a VM e pressione qualquer tecla durante a seqüência de inicialização para fazer o GRUB permanecer no ecrã
     - O tempo limite predefinido para GRUB é 1s. Pode modificar esta alterando o `GRUB_TIMEOUT` variável no `/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-bootloader.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Modo de utilizador único no SUSE SLES
 Se o SLES não conseguem arrancar normalmente será automaticamente colocada numa shell de emergência. Para introduzir manualmente o shell de emergência, utilize as instruções seguintes:

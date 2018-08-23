@@ -2,20 +2,20 @@
 title: Artigo de tutorial para as funcionalidades de pré-visualização do Azure Machine Learning - Interface de Linha de Comandos | Microsoft Docs
 description: Este tutorial orienta-o ao longo de todos os passos necessários para concluir uma classificação de Íris completa a partir da interface de linha de comandos.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 05238c27a5654ae24c619b52d769abbf90b940e7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918414"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: Classificar Íris com a interface de linha de comandos
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados ponto a ponto integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
@@ -252,7 +252,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 Utilizando o ID do serviço Web da saída do passo anterior, chame-o e teste-o. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

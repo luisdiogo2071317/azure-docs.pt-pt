@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 556a7d9d921e0f2307445f8f6738b9b845c83112
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006602"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060352"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados de equipa em ação: utilização do Azure HDInsight Hadoop clusters
 Nestas instruções, utilizamos o [Team Data Science Process (TDSP)](overview.md) num cenário ponto-a-ponto. Utilizamos uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e os dados de engenharia da funcionalidade de publicamente disponíveis [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados e dimensionar os dados. Para lidar com classificação binária e várias classes e tarefas de previsão de regressão, desenvolvemos os modelos de dados com o Azure Machine Learning. 
@@ -75,7 +75,7 @@ Determine o tipo de previsões de indisponibilidade que deve escolher com base n
 
 Pode configurar um ambiente do Azure para análise avançada que emprega um cluster do HDInsight em três passos:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md): esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight também residem aqui.
+1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight também residem aqui.
 2. [Personalizar clusters do Hadoop de HDInsight do Azure para o processo de análise avançada e tecnologia](customize-hadoop-cluster.md). Este passo cria um cluster de Hadoop do HDInsight com 64 bits Anaconda Python 2.7 instalados em todos os nós. Existem dois passos importantes a serem lembrados ao personalizar o seu cluster do HDInsight.
    
    * Lembre-se de vincular a conta de armazenamento que criou no passo 1 com o seu cluster do HDInsight quando estiver a criar. Esta conta de armazenamento aceda aos dados que são processados dentro do cluster.
