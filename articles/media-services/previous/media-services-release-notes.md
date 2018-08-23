@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: juliako
-ms.openlocfilehash: 220ff194ab5f8fa49ba7603ecd91122459d4dc1e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249228"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056117"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
 Estas notas de versão para serviços de multimédia do Azure resumir as alterações de versões anteriores e problemas conhecidos.
@@ -35,7 +35,7 @@ Estas notas de versão para serviços de multimédia do Azure resumir as altera�
 | Problema | Descrição |
 | --- | --- |
 | Vários cabeçalhos HTTP comuns não são fornecidos na REST API. |Se desenvolver aplicativos de serviços de multimédia com a API REST, achar que alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, ID de pedido e retorno-CLIENT-REQUEST-ID) não são suportados. Os cabeçalhos serão adicionados numa atualização futura. |
-| Percentagem de codificação não é permitida. |Serviços de multimédia utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, a percentagem de codificação não é permitida. O valor da propriedade do nome não pode ter qualquer um dos seguintes [por cento de codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, pode haver apenas um "." para a extensão de nome de ficheiro. |
+| Percentagem de codificação não é permitida. |Serviços de multimédia utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Por esse motivo, a percentagem de codificação não é permitida. O valor da propriedade do nome não pode ter qualquer um dos seguintes [por cento de codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, pode haver apenas um "." para a extensão de nome de ficheiro. |
 | O método ListBlobs que faz parte da falha de 3.x de versão do SDK de armazenamento do Azure. |Serviços de multimédia gera URLs SAS com base na [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) versão. Se pretender utilizar o SDK de armazenamento para listar os blobs num contentor de BLOBs, utilize o [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) método que faz parte da versão do SDK de armazenamento 2.x. |
 | O mecanismo de limitação os serviços de multimédia restringe a utilização de recursos para aplicativos que efetuam pedidos excessivos para o serviço. O serviço pode devolver o código de estado HTTP "Serviço indisponível" 503. |Para obter mais informações, consulte a descrição do código de estado HTTP 503 na [códigos de erro de serviços de multimédia](media-services-encoding-error-codes.md). |
 | Quando consultar entidades, um limite de 1000 entidades é devolvido ao mesmo tempo porque a versão 2 REST pública limita os resultados da consulta para 1000 resultados. |Utilizar Skip e tirar (.NET) / principais (REST), conforme descrito em [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |

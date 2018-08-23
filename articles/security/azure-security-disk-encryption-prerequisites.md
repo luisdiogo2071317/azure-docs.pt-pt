@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5421858fd7f31f18c2e6a1e3693b67b3c47a6945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399903"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42061494"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption 
  Neste artigo, os pré-requisitos do Azure Disk Encryption, explica os itens que precisam de estar em vigor antes de poder utilizar o Azure Disk Encryption. Juntamente com a pré-requisitos gerais, está integrado do Azure Disk Encryption [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) e utiliza uma aplicação do Azure AD para fornecer autenticação para gerir as chaves de encriptação no Cofre de chaves. Também pode pretender utilizar [do Azure PowerShell](/powershell/azure/overview) ou o [CLI do Azure](/cli/azure/) para configurar ou configurar o Cofre de chaves e a aplicação do Azure AD.
@@ -109,7 +109,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 
 ## <a name="bkmk_CLI"></a> CLI do Azure
 
-O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta da linha de comandos para gerir recursos do Azure. A CLI é concebida para consultar dados com flexibilidade, oferecem suporte a operações de longa execução como processos sem bloquear e tornar a escrita de scripts fácil. Pode utilizá-lo no seu browser com o [Azure Cloud Shell](/cloud-shell/overview.md) ou pode instalá-lo no seu computador local e utilizá-lo em qualquer sessão do PowerShell.
+O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta da linha de comandos para gerir recursos do Azure. A CLI é concebida para consultar dados com flexibilidade, oferecem suporte a operações de longa execução como processos sem bloquear e tornar a escrita de scripts fácil. Pode utilizá-lo no seu browser com o [Azure Cloud Shell](../cloud-shell/overview.md) ou pode instalá-lo no seu computador local e utilizá-lo em qualquer sessão do PowerShell.
 
 1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) para utilização no seu computador local (opcional):
 
@@ -174,7 +174,7 @@ Pode criar um cofre de chaves com o Azure PowerShell através da [New-AzureRmKey
 Pode gerir o seu Cofre de chaves com a CLI do Azure com o [az keyvault](/cli/azure/keyvault#commands) comandos. Para criar um cofre de chaves, utilize [az keyvault criar](/cli/azure/keyvault#az-keyvault-create).
 
 1. Se for necessário, [ligar à sua subscrição do Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
-2. Criar um novo grupo de recursos, se necessário, com [criar grupo az](/cli/azure/groupt#az-group-create). Para listar localizações, utilize [lista de conta de az-locations](/cli/azure/account#az-account-list) 
+2. Criar um novo grupo de recursos, se necessário, com [criar grupo az](/cli/azure/group#az-group-create). Para listar localizações, utilize [lista de conta de az-locations](/cli/azure/account#az-account-list) 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
@@ -260,7 +260,7 @@ A aplicação do Azure AD tem direitos de acesso a chaves ou segredos no cofre. 
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Definir a política de acesso do Cofre de chaves para a aplicação do Azure AD com a CLI do Azure
-Uso [az keyvault conjunto-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) para definir a política de acesso. Para obter mais informações, consulte [gerir Key Vault com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
+Uso [az keyvault conjunto-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) para definir a política de acesso. Para obter mais informações, consulte [gerir Key Vault com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
 
 1. Se for necessário, [ligar à sua subscrição do Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Forneça o principal de serviço que criou através do acesso a CLI do Azure para obter segredos e moldagem de chaves com o seguinte comando:

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525387"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42060197"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução à pré-visualização do Azure Data Lake Storage geração 2
 
@@ -33,6 +33,8 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 - **Gestão** é mais fácil, pois pode organizar e manipular arquivos por meio de diretórios e subdiretórios.
 
+- **Segurança** é praticável, pois pode definir permissões de acesso POSIX nos ficheiros de pastas ou indivíduos.
+
 - **Relação custo-eficácia** se tornou possível de geração 2 de armazenamento do Data Lake é criado com base em cima o baixo custo [armazenamento de Blobs do Azure](../blobs/storage-blobs-introduction.md). As funcionalidades adicionais reduzir o custo total de propriedade para executar a análise de macrodados no Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos de geração 2 de armazenamento do Data Lake
@@ -43,9 +45,7 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 - **Acesso compatível do Hadoop**: geração 2 de armazenamento do Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](./abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](../../hdinsight/index.yml) e [Azure Databricks](../../azure-databricks/index.yml) para acessar dados armazenados no armazenamento do Data Lake Geração 2.
 
-- **Acesso a dados de protocolos múltiplos e multimodal**: geração 2 de armazenamento do Data Lake é considerado um **multi modal** serviço de armazenamento à medida que fornece tanto o arquivo de objetos como o arquivo de interfaces do sistema para os mesmos dados **ao mesmo tempo tempo**. Isto é conseguido fornecendo vários pontos de extremidade de protocolo que poderá aceder aos mesmos dados. 
-
-    Ao contrário de outras soluções de análise, os dados armazenados na geração 2 de armazenamento do Data Lake não tem de mover ou transformado antes de poder executar uma variedade de ferramentas de análise. Pode aceder a dados por meio de tradicional [APIs de armazenamento de BLOBs](../blobs/storage-blobs-introduction.md) (por exemplo: ingerir dados via [captura de Hubs de eventos](../../event-hubs/event-hubs-capture-enable-through-portal.md)) e processar dados com o HDInsight ou o Azure Databricks, ao mesmo tempo. 
+- **Um conjunto mais amplo de permissões de POSIX**: O modelo de segurança para a geração 2 do Data Lake é totalmente compatível permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas por meio de ferramentas de administração ou estruturas como o Hive e do Spark.
 
 - **Custo-eficiência**: geração 2 de armazenamento do Data Lake inclui a capacidade de armazenamento de baixo custo e transações. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](../common/storage-lifecycle-managment-concepts.md).
 

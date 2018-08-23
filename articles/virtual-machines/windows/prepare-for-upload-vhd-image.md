@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398976"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059942"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
 Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta **apenas as VMs de geração 1** que estejam no formato de ficheiro VHD e que tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -67,7 +67,7 @@ Na VM que pretende carregar para o Azure, executar todos os comandos nas etapas 
 1. Remova qualquer rota estática persistente na tabela de encaminhamento:
    
    * Para ver a tabela de rotas, execute `route print` no prompt de comando.
-   * Verifique os **rotas de persistência** secções. Se existir uma rota persistente, utilize [route delete](https://technet.microsoft.com/library/cc739598.apx) removê-lo.
+   * Verifique os **rotas de persistência** secções. Se existir uma rota persistente, utilize o **route delete** comando para removê-lo.
 2. Remova o proxy de WinHTTP:
    
     ```PowerShell
@@ -90,7 +90,7 @@ Na VM que pretende carregar para o Azure, executar todos os comandos nas etapas 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. Defina o perfil de energia o **elevado desempenho**:
 
@@ -102,17 +102,17 @@ Na VM que pretende carregar para o Azure, executar todos os comandos nas etapas 
 Certifique-se de que cada um dos seguintes serviços do Windows está definida para o **valores predefinidos do Windows**. Estes são os números mínimo de serviços que devem ser configurados para se certificar de que a VM tem conectividade. Para repor as definições de arranque, execute os seguintes comandos:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>Atualizar definições de registo de ambiente de trabalho remoto
@@ -307,11 +307,22 @@ Certifique-se de que as seguintes definições estão configuradas corretamente 
     - Computador configuração Windows \ direitos de utilizador\negar início de sessão através dos serviços de ambiente de trabalho remoto
 
 
-9. Reinício da VM para se certificar de que o Windows está ainda em bom estado pode ser contatado, utilizando a ligação de RDP. Neste momento, pode querer criar uma VM no seu local Hyper-V para certificar-se de que a VM está a iniciar completamente e, em seguida, testar, mesmo que esteja acessível de RDP.
+9. Verifique a política de AD seguinte para se certificar de que não a remover qualquer um dos seguintes as contas de acesso necessário:
 
-10. Remover quaisquer filtros de Interface de Driver de transporte Extras, como o software que analisa TCP pacotes ou firewalls extras. Poderá também ver isso num estágio posterior depois da VM é implementada no Azure, se necessário.
+    - Computador configuração Windows Settings\Local Policies\User Rights Assignment\Access este computação da rede
 
-11. Desinstale qualquer software de terceiros e controladores que está relacionado com componentes físicos ou qualquer outra tecnologia de virtualização.
+    Os seguintes grupos devem estar listados nesta política:
+
+    - Administradores
+    - Operadores de cópia de segurança
+    - Todos
+    - Utilizadores
+
+10. Reinício da VM para se certificar de que o Windows está ainda em bom estado pode ser contatado, utilizando a ligação de RDP. Neste momento, pode querer criar uma VM no seu local Hyper-V para certificar-se de que a VM está a iniciar completamente e, em seguida, testar, mesmo que esteja acessível de RDP.
+
+11. Remover quaisquer filtros de Interface de Driver de transporte Extras, como o software que analisa TCP pacotes ou firewalls extras. Poderá também ver isso num estágio posterior depois da VM é implementada no Azure, se necessário.
+
+12. Desinstale qualquer software de terceiros e controladores que está relacionado com componentes físicos ou qualquer outra tecnologia de virtualização.
 
 ### <a name="install-windows-updates"></a>Instalar atualizações do Windows
 A configuração ideal é **ter o nível de patch da máquina em que a versão mais recente**. Se não for possível, certifique-se de que as seguintes atualizações são instaladas:

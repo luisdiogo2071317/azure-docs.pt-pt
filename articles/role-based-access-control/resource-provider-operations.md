@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4e062b1bc56eada2fa2c27797151e265271022e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 86a2fba7730a653a254a2fd996f9e45ed322fbe3
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621162"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056132"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -391,8 +391,12 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | --- | --- | --- |
 > | Ação | Microsoft.Authorization/checkAccess/action | Verifica se o autor da chamada está autorizado a executar uma ação específica |
 > | Ação | Microsoft.Authorization/classicAdministrators/delete | Remove o administrador da subscrição. |
+> | Ação | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Obtém o administrador opreation Estados da subscrição. |
 > | Ação | Microsoft.Authorization/classicAdministrators/read | Lê os administradores da subscrição. |
 > | Ação | Microsoft.Authorization/classicAdministrators/write | Adiciona ou modifica o administrador de uma subscrição. |
+> | Ação | Microsoft.Authorization/denyAssignments/delete | Elimine uma atribuição de negação no âmbito especificado. |
+> | Ação | Microsoft.Authorization/denyAssignments/read | Obtenha informações sobre uma atribuição de negação. |
+> | Ação | Microsoft.Authorization/denyAssignments/write | Crie uma atribuição de negação no âmbito especificado. |
 > | Ação | Microsoft.Authorization/elevateAccess/action | Garante ao chamador Administrador de Acesso dos Utilizadores acesso ao âmbito do inquilino |
 > | Ação | Microsoft.Authorization/locks/delete | Elimina bloqueios no âmbito especificado. |
 > | Ação | Microsoft.Authorization/locks/read | Obtém bloqueios no âmbito especificado. |
@@ -1165,6 +1169,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | Obtém a vista de instância do Conjunto de Dimensionamento da Máquina Virtual |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | Atualiza manualmente as instâncias para o modelo mais recente do Conjunto de Dimensionamento da Máquina Virtual |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | Obter as propriedades de todas as interfaces de rede de um Conjunto de Dimensionamento de Máquina Virtual |
+> | Ação | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Inicia uma atualização para mover todas as instâncias do Conjunto de Dimensionamento de Máquinas Virtuais para a versão de SO de Imagem de Plataforma mais recente disponível. |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Obtém o histórico de atualizações do SO de um Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Executa a manutenção planeada nas instâncias do Conjunto de Dimensionamento de Máquina Virtual |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Desliga as instâncias do Conjunto de Dimensionamento da Máquina Virtual |
@@ -1244,10 +1249,23 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ContainerRegistry/locations/operationResults/read | Obtém um resultado da operação assíncrona |
 > | Ação | Microsoft.ContainerRegistry/operations/read | Apresenta uma lista de todas as operações de API de REST de registo de contentor do Azure disponíveis |
 > | Ação | Microsoft.ContainerRegistry/register/action | Regista a subscrição para o fornecedor de recursos de registo de contentor e permite a criação de registos de contentores. |
+> | Ação | Microsoft.ContainerRegistry/registries/builds/cancel/action | Cancela uma compilação existente. |
+> | Ação | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Obtém uma ligação para transferir os registos de compilação. |
+> | Ação | Microsoft.ContainerRegistry/registries/builds/read | Obtém as propriedades da compilação especificada ou lista todas as compilações para o registo de contentor especificado. |
+> | Ação | Microsoft.ContainerRegistry/registries/builds/write | Atualiza uma compilação para um registo de contentores com os parâmetros especificados. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/delete | Elimina uma tarefa de compilação de um registo de contentor. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | Lista as propriedades de controle de origem para uma tarefa de compilação. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/read | Obtém as propriedades da tarefa de compilação especificado ou lista todas as tarefas de compilação para o registo de contentor especificado. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Elimina um passo de compilação a partir de uma tarefa de compilação. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Apresenta os argumentos de compilação para um passo de compilação, incluindo os argumentos secretos. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | Obtém as propriedades do passo de compilação especificado ou lista todos os passos de compilação para a tarefa de compilação especificado. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Cria ou atualiza um passo de compilação para uma tarefa de compilação com os parâmetros especificados. |
+> | Ação | Microsoft.ContainerRegistry/registries/buildTasks/write | Cria ou atualiza uma tarefa de compilação para um registo de contentores com os parâmetros especificados. |
 > | Ação | Microsoft.ContainerRegistry/registries/delete | Elimina um registo de contentor. |
 > | Ação | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | Elimina um filtro de grelha de eventos a partir de um registo de contentor. |
 > | Ação | Microsoft.ContainerRegistry/registries/eventGridFilters/read | Obtém as propriedades do filtro de grelha de eventos especificado ou lista todos os filtros de grelha de eventos para o registo de contentor especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Cria ou atualiza um filtro de grelha de eventos para um registo de contentores com os parâmetros especificados. |
+> | Ação | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | Obtém a localização de carregamento para o usuário seja capaz de carregar a origem. |
 > | Ação | Microsoft.ContainerRegistry/registries/importImage/action | Importe imagem para o registo de contentor com os parâmetros especificados. |
 > | Ação | Microsoft.ContainerRegistry/registries/listCredentials/action | Lista as credenciais de início de sessão para o registo de contentor especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/listPolicies/read | Lista as políticas para o registo de contentor especificado |
@@ -1256,12 +1274,18 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico do recurso |
 > | Ação | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
 > | Ação | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para a Microsoft ContainerRegistry |
+> | Ação | Microsoft.ContainerRegistry/registries/pull/read | Solicitar ou obter imagens a partir de um registo de contentor. |
+> | Ação | Microsoft.ContainerRegistry/registries/push/write | Push ou escrever as imagens para um registo de contentor. |
+> | Ação | Microsoft.ContainerRegistry/registries/quarantineRead/read | Solicitar ou obter imagens em quarentena do container registry |
+> | Ação | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Escrita/modificar o estado de quarentena de imagens em quarentena |
+> | Ação | Microsoft.ContainerRegistry/registries/queueBuild/action | Cria uma nova compilação com base nos parâmetros de pedido e adicioná-lo para a fila de compilação. |
 > | Ação | Microsoft.ContainerRegistry/registries/read | Obtém as propriedades de registo de contentor especificado ou apresenta uma lista de todos os registos de contentores sob a subscrição ou grupo de recursos especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/regenerateCredential/action | Regenera um das credenciais de início de sessão para o registo de contentor especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/replications/delete | Elimina uma replicação de um registo de contentor. |
 > | Ação | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | Obtém um Estado de operação de async de replicação |
 > | Ação | Microsoft.ContainerRegistry/registries/replications/read | Obtém as propriedades da replicação especificada ou lista todas as replicações para o registo de contentor especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/replications/write | Cria ou atualiza uma replicação para um registo de contentores com os parâmetros especificados. |
+> | Ação | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull metadados de confiança de conteúdo para um registo de contentor. |
 > | Ação | Microsoft.ContainerRegistry/registries/updatePolicies/write | Atualiza as políticas para o registo de contentor especificado |
 > | Ação | Microsoft.ContainerRegistry/registries/webhooks/delete | Elimina um webhook a partir de um registo de contentor. |
 > | Ação | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | Obtém a configuração de URI de serviço e os cabeçalhos personalizados para o webhook. |
@@ -1524,9 +1548,11 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.DataFactory/factories/pipelineruns/activityruns/read | Lê que a atividade é executada para o ID de execução de pipeline especificado |
 > | Ação | Microsoft.DataFactory/factories/pipelineruns/cancel/action | Cancela o pipeline de execução especificado pelo ID de execução. |
 > | Ação | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/action | A atividade é executada para o pipeline especificado de consultas executadas ID. |
+> | Ação | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/read | Lê que o resultado da atividade de consulta é executada para o ID de execução de pipeline especificado |
 > | Ação | Microsoft.DataFactory/factories/pipelineruns/read | Lê as execuções de Pipeline. |
 > | Ação | Microsoft.DataFactory/factories/pipelines/createrun/action | Cria uma execução do pipeline. |
 > | Ação | Microsoft.DataFactory/factories/pipelines/delete | Elimina o Pipeline. |
+> | Ação | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | Obtém o progresso das execuções de atividade. |
 > | Ação | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | Lê a execução de Pipeline. |
 > | Ação | Microsoft.DataFactory/factories/pipelines/read | Lê o Pipeline. |
 > | Ação | Microsoft.DataFactory/factories/pipelines/write | Criar ou atualizar o Pipeline |
@@ -1535,7 +1561,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para as fábricas |
 > | Ação | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para as fábricas |
 > | Ação | Microsoft.DataFactory/factories/querypipelineruns/action | Consulta as execuções de Pipeline. |
+> | Ação | Microsoft.DataFactory/factories/querypipelineruns/read | Lê o resultado das execuções de Pipeline de consulta. |
 > | Ação | Microsoft.DataFactory/factories/querytriggerruns/action | Consulta as execuções do acionador. |
+> | Ação | Microsoft.DataFactory/factories/querytriggerruns/read | Lê o resultado de execuções do acionador. |
 > | Ação | Microsoft.DataFactory/factories/read | Lê a fábrica de dados. |
 > | Ação | Microsoft.DataFactory/factories/triggerruns/read | Lê as execuções do acionador. |
 > | Ação | Microsoft.DataFactory/factories/triggers/delete | Elimina qualquer acionador. |
@@ -1546,6 +1574,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.DataFactory/factories/triggers/write | Cria ou atualiza qualquer acionador. |
 > | Ação | Microsoft.DataFactory/factories/write | Criar ou atualizar a fábrica de dados |
 > | Ação | Microsoft.DataFactory/locations/configureFactoryRepo/action | Configura o repositório para a fábrica. |
+> | Ação | Microsoft.DataFactory/operations/read | Lê todas as operações no fornecedor de fábrica de dados do Microsoft. |
 > | Ação | Microsoft.DataFactory/register/action | Regista a subscrição para o fornecedor de recursos de fábrica de dados. |
 > | Ação | Microsoft.DataFactory/unregister/action | Anula o registo da subscrição para o fornecedor de recursos de fábrica de dados. |
 
@@ -2071,6 +2100,14 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Features/providers/features/unregister/action | Anula o registo da funcionalidade para uma subscrição de um fornecedor de recursos específico. |
 > | Ação | Microsoft.Features/register/action | Regista a funcionalidade de uma subscrição. |
 
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Tipo de Acção | Operação | Descrição |
+> | --- | --- | --- |
+> | Ação | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | A atribuição de configuração de convidado de GET. |
+> | Ação | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Crie nova atribuição de configuração de convidado. |
+
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -2209,13 +2246,13 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.Insights/Metrics/Write | Escrever métricas |
 > | Ação | Microsoft.Insights/MigrateToNewpricingModel/Action | Migrar subscrição para o novo modelo de preços |
 > | Ação | Microsoft.Insights/Operations/Read | Operações de leitura |
-> | Ação | Microsoft.Insights/Register/Action | Registar o fornecedor de Microsoft Insights |
+> | Ação | Microsoft.Insights/Register/Action | Registar o fornecedor do Microsoft Insights |
 > | Ação | Microsoft.Insights/RollbackToLegacyPricingModel/Action | Anular subscrição para o modelo de preços legado |
 > | Ação | Microsoft.Insights/ScheduledQueryRules/Delete | A eliminar uma regra de consulta agendada |
 > | Ação | Microsoft.Insights/ScheduledQueryRules/Read | A ler uma regra de consulta agendada |
 > | Ação | Microsoft.Insights/ScheduledQueryRules/Write | A escrever uma regra de consulta agendada |
 > | Ação | Microsoft.Insights/Tenants/Register/Action | Inicia o fornecedor do Microsoft Insights |
-> | Ação | Microsoft.Insights/Unregister/Action | Registar o fornecedor de Microsoft Insights |
+> | Ação | Microsoft.Insights/Unregister/Action | Registar o fornecedor do Microsoft Insights |
 > | Ação | Microsoft.Insights/Webtests/Delete | A eliminar uma configuração de webtest |
 > | Ação | Microsoft.Insights/Webtests/GetToken/Read | A ler um token de webtest |
 > | Ação | Microsoft.Insights/Webtests/MetricDefinitions/Read | A ler definições de métrica de webtest |
@@ -2359,21 +2396,21 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | Ler dados da tabela ADAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | Ler dados da tabela ADReplicationResult |
 > | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | Ler dados da tabela ADSecurityAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Ler dados de tabela alerta |
+> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Ler dados da tabela de Alertas |
 > | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | Ler dados da tabela AlertHistory |
-> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Ler dados a partir da tabela do Application Insights |
+> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Ler dados da tabela ApplicationInsights |
 > | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Ler dados da tabela AzureActivity |
 > | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | Ler dados da tabela AzureMetrics |
 > | DataAction | Microsoft.LogAnalytics/logs/BoundPort/read | Ler dados da tabela BoundPort |
 > | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | Ler dados da tabela CommonSecurityLog |
-> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Ler dados a partir da tabela de grupo de computador |
+> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Ler dados da tabela ComputerGroup |
 > | DataAction | Microsoft.LogAnalytics/logs/ConfigurationChange/read | Ler dados da tabela ConfigurationChange |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | Ler dados a partir da tabela de ConfigurationData |
+> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | Ler dados da tabela ConfigurationData |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerImageInventory/read | Ler dados da tabela ContainerImageInventory |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | Ler dados da tabela ContainerInventory |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | Ler dados da tabela ContainerLog |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | Ler dados da tabela ContainerServiceLog |
-> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Leitura de dados de qualquer registo personalizado |
+> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | A ler dados de registos personalizados |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | Ler dados da tabela DeviceAppCrash |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | Ler dados da tabela DeviceAppLaunch |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | Ler dados da tabela DeviceCalendar |
@@ -2381,7 +2418,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceConnectSession/read | Ler dados da tabela DeviceConnectSession |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceEtw/read | Ler dados da tabela DeviceEtw |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceHardwareHealth/read | Ler dados da tabela DeviceHardwareHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | Ler dados a partir da tabela de DeviceHealth |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | Ler dados da tabela DeviceHealth |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceHeartbeat/read | Ler dados da tabela DeviceHeartbeat |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeHeartbeat/read | Ler dados da tabela DeviceSkypeHeartbeat |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeSignIn/read | Ler dados da tabela DeviceSkypeSignIn |
@@ -2397,10 +2434,10 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | Ler dados da tabela DnsEvents |
 > | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | Ler dados da tabela DnsInventory |
 > | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Ler dados da tabela ETWEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Ler dados a partir da tabela de eventos |
+> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Ler dados da tabela de Eventos |
 > | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | Ler dados da tabela ExchangeAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | Ler dados da tabela ExchangeOnlineAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Ler dados a partir da tabela de Heartbeat |
+> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Ler dados da tabela Heartbeat |
 > | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | Ler dados da tabela IISAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | Ler dados da tabela InboundConnection |
 > | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | Ler dados da tabela KubeNodeInventory |
@@ -2450,11 +2487,11 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | Ler dados da tabela MAWindowsSysReqInstanceReadiness |
 > | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | Ler dados da tabela NetworkMonitoring |
 > | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | Ler dados da tabela OfficeActivity |
-> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Ler dados a partir da tabela de operação |
+> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Ler dados da tabela de Operação |
 > | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Ler dados da tabela OutboundConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Ler dados a partir da tabela de desempenho |
+> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Ler dados da tabela de Desempenho |
 > | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Ler dados da tabela ProtectionStatus |
-> | Ação | Microsoft.LogAnalytics/logs/read | Leitura de dados de todos os seus registos |
+> | Ação | Microsoft.LogAnalytics/logs/read | A ler dados de todos os seus registos |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Ler dados da tabela ReservedAzureCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Ler dados da tabela ReservedCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Ler dados da tabela SCCMAssessmentRecommendation |
@@ -2473,7 +2510,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | Ler dados da tabela SPAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | Ler dados da tabela SQLAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | Ler dados da tabela SQLQueryPerformance |
-> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Ler dados a partir da tabela de Syslog |
+> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Ler dados da tabela Syslog |
 > | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Ler dados da tabela SysmonEvent |
 > | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | Ler dados da tabela UAApp |
 > | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | Ler dados da tabela UAComputer |
@@ -2487,10 +2524,10 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | Ler dados da tabela UAProposedActionPlan |
 > | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | Ler dados da tabela UASysReqIssue |
 > | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | Ler dados da tabela UAUpgradedComputer |
-> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Ler dados a partir da tabela de atualizações |
+> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Ler dados da tabela de Atualização |
 > | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | Ler dados da tabela UpdateRunProgress |
 > | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Ler dados da tabela UpdateSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Ler dados a partir da tabela de utilização |
+> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Ler dados da tabela de Utilização |
 > | DataAction | Microsoft.LogAnalytics/logs/VMBoundPort/read | Ler dados da tabela VMBoundPort |
 > | DataAction | Microsoft.LogAnalytics/logs/VMConnection/read | Ler dados da tabela VMConnection |
 > | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Ler dados da tabela W3CIISLog |
@@ -2502,7 +2539,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | Ler dados da tabela WindowsClientAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Ler dados da tabela WindowsFirewall |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | Ler dados da tabela WindowsServerAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Ler dados a partir da tabela de WireData |
+> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Ler dados da tabela WireData |
+> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | Ler dados da tabela WorkloadMonitoringPerf |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | Ler dados da tabela WUDOAggregatedStatus |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | Ler dados da tabela WUDOStatus |
 
@@ -2715,6 +2753,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
+> | DataAction | Microsoft.Maps/accounts/data/read | Concede acesso de leitura de dados para uma conta de mapas. |
 > | Ação | Microsoft.Maps/accounts/delete | Elimine uma conta de mapas. |
 > | Ação | Microsoft.Maps/accounts/listKeys/action | Listar chaves de conta de mapas |
 > | Ação | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico do recurso |
@@ -3449,8 +3488,11 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | --- | --- | --- |
 > | Ação | Microsoft.PolicyInsights/asyncOperationResults/read | Obtém o resultado da operação assíncrona. |
 > | Ação | Microsoft.PolicyInsights/policyEvents/queryResults/action | Informações de consulta sobre eventos de política. |
+> | Ação | Microsoft.PolicyInsights/policyEvents/queryResults/read | Informações de consulta sobre eventos de política. |
 > | Ação | Microsoft.PolicyInsights/policyStates/queryResults/action | Informações de consulta sobre estados de política. |
+> | Ação | Microsoft.PolicyInsights/policyStates/queryResults/read | Informações de consulta sobre estados de política. |
 > | Ação | Microsoft.PolicyInsights/policyStates/summarize/action | Informações de resumo de consulta sobre os estados de política mais recentes. |
+> | Ação | Microsoft.PolicyInsights/policyStates/summarize/read | Informações de resumo de consulta sobre os estados de política mais recentes. |
 > | Ação | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Desencadeia uma nova avaliação de conformidade para o âmbito selecionado. |
 > | Ação | Microsoft.PolicyInsights/register/action | Regista o fornecedor de recursos de informações de política e permite ações no mesmo. |
 
@@ -4809,6 +4851,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/config/DELETE | Elimine configuração de aplicações Web. |
 > | Ação | Microsoft.Web/sites/config/list/Action | Lista confidenciais configurações de segurança da aplicação Web, como a publicação de credenciais, as definições da aplicação e as cadeias de ligação |
 > | Ação | Microsoft.Web/sites/config/Read | Obter definições de configuração de aplicação Web |
+> | Ação | Microsoft.Web/sites/config/snapshots/Read | Obter instantâneos de configuração de aplicações Web. |
 > | Ação | Microsoft.Web/sites/config/Write | Atualizar as definições de configuração da aplicação Web |
 > | Ação | Microsoft.Web/sites/containerlogs/Action | Obter comprimido registos de contentor para a aplicação Web. |
 > | Ação | Microsoft.Web/sites/continuouswebjobs/DELETE | Elimine tarefas de Web contínua de aplicações Web. |
@@ -4857,6 +4900,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/hostnamebindings/DELETE | Elimine enlaces de nome de anfitrião de aplicações Web. |
 > | Ação | Microsoft.Web/sites/hostnamebindings/Read | Obter os enlaces de nome de anfitrião de aplicações Web. |
 > | Ação | Microsoft.Web/sites/hostnamebindings/Write | Atualize os enlaces de nome de anfitrião de aplicações Web. |
+> | Ação | Microsoft.Web/sites/hostruntime/host/_master/read | Obter a chave mestra da aplicação de função para operações de administração |
+> | Ação | Microsoft.Web/sites/hostruntime/host/action | Execute a aplicação de funções, como uma ação de tempo de execução acionadores de sincronização, adicionar funções, invocar funções, eliminar as funções etc. |
 > | Ação | Microsoft.Web/sites/hybridconnection/DELETE | Elimine ligação de aplicações híbridas de Web. |
 > | Ação | Microsoft.Web/sites/hybridconnection/Read | Obter ligação de aplicações híbridas de Web. |
 > | Ação | Microsoft.Web/sites/hybridconnection/Write | Atualize a ligação de aplicações híbridas de Web. |
@@ -4871,6 +4916,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/instances/Extensions/Read | Obtenha as extensões de instâncias de aplicações Web. |
 > | Ação | Microsoft.Web/sites/instances/processes/DELETE | Elimine processos de instâncias de aplicações Web. |
 > | Ação | Microsoft.Web/sites/instances/processes/Read | Obter processos de instâncias de aplicações Web. |
+> | Ação | Microsoft.Web/sites/instances/processes/threads/Read | Obtenha os Threads de processos de instâncias de aplicações Web. |
 > | Ação | Microsoft.Web/sites/instances/Read | Obter instâncias de aplicações Web. |
 > | Ação | Microsoft.Web/sites/listsyncfunctiontriggerstatus/Action | Lista sincronização função acionador Estado aplicações Web. |
 > | Ação | Microsoft.Web/sites/metricdefinitions/Read | Obter definições de métrica de aplicações de Web. |
@@ -4886,6 +4932,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/premieraddons/DELETE | Elimine complementos de Premier de aplicações Web. |
 > | Ação | Microsoft.Web/sites/premieraddons/Read | Obtenha suplementos de Premier de aplicações Web. |
 > | Ação | Microsoft.Web/sites/premieraddons/Write | Atualize complementos de Premier de aplicações Web. |
+> | Ação | Microsoft.Web/sites/privateaccess/Read | Obter dados em torno de ativação de acesso de sites privados e redes virtuais autorizadas, que pode aceder ao site. |
 > | Ação | Microsoft.Web/sites/processes/Read | Obter processos de aplicações Web. |
 > | Ação | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico do recurso |
 > | Ação | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
@@ -4907,6 +4954,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/restart/Action | Reiniciar uma aplicação Web |
 > | Ação | Microsoft.Web/sites/Restore/Read | Obtenha o restauro de aplicações Web. |
 > | Ação | Microsoft.Web/sites/Restore/Write | Restaure aplicações Web. |
+> | Ação | Microsoft.Web/sites/restorefrombackupblob/Action | Restaure aplicação Web a partir do Blob de cópia de segurança. |
 > | Ação | Microsoft.Web/sites/restorefromdeletedwebapp/Action | Restaure aplicações Web da aplicação eliminada. |
 > | Ação | Microsoft.Web/sites/restoresnapshot/Action | Restaure instantâneos de aplicações Web. |
 > | Ação | Microsoft.Web/sites/siteextensions/DELETE | Elimine extensões de Site de aplicações Web. |
@@ -4917,6 +4965,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/slots/backup/Action | Crie nova cópia de segurança da ranhura de aplicação Web. |
 > | Ação | Microsoft.Web/sites/slots/backup/Read | Obtenha cópia de segurança de ranhuras de aplicações de Web. |
 > | Ação | Microsoft.Web/sites/slots/backup/Write | Atualize a cópia de segurança de ranhuras de aplicações de Web. |
+> | Ação | Microsoft.Web/sites/slots/backups/Action | Detete cópias de segurança de ranhuras de aplicações de Web. |
 > | Ação | Microsoft.Web/sites/slots/backups/DELETE | Elimine cópias de segurança de ranhuras de aplicações de Web. |
 > | Ação | Microsoft.Web/sites/slots/backups/List/Action | Cópias de segurança da ranhuras de aplicações do Web de lista. |
 > | Ação | Microsoft.Web/sites/slots/backups/Read | Obter as propriedades de cópia de segurança dos blocos de aplicação uma web |
@@ -4925,6 +4974,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/slots/config/list/Action | Lista confidenciais configurações de segurança da ranhura de aplicação Web, como a publicação de credenciais, as definições da aplicação e as cadeias de ligação |
 > | Ação | Microsoft.Web/sites/slots/config/Read | Obter definições de configuração da ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/config/Write | Atualizar as definições de configuração da ranhura de aplicação Web |
+> | Ação | Microsoft.Web/sites/slots/containerlogs/Action | Obter comprimido registos de contentor para a ranhura de aplicação Web. |
 > | Ação | Microsoft.Web/sites/slots/continuouswebjobs/DELETE | Elimine tarefas de Web contínua de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/continuouswebjobs/Read | Obtenha as Web Apps ranhuras Webjobs contínuos. |
 > | Ação | Microsoft.Web/sites/slots/continuouswebjobs/Start/Action | Inicie tarefas de Web contínua de ranhuras de aplicações Web. |
@@ -4934,6 +4984,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/slots/Deployments/log/Read | Obter registos de implementações de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Deployments/Read | Obter implementações de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Deployments/Write | Atualize as implementações de ranhuras de aplicações Web. |
+> | Ação | Microsoft.Web/sites/slots/detectors/Read | Obtenha os detectores de ranhuras de aplicações Web. |
 > | Ação | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Execute a análise de diagnóstico de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Diagnostics/analyses/Read | Obtenha a análise de diagnóstico de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Diagnostics/aspnetcore/Read | Obtenha diagnósticos de ranhuras de aplicações Web para a aplicação ASP.NET Core. |
@@ -4958,6 +5009,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/slots/Diagnostics/workeravailability/Read | Obtenha Workeravailability de diagnóstico de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Diagnostics/workerprocessrecycle/Read | Obtenha os Reciclagem do processo de trabalho do diagnóstico de ranhuras do Web Apps. |
 > | Ação | Microsoft.Web/sites/slots/domainownershipidentifiers/Read | Obter identificadores de propriedade de domínio de ranhuras de aplicações de Web. |
+> | Ação | Microsoft.Web/sites/slots/Functions/Read | Obter funções de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/hostnamebindings/DELETE | Elimine enlaces de nome de anfitrião de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/hostnamebindings/Read | Obter os enlaces de nome de anfitrião de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/hostnamebindings/Write | Atualize os enlaces de nome de anfitrião de ranhuras de aplicações Web. |
@@ -4999,6 +5051,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Web/sites/slots/restart/Action | Reiniciar uma ranhura de aplicação Web |
 > | Ação | Microsoft.Web/sites/slots/Restore/Read | Obtenha o restauro de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/Restore/Write | Restaure ranhuras de aplicações Web. |
+> | Ação | Microsoft.Web/sites/slots/restorefrombackupblob/Action | Restaure a ranhura de aplicações Web do Blob de cópia de segurança. |
 > | Ação | Microsoft.Web/sites/slots/restorefromdeletedwebapp/Action | Restaure ranhuras de aplicação Web da aplicação eliminada. |
 > | Ação | Microsoft.Web/sites/slots/restoresnapshot/Action | Restaure instantâneos de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/siteextensions/DELETE | Elimine extensões de Site de ranhuras de aplicações Web. |
@@ -5057,21 +5110,15 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.WorkloadMonitor/components/read | Recursos de operações de leitura |
-> | Ação | Microsoft.WorkloadMonitor/healthInstances/read | Recursos de operações de leitura |
-> | Ação | Microsoft.WorkloadMonitor/Operations/read | Recursos de operações de leitura |
-> | Ação | Microsoft.WorkloadMonitor/workloadInsights/delete | Elimina um recurso de workloadInsights |
-> | Ação | Microsoft.WorkloadMonitor/workloadInsights/delete | Elimina um recurso de workloadInsights |
-> | Ação | Microsoft.WorkloadMonitor/workloadInsights/read | Lê um recurso de workloadInsights |
-> | Ação | Microsoft.WorkloadMonitor/workloadInsights/read | Lê um recurso de workloadInsights |
-> | Ação | Microsoft.WorkloadMonitor/workloadInsights/write | Escreve um recurso de workloadInsights |
-> | Ação | Microsoft.WorkloadMonitor/workloadInsights/write | Escreve um recurso de workloadInsights |
-> | Ação | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Ação | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Ação | Microsoft.WorkloadMonitor/workloads/read | Lê um recurso de carga de trabalho |
-> | Ação | Microsoft.WorkloadMonitor/workloads/read | Lê um recurso de carga de trabalho |
-> | Ação | Microsoft.WorkloadMonitor/workloads/write | Escreve um recurso de carga de trabalho |
-> | Ação | Microsoft.WorkloadMonitor/workloads/write | Escreve um recurso de carga de trabalho |
+> | Ação | Microsoft.WorkloadMonitor/components/read | Obtém os componentes para o recurso |
+> | Ação | Microsoft.WorkloadMonitor/componentsSummary/read | Obtém o resumo dos componentes |
+> | Ação | Microsoft.WorkloadMonitor/monitorInstances/read | Obtém as instâncias de monitores para o recurso |
+> | Ação | Microsoft.WorkloadMonitor/monitorInstancesSummary/read | Obtém o resumo de instâncias do monitor |
+> | Ação | Microsoft.WorkloadMonitor/monitors/read | Obtém os monitores para o recurso |
+> | Ação | Microsoft.WorkloadMonitor/monitors/write | Configure o monitor para o recurso |
+> | Ação | Microsoft.WorkloadMonitor/notificationSettings/read | Obtém as definições de notificação para o recurso |
+> | Ação | Microsoft.WorkloadMonitor/notificationSettings/write | Configurar definições de notificação para o recurso |
+> | Ação | Microsoft.WorkloadMonitor/operations/read | Obtém as operações suportadas |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

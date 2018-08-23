@@ -9,18 +9,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/14/2018
 ms.author: bonova
-ms.openlocfilehash: edacb9fe1d09a4e775f8f7107dfa4d9810f53f07
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006049"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057016"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância gerida (pré-visualização)?
 
-O Azure SQL Database Managed Instance (pré-visualização) é uma nova funcionalidade do Azure SQL Database, fornecendo quase 100% de compatibilidade com SQL Server no local (Enterprise Edition), fornecendo um nativo [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) implementação que resolva problemas de segurança comuns, e um [modelo de negócio](https://azure.microsoft.com/pricing/details/sql-database/) favoráveis para clientes de SQL Server no local. Instância gerida permite que os clientes existentes do SQL Server levantar e deslocar as suas aplicações no local para a cloud com alterações mínimas de aplicativo e a base de dados. Ao mesmo tempo, a instância gerida preserva todas as funcionalidades de PaaS (atualizações automáticas de aplicação de patches e de versão, cópia de segurança, elevada disponibilidade), que reduz drasticamente os custos de gestão e o custo total de propriedade.
+O Azure SQL Database Managed Instance (pré-visualização) é um novo modelo de implementação do Azure SQL Database, fornecendo quase 100% de compatibilidade com o mais recente do SQL Server no local (Enterprise Edition) motor de base de dados, fornecendo um nativo [(rede virtual VNet)](../virtual-network/virtual-networks-overview.md) implementação que resolva problemas de segurança comuns e um [modelo de negócio](https://azure.microsoft.com/pricing/details/sql-database/) favoráveis para clientes de SQL Server no local. Instância gerida permite que os clientes existentes do SQL Server levantar e deslocar as suas aplicações no local para a cloud com alterações mínimas de aplicativo e a base de dados. Ao mesmo tempo, a instância gerida preserva todos os recursos de PaaS (atualizações automáticas de aplicação de patches e de versão, [cópias de segurança automatizadas](sql-database-automated-backups.md), [elevada disponibilidade](sql-database-high-availability.md) ), que reduz significativamente a sobrecarga de gerenciamento e o custo total de propriedade.
 
 > [!IMPORTANT]
 > Para obter uma lista das regiões nas quais a Instância Gerida está atualmente disponível, consulte [Migrar as bases de dados para um serviço completamente gerido com Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -29,49 +29,28 @@ O diagrama seguinte descreve as principais funcionalidades de instância gerida:
 
 ![principais recursos](./media/sql-database-managed-instance/key-features.png)
 
-Instância gerida é vislumbramos como plataforma preferencial para os seguintes cenários: 
-
-- SQL Server no local / IaaS os clientes que pretendem para migrar seus aplicativos para um serviço totalmente gerido com um mínimo de alterações de design.
-- Os ISVs depender de bases de dados SQL, que pretendem permitem aos seus clientes a migrar para a cloud e, portanto, obter vantagem competitiva substancial ou alcançar o mercado global. 
+Instância de gerida de base de dados de SQL do Azure foi concebida para os clientes que pretendem para migrar um grande número de aplicações de IaaS, personalizada criada, ou no local ou ISV fornecido ambiente para o ambiente de nuvem de PaaS totalmente gerido, com como esforço de migração de baixa possível. Utilizar totalmente automatizada [serviço de migração de dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) no Azure, os clientes podem lift- and -shift seu SQL Server no local para uma instância gerida, que oferece compatibilidade com SQL Server no local e completo isolamento de instâncias de cliente com suporte nativo a VNET.  Com o Software Assurance, pode trocar suas licenças existentes para tarifas com desconto numa instância gerida do SQL da base de dados utilizando o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instância gerida do SQL da base de dados é o melhor destino de migração na cloud para instâncias do SQL Server que requerem segurança elevada e uma superfície de programação avançado. 
 
 Ao disponibilidade geral, a instância gerida tem como objetivo fornecer próximo de compatibilidade de área de superfície de 100% com a última versão de SQL Server no local através de um plano de versão em etapas. 
 
-A tabela a seguir descreve as diferenças da chave e vislumbramos cenários de utilização entre SQL IaaS, a base de dados do Azure SQL e SQL Database Managed Instance:
+Para decidir entre o Azure SQL da base de dados única base de dados, instância gerida da base de dados SQL do Azure e alojada no consulte de Máquina Virtual de IaaS do SQL Server [como escolher a versão correta do SQL Server na cloud do Azure](sql-database-paas-vs-sql-server-iaas.md).
 
-| | Cenário de utilização | 
-| --- | --- | 
-|Instância Gerida da Base de Dados SQL |Para os clientes que pretendem para migrar um grande número de aplicações de IaaS, personalizada criada ou no local ou a ISV fornecido, com como esforço de migração de baixa possível, propor a instância gerida. Utilizar totalmente automatizada [serviço de migração de dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) no Azure, os clientes podem lift- and -shift seu SQL Server no local para uma instância gerida, que oferece compatibilidade com SQL Server no local e completo isolamento de instâncias de cliente com suporte nativo a VNET.  Com o Software Assurance, pode trocar suas licenças existentes para tarifas com desconto numa instância gerida do SQL da base de dados utilizando o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instância gerida do SQL da base de dados é o melhor destino de migração na cloud para instâncias do SQL Server que requerem segurança elevada e uma superfície de programação avançado. |
-|Base de dados SQL do Azure (único ou agrupamento) |**Conjuntos elásticos**: para os clientes a desenvolver novas aplicações de multi-inquilinos de SaaS ou intencionalmente transformar existente no local aplicações numa aplicação SaaS multi-inquilino, propor conjuntos elásticos. Vantagens desse modelo são: <br><ul><li>Conversão do modelo comercial de venda de licenças para vender subscrições de serviços (para ISVs)</li></ul><ul><li>Isolamento de inquilino de fácil e segura</li></ul><ul><li>Um modelo de programação centrado no banco de dados simplificado</li></ul><ul><li>O potencial para aumentar horizontalmente, sem ter de acessar um teto de disco rígido</li></ul>**Bases de dados únicas**: para os clientes desenvolver novas aplicações que não seja o SaaS multi-inquilino, cuja carga de trabalho é estável e previsível, propor bases de dados individuais. Vantagens desse modelo são:<ul><li>Um modelo de programação centrado no banco de dados simplificado</li></ul>  <ul><li>Desempenho previsível para cada base de dados</li></ul>|
-|Máquina virtual IaaS do SQL|Para os clientes que precisam personalizar o sistema operativo ou o servidor de base de dados, bem como que os clientes tenham requisitos específicos em termos de executar aplicações de terceiros pelo lado com o SQL Server (na mesma VM), para propor as VMs do SQL / IaaS como a solução ideal|
-|||
+## <a name="key-features-and-capabilities"></a>Principais funcionalidades e capacidades 
 
-## <a name="how-to-programmatically-identify-a-managed-instance"></a>Como identificar programaticamente uma instância gerida
-
-A tabela seguinte mostra várias propriedades, acessíveis através de Transact SQL, que pode utilizar para detetar se a aplicação está a funcionar com a instância gerida e obter propriedades importantes.
-
-|Propriedade|Valor|Comentário|
-|---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor é a mesmo como na base de dados SQL.|
-|`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor é a mesmo como na base de dados SQL.|
-|`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica exclusivamente a instância gerida.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:<instanceName>.<dnsPrefix>. Database.Windows.NET, onde <instanceName> é o nome fornecido pelo cliente, enquanto <dnsPrefix> é gerado automaticamente parte do mesmo garantindo a exclusividade de nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
-
-## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Principais funcionalidades e capacidades de uma instância gerida 
+Instância de gerida de base de dados de SQL do Azure combina os melhores recursos que estão disponíveis no Azure SQL Database e o motor de base de dados do SQL Server.
 
 > [!IMPORTANT]
 > Executa uma instância gerida com todas as funcionalidades da versão mais recente do SQL Server, incluindo operações online, correções de planos automática e outros aprimoramentos de desempenho do enterprise. 
 
 | **Vantagens de PaaS** | **Continuidade do negócio** |
 | --- | --- |
-|Sem comprar hardware e gestão <br>Nenhuma sobrecarga de gerenciamento para gerir a infraestrutura subjacente <br>Aprovisionamento rápido e dimensionamento do serviço <br>Atualização de aplicação de patches e versão automatizada <br>Integração com outros serviços de dados de PaaS |tempo de atividade de 99,99% SLA  <br>Elevada disponibilidade incorporada <br>Dados protegidos com cópias de segurança automáticas <br>Período de retenção de cópia de segurança configuráveis do cliente (fixado a 7 dias em pré-visualização pública) <br>Cópias de segurança iniciada pelo utilizador <br>Capacidade de restaurar ponto na base de dados de tempo |
+|Sem comprar hardware e gestão <br>Nenhuma sobrecarga de gerenciamento para gerir a infraestrutura subjacente <br>Aprovisionamento rápido e dimensionamento do serviço <br>Atualização de aplicação de patches e versão automatizada <br>Integração com outros serviços de dados de PaaS |tempo de atividade de 99,99% SLA  <br>Incorporado [elevada disponibilidade](sql-database-high-availability.md) <br>Os dados protegidos com [cópias de segurança automatizadas](sql-database-automated-backups.md) <br>Período de retenção de cópia de segurança configuráveis do cliente (fixado a 7 dias em pré-visualização pública) <br>Iniciado pelo utilizador [cópias de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Ponto de restauro de base de dados de tempo](sql-database-recovery-using-backups.md#point-in-time-restore) capacidade |
 |**Segurança e conformidade** | **Gestão**|
-|Ambiente isolado (integração de VNet, o serviço de inquilino único, computação dedicados e armazenamento) <br>Encriptação de Dados Transparente<br>Autenticação do Azure AD, suporte de início de sessão único <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>Auditoria do SQL <br>Deteção de ameaças |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados 
-
-![Início de sessão único](./media/sql-database-managed-instance/sso.png) 
+|Ambiente isolado ([integração VNet](sql-database-managed-instance-vnet-configuration.md)único inquilino de serviço, dedicada de computação e armazenamento) <br>[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), único suporte de início de sessão <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>[Auditoria de SQL](sql-database-managed-instance-auditing.md) <br>[Deteção de ameaças](sql-database-managed-instance-threat-detection.md) |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados 
 
 ## <a name="vcore-based-purchasing-model"></a>modelo de compra baseado em vCore
 
-O modelo de compra baseado em vCore oferece-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware.
 - As CPUs Lógicas de Geração 4 baseiam-se nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz.
@@ -89,9 +68,11 @@ A tabela seguinte ajuda-o a compreender como selecionar a configuração ideal d
 ## <a name="managed-instance-service-tiers"></a>Gerido escalões de serviço da instância
 
 Instância gerida está disponível em dois escalões de serviço:
-- **Fins gerais**: concebido para aplicações com típicas de disponibilidade e requisitos de latência de e/s comuns.
-- **Crítico para a empresa**: concebido para aplicações com elevada disponibilidade e requisitos de latência baixos e/s.
- 
+- **Fins gerais**: concebido para aplicações com o desempenho típico e requisitos de latência de e/s.
+- **Crítico para a empresa**: concebido para aplicações com requisitos de latência baixos e/s e o mínimo impacto das operações de manutenção subjacente na carga de trabalho.
+
+Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem-lhe selecionar o tamanho de armazenamento e a capacidade de computação de forma independente. 
+
 > [!IMPORTANT]
 > Alterar a camada de serviços de fins gerais para crítico para a empresa ou vice-versa não é suportado em pré-visualização pública. Se pretender migrar as bases de dados para uma instância na camada de serviço diferente, pode criar a nova instância, restaurar bases de dados com o ponto no tempo da instância original e, em seguida, remover a instância original se ela não é mais necessária. 
 
@@ -99,22 +80,16 @@ Instância gerida está disponível em dois escalões de serviço:
 
 A lista seguinte descreve característica-chave da camada de serviços de fins gerais: 
 
-- Conceber para a maioria dos aplicativos de negócios com o desempenho típico e requisitos de HA 
+- Design para a maioria dos aplicativos de negócios com requisitos de desempenho típico 
 - Armazenamento Premium do Azure de alto desempenho (8 TB) 
-- 100 bases de dados / instância 
-
-Neste escalão, pode selecionar o armazenamento e a capacidade de computação independentemente. 
-
-O diagrama seguinte ilustra a computação de Active Directory e os nós redundantes neste escalão de serviço.
- 
-![Escalão de serviço de fins geral](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
+- 100 bases de dados por instância 
 
 A lista seguinte descreve as principais características da camada de serviços de fins gerais:
 
 |Funcionalidade | Descrição|
 |---|---|
 | Número de vCores * | 8, 16, 24 (geração 4)<br>8, 16, 24, 32, 40, 64, 80 (fins 5)|
-| Versão do SQL Server / criar | SQL Server mais recente (disponível) |
+| Versão do SQL Server / criar | Motor de base de dados do SQL Server (estável mais recente) |
 | Tamanho de armazenamento min | 32 GB |
 | Tamanho máximo de armazenamento | 8 TB |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância |
@@ -132,24 +107,26 @@ A lista seguinte descreve as principais características da camada de serviços 
 
 \* Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware. Geração 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2,4 GHz e de CPUs lógicas de geração 5 baseiam-se no Intel E5-2673 v4 (Broadwell) 2,3 GHz. 
 
+Para obter mais informações, consulte [disponibilidade de finalidade de Standard/geral e arquitetura](sql-database-high-availability.md#standardgeneral-purpose-availability) na base de dados do Azure SQL.
+
 ### <a name="business-critical-service-tier"></a>Camada de serviços críticos de negócio
 
-Camada de serviços críticos de negócios foi concebida para aplicações com requisitos de e/s elevados. Ele oferece maior resiliência a falhas com várias Always On réplicas isoladas. O diagrama seguinte ilustra a arquitetura subjacente neste escalão de serviço:
-
-![Camada de serviços críticos de negócio](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+Camada de serviços críticos de negócios foi concebida para aplicações com requisitos de e/s elevados. Ele oferece maior resiliência a falhas com várias Always On réplicas isoladas. 
 
 A lista seguinte descreve as principais características da camada de serviços críticos de negócio: 
 -   Concebido para aplicações de negócio com mais elevado desempenho e requisitos de HA 
 -   É fornecido com o armazenamento SSD extremamente rápido (até 1 TB em Gen 4 e até 4 TB nos fins 5)
 -   Suporta até 100 bases de dados por instância 
+- Incorporado só de leitura instância adicional que pode ser utilizada em relatórios e outras cargas de trabalho só de leitura
+- [OLTP dentro da memória](sql-database-in-memory.md) que podem ser utilizados para a carga de trabalho com requisitos de alta-prefrmance  
 
 |Funcionalidade | Descrição|
 |---|---|
 | Número de vCores * | 8, 16, 24, 32 (geração 4)<br>8, 16, 24, 32, 40, 64, 80 (fins 5)|
 | Versão do SQL Server / criar | SQL Server mais recente (disponível) |
-| Recursos adicionais | [OLTP dentro da memória](sql-database-in-memory.md)<br> 1 réplica só de leitura adicional ([Escalamento leitura](sql-database-read-scale-out.md))
+| Funcionalidades adicionais | [OLTP dentro da memória](sql-database-in-memory.md)<br> 1 réplica só de leitura adicional ([Escalamento leitura](sql-database-read-scale-out.md))
 | Tamanho de armazenamento min | 32 GB |
-| Tamanho máximo de armazenamento | Gen 4: 1 TB (todos os vCore tamanhos<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 32, 40, 64, 80 vCores</ul>|
+| Tamanho máximo de armazenamento | Gen 4: 1 TB (todos os tamanhos de vCore)<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 32, 40, 64, 80 vCores</ul>|
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número de ficheiros de dados (linhas) pela base de dados | Vários | 
 | Número de ficheiros de registo (registo) por base de dados | 1 | 
@@ -162,9 +139,13 @@ A lista seguinte descreve as principais características da camada de serviços 
 | Suporte do portal | Sim|
 |||
 
+Para obter mais informações, consulte [disponibilidade Premium comercial crítica e arquitetura](sql-database-high-availability.md#premiumbusiness-critical-availability) na base de dados do Azure SQL.
+
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas 
 
-### <a name="managed-instance-security-isolation"></a>Isolamento de segurança de instância gerido 
+Instância de gerida de base de dados de SQL do Azure combina os recursos avançados de segurança fornecidos pela cloud do Azure e o motor de base de dados do SQL Server. 
+
+### <a name="managed-instance-security-isolation-in-azure-cloud"></a>Gerido isolamento de segurança de instância na cloud do Azure 
 
 Instância gerida fornecem isolamento de segurança adicionais de outros inquilinos na nuvem do Azure. Isolamento de segurança inclui: 
 
@@ -181,40 +162,29 @@ Para obter mais detalhes sobre a integração de VNet e enforcements de polític
 > [!IMPORTANT]
 > Coloca a instância gerida vários na mesma sub-rede, onde quer que o que é permitido por seus requisitos de segurança, uma vez que irá fornecer benefícios adicionais. Instâncias collocating na mesma sub-rede irão significativamente simplificar a manutenção da infraestrutura de rede e reduzir a instância do provisionamento de tempo, uma vez que o aprovisionamento de longa duração está associado com o custo da instância gerida de primeira implementação numa sub-rede.
 
+### <a name="azure-sql-database-security-features"></a>Recursos de segurança de base de dados SQL do Azure
 
-### <a name="auditing-for-compliance-and-security"></a>Auditoria para conformidade e segurança 
+Base de dados SQL do Azure fornece um conjunto de funcionalidades de segurança avançadas que podem ser utilizadas para proteger os seus dados.
 
-[Geridos a auditoria de instância](sql-database-managed-instance-auditing.md) faixas de base de dados eventos e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure. A auditoria pode ajudar a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações empresariais ou suspeitas de violações de segurança. 
-
-### <a name="data-encryption-in-motion"></a>Encriptação de dados ativa 
-
-Instância gerida protege os seus dados ao fornecer encriptação de dados em movimento com o Transport Layer Security.
-
-Além da segurança de camada de transporte, a instância de gerida da base de dados do SQL oferece proteção de dados confidenciais em movimento, inativos e durante o processamento de consultas com [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted é uma funcionalidade pioneira da indústria que oferece segurança de dados sem paralelo contra violações que envolvam o roubo de dados confidenciais. Por exemplo, com o Always Encrypted, os números de cartão de crédito são armazenados encriptados na base de dados sempre, mesmo durante o processamento de consultas, permitindo a desencriptação no uso por equipas autorizadas ou das aplicações que têm de processar esses dados. 
-
-### <a name="data-encryption-at-rest"></a>Encriptação de dados inativos 
-[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encripta os ficheiros de dados de instância gerida do SQL do Azure, conhecidos como encriptar dados inativos. TDE realiza a encriptação em tempo real de e/s e a descriptografia dos ficheiros de dados e de registo. A encriptação utiliza uma chave de encriptação de base de dados (DEK), que é armazenada no registo de arranque da base de dados de disponibilidade durante a recuperação. Pode proteger todos os bancos de dados na instância gerida com encriptação de dados transparente. A TDE é a tecnologia comprovada de encriptação inativa do SQL e que é exigida por muitas normas de conformidade para proteger de roubos de suportes de dados de armazenamento. Durante a pré-visualização pública, o modelo de gerenciamento de chave principal é suportado (realizadas pela plataforma PaaS). 
+- [Geridos a auditoria de instância](sql-database-managed-instance-auditing.md) regista os eventos de base de dados e escreve-as para um arquivo de log de auditoria colocado na sua conta de armazenamento do Azure. A auditoria pode ajudar a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações empresariais ou suspeitas de violações de segurança. 
+- Encriptação de dados em movimento - instância gerida protege os seus dados ao fornecer encriptação de dados em movimento com o Transport Layer Security. Além da segurança de camada de transporte, a instância de gerida da base de dados do SQL oferece proteção de dados confidenciais em movimento, inativos e durante o processamento de consultas com [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted é uma funcionalidade pioneira da indústria que oferece segurança de dados sem paralelo contra violações que envolvam o roubo de dados confidenciais. Por exemplo, com o Always Encrypted, os números de cartão de crédito são armazenados encriptados na base de dados sempre, mesmo durante o processamento de consultas, permitindo a desencriptação no uso por equipas autorizadas ou das aplicações que têm de processar esses dados. 
+- [Deteção de ameaças](sql-database-managed-instance-threat-detection.md) complementa [auditoria de instância gerida](sql-database-managed-instance-auditing.md) tentativas, fornecendo uma camada adicional de segurança de acesso ou exploração de inteligência incorporada no serviço que Deteta invulgares e potencialmente prejudiciais bases de dados. É alertado sobre atividades suspeitas, potenciais vulnerabilidades, e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças podem ser visualizadas [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) e fornecer detalhes de atividade suspeita e a ação sobre como investigar e mitigar a ameaça recomendada.  
+- [Máscara de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking) limita a exposição de dados confidenciais ao mascará-lo para os utilizadores não privilegiados. Máscara de dados dinâmica ajuda a impedir o acesso não autorizado a dados confidenciais ao permitir-lhe designar a quantidade de dados confidenciais a revelar com um impacto mínimo na camada da aplicação. É uma funcionalidade de segurança baseada em políticas que omite os dados confidenciais no conjunto de resultados de uma consulta em campos da base de dados designados, sendo que os dados na base de dados não são alterados. 
+- [Segurança de nível de linha](/sql/relational-databases/security/row-level-security) permite-lhe controlo de acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, com o contexto de associação ou execução de grupo). A segurança ao nível da linha (RLS) simplifica o design e a programação da segurança na sua aplicação. O RLS permite-lhe implementar restrições ao acesso à linha de dados. Por exemplo, garantindo que os funcionários possam acessar apenas as linhas de dados que são pertinentes para o departamento deles ou restringir o acesso a dados a apenas os dados relevantes. 
+- [Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encripta os ficheiros de dados de instância gerida do SQL do Azure, conhecidos como encriptar dados inativos. TDE realiza a encriptação em tempo real de e/s e a descriptografia dos ficheiros de dados e de registo. A encriptação utiliza uma chave de encriptação de base de dados (DEK), que é armazenada no registo de arranque da base de dados de disponibilidade durante a recuperação. Pode proteger todos os bancos de dados na instância gerida com encriptação de dados transparente. A TDE é a tecnologia comprovada de encriptação inativa do SQL e que é exigida por muitas normas de conformidade para proteger de roubos de suportes de dados de armazenamento. Durante a pré-visualização pública, o modelo de gerenciamento de chave principal é suportado (realizadas pela plataforma PaaS). 
 
 Migração de uma base de dados encriptado para a instância gerida de SQL é suportada através do Azure Database Migration Service (DMS) ou o restauro nativo. Se planear migrar base de dados encriptado através de restauro nativo, a migração do certificado TDE existente do SQL Server no local ou VM do SQL Server para instância gerida é uma etapa necessária. Para obter mais informações sobre as opções de migração, consulte [migração de instância do SQL Server para instância gerida da base de dados SQL do Azure](sql-database-managed-instance-migrate.md).
 
-### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica 
+## <a name="azure-active-directory-integration"></a>Integração do Azure Active Directory
 
-Base de dados SQL [máscara de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking) limita a exposição de dados confidenciais ao mascará-lo para os utilizadores não privilegiados. Máscara de dados dinâmica ajuda a impedir o acesso não autorizado a dados confidenciais ao permitir-lhe designar a quantidade de dados confidenciais a revelar com um impacto mínimo na camada da aplicação. É uma funcionalidade de segurança baseada em políticas que omite os dados confidenciais no conjunto de resultados de uma consulta em campos da base de dados designados, sendo que os dados na base de dados não são alterados. 
-
-### <a name="row-level-security"></a>Segurança ao Nível da Linha 
-
-[Segurança de nível de linha](/sql/relational-databases/security/row-level-security) permite-lhe controlo de acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, com o contexto de associação ou execução de grupo). A segurança ao nível da linha (RLS) simplifica o design e a programação da segurança na sua aplicação. O RLS permite-lhe implementar restrições ao acesso à linha de dados. Por exemplo, garantindo que os funcionários possam acessar apenas as linhas de dados que são pertinentes para o departamento deles ou restringir o acesso a dados a apenas os dados relevantes. 
-
-### <a name="threat-detection"></a>Deteção de ameaças 
-
-[Geridos a deteção de ameaças da instância](sql-database-managed-instance-threat-detection.md) complementa [auditoria de instância gerida](sql-database-managed-instance-auditing.md) , fornecendo uma camada adicional de inteligência de segurança incorporada no serviço que Deteta tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. É alertado sobre atividades suspeitas, potenciais vulnerabilidades, e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças podem ser visualizadas [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) e fornecer detalhes de atividade suspeita e a ação sobre como investigar e mitigar a ameaça recomendada.  
+Instância de gerida de base de dados de SQL do Azure suporta o tradicional logons de motor de base de dados do SQL server e inícios de sessão integrados com o Azure Active Directory (AAD). Inícios de sessão do AAD têm a versão de cloud do Azure de inícios de sessão do Windows da base de dados que está a utilizar no seu ambiente no local.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator 
 
-A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços Microsoft com a [integração do Azure Active Directory](sql-database-aad-authentication.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Active Directory suporta a [autenticação multifator](sql-database-ssms-mfa-authentication-configure.md) (MFA), para aumentar a segurança de dados e aplicações, suportando, ao mesmo tempo, um processo de início de sessão único. 
+Instância gerida permite-lhe gerir centralmente identidades de utilizador de base de dados e outros serviços da Microsoft com [integração do Azure Active Directory](sql-database-aad-authentication.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Active Directory suporta a [autenticação multifator](sql-database-ssms-mfa-authentication-configure.md) (MFA), para aumentar a segurança de dados e aplicações, suportando, ao mesmo tempo, um processo de início de sessão único. 
 
 ### <a name="authentication"></a>Autenticação 
-Autenticação do SQL da base de dados refere-se como os usuários comprovem sua identidade quando se liga à base de dados. A Base de Dados SQL suporta dois tipos de autenticação:  
+Autenticação diz respeito à forma como os utilizadores provam a sua identidade quando se liga à base de dados de instância de gerida. A Base de Dados SQL suporta dois tipos de autenticação:  
 
 - Autenticação de SQL, que utiliza um nome de utilizador e palavra-passe.
 - Authentication do Azure Active Directory, que utiliza identidades geridas pelo Azure Active Directory e é suportada para domínios geridos e integrados. 
@@ -227,22 +197,19 @@ Autorização diz respeito ao que um utilizador pode fazer dentro de uma base de
 
 Gerido cenários de usuário de destinos de instância com a migração de base de dados em massa de implementações de base de dados de IaaS ou no local. Gerida suporta instância várias opções de migração de base de dados: 
 
-### <a name="data-migration-service"></a>Serviço de migração de dados
-
-O serviço de migração de base de dados do Azure é um serviço completamente gerido criado para ativar migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. Este serviço simplifica as tarefas necessárias para mover de terceiros existente e bases de dados do SQL Server para o Azure. Opções de implementação incluem a base de dados do Azure SQL, instância gerida e do SQL Server na VM do Azure em pré-visualização pública. Ver [como migrar a sua base de dados no local para a instância gerida com o DMS](https://aka.ms/migratetoMIusingDMS). 
-
 ### <a name="backup-and-restore"></a>Cópia de segurança e restauro  
 
-A abordagem de migração tira partido de cópias de segurança SQL para o armazenamento de Blobs do Azure. As cópias de segurança armazenadas no blob de armazenamento do Azure podem ser restauradas diretamente para instância gerida. Para restaurar uma base de dados SQL existente para uma instância gerida, pode:
-
-- Uso [serviço de migração de dados (DMS)](../dms/dms-overview.md). Para obter um tutorial, veja [migrar para uma instância gerida com o Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados
-- Utilize o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
+A abordagem de migração tira partido de cópias de segurança SQL para o armazenamento de Blobs do Azure. As cópias de segurança armazenadas no blob de armazenamento do Azure podem ser diretamente restauradas na instância gerida utilizando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
   - Para obter um tutorial que mostra como restaurar Wide a World Importers - ficheiro de cópia de segurança da base de dados Standard, veja [restaurar um ficheiro de cópia de segurança para uma instância gerida](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial mostra de que tem de carregar um ficheiro de cópia de segurança para o armazenamento do blogue do Azure e seguro mesmo com uma chave de assinatura (SAS) de acesso partilhado.
   - Para obter informações sobre o restauro a partir do URL, consulte [nativo restaurar a partir do URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+  
+### <a name="data-migration-service"></a>Serviço de migração de dados
+
+O serviço de migração de base de dados do Azure é um serviço completamente gerido criado para ativar migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. Este serviço simplifica as tarefas necessárias para mover de terceiros existente e bases de dados do SQL Server para o Azure. Opções de implementação incluem a base de dados do Azure SQL, instância gerida e do SQL Server na VM do Azure em pré-visualização pública. Ver [como migrar a sua base de dados no local para a instância gerida com o DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Funcionalidades do SQL suportadas 
 
-Gerido tem como objetivo instância entregar próximo de compatibilidade de área de superfície de 100% com a chegar em fases até disponibilidade geral do serviço de SQL Server no local. Para funcionalidades e lista de comparação, veja [recursos comuns de SQL](sql-database-features.md).
+Gerido tem como objetivo instância entregar próximo de compatibilidade de área de superfície de 100% com a chegar em fases até disponibilidade geral do serviço de SQL Server no local. Para funcionalidades e lista de comparação, veja [comparação de funcionalidades de base de dados SQL](sql-database-features.md)e para obter uma lista de diferenças do T-SQL em instâncias geridas em comparação com o SQL Server, consulte [diferenças de T-SQL de instância gerida do SQL Server](sql-database-managed-instance-transact-sql-information.md).
  
 Gerido instância compatibilidade com versões anteriores do oferece suporte para bases de dados do SQL 2008. É suportada a migração direta de servidores de base de dados do SQL 2005, o nível de compatibilidade para bases de dados do SQL 2005 migrados são atualizadas para o SQL 2008. 
  
@@ -267,9 +234,21 @@ Geridos pelo administrador de sistema de ativação de instância para se focar 
 
 > [!IMPORTANT]
 > Para obter uma lista dos recursos suportados, parcialmente suportadas e não suportados, consulte [funcionalidades de base de dados SQL](sql-database-features.md). Para obter uma lista de diferenças do T-SQL em instâncias geridas em comparação com o SQL Server, consulte [diferenças de T-SQL de instância gerida do SQL Server](sql-database-managed-instance-transact-sql-information.md)
- 
+
+### <a name="how-to-programmatically-identify-a-managed-instance"></a>Como identificar programaticamente uma instância gerida
+
+A tabela seguinte mostra várias propriedades, acessíveis através de Transact SQL, que pode utilizar para detetar se a aplicação está a funcionar com a instância gerida e obter propriedades importantes.
+
+|Propriedade|Valor|Comentário|
+|---|---|---|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor é a mesmo como na base de dados SQL.|
+|`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor é a mesmo como na base de dados SQL.|
+|`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica exclusivamente a instância gerida.|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:<instanceName>.<dnsPrefix>. Database.Windows.NET, onde <instanceName> é o nome fornecido pelo cliente, enquanto <dnsPrefix> é gerado automaticamente parte do mesmo garantindo a exclusividade de nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+
 ## <a name="next-steps"></a>Passos Seguintes
 
+- Para saber como criar a sua primeira instância gerida, veja [guia de início rápido](sql-database-managed-instance-get-started.md).
 - Para funcionalidades e lista de comparação, veja [recursos comuns de SQL](sql-database-features.md).
 - Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-vnet-configuration.md).
 - Para obter um tutorial que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-create-tutorial-portal.md).

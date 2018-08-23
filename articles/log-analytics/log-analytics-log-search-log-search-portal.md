@@ -1,6 +1,6 @@
 ---
-title: Utilizar o portal de registo de pesquisa no Log Analytics do Azure | Microsoft Docs
-description: Este artigo inclui um tutorial que descreve como criar registo pesquisas e analisar os dados armazenados na sua área de trabalho de análise de registos com o portal de registo de pesquisa.  O tutorial inclui a execução de algumas consultas simples para devolver diferentes tipos de dados e analisar os resultados.
+title: Com o portal de pesquisa de registos no Log Analytics do Azure | Documentos da Microsoft
+description: Este artigo inclui um tutorial que descreve como criar pesquisas de registos e analisar dados armazenados na sua área de trabalho do Log Analytics com o portal de pesquisa de registos.  O tutorial inclui a execução de algumas consultas simples para devolver diferentes tipos de dados e analisar os resultados.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,41 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127555"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055969"
 ---
-# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Criar registo pesquisas na análise de registos do Azure utilizando o portal de registo de pesquisa
+# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Criar pesquisas de registos no Azure Log Analytics com o portal de pesquisa de registos
 
-> [!NOTE]
-> Este artigo descreve o portal de registo de pesquisa na análise de registos do Azure utilizando a linguagem de consulta de novo.  Pode saber mais sobre o novo idioma e obter o procedimento para atualizar a sua área de trabalho em [atualizar a sua área de trabalho do Log Analytics do Azure para a pesquisa do novo registo](log-analytics-log-search-upgrade.md).  
->
-> Se a sua área de trabalho não foi atualizada para o novo idioma de consulta, devem consultar a [localizar dados através de pesquisas de registo na análise de registos](log-analytics-log-searches.md) para obter informações sobre a versão atual do portal de registo de pesquisa.
+Este artigo inclui um tutorial que descreve como criar pesquisas de registos e analisar dados armazenados na sua área de trabalho do Log Analytics com o portal de pesquisa de registos.  O tutorial inclui a execução de algumas consultas simples para devolver diferentes tipos de dados e analisar os resultados.  Ele se concentra em recursos no portal da pesquisa de registos para modificar a consulta, em vez de modificá-la diretamente.  Para obter detalhes sobre como editar a consulta diretamente, consulte a [referência de linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856079).
 
-Este artigo inclui um tutorial que descreve como criar registo pesquisas e analisar os dados armazenados na sua área de trabalho de análise de registos com o portal de registo de pesquisa.  O tutorial inclui a execução de algumas consultas simples para devolver diferentes tipos de dados e analisar os resultados.  Concentra-se nas funcionalidades no portal de registo de pesquisa para modificar a consulta, em vez de diretamente a modificar.  Para obter detalhes sobre a editar diretamente a consulta, consulte o [referência de linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856079).
-
-Para criar pesquisas no portal da análise avançada em vez do portal de pesquisa de registo, consulte [começar a utilizar o Portal da análise](https://go.microsoft.com/fwlink/?linkid=856587).  Ambos os portais de utilizam a mesma linguagem de consulta para aceder aos mesmos dados, na área de trabalho de análise de registos.
+Para criar pesquisas no portal do Advanced Analytics em vez do portal de pesquisa de registos, consulte [introdução ao Portal do Analytics](https://go.microsoft.com/fwlink/?linkid=856587).  Ambos os portais de usam a mesma linguagem de consulta para acessar os mesmos dados na área de trabalho do Log Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tutorial parte do princípio de que já tem uma área de trabalho de análise de registos com pelo menos uma origem ligada que gera dados para as consultas analisar.  
+Este tutorial pressupõe que já tem uma área de trabalho do Log Analytics pelo menos uma origem ligada que gera dados para as consultas analisar.  
 
-- Se não tiver uma área de trabalho, pode criar um livre utilizando o procedimento em [começar com uma área de trabalho de análise de registos](log-analytics-get-started.md).
-- Ligar pelo menos, um [agente do Windows](log-analytics-windows-agent.md) ou um [agente Linux](log-analytics-linux-agents.md) à área de trabalho.  
+- Se não tiver uma área de trabalho, pode criar uma grátis, utilizando o procedimento em [começar com uma área de trabalho do Log Analytics](log-analytics-get-started.md).
+- Ligar, pelo menos, um [agente do Windows](log-analytics-windows-agent.md) ou uma [agente Linux](log-analytics-linux-agents.md) à área de trabalho.  
 
 ## <a name="open-the-log-search-portal"></a>Abrir o portal da Pesquisa de Registos
 Comece por abrir o portal do Registo de Pesquisas. 
 
 1. Abra o portal do Azure.
-2. Navegue até à análise de registos e selecione a sua área de trabalho.
-3. Selecione **Iniciar pesquisa**.
+2. Navegue para o Log Analytics e selecione a sua área de trabalho.
+3. Selecione **pesquisa de registos**.
 
-![Botão de procura de registo](media/log-analytics-log-search-log-search-portal/log-search-button.png)
+![Botão pesquisa de registos](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Criar uma pesquisa simples
 A forma mais rápida de obter alguns dados com os quais trabalhar é utilizar uma pesquisa simples que devolve todos os registos numa tabela.  Se tiver clientes Windows ou Linux ligados à sua área de trabalho, terá dados na tabela Event (Windows) ou Syslog (Linux).
@@ -68,16 +63,16 @@ Só são apresentadas as primeiras propriedades de cada registo.  Clique em **sh
 ![Detalhes do registo](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
 
 ## <a name="set-the-time-scope"></a>Definir o âmbito de tempo
-Cada registo recolhido pelo Log Analytics tem uma **TimeGenerated** propriedade que contém a data e hora em que o registo foi criado.  Uma consulta no portal de registo de pesquisa devolve apenas os registos com um **TimeGenerated** dentro do âmbito de tempo que é apresentado no lado esquerdo do ecrã.  
+Todos os registos recolhidos pelo Log Analytics tem um **TimeGenerated** propriedade que contém a data e hora em que o registo foi criado.  Uma consulta no portal da pesquisa de registos só devolve registos com um **TimeGenerated** dentro do âmbito de tempo que é apresentado no lado esquerdo do ecrã.  
 
-Pode alterar o filtro de tempo, selecionando a lista pendente ou modificando o controlo de deslize.  O controlo de deslize apresenta um gráfico de barras que mostra o número de registos para cada segmento de tempo dentro do intervalo relativo.  Este segmento irá variar consoante o intervalo.
+Pode alterar o filtro de tempo ao selecionar o menu suspenso ou modificando o controlo de deslize.  O controlo de deslize apresenta um gráfico de barras que mostra o número relativo de registos para cada segmento de tempo dentro do intervalo.  Este segmento irá variar consoante o período.
 
-O âmbito de tempo predefinido é **1 dia**.  Altere este valor para **7 dias**, e deve aumentar o número total de registos.
+O âmbito de tempo predefinido é **1 dia**.  Alterar este valor para **7 dias**, e deve aumentar o número total de registos.
 
-![Data hora âmbito](media/log-analytics-log-search-log-search-portal/log-search-portal-03.png)
+![Âmbito de tempo de data](media/log-analytics-log-search-log-search-portal/log-search-portal-03.png)
 
 ## <a name="filter-results-of-the-query"></a>Filtrar os resultados da consulta
-No lado esquerdo do ecrã está disponível o painel de filtro, que lhe permite adicionar filtragem à consulta sem modificá-la diretamente.  São apresentadas várias propriedades de registos devolvidos com os respetivos valores de dez principais com maior número de registo.
+No lado esquerdo do ecrã está disponível o painel de filtro, que lhe permite adicionar filtragem à consulta sem modificá-la diretamente.  Várias propriedades de registos devolvidos são apresentadas com os respetivos valores de dez melhores com o maior número de registo.
 
 Se estiver a trabalhar com **Event**, selecione a caixa de verificação junto a **Error** (Erro), em **EVENTLEVELNAME**.   Se estiver a trabalhar com **Syslog**, selecione a caixa de verificação junto a **Error**, em **SEVERITYLEVEL**.  Desta forma, a consulta é alterada para uma das seguintes, de modo a limitar os resultados a eventos de erro.
 
@@ -96,11 +91,11 @@ Adicione propriedades ao painel do filtro ao selecionar **Add to filters** (Adic
 
 Pode definir o mesmo filtro ao selecionar **Filter** (Filtro) no menu de propriedades de um registo com o valor pelo qual quer filtrar.  
 
-Só tem do **filtro** opção para propriedades com os respetivos nomes azul.  Estes são campos *pesquisável* que são indexados para condições de pesquisa.  Os campos a cinzento são campos *de texto livre pesquisáveis* que só têm a opção **Show references** (Mostrar referências).  Esta opção devolve registos que tenham esse valor em qualquer propriedade.
+Tem apenas o **filtro** opção para as propriedades com os respetivos nomes a azul.  Estes são campos *pesquisável* que são indexados para condições de pesquisa.  Os campos a cinzento são campos *de texto livre pesquisáveis* que só têm a opção **Show references** (Mostrar referências).  Esta opção devolve registos que tenham esse valor em qualquer propriedade.
 
 ![Menu de filtro](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-Pode agrupar os resultados de uma propriedade individual ao selecionar a opção **Group by** (Agrupar por) no menu do registo.  Desta forma, é adicionado o operador [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) (resumir) à sua consulta, o qual apresenta os resultados num gráfico.  Pode agrupar mais de uma propriedade, mas terá de editar a consulta diretamente.  Selecione o menu de registo junto a **computador** propriedade e selecione **Agrupar por 'Computador'**.  
+Pode agrupar os resultados de uma propriedade individual ao selecionar a opção **Group by** (Agrupar por) no menu do registo.  Desta forma, é adicionado o operador [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) (resumir) à sua consulta, o qual apresenta os resultados num gráfico.  Pode agrupar mais de uma propriedade, mas terá de editar a consulta diretamente.  Selecione o menu do registo junto à propriedade **Computer** e selecione **Group by 'Computer'** (Agrupar por “Computer”).  
 
 ![Agrupar por computador](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
@@ -130,7 +125,7 @@ Agrupe numa coluna ao arrastar o cabeçalho da mesma para a parte superior dos r
 
 
 ## <a name="work-with-performance-data"></a>Trabalhar com dados de desempenho
-Os dados de desempenho dos agentes Windows e Linux são armazenados na área de trabalho do Log Analytics, na tabela **Perf**.  Registos de desempenho mais semelhante a qualquer outro registo e iremos pode escrever uma consulta simples que devolve todos os registos de desempenho, tal como com eventos.
+Os dados de desempenho dos agentes Windows e Linux são armazenados na área de trabalho do Log Analytics, na tabela **Perf**.  Registos de desempenho mais semelhante a qualquer outro registo e podemos escrever uma consulta simples que devolve todos os registos de desempenho, tal com com eventos.
 
 ```
 Perf
@@ -164,5 +159,5 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o idioma de consulta de análise de registos em [começar a utilizar o Portal da análise](https://go.microsoft.com/fwlink/?linkid=856079).
-- Percorrer um tutorial, utilizando o [portal da análise avançadas](https://go.microsoft.com/fwlink/?linkid=856587) que lhe permite executar as mesmas consultas e aceder os mesmos dados que o portal de registo de pesquisa.
+- Saiba mais sobre a linguagem de consulta do Log Analytics na [introdução ao Portal do Analytics](https://go.microsoft.com/fwlink/?linkid=856079).
+- Percorrer um tutorial com o [portal da análise avançada](https://go.microsoft.com/fwlink/?linkid=856587) que permite-lhe executar as mesmas consultas e acessar os mesmos dados que o portal de pesquisa de registos.

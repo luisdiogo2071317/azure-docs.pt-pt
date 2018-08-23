@@ -1,6 +1,6 @@
 ---
-title: PowerShell script - implementar o tempo de execução do Azure-SSIS integração | Microsoft Docs
-description: Este script do PowerShell cria um tempo de execução de integração do Azure-SSIS que pode ser executados pacotes SSIS na nuvem.
+title: PowerShell script - implementar o runtime de integração Azure-SSIS | Documentos da Microsoft
+description: Este script do PowerShell cria um runtime de integração Azure-SSIS que pode executar pacotes do SSIS na cloud.
 services: data-factory
 author: douglaslMS
 manager: craigg
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: douglasl
-ms.openlocfilehash: 6b1ef4ab14cbcb4e91ad023f9fdda5c2c2e71260
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9684258fde0504cfa5b10ddb4f0df736ff0e1e70
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30164996"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060211"
 ---
-# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - implementar runtime de integração do Azure-SSIS
+# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - implementar o runtime de integração Azure-SSIS
 
-Este script do PowerShell de exemplo cria um tempo de execução de integração de SSIS do Azure que pode executar os pacotes SSIS no Azure.  
+Este script do PowerShell de exemplo cria um runtime de integração Azure-SSIS que pode executar os seus pacotes do SSIS no Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -48,17 +48,17 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Criar uma fábrica de dados. |
-| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Cria um tempo de execução de integração do Azure-SSIS que pode ser executados pacotes SSIS na nuvem |
-| [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Inicia o tempo de execução de integração de SSIS do Azure. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Obtém informações sobre o tempo de execução de integração de SSIS do Azure. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Obtém informações sobre o estado do tempo de execução de integração SSIS do Azure. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Cria um runtime de integração Azure-SSIS que pode executar pacotes do SSIS na cloud |
+| [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Inicia o runtime de integração Azure-SSIS. |
+| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Obtém informações sobre o runtime de integração Azure-SSIS. |
+| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Obtém informações sobre o estado do Azure-SSIS integration runtime. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos de script do PowerShell do Azure Data Factory adicionais podem ser encontrados no [exemplos do PowerShell do Azure Data Factory](../samples-powershell.md).
+Exemplos do script do PowerShell de fábrica de dados do Azure adicionais podem ser encontrados no [exemplos do PowerShell do Azure Data Factory](../samples-powershell.md).

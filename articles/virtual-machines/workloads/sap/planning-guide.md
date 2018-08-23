@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a64c27b9634e2da6b0c46c5233b9ed5c61aea282
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619095"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42059196"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Para carregar uma VM existente ou VHD a partir da rede no local para usá-lo com
 * Uso *sysprep* no Windows ou *waagent-desaprovisionamento* no Linux para generalizar a VM - veja [referência técnica de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar um Máquina virtual do Linux para utilizar como um modelo do Resource Manager] [ capture-image-linux-step-2-create-vm-image] para Linux
 * Carregar o VHD com a CLI do Azure ou do Powershell
 * (Opcional) Criar uma imagem de disco gerido a partir de VHD com o Powershell, CLI do Azure ou o portal do Azure
-* Implementar a VM com um modelo JSON que referencia a imagem de VHD, conforme mostrado na [este modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) ou ao utilizar a imagem de disco gerido, como mostrado na [este modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
+* Implementar a VM com um modelo JSON que referencia a imagem de VHD, conforme mostrado na [este modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) ou ao utilizar a imagem de disco gerido, como mostrado na [este modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Download de VHDs ou discos geridos no local
 Infraestrutura como um serviço do Azure não é uma rua unidirecional de apenas poder carregar VHDs e SAP sistemas. Pode mover SAP fazer uma cópia de sistemas do Azure no mundo no local.
