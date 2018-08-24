@@ -10,9 +10,10 @@ ms.date: 12/02/2017
 ms.author: marsma
 ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32166012"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook de registo de contentor do Azure
 

@@ -16,9 +16,10 @@ ms.date: 03/01/2018
 ms.author: stgriffi
 ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
 ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594125"
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com auditoria e rotação de ponto a ponto
 ## <a name="introduction"></a>Introdução
