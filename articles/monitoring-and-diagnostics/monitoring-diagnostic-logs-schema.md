@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061072"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818969"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
@@ -29,7 +29,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 | resourceId | Necessário | O ID de recurso do recurso que o evento de emitidos. Para os serviços de inquilino, esta é a de /tenants/tenant-id/providers/provider-name o formulário. |
 | TenantId | Necessário para os registos de inquilino | O ID de inquilino do que este evento está associado ao inquilino do Active Directory. Esta propriedade só é utilizada para os registos de nível de inquilino, não é apresentado nos registos ao nível do recurso. |
 | operationName | Necessário | O nome da operação representada por este evento. Se o evento representa uma operação de RBAC, este é o nome da operação de RBAC (ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Modelada normalmente na forma de uma operação do Gestor de recursos, mesmo que não sejam operações de Gestor de recursos de documentado real (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Opcional | A api-version associada à operação, se o operationName foi executada com uma API (por exemplo. http://myservice.windowsazure.net/object?api-version=2016-06-01). Se não houver nenhuma API que corresponde a esta operação, a versão representa a versão dessa operação, caso as propriedades associadas a operação mudar no futuro. |
+| operationVersion | Opcional | A api-version associada à operação, se o operationName foi executada com uma API (por exemplo. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se não houver nenhuma API que corresponde a esta operação, a versão representa a versão dessa operação, caso as propriedades associadas a operação mudar no futuro. |
 | categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade na qual pode ativar ou desativar os registos num determinado recurso. As propriedades que são apresentados no blob de propriedades de um evento são os mesmos dentro de um tipo de categoria e recursos de log específico. Categorias de registo típicos são "Auditoria" "operacional" "Execução" e "Pedido." |
 | resultType | Opcional | O estado do evento. Valores típicos incluem iniciado, em curso, com êxito, falha, Active Directory e resolvido. |
 | resultSignature | Opcional | O estado de sub-rotina do evento. Se esta operação corresponde a uma chamada à REST API, este é o código de estado HTTP da chamada REST correspondente. |

@@ -4,16 +4,16 @@ description: Descreve como a definição de política de recurso do Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524112"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818702"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -107,7 +107,7 @@ A propriedade de metadados, pode utilizar **strongType** para fornecer uma lista
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-A regra de política, fazer referência a parâmetros com a seguinte sintaxe:
+A regra de política, fazer referência a parâmetros com o seguinte `parameters` sintaxe de função de valor de implementação:
 
 ```json
 {
@@ -245,6 +245,53 @@ Com o **AuditIfNotExists** e **DeployIfNotExists** pode avaliar a existência de
 Para obter um exemplo de auditoria quando uma extensão de máquina virtual não está implementada, veja [auditar se a extensão não existe](scripts/audit-ext-not-exist.md).
 
 Para obter detalhes completos sobre cada efeito, a ordem de avaliação, propriedades e exemplos, consulte [efeitos de política de compreensão](policy-effects.md).
+
+### <a name="policy-functions"></a>Funções de política
+
+Um subconjunto dos [funções de modelo do Resource Manager](../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política. As funções atualmente suportadas são:
+
+- [parameters](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [subscrição](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Além disso, o `field` função está disponível para as regras de política. Esta função é principalmente para utilização com **AuditIfNotExists** e **DeployIfNotExists** aos campos de referência no recurso que está a ser avaliada. Um exemplo disso pode ser visto no [DeployIfNotExists exemplo](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>Exemplos de função de política
+
+Este exemplo de regra de política utiliza o `resourceGroup` função de recursos para obter o **nome** propriedade, combinada com o `concat` matriz e objeto de função para criar um `like` condição que impõe o nome do recurso para começar com o nome do grupo de recursos.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Este exemplo de regra de política utiliza o `resourceGroup` função de recursos para obter o **etiquetas** valor de propriedade de matriz da **Centrodecustos** etiqueta no grupo de recursos e acrescentá-lo para o **Centrodecustos**  Etiquetar no novo recurso.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Aliases
 
