@@ -1,107 +1,121 @@
+items:
 - name: Registo de Contentores do Azure
   href: ./index.yml
 - name: Descrição geral
   items:
-    - name: Acerca do Container Registry
-      href: container-registry-intro.md
+  - name: Acerca do Container Registry
+    href: container-registry-intro.md
 - name: Inícios rápidos
-  expanded: true
   items:
-    - name: Container Registry - CLI
-      href: container-registry-get-started-azure-cli.md
-    - name: Container Registry - Portal
-      href: container-registry-get-started-portal.md
-    - name: Container Registry - PowerShell
-      href: container-registry-get-started-powershell.md
+  - name: Container Registry - CLI
+    href: container-registry-get-started-azure-cli.md
+  - name: Container Registry - Portal
+    href: container-registry-get-started-portal.md
+  - name: Container Registry - PowerShell
+    href: container-registry-get-started-powershell.md
+  - name: Eventos com o Event Grid - CLI
+    href: container-registry-event-grid-quickstart.md
+  expanded: true
 - name: Tutoriais
   items:
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Serviço de Kubernetes do Azure (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-    - name: Criar imagens de contentores (pré-visualização)
-      items:
-        - name: 1 - Criar imagens no Azure
-          href: container-registry-tutorial-quick-build.md
-        - name: 2 - Automatizar compilações de imagem
-          href: container-registry-tutorial-build-task.md
-        - name: 3 - Basear as atualizações de compilações de imagem
-          href: container-registry-tutorial-base-image-update.md
-    - name: Georreplicação
-      items:
-        - name: 1 - Preparar o registo de contentores
-          href: container-registry-tutorial-prepare-registry.md
-        - name: 2 - Implementar a aplicação Web
-          href: container-registry-tutorial-deploy-app.md
-        - name: 3 - Atualizar a aplicação Web
-          href: container-registry-tutorial-deploy-update.md
+  - name: Azure Container Instances
+    href: ../container-instances/container-instances-tutorial-prepare-app.md
+  - name: Serviço de Kubernetes do Azure (AKS)
+    href: ../aks/tutorial-kubernetes-prepare-app.md
+  - name: Service Fabric
+    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Criar imagens de contentores (pré-visualização)
+    items:
+    - name: 1 - Criar imagens no Azure
+      href: container-registry-tutorial-quick-build.md
+    - name: 2 - Automatizar compilações de imagem
+      href: container-registry-tutorial-build-task.md
+    - name: 3 - Basear as atualizações de compilações de imagem
+      href: container-registry-tutorial-base-image-update.md
+  - name: Georreplicação
+    items:
+    - name: 1 - Preparar o registo de contentores
+      href: container-registry-tutorial-prepare-registry.md
+    - name: 2 - Implementar a aplicação Web
+      href: container-registry-tutorial-deploy-app.md
+    - name: 3 - Atualizar a aplicação Web
+      href: container-registry-tutorial-deploy-update.md
 - name: Conceitos
   items:
-    - name: SKUs do registo de contentor
-      href: container-registry-skus.md
-    - name: Armazenamento de imagens
-      href: container-registry-storage.md
-    - name: Criar e corrigir com o ACR Build
-      href: container-registry-build-overview.md
-    - name: Georreplicação
-      href: container-registry-geo-replication.md
-    - name: Registar melhores práticas
-      href: container-registry-best-practices.md
+  - name: SKUs do registo de contentor
+    href: container-registry-skus.md
+  - name: Armazenamento de imagens
+    href: container-registry-storage.md
+  - name: Criar e corrigir com o ACR Build
+    href: container-registry-build-overview.md
+  - name: Georreplicação
+    href: container-registry-geo-replication.md
+  - name: Registar melhores práticas
+    href: container-registry-best-practices.md
 - name: Guias de procedimentos
   items:
-    - name: Enviar e extrair imagens
-      href: container-registry-get-started-docker-cli.md
-    - name: Ver repositórios
-      href: container-registry-repositories.md
-    - name: Eliminar imagens de contentor
-      href: container-registry-delete.md
-    - name: Atualizar para um registo Clássico
-      href: container-registry-upgrade.md
-    - name: Utilizar webhooks do ACR
-      href: container-registry-webhook.md
-    - name: Autenticação
-      items:
-        - name: Descrição geral da autenticação
-          href: container-registry-authentication.md
-        - name: Autenticação do principal de serviço
-          href: container-registry-auth-service-principal.md
-        - name: Azure Container Instances
-          href: container-registry-auth-aci.md
-        - name: Serviço de Kubernetes do Azure (AKS)
-          href: container-registry-auth-aks.md
+  - name: Enviar e extrair imagens
+    href: container-registry-get-started-docker-cli.md
+  - name: Ver repositórios
+    href: container-registry-repositories.md
+  - name: Eliminar imagens de contentor
+    href: container-registry-delete.md
+  - name: Fidedignidade do conteúdo (pré-visualização)
+    href: container-registry-content-trust.md
+  - name: Atualizar para um registo Clássico
+    href: container-registry-upgrade.md
+  - name: Utilizar webhooks do ACR
+    href: container-registry-webhook.md
+  - name: Autenticação
+    items:
+    - name: Descrição geral da autenticação
+      href: container-registry-authentication.md
+    - name: Autenticação do principal de serviço
+      href: container-registry-auth-service-principal.md
+    - name: Azure Container Instances
+      href: container-registry-auth-aci.md
+    - name: Serviço de Kubernetes do Azure (AKS)
+      href: container-registry-auth-aks.md
 - name: Referência
   items:
-    - name: CLI do Azure
-      href: /cli/azure/acr
-    - name: REST
-      href: /rest/api/containerregistry
-    - name: PowerShell
-      href: '/powershell/module/azurerm.containerregistry#container_registry'
-    - name: .NET
-      href: /dotnet/api/overview/azure/containerregistry
-    - name: Python
-      href: /python/api/overview/azure/container-registry
-    - name: Java
-      href: /java/api/overview/azure/containerregistry
-    - name: Node.js
-      href: /javascript/api/overview/azure/container-registry
-    - name: Modelo do Resource Manager
-      href: /azure/templates/microsoft.containerregistry/registries
-    - name: Esquema de webhook
-      href: container-registry-webhook-reference.md
+  - name: CLI do Azure
+    href: /cli/azure/acr
+  - name: REST
+    href: /rest/api/containerregistry
+  - name: PowerShell
+    href: /powershell/module/azurerm.containerregistry#container_registry
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerregistry
+  - name: Python
+    href: /python/api/overview/azure/container-registry
+  - name: Java
+    href: /java/api/overview/azure/containerregistry
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-registry
+  - name: Modelo do Resource Manager
+    href: /azure/templates/microsoft.containerregistry/registries
+  - name: Esquema de webhook
+    href: container-registry-webhook-reference.md
+  - name: Esquema do Event Grid
+    href: ../event-grid/event-schema-container-registry.md
+    maintainContext: true
 - name: Recursos
   items:
-    - name: Disponibilidade de região
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
-    - name: Mapa
-      href: 'https://aka.ms/acr/roadmap'
-    - name: Fornecer comentários sobre o produto
-      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'
+  - name: Disponibilidade de região
+    href: https://azure.microsoft.com/regions/services/
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/container-registry/
+  - name: Mapa
+    href: https://aka.ms/acr/roadmap
+  - name: Fornecer comentários sobre o produto
+    href: https://feedback.azure.com/forums/903958-azure-container-registry
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-registry
+  - name: Vídeos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
+ms.openlocfilehash: 67ff62865eb6a14dc619d7ba37310acff0527787
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927284"

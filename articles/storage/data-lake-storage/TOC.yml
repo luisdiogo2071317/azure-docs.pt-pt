@@ -1,76 +1,83 @@
+items:
 - name: Documentação do Storage do Azure
   href: /azure/storage/
 - name: Documentação de Troca do Armazenamento do Azure Data Lake Ger1
   href: /azure/data-lake-store/
 - name: Descrição geral
   items:
-    - name: Introdução
-      href: introduction.md
+  - name: Introdução
+    href: introduction.md
 - name: Inícios rápidos
   items:
-    - name: Criar uma Conta de armazenamento compatível com o Armazenamento do Data Lake Ger2
-      href: quickstart-create-account.md
-    - name: Criar/ligar conta do Databricks
-      href: quickstart-create-databricks-account.md
-    - name: Criar um cluster do HDInsight
-      href: quickstart-create-connect-hdi-cluster.md
+  - name: Criar uma Conta de armazenamento compatível com o Armazenamento do Data Lake Ger2
+    href: quickstart-create-account.md
+  - name: Criar/ligar conta do Databricks
+    href: quickstart-create-databricks-account.md
+  - name: Criar um cluster do HDInsight
+    href: quickstart-create-connect-hdi-cluster.md
 - name: Tutoriais
   items:
-    - name: 'Extrair, transformar e carregar dados com o Azure Databricks'
-      href: handle-data-using-databricks.md
-    - name: Aceder a dados de Armazenamento do Armazenamento do Data Lake com DataBricks através do Spark
-      href: using-databricks-spark.md
-    - name: 'Extrair, transformar e carregar dados com o Apache Hive no Azure HDInsight'
-      href: tutorial-extract-transform-load-hive.md
+  - name: Extrair, transformar e carregar dados com o Azure Databricks
+    href: handle-data-using-databricks.md
+  - name: Aceder a dados do Data Lake Storage com Databricks através do Spark
+    href: using-databricks-spark.md
+  - name: Extrair, transformar e carregar dados com o Apache Hive no Azure HDInsight
+    href: tutorial-extract-transform-load-hive.md
 - name: Conceitos
   items:
-    - name: O controlador do FileSystem de Blobs do Azure para o Hadoop
-      href: abfs-driver.md
-    - name: Introdução ao URI do Sistema de Ficheiros de Blobs do Azure
-      href: introduction-abfs-uri.md
-    - name: O Serviço de Espaço de Nomes Hierárquico
-      href: namespace.md
-    - name: Segurança
-      items:
-        - name: Encriptação de dados inativos
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-        - name: Encriptação para dados inativos com chaves do cliente
-          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Avaliação do Armazenamento do Data Lake Ger2
-      href: evaluation.md
+  - name: O controlador do FileSystem de Blobs do Azure para o Hadoop
+    href: abfs-driver.md
+  - name: Introdução ao URI do Sistema de Ficheiros de Blobs do Azure
+    href: introduction-abfs-uri.md
+  - name: O Serviço de Espaço de Nomes Hierárquico
+    href: namespace.md
+  - name: Segurança
+    items:
+    - name: Encriptação de dados inativos
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Encriptação para dados inativos com chaves do cliente
+      href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Avaliação do Armazenamento do Data Lake Ger2
+    href: evaluation.md
 - name: Guias de procedimentos
   items:
-    - name: Utilizar o Armazenamento do Data Lake Ger2 com clusters do Azure HDInsight
-      href: use-hdi-cluster.md
-    - name: Utilizar a CLI do Sistema de Ficheiros de Hadoop com o Armazenamento do Data Lake Ger2
-      href: use-hdfs-data-lake-storage.md
-    - name: Ingerir dados
-      items:
-        - name: Copiar os dados para o Armazenamento do Data Lake Ger2 com o Distcp
-          href: use-distcp.md
-        - name: Copiar os dados para o Armazenamento do Data Lake Ger2 com o Azure Data Factory
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Ligar ao Azure Databricks
-      href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+  - name: Utilizar o Armazenamento do Data Lake Ger2 com clusters do Azure HDInsight
+    href: use-hdi-cluster.md
+  - name: Utilizar a CLI do Sistema de Ficheiros de Hadoop com o Armazenamento do Data Lake Ger2
+    href: use-hdfs-data-lake-storage.md
+  - name: Ingerir dados
+    items:
+    - name: Copiar os dados para o Armazenamento do Data Lake Ger2 com o Distcp
+      href: use-distcp.md
+    - name: Copiar os dados para o Armazenamento do Data Lake Ger2 com o Azure Data Factory
+      href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Ligar ao Azure Databricks
+    href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
 - name: Referência
   items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
 - name: Recursos
   items:
-    - name: Mapa do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=storage'
-    - name: Ferramentas de cliente do Armazenamento do Azure
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Fórum
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
-    - name: Calculadora de preços
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Atualizações de serviço
-      href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Ferramentas de cliente do Armazenamento do Azure
+    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Fórum
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+ms.openlocfilehash: 2e640bee7739169b65352d7da6aedf2185c2aa99
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41928408"

@@ -1,251 +1,258 @@
+items:
 - name: Documentação da Segurança do Azure
   href: index.md
 - name: Arquitetura e design
   href: azure-security.md
-  expanded: false
   items:
-    - name: Deteção avançada de ameaças
-      href: azure-threat-detection.md
-    - name: Registo e auditoria do Azure
-      href: azure-log-audit.md
-    - name: Segurança de rede do Azure
-      href: abstract-azure-network-security.md
-    - name: Segurança da plataforma sem servidor do Azure
-      href: abstract-serverless-platform-security.md
-    - name: Ativar a segurança operacional
-      href: azure-operational-security.md
-    - name: Governação no Azure
-      href: governance-in-azure.md
-    - name: Isolamento na cloud do Azure
-      href: azure-isolation.md
-    - name: Arquitetura de rede híbrida segura
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-    - name: Capacidades técnicas de segurança
-      href: azure-security-technical-capabilities.md
+  - name: Deteção avançada de ameaças
+    href: azure-threat-detection.md
+  - name: Registo e auditoria do Azure
+    href: azure-log-audit.md
+  - name: Segurança de rede do Azure
+    href: abstract-azure-network-security.md
+  - name: Segurança da plataforma sem servidor do Azure
+    href: abstract-serverless-platform-security.md
+  - name: Ativar a segurança operacional
+    href: azure-operational-security.md
+  - name: Governação no Azure
+    href: governance-in-azure.md
+  - name: Isolamento na cloud do Azure
+    href: azure-isolation.md
+  - name: Arquitetura de rede híbrida segura
+    href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Capacidades técnicas de segurança
+    href: azure-security-technical-capabilities.md
+  expanded: false
 - name: Segurança e encriptação de dados
   href: security-azure-encryption-overview.md
   items:
-    - name: Segurança de bases de dados
-      href: azure-database-security-overview.md
+  - name: Segurança de bases de dados
+    href: azure-database-security-overview.md
+    items:
+    - name: Melhores práticas
+      href: azure-database-security-best-practices.md
+    - name: Lista de verificação de segurança
+      href: azure-database-security-checklist.md
+  - name: Encriptação de disco
+    items:
+    - name: Melhores práticas
+      href: azure-security-data-encryption-best-practices.md
+    - name: Encriptação inativa de dados
+      href: azure-security-encryption-atrest.md
+    - name: Encriptação de disco para VMs IaaS
+      href: azure-security-disk-encryption-overview.md
       items:
-        - name: Melhores práticas
-          href: azure-database-security-best-practices.md
-        - name: Lista de verificação de segurança
-          href: azure-database-security-checklist.md
-    - name: Encriptação de disco
-      items:
-        - name: Melhores práticas
-          href: azure-security-data-encryption-best-practices.md
-        - name: Encriptação inativa de dados
-          href: azure-security-encryption-atrest.md
-        - name: Encriptação de disco para VMs IaaS
-          href: azure-security-disk-encryption-overview.md
-          items:
-            - name: Pré-requisitos de encriptação de disco
-              href: azure-security-disk-encryption-prerequisites.md
-            - name: Encriptação de disco para VMs do Windows
-              href: azure-security-disk-encryption-windows.md
-            - name: Encriptação de disco para VMs do Linux
-              href: azure-security-disk-encryption-linux.md
-            - name: Apêndice para a encriptação de discos
-              href: azure-security-disk-encryption-appendix.md
-            - name: FAQ de encriptação de discos
-              href: azure-security-disk-encryption-faq.md
-            - name: Resolução de problemas
-              href: azure-security-disk-encryption-tsg.md
-        - name: Encriptar uma VM do Azure
-          href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Segurança do Armazenamento do Azure
-      href: security-storage-overview.md
-    - name: Guia da segurança do armazenamento
-      href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Pré-requisitos de encriptação de disco
+        href: azure-security-disk-encryption-prerequisites.md
+      - name: Encriptação de disco para VMs do Windows
+        href: azure-security-disk-encryption-windows.md
+      - name: Encriptação de disco para VMs do Linux
+        href: azure-security-disk-encryption-linux.md
+      - name: Apêndice para a encriptação de discos
+        href: azure-security-disk-encryption-appendix.md
+      - name: FAQ de encriptação de discos
+        href: azure-security-disk-encryption-faq.md
+      - name: Resolução de problemas
+        href: azure-security-disk-encryption-tsg.md
+    - name: Encriptar uma VM do Azure
+      href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Segurança do Armazenamento do Azure
+    href: security-storage-overview.md
+  - name: Guia da segurança do armazenamento
+    href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Plataforma e infraestrutura
   items:
-    - name: Segurança de infraestrutura
-      href: azure-security-infrastructure.md
-      items:
-        - name: Segurança física
-          href: azure-physical-security.md
-        - name: Disponibilidade
-          href: azure-infrastructure-availability.md
-        - name: Componentes e limites
-          href: azure-infrastructure-components.md
-        - name: Arquitetura de rede
-          href: azure-infrastructure-network.md
-        - name: Rede de produção
-          href: azure-production-network.md
-        - name: SQL Database
-          href: azure-infrastructure-sql.md
-        - name: Operações
-          href: azure-infrastructure-operations.md
-        - name: Monitorização
-          href: azure-infrastructure-monitoring.md
-        - name: Integridade
-          href: azure-infrastructure-integrity.md
-        - name: Proteção de dados
-          href: azure-protection-of-customer-data.md
-    - name: Microsoft Antimalware
-      href: azure-security-antimalware.md
-    - name: Segurança de IaaS
-      href: security-virtual-machines-overview.md
-      items:
-        - name: Melhores práticas - Cargas de trabalho de IaaS
-          href: azure-security-iaas.md
-        - name: Imagens do Azure Marketplace
-          href: security-recommendations-azure-marketplace-images.md
-    - name: Gestão de identidades
-      href: security-identity-management-overview.md
-      items:
-        - name: Selecionar a autenticação do Azure AD
-          href: azure-ad-choose-authn.md
-        - name: Lista de verificação de segurança
-          href: azure-ad-secure-steps.md
-        - name: Melhores práticas
-          href: azure-security-identity-management-best-practices.md
-        - name: Impor a MFA aos administradores de subscrição
-          href: azure-security-global-admin.md
-    - name: Segurança da rede
-      href: security-network-overview.md
-      items:
-        - name: Melhores práticas
-          href: azure-security-network-security-best-practices.md
-        - name: Proteção contra DDOS
-          href: azure-ddos-best-practices.md
-        - name: Segurança de limites
-          href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Segurança de infraestrutura
+    href: azure-security-infrastructure.md
+    items:
+    - name: Segurança física
+      href: azure-physical-security.md
+    - name: Disponibilidade
+      href: azure-infrastructure-availability.md
+    - name: Componentes e limites
+      href: azure-infrastructure-components.md
+    - name: Arquitetura de rede
+      href: azure-infrastructure-network.md
+    - name: Rede de produção
+      href: azure-production-network.md
+    - name: SQL Database
+      href: azure-infrastructure-sql.md
+    - name: Operações
+      href: azure-infrastructure-operations.md
+    - name: Monitorização
+      href: azure-infrastructure-monitoring.md
+    - name: Integridade
+      href: azure-infrastructure-integrity.md
+    - name: Proteção de dados
+      href: azure-protection-of-customer-data.md
+  - name: Microsoft Antimalware
+    href: azure-security-antimalware.md
+  - name: Segurança de IaaS
+    href: security-virtual-machines-overview.md
+    items:
+    - name: Melhores práticas - Cargas de trabalho de IaaS
+      href: azure-security-iaas.md
+    - name: Imagens do Azure Marketplace
+      href: security-recommendations-azure-marketplace-images.md
+  - name: Gestão de identidades
+    href: security-identity-management-overview.md
+    items:
+    - name: Selecionar a autenticação do Azure AD
+      href: azure-ad-choose-authn.md
+    - name: Lista de verificação de segurança
+      href: azure-ad-secure-steps.md
+    - name: Melhores práticas
+      href: azure-security-identity-management-best-practices.md
+    - name: Impor a MFA aos administradores de subscrição
+      href: azure-security-global-admin.md
+  - name: Segurança da rede
+    href: security-network-overview.md
+    items:
+    - name: Melhores práticas
+      href: azure-security-network-security-best-practices.md
+    - name: Proteção contra DDOS
+      href: azure-ddos-best-practices.md
+    - name: Segurança de limites
+      href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Aplicação
   items:
-    - name: PaaS
-      href: security-paas-deployments.md
-      items:
-        - name: Serviço de Aplicações do Azure para PaaS
-          href: security-paas-applications-using-app-services.md
-        - name: Armazenamento do Azure para PaaS
-          href: security-paas-applications-using-storage.md
-        - name: Melhores práticas de DB para PaaS
-          href: security-paas-applications-using-sql.md
-    - name: IoT
-      href: security-internet-of-things-overview.md
-      items:
-        - name: Melhores práticas da segurança de IoT
-          href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-        - name: Segurança de IoT
-          href: '../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
-        - name: Proteger a sua implementação de IoT
-          href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Segurança do Azure Service Fabric
-      href: azure-service-fabric-security-overview.md
-      items:
-        - name: Melhores práticas
-          href: azure-service-fabric-security-best-practices.md
-        - name: Lista de verificação de segurança
-          href: azure-service-fabric-security-checklist.md
-- name: 'Monitorização, auditoria e operações'
+  - name: PaaS
+    href: security-paas-deployments.md
+    items:
+    - name: Serviço de Aplicações do Azure para PaaS
+      href: security-paas-applications-using-app-services.md
+    - name: Armazenamento do Azure para PaaS
+      href: security-paas-applications-using-storage.md
+    - name: Melhores práticas de DB para PaaS
+      href: security-paas-applications-using-sql.md
+  - name: IoT
+    href: security-internet-of-things-overview.md
+    items:
+    - name: Melhores práticas da segurança de IoT
+      href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Segurança de IoT
+      href: ../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot
+    - name: Proteger a sua implementação de IoT
+      href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Segurança do Azure Service Fabric
+    href: azure-service-fabric-security-overview.md
+    items:
+    - name: Melhores práticas
+      href: azure-service-fabric-security-best-practices.md
+    - name: Lista de verificação de segurança
+      href: azure-service-fabric-security-checklist.md
+- name: Monitorização, auditoria e operações
   href: security-management-and-monitoring-overview.md
   items:
-    - name: Auditoria e registo
+  - name: Auditoria e registo
+    items:
+    - name: Gestão de segurança
+      href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Segurança da gestão remota
+      href: azure-security-management.md
+    - name: Integração de registos do Azure
       items:
-        - name: Gestão de segurança
-          href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-        - name: Segurança da gestão remota
-          href: azure-security-management.md
-        - name: Integração de registos do Azure
-          items:
-            - name: Introdução
-              href: security-azure-log-integration-overview.md
-            - name: Introdução
-              href: security-azure-log-integration-get-started.md
-            - name: Integrar registos de auditoria do Azure AD
-              href: security-azure-log-integration-ad.md
-            - name: Integrar alertas do Centro de Segurança
-              href: security-azure-log-integration-security-center.md
-            - name: Integrar registos do Key Vault
-              href: security-azure-log-integration-keyvault-eventhub.md
-            - name: FAQ
-              href: security-azure-log-integration-faq.md
-    - name: Segurança operacional
-      href: azure-operational-security-overview.md
-      items:
-        - name: Melhores práticas
-          href: azure-operational-security-best-practices.md
-        - name: Lista de verificação de segurança
-          href: azure-operational-security-checklist.md
+      - name: Introdução
+        href: security-azure-log-integration-overview.md
+      - name: Introdução
+        href: security-azure-log-integration-get-started.md
+      - name: Integrar registos de auditoria do Azure AD
+        href: security-azure-log-integration-ad.md
+      - name: Integrar alertas do Centro de Segurança
+        href: security-azure-log-integration-security-center.md
+      - name: Integrar registos do Key Vault
+        href: security-azure-log-integration-keyvault-eventhub.md
+      - name: FAQ
+        href: security-azure-log-integration-faq.md
+  - name: Segurança operacional
+    href: azure-operational-security-overview.md
+    items:
+    - name: Melhores práticas
+      href: azure-operational-security-best-practices.md
+    - name: Lista de verificação de segurança
+      href: azure-operational-security-checklist.md
 - name: Governação e conformidade
   items:
-    - name: FedRAMP
-      items:
-        - name: Análise de dados
-          href: ./blueprints/fedramp-analytics-overview.md
-        - name: Armazém de dados
-          href: ./blueprints/fedramp-datawarehouse-overview.md
-        - name: Aplicação web IaaS
-          href: ./blueprints/fedramp-iaaswa-overview.md
-        - name: Aplicação web PaaS
-          href: ./blueprints/fedramp-paaswa-overview.md
-    - name: FFIEC
-      items:
-        - name: Análise de dados
-          href: ./blueprints/ffiec-analytics-overview.md
-        - name: Armazém de dados
-          href: ./blueprints/ffiec-dw-overview.md
-        - name: Aplicação web IaaS
-          href: ./blueprints/ffiec-iaaswa-overview.md
-        - name: Aplicação web PaaS
-          href: ./blueprints/ffiec-paaswa-overview.md
-    - name: GDPR
-      items:
-        - name: Análise de dados
-          href: ./blueprints/gdpr-analytics-overview.md
-        - name: Armazém de dados
-          href: ./blueprints/gdpr-datawarehouse-overview.md
-        - name: Aplicação web IaaS
-          href: ./blueprints/gdpr-iaaswa-overview.md
-        - name: Aplicação web PaaS
-          href: ./blueprints/gdpr-paaswa-overview.md
-    - name: HIPAA/HITRUST
-      items:
-        - name: Dados de Estado de Funcionamento e IA
-          href: ./blueprints/azure-health.md
-    - name: NIST SP 800-171
-      items:
-        - name: Análise de dados
-          href: ./blueprints/nist171-analytics-overview.md
-        - name: Armazém de dados
-          href: ./blueprints/nist171-datawarehouse-overview.md
-        - name: Aplicação web IaaS
-          href: ./blueprints/nist171-iaaswa-overview.md
-        - name: Aplicação web PaaS
-          href: ./blueprints/nist171-paaswa-overview.md
-    - name: PCI DSS
-      items:
-        - name: Análise de dados
-          href: ./blueprints/pcidss-analytics-overview.md
-        - name: Armazém de dados
-          href: ./blueprints/pcidss-dw-overview.md
-        - name: Aplicação web IaaS
-          href: ./blueprints/pcidss-iaaswa-overview.md
-        - name: Aplicação web PaaS
-          href: ./blueprints/pcidss-paaswa-overview.md
-    - name: TIC
-      items:
-        - name: Ligação Fidedigna à Internet com o Azure
-          href: ./compliance/compliance-tic.md
-    - name: UK NHS
-      items:
-        - name: Análise de dados
-          href: ./blueprints/uknhs-analytics-overview.md
-        - name: Armazém de dados
-          href: ./blueprints/uknhs-datawarehouse-overview.md
-        - name: Aplicação web IaaS
-          href: ./blueprints/uknhs-iaaswa-overview.md
-        - name: Aplicação web PaaS
-          href: ./blueprints/uknhs-paaswa-overview.md
-    - name: OFICIAL DO REINO UNIDO
-      items:
-        - name: Aplicação web IaaS
-          href: ./blueprints/ukofficial-iaaswa-overview.md
-        - name: Aplicação web PaaS
-          href: ./blueprints/ukofficial-paaswa-overview.md
+  - name: AU PROTEGIDO
+    items:
+    - name: Aplicação web IaaS
+      href: ./blueprints/au-protected-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/au-protected-paaswa-overview.md
+  - name: FedRAMP
+    items:
+    - name: Análise de dados
+      href: ./blueprints/fedramp-analytics-overview.md
+    - name: Armazém de dados
+      href: ./blueprints/fedramp-datawarehouse-overview.md
+    - name: Aplicação web IaaS
+      href: ./blueprints/fedramp-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/fedramp-paaswa-overview.md
+  - name: FFIEC
+    items:
+    - name: Análise de dados
+      href: ./blueprints/ffiec-analytics-overview.md
+    - name: Armazém de dados
+      href: ./blueprints/ffiec-dw-overview.md
+    - name: Aplicação web IaaS
+      href: ./blueprints/ffiec-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/ffiec-paaswa-overview.md
+  - name: GDPR
+    items:
+    - name: Análise de dados
+      href: ./blueprints/gdpr-analytics-overview.md
+    - name: Armazém de dados
+      href: ./blueprints/gdpr-datawarehouse-overview.md
+    - name: Aplicação web IaaS
+      href: ./blueprints/gdpr-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/gdpr-paaswa-overview.md
+  - name: HIPAA/HITRUST
+    items:
+    - name: Dados de Estado de Funcionamento e IA
+      href: ./blueprints/azure-health.md
+  - name: NIST SP 800-171
+    items:
+    - name: Análise de dados
+      href: ./blueprints/nist171-analytics-overview.md
+    - name: Armazém de dados
+      href: ./blueprints/nist171-datawarehouse-overview.md
+    - name: Aplicação web IaaS
+      href: ./blueprints/nist171-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/nist171-paaswa-overview.md
+  - name: PCI DSS
+    items:
+    - name: Análise de dados
+      href: ./blueprints/pcidss-analytics-overview.md
+    - name: Armazém de dados
+      href: ./blueprints/pcidss-dw-overview.md
+    - name: Aplicação web IaaS
+      href: ./blueprints/pcidss-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/pcidss-paaswa-overview.md
+  - name: TIC
+    items:
+    - name: Ligação Fidedigna à Internet com o Azure
+      href: ./compliance/compliance-tic.md
+  - name: UK NHS
+    items:
+    - name: Análise de dados
+      href: ./blueprints/uknhs-analytics-overview.md
+    - name: Armazém de dados
+      href: ./blueprints/uknhs-datawarehouse-overview.md
+    - name: Aplicação web IaaS
+      href: ./blueprints/uknhs-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/uknhs-paaswa-overview.md
+  - name: OFICIAL DO REINO UNIDO
+    items:
+    - name: Aplicação web IaaS
+      href: ./blueprints/ukofficial-iaaswa-overview.md
+    - name: Aplicação web PaaS
+      href: ./blueprints/ukofficial-paaswa-overview.md
 - name: Documentação técnica
   href: security-white-papers.md
 - name: Serviços de segurança do Azure
@@ -256,43 +263,49 @@
   href: security-best-practices-and-patterns.md
 - name: Recursos
   items:
-    - name: Programa MVP de segurança do Azure
-      href: azure-security-mvp.md
-    - name: Consultoria de cibersegurança
-      href: azure-security-cyber-services.md
-    - name: Registar um pedido de suporte de evento de segurança
-      href: azure-security-event-support-ticket.md
-    - name: Testes de intrusão
-      href: azure-security-pen-testing.md
-    - name: Microsoft Threat Modeling Tool
-      href: azure-security-threat-modeling-tool.md
+  - name: Programa MVP de segurança do Azure
+    href: azure-security-mvp.md
+  - name: Consultoria de cibersegurança
+    href: azure-security-cyber-services.md
+  - name: Registar um pedido de suporte de evento de segurança
+    href: azure-security-event-support-ticket.md
+  - name: Testes de intrusão
+    href: azure-security-pen-testing.md
+  - name: Microsoft Threat Modeling Tool
+    href: azure-security-threat-modeling-tool.md
+    items:
+    - name: Introdução
+      href: azure-security-threat-modeling-tool-getting-started.md
+    - name: Descrição geral das funcionalidades
+      href: azure-security-threat-modeling-tool-feature-overview.md
+    - name: Ameaças
+      href: azure-security-threat-modeling-tool-threats.md
+    - name: Mitigações
+      href: azure-security-threat-modeling-tool-mitigations.md
       items:
-        - name: Introdução
-          href: azure-security-threat-modeling-tool-getting-started.md
-        - name: Descrição geral das funcionalidades
-          href: azure-security-threat-modeling-tool-feature-overview.md
-        - name: Ameaças
-          href: azure-security-threat-modeling-tool-threats.md
-        - name: Mitigações
-          href: azure-security-threat-modeling-tool-mitigations.md
-          items:
-            - name: Auditoria e registo
-              href: azure-security-threat-modeling-tool-auditing-and-logging.md
-            - name: Autenticação
-              href: azure-security-threat-modeling-tool-authentication.md
-            - name: Autorização
-              href: azure-security-threat-modeling-tool-authorization.md
-            - name: Segurança da comunicação
-              href: azure-security-threat-modeling-tool-communication-security.md
-            - name: Gestão da configuração
-              href: azure-security-threat-modeling-tool-configuration-management.md
-            - name: Criptografia
-              href: azure-security-threat-modeling-tool-cryptography.md
-            - name: Gestão de exceções
-              href: azure-security-threat-modeling-tool-exception-management.md
-            - name: Validação de entradas
-              href: azure-security-threat-modeling-tool-input-validation.md
-            - name: Dados confidenciais
-              href: azure-security-threat-modeling-tool-sensitive-data.md
-            - name: Gestão de sessões
-              href: azure-security-threat-modeling-tool-session-management.md
+      - name: Auditoria e registo
+        href: azure-security-threat-modeling-tool-auditing-and-logging.md
+      - name: Autenticação
+        href: azure-security-threat-modeling-tool-authentication.md
+      - name: Autorização
+        href: azure-security-threat-modeling-tool-authorization.md
+      - name: Segurança da comunicação
+        href: azure-security-threat-modeling-tool-communication-security.md
+      - name: Gestão da configuração
+        href: azure-security-threat-modeling-tool-configuration-management.md
+      - name: Criptografia
+        href: azure-security-threat-modeling-tool-cryptography.md
+      - name: Gestão de exceções
+        href: azure-security-threat-modeling-tool-exception-management.md
+      - name: Validação de entradas
+        href: azure-security-threat-modeling-tool-input-validation.md
+      - name: Dados confidenciais
+        href: azure-security-threat-modeling-tool-sensitive-data.md
+      - name: Gestão de sessões
+        href: azure-security-threat-modeling-tool-session-management.md
+ms.openlocfilehash: 0ec99adbb53dda738eeaa3edb5bd181b8a91c0e7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41927647"
