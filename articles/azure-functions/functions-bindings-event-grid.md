@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/20/2018
+ms.date: 08/23/2018
 ms.author: glenga
-ms.openlocfilehash: f0cb698bad42bcfd035451361b9a20d0f0b5bddf
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 850b30ff42b77fe0ab527a54b62ba0f77027f932
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056311"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746251"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -375,11 +375,11 @@ Quando terminar de teste, pode utilizar a mesma subscrição para produção, at
 
 ### <a name="create-a-viewer-web-app"></a>Criar uma aplicação web do Visualizador
 
-Para simplificar a captura de mensagens de eventos, pode implementar um [aplicação web pré-criados](https://github.com/dbarkol/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
+Para simplificar a captura de mensagens de eventos, pode implementar um [aplicação web pré-criados](https://github.com/Azure-Samples/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
 
 Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
 

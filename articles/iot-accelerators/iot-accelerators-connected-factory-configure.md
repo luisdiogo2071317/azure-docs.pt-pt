@@ -1,6 +1,6 @@
 ---
-title: Configurar a topologia de fábrica ligado | Microsoft Docs
-description: Como configurar a topologia de um acelerador da solução de fábrica ligado.
+title: Configurar a topologia de fábrica ligada | Documentos da Microsoft
+description: Como configurar a topologia de um acelerador de solução de fábrica ligada.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,47 +8,47 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6c5e27dad7f80a329edbd8fbcb95647dc4cd15a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626736"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746984"
 ---
-# <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução de fábrica ligado
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador de solução de fábrica ligada
 
-O acelerador da solução de fábrica ligado mostra um dashboard simulado para uma empresa fictícias Contoso. Esta empresa tem quaisquer fábricas em várias localizações global global.
+O acelerador de solução de fábrica ligada mostra um dashboard simulado para uma empresa fictícia Contoso. Esta empresa tem fábricas globalmente em várias localizações globais.
 
-Este artigo utiliza Contoso como um exemplo para descrever como configurar a topologia de uma solução de fábrica ligado.
+Este artigo utiliza Contoso como exemplo para descrever como configurar a topologia de uma solução de fábrica ligada.
 
-## <a name="simulated-factories-configuration"></a>Configuração de factories simulada
+## <a name="simulated-factories-configuration"></a>Configuração de fábricas simuladas
 
-Cada fábrica Contoso tem linhas de produção que consiste em três estações. Cada estação é um servidor de OPC UA real com uma função específica:
+Cada fábrica de Contoso tem linhas de produção, que consistem em três estações. Cada estação é um servidor OPC UA real com uma função específica:
 
 * Estação de assemblagem
 * Estação de teste
 * Estação de empacotamento
 
-Estes servidores de OPC UA tem nós de OPC UA e [OPC publicador](https://github.com/Azure/iot-edge-opc-publisher) envia os valores destes nós à fábrica ligado. Isto inclui:
+Estes servidores OPC UA tem nós de OPC UA e [o publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) envia os valores de nós para a fábrica ligada. Isto inclui:
 
-* Estado operacional atual, tais como o consumo de energia atual.
-* Informações de produção, tais como o número de produtos produzidos.
+* Estado operacional atual, como o consumo de energia atual.
+* Informações de produção, como o número de produtos produziram.
 
-Pode utilizar o dashboard para explorar a topologia de fábrica Contoso a partir de uma vista global para baixo para uma vista de nível de estação. Permite que o dashboard de fábrica ligada:
+Pode utilizar o dashboard para explorar a topologia de fábrica da Contoso a partir de uma vista global para baixo para uma vista de nível de estação. O dashboard de fábrica ligada permite:
 
-* A visualização de OEE e KPI figuras para cada camada na topologia.
+* A visualização dos valores OEE e KPI para cada camada na topologia.
 * A visualização de valores atuais de nós de OPC UA nas estações.
-* A agregação de figuras OEE e KPI do nível da estação a nível global.
-* A visualização de alertas e acções a executar se valores de limiares específicos do alcance.
+* A agregação dos valores OEE e KPI do nível de estação para o nível global.
+* A visualização de alertas e ações a efetuar se os valores de limiares específicos do alcance.
 
 ## <a name="connected-factory-topology"></a>Topologia de fábrica ligada
 
-A topologia de factories, linhas de produção e estações é hierárquica:
+A topologia de fábricas, linhas de produção e estações é hierárquica:
 
-* O nível global possui nós de fábrica como subordinados.
-* As fábricas de tem nós de linha de produção como subordinados.
-* As linhas de produção ter nós de estação como subordinados.
-* As estações (servidores OPC UA) tem nós de OPC UA como subordinados.
+* O nível global tem nós de fábrica como filhos.
+* As fábricas tem nós de linha de produção como filhos.
+* As linhas de produção ter nós de estação como filhos.
+* As estações (servidores OPC UA) tem nós de OPC UA como filhos.
 
 Cada nó na topologia tem um conjunto comum de propriedades que definem:
 
@@ -56,14 +56,14 @@ Cada nó na topologia tem um conjunto comum de propriedades que definem:
 * Um nome.
 * Uma descrição.
 * Uma imagem.
-* Os subordinados do nó de topologia.
-* Destino, valores mínimo e máximo para figuras OEE e KPI e as ações de alerta para executar.
+* Os filhos do nó de topologia.
+* Mínimo, destino e valores máximos para valores OEE e KPI e as ações de alerta para executar.
 
-## <a name="topology-configuration-file"></a>Ficheiro de configuração da topologia
+## <a name="topology-configuration-file"></a>Ficheiro de configuração de topologia
 
-Para configurar as propriedades listadas na secção anterior, a solução de fábrica ligado utiliza um ficheiro de configuração chamado [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+Para configurar as propriedades listadas na secção anterior, a solução de fábrica ligada utiliza um ficheiro de configuração chamado [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
-Pode encontrar este ficheiro no código de origem da solução no `WebApp/Contoso/Topology` pasta.
+Pode encontrar este ficheiro no código-fonte na solução o `WebApp/Contoso/Topology` pasta.
 
 O fragmento seguinte mostra uma descrição do `ContosoTopologyDescription.json` ficheiro de configuração:
 
@@ -85,27 +85,27 @@ O fragmento seguinte mostra uma descrição do `ContosoTopologyDescription.json`
 }
 ```
 
-As propriedades comuns de `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, e `<station_configuration>` são:
+As propriedades comuns dos `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, e `<station_configuration>` são:
 
-* **Nome** (tipo de cadeia)
+* **Nome** (escreva a cadeia de caracteres)
 
-  Define um nome descritivo, o que deve ser único para o nó de topologia apresentar no dashboard.
+  Define um nome descritivo, o que deve ser apenas uma palavra para o nó de topologia Mostrar no dashboard.
 
-* **Descrição** (tipo de cadeia)
+* **Descrição** (escreva a cadeia de caracteres)
 
   Descreve o nó de topologia mais detalhadamente.
 
-* **Imagem** (tipo de cadeia)
+* **Imagem** (escreva a cadeia de caracteres)
 
-  O caminho para uma imagem na solução WebApp para mostrar quando as informações sobre o nó de topologia são apresentadas no dashboard.
+  O caminho para uma imagem na solução WebApp para mostrar a quando as informações acerca do nó de topologia são mostradas no dashboard.
 
 * **OeeOverall**, **OeePerformance**, **OeeAvailability**, **OeeQuality**, **Kpi1**, **Kpi2** (tipo `<performance_definition>`)
 
-  Estas propriedades definir mínimo, de destino e valores garantidos de operacional figura utilizado para gerar alertas. Estas propriedades também definem as ações a executar se for detetado um alerta.
+  Estas propriedades definir mínimo, de destino e os valores do máximo de operacional figura utilizado para gerar alertas. Essas propriedades também definem as ações a executar se for detetado um alerta.
 
-O `<factory_configuration>` e `<production_line_configuration>` itens tem uma propriedade:
+O `<factory_configuration>` e `<production_line_configuration>` itens têm uma propriedade:
 
-* **GUID** (tipo de cadeia)
+* **GUID** (escreva a cadeia de caracteres)
 
   Identifica exclusivamente o nó de topologia.
 
@@ -117,44 +117,44 @@ O `<factory_configuration>` e `<production_line_configuration>` itens tem uma pr
 
 `<station_configuration>` tem propriedades:
 
-* **OpcUri** (tipo de cadeia)
+* **OpcUri** (escreva a cadeia de caracteres)
 
-  Esta propriedade tem de ser definida para o URI de aplicação de UA OPC do servidor OPC UA.
-  Porque tem de ser globalmente exclusivo pela especificação de OPC UA, esta propriedade é utilizada para identificar o nó de topologia de estação.
+  Esta propriedade tem de ser definida para o URI de aplicativo do OPC UA do servidor OPC UA.
+  Uma vez que tem de ser globalmente exclusivo pela especificação OPC UA, esta propriedade é utilizada para identificar o nó de topologia de estação.
 
 * **OpcNodes**, que são uma matriz de nós de OPC UA (tipo `<opc_node_description>`)
 
 `<location_definition>` tem propriedades:
 
-* **Cidade** (tipo de cadeia)
+* **Cidade** (escreva a cadeia de caracteres)
 
   Nome da cidade mais próxima para a localização
 
-* **País** (tipo de cadeia)
+* **País** (escreva a cadeia de caracteres)
 
   País da localização
 
-* **A latitude** (tipo aspas)
+* **Latitude** (tipo double)
 
   Latitude da localização
 
-* **A longitude** (tipo aspas)
+* **Longitude** (tipo double)
 
   Longitude da localização
 
 `<performance_definition>` tem propriedades:
 
-* **Mínimo** (tipo aspas)
+* **Mínimo** (tipo double)
 
-  O valor de limiar mais baixo, pode aceder. Se o valor atual é abaixo deste limiar, é gerado um alerta.
+  O valor de limiar mais baixo pode chegar. Se o valor atual é abaixo deste limiar, é gerado um alerta.
 
-* **Destino** (tipo aspas)
+* **Destino** (tipo double)
 
   Valor de destino ideal.
 
-* **Máximo** (tipo aspas)
+* **Máximo** (tipo double)
 
-  O valor de limiar superior pode aceder. Se o valor atual é acima deste limiar, é gerado um alerta.
+  O valor de limiar superior pode chegar. Se o valor atual é acima deste limiar, é gerado um alerta.
 
 * **MinimumAlertActions** (tipo `<alert_action>`)
 
@@ -166,85 +166,85 @@ O `<factory_configuration>` e `<production_line_configuration>` itens tem uma pr
 
 `<alert_action`> tem propriedades:
 
-* **Tipo** (tipo de cadeia)
+* **Tipo de** (escreva a cadeia de caracteres)
 
-  Tipo de ação de alerta. Os seguintes tipos são conhecidos:
+  Tipo da ação do alerta. Os seguintes tipos são conhecidos:
 
-  * **AcknowledgeAlert**: o estado do alerta deve ser alterado a confirmação.
-  * **CloseAlert**: todos os alertas mais antigos do mesmo tipo já não devem ser apresentados no dashboard.
-  * **CallOpcMethod**: um método de OPC UA deve ser chamado.
-  * **OpenWebPage**: uma janela do browser deve ser aberta que mostra informações de contextuais adicionais.
+  * **AcknowledgeAlert**: o estado do alerta deve ser alterado para reconhecido.
+  * **CloseAlert**: todos os alertas mais antigos do mesmo tipo já não devem ser mostrados no dashboard.
+  * **CallOpcMethod**: deve ser chamado um método OPC UA.
+  * **OpenWebPage**: uma janela do browser deve ser aberta que mostra informações contextuais adicionais.
 
-* **Descrição** (tipo de cadeia)
+* **Descrição** (escreva a cadeia de caracteres)
 
   Descrição da ação apresentada no dashboard.
 
-* **Parâmetro** (tipo de cadeia)
+* **Parâmetro** (escreva a cadeia de caracteres)
 
   Parâmetros necessários para executar a ação. O valor depende do tipo de ação.
 
   * **AcknowledgeAlert**: nenhum parâmetro necessário.
   * **CloseAlert**: nenhum parâmetro necessário.
-  * **CallOpcMethod**: as informações de nós e os parâmetros do método OPC UA para chamar o formato "NodeId de nó principal, NodeId de método para chamar o URI do servidor OPC UA."
+  * **CallOpcMethod**: as informações de nó e parâmetros do método OPC UA para chamar no formato "NodeId do nó principal, NodeId do método para chamar, o URI do servidor OPC UA."
   * **OpenWebPage**: o URL para mostrar na janela do browser.
 
-`<opc_node_description>` contém informações sobre nós de OPC UA uma estação (servidor OPC UA). Nós que representam sem nós de OPC UA existentes, mas que são utilizadas como armazenamento na lógica de cálculo do Factory ligado também são válidas. Tem as seguintes propriedades:
+`<opc_node_description>` contém informações sobre nós de OPC UA numa estação (servidor OPC UA). Nós que representam sem nós de OPC UA existentes, mas que são utilizadas como armazenamento na lógica de cálculo de fábrica ligada também são válidos. Ele tem as seguintes propriedades:
 
-* **NodeId** (tipo de cadeia)
+* **NodeId** (escreva a cadeia de caracteres)
 
-  Endereço de UA o OPC espaço de endereço do nó (OPC UA do servidor) da estação. Sintaxe tem de ser conforme especificado na especificação OPC UA para um NodeId.
+  Endereço do espaço de endereço do nó (do servidor OPC UA) da estação de OPC UA. Sintaxe tem de estar conforme especificado na especificação OPC UA para um NodeId.
 
-* **SymbolicName** (tipo de cadeia)
+* **SymbolicName** (escreva a cadeia de caracteres)
 
   Nome a apresentar no dashboard quando é apresentado o valor deste nó OPC UA.
 
-* **Relevância** (matriz de cadeia de tipo)
+* **Relevância** (matriz de cadeia de caracteres de tipo)
 
-  Indica que o cálculo de OEE ou o valor do nó de OPC UA do KPI é relevante. Cada elemento de matriz pode ser um dos seguintes valores:
+  Indica para o qual o cálculo de OEE ou KPI o valor do nó OPC UA é relevante. Cada elemento de matriz pode ser um dos seguintes valores:
 
-  * **OeeAvailability_Running**: o valor é relevante para um cálculo de OEE disponibilidade.
-  * **OeeAvailability_Fault**: o valor é relevante para um cálculo de OEE disponibilidade.
-  * **OeePerformance_Ideal**: o valor é relevante para um cálculo de desempenho de OEE e é, normalmente, um valor constante.
-  * **OeePerformance_Actual**: o valor é relevante para o cálculo das OEE desempenho.
-  * **OeeQuality_Good**: o valor é relevante para um cálculo de qualidade de OEE.
-  * **OeeQuality_Bad**: o valor é relevante para um cálculo de qualidade de OEE.
-  * **Kpi1**: o valor é relevante para o cálculo das KPI1.
-  * **Kpi2**: o valor é relevante para o cálculo das KPI2.
+  * **OeeAvailability_Running**: o valor é relevante para o cálculo de disponibilidade de OEE.
+  * **OeeAvailability_Fault**: o valor é relevante para o cálculo de disponibilidade de OEE.
+  * **OeePerformance_Ideal**: o valor é relevante para o cálculo de desempenho de OEE e normalmente é um valor constante.
+  * **OeePerformance_Actual**: o valor é relevante para o cálculo de desempenho de OEE.
+  * **OeeQuality_Good**: o valor é relevante para o cálculo de qualidade de OEE.
+  * **OeeQuality_Bad**: o valor é relevante para o cálculo de qualidade de OEE.
+  * **Kpi1**: o valor é relevante para o cálculo de KPI1.
+  * **Kpi2**: o valor é relevante para o cálculo de KPI2.
 
-* **OpCode** (tipo de cadeia)
+* **OpCode** (escreva a cadeia de caracteres)
 
-  Indica o modo como o valor do nó OPC UA é processado em consultas de conhecimentos aprofundados de séries de tempo e cálculos OEE/KPI. Cada consulta de informações de séries de tempo destina-se um timespan específico, o que é um parâmetro da consulta e oferece um resultado. O OpCode controla como o resultado é calculado e pode ser um dos seguintes valores:
+  Indica como o valor do nó OPC UA é processado em consultas de Time Series Insight e cálculos de valores OEE/KPI. Cada consulta de Time Series Insights destina-se um intervalo de tempo específico, o que é um parâmetro da consulta e que oferece um resultado. O código operacional controla como o resultado é calculado e pode ser um dos seguintes valores:
 
   * **Diff**: diferença entre a última e o primeiro valor no período de tempo.
-  * **Média**: a média de todos os valores timespan.
-  * **Soma**: a soma de todos os valores timespan.
-  * **Última**: atualmente não utilizado.
-  * **Contagem**: o número de valores timespan.
-  * **Máx.**: o valor garantido o período de tempo.
+  * **Média**: a média de todos os valores do período de tempo.
+  * **Soma**: a soma de todos os valores do período de tempo.
+  * **Última**: atualmente não utilizadas.
+  * **Contagem de**: o número de valores no período de tempo.
+  * **Máx.**: o valor máximo no período de tempo.
   * **Min**: o valor mínimo no período de tempo.
   * **Const**: o resultado é o valor especificado pela propriedade ConstValue.
-  * **SubMaxMin**: a diferença entre o garantido e o valor mínimo.
-  * **TimeSpan**: o período de tempo.
+  * **SubMaxMin**: a diferença entre o máximo e o valor mínimo.
+  * **Período de tempo**: o período de tempo.
 
-* **Unidades** (tipo de cadeia)
+* **Unidades** (escreva a cadeia de caracteres)
 
-  Define uma unidade do valor para apresentação no dashboard.
+  Define uma unidade do valor de apresentação no dashboard.
 
 * **Visível** (tipo Booleano)
 
-  Controla se o valor deve ser apresentado no dashboard.
+  Controla se o valor deve ser mostrado no dashboard.
 
-* **ConstValue** (tipo aspas)
+* **ConstValue** (tipo double)
 
   Se o **OpCode** é **Const**, em seguida, esta propriedade é o valor do nó.
 
-* **Mínimo** (tipo aspas)
+* **Mínimo** (tipo double)
 
-  Se o valor atual seja inferior a este valor, em seguida, é gerado um alerta mínimo.
+  Se o valor atual cai abaixo deste valor, em seguida, é gerado um alerta de mínimo.
 
-* **Máximo** (tipo aspas)
+* **Máximo** (tipo double)
 
-  Se o valor atual desencadeia acima este valor, em seguida, é gerado um alerta máximo.
+  Se o valor atual gera acima este valor, em seguida, é gerado um alerta de máximo.
 
 * **MinimumAlertActions** (tipo `<alert_action>`)
 
@@ -254,15 +254,15 @@ O `<factory_configuration>` e `<production_line_configuration>` itens tem uma pr
 
   Define o conjunto de ações, que podem ser executadas como resposta a um alerta máximo.
 
-Ao nível da estação, verá também **simulação** objetos. Estes objetos apenas são utilizados para configurar a simulação de fábrica ligado e não devem ser utilizados para configurar uma topologia real.
+No nível de estação, também verá **simulação** objetos. Esses objetos só são utilizados para configurar a simulação de fábrica ligada e não devem ser utilizados para configurar uma topologia real.
 
 ## <a name="how-the-configuration-data-is-used-at-runtime"></a>Como os dados de configuração são utilizados no tempo de execução
 
-Todas as propriedades utilizadas no ficheiro de configuração podem ser agrupadas em categorias diferentes consoante a forma como são utilizados. Nessas categorias são:
+Todas as propriedades utilizadas no ficheiro de configuração podem ser agrupadas em categorias diferentes dependendo de como elas são usadas. Essas categorias são:
 
 ### <a name="visual-appearance"></a>Aparência Visual
 
-As propriedades desta categoria definem a aparência visual do dashboard fábrica ligado. Os exemplos incluem:
+Propriedades nesta categoria definem a aparência visual do dashboard de fábrica ligada. Os exemplos incluem:
 
 * Nome
 * Descrição
@@ -273,22 +273,22 @@ As propriedades desta categoria definem a aparência visual do dashboard fábric
 
 ### <a name="internal-topology-tree-addressing"></a>Endereçamento de árvore de topologia interna
 
-A WebApp mantém um dicionário de dados interna que contém informações de todos os nós de topologia. As propriedades **Guid** e **OpcUri** são utilizados como chaves para aceder a este dicionário e têm de ser exclusivo.
+A WebApp mantém um dicionário de dados interna que contém informações de todos os nós de topologia. As propriedades **Guid** e **OpcUri** são utilizadas como chaves para aceder a este dicionário e tem de ser exclusivo.
 
-### <a name="oeekpi-computation"></a>Cálculo OEE/KPI
+### <a name="oeekpi-computation"></a>Cálculo de valores OEE/KPI
 
-Os valores OEE/KPI para a simulação de fábrica ligados são parametrizados por:
+Os valores OEE/KPI para a simulação de fábrica ligada são parametrizados por:
 
-* Os valores de nó de OPC UA para ser incluídas no cálculo.
-* Como é calculada a figura entre os valores de telemetria.
+* Os valores de nó OPC UA a serem incluídos no cálculo.
+* Como a figura é calculada entre os valores de telemetria.
 
-Fábrica ligada utiliza as fórmulas OEE como publicados pelo http://oeeindustrystandard.oeefoundation.org.
+Fábrica ligada utiliza as fórmulas OEE, tal como publicado pelo http://www.oeefoundation.org.
 
-Objetos do nó de OPC UA em estações de ativar a marcação para utilização no cálculo OEE/KPI. O **relevância** propriedade indica para a figura que OEE/KPI deve ser utilizado o valor do nó de OPC UA. O **OpCode** propriedade define a forma como o valor está incluído na computação.
+Objetos do nó OPC UA em estações de ativar a marcação para utilização no cálculo de valores OEE/KPI. O **relevância** propriedade indica para qual figura valores OEE/KPI deve ser utilizado o valor do nó OPC UA. O **OpCode** propriedade define como o valor está incluído na computação.
 
-### <a name="alert-handling"></a>Processamento de alertas
+### <a name="alert-handling"></a>Manipulação de alerta
 
-Ligado fábrica suporta um mecanismo de simples mínimo/máximo baseadas em limiares a geração do alerta. Existem várias ações predefinidas que pode configurar em resposta a alertas. Este mecanismo de controlo das seguintes propriedades:
+Fábrica ligada suporta um mecanismo simples mínimos/máximos baseados no limiar a geração do alerta. Há uma série de ações predefinidas que pode configurar em resposta a esses alertas. As seguintes propriedades controlam esse mecanismo:
 
 * Máximo
 * Mínimo
@@ -297,25 +297,25 @@ Ligado fábrica suporta um mecanismo de simples mínimo/máximo baseadas em limi
 
 ## <a name="correlating-to-telemetry-data"></a>Correlacionar dados de telemetria
 
-Para determinados operações, como visualizar o último valor ou a criação de consultas de conhecimentos aprofundados de séries de tempo, a WebApp necessita de um esquema de endereçamento para os dados de telemetria transmissões em. A telemetria enviada à fábrica ligado também tem de ser armazenados em estruturas de dados interno. As duas propriedades ativar estas operações são estação (servidor OPC UA) e o nível de nó de OPC UA:
+Para determinadas operações, como visualizar o último valor ou a criação de consultas do Time Series Insight, a aplicação Web precisa de um esquema de endereçamento para os dados de telemetria ingeridos. A telemetria enviada para a fábrica ligada também tem de ser armazenados em estruturas de dados internas. As duas propriedades, permitindo que estas operações estão no nível de nó de OPC UA e estação (servidor OPC UA):
 
 * **OpcUri**
 
-  Identifica (exclusivos) que o servidor de OPC UA a telemetria provém do. Nas mensagens transmissões em, esta propriedade é enviada como **ApplicationUri**.
+  Identifica (globalmente exclusivo) que o servidor OPC UA a telemetria provém de. Nas mensagens ingeridas, esta propriedade é enviada como **ApplicationUri**.
 
-* **nodeId**
+* **NodeId**
 
-  Identifica o valor do nó no servidor de OPC UA. O formato da propriedade tem de ser conforme especificado na especificação OPC UA. Nas mensagens transmissões em, esta propriedade é enviada como **NodeId**.
+  Identifica o valor do nó no servidor OPC UA. O formato da propriedade deve ser conforme especificado na especificação OPC UA. Nas mensagens ingeridas, esta propriedade é enviada como **NodeId**.
 
-Verifique [isto](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria é ingeridos à fábrica ligado com o publicador OPC.
+Verifique [isso](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria são ingeridos para utilizar o publicador de OPC de fábrica ligada.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como KPI1 é calculado
 
-A configuração no `ContosoTopologyDescription.json` ficheiro controla como figuras OEE/KPI são calculadas. O exemplo seguinte mostra como propriedades neste ficheiro controlam o cálculo de KPI1.
+A configuração no `ContosoTopologyDescription.json` arquivo controla como os valores OEE/KPI são calculadas. O exemplo seguinte mostra como propriedades neste ficheiro controlam a computação de KPI1.
 
-Ligado KPI1 de fábrica é utilizado para medir o número de produtos fabricados com êxito na última hora. Cada estação (servidor OPC UA) na simulação ligado Factory fornece um nó de OPC UA (`NodeId: "ns=2;i=385"`), que fornece a telemetria para este KPI de computação.
+KPI1 de fábrica ligada é utilizada para medir o número de produtos com êxito produzidos e na última hora. Cada estação (servidor OPC UA) na simulação de fábrica ligada fornece um nó OPC UA (`NodeId: "ns=2;i=385"`), que fornece a telemetria para este KPI de computação.
 
-A configuração deste nó OPC UA aparente ser o seguinte fragmento:
+A configuração para este nó OPC UA semelhante ao seguinte fragmento:
 
 ```json
 {
@@ -326,18 +326,18 @@ A configuração deste nó OPC UA aparente ser o seguinte fragmento:
 },
 ```
 
-Esta configuração permite consultar dos valores de telemetria deste nó utilizando Insights de séries de tempo. Obtém a consulta de informações de séries de tempo:
+Esta configuração permite consultar os valores de telemetria deste nó utilizando o Time Series Insights. Obtém a consulta do Time Series Insights:
 
 * O número de valores.
 * O valor mínimo.
-* O valor garantido.
+* O valor máximo.
 * A média de todos os valores.
-* A soma de todos os valores para todos os exclusivo **OpcUri** (**ApplicationUri**), **NodeId** pares no timespan indicado.
+* A soma de todos os valores para todos os exclusivo **OpcUri** (**ApplicationUri**), **NodeId** pares num determinado intervalo de tempo.
 
-Uma característica do **NumberOfManufactureredProducts** o valor do nó é que apenas aumenta. Para calcular o número de produtos fabricado no período de tempo, ligado fábrica utiliza o **OpCode** **SubMaxMin**. O cálculo obtém o valor mínimo no início do período de tempo e o valor máximo no final de timespan.
+Uma característica da **NumberOfManufactureredProducts** valor do nó é que ele só aumenta. Para calcular o número de produtos fabricados no período de tempo, fábrica ligada utiliza a **OpCode** **SubMaxMin**. O cálculo obtém o valor mínimo no início do período de tempo e o valor máximo no final de timespan.
 
-O **OpCode** na configuração configura a lógica de cálculo para calcular o resultado da diferença do valor mínimo e máximo. Esses resultados, em seguida, são acumuladas inferior até o nível (global) de raiz e apresentadas no dashboard.
+O **OpCode** na configuração configura a lógica de cálculo para calcular o resultado da diferença do valor mínimo e máximo. Esses resultados, em seguida, são acumulados na parte inferior, até o nível (global) de raiz e apresentados no dashboard.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Sugestões de um passo seguinte é saber como [implementar um gateway no Windows ou Linux para o acelerador da solução de fábrica ligado](iot-accelerators-connected-factory-gateway-deployment.md).
+Sugestões da próxima etapa é saber como [implementar um gateway no Windows ou Linux para o acelerador de solução de fábrica ligada](iot-accelerators-connected-factory-gateway-deployment.md).

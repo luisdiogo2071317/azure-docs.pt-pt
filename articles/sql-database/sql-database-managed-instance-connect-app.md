@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258733"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818407"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
 
@@ -75,9 +75,23 @@ Este cenário é ilustrado no diagrama seguinte:
 
 A instância gerida pode ser acedida apenas por meio de um endereço IP privado por isso, para poder acessá-lo de sua caixa de desenvolvedor, primeiro tem de estabelecer uma ligação entre a sua caixa de desenvolvedor e a VNet de instância gerida.  
  
-Configurar uma ligação ponto a Site a uma VNet com artigos de autenticação de certificados nativa do Azure ([portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [da CLI do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) apresenta em detalhe como poderia ser feito.  
+Configurar uma ligação ponto a Site a uma VNet com artigos de autenticação de certificados nativa do Azure ([portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [da CLI do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) apresenta em detalhe como poderia ser feito. 
+
+## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias do controlador e as ferramentas
+
+As seguintes versões mínimas a ferramentas e os controladores são recomendadas para ligar à instância gerida:
+
+| Ferramenta de Driver / | Versão |
+| --- | --- |
+|.NET Framework | 4.6.1 (ou .NET Core) | 
+|Controlador ODBC    | v17 |
+|Controladores PHP | 5.2.0 |
+|JDBC driver    | 6.4.0 |
+|Controlador node. js | 2.1.1 |
+|Controlador OLEDB   | 18.0.2.0 |
+|SSMS   | 17.8.1 ou [superior](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre a instância gerida, veja [o que é uma instância gerida](sql-database-managed-instance.md).
-- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).

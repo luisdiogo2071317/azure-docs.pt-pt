@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493975"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745673"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Se o arquivo de dados na cloud suporta HTTPS ou TLS, todos os dados transferidos
 
 > [!NOTE]
 > Todas as ligações à base de dados do Azure SQL e o Azure SQL Data Warehouse exigem encriptação (SSL/TLS), enquanto os dados se encontram em trânsito para e da base de dados. Quando estiver criando um pipeline com o JSON, adicione a propriedade de encriptação e configurá-lo para **true** na cadeia de ligação. Armazenamento do Azure, pode utilizar **HTTPS** na cadeia de ligação.
+
+> [!NOTE]
+> Para ativar a encriptação em trânsito ao mover dados do Oracle siga um das seguintes opções:
+> 1. No servidor do Oracle, aceda a Oracle Advanced Security (OAS) e configurar as definições de encriptação, que suporta a encriptação de Triple-DES (3DES) e encriptação AES (Advanced Standard), consulte [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) para obter detalhes. ADF negocia automaticamente o método de encriptação a utilizar um que configurar no OAS quando estabelecer ligação ao Oracle.
+> 2. No ADF, é possível adicionar EncryptionMethod = 1 na cadeia de ligação (no serviço ligado). Isto irá utilizar SSL/TLS como método de encriptação. Para utilizá-lo, terá de desativar o SSL não as definições de encriptação no OAS no lado do servidor Oracle para evitar conflitos de encriptação.
 
 > [!NOTE]
 > Versão do TLS utilizada é 1.2.

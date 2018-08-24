@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: bfd63262a1d5568223b4e4077e2f8c987b7ec0d4
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257764"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746741"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Configurar uma máquina virtual do conjunto de dimensionamento da identidade do serviço gerido com o portal do Azure
 
@@ -27,10 +27,7 @@ ms.locfileid: "39257764"
 
 Identidade de serviço gerida fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
-Neste artigo, aprenderá a ativar e desativar o sistema de identidade para um conjunto de dimensionamento de máquina virtual atribuído com o portal do Azure. Atribuir e remover identidades atribuídas por utilizadores de um conjunto de dimensionamento de máquina virtual do Azure não é suportado atualmente pelo portal do Azure.
-
-> [!NOTE]
-> Atualmente, o utilizador atribuído a operações de identidade não são suportadas no portal do Azure. Volte mais tarde para obter atualizações.
+Neste artigo, saiba como ativar e desativar o sistema e de identidade para um conjunto com o portal do Azure de dimensionamento de máquina virtual atribuída ao utilizador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,17 +36,19 @@ Neste artigo, aprenderá a ativar e desativar o sistema de identidade para um co
 - Para efetuar as operações de gestão neste artigo, a conta tem da atribuição de função seguinte:
     - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para ativar e remover sistema atribuído a identidade gerida a partir de um conjunto de dimensionamento de máquina virtual.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Identidade de serviço gerida durante a criação de um conjunto de dimensionamento de máquina virtual do Azure
+## <a name="system-assigned-identity"></a>Sistema de identidade atribuído 
 
-Atualmente, a criação de VM através do portal do Azure não suporta operações de identidade do serviço gerido. Em vez disso, veja o máquina virtual do Azure dimensionamento conjunto criação manual de início rápido artigo seguinte para primeiro criar um conjunto de dimensionamento de máquina virtual do Azure:
+Nesta secção, irá aprender como ativar e desativar o sistema de identidade num conjunto com o portal do Azure de dimensionamento de máquina virtual atribuído.
+
+### <a name="enable-system-assigned-identity-during-creation-of-a-virtual-machine-scale-set"></a>Ativar a identidade do sistema atribuído durante a criação de um conjunto de dimensionamento de máquinas virtuais
+
+Atualmente, o portal do Azure não suporta a ativar sistema de identidade atribuído durante a criação de um conjunto de dimensionamento de máquina virtual. Em vez disso, veja o máquina virtual dimensionamento conjunto criação manual de início rápido artigo seguinte para primeiro criar um conjunto de dimensionamento de máquina virtual e, em seguida, avance para a secção seguinte para obter detalhes sobre como ativar o sistema de identidade num conjunto de dimensionamento de máquina virtual atribuído:
 
 - [Criar um conjunto de dimensionamento de Máquina Virtual no portal do Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Em seguida, avance para a secção seguinte para obter detalhes sobre como ativar a identidade do serviço gerido no conjunto de dimensionamento de máquina virtual.
+### <a name="enable-system-assigned-identity-on-an-existing-virtual-machine-scale-set"></a>Ativar a identidade do sistema atribuído num conjunto de dimensionamento de máquina virtual existente
 
-## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Ativar a identidade de serviço gerido num VMMS existente do Azure
-
-Para ativar o sistema de identidade numa VM que foi originalmente aprovisionada sem ele atribuída:
+Para ativar o sistema de identidade num conjunto de dimensionamento de máquina virtual que foi originalmente aprovisionado sem ele atribuída:
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
 
@@ -59,9 +58,9 @@ Para ativar o sistema de identidade numa VM que foi originalmente aprovisionada 
 
    [![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Remover a identidade do serviço gerido de um conjunto de dimensionamento de máquina virtual do Azure
+### <a name="remove-system-assigned-identity-from-a-virtual-machine-scale-set"></a>Remover a identidade de sistema atribuído de um conjunto de dimensionamento de máquinas virtuais
 
-Se tiver um conjunto de dimensionamento de máquina virtual que já não necessita de uma identidade de serviço geridas:
+Se tiver um conjunto de dimensionamento que já não precisa de um sistema de identidade atribuído:
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual. Além disso, certifique-se de que a sua conta pertencer a uma função que dá-lhe permissões de escrita no conjunto de dimensionamento de máquina virtual.
 
@@ -69,7 +68,36 @@ Se tiver um conjunto de dimensionamento de máquina virtual que já não necessi
 
 3. Desativar o sistema de identidade na VM de atribuída ao selecionar "Não" em "Identidade de serviço gerida" e, em seguida, clique em Guardar. Esta operação pode demorar 60 segundos ou mais para concluir:
 
-   ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
+
+## <a name="user-assigned-identity"></a>Identidade atribuída ao utilizador
+
+Nesta secção, saiba como adicionar e remover um utilizador atribuído a identidade de um conjunto de dimensionamento no portal do Azure.
+
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Atribuir uma identidade atribuída ao utilizador durante a criação de um conjunto de dimensionamento de máquinas virtuais
+
+Atualmente, o portal do Azure não suporta a atribuir um utilizador a identidade atribuído durante a criação de um conjunto de dimensionamento de máquina virtual. Em vez disso, veja o máquina virtual dimensionamento conjunto criação manual de início rápido artigo seguinte para primeiro criar um conjunto de dimensionamento de máquina virtual e, em seguida, avance para a secção seguinte para obter detalhes sobre a atribuição de um utilizador atribuído identidade:
+
+- [Criar um conjunto de dimensionamento de Máquina Virtual no portal do Azure](../../virtual-machine-scale-sets/quick-create-portal.md)
+
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>Atribuir uma identidade de utilizador atribuída a um conjunto de dimensionamento de máquina virtual existente
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
+2. Navegue para o conjunto de dimensionamento de máquina virtual pretendida e clique em **identidade**, **atribuída ao utilizador** e, em seguida  **\+adicionar**.
+
+   ![Adicionar identidade atribuída ao utilizador para o VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+
+3. Clique a identidade atribuída ao utilizador que pretende adicionar ao conjunto de dimensionamento de máquina virtual e, em seguida, clique em **adicionar**.
+   
+   ![Adicionar identidade atribuída ao utilizador para o VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+
+### <a name="remove-a-user-assigned-identity-from-a-virtual-machine-scale-set"></a>Remover uma identidade atribuída ao utilizador a partir de um conjunto de dimensionamento de máquina virtual
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém a VM.
+2. Navegue para o conjunto de dimensionamento de máquina virtual pretendida e clique em **identidade**, **atribuída ao utilizador**, o nome da identidade atribuída ao utilizador que pretende eliminar e, em seguida, clique em **remover** ( Clique em **Sim** no painel de confirmação).
+
+   ![Remover utilizador atribuído a identidade de um VMSS](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
+
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

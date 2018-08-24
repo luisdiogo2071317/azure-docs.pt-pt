@@ -1,18 +1,18 @@
-## <a name="rest"></a>Implementar o ficheiro ZIP com REST APIs 
+## <a name="rest"></a>Implementar o ficheiro ZIP com as APIs REST 
 
-Pode utilizar o [REST APIs do serviço de implementação](https://github.com/projectkudu/kudu/wiki/REST-API) para implementar o ficheiro. zip para a sua aplicação no Azure. Para implementar, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/zipdeploy. O pedido POST tem de conter o ficheiro. zip no corpo da mensagem. Foram fornecidas credenciais de implementação para a sua aplicação no pedido, utilizando a autenticação básica de HTTP. Para obter mais informações, consulte o [referência de implementação de push. zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
+Pode utilizar o [REST APIs do serviço de implementação](https://github.com/projectkudu/kudu/wiki/REST-API) para implementar o ficheiro. zip para a sua aplicação no Azure. Para implementar, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/zipdeploy. O pedido POST tem de conter o ficheiro. zip no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. Para obter mais informações, consulte a [referência de implementação de push. zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-Para a autenticação HTTP básica, terá das credenciais de implementação do serviço de aplicações. Para ver como definir as suas credenciais de implementação, consulte [definido e repor as credenciais de utilizador ao nível](../articles/app-service/app-service-deployment-credentials.md#userscope).
+Para a autenticação básica HTTP, terá de suas credenciais de implementação do serviço de aplicações. Para ver como definir as suas credenciais de implementação, consulte [definido e repor as credenciais de nível de usuário](../articles/app-service/app-service-deployment-credentials.md#userscope).
 
-### <a name="with-curl"></a>Com o cURL
+### <a name="with-curl"></a>Com cURL
 
-O exemplo seguinte utiliza a ferramenta de cURL para implementar um ficheiro. zip. Substitua os marcadores de posição `<username>`, `<password>`, `<zip_file_path>`, e `<app_name>`. Quando lhe for pedido pelo cURL, escreva a palavra-passe.
+O exemplo seguinte utiliza a ferramenta cURL para implementar um ficheiro. zip. Substitua os marcadores de posição `<username>`, `<password>`, `<zip_file_path>`, e `<app_name>`. Quando lhe for pedido curl, escreva a palavra-passe.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Este pedido aciona uma implementação de push a partir de ficheiro. zip carregado. Pode rever as implementações atuais e anteriores, utilizando o ponto final https://<app_name>.scm.azurewebsites.net/api/deployments, conforme mostrado no exemplo seguinte cURL. Novamente, substitua `<app_name>` com o nome da sua aplicação e `<deployment_user>` com o nome de utilizador das suas credenciais de implementação.
+Este pedido aciona a implementação de push a partir do ficheiro. zip carregado. Pode rever as implementações atuais e anteriores, utilizando o `https://<app_name>.scm.azurewebsites.net/api/deployments` ponto de extremidade, conforme mostrado no exemplo cURL seguinte. Mais uma vez, substitua `<app_name>` com o nome da sua aplicação e `<deployment_user>` com o nome de utilizador de suas credenciais de implementação.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
@@ -33,7 +33,7 @@ $userAgent = "powershell/1.0"
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
 
-Este pedido aciona uma implementação de push a partir de ficheiro. zip carregado. Para rever as implementações atuais e anteriores, execute os seguintes comandos. Novamente, substitua o `<app_name>` marcador de posição.
+Este pedido aciona a implementação de push a partir do ficheiro. zip carregado. Para rever as implementações atuais e anteriores, execute os seguintes comandos. Mais uma vez, substitua o `<app_name>` marcador de posição.
 
 ```bash
 $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/deployments"

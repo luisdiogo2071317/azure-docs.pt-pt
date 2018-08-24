@@ -2,7 +2,7 @@
 title: Melhores práticas para acesso condicional no Azure Active Directory | Documentos da Microsoft
 description: Saiba mais sobre os aspetos que deve saber, e o que é que deve evitar ao fazê-lo quando configurar políticas de acesso condicional.
 services: active-directory
-keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, políticas de acesso condicional
+keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 08/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d21a6dc7a460e07fe7530b58bef887241a694b25
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4e9f5a9318db813b1a0f16d3599f74fd98e53ffc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628091"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818062"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -85,7 +85,7 @@ Ambas as políticas são aplicadas pelo Azure Active Directory e o utilizador ob
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>O que acontece se tiver múltiplas políticas para o mesmo utilizador configurado?  
 
-Para cada início de sessão, o Azure Active Directory avalia todas as políticas e garante que todos os requisitos são cumpridos antes de acesso concedido ao utilizador.
+Para cada início de sessão, o Azure Active Directory avalia todas as políticas e garante que todos os requisitos são cumpridos antes de acesso concedido ao utilizador. Bloquear o acesso supera todas as outras definições de configuração. 
 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Acesso condicional funciona com o Exchange ActiveSync?

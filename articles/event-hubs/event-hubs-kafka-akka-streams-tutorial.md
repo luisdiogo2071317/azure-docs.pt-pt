@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: mvc
-ms.date: 06/06/2018
+ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 674c3b5cbd3b4253833a785b32e2bc4b0f1928da
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 7c09656f62f3a8a2efd889cf28f12bd5a42e309a
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056306"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745501"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar fluxos Akka com os Hubs de eventos para o Apache Kafka
 Este tutorial mostra-lhe como ligar Akka fluxos para os hubs de eventos de Kafka-ativado sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. Os Hubs de eventos do Azure para o Kafka suporta [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)

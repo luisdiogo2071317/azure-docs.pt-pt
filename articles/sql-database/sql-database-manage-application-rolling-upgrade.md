@@ -1,136 +1,136 @@
 ---
-title: Implementar as atualizações de aplicações - SQL Database do Azure | Microsoft Docs
-description: Saiba como utilizar a georreplicação SQL Database do Azure para suportar atualizações online da sua aplicação de nuvem.
+title: Implementar atualizações de aplicações - base de dados SQL do Azure | Documentos da Microsoft
+description: Saiba como utilizar georreplicação de base de dados do Azure SQL para oferecer suporte a atualizações online da sua aplicação na cloud.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/23/2018
 ms.author: sashan
-ms.openlocfilehash: a73284d679b4be1fbae6d5e1688915c98cbf2392
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649504"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818621"
 ---
-# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerir atualizações graduais das aplicações em nuvem utilizando o SQL Server da base de dados-georreplicação ativa
+# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerenciamento de atualizações sem interrupção das aplicações na cloud com a base de dados SQL georreplicação ativa
 > [!NOTE]
 > [Replicação geográfica activa](sql-database-geo-replication-overview.md) está agora disponível para todas as bases de dados em todas as camadas.
 > 
 
-Saiba como utilizar [georreplicação](sql-database-geo-replication-overview.md) na base de dados do SQL Server para permitir atualizações graduais da sua aplicação de nuvem. Porque a atualização é uma operação acontece, deve ser a parte do planeamento de continuidade do negócio e design. Neste artigo Vamos observar dois métodos diferentes da orquestração o processo de atualização e discutir as vantagens e os compromissos de cada opção. Para efeitos deste artigo utilizaremos uma aplicação simples que consiste num web site ligado a uma base de dados como a respetiva camada de dados. O nosso objetivo é para atualizar a versão 1 da aplicação para a versão 2 sem qualquer impacto significativo na experiência de utilizador final. 
+Aprenda a usar [georreplicação](sql-database-geo-replication-overview.md) na base de dados SQL para ativar a implementação de atualizações da sua aplicação na cloud. Como a atualização é uma operação de interrupção, deve ser parte de seu planejamento de continuidade de negócios e design. Neste artigo Vamos observar dois métodos diferentes para orquestrar o processo de atualização e discutem as vantagens e desvantagens de cada opção. Para os fins deste artigo, nós usaremos um aplicativo simples que consiste num web site ligado a uma base de dados como sua camada de dados. Nosso objetivo é atualizar a versão 1 do aplicativo para a versão 2 sem qualquer impacto significativo sobre a experiência do utilizador final. 
 
-Ao avaliar as opções de atualização, deve considerar os seguintes fatores:
+Ao avaliar as opções de atualização deve considerar os seguintes fatores:
 
-* Impacto na disponibilidade da aplicação durante as atualizações. Quanto a função de aplicação pode ser limitada ou degradada.
-* Capacidade de reversão em caso de uma falha de atualização.
-* Vulnerabilidade da aplicação se ocorrer uma falha catastrófica relacionado com durante a atualização.
-* Dólar Total custo.  Isto inclui a proporcionar uma redundância adicional e os custos incrementais dos componentes temporários utilizados pelo processo de atualização. 
+* Impacto na disponibilidade de aplicações durante as atualizações. O tempo que a função de aplicação pode estar limitada ou degradada.
+* Recurso de reversão em caso de uma falha de atualização.
+* Vulnerabilidade do aplicativo ocorra uma falha catastrófica não relacionada durante a atualização.
+* Dólar de total de custos.  Isto inclui a proporcionar uma redundância adicional e os custos incrementais dos componentes temporários utilizados pelo processo de atualização. 
 
-## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Atualizar aplicações que dependem de cópias de segurança de base de dados para recuperação após desastre
-Se a aplicação depende de cópias de segurança da base de dados automática e utiliza georrestauro para recuperação após desastre, normalmente é implementada para uma única região do Azure. Neste caso, o processo de atualização implica a criação de uma implementação de cópia de segurança de todos os componentes da aplicação envolvidos na atualização do. Para minimizar a interrupção do utilizador final, irá tirar partido do Gestor de tráfego do Azure (WATM) com o perfil de ativação pós-falha.  O diagrama seguinte ilustra o ambiente operacional antes do processo de atualização. O ponto final <i>contoso 1.azurewebsites.net</i> representa uma ranhura de produção da aplicação que tem de ser atualizado. Para ativar a capacidade reverter a atualização, tem de criar uma ranhura fase com uma cópia totalmente sincronizada da aplicação. Os seguintes passos são necessários para preparar a aplicação para a atualização:
+## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Atualização dos aplicativos que dependem de cópias de segurança da base de dados para recuperação após desastre
+Se seu aplicativo depende de cópias de segurança automáticas da base de dados e utiliza o restauro geográfico para recuperação após desastre, geralmente é implementado numa única região do Azure. Neste caso o processo de atualização envolve a criação de uma implementação de cópia de segurança de todos os componentes da aplicação envolvidos na atualização. Para minimizar a interrupção do utilizador final aproveitará o Gestor de tráfego do Azure (ATM) com o perfil de ativação pós-falha.  O diagrama seguinte ilustra o ambiente operacional antes do processo de atualização. O ponto final <i>contoso-1.azurewebsites.net</i> representa um bloco de produção do aplicativo que precisa ser atualizado. Para ativar a capacidade de reverter a atualização, tem de criar uma ranhura de fase com uma cópia totalmente sincronizada do aplicativo. Os seguintes passos são necessários para preparar a aplicação para a atualização:
 
-1. Crie uma ranhura de fase da atualização. Para fazer uma base de dados secundária (1) de criar e implementar um web site idêntico na mesma região do Azure. Monitorize secundário para ver se a propagação conclusão do processo.
-2. Criar um perfil de ativação pós-falha no WATM com <i>contoso 1.azurewebsites.net</i> como ponto final online e <i>contoso 2.azurewebsites.net</i> como offline. 
+1. Crie uma ranhura de fase para a atualização. Para fazer que criar uma base de dados secundária (1) e implementar um web site idênticos na mesma região do Azure. Monitorize o secundário para ver se o processo de propagação é concluído.
+2. Criar um perfil de ativação pós-falha no ATM com <i>contoso-1.azurewebsites.net</i> como ponto de extremidade online e <i>contoso-2.azurewebsites.net</i> como offline. 
 
 > [!NOTE]
-> Tenha em atenção os passos de preparação não irão afetar a aplicação na ranhura de produção e que possa funcionar no modo de acesso total.
+> Tenha em atenção os passos de preparação não irão afetar o aplicativo no bloco de produção e que possa funcionar no modo de acesso total.
 >  
 
-![Configuração de base de dados SQL, aceda replicação. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![Configuração de Go-replicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
-Depois de concluídas os passos de preparação a aplicação esteja pronta para a atualização real. O diagrama seguinte ilustra os passos envolvidos no processo de atualização. 
+Depois de concluir os passos de preparação a aplicação está pronta para a atualização real. O diagrama seguinte ilustra as etapas envolvidas no processo de atualização. 
 
-1. Defina a base de dados primária na ranhura de produção para o modo só de leitura (3). Isto irá garantir que a instância de produção da aplicação (V1) permanecem só de leitura durante a atualização, impedindo a potencial divergência de dados entre as instâncias de base de dados V1 e V2.  
-2. Desligar a base de dados secundária a utilizar o modo de terminação planeada (4). -Criará uma cópia de independente totalmente sincronizada da base de dados principal. Esta base de dados será atualizado.
+1. Defina a base de dados primária no bloco de produção para o modo só de leitura (3). Tal irá garantir que a instância de produção do aplicativo (V1) irá permanecer somente-leitura durante a atualização, impedindo a potencial divergência de dados entre as instâncias de base de dados V1 e V2.  
+2. Desligar a base de dados secundária, usando o modo de terminação planeada (4). Ele criará uma cópia totalmente sincronizada independente da base de dados primário. Esta base de dados será atualizado.
 3. Ativar a base de dados principal para o modo de leitura / escrita e execute o script de actualização na ranhura de fase (5).     
 
-![Configuração de georreplicação da base de dados SQL. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
-Se a atualização foi concluída com êxito agora está pronto para mudar os utilizadores finais para a cópia de teste a aplicação. Agora, ficará a ranhura de produção da aplicação.  Isto envolve mais alguns passos conforme ilustrado no diagrama seguinte.
+Se a atualização foi concluída com êxito agora está pronto para mudar do utilizador final para a cópia faseada do aplicativo. Ele agora se tornará o bloco de produção do aplicativo.  Isso envolve mais algumas etapas conforme ilustrado no diagrama seguinte.
 
-1. Mudar o ponto final online no perfil de WATM para <i>contoso 2.azurewebsites.net</i>, que aponta para a versão de V2 do web site (6). Agora, torna a ranhura de produção com a aplicação de V2 e o tráfego do utilizador final é direcionado para o mesmo.  
-2. Se já não tem os componentes da aplicação V1 para poder em segurança removê-los (7).   
+1. Mudar o ponto de extremidade online no perfil de ATM sejam <i>contoso-2.azurewebsites.net</i>, que aponta para a versão V2 do web site (6). Ele se torna o bloco de produção com a aplicação V2 e o tráfego de utilizador final é direcionado ao mesmo.  
+2. Se precisar dos componentes de aplicações V1 já não é por isso, pode com segurança removê-los (7).   
 
-![Configuração de georreplicação da base de dados SQL. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
-Se o processo de atualização for bem-sucedida, por exemplo devido a um erro no script de atualização, a ranhura de fase deve ser considerada comprometidos. Para reverter a aplicação para o estado de pré-atualização que simplesmente reverter a aplicação na ranhura de produção para acesso total. Os passos envolvidos são apresentados no diagrama seguinte.    
+Se o processo de atualização não for bem-sucedida, por exemplo devido a um erro no script de atualização, o bloco de estágio deve ser considerado comprometido. Para reverter o aplicativo para o estado de pré-atualização simplesmente reverter o aplicativo no bloco de produção para acesso total. Os passos envolvidos são apresentados no diagrama seguinte.    
 
-1. Defina a cópia da base de dados para o modo de leitura / escrita (8). Este procedimento irá restaurar o V1 completa funcionalmente na ranhura de produção.
-2. Efetuar a análise da causa raiz e remova os componentes comprometidos na ranhura de fase (9). 
+1. Defina a cópia da base de dados para o modo de leitura / escrita (8). Esta ação irá restaurar o V1 completa funcionalmente no bloco de produção.
+2. Executar a análise de causa raiz e remover os componentes comprometidos na ranhura de fase (9). 
 
-Neste momento, a aplicação está totalmente funcional e os passos de atualização podem ser repetidos.
-
-> [!NOTE]
-> A reversão não necessita de alterações no perfil WATM como já aponta para <i>contoso 1.azurewebsites.net</i> como o ponto final do Active Directory.
-> 
-> 
-
-![Configuração de georreplicação da base de dados SQL. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
-
-A chave **partido** desta opção é que pode atualizar uma aplicação numa única região utilizando um conjunto de passos simples. O custo de dólar da atualização é relativamente baixo. O principal **compromisso** é que, se ocorrer uma falha catastrófica durante a atualização a recuperação para o estado de pré-atualização irá implicar a implementação da aplicação numa região diferente e restaurar a base de dados da utilização de cópia de segurança georrestauro. Este processo irá resultar num período de indisponibilidade significativo.   
-
-## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Atualizar aplicações que dependem da base de dados a georreplicação para recuperação após desastre
-Se a sua aplicação tira partido da replicação geográfica para a continuidade do negócio, que é implementado regiões diferentes, pelo menos, duas com uma implementação ativa na região primária e uma implementação em modo de espera na região de cópia de segurança. Para além dos fatores mencionados anteriormente, o processo de atualização tem de garantir que:
-
-* A aplicação permanece protegida contra falhas catastrófica de todas as vezes durante o processo de atualização
-* Os componentes da aplicação georredundante sejam atualizados em paralelo com os componentes do Active Directory
-
-Para alcançar estes objetivos, irá tirar partido do Gestor de tráfego do Azure (WATM) com o perfil de ativação pós-falha com uma ativa e três pontos finais de cópia de segurança.  O diagrama seguinte ilustra o ambiente operacional antes do processo de atualização. Os web sites <i>contoso 1.azurewebsites.net</i> e <i>contoso dr.azurewebsites.net</i> representam uma ranhura de produção da aplicação com redundância geográfica completa. Para ativar a capacidade reverter a atualização, tem de criar uma ranhura fase com uma cópia totalmente sincronizada da aplicação. Porque tem de garantir que a aplicação pode recuperar rapidamente no caso de ocorrer uma falha catastrófica durante o processo de atualização, a ranhura de fase tem de ser georredundante bem. Os seguintes passos são necessários para preparar a aplicação para a atualização:
-
-1. Crie uma ranhura de fase da atualização. Para fazer criar uma base de dados secundária (1) e implemente uma cópia idêntica do web site na mesma região do Azure. Monitorize secundário para ver se a propagação conclusão do processo.
-2. Crie uma base de dados secundária georredundante na ranhura de fase através da replicação de georreplicação da base de dados secundária para a região de cópia de segurança (denominado "encadeados georreplicação"). Monitorize a cópia de segurança secundária se o processo de propagação está concluída (3).
-3. Criar uma cópia do web site em modo de espera na região de cópia de segurança e ligá-lo para o secundário georredundante (4).  
-4. Adicionar os pontos finais adicionais <i>contoso 2.azurewebsites.net</i> e <i>contoso 3.azurewebsites.net</i> para o perfil de ativação pós-falha em WATM como pontos finais offline (5). 
+Neste momento, o aplicativo é totalmente funcional e os passos de atualização podem ser repetidos.
 
 > [!NOTE]
-> Tenha em atenção os passos de preparação não irão afetar a aplicação na ranhura de produção e que possa funcionar no modo de acesso total.
+> A reversão não requer alterações no perfil de ATM como ele já aponte para <i>contoso-1.azurewebsites.net</i> como o ponto final do Active Directory.
 > 
 > 
 
-![Configuração de georreplicação da base de dados SQL. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
-Depois de concluídas os passos de preparação, o bloco de fase é preparado para a atualização. O diagrama seguinte ilustra os passos de atualização.
+A chave **partido** desta opção é que pode atualizar uma aplicação numa única região usando um conjunto de passos simples. O custo de dólar da atualização é relativamente baixo. Os principais **compensação** é que, se ocorrer uma falha catastrófica durante a atualização a recuperação para o estado de pré-atualização envolverá reavaliação de implementação da aplicação numa região diferente e restaurar a base de dados de cópia de segurança a utilizar restauro geográfico. Este processo irá resultar em períodos de indisponibilidade significativos.   
 
-1. Defina a base de dados primária na ranhura de produção para o modo só de leitura (6). Isto irá garantir que a instância de produção da aplicação (V1) permanecem só de leitura durante a atualização, impedindo a potencial divergência de dados entre as instâncias de base de dados V1 e V2.  
-2. Desligar a base de dados secundária na mesma região a utilizar o modo de terminação planeada (7). -Criará uma cópia de independente totalmente sincronizada da base de dados primária, que ficará automaticamente um site primário depois da terminação. Esta base de dados será atualizado.
+## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Atualização dos aplicativos que dependem de georreplicação da base de dados para recuperação após desastre
+Se a sua aplicação tira partido da georreplicação para continuidade do negócio, ele é implementado, pelo menos, duas regiões diferentes, com uma implementação ativa na região primária e uma implementação em espera na região de cópia de segurança. Além dos fatores mencionados anteriormente, o processo de atualização tem de garantir que:
+
+* O aplicativo permanece protegido contra falhas catastróficas durante todo o tempo durante o processo de atualização
+* Os componentes com redundância geográfica do aplicativo são atualizados em paralelo com os componentes do Active Directory
+
+Para atingir esses objetivos aproveitará o Gestor de tráfego do Azure (ATM) com o perfil de ativação pós-falha com uma ativa e três pontos de extremidade de cópia de segurança.  O diagrama seguinte ilustra o ambiente operacional antes do processo de atualização. Os web sites <i>contoso-1.azurewebsites.net</i> e <i>contoso-dr.azurewebsites.net</i> representam um bloco de produção do aplicativo com redundância geográfica completa. Para ativar a capacidade de reverter a atualização, tem de criar uma ranhura de fase com uma cópia totalmente sincronizada do aplicativo. Uma vez que precisa garantir que o aplicativo pode recuperar rapidamente no caso de ocorrer uma falha catastrófica durante o processo de atualização, o bloco de fase tem de ser georredundante também. Os seguintes passos são necessários para preparar a aplicação para a atualização:
+
+1. Crie uma ranhura de fase para a atualização. Para fazer que criar uma base de dados secundária (1) e implementar uma cópia idêntica do web site na mesma região do Azure. Monitorize o secundário para ver se o processo de propagação é concluído.
+2. Crie uma base de dados secundária com redundância geográfica na ranhura de fase georreplicação a base de dados secundária para a região de cópia de segurança (isso é chamado de "em cadeia de georreplicação"). Monitorize a cópia de segurança secundária para ver se o processo de propagação é concluída (3).
+3. Criar uma cópia em espera do web site na região de cópia de segurança e ligá-lo para o secundário com redundância geográfica (4).  
+4. Adicionar os pontos finais adicionais <i>contoso-2.azurewebsites.net</i> e <i>contoso-3.azurewebsites.net</i> para o perfil de ativação pós-falha em ATM como pontos finais offline (5). 
+
+> [!NOTE]
+> Tenha em atenção os passos de preparação não irão afetar o aplicativo no bloco de produção e que possa funcionar no modo de acesso total.
+> 
+> 
+
+![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+
+Depois de concluir os passos de preparação, o bloco de fase está pronto para a atualização. O diagrama seguinte ilustra as etapas de atualização.
+
+1. Defina a base de dados primária no bloco de produção para o modo só de leitura (6). Tal irá garantir que a instância de produção do aplicativo (V1) irá permanecer somente-leitura durante a atualização, impedindo a potencial divergência de dados entre as instâncias de base de dados V1 e V2.  
+2. Desligar a base de dados secundário na mesma região com o modo de terminação planeada (7). Ele criará uma cópia totalmente sincronizada independente da base de dados primária, que se tornará automaticamente um site primário após a finalização. Esta base de dados será atualizado.
 3. Ativar a base de dados primária na ranhura de fase para o modo de leitura / escrita e execute o script de atualização (8).    
 
-![Configuração de georreplicação da base de dados SQL. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
-Se a atualização foi concluída com êxito, agora está pronto para mudar os utilizadores finais para a versão de V2 da aplicação. O diagrama seguinte ilustra os passos envolvidos.
+Se a atualização foi concluída com êxito agora está pronto para mudar do utilizador final para a versão V2 do aplicativo. O diagrama seguinte ilustra as etapas envolvidas.
 
-1. Mudar o ponto final do Active Directory no perfil de WATM para <i>contoso 2.azurewebsites.net</i>, que agora aponta para a versão de V2 do web site (9). Torna agora uma ranhura de produção com a aplicação de V2 e o tráfego do utilizador final é direcionado para o mesmo. 
-2. Se já não necessita da aplicação V1 para poder em segurança removê-lo (10 e 11).  
+1. Mudar o ponto final do Active Directory no perfil de ATM sejam <i>contoso-2.azurewebsites.net</i>, que agora aponta para a versão V2 do web site (9). Agora será um bloco de produção com o aplicativo V2 e o tráfego de utilizador final é direcionado ao mesmo. 
+2. Se precisar da aplicação V1 já não é por isso, pode com segurança removê-lo (10 e 11).  
 
-![Configuração de georreplicação da base de dados SQL. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
-Se o processo de atualização for bem-sucedida, por exemplo devido a um erro no script de atualização, a ranhura de fase deve ser considerada comprometidos. Para reverter a aplicação para o estado de pré-atualização simplesmente reverter para utilizar a aplicação na ranhura de produção com acesso total. Os passos envolvidos são apresentados no diagrama seguinte.    
+Se o processo de atualização não for bem-sucedida, por exemplo devido a um erro no script de atualização, o bloco de estágio deve ser considerado comprometido. Para reverter o aplicativo para o estado de pré-atualização simplesmente reverter de usando o aplicativo no bloco de produção com acesso total. Os passos envolvidos são apresentados no diagrama seguinte.    
 
-1. Defina a cópia da base de dados primária na ranhura de produção para o modo de leitura / escrita (12). Este procedimento irá restaurar o V1 completa funcionalmente na ranhura de produção.
-2. Efetuar a análise da causa raiz e remova os componentes comprometidos na ranhura de fase (13 e 14). 
+1. Defina a cópia da base de dados primária no bloco de produção para o modo de leitura / escrita (12). Esta ação irá restaurar o V1 completa funcionalmente no bloco de produção.
+2. Executar a análise de causa raiz e remover os componentes comprometidos na ranhura de fase (13 e 14). 
 
-Neste momento, a aplicação está totalmente funcional e os passos de atualização podem ser repetidos.
+Neste momento, o aplicativo é totalmente funcional e os passos de atualização podem ser repetidos.
 
 > [!NOTE]
-> A reversão não necessita de alterações no perfil WATM como já aponta para <i>contoso 1.azurewebsites.net</i> como o ponto final do Active Directory.
+> A reversão não requer alterações no perfil de ATM como ele já aponte para <i>contoso-1.azurewebsites.net</i> como o ponto final do Active Directory.
 > 
 > 
 
-![Configuração de georreplicação da base de dados SQL. Nuvem de recuperação após desastre.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
-A chave **partido** desta opção é que pode atualizar a aplicação e respetiva cópia georredundante em paralelo sem comprometer a continuidade do negócio durante a atualização. O principal **compromisso** é que necessita de redundância dupla de cada componente da aplicação e, por conseguinte, incorre em custos de dólar superior. Também envolve um fluxo de trabalho mais complicado. 
+A chave **partido** desta opção é que pode atualizar o aplicativo e sua cópia georredundante em paralelo sem comprometer a continuidade do negócio durante a atualização. Os principais **compensação** é que ele requer redundância dupla de cada componente da aplicação e, portanto, incorre em custo mais elevado de dólar. Ela também envolve um fluxo de trabalho mais complicado. 
 
 ## <a name="summary"></a>Resumo
-Os dois métodos de atualização descritos no artigo diferem no complexidade e o dólar de custos, mas ambas as focar-se no que minimiza o tempo quando o utilizador final está limitado a operações só de leitura. Essa hora diretamente é definida pela duração do script de atualização. Não dependem de tamanho de base de dados, a camada de serviço que escolheu, a configuração do web site e ainda outros fatores não é possível controlar facilmente. Isto acontece porque todos os passos de preparação estão desacoplados dos passos de atualização e podem ser realizados sem afetar a aplicação de produção. A eficiência do script de atualização é o fator chave que determina a experiência de utilizador final durante as atualizações. Por isso, a melhor forma de possa melhorá-lo é ao concentrar-se os esforços em efetuar o script de actualização como eficiente possível.  
+Os dois métodos de atualização descritos no artigo diferem em complexidade e o dólar de custos, mas eles ambas se concentrar em minimizar o tempo quando o utilizador final está limitado a operações só de leitura. Esse tempo é definido diretamente pela duração do script de atualização. Ele não depende do tamanho de base de dados, a camada de serviços que escolheu, a configuração do site da web e outros fatores que não pode controlar facilmente. Isso ocorre porque todos os passos de preparação estão desassociados dos passos de atualização e podem ser feitos sem afetar o aplicativo de produção. A eficiência do script de atualização é o fator principal que determina a experiência de utilizador final durante as atualizações. Portanto, a melhor maneira de melhorá-lo é ao concentrar-se seus esforços em tornar o script de atualização mais eficiente possível.  
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para cenários e uma descrição geral de continuidade de negócio, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
-* Para saber mais sobre o SQL do Azure, base de dados automática de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
-* Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, consulte [restaurar uma base de dados de cópias de segurança automatizadas](sql-database-recovery-using-backups.md).
-* Para saber mais sobre as opções de recuperação mais rápidas, consulte [georreplicação ativa](sql-database-geo-replication-overview.md).
+* Para uma visão geral de continuidade de negócio e cenários, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md).
+* Para saber mais sobre SQL do Azure, base de dados automatizada de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
+* Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, veja [restaurar uma base de dados a partir de cópias de segurança automáticas](sql-database-recovery-using-backups.md).
+* Para saber mais sobre as opções de recuperação mais rápidas, veja [georreplicação ativa](sql-database-geo-replication-overview.md).
 
 

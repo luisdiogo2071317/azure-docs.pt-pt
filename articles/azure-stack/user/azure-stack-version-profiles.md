@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ba8778bad9ed1b8ec095da084ffcec79658bdea8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054182"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745804"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerir perfis de versão de API no Azure Stack
 
@@ -67,7 +67,7 @@ Em vez de cada fornecedor de recursos e a versão específica suportados pelo Az
 
 Perfis de API trabalham com ferramentas que utilizam o Azure Resource Manager, como o PowerShell, CLI do Azure, o código fornecido no SDK e Microsoft Visual Studio. Ferramentas e SDKs podem utilizar perfis para ler a versão dos módulos e bibliotecas a incluir ao criar um aplicativo.
 
-Por exemplo, se utilizar o PowerShell para criar um armazenamento de conta utilizando a **Microsoft. Storage** fornecedor de recursos, que suporta a api-version 2016-03-30 e uma VM com o fornecedor de recursos Microsoft. Compute com uma api-version 2015-12-01 , precisaria procurar que oferece suporte do módulo do PowerShell 2016-03-30 para o armazenamento e qual módulo suporta 2015-02-01 para computação e instalá-los. Em vez disso, pode utilizar um perfil. Utilize o cmdlet * * instalar perfil * profilename *** e PowerShell carrega a versão correta dos módulos.
+Por exemplo, se utilizar o PowerShell para criar uma conta de armazenamento com o **Microsoft. Storage** fornecedor de recursos, que suporta a api-version 2016-03-30 e uma VM com o fornecedor de recursos Microsoft. Compute com a versão de api 2015-12-01, precisaria procurar que oferece suporte do módulo do PowerShell 2016-03-30 para o armazenamento e qual módulo suporta 2015-02-01 para computação e instalá-los. Em vez disso, pode utilizar um perfil. Utilize o cmdlet * * instalar perfil * profilename *** e PowerShell carrega a versão correta dos módulos.
 
 Da mesma forma, ao utilizar o SDK de Python para criar uma aplicação baseada em Python, pode especificar o perfil. O SDK carrega os módulos certos para os fornecedores de recursos que especificou no script.
 

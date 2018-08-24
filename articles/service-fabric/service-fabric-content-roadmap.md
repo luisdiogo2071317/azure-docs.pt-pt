@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358723"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818219"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Portanto, quiser saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse do Service Fabric e descreve os principais conceitos, modelos, ciclo de vida do aplicativo, teste, clusters e monitorização de estado de funcionamento de programação. Leitura a [descrição geral](service-fabric-overview.md) e [o que são microsserviços?](service-fabric-overview-microservices.md) para uma introdução e como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista de conteúdo abrangente, mas associar à descrição geral e ao obter os artigos de introdução para todas as áreas do Service Fabric. 
@@ -146,7 +146,7 @@ Existem algumas funcionalidades que são suportadas no Windows, mas não no Linu
 ### <a name="standalone-clusters"></a>Clusters autónomos
 O Service Fabric fornece um pacote de instalação para a criação de autónomo Service Fabric clusters no local ou em qualquer fornecedor de cloud. Clusters autónomos dão-lhe a liberdade de um cluster de anfitrião onde quiser. Se os seus dados estão sujeitos a conformidade ou regulamentação restrições ou pretende manter os seus dados local, pode alojar o seu próprio cluster e as aplicações. Aplicações do Service Fabric podem executar em vários ambientes de alojamento sem alterações, para que o seu conhecimento da criação de aplicativos realiza ao longo de um ambiente de alojamento para outro. 
 
-[Crie seu primeiro cluster autónomo de Service Fabric](service-fabric-get-started-standalone-cluster.md)
+[Crie seu primeiro cluster autónomo de Service Fabric](service-fabric-cluster-creation-for-windows-server.md)
 
 Clusters autónomos do Linux ainda não são suportados.
 

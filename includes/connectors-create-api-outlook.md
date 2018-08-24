@@ -1,17 +1,14 @@
-## <a name="connect-to-outlookcom"></a>Ligar ao Outlook.com
-### <a name="prerequisites"></a>Pré-requisitos
-* Uma conta do Outlook.com
+1. Na caixa de pesquisa, introduza "outlook.com" como o filtro. Neste exemplo, selecione este acionador: **quando chega um novo e-mail**
 
-Antes de poder utilizar a sua conta do Outlook.com numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta do Outlook.com. Felizmente, pode fazê-facilmente na sua aplicação lógica no Portal do Azure. 
+   ![Localizar ações ou acionadores do Outlook.com](./media/connectors-create-api-outlook/select-outlook.png)
 
-Eis os passos para autorizar a aplicação lógica para ligar à sua conta do Outlook.com:
+1. Depois de selecionar o acionador (ou a ação), lhe for pedido para iniciar sessão na sua conta do Outlook.com, se já não iniciar sessão. Escolher **iniciar sessão**.
 
-1. Todas as Logic apps precisam de ser iniciados por um acionador para que, depois de criar a aplicação lógica, o estruturador abre-se e apresenta uma lista de aciona que pode utilizar para iniciar a sua aplicação lógica:
-   
-   ![](./media/connectors-create-api-outlook/office365-outlook-0.png)
-2. Introduza "outlook" na caixa de pesquisa. Tenha em atenção de que a lista está filtrada para listar todos os acionadores com "Outlook" no nome:![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
-3. Selecione **novo e-mail do Office 365 Outlook -**.   
-   Se ainda não criou quaisquer ligações a Outlook antes, irá obter lhe fornecer as credenciais do Outlook.com. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e aceder aos dados da sua conta Outlook.com:![](./media/connectors-create-api-outlook/office365-outlook-1.png)
-4. Forneça as credenciais para o Outlook e iniciar sessão:![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
-   E já está. Agora que criou uma ligação para o Outlook. Esta ligação estará disponível para utilização em qualquer outra aplicação de lógica que criar.
+   ![Inicie sessão sua conta do Outlook.com](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
+3. Selecione as credenciais da sua conta do Outlook.com.
+
+   ![Selecione a conta de início de sessão](./media/connectors-create-api-outlook/outlook-sign-in.png)  
+
+   As suas credenciais são utilizadas para ligar e aceder aos dados da sua conta do Outlook.com.
+   Pode reutilizar esta ligação com qualquer outra aplicação de lógica na sua subscrição do Azure. 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42062084"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747049"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
@@ -52,24 +52,24 @@ Quando é acionada uma função de Acionador de Hubs de eventos, a mensagem que 
 
 ## <a name="trigger---scaling"></a>Acionar - dimensionamento
 
-Cada instância de uma função de Event Hub-Triggered conta com apenas 1 instância do EventProcessorHost (EPH). Os Hubs de eventos garante que apenas 1 EPH pode obter uma concessão numa determinada partição.
+Cada instância de uma função de acionada por hub de eventos é feita apenas por um [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instância. Os Hubs de eventos garante que apenas [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instância pode obter uma concessão sobre uma determinada partição.
 
-Por exemplo, suponha que começamos com a seguinte configuração e suposições para um Hub de eventos:
+Por exemplo, considere um Hub de eventos da seguinte forma:
 
-1. 10 partições.
-1. 1000 eventos distribuídos uniformemente por todas as partições = > 100 mensagens em cada partição.
+* 10 partições.
+* 1000 eventos distribuídos uniformemente por todas as partições, com 100 mensagens em cada partição.
 
-Quando a sua função é habilitada pela primeira vez, existe apenas 1 instância da função. Vamos chamar esta instância de função Function_0. Function_0 terá 1 EPH que gere para obter uma concessão sobre todas as partições de 10. Irá começar a ler eventos de 0 a 9 de partições. A partir deste ponto, irá ocorrer um dos seguintes:
+Quando a sua função é habilitada pela primeira vez, isso significa que existe apenas uma instância da função. Vamos chamar esta instância de função `Function_0`. `Function_0` tem uma única [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instância que tem uma concessão em todas as partições de dez. Esta instância é ler eventos de 0 a 9 de partições. A partir deste ponto, um dos seguintes acontece:
 
-* **É necessária a instância de função apenas 1** -Function_0 é capaz de processar todos os 1000 antes de lógica de dimensionamento das funções do Azure entra em ação. Portanto, todas as mensagens de 1000 são processadas pelo Function_0.
+* **Novas instâncias de função não são necessários**: `Function_0` é capaz de processar todos os eventos de 1000 antes das funções de dimensionamento de lógica é acionada. Neste caso, todas as mensagens de 1000 são processadas pelo `Function_0`.
 
-* **Adicionar 1 instância de função mais** -lógica das funções do Azure de dimensionamento determina que Function_0 tem mais mensagens do que consegue processar, pelo que uma nova instância, Function_1, é criada. Os Hubs de eventos Deteta que uma nova instância EPH está a tentar ler as mensagens. Os Hubs de eventos serão iniciado o balanceamento de carga as partições entre as instâncias EPH, por exemplo, partições de 0 a 4 são atribuídas a Function_0 e partições 5-9 são atribuídas a Function_1. 
+* **É adicionada uma instância de função adicionais**: as funções a lógica de dimensionamento determina que `Function_0` tem mais mensagens do que consegue processar. Neste caso, uma nova função instância da aplicação (`Function_1`) é criada, juntamente com uma nova [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instância. Os Hubs de eventos Deteta que uma nova instância de anfitrião está a tentar ler as mensagens. Faz o balanceamento de carga de Hubs de eventos as partições entre as suas instâncias de anfitrião. Por exemplo, as partições de 0 a 4 podem ser atribuídas a `Function_0` e cria partições 5 a 9 para `Function_1`. 
 
-* **Adicionar N mais instâncias de função** -lógica das funções do Azure de dimensionamento determina que Function_0 e Function_1 têm mais mensagens do que o que podem ser processadas. Irá dimensionar novamente para Function_2... N, onde N é maior do que as partições do Hub de eventos. Os Hubs de eventos irão carregar balancear as partições Function_0... 9 instâncias.
+* **N mais instâncias de função são adicionadas**: as funções a lógica de dimensionamento determina que ambos `Function_0` e `Function_1` tem mais mensagens do que o que podem ser processadas. Novas instâncias de aplicação de função `Function_2`... `Functions_N` são criados, onde `N` é maior do que o número de partições do hub de eventos. No nosso exemplo, os Hubs de eventos novamente carga equilibra as partições, neste caso pelas instâncias `Function_0`... `Functions_9`. 
 
-O fato de que N é maior do que o número de partições é dimensionamento lógica único atual das funções do Azure. Isso é feito para garantir que sempre há instâncias de EPH prontamente disponível para obter rapidamente o bloqueio de partição (ões) à medida que ficam disponíveis a partir de outras instâncias. Os utilizadores só são cobrados os recursos utilizados quando a instância de função for executada e não são cobradas deste aprovisionamento excessivo.
+Tenha em atenção que quando as funções pode ser dimensionada para `N` instâncias, o que é um número maior do que o número de partições do hub de eventos. Isso é feito para se certificar de que existem sempre [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instâncias disponíveis para obter bloqueios em partições à medida que ficam disponíveis a partir de outras instâncias. Apenas lhe serão cobrados os recursos utilizados quando executa a instância de função; não são cobradas deste aprovisionamento excessivo.
 
-Se todas as execuções de função for bem-sucedida sem erros, os pontos de verificação são adicionados à conta de armazenamento associados. Quando a verificação for bem sucedida, todas as mensagens de 1000 nunca devem ser obtidas novamente.
+Quando todos os de função de execução estar concluída (com ou sem erros), pontos de verificação são adicionados à conta de armazenamento associados. Quando a verificação for bem sucedida, todas as mensagens de 1000 são nunca obtidas novamente.
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 

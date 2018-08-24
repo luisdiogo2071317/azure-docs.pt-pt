@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b310daec67f41ba589ce279e4a2dad427adb734
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060340"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818897"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 
@@ -23,7 +23,7 @@ Um dos maiores benefícios do Azure Policy é as informações e os controles fo
 Existem várias formas de acessar as informações de conformidade geradas pela sua política e as atribuições de iniciativa:
 
 - Usando o [Portal do Azure](#portal)
-- Por meio [linha de comandos](#command_line) scripts
+- Por meio [linha de comandos](#command-line) scripts
 
 Antes de examinar os métodos para gerar relatórios sobre compatibilidade, vamos ver quando as informações de conformidade são atualizadas e a frequência e eventos que disparam um ciclo de avaliação.
 

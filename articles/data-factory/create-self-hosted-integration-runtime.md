@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 863cda349ca951bee1c43f09eefd364645de9dbd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443395"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746806"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Runtime de integração autoalojado
 O Runtime de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do Runtime de integração](concepts-integration-runtime.md).
@@ -182,6 +182,8 @@ criada implicitamente, no entanto, as fábricas de dados criadas com o modelo Az
 5. O SDK que suportam esta funcionalidade do .net do ADF é a versão > = 1.1.0
 
 6. O Azure PowerShell que suportam esta funcionalidade é a versão > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
+
+7. Para conceder permissão, o usuário exigirá a função de "Proprietário" ou função de "Proprietário" herdado na fábrica de dados, onde existe o IR partilhado. 
 
   > [!NOTE]
   > Esta funcionalidade só está disponível no Azure Data Factory versão 2 

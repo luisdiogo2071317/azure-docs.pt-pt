@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971271"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746722"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Linux no seu cluster do Service Fabric
 
@@ -121,7 +121,7 @@ Para Ubuntu [autônoma – as atualizações](https://help.ubuntu.com/community/
 
 Aplicativo, juntamente com os scripts de instalação pode ser transferido a partir [link de arquivo](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Aplicação em formato de sfpkg pode ser transferida a partir [sfpkg ligação](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Isso é útil para [do Azure Resource Manager com base em implantação de aplicativos](service-fabric-application-arm-resource.md).
+Aplicação em formato de sfpkg pode ser transferida a partir [sfpkg ligação](https://aka.ms/POA/POA_v2.0.2.sfpkg). Isso é útil para [do Azure Resource Manager com base em implantação de aplicativos](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar a aplicação
 
@@ -370,5 +370,8 @@ A aplicação de orquestração do patch recolhe telemetria para controlar a uti
 ### <a name="version-200"></a>Versão 2.0.0
 - Lançamento público
 
-### <a name="version-201-latest"></a>Versão 2.0.1 (mais recente)
+### <a name="version-201"></a>Versão 2.0.1
 - Recompilado a aplicação com o SDK mais recente do Service Fabric
+
+### <a name="version-202-latest"></a>Versão 2.0.2 (mais recente)
+- Foi corrigido um problema com aviso do Estado de funcionamento introdução deixado para trás durante o reinício.

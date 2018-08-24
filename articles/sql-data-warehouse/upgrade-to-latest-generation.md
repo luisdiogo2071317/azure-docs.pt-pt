@@ -1,29 +1,30 @@
 ---
-title: Atualizar para a geração de mais recente do Azure SQL Data Warehouse | Microsoft Docs
-description: Atualize o Azure SQL Data Warehouse para geração mais recente da arquitetura de hardware e de armazenamento do Azure.
+title: Atualizar para a geração mais recente do Azure SQL Data Warehouse | Documentos da Microsoft
+description: Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 58d65ef05ed872bb357070de9866253baea5dc70
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746967"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
-Atualize o Azure SQL Data Warehouse para geração mais recente da arquitetura de hardware e de armazenamento do Azure.
+Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
 
-## <a name="why-upgrade"></a>Por que motivo atualizar?
-Pode agora totalmente integrada atualizar para o SQL Data Warehouse Gen2 no portal do Azure. Se tiver um armazém de dados Gen1, a atualização é recomendada. Ao atualizar, pode utilizar a geração de mais recente de hardware do Azure e arquitetura de armazenamento melhorada. Pode tirar partido de um desempenho mais rápido, escalabilidade e armazenamento columnar ilimitado. 
+## <a name="why-upgrade"></a>Por que atualizar?
+Agora pode facilmente atualizar para o escalão de SQL Data Warehouse de computação otimizada geração 2 no portal do Azure. Se tiver um armazém de dados de escalão de computação otimizada geração 1, a atualização é recomendada. Com a atualização, pode utilizar a última geração de hardware do Azure e aprimorada arquitetura de armazenamento. Pode tirar partido de um desempenho mais rápido, escalabilidade e armazenamento em colunas ilimitado. 
 
 ## <a name="applies-to"></a>Aplica-se a
-Esta atualização aplica-se Gen1 para armazéns de dados.
+Esta atualização aplica-se para armazéns de dados de escalão de computação otimizada geração 1.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -31,52 +32,45 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 > [!NOTE]
-> Se o seu armazém de dados Gen1 existente não está numa região onde Gen2 está disponível, pode [georrestauro para Gen2](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) através do PowerShell para uma região suportada.
+> Se o seu armazém de dados de escalão de computação otimizada geração 1 existente não está a ser uma região onde está disponível o escalão de computação otimizada geração 2, pode [georrestauro](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) através do PowerShell para uma região suportada.
 > 
 >
 
-1. Se o armazém de dados Gen1 a ser atualizado está em pausa, [retomar o armazém de dados](pause-and-resume-compute-portal.md).
-2. Estar preparadas para alguns minutos de indisponibilidade. 
+1. Se o armazém de dados de escalão de computação otimizada geração 1 a ser atualizado está em pausa, [retomar o armazém de dados](pause-and-resume-compute-portal.md).
+2. Esteja preparado para alguns minutos de tempo de inatividade. 
 
 
 
 ## <a name="start-the-upgrade"></a>Iniciar a atualização
 
-1. Aceda ao seu Gen1 dados armazém no portal do Azure e clique em **atualizar para Gen2**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Vá para a computação otimizada geração 1 no portal do Azure do armazém de dados de escalão e clique em **atualizar para ger2**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
-2. Por predefinição, **selecione o nível de desempenho sugeridos** para o armazém de dados com base no seu nível de desempenho atual no Gen1 com o mapeamento abaixo:
+2. Por predefinição, **selecione o nível de desempenho sugeridos** para o armazém de dados com base no seu nível de desempenho atual na camada de computação otimizada geração 1 com o mapeamento abaixo:
     
-| Gen1 | Gen2 |
-| :----------------------: | :-------------------: |
-|      DW100 – DW1000      |        DW1000c        |
-|          DW1200          |        DW1500c        |
-|          DW1500          |        DW1500c        |
-|          DW2000          |        DW2000c        |
-|          DW3000          |        DW3000c        |
-|          DW6000          |        DW6000c        |
+   | Computação otimizada geração 1 camada | Computação otimizada geração 2 escalão |
+   | :----------------------: | :-------------------: |
+   |      DW100 – DW1000      |        DW1000c        |
+   |          DW1200          |        DW1500c        |
+   |          DW1500          |        DW1500c        |
+   |          DW2000          |        DW2000c        |
+   |          DW3000          |        DW3000c        |
+   |          DW6000          |        DW6000c        |
 
-
-3. Certifique-se de que a carga de trabalho foi concluída em execução e de terem silenciado antes de atualizar. Irá ocorrer um período de indisponibilidade para alguns minutos antes do armazém de dados estiver novamente online como um armazém de dados Gen2. **Clique em Atualizar**. O preço de camada de desempenho Gen2 está atualmente half-desligado durante o período de pré-visualização:
+3. Certifique-se de que sua carga de trabalho foi concluída em execução e terem silenciado as antes de atualizar. Terá um período de indisponibilidade durante alguns minutos antes do armazém de dados estiver novamente online como um armazém de dados de escalão de computação otimizada geração 2. **Clique em Atualizar**. O preço do escalão de desempenho do escalão de computação otimizada geração 2 está atualmente metade-desativada durante o período de pré-visualização:
     
-    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
-4. **Monitorizar a sua atualização** verificando o estado no portal do Azure:
+4. **Monitorizar a sua atualização** ao verificar o estado no portal do Azure:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
    
-   O primeiro passo do processo de atualização atravessa a operação de dimensionamento ("Atualizar - Offline") em que serão eliminadas todas as sessões e ligações serão ignoradas. 
+   A primeira etapa do processo de atualização atravessa a operação de dimensionamento ("atualizando - Offline") em que serão eliminadas todas as sessões e ligações serão ignoradas. 
    
-   O segundo passo do processo de atualização é a migração de dados ("Atualizar - Online"). Migração de dados é um processo de em segundo plano online trickle, que lentamente move os dados columnar de arquitetura de armazenamento antigo para a nova arquitetura de armazenamento tirar partido de uma cache SSD local. Durante este período, o armazém de dados será online para consultar e carregar. Todos os seus dados serão disponíveis para consulta independentemente se esta tiver sido migrada ou não. A migração de dados ocorre uma taxa variando consoante o tamanho dos dados, o nível de desempenho e o número de segmentos sua columnstore. 
+   A segunda etapa do processo de atualização é a migração de dados ("atualizando - Online"). Migração de dados é um processo de plano de fundo online trickle, que se move lentamente para armazenamento de dados da arquitetura do armazenamento antigo para a nova arquitetura de armazenamento tirar partido de uma cache SSD local. Durante este período, o seu armazém de dados estarão online para consultar e carregar. Todos os seus dados vão estar disponíveis para consultar, independentemente de se ter sido migrada ou não. A migração de dados acontece a uma taxa variada, dependendo do tamanho dos dados, o nível de desempenho e o número de segmentos de columnstore. 
 
-5. **Localizar o seu armazém de dados Gen2** utilizando o painel de navegação da base de dados SQL. 
+5. **Recomendação opcional:** para agilizar o processo de segundo plano de migração de dados, pode forçar imediatamente movimento de dados através da execução [recompilação de índice Alter](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas de columnstore primário poderia consultar num SLO maior e a classe de recursos. Esta operação é **offline** em comparação com o processo em segundo plano trickle que pode demorar horas a concluir consoante o número e os tamanhos de suas tabelas; no entanto, migração de dados será muito mais rápido em que o que, em seguida, pode tirar total partido da nova arquitetura de armazenamento avançado depois de concluído com grupos de linhas de alta qualidade. 
 
-> [!NOTE]
-> Não há atualmente um problema onde os dados de Gen2 armazéns não irão aparecer no SQL data warehouse procurar painel. Utilize o painel de navegação da base de dados SQL para localizar o seu armazém de dados Gen2 recentemente atualizado. Estamos ativamente Esta correção.
-> 
-
-6. **Recomendação opcional:** a fim de acelerar o processo de em segundo plano de migração de dados, é recomendado para forçar imediatamente o movimento de dados através da execução [reconstrução Alter Index](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas columnstore numa maior SLO e recursos classe. Esta operação está offline em comparação com o processo de fundo trickle; No entanto, a migração de dados será muito mais rápida onde, em seguida, pode tirar partido da nova arquitetura do armazenamento avançado uma vez concluída com rowgroups de alta qualidade. 
-
-Esta consulta seguinte gera os comandos necessários Alter Index Rebuild a fim de acelerar o processo de migração de dados:
+A seguinte consulta gera os comandos necessários Alter Index Rebuild para agilizar o processo de migração de dados:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
@@ -124,5 +118,5 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-O armazém de dados atualizada está online. Para tirar partido da arquitetura do avançada, consulte [classes de recursos para a gestão de carga de trabalho](resource-classes-for-workload-management.md).
+O armazém de dados atualizada está online. Para tirar partido da arquitetura avançada, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md).
  

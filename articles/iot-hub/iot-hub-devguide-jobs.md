@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e2beec1308b9664d35ccd9d355403b7076567f2f
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223801"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745849"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
-O IoT Hub do Azure permite que um número de blocos de construção como [etiquetas e propriedades dos dispositivos duplos] [ lnk-twin-devguide] e [métodos diretos][lnk-dev-methods].  Normalmente, as aplicações de back-end permitem operadores e administradores de dispositivos atualizar e interagir com dispositivos de IoT em massa e num horário agendado.  Tarefas de atualizações de dispositivo duplo e métodos diretos em relação a um conjunto de dispositivos de execução num horário agendado.  Por exemplo, um operador utilizar uma aplicação de back-end que inicia e regista uma tarefa para reiniciar um conjunto de dispositivos na criação de 43 e andar 3 cada vez que não seria perturbador para as operações de compilação.
+O IoT Hub do Azure permite que um número de blocos de construção como [etiquetas e propriedades dos dispositivos duplos] [ lnk-twin-devguide] e [métodos diretos][lnk-dev-methods]. Normalmente, as aplicações de back-end permitem operadores e administradores de dispositivos atualizar e interagir com dispositivos de IoT em massa e num horário agendado.  Tarefas de atualizações de dispositivo duplo e métodos diretos em relação a um conjunto de dispositivos de execução num horário agendado.  Por exemplo, um operador utilizar uma aplicação de back-end que inicia e regista uma tarefa para reiniciar um conjunto de dispositivos na criação de 43 e andar 3 cada vez que não seria perturbador para as operações de compilação.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

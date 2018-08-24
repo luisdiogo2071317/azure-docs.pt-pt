@@ -1,6 +1,6 @@
 ---
-title: Diagnóstico de transação de informações de aplicação do Azure | Microsoft Docs
-description: Diagnóstico de transação ponto-a-ponto do Application Insights
+title: Diagnóstico de transação das informações de aplicação do Azure | Documentos da Microsoft
+description: Diagnóstico de transação de ponta a ponta do aplicativo das informações
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,119 +9,98 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: mbullwin;sdash
-ms.openlocfilehash: 7a4e4f74c02358fc117e0a66977ee3f0aef5b1dd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820284"
 ---
-# <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de unificada de entre componentes de transação
+# <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação de vários componentes unificada
 
-*Esta experiência está atualmente em pré-visualização e substitui os painéis de diagnósticos existentes para pedidos do lado do servidor, dependências e exceções.*
-
-A pré-visualização introduz uma nova experiência de diagnóstico unificada automaticamente está correlacionada com a telemetria do lado do servidor de todos os componentes do Application Insights monitorizado numa única vista. É irrelevante se tiver vários recursos com chaves de instrumentação separado. Application Insights Deteta a relação subjacente e permite-lhe diagnosticar facilmente o componente da aplicação, dependência ou exceção que causou um slowdown transação ou falha.
+O diagnóstico unificado automaticamente experiência correlaciona a telemetria de lado do servidor a partir de entre todos os componentes do Application Insights monitorizadas numa única vista. Não importa se tiver vários recursos com chaves de instrumentação separado. Application Insights Deteta a relação subjacente e permite-lhe diagnosticar facilmente o componente da aplicação, a dependência ou a exceção que causou um abrandamento de transação ou falha.
 
 ## <a name="what-is-a-component"></a>O que é um componente?
 
-Componentes são independentemente implementáveis partes da aplicação distribuída/micro-serviços. As equipas de operações e os programadores têm visibilidade de nível de código ou o acesso a telemetria gerada por estes componentes da aplicação.
+Os componentes são partes implementáveis independentemente do aplicativo/microsserviços distribuídos. As equipes de operações e os desenvolvedores têm visibilidade de nível de código ou de acesso à telemetria gerado por estes componentes da aplicação.
 
-* Componentes são diferentes das "observadas" dependências externas, como SQL, etc. EventHub que a sua organização/equipa pode não ter acesso ao (código ou telemetria).
-* Componentes de executam em qualquer número de instâncias do servidor/função/contentor.
-* Componentes podem ser separadas chaves de instrumentação do Application Insights (mesmo se subscrições diferentes) ou diferentes funções de relatório para uma única chave de instrumentação do Application Insights. A nova experiência mostra os detalhes em todos os componentes, independentemente da forma como estas tiverem sido configuradas.
+* Componentes são diferentes de "observadas" dependências externas, como SQL, etc. de EventHub que sua equipe/organização não pode ter acesso ao (código ou telemetria).
+* Componentes são executados em qualquer número de instâncias de função/servidor/contentor.
+* Componentes podem ser separadas chaves de instrumentação do Application Insights (mesmo que as subscrições são diferentes) ou de diferentes funções de relatório para uma única chave de instrumentação do Application Insights. A nova experiência mostra os detalhes em todos os componentes, independentemente da forma como eles foram definidos.
 
 > [!NOTE]
-> * **Falta as item relacionado ligações?** Todas a telemetria relacionada com pedido do lado do servidor, dependência e exceções estão a ser o [superior](#cross-component-transaction-chart) e [inferior](#all-telemetry-related-to-the-selected-component-operation) secções do lado esquerdo. 
-> * O [superior](#cross-component-transaction-chart) secção correlaciona a transação em todos os componentes. Para obter os melhores resultados, certifique-se de que todos os componentes são equipados com os SDKs estáveis mais recentes do Application Insights. Se existirem diferentes recursos do Application Insights, certifique-se de que tem os direitos adequados para ver os respetivos telemetria.
-> * O [inferior](#all-telemetry-related-to-the-selected-component-operation) secção mostra o lado esquerdo **todos os** telemetria, incluindo os rastreios e eventos relacionados com o pedido do componente selecionado.
-
-## <a name="enable-transaction-diagnostics-experience"></a>Ativar a experiência de diagnóstico de transação
-Ativar "Unified detalhes: diagnósticos de transação de E2E" do [lista pré-visualizações](app-insights-previews.md)
-
-![Ativar a pré-visualização](media/app-insights-e2eTxn-diagnostics/previews.png)
-
-Esta pré-visualização está atualmente disponível para pedidos do lado do servidor, dependências e exceções. Pode aceder a nova experiência de **resultados da pesquisa**, **desempenho**, ou **falha** triagem experiências. A pré-visualização substitui os painéis detalhes clássico correspondente.
-
-![Amostras de desempenho](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
+> * **Em falta as ligações de item relacionado?** Toda a telemetria relacionada estão no [top](#cross-component-transaction-chart) e [na parte inferior](#all-telemetry-with-this-Operation-Id) seções do lado esquerdo. 
 
 ## <a name="transaction-diagnostics-experience"></a>Experiência de diagnóstico de transação
-Esta vista tem três partes de chaves: um gráfico de transação entre componentes, uma lista de sequência de tempo de toda a telemetria de uma operação do componente específico e o painel de detalhes de qualquer item de telemetria selecionado no lado esquerdo.
+Esta vista tem quatro partes-chave: resulta de lista, um gráfico de transações entre componentes, uma lista da sequência de tempo de toda a telemetria relacionada com esta operação e o painel de detalhes de qualquer item de telemetria selecionado à esquerda.
 
-![Partes de chaves](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
+![Partes-chave](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
 
-## <a name="cross-component-transaction-chart"></a>Gráfico de transação entre componentes
+## <a name="cross-component-transaction-chart"></a>Gráfico de transações entre componentes
 
-Este gráfico fornece uma linha cronológica com barras horizontais durante a pedidos e dependências de componentes. Quaisquer exceções que são recolhidas são também marcadas na linha cronológica.
+Este gráfico fornece uma linha cronológica com barras horizontais para a duração dos pedidos e dependências entre componentes. Todas as exceções que são recolhidas são também marcadas na linha da tempo.
 
-* A linha superior este gráfico representa o ponto de entrada, o pedido de entrada para o primeiro componente chamado nesta transação. A duração é o total de tempo decorrido para a transação concluir.
-* As chamadas para dependências externas são linhas não expansível simples, com os ícones que representa o tipo de dependência.
-* Chamadas para outros componentes são expansíveis linhas. Cada linha corresponde a uma operação específica invocada no componente.
-* Por predefinição, o pedido, dependência ou exceção que inicialmente selecionou é apresentada no gráfico.
-* Selecione qualquer linha para ver o [detalhes à direita](#details-of-the-selected-telemetry). 
+* A linha superior neste gráfico representa o ponto de entrada, a solicitação de entrada para o primeiro componente chamado nesta transação. A duração é o tempo total decorrido para a conclusão da transação.
+* Todas as chamadas para dependências externas são linhas não recolhível simples, com ícones que representa o tipo de dependência.
+* Chamadas para outros componentes são linhas recolhíveis. Cada linha corresponde a uma operação específica invocada no componente.
+* Por predefinição, o pedido, dependência ou exceção que selecionou é apresentado no lado direito.
+* Selecione qualquer linha para ver seu [detalhes à direita](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-As chamadas de outros componentes têm duas linhas: uma linha representa a chamada de saída (dependência) componente do autor da chamada do e a outra linha corresponde do pedido de entrada, o componente chamado. O ícone à esquerda e estilo distinto de barras a duração de ajudam a diferenciar entre eles.
+Chamadas para outros componentes tem duas linhas: uma linha representa a chamada de saída (dependência) do componente do autor da chamada do e a outra linha corresponde ao pedido de entrada, o componente chamado. O ícone à esquerda e o estilo distinto das barras de duração ajudar a diferenciar entre eles.
 
-## <a name="all-telemetry-related-to-the-selected-component-operation"></a>Todas as telemetrias relacionadas com a operação de componentes selecionada
+## <a name="all-telemetry-with-this-operation-id"></a>Toda a telemetria com este Id de operação
 
-Qualquer linha selecionada no gráfico de transação entre componentes está relacionado com uma operação invocada num componente em particular. Esta operação do componente selecionado é refletida no título da secção na parte inferior. Abra esta secção para ver uma sequência de tempo simples de todas as telemetrias relacionadas com essa operação específica. Pode selecionar qualquer item de telemetria nesta lista para ver correspondente [detalhes à direita](#details-of-the-selected-telemetry).
+Esta secção mostra a vista de lista simples de uma seqüência de tempo de toda a telemetria relacionados com esta transação. Ela também mostra os eventos personalizados e os rastreios que não são apresentados no gráfico de transação. Pode filtrar esta lista para a telemetria gerada por uma chamada/componente específica. Pode selecionar qualquer item de telemetria de nesta lista para ver o correspondente [detalhes à direita](#details-of-the-selected-telemetry).
 
 ![Sequência de tempo de toda a telemetria](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-## <a name="details-of-the-selected-telemetry"></a>Detalhes de telemetria a selecionado
+## <a name="details-of-the-selected-telemetry"></a>Detalhes da telemetria selecionada
 
-Este painel mostra os detalhes dos itens selecionados de qualquer uma das duas secções no lado esquerdo. "Mostrar tudo" apresenta uma lista de todos os atributos padrão que são recolhidos. Atributos personalizados em separado estão listados abaixo conjunto padrão. Clique em "rastreios de gerador de perfis abrir" ou "depuração Abrir instantâneo" diagnóstico de nível de código nos painéis de detalhe correspondente.
+Este painel recolhível mostra os detalhes de qualquer item selecionado do gráfico de transação ou na lista. "Mostrar todos os" lista todos os atributos padrão que são recolhidos. Todos os atributos personalizados em separado estão listados abaixo do conjunto padrão. Clique no "..." abaixo a janela de rastreio de pilha para obter uma opção para copiar o rastreio. "Rastreios do profiler abrir" ou "Abrir instantâneo de depuração" mostra o diagnóstico ao nível do código nos painéis de detalhes correspondente.
 
-![Detalhe de exceção](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Detalhe da exceção](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
-## <a name="profiler-and-snapshot-debugger"></a>Depurador do gerador de perfis e instantâneos
+## <a name="search-results"></a>Resultados da pesquisa
 
-[O gerador de perfis do Application Insights](app-insights-profiler.md) ou [depurador de instantâneo](app-insights-snapshot-debugger.md) ajudar com o nível de código de diagnóstico de problemas de desempenho e falha. Com esta experiência, pode ver os rastreios de gerador de perfis ou instantâneos de qualquer componente com um único clique.
+Este painel recolhível mostra os outros resultados que cumprem os critérios de filtro. Clique em qualquer resultado para atualizar os respectivos detalhes 3 secções listados acima. Vamos tentar encontrar exemplos que são mais provável que tenha os detalhes disponíveis em todos os componentes, mesmo que a amostragem está em vigor em qualquer um deles. Estes são apresentados como exemplos "sugeridos".
 
-Se não foi possível obter o gerador de perfis a funcionar, contacte **serviceprofilerhelp@microsoft.com**
+![Resultados da pesquisa](media/app-insights-e2eTxn-diagnostics/searchResults.png)
 
-Se não foi possível obter o depurador de instantâneo a funcionar, contacte **snapshothelp@microsoft.com**
+## <a name="profiler-and-snapshot-debugger"></a>Depurador Profiler e o instantâneo
 
-![Integração do depurador](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
+[O criador de perfil do Application Insights](app-insights-profiler.md) ou [depurador de instantâneos](app-insights-snapshot-debugger.md) ajudar com o nível de código de diagnóstico de problemas de desempenho e falha. Com essa experiência, pode ver os rastreios do profiler ou instantâneos de qualquer componente com um único clique.
+
+Se não foi possível obter o Profiler a funcionar, contacte **serviceprofilerhelp@microsoft.com**
+
+Se não foi possível obter o Snapshot Debugger trabalhar, entre em contato com **snapshothelp@microsoft.com**
+
+![Integração do Profiler](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>FAQ
 
-*Vejo um único componente no gráfico e outros utilizadores que apenas que mostra como dependências externas sem quaisquer detalhes do que aconteceu dentro desses componentes.*
+*Posso ver um único componente no gráfico e a outras pessoas estão a aparecer apenas como dependências externas sem nenhum detalhe do que aconteceu dentro desses componentes.*
 
 Razões possíveis:
 
 * Os outros componentes são equipados com o Application Insights?
-* Se utilizar o estável mais recente de Application Insights SDK?
-* Se estes componentes são recursos do Application Insights separados, tem acesso necessário à sua telemetria?
+* Elas estão usando o estável mais recente de Application Insights SDK?
+* Se esses componentes são recursos do Application Insights separados, tem acesso necessário à sua telemetria?
 
-Se tiver acesso e os componentes são equipados com os SDKs de informações de aplicação mais recente, indique através do canal de comentários direito superior.
+Se tem acesso e os componentes são equipados com os SDKs do Application Insights mais recente, fale conosco através do canal de comentários direita superior.
 
-*Tenho apenas dependências externas. Deve importantes sobre esta pré-visualização?*
+*Posso ver as linhas duplicadas para as dependências. É isto esperado?*
 
-Sim. A nova experiência unifica toda a telemetria do lado do servidor relacionada numa única vista. Painéis de detalhe mais antigos serão substituídos por esta experiência no futuro, por isso, experimente e dê-nos seus comentários. Eis o aspeto de uma transação de componente único:
+Neste momento, estamos mostrando a chamada de dependência de saída separado da solicitação de entrada. Normalmente, as duas chamadas dar uma olhada idênticas com apenas o valor de duração a ser diferente devido à rede de ida e volta. O ícone à esquerda e o estilo distinto das barras de duração ajudar a diferenciar entre eles. Esta apresentação dos dados é confuso? Forneça seus comentários!
 
-![Experiência de componente único](media/app-insights-e2eTxn-diagnostics/singleComponent.png)
+*O que dizer sobre o relógio inclina em instâncias do componente diferentes?*
 
-*Consulte o artigo linhas duplicadas para as dependências. É esta esperada?*
+As linhas do tempo são ajustadas para desvios de relógio no gráfico de transação. Pode ver os carimbos exatos no painel de detalhes ou com a análise.
 
-Neste momento, estamos são a mostrar a chamada de dependência de saída separados do pedido de entrada. Normalmente, as chamadas de dois parecem idênticas com apenas o valor de duração existente que está a ser diferente devido a rede percurso de ida e volta. O ícone à esquerda e estilo distinto de barras a duração de ajudam a diferenciar entre eles. Esta apresentação dos dados é confuso? Dê-nos seus comentários!
+*Por que a nova experiência está em falta a maioria das consultas de itens relacionados?*
 
-*E sobre o relógio skews em instâncias de diferentes componentes?*
-
-Linhas cronológicas são ajustadas para relógio skews no gráfico de transação. Pode ver os carimbos exatos no painel de detalhes, ou utilizando a análise.
-
-*Por que motivo está a nova experiência em falta na maior parte das consultas itens relacionados?*
-
-Esta ação é propositada. Todos os itens relacionados, todos os componentes, já estão disponíveis no lado esquerdo (superior e inferior secções). A nova experiência tem dois itens relacionados que não abrange o lado esquerdo: toda a telemetria de cinco minutos antes e depois deste evento e a linha de tempo do utilizador.
-
-*Por que razão a nova experiência não tem a funcionalidade que posso loved em painéis de mais antigos?*
-
-Envie-nos comentários! Queremos resolver os problemas antes desta experiência estiver geralmente disponível, em que momento as vistas mais antigas vão ser preteridas. Por agora, pode desativar a pré-visualização para regressar ao painéis de mais antigos.
-
-## <a name="known-issues"></a>Problemas Conhecidos
-
-* Os exemplos de falha de ligação de mapeamento de aplicações para os painéis de detalhe mais antigos.
-* O insights autocluster baseada nos resultados da pesquisa uma ligação para os painéis de detalhe mais antigos.
-* Integração do item de trabalho não está disponível na nova experiência.
+Esta ação é propositada. Todos os itens relacionados, em todos os componentes, já estão disponíveis no lado esquerdo (superior e inferior secções). A nova experiência tem dois itens relacionados à esquerda não abrange: toda a telemetria de cinco minutos antes e depois deste evento e a linha cronológica do utilizador.

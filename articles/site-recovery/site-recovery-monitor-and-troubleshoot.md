@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578590"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746478"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorizar e resolver problemas de recuperação de sites
 
@@ -153,13 +153,14 @@ No dashboard de adição, pode monitorar máquinas na página de máquinas virtu
 3.  Clique em **colunas** para mostrar as colunas devolvidas adicionais, por exemplo, para mostrar o RPO, destino problemas de configuração e erros de replicação.
 4. Clique em **filtro** para ver informações com base nos parâmetros específicos, como o estado de funcionamento da replicação ou uma política de replicação específico.
 5. Com o botão direito uma máquina para iniciar a operações como a ativação pós-falha de teste para o mesmo ou para ver os detalhes de erro específico associados ao mesmo.
-6. Clique numa máquina para explorar mais detalhes para o mesmo. Os detalhes incluem:- **informações de replicação**: status atual e o estado de funcionamento da máquina.
-        - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO pela última vez foi computado.
-        - **Pontos de recuperação**: pontos de recuperação disponível mais recente para a máquina.
-        - **Preparação de ativação pós-falha**: indica se uma ativação pós-falha de teste foi executada para a máquina, a versão do agente em execução no computador (para máquinas que executa o serviço de mobilidade) e problemas de configuração.
-        - **Erros**: lista de sintomas de erro de replicação observada atualmente sobre as causas/ações de máquinas e possíveis.
-        - **Eventos**: uma lista cronológica dos eventos recentes que afetem a máquina. Detalhes do erro mostra os sintomas de erro atualmente observable, enquanto os eventos é um registo histórico de problemas que tenham afetado a máquina.
-        - **Vista de infraestrutura**: mostra o estado da infraestrutura para o cenário de quando as máquinas estão a replicar para o Azure.
+6. Clique numa máquina para explorar mais detalhes para o mesmo. Os detalhes incluem:
+      - **Informações de replicação**: status atual e o estado de funcionamento da máquina.
+      - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO pela última vez foi computado.
+      - **Pontos de recuperação**: pontos de recuperação disponível mais recente para a máquina.
+      - **Preparação de ativação pós-falha**: indica se uma ativação pós-falha de teste foi executada para a máquina, a versão do agente em execução no computador (para máquinas que executa o serviço de mobilidade) e problemas de configuração.
+      - **Erros**: lista de sintomas de erro de replicação observada atualmente sobre as causas/ações de máquinas e possíveis.
+      - **Eventos**: uma lista cronológica dos eventos recentes que afetem a máquina. Detalhes do erro mostra os sintomas de erro atualmente observable, enquanto os eventos é um registo histórico de problemas que tenham afetado a máquina.
+      - **Vista de infraestrutura**: mostra o estado da infraestrutura para o cenário de quando as máquinas estão a replicar para o Azure.
 
     ![Recuperação de site replicados item detalhes/descrição geral](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

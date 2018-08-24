@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531349"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818491"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Porque os ficheiros do Azure totalmente gerido, implantá-lo em cenários de produção é muito mais fácil do que implementar e gerir um servidor de ficheiros ou um dispositivo. Este artigo aborda os tópicos a ter em consideração quando implementar uma partilha de ficheiros do Azure para utilização em produção na sua organização.
@@ -81,7 +81,7 @@ Os ficheiros do Azure suporta três opções de redundância de dados: armazenam
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
-Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB, que inclui os instantâneos de partilha. Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure. Tenha em atenção que uma conta de armazenamento do Azure, pode armazenar várias partilhas com um total de 500 TiB armazenadas em todas as partilhas.
+Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB. Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure. Tenha em atenção que uma conta de armazenamento do Azure, pode armazenar várias partilhas com um total de 500 TiB armazenadas em todas as partilhas.
 
 É possível sincronizar as partilhas de ficheiros do Azure vários para um único servidor de ficheiros do Windows com o Azure File Sync. Isto permite-lhe garantir que as partilhas de ficheiros de mais antigas e muito grandes, que pode ter no local podem ser colocadas em Azure File Sync. Veja [planear uma implementação de sincronização de ficheiros do Azure](storage-files-planning.md) para obter mais informações.
 

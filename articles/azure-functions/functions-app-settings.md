@@ -3,7 +3,7 @@ title: Referência de configurações de aplicação para as funções do Azure
 description: Documentação de referência para as definições de aplicação de funções do Azure ou variáveis de ambiente.
 services: functions
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345060"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819051"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
 Definições da aplicação na aplicação de função contém opções de configuração globais que afetam todas as funções para essa aplicação de função. Ao executar localmente, estas definições estão em variáveis de ambiente. Este artigo lista as definições da aplicação que estão disponíveis em aplicações de funções.
+
+[! INCLUIR [definições de função de aplicações] (... /.. /includes/Functions-App-Settings.md]
 
 Existem outras opções de configuração global na [Host. JSON](functions-host-json.md) ficheiro e, no [Settings](functions-run-local.md#local-settings-file) ficheiro.
 
@@ -127,7 +129,7 @@ Para apenas os planos de consumo. Cadeia de ligação para a conta de armazename
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [nome]; AccountKey = [a chave]|
 
-## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
+## <a name="websitecontentshare"></a>WEB SITE\_CONTENTSHARE
 
 Para apenas os planos de consumo. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. A predefinição é uma cadeia exclusiva que começa com o nome da aplicação de função. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -153,6 +155,19 @@ A predefinição é "6.5.0".
 |Chave|Valor da amostra|
 |---|------------|
 |WEB SITE\_NÓ\_DEFAULT_VERSION|6.5.0|
+
+## <a name="websiterunfromzip"></a>WEB SITE\_EXECUTE\_FROM\_ZIP
+
+Permite que a aplicação de funções para execução a partir de um ficheiro de pacote montada.
+
+> [!NOTE]
+> Esta definição destina-se uma funcionalidade de pré-visualização.
+
+|Chave|Valor da amostra|
+|---|------------|
+|WEB SITE\_EXECUTE\_FROM\_ZIP|1|
+
+Os valores válidos são de qualquer um URL que é resolvido para a localização de um ficheiro de pacote de implementação, ou `1`. Quando definido como `1`, o pacote tem de constar da `d:\home\data\SitePackages` pasta. Ao utilizar a implementação de zip com esta definição, o pacote é automaticamente carregado para esta localização.  Para obter mais informações, consulte [executar as suas funções a partir de um ficheiro de pacote](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

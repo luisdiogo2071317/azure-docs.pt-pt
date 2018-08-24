@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 091a097fc9fafd5bdc6a2521f4fa2a1b6b77ba4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422558"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745712"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -65,11 +65,11 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 
 <dt>e-mail</dt>
 <dd>Mensagens de correio eletrónico serão enviadas dos seguintes endereços de e-mail. Certifique-se de que a filtragem de e-mail está configurado corretamente
-
-    - azure-noreply@microsoft.com
-    - azureemail-noreply@microsoft.com
-    - alerts-noreply@mail.windowsazure.com
-    
+<ul>
+    <li>azure-noreply@microsoft.com</li>
+    <li>azureemail-noreply@microsoft.com</li>
+    <li>alerts-noreply@mail.windowsazure.com</li>
+</ul>
 </dd>
 <dd>Talvez tenha até 1000 ações de e-mail num grupo de ação</dd>
 <dd>Consulte a [informações de limitação de taxas](./monitoring-alerts-rate-limiting.md) artigo</dd>

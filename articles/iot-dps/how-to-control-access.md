@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054609"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818515"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
@@ -34,7 +34,7 @@ Pode conceder [permissões](#device-provisioning-service-permissions) das seguin
 
 * **Partilhado políticas de autorização de acesso**. Políticas de acesso partilhado podem conceder a qualquer combinação dos [permissões](#device-provisioning-service-permissions). Pode definir políticas no [portal do Azure][lnk-management-portal], ou por meio de programação, utilizando o [APIs de REST do serviço de aprovisionamento de dispositivo][lnk-resource-provider-apis]. Um serviço de aprovisionamento recém-criado tem a seguinte política predefinida:
 
-   **provisioningserviceowner**: política com todas as permissões.
+* **provisioningserviceowner**: política com todas as permissões.
 
 > [!NOTE]
 > Ver [permissões](#device-provisioning-service-permissions) para obter informações detalhadas.
