@@ -3,8 +3,7 @@ title: Como utilizar SDK do iOS do Mobile Apps do Azure
 description: Como utilizar SDK do iOS do Mobile Apps do Azure
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: conceptdev
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -13,69 +12,74 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: yuaxu
-ms.openlocfilehash: 683261ce9ecaa15f5849142cd25aa9b7c77a6867
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: crdun
+ms.openlocfilehash: 0de561b177a1474b0ce4f0f203803e8265db5e7a
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505802"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818351"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como uso iOS biblioteca de cliente para aplicações móveis do Azure
+
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Este guia ensina-lhe executar tarefas comuns com a versão mais recente [SDK iOS do Mobile Apps do Azure][1]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [Início rápido de aplicações móveis do Azure] para criar um back-end, criar uma tabela e transfira um projeto do Xcode iOS criados previamente. Neste guia, vamos nos concentrar no SDK do iOS do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o back-end, consulte o HOWTOs de SDK do servidor.
+Este guia ensina-lhe executar tarefas comuns com a versão mais recente [SDK iOS do Mobile Apps do Azure][1]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [do Azure Mobile Apps início rápido] para criar um back-end, criar uma tabela e transfira um projeto do Xcode iOS criados previamente. Neste guia, vamos nos concentrar no SDK do iOS do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o back-end, consulte o HOWTOs de SDK do servidor.
 
 ## <a name="reference-documentation"></a>Documentação de referência
+
 A documentação de referência para o SDK de cliente iOS está localizada aqui: [iOS de aplicações móveis do Azure a referência de cliente][2].
 
 ## <a name="supported-platforms"></a>Plataformas suportadas
+
 O SDK do iOS suporta projetos de Objective-C, projetos de Swift 2.2 e Swift 2.3 projetos para o iOS 8.0 ou posteriores de versões.
 
 A autenticação de "servidor-fluxo" utiliza uma WebView para a interface do Usuário apresentada.  Se o dispositivo não é capaz de apresentar uma interface de Usuário WebView, em seguida, é necessário o outro método de autenticação que está fora do âmbito do produto.  
 Este SDK é, portanto, não adequado para o tipo de Watch ou da mesma forma dispositivos restritos.
 
 ## <a name="Setup"></a>Configuração e pré-requisitos
+
 Este guia assume que criou um back-end com uma tabela. Este guia assume que a tabela tem o mesmo esquema que as tabelas nesses tutoriais. Este guia assume também que, no seu código, referencie `MicrosoftAzureMobile.framework` e importar `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
 ## <a name="create-client"></a>Como: criar o cliente
+
 Para aceder a um back-end de aplicações móveis do Azure no seu projeto, crie um `MSClient`. Substitua `AppUrl` com o URL da aplicação. Pode deixar `gatewayURLString` e `applicationKey` vazio. Se configurar um gateway para a autenticação, preencher `gatewayURLString` com o URL do gateway.
 
 **Objective-C**:
 
-```
+```objc
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
 **SWIFT**:
 
-```
+```swift
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
-
 ## <a name="table-reference"></a>Como: criar a referência de tabela
+
 Para atualizar ou aceder a dados, crie uma referência para a tabela de back-end. Substitua `TodoItem` pelo nome da sua tabela
 
 **Objective-C**:
 
-```
+```objc
 MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
 **SWIFT**:
 
-```
+```swift
 let table = client.tableWithName("TodoItem")
 ```
 
-
 ## <a name="querying"></a>Como: consultar dados
+
 Para criar uma consulta de base de dados, consultar o `MSTable` objeto. A seguinte consulta obtém todos os itens no `TodoItem` e regista o texto de cada item.
 
 **Objective-C**:
 
-```
+```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
         if(error) { // error is nil if no error occured
                 NSLog(@"ERROR %@", error);
@@ -89,7 +93,7 @@ Para criar uma consulta de base de dados, consultar o `MSTable` objeto. A seguin
 
 **SWIFT**:
 
-```
+```swift
 table.readWithCompletion { (result, error) in
     if let err = error {
         print("ERROR ", err)
@@ -102,13 +106,14 @@ table.readWithCompletion { (result, error) in
 ```
 
 ## <a name="filtering"></a>Como: filtro devolveu dados
+
 Para filtrar os resultados, existem muitas opções disponíveis.
 
 Para utilizar um predicado de filtro, utilize um `NSPredicate` e `readWithPredicate`. Os seguintes filtros devolveu dados para localizar apenas os itens de afazeres incompletos.
 
 **Objective-C**:
 
-```
+```objc
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 // Query the TodoItem table
@@ -125,7 +130,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 **SWIFT**:
 
-```
+```swift
 // Create a predicate that finds items where complete is false
 let predicate =  NSPredicate(format: "complete == NO")
 // Query the TodoItem table
@@ -141,18 +146,19 @@ table.readWithPredicate(predicate) { (result, error) in
 ```
 
 ## <a name="query-object"></a>Como: utilizar o MSQuery
+
 Para executar uma consulta complexa (incluindo a classificação e paginação), crie um `MSQuery` de objeto, diretamente ou ao utilizar um predicado:
 
 **Objective-C**:
 
-```
+```objc
 MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
 **SWIFT**:
 
-```
+```swift
 let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
@@ -169,11 +175,12 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 Executar uma `MSQuery` consulta chamando `readWithCompletion` no objeto.
 
 ## <a name="sorting"></a>Como: classificar dados com o MSQuery
+
 Para ordenar os resultados, vamos examinar um exemplo. Para ordenar por campo 'text' em ordem crescente, em seguida, por descendentes de "completo", invocar `MSQuery` da seguinte forma:
 
 **Objective-C**:
 
-```
+```objc
 [query orderByAscending:@"text"];
 [query orderByDescending:@"complete"];
 [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
@@ -189,7 +196,7 @@ Para ordenar os resultados, vamos examinar um exemplo. Para ordenar por campo 't
 
 **SWIFT**:
 
-```
+```swift
 query.orderByAscending("text")
 query.orderByDescending("complete")
 query.readWithCompletion { (result, error) in
@@ -203,19 +210,19 @@ query.readWithCompletion { (result, error) in
 }
 ```
 
-
 ## <a name="selecting"></a><a name="parameters"></a>Como: limitar os campos e expanda os parâmetros de cadeia de caracteres de consulta com o MSQuery
+
 Para limitar os campos a serem retornados numa consulta, especifique os nomes dos campos no **selectFields** propriedade. Este exemplo retorna apenas o texto e os campos concluídos:
 
 **Objective-C**:
 
-```
+```objc
 query.selectFields = @[@"text", @"complete"];
 ```
 
 **SWIFT**:
 
-```
+```swift
 query.selectFields = ["text", "complete"]
 ```
 
@@ -223,7 +230,7 @@ Para incluir parâmetros de cadeia de caracteres de consulta adicionais no pedid
 
 **Objective-C**:
 
-```
+```objc
 query.parameters = @{
     @"myKey1" : @"value1",
     @"myKey2" : @"value2",
@@ -232,11 +239,12 @@ query.parameters = @{
 
 **SWIFT**:
 
-```
+```swift
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
 ## <a name="paging"></a>Como: configurar o tamanho da página
+
 Com o Azure Mobile Apps, o tamanho da página controla o número de registos que são obtidos em vez das tabelas de back-end. Uma chamada para `pull` dados seriam do batch, em seguida, segurança de dados, com base neste tamanho de página, até que não há mais registros para extrair.
 
 É possível configurar um tamanho de página usando **MSPullSettings** conforme mostrado abaixo. O tamanho de página predefinido é 50 e o exemplo a seguir altera-a para 3.
@@ -251,7 +259,7 @@ Se aumentar o tamanho da página de cliente, também deve aumentar o tamanho da 
 
 **Objective-C**:
 
-```
+```objc
   MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
   [table  pullWithQuery:query queryId:@nil settings:pullSettings
                         completion:^(NSError * _Nullable error) {
@@ -261,10 +269,9 @@ Se aumentar o tamanho da página de cliente, também deve aumentar o tamanho da 
                            }];
 ```
 
-
 **SWIFT**:
 
-```
+```swift
 let pullSettings = MSPullSettings(pageSize: 3)
 table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
     if let err = error {
@@ -274,6 +281,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 ```
 
 ## <a name="inserting"></a>Como: Inserir dados
+
 Para inserir uma nova linha de tabela, crie uma `NSDictionary` e invocar `table insert`. Se [esquema dinâmico] é ativada, o back-end móvel do serviço de aplicações do Azure gera automaticamente novas colunas com base no `NSDictionary`.
 
 Se `id` não for fornecido, o back-end gera automaticamente um novo ID exclusivo. Fornecer seu próprio `id` para utilizar o e-mail endereços, nomes de utilizador, ou seu próprio valores como ID. Pode diminuir a fornecer seu próprio ID de associações e lógica de negócios e orientados a base de dados.
@@ -282,7 +290,7 @@ O `result` contém o item novo que foi inserido. Dependendo de sua lógica de se
 
 **Objective-C**:
 
-```
+```objc
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
 [table insert:newItem completion:^(NSDictionary *result, NSError *error) {
     if(error) {
@@ -295,7 +303,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 
 **SWIFT**:
 
-```
+```swift
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
 table.insert(newItem) { (result, error) in
     if let err = error {
@@ -307,11 +315,12 @@ table.insert(newItem) { (result, error) in
 ```
 
 ## <a name="modifying"></a>Como: modificar dados
+
 Para atualizar uma linha existente, modifique um item e a chamada `update`:
 
 **Objective-C**:
 
-```
+```objc
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 [newItem setValue:@"Updated text" forKey:@"text"];
 [table update:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -325,7 +334,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 
 **SWIFT**:
 
-```
+```swift
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
     newItem["text"] = "Updated text"
     table2.update(newItem as [NSObject: AnyObject], completion: { (result, error) -> Void in
@@ -342,7 +351,7 @@ Em alternativa, forneça o ID de linha e do campo atualizado:
 
 **Objective-C**:
 
-```
+```objc
 [table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *result, NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -354,7 +363,7 @@ Em alternativa, forneça o ID de linha e do campo atualizado:
 
 **SWIFT**:
 
-```
+```swift
 table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
     if let err = error {
         print("ERROR ", err)
@@ -367,11 +376,12 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 No mínimo, o `id` atributo tem de ser definido quando fazer atualizações.
 
 ## <a name="deleting"></a>Como: eliminar dados
+
 Para eliminar um item, invocar `delete` com o item:
 
 **Objective-C**:
 
-```
+```objc
 [table delete:item completion:^(id itemId, NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -383,7 +393,7 @@ Para eliminar um item, invocar `delete` com o item:
 
 **SWIFT**:
 
-```
+```swift
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
     if let err = error {
         print("ERROR ", err)
@@ -397,7 +407,7 @@ Em alternativa, elimine, fornecendo um ID de linha:
 
 **Objective-C**:
 
-```
+```objc
 [table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -409,7 +419,7 @@ Em alternativa, elimine, fornecendo um ID de linha:
 
 **SWIFT**:
 
-```
+```swift
 table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
     if let err = error {
         print("ERROR ", err)
@@ -422,13 +432,14 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 No mínimo, o `id` atributo tem de ser definido quando elimina tomada.
 
 ## <a name="customapi"></a>Como: chamar a API personalizada
+
 Uma API personalizada, pode expor qualquer funcionalidade de back-end. Não tem de mapear para uma operação de tabela. Não só obterá mais controle sobre mensagens, pode mesmo leitura/conjunto de cabeçalhos e alterar o formato do corpo de resposta. Para saber como criar uma API personalizada num back-end, leia [APIs personalizadas](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
 Para chamar uma API personalizada, chamar `MSClient.invokeAPI`. O pedido e resposta de conteúdo são tratadas como JSON. Para utilizar outros tipos de mídia [utilize a outra sobrecarga do `invokeAPI` ] [ 5].  Para tornar uma `GET` pedir, em vez de um `POST` pedir, parâmetro de conjunto `HTTPMethod` para `"GET"` e o parâmetro `body` para `nil` (uma vez que solicitações GET não têm corpos de mensagem.) Se a API personalizada oferece suporte a outros verbos HTTP, altere `HTTPMethod` adequadamente.
 
 **Objective-C**:
 
-```
+```objc
 [self.client invokeAPI:@"sendEmail"
                   body:@{ @"contents": @"Hello world!" }
             HTTPMethod:@"POST"
@@ -445,7 +456,7 @@ Para chamar uma API personalizada, chamar `MSClient.invokeAPI`. O pedido e respo
 
 **SWIFT**:
 
-```
+```swift
 client.invokeAPI("sendEmail",
             body: [ "contents": "Hello World" ],
             HTTPMethod: "POST",
@@ -462,11 +473,12 @@ client.invokeAPI("sendEmail",
 ```
 
 ## <a name="templates"></a>Como: modelos de push de Registro para enviar notificações multiplataformas
+
 Para registar modelos, passe modelos com o seu **client.push registerDeviceToken** método na sua aplicação de cliente.
 
 **Objective-C**:
 
-```
+```objc
 [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -476,44 +488,45 @@ Para registar modelos, passe modelos com o seu **client.push registerDeviceToken
 
 **SWIFT**:
 
-```
-    client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
-        if let err = error {
-            print("ERROR ", err)
-        }
-    })
+```swift
+client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
+    if let err = error {
+        print("ERROR ", err)
+    }
+})
 ```
 
 Os modelos são do tipo NSDictionary e podem conter vários modelos no seguinte formato:
 
 **Objective-C**:
 
-```
+```objc
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
 **SWIFT**:
 
-```
+```swift
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
 Todas as etiquetas são removidas do pedido de segurança.  Para adicionar etiquetas a instalações ou vários modelos dentro de instalações, consulte [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure][4].  Para enviar notificações usando esses modelos registados, trabalhar com [APIs de Hubs de notificação][3].
 
 ## <a name="errors"></a>Como: lidar com erros
+
 Quando chama um back-end móvel do App Service do Azure, o bloco de conclusão contém um `NSError` parâmetro. Quando ocorre um erro, este parâmetro é não nil. Em seu código, deve verificar este parâmetro e lidar com o erro, conforme necessário, como demonstrado em fragmentos de código anteriores.
 
 O ficheiro [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] define as constantes `MSErrorResponseKey`, `MSErrorRequestKey`, e `MSErrorServerItemKey`. Para obter mais dados relacionados com o erro:
 
 **Objective-C**:
 
-```
+```objc
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
 **SWIFT**:
 
-```
+```swift
 let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
@@ -521,17 +534,18 @@ Além disso, o arquivo define constantes para cada código de erro:
 
 **Objective-C**:
 
-```
+```objc
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
 **SWIFT**:
 
-```
+```swift
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
 ## <a name="adal"></a>Como: autenticar utilizadores com o Active Directory Authentication Library
+
 Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sessão de utilizadores na sua aplicação utilizando o Azure Active Directory. Autenticação de fluxo de cliente através de um fornecedor de identidade SDK é preferível a utilizar o `loginWithProvider:completion:` método.  Autenticação de fluxo de cliente fornece uma noção da experiência do Usuário mais nativa e permite a personalização adicional.
 
 1. Configurar o seu back-end de aplicação móvel para o início de sessão do AAD ao seguir a [como configurar o serviço de aplicações para início de sessão do Active Directory] [ 7] tutorial. Certifique-se concluir o passo opcional de registar uma aplicação cliente nativa. Para iOS, recomendamos que o URI é o formato de redirecionamento `<app-scheme>://<bundle-id>`. Para obter mais informações, consulte a [guia de introdução do iOS da ADAL][8].
@@ -544,6 +558,7 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sess
    e o Pod:
 
         pod 'ADALiOS'
+
 3. O terminal, execute `pod install` do diretório que contém seu projeto e, em seguida, abra a área de trabalho do Xcode gerada (não o projeto).
 4. Adicione o seguinte código ao seu aplicativo, de acordo com o idioma que está a utilizar. Em cada uma, fazer estas substituições:
 
@@ -554,117 +569,126 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sess
 
 **Objective-C**:
 
-    #import <ADALiOS/ADAuthenticationContext.h>
-    #import <ADALiOS/ADAuthenticationSettings.h>
-    // ...
-    - (void) authenticate:(UIViewController*) parent
-               completion:(void (^) (MSUser*, NSError*))completionBlock;
-    {
-        NSString *authority = @"INSERT-AUTHORITY-HERE";
-        NSString *resourceId = @"INSERT-RESOURCE-ID-HERE";
-        NSString *clientId = @"INSERT-CLIENT-ID-HERE";
-        NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
-        ADAuthenticationError *error;
-        ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-        authContext.parentController = parent;
-        [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
-        [authContext acquireTokenWithResource:resourceId
-                                     clientId:clientId
-                                  redirectUri:redirectUri
-                              completionBlock:^(ADAuthenticationResult *result) {
-                                  if (result.status != AD_SUCCEEDED)
-                                  {
-                                      completionBlock(nil, result.error);;
-                                  }
-                                  else
-                                  {
-                                      NSDictionary *payload = @{
-                                                                @"access_token" : result.tokenCacheStoreItem.accessToken
-                                                                };
-                                      [client loginWithProvider:@"aad" token:payload completion:completionBlock];
-                                  }
-                              }];
-    }
-
+```objc
+#import <ADALiOS/ADAuthenticationContext.h>
+#import <ADALiOS/ADAuthenticationSettings.h>
+// ...
+- (void) authenticate:(UIViewController*) parent
+            completion:(void (^) (MSUser*, NSError*))completionBlock;
+{
+    NSString *authority = @"INSERT-AUTHORITY-HERE";
+    NSString *resourceId = @"INSERT-RESOURCE-ID-HERE";
+    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
+    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
+    ADAuthenticationError *error;
+    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+    authContext.parentController = parent;
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
+    [authContext acquireTokenWithResource:resourceId
+                                    clientId:clientId
+                                redirectUri:redirectUri
+                            completionBlock:^(ADAuthenticationResult *result) {
+                                if (result.status != AD_SUCCEEDED)
+                                {
+                                    completionBlock(nil, result.error);;
+                                }
+                                else
+                                {
+                                    NSDictionary *payload = @{
+                                                            @"access_token" : result.tokenCacheStoreItem.accessToken
+                                                            };
+                                    [client loginWithProvider:@"aad" token:payload completion:completionBlock];
+                                }
+                            }];
+}
+```
 
 **SWIFT**:
 
-    // add the following imports to your bridging header:
-    //        #import <ADALiOS/ADAuthenticationContext.h>
-    //        #import <ADALiOS/ADAuthenticationSettings.h>
+```swift
+// add the following imports to your bridging header:
+//        #import <ADALiOS/ADAuthenticationContext.h>
+//        #import <ADALiOS/ADAuthenticationSettings.h>
 
-    func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
-        let authority = "INSERT-AUTHORITY-HERE"
-        let resourceId = "INSERT-RESOURCE-ID-HERE"
-        let clientId = "INSERT-CLIENT-ID-HERE"
-        let redirectUri = NSURL(string: "INSERT-REDIRECT-URI-HERE")
-        var error: AutoreleasingUnsafeMutablePointer<ADAuthenticationError?> = nil
-        let authContext = ADAuthenticationContext(authority: authority, error: error)
-        authContext.parentController = parent
-        ADAuthenticationSettings.sharedInstance().enableFullScreen = true
-        authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri) { (result) in
-                if result.status != AD_SUCCEEDED {
-                    completion(nil, result.error)
-                }
-                else {
-                    let payload: [String: String] = ["access_token": result.tokenCacheStoreItem.accessToken]
-                    client.loginWithProvider("aad", token: payload, completion: completion)
-                }
+func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
+    let authority = "INSERT-AUTHORITY-HERE"
+    let resourceId = "INSERT-RESOURCE-ID-HERE"
+    let clientId = "INSERT-CLIENT-ID-HERE"
+    let redirectUri = NSURL(string: "INSERT-REDIRECT-URI-HERE")
+    var error: AutoreleasingUnsafeMutablePointer<ADAuthenticationError?> = nil
+    let authContext = ADAuthenticationContext(authority: authority, error: error)
+    authContext.parentController = parent
+    ADAuthenticationSettings.sharedInstance().enableFullScreen = true
+    authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri) { (result) in
+            if result.status != AD_SUCCEEDED {
+                completion(nil, result.error)
             }
-    }
+            else {
+                let payload: [String: String] = ["access_token": result.tokenCacheStoreItem.accessToken]
+                client.loginWithProvider("aad", token: payload, completion: completion)
+            }
+        }
+}
+```
 
 ## <a name="facebook-sdk"></a>Como: autenticar utilizadores com o SDK do Facebook para iOS
+
 Pode utilizar o SDK do Facebook para iOS para inscrever-se os utilizadores na sua aplicação utilizando o Facebook.  Usar uma autenticação de fluxo de cliente é preferível a utilizar o `loginWithProvider:completion:` método.  A autenticação de fluxo de cliente fornece uma noção da experiência do Usuário mais nativa e permite a personalização adicional.
 
 1. Configurar o seu back-end de aplicação móvel para o início de sessão do Facebook ao seguir a [como configurar o serviço de aplicações para início de sessão do Facebook] [ 9] tutorial.
 2. Instalar o SDK do Facebook para iOS ao seguir a [SDK do Facebook para iOS - introdução] [ 10] documentação. Em vez de criar uma aplicação, pode adicionar a plataforma iOS para o registo existente.
 3. Documentação do Facebook inclui algum código Objective-C no representante do aplicativo. Se estiver a utilizar **Swift**, pode utilizar as seguintes traduções para Appdelegate:
 
-        // Add the following import to your bridging header:
-        //        #import <FBSDKCoreKit/FBSDKCoreKit.h>
+    ```swift
+    // Add the following import to your bridging header:
+    //        #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-            FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-            // Add any custom logic here.
-            return true
-        }
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        // Add any custom logic here.
+        return true
+    }
 
-        func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-            let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
-            // Add any custom logic here.
-            return handled
-        }
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        // Add any custom logic here.
+        return handled
+    }
+    ```
 4. Além de adicionar `FBSDKCoreKit.framework` ao seu projeto, também adicionar uma referência ao `FBSDKLoginKit.framework` da mesma forma.
 5. Adicione o seguinte código ao seu aplicativo, de acordo com o idioma que está a utilizar.
 
-**Objective-C**:
+    **Objective-C**:
 
+    ```objc
     #import <FBSDKLoginKit/FBSDKLoginKit.h>
     #import <FBSDKCoreKit/FBSDKAccessToken.h>
     // ...
     - (void) authenticate:(UIViewController*) parent
-               completion:(void (^) (MSUser*, NSError*)) completionBlock;
-    {        
+                completion:(void (^) (MSUser*, NSError*)) completionBlock;
+    {
         FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
         [loginManager
-         logInWithReadPermissions: @[@"public_profile"]
-         fromViewController:parent
-         handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-             if (error) {
-                 completionBlock(nil, error);
-             } else if (result.isCancelled) {
-                 completionBlock(nil, error);
-             } else {
-                 NSDictionary *payload = @{
-                                           @"access_token":result.token.tokenString
-                                           };
-                 [client loginWithProvider:@"facebook" token:payload completion:completionBlock];
-             }
-         }];
+            logInWithReadPermissions: @[@"public_profile"]
+            fromViewController:parent
+            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                if (error) {
+                    completionBlock(nil, error);
+                } else if (result.isCancelled) {
+                    completionBlock(nil, error);
+                } else {
+                    NSDictionary *payload = @{
+                                            @"access_token":result.token.tokenString
+                                            };
+                    [client loginWithProvider:@"facebook" token:payload completion:completionBlock];
+                }
+            }];
     }
+    ```
 
-**SWIFT**:
+    **SWIFT**:
 
+    ```swift
     // Add the following imports to your bridging header:
     //        #import <FBSDKLoginKit/FBSDKLoginKit.h>
     //        #import <FBSDKCoreKit/FBSDKAccessToken.h>
@@ -684,48 +708,54 @@ Pode utilizar o SDK do Facebook para iOS para inscrever-se os utilizadores na su
             }
         }
     }
+    ```
 
 ## <a name="twitter-fabric"></a>Como: autenticar utilizadores com recursos de infraestrutura do Twitter para iOS
+
 Pode utilizar recursos de infraestrutura para iOS para inscrever-se os utilizadores na sua aplicação utilizando o Twitter. Autenticação de fluxo de cliente é preferível a utilizar o `loginWithProvider:completion:` método, como ele fornece uma noção da experiência do Usuário mais nativa e permite a personalização adicional.
 
 1. Configurar o seu back-end de aplicação móvel para início de sessão no Twitter ao seguir a [como configurar o serviço de aplicações para início de sessão do Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
-2. Adicionar recursos de infraestrutura ao seu projeto ao seguir a [Recursos de infraestrutura para iOS - introdução] documentação e a configuração TwitterKit.
+2. Adicionar recursos de infraestrutura ao seu projeto ao seguir a [recursos de infraestrutura para iOS - introdução ao] documentação e a configuração TwitterKit.
 
    > [!NOTE]
    > Por predefinição, os recursos de infraestrutura cria um aplicativo do Twitter para. Pode evitar a criação de um aplicativo registrando-se a chave de consumidor e o segredo de consumidor que criou anteriormente com os seguintes fragmentos de código.    Em alternativa, pode substituir os valores de chave de consumidor e o segredo de consumidor que fornecem ao serviço de aplicações com os valores que pode ver na [Dashboard de recursos de infraestrutura]. Se escolher esta opção, certifique-se de que definir o URL de retorno de chamada para um valor de marcador de posição, tal como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
-   >
-   >
 
     Se optar por utilizar os segredos que criou anteriormente, adicione o seguinte código para o seu representante do aplicativo:
 
     **Objective-C**:
 
-        #import <Fabric/Fabric.h>
-        #import <TwitterKit/TwitterKit.h>
-        // ...
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-        {
-            [[Twitter sharedInstance] startWithConsumerKey:@"your_key" consumerSecret:@"your_secret"];
-            [Fabric with:@[[Twitter class]]];
-            // Add any custom logic here.
-            return YES;
-        }
+    ```objc
+    #import <Fabric/Fabric.h>
+    #import <TwitterKit/TwitterKit.h>
+    // ...
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+    {
+        [[Twitter sharedInstance] startWithConsumerKey:@"your_key" consumerSecret:@"your_secret"];
+        [Fabric with:@[[Twitter class]]];
+        // Add any custom logic here.
+        return YES;
+    }
+    ```
 
     **SWIFT**:
 
-        import Fabric
-        import TwitterKit
-        // ...
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-            Twitter.sharedInstance().startWithConsumerKey("your_key", consumerSecret: "your_secret")
-            Fabric.with([Twitter.self])
-            // Add any custom logic here.
-            return true
-        }
+    ```swift
+    import Fabric
+    import TwitterKit
+    // ...
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        Twitter.sharedInstance().startWithConsumerKey("your_key", consumerSecret: "your_secret")
+        Fabric.with([Twitter.self])
+        // Add any custom logic here.
+        return true
+    }
+    ```
+
 3. Adicione o seguinte código ao seu aplicativo, de acordo com o idioma que está a utilizar.
 
-**Objective-C**:
+    **Objective-C**:
 
+    ```objc
     #import <TwitterKit/TwitterKit.h>
     // ...
     - (void)authenticate:(UIViewController*)parent completion:(void (^) (MSUser*, NSError*))completionBlock
@@ -742,9 +772,11 @@ Pode utilizar recursos de infraestrutura para iOS para inscrever-se os utilizado
             }
         }];
     }
+    ```
 
-**SWIFT**:
+    **SWIFT**:
 
+    ```swift
     import TwitterKit
     // ...
     func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
@@ -758,64 +790,76 @@ Pode utilizar recursos de infraestrutura para iOS para inscrever-se os utilizado
             }
         }
     }
+    ```
 
 ## <a name="google-sdk"></a>Como: autenticar utilizadores com o SDK de início de sessão do Google para iOS
+
 Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se os utilizadores na sua aplicação utilizando uma conta do Google.  Google recentemente anunciámos alterações às suas políticas de segurança de OAuth.  Estas alterações de política irão exigir a utilização do SDK do Google no futuro.
 
 1. Configurar o seu back-end de aplicação móvel para início de sessão no Google ao seguir a [como configurar o serviço de aplicações para início de sessão do Google](../app-service/app-service-mobile-how-to-configure-google-authentication.md) tutorial.
 2. Instalar o SDK do Google para iOS ao seguir a [Google início de sessão para iOS - iniciar a integração de](https://developers.google.com/identity/sign-in/ios/start-integrating) documentação. Pode ignorar a seção "Autenticar com o servidor de back-end de".
 3. Adicione o seguinte ao seu delegado `signIn:didSignInForUser:withError:` método, de acordo com o idioma que está a utilizar.
 
-**Objective-C**:
+    **Objective-C**:
+    ```objc
+    NSDictionary *payload = @{
+                                @"id_token":user.authentication.idToken,
+                                @"authorization_code":user.serverAuthCode
+                                };
 
-        NSDictionary *payload = @{
-                                  @"id_token":user.authentication.idToken,
-                                  @"authorization_code":user.serverAuthCode
-                                  };
+    [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
+        // ...
+    }];
+    ```
 
-        [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
-            // ...
-        }];
+    **SWIFT**:
 
-**SWIFT**:
+    ```swift
+    let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
+    client.loginWithProvider("google", token: payload) { (user, error) in
+        // ...
+    }
+    ```
 
-        let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
-        client.loginWithProvider("google", token: payload) { (user, error) in
-            // ...
-        }
+4. Certifique-se de que também adiciona o seguinte procedimento para `application:didFinishLaunchingWithOptions:` no seu representante do aplicativo, substituindo "SERVER_CLIENT_ID" com o mesmo ID que utilizou para configurar o serviço de aplicações no passo 1.
 
-1. Certifique-se de que também adiciona o seguinte procedimento para `application:didFinishLaunchingWithOptions:` no seu representante do aplicativo, substituindo "SERVER_CLIENT_ID" com o mesmo ID que utilizou para configurar o serviço de aplicações no passo 1.
+    **Objective-C**:
 
-**Objective-C**:
+    ```objc
+    [GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+    ```
 
-         [GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+     **SWIFT**:
 
- **SWIFT**:
+    ```swift
+    GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
+    ```
 
-        GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
-
-
-1. Adicione o seguinte código ao seu aplicativo num UIViewController que implementa o `GIDSignInUIDelegate` protocolo, de acordo com o idioma que está a utilizar.  Ter terminado sessão antes de serem assinados novamente e, embora não precisa de introduzir as suas credenciais novamente, verá uma caixa de diálogo de consentimento.  Chame esse método quando o token de sessão expirou.
+5. Adicione o seguinte código ao seu aplicativo num UIViewController que implementa o `GIDSignInUIDelegate` protocolo, de acordo com o idioma que está a utilizar.  Ter terminado sessão antes de serem assinados novamente e, embora não precisa de introduzir as suas credenciais novamente, verá uma caixa de diálogo de consentimento.  Chame esse método quando o token de sessão expirou.
 
    **Objective-C**:
 
-       #import <Google/SignIn.h>
-       // ...
-       - (void)authenticate
-       {
-               [GIDSignIn sharedInstance].uiDelegate = self;
-               [[GIDSignIn sharedInstance] signOut];
-               [[GIDSignIn sharedInstance] signIn];
-        }
+    ```objc
+    #import <Google/SignIn.h>
+    // ...
+    - (void)authenticate
+    {
+            [GIDSignIn sharedInstance].uiDelegate = self;
+            [[GIDSignIn sharedInstance] signOut];
+            [[GIDSignIn sharedInstance] signIn];
+    }
+    ```
 
    **SWIFT**:
 
-       // ...
-       func authenticate() {
-           GIDSignIn.sharedInstance().uiDelegate = self
-           GIDSignIn.sharedInstance().signOut()
-           GIDSignIn.sharedInstance().signIn()
-       }
+    ```swift
+    // ...
+    func authenticate() {
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signOut()
+        GIDSignIn.sharedInstance().signIn()
+    }
+    ```
 
 <!-- Anchors. -->
 
@@ -846,7 +890,7 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
 <!-- Images. -->
 
 <!-- URLs. -->
-[Início rápido de aplicações móveis do Azure]: app-service-mobile-ios-get-started.md
+[do Azure Mobile Apps início rápido]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -869,7 +913,7 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Dashboard de recursos de infraestrutura]: https://www.fabric.io/home
-[Recursos de infraestrutura para iOS - introdução]: https://docs.fabric.io/ios/fabric/getting-started.html
+[recursos de infraestrutura para iOS - introdução ao]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: http://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx

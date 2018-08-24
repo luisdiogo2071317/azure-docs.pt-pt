@@ -14,22 +14,25 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 557f6f6a6d4925ec167760455dfc67449582c05c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547180"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811675"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações push à sua aplicação Android
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Descrição geral
+
 Neste tutorial, adicionar notificações push para o [início rápido do Android] do projeto para que uma notificação push é enviada para o dispositivo sempre que um registro é inserido.
 
 Se não utilizar o projeto de servidor de início rápido transferido, terá do pacote de extensão de notificação push. Para obter mais informações, consulte [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 É necessário o seguinte:
 
 * Um IDE, dependendo de back-end do seu projeto:
@@ -40,37 +43,47 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
 * Concluir o [início rápido do Android].
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Criar um projeto que suporte o Firebase Cloud Messaging
+
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-a-notification-hub"></a>Configurar um hub de notificação
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="configure-azure-to-send-push-notifications"></a>Configurar o Azure para enviar notificações push
+
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
 ## <a name="enable-push-notifications-for-the-server-project"></a>Ative as notificações push para o projeto de servidor
+
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações push à aplicação
+
 Nesta secção, atualizar a sua aplicação Android do cliente para processar as notificações push.
 
 ### <a name="verify-android-sdk-version"></a>Verificar a versão do Android SDK
+
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
 O próximo passo é instalar serviços do Google Play. Firebase Cloud Messaging tem alguns requisitos de nível de API mínimos para desenvolvimento e teste, o que o **minSdkVersion** propriedade no manifesto têm de cumprir.
 
-Se estiver a testar com um dispositivo mais antigo, consulte [Adicionar Firebase ao seu projeto Android] para determinar como baixa pode definir este valor e defini-la corretamente.
+Se estiver a testar com um dispositivo mais antigo, consulte [adicionar Firebase à sua projeto Android] para determinar como baixa pode definir este valor e defini-la corretamente.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Adicionar Firebase Cloud Messaging para o projeto
+
 [!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>Adicione código
+
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Testar a aplicação contra o serviço móvel publicado
+
 Pode testar a aplicação ao anexar diretamente um telemóvel Android com um cabo USB ou com um dispositivo virtual no emulador.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora que concluiu este tutorial, considere continuar em uma das seguintes tutoriais:
 
 * [Adicionar autenticação à sua aplicação Android](app-service-mobile-android-get-started-users.md).
@@ -80,4 +93,4 @@ Agora que concluiu este tutorial, considere continuar em uma das seguintes tutor
 
 <!-- URLs -->
 [Início rápido do Android]: app-service-mobile-android-get-started.md
-[Adicionar Firebase ao seu projeto Android]:https://firebase.google.com/docs/android/setup
+[adicionar Firebase à sua projeto Android]:https://firebase.google.com/docs/android/setup

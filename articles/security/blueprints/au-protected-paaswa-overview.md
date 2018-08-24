@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246137"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818278"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de PaaS para a Austrália protegida
 
@@ -36,7 +36,7 @@ Federação com o Azure Active Directory deve ser usada para permitir que os uti
 
 A solução utiliza contas de armazenamento do Azure, o que os clientes podem configurar para utilizar a encriptação do serviço de armazenamento para manter a confidencialidade dos dados em repouso. Azure armazena três cópias dos dados na região selecionada de um cliente para resiliência. Regiões do Azure são implementadas em pares de região resiliente, e o armazenamento com redundância geográfico garante que os dados serão replicados para a segunda região com três cópias também. Isto impede que um evento adverso na localização de dados principal do cliente resulta numa perda de dados.
 
-Para maior segurança, todos os recursos do Azure nesta solução são geridos como um grupo de recursos através do Gestor de recursos do Azure. Controlo de acesso baseado em funções do Azure Active Directory é utilizado para controlar o acesso para implementar recursos e as chaves no Azure Key Vault. Estado de funcionamento do sistema é monitorizado através do Centro de segurança do Azure e o Azure Monitor. Os clientes configurar ambos os serviços de monitorização para capturar os registos e exibir o estado de funcionamento do sistema num dashboard único, navegável facilmente. O Gateway de aplicação do Azure está configurado como uma firewall no modo de prevenção e não permite o tráfego que não seja TLSv1.2 ou superior. A solução utiliza o ambiente de serviço de aplicações do Azure v2 para isolar a camada da web num ambiente de não multi-inquilino.
+Para maior segurança, todos os recursos do Azure nesta solução são geridos como um grupo de recursos através do Gestor de recursos do Azure. Controlo de acesso baseado em funções do Azure Active Directory é utilizado para controlar o acesso para implementar recursos e as chaves no Azure Key Vault. Estado de funcionamento do sistema é monitorizado através do Centro de segurança do Azure e o Azure Monitor. Os clientes configurar ambos os serviços de monitorização para capturar os registos e exibir o estado de funcionamento do sistema num dashboard único, navegável facilmente. O Gateway de aplicação do Azure está configurado como uma firewall no modo de prevenção e não permite o tráfego que não é a versão do TLS 1.2 ou superior. A solução utiliza o ambiente de serviço de aplicações do Azure v2 para isolar a camada da web num ambiente de não multi-inquilino.
 
 ![Aplicação Web de PaaS para arquitetura de referência de AU protegida](images/au-protected-paaswa-architecture.png?raw=true "aplicação Web de PaaS para de diagrama da arquitetura de referência protegidos de AU")
 
@@ -95,7 +95,7 @@ Permitir a utilização de ambientes de serviço de aplicações para esta arqui
 - Alojar dentro de uma rede virtual do Azure protegida e regras de segurança de rede
 - Ambientes de serviço de aplicações configurados com um certificado de Balanceador de carga interno com assinatura automática para comunicação HTTPS. Como melhor prática, a Microsoft recomenda a utilização de uma autoridade de certificação fidedigna para uma maior segurança.
 - [Modo de balanceamento de carga interno](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modo 3)
-- Desativar [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Desativar [TLS versões 1.0 e 1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Alteração [cifras TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Controle [portas de N/W de tráfego de entrada](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Firewall de aplicações Web – restringir dados](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ Azure encripta todas as comunicações para e a partir do Azure como, por predef
 
 Para dados protegidos em trânsito de redes de clientes, a arquitetura utiliza o Azure da Internet ou o ExpressRoute com um Gateway de VPN configurado com o IPSEC.
 
-Além disso, todas as transações para o Azure através do portal de gestão do Azure ocorrem através de HTTPS utilizando TLS 1.2.
-Dados inativos
+Além disso, todas as transações para o Azure através do portal de gestão do Azure ocorrem através de HTTPS utilizando TLS versão 1.2.
 
 ### <a name="data-at-rest"></a>Dados inativos
-
 A arquitetura protege os dados em descanso através da encriptação, a auditoria de base de dados e outras medidas.
 
 **O armazenamento do Azure**: para atender aos dados criptografados em requisitos de rest, todos os [armazenamento do Azure](https://azure.microsoft.com/services/storage/) utiliza [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Isto ajuda a proteger e salvaguardar os dados para oferecer suporte a compromissos de segurança organizacional e requisitos de conformidade definidos pela Australian Government ISM.
