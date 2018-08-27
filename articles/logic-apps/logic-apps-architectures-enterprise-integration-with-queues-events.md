@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ffa61ebfaa58425cd2bf70d9bf78a2e71b672369
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445682"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918488"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Arquitetura de referência: integração empresarial com filas e eventos
 
@@ -28,6 +28,7 @@ A arquitetura de referência seguinte mostra um conjunto de práticas comprovada
 ![Diagrama da arquitetura - integração empresarial com filas e eventos](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
 *Há muitos aplicativos possíveis para a tecnologia de integração. Eles variam de um aplicativo de ponto a ponto simples para uma empresa de completo de aplicação do Azure Service Bus. A série de arquitetura descreve os componentes reutilizáveis que podem ser aplicadas para criar um aplicativo de integração genérico. Arquitetos devem considerar quais componentes que precisam implementar para a sua aplicação e infraestrutura.*
+<!-- Should previous line be in Italic or asterisks must be escaped? -->
 
 ## <a name="architecture"></a>Arquitetura
 

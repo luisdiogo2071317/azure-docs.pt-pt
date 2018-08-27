@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42062096"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918747"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de carga do Azure?
 
@@ -38,7 +38,7 @@ O Balanceador de carga do Azure está disponível em dois SKUs: básico e Standa
 Pode utilizar o Azure Load Balancer para:
 
 * Tráfego da internet de entrada balanceamento de carga para as suas VMs. Esta configuração é conhecida como uma [Balanceador de carga público](#publicloadbalancer).
-* Tráfego de balanceamento de carga entre VMs numa rede virtual. Também pode consultar um end de front-de Balanceador de carga a partir de uma rede no local, num cenário híbrido. Ambos os cenários usam uma configuração que é conhecida como um [Balanceador de carga interno](#internalloadbalancer).
+* Tráfego de balanceamento de carga entre VMs numa rede virtual. Também pode aceder um balanceador de carga front-end da partir de uma rede no local, num cenário híbrido. Ambos os cenários usam uma configuração que é conhecida como um [Balanceador de carga interno](#internalloadbalancer).
 * Tráfego de encaminhamento de porta para uma porta específica no VMs específicas com regras de tradução (NAT) de endereço de rede de entrada.
 * Fornecer [conectividade de saída](load-balancer-outbound-connections.md) para as VMs no interior da rede virtual, utilizando um balanceador de carga público.
 
@@ -48,7 +48,7 @@ Pode utilizar o Azure Load Balancer para:
 
 ## <a name="what-are-load-balancer-resources"></a>Quais são os recursos do Balanceador de carga?
 
-Um recurso do Balanceador de carga pode existir como um balanceador de carga público ou um balanceador de carga interno. Funções do recurso de Balanceador de carga são expressos como um front-end, uma regra, uma sonda de estado de funcionamento e uma definição de conjunto de back-end. Coloque as VMs para o pool de back-end, especificando o conjunto de back-end da VM.
+Um recurso de Balanceador de carga pode existir como um balanceador de carga público ou um balanceador de carga interno. Funções do recurso de Balanceador de carga são expressos como um front-end, uma regra, uma sonda de estado de funcionamento e uma definição de conjunto de back-end. Coloque as VMs para o pool de back-end, especificando o conjunto de back-end da VM.
 
 Recursos do Balanceador de carga são objetos nos quais pode expressar como o Azure deve programar a sua infraestrutura de multi-inquilino para alcançar o cenário que deseja criar. Não existe nenhuma relação direta entre recursos do Balanceador de carga e a infraestrutura real. Criar um balanceador de carga não cria uma instância, e a capacidade está sempre disponível. 
 
@@ -141,7 +141,7 @@ Por predefinição, o Balanceador de carga do Azure distribui o tráfego de rede
 
 ### <a name = "internalloadbalancer"></a> Balanceador de carga interno
 
-Um balanceador de carga interno direciona o tráfego apenas a recursos que estão dentro de uma rede virtual ou utilizem uma VPN para aceder à infraestrutura do Azure. Nesse sentido, o Balanceador de carga interno é diferente de um balanceador de carga público. Infraestrutura do Azure restringe o acesso para os endereços IP com balanceamento de carga front-end de uma rede virtual. endereços IP de front-end e redes virtuais são expostas nunca diretamente para um ponto de extremidade de internet. Aplicações de linha de negócio internas são executadas no Azure e são acessadas a partir do Azure ou a partir de recursos no local.
+Um balanceador de carga interno direciona o tráfego apenas a recursos que estão dentro de uma rede virtual ou utilizem uma VPN para aceder à infraestrutura do Azure. Nesse sentido, um balanceador de carga interno é diferente de um balanceador de carga público. Infraestrutura do Azure restringe o acesso para os endereços IP com balanceamento de carga front-end de uma rede virtual. endereços IP de front-end e redes virtuais são expostas nunca diretamente para um ponto de extremidade de internet. Aplicações de linha de negócio internas são executadas no Azure e são acessadas a partir do Azure ou a partir de recursos no local.
 
 Um balanceador de carga interno que permite que os seguintes tipos de balanceamento de carga:
 
@@ -152,7 +152,7 @@ Um balanceador de carga interno que permite que os seguintes tipos de balanceame
 
 ![Exemplo de Balanceador de carga interno](./media/load-balancer-overview/IC744147.png)
 
-*Figura: O balanceamento de aplicações de várias camadas utilizando ambos os balanceadores de carga públicos e internos de carga*
+*Figura: Balanceamento de carga aplicações de várias camadas, com Balanceador de carga públicos e internos*
 
 ## <a name="pricing"></a>Preços
 Utilização de Balanceador de carga Standard é cobrada com base no número de regras de balanceamento de carga configurados e a quantidade de dados de entrada e de saída processados. Para o Balanceador de carga Standard preços informações, vá para o [preços do Balanceador de carga](https://azure.microsoft.com/pricing/details/load-balancer/) página.

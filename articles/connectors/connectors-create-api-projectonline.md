@@ -1,45 +1,74 @@
 ---
-title: Conector de ProjectOnline no Azure Logic Apps | Microsoft Docs
-description: Crie aplicações lógicas com o App service do Azure. Projeto Online é uma solução flexível online para gestão de portefólio de projeto (PPM) e de uso corrente trabalho da Microsoft. Project Online entregar através do Office 365, permite às organizações começar a trabalhar rapidamente com capacidades de gestão do projeto poderosa para planear, atribuir prioridades e gerir projetos e os investimentos em portefólio de projeto — partir de praticamente qualquer lugar em praticamente qualquer dispositivo.
+title: Ligar ao Project Online a partir do Azure Logic Apps | Documentos da Microsoft
+description: Automatizar fluxos de trabalho que monitorizar, criarem e gerem recursos, tarefas e projetos do Project Online com o Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: aaf357b1fe2c0b9b5874ee296c9141cf757e2300
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: cfcb53b6e95250a1ccbebfdfcfbff5ec8479504b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295361"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886958"
 ---
-# <a name="get-started-with-the-projectonline-connector"></a>Começar a utilizar o conector ProjectOnline
-Projeto Online é uma solução flexível online para gestão de portefólio de projeto (PPM) e de uso corrente trabalho da Microsoft. Project Online entregar através do Office 365, permite às organizações começar a trabalhar rapidamente com capacidades de gestão do projeto poderosa para planear, atribuir prioridades e gerir projetos e os investimentos em portefólio de projeto — partir de praticamente qualquer lugar em praticamente qualquer dispositivo.
+# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gerir projetos, tarefas e recursos Online do projeto com o Azure Logic Apps
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Com o Azure Logic Apps e o conector do Project Online, pode criar tarefas automatizadas e fluxos de trabalho para os seus projetos, tarefas e recursos no Project Online através do Office 365. Os fluxos de trabalho podem realizar estas ações e outras pessoas, por exemplo:
 
-## <a name="create-a-connection-to-projectonline"></a>Criar uma ligação a ProjectOnline
-Para criar aplicações lógicas com ProjectOnline, primeiro tem de criar um **ligação** , em seguida, forneça os detalhes para as seguintes propriedades: 
+* Monitor quando são criados novos projetos, tarefas ou recursos. Em alternativa, monitorar quando são publicados novos projetos.
+* Crie novos projetos, tarefas ou recursos.
+* Liste os projetos existentes ou tarefas.
+* Confira, check-in ou publicar projetos.
 
-| Propriedade | Necessário | Descrição |
-| --- | --- | --- |
-| Certificado de |Sim |Fornecer Credenciais do Project Online |
+Project Online ajuda-o a planear, priorizar e gerenciar projetos e investimentos de Portfólio de projetos de praticamente qualquer lugar em quase qualquer dispositivo, fornecendo recursos de gerenciamento de projeto poderosas. Pode usar o Project Online acionadores que obtém as respostas do Project Online e disponibilizar a saída para outras ações. Pode utilizar ações nas suas aplicações lógicas para realizar várias tarefas no Project Online. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
-> 
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/projectonline/).
+* Projeto Online, disponível através de um [conta do Office 365](https://www.office.com/), 
 
-## <a name="more-connectors"></a>Mais conectores
-Volte à [lista APIs](apis-list.md).
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* A aplicação de lógica onde pretende aceder aos dados do Project Online. Para começar com um acionador Project Online, [criar uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar as ações de projeto Online, inicie a aplicação lógica com outro acionador, por exemplo, o **periodicidade** acionador.
+
+## <a name="connect-to-project-online"></a>Ligar ao projeto Online
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
+
+1. Escolha um caminho: 
+
+   * Para aplicações de lógica em branco, na caixa de pesquisa, introduza "Project Online" como o filtro. 
+   Abaixo da lista de disparadores, selecione o acionador que pretende. 
+
+     -ou-
+
+   * Para logic apps existentes, no passo em que pretende adicionar uma ação, escolha **novo passo**. Na caixa de pesquisa, introduza "Project Online" como o filtro. Abaixo da lista de ações, selecione a ação que pretende.
+
+1. Se lhe for pedido para iniciar sessão no Project Online, inicie sessão agora.
+
+   As suas credenciais autorizar a aplicação lógica para criar uma ligação ao Project Online e aceder aos seus dados.
+
+1. Forneça os detalhes necessários para o seu acionador selecionado ou a ação e continuar a criar o fluxo de trabalho da sua aplicação lógica.
+
+## <a name="connector-reference"></a>Referência do conector
+
+Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja o conector [página de referência](/connectors/projectonline/).
+
+## <a name="get-support"></a>Obter suporte
+
+* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)

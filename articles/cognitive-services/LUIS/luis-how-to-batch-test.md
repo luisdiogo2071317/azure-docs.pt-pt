@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223586"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888631"
 ---
 # <a name="batch-testing"></a>Testes em lote
  Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. 
@@ -61,17 +61,11 @@ Para rever os resultados de teste do batch, selecione **ver resultados**.
 
 ![Resultados do teste de batch](./media/luis-how-to-batch-test/run-test-results.png)
 
-<!--
- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. 
-
-Green points indicate correct prediction, and red ones indicate incorrect prediction.
-
-The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
-
--->
+<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
 
 
-<a name="filter-chart-results-by-intent-or-entity"></a> ## Filtrar os resultados de gráfico
+<a name="filter-chart-results-by-intent-or-entity"></a>  
+## <a name="filter-chart-results"></a>Filtrar os resultados de gráfico
 
 Para filtrar o gráfico por um objetivo específico ou uma entidade, selecione a intenção ou a entidade no painel de filtragem do lado direito. Os pontos de dados e a respetiva distribuição atualizar no gráfico, de acordo com sua seleção. 
  

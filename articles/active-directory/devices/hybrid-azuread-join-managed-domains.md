@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 36537aacce0180f9b37fb8b49f301fb1f5954d1c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004383"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918434"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -54,7 +54,8 @@ Este tutorial parte do princípio de que está familiarizado com:
   
 
 Para configurar o cenário neste artigo, precisa da [a versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou superior) a serem instalados. 
- 
+
+Certifique-se de que o Azure AD Connect tem sincronizados os objetos de computador dos dispositivos à que sua escolha para serem híbridos associados ao Azure AD para o Azure AD. Se os objetos de computador pertencem ao específicas unidades organizacionais (UO), esses UOs têm de ser configurado para a sincronização no Azure AD connect também.
 
 A partir da versão 1.1.819.0, o Azure AD Connect fornece um Assistente para configurar a associação do Azure AD híbrido. O assistente permite-lhe simplificar significativamente o processo de configuração. O assistente relacionado configura os pontos de ligação de serviço (SCP) para o registo do dispositivo.
 
@@ -165,7 +166,7 @@ Além disso, tem de ativar **permitir atualizações à barra de estado por meio
 
 ## <a name="verify-the-registration"></a>Verifique se o registo
 
-Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet no ** [módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet no  **[módulo do Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Ao utilizar o **Get-MSolDevice** cmdlet para verificar os detalhes do serviço:
 

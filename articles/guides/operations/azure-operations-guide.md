@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8c799ad90057c53d648ba1e103c251a0e6d6cf88
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057414"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918724"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -467,44 +467,29 @@ Se precisar de permitir que os usuários tiver de ser controlado acesso aos seus
 
 ## <a name="azure-virtual-network"></a>Rede Virtual do Azure
 
-
-Redes virtuais são necessárias para suportar comunicações entre máquinas virtuais. Pode definir sub-redes, endereço IP personalizado, as definições de DNS, a filtragem de segurança e o balanceamento de carga. Ao utilizar um gateway de VPN ou de um circuito do ExpressRoute, pode ligar redes virtuais do Azure para as suas redes no local.
-
-### <a name="use-cases"></a>Casos de utilização
-
-Existem diferentes casos de utilização para funcionamento em rede do Azure.
+Redes virtuais são necessárias para suportar comunicações entre máquinas virtuais. Pode definir sub-redes, endereço IP personalizado, as definições de DNS, a filtragem de segurança e o balanceamento de carga. O Azure suporta diferentes casos de uso: redes apenas na cloud ou redes virtuais híbridas. 
 
 **Redes virtuais apenas na cloud**
 
 Uma rede virtual do Azure, por predefinição, é acessível apenas a recursos armazenados no Azure. Recursos ligados à mesma rede virtual podem comunicar entre si. Pode associar a interfaces de rede de máquinas virtuais e Balanceadores com um endereço IP público para tornar a máquina virtual acessível através da Internet de carga. Pode ajudar a proteger o acesso aos recursos expostos publicamente através da utilização de um grupo de segurança de rede.
 
-**Redes virtuais entre locais**
+![Rede Virtual do Azure para uma aplicação Web de 2 camadas](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+
+**Redes virtuais híbridas**
 
 Pode ligar uma rede no local a uma rede virtual do Azure com o ExpressRoute ou uma ligação de VPN de site a site. Nesta configuração, a rede virtual do Azure é, essencialmente, um com base na cloud extensão da sua rede no local.
+![Rede Virtual híbrida através de VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Uma vez que a rede virtual do Azure está ligada à sua rede no local, em vários locais redes virtuais têm de utilizar uma parte exclusiva do espaço de endereços que a organização utiliza. Da mesma forma que diferentes localizações da empresa são atribuídas uma sub-rede IP específica, Azure torna-se outro local à medida que expande a sua rede.
-
-### <a name="deploying-a-virtual-network"></a>Implementar uma rede virtual
-
 Existem várias opções para implementar uma rede virtual.
+- [Portal](../..//virtual-network/quick-create-portal.md)
+- [PowerShell](../../virtual-network/quick-create-powershell.md)
+- [Interface de linha de comandos (CLI)](../../virtual-network/quick-create-cli.md)
+- Modelos Azure Resource Manager
 
-**Portal**
+>**Quando utilizar**: sempre que estiver a trabalhar com VMs no Azure, irá trabalhar com redes virtuais. Assim, para segmentar as suas VMs em datacenters no local semelhante do sub-redes públicas e privadas. 
 
-A implementação de uma rede virtual do Azure com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual do portal, pode selecionar uma rede virtual existente ou crie um novo. Para obter mais informações, consulte [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
-
-Para além de implementar uma rede virtual do Azure a partir do portal do Azure, pode implementar um modelo Azure Resource Manager do portal. Isto irá implementar e configurar todos os recursos, conforme definido no modelo, incluindo quaisquer recursos de rede virtual. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-**PowerShell**
-
-Implementar uma rede virtual do Azure com o PowerShell permite a automação de implantação completa da conta de armazenamento. Para obter mais informações, consulte [criar uma rede virtual com o PowerShell](../../virtual-network/quick-create-powershell.md).
-
-Para além de implementar recursos do Azure individualmente, pode utilizar o módulo Azure PowerShell para implementar um modelo Azure Resource Manager. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
-
-**Interface de linha de comandos (CLI)**
-
-Tal como acontece com o módulo do PowerShell, a interface de linha de comandos do Azure fornece automação de implantação e pode ser utilizada em sistemas Windows, OS X ou Linux. Pode utilizar a CLI do Azure **vnet de rede criar** comando para criar uma rede virtual. Para obter mais informações, consulte [criar uma rede virtual com a CLI do Azure](../../virtual-network/quick-create-cli.md).
-
-Da mesma forma, pode utilizar a CLI do Azure para implementar um modelo Azure Resource Manager. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+>**Introdução ao**: implementar uma rede virtual do Azure com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual do portal, pode selecionar uma rede virtual existente ou crie um novo. Começar a utilizar e [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 

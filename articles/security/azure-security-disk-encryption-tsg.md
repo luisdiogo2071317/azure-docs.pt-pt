@@ -11,32 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390726"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888734"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
-Este guia destina-se a profissionais de TI, analistas de segurança de informações e os administradores de nuvem cujas organizações utilizam o Azure Disk Encryption. Este artigo é fornecer orientações para resolução de problemas relacionados à criptografia de disco.
+Este guia destina-se a profissionais de TI, analistas de segurança de informações e os administradores de nuvem cujas organizações utilizam o Azure Disk Encryption. Este artigo é ajudar na resolução de problemas relacionados com encriptação de disco.
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Resolução de problemas de encriptação de disco do SO Linux
 
 Encriptação de disco de sistema operativo (SO) do Linux tem desmontar a unidade de sistema operacional antes de executá-lo no processo de encriptação de disco completa. Se ele não é possível desmontar a unidade, uma mensagem de erro de "Falha ao desmontar após..." é provável que ocorram.
 
-Este erro pode ocorrer quando a encriptação de disco do SO é tentasse num ambiente de VM de destino que foi alterado da imagem da Galeria das ações suportadas. Exemplos de desvios em relação a imagem suportados que podem interferir com a capacidade da extensão de desmontar a unidade do SO incluem as seguintes razões:
+Este erro pode ocorrer quando a encriptação de disco do SO é tentasse num ambiente de VM de destino que foi alterado da imagem da Galeria das ações suportadas. Desvios em relação a imagem suportados podem interferir com a capacidade da extensão de desmontar a unidade do SO. Exemplos de desvios podem incluir os seguintes itens:
 - Imagens personalizadas já não correspondem um sistema de ficheiros suportado ou o esquema de particionamento.
-- Aplicativos grandes, como SAP, MongoDB, Apache Cassandra e a Docker não são suportados quando estão instalados e em execução no sistema operacional antes de encriptação. O Azure Disk Encryption não consegue encerrar esses processos com segurança conforme necessário durante a preparação da unidade do SO para a encriptação de disco. Se existirem processos ainda ativos, que contém identificadores de abrir o ficheiro para a unidade de sistema operacional, a unidade do SO não pode estar desmontada, resultando numa falha ao encriptar a unidade do sistema operacional. 
+- Aplicativos grandes, como SAP, MongoDB, Apache Cassandra e a Docker não são suportados quando eles são instalados e em execução no sistema operacional antes de encriptação. O Azure Disk Encryption não consegue encerrar esses processos com segurança conforme necessário durante a preparação da unidade do SO para a encriptação de disco. Se existirem processos ainda ativos, que contém identificadores de abrir o ficheiro para a unidade de sistema operacional, a unidade do SO não pode estar desmontada, resultando numa falha ao encriptar a unidade do sistema operacional. 
 - Custom scripts que são executados em proximidade fechar tempo para a encriptação ativada ou se existirem outras alterações estão a ser efetuadas na VM durante o processo de criptografia. Esse conflito pode acontecer quando um modelo Azure Resource Manager define várias extensões para executar em simultâneo, ou quando uma extensão de script personalizado ou outra ação é executada em simultâneo para encriptação de disco. Serializar e isolar esses passos poderão resolver o problema.
-- Segurança avançada Linux (SELinux) não foi desativada antes de ativar a encriptação, para que o passo de desmontar falhar. Pode ser reenabled SELinux após a conclusão da criptografia.
-- O disco do SO utiliza um esquema de Gestor de volumes lógicos (LVM). Embora o suporte de disco de dados LVM limitado estiver disponível, um disco de SO de LVM não é.
+- Segurança avançada Linux (SELinux) não tiver sido desabilitada antes de ativar a encriptação, para que o passo de desmontar falhar. Pode ser reenabled SELinux após a conclusão da criptografia.
+- O disco do SO utiliza um esquema de Gestor de volumes lógicos (LVM). Embora o suporte de disco de dados LVM limitado estiver disponível, não é um disco de SO de LVM.
 - Requisitos mínimos de memória não forem cumpridos (7 GB é sugerida para a encriptação de disco do SO).
 - Unidades de dados são recursivamente montada no diretório /mnt/ ou de outro (por exemplo, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Outros Azure Disk Encryption [pré-requisitos](azure-security-disk-encryption-prerequisites.md) para Linux não forem cumpridos.
+- Outros Azure Disk Encryption [pré-requisitos](azure-security-disk-encryption-prerequisites.md) para Linux não forem cumpridas.
 
 ## <a name="unable-to-encrypt"></a>Não é possível encriptar
 
@@ -64,7 +64,7 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 Depois de lhe for pedido para reiniciar a VM e, depois de reinicia a VM, tem de aguardar 2 a 3 minutos para o reinício e para os últimos passos a serem executadas no destino. As alterações de mensagem de estado quando a encriptação é finalmente concluída. Depois desta mensagem estiver disponível, a unidade do SO encriptada deve estar pronta a utilizar e a VM está pronta para ser utilizada novamente.
 
 Nos seguintes casos, recomendamos que restaure a VM para o instantâneo ou a cópia de segurança criada imediatamente antes de encriptação:
-   - Se a sequência de reinício descrito anteriormente não acontece.
+   - Se a sequência de reinicialização, descrita anteriormente, não acontece.
    - Se as informações de arranque, mensagem de progresso ou outros indicadores de erro se a encriptação de SO de relatório não no meio esse processo. Um exemplo de uma mensagem é o erro "Falha ao desmontar" descrita neste guia.
 
 Antes da próxima tentativa, reavaliar as características da VM e certifique-se de que todos os pré-requisitos são cumpridos.
@@ -80,7 +80,7 @@ A VM tem de ser capaz de aceder um cofre de chaves. Consulte a documentação de
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Gestão de pacotes do Linux protegida por uma firewall
 
-No tempo de execução, o Azure Disk Encryption para Linux baseia-se no sistema de gestão do pacote de distribuição de destino para instalar componentes de pré-requisitos necessários antes de ativar a encriptação. Se as definições da firewall impedem que a VM ser capaz de transferir e instalar estes componentes, em seguida, falhas subsequentes esperadas. Os passos para configurar este sistema de gestão de pacotes podem variar de distribuição. Em Red Hat, quando um proxy for necessário, tem de garantir que o Gestor de subscrições e yum estão configuradas corretamente. Para obter mais informações, consulte [como solucionar problemas do Gestor de subscrições e yum](https://access.redhat.com/solutions/189533).  
+No tempo de execução, o Azure Disk Encryption para Linux baseia-se no sistema de gestão do pacote de distribuição de destino para instalar os componentes de pré-requisitos necessários antes de ativar a encriptação. Se as definições da firewall impedem que a VM ser capaz de transferir e instalar estes componentes, em seguida, falhas subsequentes esperadas. Os passos para configurar este sistema de gestão de pacotes podem variar de distribuição. Em Red Hat, quando um proxy for necessário, deve certificar-se de que o Gestor de subscrições e yum estão configuradas corretamente. Para obter mais informações, consulte [como solucionar problemas do Gestor de subscrições e yum](https://access.redhat.com/solutions/189533).  
 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Resolução de problemas do Server Core do Windows Server 2016
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>Resolução de problemas de estado de encriptação
+<!-- ## Troubleshooting encryption status
 
-Se o estado de encriptação esperado não coincide com o que está a ser comunicado no portal, consulte o seguinte artigo de suporte: [estado de encriptação é incorretamente apresentado no Portal de gestão do Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste documento, ficou a saber mais sobre alguns problemas comuns no Azure Disk Encryption e como solucionar esses problemas. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
 
 - [Aplicar encriptação de disco no Centro de segurança do Azure](../security-center/security-center-apply-disk-encryption.md)
-- [Encriptar uma máquina virtual do Azure](../security-center/security-center-disk-encryption.md)
 - [Encriptação de dados do Azure em repouso](azure-security-encryption-atrest.md)

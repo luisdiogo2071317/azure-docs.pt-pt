@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076308"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918806"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -161,7 +161,7 @@ Como já declarado, se seu requisito de IOPS excede o que pode fornecer um únic
 >
 
 ### <a name="managed-or-non-managed-disks"></a>Discos geridos ou não geridos
-SQL Server 2014 abre a possibilidade de armazenar os ficheiros de base de dados diretamente no Store de Blobs do Azure sem o "wrapper" de um VHD em torno delas. As limitações são diferentes entre Accounst de armazenamento Standard do Azure e contas de armazenamento Premium do Azure. As capacidades exatas e limitações são listadas no artigo [metas de desempenho e escalabilidade do armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
+Uma conta de armazenamento do Azure é não apenas uma construção administrativa, mas também um sujeito de limitações. As limitações são diferentes entre Accounst de armazenamento Standard do Azure e contas de armazenamento Premium do Azure. As capacidades exatas e limitações são listadas no artigo [metas de desempenho e escalabilidade do armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
 
 Armazenamento do Azure Standard, é importante, lembre-se de que existe um limite de IOPS por conta de armazenamento (linha que contém **taxa Total de pedidos** no artigo [escalabilidade do armazenamento do Azure e metas de desempenho](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)). Além disso, existe um limite inicial do número de contas de armazenamento por subscrição do Azure. Portanto, precisa balancear VHDs para maior paisagem SAP em contas de armazenamento diferentes para evitar atingir os limites de uma dessas contas de armazenamento. Um trabalho tedioso quando estamos a falar sobre algumas das máquinas virtuais centenas com mais de mil VHDs. 
 
@@ -263,7 +263,7 @@ A forma de configurar conjuntos de disponibilidade do Azure é demonstrada neste
 
 
 ## <a name="azure-network-considerations"></a>Considerações de rede do Azure 
-Nas implementações de SAP em grande escala, recomenda-se que está a utilizar o plano gráfico de [Datacenter Virtual do Azure](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) para suas atribuições de configuração e as permissões e funções de VNet para diferentes partes da sua organização.
+Nas implementações de SAP em grande escala, recomenda-se que está a utilizar o plano gráfico de [Datacenter Virtual do Azure](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) para suas atribuições de configuração e as permissões e funções de VNet para diferentes partes da sua organização.
 
 Existem várias práticas recomendadas, o que resultou em centenas de implementações de cliente:
 
@@ -325,10 +325,10 @@ Para obter mais detalhes sobre a implementação de componentes que fornecem dad
 ## <a name="next-steps"></a>Próximos Passos
 Para obter documentação sobre DBMS específica, consulte estes artigos:
 
-- [Implementação de DBMS de máquinas virtuais do SQL Server do Azure para a carga de trabalho do SAP](dbms_guide_sqlserver.md)
-- [Implementação de DBMS de máquinas virtuais do Azure do Oracle para a carga de trabalho do SAP](dbms_guide_oracle.md)
-- [Implementação de DBMS de máquinas virtuais do Azure do IBM DB2 para a carga de trabalho do SAP](dbms_guide_ibm.md)
-- [Implementação de SAP ASE DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_sapase.md)
+- [Implementação em SQL Server do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sqlserver.md)
+- [Implementação em Oracle do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_oracle.md)
+- [Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_ibm.md)
+- [Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_sapase.md)
 - [SAP maxDB, a Cache em direto e a implementação de servidor de conteúdo no Azure](dbms_guide_maxdb.md)
 - [Manual de operações do SAP HANA no Azure](hana-vm-operations.md)
 - [Elevada disponibilidade de SAP HANA para máquinas virtuais do Azure](sap-hana-availability-overview.md)

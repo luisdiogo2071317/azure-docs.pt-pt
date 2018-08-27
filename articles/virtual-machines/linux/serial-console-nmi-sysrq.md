@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061535"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885244"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utilizar a consola de série para chamadas SysRq e NMI
 
@@ -84,13 +84,17 @@ No Guia do administrador SysRq acima:
 
 ### <a name="distribution-specific-documentation"></a>Documentação de distribuição específico ###
 Para obter documentação de distribuição específicos sobre SysRq e os passos para configurar o Linux para criar um despejo de falha quando recebe um comando de "Crash" SysRq, veja as ligações abaixo:
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [Informação de falha de kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [O que é o recurso de SysRq e como usá-lo?](https://access.redhat.com/articles/231663)
 - [Como utilizar o recurso de SysRq para recolher informações de um servidor do RHEL](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [Configurar a captura de despejo de núcleo de kernel](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [Recolher registos de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -109,16 +113,17 @@ Para sistemas Linux que suportam sysctl para configurar parâmetros de kernel, p
 
 Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi`, e `panic_on_unrecovered_nmi`, consulte: [documentação para/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter documentação de distribuição específicos sobre NMI e os passos para configurar o Linux para criar um despejo de falha quando recebe um NMI, veja as ligações abaixo:
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [Informação de falha de kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [O que é um NMI e o que posso utilizá-lo?](https://access.redhat.com/solutions/4127)
  - [Como posso configurar meu sistema falhe ao comutador NMI é emitidos via Push?](https://access.redhat.com/solutions/125103)
  - [Falha despejar o Guia do administrador](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [Configurar a captura de despejo de núcleo de kernel](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [Recolher registos de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433175"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919011"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos Azure Resource Manager
 
@@ -37,10 +37,11 @@ Saiba mais sobre os muitos [vantagens da utilização de modelos do Resource Man
 > [!NOTE]
 > Quando utiliza um modelo do Resource Manager como base para criar o laboratório de mais VMs, existem algumas diferenças a ter em conta se estiver a criar várias VMs ou VMs único. [Utilizar o modelo do Azure Resource Manager de uma máquina virtual](devtest-lab-use-resource-manager-template.md) explica essas diferenças em mais detalhes.
 >
->
 
-## <a name="configure-azure-resource-manager-template-repositories"></a>Configurar repositórios de modelo do Azure Resource Manager
+## <a name="devtest-labs-public-environments"></a>Ambientes públicos do DevTest Labs
+O Azure DevTest Labs tem um [repositório público dos modelos do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que pode utilizar para criar ambientes sem ter de ligar a uma origem externa do GitHub sozinho. Este repositório inclui modelos usados com freqüência, como aplicações Web do Azure, o Cluster do Service Fabric e o desenvolvimento de ambiente de Farm do SharePoint. Esta funcionalidade é semelhante para o repositório público de artefactos que é incluído para todos os laboratórios que criar. O repositório de ambiente permite-lhe começar a utilizar rapidamente com modelos de ambiente previamente criados com parâmetros de entrada mínimos para lhe fornecer uma experiência de introdução ao obter uniforme para os recursos de PaaS dentro de laboratórios. Para obter mais informações, consulte [configurar e utilizar ambientes públicos no DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
+## <a name="configure-your-own-template-repositories"></a>Configurar os seus próprios repositórios de modelo
 Como uma das melhores práticas com a infraestrutura como código e a configuração como código, modelos de ambiente devem ser geridos no controle de origem. O Azure DevTest Labs segue essa prática e carrega todos os modelos do Azure Resource Manager diretamente a partir de seus repositórios do GitHub ou o Git do VSTS. Como resultado, os modelos do Resource Manager podem ser utilizados no ciclo de lançamento de todo o ambiente de teste para o ambiente de produção.
 
 Veja os modelos criados pela equipe do DevTest Labs no [repositório do GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Neste repositório público, pode ver modelos partilhados por outros utilizadores, que pode utilizar diretamente ou personalize-os para satisfazer as suas necessidades. Depois de criar o seu modelo, armazená-lo neste repositório para partilhá-lo com outras pessoas. Também pode configurar seu próprio repositório de Git com modelos que podem ser utilizadas para configurar ambientes na cloud. 
@@ -56,12 +57,9 @@ Existem algumas regras a seguir para organizar seus modelos do Azure Resource Ma
 - Metadados podem ser definidos para especificar o nome a apresentar do modelo e a descrição. Estes metadados tem de ser num arquivo chamado `metadata.json`. O ficheiro de metadados de exemplo seguinte ilustra como especificar o nome a apresentar e a descrição: 
 
     ```json
-    {
- 
-        "itemDisplayName": "<your template name>",
- 
-        "description": "<description of the template>"
- 
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
     }
     ```
 

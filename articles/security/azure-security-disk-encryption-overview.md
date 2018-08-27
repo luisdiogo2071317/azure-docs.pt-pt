@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 0e81a48c1215e8590f90c42aee0861e6fda3db8e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 88500be4bae83049e8a7060719f4f85e7622c645
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391852"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886996"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para IaaS VMs 
 O Microsoft Azure é o compromisso de garantir que a privacidade dos dados, soberania de dados e permite-lhe controlo alojados no seu Azure dados através de uma variedade de tecnologias avançadas de encriptar, controlar e gerir chaves de encriptação e controlo e auditoria de acesso de dados. Esse controle fornece aos clientes Azure a flexibilidade de escolher a solução mais adequada às suas necessidades de negócios. Este artigo apresenta uma solução de tecnologia, o "Disco de encriptação para Windows e Linux VMs IaaS do Azure", para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacionais. 
@@ -34,6 +34,10 @@ Azure disk encryption para VMs de IaaS de Linux e do Windows está em **disponib
 * VMs de IaaS são protegidas em descanso ao utilizar a tecnologia de encriptação de norma da indústria para segurança organizacionais e requisitos de conformidade.
 * Arranque de VMs de IaaS em chaves controlado pelo cliente e as políticas e pode auditar a utilização no seu Cofre de chaves.
 
+
+Se utilizar o Centro de segurança do Azure, ele irá alertá-lo se tiver máquinas virtuais que não estão encriptadas. Estes alertas serão apresentados como de Gravidade Alta e a recomendação é de encriptar estas máquinas virtuais.
+![Alerta de encriptação de disco do Centro de segurança do Azure](media/azure-security-disk-encryption/security-center-disk-encryption-fig1.png)
+
 > [!NOTE]
 > Algumas recomendações podem aumentar de dados, a rede ou a utilização de recursos de computação, resultando em custos adicionais de licença ou subscrição.
 
@@ -44,20 +48,24 @@ A solução Azure Disk Encryption suporta os seguintes cenários de cliente:
 * Ativar a encriptação em novas VMs de IaaS do Windows criados a partir de encriptadas VHD e chaves de encriptação 
 * Ativar a encriptação em novas VMs de IaaS criados a partir de imagens de galeria do Azure suportadas
 * Ativar a encriptação em VMs de IaaS existentes em execução no Azure
+* Ativar a encriptação em conjuntos de dimensionamento de máquinas virtuais do Windows
+* Ativar a encriptação em unidades de dados para conjuntos de dimensionamento de máquinas virtuais do Linux
 * Desativar a encriptação em VMs de IaaS do Windows
 * Desativar a encriptação em unidades de dados para VMs de IaaS Linux
+* Desativar a encriptação em conjuntos de dimensionamento de máquinas virtuais do Windows
+* Desativar a encriptação em unidades de dados para conjuntos de dimensionamento de máquinas virtuais do Linux
 * Ativar a encriptação de disco gerido de VMs
 * Definições de encriptação de atualização de um existente premium encriptado e não premium armazenamento VM
 * Cópia de segurança e restauro de VMs encriptadas
 
-A solução suporta os seguintes cenários para IaaS VMs quando forem ativadas no Microsoft Azure:
+A solução suporta os seguintes cenários para IaaS VMs quando estão ativadas no Microsoft Azure:
 
 * Integração com o Cofre de chaves do Azure
 * Escalão Standard VMs: [A, D, DS, G, GS, F e assim por diante série IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
     * [VMs do Linux](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) dentro estas camadas têm de cumprir o requisito de memória mínima de 7 GB
-* Ativar a encriptação em Windows e VMs de IaaS Linux e VMs de disco gerido a partir das imagens da galeria do Azure suportadas
-* Desativar a encriptação em unidades de SO e dados para VMs de IaaS do Windows e VMs de disco gerido
-* Desativar a encriptação em unidades de dados para VMs de IaaS Linux e VMs de disco gerido
+* Ativar a encriptação no Windows e VMs do Linux IaaS, disco gerido e dimensionamento de VMs do conjunto de imagens de galeria do Azure suportadas
+* VMs do conjunto de encriptação de desativar em unidades de SO e dados para VMs de IaaS do Windows, dimensionamento e gerido de VMs de disco
+* VMs do conjunto de encriptação de desativar em unidades de dados para VMs de IaaS Linux, dimensionamento e gerido de VMs de disco
 * Ativar a encriptação em VMs de IaaS com o sistema operativo de cliente do Windows
 * Ativar a encriptação em volumes com caminhos de montagem
 * Ativar a encriptação em VMs do Linux configurado com o disco com mdadm repartição (RAID)
@@ -74,7 +82,7 @@ A solução não suporta os seguintes cenários, recursos e tecnologia:
 * A desativação da encriptação numa unidade do sistema operacional para VMs de IaaS Linux
 * A desativação da encriptação numa unidade de dados se a unidade do SO estiver encriptada para VMs de Iaas Linux
 * VMs de IaaS que são criadas com o método de criação de VM clássico
-* Ative a encriptação em VMs do IaaS Linux imagens personalizadas do cliente não é suportada.
+* Ativar a encriptação em imagens personalizadas de cliente de VMs de IaaS Linux
 * Integração com o seu serviço de gestão de chaves no local
 * Ficheiros do Azure (sistema de ficheiros partilhados), o sistema de ficheiros de rede (NFS), volumes dinâmicos e VMs do Windows que estão configurados com sistemas RAID baseados em software
 
@@ -84,7 +92,7 @@ Quando ativa e implementa o Azure Disk Encryption para VMs IaaS do Azure, as seg
 * Encriptação do volume de sistema operacional para proteger o volume de arranque em repouso no armazenamento do
 * Encriptação de volumes de dados para proteger os volumes de dados Inativos no seu armazenamento
 * A desativação da encriptação nas unidades de SO e dados para VMs de IaaS do Windows
-* A desativação da encriptação nos dados de unidades para VMs de IaaS Linux (apenas se o sistema operacional a unidade é não encriptado)
+* Desativar a encriptação em unidades de dados para VMs de IaaS Linux (apenas se a unidade do SO não é encriptada)
 * Salvaguardar as chaves de encriptação e os segredos na sua subscrição do Cofre de chaves
 * Relatório de status de encriptação de VM de IaaS encriptada
 * Remoção das definições de configuração de encriptação de disco da máquina virtual IaaS
@@ -103,8 +111,40 @@ A solução Azure Disk Encryption é suportada em VMs de IaaS que estão a execu
 > [!NOTE]
 > Não é um valor adicional para encriptar discos da VM com o Azure Disk Encryption. Standard [preços do Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) aplica-se ao Cofre de chaves utilizado para armazenar as chaves de encriptação. 
 
+
 ## <a name="encryption-workflow"></a>Fluxo de trabalho de encriptação
-Para ativar a encriptação de disco para o Windows e VMs do Linux, siga os passos abaixo:
+
+ Para ativar a encriptação de disco para o Windows e VMs do Linux, siga os passos abaixo:
+
+1. Escolha um cenário de criptografia entre os cenários de encriptação anteriores.
+2. Optar por ativar a encriptação através do modelo de encriptação de disco do Azure Resource Manager, cmdlets do PowerShell ou comando da CLI de disco e especificar a configuração de encriptação.
+
+   * Para o cenário VHD encriptados de cliente, carrega o VHD encriptado para sua conta de armazenamento e o material de chave de encriptação para o seu Cofre de chaves. Em seguida, indique a configuração de criptografia para ativar a encriptação numa nova VM de IaaS.
+   * Para novas VMs que são criadas a partir do Marketplace e as VMs existentes que já estão em execução no Azure, indique a configuração de criptografia para ativar a encriptação na IaaS VM.
+
+3. Conceder acesso, a plataforma do Azure para ler o material de chave de encriptação (chaves de encriptação de disco BitLocker para sistemas Windows) e a frase de acesso para Linux a partir do seu Cofre de chaves para ativar a encriptação na IaaS VM.
+
+4. O Azure atualiza o modelo de serviço VM com a criptografia, a configuração de Cofre de chaves e configura a sua VM encriptada.
+
+ ![Microsoft Antimalware no Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
+
+## <a name="decryption-workflow"></a>Fluxo de trabalho de desencriptação
+Para desativar a encriptação de disco para IaaS VMs, conclua os seguintes passos de alto nível:
+
+1. Optar por desativar a encriptação (desencriptação) numa VM de IaaS em execução no Azure e especificar a configuração de desencriptação. Pode desativar através do modelo de encriptação de disco do Azure Resource Manager, cmdlets do PowerShell ou da CLI do Azure.
+
+ Este passo desativa a encriptação de sistema operacional ou o volume de dados ou ambos na VM de IaaS do Windows em execução. No entanto, conforme mencionado na secção anterior, a desativação da encriptação de disco de SO para Linux não é suportada. O passo de desencriptação só é permitido para unidades de dados em VMs do Linux, desde que o disco de SO não está encriptado.
+2. Azure atualiza o modelo de serviço VM e a VM de IaaS está marcada desencriptada. O conteúdo da VM já não é encriptado em inatividade.
+
+> [!NOTE]
+> A operação de criptografia de Desativação não elimina o seu Cofre de chaves e o material de chave de encriptação (chaves de encriptação de disco BitLocker para sistemas Windows) ou a frase de acesso para Linux.
+ > Não é suportada a desativação da encriptação de disco de SO do Linux. O passo de desencriptação só é permitido para unidades de dados em VMs do Linux.
+A desativação da encriptação de disco de dados para Linux não é suportada se a unidade do SO estiver encriptada.
+
+
+## <a name="encryption-workflow-previous-release"></a>Fluxo de trabalho de encriptação (versão anterior)
+
+A nova versão de encriptação de disco do Azure elimina o requisito para fornecer um parâmetro de aplicação do Azure AD para ativar a encriptação de disco da VM. Com a nova versão, já não são necessários para fornecer uma credencial do Azure AD durante o passo da criptografia de ativação. Todas as novas VMs tem de estar encriptadas sem os parâmetros da aplicação do Azure AD com a nova versão. As VMs que já foram encriptadas com parâmetros de aplicação do Azure AD ainda são suportadas e devem continuar a ser mantido com a sintaxe do AAD. Para ativar a encriptação de disco para o Windows e VMs do Linux (versão anterior), siga os passos abaixo:
 
 1. Escolha um cenário de criptografia entre os cenários de encriptação anteriores.
 2. Optar por ativar a encriptação através do modelo de encriptação de disco do Azure Resource Manager, cmdlets do PowerShell ou comando da CLI de disco e especificar a configuração de encriptação.
@@ -118,20 +158,6 @@ Para ativar a encriptação de disco para o Windows e VMs do Linux, siga os pass
 
 5. O Azure atualiza o modelo de serviço VM com a encriptação e a configuração de Cofre de chaves e configura a sua VM encriptada.
 
- ![Microsoft Antimalware no Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
-
-## <a name="decryption-workflow"></a>Fluxo de trabalho de desencriptação
-Para desativar a encriptação de disco para IaaS VMs, conclua os seguintes passos de alto nível:
-
-1. Optar por desativar a encriptação (desencriptação) numa VM de IaaS em execução no Azure e especificar a configuração de desencriptação. Pode desativar através do modelo de encriptação de disco do Azure Resource Manager, cmdlets do PowerShell ou da CLI do Azure.
-
- Este passo desativa a encriptação de sistema operacional ou o volume de dados ou ambos na VM de IaaS do Windows em execução. No entanto, conforme mencionado na secção anterior, a desativação da encriptação de disco de SO para Linux não é suportada. O passo de desencriptação só é permitido para unidades de dados em VMs do Linux, desde que o disco do SO não está encriptado.
-2. Azure atualiza o modelo de serviço VM e a VM de IaaS está marcada desencriptada. O conteúdo da VM já não é encriptado em inatividade.
-
-> [!NOTE]
-> A operação de criptografia de Desativação não elimina o seu Cofre de chaves e o material de chave de encriptação (chaves de encriptação de disco BitLocker para sistemas Windows) ou a frase de acesso para Linux.
- > Não é suportada a desativação da encriptação de disco de SO do Linux. O passo de desencriptação só é permitido para unidades de dados em VMs do Linux.
-A desativação da encriptação de disco de dados para Linux não é suportada se a unidade do SO estiver encriptada.
 
 ## <a name="terminology"></a>Terminologia
 Para compreender alguns dos termos comuns utilizados por essa tecnologia, utilize a seguinte tabela de terminologia:

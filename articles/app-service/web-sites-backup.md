@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224807"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886409"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de cópia de segurança e restauro no [App Service do Azure](app-service-web-overview.md) permite-lhe facilmente criar cópias de segurança de aplicação com base numa agenda ou manualmente. Pode restaurar a aplicação para um instantâneo de um estado anterior ao substituir a aplicação existente ou restaurar para outra aplicação. 
@@ -55,6 +55,7 @@ As seguintes soluções de base de dados são suportadas com a funcionalidade c�
 * As cópias de segurança podem ser até 10 GB de conteúdo de aplicação e a base de dados. Se o tamanho da cópia de segurança excede este limite, obterá um erro.
 * Cópias de segurança de SSL ativada a base de dados do Azure para MySQL não é suportada. Se uma cópia de segurança estiver configurada, obterá com falhas de cópias de segurança.
 * Cópias de segurança de SSL ativada a base de dados do Azure para PostgreSQL não é suportada. Se uma cópia de segurança estiver configurada, obterá com falhas de cópias de segurança.
+* Bases de dados do MySQL na aplicação são automaticamente uma cópia de segurança sem qualquer configuração. Se fizer manualmente as definições de bases de dados do MySQL na aplicação, por exemplo, adicionar as cadeias de ligação, as cópias de segurança poderão não funcionar corretamente.
 * Utilizar uma firewall ativada a conta de armazenamento como o destino para as cópias de segurança não é suportado. Se uma cópia de segurança estiver configurada, obterá com falhas de cópias de segurança.
 
 
@@ -85,7 +86,9 @@ As seguintes soluções de base de dados são suportadas com a funcionalidade c�
     ![Escolher conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Para uma base de dados a aparecer nesta lista, sua cadeia de ligação tem de existir na **cadeias de ligação** secção a **as definições da aplicação** página para a sua aplicação.
+   > Para uma base de dados a aparecer nesta lista, sua cadeia de ligação tem de existir na **cadeias de ligação** secção a **as definições da aplicação** página para a sua aplicação. 
+   >
+   > Bases de dados do MySQL na aplicação são automaticamente uma cópia de segurança sem qualquer configuração. Se fizer manualmente as definições de bases de dados do MySQL na aplicação, por exemplo, adicionar as cadeias de ligação, as cópias de segurança poderão não funcionar corretamente.
    > 
    > 
 6. Na **configuração de cópia de segurança** página, clique em **guardar**.    

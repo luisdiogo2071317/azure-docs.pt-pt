@@ -1,6 +1,6 @@
 ---
-title: Pesquisa na Web início rápido SDK c# | Microsoft Docs
-description: O programa de configuração de pesquisa na Web aplicação de consola c# do SDK.
+title: 'Início rápido: Utilizar a SDK de pesquisa Web Bing para c#'
+description: Configuração de aplicação de consola c# do SDK da pesquisa na Web.
 titleSuffix: Azure cognitive services Web search SDK C# quickstart
 services: cognitive-services
 author: mikedodaro
@@ -8,51 +8,51 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: 6d87b292475edff04e930ec4aa2f8e077a0fb82c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: ef54487a1df7303fa92a78e4f3219f40f558da2b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355303"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887324"
 ---
-# <a name="web-search-sdk-c-quickstart"></a>Web pesquisa SDK c# início rápido
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início rápido: Utilizar a SDK de pesquisa Web Bing para c#
 
-O SDK de pesquisa do Bing Web contém as funcionalidades da API REST para pedidos web e os resultados da análise.
+O SDK de pesquisa Web Bing contém a funcionalidade da API REST para solicitações da web e os resultados da análise.
 
-O [origem código para amostras de c# Bing Web SDK Search](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) está disponível no Hub de Git.
+O [da origem de código para exemplos de c# SDK do Bing Web pesquisa](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) está disponível no GitHub.
 
-## <a name="application-dependencies"></a>Dependências da aplicação
+## <a name="application-dependencies"></a>Dependências de aplicações
 
-Para configurar uma aplicação de consola utilizando o SDK de pesquisa do Bing Web, navegue para o `Manage NuGet Packages` opção do Explorador de soluções no Visual Studio.  Adicionar o `Microsoft.Azure.CognitiveServices.Search.WebSearch` pacote.
+Para configurar uma aplicação de consola utilizando o SDK de pesquisa Web Bing, navegue para o `Manage NuGet Packages` opção a partir do Explorador de soluções no Visual Studio.  Adicionar o `Microsoft.Azure.CognitiveServices.Search.WebSearch` pacote.
 
-Instalar o [pacote NuGet Web pesquisa SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) também instala as dependências, incluindo:
+Instalar o [pacote de NuGet Web pesquisa SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) também instala as dependências, incluindo:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft
 
-## <a name="web-search-client"></a>Cliente de pesquisa da Web
-Para criar uma instância do `WebSearchAPI` cliente, adicione as diretivas de a utilizar:
+## <a name="web-search-client"></a>Cliente de pesquisa Web
+Para criar uma instância do `WebSearchAPI` cliente, adicionar com diretivas:
 ```
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
 
 ```
-Em seguida, instanciar o cliente:
+Em seguida, criar uma instância do cliente:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-Utilize o cliente para a pesquisa com um texto de consulta:
+Utilize o cliente para pesquisar com um texto de consulta:
 ```
 // Search for "Yosemite National Park"
 var webData = client.Web.Search(query: "Yosemite National Park");
 Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
 
 ```
-Analisar as páginas web devolvido nos resultados da consulta anterior:
+Analisar as páginas da web nos resultados da consulta anterior:
 ```
 //WebPages
 if (webData?.WebPages?.Value?.Count > 0)
@@ -79,7 +79,7 @@ else
 ```
 ## <a name="complete-console-application"></a>Aplicação de consola concluída
 
-A aplicação de consola seguinte executa a consulta definida anteriormente e analisa a páginas web, imagens, notícias e vídeos contidos nos resultados:
+A aplicação de consola seguinte executa a consulta definida anteriormente e analisa a páginas da web, imagens, notícias e vídeos contidos nos resultados:
 ```
 using System;
 using System.Collections.Generic;
@@ -213,11 +213,11 @@ namespace WebSrchSDK
 
 ```
 
-Os exemplos de pesquisa do Bing demonstram diversas funcionalidades do SDK.  Adicione as seguintes funções para definida anteriormente `WebSrchSDK` classe.
+Os exemplos de pesquisa do Bing demonstram vários recursos do SDK.  Adicione as seguintes funções para definido anteriormente `WebSrchSDK` classe.
 
 ## <a name="count-and-offset-parameters"></a>Parâmetros de contagem e deslocamento
 
-O seguinte código procura "Restaurants melhor em Seattle", verifica o número de resultados e imprime os nome e o URL do resultado da primeira.
+O código a seguir procura "Melhor restaurantes em Seattle", verifica o número de resultados e imprime o nome e o URL do primeiro resultado.
 
 ```
        public static void WebResultsWithCountAndOffset(WebSearchAPI client)
@@ -255,9 +255,9 @@ O seguinte código procura "Restaurants melhor em Seattle", verifica o número d
         }
 
 ```
-## <a name="response-filter"></a>Filtro de resposta
+## <a name="response-filter"></a>Filtro de respostas
 
-A seguinte consulta pesquisa o termo "Microsoft" utilizando um filtro de resposta definido como `news` e, em seguida, imprime os detalhes dos resultados.
+A seguinte consulta pesquisa o termo "Microsoft", com um filtro de respostas definido como `news` e, em seguida, imprime os detalhes dos resultados.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
         {
@@ -299,9 +299,9 @@ A seguinte consulta pesquisa o termo "Microsoft" utilizando um filtro de respost
         }
 
 ```
-## <a name="query-parameters---count-promotion-safe-search"></a>Consultar parâmetros - contagem, a promoção, pesquisa segura
+## <a name="query-parameters---count-promotion-safe-search"></a>Consultar parâmetros - contagem, a promoção, a pesquisa segura
 
-Esta consulta, "Lady Gaga", a procura utilizando `answerCount` e `promote` parâmetros, em seguida, imprime os detalhes dos resultados.
+Essa consulta, "Senhora Gaga", pesquisa usando `answerCount` e `promote` parâmetros, em seguida, imprime os detalhes dos resultados.
 
 ```
         public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
@@ -344,4 +344,4 @@ Esta consulta, "Lady Gaga", a procura utilizando `answerCount` e `promote` parâ
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Serviços cognitivos amostras de SDK do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Amostras do .NET SDK dos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

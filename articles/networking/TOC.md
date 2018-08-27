@@ -1,7 +1,7 @@
 # Descrição geral
 ## [Acerca das redes do Azure](networking-overview.md)
 ## Arquitetura
-### [Datacenters Virtuais](networking-virtual-datacenter.md)
+### [Datacenters Virtuais](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Encaminhamento assimétrico com vários caminhos de rede](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Designs de redes seguros](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologia hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

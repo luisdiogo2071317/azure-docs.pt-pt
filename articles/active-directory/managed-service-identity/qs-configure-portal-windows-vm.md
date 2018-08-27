@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 7ac4dd41c8a1adb422539e0832715d59ec385694
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 552fce2ffd8b6bd786010da82e702ee98c3f8647
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745564"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888561"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Configurar uma VM identidade do serviço gerido com o portal do Azure
 
@@ -53,9 +53,9 @@ Para ativar o sistema de identidade numa VM que foi originalmente aprovisionada 
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém a VM.
 
-2. Navegue para a Máquina Virtual pretendida e selecione a página "Configuração".
+2. Navegue para a Máquina Virtual pretendida e selecione **identidade**.
 
-3. Ativar a identidade de sistema atribuído na VM ao selecionar "Sim" em "Identidade de serviço gerida" e, em seguida, clique em **guardar**. Esta operação pode demorar 60 segundos ou mais para concluir:
+3. Sob **sistema atribuído**, **estado**, selecione **no** e, em seguida, clique em **guardar**:
 
    ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,9 +65,9 @@ Se tiver uma Máquina Virtual que já não precisa da identidade do sistema atri
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém a VM. 
 
-2. Navegue para a Máquina Virtual pretendida e selecione a página "Configuração".
+2. Navegue para a Máquina Virtual pretendida e selecione **identidade**.
 
-3. Desativar o sistema de identidade na VM de atribuída ao selecionar "Não" em "Identidade de serviço gerida" e, em seguida, clique em Guardar. Esta operação pode demorar 60 segundos ou mais para concluir:
+3. Sob **sistema atribuído**, **estado**, selecione **desligado** e, em seguida, clique em **guardar**:
 
    ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 

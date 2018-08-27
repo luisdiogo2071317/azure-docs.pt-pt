@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521987"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917963"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações de infraestrutura de SAP HANA e operações no Azure
 Este documento fornece orientações para configurar a infraestrutura do Azure e operar sistemas SAP HANA que estão implementados em máquinas de virtuais (VMs) nativas do Azure. O documento também inclui informações de configuração para o SAP HANA aumentar horizontalmente para o SKU de VM M128s. Este documento não se destina a substituir a documentação de SAP padrão, o que inclui o seguinte conteúdo:
@@ -215,7 +215,7 @@ Ao instalar as VMs a executar o SAP HANA, tem das VMs:
 
 No entanto, para implementações que são duradouros, terá de criar uma arquitetura de rede do virtual datacenter no Azure. Esta arquitetura recomenda a separação de Gateway de VNet do Azure que liga ao local para uma VNet do Azure separada. Esta VNet separada deve hospedar todo o tráfego que sai para no local ou na internet. Esta abordagem permite-lhe implementar software para auditoria e registo de tráfego que entra o datacenter virtual no Azure deste hub separado de VNet. Portanto, tem uma VNet que aloja o software e configurações que diz respeito ao tráfego-in - e de saída para a implementação do Azure.
 
-Os artigos [Datacenter Virtual do Azure: uma perspetiva de rede](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) e [Datacenter Virtual do Azure e o plano de controlo de Enterprise](https://docs.microsoft.com/azure/architecture/vdc/) dar mais informações sobre a abordagem do virtual datacenter e relacionados Design de VNet do Azure.
+Os artigos [Datacenter Virtual do Azure: uma perspetiva de rede](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) e [Datacenter Virtual do Azure e o plano de controlo de Enterprise](https://docs.microsoft.com/azure/architecture/vdc/) dar mais informações sobre a abordagem do virtual datacenter e relacionados Design de VNet do Azure.
 
 
 >[!NOTE]

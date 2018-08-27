@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: bfd63262a1d5568223b4e4077e2f8c987b7ec0d4
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cbe2e3d9f60ced5c707ce5a701a5aac937ccc072
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746741"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887994"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Configurar uma máquina virtual do conjunto de dimensionamento da identidade do serviço gerido com o portal do Azure
 
@@ -54,7 +54,7 @@ Para ativar o sistema de identidade num conjunto de dimensionamento de máquina 
 
 2. Navegue para o conjunto de dimensionamento de máquina virtual pretendida.
 
-3. Ativar a identidade de sistema atribuído na VM ao selecionar "Sim" em "Identidade de serviço gerida" e, em seguida, clique em **guardar**. Esta operação pode demorar 60 segundos ou mais para concluir:
+3. Sob **sistema atribuído**, **estado**, selecione **no** e, em seguida, clique em **guardar**:
 
    [![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
@@ -66,7 +66,7 @@ Se tiver um conjunto de dimensionamento que já não precisa de um sistema de id
 
 2. Navegue para o conjunto de dimensionamento de máquina virtual pretendida.
 
-3. Desativar o sistema de identidade na VM de atribuída ao selecionar "Não" em "Identidade de serviço gerida" e, em seguida, clique em Guardar. Esta operação pode demorar 60 segundos ou mais para concluir:
+3. Sob **sistema atribuído**, **estado**, selecione **desligado** e, em seguida, clique em **guardar**:
 
    ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 

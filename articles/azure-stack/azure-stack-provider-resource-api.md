@@ -1,6 +1,6 @@
 ---
-title: Utilização de recursos do fornecedor API | Microsoft Docs
-description: Referência para a utilização de recursos API, que obtém as informações de utilização de pilha do Azure
+title: API de utilização de recursos do fornecedor | Documentos da Microsoft
+description: Referência para a utilização de recursos de API, que recupera informações de utilização do Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,45 +11,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 08/24/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aedaa729ec51d7b60b2c242239935f7b3e41794f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052703"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918192"
 ---
 # <a name="provider-resource-usage-api"></a>API de utilização do recurso do fornecedor
-O termo *fornecedor* aplica-se para o administrador de serviço e para quaisquer fornecedores de delegado. Operadores de pilha do Azure e os fornecedores de delegado podem utilizar a API de utilização do fornecedor para ver a utilização dos respetivos inquilinos diretas. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o fornecedor de API para obter informações de utilização sobre do P1 e utilização direta do P2 e P1 podem chamar para informações de utilização sobre P3 e P4.
+O termo *fornecedor* aplica-se para o administrador de serviços e para quaisquer fornecedores delegados. Operadores do Azure Stack e fornecedores delegados podem utilizar a API de utilização do fornecedor para ver a utilização dos seus inquilinos diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar a API para obter informações de utilização do P1 do fornecedor e a utilização de direta do P2 e P1 podem chamar para informações de utilização sobre P3 e P4.
 
-![Modelo concetual da hierarquia de fornecedor](media/azure-stack-provider-resource-api/image1.png)
+![Modelo conceitual da hierarquia de fornecedor](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>Referência da chamada de API
 ### <a name="request"></a>Pedir
-O pedido obtém os detalhes de consumo para as subscrições pedidas e para o intervalo de tempo de pedido. Não há nenhum corpo do pedido.
+O pedido obtém os detalhes de consumo para as subscrições de pedido e para o intervalo de tempo pedido. Não existe nenhum corpo de pedido.
 
-Esta utilização API é um fornecedor de API, pelo que o chamador tem de ser atribuído uma função de proprietário, Contribuidor ou leitor na subscrição do fornecedor.
+Esta API de utilização é um fornecedor de API, para que o chamador tem de ser atribuído uma função de proprietário, contribuinte ou leitor na subscrição do fornecedor.
 
 | **Método** | **URI do pedido** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argumentos
 | **Argumento** | **Descrição** |
 | --- | --- |
-| *armendpoint* |Azure ponto final do Gestor de recursos do ambiente de pilha do Azure. A Convenção de pilha do Azure é que o nome do ponto final do Azure Resource Manager está no formato `https://adminmanagement.{domain-name}`. Por exemplo, para o kit de desenvolvimento, se o nome de domínio for *local.azurestack.external*, em seguida, o ponto final do Gestor de recursos é `https://adminmanagement.local.azurestack.external`. |
-| *subId* |ID de subscrição do utilizador que efetua a chamada. |
-| *reportedStartTime* |A hora de início da consulta. O valor para *DateTime* deve estar no início da hora, por exemplo, 13:00 e na hora Universal Coordenada (UTC). Para agregação diária, defina este valor como meia-noite do UTC. O formato é *escape* ISO 8601. Por exemplo, *2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z*, em que a vírgula é escape para *% 3a* e o sinal de adição é escape para *% 2b* para que seja URI amigável. |
-| *reportedEndTime* |Hora de fim da consulta. As restrições que se aplicam ao *reportedStartTime* também se aplicam para este argumento. O valor para *reportedEndTime* não pode estar no futuro ou a data atual. Se estiver, o resultado é definido para "processar não concluída." |
-| *aggregationGranularity* |O parâmetro opcional que tem dois valores discretos de potenciais: diários e hora a hora. Como os valores sugerem, um devolve os dados na granularidade diária e o outro é uma resolução por hora. A diária é a opção predefinida. |
-| *subscriberId* |ID da subscrição. Para obter dados filtrados, é necessário o ID de subscrição de um inquilino direto do fornecedor. Não se for especificado nenhum parâmetro de ID de subscrição, a chamada devolve dados de utilização para os inquilinos direta do fornecedor. |
-| *api-version* |Versão do protocolo que é utilizado para efetuar este pedido. Este valor é definido como *2015-06-01-preview*. |
-| *continuationToken* |Obter o token da última chamada para o fornecedor de API de utilização. Este token é necessário quando uma resposta é maior do que 1000 linhas e funciona como um marcador para conhecer o progresso. Se o token não estiver presente, os dados são obtidos a partir do início do dia ou a hora, com base na granularidade transmitido. |
+| *armendpoint* |Gestor de recursos ponto final do Azure do seu ambiente do Azure Stack. A Convenção do Azure Stack é o nome do ponto final do Azure Resource Manager está no formato `https://adminmanagement.{domain-name}`. Por exemplo, para o kit de desenvolvimento, se o nome de domínio for *local.azurestack.external*, em seguida, o ponto de final do Gestor de recursos é `https://adminmanagement.local.azurestack.external`. |
+| *subId* |ID de subscrição do utilizador que faz a chamada. |
+| *reportedStartTime* |Hora de início da consulta. O valor para *DateTime* deve ser na hora Universal Coordenada (UTC) e no início da hora, por exemplo, 13:00. Para agregação diária, defina este valor como meia-noite de UTC. O formato é *caracteres de escape* ISO 8601. Por exemplo, *2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z*, em que os dois pontos é escape para *% 3a* e o sinal de adição é escape para *% 2b* para que seja amigável de URI. |
+| *reportedEndTime* |Hora de fim da consulta. As restrições que se aplicam à *reportedStartTime* também se aplicam a este argumento. O valor para *reportedEndTime* não pode ser no futuro ou a data atual. Se for o caso, o resultado é definido como "processamento não concluída." |
+| *aggregationGranularity* |O parâmetro opcional que tem dois valores possíveis discretas: diários e hora a hora. Como os valores sugerem, um devolve os dados na granularidade diária e o outro é uma resolução por hora. A opção diária é a predefinição. |
+| *subscriberId* |ID da subscrição. Para obter os dados filtrados, o ID de subscrição de um inquilino direto do fornecedor, é necessário. Se não for especificado nenhum parâmetro de ID de subscrição, a chamada retorna dados de utilização para os inquilinos de direta do fornecedor. |
+| *api-version* |Versão do protocolo que é utilizado para efetuar este pedido. Este valor é definido como *2015-06-01-pré-visualização*. |
+| *continuationToken* |Token obtido a partir da última chamada para o fornecedor de API de utilização. Este token é necessário quando uma resposta for superior a 1000 linhas e atua como um indicador para conhecer o progresso. Se o token não estiver presente, os dados são recuperados desde o início do dia ou hora, com base na granularidade passado. |
 
 ### <a name="response"></a>Resposta
-OBTER /subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = diariamente & subscriberId = sub1.1 & api-version = 1.0
+OBTER /subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = diariamente e subscriberId = sub1.1 e a api-version = 1,0
 
 ```json
 {
@@ -77,32 +77,50 @@ meterID1",
 …
 ```
 
-### <a name="response-details"></a>Detalhes de resposta
+### <a name="response-details"></a>Detalhes da resposta
 | **Argumento** | **Descrição** |
 | --- | --- |
 | *id* |ID exclusivo do agregado de utilização. |
 | *name* |Nome do agregado de utilização. |
 | *tipo* |Definição do recurso. |
-| *subscriptionId* |Identificador de subscrição de utilizador a pilha do Azure. |
-| *usageStartTime* |UTC hora de início do registo de utilização a que pertence este agregado de utilização.|
-| *usageEndTime* |Hora de fim de UTC do registo de utilização a que pertence este agregado de utilização. |
-| *instanceData* |Pares chave-valor dos detalhes da instância (por um novo formato):<br> *resourceUri*: totalmente qualificado ID de recurso, o que inclui os grupos de recursos e o nome da instância. <br> *localização*: região no qual este serviço foi executado. <br> *etiquetas*: os sinalizadores de recursos que são especificados pelo utilizador. <br> *additionalInfo*: mais detalhes sobre o recurso que foi consumido, por exemplo, o tipo de imagem ou versão do SO. |
+| *subscriptionId* |Identificador de subscrição do utilizador do Azure Stack. |
+| *usageStartTime* |Hora de registo de utilização a que pertence este agregado de utilização de início de UTC.|
+| *usageEndTime* |Hora de fim de UTC de registo de utilização a que pertence este agregado de utilização. |
+| *instanceData* |Pares de chave-valor dos detalhes de instância (num novo formato):<br> *resourceUri*: completamente qualificado do ID de recurso, que inclui os grupos de recursos e o nome da instância. <br> *localização*: região em que este serviço foi executado. <br> *etiquetas*: etiquetas de recursos que são especificadas pelo utilizador. <br> *additionalInfo*: mais detalhes sobre o recurso que foi consumido, por exemplo, o tipo de imagem ou de versão do SO. |
 | *quantity* |Quantidade de consumo de recursos que ocorreram neste período de tempo. |
-| *meterId* |ID exclusivo para o recurso que foi utilizado (também denominado *ResourceID*). |
+| *meterId* |ID exclusivo para o recurso que foi consumido (também denominado *ResourceID*). |
 
 
 ## <a name="retrieve-usage-information"></a>Obter informações de utilização
 
-Para gerar os dados de utilização, deverá ter recursos que estão em execução e ativamente utilizando o sistema, por exemplo, uma máquina virtual ativa ou uma conta de armazenamento que contém alguns dados, etc. Se não tiver a certeza se tem quaisquer recursos em execução no Azure Marketplace da pilha, implementar uma máquina virtual (VM) e certifique-se a VM monitorização do painel para se certificar de está em execução. Utilize os seguintes cmdlets PowerShell para ver os dados de utilização:
+### <a name="powershell"></a>PowerShell
 
-1. [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)
-2. [Configurar o utilizador do Azure pilha](user/azure-stack-powershell-configure-user.md) ou [do operador de pilha do Azure](azure-stack-powershell-configure-admin.md) ambiente de PowerShell 
+Para gerar os dados de utilização, deve ter recursos que estão em execução e a utilizar ativamente o sistema, por exemplo, uma máquina virtual do Active Directory ou uma conta de armazenamento que contém alguns dados etc. Se não tiver a certeza se tem recursos em execução no mercado do Azure Stack, implementar uma máquina virtual (VM) e verifique se a VM monitorização painel para garantir que ele é executado. Utilize os seguintes cmdlets do PowerShell para ver os dados de utilização:
+
+1. [Instale o PowerShell para o Azure Stack.](azure-stack-powershell-install.md)
+2. [Configurar o utilizador Azure Stack](user/azure-stack-powershell-configure-user.md) ou o [do operador do Azure Stack](azure-stack-powershell-configure-admin.md) ambiente do PowerShell 
 3. Para obter os dados de utilização, utilize o [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) cmdlet do PowerShell:
 ```powershell
 Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
 ```
+### <a name="rest-api"></a>API REST
+
+Pode recolher informações de utilização para subscrições eliminadas ao chamar o serviço de Microsoft.Commerce.Admin. 
+
+**Para retornar todas as utilizações de inquilino para eliminadas para usuários do Active Directory:**
+
+| **Método** | **URI do pedido** |
+| --- | --- |
+| GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version= 2015-06-01-pré-visualização |
+
+**Para voltar a utilização do inquilino foi eliminada ou Active Directory:**
+
+| **Método** | **URI do pedido** |
+| --- | --- |
+| GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={ id do assinante} & api-version = 2015-06-01-pré-visualização |
+
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Utilização de recursos de inquilino referência da API](azure-stack-tenant-resource-usage-api.md)
+[Referência da API de utilização de recursos de inquilino](azure-stack-tenant-resource-usage-api.md)
 
-[FAQ relacionados com a utilização](azure-stack-usage-related-faq.md)
+[Perguntas Freqüentes relacionadas com a utilização](azure-stack-usage-related-faq.md)

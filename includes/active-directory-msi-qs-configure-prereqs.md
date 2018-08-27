@@ -1,1 +1,1 @@
-Se não estiver familiarizado com a funcionalidade Identidade de Serviço Gerida, veja esta [descrição geral](../articles/active-directory/msi-overview.md). Se não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se não estiver familiarizado com a funcionalidade Identidade de Serviço Gerida, veja esta [descrição geral](../articles/active-directory/msi-overview.md). Se não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.

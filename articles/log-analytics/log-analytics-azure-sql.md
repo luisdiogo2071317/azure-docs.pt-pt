@@ -3,9 +3,9 @@ title: Solução de análise de SQL do Azure no Log Analytics | Documentos da Mi
 description: Solução de análise de SQL do Azure ajuda-o a gerir as suas bases de dados SQL do Azure
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216330"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886565"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Monitorizar as bases de dados de SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -39,14 +39,14 @@ Para obter uma descrição geral prática sobre como utilizar a solução de an�
 
 ## <a name="connected-sources"></a>Origens ligadas
 
-Análise de SQL do Azure é uma cloud de monitorização a solução suporte de transmissão em fluxo de telemetria de diagnóstico para conjuntos elásticos e bases de dados do Azure SQL. Como não utilizar agentes para ligar ao serviço Log Analytics, a solução não suporta a conectividade com o Windows, Linux ou de recursos do SCOM, veja a tabela de compatibilidade abaixo.
+Análise de SQL do Azure é uma cloud de monitorização a solução suporte de transmissão em fluxo de telemetria de diagnóstico para conjuntos elásticos e bases de dados do Azure SQL. Como ele não usa agentes para ligar ao serviço Log Analytics, a solução não suporta a conectividade com o Windows, Linux ou de recursos do SCOM, veja a tabela de compatibilidade abaixo.
 
 | Origem Ligada | Suporte | Descrição |
 | --- | --- | --- |
 | **[Diagnóstico do Azure](log-analytics-azure-storage.md)** | **Sim** | Dados de registo e métricas do Azure são enviados para o Log Analytics diretamente pelo Azure. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | O log Analytics não ler os dados de uma conta de armazenamento. |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não | Agentes diretos do Windows não são utilizados pela solução. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | Agentes diretos do Linux não são utilizados pela solução. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não | Agentes diretos do Windows não são usados pela solução. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não | Agentes diretos do Linux não são usados pela solução. |
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Não | Uma ligação direta do agente do SCOM para o Log Analytics não é utilizada pela solução. |
 
 ## <a name="configuration"></a>Configuração
@@ -108,7 +108,7 @@ Cada uma delas fornece resumos na subscrição, o servidor, o conjunto elástico
 | Tempos limite | Fornece a desagregação hierárquica em tempos limite SQL que ocorreram nas bases de dados. |
 | Bloqueios | Fornece a desagregação hierárquica no blockings SQL que ocorreram nas bases de dados. |
 | Esperas de base de dados | Fornece a desagregação hierárquica para estatísticas de espera SQL no nível da base de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |
-| Duração de consulta | Fornece a desagregação hierárquica para as estatísticas de execução de consulta, como a duração de consulta, a utilização da CPU, utilização e/s de dados, utilização e/s de registo. |
+| Duração da consulta | Fornece a desagregação hierárquica para as estatísticas de execução de consulta, como a duração de consulta, a utilização da CPU, utilização e/s de dados, utilização e/s de registo. |
 | Esperas de consulta | Fornece a desagregação hierárquica para as estatísticas de espera de consulta por categoria de espera. |
 
 ### <a name="intelligent-insights-report"></a>Relatório de informações inteligente
@@ -119,7 +119,7 @@ Base de dados SQL do Azure [informações inteligentes](../sql-database/sql-data
 
 ### <a name="elastic-pool-and-database-reports"></a>Conjunto elástico e da base de dados de relatórios
 
-Conjuntos elásticos e bases de dados tem seus próprios relatórios específicos que mostrar todos os dados que são recolhidos para o recurso no tempo especificado.
+Conjuntos elásticos e bases de dados tem seus próprios relatórios específicos que mostram todos os dados que são recolhidos para o recurso no tempo especificado.
 
 ![Base de dados de análise SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -135,27 +135,77 @@ Através da duração de consulta e perspectivas de esperas de consulta, pode co
 
 Pode facilmente [criar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [pesquisa de registos](log-analytics-log-searches.md) consultas que pode utilizar com um alerta de registo:
 
-
-
-*DTU elevada na base de dados SQL do Azure*
+*Elevada da CPU na base de dados SQL do Azure*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*DTU elevada num conjunto elástico de base de dados SQL do Azure*
+> [!NOTE]
+> - Pré-requisito de configurar este alerta é esse métricas de diagnóstico de fluxo (opção de "Todas as métricas") de bases de dados monitorizadas à solução.
+> - Substitua o cpu_percent de valor MetricName dtu_consumption_percent para obter resultados DTU elevados em vez disso.
+
+*Elevada da CPU em conjuntos elásticos de base de dados SQL do Azure*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - Pré-requisito de configurar este alerta é esse métricas de diagnóstico de fluxo (opção de "Todas as métricas") de bases de dados monitorizadas à solução.
+> - Substitua o cpu_percent de valor MetricName dtu_consumption_percent para obter resultados DTU elevados em vez disso.
 
+*Armazenamento de base de dados SQL do Azure em média superior a 95% na última 1 hora*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Pré-requisito de configurar este alerta é esse métricas de diagnóstico de fluxo (opção de "Todas as métricas") de bases de dados monitorizadas à solução.
+> - Esta consulta requer uma regra de alerta para ser configurado para acionar um alerta quando existem resultados (> 0 resultados) da consulta, que indica se a condição existe no algumas bases de dados. O resultado é uma lista de recursos de base de dados que estão acima storage_threshold dentro time_range definido.
+> - O resultado é uma lista de recursos de base de dados que estão acima storage_threshold dentro time_range definido.
+
+*Alerta sobre informações inteligentes*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Pré-requisito de configurar este alerta é o log de diagnóstico que bases de dados monitorizadas stream SQLInsights à solução.
+> - Esta consulta requer uma regra de alerta para ser configurado para ser executado com a mesma frequência de alert_run_interval para evitar resultados duplicados. A regra deve ser configurada para disparar o alerta quando existem resultados (> 0 resultados) da consulta.
+> - Personalize o alert_run_interval para especificar o intervalo de tempo para verificar se a condição ocorreu em bases de dados configuradas para o registo de SQLInsights de fluxo para a solução.
+> - Personalize o insights_string para capturar a saída do texto de análise de causa de raiz de informações. Este é o mesmo texto apresentado na IU da solução que pode utilizar o insights existente. Em alternativa, pode utilizar a consulta abaixo para ver o texto de todas as informações geradas na sua subscrição. Utilize a saída da consulta para coletar as cadeias de caracteres distintas para configurar alertas nas informações.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

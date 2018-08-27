@@ -1,5 +1,5 @@
 ---
-title: Países/regiões e idiomas suportadas para as API de pesquisa do Bing Web no Azure | Documentos da Microsoft
+title: Países, regiões e idiomas suportados pela API de pesquisa Web do Bing
 description: Descubra que países/regiões e idiomas são compatíveis com a API de pesquisa Web Bing.
 services: cognitive-services
 author: v-jerkin
@@ -7,24 +7,24 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e1994ddf3bf71d01adeac4ff8688bdd1e6eac660
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 87384a8aeabfe0c4a178344235debcc586cdf3de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001723"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888476"
 ---
-# <a name="bing-web-search-countriesregions-and-languages"></a>Pesquisa Web Bing países/regiões e idiomas
+# <a name="countries-regions-and-languages-supported-by-the-bing-web-search-api"></a>Países, regiões e idiomas suportados pela API de pesquisa Web do Bing
 
-A API de pesquisa Web Bing suporta mais de três doze países/regiões, muitos com mais de um idioma. Especificação de um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base nos interesses desse país/região. Além disso, os resultados podem conter hiperligações para do Bing e estas ligações podem localizar a experiência do usuário do Bing, de acordo com o idioma ou país/região especificado.
+A API de pesquisa Web Bing suporta mais de três doze países ou regiões, muitos com mais de um idioma. Especificação de um país ou região com uma consulta ajuda a refinar os resultados da pesquisa com base nos interesses desse país ou regiões. Os resultados podem incluir ligações para o Bing e estas ligações podem localizar a experiência do usuário do Bing, de acordo com o idioma ou país/região especificado.
 
-Pode especificar um país/região a utilizar o `cc` parâmetro de consulta. Se especificar um país/região, também tem de especificar um ou mais códigos de idioma a utilizar o `Accept-Language` cabeçalho de HTTP. Os idiomas com suporte variam consoante o país/região. são fornecidos para cada país/região na tabela de mercados.
+Pode especificar um país ou região a utilizar o `cc` parâmetro de consulta. Quando é especificado um país ou região, tem de especificar um ou mais códigos de idioma com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Utilize o [tabela de mercados](#Markets) para obter uma lista de linguagens suportadas em cada mercado.
 
-Em alternativa, pode especificar o mercado utilizando o `mkt` consultar o parâmetro e um código do **mercados** tabela. Especificar um mercado em simultâneo Especifica um país/região e um idioma preferencial. O `setLang` parâmetro de consulta pode ser definido como um código de idioma neste caso; normalmente, este é o mesmo idioma especificado pelo `mkt` , a menos que o utilizador prefere ver do Bing em outro idioma.
+Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e um código a partir de **mercados** tabela. Especificar um mercado em simultâneo Especifica um país ou região e um idioma preferencial. Pode definir explicitamente a linguagem com o `setLang` parâmetro de consulta.
 
-## <a name="countries"></a>Países
+## <a name="countriesregions"></a>Países/regiões
 
 |País/região|Código|
 |-------|----|
@@ -64,7 +64,6 @@ Em alternativa, pode especificar o mercado utilizando o `mkt` consultar o parâm
 |Turquia|TR|
 |Reino Unido|GB|
 |Estados Unidos|EUA|
-
 
 ## <a name="markets"></a>Mercados
 

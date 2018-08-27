@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450040"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918317"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrição do Azure
 
-Para gerir o acesso aos recursos do Azure, tem de ter a função de administrador adequados. Este artigo descreve como adicionar ou alterar a função de administrador para um utilizador ao nível da subscrição.
+Para gerir o acesso aos recursos do Azure, tem de ter a função de administrador adequada. Este artigo descreve como adicionar ou alterar a função de administrador para um utilizador ao nível da subscrição.
+
+> [!div class="nextstepaction"]
+> [Ajude a melhorar os documentos de faturas do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Função de administrador que utilizo?
 
@@ -34,16 +37,16 @@ O Azure tem várias funções diferentes. Para gerir o acesso a recursos, pode u
 
 ## <a name="add-an-rbac-owner-for-a-subscription-in-azure-portal"></a>Adicionar um proprietário do RBAC para obter uma subscrição no portal do Azure 
 
-Para adicionar alguém como um administrador para uma subscrição do Azure, atribuí-los a [proprietário](../role-based-access-control/built-in-roles.md#owner) função (uma função RBAC) no âmbito da subscrição. A função de proprietário pode gerir os recursos na subscrição que atribuído e não tem o privilégio de acesso para outras subscrições.
+Para adicionar alguém como administrador para uma subscrição do Azure, atribua-lhe a função [Proprietário](../role-based-access-control/built-in-roles.md#owner) (uma função RBAC) no âmbito da subscrição. A função Proprietário pode gerir os recursos na subscrição que atribuiu e não tem privilégio de acesso a outras subscrições.
 
 1. Visite [ **subscrições** no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Selecione a subscrição que pretende conceder acesso.
+2. Selecione a subscrição à qual deseja atribuir acesso.
 3. Selecione **Adicionar**.
-   (Se o botão Adicionar está em falta, não tem permissão para adicionar permissões.)
-4. Selecione **controlo de acesso (IAM)** na lista.
-5. Na **função** caixa, selecione **proprietário**. 
-6. Na **atribuir acesso aos** caixa, selecione **utilizador do Azure AD, grupo ou aplicação**. 
-7. Na **selecione** , escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário. Selecione o utilizador e, em seguida, selecione **guardar**.
+   (Se o botão Adicionar estiver em falta, não tem permissão para adicionar permissões.)
+4. Selecione **Controlo de acesso (IAM)** na lista.
+5. Na caixa **Função**, selecione **Proprietário**. 
+6. Na caixa **Atribuir acesso a**, selecione **Utilizador, grupo ou aplicação do Azure AD**. 
+7. Na caixa **Selecionar**, escreva o endereço de e-mail do utilizador que deseja adicionar como Proprietário. Selecione o utilizador e, em seguida, selecione **Guardar**.
 
     ![Captura de ecrã que mostra a função de proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -51,7 +54,7 @@ Isso dá ao usuário acesso total a todos os recursos, incluindo o direito de de
 
 ## <a name="add-or-change-co-administrator"></a>Adicionar ou alterar o coadministrador
 
-Apenas um [proprietário](../role-based-access-control/built-in-roles.md#owner) podem ser adicionados como coadministradores. Outros utilizadores com funções, como [contribuinte](../role-based-access-control/built-in-roles.md#contributor) e [leitor](../role-based-access-control/built-in-roles.md#reader) não podem ser adicionados como coadministradores.
+Apenas um [Proprietário](../role-based-access-control/built-in-roles.md#owner) pode ser adicionado como Coadministrador. Outros utilizadores com funções, como [Contribuidor](../role-based-access-control/built-in-roles.md#contributor) e [Leitor](../role-based-access-control/built-in-roles.md#reader) não podem ser adicionados como Coadministradores.
 
 > [!TIP]
 > Apenas terá de adicionar o proprietário como um coadministrador se o utilizador precisar gerir implementações clássicas do Azure. Recomendamos que utilize o RBAC para todos os outros fins.

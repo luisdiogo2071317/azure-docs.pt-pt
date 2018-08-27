@@ -1,48 +1,80 @@
 ---
-title: SendGrid | Microsoft Docs
-description: Crie aplicações lógicas com o App service do Azure. O fornecedor de ligação do SendGrid permite-lhe enviar correio eletrónico e gerir a lista de destinatário.
+title: Ligar ao SendGrid a partir do Azure Logic Apps | Documentos da Microsoft
+description: Automatizar tarefas e fluxos de trabalho que enviar e-mails e gerir listas de correio SendGrid com o Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 0b34a76ecaf4997cbf66c3d026cd770aa8aa080d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: c8747210a77879d551e323a7c0e46a9ab013fa3f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295844"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887194"
 ---
-# <a name="get-started-with-the-sendgrid-connector"></a>Começar a utilizar o conector SendGrid
-O fornecedor de ligação do SendGrid permite-lhe enviar correio eletrónico e gerir a lista de destinatário.
+# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Enviar e-mails e gerir listas de correio SendGrid com o Azure Logic Apps
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Com o Azure Logic Apps e o conector do SendGrid, pode criar tarefas automatizadas e fluxos de trabalho que enviar e-mails e gerir as suas listas de destinatários, por exemplo:
 
-## <a name="create-a-connection-to-sendgrid"></a>Criar uma ligação a SendGrid
-Para criar aplicações lógicas com SendGrid, primeiro tem de criar um **ligação** , em seguida, forneça os detalhes para as seguintes propriedades: 
+* Envie mensagem de e-mail.
+* Adicione os destinatários às listas.
+* Obter, adicionar e gerir a supressão global.
 
-| Propriedade | Necessário | Descrição |
-| --- | --- | --- |
-| ApiKey |Sim |Forneça a chave de Api do SendGrid |
+Pode utilizar o SendGrid ações nas suas aplicações lógicas para executar estas tarefas. Pode também ter outras ações utilizar a saída de ações do SendGrid. 
 
-> [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
-> 
+Este conector proporciona apenas ações como, por isso, para iniciar a sua aplicação lógica, utilizam um acionador separado, como um **periodicidade** acionador. Por exemplo, se regularmente, adicionar os destinatários às suas listas, pode enviar por e-mail sobre os destinatários e listas de utilizar o conector do Outlook do Office 365 ou o conector do Outlook.com.
+Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Depois de criar a ligação, pode utilizá-lo para executar as ações e escutar de acionadores.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+* R [conta de SendGrid](https://www.sendgrid.com/) e um [chave de API de SendGrid](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/sendgrid/).
+   A chave de API autoriza a aplicação lógica para criar uma ligação e aceder à sua conta do SendGrid.
 
-## <a name="more-connectors"></a>Mais conectores
-Volte à [lista APIs](apis-list.md).
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* A aplicação de lógica onde pretende aceder à sua conta do SendGrid. Para utilizar uma ação do SendGrid, inicie a aplicação lógica com outro acionador, por exemplo, o **periodicidade** acionador.
+
+## <a name="connect-to-sendgrid"></a>Ligue ao SendGrid
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
+
+1. Escolha um caminho: 
+
+   * Na última etapa em que pretende adicionar uma ação, escolha **novo passo**. 
+
+     -ou-
+
+   * Entre os passos em que pretende adicionar uma ação, mova o ponteiro do mouse sobre a seta entre passos. 
+   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+
+1. Na caixa de pesquisa, introduza "sendgrid" como o filtro. Abaixo da lista de ações, selecione a ação que pretende.
+
+1. Indique um nome para a ligação. 
+
+1. Introduza a chave de API do SendGrid e, em seguida, escolha **criar**.
+
+1. Forneça os detalhes necessários para a ação selecionada e continuar a criar o fluxo de trabalho da sua aplicação lógica.
+
+## <a name="connector-reference"></a>Referência do conector
+
+Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja o conector [página de referência](/connectors/sendgrid/).
+
+## <a name="get-support"></a>Obter suporte
+
+* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)

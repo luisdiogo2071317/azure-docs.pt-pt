@@ -1,6 +1,6 @@
 ---
-title: Guia de introdução do Web pesquisa SDK Python | Microsoft Docs
-description: Configuração de aplicação de consola Web SDK de pesquisa.
+title: 'Início rápido: Utilizar a SDK de pesquisa Web Bing para Python'
+description: Configuração para a aplicação de consola do SDK de pesquisa da Web.
 titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -8,35 +8,37 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 2a5fed58be863b882b827dbed73862bc690bab1e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: faf43d84724cdbf799219c120f87dfc333c5026f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355297"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888531"
 ---
-# <a name="web-search-sdk-python-quickstart"></a>Guia de introdução do Web pesquisa SDK Python
+# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início rápido: Utilizar a SDK de pesquisa Web Bing para Python
 
-O SDK de pesquisa do Bing Web contém as funcionalidades da API REST para consultas de web e os resultados da análise. 
+O SDK de pesquisa Web Bing contém a funcionalidade da API REST para consultas de web e os resultados da análise.
 
-O [origem código para exemplos do SDK de pesquisa do Python Bing Web](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) está disponível no Hub de Git.
+O [da origem de código para amostras de Python SDK de pesquisa do Bing Web](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) está disponível no GitHub.
 
-## <a name="application-dependencies"></a>Dependências da aplicação
-Se ainda não tivê-lo, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+## <a name="application-dependencies"></a>Dependências de aplicações
+Se não o tiver, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 
-As recomendações gerais para desenvolvimento do Python é utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instalar e inicializar o ambiente virtual com o [venv módulo](https://pypi.python.org/pypi/virtualenv). Tem de instalar virtualenv para Python 2.7.
+A recomendação geral para o desenvolvimento do Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html).
+Instalar e inicializar o ambiente virtual com o [venv módulo](https://pypi.python.org/pypi/virtualenv). Tem de instalar virtualenv para o Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Instale dependências do SDK de pesquisa do Bing Web:
+Instale as dependências do SDK de pesquisa Web Bing:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-websearch
 ```
-## <a name="web-search-client"></a>Cliente de pesquisa da Web
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *pesquisa*. Adicionar importa e criar uma instância do `CognitiveServicesCredentials`:
+## <a name="web-search-client"></a>Cliente de pesquisa Web
+Obter um [chave de subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) sob *pesquisa*.
+Adicione importações e criar uma instância do `CognitiveServicesCredentials`:
 ```
 from azure.cognitiveservices.search.websearch import WebSearchAPI
 from azure.cognitiveservices.search.websearch.models import SafeSearch
@@ -44,11 +46,11 @@ from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Em seguida, instanciar o cliente:
+Em seguida, criar uma instância do cliente:
 ```
 client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Para obter os resultados de pesquisa e imprimir o resultado da página Web primeiro:
+Para obter os resultados de pesquisa e imprimir o primeiro resultado de página da Web:
 ```
 web_data = client.web.search(query="Yosemite")
 print("\r\nSearched for Query# \" Yosemite \"")
@@ -65,7 +67,7 @@ if web_data.web_pages.value:
 else:
     print("Didn't see any Web data..")
 ```
-Outros tipos de resultados, incluindo as imagens, notícias e vídeos de impressão:
+Outros tipos de resultado, incluindo imagens, notícias e vídeos de impressão:
 ```
 # Images
 if web_data.images.value:
@@ -78,7 +80,7 @@ if web_data.images.value:
 
 else:
     print("Didn't see any Image..")
-        
+
 # News
 if web_data.news.value:
 
@@ -90,7 +92,7 @@ if web_data.news.value:
 
 else:
     print("Didn't see any News..")
-            
+
 # Videos
 if web_data.videos.value:
 
@@ -104,7 +106,7 @@ else:
     print("Didn't see any Videos..")
 
 ```
-Procure (restaurants melhor em Seattle), verifique o número de resultados e imprimir `name` e `URL` do resultado primeiro.
+Procurar (melhor restaurantes em Seattle), verifique o número de resultados e imprimir `name` e `URL` do primeiro resultado.
 ```
 def web_results_with_count_and_offset(subscription_key):
 
@@ -129,7 +131,7 @@ def web_results_with_count_and_offset(subscription_key):
         print("Encountered exception. {}".format(err))```
 
 ```
-Procure "xbox" com `response_filter` atribuídos a `News`.  Detalhes de resultados de notícias de impressão.
+Procure "xbox" com `response_filter` atribuídas a `News`.  Detalhes dos resultados de notícias de impressão.
 ```
 def web_search_with_response_filter(subscription_key):
 
@@ -155,7 +157,7 @@ def web_search_with_response_filter(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-A procura com consulta "Niagara recai", utilizando `answerCount` e `promote` parâmetros. Detalhes de resultados de impressão.
+Pesquise com a consulta "Niagara cai", usando `answerCount` e `promote` parâmetros. Detalhes dos resultados de impressão.
 ```
 def web_search_with_answer_count_promote_and_safe_search(subscription_key):
 
@@ -187,6 +189,4 @@ def web_search_with_answer_count_promote_and_safe_search(subscription_key):
 ```
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Exemplos de SDK Python de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
-
+[Amostras do SDK de Python de serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)

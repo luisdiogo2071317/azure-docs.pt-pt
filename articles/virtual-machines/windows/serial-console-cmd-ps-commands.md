@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177654"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918522"
 ---
-# <a name="windows-commands---cmd"></a>Comandos do Windows - CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Comandos do Windows - CMD e o PowerShell
 
 Esta secção inclui comandos de exemplo para realizar tarefas comuns em cenários em que poderá ter de utilizar SAC para aceder à VM do Windows, por exemplo, quando tiver de resolver problemas de falhas de ligação de RDP.
 
@@ -91,6 +91,8 @@ ou
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>Definir o NIC para utilizar DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+Para obter mais informações sobre `netsh`, [clique aqui](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 VMs do Azure sempre devem ser configuradas no sistema operacional para utilizar DHCP para obter um endereço IP do convidado. A configuração de IP estática do Azure continua a utilizar DHCP para fornecer o IP estático para a VM.
 ### <a name="ping"></a>Ping

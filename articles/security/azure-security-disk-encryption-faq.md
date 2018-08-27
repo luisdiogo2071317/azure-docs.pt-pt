@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 98b8883a5ab0096102ab7daf90b5b2791a6f7e41
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b93ad4d6d4637b3060d92fb5e17747294c7e6211
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389580"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885997"
 ---
 # <a name="azure-disk-encryption-faq"></a>FAQ de encriptação de disco do Azure
 
@@ -72,7 +72,7 @@ O Azure Disk Encryption é suportado nas seguintes distribuições de servidor d
 | SLES | 11 SP4 | Disco de dados |
 
 
-*__ADE é suportada para RHEL para o disco de dados. A implementação atual do ADE funciona o disco do SO, mas não é suportada atualmente em conjunto. Microsoft e a Red Hat estão a trabalhar numa solução em conjunto, suportada. Até lá, pode fazer referência a [do Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) artigo.__
+*__ADE é suportada para RHEL para o disco de dados. A implementação atual do ADE funciona o disco do SO, mas atualmente em conjunto, não é suportada. Microsoft e a Red Hat estão a trabalhar numa solução em conjunto, suportada. Até lá, pode fazer referência a [do Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) artigo.__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Como posso começar a utilizar o Azure Disk Encryption?
 
@@ -96,11 +96,17 @@ Não é possível utilizar o serviço de gestão de chaves no local ou o HSM par
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Quais são os pré-requisitos para configurar a encriptação de disco do Azure?
 
-Existem pré-requisitos para a encriptação de disco do Azure. Consulte a [pré-requisitos do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) artigo para criar uma aplicação do Azure Active Directory, criar um novo cofre de chaves, ou configurar um cofre de chaves existente para o acesso de encriptação de disco ativar a encriptação e salvaguardar segredos e chaves. Para obter mais informações sobre os cenários de suporte de chave de encriptação de chave, consulte [descrição geral do Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+Existem pré-requisitos para a encriptação de disco do Azure. Consulte a [pré-requisitos do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) artigo para criar um novo cofre de chaves ou configurar um cofre de chaves existente para o acesso de encriptação de disco ativar a encriptação e salvaguardar segredos e chaves. Para obter mais informações sobre os cenários de suporte de chave de encriptação de chave, consulte [descrição geral do Azure Disk Encryption](azure-security-disk-encryption-overview.md).
 
-## <a name="where-can-i-get-more-information-on-how-to-use-powershell-for-configuring-azure-disk-encryption"></a>Onde posso obter mais informações sobre como utilizar o PowerShell para configurar a encriptação de disco do Azure?
+## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>Quais são os pré-requisitos para configurar a encriptação de disco do Azure com uma aplicação do Azure AD (versão anterior)?
 
-Há alguns artigos sobre como executar tarefas básicas do Azure Disk Encryption, bem como cenários mais avançados. Para as tarefas básicas, consulte [explorar o Azure Disk Encryption com o Azure PowerShell – parte 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Para cenários mais avançados, consulte [explorar o Azure Disk Encryption com o Azure PowerShell – parte 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
+Existem pré-requisitos para a encriptação de disco do Azure. Consulte a [pré-requisitos do Azure Disk Encryption](azure-security-disk-encryption-prerequisites-aad.md) artigo para criar uma aplicação do Azure Active Directory, criar um novo cofre de chaves, ou configurar um cofre de chaves existente para o acesso de encriptação de disco ativar a encriptação e salvaguardar segredos e chaves. Para obter mais informações sobre os cenários de suporte de chave de encriptação de chave, consulte [descrição geral do Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+
+## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>Azure Disk Encryption está a utilizar uma aplicação do Azure AD (versão anterior), continua a ser suportada?
+Sim. Encriptação de disco a utilizar uma aplicação do Azure AD ainda é suportada. No entanto, quando novas VMs a encriptar é recomendado que utilize o novo método, em vez de encriptar com uma aplicação do Azure AD. 
+
+## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Pode migrar as VMs que eram criptografadas com uma aplicação do Azure AD para encriptação sem uma aplicação do Azure AD?
+Atualmente, não é um caminho de migração direta de máquinas que era criptografado com uma aplicação do Azure AD para encriptação sem uma aplicação do Azure AD. Além disso, também não existe um caminho direto de criptografia sem uma aplicação do Azure AD para a encriptação com uma aplicação do AD. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Qual a versão do Azure PowerShell suporta o Azure Disk Encryption?
 
@@ -121,7 +127,7 @@ Sim, pode efetuar uma atualização ou uma VM do Red Hat Linux de patches. Para 
 
 O seguinte fluxo de trabalho é recomendado ter os melhores resultados no Linux:
 * Começar a partir da imagem de galeria sem modificações de stock correspondente para a distribuição de SO pretendida e a versão
-* Cópia de segurança de quaisquer unidades montadas que serão encriptadas.  Isto permite a recuperação se ocorrer uma falha, por exemplo, se a VM é reiniciada antes de encriptação foi concluída.
+* Cópia de segurança de quaisquer unidades montadas que serão encriptadas.  Assim, para a recuperação se houver uma falha, por exemplo se a VM é reiniciada antes de encriptação foi concluída.
 * Encriptar (pode demorar várias horas ou até mesmo dias dependendo características da vm e o tamanho de quaisquer discos de dados anexados)
 * Personalizar e adicione software à imagem, conforme necessário.
 
@@ -140,6 +146,6 @@ Pode fazer perguntas ou enviar comentários sobre o [fórum do Azure Disk Encryp
 ## <a name="next-steps"></a>Passos Seguintes
 Neste documento, ficou a saber mais sobre as perguntas mais frequentes relacionadas com o Azure Disk Encryption. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
 
+- [Descrição geral da encriptação de disco do Azure](azure-security-disk-encryption-overview.md)
 - [Aplicar encriptação de disco no Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Encriptar uma máquina virtual do Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Encriptação de dados do Azure em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

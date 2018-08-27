@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 8e7af24133b7e034bb7bc1898609cebbb860b738
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414611"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919083"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -43,8 +43,8 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|
-|Tamanho máximo do registo|307|307|461|922|1229|1229|
-|(GB) de TempDB|32|64|128|256|384|384|
+|Tamanho máximo do registo (GB)|307|307|461|922|1229|1229|
+|TempDB tamanho (GB)|32|64|128|256|384|384|
 |Destino IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -65,8 +65,8 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
-|Tamanho máximo do registo|307|307|461|614|1229|1229|1229|1229|
-|(GB) de TempDB|64|128|256|384|384|384|384|384|
+|Tamanho máximo do registo (GB)|307|307|461|614|1229|1229|1229|1229|
+|TempDB tamanho (GB)|64|128|256|384|384|384|384|384|
 |Destino IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -86,10 +86,10 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Memória (GB)|7|14|28|56|112|168|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1|2|4|8|20|36|
-|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo do registo|307|307|307|307|307|307|
-|(GB) de TempDB|32|64|128|256|384|384|
+|Tamanho máximo do registo (GB)|307|307|307|307|307|307|
+|TempDB tamanho (GB)|32|64|128|256|384|384|
 |Destino IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|3200|4800|
@@ -108,11 +108,11 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Memória (GB)|11|22|44|88|132|176|220|440|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
-|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
-|Tamanho máximo do registo|307|307|307|307|614|1229|1229|1229|
-|(GB) de TempDB|64|128|256|384|384|384|384|384|
+|Tamanho máximo do registo (GB)|307|307|307|307|614|1229|1229|1229|
+|TempDB tamanho (GB)|64|128|256|384|384|384|384|384|
 |Destino IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|

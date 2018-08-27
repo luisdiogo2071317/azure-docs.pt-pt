@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f825a2a343d9b5ad8f9802042b7aca2ba1544dfb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42432294"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917407"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Serviço de aplicações no notas de versão de atualização 3 do Azure Stack
 
@@ -178,6 +178,21 @@ Validação
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
+
+### <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
+
+- Os trabalhos são não é possível alcançar o servidor de ficheiros quando o serviço de aplicações é implementado numa rede virtual existente e o servidor de ficheiros só está disponível na rede privada.  Isso é também chamado no serviço de aplicações do Azure, na documentação de implementação do Azure Stack.
+
+Se optar por implementar numa rede virtual existente e um endereço IP interno para se ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+ * Origem: qualquer
+ * Intervalo de portas de origem: *
+ * Destino: Endereços IP
+ * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
+ * Intervalo de portas de destino: 445
+ * Protocolo: TCP
+ * Ação: permitir
+ * Prioridade: 700
+ * Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conhecidos para os administradores de nuvem operacional de serviço de aplicações do Azure no Azure Stack
 

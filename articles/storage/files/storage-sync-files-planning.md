@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1f75317882e803a40df065377ef75f8b6b753898
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617197"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918384"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -67,18 +67,25 @@ Criação de camadas da cloud é uma funcionalidade opcional do Azure File Sync 
 > [!Important]  
 > Na cloud em camadas não é suportada para pontos de extremidade nos volumes de sistema do Windows server.
 
-## <a name="azure-file-sync-interoperability"></a>Interoperabilidade de sincronização de ficheiros do Azure 
-Esta secção abrange a interoperabilidade de sincronização de ficheiros do Azure com recursos do Windows Server e funções e soluções de terceiros.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos de sistema de sincronização de ficheiros do Azure e interoperabilidade 
+Esta secção abrange os requisitos de sistema do agente de sincronização de ficheiros do Azure e a interoperabilidade com recursos do Windows Server e funções e soluções de terceiros.
 
-### <a name="supported-versions-of-windows-server"></a>Versões suportadas do Windows Server
-Atualmente, as versões suportadas do Windows Server pelo Azure File Sync são:
+### <a name="system-requirements"></a>Requisitos de Sistema
+- Um servidor com o Windows Server 2012 R2 ou Windows Server 2016 
 
-| Versão | SKUs suportados | Opções de implementação suportadas |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
-| Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
+    | Versão | SKUs suportados | Opções de implementação suportadas |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
+    | Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
 
-Versões futuras do Windows Server serão adicionadas à medida que são lançadas. Versões anteriores do Windows podem ser adicionadas com base nos comentários dos utilizadores.
+    Versões futuras do Windows Server serão adicionadas à medida que são lançadas. Versões anteriores do Windows podem ser adicionadas com base nos comentários dos utilizadores.
+
+- Um servidor com um mínimo de 2GB de memória
+
+    > [!Important]  
+    > Se o servidor estiver em execução numa máquina virtual com memória dinâmica ativada, a VM deve ser configurada com um mínimo de 2048MB de memória.
+    
+- Um volume localmente anexado formatado com o sistema de ficheiros NTFS
 
 > [!Important]  
 > É recomendável manter todos os servidores que utiliza com o Azure File Sync atualizados com as atualizações mais recentes do Windows Update. 

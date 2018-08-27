@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170913"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888209"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Como utilizar a propriedade "Esperado entidade" das ações
 
@@ -59,14 +59,14 @@ Concretamente, se o campo "esperado entidade" de uma ação estiver definido par
 
 ### <a name="create-two-actions"></a>Criar duas ações
 
-1. Clique em ações, em seguida, nova ação
+1. Clique em ações, em seguida, nova ação.
 2. Em resposta, escreva "O que é o seu nome?".
 3. Nas entidades esperado, introduza $name. Clique em Guardar.
     - Este valor significa que se essa pergunta é solicitada e a resposta do utilizador não tem qualquer entidades detetadas, o bot deve presumir que o todo de resposta do usuário é esta entidade.
 2. Clique em ações, em seguida, nova ação para criar uma segunda ação.
 3. Em resposta, escreva 'Hello $name'.
-    - A entidade é adicionada automaticamente como uma entidade disqualifying. 
-4. Clicar em Guardar
+    - A entidade é adicionada automaticamente como uma entidade necessária. 
+4. Clique em Guardar.
 
 Agora tem duas ações.
 

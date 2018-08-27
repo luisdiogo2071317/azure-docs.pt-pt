@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114349"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918905"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Configurar a automatização de Virtual WAN - para parceiros Virtual WAN (pré-visualização)
 
@@ -23,7 +23,7 @@ Soluções de conectividade definida pelo software utilizam normalmente um contr
 
 ##  <a name="access"></a>Controlo de acesso
 
-Os clientes tem de ser capazes de configurar o controlo de acesso apropriados para o Virtual WAN na IU do dispositivo. Isto é recomendado utilizar um Principal de serviço do Azure. O acesso de baseada em principais de serviço fornece a autenticação adequada de controlador de dispositivo para carregar as informações do ramo.
+Os clientes tem de ser capazes de configurar o controlo de acesso apropriados para o Virtual WAN na IU do dispositivo. Isto é recomendado utilizar um Principal de serviço do Azure. O acesso de baseada em principais de serviço fornece a autenticação adequada de controlador de dispositivo para carregar as informações do ramo. Para obter mais informações, consulte [criar principal de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Carregar informações do ramo
 
@@ -44,10 +44,10 @@ Neste passo, faria um cliente que não está a utilizar um fornecedor manualment
 
 ### <a name="understanding-the-device-configuration-file"></a>Noções básicas sobre o ficheiro de configuração do dispositivo
 
-O ficheiro de configuração do dispositivo contém as definições a utilizar quando configurar o dispositivo VPN no local. Quando vê esse arquivo, tenha em atenção as seguintes informações:
+O ficheiro de configuração do dispositivo contém as definições que vão ser utilizadas para configurar o dispositivo VPN no local. Quando vir este ficheiro, repare nas informações seguintes:
 
-* **vpnSiteConfiguration -** esta secção indica os detalhes do dispositivo definido como um site de ligar para o WAN virtual. Ele inclui o nome e endereço ip público do dispositivo ramo.
-* **vpnSiteConnections -** Esta seção fornece informações sobre o seguinte:
+* **vpnSiteConfiguration -** esta secção mostra os detalhes do dispositivo configurados como site que se vai ligar à WAN virtual. Inclui o nome e o endereço IP público do dispositivo da sucursal.
+* **vpnSiteConnections -** esta secção disponibiliza informações sobre o seguinte:
 
     * **Espaço de endereços** do virtual no hub ou hubs VNet.<br>Exemplo:
  
@@ -59,15 +59,15 @@ O ficheiro de configuração do dispositivo contém as definições a utilizar q
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **Endereços IP** do vpngateway virtual hub. Como o vpngateway tem que cada ligação incluem de 2 túneis numa configuração ativa-ativa, verá os dois endereços IP listados neste ficheiro. Neste exemplo, vê "Instance0" e "Instance1" para cada site.<br>Exemplo:
+    * **Endereços IP** do vpngateway do hub virtual. Uma vez que o vpngateway tem ambas as ligações compostas por dois túneis na configuração ativo-ativo, verá os dois endereços IP indicados neste ficheiro. Neste exemplo, vê "Instance0" e "Instance1" para cada site.<br>Exemplo:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Detalhes de configuração de ligação de Vpngateway** , como o protocolo BGP, pré-partilhada chave etc. O PSK é a chave pré-partilhada, que é gerada automaticamente para. Pode sempre editar a ligação na página de descrição geral para uma PSK personalizado.
+    * **Detalhes da configuração da ligação Vpngateway**, como BGP, chave pré-partilhada, etc. O PSK é a chave pré-partilhada que é gerada automaticamente para si. Pode sempre editar a ligação na página Overview (Descrição geral) de um PSK personalizado.
   
-### <a name="example-device-configuration-file"></a>Ficheiro de configuração do dispositivo de exemplo
+### <a name="example-device-configuration-file"></a>Exemplo de ficheiro de configuração de dispositivo
 
   ```
   { 
@@ -250,9 +250,9 @@ O dispositivo SDWAN/VPN no local ou SD-WAN configuração tem de corresponder ou
 * Algoritmo de integridade do IPsec
 * Grupo PFS
 
-## <a name="feedback"></a>Comentários de pré-visualização
+## <a name="feedback"></a>Comentários sobre a pré-visualização
 
-Agradecemos os seus comentários. Envie um e-mail para <azurevirtualwan@microsoft.com> para reportar quaisquer problemas ou para fornecer comentários (positivo ou negativo) para o Virtual WAN. Inclua o nome da sua empresa em "[]" na linha de assunto. Também incluem o seu ID de subscrição se está a relatar um problema.
+Agradecemos os seus comentários. Envie um e-mail para <azurevirtualwan@microsoft.com> para reportar quaisquer problemas ou para faça comentários (positivos ou negativos) sobre a WAN Virtual. Inclua o nome da sua empresa em "[ ]" na linha de assunto. Inclua também o ID da subscrição se estiver a reportar um problema.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

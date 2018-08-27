@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060870"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919107"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de ligação na automatização do Azure
 
@@ -84,7 +84,7 @@ Pode utilizar o script para criar o recurso de ligação, porque quando criar a 
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Utilizar uma ligação num runbook ou configuração DSC
 
-Recupera uma ligação num runbook ou configuração DSC com o **Get-AutomationConnection** cmdlet.  Não é possível utilizar o [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) atividade.  Esta atividade obtém os valores dos campos diferentes na ligação e devolve-los como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que, em seguida, podem ser utilizadas com os comandos apropriados no runbook ou configuração DSC.
+Recupera uma ligação num runbook ou configuração DSC com o **Get-AutomationConnection** cmdlet.  Não é possível utilizar o [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) atividade.  Esta atividade obtém os valores dos campos diferentes na ligação e devolve-los como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que, em seguida, podem ser utilizadas com os comandos apropriados no runbook ou configuração DSC.
 
 ### <a name="textual-runbook-sample"></a>Exemplo de textual runbook
 

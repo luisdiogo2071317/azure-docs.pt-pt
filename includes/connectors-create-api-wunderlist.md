@@ -1,17 +1,17 @@
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta de Wunderlist  
 
-Antes de poder utilizar a sua conta Wunderlist numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta Wunderlist. Felizmente, pode fazê-facilmente na sua aplicação lógica no Portal do Azure. 
+Antes de poder utilizar a sua conta de Wunderlist numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta de Wunderlist. Felizmente, pode fazer isso facilmente de na sua aplicação lógica no Portal do Azure. 
 
-Eis os passos para autorizar a aplicação lógica para ligar à sua conta Wunderlist:
+Eis os passos para autorizar a aplicação lógica para ligar à sua conta de Wunderlist:
 
-1. Para criar uma ligação a Wunderlist, no designer de aplicação lógica, selecione **Mostrar Microsoft APIs geridas** na lista pendente, em seguida, introduza *Wunderlist* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
+1. Para criar uma ligação para o Wunderlist, no Estruturador da aplicação lógica, selecione **APIs geridas da Microsoft mostram** na lista pendente, em seguida, introduza *Wunderlist* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
    ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
-2. Se ainda não criou quaisquer ligações a Wunderlist antes, irá obter lhe fornecer as credenciais de Wunderlist. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e aceder aos dados da sua conta Wunderlist:   
+2. Se ainda não criou quaisquer ligações a Wunderlist antes, terá de informar fornecer as suas credenciais de Wunderlist. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e acedam a dados da sua conta de Wunderlist:   
    ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  
-3. Indique as suas credenciais, em seguida, selecione o botão Iniciar sessão  
+3. Forneça as suas credenciais, em seguida, selecione o botão para iniciar sessão  
    ![](./media/connectors-create-api-wunderlist/wunderlist-2.png)  
-4. Irá, em seguida, ser disse que a aplicação lógica tem permissões para fazer com a sua conta Wunderlist. Se concordar, selecione o botão para indicar o contrato. 
+4. Irá, em seguida, ser informado o que a aplicação lógica terão permissão para fazer com a sua conta de Wunderlist. Se concordar, selecione o botão para indicar o seu contrato. 
    ![](./media/connectors-create-api-wunderlist/wunderlist-4.png)  
 5. Por fim, selecione o **autorizar** botão  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  

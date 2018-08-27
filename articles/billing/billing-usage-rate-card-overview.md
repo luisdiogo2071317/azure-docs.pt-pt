@@ -1,6 +1,6 @@
 ---
-title: APIs de faturação do Azure | Microsoft Docs
-description: Saiba mais sobre a utilização de faturação do Azure e RateCard APIs, que são utilizados para fornecer informações de consumo de recursos do Azure e as tendências.
+title: APIs de faturação do Azure | Documentos da Microsoft
+description: Saiba mais sobre a utilização de faturação do Azure e RateCard APIs, que são utilizados para fornecer informações sobre o consumo de recursos do Azure e as tendências.
 services: ''
 documentationcenter: ''
 author: tonguyen
@@ -15,63 +15,67 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
 ms.author: mobandyo
-ms.openlocfilehash: e26d8ad1f08eb711dc22b45d48f8dc326d8c17c7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918857"
 ---
-# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilize as APIs de faturação do Azure para programaticamente conhecer a utilização do Azure
-Utilize as APIs de faturação do Azure para retirar dados de utilização e de recursos para as ferramentas de análise de dados preferencial. A utilização de recursos do Azure e RateCard APIs podem ajudá-lo com precisão prever e gerir os custos. As APIs são implementadas como um fornecedor de recursos e a parte da família de APIs expostas pelo Azure Resource Manager.  
+# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilizar APIs de faturação do Azure para obter informações sobre sua utilização do Azure programaticamente
+Utilize APIs de faturação do Azure para extrair dados de utilização e de recursos em suas ferramentas de análise de dados preferencial. A utilização de recursos do Azure e RateCard APIs podem ajudá-lo a prever e gerir os seus custos com precisão. As APIs são implementadas como um fornecedor de recursos e a parte da família de APIs expostas pelo Azure Resource Manager.  
 
-## <a name="azure-invoice-download-api-preview"></a>API de transferência da fatura do Azure (pré-visualização)
-Uma vez a [optar ativamente por participar no foi concluído](billing-manage-access.md#opt-in), faturas transferir a versão de pré-visualização do [fatura API](/rest/api/billing). As funcionalidades incluem:
+> [!div class="nextstepaction"]
+> [Ajude a melhorar os documentos de faturas do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
-* **Controlo de acesso baseado em funções do Azure** -configurar políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso à dados de utilização da subscrição. Os chamadores tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função ou o leitor de faturação, leitor, proprietário ou contribuinte obter acesso aos dados de utilização de uma subscrição do Azure específica.
-* **Data filtragem** -utilize o `$filter` parâmetro para obter todos os faturas por ordem cronológica inversa, a data de fim do período da fatura. 
+## <a name="azure-invoice-download-api-preview"></a>API de transferência de faturas do Azure (pré-visualização)
+Uma vez a [participar tiver sido concluída](billing-manage-access.md#opt-in), notas fiscais de download com a versão de pré-visualização [API de nota fiscal](/rest/api/billing). As funcionalidades incluem:
+
+* **Controlo de acesso baseado em funções do Azure** -configurar políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets do Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso à dados de utilização da subscrição. Os autores de chamadas tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função seja o leitor de faturação, leitor, proprietário ou Contribuidor para obter acesso a dados de utilização de uma subscrição do Azure específica.
+* **Filtragem de datas** -utilize o `$filter` parâmetro para obter todas as notas fiscais em ordem cronológica reversa por data de fim do período da nota fiscal. 
 
 > [!NOTE]
-> Esta funcionalidade é a primeira versão de pré-visualização e poderão estar sujeitas a alterações incompatíveis com versões anteriores. Atualmente, não é disponível para determinados ofertas de subscrição (EA CSP, AIO não suportada) e os Datacenters do Azure.
+> Esta funcionalidade é a primeira versão de pré-visualização e pode estar sujeitos a alterações com versões anteriores incompatíveis. Atualmente, ele não está disponível para determinados ofertas de subscrição (EA, CSP, AIO não suportado) e Azure Alemanha.
 
 ## <a name="azure-resource-usage-api-preview"></a>Utilização de recursos do Azure API (pré-visualização)
-Utilizar o Azure [API de utilização de recursos](https://msdn.microsoft.com/library/azure/mt219003) para obter os seus dados de consumo estimado do Azure. A API inclui:
+Utilizar o Azure [API de utilização de recursos](https://msdn.microsoft.com/library/azure/mt219003) para colocar os seus dados de consumo do Azure estimado. A API inclui:
 
-* **Controlo de acesso baseado em funções do Azure** -configurar políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso à dados de utilização da subscrição. Os chamadores tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função ou o leitor de faturação, leitor, proprietário ou contribuinte obter acesso aos dados de utilização de uma subscrição do Azure específica.
-* **Hora a hora ou agregações diárias** - os chamadores podem especificar registos se pretendem os seus dados de utilização do Azure hora a hora ou diária de registos. A predefinição é diária.
-* **Os metadados de instância (inclui os sinalizadores de recurso)** – obter detalhes de nível de instância, como o uri de recurso completamente qualificado (/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} /..), a informações do grupo de recursos e as etiquetas de recursos. Estes metadados ajuda-o a deterministicamente e através de programação alocar utilização por etiquetas, para casos de utilização como charging de cruzada.
-* **Metadados do recurso** -detalhes de recursos, tais como o nome de medição, categoria de medição, categoria de subchaves de medição, unidade e região dar o autor da chamada uma melhor compreensão sobre o que estava a ser consumido. Estamos a trabalhar também para assegurar a terminologia de metadados de recursos através do portal do Azure, a utilização do Azure CSV, EA CSV e outras experiências de destinado ao público, permitem-lhe correlacionar dados através de experiências de faturação.
-* **Utilização de tipos de oferta diferentes** – os dados de utilização estão disponíveis para os tipos de oferta pay as you go, MSDN, compromisso monetário, crédito monetário e EA, exceto [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
+* **Controlo de acesso baseado em funções do Azure** -configurar políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets do Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso à dados de utilização da subscrição. Os autores de chamadas tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função seja o leitor de faturação, leitor, proprietário ou Contribuidor para obter acesso a dados de utilização de uma subscrição do Azure específica.
+* **Hora a hora ou agregações diárias** – os autores de chamadas podem especificar se eles querem os dados de utilização do Azure hora a hora buckets ou buckets de diário. A predefinição é diário.
+* **Metadados de instância (inclui as etiquetas de recursos)** – obter detalhes de nível de instância, como o uri de recurso completamente qualificado (/subscriptions/ {subscrição-id} /...), as informações do grupo de recursos e as etiquetas de recursos. Estes metadados ajudam-o a forma determinista e por meio de programação alocar utilização por etiquetas, para casos de utilização como a cobrança de consumo entre.
+* **Metadados do recurso** -detalhes do recurso, como o nome do medidor, categoria do medidor, subcategoria do medidor, unidade e a região dar o autor da chamada uma melhor compreensão sobre o que foi consumido. Estamos também a trabalhar para alinhar a terminologia de metadados do recurso em todo o portal do Azure, utilização do Azure no. CSV, EA CSV e outras experiências de destinado ao público, para que possa correlacionar dados em experiências de faturação.
+* **Utilização para tipos de oferta diferente** – os dados de utilização estão disponíveis para tipos de oferta, como o pay as you go, o MSDN, o compromisso monetário, o crédito monetário e o EA, exceto [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>Recursos do Azure RateCard API (pré-visualização)
-Utilize o [API do Azure Resource RateCard](https://msdn.microsoft.com/library/azure/mt219005) para obter a lista de recursos do Azure disponíveis e as informações de preços estimadas para cada. A API inclui:
+Utilize o [API de RateCard de recursos do Azure](https://msdn.microsoft.com/library/azure/mt219005) para obter a lista de recursos do Azure disponíveis e informações de preços estimadas para cada um. A API inclui:
 
-* **Controlo de acesso baseado em funções do Azure** -configurar as políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso para o RateCard dados. Os chamadores tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função ou o leitor, proprietário ou contribuinte obter acesso aos dados de utilização para uma determinada subscrição do Azure.
-* **Suporte para pay as you go, MSDN, compromisso monetário e ofertas de crédito monetário (EA e [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) não suportada)** -esta API fornece informações de taxa de nível de oferta do Azure.  O autor da chamada desta API tem de passar as informações de oferta para obter os detalhes do recurso e taxas. Estamos atualmente não é possível fornecer taxas EA porque EA ofertas tem personalizado taxas por inscrição. 
+* **Controlo de acesso baseado em funções do Azure** -configurar as políticas de acesso no [portal do Azure](https://portal.azure.com) ou através de [cmdlets do Azure PowerShell](/powershell/azure/overview) para especificar quais os utilizadores ou aplicações podem obter acesso à Dados de RateCard. Os autores de chamadas tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função seja o leitor, proprietário ou Contribuidor para obter acesso a dados de utilização para uma subscrição específica do Azure.
+* **Suporte para pay as you go, MSDN, alocação monetária e ofertas de crédito monetário (EA e [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) não suportado)** -esta API fornece as informações de taxas de nível de oferta do Azure.  O autor da chamada desta API têm de introduzir a informações sobre as ofertas para obter detalhes do recurso e taxas. Não é atualmente possível fornecer tarifas do EA, porque as ofertas EA personalizaram taxas por inscrição. 
 
 ## <a name="scenarios"></a>Cenários
-Seguem-se alguns dos cenários que são efetuados possíveis com a combinação da utilização e as APIs de RateCard:
+Aqui estão alguns dos cenários que são possíveis com a combinação da utilização e as APIs RateCard:
 
-* **Azure gastam durante o mês** - utilize a combinação de padrões de utilização e gaste RateCard APIs para obter informações sobre a melhor nuvem durante o mês. Pode analisar os registos de hora a hora e diários de estimativas de utilização e encargos.
-* **Configure alertas** – utilizar a utilização e as APIs de RateCard para obter o consumo de nuvem estimado e custos e configure baseada em recursos ou monetário com base em alertas.
-* **Prever fatura** – Get seu consumo estimado nuvem gastam e aplicar algoritmos de machine learning para prever a que a fatura seria no fim do ciclo de faturação.
-* **Pré-consumo de análise de custos** – utilizar a API de RateCard para prever a quantidade a fatura seria para a sua utilização esperada ao mover as cargas de trabalho para o Azure. Se tiver cargas de trabalho existentes em nuvens privadas ou outros nuvens, também é possível mapear a utilização com o Azure gastam a taxas para obter uma estimativa melhor do Azure. Esta estimativa dá-lhe a capacidade de dinâmico na oferta e comparar e contraste entre os tipos de oferta diferentes para além de pay as you go, como o compromisso monetário e crédito monetário. Além disso, a API dá-lhe a capacidade para ver as diferenças de custo por região e permite-lhe fazer uma análise de custos investiguem para o ajudar a tomar decisões de implementação.
-* **Análise de investiguem** -
+* **Gastos do Azure durante o mês** – utilize a combinação da utilização e APIs RateCard para obter melhores informações sobre a sua cloud gastar durante o mês. Pode analisar os registos por hora e diários das estimativas de utilização e custos.
+* **Configure alertas** – utilizar a utilização e as APIs RateCard para obter o consumo na cloud estimado e os encargos e posso configurar alertas com base em recursos ou monetário com base em.
+* **Prever a fatura** – Get seu consumo estimado e a cloud de gastos em aplicam algoritmos de machine learning para prever o que a cobrar seria no final do ciclo de faturação.
+* **Pré-consumo de análise de custo** – utilizar a API de RateCard para prever quanto será para a sua utilização esperada ao mover as cargas de trabalho para o Azure. Se tiver cargas de trabalho existentes em outras clouds ou nuvens privadas, também pode mapear a utilização com o Azure gastar de taxas para obter uma melhor estimativa do Azure. Esta estimativa dá-lhe a capacidade para dinamizar na oferta e a comparação e contraste entre os tipos de oferta diferente, além de pay as you go, como um compromisso e o crédito monetário. A API também dá-lhe a capacidade de ver as diferenças de custo por região e permite-lhe efetuar uma análise de hipóteses custo para o ajudar a tomar decisões de implementação.
+* **Análise de hipóteses** -
   
-  * Pode determinar se é mais económico executar cargas de trabalho noutra região, ou outra configuração do recurso do Azure. Os custos de recursos do Azure podem divergir com base na região do Azure que está a utilizar.
+  * Pode determinar se é mais rentável para executar cargas de trabalho noutra região ou em outra configuração do recurso do Azure. Os custos de recursos do Azure podem divergir com base na região do Azure que está a utilizar.
   * Também pode determinar se o outro tipo de oferta do Azure fornece uma melhor taxa sobre um recurso do Azure.
   
 ## <a name="partner-solutions"></a>Soluções de parceiros
-[Nuvem Cruiser e a integração de API de faturação do Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) descreve como [rápida da nuvem Cruiser para Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) funciona diretamente a partir do portal do Windows Azure Pack (WAP). Totalmente integrada pode gerir aspetos operacionais e financeiros do Microsoft Azure alojada ou privada nuvem pública a partir de uma interface de utilizador único.   
+[Cloud Cruiser e integração de APIS de faturação do Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) descreve como [Cloud Cruiser Express para o Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) funciona diretamente a partir do portal do Windows Azure Pack (WAP). Pode gerir perfeitamente aspectos operacionais e financeiros da Microsoft Azure alojada ou privada nuvem pública de uma interface de utilizador único.   
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Consulte os exemplos de código no GitHub:
-  * [Exemplo de código da fatura API](https://go.microsoft.com/fwlink/?linkid=845124)
+* Veja os exemplos de código no GitHub:
+  * [Exemplo de código da API de Faturas](https://go.microsoft.com/fwlink/?linkid=845124)
 
-  * [Exemplo de código da API de utilização](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+  * [Exemplo de código da API de Utilização](https://github.com/Azure-Samples/billing-dotnet-usage-api)
 
   * [Exemplo de código da API de RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Para saber mais sobre o Azure Resource Manager, consulte [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
+* Para saber mais sobre o Azure Resource Manager, veja [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
 
 

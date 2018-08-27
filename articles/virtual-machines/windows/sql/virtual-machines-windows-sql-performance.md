@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas de desempenho para o SQL Server no Azure | Documentos da Microsoft
-description: Disponibiliza as melhores práticas para otimizar o desempenho do SQL Server em VMs do Azure de Microsoft.
+title: Diretrizes de desempenho para o SQL Server no Azure | Documentos da Microsoft
+description: Fornece diretrizes para otimizar o desempenho do SQL Server em VMs do Azure de Microsoft.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
-ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888913"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886190"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Melhores práticas de desempenho do SQL Server nas Máquinas Virtuais do Azure
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em máquinas de virtuais do Azure
 
 ## <a name="overview"></a>Descrição geral
 

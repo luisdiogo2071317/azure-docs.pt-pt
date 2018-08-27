@@ -1,6 +1,6 @@
 ---
-title: Início rápido c# cognitivos nos serviços da Microsoft, pesquisa de resposta do projeto | Microsoft Docs
-description: Exemplo de código para começar a utilizar a pesquisa de resposta de projeto, Microsoft serviços cognitivos no Azure.
+title: Início rápido em C#, para serviços cognitivos da Microsoft, pesquisa de resposta do projeto | Documentos da Microsoft
+description: Exemplo de código para começar a utilizar a pesquisa de resposta de projeto, serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: mikedodaro
 ms.service: cognitive-services
@@ -8,36 +8,36 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353942"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888328"
 ---
 # <a name="project-answer-search-query-in-c"></a>Consulta de pesquisa de resposta de projeto em c#
 
-O exemplo seguinte c# cria e envia uma consulta para obter informações sobre a lei terceira calculus.
+O exemplo seguinte em C# cria e envia uma consulta para obter informações sobre a terceira lei de derivada do cálculo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A edição da Comunidade gratuito irá funcionar.)
+Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso para a avaliação gratuita [laboratórios dos serviços cognitivos](https://aka.ms/answersearchsubscription)
 
 ## <a name="code-scenario"></a>Cenário de código
 
-O seguinte código c# cria e envia a consulta. 
+O seguinte código em C# cria e envia a consulta. 
 
-Está implementado nos passos seguintes:
-1. Declare as variáveis para especificar o ponto final e um URL de consulta para pré-visualização.  
+Ele é implementado nos passos seguintes:
+1. Declare variáveis para especificar o ponto final e um URL de consulta para visualização.  
 2. Crie o pedido.
-3. Adicionar o *Ocp-Apim-Subscription-Key* cabeçalho. 
-4. Execute o pedido Web no modo assíncrono. 
+3. Adicionar a *Ocp-Apim-Subscription-Key* cabeçalho. 
+4. Execute a solicitação da Web de maneira assíncrona. 
 5. Ler a resposta.
 6. Imprima os cabeçalhos e os resultados JSON para a consola.
 
-**Código de origem**
+**Código-fonte**
 
 ```
 using System;
@@ -53,7 +53,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -193,4 +193,4 @@ Para executar a aplicação:
 4. Execute o programa.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Guia de introdução do Java](java-quickstart.md)
+[Início rápido de Java](java-quickstart.md)

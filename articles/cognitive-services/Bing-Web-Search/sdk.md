@@ -1,7 +1,7 @@
 ---
-title: Pesquisa do Bing SDK | Microsoft Docs
+title: Amostras do SDK de pesquisa Web Bing
 titleSuffix: Microsoft Cognitive Services
-description: SDK de pesquisa do Web Bing para aplicações web de pesquisa.
+description: SDK de pesquisa de Web do Bing para aplicativos que pesquisar na web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -9,31 +9,34 @@ ms.assetid: ''
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 1/11/2018
-ms.author: v-gedod
-ms.openlocfilehash: 9d2f363d772febfb9fffd2d9c2924398e438d6e0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: 29396f8843b72fd5e8d2bba0a99632dd1f54c85c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355286"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885574"
 ---
-# <a name="bing-search-sdk"></a>Pesquisa do Bing SDK
-Os exemplos de API de pesquisa do Bing Web incluem cenários que:
-1. Utilize uma consulta de palavra única para obter resultados e imprimir o nome e o URL para o primeiro de cada web, imagens, notícias e resultados de vídeos.
-2. Uma expressão de consulta, verifique o número de resultados e imprimir o nome e o URL do resultado primeiro.
-3. A consulta de termo de pesquisa com a resposta filtra definido como `news` e imprima os detalhes de resultados de notícias de última hora.
-4. A consulta de um termo de pesquisa com `answerCount` e `promote` parâmetros, em seguida, imprima os detalhes de resultados.
+# <a name="bing-web-search-sdk-samples"></a>Amostras do SDK de pesquisa Web Bing
 
-Os SDKs de pesquisa do Bing torne a funcionalidade de pesquisa de web prontamente acessíveis nos seguintes idiomas de programação:
-* Introdução ao [amostras do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
-    * [Pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
-    * Consulte também [bibliotecas .NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch) para dependências e definições.
-* Introdução ao [amostras de Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
-    * Consulte também [Node.js bibliotecas](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch) para dependências e definições.
-* Introdução ao [exemplos de Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * Consulte também [bibliotecas de Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) para dependências e definições.
-* Introdução ao [amostras de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
-    * Consulte também [bibliotecas de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) para dependências e definições.
+Os exemplos do SDK de pesquisa Web Bing incluem cenários que:
 
-Exemplos SDK para cada idioma incluem um ficheiro Leia-me com detalhes sobre os pré-requisitos e instalar/em execução os exemplos.
+* Consultar uma única palavra e imprimir o nome e o URL da primeira página da web, imagem, artigo de notícias e vídeo incluído na resposta.
+* Consultar uma frase, verifique se o número de resultados e imprimir o nome e o URL do primeiro resultado.
+* Filtros de consulta no termo de pesquisa com a resposta definido como `news` e imprimir os detalhes dos resultados de notícias.
+* Consulta num termo de pesquisa com `answerCount` e `promote` parâmetros, em seguida, imprima detalhes de resultados.
+
+O SDK de pesquisa Web Bing está disponível em Python, node. js, c# e Java.
+
+* Introdução ao [amostras do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+  * [Pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
+  * Consulte também [bibliotecas .NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch) para definições e as dependências.
+* Introdução ao [amostras de node. js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+  * Consulte também [bibliotecas de node. js](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch) para definições e as dependências.
+* Introdução ao [exemplos de Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+  * Consulte também [bibliotecas Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) para definições e as dependências.
+* Introdução ao [amostras de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+  * Consulte também [bibliotecas Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) para definições e as dependências.
+
+Cada exemplo SDK inclui Leia-me com os pré-requisitos e instruções de início rápido.

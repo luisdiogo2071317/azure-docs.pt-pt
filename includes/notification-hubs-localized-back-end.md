@@ -8,25 +8,26 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 752feca30fdca663aaf8bd88e6686781b9065682
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836686"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915456"
 ---
-Enviar notificações de modelo, apenas terá de fornecer um conjunto de propriedades. Neste cenário, o conjunto de propriedades contém a versão localizada das notícias atuais.
+Quando enviar notificações de modelos, apenas terá de fornecer um conjunto de propriedades. Neste cenário, o conjunto de propriedades contém a versão localizada da notícia atual.
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
-
-
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
 ### <a name="send-notifications-using-a-c-console-app"></a>Enviar notificações através de uma aplicação de consola c#
-Esta secção mostra como enviar notificações através de uma aplicação de consola. O código difunde notificações para dispositivos da loja Windows e iOS. Modificar o `SendTemplateNotificationAsync` método na aplicação de consola que criou anteriormente com o seguinte código:
+
+Esta secção mostra como enviar notificações através de uma aplicação de consola. O código difunde notificações push para dispositivos Windows Store e iOS. Modifique o método `SendTemplateNotificationAsync` na aplicação de consola que criou anteriormente com o seguinte código:
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
@@ -63,10 +64,11 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-O método SendTemplateNotificationAsync fornece a informação de notícias ao localizada **todos os** os seus dispositivos, independentemente da plataforma. O notification hub baseia-se e fornece o payload nativo correto para todos os dispositivos subscritos uma tag específica.
+O método SendTemplateNotificationAsync fornece notícias para a informação localizada **todos os** seus dispositivos, independentemente da plataforma. O hub de notificação baseia-se e fornece o payload nativo correto para todos os dispositivos subscritos uma etiqueta específica.
 
-### <a name="sending-notification-with-mobile-services"></a>Enviar a notificação com os Mobile Services
-No seu agendador de Mobile Services, utilize o seguinte script:
+### <a name="sending-notification-with-mobile-services"></a>Enviar notificação com os serviços móveis
+
+No agendador de serviços móveis, utilize o seguinte script:
 
 ```csharp
 var azure = require('azure');
@@ -82,4 +84,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-
