@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 08/13/2018
+ms.openlocfilehash: 852840fc29589292e7a74390026b78b15f81e721
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735798"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919467"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -52,16 +52,20 @@ Este tutorial exige que as Ferramentas do Data Lake para Visual Studio estejam i
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Ligar-se a uma conta do Azure Data Lake Analytics
 
 1. Abra o Visual Studio.
-2. Abra o Server Explorer ao selecionar **Ver** > **Server Explorer**.
-3. Clique com botão direito do rato em **Azure**. Em seguida, selecione **Ligar-se à subscrição do Microsoft Azure** e siga as instruções.
-4. No Server Explorer, selecione **Azure** > **Data Lake Analytics**. Verá uma lista das suas contas do Data Lake Analytics.
 
+2. Abra o Server Explorer ao selecionar **Ver** > **Server Explorer**.
+
+3. Clique com botão direito do rato em **Azure**. Em seguida, selecione **Ligar-se à subscrição do Microsoft Azure** e siga as instruções.
+
+4. No Server Explorer, selecione **Azure** > **Data Lake Analytics**. Verá uma lista das suas contas do Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Escrever o seu primeiro script U-SQL
 
 O texto apresentado em seguida é um script U-SQL simples. Este define um pequeno conjunto de dados e grava o conjunto de dados no Data Lake Store como um ficheiro com o nome `/data.csv`.
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +78,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>Submeter uma tarefa do Data Lake Analytics
+## <a name="submit-a-data-lake-analytics-job"></a>Submeter uma tarefa do Data Lake Analytics
 
 1. Selecione **Ficheiro** > **Novo** > **Projeto**.
 
@@ -87,31 +91,35 @@ OUTPUT @a
     ![Submeter projeto do Visual Studio em U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. No canto superior esquerdo da janela **Script.usql**, selecione **Submeter**.
-6. Verifique a **Conta di Analytics** e, em seguida, selecione **Submeter**. Os resultados da submissão ficam disponíveis nas Ferramentas do Data Lake para Visual Studio quando a submissão estiver concluída.
 
-    ![Submeter projeto do Visual Studio em U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. Para ver o estado da tarefa mais recente e atualizar o ecrã, clique em **Atualizar**. Quando a tarefa for concluída com êxito, será apresentado o **Gráfico da Tarefa**, as **Operações de Metadados**, o **Histórico do Estado** e o **Diagnóstico**:
+6. Após a submissão da tarefa, o separador **Vista da tarefa** é aberto para mostrar o progresso da tarefa. Para ver o estado da tarefa mais recente e atualizar o ecrã, clique em **Atualizar**.
 
     ![Gráfico de desempenho da tarefa do Data Lake Analytics no Visual Studio em U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * **Resumo da Tarefa** apresenta o resumo da tarefa.   
-   * **Detalhes da Tarefa** apresenta informações mais específicas sobre a tarefa, incluindo o script, recursos e vértices.
    * **Gráfico da Tarefa** apresenta o progresso da tarefa.
    * **Operações de Metadados** apresenta todas as ações que foram executadas no catálogo de U-SQL.
    * **Dados** apresenta todas as entradas e saídas.
+   * O **Histórico de Estado** mostra os detalhes do estado e da linha do tempo.
+   * A **Análise de AU** mostra quantas AUs foram utilizadas na tarefa e explora simulações de diferentes estratégias de alocação de AUs.
    * **Diagnóstico** oferece uma análise avançada para a otimização do desempenho e a execução da tarefa.
 
-### <a name="to-check-job-state"></a>Para verificar o estado da tarefa
+## <a name="check-job-status"></a>Verificar o estado da tarefa
 
-1. No Server Explorer, selecione **Azure** > **Data Lake Analytics**. 
+1. No Server Explorer, selecione **Azure** > **Data Lake Analytics**.
+
 2. Expanda o nome da conta do Data Lake Analytics.
+
 3. Faça duplo clique em **Tarefas**.
+
 4. Selecione a tarefa submetida anteriormente.
 
-### <a name="to-see-the-output-of-a-job"></a>Para ver a saída de uma tarefa
+## <a name="see-the-job-output"></a>Ver o resultado da tarefa
 
 1. No Server Explorer, navegue até à tarefa submetida.
+
 2. Clique no separador **Dados**.
+
 3. No separador **Saídas de Tarefas**, selecione o ficheiro `"/data.csv"`.
 
 ## <a name="next-steps"></a>Passos seguintes

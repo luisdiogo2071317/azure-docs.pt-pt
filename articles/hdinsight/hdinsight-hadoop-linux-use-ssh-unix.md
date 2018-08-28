@@ -10,12 +10,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 589e6d56fca1e987cb9fd086d76dc6fb8a686333
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7685c68aeaac745528bc38fde160270b36913ec3
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594356"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41918800"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ligar ao HDInsight (Hadoop) através de SSH
 
@@ -136,7 +136,7 @@ Também pode ativar a Autenticação Kerberos em cada nó associado a um domíni
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
-anule o comentário e altere `KerberosAuthentication` para `yes`
+anule os comentários e altere `KerberosAuthentication` para `yes`
 
 ```bash
 sudo service sshd restart
