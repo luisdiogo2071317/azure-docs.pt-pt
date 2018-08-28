@@ -1,5 +1,5 @@
 ---
-title: Configurar o Aprovisionamento de Dispositivos com a CLI do Azure | Microsoft Docs
+title: Configurar um Serviço Aprovisionamento de Dispositivos com a CLI do Azure | Microsoft Docs
 description: Início Rápido do Azure - Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com a CLI do Azure
 author: wesmc7777
 ms.author: wesmc
@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626544"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023523"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com a CLI do Azure
 
-A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este Início Rápido mostra como utilizar a CLI do Azure para criar um hub do IoT e um Serviço Aprovisionamento de Dispositivos no Hub IoT e como associar ambos os serviços. 
+A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este Início Rápido mostra como utilizar a CLI do Azure para criar um hub IoT e um Serviço Aprovisionamento de Dispositivos no Hub IoT e como associar ambos os serviços. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -94,7 +94,7 @@ echo $hubConnectionString
 
 Associe o hub IoT e o Serviço de Aprovisionamento com o comando [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
-O exemplo seguinte associa um hub do IoT com o nome *my-sample-hub* na localização *westus* a um Serviço Aprovisionamento de Dispositivos com o nome *my-sample-dps*. Utiliza a cadeia de ligação para *my-sample-hub* armazenada na variável *hubConnectionString* no passo anterior.
+O exemplo seguinte associa um hub IoT com o nome *my-sample-hub* na localização *westus* a um Serviço Aprovisionamento de Dispositivos com o nome *my-sample-dps*. Utiliza a cadeia de ligação para *my-sample-hub* armazenada na variável *hubConnectionString* no passo anterior.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus

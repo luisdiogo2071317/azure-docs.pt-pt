@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576972"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920602"
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 O Cofre de Chaves do Azure é um serviço em nuvem que protege chaves e segredos de encriptação (como certificados, cadeias de ligação e palavras-passe) das suas aplicações na nuvem. Uma vez que estes dados são confidenciais e vitais para a sua atividade, é fundamental proteger o acesso aos seus cofres de chaves, de modo a que só os utilizadores e as aplicações com autorização possam aceder aos mesmos. Este artigo disponibiliza uma descrição geral do modelo de acesso do cofre de chaves, explica a autenticação e a autorização e descreve como proteger o acesso ao cofre de chaves das suas aplicações com um exemplo.
@@ -87,7 +87,7 @@ Pode conceder acesso a utilizadores, grupos e aplicações com um âmbito espec�
 ## <a name="data-plane-access-control"></a>Controlo de acesso do plano de dados
 O plano de dados do cofre de chaves consiste em operações que afetam os objetos num cofre de chave, como chaves, segredos e certificados.  Incluem operações de chaves, como criar, importar, atualizar, listar, criar cópias de segurança e restaurar chaves, e operações criptográficas, como assinar, verificar, encriptar, desencriptar, encapsular, anular o encapsulamento e definir etiquetas e outros atributos de chaves. Do mesmo modo, relativamente a segredos, inclui obter, definir, listar e eliminar.
 
-O acesso do plano de dados é concedido mediante a definição de políticas de acesso a cofres de chaves. De modo a poder definir políticas de acesso a um cofre de chaves, um utilizador, grupo ou aplicação tem de ter as permissões de Contribuinte (RBAC) para o plano de gestão desse cofre. Pode ser concedido acesso a um utilizador, grupo ou aplicação para fazer operações específicas de chaves ou segredos num cofre de chaves. Os cofres de chaves suportam até 16 entradas de políticas de acesso. Crie um grupo de segurança do Azure Active Directory e adicione utilizadores ao mesmo para conceder acesso do plano de dados a vários utilizadores a um cofre de chaves.
+O acesso do plano de dados é concedido mediante a definição de políticas de acesso a cofres de chaves. De modo a poder definir políticas de acesso a um cofre de chaves, um utilizador, grupo ou aplicação tem de ter as permissões de Contribuinte (RBAC) para o plano de gestão desse cofre. Pode ser concedido acesso a um utilizador, grupo ou aplicação para fazer operações específicas de chaves ou segredos num cofre de chaves. Os cofres de chaves suportam até 1024 entradas de políticas de acesso. Crie um grupo de segurança do Azure Active Directory e adicione utilizadores ao mesmo para conceder acesso do plano de dados a vários utilizadores a um cofre de chaves.
 
 ### <a name="key-vault-access-policies"></a>Políticas de Acesso dos cofres de chaves
 As políticas de acesso dos cofres de chaves concedem permissões para chaves, segredos e certificados em separado. Por exemplo, pode dar a um utilizador acesso só a chaves, mas não permissões para segredos. No entanto, as permissões para aceder a chaves, segredos ou certificados são ao nível do cofre. Por outras palavras, a política de acesso do cofre de chaves não suporta permissões ao nível do objeto. Pode utilizar o [portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../cli-install-nodejs.md), o [PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST de Gestão dos cofres de chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx) para definir políticas de acesso para um cofre de chave.

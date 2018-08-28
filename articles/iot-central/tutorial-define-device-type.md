@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869586"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41917738"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na aplicação do Azure IoT Central
 
@@ -342,8 +342,8 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
     | Nome a Apresentar         | Comando Echo    |
     | Nome do Campo           | echo            |
     | Tempo Limite Predefinido      | 30              |
-    | Nome a Apresentar         | Texto a Apresentar    |
-    | Tipo a Apresentar         | texto            |  
+    | Tipo a Apresentar         | texto            |
+    | Descrição          | Comando do Dispositivo  |  
 
 Pode adicionar mais entradas ao comando ao clicar em **+** para entradas.
 

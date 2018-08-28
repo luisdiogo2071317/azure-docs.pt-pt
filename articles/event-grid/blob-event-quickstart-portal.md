@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 141e8f2a01c057f613b7668e64a0ec9503fcfb39
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068748"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022638"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Criar e encaminhar eventos de armazenamento de Blobs com o portal do Azure e o Event Grid
 
@@ -27,8 +27,6 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Para utilizar eventos de armazenamento de Blobs, precisa de uma [conta de armazenamento de Blobs](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma [conta de armazenamento de Fins Gerais v2](../storage/common/storage-account-options.md#general-purpose-v2-accounts). As contas de **Fins Gerais v2 (GPv2)** são contas de armazenamento que suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs. 
-
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Para criar um armazenamento de Blobs, selecione **Criar um recurso**. 
@@ -39,7 +37,7 @@ Para utilizar eventos de armazenamento de Blobs, precisa de uma [conta de armaze
 
    ![Selecionar armazenamento](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Apresenta valores para o armazenamento de Blobs, incluindo um nome exclusivo para a conta. Para o tipo de conta, selecione **Armazenamento de blobs**. Para a localização, selecione uma das [localizações](overview.md) que suporte o Event Grid. Quando terminar de indicar os valores, selecione **Criar**.
+1. Para os eventos, tem de criar uma [conta de armazenamento de Blobs](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma [conta de armazenamento de Fins Gerais v2](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs. Apresenta valores para uma conta do Blob ou StorageV2. Indique um nome único para a conta. Quando terminar de indicar os valores, selecione **Criar**.
 
    ![Passos de início](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

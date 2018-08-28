@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 600625f143041eaf983b7ec7e945c5a968b522f5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951010"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022623"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (.NET Core e Visual Studio)
 
@@ -31,7 +31,7 @@ Neste guia, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um cluster Kubernetes a executar o Kubernetes 1.10.3, na região EUA Leste, E.U.A. Central, E.U.A. Central 2, 	Europa Ocidental, Canadá Central ou Leste do Canadá, com o Encaminhamento de Aplicações de Http ativado.
+- Um cluster Kubernetes a executar o Kubernetes 1.9.6 ou posterior, na região EUA Leste, E.U.A. Central, E.U.A. Central 2, 	Europa Ocidental, Canadá Central ou Leste do Canadá, com o Encaminhamento de Aplicações de Http ativado.
 
   ![É necessário ativar o Encaminhamento de Aplicações de Http.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

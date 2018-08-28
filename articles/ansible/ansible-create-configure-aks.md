@@ -1,39 +1,46 @@
 ---
-title: Criar e configurar clusters do serviço Kubernetes do Azure no Azure com o Ansible
-description: Saiba como utilizar o Ansible para criar e gerir um cluster do serviço Kubernetes do Azure no Azure
+title: Criar e configurar clusters do Azure Kubernetes Service no Azure com o Ansible
+description: Saiba como utilizar o Ansible para criar e gerir um cluster do Azure Kubernetes Service no Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, contentores, Kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, manual de procedimentos, aks, contentor, Kubernetes
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 6d7c5f961256e0ae1831bd76353cadd761f4b8ac
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/21/2018
+ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009204"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617180"
 ---
-# <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do serviço Kubernetes do Azure no Azure com o Ansible
-Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o Azure Kubernetes Service (AKS). Este artigo mostra-lhe como utilizar o Ansible para criar e configurar um cluster do serviço Kubernetes do Azure.
+# <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do Azure Kubernetes Service no Azure com o Ansible
+O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o Azure Kubernetes Service (AKS). Este artigo mostra-lhe como utilizar o Ansible para criar e configurar um cluster do Azure Kubernetes Service.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure** – se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- **Configurar o Ansible** - [Azure criar credenciais e configurar o Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **O Ansible e os módulos do Azure Python SDK** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
-- **Principal de serviço do Azure** - quando [criar o principal de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), tenha em atenção os seguintes valores: **appId**, **displayName**, **palavra-passe** , e **inquilino**.
+- **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Principal de serviço do Azure** - quando [criar o principal de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), tome nota dos seguintes valores: **appId**, **displayName**, **password** e **tenant**.
+
+- **Configurar o Azure Cloud Shell** ou **Instalar e configurar o Ansible numa máquina virtual do Linux**
+
+  **Configurar o Azure Cloud Shell**
+
+  1. **Configurar o Azure Cloud Shell** - se estiver familiarizado com o Azure Cloud Shell, o artigo [Início rápido para Bash no Azure Cloud Shell](/azure/cloud-shell/quickstart), ilustra como iniciar e configurar o Cloud Shell. 
+
+  **--OU--**
+
+  **Instalar e configurar o Ansible numa máquina virtual do Linux**
+
+  1. **Instalar o Ansible** - Instale o Ansible numa [plataforma suportada do Linux](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
+
+  1. **Configurar o Ansible** - [Criar credenciais do Azure e configurar o Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
 > [!Note]
-> 2.6 do Ansible é necessário para executar o seguinte os playbooks de exemplo neste tutorial. 
+> O Ansible 2.6 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
 
 ## <a name="create-a-managed-aks-cluster"></a>Criar um cluster do AKS gerido
-O playbook de Ansible de exemplo seguinte cria um grupo de recursos e um cluster do AKS que reside no grupo de recursos:
+O manual de procedimentos de exemplo do Ansible seguinte cria um grupo de recursos e um cluster do AKS que reside no grupo de recursos:
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -72,17 +79,17 @@ O playbook de Ansible de exemplo seguinte cria um grupo de recursos e um cluster
           Environment: Production
   ```
 
-A lista com marcas abaixo ajuda a explicar o código de manual de comunicação do Ansible anterior:
-- A primeira seção **tarefas** define um grupo de recursos com o nome **myResourceGroup** dentro do **eastus** localização. 
-- A segunda secção dentro **tarefas** define um cluster do AKS com o nome **myAKSCluster** dentro do **myResourceGroup** grupo de recursos. 
+As marcas abaixo ajudam a explicar o código do manual de procedimentos do Ansible anterior:
+- A primeira secção nas **tarefas** define um grupo de recursos com o nome **myResourceGroup** na localização **eastus**. 
+- A segunda secção nas **tarefas** define um cluster do AKS com o nome **myAKSCluster** no grupo de recursos **myResourceGroup**. 
 
-Para criar o cluster do AKS com o Ansible, guardar o playbook de exemplo anterior como `azure_create_aks.yml`, e executar o playbook com o seguinte comando:
+Para criar o cluster do AKS com o Ansible, guarde o manual de procedimentos de exemplo anterior como `azure_create_aks.yml` e execute-o com o seguinte comando:
 
   ```bash
   ansible-playbook azure_create_aks.yml
   ```
 
-A saída do **ansible playbook* comando se parece com o seguinte que mostra que o cluster do AKS foi criado com êxito:
+A saída do comando **ansible-playbook* parece semelhante ao seguinte, que mostra que o cluster do AKS foi criado com êxito:
 
   ```bash
   PLAY [Create AKS] ****************************************************************************************
@@ -102,9 +109,9 @@ A saída do **ansible playbook* comando se parece com o seguinte que mostra que 
 
 ## <a name="scale-aks-nodes"></a>Dimensionar nós do AKS
 
-O playbook de exemplo na secção anterior define dois nós. Se precisar de mais ou menos cargas de trabalho de contentor no seu cluster, pode ajustar facilmente o número de nós. O playbook de exemplo nesta secção aumenta o número de nós de dois nós para três. Modificar a contagem de nós é feito alterando a **contagem** valor no **agent_pool_profiles** bloco. 
+O manual de procedimentos de exemplo na secção anterior define dois nós. Se precisar de mais ou menos cargas de trabalho do contentor no seu cluster, pode ajustar o número de nós facilmente. O manual de procedimentos de exemplo nesta secção aumenta o número de nós de dois nós para três. A modificação do número de nós é feita ao alterar o valor **count** no bloco **agent_pool_profiles**. 
 
-Introduza o seu próprio `ssh_key`, `client_id`, e `client_secret` no **service_principal** bloco:
+Introduza os seus próprios valores `ssh_key`, `client_id` e `client_secret` no bloco **service_principal**:
 
 ```yaml
 - name: Scale AKS cluster
@@ -137,7 +144,7 @@ Introduza o seu próprio `ssh_key`, `client_id`, e `client_secret` no **service_
             vm_size: Standard_D2_v2
 ```
 
-Para dimensionar o cluster do serviço Kubernetes do Azure com o Ansible, salvar o playbook anterior como *azure_configure_aks.yml*, e executar o playbook da seguinte forma:
+Para dimensionar o cluster do Azure Kubernetes Service com o Ansible, guarde o manual de procedimentos anterior como *azure_configure_aks.yml* e execute-o da seguinte forma:
 
   ```bash
   ansible-playbook azure_configure_aks.yml
@@ -157,7 +164,44 @@ O resultado seguinte mostra que o cluster do AKS foi criado com êxito:
   PLAY RECAP ******************************************************************************
   localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
+## <a name="delete-a-managed-aks-cluster"></a>Eliminar um cluster do AKS gerido
 
-## <a name="next-steps"></a>Passos Seguintes
+A secção do manual de procedimentos de exemplo do Ansible seguinte ilustra como eliminar um cluster do AKS:
+
+  ```yaml
+  - name: Delete a managed Azure Container Services (AKS) cluster
+    hosts: localhost
+    connection: local
+    vars:
+      resource_group: myResourceGroup
+      aks_name: myAKSCluster
+    tasks:
+    - name: 
+      azure_rm_aks:
+        name: "{{ aks_name }}"
+        resource_group: "{{ resource_group }}"
+        state: absent
+   ```
+
+Para eliminar o cluster do Azure Kubernetes Service com o Ansible, guarde o manual de procedimentos anterior como *azure_delete_aks.yml* e execute-o da seguinte forma:
+
+  ```bash
+  ansible-playbook azure_delete_aks.yml
+  ```
+
+O resultado seguinte mostra que o cluster do AKS foi eliminado com êxito:
+  ```bash
+PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
+
+TASK [Gathering Facts] ********************************************************************
+ok: [localhost]
+
+TASK [azure_rm_aks] *********************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
+  
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"] 
-> [Tutorial: Dimensionar aplicação no Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale)
+> [Tutorial: Dimensionar uma aplicação no Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

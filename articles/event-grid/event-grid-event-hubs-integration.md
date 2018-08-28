@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302944"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616520"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Transmitir macrodados em fluxo para um armazém de dados
 
-O Azure [Event Grid](overview.md) é um serviço de encaminhamento de eventos inteligente que lhe permite reagir a notificações de aplicações e serviços. O [exemplo de Recolha e Event Grid dos Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como utilizar a Recolha dos Hubs de Eventos do Azure com o Event Grid para migrar dados de forma integrada a partir de um hub de eventos para um SQL Data Warehouse.
+O Azure [Event Grid](overview.md) é um serviço de encaminhamento de eventos inteligente que lhe permite reagir a notificações de aplicações e serviços. Por exemplo, ele pode acionar uma Função do Azure para processar dados de Hubs de Eventos que foram capturados para um armazenamento de Blobs do Azure ou o Data Lake Store e migrar os dados para outros repositórios de dados. Este [exemplo de Recolha e Event Grid dos Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como utilizar a Recolha dos Hubs de Eventos com o Event Grid para migrar dados de forma integrada de Hubs de Eventos a partir do armazenamento de blobs para um SQL Data Warehouse.
 
 ![Descrição geral da aplicação](media/event-grid-event-hubs-integration/overview.png)
 
@@ -75,7 +75,7 @@ Para concluir este tutorial, tem de ter:
 
 ## <a name="deploy-the-infrastructure"></a>Implementar a infraestrutura
 
-Para simplificar este artigo, implemente a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que estão implementados, veja o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Utilize uma das [regiões suportadas](overview.md) para a localização do grupo de recursos.
+Para simplificar este artigo, implemente a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que estão implementados, veja o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
 
 Para a CLI do Azure, utilize:
 

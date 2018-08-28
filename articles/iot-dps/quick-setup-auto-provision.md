@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f4bae9ba41f61223a8e18e88e30b8fbf89eff1a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527597"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022771"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure
 
@@ -34,15 +34,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 2. *Procure no Marketplace* o **Serviço Aprovisionamento de Dispositivos**. Selecione **Serviço Aprovisionamento de Dispositivos no Hub IoT** e clique no botão **Criar**. 
 
-3. Forneça as seguintes informações para a sua nova instância do Serviço de Aprovisionamento de Dispositivos e clique em **Criar**.
+3. Apresente as seguintes informações para a sua nova instância do serviço Aprovisionamento de Dispositivos e clique em **Criar**.
 
-    * **Nome**: forneça um nome exclusivo para a nova instância do Serviço de Aprovisionamento de Dispositivos. Se o nome introduzido estiver disponível, aparece uma marca de verificação verde.
-    * **Subscrição**: escolha a subscrição que quer utilizar para criar a instância do Serviço de Aprovisionamento de Dispositivos.
+    * **Nome**: indique um nome exclusivo para a nova instância do serviço Aprovisionamento de Dispositivos. Se o nome introduzido estiver disponível, aparece uma marca de verificação verde.
+    * **Subscrição**: escolha a subscrição que quer utilizar para criar a instância do serviço Aprovisionamento de Dispositivos.
     * **Grupo de recursos**: este campo permite criar um novo grupo de recursos ou selecionar um já existente para conter a nova instância. Selecione o mesmo grupo de recursos que contém o hub Iot que criou acima, por exemplo, **TestResources**. Ao colocar todos os recursos relacionados num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
     * **Localização**: selecione a localização mais próxima dos seus dispositivos.
     * **Afixar ao dashboard**: selecione esta opção para facilitar a localização da instância afixada ao dashboard.
 
-    ![Introduza as informações básicas da instância do DPS no painel do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+    ![Introduza as informações básicas da instância do serviço Aprovisionamento de Dispositivos no painel do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Após o serviço ter sido implementado com êxito, o painel de resumo do mesmo abre-se automaticamente.
 
@@ -51,17 +51,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Nesta secção, vai adicionar uma configuração à instância do Serviço de Aprovisionamento de Dispositivos. Esta configuração define o hub IoT para o qual os dispositivos serão aprovisionados.
 
-1. Clique no botão **Todos os recursos**, no menu do lado esquerda do portal do Azure. Selecione a instância do Serviço Aprovisionamento de Dispositivos que criou na secção anterior.  
+1. Clique no botão **Todos os recursos**, no menu do lado esquerda do portal do Azure. Selecione a instância do serviço Aprovisionamento de Dispositivos que criou na secção anterior.  
 
 2. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Hubs IoT ligados**. Clique no botão **+ Adicionar**, na parte superior. 
 
-3. Na página **Adicionar ligação ao hub IoT**, forneça as seguintes informações para ligar a nova instância do Serviço de Aprovisionamento de Dispositivos a um hub IoT. Em seguida, clique em **Guardar**. 
+3. Na página **Adicionar ligação ao hub IoT**, forneça as seguintes informações para ligar a nova instância do serviço Aprovisionamento de Dispositivos a um hub IoT. Em seguida, clique em **Guardar**. 
 
-    * **Subscrição**: selecione a subscrição que contém o hub IoT que quer ligar à nova instância do Serviço de Aprovisionamento de Dispositivos.
-    * **Hub IoT**: selecione o hub IoT a ligar à nova instância do Serviço de Aprovisionamento de Dispositivos.
+    * **Subscrição**: selecione a subscrição que contém o hub IoT que quer ligar à nova instância do Serviço Aprovisionamento de Dispositivos.
+    * **Hub IoT**: selecione o hub IoT a ligar à nova instância do serviço Aprovisionamento de Dispositivos.
     * **Política de Acesso**: selecione **iothubowner** como as credenciais para estabelecer a ligação ao hub IoT.  
 
-    ![Ligar o nome do hub para ligar à instância do DPS no painel do portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![Ligar o nome do hub para ligar à instância do serviço Aprovisionamento de Dispositivos no painel do portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Agora, deverá ver o hub selecionado no painel **Hubs IoT ligados**. Poderá ter de clicar em **Atualizar** para mostrar os **Hubs IoT ligados**.
 
@@ -76,7 +76,7 @@ Outros Guias de Introdução desta coleção têm por base este Guia de Introdu�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste Início Rápido, implementou um hub do IoT e uma instância do Serviço Aprovisionamento de Dispositivos e ligou ambos os recursos. Para saber como utilizar esta configuração para aprovisionar um dispositivo simulado, avance para o Início Rápido para a criação de dispositivos simulados.
+Neste Início Rápido, implementou um hub do IoT e uma instância do serviço Aprovisionamento de Dispositivos e ligou ambos os recursos. Para saber como utilizar esta configuração para aprovisionar um dispositivo simulado, avance para o Início Rápido para a criação de dispositivos simulados.
 
 > [!div class="nextstepaction"]
 > [Quickstart to create simulated device](./quick-create-simulated-device.md) (Início rápido para criar dispositivos simulados)

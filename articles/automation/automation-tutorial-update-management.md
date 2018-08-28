@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216971"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920915"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
@@ -126,9 +126,6 @@ Para personalizar o assunto do e-mail de alerta, em **Criar regra**, em **Person
 
 Em seguida, agende uma implementação que siga o seu agendamento e o período de administração da versão para instalar atualizações. Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
 
-> [!WARNING]
-> Quando as atualizações requerem um reinício, a VM é reiniciada automaticamente.
-
 Para agendar uma nova implementação de atualização para a VM, aceda a **Gestão de atualizações**e, em seguida, selecione **Agendar implementação da atualização**.
 
 Em **Nova implementação de atualização**, especifique as seguintes informações:
@@ -136,6 +133,8 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 * **Nome**: indique um nome exclusivo para a implementação da atualização.
 
 * **Sistema operativo**: selecione o SO de destino para a implementação da atualização.
+
+* **Computadores a atualizar**: Selecione uma Pesquisa guardada, o Grupo importado ou escolha a Máquina a partir do menu pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **PREPARAÇÃO DO AGENTE DE ATUALIZAÇÃO**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, veja [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Classificação da atualização**: selecione os tipos de software que a implementação da atualização incluiu na implementação. Para este tutorial, deixe todos os tipos selecionados.
 
@@ -154,9 +153,17 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 * **Janela de manutenção (minutos)**: deixe o valor predefinido. Pode especificar a janela de tempo na qual pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
+* **Opções de reinício**: esta definição determina como os reinícios devem ser tratados. As opções disponíveis são:
+  * Reiniciar se for preciso (Predefinição)
+  * Reiniciar sempre
+  * Nunca reiniciar
+  * Reiniciar apenas - não irá instalar atualizações
+
+Quando tiver terminado de configurar a agenda, selecione **Criar**.
+
 ![Painel Definições de Agendamento de Atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Quando tiver terminado de configurar a agenda, selecione **Criar**. Volta ao dashboard de estado. Selecione **Implementações de atualização agendadas** para mostrar a agenda de implementação que criou.
+Volta ao dashboard de estado. Selecione **Implementações de atualização agendadas** para mostrar a agenda de implementação que criou.
 
 ## <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 

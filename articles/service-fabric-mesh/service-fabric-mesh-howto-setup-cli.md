@@ -9,12 +9,12 @@ ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 567f2afdea44f439779212c61fb3a129f4f979be
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c0e2aefe1222263b169e21490da079b165a57321
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281577"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42108483"
 ---
 # <a name="set-up-the-service-fabric-mesh-cli"></a>Configurar a CLI do Service Fabric Mesh
 A CLI do Service Fabric Mesh é necessária para implementar e gerir recursos no Service Fabric Mesh. 
@@ -23,18 +23,18 @@ Para a pré-visualização, a CLI do Azure Service Fabric Mesh é escrita como u
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se optar por instalar e utilizar a CLI localmente, tem de instalar a versão 2.0.35 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Para instalar ou atualizar a versão mais recente da CLI, veja [Instalar a CLI 2.0 do Azure][azure-cli-install].
-
-Remova qualquer instalação anterior do módulo da CLI do Azure Service Fabric Mesh.
-
-```azurecli-interactive
-az extension remove --name mesh
-```
+Se optar por instalar e utilizar a CLI localmente, tem de instalar a versão 2.0.43 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Para instalar ou atualizar a versão mais recente da CLI, veja [Instalar a CLI 2.0 do Azure][azure-cli-install].
 
 Instale o módulo de extensão da CLI do Azure Service Fabric Mesh através do seguinte comando. 
 
 ```azurecli-interactive
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.9.1-py2.py3-none-any.whl
+az extension add --name mesh
+```
+
+Para atualizar um módulo de CLI do Azure Service Fabric Mesh existente, execute o seguinte comando.
+
+```azurecli-interactive
+az extension update --name mesh
 ```
 
 Pode também configurar o seu [ambiente de desenvolvimento no Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).

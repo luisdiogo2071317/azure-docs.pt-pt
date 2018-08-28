@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 179db61777fe60ae53d7fee553c8124d7a9f7abf
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781185"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42022763"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -37,7 +37,10 @@ Pode implementar várias redes virtuais dentro de cada [subscrição](../azure-g
 
 ## <a name="communicate-with-the-internet"></a>Comunicar com a Internet
 
-Todos os recursos numa rede virtual podem comunicar com a Internet à saída, por predefinição. Pode comunicar com um recurso à entrada, ao atribuir-lhe um endereço IP público. Para obter mais informações, veja [Endereços IP públicos](virtual-network-public-ip-address.md).
+Todos os recursos numa rede virtual podem comunicar com a Internet à saída, por predefinição. Pode comunicar com um recurso à entrada, ao atribuir-lhe um endereço IP público ou um Balanceador de Carga público. Também pode utilizar o IP público ou o Balanceador de Carga público para gerir as suas ligações de saída.  Para saber mais sobre as ligações de saída no Azure, veja [Ligações de saída](../load-balancer/load-balancer-outbound-connections.md), [Endereços IP públicos](virtual-network-public-ip-address.md) e [Balanceador de Carga](../load-balancer/load-balancer-overview.md).
+
+>[!NOTE]
+>Ao utilizar apenas um [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md) interno, a conectividade de saída não está disponível até definir como pretende que as [ligações de saída](../load-balancer/load-balancer-outbound-connections.md) trabalhem com um IP público de nível de instância ou um Balanceador de Carga público.
 
 ## <a name="communicate-between-azure-resources"></a>Comunicar entre os recursos do Azure
 

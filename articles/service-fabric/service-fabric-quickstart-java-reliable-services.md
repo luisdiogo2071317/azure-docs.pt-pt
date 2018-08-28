@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e3852ffc01312f01843a90de5f5565784b1c0b5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114256"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616331"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Início Rápido: Implementar uma aplicação de serviços fiáveis no Service Fabric em Java
 
@@ -66,8 +66,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Cluster local em bom estado de funcionamento](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Abra o Eclipse.
-3. Clique em Ficheiro -> Abrir Projetos no Sistema de Ficheiros...
-4. Clique em Diretório e escolha o diretório `Voting` da pasta `service-fabric-java-quickstart` que clonou a partir do Github. Clique em Concluir.
+3. Clique em Ficheiro -> Importar -> Gradle -> Projeto do Gradle existente e siga o assistente.
+4. Clique em Diretório e escolha o diretório `Voting` da pasta `service-fabric-java-quickstart` que clonou a partir do Github. Clique em Concluir. 
 
     ![Caixa de Diálogo Importar Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 

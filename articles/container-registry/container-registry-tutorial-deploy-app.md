@@ -6,19 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582306"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919214"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implementar aplicação Web do Azure Container Registry
 
-Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, irá tirar partido da proximidade da rede do registo georreplicado ao implementar o contentor em instâncias de Aplicações Web em duas regiões diferentes do Azure. Em seguida, cada instância obtém a imagem de contentor do registo mais próximo.
+Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, irá tirar partido da proximidade da rede do registo georreplicado ao implementar o contentor em instâncias de Aplicações Web em duas regiões diferentes do Azure. Em seguida, cada instância extrai a imagem de contentor do registo mais próximo.
 
 Neste tutorial, a segunda parte da série:
 
@@ -42,11 +42,13 @@ Neste passo, crie uma instância de Aplicação Web para Contentores na região 
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e navegue para o registo criado no tutorial anterior.
 
-Selecione **Repositórios** > **acr-helloworld** e, em seguida, clique com o botão direito do rato na etiqueta **v1** em **Etiquetas** e selecione **Implementar na aplicação Web**.
+Selecione **Repositórios** > **acr-helloworld** e, em seguida, clique com o botão direito do rato na etiqueta **v1** em **Etiquetas** e selecione **Implementar na aplicação Web**:
 
 ![Implementar no serviço de aplicações no portal do Azure][deploy-app-portal-01]
 
-Na **Aplicação Web para Contentores** apresentada, especifique os seguintes valores para cada definição:
+Se a opção "Implementar na aplicação Web" estiver desativada, poderá não ter ativado o utilizador administrador do registo, conforme indicado em [Criar um registo de contentor](container-registry-tutorial-prepare-registry.md#create-a-container-registry) no primeiro tutorial. Pode ativar o utilizador administrador em **Definições** > **Chaves de acesso** no portal do Azure.
+
+Na **Aplicação Web para Contentores** apresentada depois de selecionar "Implementar na aplicação Web", especifique os seguintes valores para cada definição:
 
 | Definição | Valor |
 |---|---|

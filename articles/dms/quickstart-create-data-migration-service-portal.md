@@ -3,20 +3,20 @@ title: Criar uma instância do Azure Database Migration Service com o portal do 
 description: Utilizar o portal do Azure para criar uma instância do Azure Database Migration Service
 services: database-migration
 author: edmacauley
-ms.author: edmaca
+ms.author: jtoland
 manager: craigg
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/01/2018
-ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/13/2018
+ms.openlocfilehash: f4dcc659d72edff1d8c2523cce1de059f1cf3fdf
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772199"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023075"
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Criar uma instância do Azure Database Migration Service com o portal do Azure
 Neste Início Rápido, utiliza o portal do Azure para criar uma instância do Azure Database Migration Service.  Depois de criar o serviço, pode utilizá-lo para migrar dados do SQL Server no local para uma base de dados SQL do Azure.
@@ -35,32 +35,39 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a primei
 
 2. Selecione a subscrição na qual pretende criar a instância do Database Migration Service do Azure e, em seguida, selecione **Fornecedores de recursos**.
 
-3. Procure por migração e, em seguida, à direita de Microsoft.DataMigration, selecione **Registar**.
+3. Procure por migração e, à direita de **Microsoft.DataMigration**, selecione **Registar**.
 
-![Registar o fornecedor de recursos](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
+    ![Registar o fornecedor de recursos](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Criar uma instância do serviço
-1. Clique em **+ Criar um recurso** para criar uma instância do Azure Database Migration Service.
+1. Selecione +**Criar um recurso** para criar uma instância do Azure Database Migration Service.
 
-2. Procure “migração” no marketplace, selecione **Azure Database Migration Service** e, em seguida, no ecrã **Azure Database Migration Service** clique em **Criar**.
+2. Procure "migração" no marketplace, selecione **Azure Database Migration Service** e, em seguida, no ecrã **Azure Database Migration Service** selecione **Criar**.
 
-3. No ecrã **Azure Database Migration Service**: 
+3. No ecrã **Criar Serviço de Migração**: 
 
-    - Escolha um **Nome de serviço** que seja recordável e exclusivo para identificar a sua instância do Azure Database Migration Service.
+    - Escolha um **Nome de Serviço** que seja recordável e exclusivo para identificar a sua instância do Azure Database Migration Service.
     - Selecione a sua **Subscrição** do Azure, na qual pretende criar a instância.
-    - Crie uma nova aplicação **Rede** com um nome exclusivo.
+    - Selecione um **Grupo de Recursos** existente ou crie um novo.
     - Escolha a **Localização** que esteja mais próxima do seu servidor de origem ou de destino.
+    - Selecione uma **Rede virtual** (VNET) já existente ou crie uma.
+
+        A VNET concede ao Azure Database Migration Service acesso à instância da base de dados de origem e ao ambiente de destino.
+
+        Para obter mais informações sobre como criar uma VNET no portal do Azure, veja o artigo [Criar uma rede virtual com o portal do Azure](https://aka.ms/vnet).
+
     - Selecione Básico: 1 vCore para o **Escalão de preço**.
 
-    ![Criar serviço de migração](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+        ![Criar serviço de migração](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
+
 4. Selecione **Criar**.
 
-Após alguns momentos, a sua instância do serviço Azure Database Migration está criado e pronto para utilizar. O Database Migration Service aparece conforme mostrado na seguinte imagem:
+    Após alguns momentos, a sua instância do serviço Azure Database Migration está criado e pronto para utilizar. O Database Migration Service aparece conforme mostrado na seguinte imagem:
 
-![O serviço de migração foi criado](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
+    ![O serviço de migração foi criado](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Pode limpar os recursos criados neste Início Rápido ao eliminar o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).  Para eliminar o grupo de recursos, navegue para a instância do Azure Database Migration Service que criou. Selecione o nome do **Grupo de recursos** e selecione **Eliminar grupo de recursos**.  Esta ação elimina todos os recursos no grupo de recursos, bem como o próprio grupo.
+Pode limpar os recursos criados neste Início Rápido ao eliminar o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md). Para eliminar o grupo de recursos, navegue para a instância do Azure Database Migration Service que criou. Selecione o nome do **Grupo de recursos** e selecione **Eliminar grupo de recursos**. Esta ação elimina todos os recursos no grupo de recursos, bem como o próprio grupo.
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]

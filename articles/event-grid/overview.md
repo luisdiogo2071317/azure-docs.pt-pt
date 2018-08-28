@@ -6,49 +6,37 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 90e8d6a3ef093046c5ee6324f6e6590e59124da7
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725246"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023764"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introdução ao Azure Event Grid
 
-O Azure Event Grid permite-lhe criar facilmente aplicações com arquiteturas baseadas em eventos. Tem de selecionar o recurso do Azure que pretende subscrever e indicar o processador de eventos ou o ponto final do webHook para o qual enviar o evento. O Event Grid tem suporte incorporado para eventos provenientes de serviços do Azure, como os blobs de armazenamento e os grupos de recursos. Também tem suporte personalizado para eventos de aplicações e eventos de terceiros, mediante a utilização de tópicos personalizados e webhooks personalizados. 
+O Azure Event Grid permite-lhe criar facilmente aplicações com arquiteturas baseadas em eventos. Primeiro, selecione o recurso do Azure que pretende subscrever e, em seguida, indique o processador de eventos ou o ponto final do WebHook para o qual enviar o evento. O Event Grid tem suporte incorporado para eventos provenientes de serviços do Azure, como os blobs de armazenamento e os grupos de recursos. O Event Grid também suporta os seus próprios eventos com tópicos personalizados. 
 
-Pode utilizar filtros para encaminhar eventos específicos para diferentes pontos finais, entregar em vários pontos finais e confirmar que os eventos são entregues com confiança. O Event Grid tem igualmente suporte incorporado para eventos personalizados e de terceiros.
+Pode utilizar filtros para encaminhar eventos específicos para diferentes pontos finais, entregar em vários pontos finais e confirmar que os eventos são entregues com confiança.
 
-Atualmente, o Event Grid suporta as seguintes regiões:
+Atualmente, a Azure Event Grid está disponível em todas as regiões públicas. Ainda não está disponível nas clouds do Azure Alemanha, Azure China ou Azure Government.
 
-* Sudeste Asiático
-* Ásia Oriental
-* Leste da Austrália
-* Sudeste da Austrália
-* EUA Central
-*   EUA Leste
-*   EUA Leste 2
-* Europa Ocidental
-* Norte da Europa
-* Leste do Japão
-* Oeste do Japão
-*   EUA Centro-Oeste
-*   EUA Oeste
-*   EUA Oeste 2
-
-Este artigo mostra uma descrição geral do Azure Event Grid. Se quiser começar a utilizar o Event Grid, veja [Criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md). A imagem seguinte mostra como de que forma é que o Event Grid liga origens e processadores, mas não disponibiliza uma lista abrangente das opções suportadas.
+Este artigo mostra uma descrição geral do Azure Event Grid. Se quiser começar a utilizar o Event Grid, veja [Criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md). 
 
 ![Modelo funcional do Event Grid](./media/overview/functional-model.png)
 
+Atenção: esta imagem mostra como de que forma é que o Event Grid liga origens e processadores, e não é uma lista abrangente das opções suportadas.
+
 ## <a name="event-sources"></a>Origens de eventos
 
-Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o Event Grid:
+Para obter detalhes completos sobre as capacidades de cada origem, bem como artigos relacionados, veja [origens de eventos](event-sources.md). Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o Event Grid:
 
 * Subscrições do Azure (operações de gestão)
+* Registo de Contentor
 * Tópicos Personalizados
-* Event Hubs
+* Hubs de Eventos
 * IoT Hub
 * Serviços de Multimédia
 * Grupos de Recursos (operações de gestão)
@@ -56,22 +44,18 @@ Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o E
 * Blob de Armazenamento
 * V2 de Fins Gerais de Armazenamento (GPv2)
 
-Para obter ligações para artigos que mostram como utilizar cada origem de eventos, veja [Event sources in Azure Event Grid](event-sources.md) (Origens de eventos no Azure Event Grid).
-
 ## <a name="event-handlers"></a>Processadores de eventos
 
-Atualmente, os seguintes serviços do Azure suportam o processamento de eventos no Event Grid: 
+Para obter detalhes completos sobre as capacidades de cada processador, bem como artigos relacionados, veja [processadores de eventos](event-handlers.md). Atualmente, os seguintes serviços do Azure suportam o processamento de eventos no Event Grid: 
 
 * Automatização do Azure
 * Funções do Azure
-* Event Hubs
+* Hubs de Eventos
 * Ligações Híbridas
 * Aplicações Lógicas
 * Microsoft Flow
 * Armazenamento de filas
 * WebHooks
-
-Para obter ligações para artigos que mostram como utilizar cada processador de eventos, veja [Event handlers in Azure Event Grid](event-handlers.md) (Processadores de eventos no Azure Event Grid).
 
 ## <a name="concepts"></a>Conceitos
 

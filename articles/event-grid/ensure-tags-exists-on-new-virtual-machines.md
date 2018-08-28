@@ -3,23 +3,19 @@ title: Integrar a Automatização do Azure no Event Grid | Microsoft Docs
 description: Saiba como adicionar automaticamente uma etiqueta quando é criada uma nova VM e enviar uma notificação para o Microsoft Teams.
 keywords: automatização, runbook, teams, event grid, máquina virtual, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: ''
-editor: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049869"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919179"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrar a Automatização do Azure com a Event Grid e o Microsoft Teams
 
@@ -87,28 +83,30 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 
     ![Configurar os parâmetros do webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. Selecione **OK** para criar o webhook do runbook de Automatização.
-
+5. Selecione **Criar** para criar o webhook do runbook de Automatização.
 
 ## <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
+
 1. Na página de descrição geral **Conta de Automatização**, selecione **Event Grid**.
 
     ![Selecionar Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Selecione o botão **+ Subscrição de Eventos**.
+2. Clique em **+ Subscrição de Evento**.
 
 3. Configure a subscrição com as seguintes informações:
 
-    *   Introduza **AzureAutomation** para o nome.
-    *   Em **Tipo de Tópico**, selecione **Subscrições do Azure**.
-    *   Limpe a caixa de verificação **Subscrever todos os tipos de eventos**.
-    *   Em **Tipos de Eventos**, selecione **Escrita do Recurso com Êxito**.
-    *   Em **Ponto Final do Subscritor**, introduza o URL do webhook do runbook Watch-VMWrite.
-    *   Em **Filtro de Prefixo**, introduza a subscrição e o grupo de recursos em que quer procurar as novas VMs criadas. Deve ter o seguinte aspeto: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+   * No **Tipo de Tópico**, selecione **Subscrições do Azure**.
+   * Desmarque a caixa de verificação **Subscrever todos os tipos de eventos**.
+   * Introduza **AzureAutomation** para o nome.
+   * Na lista pendente **Tipos de Eventos Definidos**, desmarque todas as opções, exceto **Êxito da Escrita de Recurso**.
+   * No **Tipo de Ponto Final**, selecione **Webhook**.
+   * Clique em **Selecionar um ponto final**. Na página **Selecionar Webhook** que se abre, cole o url do webhook criado para o runbook Watch-VMWrite.
+   * Em **FILTROS**, introduza a subscrição e o grupo de recursos em que quer procurar as novas VMs criadas. Deve ter o seguinte aspeto: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Selecione **Criar** para guardar a subscrição do Event Grid.
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>Criar uma VM que acione o runbook
+
 1. Crie uma nova VM no grupo de recursos que especificou no filtro de prefixo da subscrição do Event Grid.
 
 2. O runbook Watch-VMWrite deve ser chamado e uma nova etiqueta adicionada à VM.
@@ -120,6 +118,7 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
     ![Notificação do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Neste tutorial, configurou a integração entre o Event Grid e a Automatização. Aprendeu a:
 
 > [!div class="checklist"]

@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9d60b85051ff6e24c64f074ccd4fad055ba47ae8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18f4d2656ec7f027557d73959531b781be1d8d44
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523585"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42022987"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Início Rápido: Criar uma conta de armazenamento de Pré-visualização do Armazenamento do Azure Data Lake Ger2
 
@@ -114,15 +114,6 @@ Para remover um grupo de recursos através do portal do Azure:
 2. Encontre o grupo de recursos a eliminar e clique com o botão direito do rato em **Mais** (**...** ) no lado direito da lista.
 3. Selecione **Eliminar grupo de recursos** e confirme.
 
-
-## <a name="upgrade-your-powershell-module"></a>Atualizar o módulo do powershell
-
-Para interagir com o Armazenamento do Data Lake Ger2 através do PowerShell, terá de atualizar o seu módulo para a versão de pré-visualização.
-
-Para tal, abra um PowerShell elevado e introduza o seguinte comando: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
-
-Em seguida, reinicie a shell.
-
 ## <a name="create-an-account-using-powershell"></a>Criar uma conta com o PowerShell
 
 Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã para autenticar.
@@ -130,6 +121,14 @@ Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount`
 ```powershell
 Login-AzureRmAccount
 ```
+
+### <a name="upgrade-your-powershell-module"></a>Atualizar o módulo do powershell
+
+Para interagir com o Armazenamento do Data Lake Ger2 através do PowerShell, terá de atualizar o seu módulo para a versão de pré-visualização.
+
+Para tal, abra um PowerShell elevado e introduza o seguinte comando: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Em seguida, reinicie a shell.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -170,13 +169,7 @@ Para remover o grupo de recursos e os respetivos recursos associados, incluindo 
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="upgrade-your-cli-module"></a>Atualizar o seu módulo da CLI
-
-Para interagir com o Armazenamento do Data Lake Ger2 através da CLI, terá de adicionar a extensão à sua shell.
-
-Para o fazer: com o Cloud Shell ou uma shell local, introduza o seguinte comando: `az extension add --name storage-preview`
-
-## <a name="create-an-account-using-azure-cli"></a>Criar uma conta com a CLI do Azure 
+## <a name="create-an-account-using-azure-cli"></a>Criar uma conta com a CLI do Azure
 
 Para iniciar o Azure Cloud Shell, inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -186,9 +179,15 @@ Para iniciar sessão na sua instalação local da CLI, execute o comando de iní
 az login
 ```
 
+### <a name="upgrade-your-cli-module"></a>Atualizar o seu módulo da CLI
+
+Para interagir com o Armazenamento do Data Lake Ger2 através da CLI, terá de adicionar a extensão à sua shell.
+
+Para o fazer: introduza o seguinte comando com o Cloud Shell ou uma shell local: `az extension add --name storage-preview`
+
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um novo grupo de recursos com a CLI do Azure, utilize o comando [az group create](/cli/azure/group#az_group_create). 
+Para criar um novo grupo de recursos com a CLI do Azure, utilize o comando [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create \

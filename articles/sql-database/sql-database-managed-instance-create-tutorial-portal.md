@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850615"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918957"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Criar uma MI no portal do Azure
 
@@ -33,15 +33,17 @@ Este tutorial demonstra como criar uma Instância Gerida da Base de Dados SQL do
 > * Conectar à máquina virtual
 > * Instalar o SQL Server Management Studio e ligar à Instância Gerida
 
+> [!Note]
+> Este tutorial explica como configurar a rede, as sub-redes, a instância e a máquina virtual com o portal do Azure, o que pode ser um processo mais longo. Se precisar de um tutorial de início rápido mais curto em que a rede e a máquina virtual utilizada para aceder à instância são criados com um clique no botão "Implementar no Azure", poderá dar uma vista de olhos no [Tutorial de introdução](sql-database-managed-instance-get-started.md).
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!IMPORTANT]
 > Para obter uma lista das regiões nas quais a Instância Gerida está atualmente disponível, consulte [Migrar as bases de dados para um serviço completamente gerido com Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
+Inicie sessão no [portal do Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## <a name="whitelist-your-subscription"></a>Incluir a sua subscrição na lista de permissões
 
@@ -160,7 +162,7 @@ Os passos seguintes mostram como criar a sua Instância Gerida depois de a pré-
 2. Localize **Instância Gerida** e, em seguida, selecione **MI (pré-visualização)**.
 3. Clique em **Criar**.
 
-   ![criação de instância gerida](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![criar instância gerida](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Selecione a sua subscrição e certifique-se de que os termos de pré-visualização são apresentados como **Aceites**.
 
@@ -302,7 +304,7 @@ Os passos seguintes mostram como transferir e instalar o SQL Server Management S
 8. Quando lhe for pedido, clique em **Instalar** para começar.
 9. Quando concluir a instalação, clique em **Fechar**.
 10. Abra o SQL Server Management Studio.
-11. Na caixa de diálogo **Ligar ao Servidor**, introduza o **nome de anfitrião* da sua Instância Gerida na caixa **Nome do servidor**, selecione **Autenticação do SQL Server** , forneça o início de sessão e palavra-passe e, em seguida, clique em **Ligar**.
+11. Na caixa de diálogo **Ligar ao Servidor**, introduza o **nome de anfitrião** da sua Instância Gerida na caixa **Nome do servidor**, selecione **Autenticação do SQL Server** , indique o início de sessão e palavra-passe e, em seguida, clique em **Ligar**.
 
     ![ligação SSMS](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

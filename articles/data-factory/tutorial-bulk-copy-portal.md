@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6d7b926a414c95d4e05834bafc91a2aa9c047fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433515"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919582"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 Este tutorial demonstra como **copiar várias tabelas da Base de Dados SQL do Azure para o Azure SQL Data Warehouse**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
@@ -108,7 +108,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
     ![Página Introdução](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Os serviços ligados são criados para ligar os seus arquivos de dados e computações a uma fábrica de dados. Os serviços ligados têm as informações de ligação que o serviço Data Factory utiliza para se ligar ao arquivo de dados no runtime. 
+Os serviços ligados são criados para ligar os seus arquivos de dados e computações a uma fábrica de dados. O serviço ligado tem as informações de ligação que o serviço Data Factory utiliza para se ligar ao arquivo de dados no runtime. 
 
 Neste tutorial, vai ligar os arquivos de dados da Base de Dados SQL do Azure, do Azure SQL Data Warehouse e do Armazenamento de Blobs do Azure à fábrica de dados. A Base de Dados SQL do Azure é o arquivo de dados de origem. O Azure SQL Data Warehouse é o arquivo de dados de sink/destino. O Armazenamento de Blobs do Azure destina-se a testar os dados antes de serem isolados no SQL Data Warehouse mediante a utilização do PolyBase. 
 
@@ -265,7 +265,7 @@ O pipeline **GetTableListAndTriggerCopyData** executa dois passos:
     1. Clique na caixa de entrada para o VALOR do parâmetro DWTableName -> selecione **Adicionar conteúdo dinâmico** abaixo, introduza a expressão `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` como script, -> selecione **Concluir**.
     1. Expanda **Definições de Polybase** e selecione **Permitir polybase**. 
     1. Limpe a opção **Utilizar Tipo predefinido**. 
-    1. Clique na caixa de entrada **Limpar Script** -> selecione **Adicionar conteúdo dinâmico** abaixo -> introduza a seguinte expressão como um script -> selecione **Concluir**. 
+    1. Clique na caixa de entrada **Cópia prévia do Script** -> selecione **Adicionar conteúdo dinâmico** abaixo -> introduza a seguinte expressão como um script -> selecione **Concluir**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

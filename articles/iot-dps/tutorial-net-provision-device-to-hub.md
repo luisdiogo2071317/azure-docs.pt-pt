@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520671"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919200"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscrever o dispositivo num hub IoT com o Cliente do Serviço Aprovisionamento no Hub IoT do Azure (.NET)
 
@@ -62,7 +62,7 @@ Existem duas formas de inscrever o dispositivo no Serviço Aprovisionamento de D
     
 1. No Explorador de Soluções, clique com o botão direito do rato no projeto **DeviceProvisioning** e, em seguida, clique em **Gerir Pacotes NuGet...**.
 
-1. Na janela **Gestor de Pacotes NuGet**, selecione **Pesquisar** e procure **microsoft.azure.devices.provisioning.service**. Selecione a entrada e clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices.Provisioning.Service** e aceite os termos de utilização. Este procedimento transfere, instala e adiciona uma referência ao pacote NuGet do [SDK de serviço de aprovisionamento de dispositivo do Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e às respetivas dependências.
+1. Na janela **Gestor de Pacotes NuGet**, selecione **Pesquisar** e procure **microsoft.azure.devices.provisioning.service**. Selecione a entrada e clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices.Provisioning.Service** e aceite os termos de utilização. Este procedimento transfere, instala e adiciona uma referência ao pacote NuGet do [SDK de Serviço de Aprovisionamento de Dispositivo do Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e às respetivas dependências.
 
 1. Adicione as seguinte declarações `using` na parte superior do ficheiro **Program.cs**:
    
@@ -70,10 +70,10 @@ Existem duas formas de inscrever o dispositivo no Serviço Aprovisionamento de D
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Adicione os seguintes campos à classe **Programa**. Substitua o valor do marcador de posição pela cadeia de ligação do DPS indicado na secção anterior.
+1. Adicione os seguintes campos à classe **Programa**. Substitua o valor do marcador de posição pela cadeia de ligação do Serviço Aprovisionamento de Dispositivos indicado na secção anterior.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =

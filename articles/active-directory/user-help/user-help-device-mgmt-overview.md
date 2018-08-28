@@ -11,21 +11,21 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 933cc0f18214cf40741f6f65006231e0cd5a17e6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 7a4716be201b1923b54f09fa68f5769521b29168
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347330"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023228"
 ---
 # <a name="manage-my-devices-overview"></a>Descrição geral de Gerir os meus dispositivos
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-Confirme que está a aceder aos recursos da sua organização a partir de dispositivos que cumprem os padrões da mesma relativamente a segurança e conformidade.
+Certifique-se de que pode aceder a todos os recursos potencialmente restritos da sua organização a partir dos seus dispositivos de trabalho e pessoais.
 
 |Artigo |Descrição |
 |------|------------|
-|[Associar os seus dispositivos](device-management-azuread-joined-devices-setup.md)|Descreve como associar o seu dispositivo pertencente ao trabalho à rede da sua organização.|
-|[Registar os seus dispositivos Windows 10](device-management-azuread-registered-devices-windows10-setup.md)|Descreve como registar o seu dispositivo Windows 10 na rede da sua organização.| 
+|[Associar o seu dispositivo de trabalho](user-help-join-device-on-network.md)|Aprenda a associar o seu dispositivo de trabalho à rede da sua organização.|
+|[Registar o seu dispositivo pessoal](user-help-register-device-on-network.md)|Aprenda a registar o seu dispositivo pessoal à rede da sua organização.|

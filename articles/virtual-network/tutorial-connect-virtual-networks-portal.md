@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841793"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919826"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
 
-Pode ligar redes virtuais entre si com o peering de rede virtual. Depois de as redes virtuais estarem em modo de peering, os recursos nas duas redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos estivessem na mesma rede virtual. Neste tutorial, ficará a saber como:
+Pode ligar redes virtuais entre si com o peering de rede virtual. Estas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecidas como o peering de VNet Global). Depois de as redes virtuais estarem em modo de peering, os recursos nas duas redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos estivessem na mesma rede virtual. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar duas redes virtuais
@@ -45,7 +45,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
 1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
-2. Selecione **Redes** e, em seguida, selecione **Rede Virtual**.
+2. Selecione **Redes** e, em seguida, selecione **Rede virtual**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **Criar**:
 
     |Definição|Valor|
@@ -55,8 +55,8 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
     |Localização| Selecione **E.U.A. Leste**.|
-    |Nome da Sub-rede|Subnet1|
-    |Intervalo de Endereços da Sub-rede|10.0.0.0/24|
+    |Nome da sub-rede|Subnet1|
+    |Intervalo de endereços da sub-rede|10.0.0.0/24|
 
       ![Criar uma rede virtual](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
 
@@ -82,7 +82,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Nome|myVirtualNetwork1-myVirtualNetwork2|
     |Subscrição| Selecione a sua subscrição.|
-    |Rede virtual|myVirtualNetwork2 - para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual** e, em seguida, selecione **myVirtualNetwork2**.|
+    |Rede virtual|myVirtualNetwork2 - para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual** e, em seguida, selecione **myVirtualNetwork2**. Pode selecionar uma rede virtual na mesma região ou numa região diferente.|
 
     ![Definições de peering](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -177,7 +177,7 @@ A criação das VMs demora alguns minutos. Não prossiga com os restantes passos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo: 
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

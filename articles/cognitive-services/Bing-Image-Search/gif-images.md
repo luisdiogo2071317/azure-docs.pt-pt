@@ -1,5 +1,5 @@
 ---
-title: Obter imagens *.gif - serviços cognitivos Microsoft | Microsoft Docs
+title: Obter imagens .gif - serviços cognitivos Microsoft | Microsoft Docs
 description: Como utilizar a API de pesquisa do Bing imagem para obter mais informações sobre imagens de GIF.
 services: cognitive-services
 author: MikeDodaro
@@ -16,8 +16,8 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 06/23/2018
 ms.locfileid: "35355063"
 ---
-# <a name="search-for-gif-images"></a>Procure *.gif imagens
-A API de pesquisa do Bing imagem permite-lhe também procurar em toda a Web todo para as imagens de *.gif mais relevantes.  Os programadores podem integrar a interagir gifs em vários cenários de conversação. 
+# <a name="search-for-gif-images"></a>Procure .gif imagens
+A API de pesquisa do Bing imagem permite-lhe também procurar em toda a Web todo para as imagens de .gif mais relevantes.  Os programadores podem integrar a interagir gifs em vários cenários de conversação. 
 
 O URL seguinte é uma consulta para imagens de GIF animado.
 ````

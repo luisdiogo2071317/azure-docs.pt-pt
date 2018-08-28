@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/14/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959972"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41921065"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabelas do Azure Cosmos DB com .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,10 +36,10 @@ Este exemplo mostra-lhe como utilizar a [Biblioteca de Tabelas do Microsoft Azur
 Para concluir este exemplo com êxito, precisa do seguinte:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Este é um pacote de pré-visualização obrigatório que é suportado em ambientes de produção. 
-* [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+* [Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - Um pacote de pré-visualização obrigatório que é suportado em ambientes de produção. 
+* [Biblioteca de Tabela do CosmosDB do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - Esta biblioteca está atualmente disponível apenas para o .NET Standard, ainda não está disponível para .NET Core.
 * [Gestor de Configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -50,17 +50,14 @@ Para obter exemplos adicionais que utilizam o Armazenamento de Tabelas, veja [In
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
-A forma mais fácil de criar a primeira conta de armazenamento do Azure é com o [portal do Azure](https://portal.azure.com). Para saber mais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* A forma mais fácil de criar a primeira conta de armazenamento do Azure é com o [portal do Azure](https://portal.azure.com). Para saber mais, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
-Também pode criar uma conta de armazenamento do Azure com o [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), o [CLI do Azure](../storage/common/storage-azure-cli.md) ou a [Biblioteca de Clientes do Fornecedor de Recursos de Armazenamento para .NET](/dotnet/api/microsoft.azure.management.storage).
+* Também pode criar uma conta de armazenamento do Azure com o [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), o [CLI do Azure](../storage/common/storage-azure-cli.md) ou a [Biblioteca de Clientes do Fornecedor de Recursos de Armazenamento para .NET](/dotnet/api/microsoft.azure.management.storage).
 
-Se preferir não criar uma conta de armazenamento neste momento, pode também utilizar o emulador de armazenamento do Azure para executar e testar o seu código num ambiente local. Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](../storage/common/storage-use-emulator.md).
+* Se preferir não criar uma conta de armazenamento neste momento, pode também utilizar o emulador de armazenamento do Azure para executar e testar o seu código num ambiente local. Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](../storage/common/storage-use-emulator.md).
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta da API de Tabelas do Azure Cosmos DB
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
-
-## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
-Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar pronto para experimentar os exemplos de código deste guia.
 
 ### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicação de consola do Windows
 No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seguintes mostram como criar uma aplicação de consola no Visual Studio 2017. Os passos são semelhantes aos de outras versões do Visual Studio.
@@ -75,17 +72,19 @@ Todos os exemplos de código deste exemplo podem ser adicionados ao método `Mai
 
 Pode utilizar a Biblioteca de Tabelas do Azure Cosmos DB em qualquer tipo de aplicação .NET, incluindo um serviço cloud do Azure ou aplicação Web, bem como aplicações de ambiente de trabalho e móveis. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
-### <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
+### <a name="install-the-required-nuget-packages"></a>Instale os pacotes NuGet exigidos
 Há três pacotes recomendados a que tem de fazer referência no seu projeto para concluir este exemplo:
 
-* [Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
-* [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento de Tabelas do Azure ou conta da API de Tabelas do Azure Cosmos DB.
+* [Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). -Utilize uma versão que inferior ou igual a 9.0.0.1 (<= 9.0.0.1).
+
+* [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento de Tabelas do Azure ou conta da API de Tabelas do Azure Cosmos DB. Esta biblioteca está atualmente disponível apenas para o .NET Standard, ainda não está disponível para .NET Core.
+
 * [Biblioteca do Gestor de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação estiver a ser executada.
 
-Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
+Para obter os pacotes NuGet, siga estes passos:
 
 1. Clique com o botão direito do rato no projeto no **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**.
-2. Procure online por "Microsoft.Azure.Storage.Common" e selecione **Instalar** para instalar a Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização) e as respetivas dependências. Certifique-se de que a caixa **Incluir pré-lançamento** está marcada, uma vez que se trata de um pacote de pré-visualização.
+2. Procure online por "Microsoft.Azure.Storage.Common", escolha a versão <= 9.0.0.1 e selecione **Instalar** para instalar a Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização) e as respetivas dependências. Certifique-se de que a caixa **Incluir pré-lançamento** está marcada, uma vez que se trata de um pacote de pré-visualização.
 3. Procure online por "Microsoft.Azure.CosmosDB.Table" e selecione **Instalar** para instalar a Biblioteca de Tabelas do Microsoft Azure Cosmos DB.
 4. Procure online por "WindowsAzure.ConfigurationManager" e selecione **Instalar** para instalar a Biblioteca do Gestor de Configuração do Microsoft Azure.
 

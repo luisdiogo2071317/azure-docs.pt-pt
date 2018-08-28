@@ -4,17 +4,17 @@ description: Saiba como criar uma conta de Automatização do Azure e executar u
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055159"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616601"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -22,21 +22,21 @@ As contas de Automatização do Azure podem ser criadas através do Azure. Este 
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie a sessão no Azure em https://portal.azure.com
+Inicie sessão no Azure a https://portal.azure.com
 
 ## <a name="create-automation-account"></a>Criar conta de Automatização
 
 1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Azure.
 
-1. Selecione **Monitorização + Gestão**e, em seguida, selecione **Automatização**.
+1. Selecione **Ferramentas de Monitorização** e, em seguida, selecione **Automatização**.
 
-1. Introduza as informações da conta. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. Quando terminar, clique em **Criar**, para iniciar a implementação da conta de Automatização.
+1. Introduza as informações da conta. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. É importante ter em atenção que ao criar uma Conta de Automatização, o nome não pode ser alterado depois de ser escolhido. Quando terminar, clique em **Criar**, para iniciar a implementação da conta de Automatização.
 
     ![Introduza as informações sobre a conta de Automatização na página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. A conta de Automatização é afixada ao dashboard do Azure. Quando concluída a implementação, a descrição geral de conta de Automatização é aberta automaticamente.
+1. Quando a implementação estiver concluída, clique em ** **Todos os Serviços**, selecione **Contas de Automatização** e selecione a Conta de Automatização que criou.
 
     ![Descrição geral da conta de Automatização](./media/automation-quickstart-create-account/automation-account-overview.png)
 

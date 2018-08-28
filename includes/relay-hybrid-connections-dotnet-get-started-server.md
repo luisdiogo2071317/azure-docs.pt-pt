@@ -1,3 +1,20 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182658"
+---
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
 No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framework)**.
@@ -5,8 +22,10 @@ No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framewo
 ### <a name="add-the-relay-nuget-package"></a>Adicionar o pacote NuGet de Reencaminhamento
 
 1. Clique com o botão direito do rato no projeto recém-criado e, em seguida, selecione **Gerir Pacotes NuGet**.
-2. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Reencaminhamento do Microsoft Azure**. 
-3. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
+2. Selecione a opção **Incluir pré-lançamento**. 
+3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Reencaminhamento do Microsoft Azure**.
+4. Para a versão, selecione **2.0.0-preview1-20180523**. 
+5. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
 
 ### <a name="write-code-to-receive-messages"></a>Escrever código para receber mensagens
 
@@ -17,6 +36,7 @@ No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framewo
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. Adicione constantes à classe `Program`, para obter os detalhes da ligação híbrida. Substitua os marcadores de posição entre parênteses retos pelos valores que obteve quando criou a ligação híbrida. Certifique-se de que utiliza o nome de espaço de nomes totalmente qualificado.

@@ -2,24 +2,18 @@
 title: Utilizar uma partilha de ficheiros do Azure com o Windows | Microsoft Docs
 description: Saiba como utilizar uma partilha de ficheiros do Azure com o Windows e o Windows Server.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: files
+ms.openlocfilehash: 96ad812aff8f6ea4f47035188940730e5dc2992c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392272"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918240"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -52,20 +46,11 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 * **Chave da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, precisa da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
 
-* **Confirmar que a porta 445 está aberta**: o protocolo SMB requer que a porta TCP 445 esteja aberta; se estive bloqueada, as ligações falham. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. O seguinte código do PowerShell pressupõe que tem o módulo do PowerShell AzureRM instalado; veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
+* **Confirmar que a porta 445 está aberta**: o protocolo SMB requer que a porta TCP 445 esteja aberta; se estive bloqueada, as ligações falham. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. Não se esqueça de substituir `your-storage-account-name` pelo nome relevante para a sua conta de armazenamento.
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    
     ```
 
     Se a ligação for bem-sucedida, deverá ver o resultado seguinte:
@@ -208,6 +193,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![A partilha de ficheiros do Azure está agora montada](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. Quando estiver pronto para desmontar a partilha de ficheiros do Azure, pode fazê-lo ao clicar no botão direito do rato na entrada da partilha, em **Localizações de rede** no Explorador de Ficheiros, e selecionar **Desligar**.
+
+### <a name="accessing-share-snapshots-from-windows"></a>Aceder a instantâneos de partilha do Windows
+Se obteve um instantâneo de partilha, manual ou automaticamente através de um script ou um serviço como o Azure Backup, pode ver as versões anteriores de uma partilha, um diretório ou um ficheiro específico a partir da partilha de ficheiros no Windows. Pode obter um instantâneo de partilha a partir do [Portal do Azure](storage-how-to-use-files-portal.md), do [Azure PowerShell](storage-how-to-use-files-powershell.md) e da [CLI do Azure](storage-how-to-use-files-cli.md).
+
+#### <a name="list-previous-versions"></a>Listar versões anteriores
+Navegue para o item ou o item principal que precisa de restaurar. Faça duplo clique para ir para o diretório pretendido. Clique com o botão direito do rato e selecione **Propriedades** no menu.
+
+![Clique com o botão direito do rato no menu para um diretório selecionado](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+Selecione **Versões Anteriores** para ver a lista de instantâneos de partilha para este diretório. A lista poderá demorar alguns segundos para carregar, consoante a velocidade da rede e o número de instantâneos de partilha no diretório.
+
+![Separador Versões Anteriores](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+Pode selecionar **Abrir** para abrir um instantâneo específico. 
+
+![Instantâneo aberto](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>Restaurar de uma versão anterior
+Selecione **Restaurar** para copiar os conteúdos do diretório inteiro recursivamente no momento de criação do instantâneo de partilha para a localização original.
+ ![Botão de restauro na mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Proteger o Windows/Windows Server
 Para poder montar uma partilha de ficheiros do Azure no Windows, a porta 445 tem de estar acessível. Muitas organizações optam por bloquear esta porta devido a riscos de segurança inerentes ao SMB 1. O SMB 1, também conhecido como CIFS (Common Internet File System), é um protocolo de sistema de ficheiros legado incluído no Windows e no Windows Server. O SMB 1 é um protocolo desatualizado, ineficiente e, acima de tudo, inseguro. A boa notícia é que os Ficheiros do Azure não suportam SMB 1 e todas as versões suportadas do Windows e do Windows Server permitem removê-lo ou desativá-lo. Antes de utilizar partilhas de ficheiros do Azure em produção, [recomendamos vivamente](https://aka.ms/stopusingsmb1) remover ou desativar sempre o cliente SMB 1 e o servidor no Windows.

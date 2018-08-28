@@ -3,7 +3,7 @@ title: Como criar e publicar um produto na Gestão de API do Azure
 description: Saiba como criar e publicar produtos na Gestão de API do Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: af1768a6555168b777e68f378d32a0b44e9b2c78
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934497"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918940"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 > * Criar e publicar um produto
 > * Adicionar uma API ao produto
 
-![produto adicionado](media/api-management-howto-add-products/added-product.png)
+![adicionar produto](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,22 +41,23 @@ Neste tutorial, ficará a saber como:
 ## <a name="create-and-publish-a-product"></a>Criar e publicar um produto
 
 1. Clique em **Produtos** no menu à esquerda para apresentar a página **Produtos**.
-2. Clique em **+ Produto**.
+2. Clique em **+ Adicionar**.
 
     ![produto adicionado](media/api-management-howto-add-products/add-product.png)
 
     Ao adicionar um produto, tem de fornecer as seguintes informações: 
 
-    |Nome|Descrição|
-    |---|---|
-    |Nome a apresentar|O nome, como pretende que seja apresentado no **Portal do programador**.|
-    |Nome|Um nome descritivo do produto.|
-    |Descrição|O campo **Descrição** permite-lhe fornecer informações detalhadas sobre o produto, como a respetiva finalidade, as APIs às quais fornece acesso e outras informações úteis.|
-    |Estado|Prima **Publicado** se pretender publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por predefinição, os novos produtos não são publicados, e são visíveis apenas para o grupo **Administradores**.|
-    |Requer aprovação|Selecione **Exigir aprovação de subscrição**, se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição deste produto. Se a caixa estiver desmarcada, as tentativas de subscrição são aprovadas automaticamente. |
-    |Limite da contagem de subscrições|Para limitar a contagem de várias subscrições simultâneas, introduza o limite de subscrições. |
-    |Termos legais|Pode incluir os termos de utilização do produto, que os subscritores têm de aceitar para poderem utilizar o produto.|
-    |APIs|Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/> Pode adicionar uma API existente durante a criação de produtos. Pode adicionar uma API ao produto mais tarde, a partir da página **Definições** de Produtos ou ao criar uma API.|<br/>Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto.<br/> Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.|
+    | Nome                     | Descrição                                                                                                                                                                                                                                                                                                             |
+    |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Nome a apresentar             | O nome, como pretende que seja apresentado no **Portal do programador**.                                                                                                                                                                                                                                                        |
+    | Nome                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
+    | Descrição              | O campo **Descrição** permite-lhe fornecer informações detalhadas sobre o produto, como a respetiva finalidade, as APIs às quais fornece acesso e outras informações úteis.                                                                                                                                               |
+    | Estado                    | Prima **Publicado** se pretender publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por predefinição, os novos produtos não são publicados, e são visíveis apenas para o grupo **Administradores**.                                                                                      |
+    | Exige subscrição    | Selecione **Exigir subscrição** se um utilizador precisar de subscrever para utilizar o produto.                                                                                                                                                                                                                                   |
+    | Requer aprovação        | Selecione **Exigir aprovação**, se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição deste produto. Se a caixa estiver desmarcada, as tentativas de subscrição são aprovadas automaticamente.                                                                                                                         |
+    | Limite da contagem de subscrições | Para limitar a contagem de várias subscrições simultâneas, introduza o limite de subscrições.                                                                                                                                                                                                                                |
+    | Termos legais              | Pode incluir os termos de utilização do produto, que os subscritores têm de aceitar para poderem utilizar o produto.                                                                                                                                                                                                             |
+    | APIs                     | Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/> Pode adicionar uma API existente durante a criação de produtos. Pode adicionar uma API ao produto mais tarde, a partir da página **Definições** de Produtos ou ao criar uma API. |
 
 3. Clique em **Criar** para criar o novo produto.
 
@@ -76,10 +77,12 @@ Os programadores têm de subscrever primeiro um produto para obter acesso à API
 
 ### <a name="add-an-api-to-an-existing-product"></a>Adicionar uma API a um produto existente
 
-1. Selecione um produto.
-2. Selecione o separador APIs.
-3. Clique em **+API**.
-4. Escolha uma API e clique em **Criar**.
+![adicionar API de produto](media/api-management-howto-add-products/add-product-api.png)
+
+1. No separador **Produtos**, selecione um produto.
+2. Navegue para o separador **APIs**.
+3. Clique em **+ Adicionar**.
+4. Escolha uma API e clique em **Selecionar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

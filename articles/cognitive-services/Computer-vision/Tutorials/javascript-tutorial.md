@@ -42,7 +42,7 @@ Se preferir utilizar o tutorial foi terminado com o código do tutorial todos os
 
 ## <a name="add-the-tutorial-code"></a>Adicione o código do tutorial
 
-A aplicação do JavaScript é configurada com seis *.HTML os ficheiros, um para cada funcionalidade. Cada ficheiro demonstra uma função diferente da visão de computador (analisar OCR, etc.). As secções tutorial seis não dispõe de interdependencies, pelo que pode adicionar o código do tutorial para um ficheiro, todos os ficheiros de seis ou apenas alguns dos ficheiros. E pode adicionar o código do tutorial para os ficheiros em qualquer ordem.
+A aplicação do JavaScript é configurada com seis .HTML os ficheiros, um para cada funcionalidade. Cada ficheiro demonstra uma função diferente da visão de computador (analisar OCR, etc.). As secções tutorial seis não dispõe de interdependencies, pelo que pode adicionar o código do tutorial para um ficheiro, todos os ficheiros de seis ou apenas alguns dos ficheiros. E pode adicionar o código do tutorial para os ficheiros em qualquer ordem.
 
 Vamos começar.
 

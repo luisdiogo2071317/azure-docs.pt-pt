@@ -4,17 +4,17 @@ description: Este início rápido mostra como começar ao criar uma tarefa do St
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902909"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022784"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
 
@@ -34,7 +34,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados configurad
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -146,6 +146,16 @@ Nesta secção, irá configurar o armazenamento de blobs como entrada da tarefa 
 3. Neste exemplo, a consulta lê os dados do blob e copia-os para um novo ficheiro no blob. Em seguida, selecione **Guardar**.  
 
    ![Configurar a transformação da tarefa](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## <a name="configure-late-arrival-policy"></a>Configurar política de chegada tardia
+
+1. Navegue para a tarefa do Stream Analytics que criou anteriormente.
+
+2. Em **Configurar**, selecione **Ordenação de eventos**.
+
+3. Defina os **Eventos que se atrasam** para 20 dias e selecione **Guardar**.
+
+   ![Configurar política de chegada tardia](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 

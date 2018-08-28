@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722784"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920759"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial: Classificar Íris, parte 2 – Criar um modelo
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
@@ -442,7 +442,7 @@ Para executar o script num contentor do Docker num computador Linux remoto, tem 
    >O endereço IP também pode ser um nome de domínio completamente qualificado (FQDN) endereçável publicamente, como `vm-name.southcentralus.cloudapp.azure.com`. É boa prática adicionar um FQDN à sua DSVM e utilizá-lo em vez de um endereço IP. Esta prática é útil porque poderá desativar a VM a determinada altura para poupar custos. Além disso, da próxima vez que iniciar a VM, o endereço IP pode ter sido alterado.
 
    >[!NOTE]
-   >Além da autenticação com o nome de utilizador e a palavra-passe, pode especificar uma chave privada e a frase de acesso correspondente (se aplicável) através das opções `--private-key-file` e `--private-key-passphrase` (opcionalmente).
+   >Além da autenticação com o nome de utilizador e a palavra-passe, pode especificar uma chave privada e a frase de acesso correspondente (se aplicável) através das opções `--private-key-file` e `--private-key-passphrase` (opcionalmente). Se pretende utilizar a chave privada que utilizou quando criou o DSVM, deverá especificar a `--use-azureml-ssh-key` opção.
 
    Em seguida, prepare o destino de computação **myvm** com a execução deste comando.
    

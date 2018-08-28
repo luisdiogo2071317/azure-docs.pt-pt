@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185674"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920896"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Tutorial: criar, depurar e implementar uma aplicação Web com vários serviços no Service Fabric Mesh
 
@@ -227,7 +227,7 @@ Este contexto de dados mínimo preenche alguns itens a fazer e fornece acesso ao
 
 ### <a name="add-a-controller"></a>Adicionar um controlador
 
-Um controlador padrão, que processa os pedidos HTPP e cria a resposta HTTP, foi fornecido pelo modelo quando o projeto **ToDoService** foi criado. No **Explorador de Soluções**, em **ToDoService**, abra a pasta **Controladores** para ver o ficheiro **ValuesController.cs**. 
+Um controlador predefinido, que processa os pedidos HTPP e cria a resposta HTTP, foi apresentado pelo modelo quando o projeto **ToDoService** foi criado. No **Explorador de Soluções**, em **ToDoService**, abra a pasta **Controladores** para ver o ficheiro **ValuesController.cs**. 
 
 Clique com o botão direito do rato em **ValuesController.cs** e, em seguida, em **Mudar o nome**. Mude o nome do ficheiro para `ToDoController.cs`. Se aparecer um aviso para mudar o nome de todas as referências, clique em **Sim**.
 
@@ -314,7 +314,8 @@ Substitua o conteúdo da totalidade do ficheiro pelo seguinte HTML, que define u
 </div>
 ```
 
-Abra o código da página Índice no **Explorador de Soluções**, ao abrir o **Index.cshtml** e, em seguida, abra o **Index.cshtml.cs**. Na parte superior do **Index.cshtml.cs**, adicionar `using System.Net.Http;`
+Abra o código da página Índice no **Explorador de Soluções**, ao abrir o **Index.cshtml** e, em seguida, abra o **Index.cshtml.cs**.
+Na parte superior do **Index.cshtml.cs**, adicionar `using System.Net.Http;`
 
 Substitua os conteúdos de `public class IndexModel` por:
 
@@ -336,7 +337,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +347,7 @@ public class IndexModel : PageModel
 O URL para o serviço de back-end é necessário para a comunicação com o serviço. Para efeitos deste tutorial, o seguinte excerto de código (que é definido acima como parte do IndexModel) lê as variáveis de ambiente para compor o URL:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

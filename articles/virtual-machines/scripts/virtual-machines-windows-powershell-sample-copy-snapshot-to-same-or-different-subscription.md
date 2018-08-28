@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script do PowerShell do Azure - instantâneo de cópia (mover) de um disco gerido à subscrição idêntica ou diferente | Microsoft Docs
-description: Exemplo de Script do PowerShell do Azure - instantâneo de cópia (mover) de um disco gerido à subscrição idêntica ou diferente
+title: Exemplo do Script do Azure PowerShell – Copiar (mover) o instantâneo de um disco gerido para uma subscrição idêntica ou diferente | Microsoft Docs
+description: Exemplo do Script do Azure PowerShell – Copiar (mover) o instantâneo de um disco gerido para uma subscrição idêntica ou diferente
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: 064b5355da10fe683563fa078cfafc65080f7ea2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2905747b6ece93f018bd6ef67fae1b23ec9c9d5d
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23879660"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41918670"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Instantâneo de cópia de um disco gerido na mesma subscrição ou outra subscrição com o PowerShell
+# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Copiar o instantâneo de um disco gerido na mesma subscrição ou numa subscrição diferente com a CLI
 
-Este script cria uma cópia de um instantâneo na mesma subscrição mesma ou uma subscrição diferente. Utilize este script para mover um instantâneo para uma subscrição diferente para a retenção de dados. Armazenar instantâneos numa subscrição diferente protegê-lo contra eliminação acidental de instantâneos na sua subscrição principal. 
+Este script cria uma cópia de um instantâneo na mesma subscrição ou numa subscrição diferente. Utilize este script para mover um instantâneo para uma subscrição diferente para a retenção de dados. Armazenar instantâneos numa subscrição diferente protege-o contra a eliminação acidental de instantâneos na sua subscrição principal. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,20 +35,20 @@ Este script cria uma cópia de um instantâneo na mesma subscrição mesma ou um
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]
 
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um instantâneo na subscrição de destino com o Id do instantâneo de origem. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um instantâneo na subscrição de destino com o ID do instantâneo de origem. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Novo AzureRmSnapshotConfig](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | Cria a configuração de instantâneos que é utilizada para criação de instantâneos. Inclui o Id do instantâneo de principal e a localização que seja a mesma que o instantâneo de principal do recurso.  |
-| [Novo AzureRmSnapshot](/powershell/module/azurerm.compute/New-AzureRmDisk) | Cria um instantâneo, utilizando a configuração de instantâneos, o nome de instantâneo e o nome do grupo de recursos transmitido como parâmetros. |
+| [New-AzureRmSnapshotConfig](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | Cria a configuração de instantâneo que é utilizada para a criação do instantâneo. Inclui o Id de recurso do instantâneo principal e a localização que é a mesma que o instantâneo principal.  |
+| [New-AzureRmSnapshot](/powershell/module/azurerm.compute/New-AzureRmDisk) | Cria um instantâneo com a configuração de instantâneo, o nome do instantâneo e o nome do grupo de recursos transmitidos como parâmetros. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual a partir de um instantâneo](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Exemplos de script do PowerShell de máquina virtual adicional que podem ser encontrados no [documentação do Azure Windows VM](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pode ver exemplos adicionais de scripts do PowerShell da máquina virtual na [Documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

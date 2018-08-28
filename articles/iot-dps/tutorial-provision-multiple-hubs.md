@@ -1,6 +1,6 @@
 ---
 title: Utilize o Serviço Aprovisionamento de Dispositivos no Hub IoT para aprovisionar dispositivos em hubs IoT com carga balanceada | Microsoft Docs
-description: Aprovisionamento de dispositivos automático do DPS em hubs IoT com carga balanceada no Portal do Azure
+description: Aprovisionamento de dispositivos automático do Serviço Aprovisionamento de Dispositivos em hubs IoT com carga balanceada no Portal do Azure
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0a3720fe729d5e260bbe5b0902460c8c7cfc7cb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629631"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919950"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Aprovisionar dispositivos em vários hubs IoT com balanceamento de carga
 
-Este tutorial mostra como aprovisionar dispositivos para vários hubs IoT com balanceamento de carga através do Serviço de Aprovisionamento de Dispositivos (DPS). Neste tutorial, ficará a saber como:
+Este tutorial mostra como aprovisionar dispositivos para vários hubs IoT com balanceamento de carga através do Serviço Aprovisionamento de Dispositivos. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Utilizar o portal do Azure para aprovisionar um segundo dispositivo para um segundo hub IoT 
 > * Adicionar uma entrada da lista de inscrição ao segundo dispositivo
-> * Definir a política de alocação de DPS para **distribuição uniforme**
-> * Ligar o novo hub IoT ao DPS
+> * Definir a política de alocação do Serviço Aprovisionamento de Dispositivos para **distribuição uniforme**
+> * Ligar o novo hub IoT ao Serviço Aprovisionamento de Dispositivos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -38,32 +38,32 @@ Siga os passos no tutorial [Aprovisionar dispositivo num hub](tutorial-provision
 
 ## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>Adicionar uma entrada da lista de inscrição ao segundo dispositivo
 
-A lista de inscrição informa o DPS sobre o método de atestado (o método para confirmar a identidade do dispositivo) que está a utilizar no dispositivo. O passo seguinte consiste em adicionar uma entrada da lista de inscrição para o segundo dispositivo. 
+A lista de inscrição informa o Serviço Aprovisionamento de Dispositivos sobre o método de atestado (o método para confirmar a identidade do dispositivo) que está a utilizar no dispositivo. O passo seguinte consiste em adicionar uma entrada da lista de inscrição para o segundo dispositivo. 
 
-1. Na página do seu DPS, clique em **Gerir inscrições**. A página **Adicionar entrada da lista de inscrição** é apresentada. 
+1. Na página do seu Serviço Aprovisionamento de Dispositivos, clique em **Gerir inscrições**. A página **Adicionar entrada da lista de inscrição** é apresentada. 
 2. No início da página, clique em **Adicionar**.
 2. Preencha os campos e, em seguida, clique em **Guardar**.
 
-## <a name="set-the-dps-allocation-policy"></a>Definir a política de alocação do DPS
+## <a name="set-the-device-provisioning-service-allocation-policy"></a>Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-A política de alocação é uma definição do DPS que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
+A política de alocação é uma definição do Serviço Aprovisionamento de Dispositivos que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
 
 1. **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa para o dispositivo.
 2. **Distribuição ponderada uniformemente** (predefinição): os hubs IoT associados são igualmente suscetíveis de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
-3. **Configuração estática através da lista de inscrição**: a especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação ao nível do DPS.
+3. **Configuração estática através da lista de inscrição**: a especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação ao nível do Serviço Aprovisionamento de Dispositivos.
 
 Siga estes passos para definir a política de alocação:
 
-1. Para definir a política de alocação, na página do DPS, clique em **Gerir política de alocação**.
+1. Para definir a política de alocação, na página do Serviço Aprovisionamento de Dispositivos, clique em **Gerir política de alocação**.
 2. Defina a política de alocação para **Distribuição ponderada uniformemente**.
 3. Clique em **Guardar**.
 
-## <a name="link-the-new-iot-hub-to-dps"></a>Ligar o novo hub IoT ao DPS
+## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>Ligar o novo hub IoT ao Serviço Aprovisionamento de Dispositivos
 
-Ligue o DPS e o hub IoT, para que o DPS possa registar dispositivos nesse hub.
+Ligar o Serviço Aprovisionamento de Dispositivos e o Hub IoT para que o Serviço Aprovisionamento de Dispositivos possa registar dispositivos nesse hub.
 
-1. Na página **Todos os recursos**, clique no DPS que criou anteriormente.
-2. Na página do DPS, clique em **Hubs IoT ligados**.
+1. Na página **Todos os recursos**, clique no Serviço Aprovisionamento de Dispositivos que criou anteriormente.
+2. Na página do Serviço Aprovisionamento de Dispositivos, clique em **Hubs IoT ligados**.
 3. Clique em **Adicionar**.
 4. Na página **Adicionar ligação ao hub IoT**, utilize os botões de opção para especificar se o hub IoT associado se encontra na subscrição atual ou numa subscrição diferente. Em seguida, escolha o nome do hub IoT na caixa **hub IoT**.
 5. Clique em **Guardar**.
@@ -75,8 +75,8 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Utilizar o portal do Azure para aprovisionar um segundo dispositivo para um segundo hub IoT 
 > * Adicionar uma entrada da lista de inscrição ao segundo dispositivo
-> * Definir a política de alocação de DPS para **distribuição uniforme**
-> * Ligar o novo hub IoT ao DPS
+> * Definir a política de alocação do Serviço Aprovisionamento de Dispositivos para **distribuição uniforme**
+> * Ligar o novo hub IoT ao Serviço Aprovisionamento de Dispositivos
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

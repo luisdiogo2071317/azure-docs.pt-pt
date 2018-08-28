@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126867"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617043"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure
 
@@ -78,7 +78,9 @@ Nesta secção, vai criar uma conta de armazenamento através do portal do Azure
 
 ## <a name="edit-and-deploy-the-template"></a>Editar e implementar o modelo
 
-Nesta secção, vai abrir o modelo guardado a partir da biblioteca de modelos, editar o modelo no portal e implementar o modelo revisto. Para editar um modelo mais complexo, considere utilizar o Visual Studio Code, que fornece funcionalidades de edição mais avançadas.
+Nesta secção, vai abrir o modelo guardado a partir da biblioteca de modelos, editar o modelo no portal e implementar o modelo revisto. Para editar um modelo mais complexo, considere utilizar o [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), que oferece funcionalidades de edição mais avançadas.
+
+O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implementação falha se introduzir um nome de conta de armazenamento que já existe. Para evitar este problema, pode utilizar um uniquestring() de chamada de função de modelo para gerar um nome de conta de armazenamento exclusivo.
 
 1. No portal do Azure, selecione **Todos os serviços** no menu à esquerda, introduza **modelo** na caixa de filtro e, em seguida, selecione **Modelo (PRÉ-VISUALIZAÇÃO)**.
 
@@ -177,6 +179,14 @@ Nesta secção, vai abrir o modelo guardado a partir da biblioteca de modelos, e
 
 10. Selecione **Comprar**.
 11. Selecione o ícone de campainha (notificações) na parte superior do ecrã para ver o estado de implementação.
+
+    ![Notificação de implementação de modelos do Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. Selecione **Ir para o grupo de recursos** no painel de notificação. Deverá ver um ecrã semelhante a:
+
+    ![Grupo de recursos de implementação de modelos do Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    Pode ver que o estado de implementação foi bem-sucedido e que não existe apenas uma conta de armazenamento no grupo de recursos. O nome da conta de armazenamento é uma cadeia de carateres exclusiva gerada pelo modelo. Para saber mais sobre como utilizar contas de armazenamento do Azure, veja [Início Rápido: Carregar, transferir e listar blobs através do portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

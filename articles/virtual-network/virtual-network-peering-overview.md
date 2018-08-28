@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257876"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920605"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -77,7 +77,12 @@ Também pode resolver problemas relacionados com a conectividade a uma máquina 
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 
-Para saber mais sobre os requisitos e as limitações, veja [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) (Requisitos e limitações do peering de rede virtual). Para saber mais sobre os limites ao número de peerings que pode criar para uma rede virtual, veja [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Limites de rede do Azure). 
+As seguintes restrições aplicam-se quando as redes virtuais são colocadas no modo de peering global:
+- As redes virtuais podem existir em qualquer região de cloud pública do Azure, mas não em clouds nacionais do Azure.
+- Os recursos numa rede virtual não conseguem comunicar com o endereço IP do front-end de um balanceador de carga interno do Azure na rede virtual em modo de peering global. O balanceador de carga e os recursos que comunicam com o mesmo têm de estar na mesma região.
+- Não pode utilizar gateways remotos ou permitir trânsito de gateway. Para utilizar gateways remotos ou permitir trânsito de gateway, as redes virtuais em modo de peering têm de estar na mesma região.
+
+Para saber mais sobre os requisitos e as limitações, veja [Requisitos e limitações do peering de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites ao número de peerings que pode criar para uma rede virtual, veja [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Limites de rede do Azure). 
 
 ## <a name="permissions"></a>Permissões
 
@@ -102,3 +107,4 @@ O trânsito do gateway é uma propriedade de peering que permite a uma rede virt
 
 * Saiba como criar uma [topologia de rede hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Saiba tudo sobre [as definições de peering de rede virtual e como alterá-las](virtual-network-manage-peering.md).
+* Obtenha respostas a perguntas comuns de Peering de VNet e Peering de VNet Global através do nosso [FAQ sobre Peering de VNet](virtual-networks-faq.md#vnet-peering)
