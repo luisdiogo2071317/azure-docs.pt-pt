@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 991113b4e3e501d6d058a83baa795a5d7cbaa585
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8a3cc9793af39deeb24fa725da5cf0dc536f4465
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439684"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918393"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge do C# e implementar no seu dispositivo simulado
 
@@ -66,8 +66,14 @@ Pode utilizar qualquer registo compatível com o Docker neste tutorial. O [Azure
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto do módulo do IoT Edge
 Os passos seguintes criam um projeto do módulo do IoT Edge baseado no SDK .Net Core 2.0 com o Visual Studio Code e a extensão Azure IoT Edge.
 
+### <a name="create-a-new-solution"></a>Criar uma nova solução
+
+Crie um modelo de solução C# que pode personalizar com o seu próprio código. 
+
 1. No Visual Studio Code, selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
+
 2. Na paleta de comandos, introduza e execute o comando **Azure: Iniciar sessão** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
+
 3. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
    1. Selecione a pasta onde quer criar a solução. 
@@ -76,7 +82,25 @@ Os passos seguintes criam um projeto do módulo do IoT Edge baseado no SDK .Net 
    4. Substitua o nome do módulo predefinido por **CSharpModule**. 
    5. Especifique o registo de contentor do Azure que criou na secção anterior como repositório de imagens para o primeiro módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão que copiou. A cadeia final é semelhante a \<nome do registo\>.azurecr.io/csharpmodule.
 
-4.  A janela do VS Code carrega a sua área de trabalho da solução do IoT Edge: a pasta de módulos, uma \.pasta do vscode, um ficheiro modelo do manifesto de implementação e um \.ficheiro env. No explorador do VS Code, abra **módulos** > **CSharpModule** > **Program.cs**.
+   ![Fornecer repositório de imagens do Docker](./media/tutorial-csharp-module/repository.png)
+
+A janela do VS Code carrega a área de trabalho da solução do IoT Edge. A área de trabalho da solução contém cinco componentes de nível superior. Não irá editar a pasta **\.vscode** ou o ficheiro **\.gitignore** neste tutorial. A pasta **módulos** contém o código C# para o seu módulo, bem como Dockerfiles para criar o seu módulo como uma imagem de contentor. O ficheiro **\.env** armazena as credenciais do registo de contentor. O ficheiro **deployment.template.json** contém as informações que o runtime do IoT Edge utiliza para implementar módulos num dispositivo. 
+
+Se não tiver especificado um registo de contentor ao criar a sua solução, mas aceitou o valor do localhost:5000 predefinido, não terá um ficheiro \.env. 
+
+   ![área de trabalho da solução C#](./media/tutorial-csharp-module/workspace.png)
+
+### <a name="add-your-registry-credentials"></a>Adicionar as credenciais do registo
+
+O ficheiro de ambiente armazena as credenciais do seu registo de contentor e partilha-as com o runtime do IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo IoT Edge. 
+
+1. No explorador do VS Code, abra o ficheiro .env. 
+2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu Azure Container Registry. 
+3. Guarde este ficheiro. 
+
+### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
+
+1. No explorador do VS Code, abra **módulos** > **CSharpModule** > **Program.cs**.
 
 5. Na parte superior do espaço de nomes **CSharpModule**, adicione três declarações **em utilização** para os tipos que são utilizados mais tarde:
 
@@ -253,7 +277,7 @@ Na secção anterior, criou uma solução do IoT Edge e adicionou código ao **C
 
 4. Guarde este ficheiro.
 
-5. No explorador do VS Code, clique com o botão direito do rato no ficheiro deployment.template.json e selecione **Criar solução do IoT Edge**. 
+5. No explorador do VS Code, clique com o botão direito do rato no ficheiro deployment.template.json e selecione **Criar e Emitir solução do IoT Edge**. 
 
 Quando indicar ao Visual Studio Code para criar a solução, este utiliza primeiro as informações no modelo de implementação e gera um ficheiro deployment.json numa nova pasta com o nome **config**. Em seguida, executa dois comandos no terminal integrado: `docker build` e `docker push`. Estes dois comandos criam o código, colocam o CSharpModule.dll em contentores e enviam-no para o registo de contentor que especificou quando inicializou a solução. 
 
@@ -261,18 +285,21 @@ Pode ver o endereço da imagem de contentor completo com a etiqueta no terminal 
 
 ## <a name="deploy-and-run-the-solution"></a>Implementar e executar a solução
 
-1. Configure a extensão Toolkit do Azure IoT com a cadeia de ligação do seu hub IoT: 
+No artigo de início rápido que utilizou para configurar o seu dispositivo IoT Edge, implementou um módulo com o portal do Azure. Também pode implementar módulos com a extensão Toolkit IoT do Azure para o Visual Studio Code. Já tem um manifesto de implementação preparado para o seu cenário, o ficheiro **deployment.json**. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
 
-    1. Abra o explorador do VS Code ao selecionar **Vista** > **Explorador**.
+1. Na paleta de comandos do VS Code, execute o **Hub IoT do Azure: Selecionar Hub IoT**. 
 
-    1. No explorador, selecione **Dispositivos do Hub IoT do Azure**, selecione as reticências (**...**) e, em seguida, escolha **Selecionar Hub IoT**. Siga as instruções para iniciar sessão na sua conta do Azure e selecione o seu hub IoT. 
+2. Escolha a subscrição e o hub IoT que contém o dispositivo do IoT Edge que pretende configurar. 
 
-       > [!Note]
-       > Também pode concluir a configuração ao escolher **Definir Cadeia de Ligação do Hub IoT**. Introduza a cadeia de ligação para o hub IoT ao qual o seu dispositivo IoT Edge se liga na janela de pop-up.
+3. No explorador do VS Code, expanda a secção **Dispositivos do Hub IoT do Azure**. 
 
-2. No explorador de Dispositivos do Hub IoT do Azure, clique com botão direito do rato no seu dispositivo IoT Edge e, em seguida, selecione **Criar Implementação para o dispositivo IoT Edge**. Selecione o ficheiro deployment.json na pasta config e, em seguida, escolha **Selecionar Manifesto de Implementação do Edge**.
+4. Carregue com o botão direito do rato no nome do seu dispositivo do IoT Edge e, em seguida, selecione **Criar Implementação para o Dispositivo Único**. 
 
-3. Atualize a secção **Dispositivos do Hub IoT do Azure**. Deverá ver o novo **CSharpModule** em execução, juntamente com o módulo **TempSensor**, bem como **$edgeAgent** e **$edgeHub**. 
+   ![Criar implementação para dispositivo único](./media/tutorial-csharp-module/create-deployment.png)
+
+5. Selecione o ficheiro **deployment.json** na pasta **config** e, em seguida, clique em **Selecionar Manifesto de Implementação do Edge**. Não utilize o ficheiro deployment.template.json. 
+
+6. Clique no botão Atualizar. Deverá ver o novo **CSharpModule** em execução, juntamente com o módulo **TempSensor**, bem como **$edgeAgent** e **$edgeHub**.  
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
@@ -284,33 +311,13 @@ Pode ver o endereço da imagem de contentor completo com a etiqueta no terminal 
  
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los.
+Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 
 Caso contrário, pode eliminar as configurações locais e os recursos do Azure que criou neste artigo para evitar custos. 
 
-> [!IMPORTANT]
-> A eliminação de recursos e grupos de recursos do Azure é irreversível. Quando estes itens são eliminados, o grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado o hub IoT no interior de um grupo de recursos existente que tem recursos que pretende manter, elimine apenas o recurso do hub IoT, em vez de eliminar o grupo de recursos.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Para eliminar apenas o hub IoT, execute o seguinte comando com o nome do hub e o nome do grupo de recursos:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Para eliminar todo o grupo de recursos por nome:
-
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
-
-2. Na caixa de texto **Filtrar por nome**, introduza o nome do grupo de recursos que contém o seu hub IoT. 
-
-3. À direita do grupo de recursos na lista de resultados, selecione as reticências (**...**) e, em seguida, selecione **Eliminar grupo de recursos**.
-
-4. É-lhe pedido que confirme a eliminação do grupo de recursos. Reintroduza o nome do grupo de recursos para confirmar e, em seguida, selecione **Eliminar**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Passos seguintes
