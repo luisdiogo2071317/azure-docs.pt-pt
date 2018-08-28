@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 91c917687edbdfb49fc7a390187a860d9474623a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8d786a337710ed53d58c5fde8e40d5347cd6cfc8
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918929"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108383"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
@@ -38,8 +38,10 @@ Para obter a documentação da consola de série para VMs do Linux [clique aqui]
 * Tem de utilizar o modelo de implementação de gestão de recursos. Implementações clássicas não são suportadas. 
 * Máquina virtual tem de ter [diagnósticos de arranque](boot-diagnostics.md) ativada   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * A conta a utilizar a consola de série tem de ter [função de contribuinte](../../role-based-access-control/built-in-roles.md) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento. 
+* A máquina virtual para o qual é a consola de série acessing também tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funcionalidade de extensão de acesso da VM - veja a captura de ecrã abaixo.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-## <a name="open-the-serial-console"></a>Abra a consola de série
+## <a name="get-started-with-serial-console"></a>Introdução à consola de série
 Consola de série para máquinas virtuais só é acessível via [portal do Azure](https://portal.azure.com). Abaixo estão os passos para aceder à consola de série para máquinas virtuais através do portal 
 
   1. Abra o portal do Azure
@@ -49,7 +51,7 @@ Consola de série para máquinas virtuais só é acessível via [portal do Azure
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="access-serial-console-for-windows"></a>Acesso à consola de série para Windows 
+## <a name="configure-serial-console-for-windows"></a>Configurar a consola de série para Windows 
 Imagens do Windows Server mais recente no Azure terá [consola administrativa especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) ativada por predefinição. SAC é suportada em versões de servidor do Windows, mas não está disponível nas versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7). Para ativar a consola de série para máquinas de virtuais do Windows criada com o uso Feb2018 ou imagens menores utilizam os seguintes passos: 
 
 1. Ligar à máquina virtual Windows através de ambiente de trabalho remoto

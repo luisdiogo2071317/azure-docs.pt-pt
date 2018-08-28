@@ -1,25 +1,19 @@
 ---
-title: "Introdução ao Catálogo de Dados | Microsoft Docs"
-description: "Tutorial ponto-a-ponto que apresenta os cenários e as capacidades do Catálogo de Dados do Azure."
-documentationcenter: 
+title: Introdução ao Catálogo de Dados do Azure
+description: Tutorial ponto-a-ponto que apresenta os cenários e as capacidades do Catálogo de Dados do Azure.
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053687"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introdução ao Catálogo de Dados do Azure
 O Catálogo de Dados do Azure é um serviço em nuvem totalmente gerido que funciona como um sistema de registo e um sistema de deteção de recursos de dados empresariais. Para obter uma descrição detalhada, veja [O que é o Catálogo de Dados do Azure](data-catalog-what-is-data-catalog.md).
@@ -40,14 +34,14 @@ Este tutorial ajuda-o a começar a utilizar o Catálogo de Dados do Azure. Neste
 ### <a name="azure-subscription"></a>Subscrição do Azure
 Para configurar o Catálogo de Dados do Azure, tem de ser o proprietário ou coproprietário de uma subscrição do Azure.
 
-As subscrições do Azure ajudam-no a organizar o acesso a recursos de serviços em nuvem, como o Catálogo de Dados do Azure. Também ajudam a controlar de que forma é que a utilização dos recursos é comunicada, faturada e paga. Cada subscrição pode ter uma configuração de faturação e pagamento diferente, para que possa ter subscrições e planos diferentes por departamento, projeto, escritório regional e assim sucessivamente. Cada serviço em nuvem pertence a uma subscrição e tem de ter uma subscrição antes de configurar o Catálogo de Dados do Azure. Para saber mais, veja [Gerir contas, subscrições e funções administrativas](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+As subscrições do Azure ajudam-no a organizar o acesso a recursos de serviços em nuvem, como o Catálogo de Dados do Azure. Também ajudam a controlar de que forma é que a utilização dos recursos é comunicada, faturada e paga. Cada subscrição pode ter uma configuração de faturação e pagamento diferente, para que possa ter subscrições e planos diferentes por departamento, projeto, escritório regional e assim sucessivamente. Cada serviço em nuvem pertence a uma subscrição e tem de ter uma subscrição antes de configurar o Catálogo de Dados do Azure. Para saber mais, veja [Gerir contas, subscrições e funções administrativas](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Veja [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Para configurar o Catálogo de Dados do Azure, tem de ter sessão iniciada com uma conta de utilizador do Azure Active Directory (Azure AD). Tem de ser o proprietário ou coproprietário de uma subscrição do Azure.  
 
-O Azure AD proporciona uma forma fácil de a sua empresa gerir a identidade e o acesso, tanto na nuvem, como no local. Pode utilizar uma única conta escolar ou profissional para iniciar sessão em qualquer aplicação Web na nuvem ou no local. O Catálogo de Dados do Azure utiliza o Azure AD para autenticar o início de sessão. Para saber mais, veja [What is Azure Active Directory? (O que é o Azure Active Directory?)](../active-directory/active-directory-whatis.md).
+O Azure AD proporciona uma forma fácil de a sua empresa gerir a identidade e o acesso, tanto na nuvem, como no local. Pode utilizar uma única conta escolar ou profissional para iniciar sessão em qualquer aplicação Web na nuvem ou no local. O Catálogo de Dados do Azure utiliza o Azure AD para autenticar o início de sessão. Para saber mais, veja [What is Azure Active Directory? (O que é o Azure Active Directory?)](../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="azure-active-directory-policy-configuration"></a>Configuração de políticas do Azure Active Directory
 Pode deparar-se com casos em que consegue iniciar sessão no portal do Catálogo de Dados do Azure, mas quando tenta iniciá-la na ferramenta de registo da origem de dados, recebe uma mensagem de erro que o impede de o fazer. Este erro pode ocorrer quando está na rede da empresa ou está a ligar de fora da rede da empresa.

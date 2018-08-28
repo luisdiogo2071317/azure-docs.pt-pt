@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 97d33bfcc8251b10ba121b7fb013800904450563
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30197134"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -21,23 +21,23 @@ ms.locfileid: "30197134"
 
 Sim. Anteriormente, só podiam ser utilizados os certificados de raiz autoassinados. Ainda pode carregar 20 certificados de raiz.
 
-### <a name="what-tools-can-i-use-to-create-certificates"></a>Ferramentas de que pode utilizar para criar certificados?
+### <a name="what-tools-can-i-use-to-create-certificates"></a>Que ferramentas posso utilizar para criar certificados?
 
-Pode utilizar a sua solução de PKI empresarial (a PKI interna), do Azure PowerShell, MakeCert e OpenSSL.
+Pode utilizar a sua solução de PKI de Empresa (o PKI interno), o Azure PowerShell, MakeCert e OpenSSL.
 
-### <a name="certsettings"></a>Existem instruções para os parâmetros e definições de certificado?
+### <a name="certsettings"></a>Existem instruções para parâmetros e definições de certificado?
 
-* **Solução PKI/Enterprise PKI interna:** consulte os passos para [gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Solução PKI de Empresa/Interno:** Veja os passos para [Gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **O Azure PowerShell:** consulte o [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) artigo para obter os passos.
+* **Azure PowerShell:** Veja o artigo [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) para saber quais os passos a seguir.
 
-* **MakeCert:** consulte o [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) artigo para obter os passos.
+* **MakeCert:** Veja o artigo [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) para saber quais os passos a seguir.
 
 * **OpenSSL:** 
 
-    * Ao exportar certificados, lembre-se de que converter o certificado de raiz para Base64.
+    * Ao exportar certificados, certifique-se de que converte o certificado de raiz para Base64.
 
     * Para o certificado de cliente:
 
       * Ao criar a chave privada, especifique o comprimento como 4096.
-      * Ao criar o certificado para o *-extensões* parâmetro, especifique *usr_cert*.
+      * Ao criar o certificado para o parâmetro *-extensions*, especifique *usr_cert*.

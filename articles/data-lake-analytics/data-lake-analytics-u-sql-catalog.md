@@ -1,29 +1,28 @@
 ---
-title: Introdução ao catálogo U-SQL no Azure Data Lake Analytics
-description: Saiba como utilizar catálogo U-SQL para partilhar o código e os dados.
+title: Introdução ao catálogo de U-SQL no Azure Data Lake Analytics
+description: Saiba como utilizar o catálogo do U-SQL para partilhar código e os dados.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: saveenr
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: 35a39733987eba7060049db7005c1f6bc0058e63
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62f43fc082969bf04b7177725478585ce41aa347
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624357"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045943"
 ---
-# <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Introdução ao catálogo U-SQL no Azure Data Lake Analytics
+# <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Introdução ao catálogo de U-SQL no Azure Data Lake Analytics
 
 ## <a name="create-a-tvf"></a>Criar um TVF
 
-O script U-SQL anterior, repetido a utilização de extracção para ler a partir do mesmo ficheiro de origem. Com a U-SQL valorizadas por tabela função (TVF), pode encapsular os dados para reutilização futura.  
+No script de U-SQL anterior, repetido o uso de EXTRAÇÃO para ler a partir do mesmo ficheiro de origem. Com o U-SQL com valor de tabela função (TVF), pode encapsular os dados para futura reutilização.  
 
-O script seguinte cria um TVF chamado `Searchlog()` na base de dados predefinida e esquema:
+O seguinte script cria um TVF chamado `Searchlog()` a base de dados predefinida e o esquema:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -54,7 +53,7 @@ RETURN;
 END;
 ```
 
-O script seguinte mostra como utilizar a TVF que foi definida o script anterior:
+O script seguinte mostra como utilizar a TVF que foi definida no script anterior:
 
 ```
 @res =
@@ -73,9 +72,9 @@ OUTPUT @res
 
 ## <a name="create-views"></a>Criar vistas
 
-Se tiver uma expressão de consulta simples, em vez de um TVF pode utilizar uma vista de U-SQL para encapsular dessa expressão.
+Se tiver uma expressão de consulta única, em vez de um TVF pode utilizar uma vista de U-SQL para encapsular essa expressão.
 
-O script seguinte cria uma vista denominada `SearchlogView` na base de dados predefinida e esquema:
+O seguinte script cria uma vista denominada `SearchlogView` a base de dados predefinida e o esquema:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -92,7 +91,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-O script seguinte demonstra a utilização da vista definida:
+O script a seguir demonstra o uso da vista definida:
 
 ```
 @res =
@@ -110,9 +109,9 @@ OUTPUT @res
 ```
 
 ## <a name="create-tables"></a>Criar tabelas
-Como tabelas de base de dados relacional, com o U-SQL pode criar uma tabela com um esquema predefinido ou criar uma tabela que infere o esquema da consulta que preenche a tabela (também conhecido como CREATE TABLE AS SELECT ou CTAS).
+Como com as tabelas de base de dados relacional, com o U-SQL pode criar uma tabela com um esquema predefinido ou criar uma tabela que infere o esquema da consulta que preenche a tabela (também conhecido como CREATE TABLE AS SELECT ou CTAS).
 
-Crie uma base de dados e duas tabelas utilizando o script seguinte:
+Crie uma base de dados e duas tabelas usando o seguinte script:
 
 ```
 DROP DATABASE IF EXISTS SearchLogDb;
@@ -143,10 +142,10 @@ CREATE TABLE SearchLog2(
 ) AS SELECT * FROM master.dbo.Searchlog() AS S; // You can use EXTRACT or SELECT here
 ```
 
-## <a name="query-tables"></a>Tabelas de consulta
-Pode consultar as tabelas, tal como as criadas no script anterior, da mesma forma que o se consultar os ficheiros de dados. Em vez de criar um conjunto de linhas utilizando EXTRAIR, agora pode ver o nome da tabela.
+## <a name="query-tables"></a>Consulta tabelas
+Pode consultar as tabelas, tais como aqueles criados no script anterior, da mesma forma que consulte os ficheiros de dados. Em vez de criar um conjunto de linhas utilizando a EXTRAÇÃO, agora pode ver o nome da tabela.
 
-Ler a partir de tabelas, modifique o script de transformação que utilizou anteriormente:
+Para ler a partir de tabelas, modifique o script de transformação que utilizou anteriormente:
 
 ```
 @rs1 =
@@ -169,7 +168,7 @@ OUTPUT @res
 ```
 
  >[!NOTE]
- >Atualmente, não é possível executar um SELECIONE numa tabela no mesmo script como um onde criou a tabela.
+ >Atualmente, não é possível executar um, SELECIONE numa tabela no mesmo script como aquele onde criou a tabela.
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

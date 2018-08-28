@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 892dd050829dce242035e2b875ea43ed13910d4a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 8aa4695ea1175fe9d558e02bae661c9610123299
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246079"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087093"
 ---
 ## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Associar uma conta de armazenamento do Azure para o IoT Hub
 
@@ -21,4 +21,4 @@ Uma vez que a aplicação de dispositivo simulado carrega um ficheiro para um bl
 
 Siga as instruções em [configurar ficheiro carrega no portal do Azure](../articles/iot-hub/iot-hub-configure-file-upload.md) para associar uma conta de armazenamento do Azure ao seu hub IoT. Certifique-se de que um contentor de Blobs está associado ao seu hub IoT e que as notificações de ficheiros estão ativadas.
 
-![Ativar as notificações de ficheiro no portal](media/iot-hub-associate-storage/enable-file-notifications.png)
+![Ativar as notificações de ficheiro no portal](./media/iot-hub-associate-storage/enable-file-notifications.png)

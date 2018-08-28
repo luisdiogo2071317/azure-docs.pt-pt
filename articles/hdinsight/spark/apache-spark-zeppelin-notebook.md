@@ -4,17 +4,17 @@ description: Instruções passo a passo sobre como utilizar blocos de notas do Z
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: dfb2711dd7c61494a2fe097856fa344c740cf891
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618257"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048046"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Zeppelin com o cluster do Apache Spark no Azure HDInsight
 

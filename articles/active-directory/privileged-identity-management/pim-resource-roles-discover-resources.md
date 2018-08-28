@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f4b6fafe40fe00492bac7bd6c28268321d4516db
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622107"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104360"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Detetar e gerir recursos do Azure com o Privileged Identity Management
 
@@ -27,7 +27,7 @@ Saiba como detetar e gerir recursos do Azure quando utiliza o Privileged Identit
 Quando configura primeiro a PIM para recursos do Azure, terá de descobrir e selecionar recursos a proteger com o PIM. Não existe nenhum limite para o número de recursos que podem ser geridos com o PIM. No entanto, recomendamos começar com os seus recursos (produção) mais críticos.
 
 > [!NOTE]
-> Só é possível procurar e selecione recursos de subscrição para gerir com o PIM. Quando gerir uma subscrição no PIM, também pode gerir recursos subordinados na subscrição.
+> Só é possível procurar e selecione recursos de subscrição ou grupo de gestão para gerir com o PIM. Quando gerir um grupo de gestão ou de uma subscrição no PIM, também pode gerir os recursos subordinados.
 
 ## <a name="discover-resources"></a>Detetar recursos
 

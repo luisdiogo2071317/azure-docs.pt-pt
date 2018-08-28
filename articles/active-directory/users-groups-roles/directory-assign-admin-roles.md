@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 813fb79bbdc09d0fb3baa9a66cfaeae74343b3f9
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057119"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093640"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -75,6 +75,8 @@ As seguintes funções de administrador estão disponíveis:
 * **[Administrador do Information Protection](#information-protection-administrator)**: os utilizadores com esta função têm todas as permissões no serviço do Azure Information Protection. Esta função permite configurar etiquetas para a política do Azure Information Protection, gestão de modelos de proteção e ativar a proteção. Esta função não concede quaisquer permissões no Centro de proteção de identidade, o Privileged Identity Management, o Monitor Office 365 Service Health, ou o segurança do Office 365 e o Centro de conformidade.
 
 * **[Administrador de serviço do Intune](#intune-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos para associar a política, bem como criar e gerir grupos. Mais informações em [o controlo de administração baseada em funções (RBAC) com o Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+
+* **[Administrador de licenças](#license-administrator)**: os utilizadores nesta função podem adicionar, remover e atualizar as atribuições de licenças em utilizadores, grupos (com licenciamento baseado em grupo) e gerir a localização de utilização sobre os usuários. A função não concede a capacidade de comprar ou gerir as subscrições, criar ou gerir grupos, ou criar ou gerir utilizadores além da localização de utilização.
 
 * **[Leitor do Centro de mensagens](#message-center-reader)**: os utilizadores nesta função podem monitorizar notificações e atualizações de estado de funcionamento de aviso [Centro de mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para a sua organização em serviços configurados como o Exchange, o Intune e o Microsoft Teams. Os leitores de centro de mensagens recebem resumos de e-mail semanal de postagens, atualizações e podem partilhar publicações do Centro de mensagens no Office 365. No Azure AD, os utilizadores atribuídos a esta função só terão acesso só de leitura nos serviços do Azure AD, como utilizadores e grupos. 
 
@@ -610,6 +612,17 @@ Pode gerir todos os aspetos do produto Intune.
 | microsoft.aad.directory/User/Update/Manager | Atualize a propriedade Users.Manager no Azure Active Directory. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Crie e gira pedidos de suporte do Office 365. |
 | microsoft.intune/AllEntities/AllActions | Gerir todos os aspetos do Intune. |
+
+### <a name="license-administrator"></a>Administrador de Licenças
+Pode atribuir licenças aos utilizadores.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense        | &nbsp; |
+| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
+| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
+| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
+| Microsoft.office365.serviceHealth/allEntities/allTasks | &nbsp; |
 
 ### <a name="lync-service-administrator"></a>Administrador do Serviço Lync
 Pode gerir todos os aspetos do produto Skype para Empresas.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060889"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050751"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar microsserviços de forma previsível no Azure
 Este tutorial mostra como aprovisionar e implementar um aplicativo composto [microsserviços](https://en.wikipedia.org/wiki/Microservices) na [App Service do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível, com modelos de grupo de recursos JSON e Script do PowerShell. 
@@ -40,7 +40,7 @@ O tutorial, irá implementar uma aplicação que inclui:
 Neste tutorial, irá utilizar as seguintes ferramentas. Uma vez que não é uma discussão abrangente sobre ferramentas, vou escolher o cenário de ponta a ponta e dar a uma breve introdução a cada um, e onde pode encontrar mais informações sobre ele. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelos do Azure Resource Manager (JSON)
-Sempre que criar uma aplicação web no serviço de aplicações do Azure, por exemplo, o Azure Resource Manager utiliza um modelo JSON para criar o grupo de recursos inteiro com os recursos de componente. Um complexo modelo a partir do [Azure Marketplace](/marketplace) como o [WordPress dimensionável](/marketplace/partners/wordpress/scalablewordpress/) aplicação pode incluir a base de dados do MySQL, contas de armazenamento, o plano do serviço de aplicações, a aplicação web propriamente dita, de regras de alerta, definições de aplicação, definições de dimensionamento automático e mais e todos os estes modelos estão disponíveis para si através do PowerShell. Para obter informações sobre como transferir e utilizar estes modelos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Sempre que criar uma aplicação web no serviço de aplicações do Azure, por exemplo, o Azure Resource Manager utiliza um modelo JSON para criar o grupo de recursos inteiro com os recursos de componente. Um complexo modelo a partir da [do Azure Marketplace](/azure/marketplace) pode incluir a base de dados, contas de armazenamento, o plano do serviço de aplicações, a aplicação web propriamente dita, regras de alerta, as definições de aplicações, definições de dimensionamento automático e muito mais, e todos os estes modelos estão disponíveis para si através do PowerShell. Para obter informações sobre como transferir e utilizar estes modelos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 Para obter mais informações sobre os modelos do Azure Resource Manager, consulte [criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 

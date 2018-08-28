@@ -2,18 +2,18 @@
 title: Mover grandes quantidades de dados de/para o armazenamento na cloud no Azure | Documentos da Microsoft
 description: Uma visão geral dos métodos diferentes para mover dados para e do armazenamento do Azure.
 services: storage
-author: JarrettRenshaw
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jarrettr
+ms.date: 08/26/2018
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525540"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049615"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Mover dados de e para o Storage do Azure
 Se pretender mover os dados no local para o armazenamento do Azure (ou vice-versa), existem diversas maneiras de fazer isso. A abordagem que funciona melhor para si dependerá do seu cenário. Este artigo fornece uma visão geral de diferentes cenários e ofertas apropriadas para cada um deles.
@@ -21,7 +21,7 @@ Se pretender mover os dados no local para o armazenamento do Azure (ou vice-vers
 ## <a name="building-applications"></a>Criando aplicativos
 Se estiver criando um aplicativo, a programação com a API REST ou um dos nossos muitas bibliotecas de cliente é uma ótima maneira de mover dados para e do armazenamento do Azure.
 
-Armazenamento do Azure fornece bibliotecas de cliente avançadas para .NET, iOS, Java, Android, plataforma Universal do Windows (UWP), Xamarin, C++, node. js, PHP, Ruby e Python. As bibliotecas de cliente oferecem funcionalidades avançadas, tais como lógica de repetição, registo e carregamentos paralelos. Também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que efetue pedidos HTTP/HTTPS.
+O armazenamento do Azure fornece bibliotecas de cliente avançadas para várias linguagens populares, incluindo .NET, Java, Android, Go, Xamarin, C++, node. js, PHP, Ruby, Python e iOS. As bibliotecas de cliente oferecem funcionalidades avançadas, tais como lógica de repetição, registo e carregamentos paralelos. Também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que efetue pedidos HTTP/HTTPS.
 
 Ver [introdução ao armazenamento de Blobs do Azure](../blobs/storage-dotnet-how-to-use-blobs.md) para saber mais.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 1237d6a35d279a1036bb8139dd0b0ceaa34edb7b
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fc00400590582d21590aadc9741cf0eaf048240
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746847"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047219"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB enlaces das funções do Azure 2.x (pré-visualização)
 
@@ -36,6 +36,10 @@ Este artigo explica como trabalhar com [do Azure Cosmos DB](..\cosmos-db\serverl
 > Este enlace foi originalmente denominado DocumentDB. Na versão de funções 2.x, o acionador, enlaces e pacote são todos com o nome do Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>APIs compatíveis
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
@@ -254,10 +258,7 @@ O acionador não indica que se um documento foi atualizado ou inserido, ele forn
 
 ## <a name="input"></a>Input
 
-O enlace de entrada do Azure Cosmos DB obtém um ou mais documentos do Azure Cosmos DB e os passa para o parâmetro de entrada da função. Os parâmetros de consulta ou ID do documento podem ser determinados com base no acionador que invoca a função. 
-
->[!NOTE]
-> Não usar entrada do Azure Cosmos DB ou ligações de saída, se estiver usando a API do MongoDB numa conta do Cosmos DB. É possível a Corrupção de dados.
+O enlace de entrada do Azure Cosmos DB utiliza a API de SQL para obter um ou mais documentos do Azure Cosmos DB e os passa para o parâmetro de entrada da função. Os parâmetros de consulta ou ID do documento podem ser determinados com base no acionador que invoca a função. 
 
 ## <a name="input---examples"></a>Introdução - exemplos
 
@@ -1253,10 +1254,7 @@ Nas funções de JavaScript, as atualizações não são feitas automaticamente 
 
 ## <a name="output"></a>Saída
 
-A saída do Azure Cosmos DB ligação permite que escrever um novo documento para uma base de dados do Azure Cosmos DB. 
-
->[!NOTE]
-> Não usar entrada do Azure Cosmos DB ou ligações de saída, se estiver usando a API do MongoDB numa conta do Cosmos DB. É possível a Corrupção de dados.
+A saída do Azure Cosmos DB ligação permite que escrever um novo documento para uma base de dados do Azure Cosmos DB com a API SQL. 
 
 ## <a name="output---examples"></a>Saída - exemplos
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5867012e0322e520b4ef234599fa25a2ec08138d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: d5b43f81cbb3bbebb231a8a9738f6138b62ef7f6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325773"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046034"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementar módulos do Azure IoT Edge do Visual Studio Code
 
@@ -130,7 +130,7 @@ Implementar módulos no seu dispositivo ao aplicar o manifesto de implantação 
 
 2. Clique com o botão direito no dispositivo que pretende configurar com o manifesto de implantação. 
 
-3. Selecione **criar implementação para o dispositivo IoT Edge**. 
+3. Selecione **criar a implementação de único dispositivo**. 
 
 4. Navegue para o manifesto JSON ficheiro de implementação que pretende utilizar e clique em **selecionar o manifesto de implantação do Edge**. 
 

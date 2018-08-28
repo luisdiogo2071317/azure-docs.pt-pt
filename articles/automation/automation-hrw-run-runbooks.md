@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8f21457a63470b88e93ead97454f996cea38073a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390301"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103773"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução numa função de trabalho de Runbook híbrida
 
@@ -47,9 +47,9 @@ Por predefinição, os runbooks são executados no contexto da conta do sistema 
 
 Pode usar [credencial](automation-credentials.md) e [certificado](automation-certificates.md) ativos no seu runbook com cmdlets que permitem-lhe especificar as credenciais para se autenticar em recursos diferentes. O exemplo seguinte mostra uma parte de um runbook que reinicia um computador. Ele obtém credenciais de um recurso de credencial e o nome do computador de um recurso de variável e, em seguida, usa esses valores com o cmdlet Restart-Computer.
 
-```azurepowershell-interactive
-$Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
-$Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
+```powershell
+$Cred = Get-AutomationPSCredential -Name "MyCredential"
+$Computer = Get-AutomationVariable -Name "ComputerName"
 
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```

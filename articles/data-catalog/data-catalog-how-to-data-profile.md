@@ -1,93 +1,87 @@
 ---
-title: Como origens de dados de perfil de dados
-description: "Artigo procedimentos realce como incluem perfis de dados de nível de tabela e coluna ao registar origens de dados no catálogo de dados do Azure e como utilizar perfis de dados para compreender as origens de dados."
+title: Como utilizar os dados de criação de perfis de origens de dados no catálogo de dados do Azure
+description: Artigo que mostra como destaque como incluem perfis de dados de nível de tabela e coluna ao registar as origens de dados no catálogo de dados do Azure e como utilizar perfis de dados para compreender as origens de dados.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 80181b729ffa6d6cbc2d17fe8a5ae8ee4e3d41ab
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2f628367e2e5b0e6a4481a6212ff201b11a7105a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053692"
 ---
 # <a name="data-profile-data-sources"></a>Origens de dados de perfis de dados
 ## <a name="introduction"></a>Introdução
-**Catálogo de dados do Microsoft Azure** é um serviço em nuvem completamente gerido que funciona como um sistema de registo e de deteção de origens de dados empresariais. Por outras palavras, **catálogo de dados do Azure** está tudo sobre ajudando as pessoas detetar, compreender e utilizar origens de dados e que ajuda as organizações para rentabilizar o valor a partir dos respetivos dados existentes. Quando uma origem de dados é registada com **catálogo de dados do Azure**, os metadados é copiado e o serviço indexa, mas o bloco não termina não existe.
+**Catálogo de dados do Microsoft Azure** é um serviço cloud totalmente gerido que funciona como um sistema de registo e sistema de deteção de origens de dados empresariais. Em outras palavras, **catálogo de dados do Azure** é tudo para ajudar as pessoas a detetar, compreender e utilizar origens de dados e ajuda as organizações a obter mais valor dos seus dados existentes. Quando uma origem de dados estiver registrada no **catálogo de dados do Azure**, seus metadados é copiado e indexados pelo serviço, mas a história não acaba nisso.
 
-O **a criação de perfis de dados** funcionalidade do **catálogo de dados do Azure** analisa os dados a partir de origens de dados suportadas no seu catálogo e recolhe estatísticas e as informações sobre os dados. É fácil incluir um perfil dos seus recursos de dados. Ao registar um recurso de dados, escolha **incluir perfil de dados** na ferramenta de registo da origem de dados.
+O **dados de criação de perfis** recurso do **catálogo de dados do Azure** examina os dados de origens de dados suportados no seu catálogo e recolhe estatísticas e informações sobre esses dados. É fácil de incluir um perfil de seus ativos de dados. Quando registra um recurso de dados, escolha **incluir o perfil de dados** na ferramenta de registo de origem de dados.
 
 ## <a name="what-is-data-profiling"></a>O que é a criação de perfis de dados
-A criação de perfis de dados analisa os dados da origem de dados que está a ser registado e recolhe estatísticas e as informações sobre os dados. Durante a deteção de origem de dados, estas estatísticas podem ajudar a determinar a adequabilidade dos dados para resolver seu problema empresarial.
+A criação de perfis de dados examina os dados na origem de dados a ser registado e recolhe estatísticas e informações sobre esses dados. Durante a deteção de origem de dados, essas estatísticas podem ajudar a determinar a adequação dos dados para resolver seu problema empresarial.
 
 <!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->
 
 As seguintes origens de dados suportam a criação de perfis de dados:
 
-* SQL Server (incluindo BD SQL do Azure e Azure SQL Data Warehouse) tabelas e vistas
+* Vistas e tabelas do SQL Server (incluindo a BD SQL do Azure e Azure SQL Data Warehouse)
 * Oracle tabelas e vistas
 * Teradata tabelas e vistas
 * Tabelas do Hive
 
-Perfis de dados, incluindo quando registar recursos de dados ajuda os utilizadores a responder às perguntas sobre origens de dados, incluindo:
+Incluindo perfis de dados quando registar recursos de dados ajuda os usuários a responder a perguntas sobre origens de dados, incluindo:
 
-* Pode, ser utilizado para resolver o meu problema empresarial?
-* Os dados em conformidade com as normas específicas ou padrões?
-* Quais são alguns de anomalias da origem de dados?
-* O que são possíveis desafios de integrar estes dados na minha aplicação?
+* Pode servir para resolver o meu problema de negócios?
+* Os dados em conformidade com a particular por padrões ou padrões?
+* Quais são as anomalias da origem de dados?
+* Quais são os possíveis desafios de integrar esses dados em meu aplicativo?
 
 > [!NOTE]
-> Também pode adicionar documentação para um recurso de descrever como dados podem ser integrados numa aplicação. Consulte [como documentar origens de dados](data-catalog-how-to-documentation.md).
+> Também pode adicionar documentação para um recurso para descrever como os dados podem ser integrados num aplicativo. Ver [como documentar origens de dados](data-catalog-how-to-documentation.md).
 >
 >
 
 <a name="howto"/>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Como incluir um perfil de dados ao registar uma origem de dados
-É fácil incluir um perfil da sua origem de dados. Quando registar uma origem de dados no **objetos a registar** painel da ferramenta de registo de origem de dados, escolha **incluir perfil de dados**.
+É fácil de incluir um perfil da sua origem de dados. Quando registar uma origem de dados, no **objetos a registar** painel da ferramenta de registo de origem de dados, escolha **perfil de dados incluem**.
 
 ![](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
-Para obter mais informações sobre como registar origens de dados, consulte [como registar origens de dados](data-catalog-how-to-register.md) e [introdução ao catálogo de dados do Azure](data-catalog-get-started.md).
+Para saber mais sobre como registar origens de dados, veja [como registar origens de dados](data-catalog-how-to-register.md) e [introdução ao catálogo de dados do Azure](data-catalog-get-started.md).
 
-## <a name="filtering-on-data-assets-that-include-data-profiles"></a>Filtragem de recursos de dados que incluem perfis de dados
+## <a name="filtering-on-data-assets-that-include-data-profiles"></a>Filtrar em recursos de dados que incluem perfis de dados
 Para detetar recursos de dados que incluem um perfil de dados, pode incluir `has:tableDataProfiles` ou `has:columnsDataProfiles` como um dos seus termos de pesquisa.
 
 > [!NOTE]
-> Selecionar **incluir perfil de dados** na origem de dados a ferramenta de registo inclui tabela e as informações do perfil de nível de coluna. No entanto, a API do catálogo de dados permite que os recursos de dados a registar com apenas um conjunto de informações de perfil incluídas.
+> Selecionando **incluir o perfil de dados** na origem de dados a ferramenta de registo inclui tabela e informações de perfil de nível de coluna. No entanto, a API do catálogo de dados permite que os recursos de dados a registar com apenas um conjunto de informações de perfil incluídas.
 >
 >
 
-## <a name="viewing-data-profile-information"></a>Ver as informações de perfil de dados
-Depois de encontrar uma origem de dados adequado com um perfil, pode ver os detalhes do perfil de dados. Para ver o perfil de dados, selecione um recurso de dados e escolha **dados perfil** na janela do portal do catálogo de dados.
+## <a name="viewing-data-profile-information"></a>Ver informações de perfil de dados
+Depois de localizar uma origem de dados adequado com um perfil, pode ver os detalhes do perfil de dados. Para visualizar o perfil de dados, selecione um recurso de dados e escolha **perfil de dados** na janela do portal do catálogo de dados.
 
 ![](media/data-catalog-data-profile/data-catalog-view.png)
 
-Um perfil de dados no **catálogo de dados do Azure** mostra tabela e informações de perfil de coluna, incluindo:
+Um perfil de dados no **catálogo de dados do Azure** mostra a tabela e coluna perfil informações, incluindo:
 
 ### <a name="object-data-profile"></a>Perfil de dados de objeto
 * Número de linhas
 * Tamanho da tabela
-* Quando o objeto foi atualizado pela última vez
+* Quando o objeto última atualização
 
-### <a name="column-data-profile"></a>Perfil de dados da coluna
-* Tipo de dados da coluna
+### <a name="column-data-profile"></a>Perfil de dados de coluna
+* Tipo de dados de coluna
 * Número de valores distintos
 * Número de linhas com valores nulos
-* Mínimo, máximo, média e desvio padrão para valores da coluna
+* Mínimo, máximo, média e desvio padrão para valores de coluna
 
 ## <a name="summary"></a>Resumo
-Data de criação de perfis fornece estatísticas e as informações sobre recursos de dados registados para o ajudar a determinar a adequabilidade dos dados para resolver problemas empresariais. Juntamente com anotar e documentar origens de dados, perfis de dados podem dar aos utilizadores uma compreensão mais aprofundada dos seus dados.
+Criação de perfis de dados fornecem estatísticas e informações sobre os recursos de dados registados para o ajudar a determinar a adequação dos dados para resolver problemas empresariais. Além de anotar e documentar origens de dados, perfis de dados podem dar aos utilizadores uma compreensão mais aprofundada dos seus dados.
 
 ## <a name="see-also"></a>Consultar Também
 * [Como registar origens de dados](data-catalog-how-to-register.md)

@@ -1,69 +1,46 @@
 ---
-title: Criar um IoT Hub do Azure utilizando um cmdlet do PowerShell | Microsoft Docs
+title: Criar um Hub de IoT do Azure com um cmdlet do PowerShell | Documentos da Microsoft
 description: Como utilizar um cmdlet do PowerShell para criar um hub IoT.
-author: dominicbetts
+author: robinsh
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 78cf7844223b660eef3dea0a32cd7c325e88e083
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/24/2018
+ms.author: robinsh
+ms.openlocfilehash: f9903781a998db8192e3958ae386b7420f56fd31
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634051"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045631"
 ---
-# <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Criar um hub IoT utilizando o cmdlet New-AzureRmIotHub
+# <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Criar um hub IoT com o cmdlet New-AzureRmIotHub
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introdução
 
-Pode utilizar os cmdlets do PowerShell do Azure para criar e gerir os hubs IoT do Azure. Este tutorial mostra como criar um hub IoT com o PowerShell.
+Pode utilizar cmdlets do Azure PowerShell para criar e gerir hubs IoT do Azure. Este tutorial mostra-lhe como criar um hub IoT com o PowerShell.
 
-> [!NOTE]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [do Azure Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo abrange utilizando o modelo de implementação Azure Resource Manager.
+Para concluir este procedimentos, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Para concluir este tutorial, precisa do seguinte:
-
-* Uma conta ativa do Azure. <br/>Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* [Cmdlets do PowerShell do Azure][lnk-powershell-install].
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="connect-to-your-azure-subscription"></a>Ligar à sua subscrição do Azure
-Numa linha de comandos do PowerShell, introduza o seguinte comando para iniciar sessão na sua subscrição do Azure:
+
+Se estiver a utilizar o Cloud Shell, é tiver sessão iniciada na sua subscrição. Se estiver a executar PowerShell localmente em vez disso, introduza o seguinte comando para iniciar sessão na sua subscrição do Azure:
 
 ```powershell
-Connect-AzureRmAccount
+# Log into Azure account.
+Login-AzureRMAccount
 ```
 
-Se tiver várias subscrições do Azure, o início de sessão Azure concede acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis para que possa utilizar:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-```powershell
-Get-AzureRMSubscription
-```
+Precisa de um grupo de recursos para implementar um hub IoT. Pode utilizar um grupo de recursos existente ou crie um novo.
 
-Utilize o comando seguinte para selecionar a subscrição que pretende utilizar para executar os comandos para criar o seu hub IoT. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
-
-```powershell
-Select-AzureRMSubscription `
-    -SubscriptionName "{your subscription name}"
-```
-
-## <a name="create-resource-group"></a>Criar grupo de recursos
-
-Precisa de um grupo de recursos para implementar um IoT hub. Pode utilizar um grupo de recursos existente ou crie um novo.
-
-Pode utilizar o seguinte comando para detetar as localizações onde pode implementar um IoT hub:
-
-```powershell
-((Get-AzureRmResourceProvider `
-  -ProviderNamespace Microsoft.Devices).ResourceTypes `
-  | Where-Object ResourceTypeName -eq IoTHubs).Locations
-```
-
-Para criar um grupo de recursos para o seu hub IoT das localizações suportadas para o IoT Hub, utilize o seguinte comando. Este exemplo cria um grupo de recursos denominado **MyIoTRG1** no **EUA Leste** região:
+Para criar um grupo de recursos do hub IoT, utilize o [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) comando. Este exemplo cria um grupo de recursos chamado **MyIoTRG1** no **E.U.A. Leste** região:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -71,7 +48,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Para criar um IoT hub no grupo de recursos que criou no passo anterior, utilize o seguinte comando. Este exemplo cria um **S1** hub chamado **MyTestIoTHub** no **EUA Leste** região:
+Para criar um hub IoT no grupo de recursos que criou no passo anterior, utilize o [New-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) comando. Este exemplo cria um **S1** hub chamado **MyTestIoTHub** no **E.U.A. Leste** região:
 
 ```powershell
 New-AzureRmIotHub `
@@ -81,18 +58,19 @@ New-AzureRmIotHub `
     -Location "East US"
 ```
 
-O nome do IoT hub têm de ser exclusivo.
+O nome do IoT hub tem de ser globalmente exclusivo.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-
-Pode listar todos os IoT hubs-na sua subscrição utilizando o seguinte comando:
+Pode listar todos os hubs IoT na sua subscrição com o [Get-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/Get-AzureRmIotHub) comando:
 
 ```powershell
 Get-AzureRmIotHub
 ```
 
-O exemplo anterior adiciona um S1 Standard IoT Hub para o qual é-lhe faturado. Pode eliminar o hub IoT utilizando o seguinte comando:
+Este exemplo mostra o S1 Standard do IoT Hub que criou no passo anterior. 
+
+Pode eliminar o hub IoT com o [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) comando:
 
 ```powershell
 Remove-AzureRmIotHub `
@@ -100,7 +78,7 @@ Remove-AzureRmIotHub `
     -Name MyTestIoTHub
 ```
 
-Em alternativa, pode remover um grupo de recursos e todos os recursos que nele contidos utilizando o seguinte comando:
+Em alternativa, pode remover um grupo de recursos e todos os recursos nele contidos através da [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) comando:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name MyIoTRG1
@@ -108,27 +86,18 @@ Remove-AzureRmResourceGroup -Name MyIoTRG1
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que implementou um IoT hub utilizando um cmdlet do PowerShell, pode querer explorar ainda mais:
+Agora que implementou um hub IoT com um cmdlet do PowerShell, se quiser explorar ainda mais, consulte os artigos seguintes:
 
-* Detetar outros [cmdlets PowerShell para trabalhar com o seu IoT hub][lnk-iothub-cmdlets].
-* Leia sobre as capacidades do [fornecedor de recursos do IoT Hub REST API][lnk-rest-api].
+* [Cmdlets do PowerShell para trabalhar com o seu hub IoT](https://docs.microsoft.com/powershell/module/azurerm.iothub/).
 
-Para obter mais informações sobre como desenvolver para o IoT Hub, consulte os artigos seguintes:
+* [REST API do fornecedor de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 
-* [Introdução ao C SDK][lnk-c-sdk]
-* [SDKs IoT do Azure][lnk-sdks]
+Para saber mais sobre o desenvolvimento para o IoT Hub, veja os artigos seguintes:
 
-Para explorar ainda mais as capacidades do IoT Hub, consulte:
+* [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
 
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
+* [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
 
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
+Para explorar ainda mais os recursos do IoT Hub, veja:
 
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

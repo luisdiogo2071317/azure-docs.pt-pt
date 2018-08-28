@@ -1,36 +1,30 @@
 ---
-title: Como trabalhar com as origens de dados 'macrodados' | Microsoft Docs
-description: "Artigo procedimentos realce padrões para utilizar o catálogo de dados do Azure com origens de dados 'macrodados', incluindo o Blob Storage do Azure, Azure Data Lake e HDFS do Hadoop."
+title: Como trabalhar com origens de dados de 'grandes volumes de dados' no catálogo de dados do Azure
+description: Artigo que mostra como realce padrões para o catálogo de dados do Azure com origens de dados de "grandes volumes de dados", incluindo o armazenamento de Blobs do Azure, Azure Data Lake e Hadoop HDFS.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 826676600094b956ff84cc88c61e667841043837
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d59b637d1c5ad2335492883503e738a80071a8dd
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053518"
 ---
-# <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Como trabalhar com as origens de dados de grande no catálogo de dados do Azure
+# <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Como trabalhar com origens de macrodados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução
-**Catálogo de dados do Microsoft Azure** é um serviço em nuvem completamente gerido que funciona como um sistema de registo e de deteção de origens de dados empresariais. É tudo sobre Ajuda pessoas detetar, compreender e utilizar origens de dados e organizações de ajuda para obter o valor mais do que as respetivas origens de dados existente, incluindo macrodados.
+**Catálogo de dados do Microsoft Azure** é um serviço cloud totalmente gerido que funciona como um sistema de registo e sistema de deteção de origens de dados empresariais. É tudo sobre ajudando pessoas detetar, compreender e utilizar origens de dados e as organizações de ajuda para obter mais valor das suas origens de dados existentes, incluindo grandes quantidades de dados.
 
-**Catálogo de dados do Azure** suporta o registo de blobs de armazenamento do blogue do Azure e diretórios, bem como os ficheiros do HDFS do Hadoop e diretórios. A natureza semiestruturada destas origens de dados fornece uma enorme flexibilidade. No entanto, para obter o maior valor de registo-los com **catálogo de dados do Azure**, os utilizadores tem de considerar como estão organizadas de origens de dados.
+**O catálogo de dados do Azure** suporta o registo de blobs de armazenamento do blogue do Azure e de diretórios, bem como de ficheiros Hadoop HDFS e de diretórios. A natureza semiestruturada destas origens de dados fornece grande flexibilidade. No entanto, para obter o máximo valor dos como registá-los com **catálogo de dados do Azure**, os utilizadores tem de considerar como as origens de dados são organizadas.
 
-## <a name="directories-as-logical-data-sets"></a>Diretórios como lógicos conjuntos de dados
-É um padrão comum para organizar as origens de dados de grande tratar diretórios como lógicos conjuntos de dados. Diretórios de nível superior são utilizados para definir um conjunto de dados, enquanto as partições de definir subpastas e os ficheiros contêm armazenam dados propriamente ditos.
+## <a name="directories-as-logical-data-sets"></a>Diretórios como conjuntos de dados lógicos
+É um padrão comum para organizar as origens de macrodados tratar diretórios como conjuntos de dados lógicos. Diretórios de nível superior são utilizados para definir um conjunto de dados, enquanto as subpastas definem partições e os ficheiros que contêm armazenam os dados propriamente ditos.
 
-Um exemplo deste padrão de pode ser:
+Um exemplo desse padrão pode ser:
 
     \vehicle_maintenance_events
         \2013
@@ -45,25 +39,25 @@ Um exemplo deste padrão de pode ser:
         \2013
         ...
 
-Neste exemplo, vehicle_maintenance_events e location_tracking_events representam lógicos conjuntos de dados. Cada uma destas pastas contém ficheiros de dados que são organizados por ano e mês em subpastas. Cada uma destas pastas, potencialmente, pode conter centenas ou milhares de ficheiros.
+Neste exemplo, vehicle_maintenance_events e location_tracking_events representam conjuntos de dados lógicos. Cada uma dessas pastas contém arquivos de dados que são organizados por ano e mês em subpastas. Cada uma dessas pastas, potencialmente, poderia conter centenas ou milhares de arquivos.
 
-Neste padrão, registar ficheiros individuais com **catálogo de dados do Azure** provavelmente não fazer sentido. Em vez disso, registe os diretórios que representam os conjuntos de dados ser significativo para os utilizadores a trabalhar com dados.
+Neste padrão, arquivos individuais com a registar **catálogo de dados do Azure** provavelmente não faz sentido. Em vez disso, registe os diretórios que representam os conjuntos de dados ser significativo para os usuários a trabalhar com os dados.
 
 ## <a name="reference-data-files"></a>Ficheiros de dados de referência
-É um padrão complementares armazenar conjuntos de dados de referência como ficheiros individuais. Estes conjuntos de dados poderá considerar como o lado 'pequeno' de macrodados e, muitas vezes, são semelhantes às dimensões de um modelo de dados analíticos. Ficheiros de dados de referência contém registos que são utilizados para fornecer contexto para o volume dos ficheiros de dados armazenadas noutro local no arquivo de macrodados.
+É um padrão complementar armazenar conjuntos de dados de referência como arquivos individuais. Estes conjuntos de dados pode ser considerados como o lado "small" de grandes volumes de dados e, muitas vezes, são semelhantes às dimensões num modelo de dados analíticos. Ficheiros de dados de referência contém registos que são utilizados para fornecer contexto para a maior parte dos ficheiros de dados armazenados em outro lugar no arquivo de macrodados.
 
-Um exemplo deste padrão de pode ser:
+Um exemplo desse padrão pode ser:
 
     \vehicles.csv
     \maintenance_facilities.csv
     \maintenance_types.csv
 
-Quando um analista ou dados scientist está a trabalhar com os dados contidos em estruturas de diretório maior, os dados destes ficheiros de referência podem ser utilizados para fornecer informações mais detalhadas para entidades que são designados apenas por nome ou ID do conjunto de dados maiores.
+Quando uma cientista de dados ou analista está a trabalhar com os dados contidos nas estruturas de diretório maiores, os dados nesses arquivos de referência podem ser utilizados para fornecer informações mais detalhadas para entidades que são referenciadas apenas por nome ou ID no conjunto de dados maior.
 
-Neste padrão, faz sentido para registar os ficheiros de dados de referência individuais com **catálogo de dados do Azure**. Cada ficheiro representa um conjunto de dados, e cada um deles pode ser anotado detetado individualmente.
+Neste padrão, faz sentido para registrar os arquivos de dados de referência individuais com **catálogo de dados do Azure**. Cada ficheiro representa um conjunto de dados, e cada um deles pode ser anotado e detetado individualmente.
 
 ## <a name="alternate-patterns"></a>Padrões alternativos
-Os padrões descritos na secção anterior estão apenas duas formas possíveis que um arquivo de macrodados pode ser organizado, mas cada implementação é diferente. Independentemente da forma como são estruturadas as origens de dados, quando registar macrodados origens com **catálogo de dados do Azure**, concentre-se no registo de ficheiros e diretórios que representam os conjuntos de dados do valor para outras pessoas dentro da sua organização. Registar todos os ficheiros e diretórios pode clutter o catálogo, tornando mais difícil para os utilizadores que precisam de encontrar.
+Os padrões descritos na secção anterior são apenas duas maneiras possíveis, que um arquivo de macrodados pode ser organizado, mas cada implementação é diferente. Independentemente de como são estruturadas as origens de dados, ao registar as origens de macrodados com **catálogo de dados do Azure**, concentre-se sobre o registo de ficheiros e diretórios que representam os conjuntos de dados do valor para outras pessoas dentro da sua organização. Registar todos os ficheiros e diretórios pode desorganizam o catálogo, tornando mais difícil do que os utilizadores encontrem o que precisam.
 
 ## <a name="summary"></a>Resumo
-Registar origens de dados com **catálogo de dados do Azure** se tornarem fáceis de detetar e compreender. Ao registar e anotar os ficheiros de macrodados e diretórios que representam os conjuntos de dados lógicos, pode ajudar os utilizadores a localizar e utilizar as origens de dados grande que precisam.
+Registar origens de dados com **catálogo de dados do Azure** torna mais fácil detetar e compreender. Ao registar e anotar os ficheiros de grandes volumes de dados e diretórios que representam os conjuntos de dados lógicos, pode ajudar os usuários a encontrar e utilizar as origens de macrodados que têm.

@@ -10,22 +10,22 @@ ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 94960b95e6de30159ec34b3f97bb5119cac42c35
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ceef6c5f32372bb69f6ce789e755bc540cb12ba1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818104"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051954"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerir os dados do Excel Online com o Azure Logic Apps
 
-Com o Azure Logic Apps e o conector do Excel Online, pode criar tarefas automatizadas e fluxos de trabalho com base nos seus dados no Excel Online para empresas ou o OneDrive. Os fluxos de trabalho podem realizar estas ações e outras pessoas com os seus dados, por exemplo:
+Com o Azure Logic Apps e o conector do Excel Online, pode criar tarefas automatizadas e fluxos de trabalho com base nos seus dados no Excel Online para empresas ou o OneDrive. Este conector fornece ações que o ajudam a trabalhar com os seus dados e gerir folhas de cálculo, por exemplo: 
 
 * Crie tabelas e folhas de cálculo nova.
 * Obter e gerir folhas de cálculo, tabelas e linhas.
 * Adicione únicas linhas e colunas de chave.
 
-Pode incluir ações nas suas aplicações lógicas que utilizam a saída do Excel Online ações. Este conector proporciona apenas ações como, por isso, para iniciar a sua aplicação lógica, utilizam um acionador separado, como um **periodicidade** acionador. Por exemplo, se criar folhas de cálculo de todas as semanas, pode enviar por e-mail sobre essas folhas de cálculo nova com o conector do Outlook do Office 365.
+Em seguida, pode utilizar as saídas dessas ações com as ações para outros serviços. Por exemplo, se utilizar uma ação que cria folhas de cálculo de todas as semanas, pode utilizar outra ação que envia um e-mail de confirmação utilizando o conector do Outlook do Office 365.
 
 Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 

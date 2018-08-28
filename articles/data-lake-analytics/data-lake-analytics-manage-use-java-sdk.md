@@ -1,38 +1,37 @@
 ---
 title: Gerir o Azure Data Lake Analytics com o SDK Java do Azure
-description: Este artigo descreve como utilizar o SDK Java do Azure para escrever as aplicações que gerem as tarefas de Data Lake Analytics, origens de dados e utilizadores.
+description: Este artigo descreve como utilizar o SDK de Java do Azure para escrever aplicativos que gerir tarefas do Data Lake Analytics, origens de dados e os utilizadores.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 938b3776f320b7556394fff9aa070eee0c44ee88
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624238"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047091"
 ---
-# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerir o Azure Data Lake Analytics através de uma aplicação de Java
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerir o Azure Data Lake Analytics com uma aplicação Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Este artigo descreve como gerir contas de Azure Data Lake Analytics, origens de dados, os utilizadores e tarefas utilizando uma aplicação escrita utilizando o SDK Java do Azure. 
+Este artigo descreve como gerir contas do Azure Data Lake Analytics, origens de dados, os utilizadores e tarefas com um aplicativo escrito usando o SDK de Java do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Kit de desenvolvimento Java (JDK) 8** (utilizando a versão 1.8 do Java).
+* **Kit de desenvolvimento Java (JDK) 8** (usando a versão 1.8 do Java).
 * **IntelliJ** ou outro ambiente de desenvolvimento Java adequado. As instruções neste documento utilizam o IntelliJ.
 * Criar uma aplicação do Azure Active Directory (AAD) e obtenha o **ID de Cliente**, o **ID do Inquilino** e a **Chave**. Para mais informações sobre as aplicações do AAD e instruções sobre como obter um ID de cliente, consulte [Criar aplicação e serviço principal do Active Directory utilizando o portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). O URI de resposta e a chave está disponível no portal assim que tiver a aplicação criada e a chave gerada.
 
-## <a name="authenticating-using-azure-active-directory"></a>Autenticar com o Azure Active Directory
+## <a name="authenticating-using-azure-active-directory"></a>Autenticação com o Azure Active Directory
 
-O código que fornece o seguinte fragmento de código para **não interativo** autenticação, em que a aplicação fornece as suas próprias credenciais.
+O código que fornece o seguinte trecho de código para **não interativa** autenticação, em que a aplicação fornece as suas próprias credenciais.
 
 ## <a name="create-a-java-application"></a>Criar uma aplicação Java
-1. Abra o IntelliJ e crie um projeto Java utilizando o **aplicações de linha de comandos** modelo.
+1. Abra o IntelliJ e crie um projeto de Java com o **aplicação de linha de comandos** modelo.
 2. Clique com o botão direito no lado esquerdo do ecrã e clique em **Adicionar Suporte para Framework**. Escolha **Maven** e clique em **OK**.
 3. Abra o ficheiro **"pom.xml"** recentemente criado e adicione o seguinte fragmento de texto entre a etiqueta **\</version >** e a etiqueta **\</project >**:
 
@@ -199,7 +198,7 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
 }
 ```
 
-Forneça os valores para parâmetros realçados no fragmento de código:
+Forneça os valores para os parâmetros no fragmento de código:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
@@ -213,7 +212,7 @@ Substitua os marcadores de posição para:
 
 ## <a name="helper-functions"></a>Funções de programa auxiliar
 
-### <a name="setup-clients"></a>A configuração de clientes
+### <a name="setup-clients"></a>Clientes do programa de configuração
 
 ```
 public static void SetupClients(ServiceClientCredentials creds)
@@ -365,7 +364,7 @@ public static JobResult WaitForJob(UUID jobId) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="retrieve-job-status"></a>Obter o estado da tarefa
+### <a name="retrieve-job-status"></a>Obter estado da tarefa
 
 ```
 public static String GetJobStatus(UUID jobId) throws IOException, CloudException 

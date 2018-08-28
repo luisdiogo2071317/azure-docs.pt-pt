@@ -1,57 +1,51 @@
 ---
-title: Novidades nas coleções de área de trabalho do Power BI
-description: Obter as informações mais recentes sobre o que é novo no coleções de área de trabalho do Power BI
+title: Novidades nas Coleções de Área de Trabalho do Power BI
+description: Obter as informações mais recentes Novidades nas coleções de área de trabalho do Power BI
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 647b571fc05dca12ab9d4db45236962e4794ef4b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408256"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046934"
 ---
-# <a name="whats-new-in-power-bi-workspace-collections"></a>Novidades nas coleções de área de trabalho do Power BI
+# <a name="whats-new-in-power-bi-workspace-collections"></a>Novidades nas Coleções de Área de Trabalho do Power BI
 
-Atualizações **coleções de área de trabalho do Power BI** são lançadas regularmente. No entanto, não cada versão inclui novas funcionalidades de destinada ao utilizador; Algumas versões são concentra-se nas capacidades do serviço de back-end. Iremos realce novas capacidades de destinada ao utilizador aqui.
+Atualiza para **coleções de área de trabalho do Power BI** são lançadas regularmente. No entanto, nem toda versão inclui novas funcionalidades de destinada ao utilizador; Algumas versões estão focalizadas em capacidades do serviço de back-end. Nós destacamos aqui novas capacidades de destinada ao utilizador.
 
 > [!IMPORTANT]
 > As Coleções de Áreas de Trabalho do Power BI foram preteridas e estão disponíveis até junho de 2018 ou até quando indicar o contrato. Recomendamos que planeie a migração para o Power BI Embedded para evitar interrupções na sua aplicação. Para obter informações sobre como migrar os dados para o Power BI Embedded, veja [How to migrate Power BI Workspace Collections content to Power BI Embedded (Como migrar o conteúdo das Coleções de Áreas de Trabalho do Power BI para o Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="march-2017"></a>Março de 2017
 
-**Capacidades de self-service**
+**Capacidades self-service**
 
 * [Criar novo relatório](create-report-from-dataset.md)
-* [Relatório SaveAs](save-reports.md)
-* Incorporar relatório no novo modo de leitura/editar/criar 
-* [Relatório de alternar entre modos editar/leitura](toggle-mode.md)
+* [SaveAs de relatório](save-reports.md)
+* Incorporar relatório no modo de leitura/Editar/Criar novo 
+* [Relatório de botão de alternar entre modos de edição/leitura](toggle-mode.md)
 
-**Conectividade de dados com REST APIs**
+**Conectividade de dados com as APIs REST**
 
 * [Criar conjunto de dados](https://msdn.microsoft.com/library/azure/mt778875.aspx)
-* Enviar dados 
+* Enviar dados por push 
 
 **APIs de gestão**
 
-* Relatório de clonagem e o conjunto de dados
-* Vincular o relatório para um conjunto de dados diferente
+* Clone de relatório e conjunto de dados
+* Vincular o relatório a um conjunto de dados diferente
 
 **Amostras**
 
-* Atualizado [exemplo incorporar o relatório de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
+* Atualizado [exemplo de incorporação de relatório de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## <a name="december-2016"></a>Dezembro de 2016
 
@@ -59,24 +53,24 @@ Atualizações **coleções de área de trabalho do Power BI** são lançadas re
 
 ## <a name="october-2016"></a>Outubro de 2016
 
-* [Análise avançada com o Power BI área de trabalho coleções e R](https://powerbi.microsoft.com/blog/r-in-pbie/)
+* [Análise avançada com coleções do Power BI área de trabalho e do R](https://powerbi.microsoft.com/blog/r-in-pbie/)
 
 ## <a name="august-31-2016"></a>31 de Agosto de 2016
 Esta versão inclui:
 
-* Todos os novos JavaScript SDK que suporte [avançadas filtragem e página navegação](interact-with-reports.md).
-* Coleções de área de trabalho do Power BI são agora suportadas no Centro de dados Canadá Central. Verifique [datacenter estado](https://azure.microsoft.com/status/).
+* Todos os novos SDK de JavaScript que suporta [advanced navegação de página e filtragem](interact-with-reports.md).
+* As coleções de área de trabalho do Power BI são agora suportadas no Centro de dados Canadá Central. Verifique [estado de datacenter](https://azure.microsoft.com/status/).
 
 ## <a name="july-11-2016"></a>11 de julho de 2016
 Esta versão inclui:
 
-* **Excelente notícias!** O serviço de coleções de área de trabalho do Power BI já não está em pré-visualização - GA respetivo agora (geralmente disponível).  
-* Todas as APIs REST ter movidas **/beta** para **/v1.0**.
-* .NET e JavaScript SDKs tiver sido atualizado por **v 1.0**.
-* Power BI API chamadas agora podem ser autenticadas diretamente através da utilização de chaves de API. Tokens de aplicação só são necessárias para incorporar. Como parte deste processo, tokens de aprovisionar e dev foram preteridos na v 1.0 APIs, mas irá continuem a funcionar na versão beta até 30 de Dezembro de 2016. Para obter mais informações, consulte [autenticação e autorização com Power BI área de trabalho coleções](app-token-flow.md).
-* Suporte de segurança ao nível (RLS) de linha para tokens de aplicação e os relatórios incorporados. Para obter mais informações, consulte [linha segurança ao nível com coleções de área de trabalho do Power BI](row-level-security.md).
-* Atualizar a aplicação de exemplo para todos os **v 1.0** chamadas da API.
-* Coleções de área de trabalho do Power BI suporta do SDK do Azure, PowerShell e CLI.
-* Os utilizadores podem exportar dados de visualização para uma **. csv**.
-* Coleções de área de trabalho do Power BI agora são suportadas em todas as mesmas idiomas/regiões como o Microsoft Azure. Para obter mais informações, consulte [Azure - idiomas](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* **Temos ótimas notícias!** O serviço de coleções de área de trabalho do Power BI já não está em pré-visualização - GA seu agora (disponível em geral).  
+* Todas as APIs de REST passaram a ter de **/beta** ao **/v1.0**.
+* .NET e SDKs de JavaScript foi atualizado para o **v1.0**.
+* Chamadas à API de BI Power agora podem ser autenticadas diretamente com chaves de API. Tokens de aplicação só são necessários para incorporar. Como parte desse processo, tokens de aprovisionamento e desenvolvimento foram preteridos na v1.0 APIs, mas estes continuarão a funcionar na versão beta até 30 de Dezembro de 2016. Para obter mais informações, consulte [autenticação e autorização com coleções de área de trabalho do Power BI](app-token-flow.md).
+* Suporte de segurança ao nível (RLS) de linha para tokens de aplicação e os relatórios incorporados. Para obter mais informações, consulte [coleções de área de trabalho do Power BI a segurança ao nível da linha](row-level-security.md).
+* Atualizado o aplicativo de exemplo para todos os **v1.0** chamadas de API.
+* As coleções de área de trabalho do Power BI suporta para o SDK do Azure, PowerShell e CLI.
+* Os utilizadores podem exportar dados de visualização para um **. csv**.
+* As coleções de área de trabalho do Power BI agora são suportadas em todos os mesmos idiomas/locais como o Microsoft Azure. Para obter mais informações, consulte [Azure - idiomas](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

@@ -1,63 +1,62 @@
 ---
-title: Ajustar as quotas e limites no Azure Data Lake Analytics
-description: Saiba como ajuste e aumentar quotas e limites em contas do Azure Data Lake Analytics (ADLA).
+title: Ajuste de quotas e limites no Azure Data Lake Analytics
+description: Saiba como ajustar e aumentar as quotas e limites em contas do Azure Data Lake Analytics (ADLA).
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
-manager: kfile
+ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: e493c45ef49d370bbf7d007e039b4102aaa3cdf0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4629b52f3b2c9e351ddc2a68a40c5178a9a73950
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623983"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048260"
 ---
-# <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar as quotas e limites no Azure Data Lake Analytics
+# <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajuste de quotas e limites no Azure Data Lake Analytics
 
-Saiba como ajuste e aumentar a quota e limites em contas do Azure Data Lake Analytics (ADLA). Saber estes limites pode ajudá-lo a compreender o comportamento da tarefa U-SQL. Todos os limites de quota são recuperável, pelo que pode aumentar os limites máximos contactando o suporte do Azure.
+Saiba como ajustar e aumentar a quota e limites de contas do Azure Data Lake Analytics (ADLA). Conhecer estes limites pode ajudá-lo a compreender o comportamento da sua tarefa U-SQL. Todos os limites de quota são flexíveis, pelo que pode aumentar os limites máximos contactando o suporte do Azure.
 
 ## <a name="azure-subscriptions-limits"></a>Limites de subscrições do Azure
 
 **Número máximo de ADLA contas por subscrição por região:** 5
 
-Se tentar criar uma conta ADLA sexto, obterá um erro "Atingiu o número máximo de contas de Data Lake Analytics permitidas (5) na região em nome da subscrição". 
+Se tentar criar uma conta ADLA sexta, obterá um erro "Que atingiu o número máximo de contas de Data Lake Analytics permitido (5) na região em nome da subscrição". 
 
 Se pretender que ultrapassem este limite, pode experimentar estas opções:
-* Escolha outra região se adequado
+* Escolha outra região, se adequado
 * Contacte o suporte do Azure por [abrir um pedido de suporte](#increase-maximum-quota-limits) para pedir um aumento de quota.
 
-## <a name="default-adla-account-limits"></a>Limites de conta ADLA predefinido
+## <a name="default-adla-account-limits"></a>Limites de conta do ADLA predefinidos
 
-**Número máximo de unidades de análise (AUs) por conta:** 32
+**Número máximo de unidades de análise (UA) por conta:** 32
 
-Este é o número máximo de AUs que podem ser executados em simultâneo na sua conta. Se o número total de execução AUs em todas as tarefas excede este limite, as tarefas mais recentes são colocados em fila automaticamente. Por exemplo:
+Este é o número máximo de UAS que podem ser executadas em simultâneo na sua conta. Se o número total de execução de AUs em todas as tarefas exceder este limite, as tarefas mais recentes são colocados em fila automaticamente. Por exemplo:
 
-* Se tiver apenas uma tarefa em execução com 32 AUs, quando submete uma segunda tarefa-irá aguardar na fila de tarefas até que a primeira tarefa é concluída.
-* Se já tiver quatro tarefas em execução e se cada utiliza 8 AUs, quando submete uma tarefa de quinta que necessita de 8 AUs espera na fila de tarefas até não existirem 8 AUs disponíveis.
+* Se tiver apenas uma tarefa em execução com 32 UAS, ao submeter um segundo trabalho que irá aguardar na fila de tarefas até que a primeira tarefa é concluída.
+* Se já tiver quatro tarefas em execução e cada um está a utilizar 8 UAS, ao submeter uma tarefa Quinta, que tem 8 UAS que ele espera na fila de tarefas até que haja 8 UAS disponíveis.
 
-**Número máximo de unidades de análise (AUs) por tarefa:** 32
+**Número máximo de unidades de análise (UA) por tarefa:** 32
 
-Este é o número máximo predefinido de AUs que pode ser atribuída a cada tarefa individuais na sua conta. Serão rejeitadas tarefas que são atribuídas mais do que este limite, a menos que o submissor é afetado por uma política de computação (limite de submissão da tarefa) que lhes dá mais AUs por tarefa. O limite superior deste valor é o limite de AU para a conta.
+Este é o número máximo de padrão de UAS que pode ser atribuída a cada tarefa individual na sua conta. Tarefas que foram atribuídas mais do que este limite serão rejeitadas, a menos que o emissor é afetado por uma política de computação (limite de envio de trabalhos) que lhes dá mais UAS por tarefa. O limite superior deste valor é o limite de AU da conta.
 
-**Número máximo de tarefas U-SQL em simultâneo por conta:** 20
+**Número máximo de tarefas de U-SQL em simultâneo por conta:** 20
 
-Este é o número máximo de tarefas que podem ser executados em simultâneo na sua conta. Acima este valor, as tarefas mais recentes são colocados em fila automaticamente.
+Este é o número máximo de tarefas que podem ser executadas em simultâneo na sua conta. Acima este valor, as tarefas mais recentes são colocados em fila automaticamente.
 
-## <a name="adjust-adla-account-limits"></a>Ajuste ADLA limites de conta
+## <a name="adjust-adla-account-limits"></a>Ajustar os limites de conta ADLA
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Escolha uma conta ADLA existente.
+2. Escolha uma conta existente do ADLA.
 3. Clique em **Propriedades**.
-4. Ajustar os valores para **AUs máximo**, **número máximo de tarefas em execução**, e **limites de submissão da tarefa** de acordo com as suas necessidades.
+4. Ajustar os valores para **AUs máximos**, **número máximo de tarefas em execução**, e **limites de submissão da tarefa** para se adequar às suas necessidades.
 
-## <a name="increase-maximum-quota-limits"></a>Aumentar os limites de quota máxima
+## <a name="increase-maximum-quota-limits"></a>Aumentar limites de quota máxima
 
-Pode encontrar mais informações sobre os limites do Azure no [específicos do serviço de Azure limita documentação](../azure-subscription-service-limits.md#data-lake-analytics-limits).
+Pode encontrar mais informações sobre os limites do Azure no [específico do serviço de Azure limita documentação](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Abra um pedido de suporte no portal do Azure.
 
@@ -65,18 +64,18 @@ Pode encontrar mais informações sobre os limites do Azure no [específicos do 
 
     ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 2. Selecione o tipo de problema **Quota**.
-3. Selecione o **subscrição** (Certifique-se de que não se trata de uma subscrição de "avaliação").
-4. Selecione o tipo de quota **Data Lake Analytics**.
+3. Selecione seu **subscrição** (Certifique-se de que não é uma subscrição de "avaliação").
+4. Selecione o tipo de quota **do Data Lake Analytics**.
 
     ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. Na página do problema, explicam o limite de pedido de aumento com **detalhes** de porque precisa esta capacidade extra.
+5. Na página do problema, explique o seu limite de aumento pedido com **detalhes** por que motivo é necessário capacidade extra.
 
     ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
-6. Verifique as informações de contacto e criar o pedido de suporte.
+6. Verifique se as informações de contacto e criar o pedido de suporte.
 
-A Microsoft revê o pedido e tenta acomodar as suas necessidades empresariais logo que possível.
+A Microsoft analisa o seu pedido e tenta acomodar as necessidades da sua empresa logo que possível.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

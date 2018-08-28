@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30921313"
 ---
 As FAQ de VNet a VNet aplicam-se às ligações do Gateway de VPN. Se estiver à procura do VNET Peering, veja [Peering de Rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md)
@@ -25,9 +25,9 @@ O tráfego VNet para VNet na mesma região é gratuito em ambas as direções se
 
 Não. O tráfego VNet a VNet circula no backbone do Microsoft Azure e não na Internet.
 
-### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Pode estabelecer uma ligação de VNet a VNet entre os inquilinos do AAD?
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Posso estabelecer uma ligação VNet a VNet em inquilinos do AAD?
 
-Sim, as ligações VNet a VNet através de gateways de VPN do Azure funcionam em todos os inquilinos do AAD.
+Sim, as ligações VNet a VNet que utilizam gateways de VPN do Azure funcionam em Inquilinos do AAD.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>O tráfego VNet a VNet é seguro?
 

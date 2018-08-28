@@ -1,69 +1,63 @@
 ---
-title: "Cenários comuns do catálogo de dados do Azure | Microsoft Docs"
-description: "Uma descrição geral dos cenários comuns do catálogo de dados Azure, incluindo o registo e a deteção de origens de dados de elevado valor, ativação de business intelligence personalizada e a captura de dados de conhecimento existente sobre origens de dados e processos."
+title: Cenários comuns do Catálogo de Dados do Azure
+description: Uma visão geral dos cenários comuns para o catálogo de dados Azure, incluindo o registo e deteção de origens de dados de elevado valor, permitindo a business intelligence personalizada e capturar conhecimento existente de origens de dados e processos.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 156710ad50349e8a3632e31c7752387d4449a65d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4c3fe6f85ec1ae04127e4a420fe1f85b18318aef
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053573"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Cenários comuns do Catálogo de Dados do Azure
-Este artigo apresenta os cenários comuns em que o catálogo de dados do Azure pode ajudar a sua organização obter o valor mais das suas origens de dados existente.
+Este artigo apresenta cenários comuns que o catálogo de dados do Azure pode ajudar sua organização obter mais valor das suas fontes de dados existente.
 
 ## <a name="scenario-1-registration-of-central-data-sources"></a>Cenário 1: Registo de origens de dados central
-As organizações têm, muitas vezes, várias origens de dados de elevado valor. Estas origens de dados incluem a transação de linha de negócio, online (OLTP) sistemas, os armazéns de dados e bases de dados de business intelligence/análise de processamento. O número de sistemas e sobreposição entre eles, normalmente aumenta ao longo do tempo, conforme as necessidades de negócio evoluem e o negócio próprio medida que evolui através de, por exemplo, fusões e aquisições.
+As organizações têm, muitas vezes, várias origens de dados de elevado valor. Estas origens de dados incluem sistemas (OLTP), os armazéns de dados e bases de dados do business intelligence/análise de processamento de transações de linha de negócio, online. O número de sistemas e a sobreposição entre elas, normalmente aumenta ao longo do tempo, à medida que as empresas precisam evoluir e o próprio negócio evolui através de, por exemplo, fusões e aquisições.
 
-Pode ser difícil para os membros da organização saber onde localizar os dados dentro destas origens de dados. São todos os demasiado comuns perguntas como o seguinte:
+Pode ser difícil para os membros da organização saber onde localizar os dados dentro destas origens de dados. Perguntas, como a seguir, são todas muito comuns:
 
-* Dos sistemas de RH três utilizados dentro da empresa, que deve utilizar para criar este tipo de relatório?
-* Onde deve passar para obter os números de vendas certificados para o ano fiscal que apenas terminado?
-* Quem posso peça ou o que é o processo que deve utilizar para aceder ao armazém de dados?
-* Posso não sabe se estes números estão corretos. Quem pode posso pedir para obter informações sobre como deve ser utilizada antes de posso partilhar este dashboard com os meus equipa estes dados?
+* Dos sistemas de RH três utilizados dentro da empresa, que devo utilizar para criar este tipo de relatório?
+* Onde devem ir para obter os números de vendas certificados para o ano fiscal que apenas terminou?
+* Que posso fazer ou o que é o processo que devo usar para obter acesso ao armazém de dados?
+* Não sei se esses números são adequados. Que posso fazer para obter informações sobre como estes dados deve ser usado para compartilhar este dashboard com minha equipe?
 
-Para estas e outras perguntas, o catálogo de dados do Azure pode fornecer respostas. As origens de dados central, elevado valor, IT-geridos que são utilizadas em organizações são, muitas vezes, o ponto de partida lógico para povoar o catálogo. Embora a qualquer utilizador pode registar uma origem de dados, ter o catálogo kick-started com as origens de dados que são mais prováveis fornecer o valor para o maior número de utilizadores ajuda promover a adoção e utilização do sistema. 
+A estas e outras perguntas, o catálogo de dados do Azure pode fornecer respostas. As origens de dados central, alto valor, gerenciado por TI que são utilizadas pelas organizações costumam ser o ponto de partida lógico para povoar o catálogo. Embora qualquer utilizador pode registar uma origem de dados, ter o catálogo kick-started com as origens de dados que são mais prováveis fornecer o valor para o maior número de utilizadores que ajuda a conduzir a adoção e utilização do sistema. 
 
-Se lhe é introdução ao catálogo de dados do Azure, identificar e registar origens de dados fundamentais utilizadas por várias equipas diferentes dos consumidores de dados podem ser o primeiro passo para êxito.
+Se estiver a começar no catálogo de dados do Azure, identificar e registar origens de dados fundamentais utilizadas por várias equipas diferentes de consumidores de dados podem ser o primeiro passo para o sucesso.
 
-Este cenário também apresenta uma oportunidade para anotar origens de dados de elevado valor para os tornar mais fácil de compreender e aceder. É um aspeto chave deste esforço para incluir informações sobre a forma como os utilizadores podem pedir acesso à origem de dados. Catálogo de dados do Azure, pode fornecer o endereço de e-mail do utilizador ou equipa que é responsável pelo controlo de origem de dados de acesso, as ligações para ferramentas existentes ou documentação ou texto livre que descreve o processo de pedido de acesso. Estas informações ajudam os membros que detetar origens de dados registados, mas que ainda não tem permissões para aceder aos dados facilmente pedir acesso utilizando os processos que são definidos e controlados pelos proprietários de origem de dados.
+Este cenário apresenta também uma oportunidade para anotar origens de dados de alto valor para torná-los mais fáceis de compreender e de acesso. É um aspecto-chave deste esforço incluir informações sobre como os utilizadores podem pedir acesso à origem de dados. Com o catálogo de dados do Azure, pode fornecer o endereço de e-mail do utilizador ou equipa responsável para controlar o acesso de origem de dados, links para ferramentas existentes ou documentação ou texto livre que descreve o processo de pedido de acesso. Estas informações ajudam os membros que detetar origens de dados registados, mas que ainda não tem permissões para acessar os dados facilmente pedir acesso ao utilizar os processos que estão definidos e controlados pelos proprietários de origem de dados.
 
 ## <a name="scenario-2-self-service-business-intelligence"></a>Cenário 2: Business intelligence personalizada
-Embora as tradicionais soluções de business intelligence empresarias continuarem a ser uma parte valiosas de landscapes de dados de muitas organizações, a alteração esteja a par do negócio fez BI self-service mais importantes. Utilizando BI self-service, os infotrabalhadores e analistas podem criar os seus próprios relatórios, livros e dashboards sem depender de uma equipa de TI central ou a ser restringida por essa equipa de TI agenda e disponibilidade.
+Embora as soluções de business intelligence empresariais tradicionais continuam a ser uma parte inestimável da finalização panoramas de dados de muitas organizações, a alteração ritmo dos negócios fez BI de autoatendimento mais importantes. Ao usar o BI de autoatendimento, os operadores de informações e os analistas podem criar seus próprios relatórios, livros e dashboards sem depender de uma equipa de TI central ou a ser restringidas pelo agendamento e a disponibilidade da equipe de TI.
 
-Em cenários de BI self-service, os utilizadores normalmente combinam dados de várias origens, muitas das quais podem não anteriormente foram utilizadas para análise e BI. Apesar de já podem ser conhecidas algumas destas origens de dados, este pode ser um desafio para descobrir o que fazer para localizar e avaliar potenciais origens de dados para uma determinada tarefa.
+Em cenários de BI de autoatendimento, os usuários normalmente combinam dados de várias origens, muitos dos quais podem não ter sido utilizados anteriormente para análise e BI. Embora algumas dessas fontes de dados poderão ser já conhecidas, ele pode ser um desafio para descobrir o que fazer para localizar e avaliar possíveis origens de dados para uma determinada tarefa.
 
-Tradicionalmente, este processo de deteção é um método manual: os analistas de utilizam as suas ligações de rede ponto a ponto para identificar outras pessoas que trabalham com os dados que está a ser sought. Depois de uma origem de dados é localizada e utilizada, o processo repete-se novamente para cada subsequente self-service BI esforço, com utilizadores múltiplos efetuar um processo manual redundante de deteção.
+Tradicionalmente, este processo de deteção é manual: analistas usar suas conexões de rede ponto a ponto para identificar outras pessoas que trabalham com os dados que está a ser procurados. Depois de uma origem de dados é encontrada e utilizada, o processo repete-se novamente para cada self-service BI esforço subseqüente, com vários utilizadores a executar um processo manual com redundância de deteção.
 
-Catálogo de dados do Azure, a organização pode interromper este ciclo de esforço. Após a deteção de uma origem de dados através de meios tradicionais, um analista pode registá-lo para o tornar mais facilmente Detetáveis por outros utilizadores no futuro. Embora o analista pode adicionar mais valor, anotar recursos de dados registados, este anotação não tem de ter ocorrido ao mesmo tempo, como o registo. Podem contribuir os utilizadores ao longo do tempo, como permitir as respetivas agendas, adicionar gradualmente o valor para as origens de dados registadas no catálogo.
+Com o catálogo de dados do Azure, a sua organização pode quebrar este ciclo de esforço. Após a deteção de uma origem de dados através de meios tradicionais, um analista pode de registá-lo para torná-lo mais facilmente Detetáveis por outros utilizadores no futuro. Embora o analista pode adicionar mais valor ao anotar recursos de dados registados, esta anotação não é necessário ter lugar ao mesmo tempo, como de registo. Os utilizadores podem contribuir ao longo do tempo, como permitir suas agendas, adicionando gradualmente o valor para as origens de dados registadas no catálogo.
 
-Este crescimento orgânico do conteúdo do catálogo é um complemento natural para o registo prévio de origens de dados central. Pré-povoar o catálogo de dados que irão precisar de vários utilizadores pode ser um motivator para utilização inicial e a deteção. Permitir que os utilizadores registar e anotar origens adicionais pode ser uma forma para mantê-los e outros membros da organização parte.
+Este crescimento orgânico do conteúdo do catálogo é um complemento natural para o registo inicial de origens de dados central. Preencher previamente o catálogo de dados que irão precisar de muitos usuários pode ser uma motivação para utilização inicial e a deteção. Permitir que os utilizadores para se registrar e anotar origens de adicionais pode ser uma forma de mantê-los e outros membros da organização envolvidos.
 
-É importante salientar que embora este cenário centra-se especificamente nos BI self-service, o mesmo padrões e desafios aplicam-se em grande escala empresarias BI projetos, bem como. Utilizando o catálogo de dados, a sua organização pode melhorar qualquer esforço de que envolve um processo manual de deteção de origem de dados.
+Vale a pena observar que embora este cenário centra-se especificamente sobre BI de autoatendimento, os mesmos padrões e desafios aplicam-se a empresa BI projetos de grande escala, bem. Ao utilizar o catálogo de dados, a sua organização pode melhorar qualquer esforço que envolve um processo manual de deteção de origem de dados.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>Cenário 3: Capturar dados de conhecimento tribal
-Como pode saber quais os dados que precisa de executar a tarefa e onde encontrar dados?
+## <a name="scenario-3-capturing-tribal-knowledge"></a>Cenário 3: Capturar conhecimentos restritos
+Como sabe quais os dados que precisa fazer seu trabalho e onde encontrar esses dados?
 
-Se tiver sido na sua tarefa de tempo, provavelmente, basta sabe. Já leu uma gradual learning processo e, ao longo do tempo aprendeu sobre as origens de dados que são fundamentais para o seu trabalho diário.
+Se já esteve no seu trabalho durante algum tempo, provavelmente sabe. Já passou por um processo de aprendizagem de gradual e ao longo do tempo, ter aprendido sobre as origens de dados fundamentais para o seu trabalho diário.
 
-Quando um empregado novo associado a sua equipa, como essa pessoa sabe quais os dados que são necessários para a tarefa e onde pode encontrá-lo?
+Quando um novo funcionário associa à sua equipa, como essa pessoa sabe quais dados são necessários para a tarefa e onde encontrá-lo?
 
-São odds a nova pessoa integra para estas perguntas.
+É provável, a nova pessoa vem até com essas perguntas.
 
-Esta transferência em curso dos dados de conhecimento tribal faz parte do processo de deteção de origem de dados em organizações de grandes dimensões e em pequenos. Mais sénior e experiente os membros da equipa acumuladas conhecimento ao longo dos anos e os membros da equipa mais recentes tem aprendidas para peça-lhes quando têm perguntas. As informações mais vitais, muitas vezes, existe apenas no cabeças de algumas pessoas essenciais e, quando essas pessoas são de férias ou deixam a equipa, a organização sofrerá.
+Esta transferência em curso de conhecimentos restritos é a parte do processo de deteção da origem de dados em pequenas e grandes organizações. Mais experiente e qualificado os membros da Equipe acumuladas conhecimento ao longo dos anos, e os membros da Equipe mais recente aprenderam a peça-lhe quando têm dúvidas. As informações mais importantes, muitas vezes, existem apenas na cabeça de algumas pessoas essenciais e, quando essas pessoas estiverem em férias ou deixam a equipe, a organização sofre.
 
-Especialistas de dados normalmente tornar um esforço documentar os respetivos dados de conhecimento, partilha por e-mail ou em documentos do Word num site do SharePoint equipa. Embora esta abordagem pode ser útil, introduz um novo problema de Deteção: como as pessoas saber que documentação existe e onde pode encontrá-lo?
+Especialistas em dados normalmente faça um esforço para documentar seu conhecimento, partilhá-lo por e-mail ou em documentos do Word num site de equipa do SharePoint. Embora essa abordagem pode ser útil, ele introduz um novo problema de Deteção: como as pessoas saibam quais documentação existe e onde encontrá-lo?
 
-Catálogo de dados do Azure, a sua organização tem uma localização única central para armazenar e partilhar este conhecimento tribal e para efetuar facilmente Detetáveis. Catálogo de dados, as especialistas de dados podem anotar recursos de dados diretamente em fornecem ligações para documentação existente. Quando os membros da organização utilizam o catálogo para detetar uma origem de dados, irá encontrarem não só a origem de si próprio, mas também os dados de conhecimento que existiam anteriormente apenas em minds de especialistas da sua organização.
+Com o catálogo de dados do Azure, a sua organização tiver um local central único para armazenar e compartilhar esse conhecimento tribal e para fazer facilmente detetável. No catálogo de dados, as especialistas de dados podem anotar recursos de dados diretamente e fornecem ligações para documentação existente. Quando os membros da organização utilizam o catálogo para detetar uma origem de dados, eles vão encontrá não só a origem em si, mas também o conhecimento que existia anteriormente apenas nas mentes dos especialistas da sua organização.

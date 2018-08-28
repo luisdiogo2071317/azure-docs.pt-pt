@@ -1,89 +1,83 @@
 ---
-title: "Registar origens de dados no catálogo de dados do Azure | Microsoft Docs"
-description: "Este artigo realça como registar origens de dados no catálogo de dados do Azure, incluindo os campos de metadados extraídos durante o registo."
+title: Registar origens de dados no catálogo de dados do Azure
+description: Este artigo destaca como registar origens de dados no catálogo de dados do Azure, incluindo os campos de metadados extraídos durante o registo.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4688b58b40df110a33f9310226db9a6412f43054
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053654"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registar origens de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução
-Catálogo de dados do Azure é um serviço em nuvem completamente gerido que funciona como um sistema de registo e a deteção de origens de dados empresariais. Por outras palavras, pessoas, detetar, compreender e utilizar origens de dados ajuda-o catálogo de dados e ajuda as organizações a obter maior valor dos respetivos dados existentes. O primeiro passo para efetuar uma origem de dados detetável através do catálogo de dados está a registar essa origem de dados.
+Catálogo de dados do Azure é um serviço cloud totalmente gerido que funciona como um sistema de registo e deteção de origens de dados empresariais. Em outras palavras, o catálogo de dados ajuda as pessoas a detetar, compreender e utilizar origens de dados, e ajuda as organizações a obter mais valor dos respetivos dados existentes. A primeira etapa para fazer uma origem de dados detetável através do catálogo de dados é registrar essa origem de dados.
 
 ## <a name="register-data-sources"></a>Registar origens de dados
 O registo é o processo de extrair metadados da origem de dados e copiar esses dados para o serviço de catálogo de dados. Os dados permanecem no local onde residem atualmente e continuam sob o controlo dos administradores e das políticas do sistema atual.
 
-Para registar uma origem de dados, efetue o seguinte:
+Para registar uma origem de dados, faça o seguinte:
 1. No portal do catálogo de dados do Azure, inicie a ferramenta de registo de origem de dados do catálogo de dados. 
-2. Inicie sessão com a sua conta profissional ou escolar com as mesmas credenciais do Azure Active Directory que utiliza para iniciar sessão no portal.
+2. Inicie sessão com a sua conta escolar ou profissional com as mesmas credenciais do Azure Active Directory que utiliza para iniciar sessão portal.
 3. Selecione a origem de dados que pretende registar.
 
-Para obter mais detalhes passo a passo, consulte o [introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial.
+Para obter mais detalhes passo a passo, consulte a [introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial.
 
-Depois de ter registado a origem de dados, o catálogo controla a respetiva localização e indexa os metadados. Os utilizadores podem pesquisar, procurar e detetar a origem de dados e, em seguida, utilizar a localização para ligar à mesma, utilizando a aplicação ou a ferramenta de sua escolha.
+Depois de registar a origem de dados, o catálogo controla a localização e indexa os metadados. Os utilizadores podem pesquisar, procurar e descobrir a origem de dados e, em seguida, utilize a localização para ligá-la usando o aplicativo ou a ferramenta de sua preferência.
 
 ## <a name="supported-data-sources"></a>Origens de dados suportadas
-Para obter uma lista de origens de dados atualmente suportados, consulte [DSR do catálogo de dados](data-catalog-dsr.md).
+Para obter uma lista de origens de dados atualmente suportadas, consulte [DSR do catálogo de dados](data-catalog-dsr.md).
 
 ## <a name="structural-metadata"></a>Metadados estruturais
 Ao registar uma origem de dados, a ferramenta de registo extrai informações sobre a estrutura dos objetos que selecionar. Esta informação é referida como metadados estruturais.
 
-Para todos os objetos, estes metadados estruturais incluem a localização do objeto, para que os utilizadores que detetar os dados possam utilizar essas informações para ligar para o objeto nas ferramentas de cliente da sua eleição. Outros metadados estruturais incluem o nome do objeto e o tipo e o nome de atributo/coluna e dados de tipo.
+Para todos os objetos, estes metadados estruturais incluem a localização do objeto, para que os utilizadores que detetar os dados podem utilizar essas informações para ligar para o objeto nas ferramentas do cliente de sua preferência. Outros metadados estruturais incluem o nome do objeto e o tipo e digite o nome de atributo/colunas e os dados.
 
 ## <a name="descriptive-metadata"></a>Metadados descritivos
-Para além dos metadados estruturais de núcleos que são extraídos da origem de dados, a ferramenta de registo da origem de dados extrai metadados descritivos. Para SQL Server Analysis Services e o SQL Server Reporting Services, estes metadados são obtidos a partir de propriedades de descrição expostas por estes serviços. Para o SQL Server, valores fornecidos com os ms\_descrição propriedade expandida é extraída. Para a base de dados Oracle, a ferramenta de registo da origem de dados extrai a coluna de comentários do todos os\_SEPARADOR\_vista de comentários.
+Além dos metadados estruturais principais que são extraídos da origem de dados, a ferramenta de registo da origem de dados extrai metadados descritivos. Para SQL Server Analysis Services e o SQL Server Reporting Services, estes metadados é retirado das propriedades de descrição expostas por esses serviços. Para o SQL Server, valores fornecidos com o ms\_descrição de propriedade estendida é extraída. Base de dados Oracle, a ferramenta de registo da origem de dados extrai a coluna de comentários do todas\_SEPARADOR\_vista de comentários.
 
-Para além dos metadados descritivos que são extraídos da origem de dados, os utilizadores podem introduzir metadados descritivos utilizando a ferramenta de registo da origem de dados. Os utilizadores podem adicionar etiquetas e podem identificar especialistas para os objetos que está a ser registados. Estes metadados descritivos é copiado para o serviço de catálogo de dados, juntamente com os metadados estruturais.
+Além dos metadados descritivos que são extraídos da origem de dados, os utilizadores podem introduzir metadados descritivos utilizando a ferramenta de registo da origem de dados. Os usuários podem adicionar etiquetas e podem identificar especialistas para os objetos que está a ser registados. Estes metadados descritivos é copiado para o serviço de catálogo de dados, juntamente com os metadados estruturais.
 
 ## <a name="include-previews"></a>Incluir pré-visualizações
-Por predefinição, apenas metadados é extraídos das origens de dados e copiados para o serviço de catálogo de dados, mas não compreender que uma origem de dados é frequentemente facilitada quando pode ver um exemplo dos dados que contém.
+Por predefinição, é que apenas os metadados extraídos de origens de dados e copiados para o serviço de catálogo de dados, mas o entendimento de que uma origem de dados, muitas vezes, se torna mais fácil quando pode ver um exemplo de dados que contém.
 
-Ao utilizar a ferramenta de registo de origem de dados do catálogo de dados, pode incluir uma pré-visualização de instantâneo dos dados em cada tabela e vista que está registada. Se optar por incluir pré-visualizações durante o registo, a ferramenta de registo inclui até 20 registos de cada tabela e vista. Este instantâneo é, em seguida, copiado para o catálogo, juntamente com os metadados estruturais e descritivo.
+Ao utilizar a ferramenta de registo de origem de dados do catálogo de dados, pode incluir uma pré-visualização de instantâneo dos dados em cada tabela e a vista que está registrada. Se optar por incluir pré-visualizações durante o registo, a ferramenta de registo inclui até 20 registos de cada tabela e o modo de exibição. Este instantâneo é então copiado para o catálogo, juntamente com os metadados estruturais e descritivo.
 
 > [!NOTE]
-> Tabelas vasta com um grande número de colunas podem ter menos de 20 registos incluídos no respetivo pré-visualização.
+> Tabelas grandes com um grande número de colunas podem ter menos de 20 registos incluídos na sua visualização.
 >
 >
 
 ## <a name="include-data-profiles"></a>Incluem perfis de dados
-Tal como pré-visualizações incluindo podem fornecer contexto valioso para os utilizadores que pesquisar origens de dados no catálogo de dados, incluindo um perfil de dados pode tornar mais fácil de compreender as origens de dados detetados.
+Tal como incluindo pré-visualizações de podem fornecer o contexto valioso para os utilizadores que pesquisar origens de dados no catálogo de dados, incluindo um perfil de dados pode tornar mais fácil de compreender origens de dados detetadas.
 
-Ao utilizar a ferramenta de registo de origem de dados do catálogo de dados, pode incluir um perfil de dados para cada tabela e vista que está registada. Se optar por incluir um perfil de dados durante o registo, a ferramenta de registo incluem estatísticas agregadas sobre os dados em cada tabela e vista, incluindo:
+Ao utilizar a ferramenta de registo de origem de dados do catálogo de dados, pode incluir um perfil de dados para cada tabela e a vista que está registrada. Se optar por incluir um perfil de dados durante o registo, a ferramenta de registo incluem estatísticas agregadas sobre os dados em cada tabela e a vista, incluindo:
 
 * O número de linhas e tamanho dos dados no objeto.
-* A data para a atualização mais recente dos dados e o esquema de objeto.
-* O número de registos nulo e valores distintos para colunas.
-* Os valores mínimo, máximo, média e desvio-padrão para colunas.
+* A data para a atualização mais recente dos dados e o esquema do objeto.
+* O número de registros nulo e valores distintos para colunas.
+* Os valores mínimo, máximo, média e desvio padrão para colunas.
 
 Estas estatísticas, em seguida, são copiadas para o catálogo, juntamente com os metadados estruturais e descritivo.
 
 > [!NOTE]
-> Colunas de texto e a data não incluem estatísticas média ou desvio-padrão no respetivo perfil de dados.
+> Colunas de texto e a data não incluem as estatísticas de desvio padrão ou uma média no seu perfil de dados.
 >
 >
 
-## <a name="update-registrations"></a>Atualizar registos
-Registar uma origem de dados torna detetável no catálogo de dados quando utiliza os metadados e pré-visualização opcional extraídos durante o registo. Se a origem de dados tem de ser atualizada no catálogo (por exemplo, se tiver alterado o esquema de um objeto, tabelas originalmente excluídas devem ser incluídas ou que pretende atualizar os dados que estão incluídos nas pré-visualizações), a ferramenta de registo da origem de dados pode ser executada novamente.
+## <a name="update-registrations"></a>Registos de atualização
+Registar uma origem de dados torna detectável no catálogo de dados quando utiliza os metadados e visualização opcionais extraídos durante o registo. Se a origem de dados tem de ser atualizado no catálogo (por exemplo, se o esquema de um objeto foi alterado, tabelas, originalmente excluídas devem ser incluídas ou que pretende atualizar os dados que estão incluídos nas pré-visualizações), a ferramenta de registo da origem de dados pode ser executada novamente.
 
-Volte a registar uma origem de dados já registado efetua uma operação de intercalação de "upsert": objetos existentes são atualizados e são criados novos objetos. Quaisquer metadados fornecidos pelos utilizadores através do portal do catálogo de dados são retidos.
+Voltar a registar uma origem de dados já está registado executa uma operação de "upsert" de intercalação: objetos existentes são atualizados e são criados novos objetos. Todos os metadados fornecidos por utilizadores através do portal do catálogo de dados são retidos.
 
 ## <a name="summary"></a>Resumo
-Porque copia metadados estruturais e descritivo da origem de dados para o serviço de catálogo, registar a origem de dados no catálogo de dados faz com que os dados mais fáceis de detetar e compreender. Depois de ter registado a origem de dados, pode anotar, gerir e deteção utilizando o portal do catálogo de dados.
+Uma vez que copia os metadados estruturais e descritivo de uma origem de dados para o serviço de catálogo, registar a origem de dados no catálogo de dados torna os dados mais fáceis de detetar e compreender. Após o registro da origem de dados, pode anotar, gerir e detetá-los com o portal do catálogo de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre como registar origens de dados, consulte o [introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial.
+Para obter mais informações sobre como registar origens de dados, consulte a [introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial.

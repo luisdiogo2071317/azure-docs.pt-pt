@@ -1,97 +1,91 @@
 ---
-title: Power BI área de trabalho coleções FAQ
+title: Coleções de área de trabalho do BI Power FAQ
 description: Perguntas mais frequentes relacionadas com coleções de área de trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414539"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040870"
 ---
-# <a name="power-bi-workspace-collections-faq"></a>Power BI área de trabalho coleções FAQ
+# <a name="power-bi-workspace-collections-faq"></a>Coleções de área de trabalho do BI Power FAQ
 
 > [!IMPORTANT]
 > As Coleções de Áreas de Trabalho do Power BI foram preteridas e estão disponíveis até junho de 2018 ou até quando indicar o contrato. Recomendamos que planeie a migração para o Power BI Embedded para evitar interrupções na sua aplicação. Para obter informações sobre como migrar os dados para o Power BI Embedded, veja [How to migrate Power BI Workspace Collections content to Power BI Embedded (Como migrar o conteúdo das Coleções de Áreas de Trabalho do Power BI para o Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-## <a name="what-is-microsoft-power-bi-workspace-collections"></a>O que é coleções de área de trabalho do Microsoft Power BI?
-Coleções de área de trabalho do Power BI é um serviço Azure que permite aos programadores de aplicações incorporar fantásticas, relatórios totalmente interativos e visualizações cliente aplicações sem a despesa dos ter de criar os seus próprios controlos de zero e a hora. Agora temos Power BI área de trabalho coleções disponíveis com SLA nos centros de 9 dados em todo o mundo. Também podemos ter melhorada funcionalidades no serviço como o suporte de segurança dos dados através de segurança ao nível da linha (RLS) em coleções de área de trabalho do Power BI para filtragem avançadas. Também podemos ter simplificado e atualizar as coleções de área de trabalho do Power BI modelo de preços.
+## <a name="what-is-microsoft-power-bi-workspace-collections"></a>O que é a coleções de área de trabalho do Microsoft Power BI?
+As coleções de área de trabalho do Power BI é um serviço do Azure que permite aos programadores de aplicações incorporar deslumbrantes, relatórios totalmente interativos e visualizações no cliente com acesso à aplicações sem o tempo e o custo de ter de criar seus próprios controlos desde o início. Agora, temos área de trabalho coleções do Power BI disponíveis com um SLA de 9 de datacenters em todo o mundo. Também melhorámos funcionalidades no serviço como suporte para segurança de dados através da segurança de nível de linha (RLS) nas coleções de área de trabalho do Power BI para filtragem avançada. Temos também simplificado e atualizado as coleções de área de trabalho do Power BI modelo de preços.
 
-## <a name="who-would-want-to-use-microsoft-power-bi-workspace-collections-and-why"></a>Que gostaria de utilizar coleções de área de trabalho do Microsoft Power BI e por que motivo?
-São coleções de área de trabalho do Microsoft Power BI aos programadores da aplicação que pretende para oferecer fantásticas e interativa experiências de visualização de dados para os respetivos utilizadores em qualquer um dos respetivos dispositivos sem ter de criar próprios. Com coleções de área de trabalho do Power BI, os programadores podem fornecer sempre-cópia de segurança-para-data as vistas de consulta direta. Os programadores através de programação também podem implementar e gerir automatizar o Power BI com as APIs do Azure Resource Manager e as APIs do Power BI. Tal como acontece com todos os aspetos do Power BI, o serviço incorporado ajusta automaticamente para satisfazer as necessidades da sua aplicação e utilização. O serviço de coleções de área de trabalho do Power BI funcionalidades um modelo de preços com base consumo pay as you go.
+## <a name="who-would-want-to-use-microsoft-power-bi-workspace-collections-and-why"></a>Quem gostaria de utilizar coleções de área de trabalho do Microsoft Power BI e por quê?
+São coleções de área de trabalho do Microsoft Power BI para os desenvolvedores de aplicativos que desejam oferecer impressionantes e interativos experiências de visualização de dados para os seus utilizadores em qualquer um dos seus dispositivos sem ter de as criar propriamente ditas. Coleções de área de trabalho do Power BI, os desenvolvedores podem fornecer vistas sempre up-até à data com a consulta direta. Os desenvolvedores podem implementar e gerir programaticamente também automatizar o Power BI com as APIs do Azure Resource Manager e as APIs do Power BI. Tal como acontece com todas as coisas Power BI, o serviço embedded dimensiona automaticamente para satisfazer as necessidades da sua aplicação e de utilização. O serviço de coleções de área de trabalho do Power BI apresenta um modelo de preços baseada em consumo pay as you go.
 
-## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Como é que as coleções de área de trabalho do Power BI referem-se o serviço do Power BI?
-Coleções de área de trabalho do Power BI e o serviço do Power BI são ofertas separadas. Funcionalidades do Power BI área de trabalho coleções um com base no consumo de modelo de faturação, é implementado através do portal do Azure e concebida para permitir ISVs incorporar as visualizações de dados em aplicações para os seus clientes utilizar. O serviço Power BI é cobrado e implementado através do portal do O365 e é uma oferta de BI autónoma e de utilização geral, que se destina principalmente a utilização interna por parte das empresas. Para saber mais sobre o serviço do Power BI, consulte [www.powerbi.com](https://powerbi.microsoft.com).
+## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Como é que as coleções de área de trabalho do Power BI se relaciona com o serviço Power BI?
+As coleções de área de trabalho do Power BI e o serviço Power BI são ofertas distintas. Funcionalidades do Power BI coleções de área de trabalho um consumo baseado no modelo de faturação, é implementado através do portal do Azure e foi concebido para permitir que os ISVs a incorporar visualizações de dados em aplicativos para seus clientes usarem. O serviço Power BI é cobrado e implementado através do portal do O365 e é uma oferta de BI autónoma e de utilização geral, que se destina principalmente a utilização interna por parte das empresas. Para saber mais sobre o serviço Power BI, veja [www.powerbi.com](https://powerbi.microsoft.com).
 
-## <a name="how-does-power-bi-workspace-collections-improve-my-app"></a>Como é que o Power BI área de trabalho coleções melhorar a minha aplicação?
-As aplicações estão significativamente mais poderosas quando, pode tirar partido das interativa, fantásticas visualizações de dados para informar decisões de utilizador diretamente na sua aplicação. Coleções de área de trabalho do Power BI permite-lhe melhorar a sua aplicação com visualizações de dados interativa, sempre atualizado, avançado para que pode aumentar o utilitário da sua aplicação, a satisfação do utilizador e a loyalty e fornecer análise contextuais com o facilitar em qualquer dispositivo.
+## <a name="how-does-power-bi-workspace-collections-improve-my-app"></a>Como a coleções de área de trabalho do Power BI melhorar a minha aplicação?
+Os aplicativos são significativamente mais poderosos quando, pode tirar partido das visualizações de dados espetaculares e interativos para informar as decisões de utilizador diretamente em seu aplicativo. As coleções de área de trabalho do Power BI permite que aprimore seu aplicativo com visualizações de dados interativos, sempre atualizadas, sofisticados para que pode aumentar o utilitário da sua aplicação, a satisfação do utilizador e a fidelidade e facilita a análise contextual de entrega com em qualquer dispositivo.
 
-## <a name="are-there-any-rules-or-restrictions-about-how-i-can-use-power-bi-workspace-collections-in-my-app"></a>Existem regras ou restrições sobre como posso utilizar coleções de área de trabalho do Power BI na minha aplicação?
-Coleções de área de trabalho do Power BI destinam-se para as aplicações que são fornecidas para utilização por terceiros. Se pretender utilizar o serviço de coleções de área de trabalho do Power BI para criar uma aplicação de negócios internos, cada um dos seus utilizadores internos terá um USL Pro do Power BI e organização será cobrada pelo respetivo consumo do serviço de coleções de área de trabalho do Power BI Para além das taxas de Power BI Pro USL. Para evitar incorrer em taxas de Power BI Pro USL e os custos de consumo de coleções de área de trabalho do Power BI para aplicações internas, o serviço do Power BI oferece o suas próprias conteúdo incorporar capacidades fora coleções de área de trabalho do Power BI para sem custos adicionais para Proprietários de BI USL de energia (dev.powerbi.com).
+## <a name="are-there-any-rules-or-restrictions-about-how-i-can-use-power-bi-workspace-collections-in-my-app"></a>Existem regras ou restrições sobre como é possível usar as coleções de área de trabalho do Power BI em meu aplicativo?
+As coleções de área de trabalho do Power BI destinam-se para as suas aplicações que são fornecidas para utilização por terceiros. Se pretender utilizar o serviço de coleções de área de trabalho do Power BI para criar uma aplicação empresarial interna, cada um dos seus utilizadores internos necessita uma USL Power BI Pro e sua organização será cobrada pelo respetivo consumo do serviço coleções de área de trabalho do Power BI Além de suas taxas de USL do Power BI Pro. Para evitar as taxas de USL do Power BI Pro e os custos de consumo de coleções de área de trabalho do Power BI para aplicações internas, o serviço Power BI oferece seu próprio conteúdo capacidades coleções de área de trabalho do Power BI sem qualquer custo adicional para de incorporação Proprietários da USL do BI Power (dev.powerbi.com).
 
-## <a name="can-power-bi-workspace-collections-be-used-to-create-internal-applications"></a>Coleções de área de trabalho do Power BI pode ser utilizada para criar aplicações internas?
-Não, as coleções de área de trabalho do Power BI só foram concebidas para utilização por utilizadores externos e não deve ser utilizadas dentro de aplicações de negócios internos. Para incorporar conteúdos do Power BI para utilizar em aplicações empresariais internas, deve utilizar o serviço Power BI, e todos os utilizadores que consumam esses conteúdos têm de ter uma licença de subscrição de utilizador do Power BI Free ou do Power BI Pro. Obter mais informações sobre como integrar aplicações internas com o serviço do Power BI estão disponíveis em [ https://dev.powerbi.com ](https://dev.powerbi.com).
+## <a name="can-power-bi-workspace-collections-be-used-to-create-internal-applications"></a>As coleções de área de trabalho do Power BI pode ser utilizada para criar aplicações internas?
+Não, as coleções de área de trabalho do Power BI só foram concebidas para utilização por utilizadores externos e não deve ser utilizadas em aplicações empresariais internas. Para incorporar conteúdos do Power BI para utilizar em aplicações empresariais internas, deve utilizar o serviço Power BI, e todos os utilizadores que consumam esses conteúdos têm de ter uma licença de subscrição de utilizador do Power BI Free ou do Power BI Pro. Obter mais informações sobre como integrar aplicativos internos no serviço Power BI estão disponíveis em [ https://dev.powerbi.com ](https://dev.powerbi.com).
 
-## <a name="is-this-service-available-globally"></a>É este serviço disponível globalmente?
-O serviço de coleções de área de trabalho do Power BI está disponível na maioria dos centros de dados agora. Pode verificar a disponibilidade mais recente sempre [aqui](https://azure.microsoft.com/status/).
+## <a name="is-this-service-available-globally"></a>Este serviço está disponível globalmente?
+O serviço de coleções de área de trabalho do Power BI está disponível na maioria dos centros de dados agora. Sempre pode verificar a disponibilidade mais recente [aqui](https://azure.microsoft.com/status/).
 
 ## <a name="what-is-the-available-sla-for-the-service"></a>O que é o SLA disponível para o serviço?
-Power BI coleções de área de trabalho com SLA padrão do Azure. Consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/) para obter mais informações.
+Power BI coleções de área de trabalho com um SLA padrão do Azure. Ver [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/) para obter mais informações.
 
-## <a name="what-is-a-report-session-and-how-is-it-billed"></a>O que é uma sessão de relatório e como é faturada?
-Uma sessão é um conjunto de interações entre um utilizador final e um relatório de coleções de área de trabalho do Power BI. Sempre que é apresentado um relatório de coleções de área de trabalho do Power BI para um utilizador, uma sessão é iniciada e o proprietário da subscrição é cobrado de uma sessão. As sessões são faturadas a uma taxa fixa, independentemente do número de elementos visuais num relatório ou da frequência de atualização do conteúdo do relatório. Uma sessão termina quando o utilizador fecha o relatório, ou a sessão exceder o tempo limite depois de uma hora.
+## <a name="what-is-a-report-session-and-how-is-it-billed"></a>O que é uma sessão de relatório e como são cobradas?
+Uma sessão é um conjunto de interações entre um utilizador final e um relatório de coleções de área de trabalho do Power BI. Sempre que um relatório de coleções de área de trabalho do Power BI é apresentado a um utilizador, uma sessão é iniciada e o titular da subscrição é cobrado por sessão. As sessões são faturadas a uma taxa fixa, independentemente do número de elementos visuais num relatório ou da frequência de atualização do conteúdo do relatório. Uma sessão termina quando o usuário fechar o relatório, ou a sessão expira após uma hora.
 
-## <a name="do-you-offer-any-tools-or-guidance-to-help-me-estimate-how-many-renderssession-i-should-expect-how-will-i-know-how-many-renders-have-been-completed"></a>Pode oferecer quaisquer ferramentas ou orientações para ajudar-me estimar quantos compõe/sessão posso deve esperar? Como posso saber composições quantos foram concluídas?
-O portal do Azure fornece os detalhes de faturação no composições quantos / sessões de relatório foram efetuadas na sua subscrição.
+## <a name="do-you-offer-any-tools-or-guidance-to-help-me-estimate-how-many-renderssession-i-should-expect-how-will-i-know-how-many-renders-have-been-completed"></a>Oferecem quaisquer ferramentas ou a orientação para ajudar-me a estimar quantos composições máximas/sessão posso deve esperar? Como posso saber quantos renderiza concluídas?
+O portal do Azure fornece detalhes de faturação sobre quantos renderiza / sessões de relatório foram efetuadas na sua subscrição.
 
-## <a name="do-i-need-a-power-bi-subscription-in-order-to-develop-applications-with-power-bi-workspace-collections-how-do-i-get-started"></a>É necessário uma subscrição do Power BI para desenvolver aplicações com coleções de área de trabalho do Power BI? Como posso começar?
-Como o programador da aplicação, não terá de ter uma subscrição do Power BI para criar os relatórios e visualizações que pretende utilizar na sua aplicação. Precisará de uma subscrição do Microsoft Azure e a aplicação Power BI Desktop gratuita.
+## <a name="do-i-need-a-power-bi-subscription-in-order-to-develop-applications-with-power-bi-workspace-collections-how-do-i-get-started"></a>É necessário uma subscrição do Power BI para desenvolver aplicativos com coleções de área de trabalho do Power BI? Como posso começar?
+Enquanto programador da aplicação, não é necessário ter uma subscrição do Power BI para criar os relatórios e visualizações que deseja usar na sua aplicação. Precisa de uma subscrição do Microsoft Azure e a aplicação gratuita do Power BI Desktop.
 
-Consulte a documentação do serviço para obter detalhes sobre como utilizar o serviço de coleções de área de trabalho do Power BI.
+Consulte a nossa documentação de serviço para obter detalhes sobre como utilizar o serviço de coleções de área de trabalho do Power BI.
 
 ## <a name="i-have-an-azure-subscription-can-i-use-power-bi-workspace-collections-using-my-existing-subscription"></a>Tenho uma subscrição do Azure. Pode utilizar coleções de área de trabalho do Power BI com a minha subscrição existente?
 Sim. Pode utilizar a sua subscrição do Azure existente para aprovisionar e utilizar o serviço de coleções de área de trabalho do Microsoft Power BI.
 
-## <a name="does-my-application-end-user-need-a-power-bi-license"></a>A minha pelo utilizador final da aplicação precisa de uma licença do Power BI?
-Não. Os utilizadores finais da sua aplicação não são necessários para comprar ou a subscrição do Power BI em separado para poder aceder às visualizações de dados na aplicação. No modelo de coleções de área de trabalho do Power BI, como o fornecedor da aplicação, é faturada para o serviço através da medição de consumo do Azure. Consulte o [página de preços e o licenciamento](http://go.microsoft.com/fwlink/?LinkId=760527).
+## <a name="does-my-application-end-user-need-a-power-bi-license"></a>Meu pelo utilizador final do aplicativo precisa de uma licença do Power BI?
+Não. Os utilizadores finais do seu aplicativo não são necessários para comprar ou a subscrição do Power BI em separado para acessar as visualizações de dados na aplicação. No modelo de coleções de área de trabalho do Power BI, como o fornecedor do aplicativo, é faturado para o serviço através do medidor de consumo do Azure. Consulte a [página de preço e licenciamento](http://go.microsoft.com/fwlink/?LinkId=760527).
 
-## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Como funciona a autenticação de utilizador com coleções de área de trabalho do Power BI?
-O serviço de coleções de área de trabalho do Power BI utiliza os Tokens de aplicação para autenticação e autorização em vez de autenticação de utilizador final explícita. No modelo de Token de aplicação, a sua aplicação gere autenticação e autorização para os utilizadores finais. Em seguida, quando necessário, a sua aplicação cria
+## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Como funciona a autenticação de utilizador com as coleções de área de trabalho do Power BI?
+O serviço de coleções de área de trabalho do Power BI utiliza os Tokens de aplicação para autenticação e autorização em vez da autenticação explícita do utilizador final. No modelo de Token de aplicação, o seu aplicativo gere a autenticação e autorização para os utilizadores finais. Em seguida, quando necessário, a aplicação cria
 
-e envia os Tokens de aplicação que diz ao nosso serviço para compor o relatório pedido. Esta estrutura não necessita que a aplicação para utilizar o Azure AD para autenticação de utilizador e a autorização, embora para fazer isto. Pode saber mais sobre os Tokens de aplicação [aqui](app-token-flow.md). Podemos também introduziu a funcionalidade de segurança ao nível da linha (RLS) em coleções de área de trabalho do Power BI para cenários de filtragem de segurança avançada.
+e envia os Tokens de aplicação que informa ao nosso serviço para processar o relatório pedido. Esta estrutura não requer a sua aplicação para utilizar o Azure AD para autenticação de utilizador e a autorização, embora pode fazê-lo. Pode saber mais sobre os Tokens de aplicação [aqui](app-token-flow.md). Também Introduzimos o recurso de segurança ao nível da linha (RLS) nas coleções de área de trabalho do Power BI para cenários de filtragem de segurança avançada.
 
 ## <a name="what-data-sources-are-currently-supported-with-power-bi-workspace-collections"></a>Que origens de dados atualmente são suportadas com coleções de área de trabalho do Power BI?
-Iremos suportar o acesso a origens de dados de nuvem que utilizem básicas credenciais através de consulta direta. Isto significa que origens como BD SQL do Azure e o armazém de dados do Azure SQL Server são suportadas neste momento. Vamos adicionar suporte para outras origens de dados e aceder a tipos nos próximos meses. Para obter mais informações, consulte [ligar a uma origem de dados](connect-datasource.md).
+Vamos para suportar o acesso às origens de dados de cloud que utilizam as credenciais básicas por meio de consulta direta. Isso significa que origens, como o BD SQL do Azure e Azure SQL DW são suportadas neste momento. Adicionamos suporte para outras origens de dados e aceder a tipos nos próximos meses. Para obter mais informações, consulte [ligar a uma origem de dados](connect-datasource.md).
 
 ## <a name="how-does-the-tenancy-model-work-for-power-bi-workspace-collections"></a>Como funciona o modelo de inquilinos para coleções de área de trabalho do Power BI?
-No modelo de coleções de área de trabalho do Power BI, não é necessário explícito para que os seus clientes em inquilinos do Azure AD. Pode optar por necessitam do Azure AD para os seus clientes, ou não. Como resultado, a arquitetura da sua aplicação e a infraestrutura é que determina o modelo de inquilinos necessário para coleções de área de trabalho do Power BI.
+No modelo de coleções de área de trabalho do Power BI, não existe nenhum requisito explícito para que seus clientes em inquilinos do Azure AD. Pode optar por exigir do Azure AD para os seus clientes ou não. Como resultado, a arquitetura da sua aplicação e a infraestrutura é o que determina o modelo de inquilinos necessário para as coleções de área de trabalho do Power BI.
 
-Os programadores/aos funcionários trabalhar ou criar a aplicação tem de ter uma conta de utilizador do AAD quando estão a gerir a sua subscrição do Azure e coleções de área de trabalho através do portal do Azure. APIs programáticas para permitir que os programadores importar relatórios, modificar as cadeias de ligação e obter incorporar em vez disso, os URLs tira partido dos Tokens de aplicação para autenticação e como resultado não necessitam de um AAD.
+Os desenvolvedores/funcionários a trabalhar ou criar a sua aplicação tem de ter uma conta de utilizador do AAD quando estão a gerir a sua subscrição do Azure e a coleções de área de trabalho através do portal do Azure. APIs programáticas para habilitar desenvolvedores a importar relatórios, modificar as cadeias de ligação e obtenha incorporar o aproveitamento de URLs de Tokens de aplicação para autenticação em vez disso e assim não necessitam de um AAD.
 
-## <a name="where-can-i-learn-more"></a>Onde posso obter mais informações?
-Pode visitar o [página de documentação de coleções de área de trabalho do Power BI](get-started.md). Pode manter atualizado sobre este serviço, visitando o [blogue do Power BI](https://powerbi.microsoft.com/blog/) ou através do Centro de programadores do Power BI em dev.powerbi.com. Também pode colocar perguntas em [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
+## <a name="where-can-i-learn-more"></a>Onde posso saber mais?
+Pode visitar o [página de documentação de coleções de área de trabalho do Power BI](get-started.md). Pode manter-se atualizado sobre este serviço, visite o [blogue do Power BI](https://powerbi.microsoft.com/blog/) ou visitando o Centro de programadores do Power BI em dev.powerbi.com. Também pode fazer perguntas no [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Como posso começar?
-Pode começar agora gratuitamente! Se tiver uma subscrição do Azure, pode agora aprovisionar coleções de área de trabalho do Power BI do portal do Azure diretamente. Também pode criar o [conta do Azure gratuita](https://azure.microsoft.com/free/). Assim que tiver aprovisionado o serviço de coleções de área de trabalho do Power BI, pode facilmente utilizar APIs REST do Power BI diretamente, ou utilizar o programador do SDK, disponível no [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). São fornecidos exemplos sobre como tirar partido do programador do SDK.
+Pode começar a utilizar gratuitamente agora! Se tiver uma subscrição do Azure, pode agora aprovisionar coleções de área de trabalho do Power BI no portal do Azure diretamente. Também pode criar sua [conta gratuita do Azure](https://azure.microsoft.com/free/). Depois de ter aprovisionado o serviço de coleções de área de trabalho do Power BI, pode facilmente usar APIs de REST do Power BI diretamente, ou utilizar o SDK, disponível de desenvolvedor [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). São fornecidos exemplos de como aproveitar o SDK de desenvolvedor.
 
 ## <a name="see-also"></a>Consulte também
 
-[O que é coleções de área de trabalho do Microsoft Power BI](what-are-power-bi-workspace-collections.md)
-[começar com coleções de área de trabalho do Microsoft Power BI](get-started.md)
+[O que é a coleções de área de trabalho do Microsoft Power BI](what-are-power-bi-workspace-collections.md)
+[começar a utilizar coleções de área de trabalho do Microsoft Power BI](get-started.md)
 [introdução com exemplo](get-started-sample.md)   
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 

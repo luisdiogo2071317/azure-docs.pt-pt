@@ -1,56 +1,50 @@
 ---
-title: Criar um novo relatório a partir de um conjunto de dados em coleções de área de trabalho do Power BI | Microsoft Docs
-description: Relatórios do Power BI coleção de área de trabalho agora podem ser criados a partir de um conjunto de dados na sua própria aplicação.
+title: Criar um novo relatório a partir de um conjunto de dados nas coleções de área de trabalho do Power BI | Documentos da Microsoft
+description: Os relatórios do Power BI coleção de área de trabalho agora podem ser criados a partir de um conjunto de dados em seu próprio aplicativo.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409521"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046659"
 ---
-# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório a partir de um conjunto de dados em coleções de área de trabalho do Power BI
+# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório a partir de um conjunto de dados nas coleções de área de trabalho do Power BI
 
-Relatórios do Power BI coleção de área de trabalho agora podem ser criados a partir de um conjunto de dados na sua própria aplicação.
+Os relatórios do Power BI coleção de área de trabalho agora podem ser criados a partir de um conjunto de dados em seu próprio aplicativo.
 
 > [!IMPORTANT]
 > As Coleções de Áreas de Trabalho do Power BI foram preteridas e estão disponíveis até junho de 2018 ou até quando indicar o contrato. Recomendamos que planeie a migração para o Power BI Embedded para evitar interrupções na sua aplicação. Para obter informações sobre como migrar os dados para o Power BI Embedded, veja [How to migrate Power BI Workspace Collections content to Power BI Embedded (Como migrar o conteúdo das Coleções de Áreas de Trabalho do Power BI para o Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-O método de autenticação é semelhante de incorporar um relatório. Se basear em tokens de acesso que são específicos para um conjunto de dados. Tokens utilizados para PowerBI.com são emitidos pelo Azure Active Directory (AAD). Tokens do Power BI coleção de área de trabalho são emitidos pela sua própria aplicação.
+O método de autenticação é semelhante da incorporação de relatórios. Ele é baseado em tokens de acesso que são específicos para um conjunto de dados. Tokens utilizados para o PowerBI.com são emitidos pelo Azure Active Directory (AAD). Tokens de coleção de área de trabalho do BI Power são emitidos pela sua própria aplicação.
 
-Ao criar um relatório incorporados, são os tokens emitidos para um conjunto de dados específico. Tokens devem ser associados com o URL de incorporação no mesmo elemento para assegurar que cada um token exclusivo. Para criar um relatório incorporados, *Dataset.Read e Workspace.Report.Create* âmbitos tem de ser fornecidos no token de acesso.
+Ao criar um relatório do Embedded, são os tokens emitidos para um conjunto de dados específico. Tokens devem ser associados com o URL de incorporação no mesmo elemento para garantir que cada um tem um token exclusivo. Para criar um relatório do Embedded *Dataset.Read e Workspace.Report.Create* âmbitos tem de ser fornecidos no token de acesso.
 
-## <a name="create-access-token-needed-to-create-new-report"></a>Criar o token de acesso necessário para criar novo relatório
+## <a name="create-access-token-needed-to-create-new-report"></a>Criar token de acesso necessário para criar novo relatório
 
-Coleções de área de trabalho do Power BI utilizar uma incorporação token, que é HMAC assinado JSON Web Tokens. Os tokens são assinados com a chave de acesso da sua coleção de área de trabalho do Power BI. Incorpore tokens, por predefinição, são utilizados para fornecer acesso só de leitura para um relatório para incorporar numa aplicação. Incorpore tokens emitidos para um relatório específico e deve estar associados um URL de incorporação.
+As coleções de área de trabalho do Power BI utilizar uma incorporação token, que é HMAC assinado os JSON Web Tokens. Os tokens são assinados com a chave de acesso da sua coleção de área de trabalho do Power BI. Incorpore tokens, por predefinição, são utilizados para fornecer acesso só de leitura a um relatório para incorporar numa aplicação. Incorpore tokens emitidos para um relatório específico e devem ser associados um URL de incorporação.
 
-Tokens de acesso devem ser criados no servidor, como as chaves de acesso são utilizadas para os tokens de início de sessão/encriptar. Para obter informações sobre como criar um token de acesso, consulte [Authenticating e autorização com Power BI área de trabalho coleções](app-token-flow.md). Também pode rever o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) método. Eis um exemplo de como isto iria aspeto utilizando o SDK .NET para o Power BI.
+Tokens de acesso devem ser criados no servidor, como as chaves de acesso são utilizadas para início de sessão/encriptar os tokens. Para obter informações sobre como criar um token de acesso, consulte [autenticação e autorização com coleções de área de trabalho do Power BI](app-token-flow.md). Também pode rever o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) método. Eis um exemplo de como isso ficaria utilizando o SDK .NET para o Power BI.
 
-Neste exemplo, temos de ID nosso conjunto de dados que pretendemos criar um novo relatório no. Também é necessário adicionar os âmbitos para *Dataset.Read e Workspace.Report.Create*.
+Neste exemplo, temos nossa ID de conjunto de dados que queremos criar um novo relatório no. Também precisamos de adicionar os âmbitos para *Dataset.Read e Workspace.Report.Create*.
 
-O *PowerBIToken classe* requer que instale o [pacote do Power BI Core NuGut](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+O *classe PowerBIToken* necessita que instale o [pacote do Power BI Core NuGut](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
-**Instalação de pacotes NuGet**
+**Instalação do pacote de NuGet**
 
 ```
 Install-Package Microsoft.PowerBI.Core
 ```
 
-**Código c#**
+**O código c#**
 
 ```
 using Microsoft.PowerBI.Security;
@@ -64,18 +58,18 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Criar um novo relatório em branco
 
-Para criar um novo relatório, a configuração de criação deve ser fornecida. Isto deve incluir o token de acesso, o embedURL e datasetID que queremos para criar o relatório em relação a. Isto requer a instalação do nuget [pacote do Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). O embedUrl apenas será https://embedded.powerbi.com/appTokenReportEmbed.
+Para criar um novo relatório, deve ser fornecida a configuração de criar. Isto deve incluir o token de acesso, o embedURL e o datasetID que quer criar o relatório. Isto requer a instalação do nuget [pacote de JavaScript do Power BI](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). O embedUrl estarão prontos para serem https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> Pode utilizar o [exemplo de incorporar o relatório de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) para testar a funcionalidade. Também fornece exemplos de código para as operações diferentes que estão disponíveis.
+> Pode utilizar o [exemplo de incorporação de relatório em JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) para testar a funcionalidade. Também apresenta exemplos de código para as diferentes operações que estão disponíveis.
 
-**Instalação de pacotes NuGet**
+**Instalação do pacote de NuGet**
 
 ```
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
-**Código JavaScript**
+**Código de JavaScript**
 
 ```
 <div id="reportContainer"></div>
@@ -93,13 +87,13 @@ var embedCreateConfiguration = {
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
 ```
 
-Chamar *powerbi.createReport()* faz uma tela em branco no modo de edição aparecer dentro de *div* elemento.
+Chamar *powerbi.createReport()* faz uma tela em branco no modo de edição aparecer dentro do *div* elemento.
 
 ![Novo relatório em branco](media/create-report-from-dataset/create-new-report.png)
 
-## <a name="save-new-reports"></a>Guardar os novos relatórios
+## <a name="save-new-reports"></a>Guardar novos relatórios
 
-O relatório não é criado até tem de chamar o **guardar como** operação. Isto pode ser feito a partir do menu de ficheiro ou de JavaScript.
+O relatório não é criado até que chamar o **guardar como** operação. Isso pode ser feito no menu de ficheiro ou a partir de JavaScript.
 
 ```
  // Get a reference to the embedded report.
@@ -114,13 +108,13 @@ O relatório não é criado até tem de chamar o **guardar como** operação. Is
 ```
 
 > [!IMPORTANT]
-> É criado um novo relatório apenas após **guardar como** é chamado. Depois de guardar, a tela de ainda aparecer o conjunto de dados no modo de edição e não o relatório. Precisa de recarregar o novo relatório, tal como faria com qualquer outro tipo de relatório.
+> É criado um novo relatório apenas após **guardar como** é chamado. Depois de guardar, a tela mostrará ainda o conjunto de dados no modo de edição e não o relatório. É necessário recarregar o novo relatório, como faria com qualquer outro relatório.
 
 ![Ficheiro Menu - Guardar como](media/create-report-from-dataset/save-new-report.png)
 
 ## <a name="load-the-new-report"></a>Carregar o novo relatório
 
-Para interagir com o novo relatório tem de incorporá-la da mesma forma que a aplicação incorpora um relatório regular, ou seja, um novo token tem de ser emitido especificamente para o novo relatório e, em seguida, chame o método de incorporação.
+Para interagir com o novo relatório, terá de incorporá-lo da mesma forma que o aplicativo incorpora um relatório regular, ou seja, um novo token tem de ser emitido especificamente para o novo relatório e, em seguida, chamar o método de incorporação.
 
 ```
 <div id="reportContainer"></div>
@@ -138,9 +132,9 @@ var embedConfiguration = {
     var report = powerbi.embed(reportContainer, embedConfiguration);
 ```
 
-## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatizar guardar e carregar de um novo relatório utilizando o evento de "guardado"
+## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatizar salvar e carregar de um novo relatório utilizando o evento de "guardado"
 
-Para automatizar o processo de "Guardar como" e, em seguida, carregar o novo relatório, pode efetuar a utilizar o evento de "guardado". Este evento é desencadeado quando o guardar operação foi concluída e devolve um objeto Json que contém o reportId novo, o nome do relatório, o reportId antigo (se tiver ocorrido um) e se a operação foi saveAs ou guardar.
+Para automatizar o processo de "Guardar como" e, em seguida, carregar o novo relatório, pode fazer uso do evento "guardado". Este evento é desencadeado quando o salvamento operação estiver concluída, e ele retorna um objeto Json que contém o novo Iddorelatório, nome do relatório, o Iddorelatório antigo (se houvesse um) e se a operação foi saveAs ou guardar.
 
 ```
 {
@@ -151,7 +145,7 @@ Para automatizar o processo de "Guardar como" e, em seguida, carregar o novo rel
 }
 ```
 
-Para automatizar o processo que pode escutar do evento "guardado", colocar o novo reportId, criar o token do novo e incorporar o novo relatório com o mesmo.
+Para automatizar o processo que pode escutar o evento de "guardado", faça o o Iddorelatório nova, criar o token novo e incorporar o novo relatório com o mesmo.
 
 ```
 <div id="reportContainer"></div>
@@ -200,7 +194,7 @@ var embedCreateConfiguration = {
     });
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Introdução com exemplo](get-started-sample.md)  
 [Guardar relatórios](save-reports.md)  
@@ -208,7 +202,7 @@ var embedCreateConfiguration = {
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Pacote de NuGut do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
+[Pacote de NuGut principal do Power BI](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Pacote do Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
 Mais perguntas? [Tente a Comunidade do Power BI](http://community.powerbi.com/)

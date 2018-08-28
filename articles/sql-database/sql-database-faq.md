@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056323"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091829"
 ---
 # <a name="sql-database-faq"></a>FAQ da Base de Dados SQL
 
@@ -155,7 +155,7 @@ Por exemplo:
 - Se criar um servidor de Instância Gerida no escalão Fins Gerais com 8 vCores e, em seguida, atualizá-lo imediatamente para 16 vCores, é-lhe cobrada a taxa dos 16 vCore durante a primeira hora.
 
 > [!NOTE]
-> Por um período limitado, até 30 de Junho de 2018, os custos de cópia de segurança e os encargos de e/s são gratuitos.
+> Por um período limitado, os custos de cópia de segurança e os encargos de e/s são gratuitos.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Como funciona o uso de georreplicação ativa num conjunto elástico aparecem na minha fatura?
 Ao contrário das bases de dados individuais, utilizando [georreplicação ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos, não tem um impacto direto de faturação.  É cobrado apenas para os recursos aprovisionados para cada um dos agrupamentos (conjunto primário e secundário conjunto)

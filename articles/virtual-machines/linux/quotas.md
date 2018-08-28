@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 56ee63e15c429c5a6212be36d420ae59afa48546
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3e9a9e3f902439f0fc3f1fa4aa758d4fcd55f5bd
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629094"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048949"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
@@ -63,7 +63,7 @@ Premium Storage Managed Disks                  5    10000
 ```
 
 ## <a name="reserved-vm-instances"></a>Instâncias de VM Reservada
-Instâncias de VM reservadas, que estão confinadas a uma subscrição individual, irá adicionar um novo aspecto para as quotas de vCPU. Estes valores descrevem o número de instâncias do tamanho declarado que tem de ser implementável na subscrição. Funcionam como um marcador de posição no sistema de quota para se certificar de que a quota é reservado para garantir que as reservas do Azure são implementáveis na subscrição. Por exemplo, se uma subscrição específica tem 10 Standard_D1 reservas o limite de utilizações para reservas Standard_D1 será 10. Isso fará com que o Azure garantir que sempre há pelo menos 10 vCPUs disponíveis na quota de vCPUs regionais Total a ser utilizado para Standard_D1 instâncias e existem, pelo menos, 10 vCPUs disponíveis na quota de vCPU de família de D Standard a ser utilizado para instâncias de Standard_D1.
+Instâncias de VM reservadas, que estão confinadas a uma subscrição individual sem flexibilidade de tamanho VM, adicionará um novo aspecto as quotas de vCPU. Estes valores descrevem o número de instâncias do tamanho declarado que tem de ser implementável na subscrição. Funcionam como um marcador de posição no sistema de quota para se certificar de que a quota é reservado para garantir que as reservas do Azure são implementáveis na subscrição. Por exemplo, se uma subscrição específica tem 10 Standard_D1 reservas o limite de utilizações para reservas Standard_D1 será 10. Isso fará com que o Azure garantir que sempre há pelo menos 10 vCPUs disponíveis na quota de vCPUs regionais Total a ser utilizado para Standard_D1 instâncias e existem, pelo menos, 10 vCPUs disponíveis na quota de vCPU de família de D Standard a ser utilizado para instâncias de Standard_D1.
 
 Se um aumento de quota é necessário adquirir uma RI único de subscrição, pode [pedir um aumento de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) na sua subscrição.
 

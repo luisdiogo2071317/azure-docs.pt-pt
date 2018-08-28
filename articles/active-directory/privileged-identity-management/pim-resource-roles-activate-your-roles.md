@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2a5c192f231bdc75d04c78cd94838a3f341dc925
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617154"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43111063"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Ativar as funções para recursos do Azure com o Privileged Identity Management
 Privileged Identity Management (PIM) introduz uma nova experiência na ativação de funções de recursos do Azure. Os membros da função elegível, podem agendar ativação numa data futura e a hora. Também podem selecionar uma duração de ativação específico dentro do máximo (configurado por administradores). Para obter mais informações, consulte [como ativar ou desativar funções no Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
-## <a name="activate-roles"></a>Ativar as funções
+## <a name="activate-a-role"></a>Ativar uma função
 Navegue para o **minhas funções** secção no painel esquerdo. Selecione **Activate** para a função que pretende ativar.
 
 ![Separador "Funções elegíveis" o painel de "As minhas funções".](media/azure-pim-resource-rbac/rbac-roles.png)
@@ -39,6 +39,19 @@ Se a ativação está agendada para uma data futura e a hora, a solicitação pe
 
 ![Lista de pedidos com botões "Cancelar" pendentes](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
+## <a name="use-a-role-immediately-after-activation"></a>Utilize uma função imediatamente após a ativação
+
+Devido à colocação em cache, ativações não ocorrer imediatamente no portal do Azure sem uma atualização. Se precisar de reduzir a possibilidade de atrasos após a ativação de uma função, pode utilizar o **acesso a aplicações** página no portal. Aplicativos acessados a partir desta página verificar a existência de novas atribuições de função imediatamente.
+
+1. Abra o Azure AD Privileged Identity Management.
+
+1. Clique nas **acesso a aplicações** página.
+
+    ![Acesso de aplicativo PIM - captura de ecrã](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Clique em **recursos do Azure** para reabrir o portal sobre o **todos os recursos** página.
+
+    Quando clicar nesse link, forçar uma atualização e há uma verificação de existência de atribuições de função do novo recurso do Azure.
 
 ## <a name="apply-just-enough-administration-practices"></a>Aplicar práticas de administração apenas suficiente
 

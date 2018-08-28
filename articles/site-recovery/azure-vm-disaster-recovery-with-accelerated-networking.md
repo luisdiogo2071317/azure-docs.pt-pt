@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: manayar
-ms.openlocfilehash: 9ece6a4fc1d499e7fbdce07e90202e76389d6eb2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: af29333956fb962ed31133260ecbc9607de38fd3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920633"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052068"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Redes aceleradas com a recuperação após desastre de máquina virtual do Azure
 
@@ -81,7 +81,7 @@ Se tiver ativado o Accelerated Networking na máquina de virtual de origem depoi
 2. Clique no nome da interface de rede sob o **interfaces de rede** secção
 3. Selecione **Enabled** na lista pendente para redes aceleradas sob a **destino** coluna
 
-![Ativar o funcionamento em rede acelerado](./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png)
+![Ativar o funcionamento em rede acelerado](./media/azure-vm-disaster-recovery-with-accelerated-networking/network-interface-accelerated-networking-enabled.png)
 
 O processo acima também deve ser seguido para replicados máquinas virtuais existentes, que não tinha anteriormente redes aceleradas ativado automaticamente pelo Site Recovery.
 

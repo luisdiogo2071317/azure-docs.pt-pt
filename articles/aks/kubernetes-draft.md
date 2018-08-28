@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: a64ada61b2edd0a5c5d2314125b7e2a23444a398
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: faffd919e1c57f2dff21c42c2294a06eb82a2c0a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057331"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092615"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Utilizar o Draft com o serviço Kubernetes do Azure (AKS)
 
-Rascunho é uma ferramenta open-source que ajuda o pacote e implementa contentores da aplicação num cluster do Kubernetes, deixando-o gratuitamente para se concentrar no ciclo de desenvolvimento – "loop interno" de desenvolvimento concentrarem. O draft funciona, como o código está a ser desenvolvido, mas antes de consolidar ao controle de versão. Com o Draft, pode rapidamente voltar a implementar uma aplicação no Kubernetes à medida que ocorrem alterações de código. Para obter mais informações sobre o rascunho, consulte a [rascunho da documentação no Github][draft-documentation].
+Rascunho é uma ferramenta open-source que ajuda o pacote e implementa contentores da aplicação num cluster do Kubernetes, deixando-o gratuitamente para se concentrar no ciclo de desenvolvimento - o "loop interno" de desenvolvimento concentrarem. O draft funciona, como o código está a ser desenvolvido, mas antes de consolidar ao controle de versão. Com o Draft, pode rapidamente voltar a implementar uma aplicação no Kubernetes à medida que ocorrem alterações de código. Para obter mais informações sobre o rascunho, consulte a [rascunho da documentação no Github][draft-documentation].
 
 Este artigo mostra-lhe como utilizar o Draft com um cluster de Kubernetes no AKS.
 

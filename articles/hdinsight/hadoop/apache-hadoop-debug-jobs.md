@@ -2,19 +2,19 @@
 title: 'Depure o Hadoop no HDInsight: ver registos e interpretar mensagens de erro - Azure '
 description: Saiba mais sobre a mensagens de erro, que poderá receber ao administrar o HDInsight com o PowerShell e os passos que pode tomar para recuperar.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 00d09619db11ea0026f5386048f1c10a8f831948
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592786"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046495"
 ---
 # <a name="analyze-hadoop-logs"></a>Analisar os registos de Hadoop
 

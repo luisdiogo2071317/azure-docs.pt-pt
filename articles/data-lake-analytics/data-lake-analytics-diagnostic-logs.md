@@ -1,65 +1,64 @@
 ---
-title: Ativar e ver os registos de diagnóstico do Azure Data Lake Analytics
-description: Compreender como configurar e aceder a registos de diagnóstico para o Azure Data Lake Analytics
+title: Ativar e ver registos de diagnóstico do Azure Data Lake Analytics
+description: Aprenda a configurar e aceder aos registos de diagnóstico para o Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: e65c6396d859a128777c66cad6a44bb033b50d50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623490"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045486"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Aceder a registos de diagnóstico para o Azure Data Lake Analytics
 
-Registo de diagnóstico permite-lhe recolher registos de auditoria de acesso de dados. Estes registos fornecem informações tais como:
+Registo de diagnósticos permite-lhe recolher registos de auditoria de acesso de dados. Estes registos fornecem informações tais como:
 
-* Uma lista de utilizadores que os dados acedidos.
-* Frequência os dados são acedidos.
-* Quantidade de dados é armazenado na conta.
+* Uma lista de utilizadores que acederam os dados.
+* A frequência com que os dados são acedidos.
+* A quantidade de dados é armazenado na conta.
 
 ## <a name="enable-logging"></a>Ativar registo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Abra a sua conta do Data Lake Analytics e selecione **registos de diagnóstico** do __Monitor__ secção. Em seguida, selecione __ative os diagnósticos__.
+2. Abra a sua conta do Data Lake Analytics e selecione **registos de diagnóstico** partir do __Monitor__ secção. Em seguida, selecione __ativar os diagnósticos__.
 
-    ![Ative os diagnósticos para recolher a auditoria e registos de pedidos](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Ativar os diagnósticos para recolher a auditoria e registos do pedido](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. De __as definições de diagnóstico__, introduza um __nome__ para esta configuração de registo e as opções de registo, em seguida, selecione.
+3. Partir __as definições de diagnóstico__, introduza um __nome__ para esta configuração de registo e as opções de registo, em seguida, selecione.
 
-    ![Ative os diagnósticos para recolher a auditoria e registos de pedidos](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "ativar registos de diagnóstico")
+    ![Ativar os diagnósticos para recolher a auditoria e registos de pedidos](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "ativar registos de diagnóstico")
 
-   * Pode optar por loja/processe os dados de três formas diferentes.
+   * Pode optar por loja/processar os dados de três formas diferentes.
 
-     * Selecione __arquivo para uma conta de armazenamento__ para armazenar os registos de uma conta de armazenamento do Azure. Utilize esta opção se pretende arquivar os dados. Se selecionar esta opção, tem de fornecer uma conta de armazenamento do Azure para guardar os registos para.
+     * Selecione __arquivo para uma conta de armazenamento__ para armazenar os registos numa conta de armazenamento do Azure. Utilize esta opção se pretende arquivar os dados. Se selecionar esta opção, tem de fornecer uma conta de armazenamento do Azure para guardar os registos para.
 
-     * Selecione **fluxo para um Hub de eventos** aos dados de registo de fluxo para um Hub de eventos do Azure. Utilize esta opção se tiver um pipeline de processamento a jusante que está a analisar os registos de entrada em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
+     * Selecione **Stream para um Hub de eventos** para transmitir dados de registo para um Hub de eventos do Azure. Utilize esta opção se tiver um pipeline de processamento a jusante, que está a analisar os registos de entrada em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
 
-     * Selecione __enviar ao Log Analytics__ para enviar os dados para o serviço de análise de registos. Utilize esta opção se pretender utilizar a análise de registos para recolher e analisar registos.
-   * Especifique se pretende obter registos de auditoria ou registos de pedidos ou ambos.  Um registo de pedido captura todos os pedidos de API. Um registo de auditoria regista todas as operações que são acionadas por esse pedido de API.
+     * Selecione __enviar para o Log Analytics__ para enviar os dados para o serviço Log Analytics. Utilize esta opção se pretender utilizar o Log Analytics para recolher e analisar registos.
+   * Especifique se pretende obter registos de auditoria, registos de pedidos ou ambas.  Um registo de pedido captura todos os pedidos de API. Um registo de auditoria regista todas as operações que são acionadas por esse pedido de API.
 
    * Para __arquivo para uma conta de armazenamento__, especifique o número de dias a manter os dados.
 
    * Clique em __Guardar__.
 
         > [!NOTE]
-        > Tem de selecionar um __arquivo para uma conta de armazenamento__, __fluxo para um Hub de eventos__ ou __enviar ao Log Analytics__ antes de clicar no __guardar__ botão.
+        > Tem de selecionar qualquer um __arquivo para uma conta de armazenamento__, __Stream para um Hub de eventos__ ou __enviar para o Log Analytics__ antes de clicar o __guardar__ botão.
 
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Utilizar a conta de armazenamento do Azure que contém dados de registo
 
 1. Para apresentar os contentores de BLOBs que contêm dados de registo, abra a conta de armazenamento do Azure utilizada para o Data Lake Analytics para o registo e, em seguida, clique em __Blobs__.
 
-   * O contentor **insights-registos de auditoria** contém os registos de auditoria.
-   * O contentor **pedidos de registos insights** com os registos de pedido.
+   * O contentor **insights-logs-auditoria** contém os registos de auditoria.
+   * O contentor **insights-logs-pedidos** contém os registos de pedido.
 
-2. Dentro os contentores, os registos são armazenados sob a seguinte estrutura de ficheiros:
+2. Dentro de contentores, os registos são armazenados na seguinte estrutura de ficheiros:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -78,9 +77,9 @@ Registo de diagnóstico permite-lhe recolher registos de auditoria de acesso de 
                                     PT1H.json
 
    > [!NOTE]
-   > O `##` entradas no caminho de contenham o ano, mês, dia e hora em que o registo foi criado. O Data Lake Analytics cria a um ficheiro de cada hora, por isso, `m=` sempre contém um valor de `00`.
+   > O `##` entradas no caminho de contenham o ano, mês, dia e hora em que o registo foi criado. O Data Lake Analytics cria então, a cada hora, de um arquivo `m=` sempre contém um valor de `00`.
 
-    Por exemplo, pode ser o caminho completo para um registo de auditoria:
+    Por exemplo, poderia ser o caminho completo para um registo de auditoria:
 
         https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
 
@@ -88,13 +87,13 @@ Registo de diagnóstico permite-lhe recolher registos de auditoria de acesso de 
 
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## <a name="log-structure"></a>Estrutura do registo
+## <a name="log-structure"></a>Estrutura de registo
 
-Os registos de auditoria e pedido são num formato JSON structured.
+Os registos de auditoria e pedido estão no formato JSON estruturado.
 
-### <a name="request-logs"></a>Registos de pedido
+### <a name="request-logs"></a>Registos de pedidos
 
-Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem um objeto de raiz denominado **registos** que contém uma matriz de objetos de registo.
+Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blob tem um objeto de raiz chamado **registos** que contém uma matriz de objetos de registo.
 
     {
     "records":
@@ -128,30 +127,30 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O carimbo (em UTC) do registo |
+| hora |Cadeia |O período de tempo (em UTC) do registo |
 | resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
 | categoria |Cadeia |A categoria de registo. Por exemplo, **pedidos**. |
-| operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, GetAggregatedJobHistory. |
+| operationName |Cadeia |Nome da operação que é registado. Por exemplo, GetAggregatedJobHistory. |
 | resultType |Cadeia |O estado da operação, por exemplo, 200. |
 | callerIpAddress |Cadeia |O endereço IP do cliente que efetua o pedido |
 | correlationId |Cadeia |O identificador do registo. Este valor pode ser utilizado para agrupar um conjunto de entradas de registo relacionados. |
 | identidade |Object |A identidade que gerou o registo |
-| propriedades |JSON |Consulte a secção seguinte (esquema de propriedades de registo de pedido) para obter detalhes |
+| propriedades |JSON |Veja a secção seguinte (esquema de propriedades de registo de pedido) para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| httpMethod |Cadeia |O método de HTTP utilizado para a operação. Por exemplo, GET. |
-| Caminho |Cadeia |O caminho a operação foi efetuado em |
-| RequestContentLength |Int |O comprimento do conteúdo do pedido HTTP |
+| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, obter. |
+| Caminho |Cadeia |O caminho a operação foi realizado em |
+| RequestContentLength |Int |O comprimento do conteúdo da solicitação HTTP |
 | ClientRequestId |Cadeia |O identificador que identifica exclusivamente este pedido |
-| StartTime |Cadeia |A hora em que o servidor recebeu o pedido |
-| endTime |Cadeia |A hora em que o servidor enviou uma resposta |
+| startTime |Cadeia |O tempo em que o servidor recebeu o pedido |
+| endTime |Cadeia |O tempo em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
-Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob tem um objeto de raiz denominado **registos** que contém uma matriz de objetos de registo.
+Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob tem um objeto de raiz chamado **registos** que contém uma matriz de objetos de registo.
 
     {
     "records":
@@ -180,17 +179,17 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O carimbo (em UTC) do registo |
+| hora |Cadeia |O período de tempo (em UTC) do registo |
 | resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
 | categoria |Cadeia |A categoria de registo. Por exemplo, **auditoria**. |
-| operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, JobSubmitted. |
+| operationName |Cadeia |Nome da operação que é registado. Por exemplo, JobSubmitted. |
 | resultType |Cadeia |Subestado para o estado da tarefa (Oeprationname). |
 | resultSignature |Cadeia |Detalhes adicionais sobre o estado da tarefa (Oeprationname). |
-| identidade |Cadeia |O utilizador que a operação solicitada. Por exemplo, susan@contoso.com. |
-| propriedades |JSON |Consulte a secção seguinte (esquema de propriedades de registo de auditoria) para obter detalhes |
+| identidade |Cadeia |O utilizador que a operação pedida. Por exemplo, susan@contoso.com. |
+| propriedades |JSON |Veja a secção seguinte (esquema de propriedades de registo de auditoria) para obter detalhes |
 
 > [!NOTE]
-> **resultType** e **resultSignature** fornecem informações sobre o resultado de uma operação e conter apenas um valor se foi concluída uma operação. Por exemplo, contêm apenas um valor quando **operationName** contém um valor de **JobStarted** ou **JobEnded**.
+> **resultType** e **resultSignature** fornecem informações sobre o resultado de uma operação e conter apenas um valor se uma operação for concluída. Por exemplo, o que contêm apenas um valor quando **operationName** contém um valor de **JobStarted** ou **JobEnded**.
 >
 >
 
@@ -198,20 +197,20 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| JobId |Cadeia |O ID de atribuído ao trabalho |
-| JobName |Cadeia |O nome fornecido para a tarefa |
-| JobRunTime |Cadeia |O tempo de execução utilizado para processar a tarefa |
+| JobId |Cadeia |A identificação atribuída ao trabalho |
+| JobName |Cadeia |O nome que foi fornecido para a tarefa |
+| JobRunTime |Cadeia |O tempo de execução usado para processar a tarefa |
 | SubmitTime |Cadeia |O tempo (em UTC) que a tarefa foi submetida |
-| StartTime |Cadeia |O tempo que a tarefa começou a ser executada após submissão (em UTC) |
+| startTime |Cadeia |O tempo que a tarefa iniciou a execução após o envio (em UTC) |
 | endTime |Cadeia |O tempo que a tarefa foi concluída |
-| Paralelismo |Cadeia |O número de unidades do Data Lake Analytics solicitado para esta tarefa durante a submissão |
+| Paralelismo |Cadeia |O número de unidades do Data Lake Analytics requerido para esta tarefa durante a submissão |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime**, e **paralelismo** fornecem informações sobre uma operação. Estas entradas contenham apenas um valor se que a operação foi iniciada ou foi concluída. Por exemplo, **SubmitTime** contém apenas um valor após **operationName** tem o valor **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime**, e **paralelismo** fornecem informações sobre uma operação. Estas entradas de conter apenas um valor se operação iniciada ou concluída. Por exemplo, **SubmitTime** contém apenas um valor após **operationName** tem o valor **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Processar os dados de registo
 
-Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo em [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo na [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)

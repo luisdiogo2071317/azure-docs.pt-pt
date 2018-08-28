@@ -1,3 +1,20 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-hub
+ms.service: iot-hub
+author: dominicbetts
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43096365"
+---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e estender o dispositivo ações de gestão
 
 Suas soluções de IoT podem expandir o conjunto definido de padrões de gestão de dispositivos ou ativar padrões personalizados com o dispositivo duplo e primitivos de método de cloud-para-dispositivo. Outros exemplos de ações de gestão do dispositivo incluem a reposição de fábrica, atualização de firmware, atualização de software, gerenciamento de energia, gestão de rede e a conectividade e encriptação de dados.
@@ -12,12 +29,8 @@ Neste tutorial, utilizou um método direto para acionar a reinicialização remo
 
 Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota sobre a atualização de firmware do ar, consulte:
 
-[Tutorial: Como fazer uma atualização de firmware][lnk-fwupdate]
+[Tutorial: Como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md)
 
-Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja a [agendar e transmitir tarefas] [ lnk-tutorial-jobs] tutorial.
+Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja a [agendar e transmitir tarefas](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) tutorial.
 
-Para continuar a introdução ao IoT Hub, veja [introdução ao IoT Edge][lnk-iot-edge].
-
-[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
-[lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
-[lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md
+Para continuar a introdução ao IoT Hub, veja [introdução ao IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).

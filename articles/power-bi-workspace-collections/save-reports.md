@@ -1,55 +1,49 @@
 ---
-title: Guardar relatórios em coleções de área de trabalho do Power BI | Microsoft Docs
-description: Saiba como guardar relatórios em coleções de área de trabalho do Power BI. Isto requer permissões adequadas para que funcionem com êxito.
+title: Guardar relatórios nas coleções de área de trabalho do Power BI | Documentos da Microsoft
+description: Saiba como pode guardar relatórios em coleções de área de trabalho do Power BI. Isto requer as permissões adequadas para funcionar com êxito.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c5512584531c9f5c8a13e9a50161eb6b5a1f8a7b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411221"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047961"
 ---
-# <a name="save-reports-in-power-bi-workspace-collections"></a>Guardar relatórios em coleções de área de trabalho do Power BI
+# <a name="save-reports-in-power-bi-workspace-collections"></a>Guardar relatórios nas coleções de área de trabalho do Power BI
 
-Saiba como guardar relatórios em coleções de área de trabalho do Power BI. Guardar relatórios requer permissões adequadas para que funcionem com êxito.
+Saiba como pode guardar relatórios em coleções de área de trabalho do Power BI. Como salvar relatórios exige permissões adequadas para funcionar com êxito.
 
 > [!IMPORTANT]
 > As Coleções de Áreas de Trabalho do Power BI foram preteridas e estão disponíveis até junho de 2018 ou até quando indicar o contrato. Recomendamos que planeie a migração para o Power BI Embedded para evitar interrupções na sua aplicação. Para obter informações sobre como migrar os dados para o Power BI Embedded, veja [How to migrate Power BI Workspace Collections content to Power BI Embedded (Como migrar o conteúdo das Coleções de Áreas de Trabalho do Power BI para o Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Dentro de coleções de área de trabalho do Power BI, pode editar os relatórios existentes e guardá-las. Também pode criar um novo relatório e guardar como um relatório novo para criar um.
+Dentro de coleções de área de trabalho do Power BI, pode editar os relatórios existentes e salvá-los. Também pode criar um novo relatório e guardar como um novo relatório para criar um.
 
-Para poder guardar um relatório, terá primeiro de criar um token para o relatório específico com os âmbitos direita:
+Para guardar um relatório, tem primeiro de criar um token para o relatório específico com os âmbitos certos:
 
-* Para ativar a guardar Report.ReadWrite âmbito é necessário
-* Para ativar o guardar como, Report.Read e Workspace.Report.Copy âmbitos são necessários
-* Para ativar a guardar e guardar como, são necessários Report.ReadWrite e Workspace.Report.Copy
+* Para permitir guardar Report.ReadWrite é necessário o âmbito
+* Para permitir guardar como, os âmbitos de Report.Read e Workspace.Report.Copy são obrigatórios
+* Para permitir guardar e guardar como, Report.ReadWrite e Workspace.Report.Copy são necessários
 
-Respetivamente para ativar o direito save/guardar como botões no menu ficheiro tem de fornecer a permissão adequada na configuração de incorporação ao incorporar o relatório:
+Respectivamente, para permitir que o direito save/guardar como botões no menu ficheiro tem de fornecer a permissão adequada na configuração de incorporação quando incorporar o relatório:
 
 * modelos. Permissions.ReadWrite
 * modelos. Permissions.Copy
 * modelos. Permissions.All
 
 > [!NOTE]
-> O token de acesso também tem dos âmbitos adequados. Para obter mais informações, consulte [âmbitos](app-token-flow.md#scopes).
+> O token de acesso também precisa dos escopos apropriados. Para obter mais informações, consulte [âmbitos](app-token-flow.md#scopes).
 
-## <a name="embed-report-in-edit-mode"></a>Incorporar relatório em modo de edição
+## <a name="embed-report-in-edit-mode"></a>Incorporar relatório no modo de edição
 
-Digamos que pretende incorporar um relatório em modo de edição no interior à aplicação, por isso, basta passar as propriedades de direitos numa configuração de incorporação e chamar powerbi.embed(). Forneça permissões e uma viewMode para ver o guardar e guardar como botões no modo de edição. Para obter mais informações, consulte [incorporar os detalhes de configuração](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Digamos que quer incorporar um relatório no modo de edição dentro da sua aplicação, por isso, basta passar as propriedades corretas na configuração de incorporação e chamar powerbi.embed(). Fornece permissões e uma viewMode para ver o salvamento e guardar como botões quando no modo de edição. Para obter mais informações, consulte [detalhes de configuração de incorporação](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 Por exemplo, no JavaScript:
 
@@ -83,11 +77,11 @@ Por exemplo, no JavaScript:
     var report = powerbi.embed(reportContainer, config);
 ```
 
-Agora um relatório é incorporado na sua aplicação no modo de edição.
+Agora, um relatório é incorporado na sua aplicação no modo de edição.
 
-## <a name="save-report"></a>Guardar o relatório
+## <a name="save-report"></a>Guardar relatório
 
-Depois de incorporar o relatório no modo de edição com o token à direita e permissões, pode guardar o relatório no menu de ficheiro ou de javascript:
+Depois de incorporar o relatório no modo de edição com o token correto e as permissões, pode guardar o relatório no menu de ficheiro ou a partir de javascript:
 
 ```
  // Get a reference to the embedded report.
@@ -112,9 +106,9 @@ Depois de incorporar o relatório no modo de edição com o token à direita e p
 ```
 
 > [!IMPORTANT]
-> Só depois *guardar como* é um novo relatório criado. Depois do guardar, a tela é ainda que mostra o relatório antigo no modo de edição e não o novo relatório. Incorpore o novo relatório, que foi criado. Ao incorporar o novo relatório requer um novo token de acesso que são criados por cada relatório.
+> Só depois *guardar como* é um novo relatório criado. Depois do guardar, a tela ainda está a mostrar o relatório antigo no modo de edição e não o novo relatório. Incorpore o relatório novo que foi criado. Incorporar o novo relatório requer um novo token de acesso à medida que são criados por cada relatório.
 
-Em seguida, terá de carregar o novo relatório após um *guardar como*. Carregar o novo relatório é semelhante ao incorporar qualquer relatório.
+Em seguida, terá de carregar o novo relatório depois de um *guardar como*. A carregar o novo relatório é semelhante ao incorporar qualquer relatório.
 
 ```
 <div id="reportContainer"></div>
@@ -132,7 +126,7 @@ var embedConfiguration = {
     var report = powerbi.embed(reportContainer, embedConfiguration);
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Introdução com exemplo](get-started-sample.md)  
 [Incorporar um relatório](embed-report.md)  

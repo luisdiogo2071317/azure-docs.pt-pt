@@ -1,18 +1,18 @@
 ### <a name="prerequisites"></a>Pré-requisitos
-* A [Trello](http://trello.com) conta 
+* R [Trello](http://trello.com) conta 
 
-Antes de poder utilizar a sua conta Trello numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta Trello. Felizmente, pode fazê-facilmente na sua aplicação lógica no Portal do Azure. 
+Antes de poder utilizar a sua conta do Trello numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta do Trello. Felizmente, pode fazer isso facilmente de na sua aplicação lógica no Portal do Azure. 
 
-Eis os passos para autorizar a aplicação lógica para ligar à sua conta Trello:
+Eis os passos para autorizar a aplicação lógica para ligar à sua conta do Trello:
 
-1. Para criar uma ligação a Trello, no designer de aplicação lógica, selecione **Mostrar Microsoft APIs geridas** na lista pendente, em seguida, introduza *Trello* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
+1. Para criar uma ligação à aplicação Trello, no Estruturador da aplicação lógica, selecione **APIs geridas da Microsoft mostram** na lista pendente, em seguida, introduza *Trello* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
    ![](./media/connectors-create-api-trello/trello-1.png)
-2. Se ainda não criou quaisquer ligações a Trello antes, irá obter lhe fornecer as credenciais de Trello. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e aceder aos dados da sua conta Trello:  
+2. Se ainda não criou quaisquer ligações a Trello antes, terá de informar fornecer as suas credenciais do Trello. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e acedam a dados da sua conta de Trello:  
    ![](./media/connectors-create-api-trello/trello-2.png) 
-3. Permitir-nos ligar ao Trello:  
+3. Permitir-nos ligar à aplicação Trello:  
    ![](./media/connectors-create-api-trello/trello-3.png)   
-4. Forneça o nome de utilizador Trello e a palavra-passe para autorizar a aplicação lógica:  
+4. Forneça o seu nome de utilizador do Trello e a palavra-passe para autorizar a aplicação lógica:  
    ![](./media/connectors-create-api-trello/trello-4.png)  
-5. Repare a ligação foi criada e está agora livre para continuar com os outros passos da sua aplicação lógica:  
+5. Observe que a ligação foi criada e agora está livre para continuar com os outros passos na sua aplicação lógica:  
    ![](./media/connectors-create-api-trello/trello-5.png)
 

@@ -3,18 +3,18 @@ title: Transmissão em fluxo estruturada do Kafka para Azure Cosmos DB - Azure H
 description: Saiba como utilizar a transmissão estruturada do Apache Spark para ler dados do Apache Kafka e, em seguida, armazene-o para o Azure Cosmos DB. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: jasonh
-ms.openlocfilehash: a02f517c72d1d9e07c8cc434cf57066bc828a684
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c18234e50711b2496b793263ca8d314f16347cbe
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600477"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107800"
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Utilizar estruturada do Spark transmissão em fluxo com Kafka e Azure Cosmos DB
 

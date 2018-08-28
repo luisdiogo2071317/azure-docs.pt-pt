@@ -1,84 +1,78 @@
 ---
-title: "Terminologia do catálogo de dados do Azure | Microsoft Docs"
-description: "Este artigo fornece uma introdução aos conceitos e termos utilizados na documentação do catálogo de dados do Azure."
+title: Terminologia do catálogo de dados do Azure
+description: Este artigo fornece uma introdução aos conceitos e termos utilizados na documentação do catálogo de dados do Azure.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 6fec74d9-4a3c-4b4b-88ba-cad5ad143331
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 70772ae07c4a8a6e87b4fa6f119acf2d51a5c23e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053798"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do catálogo de dados do Azure
 ## <a name="catalog"></a>catálogo
-O catálogo de dados do Azure é um repositório de metadados baseado na nuvem em que dados ativos origens e dados podem ser registados. O catálogo funciona como uma localização de armazenamento central para metadados estruturais extraídos das origens de dados e para metadados descritivos que adicionou pelos utilizadores.
+O catálogo de dados do Azure é um repositório de metadados com base na cloud em que os dados e origens de dados pode ser registado. O catálogo serve como uma localização de armazenamento central para os metadados estruturais extraídos de origens de dados e metadados descritivos que adicionou por utilizadores.
 
 ## <a name="data-source"></a>Origem de dados
-Uma origem de dados é um sistema ou o contentor que gere recursos de dados. Os exemplos incluem bases de dados do SQL Server, bases de dados Oracle, bases de dados do SQL Server Analysis Services (tabela ou multidimensionais) e servidores do SQL Server Reporting Services.
+Uma origem de dados é um sistema ou o contentor que gere recursos de dados. Os exemplos incluem bases de dados do SQL Server, bases de dados Oracle, bases de dados do SQL Server Analysis Services (tabulares ou multidimensionais) e servidores do SQL Server Reporting Services.
 
 ## <a name="data-asset"></a>Recurso de dados
-Recursos de dados são objetos contidos origens de dados que podem ser registadas com o catálogo. Os exemplos incluem tabelas do SQL Server e vistas, Oracle tabelas e vistas, SQL Server Analysis Services medidas, dimensões e KPIs e relatórios do SQL Server Reporting Services.
+Recursos de dados são objetos que origens de dados que podem ser registadas no catálogo. Os exemplos incluem tabelas do SQL Server e vistas, Oracle tabelas e vistas, SQL Server Analysis Services medidas, dimensões e KPIs e relatórios do SQL Server Reporting Services.
 
 ## <a name="data-asset-location"></a>Localização do recurso de dados
-O catálogo armazena a localização de uma origem de dados ou o recurso de dados, que pode ser utilizado para ligar à origem de utilização de uma aplicação de cliente. Os detalhes da localização e o formato variam com base no tipo de origem de dados. Por exemplo, uma tabela do SQL Server pode ser identificada pelo respetivo nome de quatro parte – nome do servidor, o nome de base de dados, o nome de esquema, o nome de objeto – enquanto um relatório de serviços de relatórios do SQL Server pode ser identificado pelo respetivo URL.
+O catálogo armazena a localização de uma origem de dados ou o recurso de dados, que pode ser utilizado para ligar à origem através de uma aplicação de cliente. O formato e os detalhes da localização variam consoante o tipo de origem de dados. Por exemplo, uma tabela do SQL Server pode ser identificada pelo respetivo nome de quatro parte – nome do servidor, nome de base de dados, o nome do esquema, nome do objeto –, enquanto um relatório de serviços de relatórios do SQL Server podem ser identificado pelo respetivo URL.
 
 ## <a name="structural-metadata"></a>Metadados estruturais
-Os metadados estruturais são os metadados extraídos da origem de dados que descreve a estrutura de um recurso de dados. Isto inclui a localização de recursos, o nome do objeto e tipo e características de específicos do tipo adicionais. Por exemplo, os metadados estruturais para tabelas e vistas incluem nomes e tipos de dados para colunas do objeto.
+Os metadados estruturais são os metadados extraídos da origem de dados que descreve a estrutura de um recurso de dados. Isto inclui a localização de recursos, o nome do objeto e tipo e características de tipo específicas adicionais. Por exemplo, os metadados estruturais para tabelas e vistas incluem os nomes e tipos de dados para colunas do objeto.
 
 ## <a name="descriptive-metadata"></a>Metadados descritivos
-Metadados descritivos são metadados que descreve a finalidade ou intenção de um recurso de dados. Normalmente, os metadados descritivos é adicionado pelos utilizadores do catálogo através do portal do catálogo de dados do Azure, mas também pode ser extraído da origem de dados durante o registo. Por exemplo, a ferramenta de registo do catálogo de dados do Azure que extrai descrições da propriedade descrição no SQL Server Analysis Services e o SQL Server Reporting Services e para o [ms_description propriedade expandida](https://technet.microsoft.com/library/ms190243.aspx) no SQL Server Bases de dados, se estas propriedades foram preenchidas com valores.
+Metadados descritivos são metadados que descrevem o objetivo ou a intenção de um recurso de dados. Normalmente, os metadados descritivos é adicionado por utilizadores do catálogo através do portal do catálogo de dados do Azure, mas ele também pode ser extraído da origem de dados durante o registo. Por exemplo, a ferramenta de registo do catálogo de dados do Azure irá extrair descrições a propriedade Description no SQL Server Analysis Services e o SQL Server Reporting Services e para o [ms_description propriedade estendida](https://technet.microsoft.com/library/ms190243.aspx) em SQL Bases de dados, se essas propriedades foram preenchidas com os valores.
 
 ## <a name="request-access"></a>Pedir acesso
-Metadados descritivos um recurso de dados podem incluir informações sobre como pedir acesso para o recurso de dados ou a origem de dados. Esta informação é apresentada a localização do recurso de dados e pode incluir um ou mais das seguintes opções:
+Metadados descritivos de um recurso de dados podem incluir informações sobre como pedir acesso para o recurso de dados ou a origem de dados. Esta informação é apresentada a localização do recurso de dados e pode incluir um ou mais das seguintes opções:
 
 * O endereço de e-mail do utilizador ou equipa responsável por conceder acesso à origem de dados.
-* O URL do processo de documentado que os utilizadores têm de seguir para obter acesso à origem de dados.
-* O URL de uma identidade e acesso ferramenta de gestão (tais como o Microsoft Identity Manager) que pode ser utilizado para obter acesso à origem de dados.
+* O URL do processo documentado que os utilizadores têm de seguir para obter acesso à origem de dados.
+* O URL de uma identidade e acesso à ferramenta de gestão (como o Microsoft Identity Manager) que pode ser utilizado para obter acesso à origem de dados.
 * Uma entrada de texto livre que descreve a forma como os utilizadores poderem obter acesso à origem de dados.
 
 ## <a name="preview"></a>Pré-visualização
-Uma versão de pré-visualização no catálogo de dados do Azure é um instantâneo de até 20 registos que podem ser extraídos da origem de dados durante o registo e armazenados no catálogo com metadados do recurso de dados. A pré-visualização pode ajudar os utilizadores que detetar um recurso de dados compreender melhor a sua função e o objetivo. Por outras palavras, a ver dados de exemplo pode ser mais útil ao ver apenas os nomes das colunas e tipos de dados.
-Pré-visualizações só são suportadas para tabelas e vistas e tem de ser explicitamente selecionados pelo utilizador durante o registo.
+Uma pré-visualização no catálogo de dados do Azure é um instantâneo de até 20 registos que podem ser extraídos da origem de dados durante o registo e armazenados no catálogo com metadados do recurso de dados. A pré-visualização pode ajudar os utilizadores que detetar um recurso de dados compreendam melhor a sua função e objetivo. Em outras palavras, a visualização de dados de exemplo pode ser mais valioso do que ver apenas os nomes das colunas e tipos de dados.
+Pré-visualizações só são suportadas para tabelas e vistas e tem de ser selecionadas explicitamente pelo utilizador durante o registo.
 
 ## <a name="data-profile"></a>Perfil de Dados
-Um perfil de dados no catálogo de dados do Azure é um instantâneo do nível de tabela e ao nível da coluna metadados sobre um recurso de dados registados que pode ser extraído da origem de dados durante o registo e armazenado no catálogo com metadados do recurso de dados. O perfil de dados pode ajudar os utilizadores que detetar um recurso de dados compreender melhor a sua função e o objetivo. Semelhante à pré-visualizações, perfis de dados tem de ser explicitamente selecionados pelo utilizador durante o registo.
+Um perfil de dados no catálogo de dados do Azure é um instantâneo dos metadados de nível de tabela e ao nível da coluna sobre um elemento de dados registados que pode ser extraído da origem de dados durante o registo e armazenado no catálogo com metadados do recurso de dados. O perfil de dados pode ajudar os utilizadores que detetar um recurso de dados compreendam melhor a sua função e objetivo. Semelhante à pré-visualizações, perfis de dados devem ser explicitamente selecionados pelo usuário durante o registo.
 
 > [!NOTE]
-> Extrair um perfil de dados pode ser uma operação dispendiosa para tabelas grandes e vistas e pode aumentar significativamente o tempo necessário para registar uma origem de dados.
+> Extrair um perfil de dados pode ser uma operação dispendiosa para tabelas grandes e exibições e pode aumentar significativamente o tempo necessário para se registar uma origem de dados.
 >
 >
 
-## <a name="user-perspective"></a>Perspetiva do utilizador
-No catálogo de dados do Azure, qualquer utilizador pode fornecer metadados descritivos para um recurso de dados registados. Cada utilizador tem uma perspetiva distinta dos dados e a sua utilização. Por exemplo, o administrador responsável por um servidor pode fornecer os detalhes do respetivo contrato de nível de serviço (SLA) ou o windows de cópia de segurança; um steward de dados poderá fornecer ligações para documentação para as empresas e processa o suporta de dados; e um analista poderá fornecer uma descrição em termos que são mais relevantes para outros analistas e que pode ser mais valioso para os utilizadores que necessitam para detetar e compreender os dados.
+## <a name="user-perspective"></a>Ponto de vista do utilizador
+No catálogo de dados do Azure, qualquer usuário pode fornecer metadados descritivos para um ativo de dados registados. Cada utilizador tem uma perspectiva diferente sobre os dados e seu uso. Por exemplo, o administrador responsável por um servidor de pode fornecer os detalhes do seu contrato de nível de serviço (SLA) ou a cópia de segurança windows; uma responsável pelos dados pode fornecer ligações para documentação para as empresas e processa o suporte de dados; e um analista pode fornecer uma descrição nos termos que são mais relevantes para outros analistas e que pode ser mais valioso para os usuários que precisam de detetar e compreender os dados.
 
-Cada um destes perspetivas são inerentemente importantes e com o catálogo de dados do Azure, cada utilizador pode fornecer as informações que faça sentidas, apesar de todos os utilizadores podem utilizar essas informações para compreender os dados e o objetivo.
+Cada um desses perspetivas são inerentemente valiosas e no catálogo de dados do Azure, cada utilizador pode fornecer as informações que faça sentidas a eles, enquanto todos os utilizadores podem utilizar essas informações para compreender os dados e sua finalidade.
 
 ## <a name="expert"></a>Especialista
-Um especialista é um utilizador que foi identificado como tendo uma perspetiva informada "especialista" para um recurso de dados. Qualquer utilizador pode adicionar si próprios ou outro utilizador como um especialista para um recurso. A ser apresentado como um especialista não transmitir quaisquer privilégios adicionais no catálogo de dados do Azure; permite que os utilizadores localizar facilmente as perspetivas que são mais prováveis ser útil quando rever metadados descritivos um recurso.
+Um especialista é um utilizador que foi identificado como tendo uma perspectiva de "especializada" informada para um recurso de dados. Qualquer utilizador pode adicionar os próprios ou a outro utilizador como um especialista para um recurso. A ser listado como um especialista não transmite qualquer privilégios adicionais no catálogo de dados do Azure; ele permite que os usuários localizar facilmente essas perspectivas que têm mais probabilidades de ser útil ao revisar os metadados descritivos de um recurso.
 
 ## <a name="owner"></a>Proprietário
-Um proprietário é um utilizador com privilégios adicionais para gerir um recurso de dados no catálogo de dados do Azure. Os utilizadores podem assumir a propriedade dos recursos de dados registados e os proprietários podem adicionar outros utilizadores como coproprietários. Para obter mais informações consulte [como gerir recursos de dados](data-catalog-how-to-manage.md)  
+Um proprietário é um utilizador que tem privilégios adicionais para gerir um recurso de dados no catálogo de dados do Azure. Os utilizadores podem assumir a propriedade dos recursos de dados registados e os proprietários podem adicionar outros utilizadores como coproprietários. Para obter mais informações consulte [como gerir recursos de dados](data-catalog-how-to-manage.md)  
 
 > [!NOTE]
-> Propriedade e gestão estão disponíveis apenas na edição Standard do Azure dados de catálogo.
+> Propriedade e de gestão só estão disponíveis no Standard Edition do Azure catálogo de dados.
 >
 >
 
 ## <a name="registration"></a>Registo
-O registo é o ato de extrair metadados do recurso de dados de uma origem de dados e copiar para o serviço de catálogo de dados do Azure. Recursos de dados que foram registados, em seguida, podem ser anotados e detetados.
+O registo é o ato de extrair metadados do recurso de dados de uma origem de dados e copiá-lo para o serviço de catálogo de dados do Azure. Recursos de dados que foram registados, em seguida, podem ser anotados e detetados.
 
 ## <a name="see-also"></a>Consulte também
-* [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md) -Este artigo fornece uma descrição geral do serviço catálogo de dados do Azure, o valor fornece e os cenários que suporta.
-* [Introdução ao catálogo de dados do Azure](data-catalog-get-started.md) -este artigo fornece um tutorial ponto-a-ponto que mostra como utilizar o catálogo de dados do Azure para a deteção de origem de dados.  
+* [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md) -Este artigo fornece uma descrição geral do serviço catálogo de dados do Azure, a sua importância e os cenários que ele oferece suporte.
+* [Introdução ao catálogo de dados do Azure](data-catalog-get-started.md) -este artigo fornece um tutorial de ponto-a-ponto mostra-lhe como utilizar o catálogo de dados do Azure para a deteção de origem de dados.  

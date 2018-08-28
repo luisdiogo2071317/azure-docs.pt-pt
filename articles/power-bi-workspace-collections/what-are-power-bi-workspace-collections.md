@@ -1,88 +1,82 @@
 ---
-title: Quais são as coleções de área de trabalho do Power BI?
-description: Power BI Embedded permite-lhe integrar relatórios do Power BI na sua web ou de aplicações móveis, por isso não terá de criar soluções personalizadas.
+title: O que são as Coleções de Área de Trabalho do Power BI?
+description: Power BI Embedded permite-lhe integrar relatórios do Power BI nas suas aplicações móveis ou web, pelo que não precisa para criar soluções personalizadas.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412582"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052044"
 ---
-# <a name="what-are-power-bi-workspace-collections"></a>Quais são as coleções de área de trabalho do Power BI?
+# <a name="what-are-power-bi-workspace-collections"></a>O que são as Coleções de Área de Trabalho do Power BI?
 
-Com **coleções de área de trabalho do Power BI**, pode integrar os relatórios do Power BI diretamente no seu web ou de aplicações móveis.
+Com o **coleções de área de trabalho do Power BI**, pode integrar relatórios do Power BI diretamente nas suas aplicações móveis ou web.
 
 ![Diagrama de aplicação](media/what-are-power-bi-workspace-collections/what-is.png)
 
 > [!IMPORTANT]
 > As Coleções de Áreas de Trabalho do Power BI foram preteridas e estão disponíveis até junho de 2018 ou até quando indicar o contrato. Recomendamos que planeie a migração para o Power BI Embedded para evitar interrupções na sua aplicação. Para obter informações sobre como migrar os dados para o Power BI Embedded, veja [How to migrate Power BI Workspace Collections content to Power BI Embedded (Como migrar o conteúdo das Coleções de Áreas de Trabalho do Power BI para o Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-As coleções de área de trabalho do Power BI são um **serviço do Azure** que permite que os ISVs e os programadores de aplicações para experiências de dados do Power BI superfície dentro das suas aplicações. Como um programador, criou aplicações e as aplicações têm os seus próprios utilizadores e um conjunto diferente de funcionalidades. Essas aplicações também podem acontecer ter alguns elementos de dados incorporada, como gráficos e relatórios que podem ser desligados agora pelas coleções de área de trabalho do Microsoft Power BI. Não precisa de uma conta do Power BI para utilizar a aplicação. Pode continuar a iniciar sessão na sua aplicação, tal como anteriormente e ver e interagir com o Power BI reporting experiência sem necessidade de licenciamento adicionais.
+As coleções de área de trabalho do Power BI são uma **serviço do Azure** que permite que os ISVs e programadores de aplicações para experiências de dados do Power BI superfície nas respetivas aplicações. Como desenvolvedor, criou aplicativos e esses aplicativos têm seus próprios usuários e um conjunto distinto de recursos. Esses aplicativos também podem acontecer ter alguns elementos de dados incorporadas, como gráficos e relatórios que agora podem ser alimentados por coleções de área de trabalho do Microsoft Power BI. Não precisa de uma conta do Power BI para utilizar a sua aplicação. Pode continuar a iniciar sessão na sua aplicação, assim como antes e ver e interagir com a experiência de geração de relatórios sem a necessidade de quaisquer licenças adicionais do Power BI.
 
 ## <a name="licensing-for-microsoft-power-bi-workspace-collections"></a>Licenciamento do Microsoft Power BI área de trabalho coleções
 
-No **coleções de área de trabalho do Microsoft Power BI** modelo de utilização, licenciamento para o Power BI não é da responsabilidade do utilizador final.  Em vez disso, **sessões** são adquiridas pelo programador da aplicação que está a consumir visuais e são cobradas para a subscrição que detém esses recursos. 
+Na **coleções de área de trabalho do Microsoft Power BI** através do modelo de utilização, o licenciamento para o Power BI não é da responsabilidade do utilizador final.  Em vez disso, **sessões** são adquiridas pelo programador da aplicação que está a consumir os elementos visuais e são cobradas à subscrição que é proprietário desses recursos. 
 
-## <a name="microsoft-power-bi-workspace-collections-conceptual-model"></a>Modelo concetual de coleções de área de trabalho do Microsoft Power BI
+## <a name="microsoft-power-bi-workspace-collections-conceptual-model"></a>Modelo conceitual de coleções de área de trabalho do Microsoft Power BI
 
-![Fluxo de aplicações com coleções de área de trabalho](media/what-are-power-bi-workspace-collections/model.png)
+![Fluxo da aplicação com coleções de área de trabalho](media/what-are-power-bi-workspace-collections/model.png)
 
-Como qualquer outro serviço no Azure, os recursos para coleções de área de trabalho do Power BI são aprovisionados através do [APIs do Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). Neste caso, é o recurso que é aprovisionar um **coleção de área de trabalho do Power BI**.
+Como qualquer outro serviço no Azure, os recursos para coleções de área de trabalho do Power BI são aprovisionados através do [APIs do Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). Neste caso, é o recurso que está a aprovisionar um **coleção de área de trabalho do Power BI**.
 
 ## <a name="workspace-collection"></a>Coleção de área de trabalho
 
-A **coleção de área de trabalho** é o nível superior contentor do Azure para os recursos que contém 0 ou mais **áreas de trabalho**.  A **área de trabalho** **coleção** tem todas as propriedades do Azure standard, bem como o seguinte:
+R **coleção de área de trabalho** é o nível superior contentor do Azure para os recursos que contém 0 ou mais **áreas de trabalho**.  R **área de trabalho** **coleção** tem todas as propriedades do Azure standard, bem como o seguinte:
 
-* **Chaves de acesso** – as chaves utilizadas durante a chamada de forma segura as APIs do Power BI (descrito na secção posterior).
-* **Os utilizadores** – os utilizadores do Azure Active Directory (AAD) que tenha direitos de administrador para gerir a coleção de área de trabalho do Power BI através do portal do Azure ou a API do Azure Resource Manager.
+* **Chaves de acesso** – as chaves usadas ao chamar com segurança as APIs do Power BI (descrito na secção posterior).
+* **Os utilizadores** – os utilizadores do Azure Active Directory (AAD) que têm direitos de administrador para gerir a coleção de área de trabalho do Power BI através do portal do Azure ou a API do Azure Resource Manager.
 * **Região** – como parte de aprovisionamento de um **coleção de área de trabalho**, pode selecionar uma região a ser aprovisionado no. Para obter mais informações, consulte [regiões do Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="workspace"></a>Área de trabalho
 
-A **área de trabalho** é um contentor do Power BI conteúdo, que pode incluir os conjuntos de dados e relatórios. A **área de trabalho** está vazio quando é criado pela primeira vez. Irá criar conteúdo utilizando o ambiente de trabalho do Power BI e irá implemente o PBIX através de programação na área de trabalho utilizando o [API de importação do Power BI](https://msdn.microsoft.com/library/mt711504.aspx). Pode também programaticamente criar o conjunto de dados e, em seguida, criar relatórios na sua aplicação em vez de utilizar o Power BI Desktop.
+R **área de trabalho** é um contentor do Power BI conteúdo, que pode incluir os conjuntos de dados e relatórios. R **área de trabalho** está vazio quando criado pela primeira vez. Vai criar conteúdo com o Power BI Desktop e vai implementar o PBIX através de programação em sua área de trabalho com o [API do Power BI importar](https://msdn.microsoft.com/library/mt711504.aspx). Pode também programaticamente criar o conjunto de dados e, em seguida, criar relatórios na sua aplicação em vez de utilizar o Power BI Desktop.
 
-## <a name="using-workspace-collections-and-workspaces"></a>Utilizar coleções de área de trabalho e áreas de trabalho
+## <a name="using-workspace-collections-and-workspaces"></a>Usando coleções de área de trabalho e áreas de trabalho
 
-**Coleções de área de trabalho** e **áreas de trabalho** são contentores de conteúdo que são utilizados e organizados de qualquer forma que melhor se adequa a estrutura da aplicação que está a criar. Será muitas formas diferentes, que foi dispor o conteúdo dentro delas. Pode optar por colocar todo o conteúdo dentro de uma área de trabalho e, em seguida, utilize tokens de aplicação mais tarde para obter mais subdividir o conteúdo dos seus clientes. Também pode optar por colocar todos os seus clientes em áreas de trabalho separadas para que não há alguns separação entre eles. Em alternativa, pode optar por organizar utilizadores por região, em vez de pelo cliente. Esta estrutura flexível permite-lhe escolher a melhor forma de organizar o conteúdo.
+**Coleções de área de trabalho** e **áreas de trabalho** são contentores de conteúdo que são utilizados e organizados em qualquer forma que melhor se adequa a estrutura da aplicação estiver a criar. Haverá muitas formas diferentes, que poderia organizar o conteúdo dentro dos mesmos. Pode optar por colocar todo o conteúdo dentro de uma área de trabalho e, em seguida, utilizar tokens de aplicação mais tarde para subdividir o conteúdo entre os seus clientes. Também pode optar por colocar todos os seus clientes em áreas de trabalho separadas, para que haja alguns separação entre eles. Em alternativa, pode optar por organizar os utilizadores por região e não pelo cliente. Esse design flexível permite-lhe escolher a melhor forma de organizar o conteúdo.
 
 ## <a name="cached-datasets"></a>Conjuntos de dados em cache
 
-Conjuntos de dados em cache podem ser utilizados.  No entanto, não é possível atualizar dados em cache assim que tiver sido carregada **coleções de área de trabalho do Microsoft Power BI**. Um conjunto de dados em cache significa que importou os dados para o ambiente de trabalho do Power BI em vez de utilizar DirectQuery.
+Conjuntos de dados em cache podem ser utilizados.  No entanto, não é possível atualizar dados em cache depois de terem sido carregado no **coleções de área de trabalho do Microsoft Power BI**. Um conjunto de dados em cache significa que tiver importado os dados para o Power BI Desktop em vez de utilizar o DirectQuery.
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Autenticação e autorização com tokens de aplicação
 
-**Coleções de área de trabalho do Microsoft Power BI** defers à sua aplicação para efetuar a autenticação de utilizador necessário e autorização. Não há nenhum requisito explícito de que os utilizadores finais ser clientes do Azure Active Directory (Azure AD).  Em vez disso, a aplicação expresse precisa para **coleções de área de trabalho do Microsoft Power BI** autorização para compor o relatório do Power BI utilizando **Tokens de autenticação da aplicação (Tokens de aplicação)**.  Estes **Tokens de aplicação** são criados, conforme necessário quando a aplicação que pretende um relatório de composição.
+**Coleções de área de trabalho do Microsoft Power BI** difere à sua aplicação para efetuar a autenticação de utilizador necessário e autorização. Não existe nenhum requisito explícito que os utilizadores finais ser clientes do Azure Active Directory (Azure AD).  Em vez disso, a sua aplicação expressa para **coleções de área de trabalho do Microsoft Power BI** autorização para compor um relatório do Power BI utilizando **Tokens de autenticação de aplicação (Tokens de aplicação)**.  Estes **Tokens de aplicação** são criadas conforme necessário quando seu aplicativo deseja compor um relatório.
 
-![Diagrama de utilização de tokens de aplicação](media/what-are-power-bi-workspace-collections/app-tokens.png)
+![Diagrama de utilização de token de aplicação](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
-**Os Tokens de autenticação de aplicação (Tokens de aplicação)** são utilizados para autenticar face **coleções de área de trabalho do Microsoft Power BI**.  Existem três tipos de **Tokens de aplicação**:
+**Tokens de autenticação de aplicação (Tokens de aplicação)** são utilizados para autenticar face **coleções de área de trabalho do Microsoft Power BI**.  Existem três tipos de **Tokens de aplicação**:
 
-1. Aprovisionamento Tokens - utilizados quando aprovisionar um novo **área de trabalho** para um **coleção de área de trabalho**
-2. Tokens de desenvolvimento - utilizados ao efetuar chamadas diretamente para o **APIs REST do Power BI**
-3. Ao incorporar Tokens - utilizados ao efetuar chamadas para compor um relatório numa iframe incorporados
+1. Aprovisionamento Tokens - utilizados durante o aprovisionamento de um novo **área de trabalho** num **coleção de área de trabalho**
+2. Tokens de desenvolvimento - utilizadas ao efetuar chamadas diretamente para o **APIs de REST do Power BI**
+3. Tokens de incorporação - utilizadas ao efetuar chamadas para compor um relatório numa embedded iframe
 
-Estes tokens são utilizados para as fases das suas interações com vários **coleções de área de trabalho do Microsoft Power BI**.  Os tokens foram concebidos para que pode delegar as permissões da sua aplicação para o Power BI. Para obter mais informações, consulte [fluxo de Token de aplicação](app-token-flow.md).
+Estes tokens são utilizados para as fases de suas interações com **coleções de área de trabalho do Microsoft Power BI**.  Os tokens destinam-se para que pode delegar as permissões da sua aplicação para o Power BI. Para obter mais informações, consulte [fluxo de Token de aplicação](app-token-flow.md).
 
-## <a name="create-or-edit-reports-within-your-application"></a>Cria ou edita relatórios na sua aplicação
+## <a name="create-or-edit-reports-within-your-application"></a>Criar ou editar relatórios na sua aplicação
 
-Agora pode editar os relatórios existentes ou criar novos relatórios diretamente na sua aplicação sem ter de utilizar o Power BI Desktop. Isto requer que um conjunto de dados existe dentro da sua área de trabalho.
+Agora pode editar os relatórios existentes ou criar novos relatórios diretamente em seu aplicativo sem ter de utilizar o Power BI Desktop. Isto requer que um conjunto de dados existem na sua área de trabalho.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Cenários comuns de coleções de área de trabalho do Microsoft Power BI](scenarios.md)  
 [Começar a utilizar coleções de área de trabalho do Microsoft Power BI](get-started.md)  
@@ -90,7 +84,7 @@ Agora pode editar os relatórios existentes ou criar novos relatórios diretamen
 [Incorporar um relatório](embed-report.md)  
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Repositório de Git do PowerBI CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
-[Repositório de Git do nó de PowerBI](https://github.com/Microsoft/PowerBI-Node)  
+[Repositório de Git do Power BI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
+[Repositório de Git de nó do Power BI](https://github.com/Microsoft/PowerBI-Node)  
 
 Mais perguntas? [Tente a Comunidade do Power BI](http://community.powerbi.com/)

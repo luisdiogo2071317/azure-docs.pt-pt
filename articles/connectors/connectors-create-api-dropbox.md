@@ -1,6 +1,6 @@
 ---
-title: Ligar a Dropbox - as do Azure Logic Apps | Microsoft Docs
-description: Carregar e gerir os ficheiros com as APIs REST do Dropbox e Azure Logic Apps
+title: Ligue ao Dropbox - Azure Logic Apps | Documentos da Microsoft
+description: Carregar e gerir ficheiros com as APIs REST do Dropbox e o Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,55 +11,55 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77203788a6329ed4c5b58419fbcf48a48da91b30
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295052"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094443"
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>Começar a utilizar o conector Dropbox
-Ligar a Dropbox para gerir os seus ficheiros. Pode efetuar várias ações, como o carregamento, atualizar, obter e eliminar ficheiros da Dropbox.
+# <a name="get-started-with-the-dropbox-connector"></a>Começar com o conector da Dropbox
+Ligue-se à Dropbox para gerir os seus ficheiros. Pode executar várias ações como carregar, atualizar, obter e eliminar ficheiros no Dropbox.
 
-Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para utilizar [qualquer conector](apis-list.md), tem primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="connect-to-dropbox"></a>Ligar a Dropbox
-Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de criar um *ligação* ao serviço. Uma ligação oferece a conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar a Dropbox, primeiro precisa de um Dropbox *ligação*. Para criar uma ligação, terá de fornecer as credenciais que normalmente utiliza para aceder ao serviço que pretende ligar. Por isso, no exemplo Dropbox, terá as credenciais para a sua conta Dropbox para criar a ligação ao Dropbox. [Saiba mais sobre ligações]()
+## <a name="connect-to-dropbox"></a>Ligue à Dropbox
+Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de criar uma *ligação* ao serviço. Uma ligação fornece conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar a Dropbox, primeiro tem um Dropbox *ligação*. Para criar uma ligação, terá de fornecer as credenciais que normalmente utiliza para aceder ao serviço que deseja se conectar. Por isso, no exemplo Dropbox, seria necessário as credenciais para a sua conta do Dropbox para criar a ligação ao Dropbox. 
 
-### <a name="create-a-connection-to-dropbox"></a>Criar uma ligação a Dropbox
+### <a name="create-a-connection-to-dropbox"></a>Criar uma ligação para a Dropbox
 > [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
 > 
 > 
 
-## <a name="use-a-dropbox-trigger"></a>Utilizar um acionador Dropbox
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="use-a-dropbox-trigger"></a>Utilizar um acionador do Dropbox
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre os acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Neste exemplo, utilizaremos o **quando é criado um ficheiro** acionador. Quando ocorre este acionador, que iremos chamar o **obter conteúdo de ficheiros utilizando caminho** ação Dropbox. 
+Neste exemplo, utilizamos o **quando é criado um ficheiro** acionador. Quando ocorre este acionador, vamos chamar o **obter conteúdo do ficheiro através do caminho** ação do Dropbox. 
 
-1. Introduza *dropbox* na caixa de pesquisa no estruturador de Logic Apps, em seguida, selecione o **Dropbox - quando é criado um ficheiro** acionador.      
+1. Introduza *dropbox* na caixa de pesquisa no estruturador do Logic Apps, em seguida, selecione a **Dropbox - quando é criado um ficheiro** acionador.      
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. Selecione a pasta na qual pretende controlar a criação de ficheiros. Selecione... (identificado na caixa vermelha) e navegue para a pasta que pretende selecionar para o acionador de entrada.  
+2. Selecione a pasta em que pretende controlar a criação do ficheiro. Selecione... (identificado na caixa vermelha) e navegue até à pasta que pretende selecionar para o acionador da entrada.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
-## <a name="use-a-dropbox-action"></a>Utilizar uma ação de Dropbox
+## <a name="use-a-dropbox-action"></a>Utilize uma ação do Dropbox
 Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Agora que o acionador foi adicionado, siga estes passos para adicionar uma ação que irá obter conteúdo do novo ficheiro.
+Agora que o acionador foi adicionado, siga estes passos para adicionar uma ação que irá obter conteúdo do arquivo novo.
 
-1. Selecione **+ novo passo** para adicionar a ação que gostaria de tomar quando é criado um novo ficheiro.  
+1. Selecione **+ novo passo** para adicionar a ação a tomar quando é criado um novo ficheiro.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. Selecione **adicionar uma ação**. Este é aberta a caixa de pesquisa, onde pode procurar qualquer ação pretende efetuar.  
+2. Selecione **adicionar uma ação**. Ela abre a caixa de pesquisa, onde pode procurar qualquer ação gostaria de fazer.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 3. Introduza *dropbox* para procurar ações relacionadas com o Dropbox.  
-4. Selecione **Dropbox - utilizar caminho de conteúdo do ficheiro de Get** como a ação a tomar quando é criado um novo ficheiro na pasta selecionada Dropbox. É aberto o bloco de controlo de ação. Será solicitado para autorizar a aplicação lógica para aceder à sua conta Dropbox se não o fez, anteriormente.  
+4. Selecione **Dropbox - obter conteúdo do ficheiro através do caminho** como a ação a tomar quando é criado um novo ficheiro na pasta Dropbox selecionada. É aberto o bloco de controle de ação. Será solicitado para autorizar a aplicação lógica para aceder à sua conta do Dropbox, se não o tiver feito isso anteriormente.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. Selecione... (localizado no lado direito do **caminho do ficheiro** controlo) e navegue para o caminho do ficheiro que pretende utilizar. Em alternativa, utilizar o **caminho do ficheiro** token para acelerar a criação da aplicação lógica.  
+5. Selecione... (localizado no lado direito do **caminho do ficheiro** controlo) e navegue para o caminho de ficheiro que pretende utilizar. Em alternativa, utilizar o **caminho do ficheiro** token para acelerar a criação da aplicação lógica.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. Guarde o trabalho e criar um novo ficheiro no Dropbox para ativar o fluxo de trabalho.  
+6. Guarde o seu trabalho e crie um novo ficheiro na Dropbox para ativar o seu fluxo de trabalho.  
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/dropbox/).
+Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/dropbox/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte à [lista APIs](apis-list.md).
+Volte para o [lista APIs](apis-list.md).

@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524149"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090531"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: Melhorar a aplicação com funções padrão
 
@@ -52,7 +52,7 @@ Neste tutorial, a aplicação de recursos humanos Deteta expressões com sobre m
 |[Hierárquica (não existem funções)](luis-quickstart-intent-and-hier-entity.md)|mV Jill Jones partir **a-2349** para **b-1298**|a-2349, b-1298|
 |Neste tutorial (com funções)|Mover Billy Patterson partir **Yuma** ao **Denver**.|Yuma, Denver|
 
-Não é possível utilizar a entidade hierárquica no padrão de uma vez que apenas hierárquicas pais são utilizados em pais. Para retornar as localizações com nome de origem e destino, se pergunta utilize um padrão.
+Não é possível utilizar a entidade hierárquica no padrão de uma vez que apenas os pais hierárquicos são utilizados em padrões. Para retornar as localizações com nome de origem e destino, se pergunta utilize um padrão.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Entidade Simple para o novo nome de funcionário
 O nome do novo funcionário, Billy Patterson, não faz parte da entidade lista **funcionário** ainda. O novo nome do funcionário é extraído em primeiro lugar, para enviar o nome para um sistema externo para criar as credenciais da empresa. Depois das credenciais da empresa são criadas, as credenciais de funcionário são adicionadas para a entidade de lista **funcionário**.

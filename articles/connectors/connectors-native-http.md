@@ -1,220 +1,91 @@
 ---
-title: Comunicar com qualquer ponto final através de HTTP - Azure Logic Apps | Microsoft Docs
-description: Criar as logic apps que podem comunicar com qualquer ponto final através de HTTP
+title: Ligar a qualquer ponto final de HTTP com o Azure Logic Apps | Documentos da Microsoft
+description: Automatizar tarefas e fluxos de trabalho que se comunicar com qualquer ponto final de HTTP utilizando o Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/15/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: e1561e3be95847efccf487c96bd9c9a8104f161b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296429"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106453"
 ---
-# <a name="get-started-with-the-http-action"></a>Começar com a ação de HTTP
+# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos finais HTTP ou HTTPS com o Azure Logic Apps
 
-Com a ação de HTTP, pode expandir fluxos de trabalho para a sua organização e comunicar com qualquer ponto final através de HTTP.
+Com o Azure Logic Apps e o conector de protocolo HTTP (Hypertext Transfer), pode automatizar fluxos de trabalho que comunicam com qualquer ponto final HTTP ou HTTPS através da criação de aplicações lógicas. Por exemplo, pode monitorizar o ponto final de serviço para o seu site. Quando ocorre um evento naquele ponto de extremidade, como o seu Web site fica em baixo, o evento aciona o fluxo de trabalho da sua aplicação lógica e executa as ações especificadas. 
 
-Pode:
+Pode utilizar o acionador HTTP como o primeiro passo no seu fluxo de trabalho para a verificação ou *consulta* um ponto de extremidade com base numa agenda regular. Em cada verificação, o acionador envia uma chamada ou *pedido* para o ponto final. Resposta do ponto de extremidade determina se a fluxo de trabalho da sua aplicação lógica é executada. O acionador passa ao longo de qualquer conteúdo da resposta às ações na sua aplicação lógica. 
 
-* Crie lógica fluxos de trabalho da aplicação que ativar (acionador) quando um site que gere fica inativo.
-* Comunicar com qualquer ponto final através de HTTP para expandir os seus fluxos de trabalho noutros serviços.
+Pode utilizar a ação de HTTP como qualquer outro passo no fluxo de trabalho para chamar o ponto de extremidade quando quiser. Resposta do ponto de extremidade determina como executam ações restantes do seu fluxo de trabalho.
 
-Para começar a utilizar a ação de HTTP numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-the-http-trigger"></a>Utilize o acionador HTTP
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido uma aplicação lógica. [Saiba mais sobre acionadores](connectors-overview.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-Eis um exemplo de sequência de como configurar o acionador HTTP no Designer de aplicação lógica.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
 
-1. Adicione o acionador HTTP na sua aplicação lógica.
-2. Preencha os parâmetros para o ponto final de HTTP que pretende consultar.
-3. Modificar o intervalo de periodicidade na frequência deve consultar.
+* O URL para o ponto de extremidade de destino que pretende chamar 
 
-   A aplicação lógica agora desencadeado com qualquer conteúdo que é devolvido durante a verificação de cada.
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-   ![Acionador HTTP](./media/connectors-native-http/using-trigger.png)
+* A aplicação de lógica de onde deseja chamar o ponto de extremidade de destino para iniciar com o acionador HTTP [criar uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar a ação de HTTP, inicie a aplicação lógica com um acionador.
 
-### <a name="how-the-http-trigger-works"></a>Como funciona o acionador HTTP
+## <a name="add-http-trigger"></a>Adicionar acionador HTTP
 
-O acionador HTTP envia uma chamada para o ponto final de HTTP num intervalo periódico. Por predefinição, os códigos de resposta HTTP são inferior a 300 faz com que uma aplicação lógica ser executada. Para especificar se a aplicação lógica deve acionados, pode editar a aplicação lógica na vista de código e adicionar uma condição que avalia após a chamada HTTP. Eis um exemplo de um acionador HTTP que é acionado quando o código de estado devolvido é maior que ou igual a `400`.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica em branco no Estruturador da aplicação lógica, se não estiver já abrir.
 
-```javascript
-"Http":
-{
-    "conditions": [
-        {
-            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-        }
-    ],
-    "inputs": {
-        "method": "GET",
-        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
-        "headers": {
-            "accept-language": "en"
-        }
-    },
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 15
-    },
-    "type": "Http"
-}
-```
+1. Na caixa de pesquisa, introduza "http" como o filtro. Abaixo da lista de disparadores, selecione o **HTTP** acionador. 
 
-Detalhes completos sobre os parâmetros de Acionador HTTP estão disponíveis no [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+   ![Selecione o acionador HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-## <a name="use-the-http-action"></a>Utilize a ação de HTTP
+1. Forneça o [parâmetros e valores de Acionador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que pretende incluir na chamada para o ponto de extremidade de destino. Configure periodicidade para a frequência com que pretende que o acionador para verificar o endpont de destino.
 
-Uma ação é uma operação que é efetuada pelo fluxo de trabalho que está definido uma aplicação lógica. 
-[Saiba mais sobre as ações](connectors-overview.md).
+   ![Introduza os parâmetros de Acionador HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
-1. Escolha **novo passo** > **adicionar uma ação**.
-3. Na caixa de pesquisa de ação, escreva **http** para listar as ações de HTTP.
-   
-    ![Selecione a ação de HTTP](./media/connectors-native-http/using-action-1.png)
+   Para obter mais informações sobre o acionador HTTP, parâmetros e valores, consulte [referência de tipos de Acionador e ação](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
 
-4. Adicione os parâmetros necessários para a chamada HTTP.
-   
-    ![Concluir a ação de HTTP](./media/connectors-native-http/using-action-2.png)
+1. Continue a criar o fluxo de trabalho da sua aplicação lógica com ações executadas quando o acionador é acionado.
 
-5. Na barra de ferramentas designer, clique em **guardar**. A aplicação lógica é guardada e publicada (ativada) ao mesmo tempo.
+## <a name="add-http-action"></a>Adicionar ação de HTTP
 
-## <a name="http-trigger"></a>Acionador HTTP
-Seguem-se os detalhes para o acionador que suporte este conector. O conector HTTP tem um acionador.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Acionador | Descrição |
-| --- | --- |
-| HTTP |Faz uma chamada HTTP e devolve o conteúdo da resposta. |
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
 
-## <a name="http-action"></a>Ação de HTTP
-Seguem-se os detalhes para a ação que este conector suporta. O conector HTTP tem uma ação possíveis.
+1. Na última etapa em que pretende adicionar a ação de HTTP, escolha **novo passo**. 
 
-| Ação | Descrição |
-| --- | --- |
-| HTTP |Faz uma chamada HTTP e devolve o conteúdo da resposta. |
+   Neste exemplo, a aplicação lógica começa com o acionador HTTP como o primeiro passo.
 
-## <a name="http-details"></a>Detalhes HTTP
-As tabelas seguintes descrevem os campos de entrada necessários e opcionais para a ação e os detalhes de resultado correspondente que estão associados utilizando a ação.
+1. Na caixa de pesquisa, introduza "http" como o filtro. Abaixo da lista de ações, selecione o **HTTP** ação.
 
-#### <a name="http-request"></a>Pedido HTTP
-Seguem-se os campos de entrada para a ação, o que faz um pedido de saída de HTTP.
-A * significa que é um campo obrigatório.
+   ![Selecione a ação de HTTP](./media/connectors-native-http/select-http-action.png)
 
-| Nome a apresentar | Nome da propriedade | Descrição |
-| --- | --- | --- |
-| Método * |método |O verbo HTTP a utilizar |
-| URI * |URI |O URI do pedido de HTTP |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir |
-| Corpo |Corpo |O corpo do pedido HTTP |
-| Autenticação |autenticação |Os detalhes no [autenticação](#authentication) secção |
+   Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
+   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
-<br>
+1. Forneça o [parâmetros e valores de ação de HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que pretende incluir na chamada para o ponto de extremidade de destino. 
 
-#### <a name="output-details"></a>Detalhes da saída
-Seguem-se detalhes de saída para a resposta HTTP.
+   ![Introduza os parâmetros de ação de HTTP](./media/connectors-native-http/http-action-parameters.png)
 
-| Nome da propriedade | Tipo de dados | Descrição |
-| --- | --- | --- |
-| Cabeçalhos |objeto |Cabeçalhos de resposta |
-| Corpo |objeto |Objeto de resposta |
-| Código de Estado |Int |Código de estado de HTTP |
+1. Quando tiver terminado, certifique-se de que guardar a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**. 
 
 ## <a name="authentication"></a>Autenticação
-A funcionalidade de Logic Apps permite-lhe utilizar diferentes tipos de autenticação nos pontos finais HTTP. Pode utilizar esta autenticação com o **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, e **[HTTP Webhook](connectors-native-webhook.md)** conectores. Os seguintes tipos de autenticação são configuráveis:
 
-* [Autenticação básica](#basic-authentication)
-* [Autenticação de certificado de cliente](#client-certificate-authentication)
-* [Autenticação do Azure Active Directory (Azure AD) OAuth](#azure-active-directory-oauth-authentication)
+Para configurar a autenticação, escolha **Mostrar opções avançadas** dentro da ação ou acionador. Para obter mais informações sobre os tipos de autenticação disponíveis para ações e acionadores HTTP, consulte [referência de tipos de Acionador e ação](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-#### <a name="basic-authentication"></a>Autenticação básica
+## <a name="get-support"></a>Obter suporte
 
-É necessário o seguinte objeto de autenticação para a autenticação básica.
-A * significa que é um campo obrigatório.
+* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
 
-| Nome da propriedade | Tipo de dados | Descrição |
-| --- | --- | --- |
-| Tipo * |tipo |Tipo de autenticação (tem de ser `Basic` para a autenticação básica) |
-| Nome de utilizador * |o nome de utilizador |Nome de utilizador a autenticar |
-| Palavra-passe * |palavra-passe |Palavra-passe para autenticar |
+## <a name="next-steps"></a>Passos Seguintes
 
-> [!TIP]
-> Se pretender utilizar uma palavra-passe não pode ser obtida a partir da definição, utilize um `securestring` parâmetro e o `@parameters()`  
->  [função da definição de fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Por exemplo:
-
-```javascript
-{
-    "type": "Basic",
-    "username": "user",
-    "password": "test"
-}
-```
-
-#### <a name="client-certificate-authentication"></a>Autenticação de certificados de cliente
-
-É necessário o seguinte objeto de autenticação para autenticação de certificados de cliente. A * significa que é um campo obrigatório.
-
-| Nome da propriedade | Tipo de dados | Descrição |
-| --- | --- | --- |
-| Tipo * |tipo |O tipo de autenticação (tem de ser `ClientCertificate` para certificados de cliente SSL) |
-| PFX* |PFX |O conteúdo com codificação Base64 do ficheiro Personal Information (Exchange PFX) |
-| Palavra-passe * |palavra-passe |A palavra-passe para aceder ao ficheiro PFX |
-
-> [!TIP]
-> Para utilizar um parâmetro que não seja legível na definição do depois de guardar a aplicação lógica, pode utilizar um `securestring` parâmetro e o `@parameters()`  
->  [função da definição de fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Por exemplo:
-
-```javascript
-{
-    "type": "ClientCertificate",
-    "pfx": "aGVsbG8g...d29ybGQ=",
-    "password": "@parameters('myPassword')"
-}
-```
-
-#### <a name="azure-ad-oauth-authentication"></a>Autenticação do Azure AD OAuth
-É necessário o seguinte objeto de autenticação para a autenticação do Azure AD OAuth. A * significa que é um campo obrigatório.
-
-| Nome da propriedade | Tipo de dados | Descrição |
-| --- | --- | --- |
-| Tipo * |tipo |O tipo de autenticação (tem de ser `ActiveDirectoryOAuth` para o Azure AD OAuth) |
-| Inquilino * |inquilino |O identificador de inquilino para o inquilino do Azure AD |
-| Público-alvo * |público-alvo |O recurso que está a pedir autorização para utilizar. Por exemplo: `https://management.core.windows.net/` |
-| Cliente ID * |clientId |O identificador de cliente para a aplicação do Azure AD |
-| Segredo * |segredo |O segredo do cliente que está a solicitar o token |
-
-> [!TIP]
-> Pode utilizar um `securestring` parâmetro e o `@parameters()` [função da definição de fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) para utilizar um parâmetro que não seja legível na definição do depois de guardar.
-> 
-> 
-
-Por exemplo:
-
-```javascript
-{
-    "type": "ActiveDirectoryOAuth",
-    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "audience": "https://management.core.windows.net/",
-    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-}
-```
-
-## <a name="next-steps"></a>Passos seguintes
-Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis em Logic Apps observando nosso [lista APIs](apis-list.md).
-
+* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)

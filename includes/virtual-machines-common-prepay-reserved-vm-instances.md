@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631168"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040332"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -30,6 +30,9 @@ Os campos de subcategoria do medidor e produto nos dados de utilização não di
 
 Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de VM com algumas exceções:
 
+- As VMs clássicas e Cloud services não receber o desconto de reserva.
+- VMs de núcleo suprimido não obtém descontos de reserva.
+- Seguinte série de VM não receber os descontos de reserva: série A, série Av2 ou série G.
 - As VMs em pré-visualização: qualquer série de VM ou o tamanho que está em pré-visualização não estão disponíveis para compra de reserva.
 - Nuvens: reservas não estão disponíveis para compra nas regiões do Azure US Government, Alemanha e China.
 - Quota insuficiente: uma reserva de que tem um âmbito a uma subscrição individual tem de ter a quota de vCPU disponível na subscrição para a nova RI. Por exemplo, se a subscrição de destino tem um limite de quota de 10 vCPUs para a série D, em seguida, é possível comprar uma reserva para 11 Standard_D1 instâncias. A verificação de quota para as reservas inclui VMs já implementadas na subscrição. Por exemplo, se a subscrição tem uma quota de 10 vCPUs para a série D e tem duas instâncias de standard_D1 implementadas, em seguida, pode comprar uma reserva para 10 instâncias standard_D1 nesta subscrição. 

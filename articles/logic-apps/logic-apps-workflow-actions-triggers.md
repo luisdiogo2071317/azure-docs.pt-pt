@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390709"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093623"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de Acionador e ação para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -158,6 +157,7 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 |---------|------|-------------| 
 | cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
 | corpo | Objeto JSON | O corpo da resposta | 
+| Código de estado | Número inteiro | O código de estado da resposta | 
 |||| 
 
 *Exemplo*
@@ -330,6 +330,7 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 |---------|------|-------------| 
 | cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
 | corpo | Objeto JSON | O corpo da resposta | 
+| Código de estado | Número inteiro | O código de estado da resposta | 
 |||| 
 
 *Requisitos para pedidos recebidos*
@@ -337,7 +338,7 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 Para funcionar bem com a sua aplicação lógica, o ponto final tem de estar em conformidade com um padrão de Acionador específico ou um contrato e reconhecer estas propriedades:  
   
 | Resposta | Necessário | Descrição | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Código de estado | Sim | O "200 OK" código de estado inicia a execução. Qualquer outro código de estado não iniciar uma execução. | 
 | Cabeçalho retry-after | Não | O número de segundos até que a aplicação lógica consulta o ponto final novamente | 
 | Cabeçalho de localização | Não | O URL em que o intervalo de consulta seguinte. Se não for especificado, o URL original é utilizado. | 
@@ -424,6 +425,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 |---------|------|-------------| 
 | cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
 | corpo | Objeto JSON | O corpo da resposta | 
+| Código de estado | Número inteiro | O código de estado da resposta | 
 |||| 
 
 *Exemplo*
@@ -1957,7 +1959,7 @@ Esta ação, o que é um *instrução condicional*, avalia uma expressão que re
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*Condição*> | Objeto JSON | A condição, o que pode ser uma expressão, para avaliar | 
+| <*condição*> | Objeto JSON | A condição, o que pode ser uma expressão, para avaliar | 
 | <*ação-1*> | Objeto JSON | A ação de execução quando <*condição*> avalia como verdadeiro | 
 | <*definição de ação*> | Objeto JSON | A definição da ação | 
 | <*ação-2*> | Objeto JSON | A ação de execução quando <*condição*> for avaliada como falsa | 
@@ -2217,7 +2219,7 @@ Esta ação de loop contém ações que executar até que a condição especific
 | <*nome da ação*> | Cadeia | O nome para a ação que pretende executar dentro do loop | 
 | <*tipo de ação*> | Cadeia | O tipo de ação que pretende executar | 
 | <*entradas de ação*> | Vários | As entradas para a ação de execução | 
-| <*Condição*> | Cadeia | A condição ou expressão a avaliar Afinal de contas as ações no loop termine a execução | 
+| <*condição*> | Cadeia | A condição ou expressão a avaliar Afinal de contas as ações no loop termine a execução | 
 | <*contagem do loop*> | Número inteiro | O limite para o maior número de loops, que pode executar a ação. A predefinição `count` valor é 60. | 
 | <*tempo limite de loop*> | Cadeia | O limite de tempo mais longo que pode executar o loop. A predefinição `timeout` é o valor `PT1H`, que é o necessário [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
@@ -2552,6 +2554,159 @@ Para uma única execução da aplicação lógica, o número de ações que exec
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Autenticar ações ou acionadores
+
+Pontos de extremidade HTTP suportam diferentes tipos de autenticação. Pode configurar a autenticação para estas HTTP acionadores e ações:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [Webhook de HTTP](../connectors/connectors-native-webhook.md)
+
+Aqui estão os tipos de autenticação, que pode configurar:
+
+* [Autenticação básica](#basic-authentication)
+* [Autenticação de certificado de cliente](#client-certificate-authentication)
+* [Autenticação do Active Directory (Azure AD) OAuth do Azure](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Autenticação básica
+
+Para este tipo de autenticação, a definição de Acionador ou ação pode incluir um `authentication` objeto JSON com estas propriedades:
+
+| Propriedade | Necessário | Valor | Descrição | 
+|----------|----------|-------|-------------| 
+| **tipo** | Sim | "Básico" | O tipo de autenticação a utilizar, que é "Básico" aqui | 
+| **username** | Sim | "@parameters('userNameParam')" | Um parâmetro que transmite o nome de utilizador para autenticar-se para acessar o ponto de extremidade do serviço de destino |
+| **password** | Sim | "@parameters('passwordParam')" | Um parâmetro que passa a palavra-passe para autenticar-se para acessar o ponto de extremidade do serviço de destino |
+||||| 
+
+Por exemplo, aqui está o formato para o `authentication` objeto na sua definição de Acionador ou ação. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger informações confidenciais](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>Autenticação de certificado de cliente
+
+Para este tipo de autenticação, a definição de Acionador ou ação pode incluir um `authentication` objeto JSON com estas propriedades:
+
+| Propriedade | Necessário | Valor | Descrição | 
+|----------|----------|-------|-------------| 
+| **tipo** | Sim | "ClientCertificate" | O tipo de autenticação a utilizar Secure Sockets Layer (SSL) para certificados de cliente | 
+| **PFX** | Sim | <*Base64 codificado-pfx-ficheiro*> | O conteúdo codificado em base64 a partir de um ficheiro Personal Information Exchange (PFX) |
+| **password** | Sim | "@parameters('passwordParam')" | Um parâmetro com a palavra-passe para aceder ao ficheiro PFX |
+||||| 
+
+Por exemplo, aqui está o formato para o `authentication` objeto na sua definição de Acionador ou ação. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger informações confidenciais](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticação do Active Directory (AD) OAuth do Azure
+
+Para este tipo de autenticação, a definição de Acionador ou ação pode incluir um `authentication` objeto JSON com estas propriedades:
+
+| Propriedade | Necessário | Valor | Descrição | 
+|----------|----------|-------|-------------| 
+| **tipo** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a utilizar, que é "ActiveDirectoryOAuth" para o OAuth do Azure AD | 
+| **autoridade** | Não | <*URL-para-autoridade-token-emissor*> | O URL para a autoridade que fornece o token de autenticação |  
+| **tenant** | Sim | <*ID do inquilino*> | O ID de inquilino para o inquilino do Azure AD | 
+| **Público-alvo** | Sim | <*recursos para autorizar*> | O recurso que pretende que a autorização para utilizar, por exemplo, `https://management.core.windows.net/` | 
+| **ID de cliente** | Sim | <*ID de cliente*> | O ID de cliente para a aplicação a solicitar autorização | 
+| **credentialType** | Sim | "Segredo" ou "Certificado" | Utiliza o tipo de credencial do cliente para solicitar autorização. Esta propriedade e valor não aparecem na sua definição subjacente, mas determina os parâmetros necessários para o tipo de credencial. | 
+| **password** | Sim, apenas para o tipo de credencial "Certificate" | "@parameters('passwordParam')" | Um parâmetro com a palavra-passe para aceder ao ficheiro PFX | 
+| **PFX** | Sim, apenas para o tipo de credencial "Certificate" | <*Base64 codificado-pfx-ficheiro*> | O conteúdo codificado em base64 a partir de um ficheiro Personal Information Exchange (PFX) |
+| **Segredo** | Sim, apenas para o "Segredo" tipo de credencial | <*segredo para autenticação*> | O segredo codificada em base64 que o cliente utiliza para pedir autorização |
+||||| 
+
+Por exemplo, aqui está o formato para o `authentication` objeto quando sua definição de Acionador ou ação utiliza o tipo de "Segredo" da credencial: para obter mais informações sobre como proteger a parâmetros, consulte [proteger informações confidenciais](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Proteger as informações confidenciais
+
+Para proteger informações confidenciais que utiliza para autenticação, como nomes de utilizador e palavras-passe, nas suas definições de Acionador e ação, pode utilizar os parâmetros e o `@parameters()` expressão, para que estas informações não estão visíveis depois de guardar a sua lógica aplicação. 
+
+Por exemplo, suponha que estiver a utilizar autenticação "Basic" na sua definição de Acionador ou ação. Eis um exemplo `authentication` objeto que especifica um nome de utilizador e palavra-passe:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+Na `parameters` secção para a sua definição de aplicação lógica, definir os parâmetros utilizados na sua definição de Acionador ou ação:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Se estiver a criar ou através de um modelo de implementação Azure Resource Manager, tem também de incluir um externa `parameters` secção para a sua definição de modelo. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger o acesso às suas aplicações lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

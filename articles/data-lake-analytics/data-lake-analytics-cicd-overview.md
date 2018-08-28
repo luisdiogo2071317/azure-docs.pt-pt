@@ -1,25 +1,21 @@
 ---
-title: Como configurar um pipeline CI/CD para o Azure Data Lake Analytics | Documentos da Microsoft
+title: Como configurar um pipeline CI/CD para o Azure Data Lake Analytics
 description: Saiba como configurar a integração contínua e implementação contínua para Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630709"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045879"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline CI/CD para o Azure Data Lake Analytics  
 
@@ -440,16 +436,16 @@ Siga os passos seguintes para configurar uma tarefa de implementação de base d
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Uso **segredo** autenticação para implementar uma base de dados U-SQL para uma conta do Azure Data Lake Analytics:
+    * Uso **secrete** autenticação para implementar uma base de dados U-SQL para uma conta do Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Uso **certFile** autenticação para implementar uma base de dados U-SQL para uma conta do Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>Descrições de parâmetros de PackageDeploymentTool.exe
@@ -480,9 +476,9 @@ Siga os passos seguintes para configurar uma tarefa de implementação de base d
 |AzureSDKPath|O caminho para pesquisar os conjuntos de módulos dependentes no SDK do Azure.|Nulo|true|
 |Interativo|Se deve ou não a utilizar o modo interativo para autenticação.|false|false|
 |ID de cliente|O ID da aplicação do Azure AD necessários para a autenticação não interativa.|Nulo|Necessário para a autenticação não interativa.|
-|Segredo|O segredo ou a palavra-passe para a autenticação não interativa. Ele deve ser usado apenas num ambiente seguro e fiável.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize SecretFile.|
-|SecretFile|O ficheiro salva o segredo ou a palavra-passe para a autenticação não interativa. Certifique-se de mantê-lo legíveis apenas pelo utilizador atual.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize o segredo.|
-|CertFile|O ficheiro guarda a certificação X.509 para a autenticação não interativa. A predefinição é utilizar a autenticação de segredo do cliente.|Nulo|false|
+|Secrete|O secrete ou a palavra-passe para a autenticação não interativa. Ele deve ser usado apenas num ambiente seguro e fiável.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize SecreteFile.|
+|SecreteFile|O ficheiro salva o secrete ou a palavra-passe para a autenticação não interativa. Certifique-se de mantê-lo legíveis apenas pelo utilizador atual.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize Secrete.|
+|CertFile|O ficheiro guarda a certificação X.509 para a autenticação não interativa. A predefinição é utilizar o cliente secrete autenticação.|Nulo|false|
 | JobPrefix | O prefixo para a implementação de base de dados de uma tarefa de DDL do U-SQL. | Deploy_ + DateTime. Now | false |
 
 ## <a name="next-steps"></a>Passos Seguintes

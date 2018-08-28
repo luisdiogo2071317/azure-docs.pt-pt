@@ -1,26 +1,26 @@
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do Twilio
-* Um número de telefone Twilio verificado que pode receber de SMS
-* Um número de telefone Twilio verificado que pode enviar SMS
+* Um número de telefone Twilio verificado que pode receber a SMS
+* Um número de telefone Twilio verificado que pode enviar uma SMS
 
 > [!NOTE]
 > Se estiver a utilizar uma conta de avaliação do Twilio, só pode enviar SMS para **verificado** números de telefone.  
 > 
 > 
 
-Antes de poder utilizar a sua conta do Twilio numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta do Twilio. Felizmente, pode fazê-facilmente na sua aplicação lógica no Portal do Azure. 
+Antes de poder utilizar a sua conta do Twilio numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta do Twilio. Felizmente, pode fazer isso facilmente de na sua aplicação lógica no Portal do Azure. 
 
 Eis os passos para autorizar a aplicação lógica para ligar à sua conta do Twilio:
 
-1. Para criar uma ligação ao Twilio, no designer de aplicação lógica, selecione **Mostrar Microsoft APIs geridas** na lista pendente, em seguida, introduza *Twilio* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
+1. Para criar uma ligação ao Twilio, no Estruturador da aplicação lógica, selecione **APIs geridas da Microsoft mostram** na lista pendente, em seguida, introduza *Twilio* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
    ![](./media/connectors-create-api-twilio/twilio-0.png)
-2. Se ainda não criou quaisquer ligações a Twilio antes, irá obter lhe fornecer as credenciais do Twilio. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e aceder aos dados do sua conta Twilio:  
+2. Se ainda não criou quaisquer ligações ao Twilio antes, terá de informar para fornecer suas credenciais do Twilio. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e acedam a dados da sua conta Twilio:  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. Terá do **id de conta do Twilio** e **token de acesso do Twilio** do dashboard do Twilio, por isso, iniciar sessão na sua conta do Twilio agora para captar duas estas informações:  
+3. Terá do **id da conta Twilio** e **token de acesso do Twilio** do dashboard do Twilio, por isso, inicie sessão para a sua conta do Twilio agora pegar essas duas informações:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Aplicações Twilio e lógica utilizam diferentes nomes para identificar duas estas informações. Eis como tem de mapeá-los para a caixa de diálogo de aplicações lógicas: ![](./media/connectors-create-api-twilio/twilio-3.png)  
+4. Twilio e o Logic apps usar nomes diferentes para identificar estes dois tipos de informação. Eis como tem mapeá-los para a caixa de diálogo do Logic apps: ![](./media/connectors-create-api-twilio/twilio-3.png)  
 5. Selecione o **criar ligação** botão:  
    ![](./media/connectors-create-api-twilio/twilio-4.png)
-6. Repare a ligação foi criada e está agora livre para continuar com os outros passos da sua aplicação lógica:  
+6. Observe que a ligação foi criada e agora está livre para continuar com os outros passos na sua aplicação lógica:  
    ![](./media/connectors-create-api-twilio/twilio-5.png)
 

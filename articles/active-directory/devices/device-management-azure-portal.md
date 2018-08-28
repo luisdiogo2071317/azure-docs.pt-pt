@@ -1,5 +1,5 @@
 ---
-title: Gestão de dispositivos no portal do Azure | Documentos da Microsoft
+title: Como gerir dispositivos através do portal do Azure | Documentos da Microsoft
 description: Saiba como utilizar o portal do Azure para gerir dispositivos.
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056988"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041430"
 ---
-# <a name="managing-devices-using-the-azure-portal"></a>Gestão de dispositivos no portal do Azure
+# <a name="how-to-manage-devices-using-the-azure-portal"></a>Como gerir dispositivos através do portal do Azure
 
 
 Gestão de dispositivos no Azure Active Directory (Azure AD), pode certificar-se de que os utilizadores estão a aceder ao seus recursos de dispositivos que cumprem as normas de segurança e conformidade. 

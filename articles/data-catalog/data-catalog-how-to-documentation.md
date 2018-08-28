@@ -1,53 +1,47 @@
 ---
-title: Como documentar origens de dados | Microsoft Docs
-description: "Artigo procedimentos realce como documentar recursos de dados no catálogo de dados do Azure."
+title: Como documentar origens de dados no catálogo de dados do Azure
+description: Artigo que mostra como realce de como documentar recursos de dados no catálogo de dados do Azure.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 1901ac534c46e4de0446543de4a40de040b8d51e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4d3dfac425caf36e9ca9a4d3593bba336b18b7a3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053709"
 ---
 # <a name="document-data-sources"></a>Documentar origens de dados
 ## <a name="introduction"></a>Introdução
-**Catálogo de dados do Microsoft Azure** é um serviço em nuvem completamente gerido que funciona como um sistema de registo e de deteção de origens de dados empresariais. Por outras palavras, **catálogo de dados do Azure** está tudo sobre ajudando as pessoas detetar, *compreender*, utilize origens de dados e que ajuda as organizações para rentabilizar o valor a partir dos respetivos dados existentes.
+**Catálogo de dados do Microsoft Azure** é um serviço cloud totalmente gerido que funciona como um sistema de registo e sistema de deteção de origens de dados empresariais. Em outras palavras, **catálogo de dados do Azure** é uma questão de ajudar as pessoas a descobrir, *compreender*e utilizar origens de dados e ajuda as organizações a obter mais valor dos seus dados existentes.
 
-Quando uma origem de dados é registada com **catálogo de dados do Azure**, os metadados é copiado e o serviço indexa, mas o bloco não termina não existe. **Catálogo de dados do Azure** também permite que os utilizadores forneçam os seus próprios documentação completa sobre que possa descrever a utilização e cenários comuns para a origem de dados.
+Quando uma origem de dados estiver registrada no **catálogo de dados do Azure**, seus metadados é copiado e indexados pelo serviço, mas a história não acaba nisso. **O catálogo de dados do Azure** também permite que os utilizadores forneçam a sua própria documentação completa que pode descrever a utilização e cenários comuns para a origem de dados.
 
-No [como anotar origens de dados](data-catalog-how-to-annotate.md), saiba o que os especialistas que conhece a origem de dados podem anotá-lo com as etiquetas e uma descrição. O **catálogo de dados do Azure** portal inclui um editor de texto formatado para que os utilizadores podem totalmente documentar recursos de dados e contentores. O editor de inclui parágrafo formatação, tais como cabeçalhos, formatação de texto, apresenta uma lista com marcas, listas numeradas e tabelas.
+Na [como anotar origens de dados](data-catalog-how-to-annotate.md), ficará a saber que os especialistas que conhecem a origem de dados podem anotá-lo com etiquetas e uma descrição. O **catálogo de dados do Azure** portal inclui um editor de texto formatado, para que os utilizadores totalmente podem documentar recursos de dados e contentores. O editor inclui a formatação de parágrafo, tais como cabeçalhos, formatação de texto, listas com marcas, listas numeradas e tabelas.
 
-As etiquetas e descrições são ótimos para anotações simples. No entanto, para ajudar a compreender melhor a utilização de uma origem de dados e cenários de negócios para uma origem de dados de consumidores de dados, um especialista pode fornecer documentação completa, detalhada. É fácil de uma origem de dados de documento. Selecione um recurso de dados ou o contentor e escolha **documentação**.
+As etiquetas e descrições são ótimas para anotações simples. No entanto, para ajudar a compreender melhor a utilização de uma origem de dados e cenários comerciais para uma origem de dados de consumidores de dados, um especialista pode fornecer documentação detalhada e completa. É fácil de uma origem de dados de documentos. Selecione um recurso de dados ou o contentor e escolha **documentação**.
 
 ![](media/data-catalog-documentation/data-catalog-documentation.png)
 
-## <a name="documenting-data-assets"></a>Documentar recursos de dados
-A vantagem de **catálogo de dados do Azure** documentação permite-lhe utilizar o catálogo de dados como um repositório de conteúdo para criar uma narrativa completa dos seus recursos de dados. Pode explorar o conteúdo de detalhado que descreve a contentores e tabelas. Se já tiver conteúdo no repositório de conteúdo outro, por exemplo, SharePoint ou uma partilha de ficheiros, pode adicionar as ligações de documentação do recurso para fazer referência a este conteúdo existente. Esta funcionalidade torna mais detetável os documentos existentes.
+## <a name="documenting-data-assets"></a>Como documentar recursos de dados
+A vantagem **catálogo de dados do Azure** documentação permite-lhe utilizar o seu catálogo de dados como um repositório de conteúdo para criar uma narrativa completa dos seus recursos de dados. Pode explorar o conteúdo detalhado que descreve a contentores e tabelas. Se já tiver conteúdo de outro repositório de conteúdo, como o SharePoint ou uma partilha de ficheiros, pode adicionar as ligações de documentação do recurso para fazer referência a este conteúdo existente. Esta funcionalidade torna mais detectáveis seus documentos existentes.
 
 > [!NOTE]
-> Documentação não está incluída num índice de pesquisa.
+> Documentação não está incluída no índice de pesquisa.
 >
 >
 
 ![](media/data-catalog-documentation/data-catalog-documentation2.png)
 
-O nível de documentação pode variar entre que descreve as características e o valor de um contentor de elemento de dados para uma descrição detalhada do esquema da tabela num contentor. O nível de documentação fornecida deve conduzido pelos necessidades comerciais. Mas em geral, seguem-se alguns os profissionais de TI e contras de documentar recursos de dados:
+O nível de documentação pode variar entre descrevendo as características e o valor de um contentor de elemento de dados para uma descrição detalhada do esquema da tabela dentro de um contêiner. O nível de documentação fornecida deve ser conduzido por suas necessidades empresariais. Mas em geral, aqui estão alguns prós e contras de como documentar recursos de dados:
 
-* Apenas um contentor de documentos: todo o conteúdo está no local, mas poderá não dispõem de detalhes necessários para os utilizadores tomar uma decisão informada.
-* Apenas as tabelas de documentos: conteúdo é específico para esse objeto, mas os utilizadores têm de vários locais para documentos.
-* Documente contentores e tabelas: abordagem mais abrangente, mas pode introduzir mais manutenção dos documentos.
+* Apenas um contêiner de documentos: todo o conteúdo é num único local, mas podem não ter os detalhes necessários para os utilizadores tomar uma decisão informada.
+* Apenas as tabelas de documentos: conteúdo é específico para esse objeto, mas os utilizadores têm vários locais para documentos.
+* Documente a contentores e tabelas: uma abordagem mais abrangente, mas pode introduzir mais manutenção dos documentos.
 
 ## <a name="summary"></a>Resumo
-Documentar origens de dados com **catálogo de dados do Azure** pode criar uma narrativa sobre os recursos de dados como muito mais detalhadamente conforme necessário.  Ao utilizar ligações, pode associar o conteúdo armazenado num repositório de conteúdo existente, que reúne o docs existentes e recursos de dados. Assim que os utilizadores detetar recursos de dados adequada, estes podem ter um conjunto completo de documentação.
+Documentar origens de dados com **catálogo de dados do Azure** pode criar uma narrativa sobre seus recursos de dados da forma mais detalhada, conforme necessário.  Ao utilizar ligações, pode ligar ao conteúdo armazenado num repositório de conteúdo existente, que reúne os documentos existentes e recursos de dados. Assim que os utilizadores detetam recursos de dados apropriado, eles podem ter um conjunto completo de documentação.

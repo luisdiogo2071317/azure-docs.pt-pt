@@ -3,18 +3,18 @@ title: Por meio de programação – registos de aplicações do YARN do Hadoop 
 description: Registos de aplicações de acesso por meio de programação num cluster do Hadoop no HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600188"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094406"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Registos de aplicações do YARN de acesso no HDInsight baseado em Windows
 Este documento explica como aceder aos registos de aplicações YARN que tem concluído a num cluster de Hadoop baseado em Windows no Azure HDInsight

@@ -4,18 +4,18 @@ description: Saiba como utilizar o Spark MLlib para criar uma aplicação de apr
 keywords: aprendizagem do spark, o exemplo do machine learning do spark
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jasonh
-ms.openlocfilehash: 068d5ee7200f9597da11c0a2850ef4941f4ea900
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 78f9240e6b01bafc68b71d20044c7ec7458cc972
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619537"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047301"
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utilizar o Spark MLlib para criar uma aplicação de machine learning e analisar um conjunto de dados
 
@@ -374,7 +374,7 @@ Agora pode construir uma visualização final para o ajudar a ponderar os result
 
     Deverá ver o resultado seguinte:
 
-    ![Spark aprendizagem saída da aplicação - porcentagens de gráfico circular de inspeções alimentares com falha. ] (./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Saída de resultado de aprendizagem de Spark")
+    ![Spark aprendizagem saída da aplicação - porcentagens de gráfico circular de inspeções alimentares com falha. ](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Saída de resultado de aprendizagem de Spark")
 
     Neste gráfico, um resultado "positivo" refere-se para a inspeção de comida com falha, enquanto um resultado negativo refere-se para uma inspeção com êxito.
 

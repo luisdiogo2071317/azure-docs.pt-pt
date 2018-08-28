@@ -1,88 +1,82 @@
 ---
-title: "Atalhos de teclado para o catálogo de dados do Azure | Microsoft Docs"
-description: "Este artigo mostra os atalhos de teclado para o catálogo de dados do Azure."
+title: Atalhos de teclado do Catálogo de Dados do Azure
+description: Este artigo mostra os atalhos de teclado para o catálogo de dados do Azure.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 537ed3bccf7d3306628b7a64ba0866f0e51a03e5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 06a93b23738aa7bc5899de8b8618d824fd24c1d1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053763"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Atalhos de teclado do Catálogo de Dados do Azure
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Ferramenta de registo da origem de atalhos de teclado para os dados de catálogo de dados
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Ferramenta de registo da origem de atalhos de teclado para os dados do catálogo de dados
 ### <a name="general-keyboard-shortcuts"></a>Atalhos de teclado geral
 | Operação | Prima |
 | --- | --- |
-| Separador para cada controlo numa página |Tab |
+| Separador para cada controle numa página |Tab |
 | Escolha uma opção |Introduza ou barra de espaço |
-| Maximizar a página |WIN + CÓPIA DE SEGURANÇA |
-| Página minimizar/restauro |WIN + BAIXO |
-| Menu abrir página |ALT+SPACEBAR |
+| Maximizar a página |WIN + SETA PARA CIMA |
+| Página de minimizar/restauro |WIN + DOWN |
+| Menu de página aberta |ALT + BARRADEESPAÇO |
 
 ### <a name="authentication-page"></a>Página de autenticação
 | Operação | Prima |
 | --- | --- |
 | Inicie sessão no serviço |ALT + S |
 
-### <a name="data-source-selection-page"></a>Página de seleção de origens de dados
+### <a name="data-source-selection-page"></a>Página de seleção de fonte de dados
 | Operação | Prima |
 | --- | --- |
-| Aceda à página seguinte (se estiver ativada) |ALT + N |
-| Alterar o tipo selecionado quando o foco está num mosaico |À esquerda, direita, ou seta para baixo |
+| Ir para página seguinte (se ativada) |ALT + N |
+| Alterar o tipo selecionado quando o foco é num mosaico |À esquerda, direita, ou seta para baixo |
 
 ### <a name="data-source-connection-page"></a>Página de ligação de origem de dados
 | Operação | Prima |
 | --- | --- |
-| Aceda à página anterior (se estiver ativada) |ALT + P |
+| Aceda à página anterior (se ativada) |ALT + P |
 | Escolha o botão Ligar. |ALT + C |
 
 ### <a name="connection-context-page"></a>Página de contexto de ligação
 | Operação | Prima |
 | --- | --- |
-| Botão de registo (se estiver ativada) |ALT + R |
+| Botão de registo (se ativada) |ALT + R |
 | Incluir a caixa de verificação de pré-visualização (se disponível) |ALT + P |
 | Incluir a caixa de verificação do perfil de dados (se disponível) |ALT + D |
-| Navegue para cada item de lista |Cópia de segurança ou de seta para baixo |
+| Navegue para cada item de lista |Para cima ou seta para baixo |
 | Hierarquia de servidores, expanda o nó de uma vista de árvore |SETA PARA A DIREITA |
-| Mover itens selecionados para **objetos disponíveis** ou **objetos a registar** |SPACEBAR |
+| Mover itens selecionados para **objetos disponíveis** ou **objetos a registar** |BARRA DE ESPAÇO |
 
-### <a name="publish-progress-page"></a>Publicar a página progresso
+### <a name="publish-progress-page"></a>Publicar a página de progresso
 | Operação | Prima |
 | --- | --- |
 | Botão Cancelar |ALT + C |
-| Botão mais objetos de registo |ALT + R |
-| Ver o botão de Portal |ALT+V |
+| Botão de mais objetos de registo |ALT + R |
+| Ver o botão do Portal |ALT + V |
 
-### <a name="publish-progress-page"></a>Publicar a página progresso
+### <a name="publish-progress-page"></a>Publicar a página de progresso
 | Operação | Prima |
 | --- | --- |
-| Botão Guardar (se estiver ativada) |ALT + S |
+| Botão Guardar (se ativada) |ALT + S |
 | Botão Cancelar |ALT + C |
 
 ## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Atalhos de teclado para o portal do catálogo de dados
 | Operação | Prima |
 | --- | --- |
-| Navegue |SEPARADOR e SHIFT + TAB |
-| Clique num item |ESPAÇO ou ENTER |
-| Desagregar para uma secção |ESPAÇO ou ENTER |
-| Sair fora de uma secção |ESC |
-| PIN/remover um recurso |ALT + P |
-| Na página de deteção, quando um recurso tem o foco, selecione elemento |ESPAÇO ou ENTER |
-| Adiciona/remover recurso da seleção múltipla |CTRL + espaço ou ENTER |
+| Navegar |TAB e SHIFT + TAB |
+| Clique num item |ESPAÇOS ou ENTER. |
+| Fazer uma busca detalhada numa seção |ESPAÇOS ou ENTER. |
+| Saída de uma secção |ESC |
+| Afixar/remover um recurso |ALT + P |
+| Na página de deteção, quando um recurso tem o foco, selecione elemento |ESPAÇOS ou ENTER. |
+| Adiciona/remover recurso de seleção múltipla |CTRL + espaço ou ENTER |
 | Alternar o menu de correspondências de pesquisa |ALT + S |
-| Ativar/desativar **abrir em** menu |ALT + O |
-| Explorar o contentor, se o recurso é um contentor |ALT + L |
+| Botão de alternar **abrir em** menu |ALT + O |
+| Explorar o contentor, se o elemento é um contentor |ALT + L |
 

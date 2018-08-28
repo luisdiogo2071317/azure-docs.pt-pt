@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: df20bf0641a146bfff8c484deb9c1edbe3060815
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 833d44e8582b78d5be33b90a9120d4ae4870f8dc
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330913"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093754"
 ---
-## <a name="speech-recognition-using-the-microphone"></a>Reconhecimento de voz com o microfone
+## <a name="speech-recognition-from-a-microphone"></a>Reconhecimento de voz de um microfone
 
-O fragmento de código abaixo mostra como reconhecer a entrada de voz do microfone no idioma padrão (`en-US`).
+O fragmento de código seguinte mostra como a reconhecer a entrada de voz de um microfone no idioma padrão (em inglês).
 

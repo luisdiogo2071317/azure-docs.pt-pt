@@ -3,18 +3,18 @@ title: MapReduce e o ambiente de trabalho remoto com o Hadoop no HDInsight - Azu
 description: Saiba como utilizar o ambiente de trabalho remoto para ligar ao Hadoop no HDInsight e executar tarefas de MapReduce.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf791fbada590109a485394964b9d99bdd1f9a3d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2ff0677117f67c63ab0dbf050d81db0b3b75d86b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599236"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051692"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Utilizar o MapReduce no Hadoop no HDInsight com o ambiente de trabalho remoto
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/25/2018
 ms.author: juliako
-ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41987643"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049360"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
@@ -95,7 +95,7 @@ Esta secção mostra como conseguir a interação entre dois widgets do Video In
 
 Agora quando um usuário clica o controlo de informações da sua aplicação, o jogador salta para um momento relevante.
 
-Para obter mais informações, consulte [esta demonstração](https://api-portal.videoindexer.ai/demo-all-widgets).
+Para obter mais informações, consulte [esta demonstração](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Incorporar o widget Insights cognitivos e utilize o leitor de multimédia do Azure para reproduzir o conteúdo
 
@@ -153,7 +153,7 @@ Esta secção mostra como conseguir a interação entre uma **Insights cognitivo
 
 Deve ser agora capaz de comunicar com o leitor de multimédia do Azure.
 
-Para obter mais informações, consulte [esta demonstração](https://api-portal.videoindexer.ai/demo-your-amp).
+Para obter mais informações, consulte [esta demonstração](https://codepen.io/videoindexer/pen/rYONrO).
 
 ### <a name="embed-video-indexer-cognitive-insights-widget-and-use-your-own-player-could-be-any-player"></a>Incorpore o widget de informações de cognitivos do indexador de vídeo e utilize o seu leitor (pode ser qualquer leitor)
 
@@ -201,7 +201,7 @@ Se usar seu próprio player, tem que cuidar de manipulação de seu player-se de
         </script>
 
 
-Para obter mais informações, consulte [esta demonstração](https://api-portal.videoindexer.ai/demo-your-player).
+Para obter mais informações, consulte [esta demonstração](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Adicionar legendas
 

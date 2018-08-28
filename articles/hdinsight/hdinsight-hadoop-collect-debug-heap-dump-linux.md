@@ -3,18 +3,18 @@ title: Ativar capturas de área dinâmica para dados para serviços do Hadoop no
 description: Ative capturas de área dinâmica para dados para serviços do Hadoop de clusters do HDInsight baseado em Linux para depuração e análise.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: e96cda8560d6fffa3475e7b3130ebc5954548eac
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592895"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095587"
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight baseado em Linux
 

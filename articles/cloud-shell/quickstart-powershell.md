@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324498"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108143"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Início rápido para o PowerShell no Azure Cloud Shell (pré-visualização)
 
@@ -119,7 +119,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> Poderá reparar que na segunda vez quando escrever `dir`, o cloud shell é capaz de exibir os itens muito mais rápidos.
+> Poderá reparar que na segunda vez quando escrever `dir`, o Cloud Shell é capaz de exibir os itens muito mais rápidos.
 > Isso ocorre porque os itens subordinados são colocadas em cache na memória para uma melhor experiência de utilizador.
 No entanto, pode sempre utilizar `dir -Force` para obter dados atualizados.
 
@@ -258,7 +258,6 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[OpenSSH de Win32](https://github.com/PowerShell/Win32-OpenSSH) está disponível no PowerShell Cloud Shell.
 Para autenticar servidores ou VMs através de SSH, gerar o par de chaves públicas-privadas no Cloud Shell e publicar a chave pública para `authorized_keys` na máquina remota, como `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]
