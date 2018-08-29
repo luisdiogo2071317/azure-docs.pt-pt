@@ -1,27 +1,23 @@
 ---
-title: Codificar ou descodificar ficheiros simples no Azure logic apps | Documentos da Microsoft
-description: Como utilizar o Decodificador ou codificador de ficheiro no pacote de integração empresarial nas suas aplicações lógicas
+title: Codificar ou descodificar ficheiros simples - Azure Logic Apps | Documentos da Microsoft
+description: Codificar ou descodificar ficheiros simples para a integração empresarial com o Azure Logic Apps e o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056719"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123933"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>Descrição geral da integração empresarial com ficheiros simples
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar ou descodificar ficheiros simples com o Azure Logic Apps e o Enterprise Integration Pack
 
 Pode querer codificar o conteúdo XML antes de enviar a um parceiro de negócios num cenário do empresa-empresa (B2B). Numa aplicação lógica, pode utilizar o conector de codificação de ficheiro simples de fazer isso. A aplicação lógica que criar pode obter o seu XML conteúdo de uma variedade de origens, incluindo a partir de um acionador de pedido HTTP, de outro aplicativo ou mesmo a partir de um dos muitos [conectores](../connectors/apis-list.md). Para obter mais informações sobre o logic apps, consulte a [documentação do logic apps](logic-apps-overview.md "Saiba mais sobre o Logic apps").  
 

@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 11aba1ae6f49d6c00fabd928ae3aefedcbea8ed8
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234353"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126618"
 ---
 # <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>Início rápido: Reconhecer voz em Java (Windows ou Linux)
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Este documento descreve como criar um aplicativo de console baseados em Java para o Java Runtime Environment (JRE) que utiliza o SDK de voz.
 A aplicação baseia-se o pacote Maven do Microsoft Cognitive Services SDK.
@@ -107,7 +107,7 @@ Próximos 15 segundos de entrada de voz de seu microfone serão reconhecidos e c
 
 ![Resultado da consola após o reconhecimento bem-sucedido](media/sdk/qs-java-jre-07-console-output.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo no `quickstart/java-jre` pasta.
 
 ## <a name="next-steps"></a>Passos Seguintes

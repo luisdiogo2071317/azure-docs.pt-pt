@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d19b71542f032111bbd3d9c7f3fe246110377b5d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281519"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127591"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
@@ -24,7 +24,7 @@ O corpo da mensagem de pedido para texto em voz podem ser texto simples (ASCII o
 
 Os pontos de extremidade regional texto em voz são mostrados aqui. Utilize o que é adequado à sua subscrição.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Especifique uma voz
 
@@ -85,10 +85,10 @@ Se ocorrer um erro, são utilizados os códigos de estado abaixo. O corpo da res
 
 |Código|Descrição|Problema|
 |-|-|-|
-400 |Pedido incorreto |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
+400 |Pedido Inválido |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
 401|Não autorizado |O pedido não está autorizado. Certifique-se a chave de subscrição ou token é válido.
 413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
-|502|Gateway inválido    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
+|502|Gateway incorrecto    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
 Para obter mais informações sobre o texto a API de REST de voz, consulte [REST APIs](rest-apis.md#text-to-speech).
 

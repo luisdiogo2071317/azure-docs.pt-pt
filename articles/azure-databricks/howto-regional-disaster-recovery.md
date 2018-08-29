@@ -8,24 +8,30 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 46cb9eaee1d56a96801065ae0a349aa0b1be85e0
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 671e18346651a40d7f286e984117ce0c9ae62364
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115228"
+ms.locfileid: "43125974"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação após desastre regional para clusters do Azure Databricks
 
 Este artigo descreve uma arquitetura de recuperação após desastre útil para clusters do Azure Databricks e os passos para realizar esse design.
 
-## <a name="control-plan-architecture"></a>Arquitetura de plano de controlo
+## <a name="azure-databricks-overview"></a>Descrição geral do Azure Databricks
 
-Num alto nível, quando cria uma área de trabalho do Azure Databricks no portal do Azure, um [aplicação gerida](../managed-applications/overview.md) é implementada como um recurso do Azure na sua subscrição, na escolher a região do Azure (por exemplo, E.U.A. oeste). Esta aplicação é implementada numa [rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [grupo de segurança de rede](../virtual-network/manage-network-security-group.md) e uma conta de armazenamento do Azure, disponível na sua subscrição. A rede virtual fornece segurança de nível de perímetro para a área de trabalho do Databricks e está protegida através do grupo de segurança de rede. Na área de trabalho, pode criar clusters do Databricks, fornecendo o trabalho e o driver de tipo de VM e a versão de runtime do Databricks. Os dados persistentes estão disponíveis na sua conta de armazenamento, que pode ser armazenamento de Blobs do Azure ou do Azure Data Lake Store. Assim que o cluster é criado, pode executar tarefas por meio de pontos finais ODBC/JDBC de blocos de notas, REST APIs, anexando-los a um cluster específico.
+O Azure Databricks é um serviço de análise baseada no Apache Spark rápida, fácil e de colaboração. Para um pipeline de grandes volumes de dados, os dados (não processados ou estruturados) é ingeridos no Azure através do Azure Data Factory em lotes ou transmitidos em tempo quase real com o Kafka, o Hub de eventos ou o IoT Hub. Este francesas de dados num data lake longo prazo persistentes armazenamento, no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake. Como parte do seu fluxo de trabalho de análise, utilizar o Azure Databricks para ler os dados de várias origens de dados, tal como [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md), [o armazenamento do Azure Data Lake](../data-lake-store/index.md), [do Azure Cosmos DB](../cosmos-db/index.yml) , ou [do Azure SQL Data Warehouse](../sql-data-warehouse/index.md) e transformá-lo em ideias inovadoras com o Spark.
+
+![Pipeline de Databricks](media/howto-regional-disaster-recovery/databricks-pipeline.png)
+
+## <a name="azure-databricks-architecture"></a>Arquitetura do Azure Databricks
+
+Num alto nível, quando cria uma área de trabalho do Azure Databricks no portal do Azure, um [aplicação gerida](../managed-applications/overview.md) é implementada como um recurso do Azure na sua subscrição, na região do Azure escolhido (por exemplo, E.U.A. oeste). Esta aplicação é implementada numa [rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [grupo de segurança de rede](../virtual-network/manage-network-security-group.md) e uma conta de armazenamento do Azure, disponível na sua subscrição. A rede virtual fornece segurança de nível de perímetro para a área de trabalho do Databricks e está protegida através do grupo de segurança de rede. Na área de trabalho, pode criar clusters do Databricks, fornecendo o trabalho e o driver de tipo de VM e a versão de runtime do Databricks. Os dados persistentes estão disponíveis na sua conta de armazenamento, que pode ser armazenamento de Blobs do Azure ou do Azure Data Lake Store. Assim que o cluster é criado, pode executar tarefas por meio de pontos finais ODBC/JDBC de blocos de notas, REST APIs, anexando-los a um cluster específico.
 
 O plano de controlo do Databricks gerencia e monitora o ambiente de área de trabalho do Databricks. Qualquer operação de gestão, tais como criar o cluster serão iniciado do painel de controlo. Todos os metadados, como as tarefas agendadas, é armazenada numa base de dados do Azure com a georreplicação para a tolerância a falhas.
 
-![Arquitetura de plano de controlo do Databricks](media/howto-regional-disaster-recovery/databricks-control-plane.png)
+![Arquitetura do Databricks](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
 Uma das vantagens dessa arquitetura é que os utilizadores podem ligar do Azure Databricks para qualquer recurso de armazenamento na respetiva conta. Das principais vantagens é que ambos (Azure Databricks) de computação e armazenamento pode ser dimensionado de forma independente.
 
@@ -243,7 +249,7 @@ Para criar seu próprio topologia de recuperação de desastre regional, siga es
 
 7. **Migrar de bibliotecas**
 
-   Atualmente, não há nenhuma maneira simples de migrar bibliotecas de uma área de trabalho para outro. Reinstale essas bibliotecas em nova área de trabalho. Por conseguinte, este passo é principalmente manual. Isso é possível automatizar usando a combinação de [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) para carregar bibliotecas personalizadas para a área de trabalho e [bibliotecas CLI](https://github.com/databricks/databricks-cli#libraries-cli).
+   Atualmente, não há nenhuma maneira simples de migrar bibliotecas de uma área de trabalho para outro. Em vez disso, reinstale manualmente dessas bibliotecas em nova área de trabalho. É possível automatizar usando a combinação de [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) para carregar bibliotecas personalizadas para a área de trabalho e [bibliotecas CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
 8. **Migrar o armazenamento de Blobs do Azure e monta do Azure Data Lake Store**
 
@@ -251,7 +257,7 @@ Para criar seu próprio topologia de recuperação de desastre regional, siga es
 
 9. **Migrar os scripts de inicialização de cluster**
 
-   Quaisquer scripts de inicialização de cluster podem ser migradas do antigo para nova área de trabalho com o [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Primeiro, copie os scripts necessários de "dbfs: / dados abricks/init /..." à sua área de trabalho local ou a máquina virtual. Em seguida, copie esses scripts para a nova área de trabalho no mesmo caminho.
+   Quaisquer scripts de inicialização de cluster podem ser migradas do antigo para nova área de trabalho com o [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Primeiro, copie os scripts necessários de `dbfs:/dat abricks/init/..` à sua área de trabalho local ou a máquina virtual. Em seguida, copie esses scripts para a nova área de trabalho no mesmo caminho.
 
    ```bash
    // Primary to local

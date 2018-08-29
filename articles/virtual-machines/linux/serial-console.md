@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1fcac972e7404c2e0549b9bb9f2e03861977bfad
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094776"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122410"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
@@ -36,10 +36,14 @@ Para obter a documentação da consola de série para VMs do Windows, [clique aq
 
 * Tem de utilizar o modelo de implementação de gestão de recursos. Implementações clássicas não são suportadas. 
 * A máquina virtual tem de ter [diagnósticos de arranque](boot-diagnostics.md) habilitado - veja a captura de ecrã abaixo.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
 * A conta do Azure através da consola de série tem de ter [função de contribuinte](../../role-based-access-control/built-in-roles.md) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento. 
 * A máquina virtual para o qual é a consola de série acessing também tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funcionalidade de extensão de acesso da VM - veja a captura de ecrã abaixo.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * Para configurações específicas de distribuições Linux, consulte [aceder à consola de série para Linux](#access-serial-console-for-linux)
 
 

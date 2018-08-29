@@ -1,28 +1,23 @@
 ---
 title: Criar web APIs e as APIs REST para o Azure Logic Apps | Documentos da Microsoft
-description: Criar web APIs e as APIs REST para chamar as APIs, serviços ou sistemas de fluxos de trabalho de aplicação de lógica para integrações de sistema
-keywords: APIs para a Web, REST APIs, fluxos de trabalho, integrações do sistema
+description: Criar web APIs e as APIs REST para chamar as APIs, serviços ou sistemas de integrações de sistema no Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172022"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122251"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Criar APIs personalizadas que pode chamar de fluxos de trabalho de aplicação de lógica
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas, pode chamar a partir do Azure Logic Apps
 
 Embora o Azure Logic Apps oferece [mais de 100 conectores incorporados](../connectors/apis-list.md) que pode utilizar em fluxos de trabalho de aplicação de lógica, pode querer chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Pode criar suas próprias APIs que fornecem ações e acionadores para utilizar no logic apps. Seguem-se outros motivos por que pode desejar criar suas próprias APIs que pode chamar de fluxos de trabalho de aplicação de lógica:
 

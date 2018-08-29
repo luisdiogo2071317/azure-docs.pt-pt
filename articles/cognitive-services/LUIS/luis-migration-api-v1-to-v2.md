@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cb68ad57302f151975c1ca6616a24db9804a6a68
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223060"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130535"
 ---
 # <a name="api-v2-migration-guide"></a>Guia de migração do API v2
 A versão 1 [ponto final](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs vão ser preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
@@ -168,6 +168,6 @@ Ver [códigos de resposta da API de LUIS](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Utilize a documentação da API v2 para atualizar o REST existente chama para LIUS [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
+Utilize a documentação da API v2 para atualizar o REST existente chama para LUIS [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

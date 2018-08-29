@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238884"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128131"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -94,8 +94,18 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 |Ativado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\myfile.txt"       |
+|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\*. txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*. *"       |
+|Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Definições de caráter universal, recursão e ambiente
+
+Recursão permite-lhe especificar carateres universais para simplificar o controle em diretórios e variáveis de ambiente para que possa controlar os ficheiros em ambientes com múltiplos ou dinâmico nomes da unidade. Segue-se uma lista de informações comuns que deve saber quando configurar a recursão:
+
+* Carateres universais são necessários para vários ficheiros de controlo
+* Se utilizar carateres universais, só pode ser utilizados no último segmento de um caminho. (por exemplo, C:\Folder\\**ficheiro** ou /etc/*.conf)
+* Se uma variável de ambiente má neplatnou cestu, validação será concluída com êxito, mas esse caminho irão falhar quando o inventário é executado.
+* Evitar caminhos gerais, tais como `c:\*.*` ao definir o caminho, como isso poderia resultar em demasiados pastas a ser percorridas.
 
 ## <a name="configure-file-content-tracking"></a>Configurar o controlo de conteúdo do ficheiro
 
@@ -122,13 +132,8 @@ Utilize os seguintes passos para configurar o controlo de chave de registo em co
 
 A solução de controlo de alterações não suporta atualmente os seguintes itens:
 
-* Pastas (diretórios) para controlo de ficheiros do Windows
-* Recursão para controlo de ficheiros do Windows
-* Carateres universais para o controlo de ficheiros do Windows
 * Recursão para o registo do Windows de controlo
-* Variáveis de caminho
 * Sistemas de ficheiros de rede
-* Conteúdo do Ficheiro
 
 Outras limitações:
 
@@ -137,7 +142,7 @@ Outras limitações:
 * Quando o tráfego de rede é alto, os registos de alteração podem demorar até seis horas a apresentar.
 * Se modificar a configuração, enquanto um computador é desligado, o computador poderá publicar as alterações que pertenciam a configuração anterior.
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 A solução de controlo de alterações está atualmente com os seguintes problemas:
 

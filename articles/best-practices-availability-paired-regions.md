@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4084a5bd8cb82442eb37844f88f2ff6dd166b5ee
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42446069"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125857"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): regiões emparelhadas do Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "42446069"
 
 O Azure opera em várias localizações geográficas em todo o mundo. Uma geografia do Azure é uma área definida de todo o mundo que contém pelo menos uma região do Azure. Uma região do Azure é uma área dentro de uma localização geográfica, que contém um ou mais datacenters.
 
-Cada região do Azure é emparelhada com outra região na mesma geografia, em conjunto, tornando um par regional. A exceção é o sul do Brasil, que se encontra emparelhado com uma região fora da sua área geográfica. Entre os pares de região que Azure serializará plataforma atualiza (manutenção planeada), para que apenas uma região emparelhada será atualizada ao mesmo tempo. Além disso, ele o evento de uma falha que afeta várias regiões, pelo menos uma região em cada par irá ser priorizada para recuperação.
+Cada região do Azure é emparelhada com outra região na mesma geografia, em conjunto, tornando um par regional. A exceção é o sul do Brasil, que se encontra emparelhado com uma região fora da sua área geográfica. Entre os pares de região que Azure serializará plataforma atualiza (manutenção planeada), para que apenas uma região emparelhada será atualizada ao mesmo tempo. Além disso, em caso de interrupção que afetam várias regiões, pelo menos, uma região em cada par irá ser priorizada para recuperação.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 

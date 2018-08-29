@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390199"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128525"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -151,7 +151,7 @@ Se estiver a utilizar o início de sessão para análise de previsão, não capt
 
 Não. Modelo de dados da aplicação LUIS não é utilizado pelo LUIS para melhorar o LUIS como uma plataforma ou utilizado pela Microsoft de qualquer forma. Dados de cada aplicação são separada e pertencentes à empresa apenas pelo utilizador e colaboradores. 
 
-Saiba mais sobre [privacidade do utilizador](luis-reference-gdpr.md), [conformidade de segurança adicional](luis-concept-security.md#security-compliance), e [armazenamento de dados](luis-concept-data-storage.md).
+Saiba mais sobre [privacidade do utilizador](luis-user-privacy.md), [conformidade de segurança adicional](luis-concept-security.md#security-compliance), e [armazenamento de dados](luis-concept-data-storage.md).
 
 ## <a name="language-and-translation-support"></a>Suporte de idioma e de tradução 
 

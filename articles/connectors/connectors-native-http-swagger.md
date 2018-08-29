@@ -1,108 +1,104 @@
 ---
-title: Chamar pontos finais REST com HTTP + Swagger connector para Azure Logic Apps | Microsoft Docs
-description: Ligar a pontos finais REST a partir das logic apps através de Swagger com o HTTP + Swagger connector
+title: Chamar pontos finais REST a partir do Azure Logic Apps | Documentos da Microsoft
+description: Automatizar tarefas e fluxos de trabalho que se comunicam com pontos finais REST utilizando o HTTP + Swagger connector no Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296524"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123177"
 ---
-# <a name="get-started-with-the-http--swagger-action"></a>Começar a utilizar o HTTP + Swagger ação
+# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos finais REST com HTTP + Swagger connector no Azure Logic Apps
 
-Pode criar um conector de primeira classe para qualquer ponto final REST através de um [documento Swagger](https://swagger.io) ao utilizar o HTTP + Swagger ação no seu fluxo de trabalho de aplicação lógica. Também pode expandir as logic apps para chamar a qualquer ponto final REST com uma experiência primeira classe do Designer de aplicação lógica.
+Pode criar um conector de primeira classe para qualquer ponto final REST através de um [documento Swagger](https://swagger.io) quando utiliza o HTTP + Swagger ação no seu fluxo de trabalho de aplicação lógica. Pode ainda expandir o logic apps para chamar qualquer ponto final REST com uma experiência de Estruturador da aplicação lógica de primeira classe.
 
-Para saber como criar aplicações lógicas com conectores, consulte [criar uma nova aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para saber como criar aplicações lógicas com conectores, veja [criar uma nova aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Utilizar HTTP + Swagger como um acionador ou uma ação
 
-O HTTP + Swagger acionar e ação funcionar da mesma, como o [ação HTTP](connectors-native-http.md) mas fornece uma melhor experiência no Designer de aplicação lógica resultariam da exposição a estrutura de API e saídas do [metadados do Swagger](https://swagger.io). Também pode utilizar o HTTP + Swagger connector como um acionador. Se pretender implementar um acionador de consulta, seguem o padrão de consulta que é descrito no [criar APIs personalizadas para chamar outros APIs, serviços e sistemas a partir das logic apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+O HTTP + Swagger acionar e ação funcionam da mesma forma como o [ação de HTTP](connectors-native-http.md) mas proporcionar uma melhor experiência no Estruturador da aplicação lógica ao expor a estrutura de API e saídas da [metadados do Swagger](https://swagger.io). Também pode utilizar o HTTP + Swagger connector como acionador. Se pretender implementar um acionador de consulta, siga o padrão de consulta que está descrito em [criar APIs personalizadas para chamar outros APIs, serviços e sistemas de aplicações lógicas](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Saiba mais sobre [logic app acionadores e ações](connectors-overview.md).
+Saiba mais sobre [ações e acionadores da aplicação lógica](connectors-overview.md).
 
 Eis um exemplo de como a utilização de HTTP + Swagger operação como uma ação num fluxo de trabalho numa aplicação lógica.
 
 1. Selecione o **novo passo** botão.
 2. Selecione **adicionar uma ação**.
-3. Na caixa de pesquisa de ação, escreva **swagger** a lista de HTTP + Swagger ação.
+3. Na caixa de pesquisa de ação, escreva **swagger** a lista a HTTP + Swagger ação.
    
     ![Selecione HTTP + Swagger ação](./media/connectors-native-http-swagger/using-action-1.png)
 4. Escreva o URL para um documento Swagger:
    
-   * Para trabalhar a partir do Designer de aplicação lógica, o URL tem de ser um ponto final de HTTPS e tiver ativado o CORS.
-   * Se o documento Swagger não cumpre este requisito, pode utilizar [Storage do Azure com a CORS ativada](#hosting-swagger-from-storage) para armazenar o documento.
-5. Clique em **seguinte** para ler e compor do documento Swagger.
-6. Adicione quaisquer parâmetros que são necessários para a chamada HTTP.
+   * O URL tem de ser um ponto final HTTPS para trabalhar a partir do Estruturador da aplicação lógica, e tiver ativado o CORS.
+   * Se o documento Swagger não cumpre este requisito, pode utilizar [armazenamento do Azure com a CORS ativada](#hosting-swagger-from-storage) para armazenar o documento.
+5. Clique em **seguinte** ler e processar do documento Swagger.
+6. Adicione todos os parâmetros que são necessários para a chamada HTTP.
    
-    ![Ação de HTTP concluída](./media/connectors-native-http-swagger/using-action-2.png)
-7. Para guardar e publicar a sua aplicação lógica, clique em **guardar** na barra de ferramentas estruturador.
+    ![Ação de HTTP completa](./media/connectors-native-http-swagger/using-action-2.png)
+7. Para guardar e publicar a aplicação lógica, clique em **guardar** na barra de ferramentas de designer.
 
-### <a name="host-swagger-from-azure-storage"></a>Anfitrião de Swagger do armazenamento do Azure
-Pode querer fazer referência a um documento Swagger que não fique alojada ou que não cumprem os requisitos de várias origens para o estruturador e segurança. Para resolver este problema, pode armazenar o documento Swagger no armazenamento do Azure e ativar o CORS para referenciar o documento.  
+### <a name="host-swagger-from-azure-storage"></a>Swagger de anfitrião do armazenamento do Azure
+Pode querer fazer referência a um documento do Swagger que não está alojada, ou que não cumpre os requisitos de várias origens para o designer e segurança. Para resolver este problema, pode armazenar o documento Swagger no armazenamento do Azure e ativar o CORS para o documento de referência.  
 
-Eis os passos para criar, configurar e armazenar documentos Swagger no armazenamento do Azure:
+Eis os passos para criar, configurar e armazenar documentos de Swagger no armazenamento do Azure:
 
-1. [Criar uma conta de armazenamento do Azure com o Blob storage do Azure](../storage/common/storage-create-storage-account.md). Para efetuar este passo, defina as permissões para **acesso público**.
+1. [Criar uma conta de armazenamento do Azure com o armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md). Para realizar este passo, defina permissões para **acesso público**.
 
-2. Ative a CORS no blob. 
+2. Ative o CORS no blob. 
 
    Para configurar automaticamente esta definição, pode utilizar [este script do PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
 
-3. Carregue o ficheiro Swagger para o blob. 
+3. Carregue o ficheiro de Swagger para o blob. 
 
-   Pode efetuar este passo do [portal do Azure](https://portal.azure.com) ou a partir de uma ferramenta como o [Explorador de armazenamento do Azure](http://storageexplorer.com/).
+   Pode efetuar este passo do [portal do Azure](https://portal.azure.com) ou a partir de uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/).
 
-4. Referência a uma ligação HTTPS para o documento no Blob storage do Azure. 
+4. Fazer referência a uma ligação HTTPS para o documento no armazenamento de Blobs do Azure. 
 
    A ligação utiliza este formato:
 
    `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
 ## <a name="technical-details"></a>Detalhes técnicos
-Seguem-se os detalhes de acionadores e ações que este HTTP + Swagger connector suporta.
+Seguem-se os detalhes para os acionadores e ações que este HTTP + Swagger connector suporta.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger acionadores
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido uma aplicação lógica. [Saiba mais sobre acionadores.](connectors-overview.md) O HTTP + Swagger connector tem um acionador.
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido numa aplicação lógica. [Saiba mais sobre os acionadores.](connectors-overview.md) O HTTP + Swagger connector tem um acionador.
 
 | Acionador | Descrição |
 | --- | --- |
-| HTTP + Swagger |Efetuar uma chamada HTTP e devolver o conteúdo de resposta |
+| HTTP + Swagger |Efetuar uma chamada HTTP e retornar o conteúdo de resposta |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger ações
-Uma ação é uma operação que é efetuada pelo fluxo de trabalho que está definido uma aplicação lógica. [Saiba mais sobre as ações.](connectors-overview.md) O HTTP + Swagger connector tem uma ação possíveis.
+Uma ação é uma operação que é executada pelo fluxo de trabalho que está definido numa aplicação lógica. [Saiba mais sobre as ações.](connectors-overview.md) O HTTP + Swagger connector tem uma ação possível.
 
 | Ação | Descrição |
 | --- | --- |
-| HTTP + Swagger |Efetuar uma chamada HTTP e devolver o conteúdo de resposta |
+| HTTP + Swagger |Efetuar uma chamada HTTP e retornar o conteúdo de resposta |
 
 ### <a name="action-details"></a>Detalhes da ação
-O HTTP + Swagger connector vem com uma ação possíveis. Segue-se informações sobre cada um das ações, os campos de entrada necessários e opcionais e os detalhes de resultado correspondente que estão associados a respetiva utilização.
+O HTTP + Swagger connector vem com uma ação possível. Segue-se informações sobre cada uma das ações, seus campos de entrada necessários e opcionais e os detalhes de resultado correspondente, que estão associados a utilização das mesmas.
 
 #### <a name="http--swagger"></a>HTTP + Swagger
-Efetue um pedido de saída HTTP com a assistência de metadados Swagger.
+Faça uma solicitação de saída HTTP com o auxílio de metadados Swagger.
 Um asterisco (*) significa que um campo obrigatório.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Método * |método |Verbo HTTP a utilizar. |
-| URI * |uri |URI do pedido de HTTP. |
-| Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir. |
+| Método * |método |Verbo HTTP para utilizar. |
+| URI * |uri |URI do pedido HTTP. |
+| Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos HTTP para incluir. |
 | Corpo |corpo |O corpo do pedido HTTP. |
-| Autenticação |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte o [conetor HTTP](connectors-native-http.md#authentication). |
+| Autenticação |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte a [conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 
@@ -114,8 +110,8 @@ Resposta HTTP
 | Corpo |objeto |Objeto de resposta |
 | Código de Estado |Int |Código de estado de HTTP |
 
-### <a name="http-responses"></a>Respostas de HTTP
-Quando efetuar chamadas para várias ações, poderá obter determinadas respostas. Segue-se uma tabela que descreve as respostas correspondentes e descrições.
+### <a name="http-responses"></a>Respostas HTTP
+Ao fazer chamadas para várias ações, poderá obter respostas de determinados. Segue-se uma tabela que descreve as respostas correspondentes e descrições.
 
 | Nome | Descrição |
 | --- | --- |
@@ -131,4 +127,4 @@ Quando efetuar chamadas para várias ações, poderá obter determinadas respost
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Localizar outros conectores](apis-list.md)
+* [Encontre outros conectores](apis-list.md)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003537"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143653"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 
@@ -43,7 +43,7 @@ Depois de criar o seu hub IoT pode atualizar do escalão básico para o escalão
 | [Monitorização e diagnóstico](iot-hub-monitor-resource-health.md) | Sim | Sim |
 | [Mensagens cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
 | [Dispositivos duplos](iot-hub-devguide-device-twins.md), [duplos de módulo](iot-hub-devguide-module-twins.md) e [gestão de dispositivos](iot-hub-device-management-overview.md) |   | Sim |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Sim |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sim |
 
 IoT Hub também oferece um escalão gratuito, que serve para teste e avaliação. Ele tem todas as funcionalidades do escalão standard, mas limitados concessões de mensagens. Não é possível atualizar do escalão gratuito para básico ou padrão. 
 

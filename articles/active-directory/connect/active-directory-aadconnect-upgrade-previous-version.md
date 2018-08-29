@@ -15,12 +15,12 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: b730f80faa031b1866d3c11d8a2c885ec67f965e
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264516"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144325"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>O Azure AD Connect: Atualização de uma versão anterior para a versão mais recente
 Este tópico descreve os diferentes métodos que pode utilizar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que mantenha-se atualizado com as versões do Azure AD Connect. Também é usar os passos a [migração rotativa](#swing-migration) secção quando fizer uma alteração de configuração substancial.
@@ -67,7 +67,7 @@ Estes passos também funcionam para mover do Azure AD Sync ou uma solução com 
 
 ### <a name="use-a-swing-migration-to-upgrade"></a>Utilize uma migração rotativa para atualizar
 1. Se utilizar o Azure AD Connect em ambos os servidores e planeie efetuar apenas uma configuração alterar, certifique-se de que o servidor Active Directory e o servidor de preparação ambos utilizam a mesma versão. Que torna mais fácil de comparar as diferenças mais tarde. Se estiver a atualizar a partir do Azure AD Sync, em seguida, estes servidores têm versões diferentes. Se estiver a atualizar a partir de uma versão mais antiga do Azure AD Connect, é uma boa idéia começar com os dois servidores que estão a utilizar a mesma versão, mas não seja necessário.
-2. Se fez uma configuração personalizada e o servidor de preparação não o tiver, siga os passos em [mover uma configuração personalizada do servidor ativo para o servidor de preparação](#move-custom-configuration-from-active-to-staging-server).
+2. Se fez uma configuração personalizada e o servidor de preparação não o tiver, siga os passos em [mover uma configuração personalizada do servidor ativo para o servidor de preparação](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Se estiver a atualizar a partir de uma versão anterior do Azure AD Connect, atualize o servidor de preparação para a versão mais recente. Se estiver a mover a partir do Azure AD Sync, em seguida, instale o Azure AD Connect no seu servidor de preparação.
 4. Permitir que o motor de sincronização executar a importação completa e a sincronização completa no seu servidor de preparação.
 5. Certifique-se que a nova configuração não causa quaisquer alterações inesperadas, utilizando os passos em "Verificar" na [verificar a configuração de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Se algo não estiver conforme esperado, corrigi-lo, execute a importação e sincronização e verifique se os dados até que isso parece bom, ao seguir os passos.

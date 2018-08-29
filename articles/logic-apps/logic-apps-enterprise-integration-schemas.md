@@ -1,29 +1,25 @@
 ---
-title: Esquemas para a validação de XML - Azure Logic Apps | Microsoft Docs
-description: Validar documentos XML com esquemas para o Azure Logic Apps e Enterprise Integration Pack
+title: Adicionar esquemas para a validação de XML - Azure Logic Apps | Documentos da Microsoft
+description: Crie esquemas que validam os documentos XML no Azure Logic Apps com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 07/29/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: e23500ec3c16e66b8dc74fcba29e9b58f0b41790
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299067"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123078"
 ---
-# <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Validar o XML com esquemas para o Azure Logic Apps e o pacote de integração do Enterprise
+# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas no Azure Logic Apps com o Enterprise Integration Pack
 
-Esquemas confirmar que os documentos XML que receberá são válidos e possuem os dados esperados num formato predefinido. Esquemas também ajudam a validar as mensagens que são trocadas num cenário de B2B.
+Esquemas de confirmar que os documentos XML que receber são válidos e tem os dados esperados num formato predefinido. Esquemas também ajudar a validar as mensagens que são trocadas num cenário B2B.
 
 ## <a name="add-a-schema"></a>Adicionar um esquema
 
@@ -31,106 +27,106 @@ Esquemas confirmar que os documentos XML que receberá são válidos e possuem o
 
     ![Portal do Azure, "Todos os serviços"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
-2. Na caixa de filtro de pesquisa, introduza **integração**e selecione **contas de automatização** na lista de resultados.
+2. Na caixa de filtro de pesquisa, introduza **integração**e selecione **contas de integração** na lista de resultados.
 
     ![Caixa de pesquisa de filtro](media/logic-apps-enterprise-integration-schemas/overview-21.png)
 
-3. Selecione o **conta integração** onde pretende adicionar o esquema.
+3. Selecione o **conta de integração** onde pretende adicionar o esquema.
 
-    ![Lista de contas de automatização](media/logic-apps-enterprise-integration-schemas/overview-31.png)
+    ![Lista de contas de integração](media/logic-apps-enterprise-integration-schemas/overview-31.png)
 
 4. Escolha o **esquemas** mosaico.
 
     ![Conta de integração de exemplo, "Esquemas"](media/logic-apps-enterprise-integration-schemas/schema-11.png)
 
-### <a name="add-a-schema-file-smaller-than-2-mb"></a>Adicionar um ficheiro de esquema inferior a 2 MB
+### <a name="add-a-schema-file-smaller-than-2-mb"></a>Adicione um ficheiro de esquema menor do que 2 MB
 
-1. No **esquemas** painel que abre (a partir dos passos anteriores), escolha **adicionar**.
+1. Na **esquemas** painel abrir (a partir de passos anteriores), selecione **Add**.
 
     ![Painel de esquemas, "Adicionar"](media/logic-apps-enterprise-integration-schemas/schema-21.png)
 
-2. Introduza um nome para o esquema. Carregue o ficheiro de esquema, selecionando o ícone de pasta junto a **esquema** caixa. Depois de concluir o processo de carregamento, selecione **OK**.
+2. Introduza um nome para o seu esquema. Carregue o ficheiro de esquema ao selecionar o ícone de pasta junto a **esquema** caixa. Depois do processo de carregamento for concluído, selecione **OK**.
 
     ![Captura de ecrã de "Adicionar Schema", com "Ficheiro pequeno" realçado](media/logic-apps-enterprise-integration-schemas/schema-31.png)
 
-### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>Adicione um ficheiro de esquema com mais de 2 MB (até 8 MB máximo)
+### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>Adicione um ficheiro de esquema mais de 2 MB (até 8 MB máximo)
 
-Estes passos divergir com base no nível de acesso de contentor do blob: **pública** ou **sem acesso anónimo**.
+Estes passos são diferentes com base no nível de acesso do contentor do blob: **pública** ou **sem acesso anónimo**.
 
 **Para determinar este nível de acesso**
 
-1.  Abra **Explorador de armazenamento do Azure**. 
+1.  Open **Explorador de armazenamento do Azure**. 
 
-2.  Em **contentores de BLOBs**, selecione o contentor de blob que pretende. 
+2.  Sob **contentores de BLOBs**, selecione o contentor de BLOBs que quiser. 
 
-3.  Selecione **segurança**, **nível de acesso**.
+3.  Selecione **Security**, **nível de acesso**.
 
-Se o nível de acesso de segurança do blob é **pública**, siga estes passos.
+Se for o nível de acesso de segurança de blob **público**, siga estes passos.
 
-![Explorador de armazenamento do Azure, com "Contentores de BLOBs", "Segurança" e "Público" realçado](media/logic-apps-enterprise-integration-schemas/blob-public.png)
+![Explorador de armazenamento do Azure, com "Contentores de BLOBs", "Segurança" e "Public" realçado](media/logic-apps-enterprise-integration-schemas/blob-public.png)
 
-1. Carregar o esquema para a sua conta de armazenamento e copie o URI.
+1. Carregar o esquema para a conta de armazenamento e copie o URI.
 
-    ![Conta do Storage, com o URI realçado](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
+    ![Conta de armazenamento, com o URI realçado](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
 
-2. No **Adicionar esquema**, selecione **ficheiros grandes**e forneça o URI no **URI conteúdo** caixa de texto.
+2. Na **Adicionar esquema**, selecione **ficheiros grandes**e forneça o URI no **URI de conteúdo** caixa de texto.
 
     ![Esquemas, com o botão "Adicionar" e "Ficheiros grandes" realçado](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
 
-Se o nível de acesso de segurança do blob é **sem acesso anónimo**, siga estes passos.
+Se for o nível de acesso de segurança de blob **sem acesso anónimo**, siga estes passos.
 
 ![Explorador de armazenamento do Azure, com "Contentores de BLOBs", "Segurança" e "Sem acesso anónimo" realçado](media/logic-apps-enterprise-integration-schemas/blob-1.png)
 
-1. Carregar o esquema para a sua conta de armazenamento.
+1. Carregar o esquema para a conta de armazenamento.
 
     ![Conta de armazenamento](media/logic-apps-enterprise-integration-schemas/blob-3.png)
 
 2. Gere uma assinatura de acesso partilhado para o esquema.
 
-    ![Conta do Storage, com o separador de assinaturas de acesso partilhado realçado](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+    ![Conta de armazenamento, com o separador de assinaturas de acesso partilhado realçado](media/logic-apps-enterprise-integration-schemas/blob-2.png)
 
-3. No **Adicionar esquema**, selecione **ficheiros grandes**e forneça a URI de assinatura de acesso partilhado no **URI conteúdo** caixa de texto.
+3. Na **Adicionar esquema**, selecione **ficheiros grandes**e forneça o URI de assinatura de acesso partilhado no **URI de conteúdo** caixa de texto.
 
     ![Esquemas, com o botão "Adicionar" e "Ficheiros grandes" realçado](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
 
-4. No **esquemas** painel da sua conta de integração, o esquema recém-adicionado deve aparecer.
+4. Na **esquemas** painel da sua conta de integração, o seu esquema recém-adicionado deve aparecer.
 
-    ![A conta de integração, com "Esquemas" e o novo esquema realçado](media/logic-apps-enterprise-integration-schemas/schema-41.png)
+    ![Sua conta de integração, com "Esquemas" e o novo esquema realçado](media/logic-apps-enterprise-integration-schemas/schema-41.png)
 
 ## <a name="edit-schemas"></a>Editar esquemas
 
 1. Escolha o **esquemas** mosaico.
 
-2. Depois do **esquemas** é aberto o painel, selecione o esquema que pretende editar.
+2. Depois do **esquemas** é apresentado o painel, selecione o esquema que pretende editar.
 
-3. No **esquemas** painel, escolha **editar**.
+3. Sobre o **esquemas** painel, escolha **editar**.
 
     ![Painel de esquemas](media/logic-apps-enterprise-integration-schemas/edit-12.png)
 
-4. Selecione o ficheiro de esquema que pretende editar, em seguida, selecione **abra**.
+4. Selecione o ficheiro de esquema que pretende editar, em seguida, selecione **aberto**.
 
-    ![Ficheiro de esquema aberta para o editar](media/logic-apps-enterprise-integration-schemas/edit-31.png)
+    ![Ficheiro de esquema aberta para editar](media/logic-apps-enterprise-integration-schemas/edit-31.png)
 
-Azure mostra uma mensagem que o esquema carregada com êxito.
+O Azure mostra uma mensagem que o esquema carregado com êxito.
 
 ## <a name="delete-schemas"></a>Eliminar esquemas
 
 1. Escolha o **esquemas** mosaico.
 
-2. Depois do **esquemas** é aberto o painel, selecione o esquema que pretende eliminar.
+2. Depois do **esquemas** é apresentado o painel, selecione o esquema que pretende eliminar.
 
-3. No **esquemas** painel, escolha **eliminar**.
+3. Sobre o **esquemas** painel, escolha **eliminar**.
 
     ![Painel de esquemas](media/logic-apps-enterprise-integration-schemas/delete-12.png)
 
-4. Para confirmar que pretende eliminar o esquema selecionado, escolher **Sim**.
+4. Para confirmar que pretende eliminar o esquema selecionado, escolha **Sim**.
 
-    ![Mensagem de confirmação "Esquema eliminar"](media/logic-apps-enterprise-integration-schemas/delete-21.png)
+    ![Mensagem de confirmação "Excluir o esquema"](media/logic-apps-enterprise-integration-schemas/delete-21.png)
 
-    No **esquemas** painel, a lista de esquema é atualizada e já não inclui o esquema que tenha eliminado.
+    Na **esquemas** painel, a lista de esquema é atualizada e já não inclui o esquema que eliminou.
 
     ![A integração de conta, com "Esquemas" realçado](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do enterprise").  
+* [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o enterprise integration pack").  
 

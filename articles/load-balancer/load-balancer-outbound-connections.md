@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058507"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122581"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -122,13 +122,23 @@ Ao usar [Balanceador de carga Standard com zonas de disponibilidade](load-balanc
 
 Quando um recurso de Balanceador de carga público é associado a instâncias de VM, cada origem de ligação de saída é reescrita. A origem é Reescrita do espaço de endereços IP privado da rede virtual para o endereço IP público do Balanceador de carga de front-end. No espaço de endereços IP públicos, a 5 cadeias de identificação do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) tem de ser exclusiva.  Porta SNAT de Disfarce pode ser utilizado com protocolos TCP ou UDP IP.
 
-Portas efêmeras (portas SNAT) são utilizadas para conseguir isso depois de reescrever o endereço IP de origem privados, uma vez que vários fluxos provêm de um único endereço IP público. 
+Portas efêmeras (portas SNAT) são utilizadas para conseguir isso depois de reescrever o endereço IP de origem privados, uma vez que vários fluxos provêm de um único endereço IP público. O algoritmo SNAT de Disfarce de porta aloca portas SNAT de forma diferente para UDP e TCP.
 
-Uma porta SNAT é consumida por fluxo para um endereço IP de destino único, porta e protocolo. Para vários fluxos para o mesmo endereço IP de destino, portas e protocolos, cada fluxo consome uma única porta SNAT. Isto garante que os fluxos são exclusivos, quando são provêm do mesmo endereço IP público e vão para o mesmo endereço IP de destino, porta e protocolo. 
+#### <a name="tcp"></a>Portas de SNAT de TCP
+
+Uma porta SNAT é consumida por fluxo para um endereço IP de destino única porta. Para vários fluxos TCP para o mesmo endereço IP de destino, portas e protocolos, cada fluxo TCP consome uma única porta SNAT. Isto garante que os fluxos são exclusivos, quando são provêm do mesmo endereço IP público e vão para o mesmo endereço IP de destino, porta e protocolo. 
 
 Vários fluxos, cada um para um endereço IP de destino diferente, porta e protocolo, partilham uma única porta SNAT. O endereço IP de destino, portas e protocolos que fluxos exclusivo sem a necessidade de origem adicionais portas para distinguir os fluxos no espaço de endereços IP público.
 
+#### <a name="udp"></a> Portas de SNAT de UDP
+
+Portas UDP SNAT são geridas por um algoritmo diferente do que as portas de SNAT de TCP.  Balanceador de carga utiliza um algoritmo conhecido como "restritas por porta cone NAT" para UDP.  Uma porta SNAT é consumida para cada fluxo, independentemente do endereço IP de destino, porta.
+
+#### <a name="exhaustion"></a>Esgotamento
+
 Quando os recursos de porta SNAT são esgotados, fluxos de saída falharem até que os fluxos existentes de portas SNAT de versão. Balanceador de carga reclama portas SNAT quando o fluxo fecha e utiliza um [tempo limite de inatividade de 4 minutos](#idletimeout) para reclamação portas SNAT de fluxos de inatividade.
+
+Portas UDP SNAT geralmente esgotar muito mais rapidamente do que as portas de TCP SNAT devido uma diferença no algoritmo utilizado. Devem testar de design e o dimensionamento, com essa diferença em mente.
 
 Padrões atenuar as condições que normalmente conduzem a exaustão de porta SNAT, reveja os [SNAT de gerir](#snatexhaust) secção.
 
@@ -136,7 +146,7 @@ Padrões atenuar as condições que normalmente conduzem a exaustão de porta SN
 
 O Azure utiliza um algoritmo para determinar o número de pré-alocado SNAT portas disponíveis com base no tamanho do conjunto de back-end ao utilizar a porta SNAT de Disfarce ([dar um TAPINHA](#pat)). Portas SNAT são portas efêmeras disponíveis para um determinado endereço de origem IP público.
 
-O mesmo número de portas SNAT é pré-alocado para UDP e TCP, respectivamente e consumido de forma independente por protocolo de transporte IP. 
+O mesmo número de portas SNAT é pré-alocado para UDP e TCP, respectivamente e consumido de forma independente por protocolo de transporte IP.  No entanto, a utilização de porta SNAT é diferente, dependendo do fluxo é UDP ou TCP.
 
 >[!IMPORTANT]
 >Padrão de SKU de SNAT de programação é por protocolo de transporte IP e deriva a regra de balanceamento de carga.  Se só existe uma regra de balanceamento de carga TCP, SNAT só está disponível para TCP. Se tiver apenas uma carga TCP regra de balanceamento e precisar de SNAT de saída para UDP, crie uma regra a partir do mesmo front-end para o mesmo conjunto de back-end de balanceamento de carga do UDP.  Isto irá acionar SNAT de programação para UDP.  Não é necessária uma sonda de estado de funcionamento ou a regra de trabalho.  SNAT de SKU básico programas sempre SNAT para ambos os protocolo de transporte IP, independentemente do protocolo de transporte especificado na regra de balanceamento de carga.

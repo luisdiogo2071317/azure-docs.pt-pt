@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059239"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125249"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -623,7 +623,7 @@ Viu como Visual Studio torna mais fácil ver os registos criados por uma aplica�
 ### <a name="azure-web-app-troubleshooting"></a>Resolução de problemas de aplicação web do Azure
 Para obter mais informações sobre resolução de problemas de aplicações web no App Service do Azure, consulte os seguintes recursos:
 
-* [Como monitorizar aplicações web](/manage/services/web-sites/how-to-monitor-websites/)
+* [Como monitorizar aplicações web](web-sites-monitor.md)
 * [Investigar vazamentos de memória em aplicativos da Web do Azure com o Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Mensagem de blogue do Microsoft ALM sobre as funcionalidades do Visual Studio para analisar problemas de memória gerenciada.
 * [Ferramentas de online de aplicações de web do Azure que precisa conhecer](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Mensagem de blogue pela Amit Apple.
 
@@ -674,7 +674,7 @@ catch (Exception ex)
 
 * [Registo a partir da linha de comandos do Azure (mais rápida visualização!) de rastreio de diagnóstico de transmissão em fluxo](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Como utilizar a linha de comandos para fazer o que este tutorial mostra como fazer no Visual Studio. [Antevisão](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos do ASP.NET.
-* [Utilizar aplicações Web, registo e diagnóstico - com David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) e [transmissão em fluxo registos de aplicações Web – com David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Utilizar aplicações Web, registo e diagnóstico - com David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [transmissão em fluxo registos de aplicações Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Vídeos por Scott Hanselman e David Ebbo.
 
 Para o registo de erro, uma alternativa para escrever seu próprio código de rastreamento é usar uma arquitetura de registo de código-fonte aberto, como [ELMAH](http://nuget.org/packages/elmah/). Para obter mais informações, consulte [mensagens de blogue de Scott Hanselman sobre o ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).

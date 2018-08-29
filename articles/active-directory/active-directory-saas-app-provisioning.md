@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 9a0b89528adc173fa3aa26415942cbef81dcb291
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d6f345a35275328212d6a245242083b809943b7
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364211"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144089"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o aprovisionamento automatizado do utilizador para aplicações SaaS?
@@ -235,7 +235,7 @@ Para orientação baseada em cenário sobre como resolver problemas de aprovisio
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-Para um plano de implementação passo a passo de exemplo para o aprovisionamento de utilizador de saída a uma aplicação, consulte o [guia de implementação de identidade para o aprovisionamento do utilizador](https://aka.ms/userprovisioningdeploymentplan)/
+Para um plano de implementação passo a passo de exemplo para o aprovisionamento de utilizador de saída a uma aplicação, consulte a [guia de implementação de identidade para o aprovisionamento de utilizadores](https://aka.ms/userprovisioningdeploymentplan).
 
 
 ## <a name="related-articles"></a>Artigos relacionados

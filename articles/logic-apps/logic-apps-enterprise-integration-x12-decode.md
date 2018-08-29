@@ -1,75 +1,71 @@
 ---
-title: Descodificar X12 mensagens – Azure Logic Apps | Microsoft Docs
-description: Validar EDI e gerar confirmações de receção com o X12 descodificador de mensagem no pacote de integração do Enterprise para o Azure Logic Apps
+title: Descodificação de X12 mensagens - Azure Logic Apps | Documentos da Microsoft
+description: Validar EDI e gerar confirmações de receção com X12 descodificador de mensagem no Azure Logic Apps com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 14e9f0eefb705eea59a00390494871f5668b0a01
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298666"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121650"
 ---
-# <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificar X12 mensagens para o Azure Logic Apps com o pacote de integração do Enterprise
+# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Descodificação de X12 mensagens no Azure Logic Apps com o Enterprise Integration Pack
 
-Com o conector de mensagem Decode X12, pode validar o envelope contra um contrato de parceiro comercial, validar EDI e propriedades específicos de parceiro, dividir interchanges para conjuntos de transações ou manter todos interchanges e gerar em que as confirmações para transações processadas. Para utilizar este conector, tem de adicionar o conector para um acionador existente na sua aplicação lógica.
+Com o conector de mensagem de Decodificação X12, pode validar o envelope em relação a um contrato de parceiro comercial, validar EDI e propriedades específicas de parceiro, dividir intercâmbios em conjuntos de transações ou preservar intercâmbios todos e gerar confirmações para transações processadas. Para utilizar este conector, tem de adicionar o conector para um acionador existente na sua aplicação lógica.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Segue-se os itens que precisa de:
+Eis os itens que precisa:
 
 * Uma conta do Azure; Pode criar um [conta gratuita](https://azure.microsoft.com/free)
-* Um [conta integração](logic-apps-enterprise-integration-create-integration-account.md) que já foi definida e associados à subscrição do Azure. Tem de ter uma conta de integração para utilizar o conector de mensagem Decode X12.
-* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já são definidas na sua conta de integração
-* Um [X12 contrato](logic-apps-enterprise-integration-x12.md) que já está definido na sua conta de integração
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já definida e associada à sua subscrição do Azure. Tem de ter uma conta de integração para utilizar o conector de mensagem de Decodificação X12.
+* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidas na sua conta de integração
+* Uma [X12 contrato](logic-apps-enterprise-integration-x12.md) que já está definido na sua conta de integração
 
-## <a name="decode-x12-messages"></a>Descodificar X12 mensagens
+## <a name="decode-x12-messages"></a>Descodificação de X12 mensagens
 
 1. [Criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md).
 
-2. O conector de mensagem Decode X12 não tem acionadores, pelo que tem de adicionar um acionador para iniciar a sua aplicação lógica, como um acionador pedido. No Designer de aplicação lógica, adicione um acionador e, em seguida, adicionar uma ação à sua aplicação lógica.
+2. O conector de mensagem de Decodificação X12 não tem acionadores, para que deve adicionar um acionador para iniciar a sua aplicação lógica, como um acionador de pedido. No Estruturador da aplicação lógica, adicionar um acionador e, em seguida, adicione uma ação à sua aplicação lógica.
 
-3.  Na caixa de pesquisa, introduza "x12" para o filtro. Selecione **X12-descodificar X12 mensagem**.
+3.  Na caixa de pesquisa, introduza "x12" para o filtro. Selecione **X12 de descodificação de X12-mensagem**.
    
     ![Procure "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
-3. Se não tiver criado anteriormente todas as ligações à sua conta de integração, é-lhe pedido que criar essa ligação agora. A ligação de nome e selecione a conta de integração que pretende ligar. 
+3. Se não tiver criado anteriormente todas as ligações à sua conta de integração, lhe for pedido para criar essa conexão agora. Nomeie a sua ligação e selecione a conta de integração que pretende ligar. 
 
-    ![Forneça detalhes da conta de ligação de integração](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
+    ![Forneça detalhes de ligação da conta de integração](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
 
     Propriedades com um asterisco são necessárias.
 
     | Propriedade | Detalhes |
     | --- | --- |
-    | Nome da ligação * |Introduza um nome para a sua ligação. |
-    | Conta de integração * |Introduza um nome para a sua conta de integração. Certifique-se de que a aplicação de conta e a lógica de integração estão na mesma localização do Azure. |
+    | Nome da ligação * |Introduza qualquer nome para a sua ligação. |
+    | Conta de integração * |Introduza um nome para a sua conta de integração. Certifique-se de que a sua aplicação de lógica e a conta de integração estão na mesma localização do Azure. |
 
-5.  Quando tiver terminado, os detalhes de ligação devem ter um aspeto semelhantes a este exemplo. Para concluir a criação da ligação, escolha **criar**.
+5.  Quando tiver terminado, seus detalhes de ligação devem ter um aspeto semelhantes a este exemplo. Para acabar de criar a ligação, escolha **criar**.
    
     ![detalhes de ligação da conta de integração](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
-6. Após a ligação é criada, conforme mostrado neste exemplo, selecione o X12 ficheiro simples mensagem ao descodificar.
+6. Após a ligação é criada, como mostrado neste exemplo, a mensagem de ficheiro simples selecione X12 a descodificar.
 
-    ![ligação de conta de integração criada](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
+    ![ligação da conta de integração criada](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
     Por exemplo:
 
-    ![Selecione X12 simples mensagem de ficheiro para descodificação](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+    ![Mensagem de ficheiro à decodificação simples X12 selecione](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
    > [!NOTE]
-   > O conteúdo da mensagem real ou payload para a matriz de mensagem, boa ou incorreta, é codificado em base64. Por isso, tem de especificar uma expressão que processa este conteúdo.
-   > Eis um exemplo que processa o conteúdo como XML que pode introduzir na vista de código ou utilizando o construtor de expressão no designer.
+   > O conteúdo real da mensagem ou o payload da matriz de mensagem, bom ou ruim, é codificado em base64. Por isso, tem de especificar uma expressão que processa este conteúdo.
+   > Eis um exemplo que processa o conteúdo XML que pode introduzir na vista de código ou com o construtor de expressões no designer.
    > ``` json
    > "content": "@xml(base64ToBinary(item()?['Payload']))"
    > ```
@@ -79,35 +75,35 @@ Segue-se os itens que precisa de:
 
 ## <a name="x12-decode-details"></a>X12 descodificar detalhes
 
-O X12 Decode conector executa estas tarefas:
+X12 conector de Decodificação executa estas tarefas:
 
-* Valida o envelope contra comerciais contrato para parceiros
-* Valida EDI e propriedades específicos de parceiro
-  * Validação estrutural EDI e validação de esquema expandido
+* Valida o envelope no contrato de parceiro de negociação
+* Valida o EDI e propriedades específicas de parceiro
+  * Validação de EDI estrutural e a validação de esquema expandido
   * Validação da estrutura do envelope intercâmbio.
-  * Validação de esquema do envelope contra o esquema do controlo.
-  * Validação de esquema dos elementos de conjunto de transação de dados contra o esquema de mensagem.
-  * A validação de EDI efetuada em elementos de dados do conjunto de transação 
-* Verifica se os números de controlo de conjunto intercâmbio, grupo e a transação não são duplicados
-  * Verifica o número de controlo de intercâmbio contra interchanges anteriormente recebidos.
+  * Validação de esquema do envelope no esquema de controlo.
+  * Validação de esquema dos elementos de dados do conjunto de transações no esquema de mensagem.
+  * Validação de EDI efetuada em elementos de dados do conjunto de transações 
+* Verifica se os números de controlo de intercâmbio, grupo e transação conjunto não são duplicados
+  * Verifica o número de controlo de intercâmbio contra intercâmbios anteriormente recebidos.
   * Verifica o número de controlo de grupo em relação a outros números de controlo de grupo no intercâmbio.
-  * Verifica que a transação definir o número de controlo em relação a outros números de controlo do conjunto de transação nesse grupo.
-* Divide o intercâmbio para conjuntos de transação ou preserva o intercâmbio completo:
-  * Intercâmbio de divisão como conjuntos de transação - suspender conjuntos de transação com o erro: divisões intercâmbio numa transação define e analisa cada conjunto de transação. 
-  X12 Decode ação produz apenas dessas transações define que falharem a validação para `badMessages`e saídas define as transações restantes para `goodMessages`.
-  * Intercâmbio de divisão como conjuntos de transação - suspender intercâmbio com o erro: divisões intercâmbio numa transação define e analisa cada conjunto de transação. 
-  Se um ou mais transações define o intercâmbio falharem a validação, X12 Decode ação produz define a todas as transações em que intercâmbio para `badMessages`.
-  * Preservar intercâmbio - suspender conjuntos de transação com o erro: preservar o intercâmbio e processar o intercâmbio de batch de todo. 
-  X12 Decode ação produz apenas dessas transações define que falharem a validação para `badMessages`e saídas define as transações restantes para `goodMessages`.
-  * Preservar intercâmbio - suspender intercâmbio com o erro: preservar o intercâmbio e processar o intercâmbio de batch de todo. 
-  Se um ou mais transações define o intercâmbio falharem a validação, X12 Decode ação produz define a todas as transações em que intercâmbio para `badMessages`. 
+  * Verifica o que número de controlo do conjunto das transações em relação a outros números de controlo do conjunto de transações desse grupo.
+* Divide o intercâmbio em conjuntos de transação ou preserva o intercâmbio todo:
+  * Dividir intercâmbio como conjuntos de transação - suspender conjuntos transação com erro: conjuntos de intercâmbio de divisões numa transação e analisa cada conjunto de transações. 
+  X12 Decodificação ação produz apenas essas transações define que a falha de validação para `badMessages`e saídas as transações restantes define como `goodMessages`.
+  * Dividir intercâmbio como conjuntos de transação - suspender intercâmbio com erro: conjuntos de intercâmbio de divisões numa transação e analisa cada conjunto de transações. 
+  Se um ou mais transações define no intercâmbio a falha de validação, a ação de Decodificação produz todos os a transação define nesse intercâmbio de X12 `badMessages`.
+  * Preservar intercâmbio - suspender conjuntos transação com erro: o intercâmbio de preservar e processar o intercâmbio em lote inteiro. 
+  X12 Decodificação ação produz apenas essas transações define que a falha de validação para `badMessages`e saídas as transações restantes define como `goodMessages`.
+  * Preservar intercâmbio - suspender intercâmbio com erro: o intercâmbio de preservar e processar o intercâmbio em lote inteiro. 
+  Se um ou mais transações define no intercâmbio a falha de validação, a ação de Decodificação produz todos os a transação define nesse intercâmbio de X12 `badMessages`. 
 * Gera uma confirmação técnica e/ou funcional (se configurada).
-  * Gera uma confirmação técnicos como resultado da validação de cabeçalho. A confirmação técnica reporta o estado de processamento de um cabeçalho de intercâmbio e trailer pelo recetor endereço.
-  * Gera uma confirmação funcional como resultado da validação de corpo. A confirmação funcional relatórios cada erro encontrado ao processar o documento recebido
+  * Gera uma confirmação de técnicas como resultado de validação de cabeçalho. A confirmação técnica comunica o estado do processamento de um cabeçalho de intercâmbio e as informações finais pelo recetor de endereço.
+  * Gera uma confirmação funcional como resultado de validação de corpo. A confirmação funcional relatórios cada erro encontrado ao processar o documento recebido
 
 ## <a name="view-the-swagger"></a>Ver o swagger
-Consulte o [swagger detalhes](/connectors/x12/). 
+Consulte a [detalhes de swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do Enterprise") 
+[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
 

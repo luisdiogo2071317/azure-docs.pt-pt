@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5c5317a49f56bfefec7c509365008cba5ad26e1c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9ad36d37fef4c1ee05e31098b145b0264b6440ca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106939"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126445"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
@@ -40,7 +40,7 @@ Otimização automática da base de dados do SQL do Azure pode ser um dos recurs
 
 Operações de otimização aplicadas a bases de dados do Azure SQL são totalmente seguras para o desempenho das cargas de trabalho mais intensa. O sistema foi desenvolvido com cuidado para não interferem com as cargas de trabalho do utilizador. Recomendações de otimização automáticas são aplicadas apenas às horas de uma baixa utilização. O sistema também temporariamente pode desativar a operações de otimização automática para proteger o desempenho da carga de trabalho. Nesse caso, a mensagem "Desativada pelo sistema" será apresentada no portal do Azure. A otimização automática regards cargas de trabalho com a prioridade mais alta do recurso.
 
-Mecanismos de otimização automática são maduros e tem sido ideal em várias bases de milhões dados em execução no Azure. Operações automatizadas de otimização aplicadas são verificadas automaticamente para garantir que existe uma melhoria positiva para o desempenho da carga de trabalho. Recomendações de desempenho regredido são dinamicamente detetadas e imediatamente revertidas. Tenha em atenção que no caso de consultas afetadas por recomendações que não são executadas com maior freqüência de otimização, a fase de validação pode demorar até 72 horas por predefinição. Através do histórico de ajuste registado, existe um rastreio claro de ajuste os aprimoramentos feitos para cada base de dados do SQL do Azure. 
+Mecanismos de otimização automática são maduros e tem sido ideal em várias bases de milhões dados em execução no Azure. Operações automatizadas de otimização aplicadas são verificadas automaticamente para garantir que existe uma melhoria positiva para o desempenho da carga de trabalho. Recomendações de desempenho regredido são dinamicamente detetadas e imediatamente revertidas. Através do histórico de ajuste registado, existe um rastreio claro de ajuste os aprimoramentos feitos para cada base de dados do SQL do Azure. 
 
 ![Como funciona o trabalho de otimização automática](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
@@ -69,7 +69,7 @@ Opções de otimização automática disponíveis no banco de dados do Azure SQL
 
 A otimização automática identifica **CREATE INDEX**, **DROP INDEX**, e **força última boa planear** recomendações que podem otimizar o desempenho da sua base de dados e mostram os mesmos em [Portal do azure](sql-database-advisor-portal.md)e as expõe por meio [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Pode optar por manualmente aplicar recomendações de otimização com o portal ou pode permitir que a otimização automática forma autónoma aplicar recomendações de otimização para. Os benefícios de deixar o sistema de forma autónoma aplicam recomendações de otimização para é que nesse caso, valida automaticamente existe um ganho de positivo para o desempenho da carga de trabalho ou, caso contrário, se um regressão é detetada automaticamente reverterá a recomendação de otimização. No caso de está aplicando manualmente o ajuste de recomendações, a validação de desempenho automática e mecanismos de reversão não estão disponíveis.
+Pode optar por manualmente aplicar recomendações de otimização com o portal ou pode permitir que a otimização automática forma autónoma aplicar recomendações de otimização para. Os benefícios de deixar o sistema de forma autónoma aplicam recomendações de otimização para é que nesse caso, valida automaticamente existe um ganho de positivo para o desempenho da carga de trabalho ou, caso contrário, se um regressão é detetada automaticamente reverterá a recomendação de otimização. Tenha em atenção que no caso de consultas afetadas por recomendações que não são executadas com maior freqüência de otimização, a fase de validação pode demorar até 72 horas por predefinição. No caso de está aplicando manualmente o ajuste de recomendações, a validação de desempenho automática e mecanismos de reversão não estão disponíveis.
 
 Opções de otimização automática podem ser ativadas ou desativadas por base de dados independente, ou podem ser configuradas em servidores lógicos e aplicados em cada base de dados que herda as definições do servidor. Servidores lógicos podem herdar as predefinições do Azure para definições de sintonização automática. Predefinições do Azure neste momento estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
 

@@ -6,14 +6,14 @@ author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/14/2016
+ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525625"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124156"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução à Azure Search em Java
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ Para executar este exemplo, precisa de um serviço da Azure Search e, para isso,
 
 O seguinte software é utilizado para compilar e testar este exemplo:
 
-* [IDE Eclipse para Programadores de Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Certifique-se de que transfere a versão EE. Um dos passos de verificação requer uma funcionalidade que se encontra apenas nesta edição.
-* [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
+* [IDE Eclipse para Programadores de Java EE](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Certifique-se de que transfere a versão EE. Um dos passos de verificação requer uma funcionalidade que se encontra apenas nesta edição.
+* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Sobre os dados
 Esta aplicação de exemplo utiliza dados dos [Serviços Geológicos dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) filtrados no estado de Rhode Island de forma a reduzir o tamanho do conjunto de dados. Utilizaremos estes dados para compilar uma aplicação de pesquisa que devolve edifícios históricos, tais como hospitais e escolas, assim como características geológicas, como rios, lagos e cumes.
@@ -51,7 +51,7 @@ A lista seguinte descreve os ficheiros relevantes para este exemplo.
 * SearchServiceHelper.java: Uma classe de programa auxiliar que fornece métodos estáticos
 * Document.Java: Disponibiliza o modelo de dados
 * Config.Properties: Define o URL do serviço de Pesquisa e uma chave de API
-* Pom.xml: Uma dependência Maven
+* Pom. XML: Uma dependência Maven
 
 <a id="sub-2"></a>
 

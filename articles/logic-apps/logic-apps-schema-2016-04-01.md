@@ -1,42 +1,37 @@
 ---
-title: Esquema de atualizações de Junho-1-2016 - Azure Logic Apps | Microsoft Docs
-description: Criar definições de JSON para o Azure Logic Apps com a versão de esquema 2016-06-01
-author: jeffhollan
-manager: jeconnoc
-editor: ''
+title: Esquema de atualizações de Junho-1-2016 - Azure Logic Apps | Documentos da Microsoft
+description: Versão de esquema atualizadas 2016-06-01 para definições de aplicação lógica no Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 1cbb20a96f39ffa6f4c7375a38b3bf8046d0bd3a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299696"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126207"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações do esquema para o Azure Logic Apps - 1 de Junho de 2016
 
-O [esquema atualizado](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) e versão de API para o Azure Logic Apps inclui melhoramentos essenciais que tornam as logic apps mais fiável e mais fáceis de utilizar:
+O [atualizado esquema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) e versão de API para o Azure Logic Apps inclui os principais melhoramentos que tornam as aplicações lógicas mais confiável e fácil de utilizar:
 
 * [Âmbitos](#scopes) permitem-lhe agrupar ou aninhar ações como uma coleção de ações.
-* [Condições e ciclos](#conditions-loops) estão agora ações de primeira classe.
-* A ordenação mais precisas para executar ações com o `runAfter` propriedade, substituindo `dependsOn`
+* [Condições e loops](#conditions-loops) agora são ações de primeira classe.
+* Ordenação mais precisa para executar ações com o `runAfter` propriedade, substituindo `dependsOn`
 
-Para atualizar as logic apps do esquema de pré-visualização 1 de Agosto de 2015 para o esquema de 1 de Junho de 2016, [consulte a secção atualizar](#upgrade-your-schema).
+Para atualizar as aplicações lógicas do esquema de pré-visualização de 1 de Agosto de 2015 para o esquema de 1 de Junho de 2016 [consulte a secção atualizar](#upgrade-your-schema).
 
 <a name="scopes"></a>
 
 ## <a name="scopes"></a>Âmbitos
 
-Este esquema inclui âmbitos, que lhe permitem ações de grupo em conjunto, ou ações de aninhamento dentro entre si. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [âmbito sintaxe](../logic-apps/logic-apps-loops-and-scopes.md), ou consulte neste exemplo de âmbito básico:
+Esse esquema inclui os escopos, que lhe permite ações de grupo em conjunto, ou ações de aninhamento dentro uns dos outros. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [definir o âmbito sintaxe](../logic-apps/logic-apps-loops-and-scopes.md), ou reveja este exemplo básico de âmbito:
 
 ```
 {
@@ -60,9 +55,9 @@ Este esquema inclui âmbitos, que lhe permitem ações de grupo em conjunto, ou 
 
 <a name="conditions-loops"></a>
 
-## <a name="conditions-and-loops-changes"></a>Condições e ciclos de alterações
+## <a name="conditions-and-loops-changes"></a>Alterações de condições e loops
 
-No esquema anterior versões, condições e ciclos foram parâmetros associados uma única ação. Este esquema lifts esta limitação, pelo que as condições e ciclos são agora apresentadas como tipos de ação. Saiba mais sobre [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md), ou consulte neste exemplo básico de uma ação de condição:
+No esquema anterior versões, condições e loops foram parâmetros associados uma única ação. Esse esquema ascende esta limitação, para que as condições e loops são agora apresentados como tipos de ação. Saiba mais sobre [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md), ou reveja este exemplo básico para uma ação de condição:
 
 ```
 {
@@ -90,11 +85,11 @@ No esquema anterior versões, condições e ciclos foram parâmetros associados 
 
 <a name="run-after"></a>
 
-## <a name="runafter-property"></a>propriedade de 'runAfter'
+## <a name="runafter-property"></a>propriedade "runAfter"
 
-O `runAfter` propriedade substitui `dependsOn`, fornecer mais precisão quando especificar a ordem de execução de ações com base no estado das ações anteriores.
+O `runAfter` propriedade substitui `dependsOn`, fornecendo maior precisão quando especifica a ordem de execução de ações com base no status de ações anteriores.
 
-O `dependsOn` propriedade foi synonymous com "a ação foi executada e foi concluída com êxito", não é relevante o número de vezes que pretendia executar uma ação, com base em se foi bem sucedida, a ação anterior tenha falhado ou foi ignorada. O `runAfter` propriedade fornece dessa flexibilidade como um objeto que especifica todos os nomes de ação após o qual o objeto é executado. Esta propriedade também define uma matriz de Estados que são aceitáveis como acionadores. Por exemplo, se pretendesse executar depois for bem sucedida do passo um e também após passo B com êxito ou falha, pode construir esta `runAfter` propriedade:
+O `dependsOn` propriedade foi sinônimo de "a ação foi executada e foi concluída com êxito", não importa quantas vezes desejar executar uma ação, com base em se a ação anterior foi concluída com êxito, falhou ou foi ignorada. O `runAfter` propriedade oferece essa flexibilidade como um objeto que especifica todos os nomes de ação após o qual o objeto é executado. Esta propriedade também define uma matriz de Estados aceitáveis como disparadores. Por exemplo, se quiser executar após A do passo será bem-sucedido e também após passo B tiver sucesso ou falha, constrói isso `runAfter` propriedade:
 
 ```
 {
@@ -108,7 +103,7 @@ O `dependsOn` propriedade foi synonymous com "a ação foi executada e foi concl
 
 ## <a name="upgrade-your-schema"></a>Atualizar o esquema
 
-Para atualizar para o [esquema mais recente](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), só precisa de efetuar alguns passos. O processo de atualização inclui a executar o script de actualização, guardar como uma nova aplicação lógica e, se quiser, possivelmente substituir a aplicação lógica anterior.
+Para atualizar para o [esquema mais recente](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), só precisa tomar algumas providências. O processo de atualização inclui a executar o script de atualização, Salvar como uma nova aplicação lógica e, se desejar, possivelmente substituindo a aplicação de lógica anterior.
 
 1. No portal do Azure, abra a aplicação lógica.
 
@@ -116,51 +111,51 @@ Para atualizar para o [esquema mais recente](https://schema.management.azure.com
    
     ![Escolha atualizar esquema][1]
    
-    A definição atualizada é devolvida, que pode copiar e colar para uma definição do recurso, se necessário. 
-    No entanto, iremos **vivamente recomendável** escolher **guardar como** para se certificar de que todas as referências de ligação são válidas na aplicação lógica atualizado.
+    A definição atualizada é retornada, que pode copiar e colar uma definição do recurso, se necessário. 
+    No entanto, podemos **altamente recomendável** escolher **guardar como** para se certificar de que todas as referências de ligação são válidas na aplicação lógica atualizada.
 
-3. Na barra de ferramentas do painel de atualização, escolha **guardar como**.
+3. Na barra de ferramentas da painel de atualização, escolha **guardar como**.
 
-4. Introduza o nome de lógica e o estado. Para implementar a sua aplicação lógica atualizado, escolha **criar**.
+4. Introduza o nome de lógica e o estado. Para implementar a aplicação lógica atualizada, escolha **criar**.
 
-5. Certifique-se de que a sua aplicação lógica atualizado funciona conforme esperado.
+5. Confirme que a sua aplicação lógica atualizada funciona conforme esperado.
    
    > [!NOTE]
-   > Se estiver a utilizar um acionador manual ou a pedido, o URL de chamada de retorno alterações na sua nova aplicação lógica. Teste o novo URL para se certificar de que funciona a experiência de ponto a ponto. Para preservar URLs anteriores, pode clonar ao longo da sua aplicação lógica existente.
+   > Se estiver a utilizar um acionador manual ou a pedido, o URL de retorno de chamada é alterado na sua nova aplicação lógica. Teste o novo URL para se certificar de que a experiência de ponta a ponta funciona. Para preservar URLs anteriores, pode clonar ao longo da sua aplicação lógica existente.
 
-6. *Opcional* para substituir a sua aplicação lógica anterior com a nova versão de esquema, na barra de ferramentas, escolha **Clone**, junto a **atualizar esquema**. Este passo é necessário apenas se pretender manter o mesmo ID de recurso ou de pedido de URL de Acionador da sua aplicação lógica.
+6. *Opcional* para substituir a sua aplicação lógica anterior com a nova versão de esquema, na barra de ferramentas, escolha **Clone**, junto a **atualizar esquema**. Este passo é necessário apenas se pretender manter o mesmo ID de recurso ou acionador URL da sua aplicação lógica do pedido.
 
 ### <a name="upgrade-tool-notes"></a>Notas de ferramenta de atualização
 
-#### <a name="mapping-conditions"></a>Condições de mapeamento
+#### <a name="mapping-conditions"></a>Mapeamento de condições
 
-Na definição atualizada, a ferramenta permite um melhor esforço, em conjunto como um âmbito de agrupamento ações ramo true e false. Especificamente, o padrão de estruturador `@equals(actions('a').status, 'Skipped')` devem ser apresentadas como um `else` ação. No entanto, se a ferramenta detetar padrões irreconhecível, a ferramenta poderá criar condições separadas para o verdadeiro e o ramo false. É possível remapear ações após a atualização, se necessário.
+A definição atualizada, a ferramenta faz dentro dos melhor esforços em conjunto como um âmbito de agrupamento ações de ramo de VERDADEIRO ou FALSO. Especificamente, o padrão de designer `@equals(actions('a').status, 'Skipped')` deve aparecer como um `else` ação. No entanto, se a ferramenta Deteta padrões irreconhecível, a ferramenta pode criar condições separadas para o verdadeiro e o ramo FALSO. É possível remapear ações após a atualização, se necessário.
 
-#### <a name="foreach-loop-with-condition"></a>ciclo de 'foreach' com a condição
+#### <a name="foreach-loop-with-condition"></a>ciclo de "foreach" com a condição
 
-No novo esquema, pode utilizar a ação de filtro para replicar o padrão de um `foreach` ciclo com uma condição por item, mas esta alteração automaticamente deverá ocorrer durante a atualização. A condição torna-se uma ação de filtro antes do ciclo de foreach para devolver apenas uma matriz de itens que correspondem à condição e essa matriz é transmitida para a ação de foreach. Por exemplo, consulte [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md).
+No novo esquema, pode utilizar a ação de filtro para replicar o padrão de um `foreach` loop com uma condição por item, mas esta alteração automaticamente deve acontecer durante a atualização. A condição se torne uma ação de filtro antes do loop foreach para devolver apenas uma matriz de itens que correspondem à condição e essa matriz é passada para a ação de foreach. Por exemplo, veja [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### <a name="resource-tags"></a>Sinalizadores de recursos
+#### <a name="resource-tags"></a>Etiquetas de recursos
 
-Depois de atualizar, os sinalizadores de recursos são removidos, pelo que tem de repô-los para o fluxo de trabalho atualizado.
+Após a atualização, as etiquetas de recursos são removidas, pelo que tem de repô-los para o fluxo de trabalho atualizado.
 
 ## <a name="other-changes"></a>Outras alterações
 
-### <a name="renamed-manual-trigger-to-request-trigger"></a>Trigger 'manual' cujo nome foi alterado para 'pedido' acionador
+### <a name="renamed-manual-trigger-to-request-trigger"></a>Acionador de 'manual' nome mudado para o acionador "request"
 
-O `manual` tipo acionador foi preterido e mudar o nome para `request` com tipo `http`. Esta alteração cria mais consistência para o tipo de padrão utilizado para criar o acionador.
+O `manual` tipo de Acionador foi preterido e foi renomeado para `request` com o tipo `http`. Esta alteração cria mais consistência para o tipo de padrão que o acionador é utilizado para criar.
 
-### <a name="new-filter-action"></a>Nova ação 'filter'
+### <a name="new-filter-action"></a>Nova ação de 'filter'
 
-Para filtrar uma grande matriz para baixo para um conjunto de itens, mais pequeno a nova `filter` tipo aceita uma matriz e uma condição, avalia a condição para cada item e devolve uma matriz com itens de reunião, a condição.
+Para filtrar uma matriz grande para um conjunto menor de itens, o novo `filter` tipo aceita uma matriz e uma condição, avalia a condição para cada item e retorna uma matriz com itens que cumprem a condição.
 
-### <a name="restrictions-for-foreach-and-until-actions"></a>Restrições para 'foreach' e 'até' ações
+### <a name="restrictions-for-foreach-and-until-actions"></a>Restrições para "foreach" e "until" ações
 
-O `foreach` e `until` ciclo estão limitadas a uma única ação.
+O `foreach` e `until` loop estão limitadas a uma única ação.
 
-### <a name="new-trackedproperties-for-actions"></a>Novo 'trackedProperties' para ações
+### <a name="new-trackedproperties-for-actions"></a>Novo "trackedProperties" para ações
 
-Ações agora podem ter uma propriedade adicional denominada `trackedProperties`, que é colateral para o `runAfter` e `type` propriedades. Este objeto especifica determinadas entradas de ação ou saídas que pretende incluir na telemetria do diagnóstico do Azure, emitida como parte de um fluxo de trabalho. Por exemplo:
+Ações agora podem ter uma propriedade adicional chamada `trackedProperties`, que é colateral para o `runAfter` e `type` propriedades. Este objeto Especifica determinados entradas de ação ou saídas que pretende incluir na telemetria de diagnóstico do Azure, emitida como parte de um fluxo de trabalho. Por exemplo:
 
 ```
 {                
@@ -180,8 +175,8 @@ Ações agora podem ter uma propriedade adicional denominada `trackedProperties`
 ```
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Criar definições de fluxo de trabalho para aplicações lógicas](../logic-apps/logic-apps-author-definitions.md)
-* [Criar modelos de implementação para aplicações lógicas](../logic-apps/logic-apps-create-deploy-template.md)
+* [Criar definições de fluxo de trabalho para o logic apps](../logic-apps/logic-apps-author-definitions.md)
+* [Criar modelos de implementação para o logic apps](../logic-apps/logic-apps-create-deploy-template.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

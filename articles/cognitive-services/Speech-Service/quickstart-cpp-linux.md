@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b8bc24123fe75e876f607b07e37423ae68d92ee4
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 92bd5980ac2e6befbe352df6ddf8644f04d37d34
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987538"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126870"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Linux com o SDK de voz
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, saiba como criar uma aplicação de consola C++ no Linux (Ubuntu 16.04) com o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
 
@@ -35,7 +35,7 @@ Neste artigo, saiba como criar uma aplicação de consola C++ no Linux (Ubuntu 1
 
 ## <a name="get-the-speech-sdk"></a>Obtenha o SDK de voz
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 A versão atual do SDK de voz dos serviços cognitivos é `0.6.0`.
 
@@ -71,7 +71,7 @@ Transfira e instale o SDK da seguinte forma:
 
    Deve mostrar aviso de terceiros e arquivos de licença, bem como um `include` diretório para cabeçalhos e um `lib` diretório para bibliotecas.
 
-   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## <a name="add-the-sample-code"></a>Adicione o código de exemplo
 
@@ -129,7 +129,7 @@ Transfira e instale o SDK da seguinte forma:
    We recognized: What's the weather
    ```
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo no `quickstart/cpp-linux` pasta.
 
 ## <a name="next-steps"></a>Passos Seguintes

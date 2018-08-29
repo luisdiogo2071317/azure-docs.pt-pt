@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: 382f85c268b2e21a780756057f4bf78c41c791c2
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b93ad6793bb8e431ba318772c780a06c792dcd9a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283508"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126765"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -51,9 +51,146 @@ Centro de segurança avalia a configuração dos seus recursos para identificar 
 
 Ver [permissões no Centro de segurança do Azure](security-center-permissions.md) para saber mais sobre as funções e ações permitidas no Centro de segurança.
 
-## <a name="data-collection"></a>Recolha de dados
+## <a name="data-collection-agents-and-workspaces"></a>Recolha de dados, agentes e áreas de trabalho
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
 
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Estou me são faturadas para o Log Analytics nas áreas de trabalho criadas pelo centro de segurança?
+Não. Áreas de trabalho criadas pelo centro de segurança, enquanto configurado para o Log Analytics por nó de faturação, não implicam custos de Log Analytics. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho:
+
+- **Escalão gratuito** – Centro de segurança ativa a solução de "SecurityCenterFree" na área de trabalho predefinida. Não são cobradas no escalão gratuito.
+- **Escalão Standard** – Centro de segurança ativa a solução de "Segurança" na área de trabalho predefinida.
+
+Para obter mais informações sobre os preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as alterações ao armazenamento de dados de segurança e faturação rateada entram partir Junho de 2017.
+
+> [!NOTE]
+> O escalão de áreas de trabalho criadas pelo centro de segurança de preços do Log Analytics não afeta a faturação do Centro de segurança.
+>
+>
+
+### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>O que qualifica uma VM para aprovisionamento automático da instalação do Microsoft Monitoring Agent?
+VMs de IaaS de Linux ou Windows qualificam se:
+
+- A extensão do Microsoft Monitoring Agent não está atualmente instalada na VM.
+- A VM está no estado de execução.
+- O Windows ou o agente de VM do Linux está instalado.
+- A VM não é utilizada como uma aplicação, como o firewall de aplicações web ou de firewall da próxima geração.
+
+### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Pode eliminar as áreas de trabalho predefinida criadas pelo centro de segurança?
+**A eliminar a área de trabalho predefinida não é recomendada.** Centro de segurança utiliza as áreas de trabalho predefinida para armazenar dados de segurança de suas VMs.  Se eliminar uma área de trabalho, o Centro de segurança não consegue recolher estes dados e algumas recomendações de segurança e alertas não estão disponíveis.
+
+Para recuperar, remova o Microsoft Monitoring Agent nas VMs ligadas à área de trabalho foi eliminada. Centro de segurança reinstala o agente e cria novas áreas de trabalho predefinida.
+
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Como posso usar minha área de trabalho do Log Analytics existente?
+
+Pode selecionar uma área de trabalho do Log Analytics existente para armazenar os dados recolhidos pelo centro de segurança. Para utilizar a sua área de trabalho do Log Analytics existente:
+
+- A área de trabalho tem de ser associada a sua subscrição do Azure selecionada.
+- No mínimo, tem de ter o permissões para aceder à área de trabalho de leitura.
+
+Para selecionar uma área de trabalho do Log Analytics existente:
+
+1. Sob **política de segurança – recolha de dados**, selecione **utilizar outra área de trabalho**.
+
+   ![Utilize outra área de trabalho][5]
+
+2. No menu pendente, selecione uma área de trabalho para armazenar os dados recolhidos.
+
+   > [!NOTE]
+   > No pull menu pendente, são apresentadas apenas as áreas de trabalho que tenha acesso ao e na sua subscrição do Azure.
+   >
+   >
+
+3. Selecione **Guardar**.
+4. Depois de selecionar **guardar**, será solicitado se pretende reconfigurar VMs monitorizadas.
+
+   - Selecione **não** se pretender que as novas definições de área de trabalho para **aplicam-se em novas VMs apenas**. As novas definições de área de trabalho aplicam-se apenas a novas instalações de agentes; VMs detetadas recentemente que não têm o Microsoft Monitoring Agent instalado.
+   - Selecione **Sim** se pretender que as novas definições de área de trabalho para **aplicam-se em todas as VMs**. Além disso, todas as VMS ligadas a um centro de segurança criada a área de trabalho for reconectada para a nova área de trabalho de destino.
+
+   > [!NOTE]
+   > Se selecionar Sim, não tem de eliminar as áreas de trabalho criadas pelo centro de segurança até que todas as VMs tenham sido reconectadas à nova área de trabalho de destino. Esta operação falha se uma área de trabalho é eliminada demasiado antigo.
+   >
+   >
+
+   - Selecione **Cancelar** para cancelar a operação.
+
+### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o Microsoft Monitoring Agent já foi instalado como uma extensão na VM?
+Centro de segurança não substitui as ligações existentes a áreas de trabalho do utilizador. Centro de segurança armazena os dados de segurança da VM na área de trabalho já ligada. Centro de segurança atualiza a versão de extensão para incluir o ID de recurso do Azure da VM para suportar a utilização do Centro de segurança.
+
+### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>E se eu tinha um Microsoft Monitoring Agent instalado na máquina, mas não como uma extensão?
+Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança não instala o Microsoft Monitoring Agent e monitorização de segurança é limitada.
+
+Para obter mais informações, consulte a secção seguinte [o que acontece se um SCOM ou OMS direcionar o agente já está instalado na minha VM?](#scomomsinstalled)
+
+### O que acontece se um SCOM ou OMS direcionar o agente já está instalado na minha VM?<a name="scomomsinstalled"></a>
+Centro de segurança não consegue identificar com antecedência que um agente está instalado.  Centro de segurança tenta instalar a extensão do Microsoft Monitoring Agent e falhar devido ao agente instalado existente.  Esta falha impede a substituir as definições de ligação do agente para o seu espaço de trabalho e evita a criação de multi homing.
+
+> [!NOTE]
+> A versão do agente é atualizada para a versão mais recente do agente OMS.  Isto aplica-se aos utilizadores do SCOM também.
+>
+>
+
+### <a name="what-is-the-impact-of-removing-these-extensions"></a>O que é o impacto da remoção destas extensões?
+Se remover a extensão de monitorização da Microsoft, o Centro de segurança não é possível recolher dados de segurança da VM e algumas recomendações de segurança e alertas não estão disponíveis. Dentro de 24 horas, o Centro de segurança determina que a VM está em falta a extensão e reinstala a extensão.
+
+### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Como faço para interromper a criação automática do agente de instalação e a área de trabalho?
+Pode desativar aprovisionamento automático das suas subscrições na política de segurança, mas isso não é recomendável. A desativação automáticas limites aprovisionamento recomendações do Centro de segurança e alertas. Aprovisionamento Automático é necessário para as subscrições no escalão de preço padrão. Para desativar o aprovisionamento automático:
+
+1. Se a sua subscrição está configurada para o escalão Standard, abra a política de segurança para essa subscrição e selecione o **gratuito** escalão.
+
+   ![Escalão de preço][1]
+
+2. Em seguida, desativar aprovisionamento automático, selecionando **Off** no **política de segurança – recolha de dados** painel.
+   ![Recolha de dados][2]
+
+### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Deve posso recusar a instalação automática do agente e a criação de área de trabalho?
+
+> [!NOTE]
+> Certifique-se de que reveja secções [quais são as implicações de desativá-las?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) e [passos recomendados ao desativá-las](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) se escolher a opção de desativar aprovisionamento automático.
+>
+>
+
+Pode querer desativar aprovisionamento automático, se o seguinte se aplica a:
+
+- Instalação automática do agente pelo centro de segurança aplica-se para a subscrição completa.  Não é possível aplicar a instalação automática para um subconjunto das VMs. Se existirem VMs críticas que não podem ser instaladas com o Microsoft Monitoring Agent, em seguida, deve optar pelo aprovisionamento automático fora.
+- Versão do agente de atualizações de instalação da extensão Microsoft Monitoring Agent. Isto aplica-se para um agente direto e de um agente do SCOM. Se o agente do SCOM instalado é o versão 2012 e é atualizado, capacidades de capacidade de gerenciamento podem ser perdidas quando o servidor do SCOM também é a versão 2012. Considere desativar aprovisionamento automático, se o agente do SCOM instalado é a versão 2012.
+- Se tiver uma área de trabalho personalizada externa para a subscrição (uma área de trabalho centralizada), em seguida, deve desativar aprovisionamento automático. Pode instalar a extensão do Microsoft Monitoring Agent e ligá-lo a área de trabalho sem Centro de segurança substituindo a ligação manualmente.
+- Se quiser evitar a criação de várias áreas de trabalho por subscrição e tiver a área de trabalho personalizada dentro da subscrição, em seguida, tem duas opções:
+
+   1. Pode desativar aprovisionamento automático. Após a migração, predefinir as definições de área de trabalho, tal como descrito no [como posso usar minha área de trabalho do Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
+   2. Em alternativa, pode permitir que a migração concluir, o Microsoft Monitoring Agent para ser instalado nas VMs, e as VMs ligadas à área de trabalho criada. Em seguida, selecione a área de trabalho personalizada ao definir a configuração da área de trabalho de padrão com aceitar para reconfigurar os agentes já instalados. Para obter mais informações, consulte [como posso usar minha área de trabalho do Log Analytics existente?](#how-can-i-use-my-existing-log-analytics-workspace)
+
+### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Quais são as implicações de desativar aprovisionamento automático?
+Depois de concluída a migração, o Centro de segurança não é possível recolher dados de segurança da VM e algumas recomendações de segurança e alertas não estão disponíveis. Se optar por sair, deve instalar o Microsoft Monitoring Agent manualmente. Ver [passos recomendados ao desativá-las](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+
+### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Quais são os passos recomendados quando desativar aprovisionamento automático?
+Deve instalar manualmente o Microsoft Monitoring Agent para que o Centro de segurança possa recolher dados de segurança das suas VMs e fornecer recomendações e alertas. Ver [computadores Windows ligar ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agent.md) para obter orientações sobre a instalação.
+
+Pode ligar o agente para qualquer área de trabalho personalizada existente ou centro de segurança criada a área de trabalho. Se a uma área de trabalho personalizada não tiver as soluções de "Segurança" ou "SecurityCenterFree" ativadas, terá de aplicar uma solução. Para aplicar, selecione a área de trabalho personalizada ou a subscrição e aplicam-se de um escalão de preço através da **política de segurança – escalão de preço** painel.
+
+   ![Escalão de preço][1]
+
+Centro de segurança permitirá que a solução correta no espaço de trabalho com base no escalão de preço selecionado.
+
+### Como posso remover extensões OMS instaladas pelo centro de segurança?<a name="remove-oms"></a>
+Pode remover manualmente o Microsoft Monitoring Agent. Não é recomendado que limita as recomendações do Centro de segurança e alertas.
+
+> [!NOTE]
+> Se a recolha de dados estiver ativada, o Centro de segurança irá reinstalar o agente depois é removê-lo.  Terá de desativar a recolha de dados antes de remover manualmente o agente. Ver [como parar a criação automática do agente de instalação e a área de trabalho?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) para obter instruções sobre como desativar a recolha de dados.
+>
+>
+
+Para remover manualmente o agente:
+
+1.  No portal, abra **do Log Analytics**.
+2.  No painel do Log Analytics, selecione uma área de trabalho:
+3.  Selecione cada VM que não pretende monitorizar e selecione **desligar**.
+
+   ![Remover o agente][3]
+
+> [!NOTE]
+> Se uma VM do Linux já tiver um agente do OMS não extensão, remover a extensão remove também o agente e o cliente tem de reinstalá-lo.
+>
+>
 ### <a name="how-do-i-disable-data-collection"></a>Como desativar a recolha de dados?
 Aprovisionamento automático está desativada por predefinição. Pode desativar aprovisionamento automático de recursos em qualquer altura ao desativar esta definição na política de segurança. Aprovisionamento Automático é altamente recomendado para obter alertas de segurança e recomendações sobre as atualizações do sistema, vulnerabilidades do SO e o endpoint protection.
 
@@ -78,6 +215,31 @@ O agente consome uma quantia nominal de recursos do sistema e deve ter pouco imp
 
 ### <a name="where-is-my-data-stored"></a>Onde são armazenados os meus dados?
 Dados recolhidos por este agente são armazenados numa área de trabalho do Log Analytics existente associados à subscrição ou uma nova área de trabalho. Para obter mais informações, consulte [segurança de dados](security-center-data-security.md).
+
+## Clientes existentes do Log Analytics<a name="existingloganalyticscust"></a>
+
+### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>O Centro de segurança substituir quaisquer ligações existentes entre as VMs e áreas de trabalho?
+Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, o Centro de segurança não substitui a ligação de área de trabalho existente. Em vez disso, o Centro de segurança utiliza a área de trabalho existente.
+
+Uma solução de centro de segurança está instalado na área de trabalho se não estiver presente já, e a solução é aplicada apenas às VMs relevantes. Quando adiciona uma solução, ele será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics. [Filtragem de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito às suas soluções.
+
+Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança não instala o Microsoft Monitoring Agent e monitorização de segurança é limitada.
+
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Centro de segurança instalar soluções no meu áreas de trabalho do Log Analytics existentes? Quais são as implicações de faturas?
+Quando o Centro de segurança identifica que uma VM já está ligada a uma área de trabalho que criou, o Centro de segurança permite soluções nesta área de trabalho, de acordo com o escalão de preço. As soluções são aplicadas apenas para as VMs do Azure relevantes, via [filtragem da solução](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), por isso, a faturação permanece o mesmo.
+
+- **Escalão gratuito** – Centro de segurança instala a solução de "SecurityCenterFree" no espaço de trabalho. Não são cobradas no escalão gratuito.
+- **Escalão Standard** – Centro de segurança instala a solução de "Segurança" no espaço de trabalho.
+
+   ![Soluções em área de trabalho predefinida][4]
+
+### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Já tem áreas de trabalho no meu ambiente, posso usá-los para recolher dados de segurança?
+Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, o Centro de segurança utiliza a área de trabalho ligada existente. Uma solução de centro de segurança está instalado na área de trabalho se não estiver presente já, e a solução é aplicada apenas às VMs relevantes via [filtragem da solução](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+
+Quando o Centro de segurança instala o Microsoft Monitoring Agent nas VMs, ele usa as áreas de trabalho predefinida criadas pelo centro de segurança.
+
+### <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Já tenho solução de segurança na minha área de trabalho. Quais são as implicações de faturas?
+A solução de segurança e auditoria é utilizada para ativar funcionalidades do escalão Standard do Centro de segurança para VMs do Azure. Se a solução de segurança e auditoria já estiver instalada numa área de trabalho, o Centro de segurança utiliza a solução existente. Não há nenhuma alteração na faturação.
 
 ## <a name="using-azure-security-center"></a>O Centro de segurança do Azure
 ### <a name="what-is-a-security-policy"></a>O que é uma política de segurança?
@@ -150,3 +312,11 @@ Centro de segurança, normalmente, verifica a existência de novos dados a cada 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que motivo recebo a mensagem "O agente da VM está em falta?"
 O agente da VM tem de ser instalado em VMs para ativar a recolha de dados. O Agente de VM é instalado por predefinição em VMs que são implementadas a partir do Azure Marketplace. Para obter informações sobre como instalar o agente da VM em outras VMs, consulte a mensagem de blogue [agente da VM e extensões](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+
+
+<!--Image references-->
+[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
+[2]: ./media/security-center-platform-migration-faq/data-collection.png
+[3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
+[4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png

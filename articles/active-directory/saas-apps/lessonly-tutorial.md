@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Lesson.ly | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Lesson.ly.
+title: 'Tutorial: Integração do Azure Active Directory com Lessonly.com | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Lessonly.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 13c053b41782fbf1a64d93b500938680f464cf0f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438523"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121714"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Tutorial: Integração do Azure Active Directory com Lesson.ly
+# <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutorial: Integração do Azure Active Directory com Lessonly.com
 
-Neste tutorial, saiba como integrar Lesson.ly com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Lessonly.com com o Azure Active Directory (Azure AD).
 
-Integrar Lesson.ly no Azure AD fornece as seguintes vantagens:
+Integrar Lessonly.com no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Lesson.ly
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Lesson.ly (Single Sign-On) com as suas contas do Azure AD
+- Pode controlar no Azure AD que tenha acesso ao Lessonly.com
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Lessonly.com (Single Sign-On) com as suas contas do Azure AD
 - Pode gerir as suas contas num local central – portal do Azure
 
 Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Lesson.ly, terá dos seguintes itens:
+Para configurar a integração do Azure AD com Lessonly.com, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
-- Um Lesson.ly logon único habilitado subscrição
+- Uma subscrição do Azure
+- Um Lessonly.com logon único habilitado subscrição
 
 > [!NOTE]
 > Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
@@ -51,15 +51,15 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Lesson.ly da Galeria
+1. Adicionando Lessonly.com da Galeria
 1. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-lessonly-from-the-gallery"></a>Adicionando Lesson.ly da Galeria
-Para configurar a integração do Lesson.ly com o Azure AD, terá de adicionar Lesson.ly a partir da Galeria à sua lista de aplicações de SaaS geridas.
+## <a name="adding-lessonlycom-from-the-gallery"></a>Adicionando Lessonly.com da Galeria
+Para configurar a integração do Lessonly.com com o Azure AD, terá de adicionar Lessonly.com a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Lesson.ly a partir da galeria, execute os seguintes passos:**
+**Para adicionar Lessonly.com a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -71,51 +71,50 @@ Para configurar a integração do Lesson.ly com o Azure AD, terá de adicionar L
 
     ![Aplicações][3]
 
-1. Na caixa de pesquisa, escreva **Lesson.ly**.
+1. Na caixa de pesquisa, escreva **Lessonly.com**.
 
-    ![Criar um utilizador de teste do Azure AD](./media/lessonly-tutorial/tutorial_lesson.ly_search.png)
+    ![Criar um utilizador de teste do Azure AD](./media/lessonly-tutorial/tutorial_lessonly.com_search.png)
 
-1. No painel de resultados, selecione **Lesson.ly**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **Lessonly.com**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![Criar um utilizador de teste do Azure AD](./media/lessonly-tutorial/tutorial_lesson.ly_addfromgallery.png)
+    ![Criar um utilizador de teste do Azure AD](./media/lessonly-tutorial/tutorial_lessonly.com_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com Lesson.ly com base num utilizador de teste chamado "Eduarda Almeida".
+Nesta secção, configure e teste do Azure AD início de sessão único com Lessonly.com com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Lesson.ly a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Lesson.ly deve ser estabelecido.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Lessonly.com a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Lessonly.com deve ser estabelecido.
 
-Lesson.ly, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Lessonly.com, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD início de sessão único com Lesson.ly, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com Lessonly.com, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste Lesson.ly](#creating-a-lessonly-test-user)**  - para ter um equivalente da Eduarda Almeida na Lesson.ly que está ligado à representação de utilizador do Azure AD.
+1. **[Criar um utilizador de teste Lessonly.com](#creating-a-lessonly-test-user)**  - para ter um equivalente da Eduarda Almeida na Lessonly.com que está ligado à representação de utilizador do Azure AD.
 1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Lesson.ly.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Lessonly.com.
 
-**Para configurar o Azure AD início de sessão único com Lesson.ly, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Lessonly.com, execute os seguintes passos:**
 
-1. No portal do Azure, sobre o **Lesson.ly** página de integração de aplicação, clique em **início de sessão único**.
+1. No portal do Azure, sobre o **Lessonly.com** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
 1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
-    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lesson.ly_samlbase.png)
+    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lessonly.com_samlbase.png)
 
-1. Sobre o **Lesson.ly domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Lessonly.com domínio e URLs** secção, execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lesson.ly_url.png)
+    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lessonly.com_url.png)
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
-    | `https://<companyname>.lesson.ly/signin`|
     | `https://<companyname>.lessonly.com/signin`|
 
     >[!NOTE]
@@ -124,17 +123,16 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
-    | `https://<companyname>.lesson.ly/auth/saml/metadata`|
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Lesson.ly](mailto:dev@lessonly.com) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Lessonly.com](mailto:dev@lessonly.com) obter esses valores. 
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lesson.ly_certificate.png)
+    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lessonly.com_certificate.png)
 
-1. O aplicativo Lesson.ly espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizados para sua **atributos de Token SAML** configuração. Captura de ecrã seguinte mostra um exemplo disso.
+1. O aplicativo Lessonly.com espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizados para sua **atributos de Token SAML** configuração. Captura de ecrã seguinte mostra um exemplo disso.
 
     ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lessonly_06.png)
            
@@ -163,11 +161,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_general_400.png)
 
-1. Sobre o **Lesson.ly configuração** secção, clique em **configurar Lesson.ly** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **Lessonly.com configuração** secção, clique em **configurar Lessonly.com** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
-    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lesson.ly_configure.png)
+    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Para configurar o início de sessão único num **Lesson.ly** lado, terá de enviar o transferido **Certificate(Base64)** e **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço**para [a equipa de suporte Lesson.ly](mailto:dev@lessonly.com).
+1. Para configurar o início de sessão único num **Lessonly.com** lado, terá de enviar o transferido **Certificate(Base64)** e **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** para [equipa de suporte de Lessonly.com](mailto:dev@lessonly.com).
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -203,30 +201,30 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-lessonly-test-user"></a>Criar um utilizador de teste Lesson.ly
+### <a name="creating-a-lessonlycom-test-user"></a>Criar um utilizador de teste Lessonly.com
 
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Lesson.ly. Lesson.LY suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Lessonly.com. Lessonly.com suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
 
-Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder Lesson.ly se não existir ainda será criado um novo utilizador.
+Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder Lessonly.com se não existir ainda será criado um novo utilizador.
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Lesson.ly](mailto:dev@lessonly.com).
+> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Lessonly.com](mailto:dev@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Lesson.ly.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Lessonly.com.
 
 ![Atribuir utilizador][200] 
 
-**Para atribuir a Eduarda Almeida a Lesson.ly, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a Lessonly.com, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir utilizador][201] 
 
-1. Na lista de aplicações, selecione **Lesson.ly**.
+1. Na lista de aplicações, selecione **Lessonly.com**.
 
-    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lesson.ly_app.png) 
+    ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lessonly.com_app.png)
 
 1. No menu à esquerda, clique em **utilizadores e grupos**.
 
@@ -246,7 +244,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 O objetivo desta secção é testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Lesson.ly no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Lesson.ly.
+Quando clica no mosaico Lessonly.com no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Lessonly.com.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

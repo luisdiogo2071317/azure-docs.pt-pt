@@ -5,21 +5,23 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e8cb5dadb7eed5eb33c15d7a4d1d4640a10099c9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40245790"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049747"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
 2. Selecione **Aplicação de Função do Azure**, escolha **Criar Nova**  e selecione **Publicar**.
 
     ![Escolher um destino de publicação](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+
+    Quando ativa **Executar a partir do Zip**, a sua aplicação de funções no Azure é executada diretamente a partir do pacote de implementação. Para mais informações, veja [Executar as suas Funções do Azure a partir de um ficheiro de pacote](../articles/azure-functions/run-functions-from-deployment-package.md).
 
 3. Se ainda não tiver associado o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta...**.
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117596"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128054"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Manter os dados de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros do Batch para .NET 
 
@@ -49,7 +49,7 @@ Se o seu cenário é diferente das listados acima, terá de considerar uma abord
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>O que é o padrão de convenções de ficheiros Batch?
 
-O [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomeação para os contentores de destino e caminhos dos BLOBs a que os ficheiros de saída são escritos. Ficheiros mantidas no armazenamento do Azure que aderem ao padrão de convenções de ficheiros estão automaticamente disponíveis para visualização no portal do Azure. O portal está atento a Convenção de nomenclatura e por isso, pode visualizar ficheiros que aderem ao mesmo.
+O [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomeação para os contentores de destino e caminhos dos BLOBs a que os ficheiros de saída são escritos. Ficheiros mantidas no armazenamento do Azure que aderem ao padrão de convenções de ficheiros estão automaticamente disponíveis para visualização no portal do Azure. O portal está atento a Convenção de nomenclatura e por isso, pode visualizar ficheiros que aderem ao mesmo.
 
 A biblioteca convenções de ficheiros para .NET automaticamente nomes a contentores de armazenamento e ficheiros de saída da tarefa, de acordo com as convenções de ficheiros padrão. A biblioteca convenções de ficheiros também fornece métodos para ficheiros de saída no armazenamento do Azure, de acordo com o ID de tarefa, ID de tarefa ou para fins de consulta.   
 
@@ -201,7 +201,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Ver ficheiros de saída no portal do Azure
 
-O portal do Azure apresenta os ficheiros de saída de tarefa e os registos que persistem para um armazenamento do Azure ligada conta utilizando a [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Pode implementar essas convenções na uma linguagem de sua escolha, ou pode utilizar a biblioteca convenções de ficheiros em seus aplicativos .NET.
+O portal do Azure apresenta os ficheiros de saída de tarefa e os registos que persistem para um armazenamento do Azure ligada conta utilizando a [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Pode implementar essas convenções na uma linguagem de sua escolha, ou pode utilizar a biblioteca convenções de ficheiros em seus aplicativos .NET.
 
 Para ativar a exibição dos seus ficheiros de saída no portal, tem de cumprir os seguintes requisitos:
 

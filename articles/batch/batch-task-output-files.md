@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
-ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117435"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126317"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefas para o armazenamento do Azure com a API de serviço do Batch
 
@@ -34,7 +34,7 @@ O Azure Batch fornece mais de uma forma de manter a saída de tarefa. Com a API 
 - Deseja escrever códigos para manter o resultado da tarefa na sua aplicação de cliente, sem modificar a aplicação que a tarefa está em execução.
 - Pretende manter a saída de tarefas do Batch e tarefas do Gestor nos agrupamentos criados com a configuração de máquina virtual.
 - Pretende manter a saída para um contentor de armazenamento do Azure com um nome arbitrário.
-- Pretende manter a saída para um contentor de armazenamento do Azure com o nome em conformidade com o [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Pretende manter a saída para um contentor de armazenamento do Azure com o nome em conformidade com o [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 Se o seu cenário é diferente das listados acima, terá de considerar uma abordagem diferente. Por exemplo, a API de serviço do Batch não suporta atualmente transmissão em fluxo de saída para o armazenamento do Azure enquanto a tarefa está em execução. A saída do stream, considere utilizar a biblioteca convenções de ficheiros do Batch, disponível para .NET. Para outros idiomas, terá de implementar sua própria solução. Para obter mais informações sobre outras opções para manter o resultado da tarefa, consulte [manter a saída de trabalhos e tarefas para o armazenamento do Azure](batch-task-output.md). 
 
@@ -164,7 +164,7 @@ O `fileuploadout.txt` progresso do carregamento de registos do ficheiro. Pode ex
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Utilizar a API de serviço do Batch com o padrão de convenções de ficheiros do Batch
 
-Quando manter a saída de tarefa com a API de serviço do Batch, pode nomear o seu contentor de destino e desejar de blobs. Também pode optar por nomeá-los de acordo com o [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). O padrão de convenções de ficheiros determina os nomes do contentor de destino e os BLOBs no armazenamento do Azure para um ficheiro de saída determinado com base nos nomes dos trabalhos e tarefas. Se usar o padrão de convenções de ficheiros à nomenclatura dos ficheiros de saída, em seguida, os ficheiros de saída estão disponíveis para visualização na [portal do Azure](https://portal.azure.com).
+Quando manter a saída de tarefa com a API de serviço do Batch, pode nomear o seu contentor de destino e desejar de blobs. Também pode optar por nomeá-los de acordo com o [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). O padrão de convenções de ficheiros determina os nomes do contentor de destino e os BLOBs no armazenamento do Azure para um ficheiro de saída determinado com base nos nomes dos trabalhos e tarefas. Se usar o padrão de convenções de ficheiros à nomenclatura dos ficheiros de saída, em seguida, os ficheiros de saída estão disponíveis para visualização na [portal do Azure](https://portal.azure.com).
 
 Se estiver a desenvolver em c#, pode utilizar os métodos integrados da [biblioteca de convenções de ficheiros do Batch para .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Esta biblioteca cria o caminhos dos BLOBs e contentores nomeadas apropriada para. Por exemplo, pode chamar a API para obter o nome correto para o contentor, com base no nome da tarefa:
 

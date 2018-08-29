@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158986"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125518"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Opções de faturação no Azure Marketplace
 
@@ -70,7 +70,7 @@ Uma vantagem importante do uso de Transact opção de publicação no Marketplac
 Neste cenário, a Microsoft cobra e recolhe em seu nome. A faturação do Microsoft elimina a necessidade de criar seu próprio relação de aprovisionamento com o seu cliente. Faturação única pode economizar tempo e recursos. Ele também pode ajudá-lo a se concentrar em como a venda, em vez de na recolha de fatura de destino. 
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement  
-Se for um cliente do contrato Enterprise da Microsoft, pode utilizar o seu contrato Enterprise para pagar para produtos da Microsoft. Pode ser cobrada a produtos, incluindo para a sua utilização do Azure. Usando o seu contrato Enterprise para pagar foi concebida para organizações que desejam licenciamento do software e serviços cloud durante três ou mais anos. Espalhado pagamentos em vez de fazer um. pagamento adiantado. Se utilizar uma opção de publicação pay as you go, a faturação para os custos de licenciamento de software segue trimestral Enterprise Agreement excedido ciclo de faturação.  
+Se for um cliente do contrato Enterprise da Microsoft, pode utilizar o seu contrato Enterprise para pagar para produtos da Microsoft. Pode ser cobrada a produtos, incluindo para a sua utilização do Azure. Usando o seu contrato Enterprise para pagar foi concebida para organizações que desejam licenciamento do software e serviços cloud durante três ou mais anos. Espalhado pagamentos em vez de fazer um pagamento adiantado. Se utilizar uma opção de publicação pay as you go, a faturação para os custos de licenciamento de software segue trimestral Enterprise Agreement excedido ciclo de faturação.  
 
 ### <a name="monetary-commitment"></a>Alocação monetária
 Se for um cliente Enterprise Agreement, pode adicionar o Azure ao seu contrato. Adicionar o Azure ao seu contrato ao estabelecer um compromisso monetário adiantado para o Azure. Seu compromisso monetário é consumido ao longo do ano. Seu compromisso inclui qualquer combinação de utilização dos serviços do Azure.

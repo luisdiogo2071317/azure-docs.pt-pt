@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 3ae912eb88972246577954cb2ff103ba607f18bf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110502"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124455"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -181,7 +181,7 @@ Azure baseia-se um conjunto de APIs REST que suportam o portal do Azure da inter
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Os administradores podem aceder a Azure PowerShell e CLI do Azure através de uma experiência acessível para o navegador chamada Azure Cloud Shell. Essa interface interativa fornece uma ferramenta flexível para Linux e Windows que os administradores usem sua interface de linha de comandos de escolha, o Bash ou o PowerShell. O Azure Cloud Shell pode ser o acesso através do portal, como uma interface web autónoma [shell.azure.com](https://shell.azure.com), ou a partir de um número de outros pontos de acesso. Para obter mais informações, consulte [descrição geral do Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Os administradores podem aceder a Azure PowerShell e CLI do Azure através de uma experiência acessível para o navegador chamada Azure Cloud Shell. Essa interface interativa fornece uma ferramenta flexível para Linux e Windows que os administradores usem sua interface de linha de comandos de escolha, o Bash ou o PowerShell. O Azure Cloud Shell pode ser o acesso através do portal, como uma interface web autónoma [shell.azure.com](https://shell.azure.com), ou a partir de um número de outros pontos de acesso. Para obter mais informações, consulte [descrição geral do Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## <a name="azure-subscriptions"></a>Subscrições do Azure
 
@@ -191,17 +191,17 @@ Uma subscrição é um agrupamento lógico de serviços do Azure que está ligad
 
 Antes de pode trabalhar com serviços do Azure, precisa de uma subscrição. Vários tipos de subscrição estão disponíveis.
 
-#### <a name="free-accounts-the-link-to-sign-up-for-a-free-account-is-on-the-azure-websitehttpsazuremicrosoftcom-this-gives-you-a-credit-over-the-course-of-30-days-to-try-any-combination-of-resources-in-azure-if-you-exceed-your-credit-amount-your-account-is-suspended-at-the-end-of-the-trial-your-services-are-decommissioned-and-will-no-longer-work-you-can-upgrade-to-a-pay-as-you-go-subscription-at-any-time"></a>Contas gratuitas: A ligação para se inscrever para uma conta gratuita está no [Web site do Azure](https://azure.microsoft.com/). Isso lhe dá um crédito ao longo de 30 dias para experimentar qualquer combinação de recursos no Azure. Se ultrapassar o montante de crédito, a sua conta está suspensa. No final da avaliação, os serviços são descontinuados em deixará de funcionar. Pode atualizar para uma subscrição pay as you go a qualquer momento.
+**Contas gratuitas**: A ligação para se inscrever para uma conta gratuita está no [Web site do Azure](https://azure.microsoft.com/). Isso lhe dá um crédito ao longo de 30 dias para experimentar qualquer combinação de recursos no Azure. Se ultrapassar o montante de crédito, a sua conta está suspensa. No final da avaliação, os serviços são descontinuados em deixará de funcionar. Pode atualizar para uma subscrição pay as you go a qualquer momento.
 
-#### <a name="msdn-subscriptions-if-you-have-an-msdn-subscription-you-get-a-specific-amount-in-azure-credit-each-month-for-example-if-you-have-a-microsoft-visual-studio-enterprise-with-msdn-subscription-you-get-150-per-month-in-azure-credit"></a>As assinaturas do MSDN: Se tiver uma assinatura do MSDN, obtém uma quantidade específica de crédito do Azure por mês. Por exemplo, se tiver um Microsoft Visual Studio Enterprise com a assinatura do MSDN, obtém \$150 $ por mês em créditos do Azure.
+**As assinaturas do MSDN**: Se tiver uma assinatura do MSDN, obtém uma quantidade específica de crédito do Azure por mês. Por exemplo, se tiver um Microsoft Visual Studio Enterprise com a assinatura do MSDN, obtém \$150 $ por mês em créditos do Azure.
 
 Se ultrapassar o montante do crédito, seu serviço estão desativadas até que inicia o mês seguinte. Pode desativar o limite de gastos e adicionar um cartão de crédito a ser utilizado para os custos adicionais. Alguns desses custos são com desconto para contas do MSDN. Por exemplo, paga o preço do Linux para VMs com o Windows Server, e não implica custos adicionais para os servidores da Microsoft como o Microsoft SQL Server. Isso torna ideal para cenários de desenvolvimento e teste as contas do MSDN.
 
-#### <a name="bizspark-accounts-the-microsoft-bizspark-program-provides-many-benefits-to-startups-one-of-those-benefits-is-access-to-all-the-microsoft-software-for-development-and-test-environments-for-up-to-five-msdn-accounts-you-get-150-in-azure-credit-for-each-of-those-five-msdn-accounts-and-you-pay-reduced-rates-for-several-of-the-azure-services-such-as-virtual-machines"></a>Contas do BizSpark: O Microsoft BizSpark programa oferece muitos benefícios para startups. Uma dessas vantagens é o acesso a todo o software da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Obtenha us $150 em créditos do Azure para cada uma dessas cinco contas do MSDN e pagam tarifas reduzidas para várias dos serviços do Azure, como as máquinas virtuais.
+**Contas do BizSpark**: O Microsoft BizSpark programa oferece muitos benefícios para startups. Uma dessas vantagens é o acesso a todo o software da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Obtenha us $150 em créditos do Azure para cada uma dessas cinco contas do MSDN e pagam tarifas reduzidas para várias dos serviços do Azure, como as máquinas virtuais.
 
-#### <a name="pay-as-you-go-with-this-subscription-you-pay-for-what-you-use-by-attaching-a-credit-card-or-debit-card-to-the-account-if-you-are-an-organization-you-can-also-be-approved-for-invoicing"></a>Pay as you go: Com esta subscrição, paga o que utiliza ao anexar um cartão de crédito ou débito para a conta. Se uma organização, também pode ser aprovada para a faturação.
+**Pay as you go**: com esta subscrição, paga o que utiliza ao anexar um cartão de crédito ou débito para a conta. Se uma organização, também pode ser aprovada para a faturação.
 
-#### <a name="enterprise-agreements-with-an-enterprise-agreement-you-commit-to-using-a-certain-number-of-services-in-azure-over-the-next-year-and-you-pay-that-amount-ahead-of-time-the-commitment-that-you-make-is-consumed-throughout-the-year-if-you-exceed-the-commitment-amount-you-can-pay-the-overage-in-arrears-depending-on-the-amount-of-the-commitment-you-get-a-discount-on-the-services-in-azure"></a>Contratos Enterprise: com um enterprise agreement, consolidar com um determinado número de serviços no Azure, o próximo ano, e paga essa quantidade antes do tempo. O compromisso que fizer é consumido ao longo do ano. Se ultrapassar o montante de alocação, pode pagar o excedente após o consumo Efetivo. Dependendo da quantidade do compromisso, receberá um desconto sobre os serviços no Azure.
+**Contratos Enterprise**: com um enterprise agreement, consolidar com um determinado número de serviços no Azure, o próximo ano, e paga essa quantidade antes do tempo. O compromisso que fizer é consumido ao longo do ano. Se ultrapassar o montante de alocação, pode pagar o excedente após o consumo Efetivo. Dependendo da quantidade do compromisso, receberá um desconto sobre os serviços no Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo para uma subscrição do Azure
 
@@ -465,7 +465,7 @@ Se precisar de permitir que os usuários tiver de ser controlado acesso aos seus
 
 ## <a name="azure-virtual-network"></a>Rede Virtual do Azure
 
-Redes virtuais são necessárias para suportar comunicações entre máquinas virtuais. Pode definir sub-redes, endereço IP personalizado, as definições de DNS, a filtragem de segurança e o balanceamento de carga. O Azure suporta diferentes casos de uso: redes apenas na cloud ou redes virtuais híbridas. 
+Redes virtuais são necessárias para suportar comunicações entre máquinas virtuais. Pode definir sub-redes, endereço IP personalizado, as definições de DNS, a filtragem de segurança e o balanceamento de carga. O Azure suporta diferentes casos de uso: redes apenas na cloud ou redes virtuais híbridas.
 
 ### <a name="cloud-only-virtual-networks"></a>Redes virtuais apenas na cloud
 
@@ -489,7 +489,7 @@ Existem várias opções para implementar uma rede virtual.
 
 - Modelos Azure Resource Manager
 
->**Quando utilizar**: sempre que estiver a trabalhar com VMs no Azure, irá trabalhar com redes virtuais. Assim, para segmentar as suas VMs em datacenters no local semelhante do sub-redes públicas e privadas. 
+>**Quando utilizar**: sempre que estiver a trabalhar com VMs no Azure, irá trabalhar com redes virtuais. Assim, para segmentar as suas VMs em datacenters no local semelhante do sub-redes públicas e privadas.
 
 >**Introdução ao**: implementar uma rede virtual do Azure com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual do portal, pode selecionar uma rede virtual existente ou crie um novo. Começar a utilizar e [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Plataformas suportadas no Centro de segurança do Azure | Microsoft Docs
+title: Plataformas suportadas no Centro de segurança do Azure | Documentos da Microsoft
 description: Este documento fornece uma lista dos sistemas de operatings Windows e Linux suportados no Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b82b152ae4f44e475b5c3e9bda9d604f405503e0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335895"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123736"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas suportadas no Centro de segurança do Azure
-Monitorização de estado de segurança e as recomendações estão disponíveis para máquinas virtuais (VMs), utilizando o clássico e modelos de implementação do Resource Manager e computadores.
+Monitorização de estado de segurança e recomendações, estão disponíveis para máquinas virtuais (VMs), criadas usando o clássicas e modelos de implementação do Resource Manager e computadores.
 
 > [!NOTE]
-> Saiba mais sobre o [clássica e modelos de implementação do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
+> Saiba mais sobre o [clássico e modelos de implementação do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
 >
 >
 
-## <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas suportadas para as VMs e os computadores
+## <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas suportadas para VMs e computadores do Windows
 Sistemas de operativos Windows suportados:
 
 * Windows Server 2008
@@ -39,29 +39,29 @@ Sistemas de operativos Windows suportados:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas suportadas para computadores com Linux e VMs
+## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas suportadas para VMs e computadores Linux
 Sistemas operativos Linux suportados:
 
-* Versões do Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS
-* Versões debian 6, 7, 8, 9
+* Versões do Ubuntu 12.04 LTS, 14.04 LTS e 16.04 LTS
+* Debian versões 6, 7, 8, 9
 * CentOS versões 5, 6, 7
-* Red Hat Enterprise Linux (RHEL) as versões 5, 6, 7
+* Versões de Red Hat Enterprise Linux (RHEL) 5, 6, 7
 * SUSE Linux Enterprise Server (SLES) versões 11, 12
 * Oracle Linux versões 5, 6, 7
-* Linux Amazon 2012.09 através de 2017
-* OpenSSL 1.1.0 só é suportado em plataformas x86_64 (64-bit)
+* Amazon Linux 2012.09 por meio de 2017
+* OpenSSL 1.1.0 só é suportado em plataformas de x86_64 (64-bit)
 
 > [!NOTE]
-> Análise comportamental de máquina virtual ainda não está disponíveis para os sistemas operativos Linux.
+> Análise comportamental de máquinas virtuais ainda não está disponível para sistemas operativos Linux.
 >
 >
 
-## <a name="vms-and-cloud-services"></a>VMs e serviços em nuvem
-VMs em execução num serviço em nuvem também são suportadas. Nuvem apenas dos serviços de funções web e de trabalho em execução na produção ranhuras são monitorizadas. Para saber mais sobre o serviço em nuvem, consulte o artigo [descrição geral dos serviços de nuvem](../cloud-services/cloud-services-choose-me.md).
+## <a name="vms-and-cloud-services"></a>VMs e serviços Cloud
+As VMs em execução num serviço cloud também são suportadas. Funções web e de trabalho em execução na produção são monitorizadas ranhuras de serviços de cloud única. Para saber mais sobre o serviço em nuvem, veja [descrição geral dos serviços de Cloud](../cloud-services/cloud-services-choose-me.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Guia de operações e planeamento do Centro de segurança do Azure](security-center-planning-and-operations-guide.md) — Saiba como planear e compreender as considerações de conceção para adoção do Centro de segurança do Azure
-- [Alertas de segurança por tipo no Centro de segurança do Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Saiba mais sobre a análise comportamental de máquina virtual e análise de memória de captura no Centro de segurança de falhas
+- [Guia de operações e planeamento do Centro de segurança do Azure](security-center-planning-and-operations-guide.md) – Saiba como planear e compreender as considerações de conceção para adoção do Centro de segurança do Azure
+- [Alertas de segurança por tipo no Centro de segurança do Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Saiba mais sobre a análise comportamental de máquinas virtuais e de falha de análise de informação de memória no Centro de segurança
 - [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço
-- [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e conformidade
+- [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e de conformidade

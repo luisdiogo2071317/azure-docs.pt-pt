@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
-ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.author: diberry
+ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247720"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124401"
 ---
 # <a name="integrate-speech-service"></a>Integre o serviço de voz
 O [serviço de voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar uma única solicitação receber áudio e retornar a predição de LUIS objetos JSON.
@@ -120,7 +120,7 @@ A intenção correta, **GetEmployeeOrgChart**, foi encontrado com uma confiança
 O SDK de voz devolve a resposta inteira do LUIS. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não for necessário, elimine a aplicação do LUIS RecursosHumanos. Para tal, selecione as reticências (***...*** ) botão à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+Quando já não for necessário, elimine a aplicação do LUIS RecursosHumanos. Para tal, selecione o botão de reticências (***…***) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 Não se esqueça de eliminar o diretório de exemplos de LUIS quando tiver terminado com o código de exemplo.
 

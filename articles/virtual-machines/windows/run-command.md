@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f42d3fb709807d77fb0f390b6da76efc4a60dced
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090575"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128600"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell na sua VM do Windows com o comando de execução
 
@@ -63,7 +63,6 @@ Esta tabela mostra a lista de comandos disponíveis para as VMs do Windows. O **
 |**EnableAdminAccount**|Verifica se a conta de administrador local está desativada e, se for o caso o permite.|
 |**IPConfig**| Mostra informações detalhadas para o IP de endereços, gateway predefinido e a máscara de sub-rede para cada adaptador vinculada a TCP/IP.|
 |**RDPSettings**|Verifica as definições de registo e definições de política de domínio. Sugere ações de política se máquina faz parte de um domínio ou modifica as definições para os valores predefinidos.|
-|**ResetAccountPassword**| Repõe a palavra-passe da conta do administrador incorporado.|
 |**ResetRDPCert**|Remove o certificado SSL vinculado ao serviço de escuta RDP e restaura a segurança de listerner RDP padrão. Utilize este script se identificar quaisquer problemas com o certificado.|
 |**SetRDPPort**|Define o padrão ou o utilizador especificado o número de porta para ligações de ambiente de trabalho remoto. Permite que a regra de firewall para acesso de entrada para a porta.|
 

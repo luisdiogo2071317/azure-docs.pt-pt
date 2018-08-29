@@ -4,14 +4,14 @@ description: Descreve como avaliar um grande número de máquinas no local com o
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 553e0d6569a3a35802703ef58e1460878dcd930b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058499"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127519"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -22,7 +22,7 @@ O Azure Migrate tem um limite de 1500 máquinas por projeto, este artigo descrev
 - **VMware**: as VMs que planeia migrar têm de ser geridas pelo vCenter Server versão 5.5, 6.0 ou 6.5. Além disso, terá uma versão em execução de anfitrião ESXi 5.0 ou posterior para implementar a VM do recoletor.
 - **a conta do vCenter**: precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
 - **Permissões**: no vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no formato de OVA.
-- **Definições das estatísticas**: as definições de estatísticas do vCenter Server devem ser definidas como nível 3 antes de iniciar a implementação. Se o nível for inferior a 3, a avaliação funcionará, mas não serão recolhidos dados de desempenho para armazenamento e rede. As recomendações de tamanho neste caso se baseará em dados de desempenho de CPU e memória e dados de configuração de adaptadores de rede e disco.
+- **Definições das estatísticas**: as definições de estatísticas do vCenter Server devem ser definidas como nível 3 antes de iniciar a implementação. O nível de estatísticas é para ser definido como 3 para cada um dos intervalos de coleção de mês, semana e dia. Se o nível for inferior a 3 para qualquer um dos intervalos de coleção de três, a avaliação funcionará, mas não serão recolhidos os dados de desempenho para armazenamento e rede. As recomendações de tamanho, em seguida, irão basear-se em dados de desempenho de CPU e memória e dados de configuração de adaptadores de rede e disco.
 
 
 ### <a name="set-up-permissions"></a>Configurar permissões

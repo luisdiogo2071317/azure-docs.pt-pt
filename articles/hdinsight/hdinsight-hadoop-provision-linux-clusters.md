@@ -4,18 +4,18 @@ description: Configure o Hadoop, Kafka, Spark, HBase, serviços de ML ou Storm c
 keywords: configuração de cluster do hadoop, instalação, configuração de cluster do spark, o que é o cluster do hadoop de cluster do kafka
 services: hdinsight
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: f325e49695cab44d5c3d9fe94cd207755d136f7b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107134"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127912"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais
 
@@ -140,10 +140,23 @@ Para aumentar o desempenho ao utilizar o Oozie, utilize um metastore personaliza
 > [!IMPORTANT]
 > Não é possível reutilizar um metastore Oozie personalizado. Para utilizar um metastore Oozie personalizado, tem de fornecer uma base de dados de SQL do Azure vazio ao criar o cluster do HDInsight.
 
+
+## <a name="custom-cluster-setup"></a>Configuração de cluster personalizado
+Compilações de configuração de cluster personalizado no rápido criar definições e adiciona as seguintes opções:
+- [Aplicações do HDInsight](#install-hdinsight-applications-on-clusters)
+- [Tamanho do cluster](#configure-cluster-size)
+- [Ações de script](#advanced-settings-script-actions)
+- [Rede virtual](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>Instalar aplicações do HDInsight em clusters
+
+Uma aplicação HDInsight é uma aplicação que os utilizadores podem instalar num cluster do HDInsight baseado em Linux. Pode usar aplicativos fornecidos pela Microsoft, terceiros ou que desenvolva-se. Para obter mais informações, consulte [instalar aplicações do Hadoop de terceiros no Azure HDInsight](hdinsight-apps-install-applications.md).
+
+A maioria dos aplicativos HDInsight é instalada num nó de extremidade em branco.  Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instalado e configurado como no nó principal. Pode utilizar o nó de extremidade para aceder ao cluster, testar as suas aplicações de cliente e hospedar seus aplicativos de cliente. Para obter mais informações, consulte [utilizar nós de extremidade vazios no HDInsight](hdinsight-apps-use-edge-node.md).
+
 ## <a name="configure-cluster-size"></a>Configurar o tamanho do cluster
 
 É faturado pela utilização de nó para, desde que o cluster existe. A faturação tem início quando um cluster é criado e termina quando o cluster é eliminado. Clusters não não possível remover a atribuição ou colocar em espera.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nós para cada tipo de cluster
 Cada tipo de cluster tem seu próprio número de nós, a terminologia para nós e o tamanho da VM predefinida. Na tabela a seguir, o número de nós para cada tipo de nó é parênteses.
@@ -191,20 +204,6 @@ Para saber o que valor que deve utilizar para especificar um tamanho de VM ao cr
 >
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais](../virtual-machines/windows/sizes.md). Para obter informações sobre os preços de vários tamanhos, veja [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## <a name="custom-cluster-setup"></a>Configuração de cluster personalizado
-Compilações de configuração de cluster personalizado no rápido criar definições e adiciona as seguintes opções:
-- [Aplicações do HDInsight](#hdinsight-applications)
-- [Tamanho do cluster](#cluster-size)
-- Definições avançadas
-  - [Ações de script](#customize-clusters-using-script-action)
-  - [Rede virtual](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>Instalar aplicações do HDInsight em clusters
-
-Uma aplicação HDInsight é uma aplicação que os utilizadores podem instalar num cluster do HDInsight baseado em Linux. Pode usar aplicativos fornecidos pela Microsoft, terceiros ou que desenvolva-se. Para obter mais informações, consulte [instalar aplicações do Hadoop de terceiros no Azure HDInsight](hdinsight-apps-install-applications.md).
-
-A maioria dos aplicativos HDInsight é instalada num nó de extremidade em branco.  Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instalado e configurado como no nó principal. Pode utilizar o nó de extremidade para aceder ao cluster, testar as suas aplicações de cliente e hospedar seus aplicativos de cliente. Para obter mais informações, consulte [utilizar nós de extremidade vazios no HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="advanced-settings-script-actions"></a>Definições avançadas: ações de Script
 

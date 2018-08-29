@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283074"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122108"
 ---
 # <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
@@ -23,7 +23,7 @@ As APIs REST do serviço de voz unificado são semelhantes às APIs fornecidas p
 
 Conversão de voz para a API de texto, apenas os pontos finais utilizados são diferentes do serviço de voz anterior API de reconhecimento de voz. Os novos pontos de extremidade são mostrados na tabela abaixo. Utilize um que corresponde à sua região de subscrição.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 A conversão de voz em texto API caso contrário, é semelhante para o [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de voz anterior.
 
@@ -54,7 +54,7 @@ pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto 
 
 Seguem-se os pontos de extremidade REST para o unificada serviço texto em voz API. Utilize o ponto final que corresponde à sua região de subscrição.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Manter essas diferenças em mente que consulte a [documentação da REST API](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) para a API de voz anterior.
 
@@ -62,7 +62,7 @@ Manter essas diferenças em mente que consulte a [documentação da REST API](ht
 
 Enviar um pedido para a API de REST do serviço de voz exige um token de acesso. Obter um token ao fornecer a chave de subscrição para um serviço de voz regional `issueToken` ponto final, mostrada na tabela abaixo. Utilize o ponto final que corresponde à sua região de subscrição.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Cada token de acesso é válido durante 10 minutos. Para obter um novo token em qualquer altura, se desejar, incluindo, imediatamente antes de cada pedido de API de REST de voz. Para minimizar o tráfego de rede e a latência, no entanto, recomendamos que utilize o mesmo token para nove minutos.
 

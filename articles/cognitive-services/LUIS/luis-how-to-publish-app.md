@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: diberry;
-ms.openlocfilehash: b827f157ccd2919c959385eefd0e0223a8e23607
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: a653d854901f5dc84b957c316c4174610af4be30
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225545"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130576"
 ---
 # <a name="publish-your-trained-app"></a>Publique a sua aplicação preparada
 Quando concluir a criação e teste a sua aplicação LUIS, publicá-lo. Depois da aplicação for publicada, a página de publicação mostra todas as associadas HTTP [pontos de extremidade](luis-glossary.md#endpoint). Estes pontos finais, por [região](luis-reference-regions.md) e, por [chave](luis-how-to-manage-keys.md), em seguida, são integradas em qualquer aplicação cliente, chatbot ou back-end. 

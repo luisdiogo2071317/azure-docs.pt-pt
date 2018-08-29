@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: fdbe88492d6260d19955b39ac8eaf6cfb9dba130
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186276"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144551"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreender o registo de identidade do IoT hub
 
@@ -88,7 +88,6 @@ Os dados do dispositivo que armazena uma determinada solução de IoT depende de
 O registo de identidade do IoT Hub contém um campo chamado **connectionState**. Utilize apenas a **connectionState** campo durante o desenvolvimento e depuração. Soluções de IoT não devem consultar o campo no tempo de execução. Por exemplo, não consultar o **connectionState** campo para verificar se um dispositivo está ligado antes de enviar uma mensagem de cloud para o dispositivo ou um SMS.
 
 Se a sua solução de IoT precisa de saber se um dispositivo estiver ligado, deve implementar o *padrão de heartbeat*.
-
 O padrão de heartbeat, o dispositivo envia mensagens do dispositivo para a cloud, pelo menos, uma vez cada valor fixo de tempo (por exemplo, pelo menos uma vez a cada hora). Por conseguinte, mesmo se um dispositivo não tem quaisquer dados para enviar, ainda envia uma mensagem de dispositivo-para-cloud vazia (normalmente com uma propriedade que o identifica como um heartbeat). No lado do serviço, a solução mantém um mapa com o último heartbeat recebido para cada dispositivo. Se a solução não receber uma mensagem heartbeat dentro do tempo esperado do dispositivo, parte do princípio de que existe um problema com o dispositivo.
 
 Uma implementação mais complexa pode incluir as informações a partir [monitorização de operações] [ lnk-devguide-opmon] para identificar dispositivos que estão a tentar estabelecer ligação ou comunicar, mas a falhar. Quando implementa o padrão de heartbeat, certifique-se de verificar [IoT Hub Quotas e limitações][lnk-quotas].

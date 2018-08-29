@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ac2787f69651e950ffb6b786280ba7f11f4fa8e0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990902"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127965"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -27,33 +27,39 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
-## <a name="version-130"></a>Versão 1.3.0
-07/09/2018
+## <a name="version-141"></a>Versão 1.4.1
+08/28/2018
 
 ### <a name="download-azure-storage-explorer-130"></a>Transfira o Explorador de armazenamento do Azure 1.3.0
 - [Explorador de armazenamento do Azure 1.3.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
 - [Explorador de armazenamento do Azure 1.3.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Explorador de armazenamento do Azure 1.3.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
+### <a name="hotfixes"></a>Correções
+* Na primeira execução, o Explorador de armazenamento não foi possível gerar a chave utilizada para encriptar dados confidenciais. Isso causaria problemas ao utilizar o acesso rápido e anexar a recursos. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* Se sua conta não obrigava a MFA para o seu inquilino principal, mas que fez com alguns outros inquilinos, o Explorador de armazenamento seria não é possível para subscrições de lista. Agora, depois de iniciar sessão com uma conta destas, Explorador de armazenamento irá pedir-lhe para reintroduzir as suas credenciais e executar a MFA. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* Explorador de armazenamento não foi possível anexar os recursos do Azure US Government e do Azure Alemanha. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* Se tiver iniciado sessão duas contas que tinha o mesmo endereço de e-mail, o Explorador de armazenamento, às vezes, falharia mostrar os seus recursos na vista de árvore. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* Nas máquinas do Windows mais lentas, a tela inicial, às vezes, demoraria uma quantidade significativa de tempo a serem apresentados. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* A caixa de diálogo connect apareceria mesmo que haja contas anexadas ou serviços. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
+
 ### <a name="new"></a>Novo
-* Acessar os contentores de $web utilizados por Web sites estáticos é agora suportado. Isto permite-lhe para facilmente carregar e gerir ficheiros e pastas utilizadas pelo seu Web site. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
-* Tem sido reorganizar a barra de aplicativo no macOS. As alterações incluem um menu de ficheiro, algumas alterações de chave de atalho e vários novos comandos no menu da aplicação. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* O ponto final da autoridade para iniciar sessão no Azure US Government foi alterado para https://login.microsoftonline.us/
-* Acessibilidade: Quando um leitor de tela está ativo, navegação do teclado agora funciona com as tabelas usadas para exibir itens no lado direito. Pode utilizar as teclas de seta para navegar de linhas e colunas, Enter para invocar ações padrão, a chave de menu de contexto para abrir o menu de contexto para um item e Shift ou controlar a seleção múltipla. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* Anexos de recurso externo, como para ligações SAS e emuladores, foi melhorada significativamente. Agora, pode:
+   * Personalize o nome a apresentar do recurso que associar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Anexe a vários emuladores locais utilizar portas diferentes. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Adicione recursos ligados para acesso rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Explorador de armazenamento agora suporta a eliminação de forma recuperável. Pode:
+   * Configure uma política de eliminação de forma recuperável, clicando com o botão direito no nó de contentores de BLOBs para a sua conta de armazenamento.
+   * Blobs de exibição de forma recuperável eliminada no Editor de Blob, selecionando "Active Directory e eliminar blobs" na lista pendente junto a barra de navegação.
+   * Anular a eliminação de blobs eliminados de forma recuperável.
 
 ### <a name="fixes"></a>Correções
-*  Em algumas máquinas, os processos filho foram demorar muito tempo para iniciar. Quando isso acontece, aparecerá um erro de "processo filho falhou ao iniciar atempadamente". O tempo alocado para um processo filho começar agora aumentou de 20 para 90 segundos. Se ainda é afetados por este problema, comente sobre o problema do GitHub ligado. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
-* Quando utilizar uma SAS que não ter permissões de leitura, não foi possível carregar um blob de grandes dimensões. A lógica para o carregamento foi modificada para funcionar neste cenário. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* Definir o nível de acesso público para um contentor teria de remover todas as políticas de acesso e vice-versa. Agora, as políticas de acesso e de nível de acesso público são preservadas durante a configuração de um dos dois. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* "AccessTierChangeTime" foi truncado na caixa de diálogo de propriedades. Isto foi corrigido. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* O "Microsoft Azure Storage Explorer-" o prefixo estava em falta na caixa de diálogo Criar novo diretório. Isto foi corrigido. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* Acessibilidade: A caixa de diálogo Adicionar entidade era difícil navegue até ao utilizar VoiceOver. Foram efetuadas melhorias. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Acessibilidade: A cor de fundo do botão Expandir/Fechar para o painel de ações e propriedades foi inconsistente com controles de interface do Usuário semelhante no tema de alto contraste preto. A cor foi alterada. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Acessibilidade: No tema de alto contraste preto, o foco de definição de estilo para o botão 'X', na caixa de diálogo de propriedades não era visível. Isto foi corrigido. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* Acessibilidade: Os separadores de propriedades e ações foram em falta vários valores de aria que resultou numa experiência de leitor de ecrã abaixo da média comparados. Os valores em falta do aria agora foram adicionados. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* Acessibilidade: Nós da árvore recolhido no lado esquerdo não foram a ser fornecidos um valor false aria-expandido. Isto foi corrigido. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* A ação de "Configurar definições de CORS" já não está disponível nas contas de armazenamento Premium como contas de armazenamento Premium não suportam o CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Agora é uma propriedade de assinatura de acesso partilhado para os serviços ligados de SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* A ação de "Definir predefinido o escalão de acesso" está agora disponíveis para BLOBs e GPV2 armazenamento as contas que foram afixadas para acesso rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Às vezes, o Explorador de armazenamento falharia mostrar as contas de armazenamento clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Quando utilizar emuladores, como o emulador de armazenamento do Azure ou Azurite, terá de tê-los a escutar ligações nas suas portas de predefinição. Caso contrário, o Explorador de armazenamento não será capaz de se ligar aos mesmos.
 * Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentar sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
@@ -88,6 +94,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 
 ## <a name="previous-releases"></a>Versões anteriores
 
+* [Versão 1.3.0](#version-130)
 * [Versão 1.2.0](#version-120)
 * [Versão 1.1.0](#version-110)
 * [Versão 1.0.0](#version-100)
@@ -114,6 +121,63 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
 
+## <a name="version-130"></a>Versão 1.3.0
+07/09/2018
+
+### <a name="new"></a>Novo
+* Acessar os contentores de $web utilizados por Web sites estáticos é agora suportado. Isto permite-lhe para facilmente carregar e gerir ficheiros e pastas utilizadas pelo seu Web site. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* Tem sido reorganizar a barra de aplicativo no macOS. As alterações incluem um menu de ficheiro, algumas alterações de chave de atalho e vários novos comandos no menu da aplicação. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* O ponto final da autoridade para iniciar sessão no Azure US Government foi alterado para https://login.microsoftonline.us/
+* Acessibilidade: Quando um leitor de tela está ativo, navegação do teclado agora funciona com as tabelas usadas para exibir itens no lado direito. Pode utilizar as teclas de seta para navegar de linhas e colunas, Enter para invocar ações padrão, a chave de menu de contexto para abrir o menu de contexto para um item e Shift ou controlar a seleção múltipla. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>Correções
+*  Em algumas máquinas, os processos filho foram demorar muito tempo para iniciar. Quando isso acontece, aparecerá um erro de "processo filho falhou ao iniciar atempadamente". O tempo alocado para um processo filho começar agora aumentou de 20 para 90 segundos. Se ainda é afetados por este problema, comente sobre o problema do GitHub ligado. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* Quando utilizar uma SAS que não ter permissões de leitura, não foi possível carregar um blob de grandes dimensões. A lógica para o carregamento foi modificada para funcionar neste cenário. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* Definir o nível de acesso público para um contentor teria de remover todas as políticas de acesso e vice-versa. Agora, as políticas de acesso e de nível de acesso público são preservadas durante a configuração de um dos dois. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" foi truncado na caixa de diálogo de propriedades. Isto foi corrigido. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* O "Microsoft Azure Storage Explorer-" o prefixo estava em falta na caixa de diálogo Criar novo diretório. Isto foi corrigido. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* Acessibilidade: A caixa de diálogo Adicionar entidade era difícil navegue até ao utilizar VoiceOver. Foram efetuadas melhorias. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Acessibilidade: A cor de fundo do botão Expandir/Fechar para o painel de ações e propriedades foi inconsistente com controles de interface do Usuário semelhante no tema de alto contraste preto. A cor foi alterada. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Acessibilidade: No tema de alto contraste preto, o foco de definição de estilo para o botão 'X', na caixa de diálogo de propriedades não era visível. Isto foi corrigido. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Acessibilidade: Os separadores de propriedades e ações foram em falta vários valores de aria que resultou numa experiência de leitor de ecrã abaixo da média comparados. Os valores em falta do aria agora foram adicionados. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Acessibilidade: Nós da árvore recolhido no lado esquerdo não foram a ser fornecidos um valor false aria-expandido. Isto foi corrigido. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>Problemas Conhecidos
+* Desanexar de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Ver [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537) para obter mais informações.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentar sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador.
+* Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
+* O Azure Stack não suporta as seguintes funcionalidades e tentar usá-los ao trabalhar com o Azure Stack pode resultar em erros inesperados:
+   * Partilhas de ficheiros
+   * Camadas de acesso
+   * Eliminação de forma recuperável
+* O shell de Bombardeador utilizado pelo Explorador de armazenamento tem problemas com alguns aceleração de hardware GPU (unidade de processamento gráfico). Se o Explorador de armazenamento está exibindo uma janela principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento a partir da linha de comandos e desabilitando aceleração por GPU, adicionando o `--disable-gpu` mudar:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-120"></a>Versão 1.2.0
 12/06/2018
 
@@ -138,7 +202,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Na caixa de diálogo Adicionar entidade, VoiceOver foi não Anunciamos que coluna um elemento de entrada fazia parte do. O nome da coluna atual agora está incluído na descrição do elemento. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
 * Botões de opção e caixas de verificação não tinha uma borda visível quando em destaque. Este problema foi corrigido. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Quando utilizar emuladores, como o emulador de armazenamento do Azure ou Azurite, terá de tê-los a escutar ligações nas suas portas de predefinição. Caso contrário, o Explorador de armazenamento não será capaz de se ligar aos mesmos.
 * Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentar sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
@@ -193,7 +257,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * As maiúsculas e minúsculas de "Resolver automaticamente" para ações no registo de atividades estava incorreta. Agora está correto. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
 * Quando eliminar uma entidade a partir de uma tabela, a caixa de diálogo a pedir-lhe confirmação apresentado um ícone de erro. A caixa de diálogo agora usa um ícone de aviso. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentar sobre [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
@@ -262,7 +326,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * A ordenação dos botões em várias caixas de diálogo tinha foi revertida. Este problema foi corrigido.
 * Segurança de várias relacionadas com as correções.
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
 * Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
@@ -298,7 +362,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Um problema impediu a serem listadas no editor de ficheiros/blobs esperados. Este problema foi corrigido.
 * Um problema causado alternar entre modos de exibição de instantâneo para exibir itens incorretamente. Este problema foi corrigido.
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
 * Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
@@ -347,7 +411,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Melhorias de desempenho de inicialização.
 * Várias correções de erros.
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
 * Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso ocorre porque estamos usando a solução de filtro de cancelar descrita aqui.
@@ -393,7 +457,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Actividades antigas não foram adequadamente sejam limpos. Isso afetou o desempenho das tarefas de longa execução. Eles são agora a ser limpos corretamente.
 * Ações que envolvem um grande número de ficheiros e diretórios, ocasionalmente, faria com que o Explorador de armazenamento congelar. Pedidos para o Azure para partilhas de ficheiros agora são limitados para limitar o uso de recursos do sistema.
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Vista Explorer" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respectivamente.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
@@ -455,7 +519,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * O suporte para vários formulários de cadeias de ligação e SAS URIs regredido. Podemos corrigir esses todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
 * A notificação de atualização foi quebrada para alguns usuários no 0.9.0. Este problema e para aqueles afetados pelo bug, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/).
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Vista Explorer" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respectivamente.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
@@ -509,7 +573,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * O suporte para vários formulários de cadeias de ligação e SAS URIs regredido. Podemos corrigir esses todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
 * A notificação de atualização foi quebrada para alguns usuários no 0.9.0. Este problema e para aqueles afetados pelo bug, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/)
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Vista Explorer" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respectivamente.
 * Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
@@ -553,7 +617,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Explorador de armazenamento foi incorretamente a geração de carimbos de data / hora para assinaturas de acesso partilhado e consultas de tabela.
 
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Utilizando um nome e a cadeia de ligação da chave não funciona. Ela será corrigida na próxima versão. Até lá, pode usar anexar com nome e a chave.
 * Se tentar abrir um ficheiro com um nome de ficheiro inválido do Windows, o download resultará num arquivo não encontrou o erro.
 * Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Esta é uma limitação da biblioteca do nó de armazenamento do Azure.
@@ -587,7 +651,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Explorador de armazenamento de resolução de problemas [guia][2]
 * [Instruções] [ 3] sobre como ligar a uma subscrição do Azure Stack
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 
 * Botões da caixa de diálogo de confirmação de pasta delete não se registar com os cliques do mouse no Linux. Solução alternativa é usar a tecla Enter
 * Se escolher o certificado PIN/smart card errado, em seguida, terá de reiniciar para ter o Explorador de armazenamento se esqueça a decisão
@@ -621,7 +685,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Corrigido: Selecionar tudo foi desativado, gerindo instantâneos
 * Foi corrigido: Os metadados do base blob talvez seja substituído depois de visualizar as propriedades dos respetivos instantâneos
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Se escolher o certificado PIN/smart card errado, em seguida, terá de reiniciar para ter o Explorador de armazenamento se esqueça a decisão
 * Embora ampliado dentro ou para fora, o nível de zoom momentaneamente pode repor para o nível predefinido
@@ -664,7 +728,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Foi corrigido: carregar blobs que requerem resolução de conflito poderão falhar - corrigidos no 0.8.11
 * Corrigido: enviar comentários foi dividida em 0.8.11 - corrigidos no 0.8.12
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Após a atualização para 0.8.10, terá de atualizar todas as suas credenciais.
 * Embora ampliado dentro ou para fora, o nível de zoom momentaneamente pode repor para o nível predefinido.
@@ -708,7 +772,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Foi corrigido: a carregar para uma partilha de ficheiros criada para sempre se o diretório de destino já não existe
 * Foi corrigido: maior de estabilidade de longo carregamentos e transferências
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Embora ampliado dentro ou para fora, o nível de zoom momentaneamente pode repor para o nível predefinido.
 * Acesso rápido só funciona com itens de subscrição com base. Recursos locais ou a recursos anexados através de chave ou SAS token não é suportada nesta versão.
@@ -736,7 +800,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Foi corrigido: O tamanho da janela na última sessão fechada é agora mantido
 * Foi corrigido: É possível abrir vários separadores para o mesmo recurso utilizando o menu de contexto
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Acesso rápido só funciona com itens de subscrição com base. Recursos locais ou a recursos anexados através de chave ou SAS token não é suportada nesta versão
 * Poderá demorar alguns segundos para navegar para o recurso de destino, dependendo de quantos recursos que tenha acesso rápido
@@ -773,7 +837,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Aumentar fixos: O número de recursos carregado de 50 a 100 quando clicar em "Mais carga"
 * Corrigido: Na primeira execução, se uma conta está conectada, podemos agora selecione todas as subscrições para essa conta por predefinição
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Esta versão do Explorador de armazenamento não é executado no Ubuntu 14.04
 * Para abrir vários separadores para o mesmo recurso, não continuamente clique no mesmo recurso. Clique em outro recurso e, em seguida, volte atrás e, em seguida, clique no recurso original para abri-lo novamente no outro separador
@@ -798,7 +862,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
     * Por vezes, chave de partição e chave de linha foram revertidas
     * Não é possível ler as chaves de partição "null"
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Identificadores de pesquisa, pesquisar, em aproximadamente 50 000 nós - depois disso, o desempenho poderá ser afetado
 * O Azure Stack atualmente não suporta ficheiros, para que tentar expandir ficheiros mostrará um erro
@@ -820,7 +884,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 
 * Foi corrigido: não é possível editar entidades da tabela se contiverem Propriedades booleanas ou binárias
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Identificadores de pesquisa, pesquisar, em aproximadamente 50 000 nós - depois disso, o desempenho poderá ser afetado
 
@@ -841,7 +905,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 
 * Foi corrigido: Accounts Microsoft requerem reautenticação a cada 8 a 12 horas
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Por vezes, a IU poderá ser congelada – maximiza a janela de ajuda a resolver este problema
 * instalação de macOS pode exigir permissões elevadas
@@ -869,7 +933,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Foi corrigido: $metrics tabelas não são apresentadas para contas de armazenamento de BLOBs
 * Foi corrigido: nó de tabelas não funciona para o armazenamento local de (desenvolvimento)
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * instalação de macOS pode exigir permissões elevadas
 
@@ -897,7 +961,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Foi corrigido: Editar, adicionar ou importar uma entidade com um valor de cadeia de caracteres numérica ("1") irá convertê-lo para duplo
 * Corrigido: Não é possível expandir o nó de tabela no ambiente de desenvolvimento local
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * tabelas de $metrics não estão visíveis para contas de armazenamento de BLOBs
 * Adicionado por meio de programação de fila de mensagens pode não ser apresentada corretamente se as mensagens são codificadas usando a codificação de Base64
@@ -913,7 +977,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 
 * Foi corrigido o erro em que as mensagens de barra de informações, às vezes, não é exibido quando as credenciais de início de sessão eram necessárias
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Tabelas: Adicionar, editar ou importar uma entidade que tem uma propriedade com um valor numérico ambiguously, como "1" ou "1.0" e o utilizador tenta enviá-la como um `Edm.String`, o valor irá chegar através do cliente de API, como um Edm.Double
 
@@ -976,7 +1040,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Armazenamento local continua a estar disponível, mesmo que as credenciais do utilizador expiraram
 * Quando é eliminado um contentor de BLOBs aberta, o Explorador do blob no lado direito está fechado
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Instalação para Linux tem a versão de gcc atualizada ou atualizado – passos para atualizar estão abaixo:
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
@@ -1004,7 +1068,7 @@ Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armaz
 * Procurar blobs pelo prefixo
 * Arraste ' n largar ficheiros para carregar ou transferir
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Ao definir o nível de acesso público do contentor de blob, o novo valor não é atualizado até voltar a definir o foco no contentor
 * Quando abre a caixa de diálogo para definir o nível de acesso público, ele sempre mostra "Sem acesso de público" como a predefinição e não o real valor atual

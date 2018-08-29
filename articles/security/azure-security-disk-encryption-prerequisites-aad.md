@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2018
+ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: adfacdfda5f2d2f9bc595813800d08080596ca4b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 62ae0bcfb30e39b3b2cfcf94b3877cce9cadf9d1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889778"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128008"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>O Azure Disk Encryption pré-requisitos (versão anterior)
 
@@ -266,7 +266,7 @@ A aplicação do Azure AD tem direitos de acesso a chaves ou segredos no cofre. 
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Definir a política de acesso do Cofre de chaves para a aplicação do Azure AD com a CLI do Azure
-Uso [az keyvault conjunto-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) para definir a política de acesso. Para obter mais informações, consulte [gerir Key Vault com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
+Uso [az keyvault conjunto-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) para definir a política de acesso. Para obter mais informações, consulte [gerir Key Vault com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 1. Se for necessário, [ligar à sua subscrição do Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Forneça o principal de serviço que criou através do acesso a CLI do Azure para obter segredos e moldagem de chaves com o seguinte comando:

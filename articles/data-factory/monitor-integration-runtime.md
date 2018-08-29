@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505366"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128454"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
 **Runtime de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de runtimes de integração oferecidos pelo Data Factory:
@@ -189,7 +189,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | A iniciar | Este nó está a ser preparado. |
 | Disponível | Este nó está pronto para implementar/executar pacotes SSIS. |
 | Reciclagem | Este nó está a ser reparado/reiniciar. |
-| Indisponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que pode resolver. |
+| Não disponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que pode resolver. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (runtime de integração Azure-SSIS geral)
 

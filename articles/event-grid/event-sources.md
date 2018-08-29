@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617357"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144234"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origens de eventos no Azure Event Grid
 
@@ -74,13 +74,14 @@ Para obter exemplos dos Hubs de eventos como um manipulador de mensagens em fila
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Subscrever ao IoT Hub eventos para responder a dispositivo criado em eliminado eventos.
+Subscreva eventos do IoT Hub para responder a dispositivo criado, eventos de eliminado, conectados ou desconectados.
 
 |Cargo  |Descrição  |
 |---------|---------|
-| [Tutorial: enviar notificações por e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu hub IoT. |
-| [Descrição geral: reagir a eventos do IoT Hub com o Event Grid para realizar ações](../iot-hub/iot-hub-event-grid.md) | Descrição geral da integração do Iot Hubs com o Event Grid. |
+| [Enviar notificações por e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu IoT Hub. |
+| [Reagir a eventos do IoT Hub com o Event Grid para realizar ações](../iot-hub/iot-hub-event-grid.md) | Descrição geral da integração do IoT Hub com o Event Grid. |
 | [Esquema de eventos](event-schema-iot-hub.md) | Mostra campos do IoT Hub de eventos. |
+| [Ordenar dispositivo ligado e eventos de desligado do dispositivo](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Mostra como encomendar eventos de estado de ligação do dispositivo. |
 
 ## <a name="media-services"></a>Serviços de Multimédia
 

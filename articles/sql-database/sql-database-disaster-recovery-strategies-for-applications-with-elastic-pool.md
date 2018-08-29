@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092550"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124075"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação após desastre para aplicações que utilizam conjuntos elásticos da base de dados SQL
-Ao longo dos anos, que Ficamos cientes de que os serviços cloud não são à prova de falhas e catastróficas incidentes acontece. Base de dados SQL fornece diversos recursos para fornecer para a continuidade de negócio da sua aplicação quando ocorrem esses incidentes. [Conjuntos elásticos](sql-database-elastic-pool.md) e o mesmo tipo de capacidades de recuperação após desastre de suporte de bases de dados individuais. Este artigo descreve várias estratégias de DR para conjuntos elásticos que tirar partido destas funcionalidades de continuidade de negócio de base de dados SQL.
+Ao longo dos anos, que Ficamos cientes de que os serviços cloud não são à prova de falhas e catastróficas incidentes acontece. Base de dados SQL fornece diversos recursos para fornecer para a continuidade de negócio da sua aplicação quando ocorrem esses incidentes. [Conjuntos elásticos](sql-database-elastic-pool.md) e após desastre (DR) de capacidades de recuperação, o mesmo tipo de suporte de bases de dados individuais. Este artigo descreve várias estratégias de DR para conjuntos elásticos que tirar partido destas funcionalidades de continuidade de negócio de base de dados SQL.
 
 Este artigo usa o padrão de aplicação SaaS ISV canônico seguinte:
 

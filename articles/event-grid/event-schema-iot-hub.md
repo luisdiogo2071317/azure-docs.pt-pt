@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055015"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143578"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos do Azure Event Grid para o IoT Hub
 
@@ -31,8 +31,33 @@ O IoT Hub do Azure emite os seguintes tipos de evento:
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registado para um hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. | 
+| Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está ligado a um hub IoT. |
+| Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é ligado à Internet de um hub IoT. | 
 
 ## <a name="example-event"></a>Evento de exemplo
+
+O esquema para eventos DeviceConnected e DeviceDisconnected têm a mesma estrutura. Este evento de exemplo mostra o esquema de um evento que ocorre quando um dispositivo está ligado a um hub IoT:
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
 
 O esquema para eventos DeviceCreated e DeviceDeleted têm a mesma estrutura. Este evento de exemplo mostra o esquema de um evento que ocorre quando um dispositivo é registado para um hub IoT:
 
@@ -47,6 +72,7 @@ O esquema para eventos DeviceCreated e DeviceDeleted têm a mesma estrutura. Est
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -74,11 +100,9 @@ O esquema para eventos DeviceCreated e DeviceDeleted têm a mesma estrutura. Est
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -98,17 +122,29 @@ Todos os eventos contêm os mesmos dados de nível superior:
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
-O conteúdo do objeto de dados é diferente para cada editor de eventos. Eventos do IoT, Hub o objeto de dados contém as seguintes propriedades:
+Para todos os eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | HubName | cadeia | Nome do IoT Hub em que o dispositivo foi criado ou eliminado. |
 | deviceId | cadeia | O identificador exclusivo do dispositivo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | cadeia | O carimbo de hora ISO8601 da operação. |
-| opType | cadeia | O tipo de evento especificado para esta operação pelo IoT Hub: seja `DeviceCreated` ou `DeviceDeleted`.
+
+O conteúdo do objeto de dados é diferente para cada editor de eventos. Para **dispositivo ligado** e **dispositivo desligado** eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
+
+| Propriedade | Tipo | Descrição |
+| -------- | ---- | ----------- |
+| moduleId | cadeia | O identificador exclusivo do módulo. Este campo é de saída apenas para dispositivos de módulo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceConnectionStateEventInfo | objeto | Informações de eventos de estado de ligação do dispositivo
+| sequenceNumber | cadeia | Um número que ajuda a indica a ordem de dispositivo ligado ou dispositivo desligado eventos. Evento mais recente terá um número de sequência é maior do que o evento anterior. Este número pode ser alterada por mais de 1, mas está estritamente aumentando. Ver [como utilizar o número de sequência](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+
+O conteúdo do objeto de dados é diferente para cada editor de eventos. Para **dispositivo criado** e **dispositivo eliminado** eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
+
+| Propriedade | Tipo | Descrição |
+| -------- | ---- | ----------- |
 | duplo | objeto | Informações sobre o dispositivo duplo, que é o represenation de cloud de metadados de dispositivo do aplicativo. | 
 | deviceID | cadeia | O identificador exclusivo do dispositivo duplo. | 
-| ETag | cadeia | Uma parte da informação que descreve o conteúdo do dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. | 
+| ETag | cadeia | Um validador para garantir a consistência das atualizações para um dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. |  
+| deviceEtag| cadeia | Um validador para garantir a consistência das atualizações para um registo do dispositivo. Cada deviceEtag é a garantia de ser exclusivo por registo de dispositivo. |
 | status | cadeia | Se o dispositivo duplo está ativado ou desativado. | 
 | statusUpdateTime | cadeia | Atualizar o carimbo de hora ISO8601 do último Estado de twin do dispositivo. |
 | connectionState | cadeia | Se o dispositivo está ligado ou desligado. | 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 7cb78647b8ae17e066f05acc32668d5c0c8b4ff5
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060704"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127682"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
 
@@ -153,8 +153,6 @@ Se quiser ver mais dados de criação do VM de anfitrião do ESXi, clique num no
 
 #### <a name="common-search-queries"></a>Consultas de pesquisa comuns
 A solução inclui outras consultas útil que podem ajudar a gerir os seus anfitriões ESXi, como o espaço de armazenamento de elevada, a latência de armazenamento e a falha de caminho.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![consultas de](./media/log-analytics-vmware/queries.png)
 

@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127598"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143815"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
 
@@ -181,11 +181,10 @@ O armazenamento do Azure implementou a mesma funcionalidade que permite limitar 
 Se optar por utilizar esta funcionalidade com uma conta de armazenamento que está a ser utilizada por um servidor de SQL do Azure, poderá ter problemas. Em seguida, há uma lista e a discussão sobre recursos do Azure SQLDB que são influenciados por isto.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL dw a partir de contas de armazenamento. Se a conta de armazenamento que está a carregar dados de limite o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade entre o PolyBase e a conta. Há uma atenuação para isso, e poderá entrar em contato *dmalik@microsoft.com* para obter mais informações.
+Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL dw a partir de contas de armazenamento. Se a conta de armazenamento que está a carregar dados de limite o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade entre o PolyBase e a conta. Há uma atenuação para isso, e pode contactar o suporte da Microsoft para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Blob do Azure SQLDB auditoria
 Auditoria de BLOBs envia por push de registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais de serviço de eventos, em seguida, irá interromper a conectividade da SQLDB do Azure para a conta de armazenamento.
-
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall da VNET ao seu servidor sem ativar na VNET pontos finais de serviço
 

@@ -2,7 +2,7 @@
 title: Quais são os controles de acesso no acesso condicional do Azure Active Directory? | Microsoft Docs
 description: Saiba como controla o acesso no trabalho de acesso condicional do Azure Active Directory.
 services: active-directory
-keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, políticas de acesso condicional
+keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 08/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ba770415d7371463f1370d982f179c2a6f41ee65
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 050ccff8501a22526e9382a620258b0f846efe5c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629563"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128726"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory? 
 
@@ -119,9 +119,12 @@ Fornecedores atualmente fornecem um serviço de compatível incluem:
 
 - [Segurança de Duo](https://duo.com/docs/azure-ca)
 
+- [Datacard da Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
+
 - RSA
 
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
+
 
 Para obter mais informações sobre esses serviços, contacte diretamente os fornecedores.
 
@@ -175,4 +178,4 @@ Para saber mais sobre como requerer acesso limitado com o SharePoint, consulte [
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
 
-- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja a [melhores práticas para acesso condicional no Azure Active Directory](best-practices.md). 
+- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja [Best practices for conditional access in Azure Active Directory](best-practices.md) (Melhores práticas do acesso condicional no Azure Active Directory). 

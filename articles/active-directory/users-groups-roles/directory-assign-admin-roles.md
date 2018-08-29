@@ -14,12 +14,12 @@ ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 813fb79bbdc09d0fb3baa9a66cfaeae74343b3f9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9b56f540af2b8d35258a4db79502c9edf83cdb45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093640"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128471"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -613,16 +613,22 @@ Pode gerir todos os aspetos do produto Intune.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Crie e gira pedidos de suporte do Office 365. |
 | microsoft.intune/AllEntities/AllActions | Gerir todos os aspetos do Intune. |
 
-### <a name="license-administrator"></a>Administrador de Licenças
-Pode atribuir licenças aos utilizadores.
 
+### <a name="license-administrator"></a>Administrador de Licenças
+Pode gerir licenças de produtos em utilizadores e grupos.
+ 
+  > [!NOTE]
+  > Esta função herda permissões adicionais da função leitores de diretório.
+  >
+  >
+ 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.directory/users/assignLicense        | &nbsp; |
-| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
-| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
-| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
-| Microsoft.office365.serviceHealth/allEntities/allTasks | &nbsp; |
+| microsoft.aad.directory/users/assignLicense | Gira licenças em utilizadores no Azure Active Directory. |
+| microsoft.aad.directory/users/usageLocation/update | Atualize a propriedade usagelocation no Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 
 ### <a name="lync-service-administrator"></a>Administrador do Serviço Lync
 Pode gerir todos os aspetos do produto Skype para Empresas.

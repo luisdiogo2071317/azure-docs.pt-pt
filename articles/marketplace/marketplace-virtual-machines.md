@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059768"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144527"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guia de publicação de oferta de máquina virtual
 
@@ -42,7 +42,7 @@ Pode fazer com que os utilizadores testar a sua oferta acedendo às licenças de
 
 Implementar um ou mais máquinas virtuais por meio de infrastructure-as-a-service(IaaS) ou aplicações SaaS. Tour interativo de um benefício da unidade de teste que opção de publicação é o aprovisionamento automatizado de uma máquina virtual ou a solução inteira, liderado por um hospedada pelo parceiro. Uma versão de teste fornece uma edição de avaliação sem custos adicionais para o seu cliente. Seu cliente não precisa de ser um cliente existente do Azure a interagir com a experiência de avaliação. 
 
-E-mail amp-testdrive@microsoft.com para começar a utilizar. 
+Contacte-nos [amp-Test-Drive do](mailto:amp-testdrive@microsoft.com) para começar a utilizar. 
 
 |Requisitos  |Detalhes |
 |---------|---------|

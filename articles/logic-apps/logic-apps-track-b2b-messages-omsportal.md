@@ -1,239 +1,235 @@
 ---
-title: Controlar as mensagens B2B com o Log Analytics do Azure - Azure Logic Apps | Microsoft Docs
-description: Controlar a comunicação de B2B para as suas aplicações de conta e a lógica da integração com o Log Analytics do Azure
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Monitorizar mensagens B2B com o Azure Log Analytics - Azure Logic Apps | Documentos da Microsoft
+description: Controlar a comunicação de B2B para contas de integração e o Azure Logic Apps com o Azure Log Analytics
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 06/19/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293210"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125773"
 ---
-# <a name="track-b2b-communication-with-azure-log-analytics"></a>Controlar a comunicação de B2B com Log Analytics do Azure
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>Controlar B2B comunicação com o Azure Log Analytics
 
-Após configurar a comunicação de B2B entre duas a executar os processos de negócios ou aplicações através da sua conta de integração, estas entidades podem trocar mensagens entre si. Para verificar se estas mensagens são processadas corretamente, pode controlar AS2, X12, e EDIFACT mensagens com [Log Analytics do Azure](../log-analytics/log-analytics-overview.md). Por exemplo, pode utilizar estas capacidades de controlo baseada na web para o registo de mensagens:
+Após configurar a comunicação de B2B entre dois processos de negócios ou aplicativos através da sua conta de integração, a executar essas entidades podem trocar mensagens entre si. Para verificar se estas mensagens são processadas corretamente, pode controlar o AS2, X12, e mensagens de EDIFACT com [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). Por exemplo, pode utilizar estas capacidades de controle baseado na web para mensagens de controlo:
 
 * Contagem de mensagens e o Estado
-* Estado em que as confirmações
-* Correlacionar mensagens com em que as confirmações
+* Estado de agradecimentos
+* Correlacionar mensagens com os agradecimentos
 * Descrições de erro detalhadas para falhas
 * Capacidades de pesquisa
 
 ## <a name="requirements"></a>Requisitos
 
-* Uma aplicação lógica que esteja configurada com o registo de diagnóstico. Saiba [como criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Uma aplicação de lógica que está configurada com o registo de diagnósticos. Saiba mais [como criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Uma conta de integração que está configurada com a monitorização e registo. Saiba [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar a monitorização e o registo para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
+* Uma conta de integração que está configurada com a monitorização e registo. Saiba mais [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar a monitorização e registo para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Se ainda não o fez, [publicar dados de diagnóstico ao Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Se ainda não o fez, [publicar dados de diagnóstico para o Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Após cumprir os requisitos anteriores, deve ter uma área de trabalho na análise de registos. Deve utilizar o mesmo espaço de trabalho para a sua comunicação B2B na análise de registos de controlo. 
+> Depois de cumprir os requisitos anteriores, deve ter uma área de trabalho do Log Analytics. Deve usar a mesma área de trabalho para rastrear a comunicação de B2B no Log Analytics. 
 >  
-> Se não tiver uma área de trabalho de análise de registos, saiba [como criar uma área de trabalho de análise de registos](../log-analytics/log-analytics-quick-create-workspace.md).
+> Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Adicionar a solução de Logic Apps B2B ao Log Analytics
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Adicionar a solução de aplicações lógicas B2B para o Log Analytics
 
-Para controlar as mensagens B2B para a sua aplicação de lógica de análise de registos, tem de adicionar o **Logic Apps B2B** solução para o portal do OMS. Saiba mais sobre [a adição de soluções de análise de registos](../log-analytics/log-analytics-quick-create-workspace.md).
+Para que o Log Analytics monitorizar mensagens B2B para a aplicação lógica, tem de adicionar o **Logic Apps B2B/EDI** solução para o portal do OMS. Saiba mais sobre [adicionar soluções ao Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. No [portal do Azure](https://portal.azure.com), escolha **todos os serviços**. Procure "análise de registos" e, em seguida, escolha **Log Analytics** conforme mostrado aqui:
+1. Na [portal do Azure](https://portal.azure.com), escolha **todos os serviços**. Procure "log analytics" e, em seguida, escolha **do Log Analytics** conforme mostrado aqui:
 
-   ![Localizar a análise de registos](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Encontrar o Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. Em **Log Analytics**, localize e selecione a sua área de trabalho de análise de registos. 
+2. Sob **do Log Analytics**, localize e selecione a sua área de trabalho do Log Analytics. 
 
-   ![Selecione a sua área de trabalho de análise de registos](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Selecione a sua área de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Em **gestão**, escolha **descrição geral**.
+3. Sob **gerenciamento**, escolha **descrição geral**.
 
-   ![Escolha o portal do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Escolher o portal do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Depois de abrir a home page, escolha **adicionar** instalar Logic Apps B2B solução.    
-   ![Escolha a Galeria de soluções](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+4. Depois de abrir a home page, escolha **adicionar** para instalar a solução de aplicações lógicas B2B.    
+   ![Selecione a Galeria de soluções](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-5. Em **soluções de gestão**, localizar e criar **Logic Apps B2B** solução.     
-   ![Escolha as Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+5. Sob **soluções de gestão**, localize e crie **aplicações lógicas B2B** solução.     
+   ![Escolher aplicações lógicas B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
-   Na página inicial, o mosaico da **Logic Apps B2B mensagens** aparece. 
-   Este mosaico atualiza a contagem de mensagens quando as mensagens B2B são processadas.
+   Na home page, no mosaico relativo **mensagens de B2B de aplicações lógicas** aparece agora. 
+   Este mosaico é atualizada a contagem de mensagens quando as mensagens B2B são processadas.
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Controlar o estado de mensagem e os detalhes no Log Analytics
 
-1. Depois das mensagens B2B são processadas, pode ver o estado e os detalhes para essas mensagens. Na página Descrição geral, escolha o **Logic Apps B2B mensagens** mosaico.
+1. Depois das mensagens B2B são processadas, pode ver o estado e os detalhes para essas mensagens. Na página Descrição geral, escolha o **mensagens de B2B de aplicações lógicas** mosaico.
 
    ![Contagem de mensagens atualizado](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > Por predefinição, o **Logic Apps B2B mensagens** mosaico mostra dados com base num único dia. Para alterar o âmbito de dados para um intervalo de diferentes, escolha o controlo de âmbito na parte superior da página:
+   > Por predefinição, o **mensagens de B2B de aplicações lógicas** mosaico mostra os dados com base num único dia. Para alterar o âmbito de dados para um intervalo diferente, escolha o controlo de âmbito na parte superior da página:
    > 
    > ![Alterar o âmbito de dados](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
-2. Após a mensagem de dashboard de estado é apresentado, pode ver mais detalhes sobre um tipo de mensagem específico, que mostra os dados com base num único dia. Escolha o mosaico da **AS2**, **X12**, ou **EDIFACT**.
+2. Após a mensagem de estado é apresentado o dashboard, pode ver mais detalhes sobre um tipo de mensagem específica, que mostra os dados com base num único dia. Escolha o mosaico da **AS2**, **X12**, ou **EDIFACT**.
 
    ![Ver o estado de mensagem](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-   É apresentada uma lista de mensagens em fila para o mosaico escolhido. 
-   Para saber mais sobre as propriedades para cada tipo de mensagem, consulte estas descrições de propriedade de mensagem:
+   É apresentada uma lista de mensagens para o seu mosaico escolhido. 
+   Para saber mais sobre as propriedades para cada tipo de mensagem, consulte estas descrições de propriedade da mensagem:
 
    * [Propriedades da mensagem AS2](#as2-message-properties)
    * [Propriedades da mensagem X12](#x12-message-properties)
    * [Propriedades da mensagem EDIFACT](#EDIFACT-message-properties)
 
-   Por exemplo, aqui está uma lista de mensagens AS2 poderá aspeto:
+   Por exemplo, aqui está uma lista de mensagens AS2 possível aparência:
 
-   ![Ver mensagens de AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+   ![Ver mensagens AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
-3. Para ver ou exportação de entradas e saídas para as mensagens específicas, selecione essas mensagens e escolha **transferir**. Quando lhe for pedido, guarde o ficheiro. zip no computador local e, em seguida, extraia esse ficheiro. 
+3. Para ver ou exportar as entradas e saídas de mensagens específicas, selecione essas mensagens e escolha **transferir**. Quando lhe for pedido, guarde o ficheiro. zip no computador local e, em seguida, extrair esse arquivo. 
 
    A pasta extraída inclui uma pasta para cada mensagem selecionada. 
-   Se configurar as confirmações, a pasta de mensagem inclui também os ficheiros com detalhes de confirmação. 
-   Pasta cada mensagem tem, pelo menos, estes ficheiros: 
+   Se configurou as confirmações, a pasta de mensagem também inclui arquivos com detalhes de confirmação. 
+   Cada pasta de mensagem tem, pelo menos, estes ficheiros: 
    
-   * Legível por humanos ficheiros com o payload de entrada e saída payload detalhes
+   * Ficheiros legível por humanos com o payload de entrada e os detalhes do payload de saída
    * Ficheiros codificados com as entradas e saídas
 
    Para cada tipo de mensagem, pode encontrar a pasta e formatos de nome de ficheiro aqui:
 
-   * [Formatos de nome de pasta e ficheiro AS2](#as2-folder-file-names)
+   * [Formatos de nome de pasta e ficheiro de AS2](#as2-folder-file-names)
    * [X12 formatos de nome de pasta e ficheiro](#x12-folder-file-names)
    * [Formatos de nome de pasta e ficheiro EDIFACT](#edifact-folder-file-names)
 
    ![Transferir ficheiros de mensagens](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
 
-4. Para ver todas as ações que tenham o mesmo execute ID, no **pesquisa registo** página, escolha uma mensagem a partir da lista de mensagens.
+4. Para ver todas as ações que têm o mesmo ID de execução, diante da **pesquisa de registos** página, selecione uma mensagem a partir da lista de mensagem.
 
-   Pode ordenar estas ações por coluna ou procure resultados específicos.
+   Pode ordenar estas ações por coluna ou pesquisar resultados específicos.
 
-   ![ID de execução de ações com o mesmo](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+   ![Ações com o mesmo ID de execução](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
-   * Para procurar os resultados com consultas prebuilt, escolha **Favoritos**.
+   * Para pesquisar resultados com consultas pré-criadas, escolha **Favoritos**.
 
-   * Saiba [como criar consultas, adicionando filtros de](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Ou Saiba mais sobre [como encontrar dados com pesquisas de registo na análise de registos](../log-analytics/log-analytics-log-searches.md).
+   * Saiba mais [como criar consultas, adicione filtros](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
+   Ou obtenha mais informações [como encontrar dados com pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-   * Para alterar a consulta na caixa de pesquisa, atualize a consulta com as colunas e valores que pretende utilizar como filtros.
+   * Para alterar a consulta na caixa de pesquisa, atualize a consulta com as colunas e os valores que pretende utilizar como filtros.
 
 <a name="message-list-property-descriptions"></a>
 
-## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Descrições das propriedades e formatos de nome para AS2, X12 e mensagens EDIFACT
+## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Descrições das propriedades e formatos de nome de AS2, X12 e mensagens EDIFACT
 
-Para cada tipo de mensagem, seguem-se as descrições de propriedade e formatos de nome de ficheiros de mensagens transferido.
+Para cada tipo de mensagem, aqui estão as descrições de propriedade e formatos de nome para ficheiros de mensagens transferido.
 
 <a name="as2-message-properties"></a>
 
 ### <a name="as2-message-property-descriptions"></a>Descrições de propriedade de mensagem AS2
 
-Seguem-se as descrições de propriedade para cada mensagem AS2.
+Aqui estão as descrições de propriedade para cada mensagem AS2.
 
 | Propriedade | Descrição |
 | --- | --- |
-| Remetente | O parceiro do convidado especificado na **receber definições**, ou o parceiro de anfitrião especificado na **enviar definições** para um contrato de AS2 |
-| Recetor | O parceiro de anfitrião especificado na **receber definições**, ou o parceiro de convidado especificadas **enviar definições** para um contrato de AS2 |
+| Remetente | O parceiro convidado especificado na **receber definições**, ou o parceiro do anfitrião especificado na **enviar definições** para um contrato de AS2 |
+| Recetor | O parceiro do anfitrião especificado na **receber definições**, ou o parceiro convidado especificadas **enviar definições** para um contrato de AS2 |
 | Aplicação Lógica | A aplicação lógica em que são configuradas as ações de AS2 |
-| Estado | O estado de mensagem AS2 <br>Êxito = recebidos ou enviados uma mensagem de AS2 válida. Não existem MDN está definida. <br>Êxito = recebidos ou enviados uma mensagem de AS2 válida. MDN está configurado e recebido ou MDN é enviado. <br>Não foi possível = recebida uma mensagem de AS2 inválida. Não existem MDN está definida. <br>Pendente = recebidos ou enviados uma mensagem de AS2 válida. Configurar a MDN e MDN é esperado. |
-| Confirmação | O estado de mensagem MDN <br>Aceite = recebidos ou enviados um MDN positivo. <br>Pendente = à espera de receber ou enviar um MDN. <br>Rejeitado = recebidos ou enviados um MDN negativo. <br>Não é necessária = MDN não está definido no contrato. |
+| Estado | O estado de mensagem AS2 <br>Êxito = recebida ou enviada uma mensagem AS2 válida. Não existem MDN está definida. <br>Êxito = recebida ou enviada uma mensagem AS2 válida. MDN foi definida e recebido ou MDN é enviada. <br>Falha ao = recebida uma mensagem AS2 inválida. Não existem MDN está definida. <br>Pendente = recebida ou enviada uma mensagem AS2 válida. MDN está configurado e é esperado o MDN. |
+| ACK | O estado da mensagem MDN <br>Aceite = recebidos ou enviados um MDN positivo. <br>Pendente = esperando para receber ou enviar um MDN. <br>Rejeitado = recebidos ou enviados um MDN negativo. <br>Não é necessário = MDN não está definido no contrato. |
 | Direção | A direção de mensagem AS2 |
-| ID de Correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
-| ID da Mensagem | O ID de mensagem AS2 de cabeçalhos de mensagens AS2 |
-| Carimbo de data/hora | A hora quando a ação de AS2 processar a mensagem |
+| ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
+| ID da mensagem | O ID da mensagem AS2 dos cabeçalhos de mensagem AS2 |
+| Carimbo de data/hora | A hora quando a ação de AS2 processado a mensagem |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
 
 ### <a name="as2-name-formats-for-downloaded-message-files"></a>Formatos de nome de AS2 para ficheiros de mensagens transferido
 
-Seguem-se formatos de nome para cada pasta de mensagem AS2 transferida e ficheiros.
+Aqui estão os formatos de nome para cada pasta de mensagem AS2 transferida e ficheiros.
 
 | Ficheiro ou pasta | Formato de nome |
 | :------------- | :---------- |
 | Pasta de mensagem | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
-| Entrada, saída e se configurar os ficheiros de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_outputs.txt |
+| Entrada, saída e se a configurar, arquivos de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_outputs.txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
 
 ### <a name="x12-message-property-descriptions"></a>Descrições das propriedades da mensagem X12
 
-Seguem-se as descrições de propriedade para cada X12 mensagem.
+Aqui estão as descrições de propriedade para cada X12 mensagem.
 
 | Propriedade | Descrição |
 | --- | --- |
-| Remetente | O parceiro do convidado especificado na **receber definições**, ou o parceiro de anfitrião especificado na **enviar definições** para um X12 contrato |
-| Recetor | O parceiro de anfitrião especificado na **receber definições**, ou o parceiro de convidado especificadas **enviar definições** para um X12 contrato |
-| Aplicação Lógica | A aplicação lógica em que o X12 ações estão configuradas |
-| Estado | O X12 mensagem de estado <br>Êxito = recebidos ou enviados um X12 válido mensagem. Nenhum ack funcional está definida. <br>Êxito = recebidos ou enviados um X12 válido mensagem. Ack funcional está configurado e recebido ou uma confirmação funcional é enviada. <br>Não foi possível = recebidos ou enviados um X12 inválido mensagem. <br>Pendente = recebidos ou enviados um X12 válido mensagem. Configurar a confirmação funcional e prevê-se uma confirmação funcional. |
-| Confirmação | Estado de confirmação (997) funcional <br>Aceite = recebidos ou enviados uma confirmação funcional positivo <br>Rejeitado = recebidos ou enviados uma confirmação negativa de funcional <br>Pendente = era esperado um ack funcional, mas não foi recebido. <br>Pendente = gerou uma confirmação funcional, mas não é possível enviar para o parceiro. <br>Não é necessária = funcional ack não está configurado. |
+| Remetente | O parceiro convidado especificado na **receber definições**, ou o parceiro do anfitrião especificado na **enviar definições** para um X12 contrato |
+| Recetor | O parceiro do anfitrião especificado na **receber definições**, ou o parceiro convidado especificadas **enviar definições** para um X12 contrato |
+| Aplicação Lógica | A aplicação lógica em que as ações são configuradas de X12 |
+| Estado | O estado da mensagem X12 <br>Êxito = recebidos ou enviados um X12 válido mensagem. Não existem ack funcional é configurado. <br>Êxito = recebidos ou enviados um X12 válido mensagem. Ack funcional foi definida e recebido, ou um ack funcional é enviado. <br>Falha ao = recebidos ou enviados um X12 inválido mensagem. <br>Pendente = recebidos ou enviados um X12 válido mensagem. Ack funcional é configurado e prevê-se uma ack funcional. |
+| ACK | Estado funcional do Ack (997) <br>Aceite = recebidos ou enviados uma ACK positivo. funcionais <br>Rejeitado = recebidos ou enviados uma ACK negativo. funcionais <br>Pendente = esperando um ack funcional, mas não foi recebido. <br>Pendente = gerado um ack funcional, mas não é possível enviar para o parceiro. <br>Não é necessário = funcional ack não está configurado. |
 | Direção | A direção da mensagem X12 |
-| ID de Correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
-| Tipo de tarifas de mensagens | O tipo de mensagem 12 EDI X |
-| ICN | O número de controlo intercâmbio para o X12 mensagem |
-| TSCN | O número de controlo de transação definida para o X12 mensagem |
-| Carimbo de data/hora | A hora quando o X12 processar a ação a mensagem |
+| ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
+| Tipo de mensagem | O tipo de mensagem 12 X de EDI |
+| ICN | O número de controlo de intercâmbio de X12 mensagem |
+| TSCN | O número de controlo do transação definido para o X12 mensagem |
+| Carimbo de data/hora | A hora quando o X12 ação processado a mensagem |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
 
 ### <a name="x12-name-formats-for-downloaded-message-files"></a>Formatos de nome de X12 para ficheiros de mensagens transferido
 
-Seguem-se formatos de nome de cada transferido X12 pastas e ficheiros de mensagens.
+Aqui estão os formatos de nome para cada transferido X12 pasta e ficheiros de mensagens.
 
 | Ficheiro ou pasta | Formato de nome |
 | :------------- | :---------- |
 | Pasta de mensagem | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Entrada, saída e se configurar os ficheiros de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_outputs.txt |
+| Entrada, saída e se a configurar, arquivos de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_outputs.txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
 
 ### <a name="edifact-message-property-descriptions"></a>Descrições de propriedade de mensagem EDIFACT
 
-Seguem-se as descrições de propriedade para cada mensagem EDIFACT.
+Aqui estão as descrições de propriedade para cada mensagem EDIFACT.
 
 | Propriedade | Descrição |
 | --- | --- |
-| Remetente | O parceiro do convidado especificado na **receber definições**, ou o parceiro de anfitrião especificado na **enviar definições** para um contrato de EDIFACT |
-| Recetor | O parceiro de anfitrião especificado na **receber definições**, ou o parceiro de convidado especificadas **enviar definições** para um contrato de EDIFACT |
-| Aplicação Lógica | A aplicação lógica em que as ações de EDIFACT estão configuradas |
-| Estado | O estado de mensagem EDIFACT <br>Êxito = recebidos ou enviados uma mensagem EDIFACT válida. Nenhum ack funcional está definida. <br>Êxito = recebidos ou enviados uma mensagem EDIFACT válida. Ack funcional está configurado e recebido ou uma confirmação funcional é enviada. <br>Não foi possível = recebidos ou enviados uma mensagem EDIFACT inválida <br>Pendente = recebidos ou enviados uma mensagem EDIFACT válida. Configurar a confirmação funcional e prevê-se uma confirmação funcional. |
-| Confirmação | Estado de confirmação (997) funcional <br>Aceite = recebidos ou enviados uma confirmação funcional positivo <br>Rejeitado = recebidos ou enviados uma confirmação negativa de funcional <br>Pendente = era esperado um ack funcional, mas não foi recebido. <br>Pendente = gerou uma confirmação funcional, mas não é possível enviar para o parceiro. <br>Não é necessária = Ack funcional não está configurado. |
-| Direção | A direção de mensagem EDIFACT |
-| ID de Correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
-| Tipo de tarifas de mensagens | O tipo de mensagem EDIFACT |
-| ICN | O número de controlo intercâmbio para a mensagem EDIFACT |
-| TSCN | O número de controlo de transação definida para a mensagem EDIFACT |
-| Carimbo de data/hora | A hora quando a ação de EDIFACT processar a mensagem |
+| Remetente | O parceiro convidado especificado na **receber definições**, ou o parceiro do anfitrião especificado na **enviar definições** para um contrato EDIFACT |
+| Recetor | O parceiro do anfitrião especificado na **receber definições**, ou o parceiro convidado especificadas **enviar definições** para um contrato EDIFACT |
+| Aplicação Lógica | A aplicação lógica em que são configuradas as ações de EDIFACT |
+| Estado | O estado de mensagem EDIFACT <br>Êxito = recebida ou enviada uma mensagem EDIFACT válida. Não existem ack funcional é configurado. <br>Êxito = recebida ou enviada uma mensagem EDIFACT válida. Ack funcional foi definida e recebido, ou um ack funcional é enviado. <br>Falha ao = recebida ou enviada uma mensagem EDIFACT inválida <br>Pendente = recebida ou enviada uma mensagem EDIFACT válida. Ack funcional é configurado e prevê-se uma ack funcional. |
+| ACK | Estado funcional do Ack (997) <br>Aceite = recebidos ou enviados uma ACK positivo. funcionais <br>Rejeitado = recebidos ou enviados uma ACK negativo. funcionais <br>Pendente = esperando um ack funcional, mas não foi recebido. <br>Pendente = gerado um ack funcional, mas não é possível enviar para o parceiro. <br>Não é necessário = Ack funcional não está configurado. |
+| Direção | A direção de mensagem de EDIFACT |
+| ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
+| Tipo de mensagem | O tipo de mensagem EDIFACT |
+| ICN | O número de controlo de intercâmbio para a mensagem EDIFACT |
+| TSCN | O número de controlo do transações definido para a mensagem EDIFACT |
+| Carimbo de data/hora | A hora quando a ação de EDIFACT processado a mensagem |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
 
 ### <a name="edifact-name-formats-for-downloaded-message-files"></a>Formatos de nome EDIFACT para ficheiros de mensagens transferido
 
-Seguem-se formatos de nome para cada pasta de mensagem EDIFACT transferida e ficheiros.
+Aqui estão os formatos de nome para cada pasta de mensagem EDIFACT transferida e ficheiros.
 
 | Ficheiro ou pasta | Formato de nome |
 | :------------- | :---------- |
 | Pasta de mensagem | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Entrada, saída e se configurar os ficheiros de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_outputs.txt |
+| Entrada, saída e se a configurar, arquivos de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_outputs.txt |
 |          |             |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Consulta para mensagens B2B na análise de registos](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Consulta para mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de controlo de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Esquemas de controlo de X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Esquemas de controlo personalizado](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

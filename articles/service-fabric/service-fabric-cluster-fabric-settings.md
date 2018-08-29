@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/25/2018
+ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503711"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144043"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve como personalizar as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para clusters autónomos, personalizar definições ao atualizar o ficheiro de ClusterConfig.json e efetuar uma atualização de configuração no seu cluster. 
@@ -187,9 +187,10 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="dnsservice"></a>DnsService
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
+|EnablePartitionedQuery|bool, a predefinição é falso|Estático|O sinalizador para ativar o suporte para consultas DNS para serviços particionadas. A funcionalidade está desativada por predefinição. Para obter mais informações, consulte [serviço DNS do Service Fabric.](service-fabric-dnsservice.md)|
 |InstanceCount|int, a predefinição é de -1|Estático|valor predefinido é -1, que significa que DnsService está em execução em cada nó. OneBox precisa para ser definido como 1, uma vez que DnsService utiliza a porta conhecida 53, para que ele não pode ter várias instâncias no mesmo computador.|
 |IsEnabled|bool, a predefinição é falso|Estático|Ativa/desativa DnsService. DnsService está desativada por predefinição e esta configuração precisa ser definida para ativá-la. |
-|PartitionPrefix|cadeia de caracteres, a predefinição é "-"|Estático|Controla o valor de cadeia de caracteres de prefixo de partição nas consultas DNS para serviços particionadas. O valor: <ul><li>Deve estar em conformidade com RFC como será a parte de uma consulta DNS.</li><li>Não deve conter um ponto ".", como o ponto interfere com o comportamento de sufixo DNS.</li><li>Não deve ter mais de 5 carateres.</li><li>Não pode ser uma cadeia vazia.</li><li>Se a definição de PartitionPrefix é substituída, então PartitionSuffix tem de ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md).|
+|PartitionPrefix|cadeia de caracteres, a predefinição é ""|Estático|Controla o valor de cadeia de caracteres de prefixo de partição nas consultas DNS para serviços particionadas. O valor: <ul><li>Deve estar em conformidade com RFC como será a parte de uma consulta DNS.</li><li>Não deve conter um ponto ".", como o ponto interfere com o comportamento de sufixo DNS.</li><li>Não deve ter mais de 5 carateres.</li><li>Não pode ser uma cadeia vazia.</li><li>Se a definição de PartitionPrefix é substituída, então PartitionSuffix tem de ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md).|
 |PartitionSuffix|cadeia de caracteres, a predefinição é ""|Estático|Controla o valor de cadeia de caracteres de sufixo de partição nas consultas DNS para serviços particionadas. O valor: <ul><li>Deve estar em conformidade com RFC como será a parte de uma consulta DNS.</li><li>Não deve conter um ponto ".", como o ponto interfere com o comportamento de sufixo DNS.</li><li>Não deve ter mais de 5 carateres.</li><li>Se a definição de PartitionPrefix é substituída, então PartitionSuffix tem de ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
@@ -350,6 +351,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ApplicationHostCloseTimeout| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. Quando a saída de recursos de infraestrutura é detetada num self ativado processos; FabricRuntime fecha todas as réplicas no processo de anfitrião (applicationhost) do utilizador. Este é o tempo limite para a operação de fecho. |
 |ApplicationUpgradeTimeout| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(360)|Dinâmica| Especifique o período de tempo em segundos. O tempo limite para a atualização da aplicação. Se o tempo limite é menor do que o implementador de "ActivationTimeout" irá falhar. |
 |ContainerServiceArguments|cadeia de caracteres, a predefinição é "-H localhost:2375 -H npipe: / /"|Estático|Service Fabric (SF) gere o daemon do docker (exceto em máquinas de cliente do windows, como o Win10). Esta configuração permite que o usuário especificar argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-los. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do Docker, exceto "– pidfile' argumento. Por conseguinte, os utilizadores não devem especificar "– pidfile' argumento como parte de seus argumentos de cliente. Além disso, os argumentos personalizados devem garantir que o docker daemon escuta no pipe de nome predefinido no Windows (ou o socket de domínio Unix no Linux) para o Service Fabric conseguir comunicar com o mesmo.|
+|ContainerServiceLogFileMaxSizeInKb|int, a predefinição é 32768|Estático|Tamanho máximo do ficheiro de registo gerado pelo contentores do docker.  Windows.|
+|ContainerServiceLogFileNamePrefix|cadeia de caracteres, predefinido é "sfcontainerlogs"|Estático|Prefixo do nome de ficheiro para os ficheiros de registo gerado pelo contentores do docker.  Windows.|
+|ContainerServiceLogFileRetentionCount|Int, a predefinição é 10|Estático|Número de ficheiros de registo gerado pelo contentores do docker antes de ficheiros de registo é substituído.  Windows.|
 |CreateFabricRuntimeTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. O valor de tempo limite para a sincronização FabricCreateRuntime chamada |
 |DefaultContainerRepositoryAccountName|cadeia de caracteres, a predefinição é ""|Estático|Credenciais predefinidas utilizadas em vez das credenciais especificadas em applicationmanifest. XML |
 |DefaultContainerRepositoryPassword|cadeia de caracteres, a predefinição é ""|Estático|Credenciais de palavra-passe padrão usadas em vez das credenciais especificadas em applicationmanifest. XML|
@@ -357,6 +361,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |DeploymentMaxRetryInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica| Especifique o período de tempo em segundos. Intervalo de repetição máximo para a implementação. Em cada caso de falha contínuo, o intervalo entre tentativas é calculado como Min (DeploymentMaxRetryInterval; Número de falhas contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(10)|Dinâmica|Especifique o período de tempo em segundos. Intervalo de término da falha de implementação. Em cada caso de falha de implementação contínua, o sistema tentará novamente a implementação da até o MaxDeploymentFailureCount. O intervalo entre tentativas é um produto de falha de implementação contínua e o intervalo de término da implantação. |
 |EnableActivateNoWindow| bool, a predefinição é falso|Dinâmica| O processo ativado é criado em segundo plano sem qualquer consola. |
+|EnableContainerServiceDebugMode|bool, a predefinição é TRUE|Estático|Ativar/desativar o registo para contentores do docker.  Windows.|
 |EnableDockerHealthCheckIntegration|bool, a predefinição é TRUE|Estático|Permite a integração de eventos HEALTHCHECK do docker com o relatório de estado de funcionamento do sistema de Service Fabric |
 |EnableProcessDebugging|bool, a predefinição é falso|Dinâmica| Permite que a inicialização de hosts de aplicativos sob o depurador |
 |EndpointProviderEnabled| bool, a predefinição é falso|Estático| Ativa a gestão de recursos de ponto final por recursos de infraestrutura. Requer a especificação de início e de fim intervalo de portas de aplicação no FabricNode. |

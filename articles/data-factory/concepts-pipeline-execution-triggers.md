@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 4ac0f27480bbddf28b83af05e4b7b89ca6766871
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093783"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122438"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -324,7 +324,7 @@ Para obter mais informações sobre acionadores de janela em cascata e exemplos,
 
 ## <a name="event-based-trigger"></a>Acionador baseado em eventos
 
-Um acionador baseado em eventos executa pipelines em resposta a um evento, como a chegada de um ficheiro ou a eliminação de um ficheiro no Armazenamento de Blobs do Azure.
+Um acionador com base em eventos executa pipelines em resposta a um evento, como a chegada de um ficheiro ou a eliminação de um arquivo, no armazenamento de Blobs do Azure.
 
 Para obter mais informações sobre acionadores baseados em eventos, veja [Criar um acionador que executa um pipeline em resposta a um evento](how-to-create-event-trigger.md).
 

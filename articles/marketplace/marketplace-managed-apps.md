@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 674e91a7c1de026a26cf9a3bf1eaead7f5e86144
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060552"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144596"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicações do Azure: Oferta de aplicação gerida guia de publicação
 
-Modelos de soluções são uma das principais formas que publicar uma solução no mercado. Utilize este guia para compreender os requisitos para esta oferta. 
+Uma aplicação gerida é uma das principais formas que publicar uma solução no mercado. Utilize este guia para compreender os requisitos para esta oferta. 
 
 Estes são ofertas de transação que são implementadas e faturadas através do Marketplace. A chamada a ação que um utilizador vê é a "Obter agora."
 

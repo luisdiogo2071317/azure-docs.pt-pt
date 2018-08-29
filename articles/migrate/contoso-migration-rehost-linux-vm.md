@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: raynew
-ms.openlocfilehash: 99733fd80ab722f38a27bd99e5dd61bc32f7ab36
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: dc2e116e9e6bb60da4ba9fecb308ad0f9d7c127b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105058"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126799"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração de Contoso: realojar a uma aplicação do Linux no local para VMs do Azure
 
@@ -71,7 +71,7 @@ Depois de fixar-se para baixo de objetivos e requisitos, a Contoso projeta e rev
 - O ambiente do VMware é gerido pelo vCenter Server 6.5 (**vcenter.contoso.com**), em execução numa VM.
 - A Contoso tiver um datacenter no local (**contoso-datacenter**), com um controlador de domínio no local (**contosodc1**)
 
-## <a name="proposed-architecture"></a>Arquitetura proposta
+### <a name="proposed-architecture"></a>Arquitetura proposta
 
 - Uma vez que a aplicação é uma carga de trabalho de produção, as VMs no Azure irão residir no grupo de recursos de produção **ContosoRG**.
 - As VMs serão migradas para a região primária (E.U.A. Leste 2) e colocadas na rede de produção (VNET-PROD-EUS2):
@@ -87,7 +87,7 @@ Contoso avalia a estrutura proposta ao juntar-se de uma lista de prós e contras
 
 **Consideração** | **Detalhes**
 --- | ---
-**Profissionais de TI** | Ambas as VMs de aplicação serão movidas para o Azure sem alterações, fazer a migração simples.<br/><br/> Uma vez que a Contoso está usando a migração lift-and-shift para ambas as VMs de aplicação, nenhuma ferramenta de configuração ou migração especial é necessárias para a base de dados de aplicação.<br/><br/> Contoso irão manter o controlo total da aplicação VMs no Azure. <br/><br/> Base de dados SQL tem tolerância a falhas incorporada que Contoso não precisa de configurar. Isto garante que a camada de dados já não é um ponto único de ativação pós-falha.</br>/ br > as VMs da aplicação estiver a executar o Ubuntu 16.04-TLS, que é uma distribuição do Linux apoiada. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+**Profissionais de TI** | Ambas as VMs de aplicação serão movidas para o Azure sem alterações, fazer a migração simples.<br/><br/> Uma vez que a Contoso está usando a migração lift-and-shift para ambas as VMs de aplicação, nenhuma ferramenta de configuração ou migração especial é necessárias para a base de dados de aplicação.<br/><br/> Contoso irão manter o controlo total da aplicação VMs no Azure. </br>/ br > as VMs da aplicação estiver a executar o Ubuntu 16.04-TLS, que é uma distribuição do Linux apoiada. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 **Contras** | A camada web e os dados da aplicação irá permanecer um ponto único de ativação pós-falha. <br/><br/> Contoso tem de continuar a suportar a aplicação como VMs do Azure, em vez de mudar para um serviço gerido, como o serviço de aplicações do Azure e base de dados do Azure para MySQL.<br/><br/> Contoso está ciente de que ao manter as coisas simples com uma migração de VM de migração lift-and-shift, eles estiverem não tirar total partido das funcionalidades fornecidas pelo [base de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/overview) (incorporado de elevada disponibilidade, desempenho previsível, dimensionamento simples, cópias de segurança automáticas e segurança incorporadas).
 
 ### <a name="migration-process"></a>Processo de migração
