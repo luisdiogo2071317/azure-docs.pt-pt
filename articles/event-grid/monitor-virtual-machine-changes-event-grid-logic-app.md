@@ -1,22 +1,20 @@
 ---
 title: Monitorizar alterações de máquina virtual – Azure Event Grid e Logic Apps | Microsoft Docs
 description: Verifique a existência de alterações de configuração em máquinas virtuais (VMs) com o Azure Event Grid e o Logic Apps
-keywords: aplicações lógicas, grelhas de eventos, máquina virtual, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303118"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127664"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorizar alterações de máquina virtual com o Azure Event Grid e o Logic Apps
 

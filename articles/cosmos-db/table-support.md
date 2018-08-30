@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a6ac954caa8341d6d949811f0bb9d7e68c0b5aac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 114286b45df5f47e81bd2b990c8b50c8b7b7a482
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023531"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185371"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Programar com a API de Tabela do Azure Cosmos DB e o armazenamento de Tabelas do Azure
 
@@ -31,7 +31,7 @@ Neste momento, a [API de Tabela do Azure Cosmos DB](table-introduction.md) tem q
 - [SDK Java](table-sdk-java.md). Este SDK do Armazenamento do Azure tem capacidade para ligar a contas do Azure Cosmos BD através da API de Tabela.
 - [SDK Node.js](table-sdk-nodejs.md). Este SDK do Armazenamento do Azure tem capacidade para ligar a contas do Azure Cosmos BD através da API de Tabela.
 
-Estão disponíveis informações adicionais sobre como trabalhar com a API de Tabela no artigo [FAQ: Programar com a API de Tabela](faq.md#develop-with-the-table-api).
+Estão disponíveis informações adicionais sobre como trabalhar com a API de Tabela no artigo [FAQ: Programar com a API de Tabela](faq.md#table).
 
 ## <a name="developing-with-azure-table-storage"></a>Programar com o armazenamento de Tabelas do Azure
 

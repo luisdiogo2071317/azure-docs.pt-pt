@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/21/2018
-ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.date: 08/23/2018
+ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617180"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810825"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do Azure Kubernetes Service no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o Azure Kubernetes Service (AKS). Este artigo mostra-lhe como utilizar o Ansible para criar e configurar um cluster do Azure Kubernetes Service.
@@ -22,19 +22,7 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 - **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - **Principal de serviço do Azure** - quando [criar o principal de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), tome nota dos seguintes valores: **appId**, **displayName**, **password** e **tenant**.
 
-- **Configurar o Azure Cloud Shell** ou **Instalar e configurar o Ansible numa máquina virtual do Linux**
-
-  **Configurar o Azure Cloud Shell**
-
-  1. **Configurar o Azure Cloud Shell** - se estiver familiarizado com o Azure Cloud Shell, o artigo [Início rápido para Bash no Azure Cloud Shell](/azure/cloud-shell/quickstart), ilustra como iniciar e configurar o Cloud Shell. 
-
-  **--OU--**
-
-  **Instalar e configurar o Ansible numa máquina virtual do Linux**
-
-  1. **Instalar o Ansible** - Instale o Ansible numa [plataforma suportada do Linux](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
-
-  1. **Configurar o Ansible** - [Criar credenciais do Azure e configurar o Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > O Ansible 2.6 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 

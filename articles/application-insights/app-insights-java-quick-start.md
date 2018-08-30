@@ -5,17 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
+ms.reviewer: lagayhar
 ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991703"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246518"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -91,7 +92,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Menu de Descrição Geral do Application Insights](./media/app-insights-java-quick-start/overview-001.png)
 
-2. Clique em **Mapa da Aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
+2. Clique em **Mapa da aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
    ![Mapeamento de Aplicações](./media/app-insights-java-quick-start/application-map-001.png)
 

@@ -3,24 +3,18 @@ title: Exemplo de script do Azure PowerShell - Configurar VPN de ponto a site co
 description: Configure a VPN de ponto a site com a autenticação de nome de utilizador/palavra-passe RADIUS. Este artigo utiliza o PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: anzaman
-ms.openlocfilehash: 445190d86ab5d67132302a274f34a583cd94f937
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: alzam
+ms.openlocfilehash: a9584767ba22bd82ba1ba3703e740329017c52b3
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658517"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885646"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Crie um Gateway de VPN e adicione a configuração de ponto a site com o PowerShell
 
