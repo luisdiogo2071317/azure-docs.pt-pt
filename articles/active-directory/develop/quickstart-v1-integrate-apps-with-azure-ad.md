@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592208"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188245"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -112,7 +112,7 @@ Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplic
 - Permissões delegadas: A aplicação cliente precisa de aceder a API web, como o utilizador com sessão iniciada, mas com acesso limitado pela permissão selecionada. Este tipo de permissão pode ser concedido por um utilizador, a menos que a permissão necessita de consentimento de administrador. 
 
   > [!NOTE]
-  > Adicionando uma permissão delegada a um aplicativo não concede automaticamente consentimento para os utilizadores no inquilino. Os utilizadores tem manualmente de dar consentimento para as permissões de delegado foi adicionadas no tempo de execução, a menos que o administrador clicar no **conceder permissões** botão a **permissões obrigatórias** secção do página de aplicativo no portal do Azure. 
+  > Adicionando uma permissão delegada a um aplicativo não concede automaticamente consentimento para os utilizadores no inquilino. Os utilizadores tem manualmente de dar consentimento para as permissões de delegado foi adicionadas no tempo de execução, a menos que o administrador conceder consentimento em nome de todos os utilizadores.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Para adicionar credenciais de aplicativo ou permissões para aceder a APIs web
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -121,13 +121,15 @@ Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplic
 
    ![Atualizar o registo de uma aplicação](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. É direcionado para página de registo principal do aplicativo, o qual abre o **definições** página para a aplicação. Para adicionar uma chave secreta para as credenciais da sua aplicação web:
+4. É direcionado para página de registo principal do aplicativo, o qual abre o **definições** página para a aplicação. Para adicionar uma credencial para a sua aplicação web:
   - Clique no **chaves** secção sobre o **definições** página. 
-  - Adicione uma descrição para a sua chave.
-  - Selecione um ou duração de dois anos.
-  - Clique em **Guardar**. A coluna mais à direita irá conter o valor da chave, depois de guardar as alterações de configuração. **Certifique-se de que copie a chave** para utilização no código da aplicação de cliente, pois não está acessível uma vez que sair desta página.
-
-  ![Atualizar o registo de um aplicativo - chaves](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Para adicionar um certificado:
+    - Selecione **carregar chave pública**.
+    - Selecione o ficheiro que pretende carregar. Tem de ser um dos seguintes tipos de ficheiro:. cer,. pem,. crt.
+  - Para adicionar uma palavra-passe:
+    - Adicione uma descrição para a sua chave.
+    - Selecione uma duração.
+    - Clique em **Guardar**. A coluna mais à direita irá conter o valor da chave, depois de guardar as alterações de configuração. **Certifique-se de que copie a chave** para utilização no código da aplicação de cliente, pois não está acessível uma vez que sair desta página.
 
 5. Para adicionar permissão ou permissões para aceder às APIs de recurso a partir do seu cliente
   - Clique no **permissões obrigatórias** secção sobre o **definições** página. 
@@ -141,11 +143,6 @@ Além disso, antes de um cliente pode aceder a uma web API exposta por uma aplic
   ![Atualizar o registo de um aplicativo - permissões de permissões](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Quando terminar, clique no **selecionar** botão **ativar o acesso ao** página, o **feito** botão o **adicionar acesso à API** página. É reencaminhado para o **permissões obrigatórias** página, onde o novo recurso é adicionado à lista de APIs.
-
-  > [!NOTE]
-  > Ao clicar o **feito** botão define também automaticamente as permissões para a sua aplicação no seu diretório com base nas permissões para outras aplicações que configurou. Pode ver as permissões ao observar o aplicativo **definições** página.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurar uma aplicação de recurso para expor as APIs web
 

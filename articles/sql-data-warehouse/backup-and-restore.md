@@ -1,38 +1,36 @@
 ---
-title: Cópia de segurança do armazém de dados SQL do Azure e de restauro - instantâneos, georredundante | Microsoft Docs
-description: Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize dados armazém cópias de segurança para restaurar o seu armazém de dados para um ponto de restauro na região primária. Utilize cópias de segurança georredundante restaurar para uma região geográfica diferentes.
+title: Restauro - instantâneos, georredundante e cópia de segurança do armazém de dados SQL do Azure | Documentos da Microsoft
+description: Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Backups de armazém de dados de utilização para restaurar o seu armazém de dados para um ponto de restauro na região primária. Utilize cópias de segurança georredundante para restaurar para uma região geográfica diferente.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/24/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187604"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248667"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
-Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize dados armazém cópias de segurança para restaurar o seu armazém de dados para um ponto de restauro na região primária. Utilize cópias de segurança georredundante restaurar para uma região geográfica diferentes. 
+Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilizar dados do armazém de instantâneos para recuperação ou copie o seu armazém de dados para um ponto de restauro anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização. 
 
-## <a name="what-is-backup-and-restore"></a>O que é a cópia de segurança e restauro?
-A *cópia de segurança de armazém de dados* for a cópia da base de dados que pode utilizar para restaurar um armazém de dados.  Uma vez que o SQL Data Warehouse é um sistema distribuído, uma cópia de segurança do armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. Uma cópia de segurança do armazém de dados inclui instantâneos da base de dados local e georreplicação-as cópias de segurança de todas as bases de dados e ficheiros que estão associados um armazém de dados. 
+## <a name="what-is-a-data-warehouse-snapshot"></a>O que é um instantâneo do armazém de dados?
+R *instantâneo de armazém de dados* cria um ponto de restauro que pode aproveitar para recuperar ou cópia do armazém de dados para um estado anterior.  Uma vez que o SQL Data Warehouse é um sistema distribuído, um instantâneo do armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. Instantâneos capturam as alterações incrementais dos dados armazenados no seu armazém de dados.
 
-A *restauro do armazém de dados* é um novo armazém de dados que é criado a partir de uma cópia de segurança existente ou do armazém de dados eliminada. O armazém de dados restaurada recria o armazém de dados de cópia de segurança num momento específico. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de recuperação de continuidade e desastre negócio porque cria novamente os dados depois de danos acidentais ou eliminação.
+R *restauro do armazém de dados* é um novo armazém de dados que é criado a partir de um ponto de restauro de um existente ou o armazém de dados eliminado. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque ele cria novamente os dados depois de danos acidentais ou eliminação. Armazém de dados também é um mecanismo poderoso para criar cópias do seu armazém de dados para fins de teste ou desenvolvimento.  SQL Data Warehouse utiliza mecanismos de restauro rápido dentro da mesma região que tem sido medida para menos de 20 minutos para qualquer tamanho de dados. 
 
-Restauros locais e geográficas fazem parte das capacidades de recuperação de desastre do SQL Data Warehouse. 
+## <a name="automatic-restore-points"></a>Pontos de Restauro Automático
+Os instantâneos são uma funcionalidade incorporada do serviço que cria pontos de restauro. Não é necessário que ativar esta capacidade. Pontos de restauro automático atualmente não não possível eliminar por utilizadores onde o serviço utiliza estes restaurar aponta para manter os SLAs para recuperação.
 
-## <a name="local-snapshot-backups"></a>Cópias de segurança do instantâneo local
-Cópias de segurança do instantâneo local são uma funcionalidade incorporada do serviço.  Não é necessário ativá-los. 
+O SQL Data Warehouse tira instantâneos do seu armazém de dados ao longo do dia a criação de pontos de restauro que estão disponíveis durante sete dias. Não é possível alterar o período de retenção. SQL Data Warehouse suporta um objetivo de ponto de recuperação (RPO) oito horas. Pode restaurar o armazém de dados na região primária a partir de qualquer um dos instantâneos realizados nos últimos sete dias.
 
-SQL Data Warehouse assume instantâneos do seu armazém de dados ao longo do dia. Os instantâneos são disponíveis durante sete dias. Armazém de dados do SQL Server suporta um objetivo de ponto de recuperação (RPO) oito horas. Pode restaurar o seu armazém de dados na região primária em qualquer um dos instantâneos efetuadas nos últimos sete dias.
-
-Para ver quando o instantâneo último iniciada, execute esta consulta no online SQL Data Warehouse. 
+Para ver quando o último instantâneo iniciado, execute esta consulta no seu armazém de dados online do SQL. 
 
 ```sql
 select   top 1 *
@@ -41,71 +39,63 @@ order by run_id desc
 ;
 ```
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Retenção instantâneo quando um armazém de dados está em pausa
-SQL Data Warehouse não cria instantâneos e não expira instantâneos enquanto um armazém de dados está em pausa. A antiguidade do instantâneo não altera enquanto o armazém de dados está em pausa. Retenção de instantâneo é baseada no número de dias que no armazém de dados está online, não os dias de calendário.
+## <a name="user-defined-restore-points"></a>Pontos de Restauro Definidos pelo Utilizador
+Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para criar pontos de restauração do seu armazém de dados antes e depois grandes modificações. Esta capacidade assegura que os pontos de restauração estão logicamente consistente que fornece proteção de dados adicional em caso de quaisquer interrupções de carga de trabalho ou erros de utilizador para o tempo de recuperação rápida. Pontos de restauro definidas pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção de pontos de restauro definidas pelo utilizador. Apenas 42 pontos de restauro definidas pelo utilizador são suportados em qualquer ponto no tempo para que têm de ser [eliminado](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode acionar instantâneos para criar pontos de restauro definidas pelo utilizador através da [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) ou do Portal do Azure.
 
-Por exemplo, se um instantâneo é iniciado 1 de Outubro a 4 pm e o armazém de dados está em pausa 3 de Outubro, 4 pm, os instantâneos são até dois dias de antiguidade. Quando o armazém de dados fica online novamente o instantâneo é dois dias de antiguidade. Se o armazém de dados ficar online 5 de Outubro, 4 pm, o instantâneo é dois dias de antiguidade e continua durante cinco dias mais.
-
-Quando o armazém de dados volta a ficar online, o SQL Data Warehouse retoma dos novos instantâneos e expira instantâneos quando têm mais de sete dias de dados.
-
-### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retenção instantâneo quando um armazém de dados foi removido
-Quando remover um armazém de dados, o SQL Data Warehouse cria um instantâneo final e guarda-o durante sete dias. Pode restaurar o armazém de dados para o ponto de restauro final criado em eliminação. 
-
-> [!IMPORTANT]
-> Se eliminar uma instância do SQL server lógica, todas as bases de dados que pertencem à instância também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor eliminado.
-> 
-
-## <a name="geo-backups"></a>Cópias de segurança a Georreplicação
-O SQL Data Warehouse efetua uma georreplicação-cópia de segurança uma vez por dia para um [Centro de dados emparelhado](../best-practices-availability-paired-regions.md). O RPO para um georrestauro é de 24 horas. Pode restaurar a georreplicação-cópia de segurança para um servidor em qualquer outra região onde o armazém de dados do SQL Server é suportado. Uma georreplicação-cópia de segurança garante que pode restaurar o armazém de dados no caso de não é possível aceder os instantâneos na sua região primária.
-
-As cópias de segurança a Georreplicação estão por predefinição. Se o seu armazém de dados é Gen1, pode [ativamente](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não é possível ativamente cópias de segurança de georreplicação para Gen2, como a proteção de dados é um gurantee incorporada.
-
-## <a name="backup-costs"></a>Custos de cópia de segurança
-Vai notar que a fatura do Azure tem um item de linha para o Premium Storage do Azure e um item de linha para o armazenamento georredundante. A taxa de Premium Storage é o custo total para armazenar os dados na região primária, que inclui os instantâneos.  A taxa georredundante abrange o custo de armazenar cópias de segurança georreplicação.  
-
-O total de custos para o seu armazém de dados primária e sete dias de instantâneos do Blob do Azure é arredondado para o TB mais próximo. Por exemplo, se o armazém de dados é 1,5 TB e os instantâneos utilizam 100 GB, é-lhe faturado para 2 TB de dados às taxas de Premium Storage do Azure. 
 
 > [!NOTE]
-> Cada instantâneo está inicialmente vazio e crescimentos de como efetuar alterações no armazém de dados principal. Todos os instantâneos aumentam de tamanho como as alterações de armazém de dados. Por conseguinte, os custos de armazenamento de instantâneos de crescimento, de acordo com a taxa de alteração.
-> 
-> 
+> Se necessitar de mais de 7 dias de pontos de restauração, votar, para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. Se precisar de uma cópia ativa do armazém de dados restaurada, pode retomar o que deverá demorar apenas alguns minutos.
+>
 
-Se estiver a utilizar o armazenamento georredundante, receberá um custo de armazenamento separada. O armazenamento georredundante é faturado a taxa de acesso de leitura geograficamente armazenamento redundantes (RA-GRS) padrão.
+### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Retenção de instantâneo quando um armazém de dados está em pausa
+O SQL Data Warehouse não cria instantâneos e não expirar a pontos de restauração, enquanto um armazém de dados está em pausa. Restaurar pontos não são alterados, enquanto o armazém de dados está em pausa. Restaure ponto de retenção baseia-se no número de dias em que o armazém de dados está online, não os dias de calendário.
 
-Para obter mais informações sobre preços do SQL Data Warehouse, consulte [preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+Por exemplo, se um instantâneo começa em 1 de Outubro às 16:00 e o armazém de dados está em pausa 3 de Outubro às 16:00, os pontos de restauro são até dois dias de antiguidade. Quando o armazém de dados fica online novamente o ponto de restauro é dois dias de antiguidade. Se o armazém de dados online 5 de Outubro às 16:00, o ponto de restauro é dois dias de antiguidade e durante cinco dias mais.
+
+Quando o armazém de dados estiver online novamente, o SQL Data Warehouse retoma a criação de novos pontos de restauro e expira-los quando têm mais de sete dias de dados.
+
+### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retenção de instantâneo quando é arrastado para um armazém de dados
+Quando remover um armazém de dados, o SQL Data Warehouse cria um instantâneo final e guarda-o durante sete dias. Pode restaurar o armazém de dados para o ponto de restauro final criado na eliminação. 
+
+> [!IMPORTANT]
+> Se eliminar uma instância do SQL server lógica, todas as bases de dados que pertencem à instância também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor foi eliminado.
+>
+
+## <a name="geo-backups"></a>Cópias de segurança geo
+O SQL Data Warehouse efetua uma cópia de segurança geo uma vez por dia para uma [Centro de dados emparelhado](../best-practices-availability-paired-regions.md). O RPO para um georrestauro é de 24 horas. Pode restaurar a cópia de segurança geo para um servidor em qualquer outra região em que o SQL Data Warehouse é suportado. Uma cópia de segurança geo assegura que pode restaurar o armazém de dados no caso de não conseguir aceder os pontos de restauro na sua região primária.
+
+Cópias de segurança geo são ativados por padrão. Se o seu armazém de dados é a geração 1, pode [para anular](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não pode desativar cópias de segurança geo para a geração 2, como proteção de dados é uma incorporada garantida.
+
+> [!NOTE]
+> Se necessitar de um RPO mais curto para cópias de segurança geo, votar, para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados numa região diferente. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. e, em seguida, colocar em pausa. Se necessitar de uma cópia ativa do armazém de dados, é possível retomar o que deve demorar apenas alguns minutos.
+>
+
+
+## <a name="backup-and-restore-costs"></a>Custos de cópia de segurança e restauro
+Notará que a fatura do Azure tem um item de linha para armazenamento e um item de linha para armazenamento de recuperação após desastre. O custo de armazenamento é o custo total de armazenamento dos dados na região primária, juntamente com as alterações incrementais capturado por instantâneos. Para obter uma explicação mais detalhada sobre como atualmente são tirados instantâneos, consulte este [documentação](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). A cobrança georredundante abrange o custo para o armazenamento de cópias de segurança geo.  
+
+O total de custos para o seu armazém de dados primária e sete dias de alterações de instantâneo é arredondado para o TB mais próximo. Por exemplo, se o armazém de dados tiver 1,5 TB e 100 GB de captura de instantâneos, é-lhe cobrada para 2 TB de dados às tarifas de armazenamento Premium do Azure. 
+
+Se estiver a utilizar o armazenamento georredundante, receberá uma fatura de armazenamento separada. O armazenamento georredundante é cobrado à tarifa padrão de acesso de leitura geograficamente com redundância de armazenamento (RA-GRS).
+
+Para obter mais informações sobre os preços do SQL Data Warehouse, consulte [preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) e [custos de saída](https://azure.microsoft.com/pricing/details/bandwidth/) durante a restauração entre regiões.
 
 ## <a name="restoring-from-restore-points"></a>Restaurar a partir de pontos de restauro
-Cada instantâneo tem um ponto de restauro que representa a hora de início do instantâneo. Para restaurar um armazém de dados, escolha um ponto de restauro e emitir um comando de restauro.  
+Cada instantâneo cria um ponto de restauro que representa a hora de início de instantâneo. Para restaurar um armazém de dados, escolha um ponto de restauro e emitir um comando de restauro.  
 
-O SQL Data Warehouse restaura sempre a cópia de segurança para um novo armazém de dados. Pode manter o armazém de dados restaurada e aquele atual ou elimine um deles. Se pretende substituir o armazém de dados atual com o armazém de dados restaurada, pode alterá-la utilizando [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) com a opção de nome modificar. 
+Pode manter o armazém de dados restaurados e atual ou elimine um deles. Se pretende substituir o armazém de dados atual com o armazém de dados restaurada, pode alterá-lo usando [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) com a opção de modificar o nome. 
 
-Para restaurar um armazém de dados, consulte [restaurar um armazém de dados no portal do Azure](sql-data-warehouse-restore-database-portal.md), [restaurar um armazém de dados com o PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [restaurar um data warehouse com T-SQL](sql-data-warehouse-restore-database-rest-api.md) .
+Para restaurar um armazém de dados, consulte [restaurar um armazém de dados com o portal do Azure](sql-data-warehouse-restore-database-portal.md), [restaurar um armazém de dados com o PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [restaurar um armazém de dados com o T-SQL](sql-data-warehouse-restore-database-rest-api.md) .
 
 Para restaurar um armazém de dados eliminada ou em pausa, pode [criar um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md). 
 
 
-## <a name="geo-redundant-restore"></a>Georredundante restauro
-Pode restaurar o seu armazém de dados para qualquer região que suportam o Azure SQL Data Warehouse ao seu nível de desempenho que escolheu. 
+## <a name="geo-redundant-restore"></a>Restauro com redundância geográfica
+Pode [restaurar o seu armazém de dados](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) para qualquer região que suporta o SQL Data Warehouse no seu nível de desempenho escolhido. 
 
 > [!NOTE]
-> Para efetuar um restauro com redundância geográfica tem não optou por fora esta funcionalidade.
-> 
-> 
-
-## <a name="restore-timeline"></a>Restaurar a linha cronológica
-Pode restaurar uma base de dados para qualquer ponto de restauro disponíveis nos últimos sete dias. Instantâneos de iniciar a cada quatro para oito horas e estão disponíveis para sete dias. Quando um instantâneo com mais de sete dias, expirar e o respetivo ponto de restauro já não está disponível. 
-
-As cópias de segurança não acontecer contra um armazém de dados em pausa. Se o seu armazém de dados está em pausa durante mais de sete dias, não terá quaisquer pontos de restauro. 
-
-## <a name="restore-costs"></a>Restaurar os custos
-Os encargos de armazenamento para o armazém de dados restaurada é faturado a taxa de Premium Storage do Azure. 
-
-Se colocar em pausa de um armazém de dados restaurada, são-lhe cobrados para armazenamento a taxa de Premium Storage do Azure. A vantagem de colocar em pausa não é que lhe serem cobrados os recursos de computação.
-
-Para obter mais informações sobre preços do SQL Data Warehouse, consulte [preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
-
-## <a name="restore-use-cases"></a>Casos de utilização de restauro
-A utilização principal para o restauro de armazém de dados é recuperar dados após a perda acidental de dados ou danos. Também pode utilizar o restauro de armazém de dados para manter uma cópia de segurança mais de sete dias. Depois da cópia de segurança é restaurada, que tem o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa implica os encargos de armazenamento, a taxa de Premium Storage do Azure. 
+> Para efetuar um restauro com redundância geográfica tem não tiver optado por fora desta funcionalidade.
+>
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre o planeamento de desastre, consulte [descrição geral da continuidade de negócio](../sql-database/sql-database-business-continuity.md)
+Para obter mais informações sobre o planeamento de desastres, consulte [descrição geral da continuidade de negócio](../sql-database/sql-database-business-continuity.md)

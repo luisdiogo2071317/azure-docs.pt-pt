@@ -1,24 +1,24 @@
 ---
 title: Ligar ao Azure SQL Data Warehouse | Microsoft Docs
-description: Obter ligado ao Azure SQL Data Warehouse.
+description: Conecte-se ao Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0b2d8cec03c54ebd5bd780a2524da61d718a9673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596175"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247863"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Ligar ao Azure SQL Data Warehouse
-Obter ligado ao Azure SQL Data Warehouse.
+Conecte-se ao Azure SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
 O nome do servidor no exemplo seguinte é samplesvr.database.windows.net. Descubra o nome de servidor completamente qualificado:
@@ -31,7 +31,7 @@ O nome do servidor no exemplo seguinte é samplesvr.database.windows.net. Descub
     ![Nome de servidor completo][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Controladores e cadeias de ligação suportados
-O Azure SQL Data Warehouse suporta [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Para localizar a versão mais recente e a documentação, clique dos controladores anteriores. Para gerar automaticamente a cadeia de ligação do controlador que está a utilizar a partir do portal do Azure, clique em de **Mostrar cadeias de ligação de base de dados** do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
+O Azure SQL Data Warehouse suporta [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Para localizar a versão mais recente e a documentação, clique dos controladores anteriores. Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal do Azure, clique nas **Mostrar cadeias de ligação de base de dados** do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
 
 > [!NOTE]
 > Considere definir o tempo limite da ligação como 300 segundos, para permitir que a ligação sobreviva a curtos períodos de indisponibilidade.

@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: ac2787f69651e950ffb6b786280ba7f11f4fa8e0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127965"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190526"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
-Este artigo contém as notas de versão para versão 1.2.0 o Explorador de armazenamento do Azure, bem como as notas de versão para versões anteriores.
+Este artigo contém as notas de versão para versão de Explorador de armazenamento do Azure 1.4.1, bem como as notas de versão para versões anteriores.
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
 ## <a name="version-141"></a>Versão 1.4.1
 08/28/2018
 
-### <a name="download-azure-storage-explorer-130"></a>Transfira o Explorador de armazenamento do Azure 1.3.0
-- [Explorador de armazenamento do Azure 1.3.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 1.3.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 1.3.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-141"></a>Transfira o Explorador de armazenamento do Azure 1.4.1
+- [Explorador de armazenamento do Azure 1.4.1 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 1.4.1 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 1.4.1 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Correções
 * Na primeira execução, o Explorador de armazenamento não foi possível gerar a chave utilizada para encriptar dados confidenciais. Isso causaria problemas ao utilizar o acesso rápido e anexar a recursos. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f2674aeb83fbb7679d9d0c2574a93484a352e9d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 180f1a39b92dd699fa114cb98a5842b0ab0dc89a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162129"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190543"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API de Recoletor de dados
 
@@ -42,7 +42,7 @@ Estamos a utilizar uma lógica de tipo de ETL clássica para criar nosso pipelin
 
 Este artigo não abrange como criar dados ou [carregá-lo para uma conta de armazenamento de Blobs do Azure](../storage/blobs/storage-upload-process-images.md). Em vez disso, vamos pegar o fluxo quando um novo ficheiro é carregado para o blob. A partir daqui:
 
-1. Um processo irá detetar que os novos dados tem sido carregados.  Utiliza o nosso exemplo utiliza um [aplicação lógica do Azure](../logic-apps/logic-apps-overview.md), que tem disponível um acionador para detetar novos dados a ser carregados para um blob.
+1. Um processo irá detetar que os novos dados tem sido carregados.  Nosso exemplo utiliza um [aplicação lógica do Azure](../logic-apps/logic-apps-overview.md), que tem disponível um acionador para detetar novos dados a ser carregados para um blob.
 
 2. Um processador lê estes dados novos e converte-o JSON, formato exigido pelo Log Analytics.  Neste exemplo, utilizamos um [função do Azure](../azure-functions/functions-overview.md) como uma forma simples, econômica e eficiente de executar nosso código de processamento. A função é iniciada pela mesma aplicação lógica que usamos para detetar um os novos dados.
 

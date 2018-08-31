@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1f75317882e803a40df065377ef75f8b6b753898
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918384"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247400"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -69,6 +69,47 @@ Criação de camadas da cloud é uma funcionalidade opcional do Azure File Sync 
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos de sistema de sincronização de ficheiros do Azure e interoperabilidade 
 Esta secção abrange os requisitos de sistema do agente de sincronização de ficheiros do Azure e a interoperabilidade com recursos do Windows Server e funções e soluções de terceiros.
+
+### <a name="evaluation-tool"></a>Ferramenta de avaliação
+Antes de implementar o Azure File Sync, deve avaliar se é compatível com o seu sistema usando a ferramenta de avaliação do Azure File Sync. Essa ferramenta é um cmdlet do AzureRM PowerShell que verifica a existência de potenciais problemas com o seu sistema de ficheiros e o conjunto de dados, tais como carateres não suportados ou uma versão de SO não suportada. Tenha em atenção que suas verificações abrangem mais, mas não todos os recursos mencionados abaixo; Recomendamos que leia o restante desta seção com cuidado para garantir que sua implementação transcorre normalmente. 
+
+#### <a name="download-instructions"></a>Instruções para download
+1. Certifique-se de que tem a versão mais recente do PackageManagement, e o PowerShellGet instalado (Isto permite-lhe instalar os módulos de pré-visualização)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. Reinicie o PowerShell
+3. Instalar os módulos
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
+
+#### <a name="usage"></a>Utilização  
+É possível invocar a ferramenta de avaliação de algumas formas diferentes: pode efetuar as verificações do sistema, as verificações de conjunto de dados ou ambos. Para realizar verificações do sistema e o conjunto de dados: 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+Para testar apenas o conjunto de dados:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+Para testar apenas os requisitos de sistema:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+Para exibir os resultados no CSV:
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
 
 ### <a name="system-requirements"></a>Requisitos de Sistema
 - Um servidor com o Windows Server 2012 R2 ou Windows Server 2016 

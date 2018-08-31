@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: adicionar uma imagem do marketplace para um laboratório no Azure DevTest Labs | Microsoft Docs'
-description: Este script do PowerShell adiciona uma imagem do marketplace para um laboratório no DevTest Labs do Azure.
+title: 'Script do PowerShell: adicionar uma imagem do marketplace a um laboratório no Azure DevTest Labs | Documentos da Microsoft'
+description: Este script do PowerShell adiciona uma imagem do marketplace, a um laboratório no Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a65237b3eba6c9878d73148f0143f20dd60dd79
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636553"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247419"
 ---
-# <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Utilize o PowerShell para adicionar uma imagem do marketplace para um laboratório no Azure DevTest Labs
+# <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Utilize o PowerShell para adicionar uma imagem do marketplace a um laboratório no Azure DevTest Labs
 
-Este script do PowerShell de exemplo adiciona uma imagem do marketplace para um laboratório no DevTest Labs do Azure. 
+Este script do PowerShell de exemplo adiciona uma imagem do marketplace, a um laboratório no Azure DevTest Labs. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,7 +38,7 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | Procura recursos com base nos parâmetros especificados. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Procura de recursos com base em parâmetros especificados. |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Obtém os recursos. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifica um recurso. |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Crie um recurso. |
@@ -47,4 +47,4 @@ Este script utiliza os seguintes comandos:
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos de script do PowerShell do Azure laboratório serviços adicionais podem ser encontrados no [exemplos do PowerShell de serviços do Azure laboratório](../samples-powershell.md).
+Exemplos do script do PowerShell do Azure Lab Services adicionais podem ser encontrados no [exemplos do PowerShell do Azure Lab Services](../samples-powershell.md).

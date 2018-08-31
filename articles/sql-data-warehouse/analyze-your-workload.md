@@ -1,33 +1,33 @@
 ---
-title: Analisar a carga de trabalho - Azure SQL Data Warehouse | Microsoft Docs
-description: Técnicas para analisar a atribuição de prioridades de consulta para a carga de trabalho no Azure SQL Data Warehouse.
+title: Analisar a sua carga de trabalho - Azure SQL Data Warehouse | Documentos da Microsoft
+description: Técnicas de análise de priorização de consulta para a sua carga de trabalho no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795362"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248098"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar a carga de trabalho no Azure SQL Data Warehouse
-Técnicas para analisar a atribuição de prioridades de consulta para a carga de trabalho no Azure SQL Data Warehouse.
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar a sua carga de trabalho no Azure SQL Data Warehouse
+Técnicas de análise de priorização de consulta para a sua carga de trabalho no Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Grupos de carga de trabalho 
-O SQL Data Warehouse implementa classes de recursos através da utilização de grupos de carga de trabalho. Existem um total de oito grupos de carga de trabalho que controlam o comportamento das classes de recursos entre os vários tamanhos DWU. Para qualquer DWU, o SQL Data Warehouse utiliza apenas quatro grupos de carga de oito trabalho. Esta abordagem faz sentido porque cada grupo de carga de trabalho é atribuído a uma das quatro classes de recursos: smallrc mediumrc, largerc, ou xlargerc. A importância de compreender os grupos de carga de trabalho é que alguns destes grupos de carga de trabalho estiverem definido como superiores a *importância*. Importância é utilizada para a CPU agendamento. As consultas executadas com importância elevada obter três vezes mais ciclos da CPU que as consultas executadas com importância Média. Por conseguinte, mapeamentos de ranhura de concorrência também determinam a prioridade da CPU. Quando uma consulta consome ranhuras 16 ou mais, que seja executada como importância elevada.
+O SQL Data Warehouse implementa classes de recursos utilizando grupos de carga de trabalho. Há um total de oito grupos de carga de trabalho que controlam o comportamento das classes de recursos entre vários tamanhos DWU. Para qualquer DWU, o SQL Data Warehouse utiliza apenas quatro dos grupos de carga de trabalho de oito. Essa abordagem faz sentido, porque cada grupo de carga de trabalho está atribuído a um dos quatro classes de recursos: smallrc mediumrc, largerc, ou xlargerc. A importância de compreender os grupos de carga de trabalho é que alguns destes grupos de carga de trabalho estão definidas para mais *importância*. Importância é utilizada para a CPU de agendamento. Três vezes mais ciclos de CPU que as consultas executados com importância Média de obtenção de consultas executadas com importância alta. Por conseguinte, os mapeamentos de ranhura de simultaneidade também determinam prioridade de CPU. Quando uma consulta consome os blocos de 16 ou mais, ele é executado como tendo importância elevada.
 
 A tabela seguinte mostra os mapeamentos de importância para cada grupo de carga de trabalho.
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Mapeamentos de grupo de carga de trabalho para as ranhuras de simultaneidade e importância
+### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Mapeamentos de grupo de carga de trabalho para blocos de simultaneidade e importância
 
-| Grupos de carga de trabalho | Mapeamento de ranhura de concorrência | MB / distribuição (elasticidade) | MB / distribuição (computação) | Mapeamento de importância |
+| Grupos de carga de trabalho | Mapeamento de ranhura de simultaneidade | MB / distribuição (elasticidade) | MB / distribuição (computação) | Mapeamento de importância |
 |:---------------:|:------------------------:|:------------------------------:|:---------------------------:|:------------------:|
 | SloDWGroupC00   | 1                        |    100                         | 250                         | Médio             |
 | SloDWGroupC01   | 2                        |    200                         | 500                         | Médio             |
@@ -39,11 +39,10 @@ A tabela seguinte mostra os mapeamentos de importância para cada grupo de carga
 | SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | Elevado               |
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | Elevado               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-O **alocação e o consumo de ranhuras de concorrência** gráfico mostra um DW500 utiliza 1, 4, 8 ou ranhuras de concorrência 16 para smallrc, mediumrc, largerc e xlargerc, respetivamente. Para determinar a importância para cada classe de recursos, pode procurar esses valores no gráfico anterior.
+<!-- where are the allocation and consumption of concurrency slots charts? --> O **alocação e o consumo de ranhuras de simultaneidade** gráfico mostra um DW500 usa 1, 4, 8 ou blocos de simultaneidade 16 para smallrc, mediumrc, largerc e xlargerc, respectivamente. Para localizar a importância de cada classe de recursos, pode consultar esses valores no gráfico anterior.
 
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapeamento de DW500 de classes de recursos para importância
-| Classe de recursos | Grupo de carga de trabalho | Ranhuras de concorrência utilizadas | MB / distribuição | Importância |
+### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapeamento de DW500 das classes de recursos para importância
+| Classe de recursos | Grupo de carga de trabalho | Ranhuras de simultaneidade utilizadas | MB / distribuição | Importância |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Médio     |
 | mediumrc       | SloDWGroupC02  | 4                      | 400               | Médio     |
@@ -58,8 +57,8 @@ O **alocação e o consumo de ranhuras de concorrência** gráfico mostra um DW5
 | staticrc70     | SloDWGroupC03  | 16                     | 1,600             | Elevado       |
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | Elevado       |
 
-## <a name="view-workload-groups"></a>Grupos de carga de trabalho de vista
-A consulta seguinte mostra os detalhes de alocação de recursos de memória da perspectiva do Governador de recursos. Isto é útil para análise da utilização do Active Directory e histórico dos grupos de carga de trabalho quando a resolução de problemas.
+## <a name="view-workload-groups"></a>Ver grupos de carga de trabalho
+A seguinte consulta mostra detalhes sobre a alocação de recursos de memória da perspectiva do Governador de recursos. Isso é útil para análise da utilização de Active Directory e o histórico dos grupos de carga de trabalho quando a resolução de problemas.
 
 ```sql
 WITH rg
@@ -108,7 +107,7 @@ ORDER BY
 ```
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Deteção de consulta em fila e outros DMVs
-Pode utilizar o `sys.dm_pdw_exec_requests` DMV para identificar as consultas que estão a aguardar na fila de concorrência. A aguardar uma ranhura de simultaneidade de consultas têm um Estado de **suspenso**.
+Pode utilizar o `sys.dm_pdw_exec_requests` DMV para identificar consultas que estão a aguardar na fila de simultaneidade. Consultas a aguardar que um bloco de simultaneidade têm o estado **suspenso**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -121,7 +120,7 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-Funções de gestão de carga de trabalho podem ser visualizadas com `sys.database_principals`.
+Funções de gestão da carga de trabalho podem ser vistas com `sys.database_principals`.
 
 ```sql
 SELECT  ro.[name]           AS [db_role_name]
@@ -131,7 +130,7 @@ AND     ro.[is_fixed_role]  = 0
 ;
 ```
 
-A consulta seguinte mostra a qual cada utilizador tem atribuída para a função.
+A seguinte consulta mostra qual é atribuída a cada usuário para a função.
 
 ```sql
 SELECT  r.name AS role_principal_name
@@ -143,14 +142,14 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-O SQL Data Warehouse tem os seguintes tipos de espera:
+SQL Data Warehouse tem os seguintes tipos de espera:
 
-* **LocalQueriesConcurrencyResourceType**: consultas manter-se fora do framework de ranhura de concorrência. Consultas DMV e sistema funciona como `SELECT @@VERSION` são exemplos de consultas locais.
-* **UserConcurrencyResourceType**: consultas manter-se no interior do framework de ranhura de concorrência. Consultas de tabelas do utilizador final representam exemplos que pretende utilizar este tipo de recurso.
+* **LocalQueriesConcurrencyResourceType**: consultas que ficam fora do framework da ranhura de simultaneidade. Consultas DMV e o sistema funciona como `SELECT @@VERSION` são exemplos de consultas locais.
+* **UserConcurrencyResourceType**: consultas que ficam dentro do framework da ranhura de simultaneidade. Consultas em tabelas de utilizador final representam exemplos que usaria este tipo de recurso.
 * **DmsConcurrencyResourceType**: aguarda resultantes de operações de movimento de dados.
-* **BackupConcurrencyResourceType**: este espera indica que uma base de dados está a ser efetuada. O valor máximo para este tipo de recurso é 1. Se várias cópias de segurança tem sido pedidas em simultâneo, os outros fila.
+* **BackupConcurrencyResourceType**: este wait indica que uma base de dados é a cópia de segurança. O valor máximo para este tipo de recurso é 1. Se várias cópias de segurança foram solicitadas ao mesmo tempo, os outros fila.
 
-O `sys.dm_pdw_waits` DMV pode ser utilizado para ver quais os recursos que está a aguardar um pedido.
+O `sys.dm_pdw_waits` DMV pode ser utilizado para ver quais os recursos que um pedido está a aguardar.
 
 ```sql
 SELECT  w.[wait_id]
@@ -187,7 +186,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-O `sys.dm_pdw_resource_waits` DMV mostra apenas os poucos recursos consumidos por uma consulta fornecida. Tempo de espera de recursos apenas mede o tempo à espera de recursos para ser fornecido, por oposição a tempo de espera de sinal, que é o tempo que demora para os SQL servers subjacentes agendar a consulta para a CPU.
+O `sys.dm_pdw_resource_waits` DMV mostra apenas as esperas de recursos consumidas por uma determinada consulta. Tempo de espera de recursos apenas mede o tempo aguardar por recursos para ser fornecido, em vez de tempo de espera de sinal, que é o tempo que demora para os servidores SQL subjacentes agendar a consulta para a CPU.
 
 ```sql
 SELECT  [session_id]
@@ -205,7 +204,7 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
-Também pode utilizar o `sys.dm_pdw_resource_waits` DMV calcular quantos ranhuras de concorrência tenham sido concedidas.
+Também pode utilizar o `sys.dm_pdw_resource_waits` DMV calcular quantos blocos de simultaneidade e foi concedidos.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
@@ -216,7 +215,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-O `sys.dm_pdw_wait_stats` DMV pode ser utilizado para análise de tendências históricos de poucos.
+O `sys.dm_pdw_wait_stats` DMV pode ser utilizado para análise de tendências históricas de esperas.
 
 ```sql
 SELECT   w.[pdw_node_id]
@@ -231,6 +230,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre a gestão de utilizadores de base de dados e segurança, consulte [proteger uma base de dados no SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como maiores classes de recurso podem melhorar a qualidade de índice columnstore em cluster, consulte [reconstruir índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obter mais informações sobre a gestão de utilizadores de base de dados e segurança, consulte [proteger uma base de dados no SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre classes de recursos maiores como podem melhorar a qualidade do índice columnstore em cluster, consulte [reconstruir índices para melhorar a qualidade do segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 

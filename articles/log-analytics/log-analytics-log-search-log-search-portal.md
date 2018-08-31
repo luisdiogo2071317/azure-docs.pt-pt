@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055969"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246338"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Criar pesquisas de registos no Azure Log Analytics com o portal de pesquisa de registos
 
@@ -38,9 +38,8 @@ Comece por abrir o portal do Registo de Pesquisas.
 
 1. Abra o portal do Azure.
 2. Navegue para o Log Analytics e selecione a sua área de trabalho.
-3. Selecione **pesquisa de registos**.
+3. Selecionar **Registos**.
 
-![Botão pesquisa de registos](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Criar uma pesquisa simples
 A forma mais rápida de obter alguns dados com os quais trabalhar é utilizar uma pesquisa simples que devolve todos os registos numa tabela.  Se tiver clientes Windows ou Linux ligados à sua área de trabalho, terá dados na tabela Event (Windows) ou Syslog (Linux).

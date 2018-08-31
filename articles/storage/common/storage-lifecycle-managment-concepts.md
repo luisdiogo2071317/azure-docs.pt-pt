@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528448"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247787"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure (pré-visualização)
 
@@ -37,7 +37,7 @@ Política de gestão do ciclo de vida está disponível com ambos os fins gerais
 A funcionalidade de gestão do ciclo de vida de é gratuita em pré-visualização. Os clientes são cobrados os custos de operação normais para o [listar os Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) chamadas de API. Ver [preços do Blob de blocos](https://azure.microsoft.com/pricing/details/storage/blobs/) para saber mais sobre os preços.
 
 ## <a name="register-for-preview"></a>Registar-se na pré-visualização 
-Para se inscrever na pré-visualização pública, terá de submeter um pedido para registar esta funcionalidade para a sua subscrição. Depois do seu pedido é aprovado (dentro de alguns dias), qualquer conta GPv2 ou de armazenamento de BLOBs nova e existente no E.U.A. oeste 2 e e.u.a. Centro-Oeste terão a funcionalidade ativada. Durante a pré-visualização, é suportada apenas BLOBs de blocos. Tal como acontece com a maior parte das visualizações, esta funcionalidade não deve ser utilizada para cargas de trabalho de produção até atingir GA.
+Para se inscrever na pré-visualização pública, terá de submeter um pedido para registar esta funcionalidade para a sua subscrição. Depois do seu pedido é aprovado (dentro de alguns dias), qualquer conta GPv2 ou de armazenamento de BLOBs nova e existente no E.U.A. oeste 2, e.u.a. centro-oeste e Europa Ocidental terão a funcionalidade ativada. Durante a pré-visualização, é suportada apenas BLOBs de blocos. Tal como acontece com a maior parte das visualizações, esta funcionalidade não deve ser utilizada para cargas de trabalho de produção até atingir GA.
 
 Para submeter um pedido, execute os seguintes comandos do PowerShell ou a CLI.
 

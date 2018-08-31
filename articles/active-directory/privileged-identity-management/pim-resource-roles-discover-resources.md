@@ -1,6 +1,6 @@
 ---
-title: Detetar e gerir recursos do Azure com o Privileged Identity Management | Documentos da Microsoft
-description: Descreve como proteger recursos do Azure ao utilizar o PIM.
+title: Descubra os recursos do Azure para gerir no PIM | Documentos da Microsoft
+description: Saiba como detetar recursos do Azure para gerir no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: f4b6fafe40fe00492bac7bd6c28268321d4516db
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: MT
+ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104360"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190663"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Detetar e gerir recursos do Azure com o Privileged Identity Management
+# <a name="discover-azure-resources-to-manage-in-pim"></a>Descubra os recursos do Azure para gerir no PIM
 
 Saiba como detetar e gerir recursos do Azure quando utiliza o Privileged Identity Management (PIM) no Azure Active Directory (Azure AD). Estas informações podem ser úteis para as organizações que já utilizam o PIM para proteger os recursos de administrador e para os proprietários de subscrições que estão procurando para proteger os recursos de produção.
 
@@ -64,5 +64,5 @@ Os recursos selecionados são agora geridos pelo PIM. Para fechar o ecrã de det
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Configurar as definições de função](pim-resource-roles-configure-role-settings.md)
-- [Atribuir funções no PIM](pim-resource-roles-assign-roles.md)
+- [Configurar as definições de função de recursos do Azure no PIM](pim-resource-roles-configure-role-settings.md)
+- [Atribuir funções de recursos do Azure no PIM](pim-resource-roles-assign-roles.md)

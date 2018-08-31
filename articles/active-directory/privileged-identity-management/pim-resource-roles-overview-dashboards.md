@@ -1,6 +1,6 @@
 ---
-title: 'Descrição geral: Realizar uma revisão de acesso no Privileged Identity Management para recursos do Azure | Documentos da Microsoft'
-description: Este documento descreve como realizar uma revisão de acesso no PIM para recursos do Azure.
+title: Utilizar um dashboard de recursos para realizar uma revisão de acesso - Azure | Documentos da Microsoft
+description: Descreve como utilizar um dashboard de recursos para realizar uma revisão de acesso no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 40fe6a4b0bec2540afee635b16ee3482a182a2df
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 20172cf7413397aedc4b3c32d0f1419531a2588a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621493"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188502"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Utilizar um dashboard de recursos para realizar uma revisão de acesso
 
@@ -40,4 +40,6 @@ A representação gráfica de ativações de função de recursos aborda os últ
 
 Abaixo dos gráficos, verá o número de utilizadores e grupos com novas atribuições de função ao longo dos últimos 30 dias e uma lista de funções ordenado por total de atribuições (em ordem decrescente).
 
+## <a name="next-steps"></a>Passos Seguintes
 
+- [Iniciar uma revisão de acesso para funções de recursos do Azure no PIM](pim-resource-roles-start-access-review.md) 

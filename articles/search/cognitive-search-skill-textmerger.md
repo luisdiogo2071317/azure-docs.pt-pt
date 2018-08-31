@@ -1,6 +1,6 @@
 ---
-title: Skill de pesquisa cognitivos de intercalação de texto (Azure Search) | Microsoft Docs
-description: Intercale texto de uma coleção de campos um campo consolidado. Utilize este skill cognitivos um pipeline de sem causa de pesquisa do Azure.
+title: Habilidade de pesquisa cognitiva de intercalação de texto (Azure Search) | Documentos da Microsoft
+description: Mescle o texto de uma coleção de campos num campo consolidado. Utilize este cognitiva habilidade num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,32 +10,32 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640667"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190478"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Skill cognitivos de intercalação de texto
+#    <a name="text-merge-cognitive-skill"></a>Habilidade de cognitiva de intercalação de texto
 
-O **texto intercalar** skill consolida texto de uma coleção de campos para um único campo. 
+O **intercalar texto** habilidade consolida texto de uma coleção de campos num único campo. 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.TextMerger
+Microsoft.Skills.Text.MergeSkill
 
-## <a name="skill-parameters"></a>Parâmetros de skill
+## <a name="skill-parameters"></a>Parâmetros de habilidades
 
-Os parâmetros são maiúsculas e minúsculas.
+Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| insertPreTag  | Cadeia a ser incluído antes de cada inserção. O valor predefinido é `" "`. Omitir o espaço, defina o valor como `""`.  |
-| insertPostTag | Cadeia a incluir após cada inserção. O valor predefinido é `" "`. Omitir o espaço, defina o valor como `""`.  |
+| insertPreTag  | A cadeia de caracteres a serem incluídos antes de cada inserção. O valor predefinido é `" "`. Ao omitir o espaço, defina o valor como `""`.  |
+| insertPostTag | A cadeia de caracteres a serem incluídos após cada inserção. O valor predefinido é `" "`. Ao omitir o espaço, defina o valor como `""`.  |
 
 
 ##  <a name="sample-input"></a>Entrada de exemplo
-Pode ser um documento JSON fornecer utilizável entrada para este skill:
+Um documento JSON fornecer a entrada de utilizável por essa habilidade poderia ser:
 
 ```json
 {
@@ -54,7 +54,7 @@ Pode ser um documento JSON fornecer utilizável entrada para este skill:
 ```
 
 ##  <a name="sample-output"></a>Resultado da amostra
-Este exemplo mostra a saída da entrada anterior, partindo do princípio de que o *insertPreTag* está definido como `" "`, e *insertPostTag* está definido como `""`. 
+Este exemplo mostra a saída da entrada anterior, partindo do princípio de que o *insertPreTag* está definida como `" "`, e *insertPostTag* está definido como `""`. 
 
 ```json
 {
@@ -70,11 +70,11 @@ Este exemplo mostra a saída da entrada anterior, partindo do princípio de que 
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Exemplo expandida skillset definição
+## <a name="extended-sample-skillset-definition"></a>Definição de conjunto de capacidades de exemplo expandida
 
-É um cenário comum para utilizar a intercalação de texto para intercalar a representação textual de imagens (texto de um skill OCR ou a legenda de uma imagem) para o campo de conteúdo de um documento. 
+É um cenário comum para a utilização de intercalação de texto intercalar a representação textual de imagens (texto de uma habilidade de OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-Skillset de exemplo seguinte utiliza o skill OCR para extraia o texto a partir de imagens incorporadas no documento. Em seguida, cria um *merged_text* campo a conter original e OCRed texto de cada imagem. 
+O conjunto de capacidades de exemplo seguinte utiliza a habilidade de OCR para extrair texto de imagens incorporadas no documento. Em seguida, cria um *merged_text* campo para conter original e OCRed texto de cada imagem. 
 
 ```json
 {
@@ -101,7 +101,7 @@ Skillset de exemplo seguinte utiliza o skill OCR para extraia o texto a partir d
         ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Util.TextMerger",
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
@@ -126,7 +126,7 @@ Skillset de exemplo seguinte utiliza o skill OCR para extraia o texto a partir d
   ]
 }
 ```
-O exemplo acima assume que existe um campo de imagens normalizado. Para obter o campo de imagens normalizado, defina o *imageAction* configuração na sua definição de indexador *generateNormalizedImages* conforme mostrado abaixo:
+O exemplo acima parte do princípio de que existe um campo de imagens normalizados. Para obter o campo de imagens normalizados, defina o *imageAction* configuração na sua definição de indexador ao *generateNormalizedImages* conforme mostrado abaixo:
 
 ```json
 {  
@@ -143,5 +143,5 @@ O exemplo acima assume que existe um campo de imagens normalizado. Para obter o 
 ## <a name="see-also"></a>Consulte também
 
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

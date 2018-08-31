@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056747"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190738"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
@@ -181,7 +181,12 @@ Se todas as sondas para todas as instâncias de um conjunto de back-end falharem
 
 ## <a name="probesource"></a>Endereço IP de origem de sonda
 
-Todas as sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 como a origem.  Quando levam seus próprios endereços IP para rede Virtual do Azure, é garantido que este endereço IP de origem de sonda de estado de funcionamento para que seja exclusivo como globalmente está reservado para a Microsoft.  Este endereço é o mesmo em todas as regiões e não se altera. Ele não deve ser considerado um risco de segurança porque apenas a plataforma do Azure interna pode obter um pacote a partir deste endereço IP. 
+Balanceador de carga utiliza um serviço de pesquisa distribuído para o modelo de estado de funcionamento interno. Cada anfitrião onde residem as VMs pode ser programado para gerar as sondas de estado de funcionamento por configuração do cliente. O tráfego de sonda de estado de funcionamento é diretamente entre o componente de infraestrutura que gera a sonda de estado de funcionamento e o cliente VM. Todas as sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 como a origem.  Quando levam seus próprios endereços IP para rede Virtual do Azure, é garantido que este endereço IP de origem de sonda de estado de funcionamento para que seja exclusivo como globalmente está reservado para a Microsoft.  Este endereço é o mesmo em todas as regiões e não se altera. Ele não deve ser considerado um risco de segurança porque apenas a plataforma do Azure interna pode obter um pacote a partir deste endereço IP. 
+
+Além de sondas de estado de funcionamento do Balanceador de carga, as seguintes operações de utilizam este endereço IP:
+
+- Permite que o agente da VM para comunicar com a plataforma sinalizar que está num estado "Pronto"
+- Permite a comunicação com o servidor virtual de DNS para fornecer a resolução de nomes filtrada para os clientes que não defina servidores DNS personalizados.  Esta filtragem garante que os clientes só podem resolver os nomes de anfitrião da implementação deles.
 
 Para a sonda de estado de funcionamento do Balanceador de carga marcar a sua instância, **tem** permitir que este endereço IP em qualquer serviço [grupos de segurança](../virtual-network/security-overview.md) e políticas de local firewall.
 

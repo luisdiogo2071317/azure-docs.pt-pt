@@ -3,19 +3,19 @@ title: Analisar dados com o Azure Machine Learning | Microsoft Docs
 description: Utilize o Azure Machine Learning para criar um modelo preditivo de machine learning com base em dados armazenados no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4a5137ef22455c304dc672520aabd16cac2570e1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601333"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247531"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]

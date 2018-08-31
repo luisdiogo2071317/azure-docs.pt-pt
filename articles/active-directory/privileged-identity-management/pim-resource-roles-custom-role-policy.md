@@ -1,6 +1,6 @@
 ---
-title: Utilizar funções personalizadas para as definições do destino Privileged Identity Management para recursos do Azure | Documentos da Microsoft
-description: Descreve como utilizar funções personalizadas para recursos do Azure com o PIM.
+title: Utilize as funções personalizadas para recursos do Azure no PIM | Documentos da Microsoft
+description: Saiba como utilizar funções personalizadas para recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 03091b50eb4fb368ae0277344317b261991c4bd1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b01e785ac85c71b2982561e8b5e118775750fc69
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622692"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189878"
 ---
-# <a name="use-custom-roles-to-target-privileged-identity-management-settings"></a>Utilizar funções personalizadas para as definições do destino Privileged Identity Management
+# <a name="use-custom-roles-for-azure-resources-in-pim"></a>Utilize as funções personalizadas para recursos do Azure no PIM
 
 Poderá ter de aplicar definições rigorosa do Privileged Identity Management (PIM) para alguns membros de uma função, oferecendo maior autonomia para outras pessoas. Considere um cenário em que a sua organização contrata vários de contrato de associados, para ajudar no desenvolvimento de um aplicativo que serão executados numa subscrição do Azure.
 
@@ -49,4 +49,5 @@ Por fim, [atribuir funções](pim-resource-roles-assign-roles.md) ao grupo disti
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Os proprietários de subscrições de revisão e acesso](pim-resource-roles-perform-access-review.md)
+- [Configurar as definições de função de recursos do Azure no PIM](pim-resource-roles-configure-role-settings.md)
+- [Funções personalizadas no Azure](../../role-based-access-control/custom-roles.md)

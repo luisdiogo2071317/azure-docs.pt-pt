@@ -1,202 +1,184 @@
 ---
 title: Manter sessão iniciada no Azure Active Directory B2C | Documentos da Microsoft
-description: Um tópico que demonstra como configurar a "manter sessão iniciada".
+description: Saiba como configurar a manter-Me com sessão iniciada em (KMSI) no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/05/2016
+ms.date: 08/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6bad6e1f2b204f76b075652a9d3f27367a8de49f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441322"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248064"
 ---
-# <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: Ativar o 'Manter-me conectado (KMSI)'  
+# <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Ativar manter sessão iniciada (KMSI) no Azure Active Directory B2C
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure AD B2C agora permite que a web e aplicativos nativos para ativar a funcionalidade 'Manter-me conectado (KMSI)'. Esta funcionalidade concede acesso a utilizadores a devolver à aplicação sem pedir confirmação para reintroduzir outro nome de utilizador e palavra-passe. Este acesso é revogado quando o utilizador terminar a sessão. 
+Pode ativar a funcionalidade de manter-Me com sessão iniciada em (KMSI) para a web e aplicativos nativos no Azure Active Directory (Azure AD) B2C. Esta funcionalidade concede acesso a utilizadores a devolver para o aplicativo sem pedir aos mesmos para reintroduzir o seu nome de utilizador e palavra-passe. Este acesso é revogado quando o utilizador termina sessão. 
 
-Recomendamos a utilizadores, a verificação esta opção em computadores públicos. 
+Os utilizadores não devem ativar esta opção em computadores públicos. 
 
-![img](images/kmsi.PNG)
-
+![Ativar a opção Manter a sessão iniciada](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um inquilino do Azure AD B2C, configurado para permitir que o local da conta sessão-inscrição/início de sessão, conforme descrito em [introdução ao](active-directory-b2c-get-started-custom.md).
+Um inquilino do Azure AD B2C que está configurado para permitir a inscrição e início de sessão de conta local. Se não tiver um inquilino, pode criar um usando as etapas [Tutorial: criar um inquilino do Azure Active Directory B2C](tutorial-create-tenant.md).
 
-## <a name="how-to-enable-kmsi"></a>Como ativar KMSI
+## <a name="add-a-content-definition-element"></a>Adicionar um elemento de definição de conteúdo 
 
-Efetue as seguintes alterações na sua política de extensões do framework de confiança.
+Sob o **BuildingBlocks** elemento do seu ficheiro de extensão, adicione um **ContentDefinitions** elemento. 
 
-## <a name="adding-a-content-definition-element"></a>Adição de um elemento de definição de conteúdo 
+1. Sob o **ContentDefinitions** elemento, adicione um **ContentDefinition** elemento com um identificador de `api.signuporsigninwithkmsi`.
+2. Sob o **ContentDefinition** elemento, adicione o **LoadUri**, **RecoveryUri**, e **URI de dados** elementos. O `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` valor de **URI de dados** elemento é um identificador de compreensíveis de máquina que abre uma caixa de verificação KMSI nas páginas de início de sessão. Este valor não pode ser alterado. 
 
-O `BuildingBlocks` nó do seu ficheiro de extensão tem de incluir um `ContentDefinitions` elemento. 
+    ```XML
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsigninwithkmsi">
+          <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>                       
+    ```
 
-1. Na `ContentDefinitions` secção, definir uma nova `ContentDefinition` com o ID `api.signuporsigninwithkmsi`.
-2. A nova `ContentDefinition` tem de incluir um `LoadUri`, `RecoveryUri` e `DataUri` da seguinte forma.
-3. URI de dados`urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` é um identificador de compreensíveis de máquina que abre uma caixa de verificação KMSI nas páginas de início de sessão. Certifique-se de que não altere este valor. 
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Adicionar um fornecedor de afirmações de início de sessão para uma conta local  
 
-```XML
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.signuporsigninwithkmsi">
-        <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
-        <Metadata>
-          <Item Key="DisplayName">Signin and Signup</Item>
-        </Metadata>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>                       
-```
+Pode definir início de sessão na conta local como um fornecedor de afirmações com o **ClaimsProvider** elemento no arquivo de extensão da política:
 
+1. Abra o *TrustFrameworkExtensions.xml* ficheiro a partir do seu diretório de trabalho. 
+2. Encontrar o **ClaimsProviders** elemento. Se não existir, adicione-o sob o elemento raiz. O [pacote de iniciante](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) inclui um fornecedor de afirmações de início de sessão de conta local. 
+3. Adicionar uma **ClaimsProvider** elemento com o **DisplayName** e **TechnicalProfile** conforme mostrado no exemplo a seguir:
 
+    ```XML
+    <ClaimsProviders>
+      <ClaimsProvider>
+        <DisplayName>Local Account SignIn</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="login-NonInteractive">
+            <Metadata>
+              <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+              <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+            </Metadata>
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
+              <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
+            </InputClaims>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    </ClaimsProviders>
+    ```
 
-## <a name="add-a--local-account-sign-in-claims-provider"></a>Adicionar um fornecedor de afirmações de início de sessão de conta local 
+### <a name="add-the-application-identifiers-to-your-custom-policy"></a>Adicionar os identificadores de aplicação à sua política personalizada
 
-Pode definir o início de sessão de conta Local como um fornecedor de afirmações para o `<ClaimsProvider>` nó do arquivo de extensão da política:
+Adicionar os identificadores de aplicativo para o *TrustFrameworkExtensions.xml* ficheiro.
 
-1. Abra o ficheiro de extensão (TrustFrameworkExtensions.xml) a partir do diretório de trabalho. 
-2. Encontrar o `<ClaimsProviders>` secção. Se não existir, adicione-o sob o nó de raiz.
-3. O pacote de iniciante da [introdução ao](active-directory-b2c-get-started-custom.md) vem com um fornecedor de afirmações de "Conta início de sessão Local". 
-4. Caso contrário, adicione um novo `<ClaimsProvider>` nó da seguinte forma:
+1. Na *TrustFrameworkExtensions.xml* do ficheiro, encontre o **TechnicalProfile** elemento com o identificador do `login-NonInteractive` e a **TechnicalProfile** elemento com um identificador de `login-NonInteractive-PasswordChange` e substitua todos os valores da `IdentityExperienceFrameworkAppId` com o identificador da aplicação da aplicação de arquitetura de experiências de identidade, conforme descrito na [introdução](active-directory-b2c-get-started-custom.md).
 
-```XML
-<ClaimsProviders>
-    <ClaimsProvider>
-      <DisplayName>Local Account SignIn</DisplayName>
-      <TechnicalProfiles>
-         <TechnicalProfile Id="login-NonInteractive">
-           <Metadata>
-            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-           </Metadata>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-           </InputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
- </ClaimsProviders>
-```
+    ```
+    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+    ```
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar os IDs de aplicação à sua política personalizada
+2. Substitua todos os valores da `ProxyIdentityExperienceFrameworkAppId` com o identificador da aplicação do aplicativo Framework de experiência de identidade de Proxy, tal como descrito na [introdução](active-directory-b2c-get-started-custom.md).
+3. Guarde o ficheiro de extensões.
 
-Adicionar os IDs de aplicação para o arquivo de extensões (`TrustFrameworkExtensions.xml`):
+## <a name="create-a-kmsi-enabled-user-journey"></a>Criar um percurso do utilizador ativado KMSI
 
-1. O arquivo de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">` e `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+Adicione o fornecedor de afirmações de início de sessão de uma conta local para o seu percurso do utilizador. 
 
-2. Substitua todas as instâncias de `IdentityExperienceFrameworkAppId` com o ID da aplicação a arquitetura de experiências de identidade, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md). Segue-se um exemplo:
+1. Abra o ficheiro de base da sua política. Por exemplo, *TrustFrameworkBase.xml*.
+2. Encontrar o **UserJourneys** elemento e copie o conteúdo inteiro do **UserJourney** elemento que utiliza o identificador do `SignUpOrSignIn`.
+3. Abra o ficheiro de extensão. Por exemplo, *TrustFrameworkExtensions.xml* e localize a **UserJourneys** elemento. Se o elemento não existir, adicione um.
+4. Cole a toda **UserJourney** elemento que copiou como subordinado da **UserJourneys** elemento.
+5. Altere o valor do identificador para o percurso do utilizador novo. Por exemplo, `SignUpOrSignInWithKmsi`.
+6. Por fim, no primeiro passo de orquestração, altere o valor de **ContentDefinitionReferenceId** para `api.signuporsigninwithkmsi`. A definição deste valor permite que a caixa de verificação no percurso do utilizador. 
+7. Salvar e carregar o ficheiro de extensão e certifique-se de que todas as validações tenha êxito.
 
-   ```
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-   ```
+    ```XML
+    <UserJourneys>
+      <UserJourney Id="SignUpOrSignInWithKmsi">
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
+            <ClaimsProviderSelections>
+              <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+            </ClaimsProviderSelections>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="2" Type="ClaimsExchange">
+            <Preconditions>
+              <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                <Value>objectId</Value>
+                <Action>SkipThisOrchestrationStep</Action>
+              </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <!-- This step reads any user attributes that we may not have received when in the token. -->
+          <OrchestrationStep Order="3" Type="ClaimsExchange">
+            <ClaimsExchanges>
+              <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
+        <ClientDefinition ReferenceId="DefaultWeb" />
+      </UserJourney>
+    </UserJourneys>
+    ```
 
-3. Substitua todas as instâncias de `ProxyIdentityExperienceFrameworkAppId` com o ID da aplicação a arquitetura de experiências de identidade de Proxy, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md).
+## <a name="create-a-relying-party-file"></a>Crie um ficheiro da entidade confiadora de terceiros
 
-4. Guarde o ficheiro de extensões.
+Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percurso do utilizador que criou.
 
-## <a name="create-a-kmsi-in-enabled-user-journey"></a>Criar um KMSI no percurso do utilizador ativada
+1. Faça uma cópia deles *SignUpOrSignIn.xml* de ficheiros no diretório de trabalho e, em seguida, mude o nome. Por exemplo, *SignUpOrSignInWithKmsi.xml*.
+2. Abra o ficheiro novo e a atualização do **PolicyId** atributo para o **TrustFrameworkPolicy** com um valor exclusivo. Este é o nome da sua política. Por exemplo, `SignUpOrSignInWithKmsi`.
+3. Alteração da **ReferenceId** atributo para o **DefaultUserJourney** elemento de acordo com o identificador do novo percurso do utilizador que criou. Por exemplo, `SignUpOrSignInWithKmsi`.
 
-Agora precisa adicionar o fornecedor de afirmações de início de sessão de conta Local para o seu percurso do utilizador. 
+    KMSI está configurado com o **UserJourneyBehaviors** elemento. O **KeepAliveInDays** atributo controla o tempo que o usuário permanece com sessão iniciada. No exemplo seguinte, a sessão KMSI automaticamente expira após `7` dias, independentemente da frequência com que o utilizador efetua a autenticação silenciosa. Definindo a **KeepAliveInDays** valor a `0` desativa a funcionalidade KMSI. Por predefinição, este valor é `0`. Se o valor de **SessionExpiryType** é `Rolling`, a sessão KMSI é ampliada pela `7` dias sempre que o utilizador efetua a autenticação silenciosa.  Se `Rolling` é selecionado, deve manter o número de dias para mínimo. 
 
-1. Abra o ficheiro de base da sua política (por exemplo, TrustFrameworkBase.xml).
-2. Encontrar o `<UserJourneys>` elemento e copie todo o `<UserJourney>` nó que inclui `Id="SignUpOrSignIn"`.
-3. Abra o ficheiro de extensão (por exemplo, TrustFrameworkExtensions.xml) e localize o `<UserJourneys>` elemento. Se o elemento não existir, adicione um.
-4. Cole a toda `<UserJourney>` nó que copiou como subordinado do `<UserJourneys>` elemento.
-5. Mudar o nome o ID do percurso do utilizador novo (por exemplo, mudar o nome como `SignUpOrSignInWithKmsi`).
-6. Por fim, no `OrchestrationStep 1` alterar o `ContentDefinitionReferenceId` para `api.signuporsigninwithkmsi` , definidas nos passos anteriores. Isto permite que a caixa de verificação no percurso do utilizador. 
-7. Terminar de modificar o ficheiro de extensão. Guardar e carregar o ficheiro. Certifique-se de que todas as validações tenha êxito.
+    O valor de **SessionExpiryInSeconds** representa a hora de expiração de uma sessão SSO. Isso é utilizado internamente pelo Azure AD B2C para verificar se a sessão para KMSI expirou ou não. O valor de **KeepAliveInDays** determina o valor de Expires/Max-Age do cookie SSO no navegador da web. Ao contrário **SessionExpiryInSeconds**, **KeepAliveInDays** serve para impedir que o navegador de limpar o cookie quando está fechado. Um utilizador silenciosamente pode iniciar sessão apenas se existir o cookie de sessão SSO, que é controlada pela **KeepAliveInDays**e não é expirou, que é controlado pelas **SessionExpiryInSeconds**. É recomendado que defina o valor de **SessionExpiryInSeconds** ser momento equivalente da **KeepAliveInDays** em segundos, conforme mostrado no exemplo a seguir.
 
-```XML
-<UserJourneys>
-    <UserJourney Id="SignUpOrSignInWithKmsi">
-      <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
-          <ClaimsProviderSelections>
-            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-          </ClaimsProviderSelections>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-              <Value>objectId</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- This step reads any user attributes that we may not have received when in the token. -->
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-      </OrchestrationSteps>
-      <ClientDefinition ReferenceId="DefaultWeb" />
-    </UserJourney>
-  </UserJourneys>
-```
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
+      <UserJourneyBehaviors>
+        <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
+        <SessionExpiryType>Absolute</SessionExpiryType>
+        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+      </UserJourneyBehaviors>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
 
-## <a name="create-a-relying-party-rp-file"></a>Crie um ficheiro da entidade confiadora de terceiros (RP)
-
-Em seguida, atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percurso do utilizador que criou:
-
-1. Faça uma cópia do SignUpOrSignIn.xml no diretório de trabalho. Em seguida, mude o nome (por exemplo, SignUpOrSignInWithKmsi.xml).
-
-2. Abra o ficheiro novo e a atualização do `PolicyId` atributo para `<TrustFrameworkPolicy>` com um valor exclusivo. Este é o nome da sua política (por exemplo, SignUpOrSignInWithKmsi).
-
-3. Modificar a `ReferenceId` atributo `<DefaultUserJourney>` de acordo com o `Id` do novo percurso do utilizador que criou (por exemplo, SignUpOrSignInWithKmsi).
-
-4. KMSI está configurado no `UserJourneyBehaviors`. 
-
-5. **`KeepAliveInDays`** controla o tempo que o usuário permanece com sessão iniciada. No exemplo a seguir, sessão KMSI expira automaticamente depois de 14 dias, independentemente da frequência com que o utilizador efetua a autenticação silenciosa.
-
-   Definição `KeepAliveInDays` valor como 0 desativa a funcionalidade KMSI. Por predefinição, este valor for 0
-
-6. Se **`SessionExpiryType`** é *Rolling*, em seguida, a sessão KMSI é estendida por 14 dias sempre que o utilizador efetua a autenticação silenciosa.  Se *Rolling* é selecionado, recomendamos que mantenha o número de dias para mínimo. 
-
-       <RelyingParty>
-       <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
-       <UserJourneyBehaviors>
-         <SingleSignOn Scope="Tenant" KeepAliveInDays="14" />
-         <SessionExpiryType>Absolute</SessionExpiryType>
-         <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
-       </UserJourneyBehaviors>
-       <TechnicalProfile Id="PolicyProfile">
-         <DisplayName>PolicyProfile</DisplayName>
-         <Protocol Name="OpenIdConnect" />
-         <OutputClaims>
-           <OutputClaim ClaimTypeReferenceId="displayName" />
-           <OutputClaim ClaimTypeReferenceId="givenName" />
-           <OutputClaim ClaimTypeReferenceId="surname" />
-           <OutputClaim ClaimTypeReferenceId="email" />
-           <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-         </OutputClaims>
-         <SubjectNamingInfo ClaimType="sub" />
-       </TechnicalProfile>
-       </RelyingParty>
-
-7. Guardar as alterações e, em seguida, carregue o ficheiro.
-
-8. Para testar a política personalizada que carregou, no portal do Azure, aceda ao painel de política e, em seguida, clique em **executar agora**.
-
-
-## <a name="link-to-sample-policy"></a>Ligação à política de exemplo
+4. Guardar as alterações e, em seguida, carregue o ficheiro.
+5. Para testar a política personalizada que carregou, no portal do Azure, vá para a página de política e, em seguida, selecione **executar agora**.
 
 Pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
 

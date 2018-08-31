@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056503"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246791"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança automáticas da base de dados SQL
 
@@ -26,7 +26,7 @@ Base de dados SQL cria cópias de segurança da base de dados e utiliza o armaze
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é uma cópia de segurança da base de dados SQL?
 
-Base de dados SQL utiliza a tecnologia do SQL Server para criar [completo](https://msdn.microsoft.com/library/ms186289.aspx), [diferencial](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), e [log de transação](https://msdn.microsoft.com/library/ms191429.aspx) (PITR) de restauro de cópias de segurança para os objetivos de ponto no tempo. Os backups de log de transação ocorram, geralmente, a cada 5 a 10 minutos e cópias de segurança diferenciais ocorram, geralmente, a cada 12 horas, com a frequência com a base do nível de desempenho e a quantidade de atividade da base de dados. Backups de log de transação, com cópias de segurança completas e diferenciais, permitem-lhe restaurar uma base de dados para um específico ponto anterior no tempo para o mesmo servidor que aloja a base de dados. As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Ao restaurar uma base de dados, o serviço descobre qual log completas, diferenciais e transação cópias de segurança tem de ser restaurada.
+Base de dados SQL utiliza a tecnologia do SQL Server para criar [completo](https://msdn.microsoft.com/library/ms186289.aspx), [diferencial](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), e [log de transação](https://msdn.microsoft.com/library/ms191429.aspx) (PITR) de restauro de cópias de segurança para os objetivos de ponto no tempo. Os backups de log de transação ocorram, geralmente, a cada 5 a 10 minutos e cópias de segurança diferenciais ocorram, geralmente, a cada 12 horas, com a frequência com a base do nível de desempenho e a quantidade de atividade da base de dados. Backups de log de transação, com cópias de segurança completas e diferenciais, permitem-lhe restaurar uma base de dados para um específico ponto anterior no tempo para o mesmo servidor que aloja a base de dados. As cópias de segurança são armazenadas em blobs de armazenamento RA-GRS, que são replicados para uma [Centro de dados emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma falha do Centro de dados. Ao restaurar uma base de dados, o serviço descobre qual log completas, diferenciais e transação cópias de segurança tem de ser restaurada.
 
 
 Pode utilizar estas cópias de segurança para:

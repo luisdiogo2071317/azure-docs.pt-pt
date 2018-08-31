@@ -1,6 +1,6 @@
 ---
-title: OpenShift na descrição geral do Azure | Microsoft Docs
-description: Uma descrição geral de OpenShift no Azure.
+title: OpenShift na descrição geral do Azure | Documentos da Microsoft
+description: Uma visão geral do OpenShift no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e3ab060c1cea28f83c18dc89aeea7716ec86572a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944506"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190348"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 
-OpenShift é uma plataforma de aplicação do contentor aberta e extensível que coloca Docker e Kubernetes para a empresa.  
+OpenShift é uma plataforma de aplicação de contentor aberta e extensível que fornece o Docker e Kubernetes para a empresa.  
 
-OpenShift inclui Kubernetes para a gestão e orquestração do contentor. Adiciona as ferramentas de programador e operações-centrada que permitem:
+OpenShift inclui Kubernetes para orquestração de contentores e gestão. Ele adiciona e operações-centrado no desenvolvedor ferramentas que permitem:
 
-- Desenvolvimento da aplicação rápida.
+- Desenvolvimento rápido de aplicativos.
 - Facilitar a implementação e dimensionamento.
-- Manutenção de ciclo de vida longo prazo para as equipas e aplicações.
+- Manutenção de ciclo de vida longa duração para equipes e aplicativos.
 
-Existem várias versões do OpenShift disponíveis:
+Há várias versões do OpenShift disponíveis:
 
-- OpenShift Origin
+- OKD (anteriormente conhecido como o OpenShift Origin)
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift dedicado
 
-Das quatro versões abordadas neste artigo, apenas dois estão disponíveis para os clientes implementar no Azure: OpenShift origem e OpenShift contentor plataforma.
+Das quatro versões abordadas neste artigo, apenas dois estão disponível para os clientes implementam no Azure: OpenShift Origin e OpenShift Container Platform.
 
-## <a name="openshift-origin"></a>OpenShift Origin
+## <a name="okd-formerly-openshift-origin"></a>OKD (anteriormente conhecido como o OpenShift Origin)
 
-Origem é um [open source](https://www.openshift.org/) projeto a montante de OpenShift é Comunidade suportada. Origem pode ser instalada em CentOS ou Red Hat Enterprise Linux (RHEL).
+OKD é um [aberto](https://www.okd.io/) projeto a montante do OpenShift suportada na Comunidade. OKD pode ser instalado no CentOS ou Red Hat Enterprise Linux (RHEL).
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
-A plataforma do contentor é uma preparada para empresa [versão comercial](https://www.openshift.com) do e suportados pelo Red Hat. Com esta versão, os clientes comprar a elegibilidade para a plataforma de contentor OpenShift necessária e são responsáveis pela gestão de toda a infraestrutura e de instalação.
+Plataforma de contentores é uma prontas para empresas [versão comercial](https://www.openshift.com) partir e suportados pelo Red Hat. Com esta versão, os clientes comprar as elegibilidades necessárias para a plataforma de contentores do OpenShift e são responsáveis pela instalação e gestão de toda a infraestrutura.
 
-Porque os clientes "proprietário" a plataforma de toda, estes podem instalá-lo no seu centro de dados no local ou numa nuvem pública (por exemplo, o Azure, AWS ou da Google).
+Uma vez que os clientes "proprietário" a plataforma de toda, eles podem instalá-lo em datacenters no local ou numa nuvem pública (por exemplo, o Azure, AWS ou o Google).
 
 ## <a name="openshift-online"></a>OpenShift Online
 
-Online é gerido de Red Hat *multi-inquilino* OpenShift que utiliza a plataforma de contentor. Red Hat gere todos da infraestrutura subjacente (por exemplo, VMs, cluster de OpenShift, redes e armazenamento). 
+Online é gerida de Red Hat *multi-inquilino* OpenShift que utiliza a plataforma de contentores. Red Hat gerencia todos da infraestrutura subjacente (por exemplo, VMs, cluster de OpenShift, funcionamento em rede e armazenamento). 
 
-Com esta versão, o cliente implementa contentores, mas não controla sobre os anfitriões os contentores executam. Uma vez Online é a multi-inquilino, contentores podem estar localizados nos anfitriões VM mesmos como contentores de outros clientes. Custo é por contentor.
+Com esta versão, o cliente implementa contentores, mas não tem controle sobre os anfitriões que executam os contentores. Uma vez Online é a multi-inquilino, os contentores podem estar localizados nos anfitriões VM mesmo como contentores de outros clientes. Custo é por contentor.
 
 ## <a name="openshift-dedicated"></a>OpenShift dedicado
 
-Dedicada é uma Red Hat gerida pelo *único inquilino* OpenShift que utiliza a plataforma de contentor. Red Hat gere todos da infraestrutura subjacente (VMs, OpenShift cluster, funcionamento em rede, armazenamento, etc.). O cluster é específico para um cliente e é executado numa nuvem pública (por exemplo, AWS ou da Google, com o Azure futuras do 2018 antecipado). Um cluster inicial inclui quatro nós de aplicação para $48,000 por ano (pagamento adiantado).
+É dedicada, gerida de Red Hat *inquilino único* OpenShift que utiliza a plataforma de contentores. Red Hat gerencia todos da infraestrutura subjacente (VMs, cluster do OpenShift, rede, armazenamento, etc.). O cluster é específico para um cliente e é executado numa nuvem pública (por exemplo, o AWS ou o Google, com o Azure fornecidos no início de 2018). Um cluster inicial inclui quatro nós de aplicação para US $48.000 por ano (pago antecipadamente).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Configurar pré-requisitos comuns para OpenShift no Azure](./openshift-prerequisites.md)
-- [Implementar OpenShift origem no Azure](./openshift-origin.md)
-- [Implementar OpenShift contentor plataforma no Azure](./openshift-container-platform.md)
+- [Configurar a pré-requisitos comuns para OpenShift no Azure](./openshift-prerequisites.md)
+- [Implementar o OpenShift Origin no Azure](./openshift-origin.md)
+- [Implementar o OpenShift Container Platform no Azure](./openshift-container-platform.md)
 - [Tarefas de pós-implementação](./openshift-post-deployment.md)
-- [Resolver problemas de implementação de OpenShift](./openshift-troubleshooting.md)
+- [Resolver problemas de implementação do OpenShift](./openshift-troubleshooting.md)

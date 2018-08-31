@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: aa2d8f50d8fb4ba356af20a290976b8b32601ebf
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205593"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188796"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (Python)
 
@@ -53,9 +53,9 @@ Os passos seguintes descrevem como transferir e configurar a aplicação de Pyth
 * Responde a definir as alterações feitas no Azure IoT Central.
 
 > [!NOTE]
-> Para obter mais informações sobre o exemplo de Python do Raspberry Pi, consulte a [Leiame](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md) ficheiros no GitHub.
+> Para obter mais informações sobre o exemplo de Python do Raspberry Pi, consulte a [Leiame](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md) ficheiros no GitHub.
 
-1. Utilize o navegador da Web na área de trabalho Raspberry Pi para navegar para o [versões de firmware do Azure IoT Central](https://github.com/Microsoft/microsoft-iot-central-firmware/releases) página.
+1. Utilize o navegador da Web na área de trabalho Raspberry Pi para navegar para o [versões de firmware do Azure IoT Central](https://github.com/Azure/iot-central-firmware/releases) página.
 
 1. Transfira o ficheiro zip que contém o firmware mais recente para a pasta raiz no Raspberry Pi. O nome de ficheiro é semelhante a `RaspberryPi-IoTCentral-X.X.X.zip`.
 

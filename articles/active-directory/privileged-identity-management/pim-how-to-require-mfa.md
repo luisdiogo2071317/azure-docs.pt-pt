@@ -1,6 +1,6 @@
 ---
-title: Como requerer a autenticação multifator | Documentos da Microsoft
-description: Saiba como exigir autenticação multifator (MFA) para as identidades privilegiadas com a extensão do Azure Active Directory Privileged Identity Management.
+title: Exigir autenticação multifator para funções de diretório do Azure AD no PIM | Documentos da Microsoft
+description: Saiba como exigir autenticação multifator (MFA) para funções de diretório do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622852"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188358"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Como requerer MFA no Azure AD Privileged Identity Management
+# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>Exigir autenticação multifator para funções de diretório do Azure AD no PIM
 Recomendamos que exigem autenticação multifator (MFA) para todos os administradores. Isso reduz o risco de um ataque devido a uma palavra-passe comprometida.
 
 Pode exigir que os utilizadores concluam uma submissão da MFA no início de sessão. A mensagem de blogue [MFA para Office 365 e o MFA do Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) compara o que está incluído nas subscrições do Office e o Azure, com os recursos contidos na oferta do Microsoft Azure multi-factor Authentication.
@@ -46,5 +46,6 @@ Em alternativa, se os utilizadores autenticam no local pode ter o seu fornecedor
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos Seguintes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Configurar definições de função de diretório do Azure AD no PIM](pim-how-to-change-default-settings.md)
+- [Configurar alertas de segurança para funções de diretório do Azure AD no PIM](pim-how-to-configure-security-alerts.md)

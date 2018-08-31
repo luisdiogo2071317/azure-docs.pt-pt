@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059704"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248146"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -154,10 +154,10 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 
    |Opção|Descrição|
    |---|---|
-   |Se for necessário o reinício| **(Predefinição)**  Se for necessário, é um reinício intitated se permitir a janela de manutenção.|
+   |Se for necessário o reinício| **(Predefinição)**  Se for necessário, uma reinicialização é iniciada, se permitir a janela de manutenção.|
    |Reiniciar sempre|Uma reinicialização é iniciada, independentemente se for requerida. |
-   |Nunca reinício|Independentemente de se uma reinicialização é obrigatória, reinicializações são surpressed.|
-   |Reinício apenas - não irá instalar as atualizações|Esta opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
+   |Nunca reiniciar|Independentemente de se uma reinicialização é necessária, reinicializações são suprimidas.|
+   |Reiniciar apenas - não irá instalar atualizações|Esta opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
 
 Quando tiver terminado de configurar a agenda, selecione o **criar** botão para regressar ao dashboard de estado. O **agendada** tabela mostra o agendamento da implementação que criou.
 

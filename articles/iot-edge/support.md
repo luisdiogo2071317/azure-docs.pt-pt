@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 91821d66ac0be265e6b66fd9eb2378169e337430
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: MT
+ms.openlocfilehash: 696a752f199e2f7018713cb87c3b098556c5b4f5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055913"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247621"
 ---
 # <a name="azure-iot-edge-support"></a>Suporte do Azure IoT Edge
 Existem várias formas para buscar suporte para o produto do Azure IoT Edge.
@@ -53,12 +53,14 @@ Os sistemas de camada 2 podem ser considerados como compatível com o Azure IoT 
 
 | Sistema Operativo | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu 18.04 | Sim | Não |
-| Ubuntu 16.04 | Sim | Não |
+| Ubuntu 18.04 | Sim | Sim |
+| Ubuntu 16.04 | Sim | Sim |
+| CentOS 7.5 | Sim | Sim |
+| RHEL 7.5 | Sim | Sim |
 | O rio de vento 8 | Sim | Não |
 | Yocto | Sim | Não |
-| Debian | Sim | Não |
-| Mac | Sim | Não |
+| Debian 8 | Sim | Sim |
+| Debian 9 | Sim | Sim |
 
 ## <a name="container-engines"></a>Mecanismos de contentor
 O Azure IoT Edge tem um mecanismo de contentor para iniciar módulos, independentemente do sistema operativo no qual está em execução. A Microsoft fornece um mecanismo de contentor, o mecanismo moby, para cumprir este requisito. Baseia-se no projeto de código-fonte aberto Moby. Docker CE e o Docker EE são outros mecanismos de contentores populares. Eles também são baseados no projeto de código é aberto Moby e são compatíveis com o Azure IoT Edge. A Microsoft fornece o melhor de esforço de suporte para sistemas usando esses mecanismos de contentor; No entanto, a Microsoft não tem a capacidade de enviarem correções para problemas nas mesmas. Por esse motivo, a Microsoft recomenda a utilização de mecanismo de moby em sistemas de produção.

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 9cf13589fb83f100dd024e65dfe9178cb54802f2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: f468567aa67560eed972fb53669638a17778b307
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058204"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189959"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar o IoT Hub, carregamentos de ficheiros com o PowerShell
 
@@ -134,4 +134,4 @@ Para explorar ainda mais os recursos do IoT Hub, veja:
 
 * [guia para programadores do IoT Hub](iot-hub-devguide.md)
 * [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Proteger a sua solução de IoT desde o backup](/../iot-fundamentals/iot-security-ground-up.md)
+* [Proteger a sua solução de IoT desde o backup](../iot-fundamentals/iot-security-ground-up.md)

@@ -1,6 +1,6 @@
 ---
-title: Como concluir uma revisão de acesso | Documentos da Microsoft
-description: Depois de iniciado uma revisão de acesso no Azure AD Privileged Identity Management, saiba como concluí-la e ver os resultados
+title: Concluir uma revisão de acesso para funções de diretório do Azure AD no PIM | Documentos da Microsoft
+description: Saiba como concluir uma revisão de acesso para funções de diretório do Azure AD no Azure AD Privileged Identity Management (PIM) e ver os resultados
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3b4135368c2222a08b155c851b384244774ce246
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3955f4bf9b579ae40424c2650f9d3b4c2ac4f030
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622535"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188591"
 ---
-# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Como concluir uma revisão de acesso no Azure AD Privileged Identity Management
+# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Concluir uma revisão de acesso para funções de diretório do Azure AD no PIM
 Os administradores de função com privilégios podem rever acesso privilegiado de uma vez um [revisão de acesso foi iniciada](pim-how-to-start-security-review.md). O Azure AD Privileged Identity Management (PIM) enviará automaticamente um e-mail a pedir aos utilizadores para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-how-to-perform-security-review.md).
 
 Depois do período de revisão de acesso, ou todos os usuários tem concluído a seus Self-rever, siga os passos neste artigo para gerir a revisão e ver os resultados.
@@ -53,4 +53,6 @@ Se não estiver interessado em qualquer outra a revisão, eliminá-lo. O **elimi
 > Não irá obter um aviso antes de ocorre a eliminação, por isso, certifique-se de que pretende eliminar essa revisão. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Iniciar uma revisão de acesso para funções de diretório do Azure AD no PIM](pim-how-to-start-security-review.md)
+- [Realizar uma revisão de acesso de minhas funções de diretório do Azure AD no PIM](pim-how-to-perform-security-review.md)

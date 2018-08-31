@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do suporte de nuvem init para computadores virtuais Linux no Azure | Microsoft Docs
-description: Descrição geral das capacidades de nuvem init no Microsoft Azure
+title: Descrição geral do suporte de cloud-init para máquinas virtuais do Linux no Azure | Documentos da Microsoft
+description: Descrição geral das capacidades de cloud-init no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -15,42 +15,44 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29763150"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188878"
 ---
-# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de nuvem init para máquinas virtuais no Azure
-Este artigo explica o suporte se existe para [nuvem init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) conjuntos de dimensionamento (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure.  
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de cloud-init para máquinas virtuais no Azure
+Este artigo explica o suporte de que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) de conjuntos de dimensionamento (VMSS) em aprovisionamento tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure.  
 
 ## <a name="cloud-init-overview"></a>Descrição geral da inicialização de cloud
-[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` os ficheiros são ficheiros de texto codificados em base64.
+[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Porque o cloud-init é chamado durante o processo de inicialização inicial, não são passos adicionais ou agentes necessários a aplicar a configuração.  Para obter mais informações sobre como formatar corretamente sua `#cloud-config` arquivos, consulte a [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` os arquivos são arquivos de texto codificados em base64.
 
 O cloud-init também funciona em distribuições. Por exemplo, não utiliza **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes a instalar. O cloud-init utiliza automaticamente a ferramenta de gestão de pacotes nativa para a distribuição que selecionar.
 
- Estamos ativamente a trabalhar com os nossos parceiros de distro Linux endorsed para ter imagens de nuvem-init ativada disponíveis no Azure marketplace. Estas imagens fará com que as implementações de nuvem init e configurações funcionam sem problemas com as VMs e conjuntos de dimensionamento da VM (VMSS). A tabela seguinte descreve a disponibilidade de imagens de nuvem-init ativada atual na plataforma do Azure:
+ Estamos a trabalhar ativamente com os nossos parceiros de distribuição do Linux apoiados para ter imagens de cloud-init ativado disponíveis no Azure marketplace. Estas imagens fará com que as implementações de cloud-init e configurações funcionam sem problemas com VMs e conjuntos de dimensionamento de VM (VMSS). A tabela seguinte descreve a disponibilidade de imagens atual do cloud-init ativado na plataforma do Azure:
 
-| Publicador | Oferta | SKU | Versão | nuvem init pronto
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Publicador | Oferta | SKU | Versão | preparado para o cloud-init |
+|:--- |:--- |:--- |:--- |:--- |
+|Canónico |UbuntuServer |18.04-LTS |mais recente |sim | 
+|Canónico |UbuntuServer |17.10 |mais recente |sim | 
 |Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic |CentOS |7-CI |mais recente |pré-visualização |
-|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualização |
+|OpenLogic |CentOS |7-CI |mais recente |pré-visualizar |
+|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualizar |
 
-Pilha do Azure não suporta atualmente o aprovisionamento do RHEL 7.4 e 7.4 CentOS utilizando init de nuvem.
+Atualmente o Azure Stack não suporta o aprovisionamento do RHEL 7.4 e no CentOS 7.4 com o cloud-init.
 
-## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>O que é a diferença entre init de nuvem e o agente Linux (WALA)?
-WALA é um agente específico da plataforma do Azure utilizado para aprovisionar, configurar VMs e processar extensões do Azure. Iremos são melhorando a tarefa de configurar VMs para utilizar init nuvem em vez do agente Linux para permitir que os clientes de nuvem init existentes utilizar os scripts de nuvem init atual.  Se tiver investimentos em scripts de nuvem init para configurar os sistemas Linux, existem **sem definições adicionais necessárias** para ativá-los. 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>O que é a diferença entre o cloud-init e o agente do Linux (WALA)?
+WALA é um agente específicos da plataforma do Azure utilizado para aprovisionar, configurar as VMs e lidar com extensões do Azure. Estamos a melhorar a tarefa de configuração de VMs para utilizar o cloud-init em vez do agente do Linux para permitir que os clientes existentes do cloud-init usar seus scripts de inicialização da cloud atual.  Se tiver investimentos existentes em scripts de inicialização da cloud para configurar os sistemas Linux, existem **sem configurações adicionais necessárias** para ativá-las. 
 
-Se não incluir a CLI do Azure `--custom-data` comutador no aprovisionamento de tempo, WALA assume a parâmetros necessários para aprovisionar a VM e concluir a implementação com as predefinições de aprovisionamento de VM mínima.  Se referenciar a nuvem-init `--custom-data` comutador, que está contido nos seus dados personalizados (definições individuais ou script completo) substitui as predefinições WALA. 
+Se não incluir a CLI do Azure `--custom-data` comutador no provisionamento de tempo, WALA usa a parâmetros necessários para aprovisionar a VM e concluir a implementação com os padrões de aprovisionamento da VM mínima.  Se fizer referência a cloud-init `--custom-data` mude, tudo o que está contido nos seus dados personalizados (definições individuais ou script completo) substitui as predefinições WALA. 
 
-Configurações de WALA de VMs são restrita tempo a funcionar dentro da tempo de aprovisionamento de VM máxima.  Configurações de nuvem init aplicadas às VMs tem restrições de tempo e não irão causar uma falha por exceder o tempo limite da implementação. 
+As configurações WALA VMs estão a restrição de tempo para trabalhar dentro da VM máxima do provisionamento de tempo.  Configurações de cloud-init aplicadas às VMs não têm restrições de tempo e não irão causar uma falha ao tempo limite da implementação. 
 
-## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implementação de uma nuvem-init ativada a Máquina Virtual
-Implementar uma máquina virtual de nuvem-init ativada é tão simple como referenciar uma distribuição de nuvem-init ativada durante a implementação.  Maintainers de distribuição de Linux têm de optar por ativar e integrar nuvem init nas suas imagens de publicados base do Azure. Assim que tiver confirmado a imagem que pretende implementar é nuvem-init ativado, pode utilizar a CLI do Azure para implementar a imagem. 
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implementar uma cloud-init ativado a Máquina Virtual
+Implementar uma máquina virtual do cloud-init ativado é tão simples quanto fazer referência uma distribuição de cloud-init ativado durante a implementação.  Maintainers de distribuição de Linux têm de optar por ativar e integrar o cloud-init em suas imagens de publicados bases do Azure. Assim que tiver confirmado que a imagem que pretende implementar é o cloud-init ativado, pode utilizar a CLI do Azure para implementar a imagem. 
 
 O primeiro passo para implementar esta imagem é criar um grupo de recursos com o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
@@ -59,7 +61,7 @@ O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na loc
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-O próximo passo é criar um ficheiro na sua shell atual, com o nome *nuvem init.txt* e cole a seguinte configuração. Neste exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
+A próxima etapa é criar um ficheiro na sua shell atual, com o nome *cloud-Init* e cole a seguinte configuração. Neste exemplo, crie o ficheiro no Cloud Shell, não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolher #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -67,11 +69,11 @@ package_upgrade: true
 packages:
   - httpd
 ```
-Prima `ctrl-X` para sair do ficheiro, escreva `y` para guardar o ficheiro e prima `enter` para confirmar o nome de ficheiro ao sair.
+Prima `ctrl-X` para o ficheiro de saída, escreva `y` para guardar o ficheiro e prima `enter` para confirmar o nome de ficheiro à saída.
 
-O último passo consiste em criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
+A etapa final é criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
 
-O exemplo seguinte cria uma VM chamada *centos74* e cria as chaves SSH se estes ainda não existir numa localização chave predefinido. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria uma VM chamada *centos74*:
+O exemplo seguinte cria uma VM com o nome *centos74* e cria chaves SSH caso estas ainda não existam numa localização chave predefinida. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria uma VM com o nome *centos74*:
 
 ```azurecli-interactive 
 az vm create \
@@ -82,20 +84,20 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-Quando a VM foi criada, a CLI do Azure mostra informações específicas para a sua implementação. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM.  Demora algum tempo para a VM ser criada, os pacotes para instalar e iniciar a aplicação. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Pode SSH para a VM e utilize os passos descritos na secção de resolução de problemas para ver os registos de nuvem init. 
+Quando a VM tiver sido criada, a CLI do Azure mostra informações específicas da sua implementação. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM.  Demora algum tempo para a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Pode encaminhar o SSH na VM e utilize os passos descritos na secção de resolução de problemas para ver os registos do cloud-init. 
 
-## <a name="troubleshooting-cloud-init"></a>Resolução de problemas de init de nuvem
-Depois da VM tenha sido aprovisionada, init nuvem será executado através de todos os módulos e de script definido no `--custom-data` para configurar a VM.  Se precisar de resolver quaisquer erros ou omissões da configuração, terá de procurar o nome do módulo (`disk_setup` ou `runcmd` por exemplo) no registo de nuvem init - localizados em **/var/log/cloud-init.log**.
+## <a name="troubleshooting-cloud-init"></a>Resolução de problemas do cloud-init
+Assim que a VM tiver sido aprovisionada, cloud-init será executado por meio de todos os módulos e script definido no `--custom-data` para configurar a VM.  Se precisar de resolver quaisquer erros ou omissões da configuração, tem de procurar o nome do módulo (`disk_setup` ou `runcmd` por exemplo) no registo do cloud-init - localizado na **/var/log/cloud-init.log**.
 
 > [!NOTE]
-> Nem todas as falhas de módulo resulta numa nuvem-init fatal falha de configuração geral. Por exemplo, utilizando o `runcmd` módulo, se o script falhar, nuvem init ainda comunicará aprovisionamento com êxito porque o módulo de runcmd foi executado.
+> Nem toda falha do módulo resulta numa cloud-init fatal falha de configuração geral. Por exemplo, utilizando o `runcmd` módulo, se o script falhar, cloud-init ainda irá relatar aprovisionamento concluído com êxito uma vez que o módulo de runcmd executado.
 
-Para obter mais detalhes de registo de nuvem init, consulte o [documentação init de nuvem](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
+Para obter mais detalhes de registo do cloud-init, consulte o [documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter exemplos de nuvem init das alterações de configuração, consulte os seguintes documentos:
+Para obter exemplos de alterações de configuração cloud-init, veja os documentos seguintes:
  
-- [Adicionar um utilizador de Linux adicional para uma VM](cloudinit-add-user.md)
-- [Executar um Gestor de pacote para atualizar pacotes existentes no primeiro arranque](cloudinit-update-vm.md)
-- [Alterar o nome local do anfitrião de VM](cloudinit-update-vm-hostname.md) 
-- [Instalar um pacote de aplicações, ficheiros de configuração de atualização e injetar chaves](tutorial-automate-vm-deployment.md)
+- [Adicionar um utilizador de Linux adicional a uma VM](cloudinit-add-user.md)
+- [Executar um Gestor de pacotes para atualizar os pacotes existentes no primeiro arranque](cloudinit-update-vm.md)
+- [Alterar o nome de anfitrião VM local](cloudinit-update-vm-hostname.md) 
+- [Instalar um pacote de aplicação, atualizar ficheiros de configuração e injetar chaves](tutorial-automate-vm-deployment.md)

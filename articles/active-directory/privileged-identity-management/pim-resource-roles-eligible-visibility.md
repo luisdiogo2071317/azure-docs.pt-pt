@@ -1,6 +1,6 @@
 ---
-title: Atribuições elegíveis e visibilidade de recursos do Azure no Privileged Identity Management | Documentos da Microsoft
-description: Descreve como atribuir membros como elegíveis para funções de recursos, ao utilizar o PIM.
+title: Atribuições elegíveis e visibilidade de recursos no PIM - Azure | Documentos da Microsoft
+description: Descreve como atribuir membros como elegíveis para funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336453c1ef6ef8d0295d00f31afc6a5e7e42e8b6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621553"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189219"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Atribuições elegíveis e visibilidade de recursos com o Privileged Identity Management
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Atribuições elegíveis e visibilidade de recursos no PIM
 
 Privileged Identity Management (PIM) para funções de recursos do Azure fornece mais segurança para as organizações que tenham recursos do Azure críticos. Os administradores de recursos podem utilizar o PIM para atribuir membros como elegíveis para funções de recursos. Saiba mais sobre os tipos de atribuição de diferentes e Estados de atribuição de funções de recursos do Azure nas seções a seguir. 
 
@@ -70,4 +70,4 @@ Ao visualizar uma associação que está listada na **funções do Active Direct
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Atribuir funções no Privileged Identity Manager](pim-resource-roles-assign-roles.md)
+- [Atribuir funções de recursos do Azure no PIM](pim-resource-roles-assign-roles.md)

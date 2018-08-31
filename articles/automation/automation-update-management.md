@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054789"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247941"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -35,6 +35,8 @@ O diagrama seguinte mostra uma vista conceptual do comportamento e fluxo de dado
 
 ![Atualizar o fluxo do processo de gestão](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino. Para gerir máquinas num inquilino diferente, tem de integrá-los como [máquinas não Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 Depois que um computador executa uma análise de conformidade de atualização, o agente reencaminha as informações em massa para o Azure Log Analytics. Num computador Windows, a análise de conformidade é realizada a cada 12 horas por predefinição.
 
 Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos, se o MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
@@ -48,7 +50,7 @@ A solução de relatórios como atualizados, o computador baseia-se a origem com
 
 Pode criar uma implementação agendada para implementar e instalar atualizações de software em computadores que precisam das atualizações. As atualizações classificadas como *opcional* não estão incluídos no âmbito da implementação para computadores Windows. Apenas as atualizações necessárias estão incluídas no âmbito da implementação. 
 
-A implementação agendada define que computadores de destino recebem as atualizações aplicáveis, ao especificar explicitamente os computadores ou ao selecionar uma [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que se baseia em pesquisas de registos de um conjunto específico de computadores. Também especificar uma agenda para aprovar e designar um período de tempo durante o qual as atualizações podem ser instaladas. 
+A implementação agendada define que computadores de destino recebem as atualizações aplicáveis, ao especificar explicitamente os computadores ou ao selecionar uma [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que se baseia em pesquisas de registos de um conjunto específico de computadores. Também especificar uma agenda para aprovar e designar um período de tempo durante o qual as atualizações podem ser instaladas.
 
 As atualizações são instaladas por runbooks na Automatização do Azure. Não é possível ver estes runbooks e os runbooks não requerem nenhuma configuração. Quando é criada uma implementação de atualização, a implementação da atualização cria uma agenda que inicia um runbook de atualização principal num momento especificado nos computadores incluídos. O runbook principal inicia um runbook subordinado em cada agente para efetuar a instalação de atualizações necessárias.
 
@@ -217,10 +219,10 @@ Para criar uma nova implementação de atualização, selecione **agendar a impl
 |Sistema Operativo| Linux ou Windows|
 | Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **máquinas**, a preparação da máquina é mostrada na **preparação do agente de ATUALIZAÇÃO** coluna.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
-|Atualizações a excluir|Introduza as atualizações a excluir. Para o Windows introduza KB sem o prefixo "KB. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
+|Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o KB sem o prefixo "KB. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
 |Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
 | Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
-| Controlo de reinício| Detemines como devem ser tratadas reinicializações.</br>Opções disponíveis são:</br>Reiniciar, se necessário (predefinição)</br>Reiniciar sempre</br>Nunca reinício</br>Reinício apenas - não irá instalar as atualizações|
+| Controlo de reinício| Determina como devem ser tratadas reinicializações. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
@@ -275,7 +277,7 @@ Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas 
 Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página: [documentação de procurar API do Log Analytics](
 https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Consultas de exemplo
+### <a name="sample-queries"></a>Amostras de consultas
 
 As secções seguintes fornecem consultas de registo de exemplo para registos de atualizações que são recolhidos por esta solução:
 
@@ -510,7 +512,7 @@ Como gestão de atualizações executa enriquecimento de atualização na cloud,
 
 No entanto, a gestão de atualizações ainda podem comunicar que a máquina como estando em não conformidade porque tem informações adicionais sobre a atualização relevante.
 
-Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Esta é uma limitação de zypper. Em alguns casos, poderá ter de voltar a executar a implementação da atualização, certifique-se de verificar o registo de atualização.
+Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Esta é uma limitação de zypper. Em alguns casos, poderá ser necessário voltar a executar a implementação da atualização, certifique-se a verificação do registo de atualização.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

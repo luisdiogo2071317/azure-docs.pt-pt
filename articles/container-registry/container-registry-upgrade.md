@@ -6,22 +6,26 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432393"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189026"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registo de contentor clássico
 
-O Azure Container Registry (ACR) está disponível em vários escalões de serviço, [conhecido como SKUs](container-registry-skus.md). A versão inicial do ACR oferecido um único SKU, clássico, que não possui vários recursos inerentes para o básico, Standard e Premium SKUs (coletivamente conhecido como *geridos* registos). Este artigo fornece detalhes sobre como migrar seu registo clássico não gerenciado para um dos SKUs geridos, para que possam tirar partido do seu conjunto de recursos aprimorados.
+O Azure Container Registry (ACR) está disponível em vários escalões de serviço, [conhecido como SKUs](container-registry-skus.md). A versão inicial do ACR oferecido um único SKU, clássico, que não possui vários recursos inerentes para o básico, Standard e Premium SKUs (coletivamente conhecido como *geridos* registos).
+
+O SKU clássico está a ser preterido e não estará disponível depois de Março de 2019. Este artigo fornece detalhes sobre como migrar seu registo clássico não gerenciado para um dos SKUs geridos, para que possam tirar partido do seu conjunto de recursos aprimorados.
 
 ## <a name="why-upgrade"></a>Por que atualizar?
 
-Devido os recursos limitados de registos de clássico não gerido, é recomendado que todos os registos de clássico ser atualizados para básico, Standard ou Premium registos geridos. Essas SKUs de nível mais alto integrar o registo mais profundamente às capacidades do Azure.
+O registo clássico SKU está sendo **preterido**e não estará disponível a partir de **Março de 2019**. Todos os registos de clássico existentes devem ser a atualização antes de Março de 2019.
+
+Devido a preterição planeada e seus recursos limitados de registos de clássico não gerido, todos os registos de clássico ser atualizados para básico, Standard ou Premium registos geridos. Essas SKUs de nível mais alto integrar o registo mais profundamente às capacidades do Azure.
 
 Registos geridos fornecem:
 
@@ -30,7 +34,7 @@ Registos geridos fornecem:
 * [Georreplicação](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Acima de tudo, um registo clássico depende da conta de armazenamento que Azure Aprovisiona automaticamente na sua subscrição do Azure ao criar o registo. Por outro lado, o básico, Standard e Premium SKUs tirar partido do Azure [avançadas funcionalidades de armazenamento](container-registry-storage.md) ao tratar de forma transparente o armazenamento das suas imagens para. Não é criada uma conta de armazenamento em separado na sua própria subscrição.
+O registo clássico depende da conta de armazenamento Azure Aprovisiona automaticamente na sua subscrição do Azure ao criar o registo. Por outro lado, o básico, Standard e Premium SKUs tirar partido do Azure [avançadas funcionalidades de armazenamento](container-registry-storage.md) ao tratar de forma transparente o armazenamento das suas imagens para. Não é criada uma conta de armazenamento em separado na sua própria subscrição.
 
 Armazenamento de registo gerido fornece as seguintes vantagens:
 

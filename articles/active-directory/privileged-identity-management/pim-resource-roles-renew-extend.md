@@ -1,6 +1,6 @@
 ---
-title: Expandir e reveja as funções de recursos do Azure com o Privileged Identity Management | Documentos da Microsoft
-description: Este documento descreve como estender e renovar funções de recursos do Azure para os recursos do PIM.
+title: Expandir ou renovar funções de recursos do Azure no PIM | Documentos da Microsoft
+description: Saiba como expandir ou renovar funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7eb30f895214ff7d5a1607fc7e477d3d876a6fc1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617528"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189655"
 ---
-# <a name="extend-and-review-roles-in-azure-resources-by-using-privileged-identity-management"></a>Expandir e reveja as funções de recursos do Azure com o Privileged Identity Management
+# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Expandir ou renovar funções de recursos do Azure no PIM
 
 Privileged Identity Management (PIM) para recursos do Azure introduz novos controles para gerir o ciclo de vida de acesso e a atribuição de recursos do Azure. Os administradores podem atribuir associação usando propriedades de data e hora de início e de fim. Quando se aproxima o fim de atribuição, o PIM envia notificações por e-mail para os utilizadores afetados ou grupos. Também envia notificações por e-mail aos administradores do recurso para garantir que o acesso apropriado é mantido. Atribuições podem ser renovadas e permanecem visíveis no estado expirado durante 30 dias, mesmo que o acesso não é expandido.
 
@@ -131,8 +131,5 @@ Para ver uma lista de todos os expirou atribuições de funções, à **membros*
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Exigir aprovação para ativar](pim-resource-roles-approval-workflow.md)
-
-[Ativar uma função](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Aprovar ou recusar pedidos para funções de recursos do Azure no PIM](pim-resource-roles-approval-workflow.md)
+- [Configurar as definições de função de recursos do Azure no PIM](pim-resource-roles-configure-role-settings.md)

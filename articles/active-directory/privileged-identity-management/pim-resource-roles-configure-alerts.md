@@ -1,6 +1,6 @@
 ---
-title: Gerir alertas de segurança para recursos do Azure com o Privileged Identity Management | Documentos da Microsoft
-description: Descreve os alertas de segurança do PIM.
+title: Configurar alertas de segurança para funções de recursos do Azure no PIM | Documentos da Microsoft
+description: Saiba como configurar alertas de segurança para funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 46b19866ec3f276c8337cf9501b779701377d0a5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620421"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188837"
 ---
-# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Gerir alertas de segurança para recursos do Azure com o Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurar alertas de segurança para funções de recursos do Azure no PIM
 Privileged Identity Management (PIM) para recursos do Azure gera alertas quando houver atividade suspeita ou não segura no seu ambiente. Quando for acionado um alerta, este aparece na página de alertas. 
 
 ![Página de alertas](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
@@ -50,3 +50,8 @@ A partir da página de alertas, aceda a **definições**.
 
 Personalize as configurações nos alertas diferentes para trabalhar com o seu ambiente e os objetivos de segurança.
 ![Personalizar as definições](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- [Exigir autenticação multifator para funções de recursos do Azure no PIM](pim-resource-roles-require-mfa.md)
+- [Configurar alertas de segurança para funções de recursos do Azure no PIM](pim-resource-roles-configure-alerts.md)

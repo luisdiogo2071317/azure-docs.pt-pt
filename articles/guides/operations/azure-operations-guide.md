@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124455"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190430"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -173,7 +173,7 @@ O Azure PowerShell é um conjunto de módulos que fornecem cmdlets para gerir o 
 
 #### <a name="azure-command-line-interface"></a>Interface de linha de comandos do Azure
 
-A interface de linha de comandos do Azure é uma ferramenta que pode utilizar para criar, gerir e remover recursos do Azure a partir da linha de comando. A CLI do Azure está disponível para Linux, Mac OS X e Windows. Para obter mais informações e detalhes técnicos, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli.md).
+A interface de linha de comandos do Azure é uma ferramenta que pode utilizar para criar, gerir e remover recursos do Azure a partir da linha de comando. A CLI do Azure está disponível para Linux, Mac OS X e Windows. Para obter mais informações e detalhes técnicos, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 #### <a name="rest-apis"></a>APIs REST
 
@@ -499,5 +499,5 @@ Pode ajudar a proteger redes virtuais do Azure através de um grupo de seguranç
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar um VM do Windows](/virtual-machines/windows/quick-create-portal.md)
+- [Criar um VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
 - [Criar uma VM de Linux](../../virtual-machines/linux/quick-create-portal.md)

@@ -3,19 +3,19 @@ title: Capacidade de gestão do armazém de dados SQL do Azure e monitorização
 description: Saber que capacidades estão disponíveis para gerir e monitorizar o Azure SQL Data Warehouse. Utilize o portal do Azure e a vistas de gestão dinâmica (DMVs) para compreender a atividade de consulta e a utilização de recursos do seu armazém de dados.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff304fa478942254cca372282a30a1a3f00f354
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c783045d242725ee19dfe7e0baee13625d986312
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43113001"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246499"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorizar atividade de consulta e de utilização de recursos no Azure SQL Data Warehouse
 O Azure SQL Data Warehouse oferece uma Rica experiência de monitorização no portal do Azure para obter informações para a sua carga de trabalho do armazém de dados. O portal do Azure é a ferramenta recomendada quando o armazém de dados de monitorização, pois fornece períodos de retentions configuráveis, alertas, recomendações e personalizáveis gráficos e dashboards para métricas e registos. O portal também lhe permite integrar com outro serviços, como o Operations Management Suite (OMS) de monitorização do Azure / Log Analytics e o Azure Monitor para fornecer uma monitorização holística experiência para não apenas seu armazém de dados, mas também sua do Azure inteira plataforma de análise para uma experiência de monitorização integrada. Esta documentação descreve as capacidades de monitorização estão disponíveis para otimizar e gerir a sua plataforma de análise com o SQL Data Warehouse. 

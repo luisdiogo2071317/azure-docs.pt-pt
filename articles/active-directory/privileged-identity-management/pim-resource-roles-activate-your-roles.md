@@ -1,6 +1,6 @@
 ---
-title: Ativar as funções para recursos do Azure com o Privileged Identity Management | Documentos da Microsoft
-description: Descreve como ativar as funções no PIM.
+title: Ativar as minhas funções de recursos do Azure no PIM | Documentos da Microsoft
+description: Aprenda a ativar as suas funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2a5c192f231bdc75d04c78cd94838a3f341dc925
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111063"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189494"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Ativar as funções para recursos do Azure com o Privileged Identity Management
+# <a name="activate-my-azure-resource-roles-in-pim"></a>Ativar as minhas funções de recursos do Azure no PIM
 Privileged Identity Management (PIM) introduz uma nova experiência na ativação de funções de recursos do Azure. Os membros da função elegível, podem agendar ativação numa data futura e a hora. Também podem selecionar uma duração de ativação específico dentro do máximo (configurado por administradores). Para obter mais informações, consulte [como ativar ou desativar funções no Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
 ## <a name="activate-a-role"></a>Ativar uma função
@@ -64,3 +64,7 @@ Na página de pesquisa, localize o recurso subordinado que precisa de gerir.
 Selecione **minhas funções** no painel à esquerda e escolha a função adequada para ativar. É o tipo de atribuição **herdado** porque a função foi atribuída à subscrição, em vez de no grupo de recursos.
 
 ![Lista de atribuições de funções elegíveis, com o tipo de atribuição realçado](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- [Ativar as minhas funções de diretório do Azure AD no PIM](pim-how-to-activate-role.md)

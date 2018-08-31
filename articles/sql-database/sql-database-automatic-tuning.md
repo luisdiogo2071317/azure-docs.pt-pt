@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 9ad36d37fef4c1ee05e31098b145b0264b6440ca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126445"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189263"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
@@ -64,7 +64,7 @@ Para uma visão geral de como automática funciona de Otimização e para cenár
 
 Opções de otimização automática disponíveis no banco de dados do Azure SQL são:
  1. **Criar índice** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente que melhorou o desempenho de consultas.
- 2. **DROP INDEX** -identifica os índices redundantes e duplicados diariamente e índices que não foram utilizados por um período longo (> 90 dias). Tenha em atenção que esta opção não é compatível com aplicativos utilizar sugestões de índice e de alternância de partição.
+ 2. **DROP INDEX** -identifica os índices redundantes e duplicados diariamente, exceto para índices exclusivos e os que não foram utilizados por um longo tempo (> 90 dias). Tenha em atenção que esta opção não é compatível com aplicativos utilizar sugestões de índice e de alternância de partição.
  3. **FORÇAR último plano bom** -identifica as consultas SQL com o plano de execução que é mais lento do que o plano de boa anterior e consulta com o último plano bom conhecido em vez do plano regredido.
 
 A otimização automática identifica **CREATE INDEX**, **DROP INDEX**, e **força última boa planear** recomendações que podem otimizar o desempenho da sua base de dados e mostram os mesmos em [Portal do azure](sql-database-advisor-portal.md)e as expõe por meio [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).

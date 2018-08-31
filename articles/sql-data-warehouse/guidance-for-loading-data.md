@@ -3,19 +3,19 @@ title: Melhores práticas de carregamento de dados - Azure SQL Data Warehouse | 
 description: Recomendações e otimizações de desempenho para carregar dados para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ccf0ce0cc94f0ae08213167ee54628a9d059859
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a2cc5b02744c04752ba11cbba14fe95c487d737c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701523"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248122"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Melhores práticas de carregamento de dados para o Azure SQL Data Warehouse
 Recomendações e otimizações de desempenho para carregar dados para o Azure SQL Data Warehouse. 
@@ -58,11 +58,11 @@ Ligar ao armazém de dados e criar um utilizador. O seguinte código partem do p
 ```
 Para executar uma carga com recursos para as classes de recurso staticRC20, basta iniciar sessão como LoaderRC20 e executá-la.
 
-Execute as cargas em classes de recursos estáticas em vez de dinâmicas. Utilizar as classes de recurso estático garante que os mesmos recursos, independentemente do [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
+Execute as cargas em classes de recursos estáticas em vez de dinâmicas. Usar as classes estáticas garante os mesmos recursos, independentemente de sua [unidades de armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
 
 ## <a name="allowing-multiple-users-to-load"></a>Permitir o carregamento por parte de vários utilizadores
 
-Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. A carregar com o [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) necessita de permissões de controlo da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
+Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. A carregar com o [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requer permissões de controlo da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
 
 Por exemplo, considere os esquemas de bases de dados schema_A, para departamento A, e schema_B, para departamento B. Permita que os utilizadores user_A e user_B sejam utilizadores do carregamento PolyBase nos departamentos A e B, respetivamente. Foram concedidas a ambos permissões de base de dados CONTROL. Agora, os criadores dos esquemas A e B bloqueiam os esquemas com DENY.
 

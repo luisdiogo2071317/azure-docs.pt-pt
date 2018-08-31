@@ -1,6 +1,6 @@
 ---
-title: Impor multi-factor Authentication para recursos do Azure com o Privileged Identity Management | Documentos da Microsoft
-description: Este documento descreve como ativar a autenticação multifator para recursos do PIM.
+title: Exigir autenticação multifator para funções de recursos do Azure no PIM | Documentos da Microsoft
+description: Saiba como exigir autenticação multifator (MFA) para funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 42c93a107c7ed58d6f7412b61627dccaf9076bb7
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 171d79856cf67dae9573dd1076c2ae4617cf86d1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617875"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190573"
 ---
-# <a name="enforce-azure-multi-factor-authentication-in-azure-resources-by-using-privileged-identity-management"></a>Impor multi-factor Authentication para recursos do Azure com o Privileged Identity Management
+# <a name="require-multi-factor-authentication-for-azure-resource-roles-in-pim"></a>Exigir autenticação multifator para funções de recursos do Azure no PIM
 
 Privileged Identity Management (PIM) para funções de recursos do Azure permite que os administradores de recursos e os administradores de identidade para proteger críticas de infraestrutura do Azure com associação de limite de tempo e o acesso just-in-time. Além disso, o PIM fornece opcional imposição de multi-factor Authentication para dois cenários distintos.
 
@@ -59,9 +59,7 @@ No ecrã a mesma função definição detalhes, selecione a caixa para **requere
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Exigir aprovação para ativar](pim-resource-roles-approval-workflow.md)
-
-[Utilizar o registo de auditoria](pim-resource-roles-use-the-audit-log.md)
-
+- [Configurar as definições de função de recursos do Azure no PIM](pim-resource-roles-configure-role-settings.md)
+- [Configurar alertas de segurança para funções de recursos do Azure no PIM](pim-resource-roles-configure-alerts.md)
 
 

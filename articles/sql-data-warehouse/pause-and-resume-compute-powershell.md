@@ -1,24 +1,24 @@
 ---
-title: 'Início rápido: Colocar em pausa e retomar de computação no armazém de dados de SQL do Azure - PowerShell | Microsoft Docs'
-description: Utilize o PowerShell para colocar em pausa computação no armazém de dados SQL do Azure para reduzir os custos. Retomar a computação quando estiver pronto para utilizar o armazém de dados.
+title: 'Início rápido: Colocar em pausa e retomar a computação no Azure SQL Data Warehouse - PowerShell | Documentos da Microsoft'
+description: Utilize o PowerShell para colocar em pausa a computação do Azure SQL Data Warehouse para reduzir os custos. Retomar a computação quando estiver pronto para utilizar o armazém de dados.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ef341a1528bf759461abfb7cfc6d878fd8a44cb4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3e2008315a8b1c728ef1dac50002b8322907eb51
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598902"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248009"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Colocar em pausa e retomar de computação no Azure SQL Data Warehouse com o PowerShell
-Utilize o PowerShell para colocar em pausa computação no armazém de dados SQL do Azure para reduzir os custos. [Retomar a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para utilizar o armazém de dados.
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Colocar em pausa e retomar a computação no Azure SQL Data Warehouse com o PowerShell
+Utilize o PowerShell para colocar em pausa a computação do Azure SQL Data Warehouse para reduzir os custos. [Retomar a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para utilizar o armazém de dados.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -26,7 +26,7 @@ Este tutorial requer a versão 5.1.1 ou posterior do módulo do Azure PowerShell
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este guia de introdução pressupõe que já tiver um armazém de dados do SQL Server que pode colocar em pausa e retomar. Se precisar de criar uma, pode utilizar [criar e ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este guia de introdução pressupõe que já tiver um armazém de dados SQL que pode colocar em pausa e retomar. Se precisar de criar uma, pode utilizar [criar e ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -60,14 +60,14 @@ Siga estes passos para encontrar as informações de localização para o seu ar
 
     ![O nome do servidor e grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote o nome do armazém de dados, que é o nome de base de dados. Anote também o nome do servidor e do grupo de recursos. Que
-5.  Estas nos comandos colocar em pausa e retomar.
+4. Anote o nome de armazém de dados, o que é o nome de base de dados. Anote também o nome do servidor e do grupo de recursos. Você
+5.  eles nos comandos colocar em pausa e retomar.
 6. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como nome de servidor nos cmdlets do PowerShell. Na imagem anterior, o nome completo do servidor é newserver-20171113.database.windows.net. Remova o sufixo e utilizar **newserver 20171113** como o nome do servidor no cmdlet do PowerShell.
 
-## <a name="pause-compute"></a>Computação pausa
-Para reduzir os custos, pode colocar em pausa e retomar a computação recursos a pedido. Por exemplo, se não estiver a utilizar a base de dados durante a noite e no fim de semana, pode colocar em pausa-lo durante essas horas e retomá-lo durante o dia. Não há sem qualquer encargo recursos de computação enquanto a base de dados está em pausa. No entanto, continua a ser-lhe cobrados de armazenamento.
+## <a name="pause-compute"></a>Computação em pausa
+Para reduzir os custos, pode colocar em pausa e retomar a computação recursos sob demanda. Por exemplo, se não estiver a utilizar a base de dados durante a noite e no fim de semana, pode colocar em pausa durante essas horas e retomá-lo durante o dia. Não existe nenhum custo associado para recursos de computação, enquanto a base de dados está em pausa. No entanto, continuar a ser cobrado o armazenamento.
 
-Para colocar em pausa uma base de dados, utilize o [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. O exemplo seguinte interrompe um armazém de dados com o nome **mySampleDataWarehouse** alojada num servidor com o nome **newserver 20171113**. O servidor está num grupo de recursos do Azure com o nome **myResourceGroup**.
+Para colocar em pausa uma base de dados, utilize o [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. O exemplo seguinte coloca em pausa um armazém de dados com o nome **mySampleDataWarehouse** alojada num servidor com o nome **newserver 20171113**. O servidor está num grupo de recursos do Azure com o nome **myResourceGroup**.
 
 
 ```Powershell
@@ -75,7 +75,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. -Lo, em seguida, encaminha o objecto a [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Os resultados são armazenados no resultDatabase objeto. O comando final mostra os resultados.
+Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. Ele encaminha, então, o objeto [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Os resultados são armazenados no resultDatabase objeto. O comando final mostra os resultados.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -85,15 +85,15 @@ $resultDatabase
 ```
 
 
-## <a name="resume-compute"></a>Retomar de computação
-Para iniciar uma base de dados, utilize o [retoma-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet. O exemplo seguinte inicia uma base de dados com o nome mySampleDataWarehouse alojada num servidor com o nome newserver 20171113. O servidor está num grupo de recursos do Azure com o nome myResourceGroup.
+## <a name="resume-compute"></a>Computação de retomar
+Para iniciar uma base de dados, utilize o [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet. O exemplo seguinte inicia um banco de dados chamado mySampleDataWarehouse alojada num servidor com o nome newserver 20171113. O servidor está num grupo de recursos do Azure com o nome myResourceGroup.
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. -Lo, em seguida, encaminha o objecto a [retoma-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase.md) e armazena os resultados no $resultDatabase. O comando final mostra os resultados.
+Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. Ele encaminha, então, o objeto [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase.md) e armazena os resultados em $resultDatabase. O comando final mostra os resultados.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -106,12 +106,12 @@ $resultDatabase
 
 Estão a ser-lhe cobradas as unidades do armazém de dados e os dados armazenados no mesmo. Estes recursos de computação e armazenamento são faturados em separado.
 
-- Se pretender manter os dados no armazenamento, coloque em pausa computação.
+- Se pretender manter os dados no armazenamento, interromper a computação.
 - Se quiser remover futuras cobranças, pode eliminar o armazém de dados.
 
 Siga estes passos para limpar os recursos conforme quiser.
 
-1. Iniciar sessão para o [portal do Azure](https://portal.azure.com)e clique no seu armazém de dados.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e clique no seu armazém de dados.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
@@ -125,7 +125,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que tem em pausa e retomar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
+Agora está em pausa e retomar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
 >[Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
