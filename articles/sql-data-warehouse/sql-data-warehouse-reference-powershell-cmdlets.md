@@ -3,19 +3,19 @@ title: Cmdlets do PowerShell para o Azure SQL Data Warehouse
 description: Encontre os principais cmdlets do PowerShell para o Azure SQL Data Warehouse, incluindo como colocar em pausa e retomar uma base de dados.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 82e635f58ab559480b55df6cee8e966c8d32bf01
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 222bc8ee15fdc8802dacd5a5b74cfd84961aa397
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42057617"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300758"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets do PowerShell e APIs REST para o SQL Data Warehouse
 Muitas tarefas de administração do SQL Data Warehouse podem ser geridas através de cmdlets do Azure PowerShell ou REST APIs.  Seguem-se alguns exemplos de como utilizar comandos do PowerShell para automatizar tarefas comuns no seu armazém de dados SQL.  Para alguns bons exemplos REST, consulte o artigo [gerir escalabilidade com REST][Manage scalability with REST].

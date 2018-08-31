@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e2204dbe645aeff2587c2c3d55b5da89ac227d8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531584"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288218"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
@@ -427,9 +427,9 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 
 ### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Adicionar o endereço IP de front-end para o WSFC
 
-O endereço IP do WSFC também tem de ser no balanceador de carga. 
+O endereço IP do WSFC também tem de ser no balanceador de carga.
 
-1. No portal, adicione uma nova configuração de IP de front-end para o WSFC. Utilize o endereço IP que configurou para o WSFC nos recursos principais do cluster. Defina o endereço IP estático como. 
+1. No portal, adicione uma nova configuração de IP de front-end para o WSFC. Utilize o endereço IP que configurou para o WSFC nos recursos principais do cluster. Defina o endereço IP estático como.
 
 1. Clique no balanceador de carga, clique em **sondas de estado de funcionamento**e clique em **+ adicionar**.
 
@@ -450,7 +450,7 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
 1. Defina a forma de regras de balanceamento de carga.
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | WSFCPointListener |
+   | **Nome** | Texto | WSFCEndPointListener |
    | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando configurou o endereço IP do WSFC. |
    | **Protocolo** | Selecione TCP |TCP |
    | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 58888 |
@@ -498,38 +498,20 @@ Para testar a ligação:
 
 1. Uso **sqlcmd** utilitário para testar a ligação. Por exemplo, o seguinte script estabelece uma **sqlcmd** ligação para a réplica primária por meio do serviço de escuta com a autenticação do Windows:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    Se o serviço de escuta é utilizar uma porta diferente da predefinição da porta (1433), especifique a porta na cadeia de ligação. Por exemplo, o seguinte comando sqlcmd liga a um serviço de escuta na porta 1435:
+  Se o serviço de escuta é utilizar uma porta diferente da predefinição da porta (1433), especifique a porta na cadeia de ligação. Por exemplo, o seguinte comando sqlcmd liga a um serviço de escuta na porta 1435:
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 A ligação de SQLCMD liga-se automaticamente para qualquer instância do SQL Server aloja a réplica primária.
 
 > [!TIP]
 > Certifique-se de que a porta especificada está aberta na firewall de ambos os servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou Editar regra de Firewall](http://technet.microsoft.com/library/cc753558.aspx).
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## <a name="next-steps"></a>Passos Seguintes
 

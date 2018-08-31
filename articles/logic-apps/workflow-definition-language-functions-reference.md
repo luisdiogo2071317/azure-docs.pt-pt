@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105644"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307118"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -80,7 +80,7 @@ Para trabalhar com cadeias de caracteres, pode usar essas funções de cadeia de
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verifique se uma cadeia de caracteres termina com a subcadeia especificada. | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um identificador exclusivo global (GUID) como uma cadeia de caracteres. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devolve a posição inicial para uma subcadeia. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devolve a posição final para uma subcadeia. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devolve a posição inicial para a última ocorrência de uma subcadeia. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia com a cadeia especificada e retornar a cadeia de caracteres atualizada. | 
 | [dividir](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devolva uma matriz que tem todos os carateres de uma cadeia de caracteres e separa cada caractere com o caráter delimitador específico. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verificar se uma cadeia de caracteres começa com uma subcadeia específica. | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de índice*>| Número inteiro | O valor de índice ou a posição inicial para a subcadeia especificada. <p>Se a cadeia de caracteres não for encontrada, devolva o número -1. </br>Se a cadeia estiver vazia, devolva o número de 0. | 
+| <*valor de índice*>| Número inteiro | O valor de índice ou a posição inicial para a subcadeia especificada. <p>Se a cadeia de caracteres não for encontrada, devolva o número -1. | 
 |||| 
 
 *Exemplo* 
@@ -2387,7 +2387,7 @@ E retorna esses resultados:
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Devolva o valor de índice ou a posição final para uma subcadeia. Esta função não diferencia maiúsculas de minúsculas e índices começam com o número de 0.
+Devolve a posição inicial ou o valor de índice para a última ocorrência de uma subcadeia. Esta função não diferencia maiúsculas de minúsculas e índices começam com o número de 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de índice de fim*> | Número inteiro | O valor de índice ou a posição final para a subcadeia especificada. <p>Se a cadeia de caracteres não for encontrada, devolva o número -1. </br>Se a cadeia estiver vazia, devolva o número de 0. | 
+| <*valor de índice de fim*> | Número inteiro | O valor de índice ou a posição inicial para a última ocorrência da subcadeia especificada. <p>Se a cadeia de caracteres não for encontrada, devolva o número -1. | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo localiza o valor de índice final para a subcadeia do "mundo" na cadeia de caracteres "hello world":
+Neste exemplo localiza o valor de índice inicial para a última ocorrência da subcadeia do "mundo" na cadeia de caracteres "hello world":
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-E devolve o resultado: `10`
+E devolve o resultado: `6`
 
 <a name="length"></a>
 

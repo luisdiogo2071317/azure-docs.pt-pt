@@ -1,30 +1,32 @@
 ---
-title: Segurança de nível de coluna do armazém de dados SQL do Azure | Microsoft Docs
-description: Segurança ao nível da coluna (conformidade com CLS) permite aos clientes controlar o acesso às colunas da tabela de base de dados com base no contexto de execução de um utilizador ou a respetiva associação a grupos. Conformidade com CLS simplifica a programação de segurança na sua aplicação e a estrutura. Conformidade com CLS permite-lhe implementar restrições de acesso através da coluna.
+title: Segurança de nível de coluna do armazém de dados SQL do Azure | Documentos da Microsoft
+description: Segurança de nível de coluna (CLS) permite aos clientes controlar o acesso às colunas da tabela de base de dados com base no contexto de execução do utilizador ou a respetiva associação a grupos. CLS simplifica o design e programação da segurança na sua aplicação. CLS permite-lhe implementar restrições de acesso através da coluna.
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938466"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301060"
 ---
 # <a name="column-level-security"></a>Segurança ao nível da coluna 
-Segurança ao nível da coluna (conformidade com CLS) permite aos clientes controlar o acesso às colunas da tabela de base de dados com base no contexto de execução de um utilizador ou a respetiva associação a grupos.  
+Segurança de nível de coluna (CLS) permite aos clientes controlar o acesso às colunas da tabela de base de dados com base no contexto de execução do utilizador ou a respetiva associação a grupos.  
 
-Conformidade com CLS simplifica a programação de segurança na sua aplicação e a estrutura. Conformidade com CLS permite-lhe implementar restrições de acesso através da coluna para proteger os dados confidenciais. Por exemplo, garantindo que utilizadores específicos podem aceder a determinados as colunas de uma tabela relevante para o respetivo departamento. A lógica de restrição de acesso está localizado na camada de base de dados em vez de away dos dados na camada da aplicação em outro. A base de dados aplica-se as restrições de acesso sempre que esse acesso de dados é tentado a partir de qualquer camada. Isto torna o seu sistema de segurança mais fiável e robusta, reduzindo a área de superfície do seu sistema de segurança geral. Além disso, este também elimina a necessidade de introduzir vistas para filtrar colunas para impor restrições de acesso de utilizadores. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
-Pode implementar a conformidade com CLS com o [conceder](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) instrução T-SQL. Este mecanismo de autenticação do SQL Server e o Azure Active Directory (AAD) são suportados.
+CLS simplifica o design e programação da segurança na sua aplicação. CLS permite-lhe implementar restrições de acesso através da coluna para proteger dados confidenciais. Por exemplo, garantindo que os utilizadores específicos podem aceder apenas determinadas colunas de uma tabela pertinente para o respetivo departamento. A lógica de restrição de acesso está localizado na camada de base de dados em vez de ausente dos dados na outra camada de aplicativos. A base de dados aplica as restrições de acesso sempre que esse acesso a dados é tentado a partir de qualquer camada. Esta restrição torna seu sistema de segurança mais robusta e confiável, reduzindo a área de superfície do seu sistema de segurança geral. Além disso, o CLS também elimina a necessidade de introduzir vistas para filtrar colunas para impor restrições de acesso as utilizadores. 
 
-![conformidade com CLS](./media/column-level-security/cls.png)
+Poderia implementar CLS com o [concessão](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) instrução T-SQL. Com esse mecanismo, autenticação de SQL e o Azure Active Directory (AAD) são suportados.
+
+![CLS](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Sintaxe 
 
@@ -45,9 +47,9 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>Exemplo 
-O exemplo seguinte mostra como restringir 'TestUser' acedam a coluna 'SSN' da tabela 'Associação': 
+O exemplo seguinte mostra como restringir "TestUser" de aceder a coluna 'SSN' da tabela de "Associação": 
 
-Crie a tabela de 'Associação' com a coluna de SSN utilizada para armazenar os números de segurança social:
+Crie tabela de "Associação" com a coluna SSN utilizada para armazenar números da segurança social:
 
 ```sql
 CREATE TABLE Membership   
@@ -59,13 +61,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);  
 ```
 
-Permitir 'TestUser' para aceder a todas as colunas exceto coluna SSN que tenha dados confidenciais: 
+Permitir que "TestUser" para aceder a todas as colunas, exceto para a coluna SSN com dados confidenciais: 
 
 ```sql  
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;   
 ``` 
 
-Consultas executadas como 'TestUser' irá falhar se incluem a coluna de SSN:
+Consultas executadas como "TestUser" falharão se incluir a coluna SSN:
 
 ```sql  
 SELECT * FROM Membership;
@@ -75,6 +77,6 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ``` 
 
 ## <a name="use-cases"></a>Casos de utilização
-Alguns exemplos de como CLS está a ser utilizada hoje em dia: 
-- Um firm de serviços financeiros permite única conta de gestores da ter acesso aos números de segurança social de cliente (SSN), os números de telefone e outras informações de identificação pessoal (PII).
-- Um fornecedor de saúde permite apenas doctors e nurses a ter acesso aos registos médicas confidenciais enquanto não permitir que os membros do departamento de faturação ver estes dados.
+Alguns exemplos de como o CLS está a ser utilizado atualmente: 
+- Uma empresa de serviços financeiros permite que a única conta gestores a ter acesso aos números da segurança social (SSN) dos clientes, os números de telefone e outras informações de identificação pessoal (PII).
+- Um fornecedor de cuidados de saúde permite que apenas os médicos e enfermeiras ter acesso a registos médicos confidenciais e não permite que os membros do departamento de faturação ver estes dados.

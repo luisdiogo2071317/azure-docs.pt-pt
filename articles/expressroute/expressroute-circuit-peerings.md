@@ -1,25 +1,18 @@
 ---
 title: Circuitos do ExpressRoute do Azure e domínios de encaminhamento | Documentos da Microsoft
 description: Esta página fornece uma visão geral dos circuitos do ExpressRoute e domínios de encaminhamento.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2018
-ms.author: ganesr,cherylmc
-ms.openlocfilehash: 563ee61b56af22ada662fcfff9f47ae58f3f32ba
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.topic: conceptual
+ms.date: 08/29/2018
+ms.author: cherylmc
+ms.openlocfilehash: c052cdf48786f7c70d09187d715d4f54843714a4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969100"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307558"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos do ExpressRoute e domínios de encaminhamento
  Deve ordenar uma *circuito do ExpressRoute* para ligar a sua infraestrutura no local para a Microsoft através de um fornecedor de conectividade. A figura seguinte mostra uma representação lógica de conectividade entre a sua WAN e o Microsoft.
@@ -48,12 +41,19 @@ Serviços, ou seja, as máquinas virtuais (IaaS) de computação do Azure e serv
 
 Pode ligar-se mais de uma rede virtual para o domínio de peering privado. Reveja os [página de perguntas frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Pode visitar o [subscrição do Azure e limites do serviço, Quotas e restrições](../azure-subscription-service-limits.md) página para obter informações atualizadas sobre os limites.  Consulte a [encaminhamento](expressroute-routing.md) página para obter informações detalhadas sobre a configuração do encaminhamento.
 
-### <a name="azure-public-peering"></a>Peering público do Azure
+### <a name="microsoft-peering"></a>Peering da Microsoft
+
+[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
+A conectividade ao Microsoft online services (serviços do Office 365, Dynamics 365 e PaaS do Azure) é através do peering da Microsoft. Podemos ativar a conetividade bidirecional entre os serviços de cloud WAN e a Microsoft através do domínio de encaminhamento de peering de Microsoft. Tem de ligar a serviços cloud da Microsoft apenas através de endereços IP públicos, que são propriedade de utilizador ou o fornecedor de conectividade e terá de cumprir todas as regras definidas. Para obter mais informações, consulte a [pré-requisitos do ExpressRoute](expressroute-prerequisites.md) página.
+
+Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter mais informações sobre serviços suportados, os custos e detalhes de configuração. Consulte a [localizações do ExpressRoute](expressroute-locations.md) página para obter informações sobre a lista de fornecedores de conectividade oferecem suporte peering da Microsoft.
+
+### <a name="azure-public-peering"></a>Azure público peering (preteridos para novos circuitos do)
 
 > [!IMPORTANT]
-> Todos os serviços do Azure PaaS também estão acessíveis através do peering da Microsoft. Recomendamos a criação do peering da Microsoft e ligação aos serviços PaaS do Azure através do peering da Microsoft.  
+> Não está disponível para novos circuitos do peering público do Azure.  
 >   
-
 
 Serviços como Web sites, bases de dados SQL e armazenamento do Azure são oferecidos em endereços IP públicos. Em privado pode ligar a serviços alojados em endereços IP públicos, incluindo VIPs dos seus serviços cloud, através do domínio de encaminhamento de peering público. Pode ligar o domínio de peering público para sua rede de Perímetro e ligar a todos os serviços do Azure em seus endereços IP públicos a partir da WAN sem ter de se ligar através da internet. 
 
@@ -63,26 +63,17 @@ Pode definir filtros de rota personalizada dentro da sua rede para consumir apen
 
 Para obter mais informações sobre os serviços suportados através do domínio de encaminhamento de peering público, consulte a [FAQ](expressroute-faqs.md).
 
-### <a name="microsoft-peering"></a>Peering da Microsoft
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
-
-A conectividade ao Microsoft online services (serviços do Office 365, Dynamics 365 e PaaS do Azure) é através do peering da Microsoft. Podemos ativar a conetividade bidirecional entre os serviços de cloud WAN e a Microsoft através do domínio de encaminhamento de peering de Microsoft. Tem de ligar a serviços cloud da Microsoft apenas através de endereços IP públicos, que são propriedade de utilizador ou o fornecedor de conectividade e terá de cumprir todas as regras definidas. Para obter mais informações, consulte a [pré-requisitos do ExpressRoute](expressroute-prerequisites.md) página.
-
-Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter mais informações sobre serviços suportados, os custos e detalhes de configuração. Consulte a [localizações do ExpressRoute](expressroute-locations.md) página para obter informações sobre a lista de fornecedores de conectividade oferecem suporte peering da Microsoft.
-
 ## <a name="routing-domain-comparison"></a>Comparação de domínio de encaminhamento
 A tabela seguinte compara os três domínios de encaminhamento:
 
-|  | **Peering privado** | **Peering público** (preterido para criações nova) | **Peering da Microsoft** |
+|  | **Peering privado** | **Peering da Microsoft** |  **Peering público** (preterido para circuitos) |
 | --- | --- | --- | --- |
 | **Máx. prefixos de # suportados por peering** |4000 por padrão, 10 000 com o ExpressRoute Premium |200 |200 |
 | **Intervalos de endereços IP suportados** |Qualquer endereço IP válido na sua WAN. |Endereços IP públicos pertencentes ao utilizador ou o fornecedor de conectividade. |Endereços IP públicos pertencentes ao utilizador ou o fornecedor de conectividade. |
 | **COMO os requisitos de número** |Privados e públicos como números. Tem de o proprietário público como número se optar por utilizar um. |Privados e públicos como números. No entanto, tem de provar a propriedade de endereços IP públicos. |Privados e públicos como números. No entanto, tem de provar a propriedade de endereços IP públicos. |
-| **Protocolos IP suportados**| IPv4 | IPv4 | IPv4, IPv6 |
+| **Protocolos IP suportados**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **Encaminhamento de IP de Interface de endereços** |Endereços IP público e de RFC1918 |Endereços IP públicos registados nos registos de encaminhamento. |Endereços IP públicos registados nos registos de encaminhamento. |
 | **Suporte de MD5 Hash** |Sim |Sim |Sim |
-
-
 
 Pode optar por ativar uma ou mais domínios de encaminhamento como parte do seu circuito do ExpressRoute. Pode optar por ter todos os domínios de encaminhamento de colocar o VPN mesmo se desejar combiná-los num único domínio de encaminhamento. Também pode colocá-los com domínios de encaminhamento diferentes, semelhantes ao diagrama. A configuração recomendada é que o peering privado está ligado diretamente à rede principal, e o público e ligações de peering da Microsoft estão ligadas a sua rede de Perímetro.
 

@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344703"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286814"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código nas funções do Azure
 
@@ -34,9 +34,9 @@ Este tópico demonstra as várias formas de testar as funções, incluindo a uti
 + Função acionada por temporizador
 + Teste o aplicativo ou framework
 
-Todos esses métodos de testes, utilize uma função de Acionador HTTP que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo do pedido. Criar esta função na primeira secção.
+Todos esses métodos de testes, utilize uma função de Acionador HTTP que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo do pedido. Criar esta função através do portal do Azure na primeira secção.
 
-## <a name="create-a-function-for-testing"></a>Criar uma função para fins de teste
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Criar uma função simples para fins de teste com o portal do Azure
 Para a maior parte deste tutorial, utilizamos uma versão ligeiramente modificada do modelo de função de HttpTrigger JavaScript que está disponível quando criar uma função. Se precisar de obter ajuda na criação de uma função, veja esta [tutorial](functions-create-first-azure-function.md). Escolha o **HttpTrigger - JavaScript** modelo ao criar a função de teste no [portal do Azure].
 
 O modelo de função predefinido é basicamente uma função de "hello world" que ecoa de volta o nome do parâmetro pedido no corpo ou consulta cadeia, `name=<your name>`.  Iremos atualizar o código para também permitem-lhe fornecer o nome e um endereço como conteúdo JSON no corpo do pedido. Em seguida, a função ecoa estes back para o cliente quando disponível.   

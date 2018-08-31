@@ -10,24 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057026"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287449"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação de lado do servidor do Azure Cosmos DB: procedimentos armazenados, acionadores de base de dados e UDFs
 
 Saiba como a execução transacional, integrada à linguagem do Azure Cosmos DB do JavaScript permite aos desenvolvedores escreverem **procedimentos armazenados**, **acionadores**, e **funções definidas pelo utilizador (UDFs)**  nativamente num [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Integração de JavaScript permite-lhe escrever a lógica do programa que pode ser fornecida e executada diretamente dentro das partições de armazenamento de base de dados. 
 
-Recomendamos que comece por ver o vídeo seguinte, onde eu sou Andrew Liu fornece uma introdução ao modelo de programação de banco de dados do lado do servidor do Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-Em seguida, regresse a este artigo, onde poderá aprender as respostas às seguintes perguntas:  
+Neste artigo, aprenderá as respostas às seguintes perguntas:  
 
 * Como escrever um procedimento armazenado, um acionador ou uma UDF usando JavaScript?
 * Como é que o Cosmos DB garante ACID?

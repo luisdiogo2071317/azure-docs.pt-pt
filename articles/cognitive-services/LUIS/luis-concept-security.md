@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397248"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301698"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Criação e o ponto final de acesso de utilizador
 Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para uma aplicação pública, acesso de ponto final está disponível para todos os utilizadores que tem sua própria conta de LUIS tem o ID de. a aplicação pública 
@@ -60,7 +60,7 @@ Configurar a aplicação como **pública** sobre o **definições** página da a
 Um utilizador que não é um proprietário ou funcionário, só pode aceder a uma aplicação pública se for indicado o ID da aplicação. LUIS não tem um público _mercado_ ou outra forma para procurar uma aplicação pública.  
 
 ## <a name="microsoft-user-accounts"></a>Contas de utilizador da Microsoft
-Autores e colaboradores podem adicionar chaves para LUIS na página de publicação. A conta de utilizador da Microsoft que cria a chave de LUIS no portal do Azure tem do proprietário da aplicação ou um funcionário da aplicação. 
+Autores e colaboradores podem adicionar chaves para LUIS na página de publicação. A conta de utilizador da Microsoft que cria a chave de LUIS no portal do Azure tem de ser o proprietário da aplicação ou um funcionário da aplicação. 
 
 Ver [utilizador de inquilino do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber mais sobre contas de utilizador do Active Directory. 
 

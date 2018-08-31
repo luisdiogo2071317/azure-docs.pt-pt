@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186793"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288283"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 
@@ -254,7 +254,7 @@ As etiquetas, as propriedades pretendidas e propriedades comunicadas são objeto
     }
     ```
 
-* Todos os valores de cadeia de caracteres podem ter até 4 KB de comprimento.
+* Todos os valores de cadeia de caracteres podem ter um máximo de 512 bytes de comprimento.
 
 ## <a name="device-twin-size"></a>Tamanho do dispositivo duplo
 IoT Hub impõe um limite de tamanho de 8KB em cada um dos respetivos valores totais de `tags`, `properties/desired`, e `properties/reported`, excluindo os elementos somente leitura.
@@ -354,6 +354,7 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte os segui
 
 * [Como utilizar o dispositivo duplo][lnk-twin-tutorial]
 * [Como utilizar propriedades dos dispositivos duplos][lnk-twin-properties]
+* [Gestão de dispositivos com o Kit de ferramentas do Azure IoT para o VS Code][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte os segui
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

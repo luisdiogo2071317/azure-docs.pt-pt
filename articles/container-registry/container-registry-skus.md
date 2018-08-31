@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 08/30/2018
 ms.author: marsma
-ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: eb3a1745677871211df05d18e28d32061f360bac
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190413"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301821"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs de registo de contentor do Azure
 
@@ -21,9 +21,9 @@ O Azure Container Registry (ACR) está disponível em vários escalões de servi
 
 | SKU | Gerido | Descrição |
 | --- | :-------: | ----------- |
-| **Básica** | Sim | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Os registos básicos têm as mesmas capacidades programáticas que o Standard e o Premium (integração de autenticação do Azure Active Directory, eliminação de imagens e webhooks), no entanto, existem restrições de tamanho e utilização. |
-| **Standard** | Sim | Registos padrão oferecem as mesmas capacidades do básico, com limites de armazenamento maior e débito de imagem. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
-| **Premium** | Sim | Registos Premium fornecem limites mais elevados nas restrições, como o armazenamento e de operações simultâneas, permitir cenários de grande volume. Para além da capacidade de débito de imagem superior, o Premium adiciona funcionalidades como a [georreplicação] [ container-registry-geo-replication] para gerir um único registo por várias regiões, mantenha um registo de perto da rede a cada implementação. |
+| **Básica** | Sim | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Registos básicos tenham as mesmas capacidades programáticas como Standard e Premium (integração de autenticação do Azure Active Directory, a eliminação de imagem e webhooks). No entanto, o armazenamento incluído e o débito de imagem são mais adequadas para cenários de utilização mais baixos. |
+| **Standard** | Sim | Registos padrão oferecem as mesmas capacidades do básico, com maior débito de armazenamento e de imagem incluído. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
+| **Premium** | Sim | Registos Premium fornecem a quantidade máxima de armazenamento incluído e operações simultâneas, permitir cenários de grande volume. Além de débito mais elevado de imagem, o Premium adiciona funcionalidades como a [georreplicação] [ container-registry-geo-replication] para gerir um registo único em várias regiões, e [confiança (pré-visualização)deconteúdos](container-registry-content-trust.md)para a assinatura da tag de imagem. |
 | Clássico<sup>1</sup> | Não | Este SKU ativada na versão inicial do serviço do Azure Container Registry no Azure. Registos de clássicos são apoiados por uma conta de armazenamento que o Azure cria na sua subscrição, o que limita a capacidade para o ACR fornecer capacidades de nível mais alto, como o maior débito e a georreplicação. |
 
 <sup>1</sup> será o SKU clássica **preterido** no **Março de 2019**. Utilize o básico, Standard ou Premium para todos os registos de contentores de novo.

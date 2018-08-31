@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617295"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302133"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -57,7 +57,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
   * [Transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md)
   * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. O serviço tem de permitir a capacidade de mover recursos. Este artigo lista os serviços que permitem mover recursos e quais os serviços não permitem mover recursos.
+2. O serviço tem de permitir a capacidade de mover recursos. Consulte as secções abaixo neste artigo, dos quais [serviços permitem mover recursos](#services-that-can-be-moved) e em que [serviços não permitem mover recursos](#services-that-cannot-be-moved).
 3. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Se não, receberá um erro a indicar que o **subscrição não está registada para um tipo de recurso**. Poderá encontrar este problema ao mover um recurso para uma nova subscrição, mas em que esta nunca foi utilizada com esse tipo de recurso.
 
   Para o PowerShell, utilize os seguintes comandos para obter o estado do registo:

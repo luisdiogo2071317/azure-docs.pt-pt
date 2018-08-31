@@ -1,28 +1,28 @@
 ---
-title: Utilizar etiquetas para consultas de instrumento no SQL Data Warehouse | Microsoft Docs
-description: Sugestões para utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse para desenvolver soluções.
+title: Utilizar etiquetas para consultas de instrumento no SQL Data Warehouse | Documentos da Microsoft
+description: Sugestões para utilizar etiquetas para consultas de instrumento no armazém de dados SQL do Azure para o desenvolvimento de soluções.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 22737faa146d83f1f31489125dee4146c7d11ac1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 959fddfd24041a245f80b048eca4bef3cd612905
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524249"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301151"
 ---
 # <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse
-Sugestões para utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse para desenvolver soluções.
+Sugestões para utilizar etiquetas para consultas de instrumento no armazém de dados SQL do Azure para o desenvolvimento de soluções.
 
 
 ## <a name="what-are-labels"></a>Quais são as etiquetas?
-Armazém de dados do SQL Server suporta um conceito chamado etiquetas de consulta. Antes de avançar para qualquer profundidade, vamos ver um exemplo:
+SQL Data Warehouse suporta um conceito chamado etiquetas de consulta. Antes de entrar em qualquer profundidade, vamos examinar um exemplo:
 
 ```sql
 SELECT *
@@ -31,11 +31,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-A última linha de etiquetas a cadeia 'Os meus de consulta de etiqueta' para a consulta. Esta etiqueta é particularmente útil, dado que a etiqueta é consulta possível através de DMVs. Consultar as etiquetas fornece um mecanismo para localizar consultas de problema e ajudar a identificar progresso através de um ELT executar.
+A última linha as etiquetas a cadeia de caracteres 'Minha consulta de etiqueta' para a consulta. Esta etiqueta é particularmente útil, uma vez que a etiqueta é consulta ajustável através de DMVs. Consulta para procurar etiquetas de fornece um mecanismo para a localização de consultas de problemas e ajudar a identificar o progresso por meio de um ELT executar.
 
-Uma convenção de nomenclatura boa realmente ajuda. Por exemplo, a partir da etiqueta do PROJETO, comentário, instrução ou procedimento ajuda a identificar exclusivamente a consulta entre todos os o código de controlo de origem.
+Uma boa Convenção de nomenclatura realmente ajuda. Por exemplo, a partir da etiqueta do PROJETO, comentário, instrução ou procedimento ajuda a identificar exclusivamente a consulta entre todo o código no controle de origem.
 
-A seguinte consulta utiliza uma vista de gestão dinâmica para procurar por etiqueta.
+A consulta seguinte utiliza uma vista de gestão dinâmica para pesquisar por etiqueta.
 
 ```sql
 SELECT  *
@@ -45,11 +45,11 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> É essencial para colocar entre parênteses Retos ou aspas à volta a etiqueta do word, ao consultar. Etiqueta é uma palavra reservada e causa um erro quando não está a ser delimitado. 
+> É essencial para colocar os colchetes ou entre aspas duplas a etiqueta do word ao consultar. É uma palavra reservada e causa um erro quando não é delimitado por etiqueta. 
 > 
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
+Para obter mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 
 

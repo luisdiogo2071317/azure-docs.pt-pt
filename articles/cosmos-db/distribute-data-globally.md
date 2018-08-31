@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856645"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288307"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir dados globalmente com o Azure Cosmos DB
 O Azure é onipresente – ele tem uma presença global em 50 + regiões geográficas e está continuamente a expandir. Com sua presença global, um dos recursos diferenciados que Azure oferece aos seus desenvolvedores é a capacidade de criar, implementar e gerir facilmente aplicações distribuídas globalmente. 
@@ -34,11 +34,6 @@ Neste artigo, fornecemos uma visão geral das capacidades de distribuição glob
 
 ## <a id="EnableGlobalDistribution"></a>Ativar a distribuição global chave na mão
 O Azure Cosmos DB fornece as seguintes capacidades para permitir que a escrever facilmente aplicações distribuídas globalmente. Estas capacidades estão disponíveis por meio de recursos do Azure Cosmos DB baseado em provedor [REST APIs](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) , bem como o portal do Azure.
-
-Veja o seguinte vídeo para ver a funcionalidade de distribuição global chave na mão no Azure Cosmos DB em ação.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Onipresente presença regional 
 Azure está constantemente a aumentar sua presença geográfica ao trazer [novas regiões](https://azure.microsoft.com/regions/) online. O Azure Cosmos DB é classificado como um *serviço fundamental* no Azure e está disponível em todas as regiões do Azure novo por predefinição. Isto permite-lhe associar uma região geográfica com a sua conta de base de dados do Azure Cosmos DB, assim que o Azure abre-se a nova região para empresas.

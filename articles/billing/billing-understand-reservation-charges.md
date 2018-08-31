@@ -1,5 +1,5 @@
 ---
-title: Compreender o desconto de reserva do Azure | Documentos da Microsoft
+title: Compreender o desconto de reservas do Azure | Documentos da Microsoft
 description: Saiba como é aplicado um desconto de reserva para bases de dados SQL a executar.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 3a5339200309a50eace5b48dfbd9127b7eb1dae6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 923337291d297832e03892b505f4efa8d3bb3f36
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39634689"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300719"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Compreender a forma como um desconto de reserva do Azure é aplicado às bases de dados SQL
 
@@ -40,7 +40,7 @@ No restante destes exemplos, partem do princípio de que a capacidade de base de
 - Cenário 3: Executar uma de 16 núcleos de base de dados SQL do pm de 1 para 1 17:30. Executar outro 16 núcleos base de dados SQL a partir 1:30 para 2 pm. Ambos estão abrangidas pelo desconto de reserva.
 - Cenário 4: Executar uma de 16 núcleos de base de dados SQL do pm de 1 para 1 às 17:45. Executar outro 16 núcleos base de dados SQL a partir 1:30 para 2 pm. É-lhe cobrado o preço pay as you go para a sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação para o resto do tempo.
 
-Para compreender e ver a aplicação das reservas do Azure no relatórios de utilização de faturação, veja [utilização de reserva de compreender o Azure](https://go.microsoft.com/fwlink/?linkid=862757).
+Para compreender e ver a aplicação das reservas de Azure no relatórios de utilização de faturação, veja [utilização de reserva de compreender o Azure](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

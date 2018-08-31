@@ -1,48 +1,48 @@
 ---
-title: Elementos de linguagem T-SQL - Azure SQL Data Warehouse | Microsoft Docs
-description: Fornece hiperligações para a documentação para instruções de T-SQL suportadas no Azure SQL Data Warehouse.
+title: Elementos de linguagem do T-SQL - Azure SQL Data Warehouse | Documentos da Microsoft
+description: Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 06/13/2018
+ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: d40861650f479f8ef840c5150b2153f461871331
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603317"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307899"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos de linguagem T-SQL suportados no Azure SQL Data Warehouse
-Fornece hiperligações para a documentação para os elementos de linguagem T-SQL suportadas no Azure SQL Data Warehouse.
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos de linguagem do T-SQL suportados no Azure SQL Data Warehouse
+Ligações para a documentação para os elementos de linguagem T-SQL suportado no Azure SQL Data Warehouse.
 
-## <a name="core-elements"></a>Elementos de Core
+## <a name="core-elements"></a>Elementos principais
 * [Convenções de sintaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [regras de nomenclatura de objeto](https://msdn.microsoft.com/library/ms175874.aspx)
 * [palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
-* [conhecer os agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
+* [agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
 * [comentários](https://msdn.microsoft.com/library/ms181627.aspx)
 * [constants](https://msdn.microsoft.com/library/ms179899.aspx)
-* [Tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
+* [tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
 * [EXECUTAR](https://msdn.microsoft.com/library/ms188332.aspx)
 * [expressions](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
 * [Solução de propriedade de identidade](https://msdn.microsoft.com/library/ms186775.aspx)
 * [IMPRESSÃO](https://msdn.microsoft.com/library/ms176047.aspx)
-* [UTILIZE](https://msdn.microsoft.com/library/ms188366.aspx)
+* [UTILIZAÇÃO](https://msdn.microsoft.com/library/ms188366.aspx)
 
-## <a name="batches-control-of-flow-and-variables"></a>Lotes, controlo de fluxo e variáveis
+## <a name="batches-control-of-flow-and-variables"></a>Variáveis, controle de fluxo e lotes
 * [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 * [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
 * [DECLARAR @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 * [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
-* [ACIONE](https://msdn.microsoft.com/library/ee677615.aspx)
+* [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
 * [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
 * [TEMPO](https://msdn.microsoft.com/library/ms178642.aspx)
 
@@ -52,34 +52,34 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [-(Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
 * [-(Subtrair)](https://msdn.microsoft.com/library/ms189518.aspx)
 * [* (Multiplicar)](https://msdn.microsoft.com/library/ms176019.aspx)
-* [/ (Divisão)](https://msdn.microsoft.com/library/ms175009.aspx)
+* [/ (Dividir)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Carateres universais para corresponder
 * [= (Igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
-* [> (Superior)](https://msdn.microsoft.com/library/ms178590.aspx)
-* [< (Inferior a)](https://msdn.microsoft.com/library/ms179873.aspx)
+* [> (Maior do que)](https://msdn.microsoft.com/library/ms178590.aspx)
+* [< (Menor que)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [> = (ótimo que ou igual a)](https://msdn.microsoft.com/library/ms181567.aspx)
 * [< = (menor ou igual a)](https://msdn.microsoft.com/library/ms174978.aspx)
-* [<> (Não é igual a)](https://msdn.microsoft.com/library/ms176020.aspx)
-* [! = (Não é igual a)](https://msdn.microsoft.com/library/ms190296.aspx)
+* [<> (Diferente de)](https://msdn.microsoft.com/library/ms176020.aspx)
+* [! = (Diferente de)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [E](https://msdn.microsoft.com/library/ms188372.aspx)
 * [ENTRE](https://msdn.microsoft.com/library/ms187922.aspx)
 * [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
-* [EM](https://msdn.microsoft.com/library/ms177682.aspx)
+* [ÍNDIA](https://msdn.microsoft.com/library/ms177682.aspx)
 * [[NOT] É NULO](https://msdn.microsoft.com/library/ms188795.aspx)
 * [COMO](https://msdn.microsoft.com/library/ms179859.aspx)
 * [NÃO](https://msdn.microsoft.com/library/ms189455.aspx)
-* [OU](https://msdn.microsoft.com/library/ms188361.aspx)
+* [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Operadores bit a bit
 * [& (E bit a bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (OR bit a bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Totalmente ou exclusivo)](https://msdn.microsoft.com/library/ms190277.aspx)
-* [~ (Bit a bit não)](https://msdn.microsoft.com/library/ms173468.aspx)
-* [^ = (Bit a bit exclusiva ou igual a)](https://msdn.microsoft.com/library/cc627413.aspx)
-* [| = (Bit a bit ou igual a)](https://msdn.microsoft.com/library/cc627409.aspx)
-* [& = (bit a bit e é igual a)](https://msdn.microsoft.com/library/cc627427.aspx)
+* [~ (Não bit a bit)](https://msdn.microsoft.com/library/ms173468.aspx)
+* [^ = (Exclusiva de bit a bit ou igual a)](https://msdn.microsoft.com/library/cc627413.aspx)
+* [| = (O OR bit a bit é igual a)](https://msdn.microsoft.com/library/cc627409.aspx)
+* [& = (igual e bit a bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>Funções
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
@@ -96,12 +96,12 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
 * [CASE](https://msdn.microsoft.com/library/ms181765.aspx)
-* [CONVERTA e converter](https://msdn.microsoft.com/library/ms187928.aspx)
+* [CAST e CONVERT](https://msdn.microsoft.com/library/ms187928.aspx)
 * [LIMITE](https://msdn.microsoft.com/library/ms189818.aspx)
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
 * [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
 * [SOMA DE VERIFICAÇÃO](https://msdn.microsoft.com/library/ms189788.aspx)
-* [UNIR](https://msdn.microsoft.com/library/ms190349.aspx)
+* [COALESCE](https://msdn.microsoft.com/library/ms190349.aspx)
 * [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 * [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
@@ -147,7 +147,7 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
 * [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
-* [LEVAR](https://msdn.microsoft.com/library/hh213125.aspx)
+* [OPORTUNIDADE POTENCIAL](https://msdn.microsoft.com/library/hh213125.aspx)
 * [À ESQUERDA](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
 * [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
@@ -155,7 +155,7 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [INFERIOR](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
 * [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
-* [MÍN.](https://msdn.microsoft.com/library/ms179916.aspx)
+* [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
 * [MÊS](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
 * [NTILE](https://msdn.microsoft.com/library/ms175126.aspx)
@@ -164,7 +164,7 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [OBJECT_NAME](https://msdn.microsoft.com/library/ms186301.aspx)
 * [OBJECTPROPERTY](https://msdn.microsoft.com/library/ms176105.aspx)
 * [OIBJECTPROPERTYEX](https://msdn.microsoft.com/library/ms188390.aspx)
-* [Funções escalares ODBCS](https://msdn.microsoft.com/library/bb630290.aspx)
+* [Funções escalares de ODBCS](https://msdn.microsoft.com/library/bb630290.aspx)
 * [A cláusula OVER](https://msdn.microsoft.com/library/ms189461.aspx)
 * [PARSENAME](https://msdn.microsoft.com/library/ms188006.aspx)
 * [PATINDEX](https://msdn.microsoft.com/library/ms188395.aspx)
@@ -172,15 +172,15 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
 * [PI](https://msdn.microsoft.com/library/ms189512.aspx)
-* [ENERGIA](https://msdn.microsoft.com/library/ms174276.aspx)
+* [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 * [RADIANOS](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
 * [CLASSIFICAÇÃO](https://msdn.microsoft.com/library/ms176102.aspx)
 * [SUBSTITUIR](https://msdn.microsoft.com/library/ms186862.aspx)
 * [REPLICAR](https://msdn.microsoft.com/library/ms174383.aspx)
-* [INVERSA](https://msdn.microsoft.com/library/ms180040.aspx)
-* [À DIREITA](https://msdn.microsoft.com/library/ms177532.aspx)
+* [INVERTER](https://msdn.microsoft.com/library/ms180040.aspx)
+* [DIREITA](https://msdn.microsoft.com/library/ms177532.aspx)
 * [ARREDONDAR](https://msdn.microsoft.com/library/ms175003.aspx)
 * [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
 * [RTRIM](https://msdn.microsoft.com/library/ms178660.aspx)
@@ -189,7 +189,7 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
 * [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 * [INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms188420.aspx)
-* [ÚNICO](https://msdn.microsoft.com/library/ms188377.aspx)
+* [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
 * [ESPAÇO](https://msdn.microsoft.com/library/ms187950.aspx)
@@ -266,7 +266,7 @@ Fornece hiperligações para a documentação para os elementos de linguagem T-S
 * [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
 * [SET DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
 * [SET DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
-* [CONJUNTO FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
+* [SET FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
 * [CONJUNTO IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
 * [CONJUNTO LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
 * [CONJUNTO NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)

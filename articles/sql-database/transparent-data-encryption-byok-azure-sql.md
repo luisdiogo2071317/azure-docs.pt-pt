@@ -14,19 +14,19 @@ ms.service: sql-database
 ms.custom: ''
 ms.tgt_pltfrm: ''
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 08/30/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: d3e8d34599600512a1d9d0308c0d6014691bf519
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 30ef71d0fc98b168000f7e7b936e4efc6c441498
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442727"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307935"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados do Azure SQL e o armazém de dados
 
-Oferecer suporte Your Own Key (BYOK) para [encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption) permite-lhe encriptar a chave de encriptação da base de dados (DEK) com uma chave assimétrica chamada Protetor de TDE.  O Protetor de TDE é armazenado em seu controle no [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. O Azure Key Vault é o primeiro serviço de gestão de chaves com a qual TDE tem suporte integrado para o BYOK. O DEK TDE, que é armazenado na página de arranque de uma base de dados é encriptado e desencriptado pelo protetor de TDE. O Protetor de TDE é armazenado no Azure Key Vault e nunca deixa o Cofre de chaves. Se o acesso ao Cofre de chaves do servidor tiver sido revogado, uma base de dados não é possível ser descriptografada e ler na memória.  O protetor de TDE está definido ao nível do servidor lógico e é herdado por todas as bases de dados associados a esse servidor. 
+Oferecer suporte Your Own Key (BYOK) para [encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) permite-lhe encriptar a chave de encriptação da base de dados (DEK) com uma chave assimétrica chamada Protetor de TDE.  O Protetor de TDE é armazenado em seu controle no [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. O Azure Key Vault é o primeiro serviço de gestão de chaves com a qual TDE tem suporte integrado para o BYOK. O DEK TDE, que é armazenado na página de arranque de uma base de dados é encriptado e desencriptado pelo protetor de TDE. O Protetor de TDE é armazenado no Azure Key Vault e nunca deixa o Cofre de chaves. Se o acesso ao Cofre de chaves do servidor tiver sido revogado, uma base de dados não é possível ser descriptografada e ler na memória.  O protetor de TDE está definido ao nível do servidor lógico e é herdado por todas as bases de dados associados a esse servidor. 
 
 Com suporte BYOK, os utilizadores agora podem controlar tarefas de gestão de chaves, incluindo rotações de chave, de permissões do Cofre de chaves, a eliminação de chaves e ativar a auditoria/relatórios sobre todos os protetores de TDE com a funcionalidade do Azure Key Vault. Key Vault fornece gestão de chaves central, tira partido de módulos de segurança de rigidamente monitorizados de hardware (HSMs) e permite a separação de funções entre a gestão de chaves e dados de acordo com a conformidade a normas.  
 

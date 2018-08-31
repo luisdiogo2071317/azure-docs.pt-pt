@@ -1,25 +1,25 @@
 ---
-title: 'Tutorial: Dados de carga Nova Iorque Taxicab Azure SQL Data Warehouse | Microsoft Docs'
-description: Tutorial utiliza o Azure portal e o SQL Server Management Studio para carregar dados de Nova Iorque Taxicab de um público Azure blob para o Azure SQL Data Warehouse.
+title: 'Tutorial: Dados de táxis de Nova Iorque da carga Azure SQL Data Warehouse | Documentos da Microsoft'
+description: Tutorial utiliza o Azure portal e o SQL Server Management Studio para carregar dados de táxis de Nova Iorque a partir de um público do Azure blob para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193238"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288129"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Dados de carga Nova Iorque Taxicab Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Dados de táxis de Nova Iorque da carga Azure SQL Data Warehouse
 
-Este tutorial utiliza o PolyBase para carregar dados de Nova Iorque Taxicab de um público Azure blob para o Azure SQL Data Warehouse. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
+Este tutorial utiliza o PolyBase para carregar dados de táxis de Nova Iorque a partir de um público do Azure blob para o Azure SQL Data Warehouse. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 
 > [!div class="checklist"]
 > * Criar um armazém de dados no portal do Azure
@@ -78,9 +78,9 @@ Siga estes passos para criar um armazém de dados SQL vazio.
 
 5. Clique em **Selecionar**.
 
-6. Clique em **nível de desempenho** para especificar se o armazém de dados é Gen1 ou Gen2 e o número de dados do armazém de unidades. 
+6. Clique em **nível de desempenho** para especificar se o armazém de dados é a geração 1 ou geração 2 e o número de dados do armazém de unidades. 
 
-7. Para este tutorial, selecione **Gen1** do SQL Data Warehouse. O controlo de deslize, por predefinição, está definido como **DW1000c**.  Experimente movê-lo para cima e para baixo para ver como funciona. 
+7. Neste tutorial, selecione **Gen1** do SQL Data Warehouse. O controlo de deslize, por predefinição, está definido como **DW1000c**.  Experimente movê-lo para cima e para baixo para ver como funciona. 
 
     ![configurar o desempenho](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -103,7 +103,7 @@ O serviço SQL Data Warehouse cria uma firewall ao nível do servidor que impede
 > O SQL Data Warehouse comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-1. Depois de concluída a implementação, clique em **Bases de dados SQL** no menu do lado esquerdo e, em seguida, clique em **mySampleDatabase** na página **Bases de dados SQL**. Abre a página de descrição geral da base de dados, que mostra o nome de servidor completamente qualificado (tais como **mynewserver 20180430.database.windows.net**) e fornece opções para continuar a configuração. 
+1. Depois de concluída a implementação, clique em **Bases de dados SQL** no menu do lado esquerdo e, em seguida, clique em **mySampleDatabase** na página **Bases de dados SQL**. Abre a página de descrição geral da base de dados, que mostra o nome de servidor completamente qualificado (como **mynewserver-20180430.database.windows.net**) e oferece opções para configuração adicional. 
 
 2. Copie este nome de servidor totalmente qualificado para utilizar para ligar ao seu servidor e às respetivas bases de dados nos seguintes guias de introdução. Em seguida, clique no nome do servidor para abrir as definições do servidor.
 
@@ -133,8 +133,8 @@ Agora, pode ligar ao servidor SQL e aos respetivos armazéns de dados com este e
 Obtenha o nome de servidor completamente qualificado para o servidor SQL no portal do Azure. Utilizará mais tarde o nome completamente qualificado quando ligar ao servidor.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **armazéns de dados do SQL Server** no menu da esquerda e clique em sua base de dados no **armazéns de dados do SQL Server** página. 
-3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome completamente qualificado é mynewserver 20180430.database.windows.net. 
+2. Selecione **armazéns de dados SQL** no menu esquerdo e clique em sua base de dados no **armazéns de dados SQL** página. 
+3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome completamente qualificado é mynewserver-20180430.database.windows.net. 
 
     ![informações da ligação](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -149,7 +149,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Definição      | Valor sugerido | Descrição | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
-    | Nome do servidor | O nome de servidor completamente qualificado | O nome deve ser algo semelhante ao seguinte: **mynewserver 20180430.database.windows.net**. |
+    | Nome do servidor | O nome de servidor completamente qualificado | O nome deve ser semelhante ao seguinte: **mynewserver-20180430.database.windows.net**. |
     | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
     | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
     | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
@@ -164,7 +164,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um utilizador para carregar dados
 
-A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Valores máximos de memória estão definidos de acordo com a qual geração do SQL Server do armazém de dados tiver aprovisionado, [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md), e [classe de recursos](resource-classes-for-workload-management.md). 
+A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Valores máximos de memória são definidos de acordo com a geração do SQL Data Warehouse ter aprovisionado, [unidades de armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md), e [classe de recursos](resource-classes-for-workload-management.md). 
 
 É melhor criar um início de sessão e utilizador dedicado para carregar dados. Em seguida, adicione o utilizador de carregamento a uma [classe de recursos](resource-classes-for-workload-management.md) que permita uma alocação de memória máxima adequada.
 
@@ -215,7 +215,7 @@ O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC20
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Criar tabelas externas para os dados de exemplo
 
-Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Este tutorial mostra como utilizar as tabelas externas para carregar dados de ficheiro cab de taxi de Nova Iorque cidade de um blob de armazenamento do Azure. Para referência futura e para saber como colocar os seus dados no armazenamento de blobs do Azure ou carregá-los diretamente da sua origem para o SQL Data Warehouse,veja a [descrição geral do carregamento](sql-data-warehouse-overview-load.md).
+Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Este tutorial mostra-lhe como utilizar tabelas externas para carregar dados de táxis cidade de Nova Iorque a partir de um blob de armazenamento do Azure. Para referência futura e para saber como colocar os seus dados no armazenamento de blobs do Azure ou carregá-los diretamente da sua origem para o SQL Data Warehouse,veja a [descrição geral do carregamento](sql-data-warehouse-overview-load.md).
 
 Execute os seguintes scripts SQL para especificar informações sobre os dados que pretende carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. 
 
@@ -589,7 +589,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 3. Para remover o armazém de dados para não lhe vir a ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
 
-4. Para remover o servidor SQL que criou, clique em **mynewserver 20180430.database.windows.net** na imagem anterior e, em seguida, clique em **eliminar**.  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor SQL que criou, clique em **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, clique **eliminar**.  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
 
 5. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 

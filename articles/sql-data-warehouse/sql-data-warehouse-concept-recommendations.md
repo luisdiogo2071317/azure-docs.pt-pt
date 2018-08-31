@@ -3,19 +3,19 @@ title: Recomendações - conceitos do SQL Data Warehouse | Documentos da Microso
 description: Saiba mais sobre as recomendações de SQL Data Warehouse e como eles são gerados
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 07/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2cbd691c29039c65b98d8b0191e9e278d2440f09
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 35ae3d1a8a6de2d348f90e2f55b732421b879917
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348622"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307642"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Recomendações de armazém de dados SQL
 

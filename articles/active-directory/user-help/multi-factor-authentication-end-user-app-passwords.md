@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057686"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300918"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicação para a verificação de dois passos
 
@@ -38,11 +38,46 @@ Ao utilizar as palavras-passe de aplicação, é importante lembrar-se:
 
 É-lhe fornecido uma palavra-passe de aplicação durante o registo de verificação inicial de dois passos. Se precisar de mais do que uma senha, pode criar palavras-passe adicionais, com base na forma como utiliza a verificação de dois passos:
 
-- **Verificação de dois passos é usar com a sua conta do Microsoft Azure.** Criar e eliminar as palavras-passe de aplicação com o [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte a [palavras-passe de aplicação e verificação de dois passos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artigo.
+- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e o portal MyApps.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe com o portal MyApps](#create-and-delete-app-passwords-using-the-myapps-portal) seção deste artigo. Para obter mais informações sobre o portal MyApps e como usá-lo, consulte [o que é o portal MyApps no Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
-- **Verificação de dois passos é usar com sua conta Microsoft pessoal.** Criar e eliminar as palavras-passe de aplicação com o [Noções básicas de segurança](https://account.microsoft.com/account/) página com a sua conta Microsoft. Para obter mais informações, consulte a [palavras-passe de aplicação e verificação de dois passos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artigo.
+- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e o portal do Office 365.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe através do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) seção deste artigo.
 
-- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e aplicações do Office 365.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe através do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) seção deste artigo.
+- **Verificação de dois passos é usar com sua conta Microsoft pessoal.** Criar e eliminar as palavras-passe de aplicação com o [Noções básicas de segurança](https://account.microsoft.com/account/) página com a sua conta Microsoft pessoal. Para obter mais informações, consulte a [palavras-passe de aplicação e verificação de dois passos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artigo.
+
+## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>Criar e eliminar as palavras-passe de aplicação com o portal MyApps
+Pode criar e eliminar as palavras-passe de aplicação através do portal MyApps.
+
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma palavra-passe de aplicação com o portal MyApps
+
+1. Inicie sessão no [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+
+2. Selecione o nome no canto superior direito e escolher **perfil**.
+
+3. Selecione **verificação adicional de segurança**.
+
+   ![Selecione a verificação de segurança adicional - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+
+4. Selecione **palavras-passe de aplicação**.
+
+   ![Selecione palavras-passe de aplicação - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+
+5. Clique em **Criar**.
+
+6. Escreva um nome para a palavra-passe de aplicação e, em seguida, selecione **seguinte**.
+
+7. Copie a palavra-passe de aplicação para a área de transferência e cole-o na sua aplicação.
+   
+    ![Criar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para eliminar uma palavra-passe de aplicação com o portal MyApps
+
+1. Aceda ao seu perfil e, em seguida, selecione **verificação de segurança adicional**.
+
+2. Selecione **palavras-passe de aplicação**e, em seguida, selecione **eliminar** junto a palavra-passe de aplicação que pretende eliminar.
+
+   ![Eliminar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+
+3. Selecione **Sim** para confirmar que pretende eliminar a palavra-passe e, em seguida, selecione **fechar**.
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Criar e eliminar as palavras-passe de aplicação com o portal do Office 365
 
@@ -77,46 +112,6 @@ Se utilizar a verificação de dois passos com o seu trabalho ou a conta escolar
     A palavra-passe de aplicação foi eliminada com êxito.
 
 5. Siga os passos para criar uma palavra-passe de aplicação para criar a sua nova palavra-passe de aplicação.
-
-## <a name="manage-app-passwords-in-the-azure-portal"></a>Gerir palavras-passe de aplicação no portal do Azure
-
-Se utilizar a verificação de dois passos com o Azure, em que pretende criar palavras-passe de aplicação através do portal do Azure.
-
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gerir palavras-passe de aplicação com o portal MyApps
-
-Também pode criar e eliminar as palavras-passe de aplicação através do portal as minhas aplicações.
-
-### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Para criar uma palavra-passe de aplicação com o portal as minhas aplicações
-
-1. Inicie sessão no [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
-
-2. Selecione o nome no canto superior direito e escolher **perfil**.
-
-3. Selecione **verificação adicional de segurança**.
-
-   ![Selecione a verificação de segurança adicional - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
-
-4. Selecione **palavras-passe de aplicação**.
-
-   ![Selecione palavras-passe de aplicação - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Clique em **Criar**.
-
-6. Escreva um nome para a palavra-passe de aplicação e, em seguida, selecione **seguinte**.
-
-7. Copie a palavra-passe de aplicação para a área de transferência e cole-o na sua aplicação.
-   
-    ![Criar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
-
-### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Para eliminar uma palavra-passe de aplicação com o portal as minhas aplicações
-
-1. Aceda ao seu perfil e, em seguida, selecione **verificação de segurança adicional**.
-
-2. Selecione **palavras-passe de aplicação**e, em seguida, selecione **eliminar** junto a palavra-passe de aplicação que pretende eliminar.
-
-   ![Eliminar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-
-3. Selecione **Sim** para confirmar que pretende eliminar a palavra-passe e, em seguida, selecione **fechar**.
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>Se as palavras-passe de aplicação não estão funcionando corretamente
 

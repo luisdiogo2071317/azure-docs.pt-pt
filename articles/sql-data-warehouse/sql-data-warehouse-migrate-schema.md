@@ -1,44 +1,44 @@
 ---
-title: Migrar o esquema para o SQL Data Warehouse | Microsoft Docs
-description: Sugestões para migrar o esquema para o Azure SQL Data Warehouse para desenvolver soluções.
+title: Migrar o seu esquema para o SQL Data Warehouse | Documentos da Microsoft
+description: Dicas para migrar o seu esquema para o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: fb1085450a16acb0f9a06a9dea9d91fc5ca23363
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 51ad7eed0bf37194b1e5ff2c605b39246e9a1191
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525170"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301187"
 ---
-# <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Migrar as esquemas para o SQL Data Warehouse
-Orientações para migrar as esquemas SQL ao SQL Data Warehouse. 
+# <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Migrar seus esquemas para o SQL Data Warehouse
+Orientação para migrar seus esquemas do SQL ao SQL Data Warehouse. 
 
 ## <a name="plan-your-schema-migration"></a>Planear a migração de esquema
 
-Quando planear uma migração, consulte o [descrição geral da tabela] [ table overview] para se familiarizar com considerações de design de tabela, por exemplo estatísticas, distribuição, a criação de partições e indexação.  Também lista alguns [tabela funcionalidades não suportadas] [ unsupported table features] e as respetivas soluções.
+Quando planear uma migração, consulte a [descrição geral da tabela] [ table overview] para se familiarizar com considerações de design de tabela, como estatísticas, distribuição, criação de partições e indexação.  Ele também apresenta algumas [tabela de funcionalidades não suportadas] [ unsupported table features] e suas soluções.
 
-## <a name="use-user-defined-schemas-to-consolidate-databases"></a>Utilizar esquemas definido pelo utilizador para consolidar as bases de dados
+## <a name="use-user-defined-schemas-to-consolidate-databases"></a>Use esquemas definidos pelo utilizador para consolidar as bases de dados
 
-A carga de trabalho existente provavelmente tem mais do que uma base de dados. Por exemplo, um armazém de dados do SQL Server pode incluir uma base de dados de teste, uma base de dados do armazém de dados e algumas bases de dados do data mart. Nesta topologia, cada base de dados é executado como uma carga de trabalho separada com as políticas de segurança separados.
+A carga de trabalho existente provavelmente tem mais do que uma base de dados. Por exemplo, um armazém de dados do SQL Server pode incluir uma base de dados de teste, uma base de dados do armazém de dados e algumas bases de dados do data mart. Nesta topologia, a cada base de dados é executado como uma carga de trabalho separada, com as políticas de segurança separados.
 
-Por outro lado, o SQL Data Warehouse executa a carga de trabalho de armazém de dados completo dentro de uma base de dados. Cruzada da base de dados não são permitidas associações. Por conseguinte, o SQL Data Warehouse espera todas as tabelas utilizadas ao armazém de dados armazenados dentro de uma base de dados.
+Por outro lado, o SQL Data Warehouse é executada a carga de trabalho de armazém de dados inteiro dentro de uma base de dados. Cruzada da base de dados não são permitidas associações. Por conseguinte, o SQL Data Warehouse espera todas as tabelas utilizadas pelo armazém de dados sejam armazenados dentro de uma base de dados.
 
-Recomendamos que utilize esquemas definido pelo utilizador para consolidar a carga de trabalho existente para uma base de dados. Para obter exemplos, consulte [esquemas definido pelo utilizador](sql-data-warehouse-develop-user-defined-schemas.md)
+Recomendamos que utilize os esquemas definidos pelo utilizador a consolidação de sua carga de trabalho existente num banco de dados. Para obter exemplos, consulte [esquemas definidos pelo utilizador](sql-data-warehouse-develop-user-defined-schemas.md)
 
-## <a name="use-compatible-data-types"></a>Utilize os tipos de dados compatível
-Modificar os tipos de dados para ser compatível com o SQL Data Warehouse. Para obter uma lista dos tipos de dados suportados e não suportados, consulte [tipos de dados][data types]. Este tópico fornece soluções para os tipos não suportados. Também fornece uma consulta para identificar os tipos de existentes que não são suportados no SQL Data Warehouse.
+## <a name="use-compatible-data-types"></a>Usar tipos de dados compatível
+Modificar seus tipos de dados para ser compatível com o SQL Data Warehouse. Para obter uma lista dos tipos de dados suportados e não suportados, consulte [tipos de dados][data types]. Esse tópico oferece soluções alternativas para os tipos não suportados. Ele também fornece uma consulta para identificar os tipos existentes que não são suportados no SQL Data Warehouse.
 
 ## <a name="minimize-row-size"></a>Minimizar o tamanho de linha
-Para melhor desempenho, estará a minimizar o comprimento de linha das suas tabelas. Uma vez que os comprimentos de linhas mais pequeno levar para um melhor desempenho, utilize os tipos de dados mais pequeno que funcionam para os seus dados. 
+Para obter melhor desempenho, minimize o comprimento de linha de suas tabelas. Uma vez que o mais curtos comprimentos de linha levam a melhor desempenho, utilize os tipos de dados mais pequenas que funcionam para os seus dados. 
 
-Para a largura da linha de tabela, o PolyBase tem um limite de 1 MB.  Se pretender carregar dados para o SQL Data Warehouse com o PolyBase, Atualize as tabelas ter larguras de linha máximo de menos de 1 MB. 
+Para a largura da linha de tabela, o PolyBase tem um limite de 1 MB.  Se pretender carregar dados para o SQL Data Warehouse com o PolyBase, Atualize as suas tabelas ter larguras de linha máximo de menos de 1 MB. 
 
 <!--
 - For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
@@ -47,23 +47,23 @@ Para a largura da linha de tabela, o PolyBase tem um limite de 1 MB.  Se pretend
 
 -->
 
-## <a name="specify-the-distribution-option"></a>Especifique a opção de distribuição
-O SQL Data Warehouse é um sistema de base de dados distribuída. Cada tabela é distribuída ou replicada em todos os nós de computação. Há uma opção de tabela que lhe permite especificar como distribuir os dados. As opções são round robin, replicados, ou distribuído de hash. Cada um tem os profissionais de TI e contras. Se não especificar a opção de distribuição, o SQL Data Warehouse irá utilizar round robin como predefinição.
+## <a name="specify-the-distribution-option"></a>Especificar a opção de distribuição
+O SQL Data Warehouse é um sistema de base de dados distribuída. Cada tabela é distribuída ou replicada em todos os nós de computação. Há uma opção de tabela que permite que especifique como distribuir os dados. As opções são round robin, replicados, ou distribuído de hash. Cada uma tem prós e contras. Se não especificar a opção de distribuição, o SQL Data Warehouse irá utilizar round robin como predefinição.
 
-- Round robin é a predefinição. É mais simples utilizar e carrega dados tão rápidos como possíveis, mas as associações necessitarão de movimento de dados que abrandar o desempenho das consultas.
-- Replicadas armazena uma cópia da tabela em cada nó de computação. As tabelas replicadas são performant porque não necessitam de movimento de dados para associações e agregações. Necessita de armazenamento adicional e, por conseguinte, funciona melhor para tabelas mais pequenas.
-- Hash distribuído, distribui as linhas de todos os nós através de uma função de hash. As tabelas hash distribuída estão centro do SQL Data Warehouse desde que foram concebidos para fornecer o desempenho de consulta elevado em tabelas grandes. Esta opção requer alguns planeamento selecionar a coluna melhor em que pretende distribuir os dados. No entanto, se não escolher a melhor coluna pela primeira vez, pode facilmente novamente distribuir os dados de uma coluna diferente. 
+- Round robin é a predefinição. É o mais simples de usar e carrega os dados o mais rápidos possível, mas as associações exigirão o movimento de dados que reduz a velocidade de desempenho de consulta.
+- Replicados armazena uma cópia da tabela em cada nó de computação. Tabelas replicadas são com bom desempenho, porque não necessitam de movimento de dados para associações e agregações. Eles necessitam de armazenamento extra e, portanto, funcionam melhor para tabelas de menores.
+- Distribuídas com hash distribui as linhas em todos os nós por meio de uma função de hash. Tabelas distribuídas com hash são o coração do SQL Data Warehouse, uma vez que elas foram projetadas para fornecer desempenho de consulta elevado em tabelas grandes. Esta opção exige algum planejamento para selecionar a coluna de melhor em que pretende distribuir os dados. No entanto, se não escolher a melhor coluna na primeira vez, pode facilmente novamente distribuir os dados numa coluna diferente. 
 
-Para escolher a melhor opção de distribuição para cada tabela, consulte [distribuídas tabelas](sql-data-warehouse-tables-distribute.md).
+Para escolher a melhor opção de distribuição para cada tabela, consulte [tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Depois de ter migrado com êxito o seu esquema de base de dados ao SQL Data Warehouse, avance para um dos seguintes artigos:
+Depois de ter migrado com êxito o seu esquema de banco de dados para o SQL Data Warehouse, avance para um dos seguintes artigos:
 
-* [Migrar os dados][Migrate your data]
-* [Migrar o seu código][Migrate your code]
+* [Migre os seus dados][Migrate your data]
+* [Migrar o código][Migrate your code]
 
-Para obter mais informações sobre as melhores práticas do SQL Data Warehouse, consulte o [melhores práticas] [ best practices] artigo.
+Para obter mais informações sobre as melhores práticas do SQL Data Warehouse, consulte a [melhores práticas] [ best practices] artigo.
 
 <!--Image references-->
 

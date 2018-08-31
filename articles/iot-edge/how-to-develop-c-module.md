@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 65495893d93fddd6d8e13ae80720e002ac7d8efa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391457"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307493"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos de C para o Azure IoT Edge
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que utilize um computador ou máquina virtual a executar 
 Uma vez que este artigo usa código do Visual Studio como a ferramenta de desenvolvimento principal, instale o VS Code. Em seguida, adicione as extensões necessárias:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Extensão Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [Extensão de C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) para Visual Studio Code.
+* [Extensão C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) para o Visual Studio Code.
 * [Extensão do docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Para criar um módulo, terá de Docker para criar a imagem do módulo e um registo de contentores para armazenar a imagem de módulo:
@@ -85,7 +85,7 @@ Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor
 
     ![Adicionar *** .debug para o seu nome de imagem](./media/how-to-develop-c-module/image-debug.png)
 
-2. Substitua o createOptions do módulo de node. js em **deployment.template.json** com abaixo conteúdo e guarde este ficheiro: 
+2. Substitua o createOptions do módulo de C na **deployment.template.json** com abaixo conteúdo e guarde este ficheiro: 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -93,7 +93,7 @@ Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor
 
 2. Na paleta de comandos VS Code, introduza e execute o comando **Edge: solução de IoT Edge criar**.
 3. Selecione o `deployment.template.json` ficheiro para a sua solução da paleta de comandos. 
-4. No Azure IoT Hub Device Explorer, clique com botão direito um ID de dispositivo do IoT Edge. Em seguida, selecione **criar implementação para o dispositivo IoT Edge**. 
+4. No Azure IoT Hub Device Explorer, clique com botão direito um ID de dispositivo do IoT Edge. Em seguida, selecione **criar a implementação de único dispositivo**. 
 5. Abra a solução **config** pasta. Em seguida, selecione o `deployment.json` ficheiro. Escolher **selecionar o manifesto de implantação do Edge**. 
 
 Verá a implementação foi criada com êxito com um ID de implementação num terminal integrado do VS Code.
@@ -113,7 +113,7 @@ Mantém depuração de código de VS informações de configuração num `launch
 
 4. Na vista de depuração de código do VS, verá as variáveis no painel esquerdo. 
 
-O exemplo anterior mostra como depurar os módulos do IoT Edge do C em contentores. Ele adicionou portas expostas no seu createOptions de contentor do módulo. Depois de concluir a depuração de seus módulos do node. js, recomendamos que remova estas portas expostas de módulos do IoT Edge prontos para produção.
+O exemplo anterior mostra como depurar os módulos do IoT Edge do C em contentores. Ele adicionou portas expostas no seu createOptions de contentor do módulo. Depois de concluir a depuração de seus módulos de C, recomendamos que remova estas portas expostas de módulos do IoT Edge prontos para produção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

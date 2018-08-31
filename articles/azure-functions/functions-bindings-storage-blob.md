@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ae508e601799c285d80bf9acfcab202ce5f2d186
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057390"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287936"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -59,7 +59,7 @@ Utilize o Event Grid, em vez do acionador do armazenamento de BLOBs para os segu
 
 * Contas de armazenamento apenas de BLOBs
 * Alta escalabilidade
-* Atraso de arranque a frio
+* Minimizando o atraso de arranque a frio
 
 ### <a name="blob-only-storage-accounts"></a>Contas de armazenamento apenas de BLOBs
 

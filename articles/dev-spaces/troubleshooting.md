@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059230"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286879"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -106,6 +106,16 @@ Poderá ver este erro se azds.exe não está instalado ou configurado corretamen
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
+
+## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Aviso 'Dockerfile não foi possível gerar devido a linguagem não suportada"
+Espaços de desenvolvimento do Azure fornece suporte nativo para c# e node. js. Quando executa *azds prep* num diretório que contém o código escrito em uma dessas linguagens, espaços de desenvolvimento do Azure irá criar automaticamente um Dockerfile apropriado para.
+
+Pode continuar a utilizar espaços de desenvolvimento do Azure com código escrito em outras linguagens, mas terá de criar o Dockerfile manualmente antes de executar *azds se* pela primeira vez.
+
+### <a name="try"></a>Experimente:
+Se o aplicativo foi escrito numa linguagem que os espaços de desenvolvimento do Azure não suporta nativamente, terá de fornecer um Dockerfile adequada para criar uma imagem de contentor em execução do seu código. Docker disponibiliza um [lista de práticas recomendadas para escrever Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) , bem como um [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) que pode ajudá-lo a fazê-lo.
+
+Depois de ter um Dockerfile adequada em vigor, pode continuar com a execução *azds se* para executar a aplicação nos espaços de desenvolvimento do Azure.
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Erro 'a montante erro de ligar ou desligar/reset antes de cabeçalhos'
 Poderá ver este erro ao tentar aceder ao seu serviço. Por exemplo, quando passa para o URL do serviço num navegador. 

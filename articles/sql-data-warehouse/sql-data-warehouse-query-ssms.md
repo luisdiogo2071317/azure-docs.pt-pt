@@ -1,21 +1,21 @@
 ---
-title: Ligar ao Azure SQL Data Warehouse - SSMS | Microsoft Docs
+title: Ligar ao armazém de dados SQL do Azure - SSMS | Documentos da Microsoft
 description: Utilize o SQL Server Management Studio (SSMS) para ligar e consultar o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: f4b960115da3d30d355768498ae95270acaef49b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6079c3064699da38fad20468517eb97d6ab107f8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182379"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307205"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Ligar ao SQL Data Warehouse com o SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -33,12 +33,12 @@ Utilize o SQL Server Management Studio (SSMS) para ligar e consultar o Azure SQL
 Para utilizar este tutorial, precisa do seguinte:
 
 * Um SQL Data Warehouse existente. Para criar um, veja [Create a SQL Data Warehouse][Create a SQL Data Warehouse] (Criar um armazém do SQL Data Warehouse).
-* SQL Server Management Studio (SSMS) instalado. [Instalar o SSMS] [ Install SSMS] gratuitamente se que ainda não o tiver.
+* SQL Server Management Studio (SSMS) instalado. [Instalar o SSMS] [ Install SSMS] gratuitamente se não o tiver.
 * O nome de servidor SQL completamente qualificado. Para o descobrir, veja [Ligar ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Ligar ao seu SQL Data Warehouse
 1. Abra o SQL Server Management Studio.
-2. Abra o Explorador de objeto. Para tal, selecione **ficheiro** > **ligar Object Explorer**.
+2. Abra o Explorador de objetos. Para tal, selecione **arquivo** > **ligar Object Explorer**.
    
     ![SQL Server Object Explorer][1]
 3. Preencha os campos na janela Ligar ao Servidor.

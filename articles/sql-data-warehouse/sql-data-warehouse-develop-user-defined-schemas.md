@@ -1,58 +1,58 @@
 ---
-title: Utilizar esquemas definido pelo utilizador no SQL Data Warehouse | Microsoft Docs
-description: Sugestões para utilizar esquemas definido pelo utilizador de T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
+title: Usando os esquemas definidos pelo utilizador no armazém de dados SQL | Documentos da Microsoft
+description: Dicas para usar esquemas definidos pelo utilizador do T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522712"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302646"
 ---
-# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Utilizar esquemas definido pelo utilizador no SQL Data Warehouse
-Sugestões para utilizar esquemas definido pelo utilizador de T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
+# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Usando os esquemas definidos pelo utilizador no armazém de dados SQL
+Dicas para usar esquemas definidos pelo utilizador do T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
 
 ## <a name="schemas-for-application-boundaries"></a>Esquemas de limites de aplicação
 
-Os armazéns de dados tradicionais utilizam frequentemente bases de dados separadas para criar limites de aplicação com base na carga de trabalho, o domínio ou segurança. Por exemplo, um armazém de dados do SQL Server tradicional pode incluir uma base de dados de teste, uma base de dados do armazém de dados e algumas bases de dados do data mart. Nesta topologia, cada base de dados funciona como uma carga de trabalho e o limite de segurança numa arquitetura.
+Armazéns de dados tradicionais utilizam frequentemente bases de dados diferentes para criar limites de aplicação com base na carga de trabalho, o domínio ou segurança. Por exemplo, um armazém de dados do SQL Server tradicional pode incluir uma base de dados de teste, uma base de dados do armazém de dados e algumas bases de dados do data mart. Nesta topologia, cada base de dados funciona como uma carga de trabalho e o limite de segurança na arquitetura.
 
-Por outro lado, o SQL Data Warehouse executa a carga de trabalho de armazém de dados completo dentro de uma base de dados. Cruzada da base de dados não são permitidas associações. Por conseguinte, o SQL Data Warehouse espera todas as tabelas utilizadas ao armazém de ser armazenados dentro de uma base de dados.
+Por outro lado, o SQL Data Warehouse é executada a carga de trabalho de armazém de dados inteiro dentro de uma base de dados. Cruzada da base de dados não são permitidas associações. Por conseguinte, o SQL Data Warehouse espera todas as tabelas utilizadas pelo armazém de sejam armazenados dentro de uma base de dados.
 
 > [!NOTE]
-> Armazém de dados do SQL Server não suporta consultas de base de dados cruzada de qualquer tipo. Por conseguinte, as implementações de armazém de dados que tiram partido deste padrão terão de ser revisto.
+> O SQL Data Warehouse não suporta consultas de entre várias bases de dados de qualquer tipo. Conseqüentemente, implementações de armazém de dados que utilizam este padrão tem de ser revisto.
 > 
 > 
 
 ## <a name="recommendations"></a>Recomendações
-Estes são recomendações para consolidar as cargas de trabalho, segurança, domínio e limites funcionais utilizando esquemas definidas pelo utilizador
+Estas são recomendações para a consolidação de cargas de trabalho, segurança, domínio e limites funcionais por usando esquemas definidos pelo utilizador
 
-1. Utilize uma base de dados do armazém de dados do SQL Server para executar a carga de trabalho do armazém de dados completo
-2. Consolidar o seu ambiente do armazém de dados existente para utilizar uma base de dados do armazém de dados do SQL Server
-3. Tire partido **definido pelo utilizador esquemas** para fornecer o limite de anteriormente implementado utilizando bases de dados.
+1. Utilizar uma base de dados do armazém de dados SQL para executar a sua carga de trabalho do armazém de dados inteiro
+2. Consolidar o seu ambiente de armazém de dados existente para utilizar uma base de dados do SQL Data Warehouse
+3. Tire partido **esquemas definidos pelo utilizador** para fornecer o limite de anteriormente implementado com bases de dados.
 
-Se definido pelo utilizador esquemas não foram utilizadas anteriormente, em seguida, terá uma ardósia limpa. Basta utilize o nome de base de dados antigo como base para as esquemas definido pelo utilizador na base de dados do armazém de dados do SQL Server.
+Se esquemas definidos pelo utilizador não foram utilizadas anteriormente, em seguida, terá uma ficha limpa. Basta use o nome de base de dados antigo como base para seus esquemas definidos pelo utilizador na base de dados SQL Data Warehouse.
 
-Se já tem sido utilizadas esquemas, em seguida, tem algumas opções:
+Se já tem sido utilizados a esquemas, em seguida, tem algumas opções:
 
-1. Remova os nomes do esquema de legado e começar do início
-2. Manter os nomes de esquema legado por previamente pendente o nome do esquema legado para o nome da tabela
-3. Manter os nomes de esquema legado implementando vistas sobre a tabela de um esquema adicional para voltar a criar a estrutura de esquema antigo.
+1. Remova os nomes de esquema herdados e comece do zero
+2. Manter os nomes de esquema herdados através da pré-pendente o nome do esquema de legado para o nome da tabela
+3. Manter os nomes de esquema herdados através da implementação de modos de exibição sobre a tabela num esquema extra para voltar a criar a estrutura de esquema antigo.
 
 > [!NOTE]
-> No primeiro inspeção opção 3 pode parecer como a opção mais apelativos para resolver. No entanto, o devil é o mais detalhadamente. As vistas são só de leitura em SQL Data Warehouse. Qualquer modificação de dados ou tabela seria necessário executar a tabela base. Opção 3 apresenta também uma camada de vistas no seu sistema. Pode querer dar este algumas profundamente adicional se estiver a utilizar vistas na sua arquitetura já.
+> Na inspeção primeiro a opção 3 pode parecer que a opção mais atraente. No entanto, o detalhe é o mais detalhadamente. Modos de exibição são de leitura apenas no SQL Data Warehouse. Qualquer modificação de dados ou tabela têm de ser executadas com base na tabela base. Opção 3 também apresenta uma camada de vistas no seu sistema. Pode querer dar isso um pouco de atenção adicional se estiver a utilizar as vistas em sua arquitetura já.
 > 
 > 
 
 ### <a name="examples"></a>Exemplos:
-Implementar esquemas definido pelo utilizador com base nos nomes de base de dados
+Implementar os esquemas definidos pelo utilizador com base nos nomes de base de dados
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -70,7 +70,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Manter os nomes de esquema legado por previamente pendente-los para o nome da tabela. Utilize esquemas para o limite de carga de trabalho.
+Manter nomes de esquema herdados através da pré-pendente-los para o nome da tabela. Use esquemas para o limite de carga de trabalho.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -88,7 +88,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Manter os nomes de esquema legado utilizar as vistas
+Manter os nomes de esquema herdados através de vistas
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -116,10 +116,10 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Qualquer alteração na estratégia de esquema tem uma revisão do modelo de segurança da base de dados. Em muitos casos poderá simplificar o modelo de segurança ao atribuir permissões ao nível do esquema. Se são necessárias permissões mais granulares, em seguida, pode utilizar funções de base de dados.
+> Qualquer alteração na estratégia de esquema precisa de uma revisão do modelo de segurança para a base de dados. Em muitos casos poderá conseguir simplificar o modelo de segurança através da atribuição de permissões no nível de esquema. Se são necessárias permissões mais granulares, em seguida, pode utilizar funções de base de dados.
 > 
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
+Para obter mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 

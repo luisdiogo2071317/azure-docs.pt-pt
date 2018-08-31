@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040332"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301872"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -34,7 +34,7 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
 - VMs de núcleo suprimido não obtém descontos de reserva.
 - Seguinte série de VM não receber os descontos de reserva: série A, série Av2 ou série G.
 - As VMs em pré-visualização: qualquer série de VM ou o tamanho que está em pré-visualização não estão disponíveis para compra de reserva.
-- Nuvens: reservas não estão disponíveis para compra nas regiões do Azure US Government, Alemanha e China.
+- Nuvens: Reservas não estão disponíveis para compra nas regiões do Azure US Government, Alemanha e China.
 - Quota insuficiente: uma reserva de que tem um âmbito a uma subscrição individual tem de ter a quota de vCPU disponível na subscrição para a nova RI. Por exemplo, se a subscrição de destino tem um limite de quota de 10 vCPUs para a série D, em seguida, é possível comprar uma reserva para 11 Standard_D1 instâncias. A verificação de quota para as reservas inclui VMs já implementadas na subscrição. Por exemplo, se a subscrição tem uma quota de 10 vCPUs para a série D e tem duas instâncias de standard_D1 implementadas, em seguida, pode comprar uma reserva para 10 instâncias standard_D1 nesta subscrição. 
 - Restrições de capacidade: limites em raras circunstâncias, a compra de reservas de novo para o subconjunto de tamanhos VM, devido à baixa capacidade numa região do Azure.
 
@@ -68,7 +68,7 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
 
 O desconto de reserva é aplicado automaticamente ao número de máquinas virtuais que correspondem à âmbito de reserva e atributos em execução. Pode atualizar o âmbito da reserva através de [portal do Azure](https://portal.azure.com), PowerShell, CLI, ou por meio da API.
 
-Para saber como gerir uma reserva, consulte [reservas de gerir o Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Para saber como gerir uma reserva, consulte [Gerir reservas de Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 

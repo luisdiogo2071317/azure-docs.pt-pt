@@ -3,25 +3,27 @@ title: Atualizar para a geração mais recente do Azure SQL Data Warehouse | Doc
 description: Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746967"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306985"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
 
 ## <a name="why-upgrade"></a>Por que atualizar?
 Agora pode facilmente atualizar para o escalão de SQL Data Warehouse de computação otimizada geração 2 no portal do Azure. Se tiver um armazém de dados de escalão de computação otimizada geração 1, a atualização é recomendada. Com a atualização, pode utilizar a última geração de hardware do Azure e aprimorada arquitetura de armazenamento. Pode tirar partido de um desempenho mais rápido, escalabilidade e armazenamento em colunas ilimitado. 
+
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Aplica-se a
 Esta atualização aplica-se para armazéns de dados de escalão de computação otimizada geração 1.

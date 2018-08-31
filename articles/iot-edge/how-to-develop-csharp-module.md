@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 212de83a88f5a8114454761121ee3f22830d2448
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: e78a2c3492ebab2ac9f23f607e5bcaa0481003d9
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055778"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287803"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar c# módulos do Azure IoT Edge
 
@@ -88,7 +88,7 @@ Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor
 
 2. Na paleta de comandos VS Code, introduza e execute o comando **Edge: solução de IoT Edge criar**.
 3. Selecione o `deployment.template.json` ficheiro para a sua solução da paleta de comandos. 
-4. No Azure IoT Hub Device Explorer, clique com botão direito um ID de dispositivo do IoT Edge. Em seguida, selecione **criar implementação para o dispositivo IoT Edge**. 
+4. No Azure IoT Hub Device Explorer, clique com botão direito um ID de dispositivo do IoT Edge. Em seguida, selecione **criar a implementação de único dispositivo**. 
 5. Abra a solução **config** pasta. Em seguida, selecione o `deployment.json` ficheiro. Escolher **selecionar o manifesto de implantação do Edge**. 
 
 Verá a implementação foi criada com êxito com um ID de implementação num terminal integrado do VS Code.

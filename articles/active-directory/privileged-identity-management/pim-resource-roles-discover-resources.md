@@ -11,56 +11,53 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 03/30/2018
+ms.date: 08/30/2018
 ms.author: rolyon
-ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190663"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306694"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Descubra os recursos do Azure para gerir no PIM
 
-Saiba como detetar e gerir recursos do Azure quando utiliza o Privileged Identity Management (PIM) no Azure Active Directory (Azure AD). Estas informações podem ser úteis para as organizações que já utilizam o PIM para proteger os recursos de administrador e para os proprietários de subscrições que estão procurando para proteger os recursos de produção.
+Com o Azure AD Privileged Identity Management (PIM), pode melhorar a proteção dos seus recursos do Azure. Isso é útil para as organizações que já utilizam o PIM para funções de diretório do Azure AD de proteger e a proprietários da subscrição e grupo de gestão que estiver à procura para proteger os recursos de produção.
 
-Quando configura primeiro a PIM para recursos do Azure, terá de descobrir e selecionar recursos a proteger com o PIM. Não existe nenhum limite para o número de recursos que podem ser geridos com o PIM. No entanto, recomendamos começar com os seus recursos (produção) mais críticos.
-
-> [!NOTE]
-> Só é possível procurar e selecione recursos de subscrição ou grupo de gestão para gerir com o PIM. Quando gerir um grupo de gestão ou de uma subscrição no PIM, também pode gerir os recursos subordinados.
+Quando configura primeiro a PIM para recursos do Azure, tem de detetar e selecione os recursos para proteger com o PIM. Não existe nenhum limite para o número de recursos que podem ser geridos com o PIM. No entanto, recomendamos começar com os seus recursos (produção) mais críticos.
 
 ## <a name="discover-resources"></a>Detetar recursos
 
-No portal do Azure, vá para o **Privileged Identity Management** painel. No menu à esquerda, na **MANAGE** secção, selecione **recursos do Azure**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-![O "Privileged Identity Management - recursos do Azure" painel](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+1. Open **do Azure AD Privileged Identity Management**.
 
-Se esta for a primeira vez que utilizar o PIM para recursos do Azure, primeiro execute a deteção para localizar recursos para gerir. Na **detetar recursos** painel, selecione a **detetar recursos** botão para iniciar a experiência de deteção.
+1. Clique em **recursos do Azure**.
 
-![O painel "Detetar recursos"](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+    Se esta for a primeira vez que utilizar o PIM para recursos do Azure, verá um painel de recursos de descoberta.
 
-Se outro administrador de recursos ou o diretório da sua organização já está a gerir um recurso do Azure ao utilizar o PIM, ou se tiver uma atribuição de função elegível para um recurso, a vista de lista apresenta a mensagem **Detete recursos ou ative um atribuição de função elegível para continuar**. 
+    ![Detetar recursos - pela primeira vez](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-![O botão "Detetar recursos" no "Privileged Identity Manager - recursos do Azure" painel](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
+    Se outro administrador de recursos ou o diretório da sua organização já está a gerir os recursos do Azure no PIM, verá uma lista dos recursos que estão atualmente a ser geridos.
 
-Quando seleciona a **detetar recursos** botão, se, no menu superior, ou no meio do painel, é apresentada uma lista de subscrições que pode gerir. As subscrições que estão realçadas já estão protegidas pelo PIM.
+    ![Detetar o painel de recursos](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-> [!NOTE]
-> Para impedir que outro administrador de recursos de remover as definições do PIM, depois de uma subscrição está definida como geridos, a subscrição não pode ser gerida.
+1. Clique em **detetar recursos** para iniciar a experiência de deteção.
 
-![Os "recursos do Azure - deteção" painel](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+    ![Painel de deteção](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-Na **recursos** coluna, colocar o rato sobre uma subscrição que pretende proteger com o PIM. Em seguida, selecione a caixa de verificação à esquerda do nome do recurso. Pode selecionar múltiplas subscrições por vez.
+1. No painel de deteção, utilize **filtro de estado de recurso** e **selecione o tipo de recurso** para filtrar a gestão de grupos ou subscrições que tem permissão para escrever. Ela provavelmente é mais fácil para começar **todos os** inicialmente.
 
-![A lista de recursos em "recursos do Azure - deteção" painel](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+    Só é possível procurar e selecione recursos de subscrição ou grupo de gestão para gerir com o PIM. Quando gerir um grupo de gestão ou de uma subscrição no PIM, também pode gerir os recursos subordinados.
 
-Para iniciar o processo de integração, no menu superior, selecione **gerir recurso**.
+1. Adicione uma marca de verificação junto a quaisquer recursos não gerenciados que pretende gerir.
 
-![O botão "Gerenciar recursos" em "recursos do Azure - deteção" painel](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+    > [!NOTE]
+    > Assim que uma subscrição ou grupo de gestão é definida gerida, não pode ser gerido. Isto impede o outro administrador de recursos e remover as definições do PIM.
 
-Os recursos selecionados são agora geridos pelo PIM. Para fechar o ecrã de deteção, no canto superior direito, selecione **X**. Para começar a gerir definições do PIM e atribuir membros, no menu na parte superior a **Privileged Identity Management - recursos do Azure** painel, selecione a **atualizar** botão.
+    ![Deteção - gerir recursos](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-![No botão "Atualizar" no menu superior do "Privileged Identity Management - recursos do Azure" painel](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+1. Clique em **gerir recurso** para começar a gerir os recursos selecionados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

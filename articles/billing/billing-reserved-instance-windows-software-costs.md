@@ -1,5 +1,5 @@
 ---
-title: Custos de software do Windows de reserva do Azure | Documentos da Microsoft
+title: Os custos de software de reservas Windows do Azure | Documentos da Microsoft
 description: Saiba quais medidores de software do Windows não estão incluídos nos custos de instância de VM reservada do Azure.
 services: billing
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ec4869ed5c4d823a8144ba430ebb29c65c2abc13
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630116"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302071"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reservations"></a>Custos de software do Windows não são incluídos com as reservas do Azure
+# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos de software do Windows não são incluídos com instâncias de VM reservadas do Azure
 
 Se não tiver um benefício de utilização híbrida do Azure nas suas instâncias de máquina virtual reservada, em seguida, é-lhe cobrada os medidores de software do Windows listados na secção seguinte.
 
@@ -57,7 +57,7 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerir reservas no Azure](billing-manage-reserved-vm-instance.md)
+- [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)

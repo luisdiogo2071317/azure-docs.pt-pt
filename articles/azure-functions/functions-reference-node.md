@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005480"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287826"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -30,27 +30,28 @@ A experiência de JavaScript para as funções do Azure torna mais fácil export
 Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Exportar uma função
-Todas as funções JavaScript tem de exportar um único `function` via `module.exports` para o tempo de execução localizar a função e executá-lo. Esta função têm de incluir sempre um `context` objeto.
+Cada função de JavaScript tem de exportar um único `function` via `module.exports` para o tempo de execução localizar a função e executá-lo. Esta função tem de efetuar sempre uma `context` objeto como o primeiro parâmetro.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-Enlaces de `direction === "in"` são transferidas como argumentos de função, o que significa que pode usar [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) dinamicamente lidar com entradas de novo (por exemplo, ao utilizar `arguments.length` para iterar sobre todas as suas entradas). Esta funcionalidade é conveniente quando tem apenas um acionador e sem entradas adicionais, porque de forma previsível pode aceder aos dados de Acionador sem referenciar sua `context` objeto.
+Enlaces de entrada e o acionador (enlaces de `direction === "in"`) pode ser transmitido para a função como parâmetros. Elas são passadas para a função na mesma ordem em que elas estão definidas na *Function*. Pode lidar com entradas usando o JavaScript dinamicamente [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto. Por exemplo, se tiver `function(context, a, b)` e altere-o para `function(context, a)`, ainda pode obter o valor de `b` no código de função fazendo referência a `arguments[2]`.
 
-Os argumentos são sempre transmitidos para a função na ordem em que ocorrem no *Function*, mesmo se não especificá-los na sua declaração de exportações. Por exemplo, se tiver `function(context, a, b)` e altere-o para `function(context, a)`, ainda pode obter o valor de `b` no código de função fazendo referência a `arguments[2]`.
-
-Todos os enlaces, independentemente da direção, também são transmitidos `context` de objeto (veja o seguinte script). 
+Todos os enlaces, independentemente da direção, também serão transmitidos ao longo da `context` objeto usando o `context.bindings` propriedade.
 
 ## <a name="context-object"></a>objeto de contexto
 O tempo de execução usa um `context` objeto para passar dados de e para sua função e permitir-lhe comunicar com o tempo de execução.
@@ -61,6 +62,7 @@ O `context` objeto é sempre o primeiro parâmetro para uma função e tem de se
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 
@@ -96,7 +98,7 @@ context.done([err],[propertyBag])
 
 Informa o tempo de execução que terminou a seu código. Se a sua função utiliza a `async function` declaração (disponível através do nó 8 + na versão de funções 2.x), não é necessário utilizar `context.done()`. O `context.done` implicitamente é chamado de retorno de chamada.
 
-Se a sua função não é uma função de async **tem de chamar `context.done` ** para informar o tempo de execução que sua função está concluída. A execução será o tempo limite, se estiver em falta.
+Se a sua função não é uma função de async **tem de chamar `context.done`**  para informar o tempo de execução que sua função está concluída. A execução será o tempo limite, se estiver em falta.
 
 O `context.done` método permite que passe tanto um erro definidas pelo usuário de volta para o tempo de execução e uma matriz de propriedades de propriedades que substituir as propriedades no `context.bindings` objeto.
 

@@ -10,49 +10,81 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189560"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287092"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Conceder acesso a outros administradores para gerir o PIM
-O administrador global que ativa o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter atribuições de funções e acesso ao PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura ao Azure AD PIM. Para dar acesso ao PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função.
+
+O Administrador Global que ativa o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter atribuições de funções e acesso ao PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura ao PIM. Para conceder acesso ao PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função.
 
 > [!NOTE]
-> Gerir PIM do Azure AD requer o MFA do Azure. Uma vez que as contas Microsoft não é possível registar para MFA do Azure, um utilizador que inicia sessão com uma conta Microsoft não é possível aceder PIM do Azure AD.
-> 
-> 
+> Gerir PIM requer o MFA do Azure. Uma vez que as contas Microsoft não é possível registar para MFA do Azure, um utilizador que inicia sessão com uma conta Microsoft não é possível aceder PIM.
 
 Certificar-se de que existem sempre pelo menos dois utilizadores numa função de administrador com função privilegiada, no caso de um utilizador está bloqueado ou a sua conta foi eliminada.
 
-## <a name="give-another-user-access-to-manage-pim"></a>Dar outro acesso de utilizador para gerir o PIM
-1. Entrar para o [portal do Azure](https://portal.azure.com/) e selecione o **Azure AD Privileged Identity Management** aplicação no dashboard.
-2. Selecione **gerir funções com privilégios** > **administrador com função privilegiada** > **adicionar**.
-   
-    ![Adicionar administradores de função com privilégios - captura de ecrã](./media/pim-how-to-give-access-to-pim/PIM_add_PRA.png)
-3. No painel de utilizadores geridos Add, o passo 1 já está concluído. Selecione passo 2, **selecionar utilizadores** e procure o utilizador que pretende adicionar.
-   
-    ![Selecione utilizadores - captura de ecrã](./media/pim-how-to-give-access-to-pim/PIM_select_users.png)
-4. Selecione o utilizador os resultados da pesquisa e clique em **feito**.
-5. Clique em **OK** para guardar a sua seleção. O usuário que tiver selecionado será apresentado na lista de administradores de função com privilégios.
-   
-   * Sempre que atribui uma nova função a alguém, eles são automaticamente configurados como elegíveis para ativar a função. Se quiser torná-los permanente na função, clique o utilizador na lista. Selecione **tornar permanente** no menu de informações do utilizador.
-6. Enviar ao usuário uma ligação para [introdução ao Azure AD Privileged Identity Management](pim-getting-started.md).
+## <a name="grant-access-to-manage-pim"></a>Conceder acesso para gerir o PIM
 
-## <a name="remove-another-users-access-rights-for-managing-pim"></a>Remover direitos de acesso de outro utilizador para gerir o PIM
-Antes de remover alguém da função de administrador com função privilegiada, sempre Verifique se ainda haverá dois utilizadores atribuídos à mesma.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. No dashboard do PIM, clique na função **administrador com função privilegiada**.  Será apresentada a lista de utilizadores atualmente da função.
-2. Clique no utilizador na lista de utilizadores.
-3. Clique em **remover**.  É apresentada uma mensagem de confirmação.
-4. Clique em **Sim** para remover o utilizador da função.
+1. Open **do Azure AD Privileged Identity Management**.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+1. Clique em **funções de diretório do Azure AD**.
+
+1. Clique em **funções**.
+
+    ![Funções de diretório do Azure de PIM AD - funções](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+
+1. Clique nas **administrador com função privilegiada** função para abrir a página de membros.
+
+    ![Administrador com função privilegiada - membros](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
+
+1. Clique em **Add member** para abrir o painel de membros geridos de adicionar.
+
+1. Clique em **selecionar membros do** para abrir o painel de membros selecione.
+
+    ![Administrador com função privilegiada - selecionados membros](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
+
+1. Selecione um membro e, em seguida, clique em **selecione**.
+
+1. Clique em **OK** para tornar o membro elegível para o **administrador com função privilegiada** função.
+
+    Quando atribui uma nova função para alguém no PIM, eles são automaticamente configurados como **elegíveis** para ativar a função.
+
+1. Para tornar o membro permanente, clique o utilizador na lista de membros de administrador com função privilegiada.
+
+1. Clique em **mais** e, em seguida **tornar permanente** para fazer a atribuição permanente.
+
+    ![Administrador com função privilegiada - tornar permanente](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
+
+1. Enviar ao usuário uma ligação para [começar a utilizar o PIM](pim-getting-started.md).
+
+## <a name="remove-access-to-manage-pim"></a>Remover o acesso para gerir o PIM
+
+Antes de remover alguém da função de administrador com função privilegiada, sempre Verifique se ainda haverá, pelo menos, dois utilizadores atribuídos à mesma.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
+1. Open **do Azure AD Privileged Identity Management**.
+
+1. Clique em **funções de diretório do Azure AD**.
+
+1. Clique em **funções**.
+
+1. Clique nas **administrador com função privilegiada** função para abrir a página de membros.
+
+1. Adicionar uma marca de verificação junto ao utilizador que pretende remover e, em seguida, clique em **remover membro**.
+
+    ![Administrador com função privilegiada - remover membro](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
+
+1. Na mensagem que é exibido, perguntando se quiser remover o membro da função, clique em **Sim**.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Ativar a gestão de subscrição no seu inquilino](pim-resource-roles-enable-subscription-management.md)
+- [Começar a utilizar o PIM](pim-getting-started.md)

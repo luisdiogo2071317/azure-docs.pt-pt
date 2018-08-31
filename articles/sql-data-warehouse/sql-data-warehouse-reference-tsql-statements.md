@@ -1,29 +1,30 @@
 ---
-title: Instruções de T-SQL - Azure SQL Data Warehouse | Microsoft Docs
-description: Fornece hiperligações para a documentação para instruções de T-SQL suportadas no Azure SQL Data Warehouse.
+title: Instruções T-SQL - Azure SQL Data Warehouse | Documentos da Microsoft
+description: Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 06/13/2018
+ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: ec708f30b59bbd6af878720c65f9a464224c57a5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fa497979349346016e1c176ace98407d98eebdca
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307827"
 ---
-# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instruções de T-SQL suportadas no Azure SQL Data Warehouse
-Fornece hiperligações para a documentação para instruções de T-SQL suportadas no Azure SQL Data Warehouse.
+# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instruções T-SQL suportadas no Azure SQL Data Warehouse
+Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
 
-## <a name="data-definition-language-ddl-statements"></a>Instruções de linguagem de definição (DDL) de dados
+## <a name="data-definition-language-ddl-statements"></a>Instruções de definição DDL (linguagem) de dados
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTERAR O ÍNDICE](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ALTERAR O PROCEDIMENTO](https://msdn.microsoft.com/library/ms189762.aspx)
-* [ALTERAR O ESQUEMA](https://msdn.microsoft.com/library/ms173423.aspx)
+* [ALTERAR ESQUEMA](https://msdn.microsoft.com/library/ms173423.aspx)
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
 * [CRIAR O ÍNDICE COLUMNSTORE](https://msdn.microsoft.com/library/gg492153.aspx)
 * [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
@@ -31,33 +32,33 @@ Fornece hiperligações para a documentação para instruções de T-SQL suporta
 * [CRIAR ORIGEM DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
 * [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
 * [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
-* [CRIAR UMA FUNÇÃO](https://msdn.microsoft.com/library/mt203952.aspx)
-* [CRIAR O ÍNDICE](https://msdn.microsoft.com/library/ms188783.aspx)
-* [CRIAR O PROCEDIMENTO](https://msdn.microsoft.com/library/ms187926.aspx)
-* [CRIAR O ESQUEMA](https://msdn.microsoft.com/library/ms189462.aspx)
+* [CRIAR FUNÇÃO](https://msdn.microsoft.com/library/mt203952.aspx)
+* [CRIAR ÍNDICE](https://msdn.microsoft.com/library/ms188783.aspx)
+* [CRIAR PROCEDIMENTO](https://msdn.microsoft.com/library/ms187926.aspx)
+* [CRIAR ESQUEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 * [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [CRIAR VISTA](https://msdn.microsoft.com/library/ms187956.aspx)
-* [REMOVER A ORIGEM DE DADOS EXTERNA](https://msdn.microsoft.com/library/mt146367.aspx)
+* [REMOVER ORIGEM DE DADOS EXTERNA](https://msdn.microsoft.com/library/mt146367.aspx)
 * [REMOVER O FORMATO DE FICHEIRO EXTERNO](https://msdn.microsoft.com/library/mt146379.aspx)
-* [LARGAR A TABELA EXTERNA](https://msdn.microsoft.com/library/mt130698.aspx)
+* [REMOVER TABELA EXTERNA](https://msdn.microsoft.com/library/mt130698.aspx)
 * [REMOVER O ÍNDICE](https://msdn.microsoft.com/library/ms176118.aspx)
 * [LARGAR O PROCEDIMENTO](https://msdn.microsoft.com/library/ms174969.aspx)
-* [REMOVA AS ESTATÍSTICAS](https://msdn.microsoft.com/library/ms175075.aspx)
-* [LARGAR A TABELA](https://msdn.microsoft.com/library/ms173790.aspx)
+* [ESTATÍSTICAS DE SOLTAR](https://msdn.microsoft.com/library/ms175075.aspx)
+* [REMOVER TABELA](https://msdn.microsoft.com/library/ms173790.aspx)
 * [REMOVER O ESQUEMA](https://msdn.microsoft.com/library/ms186751.aspx)
-* [LARGAR A VISTA](https://msdn.microsoft.com/library/ms173492.aspx)
+* [VISTA DE LISTA](https://msdn.microsoft.com/library/ms173492.aspx)
 * [MUDAR O NOME](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
-## <a name="data-manipulation-language-dml-statements"></a>Instruções de manipulação idioma (DML) de dados
+## <a name="data-manipulation-language-dml-statements"></a>Instruções de manipulação DML (linguagem) de dados
 * [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.aspx)
 
-## <a name="database-console-commands"></a>Comandos de consola de base de dados
+## <a name="database-console-commands"></a>Comandos da consola de base de dados
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
@@ -72,7 +73,7 @@ Fornece hiperligações para a documentação para instruções de T-SQL suporta
 * [EXCETO e INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
 * [EXPLAIN](https://msdn.microsoft.com/library/mt631615.aspx)
 * [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
-* [Utilizar PIVOT e UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
+* [Usando PIVOT e UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 * [AGRUPAR POR](https://msdn.microsoft.com/library/ms177673.aspx)
 * [TER](https://msdn.microsoft.com/library/ms180199.aspx)
 * [ORDENAR POR](https://msdn.microsoft.com/library/ms188385.aspx)
@@ -85,29 +86,29 @@ Fornece hiperligações para a documentação para instruções de T-SQL suporta
 * [Subconsultas](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Declarações de segurança
-* Permissões: [conceder](https://msdn.microsoft.com/library/ms187965.aspx), [NEGAR](https://msdn.microsoft.com/library/ms188338.aspx), [REVOGAR](https://msdn.microsoft.com/library/ms187728.aspx)
-* [ALTER AUTORIZAÇÃO](https://msdn.microsoft.com/library/ms187359.aspx)
+* Permissões: [concessão](https://msdn.microsoft.com/library/ms187965.aspx), [NEGAR](https://msdn.microsoft.com/library/ms188338.aspx), [REVOGAR](https://msdn.microsoft.com/library/ms187728.aspx)
+* [ALTERAR A AUTORIZAÇÃO](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTERAR O CERTIFICADO](https://msdn.microsoft.com/library/ms189511.aspx)
 * [ALTERAR A CHAVE DE ENCRIPTAÇÃO DA BASE DE DADOS](https://msdn.microsoft.com/library/bb630389.aspx)
-* [ALTERAR O INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms189828.aspx)
+* [ALTERAR INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms189828.aspx)
 * [ALTERAR A CHAVE MESTRA](https://msdn.microsoft.com/library/ms186937.aspx)
 * [ALTERAR FUNÇÃO](https://msdn.microsoft.com/library/ms189775.aspx)
-* [ALTERAR O UTILIZADOR](https://msdn.microsoft.com/library/ms176060.aspx)
-* [CERTIFICADOS DE CÓPIA DE SEGURANÇA](https://msdn.microsoft.com/library/ms178578.aspx)
-* [FECHE A CHAVE MESTRA](https://msdn.microsoft.com/library/ms188387.aspx)
+* [ALTERAR UTILIZADOR](https://msdn.microsoft.com/library/ms176060.aspx)
+* [CERTIFICADO DE CÓPIA DE SEGURANÇA](https://msdn.microsoft.com/library/ms178578.aspx)
+* [FECHAR A CHAVE MESTRA](https://msdn.microsoft.com/library/ms188387.aspx)
 * [CRIAR CERTIFICADO](https://msdn.microsoft.com/library/ms187798.aspx)
 * [CRIAR CHAVE DE ENCRIPTAÇÃO DA BASE DE DADOS](https://msdn.microsoft.com/library/bb677241.aspx)
-* [CRIAR O INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms189751.aspx)
+* [CRIAR INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms189751.aspx)
 * [CRIAR CHAVE MESTRA](https://msdn.microsoft.com/library/ms174382.aspx)
 * [CRIAR FUNÇÃO](https://msdn.microsoft.com/library/ms187936.aspx)
 * [CRIAR UTILIZADOR](https://msdn.microsoft.com/library/ms173463.aspx)
-* [REMOVER O CERTIFICADO](https://msdn.microsoft.com/library/ms179906.aspx)
+* [REMOVER CERTIFICADO](https://msdn.microsoft.com/library/ms179906.aspx)
 * [REMOVER A CHAVE DE ENCRIPTAÇÃO DA BASE DE DADOS](https://msdn.microsoft.com/library/bb630256.aspx)
 * [REMOVER O INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms188012.aspx)
 * [REMOVER A CHAVE MESTRA](https://msdn.microsoft.com/library/ms180071.aspx)
-* [REMOVER A FUNÇÃO](https://msdn.microsoft.com/library/ms174988.aspx)
+* [REMOVER FUNÇÃO](https://msdn.microsoft.com/library/ms174988.aspx)
 * [REMOVER UTILIZADOR](https://msdn.microsoft.com/library/ms189438.aspx)
-* [ABRIR CHAVE MESTRA](https://msdn.microsoft.com/library/ms174433.aspx)
+* [CHAVE MESTRA DO OPEN](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações de referência, consulte [elementos de linguagem T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md), e [vistas de sistema no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).

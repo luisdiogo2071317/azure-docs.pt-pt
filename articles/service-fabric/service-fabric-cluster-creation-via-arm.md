@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 29d04781d166abdd1fc1fc506077e6257f6551a6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056060"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287347"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster do Service Fabric com o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -259,7 +259,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Utilizar um ponteiro para um segredo carregado para um cofre de chaves
 
-Para utilizar o Cofre de chaves existente, o Cofre de chaves tem de ser [ativada para a implementação](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)) para permitir que o fornecedor de recursos de computação obter certificados de-lo e instalá-lo em nós de cluster.
+Para utilizar o Cofre de chaves existente, o Cofre de chaves tem de ser [ativada para a implementação](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) para permitir que o fornecedor de recursos de computação obter certificados de-lo e instalá-lo em nós de cluster.
 
 Implemente o cluster com o PowerShell:
 

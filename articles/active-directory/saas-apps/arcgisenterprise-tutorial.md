@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ca5bf7ae49cf120c0566419ccadeff92433c6467
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820243"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ArcGIS Enterprise
 
@@ -120,7 +120,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte do ArcGIS Enterprise Client](mailto:nshampur@esri.com) obter esses valores. Obterá o valor do identificador da **definir o fornecedor de identidade** seção, que é explicada posteriormente neste tutorial.
+    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte do ArcGIS Enterprise Client](mailto:support@esri.com) obter esses valores. Obterá o valor do identificador da **definir o fornecedor de identidade** seção, que é explicada posteriormente neste tutorial.
 
 5. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
 
@@ -195,7 +195,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na empresa ArcGIS. O ArcGIS Enterprise suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder ArcGIS Enterprise, se não existir ainda.
 
 > [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte da empresa do ArcGIS](mailto:nshampur@esri.com).
+> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte da empresa do ArcGIS](mailto:support@esri.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

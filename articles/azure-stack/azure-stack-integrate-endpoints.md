@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: c5d0bc6a0e7e885f61ba28be0575697b03fece09
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917147"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307613"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integração no datacenter - publicar pontos de extremidade
 O Azure Stack configura endereços IP virtuais (VIPs) para as respetivas funções de infraestrutura. Estes VIPs são alocadas a partir do conjunto de endereços IP público. Cada VIP é protegido por uma lista de controlo de acesso (ACL) na camada de rede definida pelo software. ACLs também são utilizadas entre os comutadores físicos (tores e BMC) para proteger ainda mais a solução. Uma entrada DNS é criada para cada ponto de extremidade na zona DNS externo que especificado no momento da implementação.
@@ -27,7 +27,7 @@ O diagrama de arquitetura seguinte mostra as camadas de rede diferentes e ACLs:
 
 ## <a name="ports-and-protocols-inbound"></a>Portas e protocolos (entrada)
 
-Um conjunto de infraestrutura de VIPs são necessários para publicação do Azure Stack os pontos finais a redes externas. O *ponto final (VIP)* tabela mostra cada ponto de extremidade, a porta necessária e o protocolo. Consulte a documentação de implementação do Provedor de recurso específico para pontos finais que necessitam de fornecedores de recursos adicionais, tais como o fornecedor de recursos do SQL.
+Um conjunto de infraestrutura de VIPs é necessário para publicação do Azure Stack os pontos finais a redes externas. O *ponto final (VIP)* tabela mostra cada ponto de extremidade, a porta necessária e o protocolo. Consulte a documentação de implementação do Provedor de recurso específico para pontos finais que necessitam de fornecedores de recursos adicionais, tais como o fornecedor de recursos do SQL.
 
 Infra-estrutura interna que vips não estão listados como não são necessários para a publicação do Azure Stack.
 
@@ -71,12 +71,13 @@ O Azure Stack suporta apenas os servidores de proxy transparente. Numa implement
 |& Atualizações de patch|https://&#42;.azureedge.net|HTTPS|443|
 |Registo|https://management.azure.com|HTTPS|443|
 |Utilização|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.NET|HTTPS|443|
-|O Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|     |UDP|123|
 |DNS|     |TCP<br>UDP|53|
 |     |     |     |     |
 
-
+> [!Note]  
+> URLs de saída são balanceado em carga utilizando o Gestor de tráfego do Azure para fornecer a melhor conectividade de possíveis com base na localização geográfica. Com os URLs com balanceamento de carga, a Microsoft pode atualizar e alterar os pontos finais de back-end sem afetar os clientes. A Microsoft não partilhar a lista de endereços IP para a carga balanceada URLs. Deve usar um dispositivo que suporte a filtragem por URL em vez de IP.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

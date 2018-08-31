@@ -1,35 +1,35 @@
 ---
-title: Utilizar ciclos de T-SQL no Azure SQL Data Warehouse | Microsoft Docs
-description: Sugestões para utilizar ciclos de T-SQL e de substituir cursores no Azure SQL Data Warehouse para desenvolver soluções.
+title: Usando loops de T-SQL no Azure SQL Data Warehouse | Documentos da Microsoft
+description: Dicas para o uso de loops de T-SQL e substituindo cursores no armazém de dados SQL do Azure para o desenvolvimento de soluções.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d51c8f18d7c00d21fcc057efcda73e2a6b46cc7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7c21566916c9728900e69dc6480098fadae7622
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598970"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301213"
 ---
-# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Utilizar ciclos de T-SQL no SQL Data Warehouse
-Sugestões para utilizar ciclos de T-SQL e de substituir cursores no Azure SQL Data Warehouse para desenvolver soluções.
+# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Usando loops de T-SQL no SQL Data Warehouse
+Dicas para o uso de loops de T-SQL e substituindo cursores no armazém de dados SQL do Azure para o desenvolvimento de soluções.
 
-## <a name="purpose-of-while-loops"></a>Objetivo ao ciclos
+## <a name="purpose-of-while-loops"></a>Finalidade de loops WHILE
 
-Armazém de dados do SQL Server suporta o [enquanto](/sql/t-sql/language-elements/while-transact-sql) ciclo para executar repetidamente blocos de instrução. Este ciclo de tempo continua para, desde que as condições especificadas são true, ou até que o código especificamente termina o ciclo utilizando a quebra de palavra-chave. Ciclos são úteis para substituir os cursores definidos no código do SQL Server. Felizmente, quase todos os cursores que são escritos no código do SQL Server têm a variedade de reencaminhar rápido só de leitura. Por conseguinte, [enquanto] ciclos são uma excelente alternativa para substituir os cursores.
+SQL Data Warehouse suporta o [enquanto](/sql/t-sql/language-elements/while-transact-sql) loop para repetidamente executar blocos de instrução. Esse loop WHILE continua para, desde que as condições especificadas são true ou até que o código especificamente termina o loop usando a palavra-chave BREAK. Loops são úteis para substituir os cursores definidas no código SQL. Felizmente, cursores quase todos os que são escritos em código SQL são da gama progressiva rápidos, só de leitura. Por conseguinte, [enquanto] loops são uma ótima alternativa para substituir os cursores.
 
-## <a name="replacing-cursors-in-sql-data-warehouse"></a>Substituir os cursores no SQL Data Warehouse
-No entanto, antes de diving no cabeçalho pela primeira vez deve faça a mesmo à seguinte pergunta: "foi deste cursor ser rescrito para utilizar operações com base em conjunto?." Em muitos casos, a resposta é Sim e é, muitas vezes, a abordagem das melhores. Uma operação baseada em conjunto, muitas vezes, efetua mais rapidamente do que uma abordagem iterativa, linha por linha.
+## <a name="replacing-cursors-in-sql-data-warehouse"></a>Substituição de cursores no SQL Data Warehouse
+No entanto, antes de mergulhar na memória, primeiro deve se perguntar a seguinte pergunta: "deste cursor poderia ser reescrito a utilizar operações baseadas em conjunto?." Em muitos casos, a resposta é Sim e, muitas vezes, é a melhor abordagem. Muitas vezes, uma operação baseada em conjunto, executa mais rapidamente do que uma abordagem iterativa, linha por linha.
 
-Cursores só de leitura rápida reencaminhar podem ser facilmente substituídos com uma construção de ciclo. Segue-se um exemplo simples. Este exemplo de código atualiza as estatísticas de cada tabela na base de dados. Por iterating através de tabelas do ciclo, cada comando executa na sequência.
+Cursores de somente avanço rápido podem ser facilmente substituídos com uvozuje konstruktor cyklu. Segue-se um exemplo simples. Este exemplo de código atualiza as estatísticas de cada tabela na base de dados. Iterando sobre as tabelas no loop, cada comando é executado na sequência.
 
-Em primeiro lugar, crie uma tabela temporária contendo um número de linha exclusivo utilizado para identificar as declarações de individuais:
+Primeiro, crie uma tabela temporária que contém um número de linha exclusivo utilizado para identificar as instruções individuais:
 
 ```
 CREATE TABLE #tbl
@@ -44,7 +44,7 @@ FROM    sys.tables
 ;
 ```
 
-Segundo, inicializar as variáveis necessárias para executar o ciclo:
+Em segundo lugar, inicialize as variáveis necessárias para executar o loop:
 
 ```
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
@@ -52,7 +52,7 @@ DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ;
 ```
 
-Agora cíclicas através de instruções executar um cada vez:
+Agora um loop através de instruções, executando-os um de cada vez:
 
 ```
 WHILE   @i <= @nbr_statements
@@ -63,12 +63,12 @@ BEGIN
 END
 ```
 
-Por fim, remover a tabela temporária criada no primeiro passo
+Por fim remover a tabela temporária criada no primeiro passo
 
 ```
 DROP TABLE #tbl;
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
+Para obter mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
 

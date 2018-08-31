@@ -1,49 +1,49 @@
 ---
-title: Recursos para desenvolver um armazém de dados no Azure | Microsoft Docs
-description: Conceitos de desenvolvimento, as decisões de conceção, recomendações e técnicas de programação para o SQL Data Warehouse.
+title: Recursos para desenvolver um armazém de dados no Azure | Documentos da Microsoft
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 08/29/2018
+ms.author: kevinvngo
 ms.reviewer: igorstan
-ms.openlocfilehash: d9a272b2f43e080cd44b7179fe6f9dc55507142b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5cb3b3b261bcb762187b165e297225080b0fee81
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601809"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306063"
 ---
-# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>As decisões de conceção e técnicas de programação para o SQL Data Warehouse
-Veja através destes artigos de desenvolvimento para compreender melhor as decisões de conceção importantes, recomendações e técnicas de programação para o SQL Data Warehouse.
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse
+Veja estes artigos de desenvolvimento para compreender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 
-## <a name="key-design-decisions"></a>Decisões de conceção de chave
-Os artigos seguintes realce conceitos e as decisões de conceção para desenvolver um armazém de dados distribuídos através do armazém de dados do SQL Server:
+## <a name="key-design-decisions"></a>Principais decisões de design
+Os artigos seguintes realçam os conceitos e as decisões de design para o desenvolvimento de um armazém de dados distribuídos com o SQL Data Warehouse:
 
 * [Ligações][connections]
-* [Simultaneidade][concurrency]
+* [simultaneidade][concurrency]
 * [Transações][transactions]
-* [Esquemas definido pelo utilizador][user-defined schemas]
-* [distribuição de tabela][table distribution]
-* [índices da tabela][table indexes]
-* [partições da tabela][table partitions]
+* [esquemas definidos pelo utilizador][user-defined schemas]
+* [distribuição da tabela][table distribution]
+* [índices de tabela][table indexes]
+* [Partições de tabela][table partitions]
 * [CTAS][CTAS]
 * [Estatísticas][statistics]
 
-## <a name="development-recommendations-and-coding-techniques"></a>Recomendações de desenvolvimento e técnicas de programação
-Estes artigos realce técnicas de programação específicas, sugestões e as recomendações para desenvolver o seu armazém de dados do SQL Server:
+## <a name="development-recommendations-and-coding-techniques"></a>Recomendações para o desenvolvimento e técnicas de codificação
+Estes artigos realçam técnicas de codificação específicas, sugestões e recomendações para o desenvolvimento do SQL Data Warehouse:
 
 * [Procedimentos armazenados][stored procedures]
 * [labels][labels]
-* [vistas][views]
-* [tabelas temporárias][temporary tables]
+* [Modos de exibição][views]
+* [Tabelas temporárias][temporary tables]
 * [SQL dinâmico][dynamic SQL]
-* [ciclo][looping]
+* [um loop][looping]
 * [Agrupar por opções][group by options]
-* [Atribuição de variáveis][variable assignment]
+* [atribuição de variáveis][variable assignment]
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações de referência, consulte [instruções T-SQL do armazém de dados SQL](sql-data-warehouse-reference-tsql-statements.md).

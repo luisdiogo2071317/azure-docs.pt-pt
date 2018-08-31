@@ -6,21 +6,21 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/30/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125002"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307277"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviços de vCore, computação, memória, armazenamento e recursos de e/s
 
 O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. Ele também permite-lhe escolher a geração de hardware:
 - Gen 4 - até 24 CPUs lógicas com base na Intel E5-2673 v3 (Haswell) 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
-- Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB por núcleo, o rápido eNVM SSD
+- Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. GB por núcleo, o rápido eNVM SSD
 
 modelo de vCore também permite que use [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) para obter poupanças de custos.
 
@@ -34,7 +34,7 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalõe
 |---|---|---|
 |Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|
 |Computação|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo |
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo | Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo |
 |Armazenamento|[O armazenamento remoto Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB-8 TB |Armazenamento SSD local,<br/>Base de dados: 5 GB-1 TB<br/>Instância gerida: 32 GB-4 TB |
 |Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com IOPS máximos 200000|
 |Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|

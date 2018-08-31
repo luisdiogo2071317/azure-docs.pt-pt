@@ -6,19 +6,19 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 329af89e52af6f3599e2d86e6ac6d28b8b63f333
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f056bfa33e2a43af60357d6bf50a0b9cd8d7f254
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061069"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286302"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
-Base de dados SQL do Azure é a plataforma como serviço que garante que a sua base de dados está ativo e em execução 99,99% de tempo, sem se preocupar sobre a manutenção e tempos de inatividade de base de dados altamente disponível. Este é um processo de motor de base de dados do SQL Server totalmente gerido alojado na cloud do Azure que garante que a base de dados do SQL Server está sempre atualizado/corrigido sem afetar a carga de trabalho. Base de dados SQL do Azure pode recuperar rapidamente até mesmo nas circunstâncias mais críticas garantir que seus dados estão sempre disponíveis.
+Base de dados SQL do Azure é a plataforma como serviço que garante que a sua base de dados está ativo e em execução 99,99% de tempo, sem se preocupar sobre a manutenção e tempos de inatividade de base de dados altamente disponível. Este é um processo de motor de base de dados do SQL Server totalmente gerido alojado na cloud do Azure que garante que a base de dados do SQL Server está sempre atualizado/corrigido sem afetar a carga de trabalho. Quando uma instância é corrigida ou efetua a ativação pós-falha, o período de indisponibilidade não é normalmente noticable se [empregar a lógica de repetição](sql-database-develop-overview.md#resiliency) na sua aplicação. Se o tempo de execução de uma ativação pós-falha tiver mais de 60 segundos, deve abrir um incidente de suporte. Base de dados SQL do Azure pode recuperar rapidamente até mesmo nas circunstâncias mais críticas garantir que seus dados estão sempre disponíveis.
 
 Plataforma do Azure totalmente gerencia cada base de dados do SQL do Azure e garante sem perda de dados e uma alta porcentagem de disponibilidade de dados. Azure processa automaticamente a aplicação de patches, as cópias de segurança, replicação, deteção de falhas, hardware potencial subjacente, falhas de software ou de rede, correções de erros de implementação, as ativações pós-falha, atualizações de base de dados e outras tarefas de manutenção. Engenheiros do SQL Server tem implementado as práticas mais conhecidas, garantindo que todas as operações de manutenção são concluídas em menos de 0,01% de tempo da sua vida de base de dados. Esta arquitetura foi concebida para garantir que os dados confirmados nunca são perdidos e que as operações de manutenção são efetuadas sem afetar a carga de trabalho. Não são janelas de manutenção ou tempos de inatividade do que devem exigir a parar a carga de trabalho, enquanto a base de dados é atualizado ou mantida. Elevada disponibilidade incorporada na base de dados do Azure SQL garante que essa base de dados nunca serão ponto único de falha em sua arquitetura de software.
 

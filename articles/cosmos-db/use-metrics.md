@@ -11,21 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4bc8af7533b3d18f9e04f431d6c9f97e0982ae5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858668"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286674"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Monitorização e depuração com métricas na Azure Cosmos DB
 
 O Azure Cosmos DB fornece as métricas de débito, armazenamento, consistência, disponibilidade e latência. O [portal do Azure](https://portal.azure.com) fornece uma exibição agregada estas métricas; para métricas mais granulares, o SDK de cliente e o [registos de diagnóstico](./logging.md) estão disponíveis.
-
-Para obter uma descrição geral das métricas de novo e aprender a localizar partições muito ativas na sua base de dados, veja o seguinte vídeo de sexta-feira do Azure:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
-> 
 
 Este artigo explica-casos de utilização comuns e como as métricas do Azure Cosmos DB podem ser usadas para analisar e depurar esses problemas. As métricas são recolhidas a cada cinco minutos e são mantidas durante sete dias.
 

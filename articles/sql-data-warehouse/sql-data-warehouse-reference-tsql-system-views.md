@@ -1,26 +1,26 @@
 ---
-title: Vistas de sistema - Azure SQL Data Warehouse | Microsoft Docs
-description: Ligações a documentação para vistas de sistema suportadas no Azure SQL Data Warehouse.
+title: Vistas de sistema - Azure SQL Data Warehouse | Documentos da Microsoft
+description: Ligações para a documentação para vistas de sistema suportado no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 06/13/2018
+ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: d76e21e37266a1b17f90fe7ce41438b9361c6e31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195384"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312445"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Vistas de sistema suportadas no Azure SQL Data Warehouse
-Fornece hiperligações para a documentação para instruções de T-SQL suportadas no Azure SQL Data Warehouse.
+Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
 
-## <a name="sql-data-warehouse-catalog-views"></a>Vistas de catálogo SQL Data Warehouse
+## <a name="sql-data-warehouse-catalog-views"></a>Exibições de catálogo do SQL Data Warehouse
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
@@ -38,7 +38,7 @@ Fornece hiperligações para a documentação para instruções de T-SQL suporta
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Vistas de gestão dinâmica do SQL Data Warehouse (DMVs)
+## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Vistas de gestão dinâmica (DMVs) do SQL Data Warehouse
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -59,13 +59,13 @@ Fornece hiperligações para a documentação para instruções de T-SQL suporta
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server DMVs aplicável ao SQL Data Warehouse
-Os DMVs seguintes são aplicáveis ao SQL Data Warehouse, mas tem de ser executados através da ligação para o **mestre** base de dados.
+As DMVs a seguir se aplicam ao SQL Data Warehouse, mas tem de ser executadas ao ligar-se para o **mestre** base de dados.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
-## <a name="sql-server-catalog-views"></a>Vistas de catálogo do SQL Server
+## <a name="sql-server-catalog-views"></a>Exibições de catálogo do SQL Server
 * [sys.all_columns](http://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](http://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](http://msdn.microsoft.com/library/ms190340.aspx)
@@ -132,12 +132,12 @@ Os DMVs seguintes são aplicáveis ao SQL Data Warehouse, mas tem de ser executa
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server DMVs disponíveis no SQL Data Warehouse
-O SQL Data Warehouse expõe muitas das vistas de gestão dinâmica do SQL Server (DMVs). Estas vistas, quando consultar no SQL Data Warehouse, estiverem a comunicar o estado das bases de dados do SQL Server em execução nas distribuições.
+O SQL Data Warehouse expõe muitas das vistas de gestão dinâmica do SQL Server (DMVs). Esses modos de exibição, quando consultado no SQL Data Warehouse, estão a comunicar o estado de bases de dados SQL em execução nas distribuições.
 
-Armazém de dados do SQL Server e o Analytics Platform System Parallel Data Warehouse (PDW) utilizam as mesmo vistas de sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador de nó de computação. 
+SQL Data Warehouse e o Analytics Platform System Parallel Data Warehouse (PDW) utilizam os mesmos modos de exibição do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador para o nó de computação. 
 
 > [!NOTE]
-> Para utilizar estas vistas, Inserir 'pdw_nodes_' o nome, conforme mostrado na seguinte tabela:
+> Para utilizar esses modos de exibição, insira 'pdw_nodes_' o nome, conforme mostrado na seguinte tabela:
 > 
 > 
 
@@ -206,7 +206,7 @@ Armazém de dados do SQL Server e o Analytics Platform System Parallel Data Ware
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Server 2016 PolyBase DMVs disponíveis no SQL Data Warehouse
-Os DMVs seguintes são aplicáveis ao SQL Data Warehouse, mas tem de ser executados através da ligação para o **mestre** base de dados.
+As DMVs a seguir se aplicam ao SQL Data Warehouse, mas tem de ser executadas ao ligar-se para o **mestre** base de dados.
 
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
@@ -219,16 +219,16 @@ Os DMVs seguintes são aplicáveis ao SQL Data Warehouse, mas tem de ser executa
 * [sys.dm_exec_external_operations](https://msdn.microsoft.com/library/mt146391.aspx)
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
-## <a name="sql-server-informationschema-views"></a>Vistas do SQL Server INFORMATION_SCHEMA
+## <a name="sql-server-informationschema-views"></a>Modos de exibição INFORMATION_SCHEMA do SQL Server
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [COLUMNS](http://msdn.microsoft.com/library/ms188348.aspx)
 * [PARÂMETROS](http://msdn.microsoft.com/library/ms173796.aspx)
-* [ROTINAS](https://msdn.microsoft.com/library/ms188757.aspx)
+* [ROTINAS DE](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)
 * [TABELAS](http://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
-* [VISTAS](http://msdn.microsoft.com/library/ms181381.aspx)
+* [MODOS DE EXIBIÇÃO](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações de referência, consulte [instruções T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), e [elementos de linguagem T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

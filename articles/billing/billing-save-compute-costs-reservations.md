@@ -1,6 +1,6 @@
 ---
 title: Quais são as reservas do Azure? | Microsoft Docs
-description: Saiba mais sobre as reservas do Azure e preços para guardar em suas máquinas virtuais, bases de dados SQL e outros custos de recursos.
+description: Saiba mais sobre as reservas do Azure e preços para guardar em suas máquinas virtuais, bases de dados SQL e outros custos do recurso.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 93c11852a11e0bb57a0b92090368298fc14b8c2a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 82b23f46acc94fefccc871583657200b90a33f05
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626309"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43303567"
 ---
 # <a name="what-are-azure-reservations"></a>Quais são as reservas do Azure?
 
-Capacidade de computação de ajuda de reservas do Azure que poupar dinheiro ao pagar previamente para um ano ou três anos de máquina virtual ou base de dados SQL. Pré-pagamento permite-lhe obter um desconto sobre os recursos que utiliza. Reservas do Azure podem reduzir significativamente sua máquina virtual ou os custos de computação de base de dados do SQL — até 72% em preços pay as you go – compromisso inicial de um ano ou três anos. reservas de fornecem um desconto de faturação e não afetam o estado de tempo de execução das suas máquinas virtuais ou bases de dados SQL.
+Capacidade, ou outros recursos do Azure de computação do Azure ajuda de reservas economizar dinheiro ao pagar previamente para um ano ou três anos de máquina virtual, base de dados SQL. Pré-pagamento permite-lhe obter um desconto sobre os recursos que utiliza. As reservas podem reduzir significativamente sua máquina virtual, computação de base de dados SQL ou outros custos do recurso até 72% em preços pay as you go. Reservas de fornecem um desconto de faturação e não afetam o estado de tempo de execução dos seus recursos.
 
 Pode comprar uma reserva [portal do Azure](https://aka.ms/reservations). Para obter mais informações, consulte os seguintes tópicos:
 
@@ -45,10 +45,10 @@ Para as máquinas virtuais do Windows e a base de dados SQL, que podem ser cober
 Os clientes do Azure com esses tipos de subscrições, podem comprar uma reserva:
 
 - Tipo de oferta de subscrição Contrato Enterprise (MS-AZR-0017P).
-- Tipo de oferta de subscrição [Pay As You Go](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Tem de ter a função "Proprietário" na subscrição para comprar uma reserva. Para comprar reservas numa inscrição de enterprise, o administrador de empresa tem de ativar as compras de reserva no portal do EA. Por predefinição, esta definição está ativada.
-- Parceiros da cloud Solution Provider (CSP) podem utilizar o portal do Azure ou [Centro de parceiros](https://docs.microsoft.com/partner-center/azure-reservations) comprar reservas do Azure. 
+- Tipo de oferta de subscrição [Pay As You Go](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Tem de ter a função "Proprietário" na subscrição para comprar uma reserva.
+- Parceiros da cloud Solution Provider (CSP) podem utilizar o portal do Azure ou [Centro de parceiros](https://docs.microsoft.com/partner-center/azure-reservations) comprar reservas do Azure.
 
-Um desconto de reserva do Azure só se aplica a máquinas virtuais ou bases de dados SQL associada com tipos de subscrição Enterprise, pay as you go ou CSP.
+Um desconto de reserva aplica-se apenas aos recursos associados a tipos de subscrição Enterprise, pay as you go ou CSP.
 
 ## <a name="how-is-a-reservation-billed"></a>Como é faturada uma reserva?
 
@@ -56,24 +56,27 @@ A reserva é cobrada ao método de pagamento associado à subscrição. Se tiver
 
 ## <a name="how-is-the-reservation-discount-applied"></a>Como é que o desconto de reserva é aplicado?
 
-O desconto de reserva se aplica a utilização de recursos que corresponda os atributos que selecionou quando comprar a reserva. Os atributos incluem o âmbito em que as VMs correspondentes, bases de dados SQL, ou executam outros recursos. Por exemplo, se pretender que um desconto de reserva para quatro máquinas de virtuais de Standard D2 na região E.U.A. oeste, selecione a subscrição em que as VMs estão em execução. Se as máquinas virtuais são executadas em subscrições diferentes na sua conta/inscrição, em seguida, selecione o âmbito como partilhado. Âmbito partilhado permite que o desconto de reserva a ser aplicado entre subscrições. Pode alterar o âmbito depois de comprar uma reserva. Para obter mais informações, consulte [Gerir reservas no Azure](billing-manage-reserved-vm-instance.md).
+O desconto de reserva se aplica a utilização de recursos que corresponda os atributos que selecionou quando comprar a reserva. Os atributos incluem o âmbito em que as VMs correspondentes, bases de dados SQL, ou executam outros recursos. Por exemplo, se pretender que um desconto de reserva para quatro máquinas de virtuais de Standard D2 na região E.U.A. oeste, selecione a subscrição em que as VMs estão em execução. Se as máquinas virtuais são executadas em subscrições diferentes na sua conta/inscrição, em seguida, selecione o âmbito como partilhado. Âmbito partilhado permite que o desconto de reserva a ser aplicado entre subscrições. Pode alterar o âmbito depois de comprar uma reserva. Para obter mais informações, consulte [Gerir reservas de Azure](billing-manage-reserved-vm-instance.md).
 
-O desconto de reserva aplica-se apenas a máquinas virtuais ou bases de dados SQL associado de empresa ou uma subscrição pay as you go tipos. As máquinas virtuais ou bases de dados do SQL que são executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva. Para inscrições de empresas, as subscrições de desenvolvimento/teste empresarial não elegíveis para o benefício de reserva.
+Um desconto de reserva aplica-se apenas aos recursos associados a tipos de subscrição Enterprise, pay as you go ou CSP. Recursos que são executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva. Para inscrições de empresas, as subscrições de desenvolvimento/teste empresarial não elegíveis para o benefício de reserva.
 
-Para compreender melhor como as reservas afeta sua máquina virtual ou a cobrança de base de dados SQL, consulte [compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md).
+Para compreender melhor como as reservas afeta sua faturação, consulte os seguintes tópicos:
+
+-  [Compreender o que desconto de instâncias de VM reservadas do Azure](billing-understand-vm-reservation-charges.md)
+- [Compreender o desconto de reserva do Azure](billing-understand-vm-reservation-charges.md)
+- Compreender o desconto de reserva do Azure e a utilização do SUSE
 
 ## <a name="what-happens-when-the-reservation-term-expires"></a>O que acontece quando o termo de reserva expira?
 
-No final do período de reserva, expira o desconto de faturação e a máquina virtual, a base de dados SQL ou a outros recursos são cobrados ao pay as you acedo preço. Reservas do Azure não a renovação automática. Para continuar a obter o desconto de faturação, tem de comprar uma reserva nova para a reserva serviços elegíveis.
+No final do período de reserva, expira o desconto de faturação e a máquina virtual, a base de dados SQL ou a outro recurso é cobrada de acordo com o pay as you acedo preço. Reservas do Azure não a renovação automática. Para continuar a obter o desconto de faturação, tem de comprar uma reserva nova para o software e serviços elegíveis.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Iniciar a guardar nas suas máquinas virtuais ao comprar uma [instância de VM reservada](../virtual-machines/windows/prepay-reserved-vm-instances.md) ou [capacidade de reserva de base de dados SQL](../sql-database/sql-database-reserved-capacity.md).
 
-Para saber mais sobre as reservas, veja os artigos seguintes:
+Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
-- [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)

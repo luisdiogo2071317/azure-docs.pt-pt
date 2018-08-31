@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 4fb0cf61d88a9a3d44091e49f501ef7af0f213d4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: MT
+ms.openlocfilehash: d248a97235ead134f29e468aaafcd04211590e02
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887085"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247495"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption 
  Neste artigo, os pré-requisitos do Azure Disk Encryption, explica os itens que precisam de estar em vigor antes de poder utilizar o Azure Disk Encryption. O Azure Disk Encryption está integrado [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ajudar a gerir as chaves de encriptação. Pode usar [do Azure PowerShell](/powershell/azure/overview), [CLI do Azure](/cli/azure/), ou o [portal do Azure](https://portal.azure.com) para configurar a encriptação de disco do Azure.
@@ -74,20 +74,18 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
         - Instalar o PowerShellGet, o Azure PowerShell e carregar o módulo AzureRM. 
     - [Instalar e configurar o Azure Powershell no macOS e Linux](/powershell/azure/install-azurermps-maclinux).
         -  Instale o PowerShell Core, o Azure PowerShell para .NET Core e carregar o módulo azurerm. Netcore.
-2. Instalar o [módulo do Azure Active Directory PowerShell](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
+
+2. Verifique se as versões instaladas do módulo AzureRM. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+    -  A versão do módulo de AzureRM tem de ser 6.0.0 ou superior.
+    - É recomendado utilizar a versão mais recente do módulo AzureRM.
 
      ```powershell
-     Install-Module AzureAD
+     Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Verifique se as versões instaladas dos módulos.
-      ```powershell
-      Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
-      Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
-      ```
-4. Inicie sessão no Azure com o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+3. Inicie sessão no Azure com o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
      
-     ```powershell
+     ```azurepowershell-interactive
      Connect-AzureRmAccount
      # For specific instances of Azure, use the -Environment parameter.
      Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
@@ -99,13 +97,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
      Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
      ```
 
-5.  Ligar ao Azure AD [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
-     
-     ```powershell
-     Connect-AzureAD
-     ```
-
-6. Revisão [introdução ao Azure PowerShell](/powershell/azure/get-started-azureps) e [AzureAD](/powershell/module/azuread), se for necessário.
+4.  Se for necessário, reveja [introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="bkmk_CLI"></a> Instalar a CLI do Azure para utilização no seu computador local (opcional)
 

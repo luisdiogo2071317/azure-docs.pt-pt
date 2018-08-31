@@ -3,19 +3,19 @@ title: 'Tutorial: Carregar dados para o Azure SQL Data Warehouse | Microsoft Doc
 description: O tutorial utiliza o portal do Azure e o SQL Server Management Studio para carregar o armazém de dados WideWorldImportersDW de um blob público do Azure para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195367"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286938"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados para o Azure SQL Data Warehouse
 
@@ -1107,7 +1107,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, clique em **SampleRG** e, em seguida, clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados. 
 
 Fez tudo isto:

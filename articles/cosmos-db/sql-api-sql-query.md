@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056395"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287763"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar dados do Azure Cosmos DB com consultas SQL
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB suporta a consulta de documentos através de SQL (Stru
 
 * O Azure Cosmos DB utiliza o modelo de programação do JavaScript como a base para a linguagem de consulta. A API de SQL está enraizada no sistema de tipos do JavaScript, avaliação de expressões e invocação de função. No folheio fornece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, associações de gestão personalizadas, consultas espaciais e invocação de funções definidas pelo utilizador (UDFs) escritos inteiramente no JavaScript, entre outros recursos. 
 
-Este artigo explica alguns exemplos de consultas SQL através da utilização de documentos JSON simples. Para saber mais sobre a sintaxe de linguagem de SQL do Azure Cosmos DB, veja [referência de sintaxe SQL](sql-api-sql-query-reference.md) artigo. Também pode começar a utilizar ao assistir os vídeos seguintes que mostram o Azure Cosmos DB do recursos de consulta e demonstra a online [recreio de consultas](http://www.documentdb.com/sql/demo).
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-Mais avançadas técnicas de consultas são demonstrados o vídeo seguinte:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+Este artigo explica alguns exemplos de consultas SQL através da utilização de documentos JSON simples. Para saber mais sobre a sintaxe de linguagem de SQL do Azure Cosmos DB, veja [referência de sintaxe SQL](sql-api-sql-query-reference.md) artigo. 
 
 ## <a id="GettingStarted"></a>Começar a utilizar com os comandos SQL
 Vamos criar duas simples de documentos JSON e a consulta em relação a esses dados. Considere os dois documentos JSON sobre famílias, inserir esses documentos JSON numa coleção e, em seguida, consultar os dados. Aqui temos um JSON simple de documentos para as famílias Andersen e Wakefield, os pais, filhos (e seus animais de estimação), endereço e as informações de registo. O documento tem as cadeias de caracteres, números, booleanos, matrizes e propriedades aninhadas. 

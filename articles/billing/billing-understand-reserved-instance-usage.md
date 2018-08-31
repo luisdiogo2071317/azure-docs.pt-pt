@@ -1,5 +1,5 @@
 ---
-title: Compreender a utilização de reserva do Azure para a subscrição pay as you go | Documentos da Microsoft
+title: Compreender a utilização de reservas de Azure para a subscrição pay as you go | Documentos da Microsoft
 description: Saiba como ler sua utilização para compreender a forma como é aplicada a reserva do Azure para a sua subscrição pay as you go.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627888"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307063"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Compreender a utilização de reserva do Azure para a sua subscrição pay as you go
 
@@ -93,12 +93,12 @@ Filtre **informações adicionais** e escreva na sua **ID de reserva**. Captura 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre as reservas, veja os artigos seguintes:
+Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md)
-- [Gerir reservas no Azure](billing-manage-reserved-vm-instance.md)
+- [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)

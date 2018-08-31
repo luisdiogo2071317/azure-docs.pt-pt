@@ -1,45 +1,45 @@
 ---
-title: 'Tutorial: Consulta elástica com o armazém de dados SQL do Azure | Microsoft Docs'
-description: Este tutorial utiliza a funcionalidade de consulta elástico a consultar o Azure SQL Data Warehouse da SQL Database do Azure.
+title: 'Tutorial: A consulta elástica com o armazém de dados SQL do Azure | Documentos da Microsoft'
+description: Este tutorial utiliza a funcionalidade de consulta elástica para consultar a Azure SQL Data Warehouse da base de dados do Azure SQL.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526197"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307097"
 ---
-# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutorial: Utilize elástico consulta para aceder a dados no Azure SQL Data Warehouse da SQL Database do Azure
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutorial: Utilizar consulta elástica para aceder a dados no Azure SQL Data Warehouse da base de dados do Azure SQL
 
-Este tutorial utiliza a funcionalidade de consulta elástico a consultar o Azure SQL Data Warehouse da SQL Database do Azure. 
+Este tutorial utiliza a funcionalidade de consulta elástica para consultar a Azure SQL Data Warehouse da base de dados do Azure SQL. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Pré-requisitos para o tutorial
 
-Antes de começar o tutorial, tem de ter os seguintes pré-requisitos:
+Antes de iniciar o tutorial, tem de ter os seguintes pré-requisitos:
 
 1. Instalar o SQL Server Management Studio (SSMS).
-2. Criar um servidor de SQL do Azure com um base de dados do armazém de dados dentro deste servidor.
-3. Configure regras de firewall para aceder ao servidor de SQL do Azure.
+2. Criar um servidor SQL do Azure com um armazém de dados e da base de dados dentro deste servidor.
+3. Configure regras de firewall para aceder ao servidor SQL do Azure.
 
-## <a name="set-up-connection-between-sql-data-warehouse-and-sql-database-instances"></a>Configurar a ligação entre instâncias de armazém de dados do SQL Server e base de dados SQL 
+## <a name="set-up-connection-between-sql-data-warehouse-and-sql-database-instances"></a>Configurar a ligação entre instâncias do SQL Data Warehouse e a base de dados SQL 
 
-1. Com o SSMS ou de outro cliente de consulta, abra uma nova consulta da base de dados **mestre** no seu servidor lógico.
+1. Utilizando o SSMS ou outro cliente de consultas, abra uma nova consulta de base de dados **mestre** no seu servidor lógico.
 
-2. Crie um início de sessão e o utilizador que representa a base de dados do SQL Server para a ligação do armazém de dados.
+2. Crie um início de sessão e um utilizador que representa a base de dados SQL para ligação de armazém de dados.
 
    ```sql
    CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
    ```
 
-3. Com o SSMS ou de outro cliente de consulta, abra uma nova consulta para o **instância de armazém de dados do SQL Server** no seu servidor lógico.
+3. Utilizando o SSMS ou outro cliente de consultas, abra uma nova consulta para o **instância de armazém de dados SQL** no seu servidor lógico.
 
 4. Criar um utilizador na instância de armazém de dados com o início de sessão que criou no passo 2
 
@@ -47,21 +47,21 @@ Antes de começar o tutorial, tem de ter os seguintes pré-requisitos:
    CREATE USER SalesDBUser FOR LOGIN SalesDBLogin;
    ```
 
-5. Conceder permissões para o utilizador no passo 4 que utilizaria como a base de dados do SQL Server gostaria de executar. Neste exemplo, permissão está apenas a ser concedida selecione num esquema específico, que ilustra como possível podem impedir consultas na base de dados do SQL Server para um domínio específico. 
+5. Conceder permissões ao utilizador no passo 4, que teria como base de dados SQL gostaria de executar. Neste exemplo, permissão é apenas a ser concedida para SELECIONAR num esquema específico, que ilustra como a Microsoft pode limitar consultas da base de dados SQL a um domínio específico. 
 
    ```sql
    GRANT SELECT ON SCHEMA :: [dbo] TO SalesDBUser;
    ```
 
-6. Com o SSMS ou de outro cliente de consulta, abra uma nova consulta para o **instância de base de dados do SQL Server** no seu servidor lógico.
+6. Utilizando o SSMS ou outro cliente de consultas, abra uma nova consulta para o **instância de base de dados SQL** no seu servidor lógico.
 
-7. Se já tiver uma, crie uma chave mestra. 
+7. Se ainda não tiver uma, crie uma chave mestra. 
 
    ```sql
    CREATE MASTER KEY; 
    ```
 
-8. Crie uma credencial com âmbito de base de dados utilizando as credenciais que criou no passo 2.
+8. Crie uma credencial com âmbito de base de dados com as credenciais que criou no passo 2.
 
    ```sql
    CREATE DATABASE SCOPED CREDENTIAL SalesDBElasticCredential
@@ -80,16 +80,16 @@ Antes de começar o tutorial, tem de ter os seguintes pré-requisitos:
    ) ;
    ```
 
-10. Agora, pode criar as tabelas externas que referenciam esta origem de dados externa. Nessas tabelas a utilizar as consultas são enviadas para a instância de armazém de dados a processar e enviadas para a instância de base de dados.
+10. Agora, pode criar tabelas externas que fazem referência a esta origem de dados externa. Consultas usando essas tabelas são enviadas para a instância de armazém de dados deve ser processada e enviada para a instância de base de dados.
 
 
-## <a name="elastic-query-from-sql-database-to-sql-data-warehouse"></a>Consulta elástica da base de dados do SQL ao SQL data warehouse
+## <a name="elastic-query-from-sql-database-to-sql-data-warehouse"></a>Consulta elástica da base de dados SQL ao SQL data warehouse
 
-Os próximos passos, irá criar uma tabela no nosso instância de armazém de dados com vários valores. Em seguida, vamos demonstrar como configurar uma tabela externa para consultar a instância de armazém de dados na instância de base de dados.
+Os passos seguintes, irá criar uma tabela na nossa instância de armazém de dados com vários valores. Em seguida, demonstraremos como configurar a uma tabela externa para consultar a instância de armazém de dados da instância de base de dados.
 
-1. Com o SSMS ou de outro cliente de consulta, abra uma nova consulta para o **SQL Data Warehouse** no seu servidor lógico.
+1. Utilizando o SSMS ou outro cliente de consultas, abra uma nova consulta para o **o SQL Data Warehouse** no seu servidor lógico.
 
-2. Submeter a consulta seguinte para criar um **OrdersInformation** tabela na sua instância de armazém de dados.
+2. Submeter a consulta seguinte para criar uma **OrdersInformation** tabela na sua instância de armazém de dados.
 
    ```sql
    CREATE TABLE [dbo].[OrderInformation]
@@ -104,7 +104,7 @@ Os próximos passos, irá criar uma tabela no nosso instância de armazém de da
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
    ```
 
-3. Com o SSMS ou de outro cliente de consulta, abra uma nova consulta para o **base de dados SQL** no seu servidor lógico.
+3. Utilizando o SSMS ou outro cliente de consultas, abra uma nova consulta para o **base de dados SQL** no seu servidor lógico.
 
 4. Submeter a consulta seguinte para criar uma definição de tabela externa que aponta para o **OrdersInformation** tabela na instância do armazém de dados.
 
@@ -122,12 +122,12 @@ Os próximos passos, irá criar uma tabela no nosso instância de armazém de da
    )
    ```
 
-5. Reparar que tem agora uma definição de tabela externa sua **instância de base de dados do SQL Server**.
+5. Observe que agora tem uma definição de tabela externa no seu **instância de base de dados SQL**.
 
-   ![definição de tabela externa de consulta elástico](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![definição de tabela externa de consulta elástica](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
-6. Submeta a consulta seguinte, o que consulta a instância de armazém de dados. Deverá receber os cinco valores introduzidos no passo 2. 
+6. Submeta a consulta seguinte, que consulta a instância de armazém de dados. Deverá receber os cinco valores que inseriu na etapa 2. 
 
 ```sql
 SELECT * FROM [dbo].[OrderInformation];
@@ -135,9 +135,9 @@ SELECT * FROM [dbo].[OrderInformation];
 
 > [!NOTE]
 >
-> Tenha em atenção que, apesar de alguns valores, esta consulta demora tempo considerável a devolver. Quando utilizar consulta elástica com o armazém de dados, uma deve considerar os custos gerais de processamento de consultas e movimento através da transmissão. Utilize execução remota de consulta elástico quando a capacidade de computação, a latência, a prioridade.
+> Tenha em atenção que, apesar de alguns valores, esta consulta leva um tempo considerável para retornar. Ao utilizar a consulta elástica com o armazém de dados, deve considerar os custos gerais de processamento de consultas e o movimento de durante a transmissão. Utilize a execução remota de consulta elástica o poder de computação, latência, é a prioridade.
 
-Parabéns, configurou as noções básicas muito da consulta elástico. 
+Parabéns, tiver definido as noções básicas de consulta elástica. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para ver as recomendações, consulte [melhores práticas para utilizar consulta elástico com o Azure SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md).
+Para obter recomendações, veja [melhores práticas para utilizar a consulta elástica com o Azure SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md).

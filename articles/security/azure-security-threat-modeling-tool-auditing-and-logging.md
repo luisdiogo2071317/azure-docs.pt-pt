@@ -1,169 +1,169 @@
 ---
-title: Auditoria e registo - ferramenta de modelação de ameaça Microsoft - Azure | Microsoft Docs
-description: Mitigações ameaças exposta na ferramenta de modelação de ameaça
+title: Auditoria e registro - ferramenta de modelagem de ameaças Microsoft - Azure | Documentos da Microsoft
+description: atenuações para ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029986"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307003"
 ---
-# <a name="security-frame-auditing-and-logging--mitigations"></a>Período de segurança: Auditoria e registo | Mitigações 
+# <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e registo | Atenuações 
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
-| **Dynamics CRM**    | <ul><li>[Identificar confidenciais entidades na sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |
-| **Aplicação Web** | <ul><li>[Certifique-se de que a auditoria e registo é imposto na aplicação](#auditing)</li><li>[Certifique-se de que a rotação do registo e separação estão no local](#log-rotation)</li><li>[Certifique-se de que a aplicação não regista dados confidenciais do utilizador](#log-sensitive-data)</li><li>[Certifique-se de que os ficheiros de registo de auditoria e têm acesso restrito](#log-restricted-access)</li><li>[Certifique-se de que os eventos de gestão de utilizador são registados](#user-management)</li><li>[Certifique-se de que o sistema tem defesas integradas contra utilização indevida](#inbuilt-defenses)</li><li>[Ativar o registo de diagnóstico para web apps no App Service do Azure](#diagnostics-logging)</li></ul> |
-| **Base de Dados** | <ul><li>[Certifique-se de que a auditoria de início de sessão está ativada no SQL Server](#identify-sensitive-entities)</li><li>[Ativar a deteção de ameaças no SQL do Azure](#threat-detection)</li></ul> |
-| **Armazenamento do Azure** | <ul><li>[Utilize a análise de armazenamento do Azure para auditar o acesso do Storage do Azure](#analytics)</li></ul> |
-| **WCF** | <ul><li>[Implementar o registo suficiente](#sufficient-logging)</li><li>[Implementar o processamento da falha de auditoria suficientes](#audit-failure-handling)</li></ul> |
-| **API Web** | <ul><li>[Certifique-se de que a auditoria e registo é aplicada a Web API](#logging-web-api)</li></ul> |
-| **Gateway de campo de IoT** | <ul><li>[Certifique-se de que é aplicada adequada de auditoria e registo no Gateway de campo](#logging-field-gateway)</li></ul> |
-| **Gateway de nuvem do IoT** | <ul><li>[Certifique-se de que é aplicada adequada de auditoria e registo no Gateway de nuvem](#logging-cloud-gateway)</li></ul> |
+| **Dynamics CRM**    | <ul><li>[Identificar as entidades sensíveis na sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |
+| **Aplicação Web** | <ul><li>[Certifique-se de que a auditoria e Registro é aplicada a aplicação](#auditing)</li><li>[Certifique-se de que a rotação do registo e a separação estão em vigor](#log-rotation)</li><li>[Certifique-se de que o aplicativo não regista dados de utilizador confidenciais](#log-sensitive-data)</li><li>[Certifique-se de que a auditoria e de ficheiros de registo têm acesso restrito](#log-restricted-access)</li><li>[Certifique-se de que os eventos de gestão de utilizador registados](#user-management)</li><li>[Certifique-se de que o sistema tem incorporadas defesas contra utilização indevida](#inbuilt-defenses)</li><li>[Ativar o registo de diagnóstico para aplicações web no App Service do Azure](#diagnostics-logging)</li></ul> |
+| **Base de Dados** | <ul><li>[Certifique-se de que a auditoria de início de sessão está ativada no SQL Server](#identify-sensitive-entities)</li><li>[Ativar a deteção de ameaças em SQL do Azure](#threat-detection)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Utilizar a análise de armazenamento do Azure para auditar o acesso do armazenamento do Azure](#analytics)</li></ul> |
+| **WCF** | <ul><li>[Implementar o Registro em log suficiente](#sufficient-logging)</li><li>[Implementar o tratamento da falha de auditoria suficientes](#audit-failure-handling)</li></ul> |
+| **API Web** | <ul><li>[Certifique-se de que a auditoria e Registro é aplicada a Web API](#logging-web-api)</li></ul> |
+| **Gateway de campo de IoT** | <ul><li>[Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de campo](#logging-field-gateway)</li></ul> |
+| **Gateway de Cloud da IoT** | <ul><li>[Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de Cloud](#logging-cloud-gateway)</li></ul> |
 
-## <a id="sensitive-entities"></a>Identificar confidenciais entidades na sua solução e implementar a auditoria de alteração
+## <a id="sensitive-entities"></a>Identificar as entidades sensíveis na sua solução e implementar a auditoria de alteração
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | Identificar as entidades na sua solução com dados confidenciais e implementar a auditoria às alterações dessas entidades e campos |
+| **Passos**                   | Identificar as entidades na sua solução que contêm dados confidenciais e implementar a auditoria de alteração nesses campos e entidades |
 
-## <a id="auditing"></a>Certifique-se de que a auditoria e registo é imposto na aplicação
+## <a id="auditing"></a>Certifique-se de que a auditoria e Registro é aplicada a aplicação
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | Ative a auditoria e registo em todos os componentes. Os registos de auditoria devem capturar o contexto de utilizador. Identifique todos os eventos importantes e os eventos de registo. Implementar o registo centralizado |
+| **Passos**                   | Ative auditoria e registo em todos os componentes. Registos de auditoria devem capturar o contexto de utilizador. Identifique todos os eventos importantes e registrar esses eventos. Implementar o registo centralizado |
 
-## <a id="log-rotation"></a>Certifique-se de que a rotação do registo e separação estão no local
+## <a id="log-rotation"></a>Certifique-se de que a rotação do registo e a separação estão em vigor
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | <p>Rotação do registo é um processo automatizado utilizado na administração do sistema em que os ficheiros de registo com a data de estão arquivados. Servidores que executem aplicações de grandes dimensões, muitas vezes, registar cada pedido: face bulky registos, rotação do registo é uma forma de limitar o tamanho total dos registos permitindo ainda uma análise de eventos recentes. </p><p>Inicie sessão separação basicamente significa que tem de armazenar o início de sessão ficheiros numa partição diferente como onde a SO/aplicação está em execução no modo avert um ataque de recusa de serviço ou a desatualização da sua aplicação, o desempenho dele</p>|
+| **Passos**                   | <p>Rotação do registo é um processo automatizado utilizado na administração de sistema no qual os ficheiros de registo com data são arquivados. Servidores que executam aplicativos grandes, muitas vezes, registar cada pedido: diante de registos pesados, rotação do registo é uma forma de limitar o tamanho total dos logs de enquanto ainda permite que uma análise de eventos recentes. </p><p>Separação de registo, basicamente, significa que precisará armazenar seu log de arquivos numa partição diferente como onde seu SO/aplicação está em execução no fim de avert um ataque de negação de serviço ou fazer o downgrade de seu aplicativo, o desempenho</p>|
 
-## <a id="log-sensitive-data"></a>Certifique-se de que a aplicação não regista dados confidenciais do utilizador
+## <a id="log-sensitive-data"></a>Certifique-se de que o aplicativo não regista dados de utilizador confidenciais
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | <p>Certifique-se de que não iniciar sessão quaisquer dados confidenciais que um utilizador submete para o seu site. Verifique a existência de registo intencional, bem como os efeitos secundários causados por problemas de design. Exemplos de dados confidenciais incluem:</p><ul><li>Credenciais de Utilizador</li><li>Número de segurança social ou outras informações de identificação</li><li>Números de cartão de crédito ou outras informações financeiras</li><li>Informações de estado de funcionamento</li><li>As chaves privadas ou outros dados que pode ser utilizados para desencriptar informações encriptadas</li><li>Informações de sistema ou aplicação que podem ser utilizadas para atacar forma mais eficaz a aplicação</li></ul>|
+| **Passos**                   | <p>Verifique se não iniciar quaisquer dados confidenciais que um usuário envia para o seu site. Verifique o registo intencional, bem como os efeitos colaterais causados por problemas de design. Exemplos de dados confidenciais:</p><ul><li>Credenciais de Utilizador</li><li>Número da Previdência ou outras informações de identificação</li><li>Números de cartão de crédito ou outras informações financeiras</li><li>Informações de estado de funcionamento</li><li>As chaves privadas ou outros dados que podem ser utilizados para desencriptar informações encriptadas</li><li>Informações de sistema ou aplicativo que podem ser utilizadas para atacar com mais eficiência a aplicação</li></ul>|
 
-## <a id="log-restricted-access"></a>Certifique-se de que os ficheiros de registo de auditoria e têm acesso restrito
+## <a id="log-restricted-access"></a>Certifique-se de que a auditoria e de ficheiros de registo têm acesso restrito
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | <p>Verificar para garantir que os direitos de acesso nos ficheiros de registo estão definidos corretamente. Contas de aplicação devem ter acesso só de escrita e operadores e suporte técnico deve ter acesso só de leitura, conforme necessário.</p><p>Contas de administradores são as únicas contas que devem ter acesso total. Verifique a ACL do Windows nos ficheiros de registo para garantir que estão corretamente restritos:</p><ul><li>Contas de aplicação devem ter acesso só de escrita</li><li>Os operadores e suporte técnico deve ter acesso só de leitura conforme necessário</li><li>Os administradores são as únicas contas que devem ter acesso total</li></ul>|
+| **Passos**                   | <p>Verifique se os direitos de acesso nos ficheiros de registo estão definidos corretamente. As contas de aplicativos devem ter acesso só de escrita e operadores e suporte técnico deve ter acesso só de leitura, conforme necessário.</p><p>Contas de administradores são as únicas contas que devem ter acesso total. Verifique a ACL do Windows em ficheiros de registo para garantir que eles são restritos corretamente:</p><ul><li>As contas de aplicativos devem ter acesso só de escrita</li><li>Operadores e suporte técnico deve ter acesso só de leitura conforme necessário</li><li>Os administradores são as únicas contas que devem ter acesso total</li></ul>|
 
-## <a id="user-management"></a>Certifique-se de que os eventos de gestão de utilizador são registados
+## <a id="user-management"></a>Certifique-se de que os eventos de gestão de utilizador registados
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | <p>Certifique-se de que a aplicação monitoriza os eventos de gestão de utilizador, tais como inícios de sessão do utilizador com êxito ou falhada, que repõe palavras-passe, as alterações de palavra-passe, o bloqueio da conta, o registo de utilizador. Isto ajuda a detetar e reagir a comportamentos potencialmente suspeitos a fazer. Também permite a recolha de dados de operações; Por exemplo, para controlar quem está a aceder a aplicação</p>|
+| **Passos**                   | <p>Certifique-se de que a aplicação monitoriza os eventos de gestão de utilizador, tais como inícios de sessão do utilizador com êxito ou falhada, redefinição de senha, alterações de palavra-passe, o bloqueio de conta, o Registro do usuário. Fazer isso ajuda a detetar e reagir a comportamentos potencialmente suspeitos. Ele também lhe permite para recolher dados de operações; Por exemplo, para controlar quem acede à aplicação</p>|
 
-## <a id="inbuilt-defenses"></a>Certifique-se de que o sistema tem defesas integradas contra utilização indevida
+## <a id="inbuilt-defenses"></a>Certifique-se de que o sistema tem incorporadas defesas contra utilização indevida
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | <p>Devem ser implementados controlos que emitir exceção de segurança em caso de utilização indevida de aplicação. Por exemplo, se a validação de entrada for no local e um atacante tentar inserir código malicioso que não coincide com regex, uma exceção de segurança pode ser emitida que pode ser um facto de utilização indevida do sistema</p><p>Por exemplo, é recomendado ter exceções de segurança com sessão iniciadas e as ações executadas para os seguintes problemas:</p><ul><li>Validação de entradas</li><li>Violações CSRF</li><li>Força bruta (limite superior para o número de pedidos por utilizador por recurso)</li><li>Violações de carregamento de ficheiros</li><ul>|
+| **Passos**                   | <p>Controles devem estar no local que lançar a exceção de segurança em caso de utilização indevida de aplicação. Por exemplo, se a validação de entrada for no local e um invasor tente injetar código malicioso que não corresponde ao regex, uma exceção de segurança pode ser lançada que pode ser um indicativo de utilização indevida de sistema</p><p>Por exemplo, é recomendável ter sessão iniciadas de exceções de segurança e ações executadas para os seguintes problemas:</p><ul><li>Validação de entradas</li><li>Violações de CSRF</li><li>Força bruta (limite superior para o número de pedidos por utilizador por recurso)</li><li>Violações de carregamento de ficheiros</li><ul>|
 
-## <a id="diagnostics-logging"></a>Ativar o registo de diagnóstico para web apps no App Service do Azure
+## <a id="diagnostics-logging"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | EnvironmentType - Azure |
+| **Atributos**              | EnvironmentType - Azure |
 | **Referências**              | N/A  |
-| **Passos** | <p>O Azure disponibiliza diagnósticos incorporados para ajudar a depurar as aplicações Web do Serviço de Aplicações. Também se aplica a aplicações API e aplicações móveis. Web apps do App Service fornecem a funcionalidade de diagnóstico para informações de registo do servidor web e a aplicação web.</p><p>Estes são logicamente separados para o diagnóstico do servidor web e o application diagnostics</p>|
+| **Passos** | <p>O Azure disponibiliza diagnósticos incorporados para ajudar a depurar as aplicações Web do Serviço de Aplicações. Também se aplica a aplicações API e aplicações móveis. Aplicações web do serviço de aplicações fornecem funcionalidade Diagnóstico de informações de registo do servidor web e a aplicação web.</p><p>Estes são logicamente separados para o diagnóstico do servidor web e ao application diagnostics</p>|
 
 ## <a id="identify-sensitive-entities"></a>Certifique-se de que a auditoria de início de sessão está ativada no SQL Server
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | [Configurar a auditoria de início de sessão](https://msdn.microsoft.com/library/ms175850.aspx) |
-| **Passos** | <p>A auditoria de início de sessão do servidor de base de dados tem de estar ativada para detetar/Confirmar palavra-passe a deteção de ataques. É importante capturar o início de sessão falhadas. Captura de ambas as tentativas de início de sessão com êxito e oferece o benefício adicional durante as investigações forenses</p>|
+| **Passos** | <p>A auditoria de início de sessão do servidor de base de dados tem de estar ativada para ataques de adivinhação de senha detetar/confirmar. É importante capturar as tentativas de início de sessão. Captura de ambas as tentativas de início de sessão com êxito ou falhada fornece benefícios adicionais durante as investigações forenses</p>|
 
-## <a id="threat-detection"></a>Ativar a deteção de ameaças no SQL do Azure
+## <a id="threat-detection"></a>Ativar a deteção de ameaças em SQL do Azure
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | SQL Azure |
-| **atributos**              | Versão do SQL Server - V12 |
-| **Referências**              | [Introdução à deteção de ameaças de base de dados do SQL Server](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
-| **Passos** |<p>A deteção de ameaças Deteta atividades de base de dados anómalas, indicando potenciais ameaças de segurança para a base de dados. Fornece uma nova camada de segurança, o que permite que os clientes detetar e reagir a potenciais ameaças à medida que ocorrem, fornecendo alertas de segurança em atividades anómalas.</p><p>Os utilizadores podem explorar os suspeitos eventos de auditoria de base de dados SQL do Azure a utilizar para determinar se eles resultam de uma tentativa de aceder, infringir ou exploram os dados na base de dados.</p><p>A deteção de ameaças torna simples para resolver potenciais ameaças à base de dados sem a necessidade de ser um especialista de segurança ou faça a gestão de sistemas de monitorização de segurança avançada</p>|
+| **Atributos**              | Versão do SQL - V12 |
+| **Referências**              | [Introdução à deteção de ameaças da base de dados SQL](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Passos** |<p>Deteção de ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a base de dados. Ele fornece uma nova camada de segurança, o que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem ao fornecer alertas de segurança relativamente a atividades anómalas.</p><p>Os utilizadores podem explorar os eventos suspeitos com a auditoria de base de dados SQL do Azure para determinar se estes resultam de uma tentativa de aceder, violar ou explorar dados na base de dados.</p><p>Deteção de ameaças facilita lidar com potenciais ameaças à base de dados sem a necessidade de ser um especialista em segurança ou gerir sistemas de monitorização de segurança avançada</p>|
 
-## <a id="analytics"></a>Utilize a análise de armazenamento do Azure para auditar o acesso do Storage do Azure
+## <a id="analytics"></a>Utilizar a análise de armazenamento do Azure para auditar o acesso do armazenamento do Azure
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Implementação |  
+| **Fase do SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A |
-| **Referências**              | [Análise de armazenamento a utilizar para monitorizar o tipo de autorização](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **Passos** | <p>Para cada conta de armazenamento, um pode ativar a análise de armazenamento do Azure efetuar o registo e armazenar dados de métricas. Os registos de análise de armazenamento fornecem informações importantes como método de autenticação utilizado por outra quando acedem ao armazenamento.</p><p>Isto pode ser realmente útil se totalmente são guarding acesso ao armazenamento. Por exemplo, no Blob Storage pode definir todos os contentores para private e implementar a utilização de um serviço SAS em toda as suas aplicações. Em seguida, pode verificar os registos regularmente para ver se os blobs são acedidos utilizando as chaves de conta de armazenamento, o que podem indicar uma violação de segurança, ou se os blobs são públicos, mas não deve ser.</p>|
+| **Atributos**              | N/A |
+| **Referências**              | [A utilização de análise de armazenamento para monitorizar o tipo de autorização](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Passos** | <p>Para cada conta de armazenamento, um pode ativar a análise de armazenamento do Azure efetuar o registo e armazenar dados de métricas. Registos de análise de armazenamento fornecem informações importantes, como o método de autenticação utilizado por uma pessoa quando acedem de armazenamento.</p><p>Isto pode ser realmente útil se rigidamente são protege o acesso ao armazenamento. Por exemplo, no armazenamento de BLOBs pode definir todos os contentores para particular e implementar a utilização de um serviço SAS ao longo de seus aplicativos. Em seguida, pode verificar os registos regularmente para ver se os blobs são acedidos utilizando as chaves de conta de armazenamento, que podem indicar uma violação de segurança, ou se os blobs sejam públicos, mas eles não devem ser.</p>|
 
-## <a id="sufficient-logging"></a>Implementar o registo suficiente
+## <a id="sufficient-logging"></a>Implementar o Registro em log suficiente
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | .NET framework |
-| **atributos**              | N/A  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
-| **Passos** | <p>A falta de um registo de auditoria correta depois de um incidente de segurança pode hamper esforços de análise forenses. Windows Communication Foundation (WCF) oferece a capacidade de registar as tentativas de autenticação com êxito e/ou falhada.</p><p>A registar as tentativas de autenticação falhada, pode avisar os administradores de potenciais ataques de força bruta. Da mesma forma, registo de eventos de autenticação com êxito pode fornecer um registo de auditoria útil quando uma legítima conta for comprometida. Ativar a funcionalidade de auditoria de segurança de serviço do WCF |
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | .NET Framework |
+| **Atributos**              | N/A  |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Passos** | <p>A falta de uma trilha de auditoria adequados após um incidente de segurança pode hamper esforços forenses. Windows Communication Foundation (WCF) oferece a capacidade de registar as tentativas de autenticação com êxito e/ou falha.</p><p>Registo de tentativas falhadas de autenticação pode avisar os administradores de potenciais ataques de força bruta. Da mesma forma, registo de eventos de autenticação com êxito pode fornecer uma trilha de auditoria útil quando uma conta legítima for comprometida. Ativar a funcionalidade de auditoria de segurança de serviço do WCF |
 
 ### <a name="example"></a>Exemplo
 Segue-se um exemplo de configuração com a auditoria ativada
@@ -183,19 +183,19 @@ Segue-se um exemplo de configuração com a auditoria ativada
 </system.serviceModel>
 ```
 
-## <a id="audit-failure-handling"></a>Implementar o processamento da falha de auditoria suficientes
+## <a id="audit-failure-handling"></a>Implementar o tratamento da falha de auditoria suficientes
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | .NET framework |
-| **atributos**              | N/A  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
-| **Passos** | <p>Solução programada está configurada para não gerar uma exceção quando ocorre uma falha ao escrever no registo de auditoria. Se o WCF está configurado para não gerar uma exceção quando for não é possível escrever um registo de auditoria, o programa não será notificado da falha e a auditoria de eventos de segurança críticas poderá não ocorrer.</p>|
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | .NET Framework |
+| **Atributos**              | N/A  |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Passos** | <p>Solução desenvolvida é configurada para não gerar uma exceção quando ocorre uma falha ao escrever um log de auditoria. Se o WCF é configurado para não gerar uma exceção quando for não é possível escrever um log de auditoria, o programa não será notificado da falha e não pode ocorrer a auditoria de eventos de segurança críticas.</p>|
 
 ### <a name="example"></a>Exemplo
-O `<behavior/>` elemento do ficheiro de configuração de WCF abaixo dá instruções ao WCF não notificar a aplicação quando WCF não é possível escrever um registo de auditoria.
+O `<behavior/>` elemento do ficheiro de configuração de WCF abaixo Instrua o WCF não notificar o aplicativo quando o WCF não consegue escrever um log de auditoria.
 ````
 <behaviors>
     <serviceBehaviors>
@@ -208,37 +208,37 @@ O `<behavior/>` elemento do ficheiro de configuração de WCF abaixo dá instru�
     </serviceBehaviors>
 </behaviors>
 ````
-Configure WCF para notificar o programa sempre que é não é possível escrever um registo de auditoria. O programa deve ter um esquema de notificação alternativo alerta a organização que os registos de auditoria não são mantidas. 
+Configure o WCF para notificar o programa sempre que for não é possível escrever um log de auditoria. O programa deve ter um esquema de notificação alternativo para alerta não estão a ser mantido a organização que registos de auditoria. 
 
-## <a id="logging-web-api"></a>Certifique-se de que a auditoria e registo é aplicada a Web API
+## <a id="logging-web-api"></a>Certifique-se de que a auditoria e Registro é aplicada a Web API
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | Ative a auditoria e registo em APIs da Web. Os registos de auditoria devem capturar o contexto de utilizador. Identifique todos os eventos importantes e os eventos de registo. Implementar o registo centralizado |
+| **Passos** | Ative auditoria e Registro em APIs da Web. Registos de auditoria devem capturar o contexto de utilizador. Identifique todos os eventos importantes e registrar esses eventos. Implementar o registo centralizado |
 
-## <a id="logging-field-gateway"></a>Certifique-se de que é aplicada adequada de auditoria e registo no Gateway de campo
+## <a id="logging-field-gateway"></a>Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de campo
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
+| **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | <p>Quando vários dispositivos se ligam a um Gateway de campo, certifique-se de que as tentativas de ligação e o estado de autenticação (êxito ou falha) para os dispositivos individuais são registados e mantidos no Gateway de campo.</p><p>Além disso, nos casos em que o Gateway de campo é manter as credenciais do IoT Hub para os dispositivos individuais, certifique-se de que a auditoria é executada quando estas credenciais são obtidas. Desenvolva um processo periodicamente carregar os registos para o IoT Hub/armazenamento do Azure para a retenção de prazo longo.</p> |
+| **Passos** | <p>Quando vários dispositivos se ligam a um Gateway de campo, certifique-se de que as tentativas de ligação e o estado de autenticação (êxito ou falha) para dispositivos individuais são registados e mantidos no Gateway de campo.</p><p>Além disso, nos casos em que o Gateway de campo é manter as credenciais do IoT Hub para dispositivos individuais, certifique-se de que a auditoria é executada quando estas credenciais são recuperadas. Desenvolva um processo para carregar periodicamente os registos para o IoT Hub/armazenamento do Azure para retenção a longo prazo.</p> |
 
-## <a id="logging-cloud-gateway"></a>Certifique-se de que é aplicada adequada de auditoria e registo no Gateway de nuvem
+## <a id="logging-cloud-gateway"></a>Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de Cloud
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Gateway de nuvem do IoT | 
-| **Fase SDL**               | Compilação |  
+| **Componente**               | Gateway de Cloud da IoT | 
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **atributos**              | N/A  |
-| **Referências**              | [Introdução à monitorização de operações de IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **Passos** | <p>Conceção para recolher e armazenar dados de auditoria recolhidos através de monitorização de operações do IoT Hub. Ative monitorização seguintes categorias:</p><ul><li>Operações de identidade de dispositivo</li><li>Comunicações de dispositivo-nuvem</li><li>Comunicações de nuvem para o dispositivo</li><li>Ligações</li><li>Carregamentos de ficheiros</li></ul>|
+| **Atributos**              | N/A  |
+| **Referências**              | [Introdução à monitorização de operações do IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Passos** | <p>Design para recolher e armazenar dados de auditoria coletados por meio de monitorização de operações do IoT Hub. Ative as seguintes categorias de monitorização:</p><ul><li>Operações de identidade de dispositivo</li><li>Comunicações de dispositivo para a cloud</li><li>Comunicações de cloud-para-dispositivo</li><li>Ligações</li><li>Carrega o ficheiro</li></ul>|

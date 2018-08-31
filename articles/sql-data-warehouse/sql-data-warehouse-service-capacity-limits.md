@@ -3,30 +3,30 @@ title: Limites de capacidade - Azure SQL Data Warehouse | Documentos da Microsof
 description: Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: sachinpMSFT
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 07/26/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: df3220936673e508e0fa01a283270e1b4ca4753c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283440"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302048"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 
-## <a name="workload-management"></a>Gestão de cargas de trabalhos
+## <a name="workload-management"></a>Gestão de cargas de trabalho
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [Unidades do Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Máx. de DWU para um único armazém de dados SQL | Geração 1: DW6000<br></br>Geração 2: DW30000c |
 | [Unidades do Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Padrão DTU por servidor |54,000<br></br>Por predefinição, cada SQL server (por exemplo, myserver.database.windows.net) tem uma Quota de DTU de 54,000, que permite até DW6000c. Esta quota é apenas um limite de segurança. Pode aumentar a quota por [criar um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *Quota* como o tipo de pedido.  Para calcular a DTU necessidades, multiplique 7,5 pelo total que necessário DWU ou multiplicar 9.0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7.5 = 45.000 DTUs<br></br>DW6000c x 9.0 = 54,000 DTUs.<br></br>Pode ver o consumo de DTU atual da opção de servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
-| Ligação de base de dados |Sessões abertas em simultâneo |1024<br/><br/>Cada uma das sessões ativas do 1024 pode submeter pedidos para uma base de dados do armazém de dados do SQL ao mesmo tempo. Tenha em atenção que existem limites no número de consultas que podem executar em simultâneo. Quando o limite de simultaneidade for excedido, o pedido vai para uma fila interna em que ele espera para serem processados. |
-| Ligação de base de dados |Memória máxima para instruções preparadas |20 MB |
+| Ligação à base de dados |Sessões abertas em simultâneo |1024<br/><br/>Cada uma das sessões ativas do 1024 pode submeter pedidos para uma base de dados do armazém de dados do SQL ao mesmo tempo. Tenha em atenção que existem limites no número de consultas que podem executar em simultâneo. Quando o limite de simultaneidade for excedido, o pedido vai para uma fila interna em que ele espera para serem processados. |
+| Ligação à base de dados |Memória máxima para instruções preparadas |20 MB |
 | [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Consultas em simultâneo máximas |128<br/><br/> O SQL Data Warehouse pode executar um máximo de 128 consultas em simultâneo e filas restantes consultas.<br/><br/>O número de consultas em simultâneo pode diminuir quando os utilizadores são atribuídos aos mais classes de recursos ou quando o SQL Data Warehouse tem um inferior [unidade do armazém de dados](memory-and-concurrency-limits.md) definição. Algumas consultas, como consultas DMV, sempre têm permissão para executar e fazer não afeta o limite de consulta em simultâneo. Para obter mais detalhes sobre a execução de consultas em simultâneo, consulte a [valores máximos de simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums) artigo. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |GB, 399 por DW100. Por isso em DWU1000, tempdb é ajustado para 3.99 TB. |
 
@@ -39,7 +39,7 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Dependentes na coluna [tipo de dados](sql-data-warehouse-tables-data-types.md). Limite é 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados de máx. |
 | Tabela |Bytes por linha, o tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma forma como está para o SQL Server com a compactação page. Como o SQL Server, SQL Data Warehouse suporta o armazenamento de estouro de linha, que permite **colunas de comprimento variável** para ser enviado fora da linha. Quando as linhas de comprimento variável são enviados por push fora da linha, apenas 24 bytes raiz é armazenado no registo principal. Para obter mais informações, consulte [exceder de dados de estouro de linha 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabela |Partições por tabela |15,000<br/><br/>Elevado desempenho, recomendamos minimizar o número de partições precisa enquanto ainda dar suporte a seus requisitos empresariais. À medida que cresce o número de partições, a sobrecarga para operações de linguagem DDL (Data Definition) e a linguagem de manipulação de dados (DML) cresce e faz com que o desempenho mais lento. |
+| Tabela |Partições por tabela |15 000<br/><br/>Elevado desempenho, recomendamos minimizar o número de partições precisa enquanto ainda dar suporte a seus requisitos empresariais. À medida que cresce o número de partições, a sobrecarga para operações de linguagem DDL (Data Definition) e a linguagem de manipulação de dados (DML) cresce e faz com que o desempenho mais lento. |
 | Tabela |Carateres por valor de limite de partição. |4000 |
 | Índice |Índices não agrupados por tabela. |50<br/><br/>Aplica-se às tabelas de rowstore apenas. |
 | Índice |Índices em cluster por tabela. |1<br><br/>Aplica-se às tabelas rowstore e columnstore. |

@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/04/2018
-ms.author: sethm
+ms.date: 08/29/2018
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 481ae07ae9f8877ff93b2fee948849076c054906
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756192"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184636"
 ---
 A tabela seguinte lista as informações de quota específicas de mensagens do Service Bus. Para obter informações sobre preços e outras quotas do Service Bus, consulte a [preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) descrição geral.
 
@@ -24,7 +24,7 @@ A tabela seguinte lista as informações de quota específicas de mensagens do S
 | Tamanho da fila/tópico |Entidade |Definido após a criação de fila/tópico. <br/><br/> Mensagens de entrada subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 GB ou 5 GB.<br /><br />O Premium SKU, bem como Standard com [particionamento](/azure/service-bus-messaging/service-bus-partitioning) ativada, o tamanho da fila/tópico máximo é de 80 GB. |
 | Número de conexões simultâneas num espaço de nomes |Espaço de Nomes |Pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. Operações REST não são considerados conexões TCP simultâneas. |NetMessaging: 1000<br /><br />AMQP: 5.000 |
 | Número de simultâneas receber pedidos numa entidade de fila/tópico/subscrição |Entidade |Subsequentes receber pedidos são rejeitados e uma exceção é recebida pelo código de chamada. Esta quota aplica-se para o combinado diversas simultâneas receber operações em todas as subscrições num tópico. |5.000 |
-| Número de filas/tópicos por espaço de nomes |Espaço de Nomes |Os pedidos subsequentes para a criação de um novo tópico ou fila no espaço de nomes são rejeitados. Como resultado, se configurada por meio da [portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado a partir da API de gestão, uma exceção é recebida pelo código de chamada. |10,000<br /><br />O número total de tópicos e filas num espaço de nomes tem de ser menor ou igual a 10 000. |
+| Número de filas/tópicos por espaço de nomes |Espaço de Nomes |Os pedidos subsequentes para a criação de um novo tópico ou fila no espaço de nomes são rejeitados. Como resultado, se configurada por meio da [portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado a partir da API de gestão, uma exceção é recebida pelo código de chamada. |10 000 (escalão básico/Standard). O número total de tópicos e filas num espaço de nomes tem de ser menor ou igual a 10 000. <br/><br/>Para o escalão premium, 1000 por unit(MU) mensagens. Limite máximo é de 4000. |
 | Número de [particionados filas/tópicos](/azure/service-bus-messaging/service-bus-partitioning) por espaço de nomes |Espaço de Nomes |Os pedidos subsequentes para a criação de um novo tópico particionado ou de uma fila no espaço de nomes são rejeitados. Como resultado, se configurada por meio da [portal do Azure][Azure portal], uma mensagem de erro é gerada. Se forem chamados da gestão de API, um **QuotaExceededException** exceção é recebida pelo código de chamada. |Escalões básico e Standard - 100<br/><br/>Entidades particionadas não são suportadas os [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) escalão.<br/><br />Cada particionada fila ou tópico conta para a quota de 10 000 entidades por espaço de nomes. |
 | Tamanho máximo de qualquer caminho de entidade de mensagens: fila ou tópico |Entidade |- |260 carateres |
 | Tamanho máximo de qualquer nome de entidade de mensagens: regra de espaço de nomes, subscrição ou subscrição |Entidade |- |50 carateres |
@@ -33,7 +33,7 @@ A tabela seguinte lista as informações de quota específicas de mensagens do S
 | Tamanho de propriedade da mensagem para uma entidade de fila/tópico/subscrição |Entidade |R **SerializationException** exceção é gerada. |Tamanho de propriedade para cada propriedade da mensagem máximo é 32 k. o tamanho cumulativo de todas as propriedades não pode exceder os 64 k. Este limite aplica-se ao cabeçalho de todo a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), que tem ambos as propriedades do utilizador, bem como as propriedades do sistema (tais como [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), [ MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid)e assim por diante). |
 | Número de subscrições por tópico |Entidade |Os pedidos subsequentes para a criação de subscrições adicionais para o tópico são rejeitados. Como resultado, se configurado através do portal, é apresentada uma mensagem de erro. Se forem chamados a partir da API de gestão uma exceção é recebida pelo código de chamada. |2,000 |
 | Número de filtros SQL por tópico |Entidade |Os pedidos subsequentes para a criação de filtros adicionais sobre o tópico são rejeitados e uma exceção é recebida pelo código de chamada. |2,000 |
-| Número de filtros de correlação por tópico |Entidade |Os pedidos subsequentes para a criação de filtros adicionais sobre o tópico são rejeitados e uma exceção é recebida pelo código de chamada. |100,000 |
+| Número de filtros de correlação por tópico |Entidade |Os pedidos subsequentes para a criação de filtros adicionais sobre o tópico são rejeitados e uma exceção é recebida pelo código de chamada. |100 000 |
 | Tamanho de filtros/ações de SQL |Espaço de Nomes |Os pedidos subsequentes para a criação de filtros adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |Comprimento máximo da cadeia de condição de filtro: 1024 (1 K).<br /><br />Comprimento máximo da cadeia de caracteres de ação de regra: 1024 (1 K).<br /><br />Número máximo de expressões por ação de regra: 32. |
 | Número de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) regras por espaço de nomes, fila ou tópico |Entidade, o espaço de nomes |Os pedidos subsequentes para a criação de regras adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |Número máximo de regras: 12. <br /><br /> Regras que estão configuradas num espaço de nomes do Service Bus são aplicadas a todas as filas e tópicos nesse espaço de nomes. |
 | Número de mensagens por transação | Transação | Mensagens de entrada adicionais são rejeitadas e uma exceção informando "não é possível enviar mais de 100 mensagens numa única transação" é recebida pelo código de chamada. | 100 <br /><br /> Para ambos **Send()** e **SendAsync()** operações. |

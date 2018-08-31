@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: d47c85d4197f45db50f1974b6faea270e6761237
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2283a12845a3b334e29e3f48cbadb99ad508e459
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628577"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301586"
 ---
 # <a name="manage-reservations-for-resources-in-azure"></a>Gerir reservas para recursos no Azure
 
-Depois de comprar uma reserva do Azure, poderá ser útil aplicar a reserva para uma subscrição diferente que o especificado durante a compra. Em alternativa, se suas máquinas virtuais correspondentes, bases de dados SQL ou outros recursos estão a executar em várias subscrições, convém alterar o âmbito de reserva para compartilhado. Para maximizar o desconto de reserva, certifique-se de que o número de instâncias comprou corresponde aos atributos e o número de recursos que tem em execução. Para obter mais informações, consulte [reservas Azure](https://go.microsoft.com/fwlink/?linkid=862121).
+Depois de comprar uma reserva de Azure, terá de aplicar a reserva para uma subscrição diferente, altere a quem pode gerir a reserva ou alterar o âmbito da reserva. Também pode dividir uma reserva para duas reservas para aplicar algumas instâncias comprou a outra subscrição.
+
+Se comprasse Azure Reserved Virtual Machine Instances, pode alterar a definição de otimização para a reserva. O desconto de reserva pode aplicar às VMs da série do mesmo ou pode reservar capacidade do Centro de dados para um tamanho VM específico.
 
 ## <a name="change-the-scope-for-a-reservation"></a>Alterar o âmbito de uma reserva
 
@@ -34,7 +36,11 @@ Para atualizar o âmbito de uma reserva:
 2. Selecione **todos os serviços** > **reservas**.
 3. Selecione a reserva.
 4. Selecione **Definições** > **Configuração**.
-5. Altere o âmbito. Se alterar do partilhadas com âmbito único, só pode selecionar subscrições em que é o proprietário. Apenas as subscrições no mesmo contexto de faturação que a reserva, pode ser selecionada. O contexto de faturação é determinado pela subscrição que selecionou quando a reserva foi adquirida. O âmbito aplica-se apenas a subscrições de MS-AZR - 0003p oferta pay as you go e as subscrições de oferta MS-AZR - 0017P empresariais. Para contratos enterprise, subscrições de desenvolvimento/teste não são elegíveis para obter o desconto de reserva.
+5. Altere o âmbito. 
+
+Se alterar do partilhadas com âmbito único, só pode selecionar subscrições em que é o proprietário. Apenas as subscrições no mesmo contexto de faturação que a reserva, pode ser selecionada.
+
+O âmbito só se aplica a oferta de pay as you go MS-AZR - 0003p, a oferta Enterprise MS-AZR - 0017P ou tipos de subscrição do CSP. Para contratos enterprise, subscrições de desenvolvimento/teste não são elegíveis para obter o desconto de reserva.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os utilizadores que podem gerir uma reserva
 
@@ -47,26 +53,14 @@ Para delegar a gestão de acesso para uma reserva:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **reserva** para reservas de lista que tem acesso a.
 3. Selecione a reserva que pretende delegar acesso a outros utilizadores.
-4. Selecione **controlo de acesso (IAM)** no menu.
-5. Selecione **Add** > **função** > **proprietário** (ou uma função diferente se pretende conceder acesso limitado).
-6. Escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário. 
+4. Selecione **controlo de acesso (IAM)**.
+5. Selecione **adicione** > **função** > **proprietário**. Em alternativa, se pretende conceder acesso limitado, selecione uma função diferente.
+6. Escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário.
 7. Selecione o utilizador e, em seguida, selecione **Guardar**.
-
-## <a name="optimize-reserved-vm-instance-for-vm-size-flexibility-or-capacity-priority"></a>Otimizar a instância de VM reservada para prioridade de flexibilidade ou capacidade de tamanho VM
-
- Flexibilidade de instância VM aplica o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](https://aka.ms/RIVMGroups). Por predefinição, quando o âmbito da reserva é partilhado, a flexibilidade de tamanho de instância está ativada e a capacidade do datacenter não está priorizada para implementações de VM. Para as reservas em que o âmbito é único, pode otimizar a reserva de prioridade de capacidade em vez de flexibilidade de tamanho de instância VM. Prioridade de capacidade reserva-se a capacidade do Centro de dados para as implementações, oferece uma confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas.
-
-Para atualizar o âmbito de uma reserva:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** > **reservas**.
-3. Selecione a reserva.
-4. Selecione **Definições** > **Configuração**.
-5. Altere a otimizar para definição.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividir uma reserva única em duas reservas
 
- Depois de comprar mais de uma instância, pode querer atribuir instâncias dentro de uma reserva a subscrições diferentes. Por predefinição, todas as instâncias (quantidade especificada durante a compra) tem um âmbito - qualquer subscrição individual ou partilhado. Por exemplo, comprado 10 VMs D2 padrão e especificar o âmbito para a subscrição A. Agora pretende alterar o âmbito de reservas de sete a subscrição A e o 3 restantes à subscrição B. a divisão de uma reserva permite que distribua as instâncias para gestão do âmbito granular. Pode simplificar a alocação para subscrições escolhendo o âmbito partilhado. Mas para fins de gestão ou o orçamento de custo, pode alocar quantidades para subscrições específicas.
+ Depois de comprar mais do que uma instância de recurso dentro de uma reserva, pode querer atribuir instâncias dentro desse reserva a subscrições diferentes. Por predefinição, todas as instâncias têm um âmbito - qualquer subscrição individual ou partilhado. Por exemplo, comprado 10 VMs D2 padrão e especificar o âmbito para a subscrição A. Agora pretende alterar o âmbito de reservas de 7 a subscrição A e o 3 restantes à subscrição B. a divisão de uma reserva permite que distribua as instâncias para gestão do âmbito granular. Pode simplificar a alocação para subscrições escolhendo o âmbito partilhado. Mas para fins de gestão ou o orçamento de custo, pode alocar quantidades para subscrições específicas.
 
  Pode dividir uma reserva para duas reservas entanto PowerShell, CLI, ou por meio da API.
 
@@ -96,6 +90,22 @@ Para atualizar o âmbito de uma reserva:
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Alteração de otimizar a definição para instâncias de VM reservadas
+
+ Quando comprar uma instância de VM reservada, pode escolher flexibilidade de tamanho de instância ou prioridade de capacidade. Flexibilidade de tamanho de instância aplica o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](https://aka.ms/RIVMGroups). Prioridade de capacidade reserva-se a capacidade do Centro de dados para as suas implementações. Essa opção oferece uma confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas.
+
+Por predefinição, quando o âmbito da reserva é partilhado, a flexibilidade de tamanho de instância é na. A capacidade de centro de dados não está priorizada para implementações de VM.
+
+Para as reservas em que o âmbito é único, pode otimizar a reserva de prioridade de capacidade em vez de flexibilidade de tamanho de instância VM.
+
+Para atualizar a definição de otimização para a reserva:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **todos os serviços** > **reservas**.
+3. Selecione a reserva.
+4. Selecione **Definições** > **Configuração**.
+5. Alteração da **otimizar** definição.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
@@ -103,7 +113,8 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md)
-- [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
+- [Compreender a forma como o desconto de reserva de VM é aplicado](billing-understand-vm-reservation-charges.md)
+- [Compreender como é aplicado a outro desconto de reserva](billing-understand-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)

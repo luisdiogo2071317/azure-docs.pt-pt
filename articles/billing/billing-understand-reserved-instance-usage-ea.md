@@ -1,5 +1,5 @@
 ---
-title: Compreender a utilização de reserva do Azure para o Enterprise | Documentos da Microsoft
+title: Compreender a utilização de reservas de Azure para o Enterprise | Documentos da Microsoft
 description: Saiba como ler sua utilização para compreender a forma como é aplicada a reserva do Azure para a inscrição da sua empresa.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 5ce0103315f297996ed3f3bd88b5e53558e22e14
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 334271139b791ab60f2bc89ae695ba9bf06b7d12
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628237"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301025"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Compreender a utilização de reserva do Azure para a inscrição da sua empresa
 

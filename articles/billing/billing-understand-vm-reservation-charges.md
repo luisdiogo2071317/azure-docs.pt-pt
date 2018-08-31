@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: de4a771672b45f930385c2c923b3935c65b6c045
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628363"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301651"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Compreender a forma como o desconto de reserva do Azure é aplicado às máquinas virtuais
 
@@ -47,7 +47,7 @@ A tabela seguinte ilustra os custos para a máquina virtual depois de comprar um
 3. Para a hora, 2 e 3 de hora, ambas as instâncias tiver sido executado por uma hora cada. Uma instância é abrangida pela reserva e o outro é cobrado às tarifas pay as you go.
 4. Hora 4, 1 de instância é executada para 0,5 horas e instância 2 é executada durante uma hora. Instância 1 totalmente é abrangida pela reserva e 0,5 horas de instância 2 está abrangida. É-lhe cobrado a tarifa pay as you go para as horas de 0,5 restantes.
 
-Para compreender e ver a aplicação das reservas do Azure no relatórios de utilização de faturação, veja [compreender a utilização de reserva](https://go.microsoft.com/fwlink/?linkid=862757).
+Para compreender e ver a aplicação das reservas de Azure no relatórios de utilização de faturação, veja [compreender a utilização de reserva](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicação de desconto de reserva para VMs do Windows
 
@@ -55,7 +55,7 @@ Quando estiver a executar instâncias de VM do Windows, a reserva se aplica para
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre as reservas, veja os artigos seguintes:
+Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)

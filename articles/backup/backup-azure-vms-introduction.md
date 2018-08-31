@@ -7,14 +7,14 @@ manager: carmonm
 keywords: cópia de segurança de vms, a cópia de segurança de máquinas virtuais
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390760"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286657"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planear a sua infraestrutura de cópias de segurança de VMs no Azure
 Este artigo fornece desempenho e sugestões de recursos para o ajudar a planear a sua infraestrutura de cópia de segurança de VM. Também define os aspetos fundamentais do serviço de cópia de segurança; esses aspectos podem ser fundamentais para determinar sua arquitetura, planejamento de capacidade e agendamento. Se tiver [preparar o ambiente](backup-azure-arm-vms-prepare.md), o planejamento é a próxima etapa antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-arm-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte a [documentação das máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -50,17 +50,18 @@ Cópia de segurança do Azure leva as cópias de segurança completas de VSS em 
 ```
 
 #### <a name="linux-vms"></a>VMs do Linux
-O Azure Backup fornece uma estrutura de scripts. Para garantir a consistência de aplicação ao fazer backup de VMs do Linux, crie pré-scripts de personalizados e pós-scripts que controlam o fluxo de trabalho de cópia de segurança e o ambiente. O Azure Backup invoca o script anterior antes de tirar o instantâneo VM e invoca o script posterior, uma vez concluída a tarefa de instantâneo VM. Para obter mais detalhes, consulte [backups consistentes de aplicativos VM utilizando script anterior e script posterior](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Cópia de segurança do Azure fornece uma estrutura de scripts para controlar o fluxo de trabalho de cópia de segurança e o ambiente. Para garantir cópias de segurança de VM do Linux consistentes com aplicações, utilize a estrutura de scripts para criar scripts personalizados de pré e pós-scripts. Invocar o script anterior antes de tirar o instantâneo VM e, em seguida, invoque o script posterior, uma vez concluída a tarefa de instantâneo VM. Para obter mais informações, consulte o artigo [backups de VM do Linux consistentes de aplicativos](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
 > [!NOTE]
 > O Azure Backup invoca apenas a escrita de cliente pré e pós-scripts. Se o script prévio e os pós-scripts de executam com êxito, cópia de segurança do Azure marca o ponto de recuperação como aplicação consistente. No entanto, o cliente é responsável pela consistência de aplicação, ao utilizar scripts personalizados.
 >
 
-
-Esta tabela explica os tipos de consistência e as condições que ocorrem em durante a VM do Azure backup e restauração de procedimentos.
+A tabela seguinte explica os tipos de consistência e as condições de quando estes ocorrerem.
 
 | Consistência | Com base em VSS | Explicação e detalhes |
 | --- | --- | --- |
-| Consistência das aplicações |Sim para Windows|Consistência de aplicação é ideal para cargas de trabalho, pois garante que:<ol><li> A VM *arranca*. <li>Há *nenhum dano*. <li>Há *sem perda de dados*.<li> Os dados são consistentes com a aplicação que utiliza os dados, porque envolve a aplicação no momento da cópia de segurança – usando o script VSS ou pré/pós.</ol> <li>*VMs do Windows*-cargas de trabalho mais Microsoft têm escritores VSS que efetuar ações de carga de trabalho específicas relacionadas com a consistência dos dados. Por exemplo, o Microsoft SQL Server tem um escritor VSS que garante que as escritas para o ficheiro de registo de transação e a base de dados são feitas corretamente. Para cópias de segurança de VM do Windows Azure, para criar um ponto de recuperação consistentes com aplicações, a extensão de cópia de segurança deve invocar o fluxo de trabalho do VSS e concluí-la antes de tirar o instantâneo VM. Para o instantâneo de VM do Azure ser precisa, os escritores VSS de todos os aplicativos de VM do Azure tem de concluir também. (Saiba a [Noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofundar nos detalhes da [seu funcionamento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *VMs do Linux*-os clientes podem executar [personalizado script prévio e o script posterior para garantir a consistência de aplicação](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| Consistência das aplicações |Sim para Windows|Consistência de aplicação é ideal para cargas de trabalho, pois garante que:<ol><li> A VM *arranca*. <li>Há *nenhum dano*. <li>Há *sem perda de dados*.<li> Os dados são consistentes com a aplicação que utiliza os dados, porque envolve a aplicação no momento da cópia de segurança – usando o script VSS ou pré/pós.</ol> <li>*VMs do Windows*-cargas de trabalho mais Microsoft têm escritores VSS, que são executadas ações de carga de trabalho específicas relacionadas com a consistência dos dados. Por exemplo, o escritor VSS do SQL Server garante que as escritas para o ficheiro de registo de transação e a base de dados, são realizadas corretamente. Para cópias de segurança de VM do Windows de IaaS, para criar um ponto de recuperação consistentes com aplicações, a extensão de cópia de segurança deve invocar o fluxo de trabalho do VSS e concluí-la antes de tirar o instantâneo VM. Para o instantâneo de VM do Azure ser precisa, os escritores VSS de todos os aplicativos de VM do Azure tem de concluir também. (Saiba a [Noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofundar nos detalhes da [seu funcionamento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *VMs do Linux*-os clientes podem executar [personalizado script prévio e o script posterior para garantir a consistência de aplicação](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Consistência do sistema de ficheiros |Sim - para computadores baseados em Windows |Existem dois cenários em que o ponto de recuperação pode ser *sistema de ficheiros consistente*:<ul><li>Cópias de segurança de VMs do Linux no Azure, sem o pre-script/pós-script ou se pre-script/pós-script falhou. <li>Falha do VSS durante a cópia de segurança para VMs do Windows no Azure.</li></ul> Em ambos os casos, o melhor que pode ser feito é se certificar de que: <ol><li> A VM *arranca*. <li>Há *nenhum dano*.<li>Há *sem perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção de segurança" sobre os dados restaurados. |
 | Consistência de falhas |Não |Esta situação é equivalente a uma máquina virtual com uma "Falha" (por meio de forma recuperável ou disco rígido reset). Consistência de falhas ocorre normalmente quando a máquina virtual do Azure é desligada no momento da cópia de segurança. Um ponto de recuperação consistentes com falhas fornece sem garantias para a consistência dos dados sobre o meio de armazenamento – a partir da perspectiva do sistema operativo ou o aplicativo. Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e uma cópia de segurança. <br/> <br/> Enquanto não há garantias, normalmente, o sistema de operativo é inicializado, seguido por verificação de disco procedimento, como o chkdsk, para corrigir quaisquer erros de danos. Quaisquer dados na memória ou escritas que não tenham sido transferidas para o disco serão perdidas. Normalmente, a aplicação segue com seu próprio mecanismo de verificação no caso de reversão de dados precisa ser feito. <br><br>Por exemplo, se o registo de transações tem entradas não estão presentes na base de dados, o software de base de dados agrega até que os dados são consistentes. Quando dados estão distribuídos em vários discos virtuais (como volumes expandidos), um ponto de recuperação consistentes com falhas não fornece garantias de nenhuma para a correção dos dados. |
 
@@ -104,19 +105,22 @@ Uma operação de restauro consiste em duas tarefas principais: copiar dados do 
 * Cópia de dados de tempo - dados são copiados a partir do cofre para a conta de armazenamento do cliente. Restaurar tempo depende de IOPS e débito do serviço de cópia de segurança do Azure obtém na conta de armazenamento do cliente selecionado. Para reduzir o tempo de cópia durante o processo de restauração, selecione uma conta de armazenamento não carregá-lo com outras aplicações escritas e leituras.
 
 ## <a name="best-practices"></a>Melhores práticas
-Sugerimos que seguindo essas práticas ao configurar cópias de segurança para máquinas virtuais com discos não geridos:
 
-> [!Note]
-> As seguintes práticas, recomendamos a alteração ou gerir contas de armazenamento, aplicam-se apenas as VMs com discos não geridos. Se utilizar discos geridos, o Azure trata de todas as atividades de gestão que envolve o armazenamento.
-> 
+Sugerimos que seguindo essas práticas ao configurar cópias de segurança para todas as máquinas virtuais:
 
-* Não agende a mais de 10 VMs clássicas do mesmo serviço cloud para criar cópias de segurança ao mesmo tempo. Se pretender criar uma cópia de segurança de várias VMs do mesmo serviço cloud, escalonar as horas de início de cópia de segurança por uma hora.
-* Não agende mais de 100 VMs para criar cópias de segurança ao mesmo tempo, a partir de um único cofre. 
+* Não agende cópias de segurança para mais de 10 VMs clássicas do mesmo serviço cloud, ao mesmo tempo. Se pretender criar uma cópia de segurança de várias VMs do mesmo serviço cloud, escalonar as horas de início de cópia de segurança por uma hora.
+* Não agende cópias de segurança para mais de 100 VMs a partir de um cofre, ao mesmo tempo.
 * Agende cópias de segurança VM durante o horário de pico. Desta forma o serviço de cópia de segurança utiliza o IOPS para a transferência de dados da conta de armazenamento do cliente para o cofre.
-* Certifique-se de que uma política é aplicada em VMs espalhadas em contas de armazenamento diferentes. Sugerimos que não mais do que 20 discos total de uma conta de armazenamento única ser protegidos pela mesma agenda de cópia de segurança. Se tiver mais de 20 discos numa conta de armazenamento, distribuir essas VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de cópia de segurança.
-* Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauro coincide com a operação de cópia de segurança, reduz o IOPS disponíveis para cópia de segurança.
-* Para cópia de segurança de Premium VM na pilha de cópia de segurança de VM V1, recomenda-se que atribua apenas 50% de espaço de conta de armazenamento total para que o serviço de cópia de segurança do Azure, pode copiar o instantâneo de conta e a transferência de dados do armazenamento a partir desta localização copiada na conta de armazenamento para o cofre.
 * Certifique-se de que as VMs do Linux ativado para a cópia de segurança, tem a Python versão 2.7 ou superior.
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>Melhores práticas para as VMs com discos não geridos
+
+As recomendações seguintes aplicam-se apenas a VMs com discos não geridos. Se as VMs utilizam discos geridos, o serviço de cópia de segurança processa todas as atividades de gestão de armazenamento.
+
+* Certifique-se aplicar uma política de cópia de segurança para VMs espalhadas em várias contas de armazenamento. Não mais do que 20 discos total de uma única conta de armazenamento devem ser protegidos pela mesma agenda de cópia de segurança. Se tiver mais de 20 discos numa conta de armazenamento, distribuir essas VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de cópia de segurança.
+* Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauro coincide com a operação de cópia de segurança, reduz o IOPS disponíveis para cópia de segurança.
+* Para cópia de segurança de Premium VM na pilha de cópia de segurança de VM V1, deve alocar apenas 50% de espaço de conta de armazenamento total para que o serviço de cópia de segurança possa copiar o instantâneo para a conta de armazenamento e transferência de dados da conta de armazenamento para o cofre.
+
 
 ## <a name="data-encryption"></a>Encriptação de dados
 Cópia de segurança do Azure não encripta os dados como parte do processo de cópia de segurança. No entanto, pode encriptar dados dentro da VM e criar cópias de segurança dos dados protegidos de forma totalmente integrada (Leia mais sobre [cópia de segurança dos dados encriptados](backup-azure-vms-encryption.md)).

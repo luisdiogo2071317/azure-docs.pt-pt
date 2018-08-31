@@ -1,22 +1,18 @@
 ---
 title: Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
 description: Saiba como consultar dados da pré-visualização do Azure Data Lake Storage Gen2 e armazenar os resultados da sua análise.
-keywords: hdfs, dados estruturados, dados não estruturados, data lake store, entrada do Hadoop, saída do Hadoop, armazenamento de hadoop, entrada do hdfs, saída do hdfs, armazenamento do hdfs, wasb azure
-services: hdinsight,storage
-tags: azure-portal
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ee169f008cc5d6b95d2ddadc68e63673372e2dc5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528513"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301838"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
 

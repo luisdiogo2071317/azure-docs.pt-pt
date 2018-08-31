@@ -1,19 +1,18 @@
 ---
 title: Resolver problemas relacionados com discos anexados a VMs do Azure | Documentos da Microsoft
-description: O Armazenamento de blobs do Azure foi criado para armazenar grandes quantidades de dados de objetos não estruturados, como dados de texto ou binários. As aplicações podem aceder a objetos no Armazenamento de blobs do PowerShell ou da CLI do Azure, a partir do código através de bibliotecas de cliente do Armazenamento do Azure ou através do REST.
+description: Fornece links para recursos para a máquina virtual do Azure de discos rígidos virtuais (VHDs) de resolução de problemas.
 services: storage
 author: genlin
 ms.service: storage
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: genli
-ms.component: disks
-ms.openlocfilehash: 0dbd89c28d18d64908d92cd38d8bd1cf3138fd5c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 81db3a819c28aab8f4b644a940eeb5e6c5ecf3d6
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397972"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307177"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Resolver problemas relacionados com discos anexados a VMs do Azure 
 

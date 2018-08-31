@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 7ffcf5e3c7e6f0cb3d344b7d148b6024e8469eff
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263014"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286278"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -40,7 +40,7 @@ O Azure Migrate analisa as seguintes propriedades da VM no local para identifica
 --- | --- | ---
 **Tipo de arranque** | O Azure suporta VMs com o tipo de arranque como o BIOS e UEFI não. | Condicionalmente preparado se é o tipo de arranque UEFI.
 **Núcleos** | O número de núcleos nas máquinas tem de ser igual ou inferior ao número máximo de núcleos (32) suportado para uma VM do Azure.<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera os núcleos utilizados para comparação. Se for um fator de conforto é especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver nenhum histórico de desempenho, o Azure Migrate utiliza núcleos alocados, sem aplicar o fator de conforto. | Pronto, se tiver menos do que ou igual a limites.
-**Memória** | O tamanho de memória da máquina tem de ser igual ou menor que o máximo de memória (GB 3892 na série de M de Azure Standard_M128m&nbsp;<sup>2</sup>) permitido para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera a memória utilizada para comparação. Se não for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico é utilizada a memória alocada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
+**Memória** | O tamanho de memória da máquina tem de ser igual ou menor que o máximo de memória (GB 3892 na série de M de Azure Standard_M128m&nbsp;<sup>2</sup>) permitido para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera a memória utilizada para comparação. Se não for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico é utilizada a memória alocada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
 **Disco de armazenamento** | Tamanho atribuído de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos ligados à máquina tem de ser 65 ou menos, incluindo o disco do SO. | Pronto se dentro dos limites.
 **Redes** | Uma máquina tem de 32 ou menos NICs ligadas à mesma. | Pronto se dentro dos limites.
 
@@ -107,7 +107,7 @@ Para o dimensionamento baseado no desempenho, do Azure Migrate começa com os di
 Se o critério de dimensionamento for *no local dimensionamento*, do Azure Migrate não considera o histórico de desempenho das VMs e discos e aloca um SKU de VM no Azure com base no tamanho atribuído no local. Da mesma forma para o dimensionamento do disco, ele examina o tipo de armazenamento especificado nas propriedades de avaliação (Standard/Premium) e recomenda o tipo de disco em conformidade. Tipo de armazenamento predefinido é de discos Premium.
 
 ### <a name="confidence-rating"></a>Classificação de confiança
-Cada avaliação com base em desempenho no Azure Migrate é associada uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela corresponde a ser a mais baixa e 5 a mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate. Classificação de confiança não é aplicável ao como no local avaliações.
+Cada avaliação baseada no desempenho no Azure Migrate é associada a uma classificação de confiança de 1 a 5 estrelas (sendo que 1 estrela corresponde à mais baixa e 5 à mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate. A classificação de confiança não é aplicável como avaliações no local.
 
 Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados de utilização da CPU, da memória e da VM. Além disso, para cada disco ligado à VM, é necessário o IOPS do disco e os dados de débito. De forma semelhante, para cada adaptador de rede anexado a uma VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base no desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
 

@@ -1,5 +1,5 @@
 ---
-title: Obtenha ajuda para aceder e utilizar o portal as minhas aplicações no Azure Active Directory | Documentos da Microsoft
+title: Obtenha ajuda para aceder e utilizar o portal MyApps no Azure Active Directory | Documentos da Microsoft
 description: Obtenha ajuda com a iniciar sessão e a execução de tarefas comuns no painel de acesso.
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343615"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306415"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Resolver problemas com o acesso e uso portal as minhas aplicações
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Resolver problemas ao aceder e utilizar o portal MyApps
 
-Se estiver a ter problemas com a iniciar sessão ou com o portal as minhas aplicações, experimente estas sugestões de resolução de problemas antes de contactar o suporte técnico ou o seu administrador para obter ajuda.
+Se estiver a ter problemas com a iniciar sessão ou com o portal MyApps, experimente estas sugestões de resolução de problemas, antes de contactar o suporte técnico ou o seu administrador para obter ajuda.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Estou a ter problemas ao iniciar sessão no portal minhas aplicações
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>Estou a ter problemas ao iniciar sessão no portal do My Apps
 
 Experimente estas sugestões gerais:
 
@@ -45,7 +45,7 @@ Pode repor a palavra-passe ou desbloquear a sua conta sem ter de falar com algu�
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Estou a ter problemas a instalar o início de sessão extensão My segura de aplicações em
 
-Portal as minhas aplicações requer um browser que suporte a JavaScript e tiver ativada de CSS. Se estiver a utilizar com base em palavra-passe único início de sessão em aplicações, a extensão que acompanha este artigo deve ser instalada também. Esta extensão é transferida automaticamente quando inicia um aplicativo que está configurado para a palavra-passe únicas início de sessão em aplicações.
+O portal MyApps requer um browser que suporte a JavaScript e CSS ativou a. Se estiver a utilizar com base em palavra-passe único início de sessão em aplicações, a extensão que acompanha este artigo deve ser instalada também. Esta extensão é transferida automaticamente quando inicia um aplicativo que está configurado para a palavra-passe únicas início de sessão em aplicações.
 
 Verifique para se certificar de que está a cumprir os seguintes requisitos de browser:
 
@@ -63,8 +63,8 @@ Também pode transferir a extensão diretamente a partir os seguintes sites:
 Se tiver instalado a extensão e ainda está a ter problemas, experimente o seguinte:
 
 - Verifique as definições de extensão de browser para garantir que a extensão está ativada.
-- Reinicie o seu browser e inicie sessão no portal as minhas aplicações.
-- Limpar os cookies do browser e inicie sessão no portal as minhas aplicações.
+- Reinicie o navegador e iniciar sessão MyApps portal.
+- Limpar os cookies do browser e inicie sessão no MyApps portal.
 - Para ter acesso a uma ferramenta de diagnóstico e instruções passo a passo sobre como configurar a extensão para o Internet Explorer, consulte [resolver problemas relacionados com a extensão do painel de acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Utilize a extensão de início de sessão de seguro das minhas aplicações
@@ -85,7 +85,7 @@ Se tiver instalado a extensão e ainda está a ter problemas, experimente o segu
 * Para iniciar uma aplicação a partir da extensão, faça o seguinte:
    1. Depois de instalar a extensão, iniciar sessão na mesma selecionando **iniciar sessão começar a utilizar**.
    2. Selecione o ícone de extensão para abrir respetivo menu.
-   3. Procurar uma aplicação que está disponível no portal minhas aplicações.
+   3. Procurar uma aplicação que está disponível no MyApps portal.
    4. Na lista de resultados da pesquisa, selecione a aplicação.  
        As últimas três aplicações que já utilizou são apresentadas no **utilizados recentemente** lista de atalho.
 

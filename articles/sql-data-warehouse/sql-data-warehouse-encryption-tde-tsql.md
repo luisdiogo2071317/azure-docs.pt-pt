@@ -1,64 +1,64 @@
 ---
-title: A encriptação transparente de dados no armazém de dados do SQL (T-SQL) | Microsoft Docs
-description: Encriptação de dados transparente (TDE) no armazém de dados do SQL (T-SQL)
+title: Encriptação de dados transparente no armazém de dados SQL (T-SQL) | Documentos da Microsoft
+description: Encriptação de dados transparente (TDE) no armazém de dados SQL (T-SQL)
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d10b8f751d782f00cbc58274e4b48c501cea6f70
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ccdba241a2921a59f7db9668ec2b6f0921aa9f44
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526017"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307692"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Começar com encriptação de dados transparente (TDE)
 > [!div class="op_single_selector"]
-> * [Descrição geral de segurança](sql-data-warehouse-overview-manage-security.md)
+> * [Descrição geral da segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
 > * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Encriptação (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
-## <a name="required-permssions"></a>Permssions necessária
+## <a name="required-permssions"></a>Permissões necessárias
 Para ativar a encriptação de dados transparente (TDE), tem de ser um administrador ou membro da função dbmanager.
 
 ## <a name="enabling-encryption"></a>Ativar a encriptação
 Siga estes passos para ativar a TDE para um SQL Data Warehouse:
 
-1. Ligar para o *mestre* base de dados no servidor que aloja a base de dados utilizando um início de sessão que é um administrador ou membro do **dbmanager** função na base de dados mestra
-2. Execute a seguinte instrução para encriptar a base de dados.
+1. Ligar para o *mestre* base de dados no servidor que aloja a base de dados com um início de sessão que é um administrador ou membro da **dbmanager** função na base de dados mestra
+2. Execute a declaração seguinte para encriptar a base de dados.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>A desativação da encriptação
-Siga estes passos para desativar o TDE para um SQL Data Warehouse:
+Siga estes passos para desativar a TDE para um SQL Data Warehouse:
 
-1. Ligar para o *mestre* da base de dados utilizando um início de sessão que é um administrador ou membro do **dbmanager** função na base de dados mestra
-2. Execute a seguinte instrução para encriptar a base de dados.
+1. Ligar para o *mestre* base de dados com um início de sessão que é um administrador ou membro da **dbmanager** função na base de dados mestra
+2. Execute a declaração seguinte para encriptar a base de dados.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Antes de efetuar alterações às definições de TDE necessário recomeçar um SQL Data Warehouse em pausa.
+> Deve ser retomado um SQL Data Warehouse em pausa antes de efetuar alterações às definições da TDE.
 > 
 > 
 
 ## <a name="verifying-encryption"></a>Verificar a encriptação
 Para verificar o estado de encriptação para um SQL Data Warehouse, siga os passos abaixo:
 
-1. Ligar para o *mestre* ou utilizar um início de sessão que é um administrador ou membro de base de dados da instância a **dbmanager** função na base de dados mestra
-2. Execute a seguinte instrução para encriptar a base de dados.
+1. Ligar para o *mestre* ou a base de dados de instância com um início de sessão que é um administrador ou membro da **dbmanager** função na base de dados mestra
+2. Execute a declaração seguinte para encriptar a base de dados.
 
 ```sql
 SELECT
@@ -68,10 +68,10 @@ FROM
     sys.databases;
 ```
 
-Um resultado de ```1``` indica uma base de dados encriptado, ```0``` indica uma base de dados não encriptados.
+O resultado de ```1``` indica um banco de dados criptografado, ```0``` indica uma base de dados não encriptados.
 
-## <a name="encryption-dmvs"></a>Encriptação DMVs
-* [Databases][sys.databases] 
+## <a name="encryption-dmvs"></a>DMVs de encriptação
+* [sys. Databases][sys.databases] 
 * [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->

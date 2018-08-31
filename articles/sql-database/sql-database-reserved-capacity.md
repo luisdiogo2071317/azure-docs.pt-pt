@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39634574"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306474"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados
 
@@ -65,10 +65,11 @@ O desconto de reserva de vCore é aplicado automaticamente para o número de ins
 
 Para saber como gerir a base de dados de SQL reservadas de reserva de capacidade, consulte [capacidade de reserva de gerir a base de dados do SQL](../billing/billing-manage-reserved-vm-instance.md).
 
-Para saber mais sobre o Azure reserva, consulte os artigos seguintes:
+Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
 - [Gerir reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [Compreender o que Azure reservas de desconto](../billing/billing-understand-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](../billing/billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Reservas do Azure no programa de fornecedor de soluções (CSP) do parceiro Center na nuvem](https://docs.microsoft.com/partner-center/azure-reservations)

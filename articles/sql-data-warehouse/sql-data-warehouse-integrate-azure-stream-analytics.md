@@ -1,40 +1,40 @@
 ---
-title: Utilizam o Azure Stream Analytics com o SQL Data Warehouse | Microsoft Docs
-description: Sugestões para utilizar o Azure Stream Analytics com o Azure SQL Data Warehouse para desenvolver soluções.
+title: Utilizar o Azure Stream Analytics com o SQL Data Warehouse | Documentos da Microsoft
+description: Sugestões para utilizar o Azure Stream Analytics com o Azure SQL Data Warehouse para o desenvolvimento de soluções.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 76cbbddca70d3bc8091dbea383213446adac533e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6e9a6e9c7407939ea9e76cad569e870d578b37f9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600313"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307366"
 ---
-# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utilizam o Azure Stream Analytics com o SQL Data Warehouse
-O Azure Stream Analytics é um serviço completamente gerido que fornece processamento de eventos complexos baixa latência, elevada disponibilidade e dimensionável através de transmissão em fluxo de dados na nuvem. Pode aprender as noções básicas através da leitura [introdução ao Azure Stream Analytics][Introduction to Azure Stream Analytics]. Em seguida, pode saber como criar uma solução ponto-a-ponto Stream Analytics, seguindo o [começar a utilizar o Azure Stream Analytics] [ Get started using Azure Stream Analytics] tutorial.
+# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utilizar o Azure Stream Analytics com o SQL Data Warehouse
+O Azure Stream Analytics é um serviço totalmente gerido, fornecendo o processamento de eventos complexos de baixa latência, altamente disponível e dimensionável através de transmissão em fluxo de dados na cloud. Pode aprender as noções básicas, lendo [introdução ao Azure Stream Analytics][Introduction to Azure Stream Analytics]. Em seguida, pode saber como criar uma solução ponto a ponto com o Stream Analytics ao seguir a [começar a utilizar o Azure Stream Analytics] [ Get started using Azure Stream Analytics] tutorial.
 
-Neste artigo, irá aprender a utilizar a base de dados do armazém de dados SQL do Azure como um sink de saída para as tarefas de análise Steam.
+Neste artigo, irá aprender a utilizar a base de dados do Azure SQL Data Warehouse como um sink de saída para as tarefas de análise de Steam.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Primeiro, execute os seguintes passos no [começar a utilizar o Azure Stream Analytics] [ Get started using Azure Stream Analytics] tutorial.  
 
-1. Criar um Hub de eventos de entrada
-2. Configurar e iniciar a aplicação do gerador de eventos
-3. Aprovisionar uma tarefa de Stream Analytics
+1. Criar uma entrada do Hub de eventos
+2. Configurar e iniciar a aplicação geradora de eventos
+3. Aprovisionar uma tarefa do Stream Analytics
 4. Especifique a consulta e de entrada da tarefa
 
 Em seguida, crie uma base de dados do Azure SQL Data Warehouse
 
-## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especifique o resultado da tarefa: base de dados do armazém de dados SQL do Azure
+## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especificar o resultado da tarefa: base de dados do armazém de dados SQL do Azure
 ### <a name="step-1"></a>Passo 1
-Na sua tarefa do Stream Analytics clique **saída** da parte superior da página e, em seguida, clique em **adicionar saída**.
+Na sua tarefa do Stream Analytics, clique em **saída** na parte superior da página e, em seguida, clique **adicionar saída**.
 
 ### <a name="step-2"></a>Passo 2
 Selecione a base de dados SQL e clique em seguinte.
@@ -46,10 +46,10 @@ Introduza os seguintes valores na página seguinte:
 
 * *Alias de saída*: introduza um nome amigável para este resultado da tarefa.
 * *Subscrição*:
-  * Se a base de dados do armazém de dados do SQL Server na mesma subscrição que a tarefa de Stream Analytics, selecione utilizar base de dados do SQL da subscrição atual.
-  * Se a base de dados está numa subscrição diferente, selecione base de dados de SQL de utilizar outra subscrição.
+  * Se a sua base de dados do SQL Data Warehouse está na mesma subscrição que a tarefa do Stream Analytics, selecione a base de dados de SQL de utilização da subscrição atual.
+  * Se a sua base de dados está numa subscrição diferente, selecione a base de dados de SQL de utilização de outra subscrição.
 * *Base de dados*: Especifique o nome de uma base de dados de destino.
-* *Nome do servidor*: Especifique o nome do servidor da base de dados que acabou de especificar. Pode utilizar o portal do Azure pode encontrá-lo.
+* *Nome do servidor*: Especifique o nome do servidor da base de dados que acabou de especificar. Pode utilizar o portal do Azure para encontrá-lo.
 
 ![][server-name]
 
@@ -60,14 +60,14 @@ Introduza os seguintes valores na página seguinte:
 ![][add-database]
 
 ### <a name="step-4"></a>Passo 4
-Clique no botão de verificação para adicionar este resultado da tarefa e certifique-se de que o Stream Analytics pode ligar com êxito na base de dados.
+Clique no botão de verificação para adicionar esta saída de tarefa e certifique-se de que o Stream Analytics consegue ligar com êxito à base de dados.
 
 ![][test-connection]
 
-Quando a ligação à base de dados for bem sucedida, verá uma notificação na parte inferior do portal. Pode clicar em ligação de teste na parte inferior para testar a ligação à base de dados.
+Quando a ligação à base de dados tiver êxito, verá uma notificação na parte inferior do portal. Pode clicar em Testar ligação na parte inferior para testar a ligação à base de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma descrição geral de integração, consulte [descrição geral da integração do SQL Data Warehouse][SQL Data Warehouse integration overview].
+Para uma descrição geral de integração, consulte [descrição geral da integração do SQL Data Warehouse][SQL Data Warehouse integration overview].
 
 Para obter mais sugestões de desenvolvimento, veja [SQL Data Warehouse development overview (Descrição geral do desenvolvimento no SQL Data Warehouse)][SQL Data Warehouse development overview].
 

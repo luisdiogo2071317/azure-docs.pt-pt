@@ -1,25 +1,18 @@
 ---
 title: FAQ do ExpressRoute do Azure | Documentos da Microsoft
 description: FAQ do ExpressRoute contém informações sobre serviços suportados do Azure, custo, dados e ligações, SLA, fornecedores e localizações, largura de banda e detalhes técnicos adicionais.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2e332b361a1531eb5f6a8a1d3c46c2f258035258
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818798"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302301"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -53,7 +46,7 @@ Sim. Circuitos do ExpressRoute são configurados para permitir que períodos de 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Posso utilizar a mesma conexão de rede privada com a rede virtual e outros serviços do Azure ao mesmo tempo?
 
-Sim. Um circuito do ExpressRoute, uma vez configurado, permite-lhe aceder a serviços numa rede virtual e outros serviços do Azure em simultâneo. Ligar às redes virtuais ao longo do caminho de peering privado e a outros serviços ao longo do caminho de peering público.
+Sim. Um circuito do ExpressRoute, uma vez configurado, permite-lhe aceder a serviços numa rede virtual e outros serviços do Azure em simultâneo. Ligar às redes virtuais ao longo do caminho de peering privado e a outros serviços ao longo do caminho de peering da Microsoft.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>O ExpressRoute oferece um contrato de nível de serviço (SLA)?
 
@@ -70,33 +63,18 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
 ### <a name="public-peering"></a>Peering público
 
 >[!NOTE]
->Peering da Microsoft é a maneira preferencial para aceder a todos os serviços alojados no Azure.
+>Peering público foi desativado no novos circuitos do ExpressRoute. Serviços do Azure estão disponíveis no peering da Microsoft.
 >
-
-* Power BI
-* Dynamics 365 para finanças e operações (anteriormente conhecidas como o Dynamics AX Online)
-* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br>
-  NÃO são suportados os seguintes serviços:
-    * CDN
-    * Visual Studio Team Services de teste de carga
-    * Multi-Factor Authentication
-    * Gestor de Tráfego
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Aplicações do Dynamics 365 Customer Engagement (anteriormente conhecidas como CRM Online)
-  * Dynamics 365 para vendas
-  * Dynamics 365 para suporte ao cliente
-  * Dynamics 365 for Field Service
-  * Dynamics 365 para o serviço de projeto
-* Usando [encaminhar filtros](#route-filters-for-microsoft-peering), obtém acesso para os mesmos serviços público com o peering da Microsoft:
-  * Power BI
-  * Dynamics 365 para operações e finanças
-  * A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br>
-  NÃO são suportados os seguintes serviços:
+* Dynamics 365 
+* Power BI
+* Azure Active Directory
+* Visual Studio Team Services de teste de carga
+* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br>Os serviços seguintes estão **nepodporuje**:
     * CDN
-    * Visual Studio Team Services de teste de carga
     * Multi-Factor Authentication
     * Gestor de Tráfego
 
@@ -132,7 +110,7 @@ Não irá perder a conectividade se uma das ligações cruzadas falhar. Uma liga
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como garantir a elevada disponibilidade numa rede virtual ligada ao ExpressRoute?
 
-Pode obter elevada disponibilidade ao ligar os circuitos do ExpressRoute em diferentes localizações de peering (por exemplo, Singapura, singapura2) à sua rede virtual. Se um circuito do ExpressRoute ficar inativo, conectividade irá efetuar a ativação pós-falha para outro circuito do ExpressRoute. Por predefinição, o tráfego que sai da rede virtual é encaminhado com base no igual custo multi caminho encaminhamento (ECMP). Pode usar o peso de ligação para dar preferência a um circuito para outro. Ver [otimizar o encaminhamento do ExpressRoute](expressroute-optimize-routing.md) para obter mais informações sobre o peso de ligação.
+Pode obter elevada disponibilidade ao ligar os circuitos do ExpressRoute em diferentes localizações de peering (por exemplo, Singapura, singapura2) à sua rede virtual. Se um circuito do ExpressRoute ficar inativo, conectividade irá efetuar a ativação pós-falha para outro circuito do ExpressRoute. Por predefinição, o tráfego que sai da rede virtual é encaminhado com base no igual custo multi caminho encaminhamento (ECMP). Pode usar o peso de ligação para dar preferência a um circuito para outro. Para obter mais informações, consulte [otimizar o encaminhamento do ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="onep2plink"></a>Se não for localizado conjuntamente numa troca de cloud e meu provedor de serviço oferece a ligação ponto a ponto, é necessário fazer o pedido duas conexões físicos entre minha rede no local e a Microsoft?
 
@@ -152,12 +130,12 @@ Sim. Pode ter mais do que um circuito do ExpressRoute na sua subscrição. O lim
 
 Sim. Pode ter circuitos do ExpressRoute com muitos fornecedores de serviços. Cada circuito ExpressRoute está associado com o fornecedor de serviços de um só. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Vejo duas localizações de peering ExpressRoute no metro mesmo, por exemplo, Singapura e singapura2. A localização de peering devo escolher para criar meu circuito do ExpressRoute?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Vejo duas localizações de peering ExpressRoute no metro mesmo, por exemplo, Singapura e singapura2. A localização de peering devo escolher para criar meu circuito do ExpressRoute?
 Se o seu fornecedor de serviços ExpressRoute em ambos os sites, pode trabalhar com o fornecedor e escolher qualquer um dos sites para configurar o ExpressRoute. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Pode ter vários circuitos do ExpressRoute no metro mesmo? Posso ligá-los à mesma rede virtual?
 
-Sim. Pode ter vários circuitos do ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering do ExpressRoute e os circuitos são criados em diferentes localizações de peering, pode ligá-las à mesma rede virtual. Se o circuitos é criado na mesma localização de peering, não pode associá-los à mesma rede virtual. Cada nome de localização no Portal do Azure ou na API do PowerShell/CLI representa uma localização de peering. Por exemplo, pode selecionar as localizações de peering "Singapura" e "Singapura2" e ligar circuitos de cada à mesma rede virtual. 
+Sim. Pode ter vários circuitos do ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering do ExpressRoute e os circuitos são criados em diferentes localizações de peering, pode ligá-las à mesma rede virtual. Se o circuitos é criado na mesma localização de peering, não pode associá-los à mesma rede virtual. Cada nome de localização no portal do Azure ou na API do PowerShell/CLI representa uma localização de peering. Por exemplo, pode selecionar as localizações de peering "Singapura" e "Singapura2" e ligar circuitos de cada à mesma rede virtual. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como posso ligar minhas redes virtuais a um circuito do ExpressRoute
 
@@ -205,7 +183,7 @@ Sim. Se não tiver anunciado rotas predefinidas (0.0.0.0/0) ou prefixos de rota 
 
 Sim. Pode anunciar rotas predefinidas (0.0.0.0/0) para bloquear todas as conectividade à Internet para máquinas virtuais implementadas numa rede virtual e encaminhar todo o tráfego de saída através de circuito do ExpressRoute.
 
-Se anunciar rotas predefinidas, estamos a forçar o tráfego para serviços oferecidos através do retorno de peering (como o armazenamento do Azure e SQL DB) público para o local. Terá de configurar seus roteadores para devolver o tráfego para o Azure através do caminho de peering público ou através da Internet. Se ativou um ponto final do serviço (pré-visualização) para o serviço, o tráfego para o serviço não é forçado a local. O tráfego permanece na rede backbone do Azure. Para saber mais sobre pontos finais de serviço, consulte [pontos finais de serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+Se anunciar rotas predefinidas, podemos forçam o tráfego a serviços oferecidos através do peering (como o armazenamento do Azure e SQL DB) da Microsoft para o local. Terá de configurar seus roteadores para devolver o tráfego para o Azure através do caminho de peering da Microsoft ou através da Internet. Se ativou um ponto final de serviço para o serviço, o tráfego para o serviço não é forçado a local. O tráfego permanece na rede backbone do Azure. Para saber mais sobre pontos finais de serviço, consulte [pontos finais de serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Redes virtuais ligadas ao mesmo circuito de ExpressRoute podem conversar entre si?
 
@@ -223,17 +201,13 @@ Sim. Terá de criar um gateway do ExpressRoute na sua rede virtual. Existe um pe
 
 O endereço IP público é utilizado para gestão de interno apenas e não constitui uma exposição de segurança da sua rede virtual.
 
-### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>O que é necessário ligar ao armazenamento do Azure através do ExpressRoute?
-
-Tem de estabelecer um circuito do ExpressRoute e de configurar rotas para peering público.
-
 ### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>Existem limites no número de rotas, pode anunciar?
 
-Sim. Aceitamos até 4000 prefixos de rota para peering privado e 200 para peering público e peering da Microsoft. Isso pode aumentar para 10 000 rotas para peering privado, se habilitar o recurso de premium do ExpressRoute.
+Sim. Aceitamos até 4000 prefixos de rota para peering privado e 200 para peering da Microsoft. Isso pode aumentar para 10 000 rotas para peering privado, se habilitar o recurso de premium do ExpressRoute.
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Existem restrições em intervalos IP, pode anunciar durante a sessão BGP?
 
-Não aceitamos prefixos privados (RFC1918) na sessão de BGP peering Microsoft e público.
+Não aceitamos prefixos privados (RFC1918) para a sessão BGP peering do Microsoft.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>O que acontece se exceder o BGP limita?
 
@@ -242,18 +216,6 @@ Sessões de BGP serão ignorados. Serão repostas uma vez que a contagem de pref
 ### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>O que é o tempo de espera de BGP de ExpressRoute? Pode mesmo ser ajustado?
 
 O tempo de espera é de 180. As mensagens keep-alive são enviadas a cada 60 segundos. Estes são fixos definições do lado da Microsoft que não pode ser alterada. É possível configurar diferentes temporizadores e os parâmetros de sessão BGP serão negociados em conformidade.
-
-### <a name="after-i-advertise-the-default-route-00000-to-my-virtual-networks-i-cant-activate-windows-running-on-my-azure-vms-how-to-i-fix-this"></a>Depois, posso anunciar a rota predefinida (0.0.0.0/0) para meu redes virtuais, eu não é possível ativar o Windows em execução em VMs do Azure. Como para corrigir isso?
-
-Os passos seguintes ajudam a reconhecer o pedido de ativação do Azure:
-
-1. Estabelece peering público para o seu circuito do ExpressRoute.
-2. Efetuar uma pesquisa de DNS e encontrar o endereço IP do **kms.core.windows.net**
-3. O serviço de gestão de chaves deve reconhecer que o pedido de ativação proveniente do Azure e honra o pedido. Efetue um dos seguintes três tarefas:
-
-   * Na sua rede no local, encaminhe o tráfego destinado para o endereço IP que obteve no passo 2 para o Azure através do peering público.
-   * Ter o pin de cabelo do fornecedor NSP o tráfego de volta para o Azure através do peering público.
-   * Criar uma rota definida pelo utilizador que aponta o IP que tenha Internet como um salto seguinte e aplicá-la para as sub-redes em que estas máquinas virtuais são.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Pode alterar a largura de banda de um circuito do ExpressRoute?
 
@@ -280,7 +242,7 @@ ExpressRoute premium é uma coleção das seguintes funcionalidades:
     **Exemplos:**
 
     *  Pode ligar uma VNet criada na Europa Ocidental para um circuito ExpressRoute criado no vale do silício. 
-    *  Sobre o peering público, os prefixos de outras regiões geopolíticas são anunciados, de modo a que se possa ligar, para, por exemplo, SQL Azure na Europa Ocidental, de um circuito no vale do silício.
+    *  No peering da Microsoft, os prefixos de outras regiões geopolíticas são anunciados, de modo a que se possa ligar, para, por exemplo, SQL Azure na Europa Ocidental, de um circuito no vale do silício.
 
 
 ### <a name="limits"></a>O número de VNets pode posso ligar a um circuito de ExpressRoute se eu habilitei o ExpressRoute premium?
@@ -309,11 +271,11 @@ Consulte a [os detalhes dos preços](https://azure.microsoft.com/pricing/details
 
 Sim. Os custos do ExpressRoute premium aplicam-se sobre os custos de circuito do ExpressRoute e os custos envolvidos pelo fornecedor de conectividade.
 
-## <a name="expressroute-for-office-365-and-dynamics-365"></a>ExpressRoute para Office 365 e Dynamics 365
+## <a name="expressroute-for-office-365"></a>ExpressRoute para Office 365
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Como posso criar um circuito do ExpressRoute para ligar aos serviços do Office 365 e Dynamics 365?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>Como posso criar um circuito do ExpressRoute para ligar a serviços do Office 365?
 
 1. Reveja os [página de pré-requisitos do ExpressRoute](expressroute-prerequisites.md) para se certificar de que cumpre os requisitos.
 2. Para garantir que suas necessidades de conectividade são cumpridas, reveja a lista de fornecedores de serviços e locais no [ExpressRoute parceiros e localizações de](expressroute-locations.md) artigo.
@@ -321,13 +283,9 @@ Sim. Os custos do ExpressRoute premium aplicam-se sobre os custos de circuito do
 4. Siga os passos apresentados em fluxos de trabalho para configurar a conectividade [fluxos de trabalho do ExpressRoute para o aprovisionamento e Estados dos circuitos](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Certifique-se de que ativou o suplemento ExpressRoute premium ao configurar a conectividade com os serviços do Office 365 e Dynamics 365.
+> Certifique-se de que ativou o suplemento ExpressRoute premium ao configurar a conectividade para serviços do Office 365.
 > 
 > 
-
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>É necessário ativar o peering público do Azure ligar aos serviços do Office 365 e Dynamics 365?
-
-Não, só tem de ativar o Peering da Microsoft. Tráfego de autenticação para o Azure AD é enviado através do Peering da Microsoft. 
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Meu circuitos do ExpressRoute existentes podem suportar a conectividade com os serviços do Office 365 e Dynamics 365?
 
@@ -337,9 +295,9 @@ Sim. O circuito de ExpressRoute existente pode ser configurado para suportar a c
 
 Consulte a [intervalos de endereços IP e URLs do Office 365](http://aka.ms/o365endpoints) página para obter uma lista atualizada dos serviços suportada através do ExpressRoute.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Qual é o ExpressRoute para serviços do Office 365 e Dynamics 365 custo?
+### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Qual é o ExpressRoute para o custo de serviços do Office 365?
 
-Serviços do Office 365 e Dynamics 365 requerem o suplemento premium para ser ativada. Consulte a [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) para os custos.
+Serviços do Office 365 requerem o suplemento premium para ser ativada. Consulte a [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) para os custos.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Que regiões ExpressRoute para o Office 365 é suportada no?
 
@@ -356,10 +314,6 @@ Consulte a recomendação para [elevada disponibilidade e ativação pós-falha 
 
 Sim. Pontos finais de serviço do Office 365 GCC se encontram acessíveis através do ExpressRoute do Azure-na administração pública. No entanto, tem primeiro de abrir um pedido de suporte no portal do Azure para fornecer os prefixos que planeia anunciar à Microsoft. Será possível estabelecer a conectividade a serviços do Office 365 GCC depois do pedido de suporte é resolvido. 
 
-### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>Dynamics 365 para operações (anteriormente conhecidas como o Dynamics AX Online) pode ser acedido através de uma ligação do ExpressRoute?
-
-Sim. [Dynamics 365 para operações](https://www.microsoft.com/dynamics365/operations) está alojada no Azure. Pode ativar o peering público do Azure no seu circuito do ExpressRoute para ligar ao mesmo.
-
 ## <a name="route-filters-for-microsoft-peering"></a>Filtros de rota para peering da Microsoft
 
 ### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>Eu estou Ativando o peering da Microsoft pela primeira vez, quais rotas poderei ver?
@@ -374,7 +328,7 @@ Ao utilizar filtros de rota, todos os clientes podem ativar o peering da Microso
 
 Não, não terá autorização para o Dynamics 365. Pode criar uma regra e selecione a Comunidade do Dynamics 365 sem autorização.
 
-### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>Eu habilitei o peering antes de 1 de Agosto de 2017, como pode tirar partido de filtros de rota da Microsoft?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>Eu habilitei o peering antes de 1 de Agosto de 2017, como pode tirar partido de filtros de rota da Microsoft?
 
 O circuito existente continuará a anunciar os prefixos do Office 365 e Dynamics 365. Se pretender adicionar os anúncios de prefixos públicos do Azure através do mesmo peering da Microsoft, pode criar um filtro de rota, selecione os serviços que precisa anunciados (incluindo os serviços do Office 365 que terá e do Dynamics 365) e anexar o filtro ao seu Microsoft peering. Para obter instruções, consulte [configurar filtros de rota para peering da Microsoft](how-to-routefilter-powershell.md).
 

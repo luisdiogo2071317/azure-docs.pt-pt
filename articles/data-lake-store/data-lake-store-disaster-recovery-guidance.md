@@ -1,6 +1,6 @@
 ---
-title: Orientações de recuperação de desastre para o Azure Data Lake Store | Microsoft Docs
-description: Orientações sobre a recuperação após desastre para o Azure Data Lake Store
+title: Orientações sobre a recuperação após desastre para o Azure Data Lake Store | Documentos da Microsoft
+description: Documentação de orientação sobre a recuperação após desastre para o Azure Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,18 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306813"
 ---
-# <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Orientações de recuperação de desastre para os dados no Data Lake Store
+# <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Orientações sobre a recuperação após desastre para dados no Data Lake Store
 
-O Azure Data Lake Store fornece armazenamento localmente redundante (LRS). Por conseguinte, os dados na sua conta do Azure Data Lake Store são sejam resilientes a falhas de hardware transitórias numa região através de réplicas automatizadas. Isto garante durabilidade e elevada disponibilidade, cumprindo o SLA do Azure Data Lake Store. Este artigo fornece orientação sobre como proteger ainda mais os seus dados de falhas de toda a região raras ou eliminações acidentais.
+Azure Data Lake Store fornece armazenamento localmente redundante (LRS). Por conseguinte, os dados na sua conta do Azure Data Lake Store são resilientes a falhas de hardware transitórias num centro de dados através de réplicas automatizadas. Isto garante durabilidade e elevada disponibilidade, cumprindo o SLA do Azure Data Lake Store. Este artigo fornece orientações sobre como proteger ainda mais os seus dados de falhas raras de toda a região ou eliminações acidentais.
 
 ## <a name="disaster-recovery-guidance"></a>Documentação de orientação da recuperação após desastre
-É fundamental para cada cliente preparar o seu próprio plano de recuperação após desastre. Ler as informações neste artigo para criar o plano de recuperação após desastre. Eis alguns recursos que o podem ajudar a criar o seu plano.
+É fundamental para cada cliente preparar o seu próprio plano de recuperação após desastre. Leia as informações neste artigo para criar o seu plano de recuperação após desastre. Eis alguns recursos que o podem ajudar a criar o seu plano.
 
 * [Recuperação após desastre e elevada disponibilidade para aplicações do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Orientações técnicas sobre resiliência do Azure](../resiliency/resiliency-technical-guidance.md)

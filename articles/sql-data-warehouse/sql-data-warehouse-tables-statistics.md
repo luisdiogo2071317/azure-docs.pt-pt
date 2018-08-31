@@ -3,19 +3,19 @@ title: Criar, atualizar estatísticas - Azure SQL Data Warehouse | Documentos da
 description: Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consultas em tabelas no armazém de dados SQL do Azure.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054800"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307467"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Criar, atualizar as estatísticas em tabelas no armazém de dados SQL do Azure
 Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consultas em tabelas no armazém de dados SQL do Azure.
