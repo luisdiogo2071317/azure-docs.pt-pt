@@ -1,6 +1,6 @@
 ---
-title: Como realizar uma revisão de acesso | Documentos da Microsoft
-description: Saiba como executar uma revisão com a aplicação do Azure Privileged Identity Management.
+title: Realizar uma revisão de acesso de minhas funções de diretório do Azure AD no PIM | Documentos da Microsoft
+description: Saiba como realizar uma revisão de acesso de suas funções de diretório do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c1cdecb0ce47e72550f430d2b87b3e6cc4eb176
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b4cffbd1ce240e4792fba84581dafb1933c71a62
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623039"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188556"
 ---
-# <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Como realizar uma revisão de acesso no Azure AD Privileged Identity Management
+# <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>Realizar uma revisão de acesso de minhas funções de diretório do Azure AD no PIM
 O Azure Active Directory (AD) Privileged Identity Management simplifica como as empresas a gerir o acesso privilegiado a recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
 
 Se forem atribuídos a uma função administrativa, o administrador com função privilegiada da sua organização poderá pedir-lhe para confirmar regularmente que ainda tem essa função para a sua tarefa. Poderá receber um e-mail que inclui uma ligação, ou pode ir diretamente para o [portal do Azure](https://portal.azure.com). Siga os passos neste artigo para efetuar um Self-rever de suas funções atribuídas.
@@ -47,4 +47,5 @@ Siga estes passos para encontrar e concluir a revisão de acesso:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos Seguintes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Realizar uma revisão de acesso de minhas funções de recursos do Azure no PIM](pim-resource-roles-perform-access-review.md)

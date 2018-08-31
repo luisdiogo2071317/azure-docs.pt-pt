@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management para recursos do Azure - ativar a gestão de subscrição | Documentos da Microsoft
-description: Saiba os administradores globais como pode gerir as subscrições no inquilino.
+title: Ativar a gestão de subscrição no seu inquilino - Azure | Documentos da Microsoft
+description: Saiba como ativar a gestão de subscrição de ativar no seu inquilino ao utilizar o Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620285"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190000"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Ativar a gestão de subscrição no seu inquilino
 
@@ -79,14 +79,5 @@ Agora que tem atribuições elegíveis para as subscrições importantes na sua 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Detetar recursos](pim-resource-roles-discover-resources.md)
-
-[Configurar as definições de função](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Descubra os recursos do Azure para gerir no PIM](pim-resource-roles-discover-resources.md)
+- [Configurar as definições de função de recursos do Azure no PIM](pim-resource-roles-configure-role-settings.md)
