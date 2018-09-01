@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139569"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381872"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN para o Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "42139569"
 
 Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego encriptado entre a rede virtual no Azure Stack e um gateway VPN remoto. O gateway VPN remoto pode ser no Azure, um dispositivo no seu datacenter ou um dispositivo de outro site.  Se existir conectividade de rede entre os dois pontos de extremidade, pode estabelecer uma ligação segura de VPN Site a Site (S2S) entre as duas redes.
 
-Uma ligação de gateway VPN depende da configuração de vários recursos, cada um deles contém definições configuráveis. As secções neste artigo abordam os recursos e as definições relacionadas com a um gateway VPN para uma rede virtual criada no modelo de implementação do Resource Manager. Encontrará descrições e diagramas de topologia para cada solução de ligação no [sobre o Gateway de VPN para o Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Uma ligação de gateway VPN depende da configuração de vários recursos, cada um deles contém definições configuráveis. Este artigo aborda os recursos e as definições relacionadas com a um gateway VPN para uma rede virtual que criar no modelo de implementação do Resource Manager. Encontrará descrições e diagramas de topologia para cada solução de ligação no [sobre o Gateway de VPN para o Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>Definições do gateway VPN
 
@@ -100,7 +100,7 @@ Ao criar o gateway de rede virtual para uma configuração de gateway VPN, tem d
 >
 > Além disso, Azure Stack não suporta a utilização Seletores de tráfego com base em políticas para Gateways de com base em rota neste momento, porque as configurações da política de IPSec/IKE personalizadas não são suportadas.
 
-* **PolicyBased**: as VPNs baseadas em políticas encriptam e direcionam os pacotes através de túneis IPsec com base nas políticas IPsec configuradas com as combinações de prefixos de endereços entre a rede no local e a VNet do Azure Stack. A política ou o Seletor de tráfego, normalmente, é definido como uma lista de acesso na configuração do dispositivo VPN.
+* **PolicyBased**: as VPNs baseadas em políticas encriptam e direcionam os pacotes através de túneis IPsec com base nas políticas IPsec configuradas com as combinações de prefixos de endereços entre a rede no local e a VNet do Azure Stack. A política ou o Seletor de tráfego, normalmente, é uma lista de acesso na configuração do dispositivo VPN.
 
   >[!NOTE]
   >PolicyBased é suportado no Azure, mas não no Azure Stack.
@@ -163,7 +163,7 @@ Por vezes, terá de modificar as definições do gateway de rede local. Por exem
 
 ## <a name="ipsecike-parameters"></a>Parâmetros IPsec/IKE
 
-Quando configurar uma ligação VPN no Azure Stack, terá de configurar a ligação em ambas as extremidades.  Se estiver a configurar uma ligação VPN entre o Azure Stack e um dispositivo de hardware, como um comutador ou um roteador, o que está a agir como um Gateway de VPN, o que o dispositivo poderá pedir-lhe para as definições adicionais.
+Quando configurar uma ligação VPN no Azure Stack, terá de configurar a ligação em ambas as extremidades.  Se estiver a configurar uma ligação VPN entre o Azure Stack e um dispositivo de hardware, como um comutador ou um router que está a agir como um Gateway de VPN, que o dispositivo poderá pedir-lhe para as definições adicionais.
 
 Ao contrário do Azure, que suporta várias ofertas como um iniciador e um dispositivo de resposta, o Azure Stack suporta apenas uma oferta.
 
@@ -184,14 +184,12 @@ Ao contrário do Azure, que suporta várias ofertas como um iniciador e um dispo
 |Versão do IKE |IKEv2 |
 |Encriptação e hash algoritmos (encriptação)     | GCMAES256|
 |Encriptação e hash algoritmos (autenticação) | GCMAES256|
-|Duração de SA (Tempo)  | 27,000 segundos<sup>ver nota 1</sup> |
-|Duração de SA (Bytes) | 33,553,408<sup>ver nota 2</sup>     |
-|Perfect Forward Secrecy (PFS) |Nenhum<sup>ver nota 3</sup> |
+|Duração de SA (Tempo)  | 27,000 segundos  |
+|Duração de SA (Bytes) | 33,553,408     |
+|Perfect Forward Secrecy (PFS) |Nenhum<sup>ver nota 1</sup> |
 |Deteção de Elemento Inutilizado | Suportadas|  
 
-* *Nota 1:* anteriores à versão 1803, o Azure Stack utiliza um valor de 14 400 para a duração de SA (tempo).
-* *Nota 2:* anteriores à versão 1803, o Azure Stack utiliza um valor de 819,200 para a duração de SA (Bytes).
-* *Nota 3:* anteriores à versão 1807, Azure Stack utiliza um valor de PFS2048 para o perfeito para a frente Secrecy (PFS).
+* *Nota 1:* anteriores à versão 1807, Azure Stack utiliza um valor de PFS2048 para o perfeito para a frente Secrecy (PFS).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
