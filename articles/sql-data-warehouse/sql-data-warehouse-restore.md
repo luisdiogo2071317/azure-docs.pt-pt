@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cf96e153c07211fe176839e713935adcf6b9dbe1
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 31b137cca55b1dd249368ba5e287496582152c9f
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306967"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382665"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restaurar o armazém de dados SQL do Azure 
 Neste artigo, aprenderá como fazer o seguinte:
@@ -25,6 +25,10 @@ Neste artigo, aprenderá como fazer o seguinte:
 - Restaurar a partir de uma base de dados eliminada
 - Restaurar a partir de uma cópia de segurança geo
 - Criar uma cópia do seu armazém de dados a partir de um ponto de restauro definidas pelo utilizador
+
+> [!NOTE]
+> A partir de 8/27, restauro entre servidores foi desativado devido a uma regressão conhecida. Estamos a trabalhar ativamente numa solução com a nossa prioridade mais alta. Pedimos desculpas por este inconveniente. Entretanto, pode aproveitar seus [cópia de segurança geo](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) para restaurar em servidores.  
+>
 
 ## <a name="before-you-begin"></a>Antes de começar
 **Verifique a sua capacidade DTU.** Cada SQL Data Warehouse é hospedado por um SQL server (por exemplo, myserver.database.windows.net), que tem uma quota DTU predefinida.  Antes de pode restaurar um armazém de dados SQL, certifique-se de que o seu SQL server tem quota suficiente DTU restante para a base de dados a ser restaurada. Para saber como calcular a DTU necessária ou para pedir DTU mais, veja [solicitar uma alteração de quota DTU][Request a DTU quota change].

@@ -1,6 +1,6 @@
 ---
-title: Sistemas operativos convidados suportados para a pilha do Azure | Microsoft Docs
-description: Estes sistemas operativos de convidado pode ser utilizados na pilha do Azure.
+title: Sistemas operativos convidados suportados para o Azure Stack | Documentos da Microsoft
+description: Estes sistemas de operativos de convidado pode ser utilizados no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: Brenduns
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d6e9531edf8915e4b6c2636372b756002fca10fd
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060452"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382404"
 ---
-# <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operativos convidados suportados na pilha do Azure
+# <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas de operativos convidados suportados no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 ## <a name="windows"></a>Windows
 
-Pilha do Azure suporta os sistemas de operativos de convidado do Windows listados na seguinte tabela:
+O Azure Stack suporta os sistemas de operativos de convidado do Windows listados na tabela a seguir:
 
-| Sistema operativo | Descrição | Disponível no mercado |
+| Sistema operativo | Descrição | Disponível no Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Windows Server, versão 1709 | 64 bits | Core com contentores |
-| Windows Server 2016 | 64 bits |  Centro de dados, Centro de dados principal, Datacenter com contentores |
+| Versão 1709 do Windows Server | 64 bits | Núcleo de contentores |
+| Windows Server 2016 | 64 bits |  Centro de dados, núcleo de Datacenter, Datacenter com contentores |
 | Windows Server 2012 R2 | 64 bits |  Datacenter |
 | Windows Server 2012 | 64 bits |  Datacenter |
 | Windows Server 2008 R2 SP1 | 64 bits |  Datacenter |
-| Windows Server 2008 SP2 | 64 bits |  Traga a sua própria imagem |
-| Windows 10 *(ver nota 1)* | 64 bits, Pro e Enterprise | Traga a sua própria imagem |
+| Windows Server 2008 SP2 | 64 bits |  Utilize a sua própria imagem |
+| Windows 10 *(ver nota 1)* | 64 bits, Pro e Enterprise | Utilize a sua própria imagem |
 
-***Nota 1:*** *para implementar sistemas de operativos cliente Windows 10 na pilha do Azure, tem de ter [Windows por utilizador licenciamento](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou comprar através de um fornecedor de alojamento qualificado do multi-inquilino ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+***Nota 1:*** *para implementar sistemas operativos de cliente de Windows 10 no Azure Stack, tem de ter [Windows por licenciamento de utilizadores](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou comprar através de um fornecedor de alojamento qualificado do multi-inquilino ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
-Imagens do Marketplace estão disponíveis para Pay-como-utiliza ou licenciamento BYOL (EA/SPLA). Não é suportada a utilização de ambos numa única instância de pilha do Azure. Durante a implementação, a pilha do Azure injects uma versão adequada do agente convidado para a imagem.
+Imagens do Marketplace estão disponíveis para pagamento-como-utiliza ou licenciamento BYOL (EA/SPLA). Não é suportada a utilização de ambos numa única instância do Azure Stack. Durante a implementação, o Azure Stack injeta uma versão adequada do agente convidado na imagem.
 
- Edições de Datacenter estão disponíveis no mercado para transferir; os clientes podem trazer as seus próprios imagens de servidor, incluindo outras edições. Imagens de cliente do Windows não estão disponíveis no mercado.
+ Edições de Datacenter estão disponíveis no mercado para download; os clientes podem trazer as suas próprias imagens de servidor, incluindo outras edições. Imagens do cliente Windows não estão disponíveis no Marketplace.
 
 ## <a name="linux"></a>Linux
 
-As distribuições do Linux listadas como disponíveis no mercado incluem o agente Linux de Azure de Windows necessário (WALA). Se trouxer a sua própria imagem para a pilha do Azure, siga as diretrizes no [Linux adicionar imagens à pilha de Azure](azure-stack-linux.md).
+Distribuições do Linux listadas como disponível no Marketplace incluem o agente Linux de Azure de Windows necessárias (WALA). Se trouxer a sua própria imagem para o Azure Stack, siga as diretrizes [imagens do Linux de adicionar ao Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Imagens personalizadas devem ser criadas com a versão mais recente de WALA pública. Versões mais antigas do que 2.2.18 podem não funcionar corretamente na pilha do Azure.
+> Imagens personalizadas devem ser criadas com a versão mais recente de WALA pública. As versões mais antigas que 2.2.18 podem não funcionar corretamente no Azure Stack.
 >
-> [nuvem init](https://cloud-init.io/) , neste momento, não é suportada na pilha do Azure.
+> [cloud-init](https://cloud-init.io/) , neste momento, não é suportado no Azure Stack.
 
 | Distribuição | Descrição | Publicador | Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Com base em centOS 6.9 | 64 bits | Rogue Wave | Sim |
-| 7.4 baseado em centOS | 64 bits | Rogue Wave | Sim |
+| 6.9 baseada em centOS | 64 bits | Rogue Wave | Sim |
+| Com base no centOS 7.4 | 64 bits | Rogue Wave | Sim |
 | ClearLinux | 64 bits | ClearLinux.org | Sim |
 | Contentor Linux |  64 bits | CoreOS | Estável |
 | Debian 8 "Jessie" | 64 bits | credativ |  Sim |
 | Debian 9 "Stretch" | 64 bits | credativ | Sim |
-| Red Hat Enterprise Linux 7. x | 64 bits | Red Hat |Traga a sua própria imagem |
+| Red Hat Enterprise Linux 7.x | 64 bits | Red Hat |Utilize a sua própria imagem |
 | SLES 11SP4 | 64 bits | SUSE | Sim |
 | SLES 12SP3 | 64 bits | SUSE | Sim |
 | Ubuntu 14.04-LTS | 64 bits | Canónico | Sim |
 | Ubuntu 16.04-LTS | 64 bits | Canónico | Sim |
 | Ubuntu 18.04-LTS | 64 bits | Canónico | Sim |
 
-Outras as distribuições do Linux podem ser suportadas no futuro.
+Outras distribuições do Linux podem ser suportadas no futuro.
 
-Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e pilha do Azure: Perguntas mais frequentes](https://access.redhat.com/articles/3413531).
+Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e o Azure Stack: Perguntas mais frequentes](https://access.redhat.com/articles/3413531).

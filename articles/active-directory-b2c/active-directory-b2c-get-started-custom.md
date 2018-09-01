@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446746"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344567"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>O Azure Active Directory B2C: Introdução às políticas personalizadas
 
@@ -77,7 +77,7 @@ O Azure AD B2C exige que Registre-se duas aplicações adicionais que são utili
 4. Selecione **Novo registo de aplicação**.
    * Para **Name**, utilize `IdentityExperienceFramework`.
    * Para **tipo de aplicação**, utilize **aplicação/API Web**.
-   * Para **URL de início de sessão**, utilize `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o seu nome de domínio de inquilino do Azure AD B2C.
+   * Para **URL de início de sessão**, utilize `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o seu nome de domínio de inquilino do Azure AD B2C.
 5. Selecione **Criar**.
 6. Depois de criado, selecione a aplicação criada recentemente **IdentityExperienceFramework**.<br>
    * Selecione **propriedades**.<br>
@@ -89,14 +89,14 @@ O Azure AD B2C exige que Registre-se duas aplicações adicionais que são utili
 1. Selecione **Novo registo de aplicação**.
    * Para **Name**, utilize `ProxyIdentityExperienceFramework`.
    * Para **tipo de aplicação**, utilize **nativo**.
-   * Para **URI de redirecionamento**, utilize `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o seu inquilino do Azure AD B2C.
+   * Para **URI de redirecionamento**, utilize `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o seu inquilino do Azure AD B2C.
 1. Selecione **Criar**.
 1. Depois de este ter sido criado, selecione a aplicação **ProxyIdentityExperienceFramework**.<br>
    * Selecione **propriedades**. <br>
    * Copie o ID da aplicação e guarde-o para utilizar mais tarde.
 1. Selecione **permissões obrigatórias**.
 1. Selecione **Adicionar**.
-1. Selecione **selecionar uma API**.
+1. Selecione **Selecionar uma API**.
 1. Procure o nome IdentityExperienceFramework. Selecione **IdentityExperienceFramework** nos resultados e, em seguida, clique **selecione**.
 1. Selecione a caixa de verificação junto a **acesso IdentityExperienceFramework**e, em seguida, clique em **selecione**.
 1. Selecione **Done** (Concluído).

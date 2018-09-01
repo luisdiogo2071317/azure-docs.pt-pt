@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 33b0f5df57623f0b4433a4a09c7cd15688783485
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191207"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344840"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa de suporte do Azure Maps
 Quatro estilos de mapa incorporados diferentes de suporte do Azure maps. Os estilos, juntamente com as suas descrições estão listados abaixo.
@@ -22,7 +22,7 @@ Quatro estilos de mapa incorporados diferentes de suporte do Azure maps. Os esti
 ## <a name="road"></a>Estrada
 R **estrada** mapa é um mapa padrão que apresenta estradas, naturais e artificiais recursos, juntamente com as etiquetas para esses recursos.
 
-![estrada](./media/supported-map-styles/road.png)
+![Estrada](./media/supported-map-styles/road.png)
 
 **APIs aplicável:**
 * [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -32,7 +32,7 @@ R **estrada** mapa é um mapa padrão que apresenta estradas, naturais e artific
 ## <a name="satellite"></a>Satélite 
 O **satélite** estilo é uma combinação de satélite e imagens aéreas.
 
-![satélite](./media/supported-map-styles/satellite.png)
+![Satélite](./media/supported-map-styles/satellite.png)
 
 **APIs aplicável:**
 * [Mosaico da satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,4 +52,4 @@ Esse estilo de mapa é uma mistura de estradas e as etiquetas sobrepostas sobre 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **APIs aplicável:**
-* Controlo de mapas JS
+* Controlo de mapas JS 

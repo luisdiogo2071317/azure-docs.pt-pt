@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: c153153313511640f7969938f63ea9fbe7b0847c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282656"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338860"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema do modelo de dispositivo
 
@@ -24,7 +24,7 @@ Este artigo descreve o esquema do modelo de dispositivo Especifica as capacidade
 Os artigos seguintes estão relacionados ao artigo atual:
 
 * [Implementar o comportamento de modelo do dispositivo](iot-accelerators-remote-monitoring-device-behavior.md) descreve os ficheiros de JavaScript que utilizar para implementar o comportamento de um dispositivo simulado.
-* [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-test.md) coloca tudo isso e mostra-lhe como implementar um novo tipo de dispositivo simulado à sua solução.
+* [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md) coloca tudo isso e mostra-lhe como implementar um novo tipo de dispositivo simulado à sua solução.
 
 Neste artigo, vai aprender a:
 

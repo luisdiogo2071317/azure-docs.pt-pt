@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447171"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382538"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para aprovisionamento automático de utilizadores
 
-O objetivo deste tutorial é mostrar a os passos que necessários para executar para permitir que automática provisionamento e desprovisionamento de contas de utilizador do Azure Active Directory (Azure AD) para Pingboard.
+O objetivo deste tutorial é mostrar-lhe os passos que tem de seguir para ativar automática provisionamento e desprovisionamento de contas de utilizador do Azure Active Directory (Azure AD) para Pingboard.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ O cenário descrito neste tutorial parte do princípio de que já tem os seguint
 *   Uma conta de utilizador no Pingboard com permissões de administrador 
 
 > [!NOTE] 
-> Aprovisionamento de integração do Azure AD depende de [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), que está disponível para a sua conta.
+> Aprovisionamento de integração do Azure AD depende de [Pingboard API](https://pingboard.docs.apiary.io/#), que está disponível para a sua conta.
 
 ## <a name="assign-users-to-pingboard"></a>Atribuir utilizadores a Pingboard
 
@@ -52,7 +52,7 @@ Recomendamos que atribua um único utilizador do Azure AD para Pingboard para te
 
 ## <a name="configure-user-provisioning-to-pingboard"></a>Configurar o aprovisionamento do utilizador Pingboard 
 
-Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utilizador de Pingboard API de aprovisionamento. Também é configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído no Pingboard com base em atribuições de utilizador no Azure AD.
+Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utilizador de Pingboard API de aprovisionamento. Também é configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído no Pingboard que se baseiam em atribuições de utilizador no Azure AD.
 
 > [!TIP]
 > Para ativar baseado em SAML início de sessão único para Pingboard, siga as instruções fornecidas a [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementam uma à outra.
@@ -69,7 +69,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
     ![Aprovisionamento Pingboard](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-1. Sob o **credenciais de administrador** secção, execute os seguintes passos:
+1. Sob o **credenciais de administrador** secção, utilize os seguintes passos:
 
     a. Na **URL de inquilino**, introduza `https://your_domain.pingboard.com/scim/v2`e substitua "your_domain" com o seu domínio real.
 
@@ -81,7 +81,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
     e. Copie o token no **Token de portador do OAuth**e introduza-a na **segredo de Token**.
 
-1. No portal do Azure, selecione **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação de Pingboard. Se a ligação falhar, certifique-se de que a conta de Pingboard tem permissões de administrador e tente a **Testar ligação** passo novamente.
+1. No portal do Azure, selecione **Testar ligação** testar o Azure AD, pode ligar à sua aplicação de Pingboard. Se a ligação falhar, o teste que a conta de Pingboard tem permissões de administrador e tente a **Testar ligação** passo novamente.
 
 1. Introduza o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de aprovisionamento na **notificação por E-Mail**. Selecione a caixa de verificação abaixo.
 
@@ -95,7 +95,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
 1. Selecione **guardar** para iniciar a sincronização inicial de utilizadores atribuídos a Pingboard.
 
-A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Utilize o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades de aprovisionamento. Os registos de descrevem todas as ações executadas pelo serviço de aprovisionamento na sua aplicação Pingboard.
+A sincronização inicial demora mais tempo a executar a seguintes sincronizações, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Utilize o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades de aprovisionamento. Os registos de descrevem todas as ações que o serviço de aprovisionamento na sua aplicação Pingboard.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [um relatório sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
 
@@ -103,4 +103,4 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar o início de sessão único](pingboard-tutorial.md)
+* [Configure single sign-on](pingboard-tutorial.md) (Configurar o início de sessão único)

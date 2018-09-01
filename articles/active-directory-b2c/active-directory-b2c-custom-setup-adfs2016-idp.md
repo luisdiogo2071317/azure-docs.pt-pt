@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a81baae553bbf9c58d42372e25e90cd7588f2952
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4380d21eded3f97e3b3107e78c9544a09d1b0bb2
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445080"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338535"
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>O Azure Active Directory B2C: Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas
 
@@ -57,10 +57,10 @@ A associação **administradores**, ou equivalente, no computador local é o mí
     ![Especifique o nome a apresentar e notas](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
 6.  Opcional. Se tiver um certificado de encriptação de tokens opcional, em seguida, na **configurar certificado** página, clique em **procurar** para localizar o ficheiro de certificado e, em seguida, clique em **seguinte**.
     ![Configurar certificado](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
-7.  Sobre o **configurar URL** página, selecione a **ativar o suporte para o protocolo SAML 2.0 WebSSO** caixa de verificação. Sob **URL do serviço Relying festa SAML 2.0 SSO**, escreva o URL de ponto final de serviço de Security Assertion Markup Language (SAML) para esta fidedignidade de entidade confiadora e, em seguida, clique em **próxima**.  Para o **URL do serviço Relying festa SAML 2.0 SSO**, cole o `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Substitua {inquilino} com o nome do inquilino (por exemplo, contosob2c.onmicrosoft.com) e substitua {política} pelo nome da sua política extensões (por exemplo, B2C_1A_TrustFrameworkExtensions).
+7.  Sobre o **configurar URL** página, selecione a **ativar o suporte para o protocolo SAML 2.0 WebSSO** caixa de verificação. Sob **URL do serviço Relying festa SAML 2.0 SSO**, escreva o URL de ponto final de serviço de Security Assertion Markup Language (SAML) para esta fidedignidade de entidade confiadora e, em seguida, clique em **próxima**.  Para o **URL do serviço Relying festa SAML 2.0 SSO**, cole o `https://(tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policy}`. Substitua {inquilino} com o nome do inquilino (por exemplo, contosob2c) e substitua {política} pelo nome da sua política extensões (por exemplo, B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >O nome da política é o que política signup_or_signin herda, neste caso é: `B2C_1A_TrustFrameworkExtensions`.
-    >Por exemplo poderia ser o URL: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Por exemplo o URL pode ser: https://**contosob2c**.b2clogin.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![URL do serviço de SAML 2.0 SSO de terceiros de entidade confiadora](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. Sobre o **configurar identificadores** página, especifique o mesmo URL que o passo anterior, clique em **Add** adicioná-los à lista e, em seguida, clique em **seguinte**.

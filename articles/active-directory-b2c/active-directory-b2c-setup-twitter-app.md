@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bf5ae39d83fd021775fbd18cf23d2e6b9078e748
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927901"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337795"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Twitter com o Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Para utilizar uma conta do Twitter como fornecedor de identidade no Azure Active
 1. Inicie sessão para o [Twitter aplicações](https://apps.twitter.com/) com as suas credenciais do Twitter.
 2. Selecione **criar nova aplicação**.
 3. Introduza o **Name**, **Descrição**, e **site**.
-4. Introduza `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` no **URLs de retorno de chamada**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contosob2c.onmicrosoft.com) e **{policyId}** com o seu ID de política (por exemplo, b2c_1_policy). Deve adicionar um URL de retorno de chamada para todas as políticas que usam a conta do Twitter. Certifique-se de usar `b2clogin.com` em vez de ` login.microsoftonline.com` se estiver a utilizá-lo em seu aplicativo.
+4. Introduza `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` no **URLs de retorno de chamada**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contosob2c) e **{policyId}** com o seu ID de política (por exemplo, b2c_1_policy). Deve adicionar um URL de retorno de chamada para todas as políticas que usam a conta do Twitter. 
 5. Concorde com o **contrato de desenvolvedor** e selecione **criar a sua aplicação do Twitter**.
 7. Selecione o **chaves e Tokens de acesso** separador.
 8. Copie o valor da **chave de consumidor** e **segredo de consumidor**. Terá de ambos para configurar uma conta do Twitter como fornecedor de identidade no seu inquilino.

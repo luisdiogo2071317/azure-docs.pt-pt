@@ -11,14 +11,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: f0fe2bde039cd209514d0cbc4842b20cd4b5fb99
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444047"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344765"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 Máquina Virtual de ciência de dados (DSVM) a Microsoft é uma imagem de máquina virtual (VM) do Windows Azure. Ele tem pré-instalado e configurado com várias ferramentas que são utilizadas para análise de dados e machine learning. As ferramentas seguintes estão incluídas:
@@ -66,7 +66,7 @@ Para criar uma máquina de Virtual de ciência de dados do Microsoft, tem de ter
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Criar a sua máquina de Virtual de ciência de dados da Microsoft
 Para criar uma instância da Máquina Virtual Microsoft dados ciência, siga estes passos:
 
-1. Navegue para a máquina virtual listagem sobre o [portal do Azure](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
+1. Navegue para a máquina virtual listagem sobre o [portal do Azure](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). Poderá ser-lhe pedido para iniciar sessão sua conta do Azure, se não tiver entrado.
 1. Selecione o **criar** na parte inferior para ser levados num assistente.
 
   ![Configurar-data--vm de ciência](./media/provision-vm/configure-data-science-virtual-machine.png) 

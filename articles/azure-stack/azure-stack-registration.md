@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247828"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340171"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -58,7 +58,7 @@ Antes de registar o Azure Stack com o Azure, tem de ter:
 
 ### <a name="powershell-language-mode"></a>Modo de idioma do PowerShell
 
-Para registar com êxito o Azure Stack, o modo de idioma do PowerShell deve ser definido como **FullLanguageMode**.  Para verificar se o modo de idioma atual está definido como completa, abra uma janela elevada do PowerShell e execute o seguinte cmdlts do PowerShell:
+Para registar com êxito o Azure Stack, o modo de idioma do PowerShell deve ser definido como **FullLanguageMode**.  Para verificar se o modo de idioma atual está definido como completa, abra uma janela elevada do PowerShell e execute os seguintes cmdlets do PowerShell:
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -100,7 +100,7 @@ Utilize estes passos para registar o Azure Stack com o Azure com o modelo de fat
 
 Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, terá de registar o fornecedor de recursos do Azure Stack com o Azure e, em seguida, configurar o modelo de faturação.
 
-1. Para registar o fornecedor de recursos do Azure Stack com o Azure, inicie o ISE do PowerShell como administrador e utilize o seguinte cmdlts do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de subscrição do Azure adequada (consulte a parâmetros abaixo).
+1. Para registar o fornecedor de recursos do Azure Stack com o Azure, inicie o ISE do PowerShell como administrador e utilize os seguintes cmdlets do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de subscrição do Azure adequada (consulte a parâmetros abaixo).
 
 2. Adicione a conta do Azure que utiliza para registar o Azure Stack. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet. Lhe for pedido que introduza as credenciais de conta de administrador global do Azure e poderá ter de utilizar a autenticação de 2 fatores com base na configuração da sua conta.
 
@@ -160,7 +160,7 @@ Utilize estes passos para registar o Azure Stack com o Azure com o modelo de fat
 
 Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, terá de registar o fornecedor de recursos do Azure Stack com o Azure e, em seguida, configurar o modelo de faturação.
 
-1. Para registar o fornecedor de recursos do Azure Stack com o Azure, inicie o ISE do PowerShell como administrador e utilize o seguinte cmdlts do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de subscrição do Azure adequada (consulte a parâmetros abaixo).
+1. Para registar o fornecedor de recursos do Azure Stack com o Azure, inicie o ISE do PowerShell como administrador e utilize os seguintes cmdlets do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de subscrição do Azure adequada (consulte a parâmetros abaixo).
 
 2. Adicione a conta do Azure que utiliza para registar o Azure Stack. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet. Lhe for pedido que introduza as credenciais de conta de administrador global do Azure e poderá ter de utilizar a autenticação de 2 fatores com base na configuração da sua conta.
 
@@ -213,7 +213,7 @@ Se está a registar Azure Stack num ambiente desligado (sem conectividade de int
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Para obter o token de registo, execute o seguinte cmdlts do PowerShell:  
+2. Para obter o token de registo, execute os seguintes cmdlets do PowerShell:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -250,7 +250,7 @@ Opcionalmente, pode utilizar o cmdlet Get-Content para apontar para um ficheiro 
 
 Em seguida, terá de obter uma chave de ativação do recurso de registo criado no Azure durante AzsEnvironment Registre-se.
 
-Para obter a chave de ativação, execute o seguinte cmdlts do PowerShell:  
+Para obter a chave de ativação, execute os seguintes cmdlets do PowerShell:  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -263,7 +263,7 @@ Para obter a chave de ativação, execute o seguinte cmdlts do PowerShell:
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Criar um recurso de ativação no Azure Stack
 
-Regressar ao ambiente do Azure Stack com o ficheiro ou o texto da chave de ativação criada a partir de Get-AzsActivationKey. Em seguida vai criar um recurso de ativação no Azure Stack com essa chave de ativação. Para criar um recurso de ativação, execute o seguinte cmdlts do PowerShell:  
+Regressar ao ambiente do Azure Stack com o ficheiro ou o texto da chave de ativação criada a partir de Get-AzsActivationKey. Em seguida vai criar um recurso de ativação no Azure Stack com essa chave de ativação. Para criar um recurso de ativação, execute os seguintes cmdlets do PowerShell:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -329,13 +329,13 @@ Terá de atualizar ou renovar o registo nas seguintes circunstâncias:
 
 Primeiro terá de remover o recurso de ativação do Azure Stack e, em seguida, o recurso de registo no Azure.  
 
-Para remover o recurso de ativação no Azure Stack, execute o seguinte cmdlts do PowerShell no seu ambiente do Azure Stack:  
+Para remover o recurso de ativação no Azure Stack, execute os seguintes cmdlets do PowerShell no seu ambiente do Azure Stack:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Em seguida, para remover o recurso de registo no Azure, certifique-se estiver a utilizar um Azure ligado computador, inicie sessão para o contexto correto do Azure PowerShell e executar o cmdlts PowerShell apropriado, conforme descrito abaixo.
+Em seguida, para remover o recurso de registo no Azure, certifique-se estiver a utilizar um Azure ligado computador, inicie sessão para o contexto correto do Azure PowerShell e execute os cmdlets apropriados do PowerShell, conforme descrito abaixo.
 
 Pode usar o token de registo utilizado para criar o recurso:  
 
@@ -386,6 +386,8 @@ Para ambientes do Azure Stack que utilizam um modelo de faturação de capacidad
 
 2. Guarde este token de registo para utilização no Azure ligado máquina. Pode copiar o ficheiro ou o texto de $FilePathForRegistrationToken.
 
+## <a name="move-a-registration-resource"></a>Mover um recurso de registo
+Mover um recurso de registro entre grupos de recursos na mesma subscrição **é** suportados para todos os ambientes. No entanto, mover um recurso de registro entre subscrições é apenas suportada para CSPs quando ambas as subscrições resolver para o mesmo ID de parceiro. Para obter mais informações sobre como mover recursos para um novo grupo de recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="registration-reference"></a>Referência de registo
 

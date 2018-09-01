@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054777"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Azure Active Directory com YouEarnedIt
 
@@ -116,13 +116,13 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `https://<company name>.youearnedit.com/users/sign_in` |
-    | Área de segurança  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
+    | Sandbox  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. Na **identificador** caixa de texto, escreva um URL com os seguintes padrões:
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `https://<company name>.youearnedit.com` |
-    | Área de segurança  |`https://<company name>.sandbox.youearnedit.com` |
+    | Sandbox  |`https://<company name>.sandbox.youearnedit.com` |
 
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte o seu Gestor de YouEarnedIt ao sucesso dos clientes atribuído para obter estes valores.
@@ -139,7 +139,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de YouEarnedIt](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Para configurar o início de sessão único num **YouEarnedIt** lado, terá de enviar o transferido **Certificate(Base64)** e **SAML único início de sessão no URL do serviço** para sua atribuído Gestor de YouEarnedIt ao sucesso dos clientes. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+7. Para configurar o início de sessão único no **YouEarnedIt** lado, terá de enviar o transferido ***Certificate(Base64)*** e ***SAML único início de sessão no URL do serviço*** para sua atribuído **YouEarnedIt** manager de sucesso dos clientes. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

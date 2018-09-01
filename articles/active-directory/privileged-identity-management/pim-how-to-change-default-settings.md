@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189342"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338912"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurar definições de função de diretório do Azure AD no PIM
 
 Um administrador com função privilegiada pode personalizar o Azure AD Privileged Identity Management (PIM) na sua organização, incluindo a alteração da experiência de para um utilizador que consiste em ativar uma atribuição de função elegível.
 
 ## <a name="open-role-settings"></a>Abra as definições de função
+
+Siga estes passos para abrir as definições para uma função de diretório do Azure AD.
 
 1. Open **do Azure AD Privileged Identity Management**.
 
@@ -44,19 +46,19 @@ Um administrador com função privilegiada pode personalizar o Azure AD Privileg
 
 ## <a name="activations"></a>Ativações
 
-O **ativações** controlo de deslize é o tempo máximo, em horas, o que uma função fica ativa antes de expirar. Este valor pode ser entre 1 e 72 horas.
+Utilize o **ativações** controlo de deslize para definir o tempo máximo, em horas, que uma função fica ativa antes de expirar. Este valor pode ser entre 1 e 72 horas.
 
 ## <a name="notifications"></a>Notificações
 
-O **notificações** comutador permite-lhe escolher se o sistema envia mensagens de correio eletrónico para confirmar que ativaram uma função de administradores. Isso pode ser útil para detetar ativações não autorizadas ou ilegítimo.
+Utilize o **notificações** comutador para especificar se o sistema envia mensagens de correio eletrónico para confirmar que ativaram uma função de administradores. Isso pode ser útil para detetar ativações não autorizadas ou ilegítimo.
 
 ## <a name="incidentrequest-ticket"></a>Pedido de suporte de incidente/pedido 
 
-O **pedido de incidente/pedido** comutador permite-lhe escolher se exigir que os administradores elegíveis incluir um número de pedido de suporte quando ativar a respetiva função. Isso pode ser útil ao realizar auditorias de acesso de função.
+Utilize o **pedido de incidente/pedido** comutador para especificar se exigir que os administradores elegíveis incluir um número de pedido de suporte quando ativar a respetiva função. Isso pode ser útil ao realizar auditorias de acesso de função.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-O **multi-factor Authentication** comutador permite-lhe escolher se pretende exigir que os utilizadores verifiquem a respetiva identidade com a MFA para poderem ativar as suas funções. Eles só precisam verificar este vez por sessão, não toda vez que os utilizadores ativar uma função. Há duas dicas para ter em mente ao ativar a MFA:
+Utilize o **multi-factor Authentication** comutador para especificar se pretende exigir que os utilizadores verifiquem a respetiva identidade com a MFA para poderem ativar as suas funções. Eles só precisam verificar este vez por sessão, não toda vez que os utilizadores ativar uma função. Há duas dicas para ter em mente ao ativar a MFA:
 
 * Os utilizadores com contas Microsoft para os respetivos endereços de e-mail (normalmente @outlook.com, mas não sempre) não é possível registar para MFA do Azure. Se pretender atribuir funções a utilizadores com contas Microsoft, deve torná-los a administradores permanentes ou desativar a MFA para essa função.
 * Não é possível desativar o MFA para funções com privilégios elevados para o Azure AD e Office 365. Esse é um recurso de segurança, uma vez que estas funções devem ser protegidas com cuidado:  
@@ -84,9 +86,9 @@ Para obter mais informações sobre como utilizar o MFA com o PIM, consulte [exi
 
 ## <a name="require-approval"></a>Exigir aprovação
 
-O **exigem a aprovação** comutador permite-lhe escolher se pretende exigir a aprovação para ativar esta função.
+Se quiser exigir aprovação para ativar uma função, siga estes passos.
 
-1. Se definir a opção como **ativado**, o painel expande-se com as opções para selecionar os aprovadores.
+1. Definir o **exigem a aprovação** mudar para **ativado**. O painel expande-se com as opções para selecionar os aprovadores.
 
     ![Funções de diretório do Azure AD - Settings - exigir a aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,6 @@ O **exigem a aprovação** comutador permite-lhe escolher se pretende exigir a a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Exigir autenticação multifator para funções de diretório do Azure AD no PIM](pim-how-to-require-mfa.md)
 - [Configurar alertas de segurança para funções de diretório do Azure AD no PIM](pim-how-to-configure-security-alerts.md)

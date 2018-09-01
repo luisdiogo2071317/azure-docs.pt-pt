@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 79c78da3ba3102f41a1bd623c6844f064699b30a
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247941"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382104"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -119,7 +119,7 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado a uma �
 Para obter mais informações sobre como são atualizados os pacotes de gestão de solução, consulte [ligar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 > [!NOTE]
-> Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](/system-center/scom/deploy-upgrade-agents.md).
+> Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](/system-center/scom/deploy-upgrade-agents).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirme que as máquinas não Azure são carregadas
 

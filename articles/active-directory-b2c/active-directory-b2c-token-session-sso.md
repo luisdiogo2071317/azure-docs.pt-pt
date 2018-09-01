@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444836"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337890"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>O Azure Active Directory B2C: Token, sessão e configuração de início de sessão único
 
@@ -69,8 +69,8 @@ Estes são alguns casos de utilização que pode habilitar o uso dessas propried
 Fizemos alterações de formatação para importantes afirmações nos tokens de segurança emitidos pelo Azure AD B2C. Isso foi feito para melhorar o nosso suporte do protocolo padrão e para melhor interoperabilidade com as bibliotecas de identidade de terceiros. No entanto, para evitar a quebra de aplicativos existentes, criamos as seguintes propriedades para permitir que os clientes participar conforme necessário:
 
 * **Afirmação do emissor (iss)**: identifica o inquilino do Azure AD B2C que emitiu o token.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: Este é o valor predefinido.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Este valor inclui o IDs de inquilino do B2C e a política utilizada no pedido de token. Se a sua aplicação ou a biblioteca precisa do Azure AD B2C para estar em conformidade com o [especificação do OpenID Connect 1.0 da deteção](http://openid.net/specs/openid-connect-discovery-1_0.html), utilize este valor.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: Este é o valor predefinido.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Este valor inclui o IDs de inquilino do B2C e a política utilizada no pedido de token. Se a sua aplicação ou a biblioteca precisa do Azure AD B2C para estar em conformidade com o [especificação do OpenID Connect 1.0 da deteção](http://openid.net/specs/openid-connect-discovery-1_0.html), utilize este valor.
 * **Afirmação do requerente**: identifica a entidade, ou seja, o utilizador, para o qual o token declara informações.
   * **ObjectID**: Este é o valor predefinido. Preenche o ID de objeto do utilizador no diretório para o `sub` de afirmações no token.
   * **Não suportado**: Isto apenas é fornecido para compatibilidade com versões anteriores, e recomendamos que altere para **ObjectID** assim que possível.

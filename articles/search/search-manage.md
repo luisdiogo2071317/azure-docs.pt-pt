@@ -1,6 +1,6 @@
 ---
-title: Administração de serviço para a Azure Search no portal do Azure
-description: Gerir a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure, utilizando o portal do Azure.
+title: Administração de serviço para o Azure Search no portal do Azure
+description: Gerir o Azure Search, um serviço de pesquisa de nuvem alojada no Microsoft Azure, com o portal do Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -9,115 +9,115 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 896a12db1ac196b6de1e57dde9b5910e11dcc8c7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6e751715146d0dfa5c89ae8c2e8cb23d8337432f
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797049"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371232"
 ---
-# <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração de serviço para a Azure Search no portal do Azure
+# <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração de serviço para o Azure Search no portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-A pesquisa do Azure é um serviço completamente gerido, baseado na nuvem de pesquisa utilizado para criar uma experiência de pesquisa avançada em aplicações personalizadas. Este artigo abrange o *service administração* tarefas que pode efetuar no [portal do Azure](https://portal.azure.com) para um serviço de pesquisa tenha sido já aprovisionada. *Serviço de administração* é simples por predefinição, limitada até as seguintes tarefas:
+O Azure Search é um serviço de pesquisa totalmente gerido e baseado na nuvem utilizado para a criação de uma experiência de pesquisa sofisticada em aplicações personalizadas. Este artigo aborda os *administração de serviços* tarefas que pode efetuar no [portal do Azure](https://portal.azure.com) para um serviço de pesquisa que já provisionou. *Administração de serviços* é leve por design, limitada até as seguintes tarefas:
 
-* Gerir e proteger o acesso ao *chaves de api* utilizado para leitura ou de acesso de escrita ao seu serviço.
-* Ajuste a capacidade de serviço alterando a atribuição de partições e réplicas.
-* Monitorizar a utilização de recursos, relativo aos limites máximos de camada de serviços.
+* Gerir e proteger o acesso para o *as chaves de api* utilizado para leitura ou acesso de escrita ao seu serviço.
+* Ajuste a capacidade de serviço ao alterar a alocação de réplicas e partições.
+* Monitorizar a utilização de recursos, em relação ao limites máximos do escalão de serviço.
 
-Repare que *atualizar* não está indicada como uma tarefa administrativa. Porque os recursos são atribuídos quando o serviço é aprovisionado, a mudança para uma camada diferente exige um novo serviço. Para obter mais informações, consulte [criar um serviço da Azure Search](search-create-service-portal.md).
+Tenha em atenção que *atualizar* não estiver listado como uma tarefa administrativa. Uma vez que os recursos são alocados quando o serviço é aprovisionado, mover para um escalão diferente requer um novo serviço. Para obter detalhes, consulte [criar um serviço Azure Search](search-create-service-portal.md).
 
 > [!Tip]
-> Está à procura de ajuda sobre como analisar o desempenho de tráfego ou consulta de pesquisa? Ganhos aprofundadas volume de consulta, quais as pessoas de termos de pesquisa para, e os resultados da pesquisa como êxito são ao servir pelos clientes a documentos específicos no seu índice. Para obter orientações, consulte [análise de tráfego de pesquisa do Azure Search](search-traffic-analytics.md), [monitorizar métricas de utilização e a consulta](search-monitor-usage.md), e [desempenho e a otimização de](search-performance-optimization.md).
+> Procurando ajuda sobre como analisar o desempenho de tráfego ou consulta de pesquisa? Obtenha informações sobre o volume de consultas, os quais as pessoas de termos de pesquisa para, e os resultados da pesquisa com o êxito estão orientar os clientes a documentos específicos no seu índice. Para obter orientações, veja [procurar análises de tráfego para o Azure Search](search-traffic-analytics.md), [monitorizar métricas de utilização e de consulta](search-monitor-usage.md), e [desempenho e otimização](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
 ## <a name="administrator-rights"></a>Direitos de administrador
-Aprovisionamento ou desativar o próprio serviço pode ser efetuada por um administrador de subscrição do Azure ou coadministrador.
+Aprovisionamento ou desativar o serviço em si pode ser feito por um administrador de subscrição do Azure ou o coadministrador.
 
-Dentro de um serviço, qualquer pessoa com acesso para o URL do serviço e uma chave de api de administrador tem acesso de leitura / escrita para o serviço. Acesso de leitura e escrita fornece a capacidade de adicionar, eliminar ou modificar objetos de servidor, incluindo as chaves de api, índices, indexadores, origens de dados, as agendas e atribuições de funções conforme implementado através do [funções do RBAC](search-security-rbac.md).
+Dentro de um serviço, qualquer pessoa com acesso para o URL do serviço e uma chave de api de administrador tem acesso de leitura / escrita ao serviço. Acesso de leitura-escrita fornece a capacidade de adicionar, eliminar ou modificar objetos de servidor, incluindo as chaves de api, índices, indexadores, origens de dados, agendas e atribuições de função, conforme implementado por meio [funções definidas pelo RBAC](search-security-rbac.md).
 
-Todos os interação do utilizador com a Azure Search fica dentro destes modos: acesso de leitura / escrita para o serviço (direitos de administrador) ou acesso só de leitura para o serviço (direitos de consulta). Para obter mais informações, consulte [gerir as chaves de api](search-security-api-keys.md).
+Todas as interações de utilizador com o Azure Search está dentro de um desses modos: acesso de leitura / escrita para o serviço (direitos de administrador), ou acesso só de leitura para o serviço (direitos de consulta). Para obter mais informações, consulte [gerir as chaves de api](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
 ## <a name="logging-and-system-information"></a>Informações de registo e sistema
-A pesquisa do Azure não expõe os ficheiros de registo para um serviço individual ou através do portal ou interfaces programáticas. Na camada básica e superior, Microsoft monitoriza todos os serviços de pesquisa do Azure para disponibilidade de 99,9% por contratos de nível de serviço (SLA). Se o serviço estiver lento ou débito de pedidos está abaixo de limiares de SLA, as equipas de suporte rever os ficheiros de registo disponíveis e resolver o problema.
+O Azure Search não expõe os ficheiros de registo para um serviço individual através do portal ou a interfaces de programação. No escalão básico e acima, a Microsoft monitoriza todos os serviços do Azure Search para 99,9% de disponibilidade por contratos de nível de serviço (SLA). Se o serviço está lento ou débito de pedidos cai abaixo de limiares de SLA, equipes de suporte rever os ficheiros de registo disponíveis e resolver o problema.
 
-Em termos de informações gerais sobre o serviço, pode obter as informações das seguintes formas:
+Em termos de informações gerais sobre o seu serviço, pode obter as informações das seguintes formas:
 
 * No portal, no dashboard do serviço, através de notificações, propriedades e as mensagens de estado.
-* Utilizar [PowerShell](search-manage-powershell.md) ou [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/) para [obter propriedades de serviço](https://docs.microsoft.com/rest/api/searchmanagement/services), ou o estado na utilização dos recursos de índice.
-* Através de [pesquisar a análise de tráfego](search-traffic-analytics.md), conforme indicado anteriormente.
+* Usando [PowerShell](search-manage-powershell.md) ou o [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/) para [obter as propriedades do serviço](https://docs.microsoft.com/rest/api/searchmanagement/services), ou o estado na utilização de recursos do índice.
+* Via [a análise de tráfego de pesquisa](search-traffic-analytics.md), conforme indicado anteriormente.
 
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Monitorizar a utilização de recursos
-No dashboard de monitorização de recursos está limitada às informações mostradas no dashboard do serviço e métricas alguns que pode obter consultando o serviço. No dashboard do serviço, na secção de utilização, pode determinar rapidamente se os níveis de recursos de partição são adequadas para a sua aplicação.
+No dashboard, monitorização de recursos está limitado às informações mostradas no dashboard do serviço e algumas métricas que pode obter ao consultar o serviço. No dashboard do serviço, na secção utilização, é possível determinar rapidamente se os níveis de recursos de partição são adequados para a sua aplicação.
 
-Utilizando a API de REST do serviço de pesquisa, pode obter uma contagem em índices e documentos através de programação: 
+Com a API de REST do serviço de pesquisa, pode obter uma contagem de documentos e índices por meio de programação: 
 
 * [Obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Contagem de documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
-## <a name="disaster-recovery-and-service-outages"></a>Falhas de serviço e de recuperação de desastre
+## <a name="disaster-recovery-and-service-outages"></a>Falhas de serviço e de recuperação após desastre
 
-Embora iremos pode salvage os dados, da Azure Search não fornece instantânea ativação pós-falha do serviço se houver uma falha ao nível do centro do cluster ou de dados. Se falhar um cluster no Centro de dados, a equipa de operações irá detetar e de trabalho para restaurar o serviço. Irá ocorrer um período de indisponibilidade durante o restauro de serviço. Pode pedir os créditos de serviço para compensar para a indisponibilidade do serviço pelo [contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Embora nós pode recuperá-los seus dados, do Azure Search não fornece ativação pós-falha instantânea do serviço se houver uma falha no nível de centro de dados ou de cluster. Se falhar um cluster no Centro de dados, a equipe de operações detectará e trabalhar para restaurar o serviço. Terá um período de indisponibilidade durante a restauração do serviço. Pode pedir os créditos de serviço para compensar indisponibilidade de serviço pela [contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Se for necessária em caso de falhas catastrófica fora do controlo da Microsoft contínua do serviço, foi [aprovisionar um serviço adicional](search-create-service-portal.md) numa região diferente e implementar uma estratégia de georreplicação para garantir que os índices são totalmente redundantes em todos os serviços.
+Se o serviço contínuo é necessário em caso de falhas catastróficas fora do controlo da Microsoft, poderia [aprovisionar um serviço adicional](search-create-service-portal.md) numa região diferente e implementar uma estratégia de replicação geográfica para garantir que os índices são totalmente redundante em todos os serviços.
 
-Os clientes que utilizam [indexadores](search-indexer-overview.md) preencher e atualizar os índices pode processar a recuperação após desastre através de indexadores georreplicação específicos tirar partido da mesma origem de dados. Dois serviços em regiões diferentes, cada um indexador em execução foi índice da mesma origem de dados para alcançar a redundância geográfica. Se estiver a indexação de origens de dados que também são georredundante, lembre-se de que os indexadores de pesquisa do Azure só podem efetuar a indexação incremental de réplicas primárias. Um evento de ativação pós-falha, lembre-se de que aponte novamente o indexador para a nova réplica primária. 
+Os clientes que utilizam [indexadores](search-indexer-overview.md) preencher e atualizar índices pode manipular a recuperação após desastre através de indexadores geográfica específica tirar partido da mesma origem de dados. Dois serviços em regiões diferentes, cada execução de um indexador podem indexar da mesma origem de dados para obter redundância geográfica. Se estiver indexando de origens de dados que também estão geograficamente redundante, tenha em atenção que indexadores do Azure Search só podem executar a indexação incremental de réplicas primárias. Num evento de ativação pós-falha, certifique-se de que o indexador de ponto novamente para a nova réplica primária. 
 
-Se não utilizar indexadores, utilizaria dados nos serviços de pesquisa diferentes e de código da aplicação para objetos de push em paralelo. Para obter mais informações, consulte [desempenho e a Otimização da Azure Search](search-performance-optimization.md).
+Se não utilizar indexadores, tem de utilizar dados para os serviços de pesquisa diferentes e de código da aplicação para objetos de push em paralelo. Para obter mais informações, consulte [desempenho e otimização no Azure Search](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
-Porque a Azure Search não é uma solução de armazenamento de dados principal, não podemos fornecer um mecanismo formal self-service a cópia de segurança e restauro. O código da aplicação utilizado para criar e preencher um índice é a opção de restauro de facto, se eliminar um índice por engano. 
+Como o Azure Search não é uma solução de armazenamento de dados principal, não fornecemos um mecanismo formal self-service a cópia de segurança e restauro. O código da aplicação utilizado para criar e preencher um índice é a opção de restauro de fato, se eliminar um índice por engano. 
 
-Para reconstruir um índice, teria de eliminá-lo (partindo do princípio de que existe), recrie o índice no serviço e recarregar ao obter dados a partir do seu arquivo de dados principal. Em alternativa, pode aceder à [suporte ao cliente]() para índices residual se existir uma falha regional.
+Para reconstruir um índice, seria eliminá-lo (supondo que exista), recrie o índice no serviço e recarregar ao obter dados a partir do seu arquivo de dados primário. Em alternativa, pode entrar em contacto para suporte ao cliente para índices de residual se houver uma falha regional.
 
 
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>Aumentar ou reduzir verticalmente
-Cada serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se iniciou a cópia de segurança para um [escalão que fornece recursos dedicados](search-limits-quotas-capacity.md), clique em de **escala** mosaico no dashboard de serviço para ajustar a utilização de recursos.
+Todos os serviços de pesquisa começa com um mínimo de uma réplica e de uma partição. Se se inscreveu para obter um [escalão que fornece recursos dedicados](search-limits-quotas-capacity.md), clique nas **DIMENSIONAMENTO** mosaico no dashboard do serviço para ajustar a utilização de recursos.
 
-Quando adicionar capacidade através de qualquer um dos recursos, o serviço de as utilizar automaticamente. Não é necessária nenhuma ação adicional da sua parte, mas não existe um ligeiro atraso antes do impacto do novo recurso é realizado. Pode demorar 15 minutos ou mais para aprovisionar os recursos adicionais.
+Ao adicionar capacidade por meio de qualquer um dos recursos, o serviço utiliza automaticamente. Não é necessária nenhuma ação adicional sua parte, mas há um pequeno atraso antes do impacto do novo recurso é realizado. Pode demorar 15 minutos ou mais para aprovisionar os recursos adicionais.
 
  ![][10]
 
 ### <a name="add-replicas"></a>Adicionar réplicas
-Aumentar consultas por segundo (QPS) ou alcançar a elevada disponibilidade é feito adicionando as réplicas. Cada réplica tem uma cópia de um índice, para que adicionar uma réplica mais traduz-se um índice mais disponível para processar pedidos de consulta do serviço. Um mínimo de 3 réplicas são necessários para elevada disponibilidade (consulte [planeamento de capacidade](search-capacity-planning.md) para obter detalhes).
+Aumentar as consultas por segundo (QPS) ou a obtenção da elevada disponibilidade é feito pela adição de réplicas. Cada réplica tem uma cópia de um índice, para que adicionar uma réplica mais traduz-se um índice mais disponível para processar pedidos de consulta do serviço. Um mínimo de 3 réplicas são necessários para elevada disponibilidade (veja [planeamento de capacidade](search-capacity-planning.md) para obter detalhes).
 
-Um serviço de pesquisa ter mais de réplicas pode carregar saldo os pedidos de consulta através de um grande número de índices. Tendo em conta um nível de volume de consulta, débito de consulta vai ser mais rápida quando existirem mais cópias do índice disponível para processar o pedido. Se ocorrerem latência de consulta, que pode esperar um impacto positivo no desempenho, uma vez que as réplicas adicionais estão online.
+Um serviço de pesquisa com réplicas mais a carga de pedidos de consulta de saldo ao longo de um maior número de índices. Devido um nível de volume de consultas, débito de consulta vai ser mais rápido quando existe mais cópias do índice disponível para responder ao pedido. Se estiver a ter latência da consulta, pode esperar um impacto positivo no desempenho, uma vez que as réplicas adicionais estão online.
 
-Embora o débito de consulta fica cópias de segurança à medida que adiciona réplicas, não precisamente duplo ou tripla à medida que as réplicas que adiciona ao seu serviço. Todas as aplicações de pesquisa estão sujeitos a fatores externos que podem impinge no desempenho das consultas. Consultas complexas e a latência de rede são dois fatores contribuem para variações no tempo de resposta de consulta.
+Embora o débito de consulta sobe à medida que adiciona as réplicas, não exatamente duas vezes ou triplicar como adicionar réplicas ao seu serviço. Todas as aplicações de pesquisa estão sujeitos a fatores externos que afetará o desempenho de consulta. Consultas complexas e latência de rede são dois fatores que contribuem para variações em tempos de resposta da consulta.
 
 ### <a name="add-partitions"></a>Adicionar partições
-A maioria das aplicações de serviço têm uma necessidade incorporada de mais réplicas em vez de partições. Para os casos em que é necessária uma contagem de documentos maior, pode adicionar partições se se inscreveu no serviço padrão. O escalão básico fornecem para partições adicionais.
+A maioria dos aplicativos de serviço têm uma necessidade interna para obter mais réplicas em vez de partições. Para os casos em que é necessária uma contagem de documentos maior, pode adicionar partições, se se inscreveu no serviço Standard. Escalão básico não fornece para partições adicionais.
 
-No escalão Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Este é um artefacto de fragmentação. É criado um índice em 12 shards, que podem todos ser armazenadas na partição de 1 ou igualmente divididos em 2, 3, 4, 6 ou 12 partições (um ID de partição horizontal por partição).
+No escalão Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Este é um artefato da fragmentação. Um índice é criado em 12 partições horizontais, que podem todos ser armazenadas na 1 partição ou divididas igualmente no 2, 3, 4, 6 ou 12 partições (uma partição por partição).
 
 ### <a name="remove-replicas"></a>Remover as réplicas
-Após os períodos de volumes de consulta elevado, pode reduzir as réplicas depois de cargas de consulta de pesquisa tem normalizado (por exemplo, depois de vendas feriado são).
+Depois de períodos de volumes de consulta elevado, pode reduzir as réplicas depois de tem normalizados de cargas de consulta de pesquisa (por exemplo, depois de vendas de Natal são sobre).
 
-Para tal, regresse o controlo de deslize de réplica para um número inferior. Não existem não existem passos adicionais necessários da sua parte. Reduzir a contagem de réplica relinquishes máquinas virtuais no Centro de dados. As operações de ingestão de dados e a consulta irão agora ser executada em VMs menos que antes. O limite mínimo é uma réplica.
+Para tal, mova o controlo de deslize de réplica novamente para um número mais baixo. Não há nenhuma outra etapa necessária da sua parte. Reduzir a contagem de réplica ceda máquinas virtuais no Centro de dados. As operações de ingestão de dados e de consultas agora serão executados nas VMs menos do que antes. O limite mínimo é uma das réplicas.
 
-### <a name="remove-partitions"></a>Remova partições
-Em contraste com réplicas, a remover que não necessita de nenhum esforço adicional da sua parte, poderá ter alguns cálculos para fazer se estiver a utilizar o armazenamento mais do que pode ser reduzido. Por exemplo, se a sua solução utilizar três partições, downsizing para uma ou duas partições irá gerar um erro se o novo espaço de armazenamento é menor que o necessário. Como seria de esperar, as suas escolhas estão a eliminar índices ou documentos dentro de um índice associado para libertar espaço ou manter a configuração atual.
+### <a name="remove-partitions"></a>Remover partições
+Ao contrário de remover as réplicas, que requer um esforço extra de sua parte, poderá ser necessário algum trabalho para o fazer se estiver a utilizar o armazenamento de mais do que pode ser reduzido. Por exemplo, se sua solução está a utilizar três partições, downsizing para uma ou duas partições irá gerar um erro se o novo espaço de armazenamento é menor do que necessário. Como pode esperar, suas opções são eliminar índices ou documentos dentro de um índice associado para libertar espaço ou mantenha a configuração atual.
 
-Não há nenhum método de deteção que indica que shards índice são armazenados em partições específicas. Cada partição fornece cerca de 25 GB no armazenamento, por isso terá de reduzir o armazenamento para um tamanho que pode ser acomodado pelo número de partições que tem. Se pretender reverter para uma partição, todos os 12 shards terá de ajustar.
+Não existe nenhum método de deteção que indica quais as partições horizontais de índice são armazenadas em partições específicas. Cada partição fornece cerca de 25 GB no armazenamento, portanto, será necessário reduzir o armazenamento para um tamanho que pode ser atendido pelo número de partições existentes. Se quiser reverter para uma partição, todas as partições horizontais de 12 precisará para se ajustar.
 
-Para ajudar a planear futuros, pode querer verifique armazenamento (utilizando [obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver a quantidade realmente utilizado. 
+Para ajudar a planear futuros, convém verificar armazenamento (usando [obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver o quanto realmente usada. 
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment"></a>Melhores práticas em escala e implementação
-Este vídeo de 30 minutos revê as melhores práticas para cenários de implementação avançadas, incluindo geo-distribuição cargas de trabalho. Também pode ver [desempenho e a Otimização da Azure Search](search-performance-optimization.md) para páginas de ajuda que abrangem os mesmos pontos.
+## <a name="best-practices-on-scale-and-deployment"></a>Melhores práticas em escala e a implantação
+Este vídeo de 30 minutos analisa as práticas recomendadas para cenários de implementação avançada, incluindo cargas de trabalho distribuída geograficamente. Também pode ver [desempenho e otimização no Azure Search](search-performance-optimization.md) para páginas de ajuda que abrangem os mesmos pontos.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 
@@ -126,11 +126,11 @@ Este vídeo de 30 minutos revê as melhores práticas para cenários de implemen
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>Passos Seguintes
-Assim que compreender os conceitos atrás de administração do serviço, considere a utilização de [PowerShell](search-manage-powershell.md) para automatizar tarefas.
+Assim que compreender os conceitos por trás de administração do serviço, considere a utilização [PowerShell](search-manage-powershell.md) para automatizar tarefas.
 
-Também recomendamos que reveja o [desempenho e a otimização de artigo](search-performance-optimization.md).
+Também recomendamos que reveja os [artigo de desempenho e otimização](search-performance-optimization.md).
 
-Outra recomenda-se ver o vídeo indicado na secção anterior. Fornece mais profunda cobertura de técnicas mencionados nesta secção.
+Outra recomendação é ver o vídeo indicado na secção anterior. Ele fornece uma cobertura mais aprofundada das técnicas mencionados nesta seção.
 
 <!--Image references-->
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 02dc4657f6c594242d12e3eca270a3549b77bf02
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056764"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337763"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -81,7 +81,7 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 
 1. No inventário do vSphere Client, clique na VM com o botão direito do rato e selecione **Editar Definições**.
 2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. Em seguida, selecione **Seguinte**.
-3. Selecione um tipo de adaptador e uma rede. 
+3. Selecione um tipo de adaptador e uma rede.
 4. Para ligar o NIC virtual quando a VM estiver ativada, selecione **Connect em ativação**. Em seguida, selecione **próxima** > **concluir** > **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registar o servidor de configuração com os serviços do Azure Site Recovery
@@ -102,7 +102,7 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 
     > [!NOTE]
     > Depois de registado, não há nenhum flexibilidade para alterar o Cofre dos serviços de recuperação.
-    
+
 3. Na **instalar o software de terceiros**,
 
     |Cenário   |Passos a seguir  |
@@ -144,6 +144,10 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
 Para atualizar o servidor de configuração para a versão mais recente, leia os passos [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## <a name="manage-the-configuration-server"></a>Gerir o servidor de configuração
+
+Para evitar interrupções na replicação em curso, certifique-se de que o endereço IP do servidor de configuração não é alterada depois do servidor de configuração foi registado para um cofre. Pode saber mais sobre tarefas de gestão de servidor de configuração comuns [aqui](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 

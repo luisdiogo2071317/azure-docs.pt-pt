@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e88187c5035abc28ca9deecaf8517e8a21e38d1d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 418f399213f2b1b60d4d4f464fd9fe89c6f35ba7
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952339"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338212"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta de WeChat através do Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Para utilizar uma conta de WeChat como fornecedor de identidade no Azure Active 
 1. Inicie sessão no [ https://open.weixin.qq.com/ ](https://open.weixin.qq.com/) com as suas credenciais de WeChat.
 2. Selecione**管理中心**(Centro de gestão).
 3. Siga os passos para registar uma nova aplicação.
-4. Introduza `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` no**授权回调域**(URL de retorno de chamada). Por exemplo, se sua `tenant_name` é contoso.onmicrosoft.com, definir o URL a ser `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+4. Introduza `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` no**授权回调域**(URL de retorno de chamada). Por exemplo, se sua `tenant_name` é contoso, definir o URL a ser `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 5. Copiar o **ID da aplicação** e **chave da aplicação**. Estes são necessários para adicionar o fornecedor de identidade para o seu inquilino.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configurar WeChat como fornecedor de identidade no seu inquilino

@@ -1,6 +1,6 @@
 ---
-title: Serviços do Azure que suportam a identidade do serviço gerido
-description: Lista de serviços que suportam a identidade do serviço gerido e autenticação do Azure AD
+title: Serviços do Azure que o suporte de identidades geridas para recursos do Azure
+description: Lista de serviços que oferecem suporte a identidades geridas para recursos do Azure e a autenticação do Azure AD
 services: active-directory
 author: daveba
 ms.author: daveba
@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d738abc225e2148460012d9fe200131882b1e698
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4f7e672aa75d8344f0c4ae35ff2f573d1f48a0ea
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306172"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337152"
 ---
-# <a name="services-that-support-managed-service-identity"></a>Serviços que suportam a identidade do serviço gerido 
+# <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos do Azure
 
-Identidade de serviço gerida fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Utilizar uma identidade gerida, pode autenticar a qualquer serviço que suporta a autenticação do Azure AD sem ter credenciais em seu código. Estamos no processo de integração de autenticação de identidade do serviço gerido e o Azure AD no Azure. Verificar back, muitas vezes, a existência de atualizações.
+Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Utilizar uma identidade gerida, pode autenticar a qualquer serviço que suporta a autenticação do Azure AD sem ter credenciais em seu código. Estamos no processo de integração de identidades geridas para recursos do Azure e a autenticação do Azure AD no Azure. Verificar back, muitas vezes, a existência de atualizações.
 
-## <a name="azure-services-that-support-managed-service-identity"></a>Serviços do Azure que suportam a identidade do serviço gerido
+## <a name="azure-services-that-support-managed-identities-for-azure-resources"></a>Serviços do Azure que o suporte de identidades geridas para recursos do Azure
 
-Os seguintes serviços do Azure suportam a identidade do serviço gerido.
+Os seguintes serviços do Azure suportam identidades geridas para recursos do Azure:
 
-| Serviço | Atribuído o estado do sistema | Utilizador atribuído o Estado| Configurar | Obter um token |
+| Serviço | Estado do sistema atribuído | Estado do utilizador atribuído| Configurar | Obter um token |
 | ------- | ------ | ---- | --------- | ----------- |
 | Máquinas Virtuais do Azure | Pré-visualização | Pré-visualização | [Portal do Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[CLI do Azure](qs-configure-cli-windows-vm.md)<br>[Modelos Azure Resource Manager](qs-configure-template-windows-vm.md)<br>[REST](qs-configure-rest-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Conjuntos de Dimensionamento de Máquinas Virtuais | Pré-visualização | Pré-visualização | [Portal do Azure](qs-configure-portal-windows-vmss.md)<br>[PowerShell](qs-configure-powershell-windows-vmss.md)<br>[CLI do Azure](qs-configure-cli-windows-vmss.md)<br>[Modelos Azure Resource Manager](qs-configure-template-windows-vmss.md)<br>[REST](qs-configure-rest-vmss.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell)
@@ -36,7 +36,7 @@ Os seguintes serviços do Azure suportam a identidade do serviço gerido.
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Suporte do Azure AD que a autenticação de serviços do Azure
 
-Os seguintes serviços de suportam de autenticação do Azure AD e foram testados com serviços de cliente que utilizam a identidade do serviço gerido.
+Os seguintes serviços de suportam de autenticação do Azure AD e foram testados com serviços de cliente que utilizam identidades geridas para recursos do Azure.
 
 | Serviço | ID do Recurso | Estado | Date | Atribuir acesso |
 | ------- | ----------- | ------ | ---- | ------------- |

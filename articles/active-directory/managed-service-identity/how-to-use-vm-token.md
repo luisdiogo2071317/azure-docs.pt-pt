@@ -1,6 +1,6 @@
 ---
-title: Como utilizar uma identidade de serviço gerido do Azure VM para adquirir um token de acesso
-description: Instruções passo a passo de instruções e exemplos para utilizar um MSI de VM do Azure para adquirir um OAuth acesso token.
+title: Como utilizar identidades geridas para recursos do Azure numa máquina virtual para adquirir um token de acesso
+description: Instruções passo a passo instruções e exemplos de utilização geridos identidades para recursos do Azure numa máquina virtual para adquirir um token de acesso de OAuth.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6bb2fa30d79093eab2259cc8234115cfcd1fd1c3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596057"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339335"
 ---
-# <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como utilizar um Azure VM Managed Service Identity (MSI) para a aquisição do token 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para adquirir um token de acesso 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
-Identidade de serviço gerida fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
+Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
 Este artigo fornece vários exemplos de código e script para a aquisição do token, bem como orientações sobre tópicos importantes, como a manipulação de erros HTTP e de expiração do token. 
 
@@ -37,25 +37,25 @@ Se planeja usar os exemplos do Azure PowerShell neste artigo, certifique-se de q
 
 
 > [!IMPORTANT]
-> - Todos os código/script de exemplo neste artigo supõe que o cliente está em execução numa máquina Virtual com uma identidade do serviço gerido. Utilize a funcionalidade de "Ligar" de VM no portal do Azure, para ligar remotamente à VM. Para obter detalhes sobre como ativar o MSI numa VM, consulte [configurar uma VM Managed Service Identity (MSI) com o portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (usando o PowerShell, CLI, um modelo ou um SDK do Azure). 
+> - Todos os código/script de exemplo neste artigo supõe que o cliente está em execução numa máquina virtual com identidades geridas para recursos do Azure. Utilize a funcionalidade de "Ligar" da máquina virtual no portal do Azure, para ligar remotamente à VM. Para obter detalhes sobre como ativar identidades geridas para recursos do Azure numa VM, consulte [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (com o PowerShell, CLI, um modelo ou um Azure SDK). 
 
 > [!IMPORTANT]
-> - O limite de segurança de uma identidade do serviço gerido, é o recurso está a ser utilizado no. Todos os código/scripts em execução numa máquina Virtual pode pedir e obtenção de tokens para qualquer identidade do serviço gerido disponíveis no mesmo. 
+> - O limite de segurança de identidades geridas para recursos do Azure, é o recurso está a ser utilizado no. Todos os código/scripts em execução numa máquina virtual pode pedir e obtenção de tokens para qualquer identidades geridas disponíveis no mesmo. 
 
 ## <a name="overview"></a>Descrição geral
 
-Uma aplicação cliente pode pedir uma identidade de serviço gerida [token de acesso só de aplicação](../develop/developer-glossary.md#access-token) para aceder a um determinado recurso. O token é [com base no principal de serviço do MSI](overview.md#how-does-it-work). Como tal, não é necessário para o cliente registar-se para obter um token de acesso em seu próprio principal de serviço. O token é adequado para utilização como um token de portador no [chama o serviço a serviço exigir credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
+Uma aplicação cliente pode pedir identidades geridas para recursos do Azure [token de acesso só de aplicação](../develop/developer-glossary.md#access-token) para aceder a um determinado recurso. O token é [com base em identidades geridas para o principal de serviço de recursos do Azure](overview.md#how-does-it-work). Como tal, não é necessário para o cliente registar-se para obter um token de acesso em seu próprio principal de serviço. O token é adequado para utilização como um token de portador no [chama o serviço a serviço exigir credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
-| [Obter um token através de HTTP](#get-a-token-using-http) | Detalhes de protocolo para o ponto de final de token de MSI |
+| [Obter um token através de HTTP](#get-a-token-using-http) | Ponto final de token de detalhes de protocolo de identidades geridas para recursos do Azure |
 | [Obter um token com a biblioteca de Microsoft.Azure.Services.AppAuthentication para .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exemplo de como utilizar a biblioteca de Microsoft.Azure.Services.AppAuthentication de um cliente .NET
-| [Obter um token com c#](#get-a-token-using-c) | Exemplo de como utilizar o ponto final de REST de MSI de um cliente do c# |
-| [Obter um token com Go](#get-a-token-using-go) | Exemplo de como utilizar o ponto final de REST de MSI de um cliente do Go |
-| [Obter um token com o Azure PowerShell](#get-a-token-using-azure-powershell) | Exemplo de como utilizar o ponto final de REST de MSI de um cliente do PowerShell |
-| [Obter um token com o CURL](#get-a-token-using-curl) | Exemplo de como utilizar o ponto final de REST de MSI de um cliente de Bash/CURL |
+| [Obter um token com c#](#get-a-token-using-c) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente do c# |
+| [Obter um token com Go](#get-a-token-using-go) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente do Go |
+| [Obter um token com o Azure PowerShell](#get-a-token-using-azure-powershell) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente do PowerShell |
+| [Obter um token com o CURL](#get-a-token-using-curl) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente de Bash/CURL |
 | [Manipulação de tokens em cache](#handling-token-caching) | Orientações para a manipulação de tokens de acesso expirado |
-| [Processamento de erros](#error-handling) | Orientações para a manipulação de erros de HTTP devolvidos do ponto final do token MSI |
+| [Processamento de erros](#error-handling) | Orientações para a manipulação de erros HTTP devolvidos das identidades geridas para o ponto final de token de recursos do Azure |
 | [IDs de recurso para serviços do Azure](#resource-ids-for-azure-services) | Onde obter os IDs de recurso para os serviços do Azure suportados |
 
 ## <a name="get-a-token-using-http"></a>Obter um token através de HTTP 
@@ -71,14 +71,14 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, que indica que deseja recuperar dados a partir do ponto final. Neste caso, um OAuth acessar o token. | 
-| `http://169.254.169.254/metadata/identity/oauth2/token` | O ponto final do MSI para o serviço de metadados de instância. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | Identidades geridas para o ponto final de recursos do Azure para o serviço de metadados de instância. |
 | `api-version`  | Um parâmetro da cadeia de consulta, que indica a versão de API para o ponto final IMDS. Utilize a API version `2018-02-01` ou superior. |
 | `resource` | Um parâmetro da cadeia de consulta, que indica o URI de ID de aplicação do recurso de destino. É também apresentado no `aud` afirmação (público) do token emitido. Neste exemplo pede um token para aceder ao Azure Resource Manager, que tem um URI de ID de aplicação de https://management.azure.com/. |
-| `Metadata` | Um HTTP pedido campo de cabeçalho, exigido pelo MSI como uma atenuação contra ataques de falsificação de solicitação de lado do servidor (SSRF). Este valor tem de ser definido como "true", em minúsculas. |
-| `object_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o object_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver vários utilizador atribuído identidades geridas.|
-| `client_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o client_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver vários utilizador atribuído identidades geridas.|
+| `Metadata` | Um HTTP pedido campo de cabeçalho, necessário para identidades geridas para recursos do Azure como uma atenuação contra ataques de falsificação de solicitação de lado do servidor (SSRF). Este valor tem de ser definido como "true", em minúsculas. |
+| `object_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o object_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver várias identidades geridas atribuído ao utilizador.|
+| `client_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o client_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver várias identidades geridas atribuído ao utilizador.|
 
-Pedido de exemplo com o ponto de final de extensão da VM de identidade de serviço gerida (MSI) *(para ser preterida)*:
+Pedido de exemplo com as identidades geridas para recursos do Azure ponto final da extensão de VM *(para ser preterida)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -88,11 +88,11 @@ Metadata: true
 | Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, que indica que deseja recuperar dados a partir do ponto final. Neste caso, um OAuth acessar o token. | 
-| `http://localhost:50342/oauth2/token` | O MSI ponto de extremidade, onde 50342 é a porta predefinida e é configurável. |
+| `http://localhost:50342/oauth2/token` | Identidades geridas para o ponto final de recursos do Azure, onde 50342 é a porta predefinida e é configurável. |
 | `resource` | Um parâmetro da cadeia de consulta, que indica o URI de ID de aplicação do recurso de destino. É também apresentado no `aud` afirmação (público) do token emitido. Neste exemplo pede um token para aceder ao Azure Resource Manager, que tem um URI de ID de aplicação de https://management.azure.com/. |
-| `Metadata` | Um HTTP pedido campo de cabeçalho, exigido pelo MSI como uma atenuação contra ataques de falsificação de solicitação de lado do servidor (SSRF). Este valor tem de ser definido como "true", em minúsculas.|
-| `object_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o object_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver vários utilizador atribuído identidades geridas.|
-| `client_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o client_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver vários utilizador atribuído identidades geridas.|
+| `Metadata` | Um HTTP pedido campo de cabeçalho, necessário para identidades geridas para recursos do Azure como uma atenuação contra ataques de falsificação de solicitação de lado do servidor (SSRF). Este valor tem de ser definido como "true", em minúsculas.|
+| `object_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o object_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver várias identidades geridas atribuído ao utilizador.|
+| `client_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o client_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver várias identidades geridas atribuído ao utilizador.|
 
 
 Resposta de exemplo:
@@ -114,7 +114,7 @@ Content-Type: application/json
 | Elemento | Descrição |
 | ------- | ----------- |
 | `access_token` | O token de acesso solicitado. Ao chamar uma API de REST segura, o token está incorporado a `Authorization` campo de cabeçalho de pedido como um token de "bearer", permitindo que a API para autenticar o chamador. | 
-| `refresh_token` | Não é utilizado por MSI. |
+| `refresh_token` | Não utilizado por identidades geridas para recursos do Azure. |
 | `expires_in` | O número de segundos que o token de acesso continua a ser válida, antes de expirar, a partir da hora de emissão. Hora de emissão pode ser encontrada no token de `iat` de afirmação. |
 | `expires_on` | O período de tempo quando o token de acesso expira. A data é representada como o número de segundos a partir de "1970-01-01T0:0:0Z UTC" (corresponde do token `exp` afirmação). |
 | `not_before` | O período de tempo quando o token de acesso entra em vigor e pode ser aceites. A data é representada como o número de segundos a partir de "1970-01-01T0:0:0Z UTC" (corresponde do token `nbf` afirmação). |
@@ -123,7 +123,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obter um token com a biblioteca de Microsoft.Azure.Services.AppAuthentication para .NET
 
-Para aplicações de .NET e as funções, a maneira mais simples de trabalhar com uma identidade de serviço gerida é de pacote Microsoft.Azure.Services.AppAuthentication. Esta biblioteca também permitirá que teste seu código localmente no computador de desenvolvimento, com a sua conta de utilizador a partir do Visual Studio, o [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ou autenticação integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte a [Referência Microsoft.Azure.Services.AppAuthentication]. Esta secção mostra-lhe como começar com a biblioteca no seu código.
+Para aplicações de .NET e as funções, a maneira mais simples de trabalhar com identidades geridas para recursos do Azure é de pacote Microsoft.Azure.Services.AppAuthentication. Esta biblioteca também permitirá que teste seu código localmente no computador de desenvolvimento, com a sua conta de utilizador a partir do Visual Studio, o [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ou autenticação integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte a [Referência Microsoft.Azure.Services.AppAuthentication]. Esta secção mostra-lhe como começar com a biblioteca no seu código.
 
 1. Adicionar referências para o [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) pacotes de NuGet ao seu aplicativo.
 
@@ -139,7 +139,7 @@ Para aplicações de .NET e as funções, a maneira mais simples de trabalhar co
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Para saber mais sobre Microsoft.Azure.Services.AppAuthentication e as operações que expõe, veja a [referência Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) e o [serviço de aplicações e o Cofre de chaves com o .NET de MSI exemplo](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Para saber mais sobre Microsoft.Azure.Services.AppAuthentication e as operações que expõe, veja a [referência Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) e o [serviço de aplicações e o Cofre de chaves com geridos identidades de exemplo de .NET de recursos do Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Obter um token com c#
 
@@ -150,7 +150,7 @@ using System.IO;
 using System.Net;
 using System.Web.Script.Serialization; 
 
-// Build request to acquire MSI token
+// Build request to acquire managed identities for Azure resources token
 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
@@ -199,7 +199,7 @@ type responseJson struct {
 
 func main() {
     
-    // Create HTTP request for MSI token to access Azure Resource Manager
+    // Create HTTP request for a managed services for Azure resources token to access Azure Resource Manager
     var msi_endpoint *url.URL
     msi_endpoint, err := url.Parse("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01")
     if err != nil {
@@ -216,7 +216,7 @@ func main() {
     }
     req.Header.Add("Metadata", "true")
 
-    // Call MSI /token endpoint
+    // Call managed services for Azure resources token endpoint
     client := &http.Client{}
     resp, err := client.Do(req) 
     if err != nil{
@@ -254,7 +254,7 @@ func main() {
 
 ## <a name="get-a-token-using-azure-powershell"></a>Obter um token com o Azure PowerShell
 
-O exemplo seguinte demonstra como utilizar o ponto final de REST de MSI de um cliente de PowerShell para:
+O exemplo seguinte demonstra como utilizar as identidades geridas para o ponto final REST de recursos do Azure de um cliente de PowerShell para:
 
 1. Adquira um token de acesso.
 2. Utilize o token de acesso para chamar uma API de REST do Azure Resource Manager e obter informações sobre a VM. Não se esqueça de substituir o seu ID de subscrição, o nome do grupo de recursos e o nome da máquina virtual para `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, e `<VM-NAME>`, respectivamente.
@@ -265,12 +265,12 @@ Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?ap
 
 Exemplo sobre como analisar o token de acesso da resposta:
 ```azurepowershell
-# Get an access token for the MSI
+# Get an access token for managed identities for Azure resources
 $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
                               -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
-echo "The MSI access token is $access_token"
+echo "The managed identities for Azure resources access token is $access_token"
 
 # Use the access token to get resource information for the VM
 $vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
@@ -291,27 +291,27 @@ Exemplo sobre como analisar o token de acesso da resposta:
 ```bash
 response=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
-echo The MSI access token is $access_token
+echo The managed identities for Azure resources access token is $access_token
 ```
 
 ## <a name="token-caching"></a>Tokens em cache
 
-Embora o subsistema de identidade de serviço gerida (MSI) a ser utilizado (extensão da VM IMDS/MSI) em cache tokens, também é recomendável para implementar tokens em cache em seu código. Como resultado, deve se preparar para cenários em que o recurso indica que o token expirou. 
+Embora as identidades geridas de subsistema de recursos do Azure a ser utilizada (gerida/IMDS identidades para recursos do Azure a extensão de VM) em cache tokens, também é recomendável para implementar a colocação em cache de token em seu código. Como resultado, deve se preparar para cenários em que o recurso indica que o token expirou. 
 
 On-the-wire chamadas para o Azure AD apenas resultam quando:
-- Falha de acerto na cache ocorre devido a nenhum token na cache do subsistema MSI
+- Falha de acerto na cache ocorre devido a nenhum token nas identidades geridas para a cache do subsistema de recursos do Azure
 - o token em cache está expirado
 
 ## <a name="error-handling"></a>Processamento de erros
 
-O ponto de extremidade de identidade do serviço gerido sinaliza erros por meio do campo de código de status do cabeçalho de mensagem de resposta HTTP, como erros 4xx ou 5xx:
+Identidades geridas para erros de sinais de ponto final do recursos do Azure através do campo de código de status do cabeçalho de mensagem de resposta HTTP, como erros 4xx ou 5xx:
 
 | Código de Estado | Motivo do erro | Como lidar com |
 | ----------- | ------------ | ------------- |
 | 404 não encontrado. | Ponto final IMDS está a atualizar. | Tente novamente com um término Expontential. Consulte as orientações abaixo. |
 | 429 demasiados pedidos. |  Atingido o limite de limitação IMDS. | Tente novamente com um término exponencial. Consulte as orientações abaixo. |
 | Erro de 4xx no pedido. | Um ou mais dos parâmetros estava incorreta. | Não repita.  Examine os detalhes do erro para obter mais informações.  erros de 4xx são erros de tempo de design.|
-| 5XX erro transitório do serviço. | O subsistema MSI ou o Azure Active Directory devolveu um erro transitório. | É seguro tentar novamente depois de aguardar pelo menos de 1 segundo.  Se repetir de forma demasiado rápida ou com muita frequência, IMDS e/ou do Azure AD pode devolver um erro de limite de taxa (429).|
+| 5XX erro transitório do serviço. | As identidades geridas para o subsistema de recursos do Azure ou Azure Active Directory devolveu um erro transitório. | É seguro tentar novamente depois de aguardar pelo menos de 1 segundo.  Se repetir de forma demasiado rápida ou com muita frequência, IMDS e/ou do Azure AD pode devolver um erro de limite de taxa (429).|
 | tempo limite | Ponto final IMDS está a atualizar. | Tente novamente com um término Expontential. Consulte as orientações abaixo. |
 
 Se ocorrer um erro, o corpo da resposta HTTP correspondente contém JSON com os detalhes do erro:
@@ -331,11 +331,11 @@ Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é um
 | 400 pedido inválido | bad_request_102 | Cabeçalho de metadados necessários não especificado | Ambos os `Metadata` campo de cabeçalho do pedido está em falta na sua solicitação ou está formatado incorretamente. O valor deve ser especificado como `true`, em minúsculas. Consulte o "pedido de exemplo" no [REST secção anterior](#rest) para obter um exemplo.|
 | 401 não autorizado | unknown_source | Origem desconhecida  *\<URI\>* | Certifique-se de que o URI do pedido HTTP GET está formatado corretamente. O `scheme:host/resource-path` parte deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte o "pedido de exemplo" no [REST secção anterior](#rest) para obter um exemplo.|
 |           | invalid_request | O pedido está em falta um parâmetro necessário, inclui um valor de parâmetro inválido, inclui um parâmetro de mais de uma vez ou caso contrário, tem um formato incorreto. |  |
-|           | unauthorized_client | O cliente não está autorizado para pedir um token de acesso através deste método. | Causado por um pedido que não utiliza local loopback para chamar a extensão, ou numa VM que não tem um MSI configurado corretamente. Ver [configurar uma VM Managed Service Identity (MSI) com o portal do Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração da VM. |
+|           | unauthorized_client | O cliente não está autorizado para pedir um token de acesso através deste método. | Causado por um pedido que não utiliza local loopback para chamar a extensão, ou numa VM que não tem identidades geridas para recursos do Azure configurados corretamente. Ver [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração da VM. |
 |           | access_denied | O proprietário do recurso ou autorização servidor negou o pedido. |  |
 |           | unsupported_response_type | O servidor de autorização não suporta a obtenção de um token de acesso através deste método. |  |
 |           | invalid_scope | Âmbito do pedido é inválido, desconhecido ou com formato incorreto. |  |
-| Erro de servidor interno 500 | desconhecido | Falha ao obter o token do Active directory. Para obter detalhes, consulte os registos no  *\<caminho do ficheiro\>* | Certifique-se de que o MSI tenha sido ativado na VM. Ver [configurar uma VM Managed Service Identity (MSI) com o portal do Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração da VM.<br><br>Certifique-se também de que o URI do pedido HTTP GET é formatado corretamente, especialmente o recurso que URI especificado na cadeia de consulta. Consulte o "pedido de exemplo" no [REST secção anterior](#rest) por exemplo, ou [Azure dos serviços de que a autenticação de suporte do Azure AD](services-support-msi.md) para obter uma lista de serviços e os respetivos IDs de recurso.
+| Erro de servidor interno 500 | desconhecido | Falha ao obter o token do Active directory. Para obter detalhes, consulte os registos no  *\<caminho do ficheiro\>* | Certifique-se de que as identidades geridas para recursos do Azure tenha sido ativada na VM. Ver [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração da VM.<br><br>Certifique-se também de que o URI do pedido HTTP GET é formatado corretamente, especialmente o recurso que URI especificado na cadeia de consulta. Consulte o "pedido de exemplo" no [REST secção anterior](#rest) por exemplo, ou [Azure dos serviços de que a autenticação de suporte do Azure AD](services-support-msi.md) para obter uma lista de serviços e os respetivos IDs de recurso.
 
 ## <a name="retry-guidance"></a>Diretrizes de repetição 
 
@@ -351,14 +351,12 @@ Para repetição, recomendamos a seguinte estratégia de:
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 
-Ver [que o suporte do Azure AD a autenticação dos serviços Azure](services-support-msi.md) para obter uma lista de recursos que suportam o Azure AD e foram testados com o MSI e seus respectivos IDs de recurso.
+Ver [que o suporte do Azure AD a autenticação dos serviços Azure](services-support-msi.md) para obter uma lista de recursos que oferecem suporte ao AD do Azure e foram testados com identidades geridas para recursos do Azure e os respetivos IDs de recurso.
 
 
-## <a name="related-content"></a>Conteúdo relacionado
+## <a name="next-steps"></a>Passos Seguintes
 
-- Para ativar o MSI numa VM do Azure, consulte [configurar uma VM Managed Service Identity (MSI) com o portal do Azure](qs-configure-portal-windows-vm.md).
-
-Utilize a seguinte secção de comentários para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.
+- Para ativar identidades geridas para recursos do Azure numa VM do Azure, consulte [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md).
 
 
 

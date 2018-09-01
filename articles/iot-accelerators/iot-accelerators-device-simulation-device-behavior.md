@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: b68550bce1f4e3fbe3845c21598720083c8e384c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 43edbc653ddbd55aab5e722071de1f2cf4bcd1c4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285828"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344521"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementar o comportamento de modelo do dispositivo
 
@@ -41,6 +41,6 @@ Este artigo descreveu como definir o comportamento do seu próprio modelo person
 > * Definir como um dispositivo simulado responde a uma chamada de método do hub IoT que está ligado a
 > * Os scripts de depuração
 
-Agora que aprendeu como especificar o comportamento de um dispositivo simulado, o passo seguinte sugerido é saber como [criar um dispositivo simulado](iot-accelerators-remote-monitoring-test.md).
+Agora que aprendeu como especificar o comportamento de um dispositivo simulado, o passo seguinte sugerido é saber como [criar um dispositivo simulado](iot-accelerators-device-simulation-create-simulated-device.md).
 
 Para obter mais informações para desenvolvedores sobre a solução de simulação do dispositivo, consulte a [guia de referência do desenvolvedor](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).

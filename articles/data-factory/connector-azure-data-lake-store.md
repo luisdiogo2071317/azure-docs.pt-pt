@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 735b152f55a9309e5d5dd85dac64a607de6417b0
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443974"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338767"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de ou para a geração 1 de armazenamento do Azure Data Lake com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,8 +77,8 @@ Para utilizar autenticação do principal de serviço, registe-se uma entidade d
 
 >[!IMPORTANT]
 > Certifique-se de que conceder a service principal permissão adequada no Azure Data Lake Store:
->- **Como origem**, no Explorador de dados -> acesso, pelo menos a conceder **leitura + execução** permissão para listar e copie os arquivos na pasta/subpastas, ou **leitura** permissão para copiar um ficheiro único; e optar por Adicionar ao **esta pasta e todos os chidren** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Nenhum requisito no controle de conta de nível de acesso (IAM).
->- **Como sink**, no Explorador de dados -> acesso, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta e escolha adicionar ao **esta pasta e todos os chidren** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no controlo de acesso (IAM), conceder, pelo menos, **leitor** função para detetar a região do Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store e associar na Store de Lake dados de serviço como o exemplo seguinte ligado.
+>- **Como origem**, no Explorador de dados -> acesso, pelo menos a conceder **leitura + execução** permissão para listar e copie os arquivos na pasta/subpastas, ou **leitura** permissão para copiar um ficheiro único; e optar por Adicionar ao **esta pasta e todos os filhos** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Nenhum requisito no controle de conta de nível de acesso (IAM).
+>- **Como sink**, no Explorador de dados -> acesso, pelo menos a conceder **escrita + execução** permissão para criar itens subordinados numa pasta e escolha adicionar ao **esta pasta e todos os filhos** para recursiva e Adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no controlo de acesso (IAM), conceder, pelo menos, **leitor** função para detetar a região do Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store e associar na Store de Lake dados de serviço como o exemplo seguinte ligado.
 
 São suportadas as seguintes propriedades:
 
@@ -125,8 +125,8 @@ Para utilizar a autenticação de identidade (MSI) do serviço gerido:
 
 >[!IMPORTANT]
 > Certifique-se de que concede o data factory serviço identidade permissão adequada no Azure Data Lake Store:
->- **Como origem**, no Explorador de dados -> acesso, pelo menos a conceder **leitura + execução** permissão para listar e copie os arquivos na pasta/subpastas, ou **leitura** permissão para copiar um ficheiro único; e optar por Adicionar ao **esta pasta e todos os chidren** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Nenhum requisito no controle de conta de nível de acesso (IAM).
->- **Como sink**, no Explorador de dados -> acesso, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta e escolha adicionar ao **esta pasta e todos os chidren** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no controlo de acesso (IAM), conceder, pelo menos, **leitor** função para detetar a região do Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store e associar na Store de Lake dados de serviço como o exemplo seguinte ligado.
+>- **Como origem**, no Explorador de dados -> acesso, pelo menos a conceder **leitura + execução** permissão para listar e copie os arquivos na pasta/subpastas, ou **leitura** permissão para copiar um ficheiro único; e optar por Adicionar ao **esta pasta e todos os filhos** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Nenhum requisito no controle de conta de nível de acesso (IAM).
+>- **Como sink**, no Explorador de dados -> acesso, pelo menos a conceder **escrita + execução** permissão para criar itens subordinados numa pasta e escolha adicionar ao **esta pasta e todos os filhos** para recursiva e Adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no controlo de acesso (IAM), conceder, pelo menos, **leitor** função para detetar a região do Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store e associar na Store de Lake dados de serviço como o exemplo seguinte ligado.
 
 No Azure Data Factory, não terá de especificar quaisquer propriedades além das informações gerais do Data Lake Store no serviço ligado.
 

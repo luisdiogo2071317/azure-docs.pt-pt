@@ -1,6 +1,6 @@
 ---
-title: Tráfego de rede de implementação de pilha do Azure | Microsoft Docs
-description: Este artigo descreve o que pode esperar sobre processos de rede de implementação de pilha do Azure.
+title: Tráfego de rede de implementação do Azure Stack | Documentos da Microsoft
+description: Este artigo descreve o que esperar sobre processos de implementação de sistema de rede do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,31 +12,31 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: b808875e66e867b84e2971c6a5bd031d108d003b
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: aac8713f94482e0fc809f24786b96d29b23b076a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655425"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343393"
 ---
 # <a name="about-deployment-network-traffic"></a>Sobre o tráfego de rede de implementação
-Implementação de compreender como fluxos de tráfego de rede durante a pilha do Azure é vital para assegurar uma implementação com êxito. Este artigo explica como esperado tráfego de rede durante o processo de implementação para fornecer a compreender o que esperar.
+Compreender como fluxos de tráfego de rede do Azure Stack durante a implementação é vital para assegurar uma implantação bem-sucedida. Este artigo orienta-o tráfego de rede esperado durante o processo de implementação para fornecer uma compreensão do que esperar.
 
-Esta ilustração mostra todas as ligações e componentes envolvidos no processo de implementação:
+Esta ilustração mostra todas as ligações e componentes envolvidos no processo de implantação:
 
-![Topologia de rede de implementação de pilha do Azure](media/deployment-networking/figure1.png)
+![Topologia de rede de implementação do Azure Stack](media/deployment-networking/figure1.png)
 
 > [!NOTE]
-> Este artigo descreve os requisitos para uma implementação ligado, para saber mais sobre outros métodos de implementação, consulte [modelos de ligação de implementação do Azure pilha](azure-stack-connection-models.md).
+> Este artigo descreve os requisitos para uma implementação ligada, para saber mais sobre outros métodos de implantação, consulte [modelos de ligação de implementação do Azure Stack](azure-stack-connection-models.md).
 
 ### <a name="the-deployment-vm"></a>A implementação da VM
-A solução de pilha do Azure inclui um grupo de servidores que são utilizados para alojar os componentes de pilha do Azure e um servidor adicional chamado o anfitrião de ciclo de vida de Hardware (HLH). Este servidor é utilizado para implementar e gerir o ciclo de vida da sua solução e anfitriões de VM de implementação (DVM) durante a implementação.
+A solução do Azure Stack inclui um grupo de servidores que são utilizados para alojar componentes do Azure Stack e um servidor extra chamado o anfitrião de ciclo de vida do Hardware (HLH). Este servidor é utilizado para implementar e gerir o ciclo de vida da sua solução e aloja a VM de implementação (DVM) durante a implementação.
 
 ## <a name="deployment-requirements"></a>Requisitos de implementação
-Antes de começa a implementação, existem alguns requisitos mínimos que podem ser validados pelo seu OEM para garantir a implementação for concluída com êxito. Noções sobre que estes requisitos irão ajudá-lo a preparar o ambiente e certifique-se a validação for bem sucedida, estes são:
+Antes de inicia a implementação, existem alguns requisitos mínimos que podem ser validados pelo seu OEM para garantir a implementação for concluída com êxito. Noções básicas sobre estes requisitos irão ajudá-lo a preparar o ambiente e certifique-se de validação tiver êxito, estes são:
 
 -   [Certificados](azure-stack-pki-certs.md)
 -   [Subscrição do Azure](https://azure.microsoft.com/free/?b=17.06)
@@ -45,20 +45,20 @@ Antes de começa a implementação, existem alguns requisitos mínimos que podem
 -   NTP
 
 > [!NOTE]
-> Este artigo foca-se nos últimos três requisitos. Para obter mais informações sobre as duas primeiras, consulte as ligações acima.
+> Este artigo se concentra nos últimos três requisitos. Para obter mais informações sobre os dois primeiros, veja as ligações acima.
 
 ## <a name="deployment-network-traffic"></a>Tráfego de rede de implementação
-O DVM está configurado com um IP da rede de BMC e necessita de acesso de rede à internet. Apesar de todos os componentes de rede de BMC não necessitam de encaminhamento externo ou o acesso à Internet, alguns componentes específicos OEM utilizar IPs desta rede podem igualmente necessitar de-lo.
+O DVM está configurado com um IP da rede de BMC e requer acesso à rede para a internet. Embora não todos os componentes de rede de BMC necessitem de acesso à Internet ou de encaminhamento externo, alguns componentes específicos de OEM utilizando IPs desta rede também exijam-lo.
 
-Durante a implementação, o DVM efetua a autenticação no Azure Active Directory (Azure AD) através de uma conta do Azure da sua subscrição. Para tal, o DVM requer acesso à internet para uma lista de URLs e portas específicas. Pode encontrar a lista completa de [publicar pontos finais](azure-stack-integrate-endpoints.md) documentação. O DVM irá utilizar um servidor DNS para reencaminhar pedidos DNS efetuados por componentes internos para URLs externos. O DNS interno reencaminha estes pedidos para o endereço de reencaminhador DNS que fornecem ao OEM antes da implementação. O mesmo se aplica para o servidor NTP, um servidor fiável de tempo é necessário para manter a consistência e a hora de sincronização de todos os componentes de pilha do Azure.
+Durante a implementação, o DVM autentica relativamente ao Azure Active Directory (Azure AD) com uma conta do Azure da sua subscrição. Para fazer isso, o DVM requer acesso à internet para uma lista de URLs e porta específica. Pode encontrar a lista completa da [publicar pontos de extremidade](azure-stack-integrate-endpoints.md) documentação. O DVM passarão a utilizar um servidor DNS para reencaminhar pedidos DNS efetuados por componentes internos para URLs externos. O DNS interno encaminha estes pedidos para o endereço de reencaminhador DNS por si para OEM antes da implantação. O mesmo é válido para o servidor NTP, um servidor confiável de tempo é necessário para manter a consistência e a hora de sincronização de todos os componentes do Azure Stack.
 
-O acesso à Internet, necessário para o DVM durante a implementação de saída só está, sem chamadas de entrada são efetuadas durante a implementação. Tenha em atenção que utiliza o IP como origem e essa pilha do Azure não suporta configurações de proxy. Por conseguinte, se necessário, terá de fornecer um proxy transparente ou NAT para aceder à internet. Após a conclusão da implementação, todas as comunicações entre o Azure e Azure pilha que são efetuados através da rede externa através de VIPs público.
+O acesso à internet necessário para o DVM durante a implementação é apenas saído, chamadas de entrada são efetuadas durante a implementação. Tenha em atenção que ele usa o seu IP como origem e que o Azure Stack não suporta configurações de proxy. Por conseguinte, se necessário, terá de fornecer um proxy transparente ou o NAT para aceder à internet. Durante a implementação, alguns componentes internos começará a aceder à internet através da rede externa VIPs pública a utilizar. Depois de concluída a implementação, todas as comunicações entre o Azure e o Azure Stack é feita através da rede externa, usando o VIP público.
 
-Configurações de rede nos comutadores de pilha do Azure contêm acesso as listas de controlo (ACLs) que restringem o tráfego entre determinadas origens de rede e destinos. O DVM é o único componente com o acesso sem restrições; mesmo a HLH é muito restrito. Pode colocar o OEM sobre as opções de personalização para facilitar a gestão e acesso a partir da sua rede. Devido a estas ACLs, é importante evitar a alteração dos endereços de servidor DNS e NTP no momento da implementação. Se o fizer, terá de reconfigurar todos os comutadores, para a solução.
+Configurações de rede no Azure Stack comutadores contenham acesso listas de controle (ACLs) que restringem o tráfego entre determinadas origens de rede e destinos. O DVM é o único componente com o acesso sem restrições; até mesmo o HLH é muito restrito. Pode pedir ao OEM sobre as opções de personalização para facilitar a gestão e acesso de suas redes. Devido a estas ACLs, é importante evitar a alteração dos endereços de servidor DNS e NTP no momento da implementação. Se fizer isso, terá de reconfigurar todas as opções para a solução.
 
-Depois de concluída a implementação, os endereços de servidor DNS e NTP fornecidos irão continuar a ser utilizados diretamente pelos componentes do sistema. Por exemplo, se a verificação de pedidos DNS depois de concluída a implementação, a origem deixará do IP do DVM para um endereço do intervalo de rede externa.
+Depois de concluída a implementação, os endereços de servidor DNS e NTP fornecidos irão continuar a ser utilizados diretamente pelos componentes do sistema. Por exemplo, se verificar os pedidos DNS após conclusão da implementação, a origem deixará do IP do DVM para um endereço do intervalo de rede externa.
 
-Depois de pilha do Azure é implementada com êxito, o seu parceiro OEM poderá utilizar o DVM para tarefas de pós-implementação adicionais. No entanto, quando todas as tarefas de implementação e configurações de pós-implementação são concluídas, OEM deve remover e eliminar o DVM do HLH.
+Depois de concluída a implementação, os endereços de servidor DNS e NTP fornecidos irão continuar a ser utilizado pelos componentes do sistema por meio de SDN com a rede externa. Por exemplo, se verificar os pedidos DNS após conclusão da implementação, a origem será alterado de IP do DVM para um VIP público.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Validar o registo do Azure](azure-stack-validate-registration.md)

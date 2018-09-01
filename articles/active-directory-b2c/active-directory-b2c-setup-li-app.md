@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84b1ad2ecd2c027c7d8a105579059ceb957f41c6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929003"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336933"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do LinkedIn com o Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para utilizar uma conta do LinkedIn como fornecedor de identidade no Azure Activ
 3. Introduza **nome da empresa**, **nome da aplicação**, **descrição da aplicação**, **logótipo da aplicação**, **utilização de aplicações** , **URL do site**, **E-Mail empresariais**, e **telefone da empresa**.
 4. Concorde com o **LinkedIn API termos de utilização** e clique em **submeter**.
 5. Copie os valores da **ID de cliente** e **segredo do cliente**. Pode encontrá-los sob **chaves de autenticação**. Precisará ambos para configurar o LinkedIn como um fornecedor de identidade no seu inquilino. **Segredo do cliente** é uma credencial de segurança importantes.
-6. Introduza `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no **autorizado URLs de redirecionamento**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contoso.onmicrosoft.com). Selecione **Add**e, em seguida, clique em **atualização**.
+6. Introduza `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` no **autorizado URLs de redirecionamento**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contosob2c). Selecione **Add**e, em seguida, clique em **atualização**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Configurar uma conta do LinkedIn como fornecedor de identidade
 

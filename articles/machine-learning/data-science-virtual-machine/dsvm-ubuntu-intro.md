@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059931"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338812"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)
 
@@ -81,13 +81,14 @@ Antes de poder criar uma máquina de Virtual de ciência de dados para Linux, te
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar a sua máquina de Virtual de ciência de dados para Linux
 Eis os passos para criar uma instância de máquina de Virtual de ciência de dados para Linux:
 
-1. Navegue para a máquina virtual listagem sobre o [portal do Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+1. Navegue para a máquina virtual listagem sobre o [portal do Azure](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Poderá ser-lhe pedido para iniciar sessão sua conta do Azure, se não tiver entrado. 
 1. Clique em **Create** (na parte inferior) para abrir o assistente.![ Configurar-data--vm de ciência](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. As secções seguintes fornecem as entradas para cada um dos passos do assistente (enumerado à direita da figura anterior) utilizadas para criar a máquina de Virtual de ciência de dados do Microsoft. Seguem-se as entradas necessárias para configurar cada um destes passos:
    
    a. **Noções básicas**:
    
    * **Nome**: nome do seu servidor de ciência de dados que está a criar.
+   * **Tipo de disco de VM**: escolha **Premium SSD** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **Standard HDD**. 
    * **Nome de utilizador**: primeira conta de início de sessão ID.
    * **Palavra-passe**: primeira conta palavra-passe (pode usar chave pública SSH em vez da palavra-passe).
    * **Subscrição**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas. Tem de ter privilégios de criação de recursos para esta subscrição.
@@ -96,23 +97,17 @@ Eis os passos para criar uma instância de máquina de Virtual de ciência de da
    
    b. **Tamanho**:
    
-   * Selecione um dos tipos de servidor que se adequa ao requisito funcional e restrições de custo. Selecione **ver tudo** para ver mais opções de tamanhos de VM. Selecione uma VM de classe ND para treinamento de GPU ou NC. O [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) página apresenta uma lista de regiões com GPUs.
+   * Selecione um dos tipos de servidor que se adequa ao requisito funcional e restrições de custo. Selecione uma VM de classe ND ou NC para instâncias de VM baseada no GPU. O [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) página apresenta uma lista de regiões com GPUs.
    
    c. **Definições**:
    
-   * **Tipo de disco**: escolha **Premium** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **padrão**. GPU VMs necessitam de um disco Standard.
-   * **Conta de armazenamento**: pode criar uma nova conta de armazenamento do Azure na sua subscrição ou utilize um já existente na mesma localização que foi selecionado na **Noções básicas** passo do assistente.
-   * **Outros parâmetros**: na maioria dos casos, simplesmente usar os valores predefinidos. A serem considerados valores não predefinidos, coloque o cursor sobre a ligação informativa para obter ajuda sobre campos específicos.
+   * Na maioria dos casos, pode usar apenas os valores predefinidos. A serem considerados valores não predefinidos, coloque o cursor sobre a ligação informativa para obter ajuda sobre campos específicos.
    
    d. **Resumo**:
    
-   * Certifique-se de que todas as informações que introduziu estão corretas.
+   * Certifique-se de que todas as informações que introduziu estão corretas. É fornecida uma ligação para os termos de utilização. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. Para iniciar o aprovisionamento, clique em **criar**. 
    
-   e. **Comprar**:
-   
-   * Para iniciar o aprovisionamento, clique em **comprar**. É fornecida uma ligação para os termos da transação. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo.
-
-O aprovisionamento deve demorar cerca de 5 a 10 minutos. O estado do provisionamento é apresentado no portal do Azure.
+O aprovisionamento, deve demorar cerca de 5 minutos. O estado do provisionamento é apresentado no portal do Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Como acessar a máquina de Virtual de ciência de dados para Linux
 
@@ -434,6 +429,6 @@ Eis como pode continuar a sua aprendizagem e a exploração:
 
 * O [ciência de dados na máquina de Virtual de ciência de dados para Linux](linux-dsvm-walkthrough.md) instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux aprovisionados aqui. 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados por experimentar as ferramentas descritas neste artigo. Também pode executar *dsvm-mais-info* no shell na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visite o [galeria do Cortana Analytics](http://gallery.cortanaanalytics.com) para machine learning e os dados analytics de exemplo que utilizam o Cortana Analytics Suite.
+* Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](http://aka.ms/tdsp).
+* Visite o [Galeria de IA do Azure](https://gallery.azure.ai/) para machine learning e os dados analytics exemplos que utilizam os serviços de IA do Azure.
 

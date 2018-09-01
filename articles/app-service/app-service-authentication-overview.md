@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888105"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336809"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -135,7 +135,7 @@ Com esta opção, não terá de escrever qualquer código de autenticação na s
 
 É a opção **solicita Permitir anónimo**. Esta opção ativa a autenticação e autorização no serviço de aplicações, mas difere decisões de autorização para o código da aplicação. Para pedidos autenticados, o serviço de aplicações também passa ao longo de informações de autenticação nos cabeçalhos de HTTP. 
 
-Esta opção fornece mais flexibilidade na manipulação de pedidos anónimos. Por exemplo, permite-lhe [apresentam várias opções de início de sessão](app-service-authentication-how-to.md#configure-multiple-sign-in-options) aos seus utilizadores. No entanto, precisa escrever código. 
+Esta opção fornece mais flexibilidade na manipulação de pedidos anónimos. Por exemplo, permite-lhe [apresentam vários fornecedores de início de sessão](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aos seus utilizadores. No entanto, deve escrever código. 
 
 ## <a name="more-resources"></a>Mais recursos
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a37a37dbed3b5ef9733f1105444529b4d255bcf
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445063"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336786"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>O Azure Active Directory B2C: Uma auxiliar ferramenta usada para demonstrar a funcionalidade de personalização de interface (IU) de utilizador de página
 Este artigo é um complemento para o [artigo de personalização da interface do Usuário principal](active-directory-b2c-reference-ui-customization.md) no Azure Active Directory (Azure AD) B2C. Os passos seguintes descrevem como testar a funcionalidade de personalização da interface do Usuário de página com o conteúdo HTML e CSS de exemplo que fornecemos.
@@ -74,7 +74,7 @@ Pode baixar o [armazenamento de Blobs do Azure exemplo de ferramenta e arquivos 
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Este repositório contém um `sample_templates\wingtip` diretório, que contém o exemplo HTML, CSS e imagens. Para estes modelos fazer referência a sua própria conta de armazenamento de Blobs do Azure, terá de editar os ficheiros HTML. Open `unified.html` e `selfasserted.html` e substitua todas as ocorrências das `https://localhost` com o URL do seu próprio contentor que escrevi, nos passos anteriores. Deve usar o caminho absoluto dos ficheiros HTML, porque nesse caso, o HTML será fornecido pelo Azure AD, sob o domínio `https://login.microsoftonline.com`.
+Este repositório contém um `sample_templates\wingtip` diretório, que contém o exemplo HTML, CSS e imagens. Para estes modelos fazer referência a sua própria conta de armazenamento de Blobs do Azure, terá de editar os ficheiros HTML. Open `unified.html` e `selfasserted.html` e substitua todas as ocorrências das `https://localhost` com o URL do seu próprio contentor que escrevi, nos passos anteriores. Deve usar o caminho absoluto dos ficheiros HTML, porque nesse caso, o HTML será fornecido pelo Azure AD, sob o domínio `tenantname.b2clogin.com`.
 
 ### <a name="upload-the-sample-files"></a>Carregar os ficheiros de exemplo
 No mesmo repositório, deszipe `B2CAzureStorageClient.zip` e execute o `B2CAzureStorageClient.exe` dentro do ficheiro. Este programa simplesmente irá carregar todos os ficheiros no diretório que especificar para a sua conta de armazenamento e ativar o acesso CORS para esses ficheiros. Se seguiu os passos acima, os ficheiros HTML e CSS agora apontar para a conta de armazenamento. Tenha em atenção que o nome da conta de armazenamento é a parte que precede `blob.core.windows.net`; por exemplo, `contoso`. Pode verificar que o conteúdo tiver sido carregado corretamente ao tentar aceder `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` num browser. Também usar [ http://test-cors.org/ ](http://test-cors.org/) para se certificar de que o conteúdo está agora CORS ativada. (Procure "Estado XHR: 200" no resultado.)

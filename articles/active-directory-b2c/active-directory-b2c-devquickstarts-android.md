@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86ef621eccc7e6ba999318348f940a6a3931274e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442411"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344131"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>O Azure AD B2C: Início de sessão com uma aplicação Android
 
@@ -74,7 +74,7 @@ Pode configurar a comunicação com o Azure AD B2C, especificando a URI de dete�
 Se optar por detetar automaticamente a autorização e o ponto final do token URIs, terá de obter informações de deteção de URI. A deteção de URI pode ser gerado, substituindo o inquilino\_ID e a política de\_nome no URL seguinte:
 
 ```java
-String mDiscoveryURI = "https://login.microsoftonline.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
 ```
 
 Em seguida, pode adquirir a autorização e o ponto final do token URIs e criar um objeto de AuthorizationServiceConfiguration executando o seguinte:
@@ -101,9 +101,9 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
 Em vez de utilizar a deteção para obter a autorização e o ponto final do token URIs, também pode especificá-los explicitamente, substituindo o inquilino\_ID e a política de\_nome o URL abaixo:
 
 ```java
-String mAuthEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
 
-String mTokenEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
 ```
 
 Execute o seguinte código para criar o seu objeto AuthorizationServiceConfiguration:

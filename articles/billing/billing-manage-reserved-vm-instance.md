@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: 2283a12845a3b334e29e3f48cbadb99ad508e459
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301586"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382155"
 ---
-# <a name="manage-reservations-for-resources-in-azure"></a>Gerir reservas para recursos no Azure
+# <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
 
 Depois de comprar uma reserva de Azure, terá de aplicar a reserva para uma subscrição diferente, altere a quem pode gerir a reserva ou alterar o âmbito da reserva. Também pode dividir uma reserva para duas reservas para aplicar algumas instâncias comprou a outra subscrição.
 
@@ -60,7 +60,7 @@ Para delegar a gestão de acesso para uma reserva:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividir uma reserva única em duas reservas
 
- Depois de comprar mais do que uma instância de recurso dentro de uma reserva, pode querer atribuir instâncias dentro desse reserva a subscrições diferentes. Por predefinição, todas as instâncias têm um âmbito - qualquer subscrição individual ou partilhado. Por exemplo, comprado 10 VMs D2 padrão e especificar o âmbito para a subscrição A. Agora pretende alterar o âmbito de reservas de 7 a subscrição A e o 3 restantes à subscrição B. a divisão de uma reserva permite que distribua as instâncias para gestão do âmbito granular. Pode simplificar a alocação para subscrições escolhendo o âmbito partilhado. Mas para fins de gestão ou o orçamento de custo, pode alocar quantidades para subscrições específicas.
+ Depois de comprar mais do que uma instância de recurso dentro de uma reserva, pode querer atribuir instâncias dentro desse reserva a subscrições diferentes. Por predefinição, todas as instâncias têm um âmbito - qualquer subscrição individual ou partilhado. Por exemplo, comprou 10 instâncias de reserva e especificar o âmbito para a subscrição A. Agora pretende alterar o âmbito de reservas de 7 a subscrição A e o 3 restantes à subscrição B. a divisão de uma reserva permite que distribua as instâncias para gestão do âmbito granular. Pode simplificar a alocação para subscrições escolhendo o âmbito partilhado. Mas para fins de gestão ou o orçamento de custo, pode alocar quantidades para subscrições específicas.
 
  Pode dividir uma reserva para duas reservas entanto PowerShell, CLI, ou por meio da API.
 
@@ -86,6 +86,7 @@ Para delegar a gestão de acesso para uma reserva:
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. Pode atualizar o âmbito ao executar o seguinte comando:
+
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
@@ -113,7 +114,9 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md)
+- [Efetue o pré-pagamento do planos de software SUSE das reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Compreender a forma como o desconto de reserva de VM é aplicado](billing-understand-vm-reservation-charges.md)
+- [Compreender a forma como o desconto de plano de software SUSE Linux Enterprise é aplicado](../billing/billing-understand-suse-reservation-charges.md)
 - [Compreender como é aplicado a outro desconto de reserva](billing-understand-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 362d19c489dfa0eda33036052ac9626414ef0933
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057398"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340741"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas com o estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no [do Azure Log Analytics](log-analytics-overview.md), pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
@@ -58,7 +58,7 @@ As opções são descritas na tabela a seguir:
 | Análise | Abre o [portal da análise avançada](log-analytics-log-search-portals.md) para analisar dados com consultas de registo. |
 | Editar       | Abre a vista no estruturador de vista para editar o seu conteúdo e configuração.  |
 | Clone      | Cria uma nova vista e abre-a no estruturador de vistas. O nome do novo modo de exibição é o mesmo que o nome original, mas com *cópia* acrescentado. |
-| Intervalo de datas | Defina o filtro de intervalo de data e hora para os dados que estão incluídos na vista. |
+| Intervalo de datas | Defina o filtro de intervalo de data e hora para os dados que estão incluídos na vista. Este intervalo de datas é aplicado antes de quaisquer intervalos de data definidos em consultas na vista.  |
 | +          | Defina um filtro personalizado que está definido para a vista. |
 
 

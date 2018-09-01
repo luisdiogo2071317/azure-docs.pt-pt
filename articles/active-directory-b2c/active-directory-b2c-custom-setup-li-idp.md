@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444383"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344323"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>O Azure Active Directory B2C: Adicionar LinkedIn como um fornecedor de identidade ao utilizar políticas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -40,7 +40,7 @@ Para utilizar o LinkedIn como um fornecedor de identidade no Azure Active Direct
 
     c. Selecione um **utilização de aplicações**.
 
-    d. Na **URL do site** caixa, cole **https://login.microsoftonline.com**.
+    d. Na **URL do site** caixa, cole **https://{tenant}.b2clogin.com**.  Onde {*inquilino*} é o nome do seu inquilino (por exemplo contoso.b2clogin.com).
 
     e. Tipo de sua **E-Mail empresariais** endereço e **telefone da empresa** número.
 
@@ -50,7 +50,7 @@ Para utilizar o LinkedIn como um fornecedor de identidade no Azure Active Direct
 
 3. Selecione **autenticação**e, em seguida, tenha em atenção a **ID de cliente** e **segredo do cliente** valores.
 
-4. Na **autorizado URLs de redirecionamento** caixa, cole **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Substitua {*inquilino*} com o nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com). Certifique-se de que está a utilizar o esquema HTTPS. 
+4. Na **autorizado URLs de redirecionamento** caixa, cole **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Substitua {*inquilino*} com o nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com). Certifique-se de que está a utilizar o esquema HTTPS. 
 
     ![Conta do LinkedIn - conjunto autorizado redirecionar URLs](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

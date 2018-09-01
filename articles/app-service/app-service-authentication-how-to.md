@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226531"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344175"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizar autenticação e autorização no serviço de aplicações do Azure
 
@@ -34,9 +34,9 @@ Para começar rapidamente a utilizar, consulte um dos seguintes tutoriais:
 * [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>Configurar várias opções de início de sessão
+## <a name="use-multiple-sign-in-providers"></a>Utilizar vários fornecedores de início de sessão
 
-A configuração do portal não oferece uma forma chave na mão para apresentar as várias opções de início de sessão a seus usuários (por exemplo, Facebook e Twitter). No entanto, não é difícil adicionar a funcionalidade à sua aplicação web. Os passos estão delineados do seguinte modo:
+A configuração do portal não oferece uma forma chave na mão para apresentar vários fornecedores de início de sessão a seus usuários (por exemplo, Facebook e Twitter). No entanto, não é difícil adicionar a funcionalidade à sua aplicação web. Os passos estão delineados do seguinte modo:
 
 Primeiro, na **autenticação / autorização** página no portal do Azure, configure cada fornecedor de identidade que pretende ativar.
 
@@ -58,6 +58,50 @@ Para redirecionar o utilizador pós-sessão-para um URL personalizado, utilize o
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>Terminar uma sessão
+
+Os utilizadores podem iniciar um fim de sessão através do envio de um `GET` pedido para a aplicação `/.auth/logout` ponto final. O `GET` pedido procede da seguinte forma:
+
+- Limpa cookies de autenticação da sessão atual.
+- Elimina tokens de acesso do utilizador atual do arquivo de tokens.
+- Para o Azure Active Directory e o Google, efetua um servidor fim de sessão do fornecedor de identidade.
+
+Este é um link de fim de sessão simples numa página Web:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+Por predefinição, um êxito fim de sessão redireciona o cliente para o URL `/.auth/logout/done`. Pode alterar a página de redirecionamento post-sign-out adicionando o `post_logout_redirect_uri` parâmetro de consulta. Por exemplo:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+É recomendado que [codificar](https://wikipedia.org/wiki/Percent-encoding) o valor de `post_logout_redirect_uri`.
+
+Quando utilizar URLs completamente qualificados, o URL deve ser hospedado no mesmo domínio ou configurado como um URL de redirecionamento externo permitido para a sua aplicação. No exemplo a seguir, para redirecionar para `https://myexternalurl.com` que não está alojada no mesmo domínio:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+Tem de executar o seguinte comando [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>Preservar fragmentos de URL
+
+Depois dos utilizadores iniciam sessão na sua aplicação, normalmente, eles querem ser redirecionado para a mesma seção da mesma página, tal como `/wiki/Main_Page#SectionZ`. No entanto, uma vez [fragmentos de URL](https://wikipedia.org/wiki/Fragment_identifier) (por exemplo, `#SectionZ`) nunca são enviadas para o servidor, eles não são mantidos por predefinição quando o OAuth início de sessão estiver concluída e redireciona para a sua aplicação. Os utilizadores, em seguida, obtém uma experiência de inferior ao ideal quando precisam para navegar novamente para a âncora pretendida. Esta limitação se aplica a todas as soluções de autenticação de servidor.
+
+Na autenticação do serviço de aplicações, pode preservar fragmentos de URL em toda o OAuth início de sessão. Para tal, defina uma aplicação chamada `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` para `true`. Pode fazê-lo [portal do Azure](https://portal.azure.com), ou simplesmente executar o seguinte comando na [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>Afirmações de utilizador de acesso

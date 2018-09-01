@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089915"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382693"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar o inquilino para a utilização e faturação no Azure Stack
 
@@ -91,5 +91,5 @@ Depois de ter adicionado o novo cliente para o Azure Stack ou o inquilino de cli
 ## <a name="next-steps"></a>Passos Seguintes
 
  - Para rever as mensagens de erro se eles são acionados no seu processo de registo, consulte [mensagens de erro do registo de inquilinos](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Para saber mais sobre como recuperar informações de utilização de recursos do Azure Stack, veja [utilização e faturação no Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Para saber mais sobre como recuperar informações de utilização de recursos do Azure Stack, veja [utilização e faturação no Azure Stack](azure-stack-billing-and-chargeback.md).
  - Para rever como um cliente final poderá adicioná-lo, como o CSP, como o gestor para o Azure Stack, de inquilino, consulte [ativar o fornecedor de serviços Cloud gerir a sua subscrição do Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).

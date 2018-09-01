@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308036"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344502"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar uma aplicação web ASP.NET com a edição de perfil de inscrição, início de sessão, do Azure Active Directory B2C e reposição de palavra-passe
 
@@ -95,7 +95,7 @@ O nosso exemplo está configurado para utilizar as políticas e o ID de cliente 
 * `ida:ResetPasswordPolicyId` pelo nome da sua política de “Repor Palavras-Passe”
 
 ## <a name="launch-the-app"></a>Inicie a aplicação
-De dentro do Visual Studio, inicie a aplicação. Navegue até ao separador de lista de tarefas e anote o URl é: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
+De dentro do Visual Studio, inicie a aplicação. Navegue até ao separador de lista de tarefas e anote o URl é: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
 
 Inscrever-se a aplicação com o nome de utilizador ou endereço de correio electrónico. Terminar sessão, em seguida, inicie sessão novamente e editar o perfil ou repor a palavra-passe. Terminar sessão e inicie sessão como um utilizador diferente. 
 

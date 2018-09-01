@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885875"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382121"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Segurança no serviço de aplicações do Azure e as funções do Azure
 
@@ -29,7 +29,7 @@ Os componentes da plataforma do serviço de aplicações, incluindo as VMs do Az
 
 - Os recursos de aplicação estão [segura](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) dos recursos do Azure de outros clientes.
 - [Instâncias de VM e o tempo de execução software são atualizadas regularmente](app-service-patch-os-runtime.md) a vulnerabilidades de endereço detetado recentemente. 
-- Comunicação de segredos (por exemplo, cadeias de ligação) entre a aplicação e outros recursos do Azure (por exemplo, [base de dados SQL](/services/sql-database/)) permanece no Azure e não em várias quaisquer limites de rede. Segredos são sempre encriptados quando armazenada.
+- Comunicação de segredos (por exemplo, cadeias de ligação) entre a aplicação e outros recursos do Azure (por exemplo, [base de dados SQL](https://azure.microsoft.com/services/sql-database/)) permanece no Azure e não em várias quaisquer limites de rede. Segredos são sempre encriptados quando armazenada.
 - Funcionalidades de todas as comunicações sobre a conectividade do serviço de aplicações, como [ligação híbrida](app-service-hybrid-connections.md), são encriptados. 
 - Ligações com ferramentas de gestão remota, como o Azure PowerShell, CLI do Azure, SDKs do Azure, REST APIs, que são todos os encriptados.
 - ameaças de 24 horas management protege a infraestrutura e plataforma contra malware, distributed denial of service (DDoS), man-in-the-middle (MITM) e outras ameaças.
@@ -84,7 +84,7 @@ Em cada um desses casos, o serviço de aplicações fornece uma forma que precis
 
 ### <a name="azure-resources"></a>Recursos do Azure
 
-Quando a aplicação se liga a recursos do Azure, tal como [base de dados SQL](/services/sql-database/) e [armazenamento do Azure](/azure/storage/), a ligação permanece no Azure e não em várias quaisquer limites de rede. No entanto, a ligação atravessa a rede partilhada no Azure, por conseguinte, certifique-se de que a ligação está encriptada. 
+Quando a aplicação se liga a recursos do Azure, tal como [base de dados SQL](https://azure.microsoft.com/services/sql-database/) e [armazenamento do Azure](/azure/storage/), a ligação permanece no Azure e não em várias quaisquer limites de rede. No entanto, a ligação atravessa a rede partilhada no Azure, por conseguinte, certifique-se de que a ligação está encriptada. 
 
 Se a sua aplicação estiver alojada numa [ambiente do serviço de aplicações](environment/intro.md), deve [ligar a serviços do Azure através de pontos finais de serviço de rede Virtual suportados](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -117,4 +117,4 @@ Exceto para o **Isolated** escalão de preço, todos os escalões de executam as
 - Servir aplicação interna com um balanceador de carga interno (ILB), que permite o acesso apenas a partir de dentro da sua rede Virtual do Azure. O ILB tem um endereço IP do seu sub-rede privada, o que proporciona isolamento total das suas aplicações a partir da internet.
 - [Utilizar um ILB por trás de uma firewall de aplicações web (WAF)](environment/integrate-with-application-gateway.md). O WAF proporciona proteção de nível empresarial às suas aplicações de destinado ao público, como proteção contra DDoS, URI filtragem e prevenção de injeção de SQL.
 
-Para obter mais informações, consulte [introdução aos ambientes de serviço de aplicações do Azure](environment/intro.md).
+Para obter mais informações, consulte [introdução aos ambientes de serviço de aplicações do Azure](environment/intro.md). 

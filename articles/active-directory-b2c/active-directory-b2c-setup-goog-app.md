@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915644"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337739"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Google com o Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Para utilizar uma conta do Google como um fornecedor de identidade no Azure Acti
 4. Selecione **ecrã de consentimento de configurar**.
 5. Selecione ou especifique válido **endereço de E-Mail**, forneça um **nome do produto apresentado aos utilizadores**e clique em **guardar**.
 6. Sob **tipo de aplicação**, selecione **aplicação Web**.
-7. Introduza um **Name** para a sua aplicação, introduza `https://login.microsoftonline.com` no **JavaScript autorizados origens**, e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no **URIs de redirecionamento de autorizado**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contosob2c.onmicrosoft.com).
+7. Introduza um **Name** para a sua aplicação, introduza `https://{tenant}.b2clogin.com` no **JavaScript autorizados origens**, e `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` no **URIs de redirecionamento de autorizado**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contosob2c).
 8. Clique em **Criar**.
 9. Copie os valores da **ID de cliente** e **segredo do cliente**. Precisará ambos para configurar o Google como um fornecedor de identidade no seu inquilino. **Segredo do cliente** é uma credencial de segurança importantes.
 

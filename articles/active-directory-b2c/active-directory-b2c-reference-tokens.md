@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309031"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339982"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Do Azure AD B2C: Referência de Token
 
@@ -73,7 +73,7 @@ Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em 
 | Nome | Afirmação | Valor de exemplo | Descrição |
 | --- | --- | --- | --- |
 | Audiência |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma afirmação de audiência identifica o destinatário do token. Para o Azure AD B2C, o público-alvo é a ID da aplicação da sua aplicação, como atribuído à sua aplicação no portal de registo de aplicação. A aplicação deve validar este valor e rejeitar o token, se não corresponde. Público-alvo é sinônimo de recursos. |
-| Emissor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Ele também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação do emissor para se certificar de que o token provém do ponto de final de v2.0 do Azure Active Directory. |
+| Emissor |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Ele também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação do emissor para se certificar de que o token provém do ponto de final de v2.0 do Azure Active Directory. |
 | Emitida em |`iat` |`1438535543` |Esta afirmação é a hora em que o token foi emitido, representado na hora "Epoch". |
 | Hora de expiração |`exp` |`1438539443` |Hora de expiração da afirmação é a hora em que o token se torna inválido, representado na hora "Epoch". A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | Não antes |`nbf` |`1438535543` |Esta afirmação é a hora em que o token se torna válido, representado na hora "Epoch". Isso normalmente é o mesmo que o tempo que o token foi emitido. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
@@ -120,7 +120,7 @@ Em qualquer momento, do Azure AD pode iniciar sessão um token ao utilizar qualq
 O Azure AD B2C tem um ponto final de metadados OpenID Connect. Isso permite que as aplicações obter informações sobre o Azure AD B2C no tempo de execução. Estas informações incluem pontos finais, conteúdo de token e chaves de assinatura de tokens. O diretório do B2C contém um documento de metadados JSON para cada política. Por exemplo, o documento de metadados para o `b2c_1_sign_in` política no `fabrikamb2c.onmicrosoft.com` está localizado em:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
 `fabrikamb2c.onmicrosoft.com` é o diretório de B2C utilizado para autenticar o usuário, e `b2c_1_sign_in` é a política utilizada para adquirir o token. Para determinar qual a política foi utilizada para assinar um token (e onde posso para obter os metadados), tem duas opções. Em primeiro lugar, o nome da política está incluído no `acr` de afirmações no token. Pode analisar afirmações fora do corpo do JWT por base-64 decodificar o corpo e a cadeia de caracteres do JSON que resulta ao anular a serialização. O `acr` afirmação será o nome da política que foi utilizado para emitir o token.  A outra opção é codificar a política no valor do `state` parâmetro quando emitir o pedido e, em seguida, decodificá-la para determinar qual a política foi utilizada. Qualquer um dos métodos é válido.
@@ -128,7 +128,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 O documento de metadados é um objeto JSON que contém várias partes úteis de informações. Estes incluem a localização dos pontos finais necessários para efetuar a autenticação OpenID Connect. Eles também incluem `jwks_uri`, que dá a localização do conjunto de chaves públicas que são utilizados para assinar os tokens. Que a localização é fornecida aqui, mas é melhor obter a localização dinamicamente usando o documento de metadados e analisando `jwks_uri`:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
 O documento JSON localizado neste URL contém todas as informações de chaves públicas em uso num momento específico. A aplicação pode utilizar o `kid` no cabeçalho do JWT para selecionar a chave pública no documento JSON que é utilizado para assinar um determinado token de afirmação. Em seguida, ele pode realizar validação da assinatura usando a chave pública correta e o algoritmo indicado.

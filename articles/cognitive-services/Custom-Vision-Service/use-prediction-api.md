@@ -1,6 +1,6 @@
 ---
-title: Utilizar o serviço de visão personalizada predição ponto final - serviços cognitivos do Azure | Microsoft Docs
-description: Saiba como utilizar a API para programaticamente testar as imagens com o classificador do serviço de visão personalizada.
+title: Utilizar o endpoint de predição do serviço de visão personalizada - serviços cognitivos do Azure | Documentos da Microsoft
+description: Saiba como utilizar a API para imagens com o seu classificador de serviço de visão personalizada de teste por meio de programação.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,43 +9,43 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 54f9d9fec1f40c167341dec6a8699b6a558419da
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353305"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341798"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Utilizar o ponto final de predição para testar as imagens programaticamente com um classificador do serviço de visão personalizada
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Utilizar o ponto de final de predição para testar as imagens por meio de programação com um classificador de serviço de visão personalizada
 
-Depois de preparar o seu modelo, pode testar as imagens programaticamente submetê-los para a API de predição. 
+Depois de preparar o seu modelo, pode testar imagens por meio de programação submetê-los para a API de predição. 
 
 > [!NOTE]
-> Este documento demonstra utilizar c# para submeter uma imagem para a API de predição. Para obter mais informações e exemplos de como utilizar a API, consulte o [referência da API de predição](https://go.microsoft.com/fwlink/?linkid=865445).
+> Este documento demonstra como utilizar c# para enviar uma imagem para a API de predição. Para obter mais informações e exemplos de utilização da API, consulte a [referência da API de predição](https://go.microsoft.com/fwlink/?linkid=865445).
 
 ## <a name="get-the-url-and-prediction-key"></a>Obter a chave de URL e previsão
 
-Do [página web de visão personalizada](https://customvision.ai), selecione o seu projeto e, em seguida, selecione o __desempenho__ separador. Para apresentar informações sobre como utilizar a API de predição, selecione __predição URL__. Copie as seguintes informações para utilização na aplicação:
+Partir do [página da web de visão personalizada](https://customvision.ai), selecione o seu projeto e, em seguida, selecione a __desempenho__ separador. Para apresentar informações sobre como utilizar a API de predição, incluindo o __chave de predição__, selecione __URL de predição__. Para projetos anexados a um recurso do Azure, sua __chave de predição__ também podem ser encontrados no [Portal do Azure](https://portal.azure.com) página de recursos do Azure associados sob __chaves__. Copie as seguintes informações para uso no aplicativo:
 
-* __URL__ para utilizar um __ficheiro de imagem__.
+* __URL__ para a utilização de um __ficheiro de imagem__.
 * __Chave de predição__ valor.
 
 > [!TIP]
-> Se tiver múltiplas interações, pode controlar o que é utilizada pela defini-la como predefinição. Selecione a iteração do __iterações__ secção, em seguida, selecione __predefinir__ na parte superior da página.
+> Se tiver várias iterações, pode controlar qual será usado ao defini-la como predefinição. Selecione a iteração do __iterações__ secção, em seguida, selecione __predefinir__ na parte superior da página.
 
-![É apresentado no separador de desempenho com um retângulo vermelho envolvente o URL de predição.](./media/use-prediction-api/prediction-url.png)
+![A guia de desempenho é mostrada com um retângulo vermelho que envolvem o URL de predição.](./media/use-prediction-api/prediction-url.png)
 
 ## <a name="create-the-application"></a>Criar a aplicação
 
-1. A partir do Visual Studio, crie uma nova aplicação de consola do c#.
+1. A partir do Visual Studio, crie um novo aplicativo de console do c#.
 
-2. Utilize o seguinte código como o corpo do __Program.cs__ ficheiro.
+2. Utilize o seguinte código no corpo da __Program.cs__ ficheiro.
 
     > [!IMPORTANT]
     > Altere as seguintes informações:
     >
-    > * Definir o __espaço de nomes__ com o nome do seu projeto.
-    > * Definir o __predição chave__ valor recebido anteriormente na linha que começa com `client.DefaultRequestHeaders.Add("Prediction-Key",`.
+    > * Definir o __espaço de nomes__ para o nome do seu projeto.
+    > * Definir o __chave de predição__ valor recebido anteriormente na linha que começa com `client.DefaultRequestHeaders.Add("Prediction-Key",`.
     > * Definir o __URL__ valor recebido anteriormente na linha que começa com `string url =`.
 
     ```csharp
@@ -105,7 +105,7 @@ Do [página web de visão personalizada](https://customvision.ai), selecione o s
 
 ## <a name="use-the-application"></a>Utilizar a aplicação
 
-Quando executar a aplicação, introduza o caminho para um ficheiro de imagem. A imagem for submetida para a API e os resultados são devolvidos como um documento JSON. O seguinte JSON é um exemplo de resposta
+Quando executar a aplicação, introduza o caminho para um ficheiro de imagem. A imagem foi submetida para a API e os resultados são retornados como um documento JSON. O JSON seguinte é um exemplo da resposta
 
 ```json
 {

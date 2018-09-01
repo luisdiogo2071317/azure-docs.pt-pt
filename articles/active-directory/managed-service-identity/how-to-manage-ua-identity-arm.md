@@ -1,6 +1,6 @@
 ---
-title: Como criar e eliminar um utilizador atribuído a identidade do serviço gerido com o Azure Resource Manager
-description: Instruções passo a passo obter instruções sobre como criar e eliminar o utilizador atribuído a identidade do serviço gerido com o recurso do Azure.
+title: Como criar e eliminar uma identidade gerida atribuído ao utilizador com o Azure Resource Manager
+description: Instruções passo a passo obter instruções sobre como criar e eliminar atribuído ao utilizador gerido identidades com o Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: adfa7ebfd911bfcbc88e01030777e91c48841784
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188136"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338350"
 ---
-# <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade atribuída ao utilizador com o Azure Resource Manager
+# <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade gerida atribuído ao utilizador com o Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Identidade de serviço gerida fornece serviços do Azure com uma identidade gerida no Azure Active Directory. Pode utilizar esta identidade para autenticar para serviços que suportam a autenticação do Azure AD, sem a necessidade de credenciais no seu código. 
+Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida no Azure Active Directory. Pode utilizar esta identidade para autenticar para serviços que suportam a autenticação do Azure AD, sem a necessidade de credenciais no seu código. 
 
-Neste artigo, vai criar um identidade gerida com um Azure Resource Manager atribuída ao utilizador.
+Neste artigo, vai criar uma identidade gerida atribuído ao utilizador com um Azure Resource Manager.
 
-Não é possível listar e eliminar um utilizador atribuído a identidade com um modelo Azure Resource Manager.  Veja os artigos seguintes para criar e listar uma identidade de utilizador atribuída:
+Não é possível listar e eliminar uma identidade gerida atribuído ao utilizador com um modelo Azure Resource Manager.  Veja os artigos seguintes para criar e a identidade gerida de lista um atribuído ao utilizador:
 
-- [Identidade atribuída ao utilizador lista](how-to-manage-ua-identity-cli.md#list-user-assigned-identities)
-- [Eliminar a identidade atribuída ao utilizador](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-identity)
+- [Lista atribuído ao utilizador com identidade gerida](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
+- [Eliminar utilizador atribuído a identidade gerida](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
+- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações neste artigo, a conta tem da atribuição de função seguinte:
-    - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (lista), atualizar e eliminar uma identidade atribuída ao utilizador.
+    - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (lista), atualizar e eliminar uma identidade gerida atribuído ao utilizador.
 
 ## <a name="template-creation-and-editing"></a>Criação de modelos e a edição
 
@@ -49,9 +49,9 @@ Como com o Azure portal e criação de scripts, os modelos Azure Resource Manage
 - Com um local [editor de JSON (por exemplo, o VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, carregar e implementar com o PowerShell ou a CLI.
 - Com o Visual Studio [projeto do grupo de recursos do Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para criar e implementar um modelo. 
 
-## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo utilizador 
+## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuído ao utilizador 
 
-Para criar um identidade atribuída ao utilizador, utilize o modelo seguinte. Substitua o `<USER ASSIGNED IDENTITY NAME>` valor pelos seus próprios valores:
+Para criar uma identidade gerida atribuído ao utilizador, utilize o modelo seguinte. Substitua o `<USER ASSIGNED IDENTITY NAME>` valor pelos seus próprios valores:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -83,9 +83,9 @@ Para criar um identidade atribuída ao utilizador, utilize o modelo seguinte. Su
   }
 }
 ```
-## <a name="related-content"></a>Conteúdo relacionado
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter informações sobre como atribuir uma identidade de utilizador atribuída a VM do Azure com uma veja de modelo do Azure Resource Manager [configurar uma identidade de serviço gerido da VM com um modelo](qs-configure-template-windows-vm.md).
+Para obter informações sobre como atribuir um atribuído ao utilizador a identidade para a VM do Azure com uma veja de modelo do Azure Resource Manager, gerido [configurar geridos identidades para recursos do Azure na VM do Azure com um modelo de](qs-configure-template-windows-vm.md).
 
 
  

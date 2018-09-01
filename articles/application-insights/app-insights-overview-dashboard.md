@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970977"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344635"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard de descrição geral de informações de aplicações
 
@@ -46,11 +46,11 @@ Dashboard de aplicação tira partido da tecnologia de dashboard existente do Az
 
 Para aceder a dashboard predefinido, selecione _Dashboard de aplicações_ no canto superior esquerdo.
 
-![Vista de dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Vista do Dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
 
 Se esta for a primeira vez que aceder ao dashboard, ele iniciará uma vista predefinida:
 
-![Vista de dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![Vista do Dashboard](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 Se gosta, pode manter a vista predefinida. Ou, também pode adicionar e eliminar a partir do dashboard para melhor se adequa às necessidades da sua equipa.
 

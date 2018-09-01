@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307991"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381800"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On grupo serviços de escuta disponibilidade - Resource Manager
 Este tópico mostra como:
@@ -42,6 +42,8 @@ Tópicos relacionados incluem:
 
 ## <a name="configure-the-windows-firewall"></a>Configurar a Firewall do Windows
 Configure a Firewall do Windows para permitir o acesso do SQL Server. As regras de firewall permitam ligações de TCP para o uso de portas por instância do SQL Server e a sonda de serviço de escuta. Para obter instruções detalhadas, consulte [configurar uma Firewall do Windows para acesso ao motor de base de dados](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Crie uma regra de entrada para a porta do SQL Server e para a porta de sonda.
+
+Se estiver a restrição do acesso com um grupo de segurança de rede do Azure, certifique-se de que as regras de permissão incluem os endereços de IP da VM do SQL Server back-end e o Balanceador de carga IP flutuante endereços para o serviço de escuta de AG e o endereço IP de núcleo de cluster, se aplicável.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: Criar um balanceador de carga interno com o PowerShell
 > [!NOTE]
@@ -195,6 +197,7 @@ Tenha em atenção as seguintes diretrizes no serviço de escuta de grupo de dis
 
 * Com um balanceador de carga interno, acessar apenas o serviço de escuta de dentro da mesma rede virtual.
 
+* Se estiver a restrição do acesso com um grupo de segurança de rede do Azure, certifique-se de que as regras de permissão incluem os endereços de IP da VM do SQL Server back-end e o Balanceador de carga IP flutuante endereços para o serviço de escuta de AG e o endereço IP de núcleo de cluster, se aplicável.
 
 ## <a name="for-more-information"></a>Para obter mais informações:
 Para obter mais informações, consulte [grupo de disponibilidade configurar Always On na VM do Azure manualmente](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

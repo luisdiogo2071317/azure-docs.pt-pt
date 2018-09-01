@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282013"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343558"
 ---
 # <a name="border-connectivity"></a>Conectividade de limite 
 Planeamento de integração de rede é um pré-requisito importante para a implementação de sistemas integrados do Azure Stack, operação e gerenciamento com êxito. O planejamento de conectividade de limite começa escolhendo se deve ou não utilizam o encaminhamento dinâmico com o protocolo BGP (BGP). Isso requer a atribuição de um número de sistema autónomo de BGP 16 bits (público ou privado) ou utilizar o encaminhamento estático, onde uma rota predefinida estático é atribuída para os dispositivos de limite.
@@ -31,7 +31,7 @@ Planeamento de integração de rede é um pré-requisito importante para a imple
 ## <a name="bgp-routing"></a>O encaminhamento de BGP
 Utilizar um protocolo de encaminhamento dinâmico com BGP garante que seu sistema estará sempre ciente das alterações de rede e facilita a administração. 
 
-Conforme mostrado no diagrama seguinte, de publicidade de IP privado espaço no comutador TOR é limitado por uma lista de prefixos. As listas de prefixo nega as sub-redes IP privadas e aplicá-lo como um mapa de rota na ligação entre o TOR e a borda.
+Conforme mostrado no diagrama seguinte, de publicidade de IP privado espaço no comutador TOR é limitado por uma lista de prefixos. A lista de prefixo define as sub-redes IP privadas e aplicá-lo como um mapa de rota na ligação entre o TOR e a borda.
 
 O Balanceador de carga de Software (SLB) em execução dentro da solução do Azure Stack elementos para os dispositivos de TOR, para que ele dinamicamente pode anunciar os endereços VIP.
 
@@ -44,13 +44,19 @@ Encaminhamento estático requer configuração adicional para os dispositivos de
 
 Para integrar o Azure Stack no seu ambiente de rede com o encaminhamento estático, todas as ligações físicas quatro entre o limite e o dispositivo de TOR tem de estar ligadas e elevada disponibilidade não pode ser garantida devido a estática como funciona o roteamento.
 
-O dispositivo de limite deve ser configurado com rotas estáticas que aponta para os dispositivos de TOR P2P para o tráfego destinado à rede externa ou VIPs públicas e a rede de infraestrutura. Ele requer rotas estáticas para a rede BMC para a implementação. Os clientes podem optar por deixar o rotas estáticas na borda para acessar alguns recursos que residem na rede BMC.  Adicionar rotas estáticas para *infraestrutura comutador* e *comutador gestão* redes é opcional.
+O dispositivo de limite tem de ser configurado com rotas estáticas que aponta para os dispositivos de TOR P2P para o tráfego destinado à *externo* rede ou VIPs público e o *infraestrutura* rede. Esta operação requer rotas estáticas para o *BMC* e o *externo* redes para a implementação. Operadores podem optar por deixar rotas estáticas na borda para aceder a recursos de gerenciamento que residam no *BMC* rede. Adicionar rotas estáticas para *infraestrutura comutador* e *comutador gestão* redes é opcional.
 
 Os dispositivos de TOR são configurados com uma rota padrão estática enviar todo o tráfego para os dispositivos de limite. É a única exceção de tráfego para a regra predefinida para o espaço privado, o que for bloqueado com uma lista de controlo de acesso aplicadas no TOR a ligação de limite.
 
 Encaminhamento estático só se aplica a uplinks entre os comutadores TOR e o limite. Encaminhamento de BGP dinâmico é utilizado dentro de rack porque ele é uma ferramenta essencial para o SLB e outros componentes e não pode ser desativado ou removido.
 
 ![Encaminhamento estático](media/azure-stack-border-connectivity/static-routing.png)
+
+<sup>\*</sup> A rede BMC é opcional após a implementação.
+
+<sup>\*\*</sup> Rede de infraestrutura de comutador é opcional, como a toda a rede pode ser incluída na rede de gestão de comutador.
+
+<sup>\*\*\*</sup> A rede de gestão de comutador é necessária e pode ser adicionada separadamente a partir da rede de infraestrutura do comutador.
 
 ## <a name="transparent-proxy"></a>Proxy transparente
 Se o seu datacenter requer que todo o tráfego para utilizar um proxy, tem de configurar uma *proxy transparente* para processar todo o tráfego de rack para manipulá-lo de acordo com a política, separar o tráfego entre as zonas na sua rede.

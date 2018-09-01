@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5fb6289f75f0c98cc218233d8adb900484ee4a17
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c64b32656db2d3b821833450b4e866b9e33e44cd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916501"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337350"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta de Amazon com o Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para utilizar uma conta do Amazon como um fornecedor de identidade no Azure Acti
 3. Selecione **registar o novo aplicativo**.
 4. Introduza um **Name**, **Descrição**, e **URL de aviso de privacidade**e, em seguida, clique em **guardar**.
 5. Na **as definições da Web** secção, copie os valores de **ID de cliente**. Selecione **Mostrar segredo** para obter o segredo do cliente e, em seguida, copiá-lo. Terá de ambos para configurar uma conta do Amazon como um fornecedor de identidade no seu inquilino. **Segredo do cliente** é uma credencial de segurança importantes.
-6. No **as definições da Web** secção, selecione **editar**e, em seguida, introduza `https://login.microsoftonline.com` no **permitido origens do JavaScript** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` na **permitidos Devolver a URLs**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contoso.onmicrosoft.com). 
+6. No **as definições da Web** secção, selecione **editar**e, em seguida, introduza `https://{tenant}.b2clogin.com` no **permitido origens do JavaScript** e `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` na **permitidos Devolver a URLs**. Substitua **{inquilino}** com o nome do inquilino (por exemplo, contosob2c). 
 7. Clique em **Guardar**.
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Configurar uma conta do Amazon como fornecedor de identidade
