@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4ab574f99f678683497b0f00b36abcda89991f88
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133588"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "43435610"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -75,17 +75,17 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |
 | Balanceador de Carga | 100 | 1000 |
-| Regras por recurso, Basic | 150 | 250 |
-| Regras por recurso, Standard | 1250 | 1500 |
+| Regras por recurso, Basic | 250 | 250 |
+| Regras por recurso, Standard | 1500 | 1500 |
 | Regras por configuração de IP | 299 |299 |
 | Configurações de IP de front-end, Basic | 10 | 200 |
 | Configurações de IP de front-end, Standard | 10 | 600 |
 | Conjunto de back-end, Basic | Conjunto de disponibilidade de único de 100, | Conjunto de disponibilidade de único de 100, |
 | Conjunto de back-end, Standard | 1000, único VNet | 1000, único VNet |
-| Recursos de back-end por Balanceador de carga Standard &ast; | 50 | 150 |
+| Recursos de back-end por Balanceador de carga Standard * | 150 | 150 |
 | HA portas, Standard | 1 por front-end interno | 1 por front-end interno |
 
-&ast; Até 150 recursos, qualquer combinação de máquinas virtuais autónomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual.
+* * Até 150 recursos, qualquer combinação de máquinas virtuais autónomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual.
 
 Caso seja necessário aumentar os limites para lá da predefinição, [contacte o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

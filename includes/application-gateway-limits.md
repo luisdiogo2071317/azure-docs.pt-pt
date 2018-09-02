@@ -1,6 +1,6 @@
 | Recurso | Limite predefinido | Nota |
 | --- | --- | --- |
-| Gateway de Aplicação |50 por subscrição | 100 máximo |
+| Gateway de Aplicação |50 por subscrição | 1000 máximo |
 | Configurações IP de Front-end |2 |1 pública e 1 privada |
 | Portas de Front-end |20 | |
 | Conjuntos de Endereços de Back-end |20 | |

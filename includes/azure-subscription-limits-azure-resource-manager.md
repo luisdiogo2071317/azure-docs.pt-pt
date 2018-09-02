@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 08cd67e86666cdc9c9fc1b0f4ef98cf3ea7a156c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348206"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "43435617"
 ---
 | Recurso | Limite Predefinido | Limite Máximo |
 | --- | --- | --- |
@@ -31,6 +31,7 @@ ms.locfileid: "37348206"
 | Cálculos de etiquetas únicas por subscrição<sup>3</sup> | 10,000 | 10,000 |
 | [Serviços cloud](../articles/cloud-services/cloud-services-choose-me.md) por subscrição |Não Aplicável<sup>4</sup> |Não Aplicável<sup>4</sup> |
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por subscrição |Não Aplicável<sup>4</sup> |Não Aplicável<sup>4</sup> |
+| [Implementações de nível de subscrição](../articles/azure-resource-manager/deploy-to-subscription.md) por localização | 800 | 800 |
 
 <sup>1</sup>Os limites predefinidos variam consoante o Tipo de Categoria da oferta, como Avaliação Gratuita, Pay As You Go e série, como Dv2, F, G, etc.
 
