@@ -1,6 +1,6 @@
 ---
-title: Como configurar uma identidade do serviço gerido da VM do Azure com um SDK do Azure ativada
-description: Passo a passo de instruções para configurar e utilizar uma identidade do serviço gerido na VM do Azure, com um SDK do Azure.
+title: Utilizar um Azure SDK para configurar uma VM com identidades geridas para recursos do Azure
+description: Instruções passo a passo instruções para configurar e utilizar managed identidades para recursos do Azure na VM do Azure, com um SDK do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,39 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
-ms.openlocfilehash: 2763c78d309f5a90d68429caa46581e50f8b4303
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 80368c6e6e879478df98d5c0740d60fa59703f2d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257665"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338390"
 ---
-# <a name="configure-a-vm-managed-service-identity-using-an-azure-sdk"></a>Configurar uma identidade de serviço VM-Managed com um SDK do Azure
+# <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Configurar uma VM com identidades geridas para recursos do Azure com um SDK do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Identidade de serviço gerida fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory (AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
+Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory (AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
-Neste artigo, saiba como ativar e remover a identidade do serviço gerido para a VM do Azure, com um SDK do Azure.
+Neste artigo, saiba como ativar e remover identidades geridas para recursos do Azure para a VM do Azure, com um SDK do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="azure-sdks-with-managed-service-identity-support"></a>SDKs do Azure com suporte de identidade do serviço gerido 
+## <a name="azure-sdks-with-managed-identities-for-azure-resources-support"></a>SDKs do Azure com identidades geridas para recursos do Azure suportam 
 
-O Azure suporta várias plataformas de programação através de uma série de [SDKs do Azure](https://azure.microsoft.com/downloads). Várias delas foram atualizadas para suportar a identidade do serviço gerido e fornecer exemplos de correspondentes para demonstrar a utilização. Esta lista é atualizada à medida que é adicionado suporte adicional:
+O Azure suporta várias plataformas de programação através de uma série de [SDKs do Azure](https://azure.microsoft.com/downloads). Várias delas foram atualizadas para suportar identidades geridas para recursos do Azure e fornecer exemplos de correspondentes para demonstrar a utilização. Esta lista é atualizada à medida que é adicionado suporte adicional:
 
 | SDK | Sample |
 | --- | ------ | 
-| .NET   | [Gerir recursos a partir de uma VM com capacidade de MSI](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Gerir o armazenamento a partir de uma VM com capacidade de MSI](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
-| Node.js| [Criar uma VM com o MSI ativada](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
-| Python | [Criar uma VM com o MSI ativada](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [Criar VM do Azure com um MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| .NET   | [Gerir o recurso a partir de uma VM ativada com identidades geridas para recursos do Azure ativados](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
+| Java   | [Gerir o armazenamento a partir de uma VM ativada com identidades geridas para recursos do Azure](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| Node.js| [Criar uma VM com a identidade gerida sistema atribuído ativada](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
+| Python | [Criar uma VM com a identidade gerida sistema atribuído ativada](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
+| Ruby   | [Criar VM do Azure com uma identidade de sistema atribuído ativada](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte artigos relacionados em "Configurar Managed Service Identity para VM do Azure", para saber como também pode utilizar os modelos de portal, PowerShell, CLI e recursos do Azure.
-
-Utilize a seguinte secção de comentários para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.
+- Consulte artigos relacionados sob **configurar a identidade para uma VM do Azure**, para saber como também pode utilizar os modelos de portal, PowerShell, CLI e recursos do Azure.
