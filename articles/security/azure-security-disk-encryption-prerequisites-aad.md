@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: 62ae0bcfb30e39b3b2cfcf94b3877cce9cadf9d1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 701418c4c2f17d151061ffde704b5a7f05551d9c
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128008"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338466"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>O Azure Disk Encryption pré-requisitos (versão anterior)
 
@@ -204,7 +204,7 @@ Pode criar um cofre de chaves utilizando o [modelo do Resource Manager](https://
 
 
 ## <a name="bkmk_ADapp"></a> Configurar uma aplicação do Azure AD e o serviço principal 
-Quando precisar de criptografia para ser ativada numa VM em execução no Azure, o Azure Disk Encryption gera e escreve as chaves de encriptação para o seu Cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, pode utilizar a autenticação com base no segredo do cliente ou [autenticação de cliente baseada em certificado do Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
+Quando precisar de criptografia para ser ativada numa VM em execução no Azure, o Azure Disk Encryption gera e escreve as chaves de encriptação para o seu Cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, pode utilizar a autenticação com base no segredo do cliente ou [autenticação de cliente baseada em certificado do Azure AD](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 
 ### <a name="bkmk_ADappPSH"></a> Configurar uma aplicação do Azure AD e o serviço principal com o Azure PowerShell 
