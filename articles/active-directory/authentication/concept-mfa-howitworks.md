@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 25af61ce51828691d08210f4089afa0cf56b9846
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257856"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669012"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: Azure multi-factor Authentication
 
@@ -39,11 +39,14 @@ Autenticação Multifator é fornecido como parte das ofertas seguintes:
 * **Multi-factor Authentication para Office 365** -um subconjunto de capacidades multi-factor Authentication do Azure estão disponíveis como parte da sua subscrição. Para obter mais informações sobre o MFA para o Office 365, consulte o artigo [planear a autenticação multifator para implementações do Office 365](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Administradores do Azure Active Directory Global** -um subconjunto de capacidades multi-factor Authentication do Azure estão disponíveis como um meio para proteger contas de administrador global.
 
+> [!NOTE]
+> Novos clientes já não podem comprar o multi-factor Authentication do Azure como uma autónoma oferta em vigor a partir 1 de Setembro de 2018. Multi-factor authentication irá continuar a ser uma funcionalidade disponível em licenças do Azure AD Premium.
+
 ### <a name="auth-provider-or-mfa-license"></a>Licença de fornecedor de autenticação ou de MFA
 
-Se tiver o Azure AD Premium ou um pacote de licença que inclui o Azure AD Premium, já tem MFA do Azure. Sua organização não precise de nada adicional para expandir a capacidade de verificação de dois passos para todos os utilizadores. Só tem de atribuir uma licença a um utilizador e, em seguida, pode ativar o MFA.
+Se tiver o Azure AD Premium ou de outro pacote de licença que inclui o Azure AD Premium, já tem MFA do Azure. Sua organização não precise de nada adicional para expandir a capacidade de verificação de dois passos para todos os utilizadores. Só tem de atribuir uma licença a um utilizador e, em seguida, pode ativar o MFA.
 
-Se não tiver licenças que incluem o MFA do Azure ou não tiverem suficiente licenças para abranger todos os seus utilizadores, em seguida, pode criar uma [fornecedor de autenticação de MFA](concept-mfa-authprovider.md) para expandir as capacidades completas do MFA para os utilizadores que necessitam deles. 
+Se não tiver licenças que incluem o MFA do Azure ou não tiverem suficiente licenças para abranger todos os seus utilizadores, em seguida, pode criar uma [fornecedor de autenticação de MFA](concept-mfa-authprovider.md) para expandir as capacidades completas do MFA para os utilizadores que necessitam deles.
 
 > [!IMPORTANT]
 > Se não tiver licenças suficientes para todos os seus utilizadores, pode criar um fornecedor de autenticação do multi-factor de por utilizador para cobrir o resto da sua organização. Não crie um fornecedor do multi-factor Auth por autenticação. Se o fizer, poderia acabar por pagar para pedidos de verificação de utilizadores que já tem licenças.

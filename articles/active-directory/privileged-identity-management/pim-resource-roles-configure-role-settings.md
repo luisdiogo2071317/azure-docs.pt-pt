@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9ad4965ccd86f88a61b5f6fb8f540d76e472ea69
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345300"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669368"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurar as definições de função de recursos do Azure no PIM
 
@@ -89,6 +89,8 @@ Para garantir que o administrador de recursos cumprindo a atribuição é que el
 Pode exigir elegíveis membros de uma função executar a MFA para que poderem ativar. Este processo garante que o utilizador que está a pedir a ativação é realmente quem afirma são com certeza razoável. Impor esta opção protege os recursos críticos em situações, quando a conta de utilizador pode ter sido comprometida.
 
 Para exigir um membro elegível executar a MFA antes da ativação, consulte a **requerer o multi-factor Authentication na ativação** caixa.
+
+Para obter mais informações, consulte [multi-factor authentication (MFA) e o PIM](pim-how-to-require-mfa.md).
 
 ## <a name="activation-maximum-duration"></a>Duração máxima da ativação
 

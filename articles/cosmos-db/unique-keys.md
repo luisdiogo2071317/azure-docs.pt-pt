@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003322"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696144"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas no Azure Cosmos DB
 
 Chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma camada de integridade dos dados para a base de dados. Ao criar uma política de chaves exclusivas quando é criado um contentor, garantir a exclusividade de um ou mais valores por [chave de partição](partition-data.md). Assim que tiver sido criado um contentor com uma política de chaves exclusivas, ele impede a criação de todos os itens novos ou atualizados com os valores que duplicam os valores especificados pela restrição de chave exclusiva.   
 
 > [!NOTE]
-> Chaves exclusivas são suportadas por versões mais recentes do [.NET](sql-api-sdk-dotnet.md) e [.NET Core](sql-api-sdk-dotnet-core.md) SDKs de SQL e o [API do MongoDB](mongodb-feature-support.md#unique-indexes). A API de tabela e a Graph API não suporta chaves exclusivas neste momento. 
+> Chaves exclusivas são suportadas por versões mais recentes do [.NET](sql-api-sdk-dotnet.md) e [.NET Core](sql-api-sdk-dotnet-core.md) SDKs de SQL e o [API do MongoDB](mongodb-feature-support.md#unique-indexes). A API de tabela e a API do Gremlin não suportam chaves exclusivas neste momento. 
 > 
 >
 

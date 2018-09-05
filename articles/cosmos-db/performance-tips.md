@@ -10,21 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 47896b681c2ba43d4ca41682ec51e0dfd167c9d5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480997"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700961"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
+
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
-
-# <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
 O Azure Cosmos DB é uma rápida e flexível base de dados distribuída que se dimensiona de forma totalmente integrada com o débito e latência garantida. Não é necessário fazer alterações de arquitetura principais ou escrever código complexo para dimensionar a sua base de dados com o Azure Cosmos DB. Aumentar e reduzir verticalmente é tão fácil quanto efetuar uma única chamada de API ou [chamada de método do SDK](set-throughput.md#set-throughput-sdk). No entanto, porque o Azure Cosmos DB é acessado por meio de chamadas de rede há otimizações de lado do cliente, pode fazer para alcançar o desempenho de pico quando utilizar o [SDK de .NET de SQL](documentdb-sdk-dotnet.md).
 

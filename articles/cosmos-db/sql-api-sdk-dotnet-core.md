@@ -1,6 +1,6 @@
 ---
-title: 'Do Azure Cosmos DB: API do SQL Server .NET Core, SDK & recursos | Microsoft Docs'
-description: Saiba tudo sobre a API do SQL Server .NET Core e o SDK, incluindo as datas de versão, datas de extinção e as alterações efetuadas entre cada versão do Cosmos DB SDK .NET da Azure Core.
+title: 'Azure Cosmos DB: API de núcleo de .NET de SQL, SDK e recursos | Documentos da Microsoft'
+description: Saiba tudo sobre a API de núcleo de .NET de SQL e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 author: rnagpal
 manager: kfile
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62869d1ec0dca1859972e817fe1e5e2c1f4c1eb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b8004500df2e29ab865a8eb78adf278ef61d5ee8
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797867"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702440"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API do SQL Server: notas de versão e recursos
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB SDK para .NET Core para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alteração de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -36,144 +36,158 @@ ms.locfileid: "34797867"
 
 <table>
 
-<tr><td>**Transferência do SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
+<tr><td>**Transferência de SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência da API de .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência da .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Amostras**</td><td>[Exemplos de código do .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Introdução**</td><td>[Introdução ao Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Introdução**</td><td>[Introdução ao .NET Core SDK do Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
 
-<tr><td>**Tutorial de aplicação Web**</td><td>[Desenvolvimento da aplicação Web com base de dados do Azure Cosmos](sql-api-dotnet-application.md)</td></tr>
+<tr><td>**Tutorial da aplicação Web**</td><td>[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
-<tr><td>**Arquitetura suportada atual**</td><td>[.NET 1.6 padrão e .NET 1.5 padrão](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td>**Estrutura de suporte atual**</td><td>[.NET 1.6 padrão e o .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notas de Versão
 
-Cosmos DB SDK .NET da Azure Core tem paridade de funcionalidades com a versão mais recente do [SDK .NET da Azure Cosmos DB](sql-api-sdk-dotnet.md).
+O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão mais recente dos [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Suporte a cancelamento de solicitação foi adicionado.
+* Foi adicionado SetCurrentLocation para ConnectionPolicy, que preenche automaticamente as localizações preferenciais com base na região.
+* Foi corrigido o erro em consultas de partição cruzada com mínima/máxima e um filtro que corresponda ao não existem documentos numa partição individual.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+
+* Agora, os métodos DocumentClient tem paridade com IDocumentClient.
+* Atualizado TCP transporte pilha diretos para reduzir o número de ligações estabelecidas.
+* Foi adicionado suporte para TCP de modo direto para clientes não Windows.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 
-* Foram adicionadas ConsistencyLevel propriedade FeedOptions.
-* Foram adicionadas JsonSerializerSettings RequestOptions e FeedOptions.
-* Foram adicionada EnableReadRequestsFallback para ConnectionPolicy.
+* Propriedade ConsistencyLevel adicionada para FeedOptions.
+* Foi adicionado JsonSerializerSettings RequestOptions e FeedOptions.
+* Foi adicionado EnableReadRequestsFallback para ConnectionPolicy.
 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
-* KeyNotFoundException fixo para cruzada ordem da partição por consultas nos casos extremos.
-* Erros fixo onde JsonPropery atributo na cláusula select para consultas LINQ não estava a ser cumprido.
+* Corrigido KeyNotFoundException para cruzada ordem de partição por consultas em casos específicos.
+* Foi corrigido o erro em que não estava sendo premiado JsonPropery atributo na cláusula select para consultas LINQ.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Fixo erros que é atingido em determinadas condições race, o que resulta em intermitente "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" erros ao utilizar o nível de consistência de sessão.
+* Foi corrigido o erro que for atingido sob determinadas condições de corrida, que resulta num intermitente "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" erros ao utilizar o nível de consistência da sessão.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
-* Corrigido regressão onde FeedOptions.MaxItemCount = -1 emitiu um System.ArithmeticException: tamanho da página é negativo.
-* Adicionar uma nova função de ToString () para QueryMetrics.
-* Estatísticas de partição expostas em coleções de leitura.
-* Foram adicionada PartitionKey propriedade ChangeFeedOptions.
+* Corrigida a regressão onde FeedOptions.MaxItemCount = -1 emitiu um System.ArithmeticException: tamanho da página é negativo.
+* Adicionada uma nova função de ToString () para QueryMetrics.
+* Estatísticas de partição expostos em coleções de leitura.
+* Propriedade de PartitionKey adicionada para ChangeFeedOptions.
 * Pequenas correções de erros.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
- * Adiciona a capacidade de especificar índices exclusivos para os documentos, utilizando o DocumentCollection UniqueKeyPolicy propriedade.
- * Corrigido um erro na qual as definições personalizadas do JsonSerializer não foram que está a ser cumpridas para algumas consultas e a execução do procedimento armazenado.
+ * Adiciona a capacidade de especificar os índices exclusivos para os documentos, utilizando a propriedade de UniqueKeyPolicy no DocumentCollection.
+ * Foi corrigido um erro em que as definições de JsonSerializer personalizadas não eram a ser respeitadas para algumas consultas e a execução do procedimento armazenado.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
- * Documentação, informações de metadados em assemblagens e o pacote NuGet de imagem corporativa alteração do Azure DocumentDB à base de dados do Azure Cosmos de referência de API. 
- * Expõe informações de diagnóstico e a latência da resposta de pedidos enviados com o modo de ligação direta. Os nomes de propriedade são RequestDiagnosticsString e RequestLatency na classe ResourceResponse.
- * Esta versão do SDK requer a versão mais recente do Azure Cosmos DB emulador disponível para transferência a partir do https://aka.ms/cosmosdb-emulator.
+ * Documentação, informações de metadados em assemblies e o pacote NuGet de imagem corporativa alteração do DocumentDB do Azure ao Azure Cosmos DB na referência de API. 
+ * Expor informações de diagnóstico e a latência da resposta de pedidos enviados com o modo de conectividade direta. Os nomes de propriedade são RequestDiagnosticsString e RequestLatency na classe ResourceResponse.
+ * Esta versão do SDK requer a versão mais recente do emulador do Cosmos DB disponível para download em https://aka.ms/cosmosdb-emulator.
  
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
-* Adicionar várias correções de fiabilidade e melhoramentos.
+* Adicionar várias correções de fiabilidade e melhorias.
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
 
-* Internas alterações relacionadas com suporte [Microsoft.Azure.Graphs](https://docs.microsoft.com/azure/cosmos-db/graph-sdk-dotnet)
+* As alterações internas relacionadas ao suporte para [Microsoft.Azure.Graphs](https://docs.microsoft.com/azure/cosmos-db/graph-sdk-dotnet)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
-* Suporte adicionado para PartitionKeyRangeId como um FeedOption para controlar o âmbito os resultados da consulta para um valor de intervalo de chaves de partição específica. 
-* Suporte adicionado para StartTime como um ChangeFeedOption para começar a procurar para que as alterações após esse tempo. 
+* Foi adicionado suporte para PartitionKeyRangeId como um FeedOption para controlar o âmbito os resultados da consulta para um valor de intervalo da chave de partição específica. 
+* Foi adicionado suporte para StartTime como um ChangeFeedOption para começar a procurar para que as alterações após esse tempo. 
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
-*   Foi corrigido um problema na classe JsonSerializable que pode causar uma exceção de capacidade excedida da pilha.
+*   Foi corrigido um problema na classe JsonSerializable que pode fazer com que uma exceção de estouro de pilha.
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 
-*   Foi adicionado suporte para especificar JsonSerializerSettings personalizadas ao instanciar um [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) instância.
+*   Foi adicionado suporte para a especificação JsonSerializerSettings personalizado ao instanciar um [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) instância.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 
-*   Suporte 1.5 padrão de .NET como uma das estruturas de destino.
+*   Suporte 1.5 padrão do .NET como uma das estruturas de destino.
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 
-*   Foi corrigido um problema que afetados x64 máquinas que não suportam instruções SSE4 e throw SEHException quando executar consultas de base de dados do Azure Cosmos.
+*   Foi corrigido um problema que afetados x64 máquinas que não suportam instruções SSE4 e lançar SEHException quando a execução de consultas do Azure Cosmos DB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*   Suporte adicionado para um novo nível de consistência chamado ConsistentPrefix.
-*   Adicionado suporte para as métricas de consulta para partições individuais.
-*   Suporte adicionado para limitar o tamanho do token de continuação para consultas.
-*   Suporte adicionado para o rastreio mais detalhado para pedidos falhados.
-*   Efetuados alguns melhoramentos de desempenho no SDK.
+*   Foi adicionado suporte para um novo nível de consistência chamado ConsistentPrefix.
+*   Foi adicionado suporte para as métricas de consulta de partições individuais.
+*   Foi adicionado suporte para limitar o tamanho do token de continuação para consultas.
+*   Foi adicionado suporte para rastreamento mais detalhado para pedidos falhados.
+*   Feitas algumas melhorias de desempenho no SDK.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
-* Foi corrigido um problema que ignorado o valor de PartitionKey fornecido FeedOptions para consultas de agregação.
-* Foi corrigido um problema no processamento transparente de gestão de partição durante o voo intermédio partição cruzada Order By a execução da consulta.
+* Foi corrigido um problema que o valor de PartitionKey fornecido FeedOptions para consultas agregadas de ignoradas.
+* Foi corrigido um problema na manipulação transparente de gestão de partição durante o voo médio entre partições Order By a execução da consulta.
 
 ### <a name="a-name121121"></a><a name="1.2.1"/>1.2.1
 
-* Foi corrigido um problema que causou a impasses em algumas do async APIs quando utilizada dentro do contexto do ASP.NET.
+* Foi corrigido um problema que causou a deadlocks em algumas do async APIs quando utilizado dentro do contexto do ASP.NET.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 
-* Correções para tornar mais resiliente do SDK para ativação pós-falha automática em determinadas condições.
+* Correções para manter o SDK mais resilientes a ativação pós-falha automática em determinadas condições.
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Corrigir um problema que ocasionalmente faz com que um WebException: não foi possível resolver o nome remoto.
-* O suporte adicionado para diretamente ao ler um documento com tipo adicionando as sobrecargas da nova para ReadDocumentAsync API.
+* Correção para um problema que eventualmente cause uma exceção WebException: não foi possível resolver o nome remoto.
+* Foi adicionado o suporte para a leitura diretamente de um documento com tipos adicionando novas sobrecargas para ReadDocumentAsync API.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 
-* Adicionado suporte LINQ para consultas de agregação (CONTAGEM, MIN, MAX, soma e média).
-* Corrigir um problema de fuga de memória para o objeto de ConnectionPolicy causado pela utilização de processador de eventos.
-* Corrigir um problema wherein UpsertAttachmentAsync foi não está a funcionar quando ETag foi utilizada.
-* Corrigir um problema wherein continuação de partição cruzada por ordem consulta foi não funcionar ao ordenar no campo de cadeia.
+* Foi adicionado suporte LINQ para consultas de agregação (COUNT, MIN, MAX, soma e média).
+* Correção para um problema de vazamento de memória para o objeto de ConnectionPolicy causado pelo uso do manipulador de eventos.
+* Correção para um problema na qual UpsertAttachmentAsync não estava trabalhando quando utilizou-se a ETag.
+* Corrigi um problema na qual partição cruzada por ordem continuação de consulta não trabalhava na classificação no campo de cadeia de caracteres.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Suporte adicionado para consultas de agregação (CONTAGEM, MIN, MAX, soma e média). Consulte [suporte de agregação](sql-api-sql-query.md#Aggregates).
-* Lowered débito mínimo em coleções particionadas de 10,100 RU/s ao 2500 RU/s.
+* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](sql-api-sql-query.md#Aggregates).
+* Reduzidas débito mínimo em coleções particionadas do 10,100 RU/s para 2500 RU/s.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-Cosmos DB SDK .NET da Azure Core permite-lhe criar rapidamente, plataforma [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) aplicações sejam executadas no Windows, Mac e Linux. A versão mais recente do Azure Cosmos DB .NET Core SDK é totalmente [Xamarin](https://www.xamarin.com) compatível e ser utilizado para criar aplicações direcionadas para iOS, Android e Mono (Linux).  
+O SDK de núcleo de .NET do Azure Cosmos DB permite-lhe criar, rápida e, em várias plataformas [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) aplicações sejam executadas no Windows, Mac e Linux. A versão mais recente do Azure Cosmos DB .NET Core SDK é totalmente [Xamarin](https://www.xamarin.com) compatível e ser utilizado para criar aplicativos destinados a iOS, Android e Mono (Linux).  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
 
-Cosmos DB SDK .NET da Azure Core pré-visualização permite-lhe criar rapidamente, plataforma [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) aplicações sejam executadas no Windows, Mac e Linux.
+O SDK de pré-visualização do Azure Cosmos DB .NET Core permite-lhe criar, rápida e, em várias plataformas [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) aplicações sejam executadas no Windows, Mac e Linux.
 
-Cosmos DB SDK .NET da Azure Core pré-visualização tem paridade de funcionalidades com a versão mais recente do [SDK .NET da Azure Cosmos DB](sql-api-sdk-dotnet.md) e suporta o seguinte:
-* Todos os [modos de ligação](performance-tips.md#networking): modo, o TCP direta e o HTTPs direta de Gateway. 
-* Todos os [níveis de consistência](consistency-levels.md): forte, sessão, consistência vinculada e Eventual.
-* [Coleções de partições](partition-data.md). 
-* [Contas de base de dados de multirregião e georreplicação](distribute-data-globally.md).
+O SDK de pré-visualização do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão mais recente dos [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md) e suporta o seguinte:
+* Todos os [modos de ligação](performance-tips.md#networking): modo, o TCP direto e o HTTPs direto de Gateway. 
+* Todos os [níveis de consistência](consistency-levels.md): forte, sessão, estagnação limitada e Eventual.
+* [Particionados coleções](partition-data.md). 
+* [Contas de base de dados de várias regiões e georreplicação](distribute-data-globally.md).
 
-Se tiver perguntas relacionadas com este SDK, publicar [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), ou um problema de ficheiros a [repositório do github](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), ou enviar um problema no [repositório do github](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
-## <a name="release--retirement-dates"></a>Datas de extinção & versão
+## <a name="release--retirement-dates"></a>Versão & retirada datas
 
-| Versão | Data da versão | Data de retirada |
+| Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |26 de Julho de 2018 |--- |
+| [2.0.0-Preview](#2.0.0-preview) |11 de Maio de 2018 |--- |
 | [1.9.1](#1.9.1) |09 de Março de 2018 |--- |
 | [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |
 | [1.8.1](#1.8.1) |05 de Fevereiro de 2018 |--- |
@@ -197,5 +211,5 @@ Se tiver perguntas relacionadas com este SDK, publicar [StackOverflow](http://st
 | [0.1.0-preview](#0.1.0-preview) |15 de Novembro de 2016 |31 de Dezembro de 2016 |
 
 ## <a name="see-also"></a>Consultar Também
-Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

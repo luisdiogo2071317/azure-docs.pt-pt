@@ -1,99 +1,99 @@
 ---
-title: Insulating aplicações de Service Bus do Azure contra falhas e desastres inesperados | Microsoft Docs
-description: Técnicas para proteger as aplicações em relação a uma potencial falha de Service Bus.
+title: Isolando as aplicações do Azure Service Bus contra interrupções e desastres | Documentos da Microsoft
+description: Técnicas para proteger as aplicações em caso de falha possível do Service Bus.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 5401d43f11c8afc02f48dd643fd4ff2f9611e06e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301721"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696722"
 ---
-# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para insulating aplicações contra falhas de Service Bus e desastres inesperados
+# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para separando aplicativos em relação do Service Bus interrupções e desastres
 
-Aplicações fundamentais tem de operar continuamente, mesmo na presença de falhas não planeadas ou desastres inesperados. Este artigo descreve as técnicas que pode utilizar a proteger as aplicações de Service Bus contra um potencial interrupção do serviço ou um desastre.
+Aplicativos de missão crítica devem operar continuamente, mesmo na ocorrência de falhas não planeadas ou desastres. Este artigo descreve as técnicas que pode ser usadas para proteger as aplicações do Service Bus em relação a uma potencial falha de serviço ou um desastre.
 
-Uma falha é definida como indisponibilidade temporária do Service Bus do Azure. A interrupção pode afetar alguns componentes do Service Bus, como um arquivo de mensagens ou mesmo o todo o datacenter. Depois de corrigir o problema, o barramento de serviço torna-se disponíveis novamente. Normalmente, uma falha não irá causar perda de mensagens ou outros dados. Um exemplo de uma falha de componente é indisponibilidade de um determinado arquivo de mensagens. Um exemplo de uma falha em todo o Centro de dados é uma falha de energia do Centro de dados ou um comutador de rede do datacenter defeituoso. Para alguns dias a uma falha pode última de alguns minutos.
+Um período de indisponibilidade é definido como a indisponibilidade temporária do Azure Service Bus. A falha pode afetar alguns componentes do Service Bus, como um arquivo de mensagens, ou até mesmo o todo o datacenter. Depois do problema foi resolvido, do Service Bus ficar novamente disponível. Normalmente, uma indisponibilidade não irá causar perda de mensagens ou outros dados. Um exemplo de uma falha de componente é a indisponibilidade de um arquivo de mensagens específico. Um exemplo de uma falha de todo o datacenter é uma falha de energia do Centro de dados ou um comutador de rede do Centro de dados com falhas. Pode sobreviver a uma falha de alguns minutos alguns dias.
 
-Um desastre é definido como a perda permanente de uma unidade de escala do Service Bus ou centro de dados. O Centro de dados poderá ou poderá não ficar disponível novamente. Normalmente, um desastre provoca a perda de algumas ou todas as mensagens ou outros dados. Exemplos de perante desastres são fire, sobrecarregar ou terramoto.
+Após um desastre é definido como a perda permanente de uma unidade de escala do Service Bus ou datacenter. O Centro de dados poderá ou poderá não fique disponível novamente. Normalmente, um desastre faz com que a perda de algumas ou todas as mensagens ou outros dados. Exemplos de desastres são fire, sobrecarregar ou sismo.
 
 ## <a name="current-architecture"></a>Arquitetura atual
-O Service Bus utiliza vários arquivos de mensagens para armazenar as mensagens que são enviadas para as filas ou tópicos. Uma fila não particionadas ou um tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nessa fila ou um tópico irão falhar.
+O Service Bus utiliza vários arquivos de mensagens para armazenar as mensagens que são enviadas para filas ou tópicos. Um não-particionada fila ou tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nesse fila ou tópico irão falhar.
 
-Todas as entidades de mensagens Service Bus (filas, tópicos, reencaminhamentos) residirem no espaço de nomes de serviço, o que está afiliado a um centro de dados. Barramento de serviço agora suporta [ *recuperação de desastres Georreplicação* e *georreplicação* ](service-bus-geo-dr.md) ao nível do espaço de nomes.
+Todas as entidades de mensagens do Service Bus (filas, tópicos, reencaminhamentos) residirem num namespace de serviço, o que está afiliado a um Data Center. Agora suporta o Service Bus [ *recuperação após desastre geográfico* e *georreplicação* ](service-bus-geo-dr.md) ao nível do espaço de nomes.
 
-## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Proteger a filas e tópicos contra falhas do arquivo de mensagens
-Uma fila não particionadas ou um tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nessa fila ou um tópico irão falhar. Uma fila particionada, é composta por outro lado, fragmentos vários. Cada fragmento é armazenado num arquivo de mensagens diferentes. Quando é enviada uma mensagem para uma fila particionada ou um tópico, o Service Bus atribui a mensagem para um dos fragmentos. Se o arquivo de mensagens correspondente estiver disponível, Service Bus escreve a mensagem para um fragmento diferentes, se possível. Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
+## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Proteção de filas e tópicos contra falhas de armazenamento de mensagens
+Um não-particionada fila ou tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nesse fila ou tópico irão falhar. Por outro lado, uma fila particionada, consiste em vários fragmentos. Cada fragmento é armazenado num arquivo de mensagens diferente. Quando uma mensagem é enviada para uma fila particionada ou um tópico, o Service Bus atribui a mensagem a um dos fragmentos. Se o arquivo de mensagens correspondente estiver indisponível, do Service Bus escreve a mensagem para um fragmento de diferente, se possível. Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
 
 Para obter mais informações sobre entidades particionadas, consulte [entidades de mensagens Particionadas][Partitioned messaging entities].
 
-## <a name="protecting-against-datacenter-outages-or-disasters"></a>Proteger contra falhas do Centro de dados ou perante desastres
-Para permitir uma ativação pós-falha entre dois centros de dados, pode criar um espaço de nomes de serviço do Service Bus em cada datacenter. Por exemplo, o Service Bus serviço espaço de nomes **contosoPrimary.servicebus.windows.net** pode estar localizada na região Centro-Norte/dos Estados Unidos, e **contosoSecondary.servicebus.windows.net**pode estar localizada na região dos EUA Sul/Central. Se uma entidade de mensagens do Service Bus tem de permanecer acessível na presença de uma falha de centro de dados, pode criar essa entidade em ambos os espaços de nomes.
+## <a name="protecting-against-datacenter-outages-or-disasters"></a>Proteção contra falhas de datacenter ou desastres
+Para permitir uma ativação pós-falha entre dois centros de dados, pode criar um espaço de nomes de serviço do Service Bus em cada datacenter. Por exemplo, o namespace de serviço do Service Bus **contosoPrimary.servicebus.windows.net** pode ser localizado na região norte de Estados Unidos, e **contosoSecondary.servicebus.windows.net**pode ser localizada na região e.u.a. centro-Sul/Central. Se uma entidade de mensagens do Service Bus tem de permanecer acessível na presença de uma falha do datacenter, pode criar essa entidade em ambos os espaços de nomes.
 
-Para obter mais informações, consulte a secção "Falha do Service Bus dentro de um datacenter do Azure" [padrões e elevada disponibilidade de mensagens assíncronas][Asynchronous messaging patterns and high availability].
+Para obter mais informações, consulte a secção de "Falha do Service Bus num datacenter do Azure" na [elevada disponibilidade e padrões de mensagens assíncronas][Asynchronous messaging patterns and high availability].
 
-## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Proteger pontos finais de reencaminhamento contra falhas do Centro de dados ou perante desastres
-Replicação geográfica dos pontos finais de reencaminhamento permite que um serviço que expõe um ponto final de reencaminhamento estar acessível na presença de falhas de Service Bus. Para alcançar a georreplicação, o serviço tem de criar dois pontos finais de reencaminhamento em diferentes espaços de nomes. Os espaços de nomes tem de residir em datacenters diferentes e os dois pontos finais tem de ter nomes diferentes. Por exemplo, um ponto final principal pode ser contactado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto o respetivo homólogo secundário pode ser contactado em **contosoSecondary.servicebus.windows.net /mySecondaryService**.
+## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Proteger pontos finais de reencaminhamento contra falhas de datacenter ou desastres
+Georreplicação de pontos de extremidade de reencaminhamento permite que um serviço que expõe um ponto de extremidade de reencaminhamento estar acessível na presença de falhas do Service Bus. Para alcançar os replicação geográfica, o serviço tem de criar dois pontos de extremidade de reencaminhamento num espaço de nomes diferentes. Os espaços de nomes tem de residir em datacenters diferentes e dois pontos de extremidade tem de ter nomes diferentes. Por exemplo, um ponto final primário pode ser contatado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto sua contraparte secundário pode ser contatado em **contosoSecondary.servicebus.windows.net /mySecondaryService**.
 
-O serviço de escuta, em seguida, em ambos os pontos finais e um cliente pode invocar o serviço através de um ponto final. Uma aplicação cliente aleatoriamente escolhe um dos reencaminhamentos como o ponto final principal e envia o pedido para o ponto final do Active Directory. Se a operação falhar com um código de erro, esta falha indica que o ponto final de reencaminhamento não está disponível. A aplicação abre-se de um canal para o ponto final de cópia de segurança e reissues o pedido. Nesse momento o Active Directory e os pontos finais de cópia de segurança mudar funções: a aplicação cliente considera o antigo ponto final do Active Directory para o novo ponto final da cópia de segurança e o ponto de final cópia de segurança antigo para o novo ponto final do Active Directory. Se ambos enviar operações falhar, as funções de duas entidades permanecem inalteradas e é devolvido um erro.
+O serviço de escuta, em seguida, em ambos os pontos de extremidade e um cliente pode chamar o serviço através de qualquer ponto de extremidade. Uma aplicação cliente escolhe um dos relés como o ponto final primário aleatoriamente e envia a solicitação para o ponto final do Active Directory. Se a operação falhar com um código de erro, esta falha indica que o ponto de extremidade de reencaminhamento não está disponível. A aplicação abrirá um canal para o ponto final de cópia de segurança e emite novamente o pedido. Nesse momento o Active Directory e os pontos finais de cópia de segurança mudar funções: a aplicação cliente considera o antigo ponto final do Active Directory para ser o novo ponto de final de cópia de segurança e o ponto de final de cópia de segurança antigo para o novo ponto final do Active Directory. Se ambos enviar operações falhar, as funções de duas entidades permanecem inalteradas e é devolvido um erro.
 
-## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Proteger a filas e tópicos contra falhas do Centro de dados ou perante desastres
-Para obter com a resiliência contra falhas do Centro de dados utilizando as mensagens mediadas, o Service Bus suporta duas abordagens: *Active Directory* e *passivo* replicação. Para cada abordagem, se uma determinada fila ou um tópico tem de permanecer acessível na presença de uma falha de centro de dados, pode criar-em ambos os espaços de nomes. Ambas as entidades podem ter o mesmo nome. Por exemplo, uma fila primária pode ser contactada em **contosoPrimary.servicebus.windows.net/myQueue**, enquanto o respetivo homólogo secundário pode ser contactado em **contosoSecondary.servicebus.windows.net/myQueue**.
+## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Proteção de filas e tópicos contra falhas de datacenter ou desastres
+Para obter resiliência contra falhas de centro de dados quando utilizar mensagens mediadas, Service Bus suporta duas abordagens: *Active Directory* e *passivo* replicação. Para cada abordagem, se uma determinada fila ou tópico tem de permanecer acessível na presença de uma falha do datacenter, pode criá-la em ambos os espaços de nomes. As duas entidades podem ter o mesmo nome. Por exemplo, uma fila primária pode ser contatada em **contosoPrimary.servicebus.windows.net/myQueue**, enquanto sua contraparte secundário pode ser contatado em **contosoSecondary.servicebus.windows.net/myQueue**.
 
-Se a aplicação não necessitar de comunicação do remetente para recetor permanente, a aplicação pode implementar uma fila do lado do cliente durável para evitar a perda de mensagem e para proteger o remetente quaisquer erros transitórios do Service Bus.
+Se a aplicação não necessitar de comunicação de remetente para o recetor permanente, a aplicação pode implementar uma fila durável do lado do cliente para evitar a perda de mensagens e para proteger o remetente quaisquer erros transitórios do Service Bus.
 
-## <a name="active-replication"></a>Replicação de Active Directory
-Replicação de Active Directory utiliza entidades em ambos os espaços de nomes para cada operação. Qualquer cliente que envia uma mensagem envia duas cópias da mesma mensagem. A primeira cópia é enviada à entidade principal (por exemplo, **contosoPrimary.servicebus.windows.net/sales**), e a segunda cópia da mensagem é enviada para a entidade secundária (por exemplo,  **contosoSecondary.servicebus.windows.net/sales**).
+## <a name="active-replication"></a>Replicação do Active Directory
+Replicação de Active Directory utiliza entidades em ambos os espaços de nomes para cada operação. Qualquer cliente que envia uma mensagem envia duas cópias da mesma mensagem. A primeira cópia é enviada para a entidade principal (por exemplo, **contosoPrimary.servicebus.windows.net/sales**), e a segunda cópia da mensagem é enviada para a entidade secundária (por exemplo,  **contosoSecondary.servicebus.windows.net/sales**).
 
-Um cliente recebe mensagens de ambas as filas. O recetor processar a primeira cópia de uma mensagem e a segunda cópia é suprimida. Para suprimir mensagens duplicadas, o remetente tem de etiquetar cada mensagem com um identificador exclusivo. Ambas as cópias da mensagem têm de ser etiquetadas com o mesmo identificador. Pode utilizar o [BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] ou [BrokeredMessage.Label] [ BrokeredMessage.Label] propriedades ou uma propriedade personalizada para marcar a mensagem. O recetor tem de manter uma lista de mensagens que o se já tiver recebido.
+Um cliente recebe mensagens de ambas as filas. O recetor processar a primeira cópia de uma mensagem e a segunda cópia suprimida. Para suprimir mensagens duplicadas, o remetente deve etiquetar cada mensagem com um identificador exclusivo. As duas cópias da mensagem devem ser etiquetadas com o mesmo identificador. Pode utilizar o [Brokeredmessage] [ BrokeredMessage.MessageId] ou [BrokeredMessage.Label] [ BrokeredMessage.Label] propriedades ou uma propriedade personalizada a mensagem. O destinatário tem de manter uma lista de mensagens que já recebidos.
 
-O [georreplicação com mensagens mediadas do barramento do serviço] [ Geo-replication with Service Bus Brokered Messages] exemplo demonstra a replicação de Active Directory de entidades de mensagens.
+O [georreplicação com mensagens mediadas do Service Bus] [ Geo-replication with Service Bus Brokered Messages] exemplo demonstra os replicação de Active Directory de entidades de mensagens.
 
 > [!NOTE]
-> A abordagem de replicação do Active Directory duplica o número de operações, pelo que esta abordagem pode levar ao custo mais elevado.
+> A abordagem de replicação do Active Directory duplica o número de operações, essa abordagem pode levar à custo mais elevado.
 > 
 > 
 
 ## <a name="passive-replication"></a>Replicação passiva
-No caso de falhas-gratuita, a replicação passiva utiliza apenas uma das duas entidades de mensagens. Um cliente envia a mensagem para a entidade de Active Directory. Se a operação na entidade Active Directory falhar com um código de erro que indica o datacenter que aloja a entidade de Active Directory poderão não estar disponível, o cliente envia uma cópia da mensagem para a entidade de cópia de segurança. Nesse momento o Active Directory e as entidades de cópia de segurança mudar funções: o cliente de envio considera que a entidade de Active Directory antiga para ser a entidade de cópia de segurança novo e a entidade de cópia de segurança antiga é a nova entidade Active Directory. Se ambos enviar operações falhar, as funções de duas entidades permanecem inalteradas e é devolvido um erro.
+No caso de falhas gratuitos, replicação passiva usa apenas uma das duas entidades de mensagens. Um cliente envia a mensagem para a entidade de Active Directory. Se a operação na entidade active falhar com um código de erro que indica o datacenter que aloja a entidade de Active Directory pode não estar disponível, o cliente envia uma cópia da mensagem para a entidade de cópia de segurança. Nesse momento o Active Directory e as entidades de cópia de segurança mudar funções: o cliente de envio considera a entidade de Active Directory antiga a ser a nova entidade de cópia de segurança e a entidade de cópia de segurança antiga é a nova entidade de Active Directory. Se ambos enviar operações falhar, as funções de duas entidades permanecem inalteradas e é devolvido um erro.
 
-Um cliente recebe mensagens de ambas as filas. Porque não há a possibilidade de que o recetor recebe duas cópias da mesma mensagem, o recetor têm suprimir mensagens duplicadas. Pode suprimir os duplicados da mesma forma, conforme descrito para replicação de Active Directory.
+Um cliente recebe mensagens de ambas as filas. Uma vez que é provável que o destinatário recebe duas cópias da mesma mensagem, o recetor deve suprimir mensagens duplicadas. É possível suprimir duplicados da mesma forma, conforme descrito para a replicação do Active Directory.
 
-Em geral, replicação passiva é mais económica que a replicação do Active Directory porque na maioria dos casos é executada apenas uma operação. Custo monetário, o débito e latência são idênticos para o cenário de não-replicados.
+Em geral, os replicação passivo é mais económico do que a replicação do Active Directory, porque na maioria dos casos é executada apenas uma operação. Latência, débito e o custo de monetário são idênticos para o cenário de não-replicados.
 
-Quando utilizar replicação passiva, nos seguintes cenários de mensagens podem ser perdidas ou recebidas duas vezes:
+Ao usar os replicação passivo, nos seguintes cenários de mensagens são perdidas ou recebidas duas vezes:
 
-* **Atraso de mensagem ou perda**: partem do princípio de que o remetente enviou com êxito uma mensagem m1 para a fila principal e, em seguida, a fila fica indisponível antes do recetor recebe m1. O remetente envia uma mensagem subsequentes m2 para a fila secundária. Se a fila principal está temporariamente indisponível, o recetor recebe m1 depois da fila de fica disponível novamente. Em caso de desastre, o recetor nunca poderá receber m1.
-* **Duplicar receção**: partem do princípio de que o remetente envia uma mensagem m para a fila principal. Barramento de serviço com êxito processa m, mas não conseguir enviar uma resposta. Depois da operação de envio exceder o tempo limite, o remetente envia uma cópia idêntica m para a fila secundária. Se o recetor é capaz de receber a primeira cópia de m antes da fila principal fica indisponível, o recetor recebe ambas as cópias de m aproximadamente à mesma hora. Se o recetor não é possível receber a primeira cópia de m antes da fila principal fica indisponível, o recetor inicialmente recebe a segunda cópia da m, mas, em seguida, recebe uma segunda cópia da m quando a fila principal fica disponível.
+* **Atraso de mensagem ou perda**: partem do princípio de que o remetente enviada com êxito um m1 de mensagem para a fila primária e, em seguida, a fila fica indisponível antes do recetor recebe m1. O remetente envia uma mensagem subseqüente m2 para a fila secundária. Se a fila primária está temporariamente indisponível, o destinatário recebe m1 depois da fila fica disponível novamente. Em caso de desastre, o recetor nunca poderá receber m1.
+* **Duplicar receção**: partem do princípio de que o remetente envia uma mensagem m para a fila principal. Do Service Bus com êxito processa m, mas não conseguir enviar uma resposta. Depois da operação de envio exceder o tempo limite, o remetente envia uma cópia idêntica do m para a fila secundária. Se o destinatário é consegue receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe ambas as cópias de m, aproximadamente ao mesmo tempo. Se o recetor não for capaz de receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe inicialmente apenas a segunda cópia da m, mas, em seguida, recebe uma segunda cópia da m quando a fila primária fica disponível.
 
-O [georreplicação com o Service Bus as mensagens mediadas] [ Geo-replication with Service Bus Brokered Messages] exemplo demonstra replicação passiva de entidades de mensagens.
+O [georreplicação com o Service Bus mediadas mensagens] [ Geo-replication with Service Bus Brokered Messages] exemplo demonstra os replicação passiva de entidades de mensagens.
 
 ## <a name="geo-replication"></a>Georreplicação
 
-Service Bus suporta a recuperação de desastres Georreplicação e a georreplicação, ao nível do espaço de nomes. Para obter mais informações, consulte [recuperação Georreplicação-desastre do Service Bus do Azure](service-bus-geo-dr.md). A funcionalidade de recuperação após desastre, disponível para o [Premium SKU](service-bus-premium-messaging.md) apenas, implementa a recuperação após desastre de metadados e baseia-se no espaço de nomes de recuperação de desastre primária e secundária.
+Service Bus suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. Para obter mais informações, consulte [recuperação de desastre geográfico de Azure Service Bus](service-bus-geo-dr.md). O recurso de recuperação após desastre, disponível para o [Premium SKU](service-bus-premium-messaging.md) apenas, implementa a recuperação após desastre de metadados e se baseia nos espaços de nomes de recuperação de desastres primário e secundário.
 
-## <a name="availability-zones-preview"></a>Zonas de disponibilidade (pré-visualização)
+## <a name="availability-zones-preview"></a>As zonas de disponibilidade (pré-visualização)
 
-O SKU de Premium do Service Bus suporta [disponibilidade zonas](../availability-zones/az-overview.md), que fornecem localizações isoladas de falhas dentro de uma região do Azure. 
+O SKU do Service Bus Premium suporta [zonas de disponibilidade](../availability-zones/az-overview.md), fornecer localizações isoladas de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **EUA Leste 2**, e **França Central** regiões.
+> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **E.U.A. Leste 2**, e **Centro de França** regiões.
 
-Pode ativar zonas de disponibilidade no novo espaço de nomes só, utilizando o portal do Azure. Barramento de serviço não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona depois de ativar a no seu espaço de nomes.
+Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. Barramento de serviço não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
 
 ![1][]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre a recuperação após desastre, consulte estes artigos:
+Para saber mais sobre a recuperação após desastre, veja estes artigos:
 
-* [Recuperação de Georreplicação-desastre do Service Bus do Azure](service-bus-geo-dr.md)
-* [Continuidade de negócios de base de dados SQL do Azure][Azure SQL Database Business Continuity]
+* [Recuperação após desastre do Service Bus Geo do Azure](service-bus-geo-dr.md)
+* [Continuidade de negócio de base de dados SQL do Azure][Azure SQL Database Business Continuity]
 * [Conceber aplicações resilientes para o Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md

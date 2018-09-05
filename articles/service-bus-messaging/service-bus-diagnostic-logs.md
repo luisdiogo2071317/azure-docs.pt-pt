@@ -1,10 +1,10 @@
 ---
-title: Registos de diagnóstico do Azure Service Bus | Microsoft Docs
+title: Registos de diagnóstico do Service Bus do Azure | Documentos da Microsoft
 description: Saiba como configurar registos de diagnóstico para o Service Bus no Azure.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
-author: banisadr
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -14,55 +14,55 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: 3c2528634dea5c75e4a0e35b7e1a6a30de8d96c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29122187"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696161"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registos de diagnóstico do Service Bus
 
-Pode ver dois tipos de registos do Service Bus do Azure:
-* **[Registos de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Estes registos contêm informações sobre operações executadas numa tarefa. Os registos estão sempre ativados.
-* **[Os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Pode configurar os registos de diagnóstico para informações mais completas sobre tudo o que acontece dentro de uma tarefa. Registos de diagnóstico abrange atividades desde o momento em que é criada a tarefa até que a tarefa é eliminada, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
+Pode ver dois tipos de registos do Azure Service Bus:
+* **[Registos de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Estes registos contêm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
+* **[Os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Pode configurar os registos de diagnóstico para informações mais detalhadas sobre tudo o que acontece dentro de uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar registos de diagnóstico
 
-Registos de diagnóstico estão desativados por predefinição. Para ativar os registos de diagnóstico, execute os seguintes passos:
+Os registos de diagnóstico estão desativados por predefinição. Para ativar os registos de diagnóstico, execute os seguintes passos:
 
-1.  No [portal do Azure](https://portal.azure.com), em **monitorização + gestão**, clique em **registos de diagnóstico**.
+1.  Na [portal do Azure](https://portal.azure.com), em **monitorização + gestão**, clique em **registos de diagnóstico**.
 
-    ![navegação do painel para os registos de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)
+    ![navegação do painel para registos de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)
 
-2. Clique no recurso que pretende monitorizar.  
+2. Clique em recursos que pretende monitorizar.  
 
-3.  Clique em **ative os diagnósticos**.
+3.  Clique em **Ativar diagnósticos**.
 
     ![Ativar registos de diagnóstico](./media/service-bus-diagnostic-logs/image2.png)
 
-4.  Para **estado**, clique em **no**.
+4.  Para **Status**, clique em **no**.
 
     ![alterar os registos de diagnóstico de estado](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Definir o destino de arquivo que pretende; Por exemplo, uma conta de armazenamento, um hub de eventos ou Log Analytics do Azure.
+5.  Definir o destino de arquivo que pretende; Por exemplo, uma conta de armazenamento, um hub de eventos ou do Azure Log Analytics.
 
 6.  Guarde as novas definições de diagnóstico.
 
-Novas definições entram em vigor no cerca de 10 minutos. Depois disso, os registos são apresentados no destino arquivo configurado, no **registos de diagnóstico** painel.
+Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, os registos de aparecem no destino de arquivo configurado, no **registos de diagnóstico** painel.
 
-Para obter mais informações sobre a configuração de diagnósticos, consulte o [descrição geral dos registos de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para obter mais informações sobre como configurar diagnósticos, consulte a [descrição geral dos registos de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registos de diagnóstico
 
-Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia que utilizam o formato descrito na secção seguinte.
+Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia de caracteres que utilizam o formato descrito na secção seguinte.
 
 ## <a name="operational-logs-schema"></a>Esquema de registos operacionais
 
-Iniciar sessão a **OperationalLogs** categoria capturar o que acontece durante as operações de Service Bus. Especificamente, estes registos capturam o tipo de operação, incluindo a criação da fila, os recursos utilizados e o estado da operação.
+Iniciar sessão a **OperationalLogs** categoria capturar o que acontece durante as operações do Service Bus. Especificamente, estes registos capturam o tipo de operação, incluindo a criação da fila, os recursos utilizados e o estado da operação.
 
-Cadeias JSON do registo operacional incluem elementos listados na seguinte tabela:
+Cadeias de caracteres JSON de registo operacional incluem elementos listados na tabela a seguir:
 
 Nome | Descrição
 ------- | -------
@@ -73,10 +73,10 @@ SubscriptionId | ID da subscrição
 EventTimeString | Tempo de operação
 EventProperties | Propriedades de operação
 Estado | Estado da operação
-Autor da chamada | Autor da chamada da operação (Azure portal ou de gestão do cliente)
+Autor da chamada | Chamador de operação (cliente do Azure de portal ou de gestão)
 categoria | OperationalLogs
 
-Eis um exemplo de um registo operacional cadeia JSON:
+Eis um exemplo de um cadeia de caracteres do JSON de registo operacional:
 
 ```json
 {
@@ -94,7 +94,7 @@ Eis um exemplo de um registo operacional cadeia JSON:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte as ligações seguintes para obter mais informações sobre o Service Bus:
+Consulte as seguintes ligações para saber mais sobre o Service Bus:
 
 * [Introdução ao Service Bus](service-bus-messaging-overview.md)
 * [Introdução ao Service Bus](service-bus-dotnet-get-started-with-queues.md)

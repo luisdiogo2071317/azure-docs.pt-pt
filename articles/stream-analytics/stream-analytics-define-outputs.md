@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715425"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701019"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
@@ -58,7 +58,7 @@ Saída de Azure Data Lake Store do Stream Analytics não está atualmente dispon
 ### <a name="renew-data-lake-store-authorization"></a>Renovar a autorização do Data Lake Store
 Tem de autenticar a sua conta do Data Lake Store, se a palavra-passe tiver sido alterado, uma vez que a tarefa foi criada ou pela última vez autenticada. Se não autenticar, o seu trabalho não produz resultados de saída e mostra um erro que indica a necessidade de reautorização nos registos de operação. Atualmente, existe uma limitação em que o token de autenticação tem de ser atualizados manualmente todos os 90 dias para todas as tarefas com a saída do Data Lake Store. 
 
-Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data Lake Store > Clique a **renovar a autorização** associar e, por um breve período a página será exibida indicando **redirecionar para autorização... **. A página fecha automaticamente e se tiver êxito, indica **autorização foi renovada com êxito**. Precisa, em seguida, clique em **salvar** na parte inferior da página e pode continuar, mediante a reiniciar a tarefa da **data/hora da última parado** para evitar a perda de dados.
+Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data Lake Store > Clique a **renovar a autorização** associar e, por um breve período a página será exibida indicando **redirecionar para autorização...** . A página fecha automaticamente e se tiver êxito, indica **autorização foi renovada com êxito**. Precisa, em seguida, clique em **salvar** na parte inferior da página e pode continuar, mediante a reiniciar a tarefa da **data/hora da última parado** para evitar a perda de dados.
 
 ![Autorizar o Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 

@@ -1,6 +1,6 @@
 ---
-title: Analisar o suporte de dados através do portal do Azure | Microsoft Docs
-description: Este tópico descreve como processar o seu suporte de dados com processadores de suporte de dados de análise de multimédia (MP) no portal do Azure.
+title: Analise a sua multimédia no portal do Azure | Documentos da Microsoft
+description: Este tópico descreve como processar o seu suporte de dados com processadores de multimédia de análise de multimédia (MPs) com o portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 60da24b5b0bb7d83414539f07936c61a196e0b62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788852"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666175"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analise a sua multimédia com o portal do Azure
 > [!NOTE]
@@ -28,116 +28,116 @@ ms.locfileid: "33788852"
 > 
 
 ## <a name="overview"></a>Descrição geral
-Análise de serviços de multimédia do Azure é uma coleção de voz e visão componentes (na escala empresarial, a conformidade, a segurança e alcance global) que torna mais fácil das organizações e empresas conhecimentos acionáveis dos respetivos ficheiros de vídeo. Para obter mais descrição geral da análise de serviços de multimédia do Azure consulte [isto](media-services-analytics-overview.md) tópico. 
+Análise de serviços de multimédia do Azure é uma coleção de componentes de voz e visão (em escala empresarial, conformidade, segurança e alcance global) que seja mais fácil para as organizações e empresas obter análises acionáveis a partir dos ficheiros de vídeo. Consulte para obter mais de descrição geral da análise de serviços de multimédia do Azure [isso](media-services-analytics-overview.md) tópico. 
 
-Este tópico descreve como processar o seu suporte de dados com processadores de suporte de dados de análise de multimédia (MP) no portal do Azure. Pacotes de gestão de análise de multimédia produzem ficheiros MP4 ou ficheiros JSON. Se um processador de multimédia produzir um ficheiro MP4, transferir progressivamente o ficheiro. Se um processador de multimédia produzir um ficheiro JSON, transfira o ficheiro do blob storage do Azure. 
+Este tópico descreve como processar o seu suporte de dados com processadores de multimédia de análise de multimédia (MPs) com o portal do Azure. Pacotes de gestão de análise de multimédia produzem ficheiros MP4 ou ficheiros JSON. Se um processador de multimédia produzir um ficheiro MP4, transferir progressivamente o ficheiro. Se um processador de multimédia produzir um ficheiro JSON, transfira o ficheiro do armazenamento de Blobs do Azure. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Escolha um recurso que pretende analisar
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
 2. Na janela **Definições**, selecione **Elementos**.  
-   .
+   
     ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
-3. Selecione o elemento que gostaria de analisar e prima a **analisar** botão.
+3. Selecione o elemento que gostaria de analisar e prima a **Analyze** botão.
    
     ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-4. No **recurso de multimédia de processo com a análise de multimédia** janela, selecione o processador. 
+4. Na **processar elemento multimédia com a análise de multimédia** janela, selecione o processador. 
    
-    O resto do artigo explica porquê e como utilizar cada processador. 
-5. Prima **criar** para iniciar uma tarefa.
+    O resto do artigo explica por que e como usar cada processador. 
+5. Prima **criar** para o início de um trabalho.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-O **indexador de suporte de dados do Azure** processador de multimédia permite-lhe efetuar e o conteúdo de ficheiros de suporte de dados pesquisáveis, bem como gerar controla captioning fechada. Esta secção fornece alguns detalhes sobre as opções que especificar para este pacote de gestão.
+O **indexador de multimédia do Azure** processador de multimédia permite-lhe tornar pesquisável os arquivos de mídia e conteúdo, bem como gerar faixas de legenda codificadas fechadas. Esta secção fornece alguns detalhes sobre as opções que especificar para este pacote de gestão.
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
 ### <a name="language"></a>Idioma
-A linguagem natural para ser reconhecido no ficheiro multimedia. Por exemplo, inglês ou espanhol. 
+Linguagem natural a ser reconhecida no ficheiro multimédia. Por exemplo, inglês ou espanhol. 
 
-### <a name="captions"></a>Legendagem
-Pode escolher um formato de legenda que será gerado a partir do seu conteúdo. Uma tarefa de indexação pode gerar ficheiros de legendas nos seguintes formatos:  
+### <a name="captions"></a>legendas
+Pode escolher um formato de legenda será gerado a partir de seu conteúdo. Uma tarefa de indexação pode gerar ficheiros de legendas nos seguintes formatos:  
 
 * **SAMI**
 * **TTML**
 * **WebVTT**
 
-Fechado legenda (CC) estes formatos de ficheiros podem ser utilizados para tornar os ficheiros de áudio e vídeos acessível para pessoas com hearing disability.
+Fechado (CC) de legenda arquivos esses formatos podem ser usados para tornar os arquivos de áudio e vídeo acessível para pessoas portadoras de deficiência audição.
 
 ### <a name="aib-file"></a>Ficheiro AIB
-Selecione esta opção se pretender gerar o ficheiro de Blob de índice de áudio para utilização com a IFilter de servidor de SQL personalizados. Para obter mais informações, consulte [isto](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blogue.
+Selecione esta opção se quiser gerar um arquivo de Blob de indexação de áudio para utilização com o servidor IFilter personalizado do SQL. Para obter mais informações, consulte [isso](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
-### <a name="keywords"></a>Palavras-chave
-Selecione esta opção se pretende gerar um ficheiro XML de palavras-chave. Este ficheiro contém palavras-chave extraídas do conteúdo reconhecimento de voz, com frequência e informações de deslocamento.
+### <a name="keywords"></a>palavras-chave
+Selecione esta opção se quiser gerar um ficheiro XML de palavras-chave. Este ficheiro contém palavras-chave extraído do conteúdo de discurso, com frequência e informações de deslocamento.
 
 ### <a name="job-name"></a>Nome da tarefa
-Um nome amigável que lhe permite identificar a tarefa. [Isto](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
+Um nome amigável que permita identificar a tarefa. [Isso](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
 
 ### <a name="output-file"></a>Ficheiro de saída
-Um nome amigável que lhe permite identificar o conteúdo de saída. 
+Um nome amigável que permita identificar o conteúdo de saída. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Hyperlapse de multimédia do Azure é um pacote de gestão que cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara.  Para obter mais informações, veja [este](media-services-hyperlapse-content.md) tópico. Esta secção fornece alguns detalhes sobre as opções que especificar para este pacote de gestão.
+Hyperlapse de multimédia do Azure é um pacote de gestão que cria vídeos com time lapse uniformes de conteúdo de primeira pessoa ou ação câmara.  Para obter mais informações, veja [este](media-services-hyperlapse-content.md) tópico. Esta secção fornece alguns detalhes sobre as opções que especificar para este pacote de gestão.
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Velocidade
-Especifique a velocidade a que acelerar o vídeo de entrada. O resultado é um rendition stabilized e passado o tempo do vídeo de entrada.
+Especifique a velocidade com que a acelerar o vídeo de entrada. O resultado é uma representação estabilizada e com time lapse e do vídeo de entrada.
 
 ### <a name="job-name"></a>Nome da tarefa
-Um nome amigável que lhe permite identificar a tarefa. [Isto](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
+Um nome amigável que permita identificar a tarefa. [Isso](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
 
 ### <a name="output-file"></a>Ficheiro de saída
-Um nome amigável que lhe permite identificar o conteúdo de saída. 
+Um nome amigável que permita identificar o conteúdo de saída. 
 
 ## <a name="azure-media-face-detector"></a>Azure Media Face Detector
-O **Azure suporte de dados enfrentam Detector** processador de multimédia (MP) permite-lhe contagem, controlar movimentos e mesmo meça a participação de público-alvo e reação através de expressões facial. Este serviço contém duas funcionalidades: 
+O **detetor de rostos de suporte de dados do Azure** processador de multimédia (MP) permite-lhe contar, controlar os movimentos e até mesmo avaliar a participação de público-alvo e reação por meio de expressões faciais. Este serviço contém dois recursos: 
 
-* **Deteção de rostos em**
+* **Deteção de rostos**
   
-    Deteção de rostos em localiza e controla faces humanos dentro de um vídeo. Vários faces podem ser detetados e, subsequentemente, ser monitorizados como estes mover-se, com os metadados de hora e a localização devolvido num ficheiro JSON. Durante o registo, a tentativa de atribuir um ID de consistente para a mesma letra enquanto a pessoa que está a mover à volta no ecrã, mesmo que estes são obstructed ou deixam brevemente da moldura.
+    Deteção de rostos localiza e controla rostos humanos dentro de um vídeo. Várias faces podem ser detetadas e, em seguida, ser controladas quando eles passam, com os metadados de tempo e de localização devolvido num ficheiro JSON. Durante o controlo, ele irá tentar dar um ID de consistente para a mesma face, enquanto a pessoa está se movendo em torno na tela, mesmo que eles são obstructed ou deixam resumidamente o quadro.
   
   > [!NOTE]
-  > Este serviços não efetua o reconhecimento facial. Uma pessoa que mantém a frame ou fica obstructed para demasiado tempo terá um novo ID quando devolvem.
+  > Estes serviços não efetua o reconhecimento facial. Um indivíduo que deixa o quadro ou se torna obstructed para demasiado tempo terá um novo ID quando elas retornam.
   > 
   > 
 * **Deteção de emoções**
   
-    Deteção de emoções é um componente opcional do processador do suporte de dados de deteção de rostos em que devolve o Analysis Services em vários atributos emotional de faces detetados, incluindo happiness, sadness, fear, anger e muito mais. 
+    Deteção de emoções é um componente opcional do processador de suporte de dados de deteção de rostos que retorna análise em vários atributos emocional de rostos detetados, incluindo felicidade, tristeza, medo, raiva e muito mais. 
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
 
 ### <a name="detection-mode"></a>Modo de deteção
 Um dos seguintes modos de pode ser utilizado pelo processador:
 
-* Deteção de rostos em
-* por deteção de emoções de rostos em
-* Deteção de emoções agregado
+* Deteção de rostos
+* por deteção de emoções faciais
+* Deteção de emoções agregada
 
 ### <a name="job-name"></a>Nome da tarefa
-Um nome amigável que lhe permite identificar a tarefa. [Isto](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
+Um nome amigável que permita identificar a tarefa. [Isso](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
 
 ### <a name="output-file"></a>Ficheiro de saída
-Um nome amigável que lhe permite identificar o conteúdo de saída. 
+Um nome amigável que permita identificar o conteúdo de saída. 
 
 ## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
-O **Detector de movimento de suporte de dados do Azure** processador de multimédia (MP) permite-lhe identificar eficientemente secções de interesse num vídeo longo e uneventful caso contrário. Deteção de movimento pode ser utilizada no filmagens de câmaras estático para identificar secções do vídeo onde ocorre o movimento. Gera um ficheiro JSON que contém um metadados com carimbos região e o delimitador onde o evento ocorreu.
+O **detetor de movimento de suporte de dados do Azure** processador de multimédia (MP) permite-lhe com eficiência identificar seções de interesse dentro de um vídeo de longo e rotineira, caso contrário. Deteção de movimento pode ser utilizada no filmagens de câmaras estático para identificar seções do vídeo que ocorre a equipe do motion. Gera um ficheiro JSON que contém uma metadados com carimbos de hora e a região delimitadora onde ocorreu o evento.
 
-Esta tecnologia direcionado para os feeds de vídeo de segurança, é capaz de categorizar movimento eventos relevantes e falsos positivos, tais como sombras e alterações de lighting. Isto permite-lhe gerar alertas de segurança a partir de feeds da câmara sem ser spammed com eventos irrelevantes endless, ao conseguir extrair instantes de interesse de vídeos de vigilância extremamente longos.
+Essa tecnologia voltado para transmissões de vídeo de segurança, é possível categorizar o movimento em eventos relevantes e falsos positivos, como sombras e alterações de iluminação. Isto permite-lhe gerar alertas de segurança a partir de feeds de câmera sem a ser spammed com eventos irrelevantes intermináveis, enquanto a capacidade de extrair os momentos de interesse de vídeos de vigilância demasiado longo.
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
 
 ## <a name="azure-media-video-thumbnails"></a>Azure Media Video Thumbnails
-Este processador pode ajudar a criar resumos dos vídeos longos selecionando automaticamente interessantes fragmentos do vídeo de origem. Isto é útil quando pretende fornecer uma rápida descrição geral que esperar um vídeo longo. Para obter informações detalhadas e exemplos, consulte [utilização do Azure Media as miniaturas de vídeo para criar um resumo de vídeo](media-services-video-summarization.md)
+Este processador pode ajudá-lo a criar resumos de vídeos longos selecionando automaticamente os trechos de código interessantes do vídeo de origem. Isto é útil quando deseja fornecer uma descrição geral rápida do que pode esperar de um vídeo longo. Para obter informações detalhadas e exemplos, consulte [utilização miniaturas de vídeo de multimédia do Azure para criar um resumo de vídeo](media-services-video-summarization.md)
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 
 ### <a name="job-name"></a>Nome da tarefa
-Um nome amigável que lhe permite identificar a tarefa. [Isto](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
+Um nome amigável que permita identificar a tarefa. [Isso](media-services-portal-check-job-progress.md) artigo descreve como pode monitorizar o progresso de uma tarefa. 
 
 ### <a name="output-file"></a>Ficheiro de saída
-Um nome amigável que lhe permite identificar o conteúdo de saída. 
+Um nome amigável que permita identificar o conteúdo de saída. 
 
-## <a name="azure-media-content-moderator"></a>Moderator conteúdos de Media Services do Azure
-Este processador ajuda-o a detetar potencial conteúdo para adultos e racy em vídeos. O processador Deteta automaticamente capturas e keyframes as vídeo. Pontuações o keyframes para o conteúdo para adultos ou racy possíveis e sugere revisões com base nos limiares predefinidos. Para obter informações detalhadas e exemplos, consulte [utilização do Azure suporte de dados de conteúdo Moderator para moderada vídeos](media-services-content-moderation.md)
+## <a name="azure-media-content-moderator"></a>Moderador de conteúdos de multimédia do Azure
+Este processador ajuda-o a detetar potenciais conteúdos para adultos nos vídeos. O processador Deteta automaticamente capturas e quadros-chave no vídeo. As notas de quadros-chave de conteúdo de adultos possíveis e sugere revisões com base nos limiares predefinidos. Para obter informações detalhadas e exemplos, consulte [utilização do Azure Media Content Moderator moderar vídeos](media-services-content-moderation.md)
 
 ![Vídeos moderados](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
@@ -148,7 +148,7 @@ Utilize "2.0".
 A versão 2.0 Ignorar o `Mode` definição.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Vista dos Media Services percursos de aprendizagem.
+Serviços de multimédia de modo de exibição percursos de aprendizagem.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

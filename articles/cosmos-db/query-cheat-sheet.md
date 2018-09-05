@@ -1,7 +1,7 @@
 ---
-title: Folhas de referência de consulta de PDF do Cosmos BD do Azure | Microsoft Docs
-description: PDF imprimível cheat folhas de que o ajuda a utilizar o do Azure Cosmos base de dados SQL Server, MongoDB, gráfico e APIs de tabela para consultar os dados
-keywords: cábula de SQL, pdf de folha de referência do SQL Server, cábula de consulta de sql
+title: Folhas de referência rápida de consulta do Azure Cosmos DB PDF | Documentos da Microsoft
+description: PDF imprimível documentos com dicas que ajuda a utilizar o SQL do Azure Cosmos DB, MongoDB, Graph e APIs de tabela para consultar os seus dados
+keywords: folha de referência rápida de SQL, pdf de folha de referência rápida de sql, dicas de consulta de sql
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,35 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 10ee398bce30b82d1e199a12cd471ae52d4fae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614123"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696936"
 ---
-# <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referência de consulta de base de dados do Cosmos do Azure
+# <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referência rápida de consulta do Azure Cosmos DB
 
-O **folhas de referência de consulta de base de dados do Azure Cosmos** ajudá-lo rapidamente consultas de escrita para os seus dados, apresentando comuns consultas de base de dados, operações, funções e operadores nas folhas de referência PDF do impressão fácil. As folhas de referência incluem informações de referência para a API do SQL Server, API de MongoDB, API de tabela e Gremlin/Graph API. 
+O **dicas de consulta do Azure Cosmos DB** ajudá-lo a rapidamente consultas de escrita para os seus dados ao apresentar comuns consultas de base de dados, operações, funções e operadores em folhas de referência PDF do easy print. Os documentos com dicas incluem informações de referência para a API de SQL, a API do MongoDB, a API de tabela e a API do Gremlin. 
 
-Escolha entre uma letra de tamanho ou tamanho A3 transferência. 
+Escolha a partir de um download de tamanho de letra ou tamanho A3. 
 
-## <a name="letter-sized-cheat-sheets"></a>Folhas de referência de dimensão letra
+## <a name="letter-sized-cheat-sheets"></a>Tamanho de letra com dicas
 
-Transferir o [folhas de referência de letra de tamanho de consulta de base de dados do Azure Cosmos](http://go.microsoft.com/fwlink/?LinkId=623215) se vai imprimir em papel letra de tamanho (8.5 "x 11").
+Transfira o [dicas de consulta de tamanho de letra do Azure Cosmos DB](http://go.microsoft.com/fwlink/?LinkId=623215) se pretende imprimir em papel de tamanho de letra (8,5 "x 11").
 
-![Folhas do Azure de referência do consulta Cosmos DB - letra de tamanho, com as consultas de API do SQL Server, JavaScript, API de MongoDB, Graph API e a API de tabela e funções](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+![Azure Cosmos DB consulta com dicas - letra em tamanho normal, com consultas de API de SQL, JavaScript, API de MongoDB, Gremlin API e API de tabela e as funções](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 
-## <a name="oversized-cheat-sheets"></a>Folhas de grande dimensão de referência
-Transferir o [folhas de referência de dimensão Azure Cosmos DB A3 consulta](https://go.microsoft.com/fwlink/?linkid=870413) se vai imprimir utilizando um plotter ou impressora em grande escala no documento de tamanho A3 (11.7 "x 16.5").
+## <a name="oversized-cheat-sheets"></a>Documentos com dicas demasiado grandes
+Transfira o [dicas de consulta de tamanho A3 do Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413) se pretende imprimir usando uma plotadora ou a impressora em grande escala no papel de tamanho A3 (11.7 "x 16.5").
 
-![Folhas de referência de consulta de Azure Cosmos DB - A3 tamanho, com as consultas de API do SQL Server, JavaScript, API de MongoDB, Graph API e a API de tabela e funções](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+![Azure Cosmos DB consulta com dicas - A3 em tamanho normal, com consultas de API de SQL, JavaScript, API de MongoDB, Gremlin API e API de tabela e as funções](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais ajuda escrever consultas, consulte os artigos seguintes:
-* Para consultas de API do SQL Server, consulte [consultar utilizando a API do SQL Server](tutorial-query-sql-api.md), [as consultas SQL para a base de dados do Azure Cosmos](sql-api-sql-query.md), e [referência de sintaxe SQL](sql-api-sql-query-reference.md)
-* Para consultas de MongoDB, consulte [consultar utilizando a API do MongoDB](tutorial-query-mongodb.md) e [suporte de APIS de MongoDB para a sintaxe e funcionalidades do MongoDB](mongodb-feature-support.md)
-* Para consultas de Graph API, consulte [consulta a utilizar a Graph API](tutorial-query-graph.md) e [suporte do Azure Cosmos DB Gremlin gráfico](gremlin-support.md)
-* Para consultas de API de tabela, consulte [utilizando a API de tabela de consulta](tutorial-query-table.md)
+Para obter mais ajuda a escrever consultas, consulte os artigos seguintes:
+* Para consultas de API de SQL, consulte [consultar com a API de SQL](tutorial-query-sql-api.md), [consultas SQL para o Azure Cosmos DB](sql-api-sql-query.md), e [referência de sintaxe SQL](sql-api-sql-query-reference.md)
+* Para consultas de MongoDB, consulte [consultar com a API do MongoDB](tutorial-query-mongodb.md) e [suporte de API do MongoDB para funcionalidades e sintaxe](mongodb-feature-support.md)
+* Para consultas de API do Gremlin, consulte [consultar a utilização da API Gremlin](tutorial-query-graph.md) e [suporte do graph do Azure Cosmos DB Gremlin](gremlin-support.md)
+* Para consultas de API de tabela, consulte [consultar com a API de tabela](tutorial-query-table.md)
 
 

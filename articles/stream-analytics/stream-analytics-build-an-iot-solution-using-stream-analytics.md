@@ -1,6 +1,6 @@
 ---
-title: Criar uma solução de IoT utilizando o Azure Stream Analytics
-description: Tutorial de introdução para a solução de IoT de análise de fluxo de um cenário de tollbooth
+title: Criar uma solução de IoT com o Azure Stream Analytics
+description: Tutorial de introdução para a solução de IoT do Stream Analytics de um cenário de tollbooth
 services: stream-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -9,41 +9,42 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 80e287d09fdc5ab7157b9ee46bc830fd2db4d501
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698048"
 ---
-# <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT utilizando o Stream Analytics
+# <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 
 ## <a name="introduction"></a>Introdução
-Nesta solução, irá aprender a utilizar o Azure Stream Analytics para obter informações em tempo real a partir dos seus dados. Os programadores podem facilmente combinar fluxos de dados, tais como os fluxos de clique, os registos e eventos gerados pelo dispositivo, com registos históricos ou dados de referência derivar informações empresariais. Como um serviço de cálculo de fluxo em tempo real, completamente gerido que está alojado no Microsoft Azure, Azure Stream Analytics fornece resiliência incorporada, latência baixa e escalabilidade para obter a cópia de segurança e em execução em minutos.
+Nesta solução, irá aprender a utilizar o Azure Stream Analytics para obter informações em tempo real a partir dos seus dados. Os desenvolvedores podem facilmente combinar fluxos de dados, como fluxos de clique, registos e eventos gerados por dispositivos, com registos históricos ou dados de referência para derivar informações de negócio. Como um serviço de computação de fluxos em tempo real totalmente gerido que está alojado no Microsoft Azure, Azure Stream Analytics fornece resiliência incorporada, a baixa latência e a escalabilidade para-lhe começar em minutos.
 
-Depois de concluir esta solução, é capaz de:
+Depois de concluir esta solução, é possível:
 
 * Familiarize-se com o portal do Azure Stream Analytics.
 * Configurar e implementar uma tarefa de transmissão em fluxo.
-* Articule reais problemas e resolvê-los utilizando o idioma de consulta do Stream Analytics.
-* Desenvolva a transmissão em fluxo soluções para os seus clientes utilizando o Stream Analytics com confiança.
-* Utilize a monitorização e a experiência de registo para resolver problemas.
+* Articular problemas do mundo real e resolvê-los através da linguagem de consulta do Stream Analytics.
+* Desenvolva a transmissão em fluxo soluções para os seus clientes com o Stream Analytics com confiança.
+* Utilize a monitorização e registo experiência para resolver problemas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Terá dos seguintes pré-requisitos para concluir esta solução:
-* Um [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/)
+É necessário para concluir esta solução, os seguintes pré-requisitos:
+* Uma [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Introdução de cenário: "Olá, utilização!"
-Uma estação de utilização é um phenomenon comuns. Encontre-los em muitas expressways, pontes e túneis por todo o mundo. Cada estação utilização tem vários booths de utilização. Em booths manuais, parar a pagar a utilização a uma attendant. Em booths automatizadas, um sensor sobre cada booth analisa um cartão RFID affixed para windshield do seu vehicle como passar o booth de utilização. É fácil visualizar passage de veículos através destes estações de utilização como um fluxo de eventos durante o qual podem ser efetuadas operações interessantes.
+## <a name="scenario-introduction-hello-toll"></a>Introdução de cenário: "Olá, incidir!"
+Uma estação de ligação é um fenômeno comuns. Se deparar com elas em muitas expressways, pontes e túneis em todo o mundo. Cada estação de ligação tem vários estandes de ligação. Em estandes manuais, parar para pagar a ligação para um atendedor. Em estandes automatizadas, um sensor na parte superior de cada stand analisa um cartão RFID afixação windshield de sua veículo conforme passa o pedágio. É fácil de visualizar a passagem para dos veículos através destas estações de ligação como um fluxo de eventos através do qual podem ser executadas operações interessantes.
 
-![Imagem de automóveis em booths de utilização](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![Imagem de carros em estandes de ligação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
-## <a name="incoming-data"></a>Dados de entrada
-Esta solução funciona com dois fluxos de dados. Sensores instalados na entrada como e saída das estações de utilização produzem o fluxo primeiro. O fluxo segundo é um conjunto de dados de pesquisa estático com dados de registo vehicle.
+## <a name="incoming-data"></a>Dados recebidos
+Esta solução funciona com dois fluxos de dados. Instalado na entrada e saída das estações de número de sensores produzem o primeiro fluxo. O fluxo segundo é um conjunto de dados de pesquisa estática que tem dados de registo de veículos.
 
 ### <a name="entry-data-stream"></a>Fluxo de dados de entrada
-O fluxo de dados de entrada contém informações sobre carros à medida que entra utilização estações. Os eventos de dados de saída estão em direto, transmissão em fluxo para uma fila de Hub de eventos a partir de uma aplicação Web incluídos na aplicação de exemplo.
+O fluxo de dados de entrada contém informações sobre carros à medida que entra o número de estações. Os eventos de dados de saída estão em direto transmitido numa fila do Hub de eventos de uma aplicação Web incluídos na aplicação de exemplo.
 
-| TollID | EntryTime | LicensePlate | Estado | Certifique- | Modelo | VehicleType | VehicleWeight | Utilização | Etiqueta |
+| TollID | EntryTime | LicensePlate | Estado | Tornar | Modelo | VehicleType | VehicleWeight | Ligação | Etiqueta |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -56,19 +57,19 @@ Eis uma breve descrição das colunas:
 
 | Coluna | Descrição |
 | --- | --- |
-| TollID |O ID de booth de utilização que identifica exclusivamente um booth de utilização |
-| EntryTime |A data e hora de entrada de vehicle para booth a utilização em UTC |
-| LicensePlate |O número de licença plate o veículo |
+| TollID |O ID de portagens de número que identifica exclusivamente um pedágio |
+| EntryTime |A data e hora de entrada do veículo para o pedágio em UTC |
+| LicensePlate |O número de pratos de licença do veículo |
 | Estado |Um Estado nos Estados Unidos |
-| Certifique- |Fabricante do automóvel |
+| Tornar |Fabricante do automóvel |
 | Modelo |O número de modelo do automóvel |
-| VehicleType |O 1 para veículos passenger ou 2 para veículos comercial |
-| WeightType |Peso vehicle em toneladas; 0 para veículos passenger |
-| Utilização |O valor de utilização no EUR |
-| Etiqueta |A Tag de i no automóvel que automatiza o pagamento; em branco onde o pagamento foi feito manualmente |
+| VehicleType |1 para os veículos de passageiros ou 2 para veículos comerciais |
+| WeightType |Peso do veículo em toneladas; 0 para veículos de passageiros |
+| Ligação |O valor de ligação em dólares americanos |
+| Etiqueta |A marca e sobre o automóvel que automatiza o pagamento; em branco de onde o pagamento foi feito manualmente |
 
 ### <a name="exit-data-stream"></a>Fluxo de dados de saída
-O fluxo de dados de saída contém informações sobre carros deixa a estação de utilização. Os eventos de dados de saída estão em direto, transmissão em fluxo para uma fila de Hub de eventos a partir de uma aplicação Web incluídos na aplicação de exemplo.
+O fluxo de dados de saída contém informações sobre carros deixando a estação de ligação. Os eventos de dados de saída estão em direto transmitido numa fila do Hub de eventos de uma aplicação Web incluídos na aplicação de exemplo.
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
@@ -83,18 +84,18 @@ Eis uma breve descrição das colunas:
 
 | Coluna | Descrição |
 | --- | --- |
-| TollID |O ID de booth de utilização que identifica exclusivamente um booth de utilização |
-| ExitTime |A data e hora de saída do veículo de booth de utilização em UTC |
-| LicensePlate |O número de licença plate o veículo |
+| TollID |O ID de portagens de número que identifica exclusivamente um pedágio |
+| ExitTime |A data e hora de saída do veículo de pedágio em UTC |
+| LicensePlate |O número de pratos de licença do veículo |
 
-### <a name="commercial-vehicle-registration-data"></a>Dados de registo vehicle comercial
-A solução utiliza um instantâneo estático de uma base de dados de registo vehicle comercial. Estes dados são guardados como um ficheiro JSON para o armazenamento de Blobs do Azure, incluído na amostra.
+### <a name="commercial-vehicle-registration-data"></a>Dados de registro de veículos comerciais
+A solução utiliza um instantâneo de uma base de dados de registo de veículos comerciais. Estes dados são guardados como um ficheiro JSON para o armazenamento de Blobs do Azure, incluído no exemplo.
 
 | LicensePlate | RegistrationId | Fora do prazo |
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
-| BAC 1005 |876133137 |1 |
+| I UM 1005 |876133137 |1 |
 | RIV 8632 |992711956 |0 |
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
@@ -103,38 +104,38 @@ Eis uma breve descrição das colunas:
 
 | Coluna | Descrição |
 | --- | --- |
-| LicensePlate |O número de licença plate o veículo |
+| LicensePlate |O número de pratos de licença do veículo |
 | RegistrationId |ID de registo o veículo |
-| Fora do prazo |O estado do registo do veículo: 0 se o registo de vehicle está ativo, 1 se o registo está expirado |
+| Fora do prazo |O estado do registo do veículo: 0 se o registo de veículos estiver ativo, 1 se o registro está vencido |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurar o ambiente para o Azure Stream Analytics
-Para concluir esta solução, precisa de uma subscrição do Microsoft Azure. Se não tiver uma conta do Azure, pode [pedir uma versão de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Para concluir esta solução, precisa de uma subscrição do Microsoft Azure. Se não tiver uma conta do Azure, pode [solicitar uma versão de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-Lembre-se de que siga os passos na secção "Limpar a sua conta do Azure" no final deste artigo, para que pode fazer a melhor utilização da sua crédito do Azure.
+Certifique-se de que siga os passos na secção "Limpar a sua conta do Azure" no final deste artigo, para que pode fazer o melhor uso do seu crédito do Azure.
 
 ## <a name="deploy-the-sample"></a>Implementar o exemplo 
-Existem vários recursos que podem facilmente ser implementados num grupo de recursos, juntamente com alguns cliques. A definição de solução está alojada no repositório do github em [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+Existem vários recursos que podem ser facilmente implementados num grupo de recursos, juntamente com alguns cliques. A definição de solução está alojada no repositório do github na [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Implementar o modelo de TollApp no portal do Azure
-1. Para implementar o ambiente de TollApp no Azure, utilize esta hiperligação para [implementar o modelo do Azure de TollApp](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
+1. Para implementar o ambiente de TollApp no Azure, utilize esta ligação para [implementar o modelo do Azure TollApp](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
 
-2. Se lhe for solicitado, inicie sessão no portal do Azure.
+2. Se lhe for pedido, inicie sessão no portal do Azure.
 
-3. Selecione a subscrição na qual os vários recursos são cobrados.
+3. Escolha a subscrição na qual são faturados os vários recursos.
 
 4. Especifique um novo grupo de recursos, com um nome exclusivo, por exemplo `MyTollBooth`. 
 
 5. Selecione uma localização do Azure.
 
-6. Especifique um **intervalo** como um número de segundos. Este valor é utilizado na aplicação de web de exemplo, para a frequência de enviar dados para o Hub de eventos. 
+6. Especifique um **intervalo** como um número de segundos. Este valor é utilizado no aplicativo da web de exemplo, para saber como frequentemente enviar dados para o Hub de eventos. 
 
-7. **Verifique** para aceitar os termos e condições.
+7. **Verificar** para aceitar os termos e condições.
 
 8. Selecione **afixar ao dashboard** para que possa localizar facilmente os recursos mais tarde.
 
 9. Selecione **Compra** para implementar o modelo de exemplo.
 
-10. Após alguns instantes, é apresentada uma notificação confirmar o **implementação concluída com êxito**.
+10. Após alguns instantes, é apresentada uma notificação confirmar a **implementação concluída com êxito**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Reveja os recursos do Azure Stream Analytics TollApp
 1. Iniciar sessão no portal do Azure
@@ -142,16 +143,16 @@ Existem vários recursos que podem facilmente ser implementados num grupo de rec
 2. Localize o grupo de recursos com o nome na secção anterior.
 
 3. Certifique-se de que os seguintes recursos estão listados no grupo de recursos:
-   - Conta do uma Cosmos base de dados
+   - Conta um Cosmos DB
    - Uma tarefa do Azure Stream Analytics
    - Uma conta de armazenamento do Azure
    - Um Hub de eventos do Azure
    - Duas aplicações Web
 
 ## <a name="examine-the-sample-tollapp-job"></a>Examine a tarefa de TollApp de exemplo 
-1. A partir do grupo de recursos na secção anterior, selecione a tarefa de transmissão em fluxo do Stream Analytics, começando com o nome **tollapp** (o nome contém carateres aleatórios exclusividade).
+1. A partir do grupo de recursos na secção anterior, selecione a tarefa de transmissão em fluxo do Stream Analytics começando com o nome **tollapp** (o nome contém caracteres aleatórios exclusividade).
 
-2. No **descrição geral** página da tarefa, tenha em atenção o **consulta** caixa para ver a sintaxe de consulta.
+2. Sobre o **descrição geral** página da tarefa, tenha em atenção a **consulta** caixa para ver a sintaxe de consulta.
 
    ```sql
    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
@@ -160,47 +161,47 @@ Existem vários recursos que podem facilmente ser implementados num grupo de rec
    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
    ```
 
-   Para paraphrase a intenção da consulta, vamos supor que o que precisa contabilizar o número de veículos que introduza uma booth de utilização. Porque um booth de utilização de autoestrada tem um fluxo contínuo de veículos introduzir, são os eventos de entrada como são análogos a uma sequência que nunca interrompe. A quantificar o fluxo, tem de definir um "período de tempo" para medir a ativação pós-falha. Vamos refinar além disso, a pergunta "veículos quantos introduzir um booth de utilização a cada três minutos?" Isto é frequentemente denominado a contagem de em cascata.
+   Parafraseando a intenção da consulta, digamos que precisa contar o número de veículos introduza pedágio. Como pedágio autoestrada tem um fluxo contínuo de veículos introduzir, esses são os eventos de entrada são análogos para um fluxo que nunca deixa. Para quantificar o fluxo, tem de definir um "período de tempo" para medir o ao longo. Vamos refinar ainda mais, a pergunta para "quantos veículos introduzir pedágio a cada três minutos?" Isto é frequentemente referido como a contagem de em cascata.
 
-   Como pode ver, o Azure Stream Analytics utiliza uma linguagem de consulta que é como o SQL e adiciona alguns extensões para especificar os aspetos relacionados com a hora da consulta.  Para obter mais detalhes, leia sobre [tempo gestão](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [modos de janela](https://msdn.microsoft.com/library/azure/dn835019.aspx) construções utilizadas na consulta.
+   Como pode ver, o Azure Stream Analytics utiliza uma linguagem de consulta que é parecida com SQL e adiciona algumas extensões para especificar os aspetos relacionados com a hora da consulta.  Para obter mais detalhes, leia sobre [gerenciamento de tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) construções utilizadas na consulta.
 
 3. Examine as entradas da tarefa de exemplo TollApp. Apenas a entrada de EntryStream é utilizada na consulta atual.
-   - **EntryStream** entrada é uma ligação do Hub de eventos que dados que representam sempre que um carro introduz um tollbooth na autoestrada em fila. Uma aplicação web que faz parte de exemplo está a criar os eventos e os dados colocados em fila neste Hub de eventos. Tenha em atenção que esta entrada é consultada na cláusula FROM da consulta de transmissão em fluxo.
-   - **ExitStream** entrada é uma ligação do Hub de eventos que dados que representam sempre que um carro sai um tollbooth na autoestrada em fila. Esta entrada de transmissão em fluxo é utilizada na variações posteriores da sintaxe de consulta.
-   - **Registo** entrada é uma ligação de armazenamento de Blobs do Azure, que aponta para um ficheiro estático registration.json, utilizado para pesquisas com conforme necessário. Esta entrada de dados de referência é utilizada na variações posteriores da sintaxe de consulta.
+   - **EntryStream** entrada é uma ligação do Hub de eventos que enfileira dados que representam sempre que um carro insere um tollbooth na autoestrada. Uma aplicação web que é parte do exemplo é a criação de eventos, e esses dados são enfileirados em deste Hub de eventos. Tenha em atenção que esta entrada é consultada na cláusula FROM da consulta de transmissão em fluxo.
+   - **ExitStream** entrada é uma ligação do Hub de eventos que enfileira dados que representam sempre que um carro é encerrado um tollbooth a autoestrada. Esta entrada de transmissão em fluxo é utilizada em posteriores variações da sintaxe de consulta.
+   - **Registo** entrada é uma ligação de armazenamento de Blobs do Azure, que aponta para um arquivo de registration.json estático, usado para pesquisas, conforme necessário. Esta entrada de dados de referência é utilizada na posteriores variações da sintaxe de consulta.
 
 4. Examine as saídas da tarefa de exemplo TollApp.
-   - **BD do cosmos** o resultado é uma coleção de base de dados do Cosmos que recebe os eventos de sink de saída. Tenha em atenção que este resultado é utilizado na cláusula da consulta de transmissão em fluxo INTO.
+   - **O cosmos DB** saída é uma coleção de base de dados do Cosmos que recebe os eventos de sink de saída. Tenha em atenção que esta saída é utilizada na cláusula de consulta de transmissão em fluxo INTO.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar a tarefa de transmissão em fluxo TollApp
 Siga estes passos para iniciar a tarefa de transmissão em fluxo:
 
-1. No **descrição geral** página da tarefa, selecione de **iniciar**.
+1. Sobre o **descrição geral** página da tarefa, selecione **iniciar**.
 
-2. No **iniciar tarefa** painel, selecione **agora**.
+2. Sobre o **tarefa de início** painel, selecione **agora**.
 
-3. Após alguns instantes, assim que a tarefa está em execução, no **descrição geral** página da tarefa de transmissão em fluxo, ver o **monitorização** gráfico. O gráfico deve mostrar vários eventos de entrada milhares e dezenas de eventos de saída.
+3. Após alguns instantes, uma vez que a tarefa está em execução, no **descrição geral** página da tarefa de transmissão em fluxo, ver o **monitorização** gráfico. O gráfico deve mostrar vários eventos de entrada dos milhares e dezenas de eventos de saída.
 
-## <a name="review-the-cosmosdb-output-data"></a>Reveja os dados de saída CosmosDB
+## <a name="review-the-cosmosdb-output-data"></a>Reveja os dados de saída do cosmos DB
 1. Localize o grupo de recursos que contém os recursos de TollApp.
 
-2. Selecione a conta de base de dados do Cosmos do Azure com o padrão de nome **tollapp<random>-cosmos**.
+2. Selecione a conta do Azure Cosmos DB com o padrão de nome **tollapp<random>-cosmos**.
 
-3. Selecione o **Explorador de dados** cabeçalho para abrir a página do Explorador de dados.
+3. Selecione o **Data Explorer** cabeçalho para abrir a página de Explorador de dados.
 
-4. Expanda o **tollAppDatabase** > **tollAppCollection** > **documentos**.
+4. Expanda a **tollAppDatabase** > **tollAppCollection** > **documentos**.
 
-5. Na lista de ids, vários documentos são apresentados depois do resultado está disponível.
+5. Na lista de ids, vários documentos são apresentados depois da saída está disponível.
 
-6. Selecione cada id para rever o documento JSON. Tenha em atenção cada tollid, windowend hora e o número de carros que janela.
+6. Selecione cada id para examinar o documento JSON. Observe que cada tollid, windowend tempo e a contagem de carros nessa janela.
 
-7. Após um minutos três adicionais, outro conjunto de quatro documentos que está disponível um documento por tollid. 
+7. Após um três minutos adicionais, outro conjunto de quatro documentos que está disponível, um documento por tollid. 
 
 
 ## <a name="report-total-time-for-each-car"></a>Tempo total do relatório para cada carro
-O tempo médio que necessita de um carro passar a utilização ajuda-o para avaliar a eficiência do processo e a experiência do cliente.
+O tempo médio necessário para um carro percorrer a ligação ajuda a avaliar a eficiência do processo e a experiência do cliente.
 
-Para determinar o total de tempo, associe o fluxo de EntryTime com o fluxo de ExitTime. Associe os dois fluxos de entrada nas iguais correspondentes TollId e LicencePlate colunas. O **associar** operador requer que especifique leeway temporal que descreve a diferença de tempo aceitável, entre os eventos associados. Utilize o **DATEDIFF** função para especificar que os eventos devem ser mais do que 15 minutos entre si. Também se aplicam a **DATEDIFF** função para sair e as horas de entrada para calcular o real de tempo que um carro passa na estação de utilização. Tenha em atenção a diferença de utilização de **DATEDIFF** quando é utilizado num **SELECIONE** instrução em vez de um **associar** condição.
+Para localizar o tempo total, Junte-se o fluxo de EntryTime com o fluxo de ExitTime. Associe dois fluxos de entrada nas colunas de TollId e LicencePlate correspondentes iguais. O **associar** operador requer que especifique leeway temporal que descreve a diferença de tempo aceitável entre os eventos associados. Utilize o **DATEDIFF** função para especificar que eventos devem ser mais do que 15 minutos entre si. Também se aplicam a **DATEDIFF** função para sair e horas de entrada para calcular o tempo real que um carro gasta na estação de ligação. Tenha em atenção a diferença do uso de **DATEDIFF** quando ela é usada num **SELECIONE** instrução em vez de um **associar** condição.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -213,24 +214,24 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Para atualizar o TollApp sintaxe de consulta da tarefa de transmissão em fluxo:
 
-1. No **descrição geral** página da tarefa, selecione de **parar**.
+1. Sobre o **descrição geral** página da tarefa, selecione **parar**.
 
-2. Aguarde um momento para a notificação que a tarefa foi parada.
+2. Aguarde alguns momentos para a notificação de que a tarefa foi parada.
 
-3. Sob o cabeçalho de TOPOLOGIA de tarefa, selecione **< > consulta**
+3. Sob o cabeçalho da TOPOLOGIA da tarefa, selecione **< > consulta**
 
 4. Cole a consulta SQL de transmissão em fluxo ajustada.
 
-5. Selecione **guardar** para guardar a consulta. Confirmar **Sim** para guardar as alterações.
+5. Selecione **guardar** para guardar a consulta. Confirme **Sim** para guardar as alterações.
 
-6. No **descrição geral** página da tarefa, selecione de **iniciar**.
+6. Sobre o **descrição geral** página da tarefa, selecione **iniciar**.
 
-7. No **iniciar tarefa** painel, selecione **agora**.
+7. Sobre o **tarefa de início** painel, selecione **agora**.
 
-### <a name="review-the-total-time-in-the-output"></a>Reveja o tempo total no resultado
-Repita os passos na secção anterior para rever os dados de saída CosmosDB da tarefa de transmissão em fluxo. Reveja os documentos JSON mais recentes. 
+### <a name="review-the-total-time-in-the-output"></a>Reveja o tempo total na saída
+Repita os passos na secção anterior para rever os dados de saída do CosmosDB provenientes da tarefa de transmissão em fluxo. Reveja os documentos JSON mais recente. 
 
-Por exemplo, este documento mostra um carro de exemplo com um determinado plate de licença, a hora entrytime e de saída e o campo de durationinminutes calculada DATEDIFF que mostra a duração de booth utilização como dois minutos: 
+Por exemplo, este documento mostra um carro de exemplo com uma determinada placa, o tempo de entrytime e de saída e o campo de durationinminutes calculada DATEDIFF que mostra a duração de portagens incidir como dois minutos: 
 ```JSON
 {
     "tollid": 4,
@@ -247,10 +248,10 @@ Por exemplo, este documento mostra um carro de exemplo com um determinado plate 
 }
 ```
 
-## <a name="report-vehicles-with-expired-registration"></a>Relatório veículos com registo expirado
-O Azure Stream Analytics pode utilizar instantâneos estáticos de dados de referência para juntar com fluxos de dados temporal. Para demonstrar esta capacidade, utilize a pergunta de exemplo seguinte. A entrada de registo é um ficheiro de json do blob estático apresenta uma lista de Expirações das etiquetas de licença. Ao aderir no plate de licença, os dados de referência é comparado com cada vehicle passar através de utilização. 
+## <a name="report-vehicles-with-expired-registration"></a>Relatório de veículos com o registo de expirada
+O Azure Stream Analytics pode utilizar instantâneos estáticos de dados de referência para associar com fluxos de dados temporais. Para demonstrar esta funcionalidade, utilize a seguinte pergunta de exemplo. A entrada de registo é um ficheiro de json do blob estático que lista as Expirações de etiquetas de licença. Ao aderir ao sobre o que eu preciso licença, os dados de referência é comparada com cada veículo passar através da ligação. 
 
-Se um vehicle comercial estiver registado com a empresa de utilização, pode passar através de booth utilização sem ser parada para inspecção. Utilize a tabela de pesquisa de registo para identificar todos os veículos comercial que tenham expirado registos.
+Se um veículo de comercial estiver registado com a empresa de ligação, pode passar por meio do pedágio sem ser parada para inspeção. Utilize a tabela de pesquisa de registo para identificar todos os veículos comerciais que já passaram da validade registos.
 
 ```sql
 SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
@@ -263,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Repita os passos na secção anterior para atualizar o TollApp sintaxe de consulta da tarefa de transmissão em fluxo.
 
-2. Repita os passos na secção anterior para rever os dados de saída CosmosDB da tarefa de transmissão em fluxo. 
+2. Repita os passos na secção anterior para rever os dados de saída do CosmosDB provenientes da tarefa de transmissão em fluxo. 
 
 Exemplo de saída:
 ```json
@@ -281,10 +282,10 @@ Exemplo de saída:
     }
 ```
 
-## <a name="scale-out-the-job"></a>Aumentar horizontalmente a tarefa
-O Azure Stream Analytics foi concebido aprovisionadas o dimensionamento, para que pode processar grandes volumes de dados. A consulta do Azure Stream Analytics pode utilizar um **PARTITION BY** cláusula para informar o sistema que este passo aumenta horizontalmente de forma. **PartitionId** é uma coluna especial que adiciona o sistema para corresponder ao ID de partição da entrada (hub de eventos).
+## <a name="scale-out-the-job"></a>Aumentar horizontalmente o trabalho
+O Azure Stream Analytics foi concebido para dimensionar de forma para que ele pode lidar com grandes volumes de dados. A consulta do Azure Stream Analytics pode utilizar um **PARTITION BY** cláusula informar ao sistema que este passo aumenta horizontalmente. **PartitionId** é uma coluna especial que o sistema adiciona a coincide com o ID de partição da entrada (hub de eventos).
 
-Para ampliar a consulta para partições, edite a sintaxe de consulta para o seguinte código:
+Para aumentar horizontalmente a consulta para partições, edite a sintaxe de consulta para o código a seguir:
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
@@ -298,20 +299,20 @@ Para aumentar verticalmente a tarefa de transmissão em fluxo mais unidades de t
 
 1. **Parar** a tarefa atual. 
 
-2. Atualize a sintaxe de consulta no **< > consulta** página e guardar as alterações.
+2. Atualize a sintaxe de consulta no **< > consulta** de páginas e guardar as alterações.
 
-3. Sob o cabeçalho de configurar na tarefa de transmissão em fluxo, selecione **escala**.
+3. Sob o cabeçalho de configurar na tarefa de transmissão em fluxo, selecione **dimensionamento**.
    
-4. Faça deslizar a **unidades de transmissão em fluxo** controlo de deslize de 1 a 6. Unidades de transmissão em fluxo definem a quantidade de capacidade de computação que pode receber a tarefa. Selecione **Guardar**.
+4. Deslize o **unidades transmissão em fluxo** controlo de deslize de 1 a 6. Unidades de transmissão em fluxo, defina a quantidade de potência de computação que pode receber o trabalho. Selecione **Guardar**.
 
-5. **Iniciar** a tarefa de transmissão em fluxo para demonstrar a escala adicional. O Azure Stream Analytics distribui trabalho mais recursos de computação e alcançar a melhorar o débito, o trabalho de criação de partições através de recursos através da coluna designada na cláusula PARTITION BY. 
+5. **Iniciar** a tarefa de transmissão em fluxo para demonstrar o dimensionamento adicional. O Azure Stream Analytics distribui o trabalho mais recursos de computação e alcançar um débito melhor, o trabalho de criação de partições todos os recursos usando a coluna designada na cláusula PARTITION BY. 
 
 ## <a name="monitor-the-job"></a>Monitorizar a tarefa
-O **MONITOR** área contém estatísticas sobre a tarefa em execução. Configuração da hora primeiro é necessário para utilizar a conta do storage na mesma região (nome de utilização, como o resto deste documento).   
+O **MONITOR** área contém estatísticas sobre a tarefa em execução. Configuração de iniciantes é necessária para utilizar a conta de armazenamento na mesma região (nome de ligação como o restante deste documento).   
 
 ![Captura de ecrã do monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
 
-Pode aceder ao **registos de atividade** partir do dashboard tarefa **definições** área bem.
+Pode acessar **registos de atividades** partir do dashboard da tarefa **definições** área também.
 
 ## <a name="clean-up-the-tollapp-resources"></a>Limpar os recursos de TollApp
 1. Pare a tarefa de Stream Analytics no portal do Azure.
@@ -321,6 +322,6 @@ Pode aceder ao **registos de atividade** partir do dashboard tarefa **definiçõ
 3. Selecione **Eliminar grupo de recursos**. Escreva o nome do grupo de recursos para confirmar a eliminação.
 
 ## <a name="conclusion"></a>Conclusão
-Esta solução introduzidos o serviço Azure Stream Analytics. -Demonstrado como configurar as entradas e saídas da tarefa de Stream Analytics. Utilizando o cenário de dados de utilização, a solução explicado tipos comuns dos problemas que surgir no espaço de dados em movimento e a forma como pode ser resolvidos com consultas de SQL Server como simples no Azure Stream Analytics. A solução descrito construções de extensão SQL para trabalhar com dados temporais. -Mostrou como associar fluxos de dados, como enriqueça o fluxo de dados com dados de referência estáticos e como aumentar horizontalmente uma consulta para alcançar o débito mais elevado.
+Esta solução apresentou-o para o serviço Azure Stream Analytics. Ele demonstrou como configurar as entradas e saídas de tarefa do Stream Analytics. Utilizando o cenário de ligação de dados, a solução explicado tipos comuns de problemas que possam surgir no espaço de dados em movimento e como eles podem ser resolvidos com consultas simples do tipo SQL no Azure Stream Analytics. A solução descrito construções de extensão do SQL para trabalhar com dados temporais. Ele mostrou como associar fluxos de dados, como enriquecer o fluxo de dados com dados de referência estáticos e como aumentar horizontalmente uma consulta para alcançar um débito mais elevado.
 
-Embora esta solução fornece uma introdução boa, não estão concluída por qualquer meio. Pode encontrar mais padrões de consulta utilizando a linguagem SAQL em [consultar exemplos de padrões de utilização comuns do Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).
+Embora esta solução fornece uma boa introdução, não estão concluída por qualquer meio. Pode encontrar mais padrões de consulta usando a linguagem SAQL na [consultar exemplos para padrões de utilização comuns do Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).

@@ -1,6 +1,6 @@
 ---
-title: Configura a replicação de dados para replicar os dados na base de dados do Azure para MySQL.
-description: Este artigo descreve como configurar dados na replicação da base de dados do Azure para MySQL.
+title: Configure a replicação de dados para replicar os dados na base de dados do Azure para MySQL.
+description: Este artigo descreve como configurar a dados na replicação da base de dados do Azure para MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,40 +8,40 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294426"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667162"
 ---
-# <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados do Azure para replicação de dados MySQL
+# <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados do Azure para a replicação de dados MySQL
 
-Neste artigo, irá aprender a configurar a replicação de dados na base de dados do Azure para o serviço de MySQL ao configurar os servidores primário e réplica. Replicação de dados permite-lhe sincronizar os dados de um servidor principal do MySQL, em execução no local, em máquinas virtuais ou serviços de base de dados alojados por outros fornecedores de nuvem para uma réplica na base de dados do Azure para o serviço de MySQL. 
+Neste artigo, aprenderá como configurar a replicação de dados na base de dados do Azure para o serviço MySQL ao configurar os servidores mestre e de réplica. Replicação de dados-in permite-lhe sincronizar dados a partir de um servidor MySQL mestre em execução no local, nas máquinas virtuais ou serviços de base de dados hospedados por outros fornecedores de cloud para uma réplica da base de dados do Azure para o serviço MySQL. 
 
-Este artigo pressupõe que tem, pelo menos, de alguma experiência anterior com servidores MySQL e bases de dados.
+Este artigo pressupõe que tem pelo menos alguma experiência anterior com servidores MySQL e bases de dados.
 
-## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Criar um servidor de MySQL a utilizar como réplica
+## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Criar um servidor MySQL para ser utilizado como réplica
 
-1. Criar uma nova base de dados do Azure para o servidor de MySQL
+1. Criar uma nova base de dados do Azure para o servidor MySQL
 
-   Criar um novo servidor de MySQL (ex. "replica.mysql.database.azure.com"). Consulte [criar uma base de dados do Azure para o servidor de MySQL, utilizando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md) para a criação do servidor. Este servidor é o servidor de "réplica" na replicação de dados.
+   Criar um novo servidor do MySQL (ex. "replica.mysql.database.azure.com"). Consulte a [criar uma base de dados do Azure para o servidor MySQL com o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md) para a criação do servidor. Esse servidor é o servidor de "réplica" na replicação de dados-in.
 
    > [!IMPORTANT]
-   > A base de dados do Azure para o servidor de MySQL têm de ser criado os escalões de preços de finalidade geral ou de otimização de memória.
+   > A base de dados do Azure para o servidor MySQL têm de ser criado nos escalões de preços para fins gerais ou com otimização de memória.
    > 
 
-2. Criar contas de utilizador mesmo e privilégios correspondentes
+2. Criar as mesmas contas de usuário e privilégios correspondentes
 
-   Contas de utilizador não são replicadas a partir do servidor primário para o servidor de réplica. Se pretender fornecer aos utilizadores acesso ao servidor de réplica, terá de criar manualmente todas as contas e privilégios correspondentes neste criado recentemente a base de dados do Azure para o servidor de MySQL.
+   Contas de utilizador não são replicadas a partir do servidor mestre para o servidor de réplica. Se pretender oferecer aos usuários acesso ao servidor de réplica, terá de criar manualmente todas as contas e privilégios correspondentes no recentemente criada a base de dados do Azure para o servidor MySQL.
 
-## <a name="configure-the-primary-server"></a>Configurar o servidor primário
-Os seguintes passos preparam e configurem o MySQL server alojado no local, uma máquina virtual ou o serviço de base de dados alojado por outros fornecedores de nuvem para replicação de dados. Este servidor encontra-se a "primário" na replicação de dados. 
+## <a name="configure-the-master-server"></a>Configurar o servidor mestre
+Os seguintes passos prepararem e configurar o MySQL server alojado no local, uma máquina virtual ou o serviço de base de dados hospedado por outros fornecedores de cloud para a replicação de dados. Esse servidor é o "mestre" na replicação de dados-in. 
 
 1. Ativar o registo binário
 
-   Verifique se o registo binário tenha sido ativado principal executando o seguinte comando: 
+   Verifica se o registo binário tenha sido ativado no mestre de executando o seguinte comando: 
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
@@ -49,11 +49,11 @@ Os seguintes passos preparam e configurem o MySQL server alojado no local, uma m
 
    Se a variável [ `log_bin` ](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) é devolvido com o valor "ON", o registo binário está ativado no seu servidor. 
 
-   Se `log_bin` é devolvido com o valor "OFF", ative binário registo editando o ficheiro my.cnf assim que `log_bin=ON` e reinicie o servidor para que a alteração surta efeito.
+   Se `log_bin` é devolvido com o valor "OFF", ativar o binário registo ao editar o ficheiro de cnf então que `log_bin=ON` e reinicie o servidor para que a alteração tenha efeito.
 
-2. Definições do servidor primário
+2. Definições do servidor mestre
 
-   Replicação de dados requer o parâmetro `lower_case_table_names` para estar consistente entre os servidores primário e réplica. Este parâmetro é 1 por predefinição na base de dados do Azure para MySQL. 
+   A replicação de dados-in requer o parâmetro `lower_case_table_names` para ser consistente entre os servidores mestre e de réplica. Este parâmetro é 1 por predefinição na base de dados do Azure para MySQL. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -61,9 +61,9 @@ Os seguintes passos preparam e configurem o MySQL server alojado no local, uma m
 
 3. Criar uma nova função de replicação e configurar a permissão
 
-   Crie uma conta de utilizador no servidor primário que está configurado com privilégios de replicação. Isto pode ser feito através de comandos do SQL Server ou uma ferramenta como o MySQL Workbench. Considere se planeia replicar com SSL, esta terá de ser especificado ao criar o utilizador. Consulte a documentação do MySQL, para compreender como [adicionar contas de utilizador](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) no seu servidor primário. 
+   Crie uma conta de utilizador no servidor principal que está configurado com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou uma ferramenta como o MySQL Workbench. Considere se pretender replicar com SSL como isto terá de ser especificado quando criar o utilizador. Consulte a documentação do MySQL para compreender como [adicionar contas de utilizador](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) no seu servidor mestre. 
 
-   Os comandos abaixo, a nova função de replicação criada é capaz de aceder principal a partir de qualquer máquina, não apenas a máquina que aloja o principal de si próprio. Isto é feito através da especificação de "syncuser@'%'" no comando de criação do utilizador. Consulte a documentação de MySQL para saber mais sobre [especificando os nomes das contas](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
+   Os comandos abaixo, a nova função de replicação criada é capaz de acessar o mestre de qualquer máquina, não apenas a máquina que aloja o mestre em si. Isso é feito ao especificar "syncuser@'%'" no comando de utilizador de criar. Consulte a documentação do MySQL para saber mais sobre [especificando os nomes das contas](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
    **Comando SQL**
 
@@ -78,7 +78,7 @@ Os seguintes passos preparam e configurem o MySQL server alojado no local, uma m
 
    *Replicação sem SSL*
 
-   Se o SSL não é necessário para todas as ligações, utilize o seguinte comando para criar um utilizador:
+   Se não é necessário para todas as ligações SSL, utilize o seguinte comando para criar um utilizador:
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -87,83 +87,83 @@ Os seguintes passos preparam e configurem o MySQL server alojado no local, uma m
 
    **MySQL Workbench**
 
-   Para criar a função de replicação no MySQL Workbench, abra o **utilizadores e privilégios** painel do **gestão** painel. Em seguida, clique em **adicionar conta**. 
+   Para criar a função de replicação no MySQL Workbench, abra a **utilizadores e os privilégios** painel da **gestão** painel. Em seguida, clique em **adicionar conta**. 
  
    ![Os utilizadores e privilégios](./media/howto-data-in-replication/users_privileges.png)
 
    Escreva o nome de utilizador para o **nome de início de sessão** campo. 
 
-   ![Utilizador de sincronização](./media/howto-data-in-replication/syncuser.png)
+   ![Sincronizar o utilizador](./media/howto-data-in-replication/syncuser.png)
  
-   Clique em de **funções administrativas** painel e, em seguida, selecione **replicação multisservidor** da lista de **privilégios Global**. Em seguida, clique em **aplicar** para criar a função de replicação.
+   Clique nas **funções administrativas** painel e, em seguida, selecione **subordinado de replicação** da lista de **privilégios Global**. Em seguida, clique em **aplicar** para criar a função de replicação.
 
-   ![A replicação multisservidor](./media/howto-data-in-replication/replicationslave.png)
+   ![Replicação subordinado](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Definir o servidor principal para o modo só de leitura
+4. Definir o servidor mestre para o modo só de leitura
 
-   Antes de começar a informação do Estado da saída da base de dados, o servidor tem de ser colocado no modo só de leitura. Enquanto estiver no modo só de leitura, o principal será não é possível processar quaisquer transações de escrita. Avaliar o impacto ao seu negócio e agendar a janela de só de leitura numa hora fora de pico, se necessário.
+   Antes de iniciar Despejar a base de dados, o servidor tem de ser colocadas em modo só de leitura. No modo só de leitura, o mestre será não é possível processar quaisquer transações de escrita. Avaliar o impacto para o seu negócio e agendar a janela de só de leitura num horário fora de pico, se necessário.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
    SET GLOBAL read_only = ON;
    ```
 
-5. Obter nome de ficheiro de registo binário e deslocamento
+5. Obter o nome de ficheiro de registo binário e deslocamento
 
-   Execute o [ `show master status` ](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) o comando para determinar o nome de ficheiro de registo binário atual e o desvio.
+   Executar o [ `show master status` ](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando para determinar o nome de ficheiro de registo binário atual e o deslocamento.
     
    ```sql
    show master status;
    ```
-   Os resultados deverão ser semelhante. Certifique-se de que tome nota do nome de ficheiro binário que será utilizado em passos posteriores.
+   Os resultados devem ser como se segue. Lembre-se de que tome nota do nome de ficheiro binário que será utilizada em passos posteriores.
 
    ![Resultados de estado do mestre](./media/howto-data-in-replication/masterstatus.png)
  
-## <a name="dump-and-restore-primary-server"></a>Informação do Estado e restaurar o servidor primário
+## <a name="dump-and-restore-master-server"></a>Cópia de segurança e restaurar o servidor mestre
 
-1. Informação do Estado todas as bases de dados do servidor primário
+1. Despeja todas as bases de dados do servidor mestre
 
-   Pode utilizar mysqldump para bases de dados de captura do servidor primário. Para obter detalhes, consulte [informação do Estado da & Restaurar](concepts-migrate-dump-restore.md). É desnecessário informação do Estado da biblioteca de MySQL e biblioteca de teste.
+   Pode utilizar mysqldump para bases de dados de informação do seu principal. Para obter detalhes, consulte [capturar e restaurar](concepts-migrate-dump-restore.md). Não é necessário para a biblioteca MySQL de cópia de segurança e a biblioteca de teste.
 
-2. Definir o servidor primário para o modo de leitura/escrita
+2. Servidor mestre do conjunto de modo de leitura/escrita
 
-   Assim que tiver sido capturar a base de dados, alterar o principal anterior de servidor MySQL para modo de leitura/escrita.
+   Assim que a base de dados foram colocado, alterar o mestre de retorno de servidor do MySQL para o modo de leitura/escrita.
 
    ```sql
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
 
-3. Restaurar o ficheiro de informação para o novo servidor
+3. Restaurar o ficheiro de informação para novo servidor
 
-   Restaure o ficheiro de captura para o servidor criada na base de dados do Azure para o serviço de MySQL. Consulte [informação do Estado da & Restaurar](concepts-migrate-dump-restore.md) como restaurar um ficheiro de informação para um servidor de MySQL. Se o ficheiro de captura for grande, carregá-lo a uma máquina virtual no Azure na mesma região que o servidor de réplica. Restaurá-lo para a base de dados do Azure para o servidor de MySQL da máquina virtual.
+   Restaure o ficheiro de informação para o servidor criado na base de dados do Azure para o serviço MySQL. Consulte a [capturar e restaurar](concepts-migrate-dump-restore.md) para saber como restaurar um arquivo de despejo para um servidor MySQL. Se o ficheiro de informação for grande, carregue-a uma máquina virtual no Azure na mesma região que o seu servidor de réplica. Restaurá-la para a base de dados do Azure para o servidor MySQL da máquina virtual.
 
-## <a name="link-primary-and-replica-servers-to-start-data-in-replication"></a>Ligar os servidores primário e réplica para iniciar a replicação de dados
+## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>Ligar servidores mestre e de réplica para iniciar a replicação de dados
 
-1. Servidor primário do conjunto
+1. Servidor mestre do conjunto
 
-   Todas as funções do dados na replicação são efetuadas pela procedimentos armazenados. Pode encontrar todos os procedimentos em [dados na replicação procedimentos armazenados](reference-data-in-stored-procedures.md). Os procedimentos armazenados podem ser executados na shell de MySQL ou MySQL Workbench. 
+   Todas as funções de replicação de dados-in são efetuadas pelo procedimentos armazenados. Pode encontrar todos os procedimentos em [dados na replicação procedimentos armazenados](reference-data-in-stored-procedures.md). Os procedimentos armazenados podem ser executados no shell do MySQL ou o MySQL Workbench. 
 
-   Para ligar os dois servidores e iniciar a replicação, início de sessão para o servidor de réplica de destino na base de dados do Azure para o serviço de MySQL e defina a instância externa que o servidor principal. Isto é feito utilizando o `mysql.az_replication_change_primary` procedimento armazenado da base de dados do Azure para o servidor de MySQL.
+   Para ligar os dois servidores e iniciar a replicação, inicie sessão no servidor de réplica de destino no DB do Azure para o serviço MySQL e definir a instância externa como o servidor mestre. Isso é feito usando o `mysql.az_replication_change_master` procedimento armazenado no Azure DB para o servidor MySQL.
 
    ```sql
-   CALL mysql.az_replication_change_primary('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
-   - master_host: nome de anfitrião do servidor primário
-   - master_user: nome de utilizador para o servidor primário
-   - master_password: palavra-passe para o servidor primário
+   - master_host: nome de anfitrião do servidor mestre
+   - master_user: nome de utilizador para o servidor mestre
+   - master_password: palavra-passe para o servidor mestre
    - master_log_file: nome de ficheiro de registo binário a execução `show master status`
-   - master_log_pos: posição registo binário a execução `show master status`
-   - master_ssl_ca: contexto de certificado de AC. Se não utilizar SSL, passe uma cadeia vazia.
-       - Recomenda-se passar este parâmetro como uma variável. Consulte os exemplos seguintes para obter mais informações.
+   - master_log_pos: posição do registo binário a execução `show master status`
+   - master_ssl_ca: o contexto de certificado de AC. Se não utilizar SSL, passe na cadeia de caracteres vazia.
+       - Recomenda-se para transmitir este parâmetro no como uma variável. Veja os exemplos seguintes para obter mais informações.
 
    **Exemplos**
 
    *Replicação com SSL*
 
-   A variável `@cert` é criada executando os seguintes comandos de MySQL: 
+   A variável `@cert` é criada executando os seguintes comandos do MySQL: 
 
    ```sql
    SET @cert = '-----BEGIN CERTIFICATE-----
@@ -171,28 +171,28 @@ Os seguintes passos preparam e configurem o MySQL server alojado no local, uma m
    -----END CERTIFICATE-----'
    ```
 
-   A replicação com o SSL é configurada entre um servidor primário alojado no domínio "companya.com" e um servidor de réplica alojados na base de dados do Azure para MySQL. Este procedimento armazenado é executado na réplica. 
+   Replicação com o SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica alojado na base de dados do Azure para MySQL. Este procedimento armazenado é executado na réplica. 
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Replicação sem SSL*
 
-   Replicação sem SSL está configurada entre um servidor primário alojado no domínio "companya.com" e um servidor de réplica alojados na base de dados do Azure para MySQL. Este procedimento armazenado é executado na réplica.
+   Replicação sem SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica alojado na base de dados do Azure para MySQL. Este procedimento armazenado é executado na réplica.
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
 2. Iniciar a replicação
 
-   Chamar o `mysql.az_replication_start` procedimento para iniciar a replicação armazenado.
+   Chamar o `mysql.az_replication_start` armazenados procedimento para iniciar a replicação.
 
    ```sql
    CALL mysql.az_replication_start;
    ```
 
-3. Verifique o estado de replicação
+3. Verificar estado de replicação
 
    Chamar o [ `show slave status` ](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) comando no servidor de réplica para ver o estado de replicação.
     
@@ -200,13 +200,13 @@ Os seguintes passos preparam e configurem o MySQL server alojado no local, uma m
    show slave status;
    ```
 
-   Se o estado de `Slave_IO_Running` e `Slave_SQL_Running` são "Sim" e o valor da `Seconds_Behind_Master` é "0", a replicação está a funcionar corretamente. `Seconds_Behind_Master` indica como dinâmico a réplica. Se o valor não é "0", significa que a réplica está a processar as atualizações. 
+   Se o estado dos `Slave_IO_Running` e `Slave_SQL_Running` são "Sim" e o valor de `Seconds_Behind_Master` é "0", a replicação está a funcionar bem. `Seconds_Behind_Master` Indica a réplica como tardia é. Se o valor não é "0", significa que a réplica está a processar atualizações. 
 
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 
 ### <a name="stop-replication"></a>Parar replicação
 
-Para parar a replicação entre o servidor primário e réplica, utilize o seguinte procedimento armazenado:
+Para parar a replicação entre o servidor mestre e de réplica, utilize o seguinte procedimento armazenado:
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -214,19 +214,19 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-replication-relationship"></a>Remova a relação de replicação
 
-Para remover a relação entre o servidor primário e réplica, utilize o seguinte procedimento armazenado:
+Para remover a relação entre o servidor mestre e de réplica, utilize o seguinte procedimento armazenado:
 
 ```sql
-CALL mysql.az_replication_remove_primary;
+CALL mysql.az_replication_remove_master;
 ```
 
 ### <a name="skip-replication-error"></a>Ignorar erro de replicação
 
-Para ignorar a um erro de replicação e permitir que a replicação continuar, utilize o seguinte procedimento armazenado:
+Para ignorar um erro de replicação e permitir que a replicação continuar, utilize o seguinte procedimento armazenado:
     
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [replicação de dados](concepts-data-in-replication.md) para a base de dados do Azure para MySQL. 
+- Saiba mais sobre [replicação de dados](concepts-data-in-replication.md) para base de dados do Azure para MySQL. 

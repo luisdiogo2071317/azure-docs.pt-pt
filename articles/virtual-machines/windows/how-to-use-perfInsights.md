@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054359"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668126"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
@@ -245,11 +245,11 @@ Para executar a ferramenta de PerfInsights, siga estes passos:
     >
     >Se mudar a duração **/d** não for especificada, PerfInsights irá solicitar-lhe para reprodução o problema ao executar vmslow, azurefiles e cenários avançados. 
 
-Quando os rastreios ou operações forem concluídas, é apresentado um novo ficheiro na mesma pasta que o PerfInsights. O nome do ficheiro é **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** Pode enviar esse arquivo para o agente de suporte para análise ou abrir o relatório dentro do arquivo zip para rever as descobertas e recomendações.
+Quando os rastreios ou operações forem concluídas, é apresentado um novo ficheiro na mesma pasta que o PerfInsights. O nome do ficheiro é **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** Pode enviar esse arquivo para o agente de suporte para análise ou abrir o relatório dentro do arquivo zip para rever as descobertas e recomendações.
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnóstico
 
-Dentro de **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip** arquivo, pode encontrar um relatório em HTML que explica em detalhe as descobertas do PerfInsights. Para rever o relatório, expanda o **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip** de ficheiros e, em seguida, abra a **PerfInsights Report.html** ficheiro.
+Dentro de **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip** arquivo, pode encontrar um relatório em HTML que explica em detalhe as descobertas do PerfInsights. Para rever o relatório, expanda o **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip** de ficheiros e, em seguida, abra a **PerfInsights Report.html** ficheiro.
 
 Selecione o **descobertas** separador.
 
@@ -314,4 +314,4 @@ Captura de ecrã seguinte mostra uma mensagem semelhante ao que pode receber:
 
 Siga as instruções na mensagem para acessar a área de trabalho de transferência de ficheiros. Para segurança adicional, terá de alterar a palavra-passe na primeira utilização.
 
-Depois de iniciar sessão, verá uma caixa de diálogo para carregar os **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip** ficheiro que foi recolhido por PerfInsights.
+Depois de iniciar sessão, verá uma caixa de diálogo para carregar os **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip** ficheiro que foi recolhido por PerfInsights.

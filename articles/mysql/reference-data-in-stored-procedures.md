@@ -1,6 +1,6 @@
 ---
-title: Base de dados do Azure para a replicação de dados MySQL procedimentos armazenados
-description: Este artigo apresenta os procedimentos armazenados todos os utilizados para replicação de dados.
+title: Procedimentos armazenados de base de dados do Azure para a replicação de dados MySQL
+description: Este artigo apresenta todas as armazenadas procedimentos utilizados para a replicação de dados.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,26 +8,26 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 2d62cd693d7a67faf836c645f8bd33de9afca949
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/31/2018
+ms.openlocfilehash: fb1a1b31d90df0022e5973de3ae2f55fb4c36701
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266113"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665951"
 ---
-# <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Base de dados do Azure para a replicação de dados MySQL procedimentos armazenados
+# <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Procedimentos armazenados de base de dados do Azure para a replicação de dados MySQL
 
-Replicação de dados permite-lhe sincronizar os dados de um servidor de MySQL em execução no local, em máquinas virtuais ou serviços de base de dados alojados por outros fornecedores de nuvem para a base de dados do Azure para o serviço de MySQL.
+Replicação de dados-in permite-lhe sincronizar dados de um servidor MySQL em execução no local, nas máquinas virtuais ou serviços de base de dados hospedados por outros fornecedores de cloud para a base de dados do Azure para o serviço MySQL.
 
-Os seguintes procedimentos armazenados são utilizados para definir ou remover a replicação de dados entre um site primário e réplica.
+Os seguintes procedimentos armazenados são utilizados para configurar ou remover a replicação de dados entre um mestre e de réplica.
 
-|**Nome de procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Nota de utilização**|
+|**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Nota de utilização**|
 |-----|-----|-----|-----|
-|*MySQL.az_replication_change_primary*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|Para transferir dados com o modo SSL, são transmitidas no contexto do certificado de AC para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, transmita uma cadeia vazia para o parâmetro master_ssl_ca.|
-|*i_niciar a respetiva MySQL.az_replication*|N/A|N/A|Inicia a replicação.|
-|*MySQL.az_replication _stop*|N/A|N/A|Deixa de replicação.|
-|*MySQL.az_replication _remove_primary*|N/A|N/A|Remove a relação de replicação entre o servidor primário e réplica.|
+|*MySQL.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|Para transferir dados com o modo SSL, passe o contexto do certificado de AC para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, transmita uma cadeia vazia para o parâmetro master_ssl_ca.|
+|*Iniciar de MySQL.az_replication*|N/A|N/A|Inicia a replicação.|
+|*MySQL.az_replication _stop*|N/A|N/A|Para a replicação.|
+|*MySQL.az_replication _remove_master*|N/A|N/A|Remove a relação de replicação entre o mestre e a réplica.|
 |*MySQL.az_replication_skip_counter*|N/A|N/A|Ignora a um erro de replicação.|
 
-Para configurar os dados na replicação entre um site primário e réplica na base de dados do Azure para MySQL, consulte [como configurar a replicação de dados](howto-data-in-replication.md).
+Para configurar a dados na replicação entre um mestre e uma réplica na base de dados do Azure para MySQL, consulte [como configurar a replicação de dados](howto-data-in-replication.md).

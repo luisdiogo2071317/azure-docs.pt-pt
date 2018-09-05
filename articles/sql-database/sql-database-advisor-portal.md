@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528651"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665604"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -114,7 +114,7 @@ Selecione qualquer recomendação e, em seguida, clique em **Ver script**. Execu
 *Índices que são executados manualmente não são monitorizados e validados para impacto no desempenho pelo serviço* portanto, é recomendável que monitorar esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustem ou eliminá-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [criar índice (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### <a name="canceling-recommendations"></a>A cancelar recomendações
-Recomendações que estão num **pendente**, **verificando**, ou **êxito** Estado pode ser cancelado. Recomendações com o estado **Executing** não é possível cancelar.
+Recomendações que estão num **pendente**, **validação**, ou **êxito** Estado pode ser cancelado. Recomendações com o estado **Executing** não é possível cancelar.
 
 1. Selecione uma recomendação no **histórico de ajuste** área para abrir o **detalhes das recomendações** página.
 2. Clique em **Cancelar** para abortar o processo de aplicar a recomendação.
@@ -126,7 +126,7 @@ Aplicar uma recomendação pode não acontecer instantaneamente. O portal fornec
 |:--- |:--- |
 | Pendente |Aplica a recomendação comando foi recebido e está agendado para execução. |
 | A executar |A recomendação está a ser aplicada. |
-| A verificar |A recomendação foi aplicada com êxito e o serviço é medir os benefícios. |
+| A Validar |A recomendação foi aplicada com êxito e o serviço é medir os benefícios. |
 | Êxito |A recomendação foi aplicada com êxito e foram avaliados de benefícios. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isso pode ser um problema transitório, ou, possivelmente, um esquema altere para a tabela e o script já não é válido. |
 | A reverter |A recomendação foi aplicada, mas tiver sido considerada não de elevado desempenho e está a ser revertida automaticamente. |

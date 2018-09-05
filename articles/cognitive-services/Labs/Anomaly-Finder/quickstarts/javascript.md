@@ -1,6 +1,6 @@
 ---
-title: Como utilizar a API de LCA anomalias com Javascript - serviços cognitivos Microsoft | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar anomalias LCA com Javascript nos serviços cognitivos.
+title: Como utilizar a API de localizador de anomalias com Javascript - serviços cognitivos da Microsoft | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar o Explorador de anomalias com o Javascript nos serviços cognitivos.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,38 +9,40 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 105da0219efd7bf7c9a105a018dda7ea5b084cfd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353341"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665027"
 ---
-# <a name="use-the-anomaly-finder-api-with-javascript"></a>Utilizar a API de LCA anomalias com Javascript
+# <a name="use-the-anomaly-finder-api-with-javascript"></a>Utilizar o Explorador de anomalias API com Javascript
 
-Este artigo fornece informações e exemplos de código para o ajudar a rapidamente começar a utilizar a API de deteção de anomalias com Javascript para realizar a tarefa de obter o resultado de deteção de anomalias de dados de séries de tempo.
+Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar a API de deteção de anomalias com Javascript para realizar a tarefa de obter o resultado da deteção de anomalias de dados de séries de tempo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-detection-api-using-javascript"></a>Obter os pontos de anomalias com a API de deteção de anomalias utilizando Javascript
+## <a name="getting-anomaly-points-with-anomaly-detection-api-using-javascript"></a>Obtendo pontos de anomalias com a API de deteção de anomalias com Javascript
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Exemplo de dados de séries de tempo
 
-O exemplo de tempo de pontos de dados de séries é o seguinte: [!INCLUDE [Request](../includes/request.md)]
+O exemplo do tempo de pontos de dados de série é o seguinte:
 
-### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Analisar dados e obter os pontos de anomalias exemplo de Javascript
+[!INCLUDE [Request](../includes/request.md)]
 
-Os passos da utilização de exemplo são os seguintes.
+### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Analisar dados e obter pontos de anomalias exemplo de Javascript
+
+Seguem-se os passos para utilizar o exemplo.
 
 1. Crie um novo ficheiro HTML.
-2. Substitua o ficheiro HTML com o seguinte código.
+2. Substitua o arquivo HTML com o código a seguir.
 3. Substitua o `[YOUR_SUBSCRIPTION_KEY]` valor com a sua chave de subscrição válido.
-4. Substitua os dados na requestTextArea com os pontos de dados.
-5. Abra o ficheiro HTML num Web browser e clique em `Anomaly Detection` botão.
+4. Substitua os dados em requestTextArea com seus pontos de dados.
+5. Abra o arquivo HTML num navegador da Web e clique em `Anomaly Detection` botão.
 
 ```Javascript
 <!DOCTYPE html>
@@ -304,10 +306,10 @@ Os passos da utilização de exemplo são os seguintes.
 
 ### <a name="example-response"></a>Resposta de exemplo
 
-Uma resposta com êxito é devolvida em JSON. Segue-se a resposta de amostra.
+Uma resposta com êxito, é devolvida em JSON. Segue-se a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Aplicação JavaScript](../tutorials/javascript-tutorial.md)
+> [Aplicação do JavaScript](../tutorials/javascript-tutorial.md)

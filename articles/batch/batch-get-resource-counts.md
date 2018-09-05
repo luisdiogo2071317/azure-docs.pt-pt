@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009176"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698388"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorizar soluções do Batch por contagem de tarefas e nós pelo Estado
 
-Para monitorizar e gerir soluções do Azure Batch em grande escala, terá de contagens precisas de recursos em vários Estados. O Azure Batch fornece operações eficientes para obter essas contagens de lote *tarefas* e *nós de computação*. Use essas operações em vez de chamadas de API potencialmente morosas para devolver informações detalhadas sobre grandes coleções de tarefas ou nós.
+Para monitorizar e gerir soluções do Azure Batch em grande escala, terá de contagens precisas de recursos em vários Estados. O Azure Batch fornece operações eficientes para obter essas contagens de lote *tarefas* e *nós de computação*. Utilize estas operações em vez de consultas de lista potencialmente moroso que devolvem informações detalhadas sobre grandes coleções de tarefas ou nós.
 
 * [Obter a conta de tarefa] [ rest_get_task_counts] obtém uma contagem agregada de tarefas ativas, em execução e concluídas numa tarefa e tarefas que foi concluída com êxito ou falha. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 Pode utilizar um padrão semelhante para REST e outros idiomas com suporte para obter contagens de tarefas para uma tarefa. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>Verificar a existência de contagens de tarefa de consistência
+### <a name="counts-for-large-numbers-of-tasks"></a>Contagens por um grande número de tarefas
 
-O batch disponibiliza uma validação adicional para contagens de estado de tarefa ao realizar verificações de consistência em relação a vários componentes do sistema. No improvável evento que a verificação de consistência localiza erros, o Batch corrige o resultado da operação obter contagens de tarefas com base nos resultados da verificação de consistência.
+A operação obter contagens de tarefas devolve as contagens dos Estados de tarefas no sistema num ponto no tempo. Quando o trabalho tiver um grande número de tarefas, as contagens devolvidas por obter contagens de tarefas podem lag os Estados de tarefa real por até alguns segundos. Batch garante a consistência eventual entre os resultados de obter a conta de tarefa e os Estados de tarefa real (que pode consultar através da API de tarefas da lista). No entanto, se o trabalho tiver um grande número de tarefas (> 200.000), recomendamos que utilize a API de tarefas da lista e um [consulta filtrada](batch-efficient-list-queries.md) em vez disso, que fornece mais informações atualizadas. 
 
-O `validationStatus` propriedade na resposta indica se o Batch realizada a verificação de consistência. Se o Batch ainda não verificado o estado de conta para os Estados reais mantidos no sistema, o `validationStatus` estiver definida como `unvalidated`. Por motivos de desempenho, o Batch não executa a verificação de consistência se a tarefa inclui mais de 200 000 tarefas, então, o `validationStatus` estiver definida como `unvalidated` neste caso. (A contagem de tarefas não é necessariamente errada nesse caso, como até mesmo uma perda de dados limitado é improvável.) 
-
-Quando uma tarefa de estado é alterado, o pipeline de agregação processa a alteração dentro de alguns segundos. A operação obter contagens de tarefas reflete as contagens de tarefa atualizada dentro desse período. No entanto, se o pipeline de agregação erros de uma alteração num Estado de tarefa, em seguida, essa alteração não está registada até a próxima passagem de validação. Durante este período, contagens de tarefas podem ser um pouco incorretas devido ao evento em falta, mas eles são corrigidos da próxima passagem de validação.
+Versões de API de serviço do batch antes de 2018-08-01.7.0 também retornar um `validationStatus` propriedade na resposta obter contagens de tarefas. Esta propriedade indica se o Batch verificado que o estado de conta para manter a consistência com os Estados relatados na API de tarefas da lista. Um valor de `validated` indica apenas que o Batch verificada a consistência dos, pelo menos, uma vez para a tarefa. O valor da `validationStatus` propriedade não indica se as contagens que retorna obter contagens de tarefas estão atualmente atualizadas.
 
 ## <a name="node-state-counts"></a>Contagens de estado do nó
 

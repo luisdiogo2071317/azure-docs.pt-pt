@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412020"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666389"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -29,7 +29,7 @@ Este artigo aborda o registro de um publicador de marketplace da cloud. Consoant
 |  | Passo de registo | Duração | Detalhes |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Registe-se na Microsoft Partner Network | 15 min | [Registe-se na Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Criar uma conta Microsoft <ul>(necessários para o Azure Marketplace transact ofertas; recomendado para outras pessoas)</ul> | 15 minutos | [Criar um ID da Microsoft](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 2 | Criar uma conta Microsoft <ul>(necessários para o Azure Marketplace transact ofertas; recomendado para outras pessoas)</ul> | 15 min | [Criar um ID da Microsoft](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
 | 3 | Submeter o formulário de Registro do marketplace | 15 min | [Submeter o formulário de nomeação do marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
 | 4 |  Inicie sessão no Portal de parceiro de Cloud | 1 a 3 dias | [Inicie sessão no Portal de parceiro de Cloud](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Registar-se no Microsoft Developer Center (Centro de desenvolvimento) (para o Azure Marketplace transact ofertas) | 5 a 10 dias | [Registar no Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
@@ -74,7 +74,8 @@ Será solicitado para incluir as seguintes informações:
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Inicie sessão no Portal de parceiro de Cloud
-| 1 a 3 dias | A nossa equipa de integração do Marketplace irá rever e validar os detalhes de registo de marketplace fornecidos no passo 3. Quando for aprovado, receberá um e-mail de boas-vindos com as credenciais da conta e documentação de orientação sobre o início de sessão-para o [Cloud Partner Portal](https://cloudpartner.azure.com).
+| 1 a 3 dias | <br>
+A nossa equipa de integração do Marketplace irá rever e validar os detalhes de registo de marketplace fornecidos no passo 3. Quando for aprovado, receberá um e-mail de boas-vindos com as credenciais da conta e documentação de orientação sobre o início de sessão-para o [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 Irá utilizar o [Cloud Partner Portal](https://cloudpartner.azure.com) para criar, publicar e gerir as ofertas do marketplace. Depois de receber o e-mail de boas-vindas de aprovação, o qual imediatamente pode iniciar sessão a [Cloud Partner Portal](https://cloudpartner.azure.com) com a sua conta Microsoft para aceder a informações técnicas adicionais sobre a publicação no marketplace e criar a sua oferta. 
 *   Para obter mais informações sobre como utilizar o Portal do Cloud Partner [aceda ao artigo de introdução na seção aprender](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Tem de ter sessão iniciada para o Portal de parceiro de Cloud para aceder a estes detalhes.

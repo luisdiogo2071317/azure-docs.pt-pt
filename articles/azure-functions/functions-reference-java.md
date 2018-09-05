@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw
-ms.openlocfilehash: d895258a4c8a38d00932d81600dc8633d7d70112
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056938"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697016"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -93,7 +93,7 @@ com o correspondente `function.json`:
 
 As funções do Azure suporta a utilização de bibliotecas de terceiros. Por predefinição, todas as dependências especificado no seu projeto `pom.xml` ficheiro serão automaticamente agrupado durante o `mvn package` objetivo. Para bibliotecas não especificadas como dependências a `pom.xml` de ficheiros, colocá-los num `lib` diretório no diretório de raiz da função. Dependências colocadas o `lib` directory será adicionado ao carregador de classe do sistema no tempo de execução.
 
-## <a name="data-types"></a>Tipos de Dados
+## <a name="data-type-support"></a>Tipo de dados de suporte
 
 Pode usar qualquer tipo de dados no Java para os dados de entrada e saídos, incluindo tipos nativos; personalizado Java tipos e especializadas do Azure definidos no `azure-functions-java-library` pacote. Funções do Azure, tempo de execução tenta converter a entrada recebida no tipo solicitado pelo seu código.
 
@@ -243,7 +243,7 @@ public class MyClass {
 
 Interagir com o ambiente de execução de funções do Azure através da `ExecutionContext` objeto definido no `azure-functions-java-library` pacote. Utilizar o `ExecutionContext` objeto para usar as informações de invocação e informações de tempo de execução de funções no seu código.
 
-### <a name="logging"></a>Registo
+### <a name="custom-logging"></a>Registo personalizado
 
 Acesso para o agente de log de tempo de execução de funções está disponível através do `ExecutionContext` objeto. Este agente de log está associado ao Azure monitor e permite-lhe sinalizador avisos e erros encontrados durante a execução de função.
 
@@ -263,6 +263,29 @@ public class Function {
     }
 }
 ```
+
+## <a name="view-logs-and-trace"></a>Ver registos e de rastreio
+
+Pode utilizar a CLI do Azure para o stream Java padrão horizontalmente e o registo de erros, bem como outros logs do aplicativo. Em primeiro lugar, Configure a sua aplicação de função para escrever o registo de aplicações com a CLI do Azure:
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+Para transmitir o registo de saída para a sua aplicação de função com a CLI do Azure, abra uma nova linha de comandos, o Bash ou a sessão de Terminal e introduza o seguinte comando:
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+O [cauda do az webapp log](/cli/azure/webapp/log) comando tem opções para filtrar a saída com o `--provider` opção. 
+
+Para transferir os ficheiros de registo como um ficheiro ZIP único utilizando a CLI do Azure, abra uma nova linha de comandos, o Bash ou a sessão de Terminal e introduza o seguinte comando:
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+Tem de ter ativado o sistema de ficheiros de registo no Portal do Azure ou na CLI do Azure antes de executar este comando.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
@@ -288,9 +311,12 @@ Cada chave / valor mapeamento no `values` mapa estarão disponível em tempo de 
 Com o seu código agora consoante estas variáveis de ambiente, pode iniciar sessão portal do Azure para definir a mesma chave / valor pares de contratos nas suas definições de aplicação de função, para que seu código funciona de forma equivalente quando testar localmente e quando implementada no Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte os seguintes recursos:
+
+Para obter mais informações sobre o desenvolvimento de Java de função do Azure, consulte os seguintes recursos:
 
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 * [Referência para programadores das Funções do Azure](functions-reference.md)
 * [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
+- Desenvolvimento local e de depuração com [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), e [Eclipse](functions-create-maven-eclipse.md). 
 * [Depuração remota do Java Azure funciona com o Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Plug-in do maven para as funções do Azure](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) -Simplifique a criação da função através do `azure-functions:add` objetivo e preparar um diretório de transição para [implementação de ficheiros ZIP](deployment-zip-push.md).

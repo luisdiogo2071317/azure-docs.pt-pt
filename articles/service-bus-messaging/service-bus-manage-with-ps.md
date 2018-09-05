@@ -1,9 +1,9 @@
 ---
-title: Utilizar o PowerShell para gerir recursos do Azure Service Bus | Microsoft Docs
+title: Utilizar o PowerShell para gerir os recursos do Azure Service Bus | Documentos da Microsoft
 description: Utilizar o módulo do PowerShell para criar e gerir recursos do Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,49 +13,49 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 962134c0c71ac0a251f8adf1f0f067d6067cb808
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: spelluru
+ms.openlocfilehash: 66475d9d59c8825eef7eb16e826d9813e819aa8a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018626"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699632"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utilize o PowerShell para gerir recursos do Service Bus
 
-Microsoft Azure PowerShell é um ambiente de script que pode utilizar para controlar e automatizar a implementação e gestão de serviços do Azure. Este artigo descreve como utilizar o [módulo PowerShell do Gestor de recursos do Service Bus](/powershell/module/azurerm.servicebus) aprovisionar e gerir entidades do Service Bus (espaços de nomes, filas, tópicos e subscrições) utilizando uma consola local do Azure PowerShell ou script.
+Microsoft Azure PowerShell é um ambiente de script que pode utilizar para controlar e automatizar a implementação e gestão de serviços do Azure. Este artigo descreve como utilizar o [módulo do PowerShell do Gestor de recursos do Service Bus](/powershell/module/azurerm.servicebus) para aprovisionar e gerir entidades do Service Bus (espaços de nomes, filas, tópicos e subscrições) através de uma consola local do Azure PowerShell ou o script.
 
-Também pode gerir entidades do Service Bus através de modelos Azure Resource Manager. Para obter mais informações, consulte o artigo [recursos de criar o Service Bus através de modelos Azure Resource Manager](service-bus-resource-manager-overview.md).
+Também pode gerir entidades do Service Bus utilizando modelos Azure Resource Manager. Para obter mais informações, consulte o artigo [recursos de criar o Service Bus com modelos Azure Resource Manager](service-bus-resource-manager-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, terá os seguintes pré-requisitos:
 
-* Uma subscrição do Azure. Para obter mais informações sobre a obtenção de uma subscrição, consulte [opções de compra][purchase options], [ofertas de membros][member offers], ou [livre conta][free account].
+* Uma subscrição do Azure. Para obter mais informações sobre como obter uma subscrição, veja [opções de compra][purchase options], [ofertas para membros][member offers], ou [gratuita conta][free account].
 * Um computador com o Azure PowerShell. Para obter instruções, consulte [introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps).
-* Uma compreensão geral de scripts do PowerShell, os pacotes de NuGet e o .NET Framework.
+* Uma compreensão geral de scripts do PowerShell, pacotes NuGet e o .NET Framework.
 
 ## <a name="get-started"></a>Introdução
 
-O primeiro passo consiste em utilizar o PowerShell para iniciar sessão na sua conta do Azure e subscrição do Azure. Siga as instruções em [introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps) para iniciar sessão sua conta do Azure e obter e aceder aos recursos na sua subscrição do Azure.
+A primeira etapa é utilizar o PowerShell para iniciar sessão na sua conta do Azure e subscrição do Azure. Siga as instruções em [introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps) para iniciar sessão na sua conta do Azure e obter e aceder aos recursos na sua subscrição do Azure.
 
 ## <a name="provision-a-service-bus-namespace"></a>Aprovisionar um espaço de nomes do Service Bus
 
-Ao trabalhar com espaços de nomes de barramento de serviço, pode utilizar o [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), e [conjunto AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
+Ao trabalhar com espaços de nomes do Service Bus, pode utilizar o [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), e [Set-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
 
-Este exemplo cria algumas variáveis locais do script; `$Namespace` e `$Location`.
+Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location`.
 
-* `$Namespace` é o nome do espaço de nomes de barramento de serviço com o qual podemos pretende trabalhar.
-* `$Location` identifica o Centro de dados na qual iremos aprovisionar o espaço de nomes.
-* `$CurrentNamespace` armazena o espaço de nomes de referência que vamos obter (ou crie).
+* `$Namespace` é o nome do espaço de nomes do Service Bus com a qual queremos trabalhar.
+* `$Location` identifica o Datacenter no qual vamos provisionar o espaço de nomes.
+* `$CurrentNamespace` armazena o espaço de nomes de referência que podemos recuperar (ou criar).
 
-Um script real, `$Namespace` e `$Location` podem ser transmitidos como parâmetros.
+Num script real, `$Namespace` e `$Location` podem ser passados como parâmetros.
 
 Esta parte do script faz o seguinte:
 
-1. A tentar obter um espaço de nomes do Service Bus com o nome especificado.
-2. Se o espaço de nomes for encontrado, relatórios que foi encontrado.
-3. Se não for encontrado o espaço de nomes, cria o espaço de nomes e, em seguida, obtém o espaço de nomes criado recentemente.
+1. Tenta recuperar um espaço de nomes do Service Bus com o nome especificado.
+2. Se não for encontrado o espaço de nomes, comunica o que foi encontrado.
+3. Se o espaço de nomes não for encontrado, ele cria o espaço de nomes e, em seguida, obtém o espaço de nomes criado recentemente.
    
     ``` powershell
     # Query to see if the namespace currently exists
@@ -81,7 +81,7 @@ Esta parte do script faz o seguinte:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Criar uma regra de autorização de espaço de nomes
 
-O exemplo seguinte mostra como gerir regras de autorização de espaço de nomes utilizando o [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Conjunto AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), e [remover AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+O exemplo seguinte mostra como gerir regras de autorização de espaço de nomes com o [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), e [cmdlets de Remove-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -123,7 +123,7 @@ else
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-Para criar uma fila ou um tópico, execute uma verificação de espaço de nomes utilizando o script na secção anterior. Em seguida, crie a fila:
+Para criar uma fila ou tópico, efetue uma verificação de espaço de nomes utilizando o script na secção anterior. Em seguida, crie a fila:
 
 ```powershell
 # Check if queue already exists
@@ -145,7 +145,7 @@ else
 
 ### <a name="modify-queue-properties"></a>Modificar as propriedades da fila
 
-Depois de executar o script na secção anterior, pode utilizar o [conjunto AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet para atualizar as propriedades de uma fila, como no exemplo seguinte:
+Depois de executar o script na secção anterior, pode utilizar o [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet para atualizar as propriedades de uma fila, como no exemplo seguinte:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -156,21 +156,21 @@ $CurrentQ.EnableExpress = $True
 Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -QueueObj $CurrentQ
 ```
 
-## <a name="provisioning-other-service-bus-entities"></a>Aprovisionamento outras entidades do Service Bus
+## <a name="provisioning-other-service-bus-entities"></a>Aprovisionamento de outras entidades do Service Bus
 
-Pode utilizar o [módulo PowerShell do barramento de serviço](/powershell/module/azurerm.servicebus) para aprovisionar outras entidades, como os tópicos e subscrições. Estes cmdlets são sintaticamente semelhantes para os cmdlets de criação de fila demonstrados na secção anterior.
+Pode utilizar o [módulo do PowerShell do Service Bus](/powershell/module/azurerm.servicebus) para aprovisionar outras entidades, como tópicos e subscrições. Estes cmdlets são sintaticamente semelhantes para os cmdlets de criação de fila demonstrados na secção anterior.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte a documentação de módulo do PowerShell do Gestor de recursos de barramento de serviço completa [aqui](/powershell/module/azurerm.servicebus). Esta página apresenta uma lista de todos os cmdlets disponíveis.
-- Para obter informações sobre como utilizar os modelos Azure Resource Manager, consulte o artigo [recursos de criar o Service Bus através de modelos Azure Resource Manager](service-bus-resource-manager-overview.md).
+- Consulte a documentação do módulo PowerShell do Gestor de recursos de barramento de serviço completa [aqui](/powershell/module/azurerm.servicebus). Esta página apresenta uma lista de todos os cmdlets disponíveis.
+- Para obter informações sobre como utilizar os modelos Azure Resource Manager, consulte o artigo [recursos de criar o Service Bus com modelos Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Informações sobre [bibliotecas de gestão do Service Bus .NET](service-bus-management-libraries.md).
 
-Existem algumas formas alternativas para gerir as entidades do Service Bus, conforme descrito nestas publicações no blogue:
+Existem algumas maneiras alternativas para gerir entidades do Service Bus, conforme descrito em dessas postagens de blog:
 
-* [Como criar filas do Service Bus, tópicos e subscrições através de um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Como criar um espaço de nomes de barramento de serviço e um Hub de eventos utilizando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
-* [Scripts do PowerShell de Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+* [Como criar filas, tópicos e subscrições através de um script do PowerShell do Service Bus](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Como criar um espaço de nomes do Service Bus e um Hub de eventos utilizando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Scripts do PowerShell do Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 

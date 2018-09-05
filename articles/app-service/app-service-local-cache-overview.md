@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918021"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666119"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Descrição geral de Cache Local do serviço de aplicações do Azure
 
@@ -44,13 +44,15 @@ A funcionalidade de Cache Local do serviço de aplicações do Azure fornece uma
 * Eles estão imunes para as atualizações planeadas ou tempos de inatividade não planeados e outras perturbações com armazenamento do Azure que ocorrem nos servidores que atendem a partilha de conteúdo.
 * Eles têm menos reinicializações de aplicação devido a alterações de partilha de armazenamento.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Como o Local Cache altera o comportamento do serviço de aplicações
-* A cache local é uma cópia das pastas /site e /siteextensions da aplicação web. Ele é criado na instância local do VM no arranque de aplicação web. O tamanho da cache local por aplicação web está limitado a 300 MB por predefinição, mas pode aumentá-la até 2 GB.
-* A cache local é de leitura / escrita. No entanto, qualquer modificação é eliminada quando a aplicação web, mova as máquinas virtuais ou é reiniciada. Não utilize a Local Cache para aplicações que armazenam dados de missão crítica no arquivo de conteúdo.
-* Aplicações Web podem continuar a escrever ficheiros de registo e dados de diagnóstico, como fazem atualmente. Ficheiros de registo e dados, no entanto, são armazenados localmente na VM. Em seguida, eles são copiados periodicamente para o arquivo de conteúdo partilhado. A cópia para o arquivo de conteúdo partilhado é um esforço mais favorável, escrita faz uma cópia pode ser perdida devido a uma falha repentina de uma instância VM.
-* Há uma alteração na estrutura da pasta das pastas LogFiles e os dados para aplicações web que utilizam a Local Cache. Agora há subpastas as pastas de LogFiles e dados de armazenamento que seguem o padrão de nomenclatura de "Identificador exclusivo" + o carimbo de data / hora. Cada um das subpastas corresponde a uma instância de VM em que a aplicação web está em execução ou foi executada.  
-* A publicar alterações para a aplicação web através de qualquer um dos mecanismos de publicação irão publicar para o arquivo de conteúdo partilhado durável. Para atualizar a cache local da aplicação web, tem de ser reiniciada. Para tornar o ciclo de vida totalmente integrada, veja as informações neste artigo.
-* D:\home aponta para a cache local. D:\Local continua apontar para o armazenamento temporário de VM específicos.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como a cache local altera o comportamento do serviço de aplicações
+* _D:\home_ aponta para a cache local, o que é criada na instância de VM quando a aplicação é iniciada. _D:\Local_ continua apontar para o armazenamento temporário de VM específicos.
+* A cache local contém uma cópia única dos _/site_ e _/siteextensions_ pastas de arquivo de conteúdo partilhado, em _D:\home\site_ e _D:\home\ siteextensions_, respectivamente. Os ficheiros são copiados para a cache local quando a aplicação é iniciada. O tamanho das duas pastas para cada aplicação é limitado para 300 MB por predefinição, mas pode aumentá-la até 2 GB.
+* A cache local é de leitura / escrita. No entanto, qualquer modificação é eliminada quando a aplicação mova as máquinas virtuais ou é reiniciada. Não utilize a cache local para aplicações que armazenam dados de missão crítica no arquivo de conteúdo.
+* _D:\home\LogFiles_ e _D:\home\Data_ conter ficheiros de registo e dados da aplicação. As duas subpastas são armazenadas localmente na instância de VM e são copiadas para o arquivo de conteúdo partilhado periodicamente. Aplicações podem manter ficheiros de registo e os dados, ao escrevê-las a essas pastas. No entanto, a cópia para o arquivo de conteúdo partilhado é melhor esforço, portanto, é possível que os ficheiros de registo de dados seja perdida devido a uma falha repentina de uma instância VM.
+* [A transmissão de registos](web-sites-enable-diagnostic-log.md#streamlogs) é afetada pela cópia de melhor esforço. Pode observar que até um atraso de um minuto nos registos de transmissão em fluxo contínuo.
+* O arquivo de conteúdo partilhado, existe uma alteração na estrutura da pasta do _LogFiles_ e _dados_ pastas para aplicações que utilizam a cache local. Existem agora subpastas-o de que seguem o padrão de nomenclatura de "Identificador exclusivo" + o carimbo de data / hora. Cada um das subpastas corresponde a uma instância de VM em que a aplicação está em execução ou foi executada.
+* Outras pastas nas _D:\home_ permanecem na local cache e não são copiados para o arquivo de conteúdo partilhado.
+* Implementação de aplicações através de qualquer método suportado diretamente publica o arquivo de conteúdo partilhado durável. Para atualizar o _D:\home\site_ e _D:\home\siteextensions_ pastas no local cache, a aplicação tem de ser reiniciado. Para tornar o ciclo de vida totalmente integrada, veja as informações neste artigo.
 * A exibição de conteúdo padrão do SCM site continua a ser que o arquivo de conteúdo partilhado.
 
 ## <a name="enable-local-cache-in-app-service"></a>Ativar a Cache Local no serviço de aplicações

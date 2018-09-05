@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 68799fe2755d8c0e811ae217f2cf6ceb84c7d869
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494231"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669179"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Iniciar, parar e gerar relatórios sobre o serviço de teste caos.
@@ -47,9 +47,9 @@ Para obter o segmento seguinte dos eventos caos, pode especificar o Continuation
 |Argumento|Descrição|
 | --- | --- |
 | -token de continuação | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API, quando os resultados do sistema não se encaixam numa única resposta. Quando esse valor é passado para a próxima chamada de API, a API devolve o próximo conjunto de resultados. Se não existirem mais resultados, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser codificada com URL. |
-| -hora de fim-utc | Hora que representa a hora de fim do intervalo de tempo para o qual vai ser gerado um relatório de Chaos do ficheiro dos Windows. Consultar [DateTime.ToFileTimeUtc método](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
+| -hora de fim-utc | Hora que representa a hora de fim do intervalo de tempo para o qual vai ser gerado um relatório de Chaos do ficheiro dos Windows. Consultar [DateTime.ToFileTimeUtc método](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) para obter detalhes. |
 | -max-resultados | O número máximo de resultados a serem retornados como parte das consultas paginadas. Este parâmetro define o limite superior no número de resultados devolvidos. Os resultados devolvidos pode ser menor do que os resultados máximos especificados se eles não se encaixam na mensagem de acordo com as restrições de tamanho de mensagem máximo definido na configuração. Se este parâmetro for igual a zero ou não especificado, a consulta paginada inclui resultados tantos possível que se enquadram na mensagem de retorna. |
-| -hora de início utc | Hora que representa a hora de início do intervalo de tempo para o qual vai ser gerado um relatório de Chaos do ficheiro dos Windows. Consultar [DateTime.ToFileTimeUtc método](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
+| -hora de início utc | Hora que representa a hora de início do intervalo de tempo para o qual vai ser gerado um relatório de Chaos do ficheiro dos Windows. Consultar [DateTime.ToFileTimeUtc método](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) para obter detalhes. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos global

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858811"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696824"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Sem servidor da base de dados computação usando as funções do Azure
 
@@ -31,7 +31,7 @@ O Azure Cosmos DB e as funções do Azure permitem-lhe integrar as suas aplicaç
 * Ligar uma função a um contentor do Azure Cosmos DB com um **enlace de saída**. Enlaces de saída escrever dados para um contentor quando uma função é concluída.
 
 > [!NOTE]
-> Neste momento, o acionador do Azure Cosmos DB, os enlaces de entrada e os enlaces de saída funcionam apenas com contas de API do SQL e do Graph API.
+> Neste momento, o acionador do Azure Cosmos DB, enlaces de entrada e enlaces de saída funcionam com apenas para contas de API de SQL e a API do Gremlin.
 
 O diagrama seguinte ilustra cada uma destas três integrações: 
 
@@ -82,7 +82,7 @@ As seguintes imagens mostram o código no portal do Azure para este cenário.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Jogos caso de utilização - acionador do Azure Cosmos DB e enlace de saída
 
-Em jogos, quando é criado um novo utilizador pode procurar outros utilizadores que podem conhecê-los utilizando o [Graph API do Azure Cosmos DB](graph-introduction.md). Em seguida, pode escrever os resultados para um [Azure Cosmos DB SQL da base de dados] para fácil obtenção.
+Em jogos, quando é criado um novo utilizador pode procurar outros utilizadores que podem conhecê-los utilizando o [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, pode escrever os resultados para um [Azure Cosmos DB SQL da base de dados] para fácil obtenção.
 
 **Implementação:** utilizar um acionador do Azure Cosmos DB e um enlace de saída
 

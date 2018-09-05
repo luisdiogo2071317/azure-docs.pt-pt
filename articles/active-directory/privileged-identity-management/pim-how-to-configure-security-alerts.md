@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 4e1cb47989011f179c54061bd29ae55b4ff86d80
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190396"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669416"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções de diretório do Azure AD no PIM
 ## <a name="security-alerts"></a>Alertas de segurança
@@ -67,4 +67,3 @@ Este alerta for acionado, se um utilizador der um determinado período de tempo 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar definições de função de diretório do Azure AD no PIM](pim-how-to-change-default-settings.md)
-- [Exigir autenticação multifator para funções de diretório do Azure AD no PIM](pim-how-to-require-mfa.md)

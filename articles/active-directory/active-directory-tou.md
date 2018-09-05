@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0171cd3e3a39d1fe70e7c97b618d854857a1c376
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125047"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695528"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -223,7 +223,7 @@ R: atualmente, não é possível atualizar uma existente termos de documento de 
 R: o PDF é processado por predefinição como um JPEG, pelo que não são clicáveis hiperlinks. Os utilizadores têm a opção de selecionar **com problemas em visualizar? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks são suportados.
 
 **P: Os Termos de utilização podem suportar vários idiomas?**</br>
-R: Sim.  Atualmente, existem 18 idiomas diferentes que um administrador pode configurar para um único documento Termos de utilização. 
+R: Sim. Atualmente, existem mais de 100 idiomas diferentes, um administrador pode configurar para um único termos de utilização.
 
 **P: Quando é que os Termos de utilização são acionados?**</br>
 R: Os Termos de utilização são acionados durante a experiência de início de sessão.

@@ -15,20 +15,20 @@ ms.component: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: bc60c0dbe6c609a08907feb243fe514badfe3e4e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288080"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665847"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Aprovar ou recusar pedidos para funções de diretório do Azure AD no PIM
 
-Com o Azure AD Privileged Identity Management (PIM), pode configurar funções para exigir a aprovação para a ativação e escolher um ou vários utilizadores ou grupos como aprovadores delegados.
+Com o Azure AD Privileged Identity Management (PIM), pode configurar funções para exigir a aprovação para a ativação e escolher um ou vários utilizadores ou grupos como aprovadores delegados. Siga os passos neste artigo para aprovar ou recusar pedidos para funções de diretório do Azure AD.
 
 ## <a name="view-pending-requests"></a>Ver pedidos pendentes
 
-Como um aprovador de delegados, receberá notificações por e-mail quando um pedido está com aprovação pendente. Pode ver estes pedidos pendentes no PIM.
+Como um aprovador de delegados, receberá uma notificação por e-mail quando uma solicitação de função de diretório do Azure AD está com aprovação pendente. Pode ver estes pedidos pendentes no PIM.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -74,5 +74,5 @@ Como um aprovador de delegados, receberá notificações por e-mail quando um pe
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Aprovar ou recusar pedidos para funções de recursos do Azure no PIM](pim-resource-roles-approval-workflow.md)
 - [Notificações por e-mail no PIM](pim-email-notifications.md)
+- [Aprovar ou recusar pedidos para funções de recursos do Azure no PIM](pim-resource-roles-approval-workflow.md)

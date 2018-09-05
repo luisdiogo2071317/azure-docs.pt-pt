@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284892"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665090"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -22,7 +22,6 @@ Para criar o seu tipo de voz, fazer uma gravação de studio e carregar os scrip
 
 Pode começar a utilizar com uma pequena quantidade de dados para uma prova de conceito. Mas os dados mais fornecer, quanto mais natural e professional pode parecer a sua voz.
 
-Personalização de voz está disponível para inglês Americano (em inglês) e continental chinês (zh-CN).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,6 +44,9 @@ Também precisa de uma conta do Azure e uma subscrição para o serviço de voz.
      ![Adicionar subscrição](media/custom-voice/add-subscription.png)
 
 Está pronto para começar!
+
+> [!IMPORTANT]
+> Durante a fase de pré-visualização privada, subscrições têm de estar na lista de permissões para utilizar a funcionalidade de voz personalizada. Siga os passos na página para obter a sua subscrição na lista de permissões.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Preparar gravações e transcrições
 
@@ -69,8 +71,6 @@ Arquivos de áudio devem estar preparados da seguinte forma. Outros formatos nã
 | Formato do Arquivo| Zip      |
 | Tamanho Máximo do Arquivo|200 MB|
 
-Coloque o conjunto de arquivos de áudio numa única pasta sem subdiretórios e todo o conjunto como um único arquivo de ficheiro ZIP do pacote.
-
 > [!NOTE]
 > Ficheiros de onda com uma taxa de amostragem mais baixo do que 16.000 Hz serão rejeitados. Nos casos em que um ficheiro zip contém ondas com taxas de amostragem diferentes, serão importados apenas esses igual ou maior do que 16.000 Hz.
 > O portal atualmente importa ZIP arquiva até 200 MB. No entanto, podem ser carregados vários arquivos. O número máximo de conjuntos de dados permitidos é de que 10 arquivos ZIP gratuitamente utilizadores de subscrição e 50 para utilizadores de subscrição standard.
@@ -90,7 +90,7 @@ Por exemplo:
 O sistema de voz personalizada normaliza transcrições ao converter o texto em minúsculas e remover pontuação estranhas. É importante que as transcrições são 100% precisa para gravações de áudio correspondentes.
 
 > [!TIP]
-> Quando criar produção voz vozes, selecionadas expressões de com (ou escrever scripts) Considerando cobertura fonética e eficiência.
+> Quando criar produção voz vozes, selecionadas expressões de com (ou escrever scripts) Considerando cobertura fonética e eficiência. A ter problemas ao obter os resultados, deseja? [Contacte a equipa de voz personalizada](mailto:tts@microsoft.com) para descobrir mais sobre-na ter consulte.
 
 ## <a name="upload-your-datasets"></a>Carregar os conjuntos de dados
 
@@ -102,8 +102,6 @@ Depois de preparar o arquivo do arquivo de áudio e transcrições, carregá-los
 1. Inicie sessão no portal.
 
 2. Escolher **dados** em voz personalizada na página principal. 
-
-    ![Meus projetos](media/custom-voice/my-projects.png)
 
     É apresentada a tabela de meus dados de voz. Está vazio, se ainda não carregou quaisquer conjuntos de dados de voz.
 
@@ -224,13 +222,20 @@ Quando o estado de implementação é concluído com êxito, o ponto final do se
 Testes online do ponto de extremidade também estão disponível através do portal de voz personalizada. Para testar o ponto final, escolha **pontos finais de teste** no menu de lista pendente de voz personalizada. O ponto final de teste de página é apresentada. Escolha uma voz personalizada implementada e introduza o texto seja falado (no texto sem formatação ou formato SSML) na caixa de texto.
 
 > [!NOTE] 
-> Quando utilizar SSML, o `<voice>` etiqueta tem de especificar o nome que deu a sua voz personalizada quando o criou.
+> Quando utilizar SSML, o `<voice>` etiqueta tem de especificar o nome que deu a sua voz personalizada quando o criou. Se enviar texto sem formatação, a voz personalizada é sempre usada.
 
 Clique em **reproduzir** ouvir o texto falado em seu tipo de voz personalizada.
 
 ![Teste de ponto final](media/custom-voice/endpoint-testing.png)
 
 O ponto final personalizado é funcionalmente idêntico ao ponto final do padrão usado para solicitações de voz. Ver [REST API](rest-apis.md) para obter mais informações.
+
+## <a name="language-support"></a>Suporte de idiomas
+
+Personalização de voz está disponível para inglês Americano (em inglês), continente chinês (zh-CN) e italiano (it-IT).
+
+> [!NOTE]
+> Formação de voz italiano começa com um conjunto de dados de expressões com mais de 2000. Modelos de bilingue chinês-inglês também são suportados com um conjunto de dados de expressões com mais de 2000.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523160"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666829"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Criação de uma tarefa de exportação para o serviço importar/exportar do Azure
 A criação de uma tarefa de exportação para o serviço de importação/exportação do Microsoft Azure com a API REST envolve os seguintes passos:
@@ -48,7 +48,7 @@ A criação de uma tarefa de exportação para o serviço de importação/export
  Para obter mais informações sobre como especificar blobs a exportar, consulte a [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação.
 
 ## <a name="obtaining-your-shipping-location"></a>Obter a localização de envio
-Antes de criar uma tarefa de exportação, tem de obter um envio de localização de nome e endereço chamando o [obter localização](https://portal.azure.com) ou [localizações de lista](/rest/api/storageimportexport/listlocations) operação. `List Locations` irá devolver uma lista de localizações e os respetivos endereços de correio postal. Pode selecionar uma localização a lista devolvida e envie os discos rígidos a esse endereço. Também pode utilizar o `Get Location` operação para obter o endereço de envio para uma localização específica diretamente.
+Antes de criar uma tarefa de exportação, tem de obter um envio de localização de nome e endereço chamando o [obter localização](https://portal.azure.com) ou [localizações de lista](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) operação. `List Locations` irá devolver uma lista de localizações e os respetivos endereços de correio postal. Pode selecionar uma localização a lista devolvida e envie os discos rígidos a esse endereço. Também pode utilizar o `Get Location` operação para obter o endereço de envio para uma localização específica diretamente.
 
 Siga os passos abaixo para obter a localização de envio:
 

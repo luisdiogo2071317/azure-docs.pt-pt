@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 8bc04ba7c97447cdcc6eb07798e5f5b21e285de7
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0935867e835fe88568f1cdce1ea8dfcea14a451a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344714"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669320"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerir o servidor de configuração para VMs de VMware
 
@@ -88,6 +88,7 @@ Pode voltar a registar o servidor de configuração no mesmo cofre se for necess
           net stop obengine
           net start obengine
   ```
+  
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
 Execute update rollups para atualizar o servidor de configuração. As atualizações podem ser aplicadas para até versões N-4. Por exemplo:

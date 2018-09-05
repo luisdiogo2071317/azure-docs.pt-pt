@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128131"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669488"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -27,8 +27,7 @@ Alterações ao software instalado, serviços do Windows, registro do Windows e 
 
 As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) ou posterior
-* Windows 7 SP1 e posterior.
+* Windows Server 2008 R2 ou posterior
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
 
@@ -47,8 +46,8 @@ As seguintes distribuições de Linux são suportadas oficialmente. No entanto, 
 Para iniciar o controle de alterações, terá de ativar a solução de controlo de alterações e inventário para a sua conta de automatização.
 
 1. No portal do Azure, navegue até à sua conta de automatização
-1. Selecione **controlo de alterações** sob **configuração**.
-1. Selecione uma área de trabalho existente do Log analytics ou **criar nova área de trabalho** e clique em **ativar**.
+2. Selecione **controlo de alterações** sob **configuração**.
+3. Selecione uma área de trabalho existente do Log analytics ou **criar nova área de trabalho** e clique em **ativar**.
 
 Isto permite que a solução para a sua conta de automatização. A solução pode demorar até 15 minutos a ativar. A faixa azul notifica-o quando a solução está ativada. Navegue de volta para o **controlo de alterações** página para gerir a solução.
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 9de620c5e6a1698b70f25f91a744829548ad5af6
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 1b8c1ba80b4c69f36e8304cbe978452a359ac911
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382336"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698083"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Utilizar o Ansible para gerir os seus inventários dinâmicos do Azure
 Ansible pode ser utilizado para extrair informações de inventário a partir de várias origens (incluindo origens na cloud, como o Azure) para um *inventário dinâmicas*. Neste artigo, vai utilizar o [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) para configurar um inventário dinâmicas de Ansible do Azure que vai criar duas máquinas virtuais, marcar uma das máquinas virtuais e instalar o Nginx na máquina virtual marcada.
@@ -136,27 +136,27 @@ A finalidade das etiquetas é permitir a capacidade de forma rápida e fácil tr
 
 1. Insira o seguinte código para o recém-criado `nginx.yml` ficheiro:
 
-```yml
----
-- name: Install and start Nginx on an Azure virtual machine
-  hosts: azure
-  become: yes
-  tasks:
-  - name: install nginx
-    apt: pkg=nginx state=installed
-    notify:
-    - start nginx
+    ```yml
+    ---
+    - name: Install and start Nginx on an Azure virtual machine
+    hosts: azure
+    become: yes
+    tasks:
+    - name: install nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
-  handlers:
-  - name: start nginx
-    service: name=nginx state=started
-```
+    handlers:
+    - name: start nginx
+      service: name=nginx state=started
+    ```
 
 1. Execute o `nginx.yml` playbook:
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. Depois de executar o playbook, verá os resultados semelhantes à saída seguinte:
 

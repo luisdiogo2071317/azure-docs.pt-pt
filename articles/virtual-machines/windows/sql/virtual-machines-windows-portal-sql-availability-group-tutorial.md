@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 1e2204dbe645aeff2587c2c3d55b5da89ac227d8
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288218"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667452"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
@@ -45,7 +45,7 @@ A tabela seguinte lista os pré-requisitos que tem de concluir antes de começar
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partilha de ficheiros de testemunho de cluster |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta do domínio |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta do domínio |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | – O SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento: **5022** ou qualquer porta disponível <br/> -Sonda de Balanceador de carga as do azure: **59999** ou qualquer porta disponível |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | – O SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento: **5022** ou qualquer porta disponível <br/> -Carga de grupo de disponibilidade balanceador sonda de estado de funcionamento de endereço IP: **59999** ou qualquer porta disponível <br/> -Cluster core sonda Balanceador de carga IP endereço estado de funcionamento: **58888** ou qualquer porta disponível |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar a funcionalidade de Clustering de ativação pós-falha | Esta funcionalidade necessitam de ambos os servidores SQL |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada servidor de SQL <br/> -Membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
 
@@ -78,7 +78,7 @@ Depois de concluir os pré-requisitos, a primeira etapa é criar um Cluster de a
    | Ponto de acesso para administrar o Cluster |Escreva um nome de cluster, por exemplo **SQLAGCluster1** na **nome do Cluster**.|
    | Confirmação |Utilize as predefinições, exceto se estiver a utilizar espaços de armazenamento. Consulte a nota após esta tabela. |
 
-### <a name="set-the-cluster-ip-address"></a>Definir o endereço IP do cluster
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Definir o servidor de Windows endereço IP do cluster de ativação pós-falha
 
 1. Na **Gestor de clusters de ativação pós-falha**, desloque para baixo até **recursos principais do Cluster** e expandir os detalhes do cluster. Deverá ver ambos os **nome** e o **endereço IP** recursos no **falhou** estado. O recurso de endereço IP não pode ser colocado online, porque o cluster é atribuído o mesmo endereço IP que a máquina em si, pelo que é um endereço duplicado.
 
@@ -343,13 +343,15 @@ Neste ponto, tem um grupo de disponibilidade com réplicas em duas instâncias d
 
 Em máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server requer um balanceador de carga. O Balanceador de carga contém os endereços IP para os serviços de escuta do grupo de disponibilidade e o Cluster de ativação pós-falha do Windows Server. Esta secção resume como criar o Balanceador de carga no portal do Azure.
 
+Um balanceador de carga do Azure pode ser um balanceador de carga Standard ou um balanceador de carga básico. Balanceador de carga standard tem mais recursos do que o Balanceador de carga básico. Para um grupo de disponibilidade, o Balanceador de carga Standard é necessário se utilizar uma zona de disponibilidade (em vez de um conjunto de disponibilidade). Para obter detalhes sobre a diferença entre os tipos de Balanceador de carga, veja [comparação de SKU do Balanceador de carga](../../../load-balancer/load-balancer-overview.md#skus).
+
 1. No portal do Azure, vá para o grupo de recursos onde os seus servidores SQL estão e clique em **+ adicionar**.
-2. Procure **Balanceador de carga**. Escolha o Balanceador de carga, publicado pela Microsoft.
+1. Procure **Balanceador de carga**. Escolha o Balanceador de carga, publicado pela Microsoft.
 
    ![AG no Gestor de clusters de ativação pós-falha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  Clique em **Criar**.
-3. Configure os parâmetros seguintes para o Balanceador de carga.
+1. Clique em **Criar**.
+1. Configure os parâmetros seguintes para o Balanceador de carga.
 
    | Definição | Campo |
    | --- | --- |
@@ -358,7 +360,7 @@ Em máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server requer
    | **Rede virtual** |Utilize o nome da rede virtual do Azure. |
    | **Sub-rede** |Utilize o nome da sub-rede que a máquina virtual está no.  |
    | **Atribuição de endereços IP** |Estático |
-   | **Endereço IP** |Utilize um endereço disponível da sub-rede. Tenha em atenção que isto é diferente do seu endereço IP do cluster |
+   | **Endereço IP** |Utilize um endereço disponível da sub-rede. Utilize este endereço de seu serviço de escuta do grupo de disponibilidade. Tenha em atenção que isto é diferente do seu endereço IP do cluster.  |
    | **Subscrição** |Utilize a mesma subscrição que a máquina virtual. |
    | **Localização** |Utilize a mesma localização que a máquina virtual. |
 
@@ -376,7 +378,9 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 
    ![Localizar o Balanceador de carga no grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Clique no balanceador de carga, clique em **conjuntos de back-end**e clique em **+ adicionar**. 
+1. Clique no balanceador de carga, clique em **conjuntos de back-end**e clique em **+ adicionar**.
+
+1. Escreva um nome para o conjunto de back-end.
 
 1. Associe o conjunto de back-end com o conjunto de disponibilidade que contém as VMs.
 
@@ -391,7 +395,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 
 1. Clique no balanceador de carga, clique em **sondas de estado de funcionamento**e clique em **+ adicionar**.
 
-1. Defina a sonda de estado de funcionamento da seguinte forma:
+1. Defina a sonda de estado de funcionamento do serviço de escuta da seguinte forma:
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
@@ -407,14 +411,14 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 
 1. Clique no balanceador de carga, clique em **regras de balanceamento de carga**e clique em **+ adicionar**.
 
-1. Defina a forma de regras de balanceamento de carga.
+1. Defina a forma de regras de balanceamento de carga de serviço de escuta.
    | Definição | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointListener |
    | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando criou o Balanceador de carga. |
    | **Protocolo** | Selecione TCP |TCP |
-   | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 1435 |
-   | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definida para direta do servidor retorno | 1435 |
+   | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 1433 |
+   | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definida para direta do servidor retorno | 1433 |
    | **Sonda** |O nome que especificou para a sonda | SQLAlwaysOnEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
@@ -423,17 +427,17 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    > [!WARNING]
    > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
 
-1. Clique em **OK** para definir a regras de balanceamento de carga.
+1. Clique em **OK** para definir a regras de balanceamento de carga do serviço de escuta.
 
-### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Adicionar o endereço IP de front-end para o WSFC
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Adicionar o endereço IP de núcleo de cluster para o Cluster de ativação pós-falha do Windows Server (WSFC)
 
 O endereço IP do WSFC também tem de ser no balanceador de carga.
 
-1. No portal, adicione uma nova configuração de IP de front-end para o WSFC. Utilize o endereço IP que configurou para o WSFC nos recursos principais do cluster. Defina o endereço IP estático como.
+1. No portal, no mesmo Balanceador de carga do Azure, clique em **configuração do IP de front-end** e clique em **+ adicionar**. Utilize o endereço IP que configurou para o WSFC nos recursos principais do cluster. Defina o endereço IP estático como.
 
-1. Clique no balanceador de carga, clique em **sondas de estado de funcionamento**e clique em **+ adicionar**.
+1. No balanceador de carga, clique em **sondas de estado de funcionamento**e clique em **+ adicionar**.
 
-1. Defina a sonda de estado de funcionamento da seguinte forma:
+1. Defina a sonda de estado de funcionamento de endereço IP do WSFC cluster core da seguinte forma:
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
@@ -447,13 +451,13 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
 
 1. Defina a regras de balanceamento de carga. Clique em **regras de balanceamento de carga**e clique em **+ adicionar**.
 
-1. Defina a forma de regras de balanceamento de carga.
+1. Defina a carga de endereço do IP do cluster principais regras de balanceamento da seguinte forma.
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | WSFCEndPointListener |
-   | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando configurou o endereço IP do WSFC. |
+   | **Nome** | Texto | WSFCEndPoint |
+   | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando configurou o endereço IP do WSFC. Isso é diferente do endereço IP do serviço de escuta |
    | **Protocolo** | Selecione TCP |TCP |
-   | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 58888 |
+   | **Porta** | Utilize a porta para o endereço IP do cluster. Esta é uma porta disponível que não é utilizada para a porta de sonda do serviço de escuta. | 58888 |
    | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definida para direta do servidor retorno | 58888 |
    | **Sonda** |O nome que especificou para a sonda | WSFCEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
@@ -486,7 +490,7 @@ No SQL Server Management Studio, defina a porta do serviço de escuta.
 
 1. Agora, deverá ver o nome do serviço de escuta que criou no Gestor de clusters de ativação pós-falha. O nome do serviço de escuta com o botão direito e clique em **propriedades**.
 
-1. Na **porta** caixa, especifique o número de porta para o serviço de escuta do grupo de disponibilidade com o $EndpointPort que utilizou anteriormente (era a predefinição de 1433), em seguida, clique em **OK**.
+1. Na **porta** caixa, especifique o número de porta para o serviço de escuta do grupo de disponibilidade. 1433 é a predefinição, em seguida, clique em **OK**.
 
 Agora tem um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure em execução no modo Resource Manager.
 

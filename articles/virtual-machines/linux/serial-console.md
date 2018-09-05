@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e74ee48f0adc0d8ba0d2ea91b5d82415601f9405
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122410"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702423"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
@@ -38,7 +38,7 @@ Para obter a documentação da consola de série para VMs do Windows, [clique aq
 * A máquina virtual tem de ter [diagnósticos de arranque](boot-diagnostics.md) habilitado - veja a captura de ecrã abaixo.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * A conta do Azure através da consola de série tem de ter [função de contribuinte](../../role-based-access-control/built-in-roles.md) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento. 
 * A máquina virtual para o qual é a consola de série acessing também tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funcionalidade de extensão de acesso da VM - veja a captura de ecrã abaixo.
 
@@ -124,14 +124,14 @@ Isso significa que o utilizador que for desligado não terminar a sessão! A cap
 A funcionalidade de consola de série pode ser desativada para VMs específicas ao desativar a definição de diagnóstico de arranque essa VM.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Cenários comuns para aceder à consola de série 
-Cenário          | Ações na consola de série                |  Aplicabilidade de SO 
-:------------------|:-----------------------------------------|:------------------
-Ficheiro FSTAB quebrado | `Enter` chave para continuar e corrigir o ficheiro fstab com um editor de texto. Terá de estar no modo de utilizador único para isso. Ver [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar. | Linux 
-Regras de firewall incorreta | Aceder à consola de série e corrigir iptables ou regras de firewall do Windows. | Linux/Windows 
-Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros. | Linux/Windows 
-Problemas de configuração de SSH/RDP | Aceder à consola de série e alterar as definições. | Linux/Windows 
-Bloqueio de rede para baixo do sistema| Consola de série de acesso através do portal para gerir o sistema. | Linux/Windows 
-Interagir com o carregador de inicialização | Acesso GRUB/BCD através da consola de série. Aceda a [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar. | Linux/Windows 
+Cenário          | Ações na consola de série                
+:------------------|:-----------------------------------------
+Ficheiro FSTAB quebrado | `Enter` chave para continuar e corrigir o ficheiro fstab com um editor de texto. Terá de estar no modo de utilizador único para isso. Ver [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar.
+Regras de firewall incorreta | Aceder à consola de série e corrigir iptables. 
+Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros. 
+Problemas de configuração de SSH/RDP | Aceder à consola de série e alterar as definições. 
+Bloqueio de rede para baixo do sistema| Consola de série de acesso através do portal para gerir o sistema. 
+Interagir com o carregador de inicialização | Acesso GRUB através da consola de série. Aceda a [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar. 
 
 ## <a name="access-serial-console-for-linux"></a>Consola de série de acesso para Linux
 Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e gravar mensagens de consola para a porta serial. A maioria dos [distribuições do Linux apoiadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Clicar simplesmente a secção de consola de série no portal do Azure irá fornecer acesso à consola. 
@@ -145,6 +145,15 @@ CoreOS      | As imagens de CoreOS disponíveis no Azure têm acesso à consola 
 SUSE        | Mais recente SLES as imagens disponíveis no Azure têm acesso à consola ativado por predefinição. Se estiver a utilizar as versões mais antigas (10 ou abaixo) de SLES no Azure, siga os [artigo BDC](https://www.novell.com/support/kb/doc.php?id=3456486) para ativar a consola de série. 
 Oracle Linux        | Imagens do Oracle Linux disponíveis no Azure tem acesso à consola ativado por predefinição.
 Imagens do Linux personalizadas     | Para ativar a consola de série para a sua imagem de VM do Linux personalizada, permitem o acesso de consola no /etc/inittab para executar um terminal em ttyS0. Eis um exemplo para adicionar isso no arquivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obter mais informações sobre como criar adequadamente imagens personalizadas, consulte [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd).
+
+## <a name="accessibility"></a>Acessibilidade
+A acessibilidade é um foco principal para a consola de série do Azure. Para esse fim, vamos certificar-se de que a consola de série está acessível para aqueles com visual e auditivas, bem como as pessoas que podem não ser capazes de usar um mouse.
+
+### <a name="keyboard-navigation"></a>Navegação do teclado
+Utilize o `tab` chave no teclado para navegar pela interface de consola de série no portal do Azure. Sua localização será realçada na tela. Para deixar o foco do painel de consola de série, prima `Ctrl + F6` no teclado.
+
+### <a name="use-serial-console-with-a-screen-reader"></a>Utilizar a consola de série com um leitor de ecrã
+Consola de série é fornecido com suporte de leitor de ecrã incorporado. Navegação com um leitor de ecrã ativado, permitirá que o texto alternativo para o botão selecionado atualmente a ser lido em voz alta pelo leitor de ecrã.
 
 ## <a name="errors"></a>Erros
 A maioria dos erros são de natureza transitórios e tentar novamente, muitas vezes, a ligação da consola de série aborda estas. A tabela abaixo mostra uma lista de erros e mitigações

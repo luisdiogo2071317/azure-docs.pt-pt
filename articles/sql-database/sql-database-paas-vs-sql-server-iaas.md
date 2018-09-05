@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 0b1eda89d2baaa54b17d8a7c73a2e9c987f0f8eb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413659"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665990"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de Dados SQL (PaaS) do Azure ou SQL Server em VMs (IaaS) do Azure
 
@@ -28,9 +28,9 @@ No Azure, pode ter suas cargas de trabalho do SQL Server em execução numa infr
       > [!NOTE]
       > Uma base de dados de SQL do Azure que contém as bases de dados individuais e em pool oferece a maioria dos recursos no âmbito da base de dados do SQL Server.
 
-      A ilustração seguinte mostra essas opções de implementação:
+      A ilustração seguinte mostra estas opções de implementação:
 
-      ![Opções de implementação](./media/sql-database-technical-overview/deployment-options.png) 
+      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
   - Pode implementar um [instâncias do Azure SQL da base de dados gerida (pré-visualização)](sql-database-managed-instance.md). 
 
       > [!NOTE]
@@ -133,7 +133,7 @@ Para **base de dados SQL**, a Microsoft fornece um SLA de 99,99% de disponibilid
 Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA de 99,95% de disponibilidade, que abrange apenas a Máquina Virtual. Este SLA não abrange os processos (como o SQL Server) em execução na VM e requer que aloje, pelo menos, duas instâncias de VM num conjunto de disponibilidade. Para obter as informações mais recentes, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para uma base de dados elevada disponibilidade (HA) nas VMs, deve configurar uma das opções de elevada disponibilidade suportadas no SQL Server, tal como [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Utilizar uma opção de elevada disponibilidade suportadas não fornece um SLA adicional, mas permite-lhe alcançar uma disponibilidade de base de dados > 99,99%.
 
 ### <a name="market"></a>Tempo para mover para o Azure
-**Servidores lógicos da base de dados SQL, os conjuntos elásticos e bases de dados individuais** é a solução certa para aplicações concebidas na cloud quando a produtividade do desenvolvedor e o rápido tempo de comercialização para soluções de noew são essenciais. Com funcionalidade semelhante a DBA programática, é perfeita para programadores e arquitetos de nuvem, uma vez que reduz a necessidade de gerir a base de dados e o sistema operativo subjacentes. 
+**Servidores lógicos da base de dados SQL, os conjuntos elásticos e bases de dados individuais** é a solução certa para aplicações concebidas na cloud quando a produtividade do desenvolvedor e o rápido tempo de comercialização de novas soluções são essenciais. Com funcionalidade semelhante a DBA programática, é perfeita para programadores e arquitetos de nuvem, uma vez que reduz a necessidade de gerir a base de dados e o sistema operativo subjacentes. 
 
 **SQL Database Managed Instance** simplifica bastante a migração das aplicações existentes para o Azure SQL Database, permitindo-lhe aproximar as aplicações para o mercado no Azure rapidamente de uma base de dados migrada.
 

@@ -1,125 +1,125 @@
 ---
-title: Recuperação de Georreplicação-desastre do Service Bus do Azure | Microsoft Docs
-description: Como utilizar regiões geográficas a ativação pós-falha e efetuar a recuperação de desastre no Service Bus do Azure
+title: A recuperação após desastre do Service Bus Geo do Azure | Documentos da Microsoft
+description: Como usar regiões geográficas para ativação pós-falha e efetuar a recuperação após desastre no Azure Service Bus
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 42960222efb1ade1b48a1d0db56ae3fb0349d174
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301524"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695396"
 ---
-# <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de Georreplicação-desastre do Service Bus do Azure
+# <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação após desastre do Service Bus Geo do Azure
 
-Quando todo regiões do Azure ou centros de dados (se não [zonas de disponibilidade](../availability-zones/az-overview.md) são utilizadas) o tempo de inatividade, é fundamental para processamento de dados continuar a funcionar numa região diferente ou centro de dados. Como tal, *recuperação de desastres Georreplicação* e *georreplicação* são funcionalidades importantes para qualquer empresa. Service Bus do Azure suporta a recuperação de desastres georreplicação e a georreplicação, ao nível do espaço de nomes. 
+Quando todo regiões do Azure ou de centros de dados (se não [zonas de disponibilidade](../availability-zones/az-overview.md) servem) sofrer períodos de inatividade, é fundamental para processamento de dados continuar a funcionar numa região diferente ou datacenter. Como tal, *recuperação após desastre geográfico* e *georreplicação* são recursos importantes para todas as empresas. O Azure Service Bus suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. 
 
-A funcionalidade de recuperação de desastre Georreplicação está globalmente disponível para o SKU de Premium do Service Bus. 
+O recurso de recuperação após desastre geográfico é globalmente disponível para o SKU de Premium do Service Bus. 
 
-## <a name="outages-and-disasters"></a>Falhas e desastres inesperados
+## <a name="outages-and-disasters"></a>Interrupções e desastres
 
-É importante ter em conta a distinção entre "falhas" e "desastres inesperados." Um *indisponibilidade* é indisponibilidade temporária do Service Bus do Azure e pode afetar alguns componentes do serviço, tal como um arquivo de mensagens ou mesmo o todo o datacenter. No entanto, depois de corrigido o problema, Service Bus fica disponível novamente. Normalmente, uma falha não irá causar a perda de mensagens ou outros dados. Um exemplo de tal indisponibilidade poderá ser uma falha de energia no Centro de dados. Algumas falhas são apenas perdas de ligação curto devido a problemas de rede ou transitório. 
+É importante observar a distinção entre "falhas" e "desastres." Uma *indisponibilidade* é a indisponibilidade temporária do Azure Service Bus e pode afetar alguns componentes do serviço, como um arquivo de mensagens ou até mesmo todo o datacenter. No entanto, depois do problema é resolvido, do Service Bus ficar novamente disponível. Normalmente, uma indisponibilidade não irá causar a perda de mensagens ou outros dados. Um exemplo de um período de indisponibilidade, pode ser uma falha de energia no Centro de dados. Algumas falhas são apenas as perdas de ligação abreviada devido a problemas de rede ou transitório. 
 
-A *desastre* está definida como a perda permanente ou duração mais longa de um cluster, região do Azure ou centro de dados do Service Bus. A região ou datacenter pode poderão não ficar disponível novamente ou pode estar inativo para horas ou dias. Exemplos de tais perante desastres são fire, sobrecarregar ou terramoto. Um desastre que torna-se permanentes poderá causar a perda de algumas mensagens, eventos ou outros dados. No entanto, na maioria dos casos não deverá existir nenhuma perda de dados e as mensagens podem ser recuperadas assim que o Centro de dados é uma cópia de segurança.
+R *desastre* é definido como a perda permanente ou longo prazo de um cluster do Service Bus, a região do Azure ou o Centro de dados. A região ou o Centro de dados poderá ou pode não se tornar disponível novamente ou pode estar inativa para horas ou dias. Exemplos de tais desastres são fire, sobrecarregar ou sismo. Um desastre que se torna permanente poderão causar a perda de algumas mensagens, eventos ou outros dados. No entanto, na maioria dos casos, não se deve haver sem perda de dados e as mensagens podem ser recuperadas depois do Centro de dados de cópia de segurança.
 
-A funcionalidade de recuperação de desastre Georreplicação do Service Bus do Azure é uma solução de recuperação após desastre. Os conceitos e fluxo de trabalho descrito neste artigo aplicam-se a cenários de desastre e não a falhas transitórias ou temporárias. Para ver um debate detalhado da recuperação após desastre no Microsoft Azure, consulte [neste artigo](/azure/architecture/resiliency/disaster-recovery-azure-applications).   
+O recurso de recuperação após desastre do Azure Service Bus é uma solução de recuperação após desastre. Os conceitos e o fluxo de trabalho descrito neste artigo aplicam-se para cenários de desastre e não para as falhas transitórias ou temporárias. Para obter uma discussão detalhada da recuperação de desastres no Microsoft Azure, consulte [este artigo](/azure/architecture/resiliency/disaster-recovery-azure-applications).   
 
 ## <a name="basic-concepts-and-terms"></a>Conceitos e termos básicos
 
-A funcionalidade de recuperação após desastre implementa a recuperação após desastre de metadados e baseia-se no espaço de nomes de recuperação de desastre primária e secundária. Tenha em atenção que a funcionalidade de recuperação de desastre Georreplicação está disponível para o [Premium SKU](service-bus-premium-messaging.md) apenas. Não é necessário efetuar quaisquer alterações de cadeia de ligação, como a ligação é efetuada através de um alias.
+O recurso de recuperação de desastres implementa a recuperação após desastre de metadados e baseia-se nos espaços de nomes de recuperação de desastres primário e secundário. Tenha em atenção que o recurso de recuperação após desastre geográfico está disponível para o [Premium SKU](service-bus-premium-messaging.md) apenas. Não é necessário efetuar quaisquer alterações de cadeia de ligação, como a conexão é feita por meio de um alias.
 
 Os termos seguintes são utilizados neste artigo:
 
--  *Alias*: O nome de uma configuração de recuperação de desastres que configurou. O alias fornece uma cadeia de ligação da totalmente domínio nome qualificado (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
+-  *Alias*: O nome para uma configuração de recuperação após desastre que configurou. O alias fornece uma única cadeia de ligação de domínio completamente qualificado nome (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
 
--  *Espaço de nomes do principal/secundário*: os espaços de nomes que corresponde ao alias. O espaço de nomes primário é "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não receber mensagens. Os metadados entre ambos são sincronizados, pelo que ambos perfeitamente podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
+-  *Espaço de nomes de primária/secundária*: os espaços de nomes que correspondem para o alias. O espaço de nomes principal está "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não a receber mensagens. Os metadados entre ambos estão em sincronização, para que ambos forma totalmente integrada podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
 
--  *Metadados*: entidades, tais como filas, tópicos e subscrições; e as respetivas propriedades do serviço que estão associadas com o espaço de nomes. Tenha em atenção que apenas as entidades e as respetivas definições são replicadas automaticamente. As mensagens não são replicadas. 
+-  *Metadados*: entidades como filas, tópicos e subscrições; e suas propriedades do serviço que estão associadas com o espaço de nomes. Tenha em atenção que apenas as entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas. 
 
--  *Ativação pós-falha*: O processo de ativação o espaço de nomes secundário.
+-  *Ativação pós-falha*: O processo de ativação do espaço de nomes secundário.
 
-## <a name="setup-and-failover-flow"></a>Fluxo de configuração e de ativação pós-falha
+## <a name="setup-and-failover-flow"></a>Configuração e ativação pós-falha do fluxo
 
-A secção seguinte é uma descrição geral do processo de ativação pós-falha e explica como configurar a ativação pós-falha inicial. 
+A seção a seguir uma visão geral do processo de ativação pós-falha e explica como configurar a ativação pós-falha inicial. 
 
 ![1][]
 
 ### <a name="setup"></a>Configurar
 
-É o primeiro cria ou utiliza um espaço de nomes de principal existente e um novo espaço de nomes secundário e emparelhe os dois. Este emparelhamento dá-lhe um alias que pode utilizar para estabelecer a ligação. Uma vez que utilizam um alias, não dispõe de alterar cadeias de ligação. Apenas novos espaços de nomes podem ser adicionados para o emparelhamento de ativação pós-falha. Por fim, deve adicionar alguma monitorização para detetar se uma ativação pós-falha é necessária. Na maioria dos casos, o serviço é uma parte de um ecossistema de grandes dimensões, assim as ativações pós-falha automáticas são raramente possíveis, como muito frequentemente as ativações pós-falha tem de ser efetuadas em sincronização com a infraestrutura ou subsistema restantes.
+Primeiro cria ou utiliza um espaço de nomes de principal existente e um novo espaço de nomes secundário, em seguida, emparelhe os dois. Esse emparelhamento dá-lhe um alias que pode utilizar para ligar. Uma vez que utilizar um alias, não é necessário que alterar as cadeias de ligação. Apenas novos namespaces podem ser adicionados a seu emparelhamento de ativação pós-falha. Por fim, deve adicionar alguma monitorização para detetar se uma ativação pós-falha é necessária. Na maioria dos casos, o serviço é uma parte de um vasto ecossistema, portanto, os failovers automáticos são raramente possíveis, como, com muita frequência as ativações pós-falha devem ser executadas em sincronia com o subsistema de restantes ou a infraestrutura.
 
 ### <a name="example"></a>Exemplo
 
-Um exemplo deste cenário, considere uma solução de ponto de venda (POS) que emite mensagens ou eventos. Barramento de serviço transmite esses eventos para algumas ou um mapeamento da reformatação solução, o que, em seguida, encaminha dados mapeados para outro sistema para processamento adicional. Nesse momento, todos estes sistemas poderão ser alojados na mesma região do Azure. A decisão sobre quando e que parte para efetuar a ativação pós-falha depende o fluxo de dados na sua infraestrutura. 
+Um exemplo deste cenário, considere uma solução de ponto de venda (POS) que emite mensagens ou eventos. Do Service Bus passa esses eventos para algum mapeamento ou reformatar a solução, que, em seguida, encaminha dados mapeados para outro sistema para processamento adicional. Nessa altura, todos esses sistemas podem ser hospedados na mesma região do Azure. A decisão sobre quando e quais parte para efetuar a ativação pós-falha depende do fluxo de dados na sua infraestrutura. 
 
-Pode automatizar a ativação pós-falha com a monitorização de sistemas ou com soluções de monitorização personalizadas. No entanto, essa automatização demora planeamento adicional e de trabalho, o que está fora do âmbito deste artigo.
+Pode automatizar a ativação pós-falha com sistemas de monitorização ou com soluções de monitorização personalizadas. No entanto, essa automatização demora planejamento adicional e de trabalho, o que está fora do escopo deste artigo.
 
 ### <a name="failover-flow"></a>Fluxo de ativação pós-falha
 
-Se iniciar a ativação pós-falha, os dois passos são necessários:
+Se iniciar a ativação pós-falha, as duas etapas são necessárias:
 
-1. Se ocorrer a falha de outra, pretende conseguir efetuar a ativação pós-falha novamente. Por conseguinte, configurar noutro espaço de nomes passivo e atualize o emparelhamento. 
+1. Se ocorrer outro tipo, poderá fazer a ativação pós-falha novamente. Por conseguinte, configurar outro espaço de nomes passivo e atualize o emparelhamento. 
 
-2. Solicitar mensagens do espaço de nomes primário anteriores quando estiver disponível novamente. Depois disso, utilizar esse espaço de nomes para as mensagens regular fora da sua configuração de recuperação georreplicação ou eliminar o espaço de nomes primário antigo.
+2. Extraem as mensagens de espaço de nomes primário primeiro quando estiver disponível novamente. Depois disso, utilizar esse espaço de nomes para mensagens regular fora da sua configuração de recuperação georredundante ou eliminar o espaço de nomes principal antigo.
 
 > [!NOTE]
-> É suportada apenas falhar reencaminhar semântica. Neste cenário, a ativação pós-falha e, em seguida, volte ser emparelhado com um novo espaço de nomes. Não é suportada a voltar a falhar; Por exemplo, num cluster de SQL. 
+> É suportada apenas semântica encaminhamento de ativação. Neste cenário, a ativação pós-falha e, em seguida, novamente, emparelhe com um novo espaço de nomes. Não é suportada a reativação pós-falha; Por exemplo, num cluster de SQL. 
 
 ![2][]
 
 ## <a name="management"></a>Gestão
 
-Se tiver efetuado um erro; Por exemplo, emparelhado as regiões incorretas durante a configuração inicial, pode interromper o emparelhamento de dois espaços de nomes em qualquer altura. Se pretender utilizar os espaços de nomes emparelhados como espaços de nomes normais, elimine o alias.
+Se tiver efetuado um erro; Por exemplo, emparelhado as regiões de errado durante a configuração inicial, pode quebrar o emparelhamento dos dois espaços de nomes em qualquer altura. Se pretender utilizar espaços de nomes emparelhados como espaços de nomes normais, elimine o alias.
 
 ## <a name="use-existing-namespace-as-alias"></a>Utilizar o espaço de nomes existente como alias
 
-Se tiver um cenário em que não é possível alterar as ligações de produtores e consumidores, pode reutilizar o nome do espaço de nomes como o nome de alias. Consulte o [exemplo de código no GitHub aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
+Se tiver um cenário em que não é possível alterar as ligações de produtores e consumidores, é possível reutilizar o seu espaço de nomes como o nome de alias. Consulte a [exemplo de código no GitHub aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
 ## <a name="samples"></a>Amostras
 
-O [exemplos em GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e inicie uma ativação pós-falha. Estes exemplos demonstram os seguintes conceitos:
+O [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e iniciar uma ativação pós-falha. Estes exemplos demonstram os seguintes conceitos:
 
-- Um exemplo de .NET e as definições que são necessárias no Azure Active Directory para utilizar o Azure Resource Manager com o Service Bus, configurar e ativar a recuperação de desastre Georreplicação.
+- Um exemplo de .NET e as definições que são necessárias no Azure Active Directory para utilizar o Azure Resource Manager com o Service Bus, configurar e ativar a recuperação após desastre geográfico.
 - Passos necessários para executar o código de exemplo.
 - Como utilizar um espaço de nomes existente como alias.
-- Passos para ativar a recuperação de desastre Georreplicação através do PowerShell ou o CLI em alternativa.
-- [Enviar e receber](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) do espaço de nomes primário ou secundário atual utilizando o alias.
+- Passos para ativar a recuperação após desastre através do PowerShell ou CLI em alternativa.
+- [Enviar e receber](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) do namespace primário ou secundário atual usando o alias.
 
 ## <a name="considerations"></a>Considerações
 
-Tenha em atenção as seguintes considerações a lembrar com esta versão:
+Tenha em atenção as seguintes considerações a ter em conta com esta versão:
 
-1. No seu planeamento de ativação pós-falha, também deve considerar o fator de tempo. Por exemplo, se perder conetividade durante um período superior a 15 a 20 minutos, poderá decidir iniciar a ativação pós-falha. 
+1. No seu planeamento de ativação pós-falha, também deve considerar o fator de tempo. Por exemplo, se perder a conectividade durante mais de 15 a 20 minutos, pode decidir iniciar a ativação pós-falha. 
  
-2. O facto de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, mensagens agendadas e de deteção de duplicados podem não funcionar. Novas sessões, novas mensagens agendadas e novo duplicados irão funcionar. 
+2. O fato de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, deteção de duplicados e de mensagens agendadas poderão não funcionar. Novas sessões, novas mensagens agendadas e duplicados novo irão funcionar. 
 
-3. Falha ao longo de uma infraestrutura distribuída complexa deve ser [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) , pelo menos, uma vez. 
+3. Realizar a ativação pós-falha de uma infraestrutura distribuída complexa deve estar [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) , pelo menos, uma vez. 
 
-4. Sincronizar entidades pode demorar algum tempo, aproximadamente, 50-100 entidades por minuto. Regras e as subscrições também contam como entidades. 
+4. Sincronização de entidades pode demorar algum tempo, aproximadamente 50 a 100 entidades por minuto. As assinaturas e regras também contam como entidades. 
 
-## <a name="availability-zones-preview"></a>Zonas de disponibilidade (pré-visualização)
+## <a name="availability-zones-preview"></a>As zonas de disponibilidade (pré-visualização)
 
-O SKU de Premium do Service Bus também suporta [disponibilidade zonas](../availability-zones/az-overview.md), que fornecem localizações isoladas de falhas dentro de uma região do Azure. 
+O SKU do Service Bus Premium também suporta [zonas de disponibilidade](../availability-zones/az-overview.md), fornecer localizações isoladas de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **EUA Leste 2**, e **França Central** regiões.
+> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **E.U.A. Leste 2**, e **Centro de França** regiões.
 
-Pode ativar zonas de disponibilidade no novo espaço de nomes só, utilizando o portal do Azure. Barramento de serviço não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona depois de ativar a no seu espaço de nomes.
+Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. Barramento de serviço não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
 
 ![3][]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte a recuperação de desastre Georreplicação [referência da REST API aqui](/rest/api/servicebus/disasterrecoveryconfigs).
-- Executar a recuperação de desastre Georreplicação [em GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
-- Consulte a recuperação de desastre Georreplicação [amostra que envia mensagens para um alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
+- Consulte a recuperação após desastre geográfico [referência da REST API aqui](/rest/api/servicebus/disasterrecoveryconfigs).
+- Executar a recuperação após desastre geográfico [exemplo no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
+- Consulte a recuperação após desastre geográfico [exemplo que envia mensagens para um alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 
-Para mais informações sobre mensagens do Service Bus, consulte os artigos seguintes:
+Para saber mais sobre mensagens do Service Bus, veja os artigos seguintes:
 
 * [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)

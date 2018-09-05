@@ -1,6 +1,6 @@
 ---
-title: Contagem de mensagens do Service Bus do Azure | Microsoft Docs
-description: Obter o número de mensagens do Service Bus do Azure.
+title: Contagem de mensagens do Service Bus do Azure | Documentos da Microsoft
+description: Obter a contagem de mensagens do Service bus do Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: e6524fe056ee2a1d81c9cccf257008b2369352b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: f20893de235ac02fc5a94b54518af2405e4549ff
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197736"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696963"
 ---
-# <a name="message-counters"></a>Contadores de mensagem
+# <a name="message-counters"></a>Contadores de mensagens
 
-Pode obter a contagem de mensagens contidas nas filas e subscrições através da utilização do Azure Resource Manager e o Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs no .NET Framework SDK.
+Pode obter a contagem de mensagens contidas nas filas e subscrições através da utilização do Azure Resource Manager e o Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs no SDK do .NET Framework.
 
 Com o PowerShell, pode obter a contagem da seguinte forma:
 
@@ -30,21 +30,21 @@ Com o PowerShell, pode obter a contagem da seguinte forma:
 (Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
 ```
 
-## <a name="message-count-details"></a>Detalhes de contagem de mensagens
+## <a name="message-count-details"></a>Detalhes da contagem de mensagem
 
-Saber a contagem de mensagens de Active Directory é útil para determinar se uma fila cria um registo de segurança que requer mais recursos para processar a que atualmente implementado. Os seguintes detalhes do contador estão disponíveis no [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) classe:
+É útil para determinar se uma fila cria uma lista de pendências que requer mais recursos para processar do que o que atualmente tiver sido implementado saber a contagem de mensagens do Active Directory. Os seguintes detalhes de contador estão disponíveis no [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) classe:
 
--   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): mensagens na fila ou a subscrição que se encontrem no ativo estado e pronto para entrega.
--   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): mensagens na fila entregues.
--   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): mensagens no Estado agendada.
--   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): mensagens falha de transferência para outra fila ou um tópico e terem sido movidas para a fila de entregues de transferência.
--   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): mensagens pendentes transferência para outra fila ou tópico.
+-   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): mensagens na fila ou subscrição, que são ativo estaduais e pronto para entrega.
+-   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): mensagens na fila de mensagens não entregues.
+-   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): mensagens no Estado agendado.
+-   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): mensagens de falha de transferência para outra fila ou tópico e foram movidas para a fila de mensagens não entregues de transferência.
+-   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): mensagens pendentes transferência em outra fila ou tópico.
 
-Se uma aplicação pretende dimensionar recursos com base no comprimento da fila, deve fazer com uma medida muito ritmo. A aquisição de contadores de mensagem é uma operação dispendiosa dentro do Mediador de mensagens e, em execução com frequência diretamente e negativamente tem impacto no desempenho de entidade.
+Se um aplicativo quiser Dimensionar recursos com base no comprimento da fila, ele deve fazer isso com uma medida muito ritmo. A aquisição dos contadores de mensagem é uma operação dispendiosa dentro do Mediador de mensagens e executá-la com frequência diretamente e negativa afeta o desempenho de entidade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
+Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
 
 * [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)

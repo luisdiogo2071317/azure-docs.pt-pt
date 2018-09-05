@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866989"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666293"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referência de v7 de pesquisa de resposta do projeto
 
@@ -110,9 +110,9 @@ Define o erro ocorrido.
 |<a name="error-code" />Código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [códigos de erro](#error-codes).|Cadeia|  
 |<a name="error-message" />mensagem|Uma descrição do erro.|Cadeia|  
 |<a name="error-moredetails" />moreDetails|Uma descrição que fornece informações adicionais sobre o erro.|Cadeia|  
-|<a name="error-parameter" />parâmetro|O parâmetro de consulta no pedido que causou o erro.|Cadeia|  
-|<a name="error-subcode" />subCode|O código de erro que identifica o erro. Por exemplo, se `code` é InvalidRequest, `subCode` pode ser ParameterInvalid ou ParameterInvalidValue. |Cadeia|  
-|<a name="error-value" />valor|Valor do parâmetro de consulta que não era válido.|Cadeia|  
+|<a name="error-parameter" />Parâmetro|O parâmetro de consulta no pedido que causou o erro.|Cadeia|  
+|<a name="error-subcode" />SubCode|O código de erro que identifica o erro. Por exemplo, se `code` é InvalidRequest, `subCode` pode ser ParameterInvalid ou ParameterInvalidValue. |Cadeia|  
+|<a name="error-value" />Valor|Valor do parâmetro de consulta que não era válido.|Cadeia|  
   
 
 ### <a name="errorresponse"></a>Byl vrácen Prvek  
@@ -121,7 +121,7 @@ O objeto de nível superior que a resposta inclui quando o pedido falhar.
 |Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |tipo|Dica de tipo.|Cadeia|  
-|<a name="errors" />erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Erro](#error)]|  
+|<a name="errors" />Erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Erro](#error)|  
 
   
   

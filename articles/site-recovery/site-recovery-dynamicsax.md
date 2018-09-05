@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919568"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669447"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar uma aplicação de Dynamics AX com várias camadas com o Azure Site Recovery
 
@@ -99,7 +99,7 @@ Pode selecionar a VM nos itens replicados para configurar as definições de red
 
 * Se estiver a utilizar um IP estático, especifique o IP que pretende que a VM para tirar o **IP de destino** caixa de texto.
 
-    ![Definições de rede ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Definições de rede ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Criar um plano de recuperação

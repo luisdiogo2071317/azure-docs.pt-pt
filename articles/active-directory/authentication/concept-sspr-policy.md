@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 404be287d2e6ac693e0942c84f630f4e067127f3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162053"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666757"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -23,7 +23,7 @@ Este artigo descreve as políticas de palavra-passe e os requisitos de complexid
 
 ## <a name="administrator-reset-policy-differences"></a>Diferenças de política de reposição de administrador
 
-**Microsoft impõe uma *dois-gate* política para qualquer função de administrador do Azure de reposição de palavra-passe** este polciy pode ser diferente da que definiu para os seus utilizadores e não pode ser alterado. Sempre deve testar a funcionalidade de reposição de palavra-passe como um utilizador sem quaisquer funções de administrador do Azure atribuídas.
+**Microsoft impõe uma *dois-gate* política para qualquer função de administrador do Azure de reposição de palavra-passe** esta política pode ser diferente da que definiu para os seus utilizadores e não pode ser alterado. Sempre deve testar a funcionalidade de reposição de palavra-passe como um utilizador sem quaisquer funções de administrador do Azure atribuídas.
 
 Com uma política de porta de dois **os administradores não têm a capacidade de utilizar perguntas de segurança**.
 

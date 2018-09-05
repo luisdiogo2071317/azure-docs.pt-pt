@@ -1,6 +1,6 @@
 ---
-title: Depurar consultas do Azure Stream Analytics através da utilização de SELECT INTO
-description: Este artigo descreve como exemplo consulta intermédio de dados na tarefa de Azure Stream Analytics, utilizando instruções SELECT INTO na sintaxe de consulta.
+title: Depurar consultas do Azure Stream Analytics com o SELECT INTO
+description: Este artigo descreve como consulta médio de dados na tarefa Azure Stream Analytics de exemplo com instruções SELECT INTO na sintaxe de consulta.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,38 +9,38 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b056d4c29464451d3dc0ef62437f934535820489
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907960"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697997"
 ---
-# <a name="debug-queries-by-using-select-into-statements"></a>Consultas de depuração, utilizando instruções SELECT INTO
+# <a name="debug-queries-by-using-select-into-statements"></a>Depurar consultas através de instruções SELECT INTO
 
-Processamento de dados em tempo real, saber aspeto os dados durante a consulta pode ser útil. Porque os passos de uma tarefa do Azure Stream Analytics ou entradas podem ser lido várias vezes, pode escrever adicionais em instruções SELECT INTO. Se o fizer, produz dados intermédios para o armazenamento e permite-lhe inspecionar a correção de dados, tal como *veja variáveis* fazer quando a depuração um programa.
+No processamento de dados em tempo real, a saber o que aspeto dos dados no meio de consulta pode ser útil. Como entradas ou passos de uma tarefa do Azure Stream Analytics podem ser lido várias vezes, pode escrever instruções SELECT INTO extras. Se o fizer, produz dados intermediários para o armazenamento e permite-lhe inspecionar a correção dos dados, assim como acontece *assista variáveis* quando depura um programa.
 
-## <a name="use-select-into-to-check-the-data-stream"></a>Utilize SELECT INTO para verificar o fluxo de dados
+## <a name="use-select-into-to-check-the-data-stream"></a>Utilizar SELECT INTO para verificar o fluxo de dados
 
-A seguinte consulta de exemplo, uma tarefa do Azure Stream Analytics tem um fluxo de entrada, duas entradas de dados de referência e um resultado ao Table Storage do Azure. A consulta associa a dados do hub de eventos e blobs de referência dois para obter as informações de nome e categoria:
+A seguinte consulta de exemplo num trabalho do Azure Stream Analytics tem um fluxo de entrada, duas entradas de dados de referência e uma saída para o armazenamento de tabelas do Azure. A consulta associa os dados do hub de eventos e blobs de referência de dois para obter as informações de nome e categoria:
 
 ![Exemplo de consulta SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-Tenha em atenção que a tarefa está em execução, mas não há eventos estão a ser produzidos na saída. No **monitorização** mosaico, apresentado aqui, pode ver que a entrada é produzir dados, mas não sabe qual passo do **associar** causado todos os eventos ser removido.
+Tenha em atenção que a tarefa está em execução, mas não existem eventos estão a ser produzido na saída. Na **monitorização** mosaico, mostrado aqui, pode ver que a entrada produz dados, mas não sabe qual etapa da **associar** causado todos os eventos a ser removido.
 
 ![O mosaico de monitorização](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
-Nesta situação, pode adicionar alguns adicionais em instruções SELECT INTO "Iniciar" os resultados de associação intermédios e os dados que é lida a entrada.
+Nesta situação, pode adicionar alguns Extras em instruções SELECT INTO "iniciar sessão" os resultados intermediários de associação e os dados que são lidos a partir de entrada.
 
-Neste exemplo, adicionámos dois novas "temporárias saídas." Podem ser qualquer sink que pretender. Aqui, utilizamos Storage do Azure como um exemplo:
+Neste exemplo, adicionámos duas novas "temporárias saídas." Eles podem ser qualquer coletor que desejar. Aqui usamos armazenamento do Azure como um exemplo:
 
-![Adicionar adicionais em instruções SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
+![Adicionar Extras em instruções SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
-Em seguida, possam reescrever a consulta seguinte:
+Em seguida, pode reescrever a consulta como esta:
 
-![Consulta de conversão SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
+![Reescrito consulta SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
 
-Agora iniciar novamente a tarefa e permitir que o mesmo executar alguns minutos. Em seguida, consultar temp1 e temp2 com o Visual Studio Cloud Explorer para produzir as tabelas seguintes:
+Agora, iniciar a tarefa novamente e deixar executar durante alguns minutos. Em seguida, consultar temp1 e temp2 com o Visual Studio Cloud Explorer para produzir as tabelas seguintes:
 
 **tabela de temp1**
 ![SELECT INTO temp1 tabela](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
@@ -48,28 +48,28 @@ Agora iniciar novamente a tarefa e permitir que o mesmo executar alguns minutos.
 **tabela de temp2**
 ![SELECT INTO temp2 tabela](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
-Como pode ver, temp1 e temp2 têm dados e a coluna de nome é preenchida corretamente no temp2. No entanto, porque não existe ainda não foram encontrados dados no resultado, algo está errado:
+Como pode ver, temp1 e temp2 têm dados e a coluna de nome é preenchida corretamente no temp2. No entanto, uma vez que ainda não houver dados na saída, algo está errado:
 
 ![SELECT INTO output1 tabela sem dados](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
 
-Através da amostragem os dados, pode ter praticamente determinadas que o problema está na associação a um segundo. Pode transferir os dados de referência de blob e veja:
+Pelos dados de amostragem, pode ser quase certo que o problema é com a associação de segundo. Pode transferir os dados de referência de blob e dar uma olhada:
 
-![SELECT INTO tabela de referência](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
+![Tabela de ref SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
 
-Como pode ver, o formato do GUID nestes dados de referência é diferente do formato de [coluna no temp2 de]. É por esse motivo os dados não chegam a output1 conforme esperado.
+Como pode ver, o formato de GUID nestes dados de referência é diferente do formato da [coluna na temp2 from]. É por isso que os dados não chegam output1 conforme esperado.
 
-Pode corrigir o formato dos dados, carregá-lo a referência de blob e tente novamente:
+Pode corrigir o formato de dados, carregue-o para o blob de referência e tente novamente:
 
 ![SELECT INTO tabela temporária](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
 
-Neste momento, os dados de saída são formatados e preenchidos conforme esperado.
+Desta vez, os dados no resultado são formatados e preenchidos conforme esperado.
 
-![SELECT INTO final tabela](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
+![SELECT INTO tabela final](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

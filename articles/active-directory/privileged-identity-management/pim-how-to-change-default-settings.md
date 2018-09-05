@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338912"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665439"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurar definições de função de diretório do Azure AD no PIM
 
@@ -82,7 +82,7 @@ Utilize o **multi-factor Authentication** comutador para especificar se pretende
   * Administrador do Skype para Empresas  
   * Administrador de conta de utilizador  
 
-Para obter mais informações sobre como utilizar o MFA com o PIM, consulte [exigir autenticação multifator para funções de diretório do Azure AD no PIM](pim-how-to-require-mfa.md).
+Para obter mais informações, consulte [multi-factor authentication (MFA) e o PIM](pim-how-to-require-mfa.md).
 
 ## <a name="require-approval"></a>Exigir aprovação
 
@@ -110,5 +110,4 @@ Se quiser exigir aprovação para ativar uma função, siga estes passos.
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
-- [Exigir autenticação multifator para funções de diretório do Azure AD no PIM](pim-how-to-require-mfa.md)
 - [Configurar alertas de segurança para funções de diretório do Azure AD no PIM](pim-how-to-configure-security-alerts.md)

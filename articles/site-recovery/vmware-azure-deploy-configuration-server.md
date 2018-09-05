@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 02dc4657f6c594242d12e3eca270a3549b77bf02
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337763"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666437"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -42,7 +42,7 @@ Os requisitos de dimensionamento para o servidor de configuração dependem da t
 | 12 vCPUs (2 sockets * 6 núcleos \@ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar máquinas de 100 150. |
 | 16 vCPUs (2 sockets * 8 núcleos \@ 2,5 GHz) |32 GB |1 TB |1 TB para 2 TB |Replicar máquinas de 150 a 200. |
 
-Se estiver a replicar mais do que uma VM de VMware, leia [considerações de planeamento de capacidade](/site-recovery-plan-capacity-vmware.md). Executar o [ferramenta Planeador de implementações](site-recovery-deployment-planner.md) para a replicação de VMWare.
+Se estiver a replicar mais do que uma VM de VMware, leia [considerações de planeamento de capacidade](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Executar o [ferramenta Planeador de implementações](site-recovery-deployment-planner.md) para a replicação de VMWare.
 
 ## <a name="download-the-template"></a>Transferir o modelo
 

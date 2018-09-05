@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 429a10988fdc19863cfd6809a8d73757d33349c9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302133"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702317"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -122,7 +122,6 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Azure Maps
 * Reencaminhamento do Azure
 * O Azure Stack - registos
-* Azure Migrate
 * Batch
 * Serviços BizTalk
 * Serviço de Bot
@@ -141,7 +140,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Event Grid
 * Hubs de Eventos
 * Clusters do HDInsight - veja [limitações do HDInsight](#hdinsight-limitations)
-* Centro de IOT
+* Centro de IoT
 * Hubs IoT
 * Cofre de Chaves
 * Balanceadores de carga - veja [limitações de Balanceador de carga](#lb-limitations)
@@ -188,6 +187,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Base de Dados do Azure para PostgreSQL
 * Migração de base de dados do Azure
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
 * Container Instances
@@ -237,8 +237,6 @@ Ao mover uma rede virtual, também tem de mover os recursos dependentes. Para Ga
 Para mover uma rede virtual em modo de peering, tem primeiro de desativar o peering de rede virtual. Uma vez desativada, pode mover a rede virtual. Após a mudança, reativar o peering de rede virtual.
 
 Não é possível mover uma rede virtual para uma subscrição diferente se a rede virtual contém uma sub-rede com ligações de navegação de recursos. Por exemplo, se um recurso de Cache de Redis é implementado numa sub-rede, o que a sub-rede tem uma ligação de navegação de recursos.
-
-Não é possível mover uma rede virtual para uma subscrição diferente se a rede virtual contém um servidor DNS personalizado. Para mover a rede virtual, tem de defini-lo ao servidor DNS de predefinição (fornecida pelo Azure). Após a mudança, reconfigure o servidor DNS personalizado.
 
 ## <a name="app-service-limitations"></a>Limitações do serviço de aplicações
 

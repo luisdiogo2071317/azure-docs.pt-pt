@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744755"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700819"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta do Video Indexer ligada ao Azure
 
@@ -52,7 +52,7 @@ Este artigo mostra como criar uma conta do Video Indexer que está ligada a uma 
 
 ## <a name="connect-to-azure"></a>Ligar ao Azure
 
-1. Inicie sessão com esse utilizador e clique nas **ligar ao Azure** botão:
+1. Inicie sessão no [ https://www.videoindexer.ai/ ](https://www.videoindexer.ai/) e clique nas **ligar ao Azure** botão:
 
     ![Ligar ao Azure](./media/create-account/connect-to-azure.png)
 
@@ -69,9 +69,21 @@ Este artigo mostra como criar uma conta do Video Indexer que está ligada a uma 
     * Para utilizar uma conta de Media Services existente, selecione **usar o recurso existente**. Na lista de contas, selecione a sua conta.
 
         Conta dos Media Services tem de ter a mesma região que a sua conta do Video Indexer. Para minimizar a duração de indexação e baixo débito, ajuste o tipo e número de unidades reservadas para **10 unidades reservadas de S3** na sua conta de Media Services.
-    * Para configurar manualmente a ligação, clique nas **mudar para a configuração manual** associar e fornecer as informações necessárias:
+    * Para configurar manualmente a ligação, clique nas **mudar para a configuração manual**. 
+    
+        Pode querer configurar manualmente a ligação, se por algum motivo conseguir concluir a opção automática, ou se a sua instalação e configuração é diferente dos casos comuns ou, se pretender ter visibilidade e controlo sobre as definições. 
+        
+        Na **ligar uma subscrição do Azure do Video Indexer**, forneça as seguintes informações.
 
-    ![ligar o indexador de vídeo para o Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+        |Definição|Descrição|
+        |---|---|
+        |Região de conta de indexador vídeo|O nome da região de conta do Video Indexer. Para um melhor desempenho e reduzir os custos, recomenda-se elevada para especificar o nome da região onde se encontram os recursos de serviços de multimédia do Azure e a conta de armazenamento do Azure. |
+        |Inquilino do Azure Active Directory (AAD)|O nome do inquilino do Azure AD, por exemplo "contoso.onmicrosoft.com". As informações de inquilino podem ser obtidas a partir do portal do Azure. Coloque o cursor sobre o nome de utilizador com sessão iniciada no canto superior direito.|
+        |ID da subscrição|A subscrição do Azure sob a qual esta ligação deverá ser criada. O ID de subscrição pode ser obtido a partir do portal do Azure. Clique em **todos os serviços** no painel esquerdo e procure "subscrições". Selecione, **subscrições** e escolha o ID de pretendida na lista das suas subscrições.|
+        |Nome do grupo de recursos do Azure|O nome para o novo grupo de recursos no qual pretende criar a ligação.|
+        |Nome de recurso do Azure|O nome do recurso dos serviços de multimédia do Azure.|
+        |ID da aplicação|O ID de aplicação do Azure AD com permissões para a conta de Media Services especificada. Para obter mais informações, consulte [autenticação do principal de serviço utilização](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Chave da Aplicação|Para obter mais informações, consulte [autenticação do principal de serviço utilização](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. Quando tiver terminado, escolha **Connect**. Esta operação poderá demorar alguns minutos. 
 

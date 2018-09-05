@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122892"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665585"
 ---
 # <a name="collector-appliance"></a>Aplicação recoletora
 
@@ -212,17 +212,27 @@ Também Recomendamos os seguintes passos para proteger a sua aplicação
 
 Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA mais uma vez.
 
-1. Baixe a versão mais recente [pacote de atualização](https://aka.ms/migrate/col/upgrade_9_13) (versão 1.0.9.13).
+1. Baixe a versão mais recente [pacote de atualização](https://aka.ms/migrate/col/upgrade_9_14) (versão 1.0.9.14).
 2. Para garantir que a correção transferida é segura, abra a janela de comando de administrador e execute o seguinte comando para gerar o hash para o ficheiro ZIP. O hash gerado deve corresponder com o hash mencionado em relação a versão específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (exemplo de utilização c:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (exemplo de utilização c:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Copie o ficheiro zip para a máquina de virtual do recoletor de Azure Migrate (aplicação recoletora).
 4. Com o botão direito no ficheiro zip e selecione extrair tudo.
 5. Com o botão direito no Setup.ps1 e selecionar executar com o PowerShell e siga as instruções no ecrã para instalar a atualização.
 
 ### <a name="list-of-updates"></a>Lista de atualizações
+
+#### <a name="upgrade-to-version-10914"></a>Atualizar para versão 1.0.9.14
+
+Valores para a atualização de hash [1.0.9.14 do pacote](https://aka.ms/migrate/col/upgrade_9_14)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### <a name="upgrade-to-version-10913"></a>Atualizar para versão 1.0.9.13
 

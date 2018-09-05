@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59d51ba8edadd1fd71255271623b144cab94fc97
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: fb52bc92c86261831d0e8d8e9e863a4863fe8fb9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344288"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666894"
 ---
 # <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Atribuições elegíveis e visibilidade de recursos no PIM
 
@@ -82,7 +82,7 @@ Definições do PIM são configuradas para cada função de um recurso. Ao contr
 
 Continuando com o exemplo: João utiliza o PIM para exigir que todos os membros na função de proprietário de aprovação de pedidos de subscrição da Contoso ser ativado. Para ajudar a proteger os recursos no grupo de recursos de Fabrikam Prod, Bob também requer aprovação para os membros da função de proprietário deste recurso. As funções de proprietário na Fabrikam teste e desenvolvimento do Fabrikam não necessita de aprovação para ativação.
 
-Quando Alice solicita ativação da sua função de proprietário para a subscrição da Contoso, um aprovador deve aprovar ou negar o pedido antes de ela fica ativa na função de. Se decidir Alice [escopo de sua ativação](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) para o grupo de recursos da Fabrikam Prod, um aprovador deve aprovar ou negar este pedido, demasiado. Mas, se decidir Alice definir o âmbito sua ativação para um ou ambos os Fabrikam teste ou desenvolvimento do Fabrikam, aprovação não é necessária.
+Quando Alice solicita ativação da sua função de proprietário para a subscrição da Contoso, um aprovador deve aprovar ou negar o pedido antes de ela fica ativa na função de. Se decidir Alice [escopo de sua ativação](pim-resource-roles-activate-your-roles.md) para o grupo de recursos da Fabrikam Prod, um aprovador deve aprovar ou negar este pedido, demasiado. Mas, se decidir Alice definir o âmbito sua ativação para um ou ambos os Fabrikam teste ou desenvolvimento do Fabrikam, aprovação não é necessária.
 
 O fluxo de trabalho de aprovação pode não ser necessário para todos os membros de uma função. Considere um cenário em que a sua organização contrata vários de contrato de associados, para ajudar com o desenvolvimento de um aplicativo que serão executados numa subscrição do Azure. Enquanto administrador de recursos, mesmo que os funcionários têm acesso elegível sem aprovação necessária, mas associa o contrato deve solicitar a aprovação. Para configurar o fluxo de trabalho de aprovação para apenas os associates de contrato, pode criar uma função personalizada com as mesmas permissões que a função atribuída aos funcionários. Pode exigir a aprovação para ativar essa função personalizada. [Saiba mais sobre as funções personalizadas](pim-resource-roles-custom-role-policy.md).
 

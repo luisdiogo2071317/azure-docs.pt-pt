@@ -1,62 +1,68 @@
 ---
-title: PowerShell para pontos finais do serviço de rede Virtual e as regras do SQL Server | Microsoft Docs
-description: Fornece scripts do PowerShell para criar e gerir pontos finais do serviço Virtual para a base de dados do SQL do Azure.
+title: PowerShell para pontos finais de serviço de rede Virtual e regras no SQL do Azure | Documentos da Microsoft
+description: Fornece os scripts do PowerShell para criar e gerir pontos finais de serviço Virtual para a sua base de dados do Azure SQL e SQL Data Warehouse.
 services: sql-database
-author: MightyPen
+author: DhruvMsft
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi
+ms.date: 06/14/2018
+ms.reviewer: genemi, carlrab
 ms.author: dmalik
-ms.openlocfilehash: 503aef620679c9bf3f65cd7f463ba604c6b9e451
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 364dd2709c9000aae082976f3ec28396f92850da
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649521"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669855"
 ---
-# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Utilizar o PowerShell para criar um ponto final do serviço Virtual e uma regra para a SQL Database do Azure
+# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar o PowerShell para criar um ponto final de serviço Virtual e uma regra para a base de dados do Azure SQL e SQL Data Warehouse
 
-Este artigo fornece e explica um script do PowerShell que efetua as seguintes ações:
+Do Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suporta pontos finais de serviço Virtual. 
 
-1. Cria um Microsoft Azure *ponto final do serviço Virtual* na sua sub-rede.
-2. Adiciona o ponto final para a firewall do seu servidor de base de dados do Azure SQL, para criar um *regra de rede virtual*.
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
-As motivações para criar uma regra são explicadas em: [pontos finais de serviço virtuais para a SQL Database do Azure][sql-db-vnet-service-endpoint-rule-overview-735r].
+Este artigo fornece e explica um script do PowerShell que executa as ações seguintes:
+
+1. Cria um Microsoft Azure *ponto final de serviço Virtual* na sua sub-rede.
+2. Adiciona o ponto final para o firewall do seu servidor de base de dados do Azure SQL, para criar uma *regra de rede virtual*.
+
+Suas motivações para criar uma regra são explicadas em: [pontos finais de serviço Virtual para o Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
-> Se tudo o que precisa avaliar ou adicionar ponto final do serviço Virtual *nome do tipo* da base de dados do SQL Server para a sub-rede, pode avançar diretamente para o nosso mais [direcionar o script do PowerShell](#a-verify-subnet-is-endpoint-ps-100).
+> Se tudo o que precisa avaliar ou adicionar o ponto final de serviço Virtual *nome do tipo* para a base de dados SQL à sua sub-rede, pode avançar diretamente para o nosso mais [direcionar o script do PowerShell](#a-verify-subnet-is-endpoint-ps-100).
 
-#### <a name="major-cmdlets"></a>Cmdlets de principais
+#### <a name="major-cmdlets"></a>Cmdlets de versão principal
 
-Este artigo cmdlet com o nome de enfatizar **New-AzureRmSqlServerVirtualNetworkRule**, que adiciona o ponto final de sub-rede para a lista de controlo de acesso (ACL) do seu servidor da SQL Database do Azure, criando uma regra.
+Este artigo enfatiza com o nome do cmdlet **New-AzureRmSqlServerVirtualNetworkRule**, que adiciona o ponto de extremidade de sub-rede para a lista de controlo de acesso (ACL) do seu servidor de base de dados do Azure SQL, criando uma regra.
 
-A lista seguinte mostra a sequência de outras *principais* cmdlets que tem de executar para se preparar para a chamada **New-AzureRmSqlServerVirtualNetworkRule**. Neste artigo, destas chamadas ocorrerem no [script 3 "Virtual rede regra"](#a-script-30):
+A lista seguinte mostra a sequência de outros *principais* cmdlets que tem de executar para se preparar para a chamada **New-AzureRmSqlServerVirtualNetworkRule**. Neste artigo, essas chamadas ocorrem no [script 3 "regra de rede Virtual"](#a-script-30):
 
-1. [Novo AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): cria um objeto de sub-rede.
+1. [Novo-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): cria um objeto de sub-rede.
 
-2. [Novo-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): cria a rede virtual, atribuir a sub-rede.
+2. [Novo-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): cria a sua rede virtual, dando a ele a sub-rede.
 
-3. [Conjunto AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): atribui um ponto final de serviço virtuais para a sub-rede.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): atribui um ponto de extremidade de serviço Virtual à sua sub-rede.
 
-4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): persistir as atualizações efetuadas à sua rede virtual.
+4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): persistir atualizações feitas à sua rede virtual.
 
-5. [Novo AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): depois da sub-rede é um ponto final, adiciona a sub-rede como uma regra de rede virtual, a ACL do seu servidor de SQL Database do Azure.
-    - Oferece o parâmetro **- IgnoreMissingVnetServiceEndpoint**, começando no módulo do PowerShell do Azure RM versão 5.1.1.
+5. [Novo-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): depois de sua sub-rede é um ponto de extremidade, adiciona a sub-rede como uma regra de rede virtual, a ACL do seu servidor de base de dados do Azure SQL.
+    - Oferece o parâmetro **- IgnoreMissingVnetServiceEndpoint**, a partir do módulo do Azure RM PowerShell versão 5.1.1.
 
 #### <a name="prerequisites-for-running-powershell"></a>Pré-requisitos para executar o PowerShell
 
-- Pode já iniciar sessão no Azure, tal como através de [portal do Azure][http-azure-portal-link-ref-477t].
+- Pode já iniciar sessão no Azure, tal como através da [portal do Azure][http-azure-portal-link-ref-477t].
 - Já pode executar scripts do PowerShell.
 
 > [!NOTE]
-> Certifique-se de que pontos finais de serviço estão ativados para a Vnet/sub-rede que pretende adicionar ao seu servidor; caso contrário a criação da regra de Firewall Vnet irá falhar.
+> Certifique-se de que pontos finais de serviço são ativados para a Vnet/sub-rede que pretende adicionar ao seu servidor caso contrário, a criação da regra de Firewall Vnet irá falhar.
 
-#### <a name="one-script-divided-into-four-chunks"></a>Um script dividido em quatro segmentos
+#### <a name="one-script-divided-into-four-chunks"></a>Dividido em quatro partes de um script
 
-A nossa demonstração script do PowerShell está dividida numa sequência de scripts mais pequenos. A divisão facilita learning e proporciona flexibilidade. Os scripts devem ser executados na respetiva sequência indicada. Se não tiver agora tempo para executar os scripts, nosso resultado do teste real é apresentado ao script 4.
+Nossa demonstração de script do PowerShell está dividida numa seqüência de scripts mais pequenos. A divisão facilita a aprendizagem e fornece a flexibilidade. Os scripts devem ser executados na sua sequência indicada. Se não tiver tempo para executar os scripts, nossa saída do teste real é apresentada depois do script 4.
 
 
 
@@ -67,10 +73,10 @@ A nossa demonstração script do PowerShell está dividida numa sequência de sc
 
 ## <a name="script-1-variables"></a>Script 1: variáveis
 
-Este script do PowerShell primeiro atribui valores de variáveis. Os scripts subsequentes dependem estas variáveis.
+Este script do PowerShell primeiro atribui valores às variáveis. Os scripts subsequentes dependem estas variáveis.
 
 > [!IMPORTANT]
-> Antes de executar este script, pode editar os valores, se assim o desejar. Por exemplo, se já tiver um grupo de recursos, poderá editar o nome do grupo de recursos como o valor atribuído.
+> Antes de executar este script, pode editar os valores, se assim o desejar. Por exemplo, se já tiver um grupo de recursos, pode querer editar seu nome de grupo de recursos como o valor atribuído.
 >
 >  O nome da sua subscrição deve ser editado para o script.
 
@@ -118,14 +124,14 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-## <a name="script-2-prerequisites"></a>Script 2: pré-requisitos
+## <a name="script-2-prerequisites"></a>2 de script: pré-requisitos
 
-Prepara este script para o script seguinte, em que é a ação de ponto final. Este script cria automaticamente o seguinte listado itens, mas apenas se estes ainda não existir. Pode ignorar o script 2 se tiver a certeza de que estes itens que já existem:
+Este script prepara para o script seguinte, em que é a ação de ponto final. Este script cria para, o seguinte listado itens, mas apenas se eles ainda não existir. Pode ignorar script 2 se tiver a certeza de que estes itens ainda existam:
 
 - Grupo de recursos do Azure
 - Servidor de base de dados SQL do Azure
 
-#### <a name="powershell-script-2-source-code"></a>Código de origem do script 2 do PowerShell
+#### <a name="powershell-script-2-source-code"></a>Código de origem de 2 de script do PowerShell
 
 ```powershell
 ######### Script 2 ########################################
@@ -214,11 +220,11 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: Criar um ponto final e uma regra
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: Criar um ponto de extremidade e uma regra
 
-Este script cria uma rede virtual com uma sub-rede. Em seguida, atribui o script a **Microsoft.Sql** tipo de ponto final para a sub-rede. Por fim, o script adiciona a sub-rede para a lista de controlo de acesso (ACL) do seu servidor de base de dados SQL, criando uma regra.
+Este script cria uma rede virtual com uma sub-rede. Em seguida, atribui o script a **Microsoft. SQL** tipo de ponto final à sua sub-rede. Por fim o script adiciona a sub-rede para a lista de controlo de acesso (ACL) do seu servidor de base de dados SQL, criando uma regra.
 
-#### <a name="powershell-script-3-source-code"></a>Código de origem do script 3 do PowerShell
+#### <a name="powershell-script-3-source-code"></a>Código de origem de 3 de script do PowerShell
 
 ```powershell
 ######### Script 3 ########################################
@@ -307,14 +313,14 @@ Write-Host 'Completed script 3, the "Virtual-Netowrk-Rule".';
 
 ## <a name="script-4-clean-up"></a>Script 4: Limpeza
 
-Este script final elimina os recursos de que os scripts de anteriores criados para a demonstração. No entanto, o script pede-lhe confirmação antes de elimina o seguinte:
+Este script final elimina os recursos que os scripts anteriores criados para a demonstração. No entanto, o script pede-lhe confirmação antes de ele elimina o seguinte:
 
 - Servidor de base de dados SQL do Azure
 - Grupo de recursos do Azure
 
-Pode executar o script 4 a qualquer altura após a conclusão do script 1.
+Pode executar o script 4 a qualquer momento após a conclusão do script 1.
 
-#### <a name="powershell-script-4-source-code"></a>Código de origem do script 4 do PowerShell
+#### <a name="powershell-script-4-source-code"></a>Código de origem de 4 de script do PowerShell
 
 ```powershell
 ######### Script 4 ########################################
@@ -391,9 +397,9 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 
 <a name="a-actual-output" />
 
-## <a name="actual-output-from-scripts-1-through-4"></a>Saída real de scripts de 1 a 4
+## <a name="actual-output-from-scripts-1-through-4"></a>Saída real a partir de 1 a 4 de scripts
 
-É apresentado em seguida, o resultado do nosso teste executar num formato abreviado. O resultado poderá ser útil no caso de não pretende realmente agora a executar os scripts do PowerShell.
+É apresentado em seguida, o resultado de nosso teste, execute num formato abreviado. O resultado poderá ser útil caso não deseje, na verdade, agora a executar os scripts do PowerShell.
 
 ```
 [C:\WINDOWS\system32\]
@@ -485,7 +491,7 @@ True
 Completed script 4, the "Clean-Up".
 ```
 
-Este é o fim do nosso principal script do PowerShell.
+Esse é o fim de nosso script de PowerShell principal.
 
 
 
@@ -495,29 +501,29 @@ Este é o fim do nosso principal script do PowerShell.
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Certifique-se de que a sub-rede é um ponto final
 
-Poderá ter uma sub-rede que já foi atribuída o **Microsoft.Sql** nome de tipo, que significa que já se encontra um ponto final de serviço virtuais. Pode utilizar o [portal do Azure] [ http-azure-portal-link-ref-477t] para criar uma regra de rede virtual do ponto final.
+Pode ter uma sub-rede que já foi atribuída a **Microsoft. SQL** nome do tipo, que significa que já é um ponto de extremidade de serviço Virtual. Pode utilizar o [portal do Azure] [ http-azure-portal-link-ref-477t] para criar uma regra de rede virtual a partir do ponto final.
 
-Em alternativa, poderá ser não souber se a sua sub-rede tem de **Microsoft.Sql** nome de tipo. Pode executar o seguinte script do PowerShell para realizar estas ações:
+Também pode ser não sabe se a sub-rede tem o **Microsoft. SQL** nome do tipo. Pode executar o seguinte script do PowerShell para realizar estas ações:
 
-1. Se a sub-rede tem de ascertain o **Microsoft.Sql** nome de tipo.
-2. Opcionalmente, atribua o nome do tipo se está ausente.
-    - O script pede-lhe para *confirmar*, antes de esta aplica-se o tipo de ausente nome.
+1. Determinar se a sub-rede tem o **Microsoft. SQL** nome do tipo.
+2. Opcionalmente, atribua o nome do tipo se ele está ausente.
+    - O script pede para *confirmar*, antes de aplicar o tipo de ausente nome.
 
 #### <a name="phases-of-the-script"></a>Fases do script
 
-Seguem-se as fases do script do PowerShell:
+Aqui estão as fases do script do PowerShell:
 
-1. Iniciar sessão na sua conta do Azure, necessário apenas uma vez por sessão PS.  Atribua variáveis.
-2. Pesquisa para a rede virtual e, em seguida, para a sub-rede.
-3. A sub-rede está marcada como **Microsoft.Sql** tipo de servidor de ponto final?
-4. Adicionar um ponto final de serviço virtuais do nome de tipo **Microsoft.Sql**, na sua sub-rede.
+1. Inicie sessão na sua conta do Azure, necessário apenas uma vez por sessão de PS.  Atribua variáveis.
+2. Procurar para a rede virtual e, em seguida, para a sua sub-rede.
+3. A sub-rede é marcada como **Microsoft. SQL** tipo de servidor de ponto final?
+4. Adicionar um ponto de extremidade de serviço Virtual do nome do tipo **Microsoft. SQL**, na sua sub-rede.
 
 > [!IMPORTANT]
-> Antes de executar este script, tem de editar os valores atribuídos para as variáveis $, perto da parte superior do script.
+> Antes de executar este script, tem de editar os valores atribuídos para as variáveis $, junto à parte superior do script.
 
-#### <a name="direct-powershell-source-code"></a>Direcionar o código de origem do PowerShell
+#### <a name="direct-powershell-source-code"></a>Direcionar o código-fonte do PowerShell
 
-Este PowerShell script não atualizar tudo, exceto se responder Sim, se é pede-lhe confirmação. O script pode adicionar o nome do tipo **Microsoft.Sql** para a sub-rede. Mas o script tenta adicionar apenas se a sub-rede não possui o nome do tipo.
+Este script não atualiza qualquer coisa, exceto se responder Sim, se o PowerShell é solicita confirmação. O script pode adicionar o nome do tipo **Microsoft. SQL** à sua sub-rede. Mas o script tenta adicionar apenas se a sub-rede não tem o nome do tipo.
 
 ```powershell
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
@@ -613,7 +619,7 @@ for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++)
 
 #### <a name="actual-output"></a>Saída real
 
-O bloco seguinte apresenta o nosso comentários real (com as edições cosmético).
+O bloco seguinte mostra nossos comentários real (com as edições cosméticas).
 
 ```powershell
 <# Our output example (with cosmetic edits), when the subnet was already tagged:

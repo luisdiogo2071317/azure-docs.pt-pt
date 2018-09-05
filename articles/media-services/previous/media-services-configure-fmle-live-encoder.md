@@ -1,6 +1,6 @@
 ---
-title: Configurar o codificador FMLE para enviar uma transmissão em fluxo em direto | Microsoft Docs
-description: Este tópico mostra como configurar o codificador de Flash suporte de dados em direto codificador (FMLE) para enviar uma transmissão em fluxo para canais de AMS que estão ativados para live encoding.
+title: Configurar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única | Documentos da Microsoft
+description: Este tópico mostra como configurar o codificador de Flash Media Live Encoder (FMLE) para enviar um fluxo de velocidade de transmissão única para canais de AMS ativados para live encoding.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,45 +14,44 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 055decd689e260a69651c5a3e1ce3f3f78b67340
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788747"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665890"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador FMLE para enviar uma transmissão em fluxo em direto
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
-> * [Elementar em direto](media-services-configure-elemental-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [wirecast](media-services-configure-wirecast-live-encoder.md)
+> * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
 >
 
-Este artigo mostra como configurar o [codificador em direto de Flash multimédia](http://www.adobe.com/products/flash-media-encoder.html) codificador (FMLE) para enviar uma transmissão em fluxo para AMS canais de consumo que está ativado para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-Este tutorial mostra como gerir os serviços de suporte de dados do Azure (AMS) com a ferramenta Explorador de serviços de suporte de dados do Azure (AMSE). Esta ferramenta é executada apenas em PCs Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
+Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do Explorador de serviços de multimédia do Azure (AMSE). Essa ferramenta só é executado no PC do Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por predefinição. Terá de adquirir um plug-in para AAC codificação tais como MainConcept: [Plug-in do AAC](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por predefinição. Teria de comprar um plug-in para AAC codificação tais como MainConcept: [AAC plugin](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta de Media Services do Azure](media-services-portal-create-account.md)
-* Certifique-se existe um ponto de final de transmissão em fluxo em execução. Para obter mais informações, consulte [gerir transmissão em fluxo pontos finais numa conta de Media Services](media-services-portal-manage-streaming-endpoints.md)
-* Instale a versão mais recente do [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) ferramenta.
+* Certifique-se de que existe um ponto de final de transmissão em fluxo em execução. Para obter mais informações, consulte [gerir transmissão em fluxo pontos finais na conta de Media Services](media-services-portal-manage-streaming-endpoints.md)
+* Instale a versão mais recente dos [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) ferramenta.
 * Inicie a ferramenta e ligue à sua conta de AMS.
 
 ## <a name="tips"></a>Sugestões
-* Sempre que possível, utilize uma ligação de internet hardwired.
-* É uma boa regra prática ao determinar os requisitos de largura de banda duplo a forma de transmissão em fluxo. Embora não seja um requisito obrigatório, ajuda a mitigar o impacto de congestionamento de rede.
-* Quando utilizar codificadores baseada em software, feche enviados quaisquer programas desnecessários.
+* Sempre que possível, utilize uma ligação de internet conectada.
+* Uma boa regra prática ao determinar os requisitos de largura de banda é duas vezes as velocidades de transmissão de transmissão em fluxo. Embora não seja um requisito obrigatório, ele ajuda a mitigar o impacto de congestionamento de rede.
+* Quando utilizar codificadores baseada em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue para o **em direto** separador e faça duplo clique na área de canal. Selecione **canal de criar...** no menu.
+1. Na ferramenta AMSE, navegue para o **Live** separador e, com o botão direito dentro da área de canal. Selecione **criar canal...** no menu.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Especifique um nome de canal, o campo de descrição é opcional. Em definições de canal, selecione **padrão** para a opção Live Encoding, com o protocolo de entrada definido como **RTMP**. Pode deixar a todas as outras definições conforme está.
+2. Especifique um nome de canal, o campo de descrição é opcional. Em definições do canal, selecione **padrão** para a opção Live Encoding, com o protocolo de entrada definido como **RTMP**. Pode deixar todas as outras definições conforme está.
 
     Certifique-se de que o **iniciar agora o novo canal** está selecionada.
 
@@ -61,108 +60,108 @@ Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por pre
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 > [!NOTE]
-> O canal pode demorar até 20 minutos para iniciar.
+> O canal pode demorar até 20 minutos a iniciar.
 >
 >
 
-Enquanto está a iniciar o canal, pode [configurar codificador](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+Embora o canal está a iniciar, pode [configurar o codificador](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
 > [!IMPORTANT]
-> Tenha em atenção que a faturação é iniciada assim que o canal entra no estado pronto. Para obter mais informações, consulte [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
+> Tenha em atenção que a faturação tem início assim que o canal entra num Estado de pronto. Para obter mais informações, consulte [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
 ## <a id=configure_fmle_rtmp></a>Configurar o codificador FMLE
-Neste tutorial, são utilizadas as seguintes definições de saída. As restantes desta secção descreve os passos de configuração mais detalhadamente.
+Neste tutorial, são utilizadas as seguintes definições de saída. O resto desta secção descreve os passos de configuração mais detalhadamente.
 
 **Vídeo**:
 
-* Codec: 264
+* Codec: H.264
 * Perfil: Alta (nível 4.0)
-* Velocidade de transmissão: kbps 5000
-* Keyframe: 2 segundos (60 segundos)
-* Taxa de moldura: 30
+* Velocidade de transmissão: kbps de 5000
+* Quadro-chave: 2 segundos (60 segundos)
+* Taxa de fotograma: 30
 
 **Áudio**:
 
-* O codec: AAC (LC)
-* Velocidade de transmissão: kbps 192
-* Frequência de amostragem: kHz 44.1
+* Codec: AAC (LC)
+* Velocidade de transmissão: kbps de 192
+* Taxa da amostragem: kHz 44.1
 
 ### <a name="configuration-steps"></a>Passos de configuração
-1. Navegue para o Flash Live codificador de multimédia (FMLE) de interface no computador que está a ser utilizado.
+1. Navegue para o Flash Media Live Encoder (FMLE) de interface na máquina que está a ser utilizada.
 
-    A interface é uma página principal de definições. Tome nota das seguintes definições para começar a trabalhar com transmissão em fluxo utilizando FMLE recomendadas.
+    A interface é uma página principal de definições. Tome nota das seguintes definições para iniciar a transmissão em fluxo através de FMLE recomendadas.
 
-   * Formato: Taxa de moldura 264: 30.00
+   * Formato: Taxa de quadros H.264: 30.00
    * Tamanho de entrada: 1280 x 720
    * Taxa de bits: Kbps de 5000 (pode ser ajustado com base no limitações de rede)  
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
      Quando utilizar entrelaçadas origens, volte a marca de verificação a opção "Deinterlace"
-2. Selecione o ícone de chave inglesa junto ao formato, estas definições adicionais que devem ser:
+2. Selecione o ícone de chave inglesa junto ao formato, estas definições adicionais deverão ser:
 
    * Perfil: principal
    * Nível: 4.0
-   * Frequência de Keyframe: segundos de 2
+   * Frequência de quadro-chave: 2 segundos
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 3. Defina a seguinte definição de áudio importante:
 
    * Formato: AAC
-   * Frequência de amostragem: Hz 44100
-   * Velocidade de transmissão: Kbps 192
+   * Taxa da amostragem: Hz 44100
+   * Velocidade de transmissão: Kbps de 192
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
-4. Obter o canal de entrada URL para poder atribuí-la para o FMLE **RTMP Endpoint**.
+4. URL de entrada do Get o canal para poder atribuí-lo para o FMLE **ponto final de RTMP**.
 
-    Navegue de volta para a ferramenta AMSE e verificar o estado de conclusão de canal. Depois do estado mudou de **inicial** para **executar**, pode obter o URL de entrada.
+    Navegue de volta para a ferramenta AMSE e verificar o estado de conclusão do canal. Assim que o estado foi alterado de **inicial** ao **em execução**, pode obter o URL de entrada.
 
-    Quando o canal está em execução, faça duplo clique o nome de canal, navegue para baixo até paire sobre **URL de entrada de copiar para área de transferência** e, em seguida, selecione **primário URL de entrada**.  
+    Quando o canal está a ser executado, faça duplo clique o nome do canal, percorra para baixo para a passagem de Mouse **URL de entrada de cópia para área de transferência** e, em seguida, selecione **URL de entrada principal**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
-5. Colar estas informações no **FMS URL** campo da secção de saída e atribuir um nome de fluxo.
+5. Cole esta informação na **FMS URL** campo da secção de saída e atribuir um nome de fluxo.
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
-    Para fins de redundância adicional, repita estes passos com o URL de entrada secundário.
+    Para fins de redundância extra, repita essas etapas com o URL de entrada secundário.
 6. Selecione **Ligar**.
 
 > [!IMPORTANT]
 > Antes de clicar em **Connect**, **tem** Certifique-se de que o canal está pronto.
-> Além disso, certifique-se não manter o canal no estado pronto sem uma entrada contribuição feed durante um período superior > 15 minutos.
+> Além disso, certifique-se de que não o canal no estado pronto sem uma contribuição entrada feed durante mais de > 15 minutos.
 >
 >
 
 ## <a name="test-playback"></a>Reprodução de teste
 
-Navegue para a ferramenta AMSE e faça duplo clique o canal a ser testada. No menu, coloque o cursor sobre **reprodução a pré-visualização** e selecione **com o Azure Media Player**.  
+Navegue para a ferramenta AMSE e o canal a ser testado com o botão direito. No menu, coloque o cursor sobre **reprodução a pré-visualização** e selecione **com o Azure Media Player**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
-Se a sequência aparecer num leitor de, em seguida, o codificador foi configurado corretamente para ligar ao AMS.
+Se o fluxo aparece no player de, em seguida, o codificador foi corretamente configurado para ligar para o AMS.
 
-Se não for recebido um erro, o canal tem de ser reposto e definições de codificador ajustado. Consulte o [resolução de problemas](media-services-troubleshooting-live-streaming.md) artigo para obter orientações.  
+Se for recebido um erro, o canal tem de ser reposto e definições de codificador ajustado. Consulte a [resolução de problemas](media-services-troubleshooting-live-streaming.md) artigo para obter orientações.  
 
 ## <a name="create-a-program"></a>Criar um programa
-1. Depois de reprodução de canal é confirmada, crie um programa. Sob o **em direto** separador a ferramenta AMSE, faça duplo clique na área de programa e selecione **criar um novo programa**.  
+1. Assim que a reprodução de canal é confirmada, crie um programa. Sob o **Live** separador a ferramenta AMSE, com o botão direito dentro da área de programa e selecione **criar novo programa**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
-2. Nome do programa e, se necessário, ajuste o **duração da janela de arquivo** (que está predefinida para 4 horas). Também pode especificar uma localização de armazenamento ou deixe como predefinição.  
-3. Verifique o **iniciar agora o programa** caixa.
+2. Nome do programa e, se necessário, ajuste o **duração da janela de arquivo** (que está predefinida para 4 horas). Também pode especificar uma localização de armazenamento ou deixe como a predefinição.  
+3. Verifique os **iniciar o programa agora** caixa.
 4. Clique em **criar programa**.  
 
     >[!NOTE]
-    >Criação de programa demora menos tempo que a criação do canal.
+    >Criação de programa demora menos tempo do que a criação de canal.
         
-5. Assim que estiver a executar o programa, confirmar reprodução ao clicar o programa e navegar até **reprodução de programas** e, em seguida, selecionar **com o Azure Media Player**.  
-6. Depois de confirmar, faça duplo clique novamente o programa e selecione **copie o URL de saída para a área de transferência** (ou obter estas informações do **definições e as informações do programa** opção no menu).
+5. Quando o programa estiver em execução, confirmar reprodução o botão direito e navegar até **reprodução os programas** e, em seguida, selecionando **com o Azure Media Player**.  
+6. Depois de confirmar, com o programa novamente o botão direito e selecione **copie o URL de saída para a área de transferência** (ou recuperar essas informações da **informações e definições do programa** opção do menu).
 
-O fluxo está agora pronto para ser incorporado num leitor, distribuída ou para um público-alvo para uma visualização em direto.  
+O fluxo está agora pronto para ser incorporados num leitor ou distribuído para um público-alvo para visualização em direto.  
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Consulte o [resolução de problemas](media-services-troubleshooting-live-streaming.md) artigo para obter orientações.
+Consulte a [resolução de problemas](media-services-troubleshooting-live-streaming.md) artigo para obter orientações.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

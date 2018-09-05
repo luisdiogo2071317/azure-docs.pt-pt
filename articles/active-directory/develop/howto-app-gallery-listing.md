@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2018
+ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 8c9d1ee51acdfff188e0d6483f723fbb08e17bd5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601956"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666313"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -45,11 +45,23 @@ Azure Active Directory (Azure AD) é um serviço de identidade com base na cloud
 
 *  Os clientes que utilizam SCIM podem utilizar o aprovisionamento para a mesma aplicação.
 
-##  <a name="prerequisites-implement-federation-protocol"></a>Pré-requisitos: Protocolo de Federação de implementar
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Para aplicativos de federados (ID de aberto e SAML/WS-Fed), a aplicação tem de suportar o modelo de SaaS para ser listado na galeria do Azure AD. As aplicações de galeria enterprise devem suportar várias configurações de cliente e não qualquer cliente específico.
+
+- Para abrir ID Connect, a aplicação deve estar vários inquilinos e [framework de consentimento do Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) devem ser implementadas corretamente para a aplicação. O utilizador pode enviar o pedido de início de sessão para um ponto de extremidade comum para que todos os clientes podem fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador com base no ID de inquilino e o UPN do utilizador recebido no token.
+
+- Para SAML 2.0/WS-Fed, a aplicação tem de ter a capacidade de fazer a integração de SSO SAML/WS-Fed no modo de SP ou IDP. Certifique-se de que isso está funcionando corretamente antes de submeter o pedido.
+
+- Para SSO de palavra-passe, certifique-se que a aplicação suporta a autenticação de formulário para que os cofres de palavras de palavra-passe podem ser feito para fazer o trabalho de logon único conforme esperado.
+
+- Para pedidos de aprovisionamento de utilizadores automática, o aplicativo deve listado na galeria com recurso de início de logon único habilitado a utilizar o protocolo de Federação descrito acima. Pode pedir para SSO e aprovisionamento em conjunto no portal, se ainda não estiver na lista de utilizadores.
+
+##  <a name="implementing-sso-using-federation-protocol"></a>A implementação do SSO através do protocolo de Federação
 
 Para listar uma aplicação na Galeria de aplicações do Azure AD, tem primeiro de implementar um dos seguintes protocolos de Federação suportados pelo Azure AD e concordo com os termos de Galeria de aplicações do Azure AD e condições. Leia os termos e condições da Galeria de aplicações do Azure AD partir [aqui](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
-*   **OpenID Connect**: criar a aplicação multi-inquilino no Azure AD e implementar o [framework de consentimento do Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) para a sua aplicação. Envie o pedido de início de sessão para um ponto de extremidade comum para que todos os clientes podem fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador com base no ID de inquilino e o UPN do utilizador recebido no token. Para integrar a aplicação com o Azure AD, siga os [instruções de desenvolvedores](authentication-scenarios.md).
+*   **OpenID Connect**: para integrar a aplicação com o Azure AD através do protocolo Abrir ID Connect, siga os [instruções de desenvolvedores](authentication-scenarios.md).
 
     ![Linha cronológica de listagem aplicação OpenID Connect para a Galeria](./media/howto-app-gallery-listing/openid.png)
 
@@ -57,21 +69,23 @@ Para listar uma aplicação na Galeria de aplicações do Azure AD, tem primeiro
 
     * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** ou **WS-Fed**: A aplicação tem de ter a capacidade de fazer a integração de SSO SAML/WS-Fed no modo de SP ou IDP. Se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** ou **WS-Fed**: se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
 
     ![Linha cronológica de listagem aplicação SAML 2.0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
 
     * Se pretende adicionar a sua aplicação à lista de sessão com a galeria **SAML 2.0** ou **WS-Fed**, selecione **SAMl 2.0/WS-Fed** como anteriormente.
 
-    * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
-
-*   **Palavra-passe SSO**: criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [baseado em palavra-passe de início de sessão único](../manage-apps/what-is-single-sign-on.md). SSO de palavra-passe, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe para aplicações web que não suportam o Federação de identidades. Também é útil para cenários em que vários utilizadores tem de partilhar uma única conta, tal como para contas de aplicação de comunicação social da sua organização.
-
-    ![Linha cronológica de listagem aplicação SSO de palavra-passe na Galeria](./media/howto-app-gallery-listing/passwordsso.png)
-
-    * Se pretender adicionar a sua aplicação à lista na Galeria através do SSO de palavra-passe, selecione **SSO de palavra-passe** como anteriormente.
-
     * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## <a name="implementing-sso-using-password-sso"></a>A implementação do SSO através do SSO de palavra-passe
+
+Criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [baseado em palavra-passe de início de sessão único](../manage-apps/what-is-single-sign-on.md). SSO de palavra-passe, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe para aplicações web que não suportam o Federação de identidades. Também é útil para cenários em que vários utilizadores tem de partilhar uma única conta, tal como para contas de aplicação de comunicação social da sua organização.
+
+![Linha cronológica de listagem aplicação SSO de palavra-passe na Galeria](./media/howto-app-gallery-listing/passwordsso.png)
+
+* Se pretender adicionar a sua aplicação à lista na Galeria através do SSO de palavra-passe, selecione **SSO de palavra-passe** como anteriormente.
+
+* Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
 
@@ -80,7 +94,7 @@ Para atualizar ou remover uma aplicação existente na Galeria de aplicações d
 * Selecione a opção adequada da abaixo da imagem
 
     ![Linha cronológica de listagem aplicação de saml numa galeria de](./media/howto-app-gallery-listing/updateorremove.png)
-    
+
     * Se quiser atualizar um aplicativo existente, selecione **atualizar a lista de aplicações existente**.
 
     * Se pretender remover um aplicativo existente a partir da galeria do Azure AD, selecione **remover listagem de aplicação existente**

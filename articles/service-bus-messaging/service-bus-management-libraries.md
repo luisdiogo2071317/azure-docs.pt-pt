@@ -1,9 +1,9 @@
 ---
-title: Bibliotecas de gestão do Service Bus do Azure | Microsoft Docs
+title: Bibliotecas de gestão do Service Bus do Azure | Documentos da Microsoft
 description: Gerir espaços de nomes do Service Bus e entidades do .NET de mensagens.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,40 +13,40 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 7946958bec8b2f444155b5a9701f1f7401fe4f3c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: a959687fbf6e296cab7e0d8ca49ae97a005622cf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120901"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696580"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gestão do Service Bus
 
-As bibliotecas de gestão do Service Bus do Azure podem provisionam de espaços de nomes do Service Bus e entidades. Isto permite com implementações complexas e cenários de mensagens e torna possível através de programação determinar que entidades para aprovisionar. Estas bibliotecas estão atualmente disponíveis para o .NET.
+As bibliotecas de gestão do Azure Service Bus podem aprovisionar dinamicamente espaços de nomes do Service Bus e entidades. Isto permite implementações complexas e cenários de mensagens e torna possível determinar por meio de programação que entidades a aprovisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidades suportadas
 
-* Criação de espaço de nomes, a atualização, a eliminação
-* Criação da fila, a atualização, a eliminação
-* Criação de tópico, a atualização, a eliminação
-* Criação da subscrição, a atualização, a eliminação
+* Criação de espaço de nomes, atualização, eliminação
+* Criação da fila, atualização, eliminação
+* Criação de tópico, atualização, eliminação
+* Criação da subscrição, atualização, eliminação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a utilizar as bibliotecas de gestão do Service Bus, tem de autenticar com o serviço do Azure Active Directory (Azure AD). O Azure AD requer que o se autenticar como um principal de serviço, que fornece acesso aos recursos do Azure. Para obter informações sobre como criar um serviço principal, consulte um dos seguintes artigos:  
+Para começar a utilizar as bibliotecas de gestão do Service Bus, tem de autenticar com o serviço do Azure Active Directory (Azure AD). Azure AD requer que se autenticar como um principal de serviço, que fornece acesso aos recursos do Azure. Para obter informações sobre a criação de um serviço principal, consulte um dos seguintes artigos:  
 
-* [Utilizar o portal do Azure para criar aplicação do Active Directory e um principal de serviço que pode aceder a recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Utilizar o portal do Azure para criar um principal de serviço que pode aceder aos recursos e de aplicação do Active Directory](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Utilizar o Azure PowerShell para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Utilizar a CLI do Azure para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Estes tutoriais fornecem-lhe um `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), todos os que são utilizados para autenticação, as bibliotecas de gestão. Tem de ter **proprietário** permissões para o grupo de recursos no qual pretende executar.
+Estes tutoriais fornecem uma `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), as quais são utilizadas para autenticação, as bibliotecas de gestão. Tem de ter **proprietário** permissões para o grupo de recursos no qual pretende executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
-O padrão para manipular a qualquer recurso de Service Bus segue um protocolo comum:
+O padrão para manipular a qualquer recurso do Service Bus segue um protocolo comum:
 
-1. Obter um token do Azure AD com o **Microsoft.IdentityModel.Clients.ActiveDirectory** biblioteca:
+1. Obter um token a partir do Azure AD com o **ActiveDirectory** biblioteca:
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
@@ -78,5 +78,5 @@ O padrão para manipular a qualquer recurso de Service Bus segue um protocolo co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Amostra de gestão de .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Referência de Microsoft.Azure.Management.ServiceBus API](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [Amostra de gestão .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
+* [Referência da API de Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

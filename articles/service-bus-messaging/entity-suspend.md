@@ -1,6 +1,6 @@
 ---
-title: Entidades de mensagens de suspender do Service Bus do Azure | Microsoft Docs
-description: Suspender e reativar as entidades de mensagens do Service Bus do Azure.
+title: Entidades de mensagens de suspender o Azure Service Bus | Documentos da Microsoft
+description: Suspender e reativar as entidades de mensagens do Service bus do Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,40 +12,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 3e3c0fdf4133fa1f44a67f4f7e0df1995c0a23f0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197031"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701981"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desativar)
 
-Filas, tópicos e subscrições podem temporariamente suspensa. Suspensão coloca a entidade no estado desativado em que todas as mensagens são mantidas no armazenamento. No entanto, não podem ser removidas ou adicionadas mensagens e as operações de protocolo respetivos produzem erros.
+Filas, tópicos e subscrições, podem ser temporariamente suspensa. A suspensão coloca a entidade no estado desativado em que todas as mensagens são mantidas no armazenamento. No entanto, as mensagens não podem ser removidas ou adicionadas e as operações de protocolo respectivos resultar em erros.
 
-Suspender uma entidade é geralmente feito para urgentes motivos administrativos. Um cenário é ter implementado um recetor defeituoso que recebe mensagens de fila, ocorre uma falha de processamento e ainda incorretamente conclui as mensagens e remove-os. Se esse comportamento é diagnosticado, a fila pode ser desativada para recebe até código corrigido é implementado e ainda pode ser impedida perda de dados causada pelo código da defeituoso.
+A suspensão de uma entidade é geralmente feita por motivos de administrativos urgentes. Um cenário é tendo implantado um recetor com falhas que recebe as mensagens da fila, ocorre uma falha de processamento e ainda incorretamente conclui as mensagens e remove-os. Se esse comportamento é diagnosticado, a fila pode ser desabilitada para receber até que o código corrigido é implementado e ainda mais a perda de dados causada pelo código com falhas pode ser impedida.
 
-Um suspensão ou reativação pode ser efetuada pelo utilizador ou pelo sistema. O sistema suspende apenas entidades devido a razões administrativos grave como atingir a limite de gastos de subscrição. Entidades de sistema-desativado não podem ser reativadas pelo utilizador, mas são restauradas quando a causa da suspensão foi resolvida.
+Uma suspensão ou reativação pode ser efetuada pelo utilizador ou pelo sistema. O sistema apenas suspende entidades devido a razões administrativas graves como atingir a limite de gastos de subscrição. Entidades de sistema desativado não podem ser reativadas pelo utilizador, mas são restauradas quando estar resolvida a causa da suspensão.
 
-No portal, o **propriedades** secção para a respetiva entidade permite alterar o estado; a seguinte captura de ecrã mostra o botão de alternar para uma fila:
+No portal, o **propriedades** secção da entidade respectivos permite alterar o estado; a captura de ecrã seguinte mostra o botão de alternar para uma fila:
 
 ![][1]
 
-O portal apenas permite desativar completamente filas. Também pode desativar o envio e receção operações separadamente utilizando o Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs no .NET Framework SDK ou com um modelo Azure Resource Manager através da CLI do Azure ou do Azure PowerShell.
+O portal permite apenas desativar completamente as filas. Também pode desativar a enviar e receber operações separadamente com o Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs no SDK do .NET Framework, ou com um modelo do Azure Resource Manager através da CLI do Azure ou do Azure PowerShell.
 
 ## <a name="suspension-states"></a>Estados de suspensão
 
 Os Estados que podem ser definidos para uma fila são:
 
 -   **Active Directory**: A fila está ativa.
--   **Desativado**: A fila é suspenso.
--   **SendDisabled**: fila parcialmente estiver suspenso, com receive que está a ser permitida.
--   **ReceiveDisabled**: fila parcialmente estiver suspenso, com o envio a ser permitido.
+-   **Desativado**: A fila está suspensa.
+-   **SendDisabled**: A fila está parcialmente suspenso, com receive que está a ser permitido.
+-   **ReceiveDisabled**: A fila parcialmente está suspenso, com o envio a ser permitido.
 
 Para as subscrições e tópicos, apenas **Active Directory** e **desativado** pode ser definido.
 
-O [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) enumeração também define um conjunto de Estados de transição que só pode ser definido pelo sistema. O comando do PowerShell para desativar uma fila é mostrado no exemplo seguinte. O comando de reativação é equivalente, definição `Status` para **Active Directory**.
+O [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) enumeração também define um conjunto de Estados de transição que só pode ser definido pelo sistema. O comando do PowerShell para desativar uma fila é mostrado no exemplo a seguir. O comando de reativação é equivalente, definindo `Status` para **Active**.
 
 ```powershell
 $q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -57,7 +57,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
+Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
 
 * [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)

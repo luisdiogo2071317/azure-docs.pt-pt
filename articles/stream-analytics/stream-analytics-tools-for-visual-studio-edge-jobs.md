@@ -1,6 +1,6 @@
 ---
-title: Tarefas de limite nas ferramentas do Azure Stream Analytics para o Visual Studio
-description: Este artigo descreve como criar, depurar e criar as tarefas do Stream Analytics Edge utilizando as ferramentas do Stream Analytics para o Visual Studio.
+title: Tarefas do Edge nas ferramentas do Azure Stream Analytics para Visual Studio
+description: Este artigo descreve como criar, depurar e criar as tarefas do Edge do Stream Analytics com as ferramentas do Stream Analytics para Visual Studio.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,71 +9,71 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5dc90a1334b525c02be3eae2985900ab07cf2e05
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030697"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696253"
 ---
-# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver as tarefas do Stream Analytics Edge utilizando ferramentas do Visual Studio
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos do Edge do Stream Analytics com ferramentas do Visual Studio
 
-Neste tutorial, irá aprender a utilizar ferramentas de Stream Analytics para o Visual Studio para criar, depurar e criar as tarefas do Stream Analytics Edge. Depois de criar e a tarefa de teste, pode aceder ao portal do Azure para a implementar nos seus dispositivos. 
+Neste tutorial, saiba como utilizar ferramentas do Stream Analytics para Visual Studio para criar, depurar e criar as tarefas do Edge do Stream Analytics. Depois de criar e testar a tarefa, pode aceder ao portal do Azure, implantá-la em seus dispositivos. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá dos seguintes pré-requisitos para concluir este tutorial:
+É necessário para concluir este tutorial, os seguintes pré-requisitos:
 
-* Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), ou [Visual Studio 2013 atualização 4](https://www.microsoft.com/download/details.aspx?id=45326). Enterprise (Ultimate/Premium), Professional e Community são suportadas as edições. Não é suportada a edição Express.  
+* Instale [Visual Studio 2017](https://www.visualstudio.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), ou [Visual Studio 2013 atualização 4](https://www.microsoft.com/download/details.aspx?id=45326). As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada.  
 
-* Siga o [instruções de instalação](stream-analytics-tools-for-visual-studio-edge-jobs.md) instalar as ferramentas de Stream Analytics para o Visual Studio.
+* Siga os [instruções de instalação](stream-analytics-tools-for-visual-studio-edge-jobs.md) para instalar as ferramentas do Stream Analytics para Visual Studio.
  
-## <a name="create-a-stream-analytics-edge-project"></a>Criar um projeto do Stream Analytics Edge 
+## <a name="create-a-stream-analytics-edge-project"></a>Criar um projeto do Edge do Stream Analytics 
 
-A partir do Visual Studio, selecione **ficheiro** > **novo** > **projeto**. Navegue para o **modelos** lista à esquerda > expanda **Azure Stream Analytics** > **Stream Analytics Edge**  >   **Aplicação de contorno do Azure Stream Analytics**. Forneça um nome de nome, a localização e a solução para o seu projeto e selecione **OK**.
+A partir do Visual Studio, selecione **arquivo** > **New** > **projeto**. Navegue para o **modelos** lista à esquerda > expanda **Azure Stream Analytics** > **Edge do Stream Analytics**  >   **Aplicação de borda do Azure Stream Analytics**. Forneça um nome de nome, a localização e a solução para seu projeto e selecione **OK**.
 
-![Novo projeto de limite](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-edge-project.png)
+![Novo projeto do Edge](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-edge-project.png)
 
 Depois do projeto é criado, navegue para o **Explorador de soluções** para ver a hierarquia de pastas.
 
-![Vista do Explorador de soluções](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+![Vista de Explorador de soluções](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
 
  
-## <a name="choose-the-correct-subscription"></a>Selecione a subscrição correta
+## <a name="choose-the-correct-subscription"></a>Escolha a subscrição correta
 
-1. A partir do seu Visual Studio **vista** menu, selecione **Explorador de servidores**.  
+1. Do Visual Studio **View** menu, selecione **Explorador de servidores**.  
 
-2. Clique em **Azure** > selecione **ligar à subscrição do Microsoft Azure** > e, em seguida, iniciar sessão com a sua conta do Azure.
+2. Clique com o botão direito do rato em **Azure** > selecione **ligar a subscrição do Microsoft Azure** > e, em seguida, inicie sessão com a sua conta do Azure.
 
 ## <a name="define-inputs"></a>Definir entradas
 
 1. Do **Explorador de soluções**, expanda o **entradas** nó deverá ver uma entrada com o nome **EdgeInput.json**. Faça duplo clique para ver as respetivas definições.  
 
-2. Certifique-se de que o tipo de origem está definido como **fluxo de dados** > origem está definida como **Edge Hub** > definir o formato de serialização de eventos **Json** > e codificação está definida como **UTF8**. Opcionalmente, pode mudar o nome de **Alias de entrada**, vamos deixá-lo tal como está para este exemplo. No caso de mudar o nome de alias de entrada, utilize o nome que especificou quando definir a consulta. Selecione **Guardar** para guardar as definições.  
-   ![Configuração de entrada](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
+2. Certifique-se de que o tipo de origem está definido como **dados Stream** > origem está definida como **Hub do Edge** > formato de serialização do evento definido como **Json** > e Encoding é definido como **UTF8**. Opcionalmente, pode renomear o **Alias de entrada**, vamos deixá-la como está para este exemplo. No caso de mudar o nome de alias de entrada, utilize o nome que especificou quando definir a consulta. Selecione **Guardar** para guardar as definições.  
+   ![Entrada de configuração](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
 
 
 ## <a name="define-outputs"></a>Definir saídas
 
-1. Do **Explorador de soluções**, expanda o **saídas** nó deverá ver uma saída com o nome **EdgeOutput.json**. Faça duplo clique para ver as respetivas definições.  
+1. Partir do **Explorador de soluções**, expanda o **saídas** nó deverá ver uma saída com o nome **EdgeOutput.json**. Faça duplo clique para ver as respetivas definições.  
 
-2. Certifique-se de que o Sink está definido para selecionar **Edge Hub** > definir o formato de serialização de eventos **Json** > e codificação está definida como **UTF8** > e o formato está definido como  **Matriz**. Opcionalmente, pode mudar o nome de **Alias de saída**, vamos deixá-lo tal como está para este exemplo. No caso de mudar o nome de alias de saída, utilize o nome que especificou quando definir a consulta. Selecione **Guardar** para guardar as definições. 
+2. Certifique-se de que o Sink está definida para selecionar **Hub do Edge** > formato de serialização do evento definido como **Json** > e Encoding é definido como **UTF8** > e formato está definido como  **Matriz**. Opcionalmente, pode renomear o **Alias de saída**, vamos deixá-la como está para este exemplo. No caso de mudar o nome de alias de saída, utilize o nome que especificou quando definir a consulta. Selecione **Guardar** para guardar as definições. 
    ![Configuração de saída](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
 ## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
 
-Tarefas do Stream Analytics implementadas nos ambientes de limite suportam a maioria das [referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396); no entanto, as seguintes operações ainda não são suportadas para as tarefas de limite: 
+Tarefas do Stream Analytics implementadas nos ambientes de Edge suportam a maioria dos [referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396), no entanto, as seguintes operações ainda não são suportadas para as tarefas do Edge: 
 
 
 |**Categoria**  | **Comando**  |
 |---------|---------|
 |Operadores geoespaciais |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
-|Outros operadores | <ul><li>PARTIÇÃO</li><li>TIMESTAMP ATRAVÉS DA ATIVAÇÃO PÓS-FALHA</li><li>DISTINTOS</li><li>Parâmetro de expressão no operador de CONTAGEM</li><li>Aos microssegundos nas funções de data e hora</li><li>UDA JavaScript (esta funcionalidade ainda está em pré-visualização de tarefas implementada na nuvem)</li></ul>   |
+|Outros operadores | <ul><li>PARTIÇÃO POR</li><li>TIMESTAMP POR ANO</li><li>DISTINTOS</li><li>Parâmetro de expressão no operador CONTAGEM</li><li>Microssegundo nas funções de data e hora</li><li>UDA de JavaScript (esta funcionalidade ainda está em pré-visualização para as tarefas implementadas na cloud)</li></ul>   |
 
-Quando cria uma tarefa de limite no portal, o compilador será automaticamente avisá-lo se não estiver a utilizar um operador suportado.
+Quando cria uma tarefa do Edge no portal, o compilador automaticamente avisará se não estiver a utilizar um operador de suporte.
 
-Do seu Visual Studio, defina a seguinte consulta de transformação no editor de consulta (**script.asaql ficheiro**)
+A partir do Visual Studio, definir a seguinte consulta de transformação no editor de consultas (**script.asaql ficheiro**)
 
 ```sql
 SELECT * INTO EdgeOutput
@@ -82,18 +82,18 @@ FROM EdgeInput
 
 ## <a name="test-the-job-locally"></a>Testar a tarefa localmente
 
-Para testar a consulta localmente, deverá carregar os dados de exemplo. Pode obter dados de exemplo através da transferência de dados de registo do [repositório do GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) e guarde-o para o seu computador local. 
+Para testar a consulta localmente, deverá carregar os dados de exemplo. Pode obter dados de exemplo ao transferir dados de registo do [repositório do GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) e guarde-o para o computador local. 
 
-1. Para carregar dados de exemplo > clique em **EdgeInput.json** ficheiro > Escolha **Adicionar entrada Local**  
+1. Para carregar dados de exemplo, > Clique com o botão direito do rato em **EdgeInput.json** ficheiro > Escolha **adicionar a entrada Local**  
 
-2. Na janela de pop-up > **procurar** os dados de exemplo a partir do seu caminho local > selecione **guardar**.
+2. Na janela de pop-up > **navegue** os dados de exemplo do seu caminho local > selecione **guardar**.
    ![Configuração de entrada local](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
  
 3. Um ficheiro denominado **local_EdgeInput.json** é adicionado automaticamente à sua pasta de entradas.  
-4. Pode executá-la localmente ou submeter para o Azure. Para testar a consulta > selecione **executar localmente**.  
+4. Pode executá-lo localmente ou envie para o Azure. Para testar a consulta > selecione **executar localmente**.  
    ![Opções de execução](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
  
-5. A janela de linha de comandos mostra o estado da tarefa. Quando a tarefa é executada com êxito, cria uma pasta que se assemelha "2018-02-23-11-31-42" no caminho de pasta do projeto "2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42 do Visual Studio". Navegue para o caminho da pasta para ver os resultados na pasta local:
+5. A janela de prompt de comando mostra o estado da tarefa. Quando a tarefa é executada com êxito, ele cria uma pasta que é semelhante a "2018-02-23-11-31-42" no caminho de pasta do projeto "2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42 do Visual Studio". Navegue para o caminho da pasta para ver os resultados na pasta local:
 
    Também pode iniciar sessão no portal do Azure e certifique-se de que a tarefa é criada. 
 
@@ -101,28 +101,28 @@ Para testar a consulta localmente, deverá carregar os dados de exemplo. Pode ob
 
 ## <a name="submit-the-job-to-azure"></a>Submeter a tarefa para o Azure
 
-1. Antes de submeter a tarefa para o Azure, tem de ligar à sua subscrição do Azure. Abra **Explorador de servidores** > clique em **Azure** > **ligar a subscrição do Microsoft Azure** > Iniciar sessão na sua subscrição do Azure.  
+1. Antes de submeter a tarefa para o Azure, tem de ligar à sua subscrição do Azure. Open **Explorador de servidores** > Clique com o botão direito do rato em **Azure** > **ligar a subscrição do Microsoft Azure** > Iniciar sessão na sua subscrição do Azure.  
 
-2. Para submeter a tarefa para o Azure, navegue para o editor de consultas > selecione **envio para o Azure**.  
+2. Para submeter a tarefa para o Azure, navegue para o editor de consultas > selecione **submeter para o Azure**.  
 
-3. Abre uma janela de pop-up, onde pode optar por atualizar uma tarefa do limite existente ou crie um novo. Quando atualizar uma tarefa existente, irá substituir todas as configuração tarefa, neste cenário, irá publicar uma nova tarefa. Selecione **criar uma nova tarefa do Azure Stream Analytics** > introduza um nome para a tarefa como **MyASAEdgeJob** > Escolha necessários **subscrição**, **Grupo de recursos**, e **localização** > selecione **submeter**.
+3. É aberta uma janela de pop-up, onde pode optar por atualizar uma tarefa do Edge existente ou criar um novo. Quando atualizar uma tarefa existente, irá substituir toda a configuração de trabalho como, neste cenário, o que irá publicar uma nova tarefa. Selecione **criar uma nova tarefa de análise do Azure Stream** > introduza um nome para a sua tarefa algo como **MyASAEdgeJob** > Escolha necessários **subscrição**, **Grupo de recursos**, e **localização** > selecione **submeter**.
 
    ![Submeter para o Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
  
-   Agora que criou a tarefa de Stream Analytics Edge, pode consultar o [executar tarefas no tutorial de limite de IoT](stream-analytics-edge.md) para saber como implementá-la para os seus dispositivos. 
+   Agora que criou a tarefa do Edge do Stream Analytics, pode consultar o [executar tarefas num tutorial de IoT Edge](stream-analytics-edge.md) para aprender a implementá-la para os seus dispositivos. 
 
 ## <a name="manage-the-job"></a>Gerir a tarefa 
 
-Pode ver o estado da tarefa e o diagrama de tarefa no Explorador de servidores. Do **Explorador de servidores** > **Stream Analytics** > expandir a subscrição e o grupo de recursos onde implementou a tarefa de limite > pode ver o MyASAEdgejob com o estado  **Criado**. Expanda o nó de tarefa e faça duplo clique no mesmo para abrir a vista de tarefa.
+Pode ver o estado da tarefa e o diagrama de tarefas a partir do Explorador de servidores. Partir do **Explorador de servidores** > **Stream Analytics** > expanda a subscrição e o grupo de recursos onde implementou a tarefa do Edge > pode ver o MyASAEdgejob com o estado  **Criado**. Expanda o nó de trabalho e clique duas vezes nele para abrir a vista de tarefas.
 
-![Opções do Explorador de servidores](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
+![Opções do Server explorer](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  
-A janela de vista de tarefas fornece-lhe operações como atualizar a tarefa, eliminar a tarefa, abrindo a tarefa de etc portal do Azure.
+A janela de exibição de tarefa fornece operações como atualizar a tarefa, a eliminação da tarefa, abrindo a tarefa de etc portal do Azure.
 
-![Diagrama de tarefa e outras opções](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
+![Diagrama de tarefas e outras opções](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter mais informações sobre o limite de Iot do Azure](../iot-edge/about-iot-edge.md)
-* [ASA tutorial IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
-* [Enviar comentários à equipa de utilizar este inquérito](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Obter mais informações sobre o Azure Iot Edge](../iot-edge/about-iot-edge.md)
+* [ASA do tutorial do IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
+* [Enviar comentários para o agrupamento com este inquérito](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

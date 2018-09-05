@@ -1,6 +1,6 @@
 ---
-title: Filtros de tópico de barramento de serviço do Azure | Microsoft Docs
-description: Filtrar tópicos de Service Bus do Azure
+title: Filtros de tópico do Service Bus do Azure | Documentos da Microsoft
+description: Filtrar tópicos do Service bus do Azure
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,49 +12,49 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28198873"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699391"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
-Os subscritores podem definir quais as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas sob a forma de uma ou mais regras de subscrição com nome. Cada regra é composta por uma condição que seleciona mensagens específicas e uma ação que annotates a mensagem selecionada. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente.
+Os subscritores podem definir as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas sob a forma de uma ou mais regras de subscrição com nome. Cada regra é composta por uma condição de que seleciona mensagens específicas e uma ação que annotates a mensagem selecionada. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente.
 
-Cada subscrição de tópico recém-criado tem uma regra de subscrição inicial predefinido. Se não especificar explicitamente uma condição de filtro para a regra, é o filtro aplicado a **verdadeiro** filtro que permite que todas as mensagens de ser selecionada para a subscrição. A regra predefinida não tem nenhuma ação de anotação associado.
+Cada subscrição de tópico recém-criado tem uma regra de subscrição inicial predefinido. Se não especificar explicitamente uma condição de filtro para a regra, o filtro aplicado é o **true** filtro que permite que todas as mensagens ser selecionado para a subscrição. A regra predefinida não tem nenhuma ação de anotação associados.
 
-Service Bus suporta três condições de filtragem:
+Service Bus suporta três condições de filtro:
 
--   *Filtros booleanos* - **TrueFilter** e **FalseFilter** a fazer com que todas as mensagens atrasadas (**verdadeiro**) ou nenhuma das mensagens atrasadas (**falso**) para ser selecionado para a subscrição.
+-   *Filtros Boolianos* – a **TrueFilter** e **FalseFilter** podem causar a todas as mensagens que são recebidas (**verdadeiro**) ou nenhuma das mensagens que são recebidas (**false**) a ser selecionado para a subscrição.
 
--   *Os filtros do SQL* - um **SqlFilter** contém uma expressão condicional como o SQL Server que é avaliada no Mediador contra as mensagens atrasadas propriedades definidas pelo utilizador e as propriedades do sistema. Todas as propriedades do sistema tem de ter o prefixo `sys.` na expressão condicional. O [subconjunto de idiomas do SQL Server para condições de filtro](service-bus-messaging-sql-filter.md) testes a existência de propriedades (EXISTS), bem como para (IS NULL) de valores nulos, operadores lógicos não/e/ou, relacionais, aritmética numérica simple e padrão de texto simples correspondência com semelhante.
+-   *Filtros de SQL* - uma **SqlFilter** contém uma expressão condicional de tipo SQL que é avaliada no Mediador contra as mensagens que são recebidas propriedades definidas pelo utilizador e as propriedades do sistema. Todas as propriedades do sistema tem de ter o prefixo `sys.` na expressão condicional. O [subconjunto de linguagem de SQL para condições de filtro](service-bus-messaging-sql-filter.md) testes a existência de propriedades (EXISTS), bem como para (IS NULL) de valores null, os operadores lógicos de não/AND/OR, relacionais, aritmética numérico simple e padrão de texto simples correspondência com assim por DIANTE.
 
--   *Filtros de correlação* - um **CorrelationFilter** contém um conjunto de condições são comparado com uma ou mais das propriedades de utilizador e do sistema de uma mensagem atrasada. É uma utilização comum para correspondência de **CorrelationId** propriedade, mas a aplicação também pode optar por correspondência **ContentType**, **etiqueta**,  **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **para**e quaisquer definido pelo utilizador Propriedades. Existe uma correspondência quando o valor de uma mensagem atrasada para uma propriedade de é igual ao valor especificado no filtro de correlação. Para as expressões de cadeia, a comparação é maiúsculas e minúsculas. Quando especificar várias propriedades de correspondência, o filtro combina-los como condição e lógica, que significa que para o filtro corresponder, todas as condições têm de corresponder.
+-   *Filtros de correlação* - uma **CorrelationFilter** contém um conjunto de condições comparados com uma ou mais das propriedades de utilizador e o sistema de uma mensagem que são recebidos. Um uso comum é a correspondência com o **CorrelationId** propriedade, mas o aplicativo também pode optar por correspondência com **ContentType**, **etiqueta**,  **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **para**e qualquer definido pelo utilizador Propriedades. Quando o valor de uma mensagem que são recebidos para uma propriedade é igual ao valor especificado no filtro de correlação, existir uma correspondência. Para expressões de cadeia de caracteres, a comparação diferencia maiúsculas de minúsculas. Ao especificar várias propriedades de correspondência, o filtro combina-o como uma condição lógica e, para o filtro de acordo com o que significa, todas as condições têm de corresponder.
 
-Todos os filtros avaliar as propriedades da mensagem. Os filtros não é possível avaliar o corpo da mensagem.
+Todos os filtros de avaliam as propriedades da mensagem. Filtros não é possível avaliar o corpo da mensagem.
 
-Regras do filtro complexas requerem a capacidade de processamento. Em particular, a utilização de regras de filtro SQL resulta num débito de mensagem global inferior ao nível da subscrição, o tópico e o espaço de nomes. Sempre que possível, as aplicações devem escolher filtros de correlação através de filtros como o SQL Server, uma vez que estes são muito mais eficientes no processamento, pelo que tem menos impacto no débito.
+Regras do filtro complexos exigem a capacidade de processamento. Em particular, o uso de regras do filtro de SQL resulta num débito de mensagem global inferior ao nível da subscrição, o tópico e o espaço de nomes. Sempre que possível, aplicativos devem escolher os filtros de correlação mais filtros de tipo SQL, uma vez que eles são muito mais eficientes no processamento e, portanto, tem menos impacto sobre o débito.
 
 ## <a name="actions"></a>Ações
 
-Com condições de filtro do SQL Server e apenas com os, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL,](service-bus-messaging-sql-filter.md) que aproximadamente ligado leans sobre a sintaxe de declaração de ATUALIZAÇÃO do SQL Server. A ação é executada na mensagem depois que tem sido correspondência e antes da mensagem está selecionada para o tópico. As alterações às propriedades de mensagem estão privadas para a mensagem copiada para a subscrição.
+Com condições de filtro SQL e apenas com aqueles que, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL](service-bus-messaging-sql-filter.md) que livremente apresenta a sintaxe de instrução SQL UPDATE. A ação é executada na mensagem depois foi encontrada e antes da mensagem será selecionada para o tópico. As alterações às propriedades da mensagem são privadas para a mensagem copiada para a subscrição.
 
 ## <a name="usage-patterns"></a>Padrões de utilização
 
-O cenário de utilização mais simples para um tópico é que cada subscrição recebe uma cópia de cada mensagem enviada para um tópico, que permite que um padrão de difusão.
+O cenário mais simples de utilização para um tópico é que cada subscrição recebe uma cópia de cada mensagem enviada para um tópico, que permite que um padrão de difusão.
 
-Filtros e as ações ativar dois grupos adicionais de padrões: criação de partições e o encaminhamento.
+Filtros e as ações permitem dois grupos adicionais de padrões: criação de partições e o encaminhamento.
 
-Criação de partições utiliza filtros para distribuir mensagens entre várias subscrições existentes de forma previsível e mutuamente exclusiva. O padrão de criação de partições é utilizado quando um sistema é aumentado horizontalmente para lidar com vários contextos diferentes nos compartimentos funcionalmente idênticos que cada conter um subconjunto de dados globais; Por exemplo, informações de perfil de cliente. Com a criação de partições, um publicador envia a mensagem para um tópico, sem necessidade de quaisquer dados de conhecimento do modelo de criação de partições. Em seguida, a mensagem é movida para a subscrição correta a partir da qual pode, em seguida, ser obtida pelo processador de mensagens a partição.
+Criação de partições de filtros de utilizações para distribuir as mensagens por várias subscrições de tópicos existentes de forma previsível e mutuamente exclusiva. O padrão de criação de partições é utilizado quando um sistema é aumentado horizontalmente para lidar com vários contextos diferentes em compartimentos funcionalmente idênticos que cada conter um subconjunto de dados global; Por exemplo, informações de perfil de cliente. Com a criação de partições, um publicador envia a mensagem num tópico, sem a necessidade de qualquer conhecimento do modelo de criação de partições. A mensagem, em seguida, é movida para a subscrição correta da qual pode, em seguida, ser obtida pelo manipulador de mensagens da partição.
 
-Encaminhamento utiliza filtros para distribuir mensagens entre subscrições de tópico de forma previsível, mas não necessariamente exclusivo. Em conjunto com o [reencaminhamento automática](service-bus-auto-forwarding.md) funcionalidade, tópico podem ser utilizados filtros para criar encaminhamentos complexos gráficos dentro de um espaço de nomes do Service Bus para distribuição de mensagem dentro de uma região do Azure. Com as funções do Azure ou do Azure Logic Apps funcionam como uma ponte entre os espaços de nomes do Service Bus do Azure, pode criar topologias global complexas com integração direta na linha de aplicações empresariais.
+Encaminhamento utiliza filtros para distribuir mensagens através de subscrições de tópicos de maneira previsível, mas não necessariamente exclusivo. Em conjunto com o [reencaminhamento automático](service-bus-auto-forwarding.md) tópico filtros podem ser usados para criar o encaminhamento complexo de funcionalidade, gráficos num espaço de nomes do Service Bus para distribuição de mensagem dentro de uma região do Azure. Com as funções do Azure ou do Azure Logic Apps, que atua como uma ponte entre espaços de nomes do Service bus do Azure, pode criar topologias complexas de global com a integração direta na linha de aplicativos de negócios.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
+Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
 
 * [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)

@@ -1,6 +1,6 @@
 ---
-title: Dimensionar as funções de Machine Learning no Azure Stream Analytics
-description: Este artigo descreve como dimensionar as tarefas do Stream Analytics que utilizam as funções de Machine Learning, configurando as unidades de criação de partições e o fluxo.
+title: Dimensione funções de Machine Learning no Azure Stream Analytics
+description: Este artigo descreve como dimensionar trabalhos do Stream Analytics que utilizam funções de Machine Learning, através da configuração de unidades de criação de partições e o stream.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,42 +9,42 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 115273086eeb88064c4b179f67d2d400d9f84692
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30909280"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696103"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning
-É diretamente reencaminhar para configurar uma tarefa de Stream Analytics e executar alguns dados de exemplo através do mesmo. O que podemos fazer quando é necessário executar a mesma tarefa com o volume de dados superior? Requer-nos compreender como configurar a tarefa de Stream Analytics para que o se dimensiona. Neste documento, iremos focar-se nos aspetos de especiais de dimensionamento tarefas do Stream Analytics com as funções de Machine Learning. Para obter informações sobre como dimensionar as tarefas do Stream Analytics em geral, consulte o artigo [dimensionamento tarefas](stream-analytics-scale-jobs.md).
+É simples configurar uma tarefa do Stream Analytics e executar alguns dados de exemplo através do mesmo. O que podemos fazer quando for necessário executar a mesma tarefa com o maior volume de dados? Ela requer a compreender como configurar a tarefa do Stream Analytics, para que ele pode ser dimensionada. Neste documento, vamos nos concentrar nos aspetos de especiais de dimensionar tarefas do Stream Analytics com as funções de Machine Learning. Para obter informações sobre como dimensionar tarefas do Stream Analytics em geral, consulte o artigo [Dimensionar tarefas](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>O que é uma função do Azure Machine Learning no Stream Analytics?
-Uma função de Machine Learning no Stream Analytics pode ser utilizada como uma chamada de função regulares no idioma de consulta do Stream Analytics. No entanto, atrás cena, as chamadas de função são, na verdade, os pedidos de serviço Web do Azure Machine Learning. Serviços web Machine Learning suportam "criação de batches" várias linhas, denominado mini batch, a mesma API chamada de serviço web, para melhorar o débito global. Consulte os artigos seguintes para obter mais detalhes; [Funções do azure Machine Learning no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [serviços Web do Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Uma função de Machine Learning no Stream Analytics pode ser utilizada como uma chamada de função regulares no idioma de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, os pedidos de serviço da Web do Azure Machine Learning. Serviços web Machine Learning suportam "criação de batches" várias linhas, que é chamado de mini-lote, em que a mesma API chamada de serviço web, para melhorar a produtividade geral. Para obter mais informações, consulte [funções do Azure Machine Learning no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [serviços da Web do Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurar uma tarefa de Stream Analytics com as funções de Machine Learning
-Quando configurar uma função de Machine Learning para a tarefa de Stream Analytics, existem dois parâmetros a ter em consideração, o tamanho do lote das chamadas de função do Machine Learning e as unidades de transmissão em fluxo (SUs) aprovisionadas para a tarefa de Stream Analytics. Para determinar os valores adequados para estas, primeiro uma decisão tem de ser efetuada entre a latência e débito, ou seja, a latência da tarefa do Stream Analytics e débito de cada SU. SUs sempre podem ser adicionados a uma tarefa para aumentar o débito de uma consulta do Stream Analytics bem particionada, embora SUs adicionais aumentam o custo de execução da tarefa.
+Ao configurar uma função de Machine Learning tarefa do Stream Analytics, há dois parâmetros a serem considerados, o tamanho de lote das chamadas de função do Machine Learning e as unidades de transmissão em fluxo (SUs) aprovisionadas para a tarefa do Stream Analytics. Para determinar os valores adequados para estas, primeiro uma decisão deve ser feita entre latência e débito, ou seja, a latência da tarefa do Stream Analytics e débito de cada SU. SUs sempre podem ser adicionados a uma tarefa para aumentar o débito de uma consulta do Stream Analytics também particionada, embora SUs adicionais aumentam o custo de executar a tarefa.
 
-Por isso, é importante determinar o *tolerância* de latência em execução uma tarefa de Stream Analytics. Latência adicional a execução de pedidos de serviço do Azure Machine Learning naturalmente irá aumentar com o tamanho de lote, compounds a latência da tarefa de Stream Analytics. Por outro lado, aumentar o tamanho do lote permite que a tarefa de Stream Analytics processar * mais eventos com o *mesmo número* do Machine Learning pedidos de serviço da web. Muitas vezes, o aumento de latência de serviço web de Machine Learning é sublinear para o aumento do tamanho do lote, pelo que é importante a ter em consideração o tamanho do lote mais económico para um serviço web do Machine Learning em qualquer situação indicado. O tamanho do lote predefinido para o serviço web de pedidos é 1000 e pode ser modificado utilizando o [API de REST do Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API de REST do Stream Analytics") ou [PowerShell de cliente para o fluxo Análise de](stream-analytics-monitor-and-manage-jobs-use-powershell.md "PowerShell de cliente para o Stream Analytics").
+Por isso é importante determinar a *tolerância* de latência em executar uma tarefa do Stream Analytics. Latência adicional da execução de pedidos de serviço do Azure Machine Learning naturalmente aumentarão com o tamanho de lote, o que constitui a latência de tarefa do Stream Analytics. Por outro lado, aumentar o tamanho do lote permite que a tarefa de Stream Analytics processar * mais eventos com o *mesmo número* do Machine Learning pedidos de serviço da web. Muitas vezes, o aumento da latência de serviço web Machine Learning é sublinear para o aumento do tamanho de lote, pelo que é importante considerar o tamanho do lote mais económica para um serviço web do Machine Learning em qualquer determinada situação. O tamanho de lote predefinido para o serviço web solicita é 1000 e pode ser modificado utilizando o [API de REST do Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API de REST do Stream Analytics") ou a [cliente de PowerShell para o Stream Análise](stream-analytics-monitor-and-manage-jobs-use-powershell.md "cliente de PowerShell para o Stream Analytics").
 
-Depois de um tamanho de lote foi considerado, o número de transmissão em fluxo unidades (SUs) podem ser determinadas, com base no número de eventos tem da função processos por segundo. Para obter mais informações sobre unidades de transmissão em fluxo, consulte [Stream Analytics Dimensionar tarefas](stream-analytics-scale-jobs.md).
+Depois de ter sido determinado um tamanho de lote, o número de transmissão em fluxo (SUs) de unidades podem ser determinadas, com base no número de eventos que a função precisa para processar por segundo. Para obter mais informações sobre unidades de transmissão em fluxo, consulte [tarefas de escala do Stream Analytics](stream-analytics-scale-jobs.md).
 
-Em geral, existem 20 ligações simultâneas para o serviço web do Machine Learning para cada 6 SUs, exceto que as tarefas de SU 1 e 3 tarefas SU obtêm 20 ligações simultâneas também.  Por exemplo, se a taxa de dados de entrada é 200 000 eventos por segundo e o tamanho do lote for deixado predefinição de 1000 a latência de serviço web resultante com o batch mini do 1000 eventos é de 200 ms. Isto significa que cada ligação, pode efetuar pedidos de cinco para o serviço web do Machine Learning num segundo. Com 20 ligações, a tarefa de Stream Analytics pode processar e, por conseguinte, 100 000 eventos de 20000 eventos em 200 ms num segundo. Por isso, para processar 200 000 eventos por segundo, a tarefa de Stream Analytics necessita de 40 ligações simultâneas que chamem 12 SUs. O diagrama seguinte ilustra os pedidos da tarefa de Stream Analytics para o ponto final de serviço do Machine Learning web – cada 6 SUs tem 20 ligações simultâneas para o serviço web Machine Learning, no máximo.
+Em geral, há 20 ligações simultâneas para o serviço web do Machine Learning para todos os 6 SUs, exceto pelo fato de 1 de SU de tarefas e as tarefas SU 3 obtém 20 ligações em simultâneo, também.  Por exemplo, se a taxa de dados de entrada é 200 000 eventos por segundo e o tamanho do lote é deixado para o padrão de 1000 a latência de serviço web resultante com o mini-batch de 1000 eventos é de 200 ms. Isso significa que cada ligação, pode tornar cinco pedidos para o serviço web do Machine Learning num segundo. 20 ligações, a tarefa do Stream Analytics pode processar e, portanto, 100 000 eventos de 20 000 eventos em 200 ms num segundo. Portanto, para processar 200 000 eventos por segundo, a tarefa do Stream Analytics precisa 40 ligações em simultâneo, até 12 SUs. O diagrama seguinte ilustra os pedidos da tarefa do Stream Analytics para o ponto de extremidade de serviço da web de Machine Learning – todos os 6 SUs tem 20 ligações em simultâneo ao serviço web Machine Learning, no máximo.
 
-![Dimensionar o Stream Analytics com o exemplo de duas tarefas de Machine Learning funções](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "escala Stream Analytics com o exemplo de tarefa duas funções do Machine Learning")
+![Dimensionar o Stream Analytics com o exemplo de tarefa duas funções do Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "dimensionamento Stream Analytics com o exemplo de tarefa duas funções do Machine Learning")
 
-Em geral, ***B*** para o tamanho do lote, ***L*** da tarefa para a latência de serviço web no tamanho do lote B em milissegundos, com o débito de um Stream Analytics ***N*** SUs é:
+Em geral, ***B*** para o tamanho de lote ***L*** da tarefa para a latência do serviço web com o tamanho de lote B em milissegundos, com a taxa de transferência do Stream Analytics ***N*** SUs é:
 
-![Dimensionar o do Stream Analytics com Machine Learning funções fórmula](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "do Stream Analytics com Machine Learning funções fórmula de dimensionamento")
+![Dimensionar o Stream Analytics com a fórmula de funções do Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "dimensionar o Stream Analytics com a fórmula de funções do Machine Learning")
 
-Uma consideração adicional pode estar as 'Máx. de chamadas em simultâneo' no lado de serviço web do Machine Learning, é recomendado que defina esta opção para o valor máximo (200 atualmente).
+Uma consideração adicional pode ser as "máximas de chamadas simultâneas" no lado do serviço web Machine Learning, é recomendado que defina esta opção para o valor máximo (200 atualmente).
 
-Para obter mais informações sobre esta definição reveja o [artigo de dimensionamento para serviços Web Machine Learning](../machine-learning/studio/scaling-webservice.md).
+Para obter mais informações sobre esta definição, veja a [artigo de dimensionamento para serviços Web Machine Learning](../machine-learning/studio/scaling-webservice.md).
 
-## <a name="example--sentiment-analysis"></a>Exemplo-Sentiment análise
-O exemplo seguinte inclui uma tarefa de Stream Analytics com a análise de dados de sentimento função do Machine Learning, conforme descrito no [tutorial de integração de aprendizagem do Stream Analytics](stream-analytics-machine-learning-integration-tutorial.md).
+## <a name="example--sentiment-analysis"></a>Exemplo – análise de sentimentos
+O exemplo seguinte inclui uma tarefa do Stream Analytics com a função de Machine Learning, a análise de sentimentos, conforme descrito no [tutorial de integração de aprendizagem do Stream Analytics](stream-analytics-machine-learning-integration-tutorial.md).
 
-A consulta é simples totalmente particionada consulta seguida de **sentimento** funcione, como mostrado seguinte:
+A consulta é um simples totalmente particionados consulta seguida de **sentimentos** funcione, como mostra a seguinte:
 
     WITH subquery AS (
         SELECT text, sentiment(text) as result from input
@@ -54,60 +54,60 @@ A consulta é simples totalmente particionada consulta seguida de **sentimento**
     Into output
     From subquery
 
-Considere o seguinte cenário; com um débito de 10 000 tweets por segundo tem de ser criada uma tarefa de Stream Analytics para executar uma análise de dados de sentimento dos tweets (eventos). Utilizar 1 SU, foi esta tarefa de Stream Analytics ser capaz de lidar com o tráfego? Com o tamanho de lote da predefinição de 1000 a tarefa deve ser capaz de manter-se a entrada. Ainda mais a função de Machine Learning adicionada deve gerar não mais do que um segundo da latência, que é geral de latência de predefinida da análise de dados de sentimento serviço web Machine Learning (com um tamanho de lote de predefinição de 1000). A tarefa de Stream Analytics **geral** ou latência ponto-a-ponto, normalmente, seria alguns segundos. Veja mais detalhadas para esta tarefa de Stream Analytics *especialmente* as chamadas de função do Machine Learning. Ter o tamanho do lote como 1000, um débito de 10 000 eventos demorar cerca de 10 pedidos ao serviço web. Mesmo com 1 SU, existem suficiente ligações simultâneas para acomodar este tráfego de entrada.
+Considere o seguinte cenário; com um débito de 10 000 tweets por segundo tem de ser criada uma tarefa do Stream Analytics para executar a análise de sentimentos dos tweets (eventos). Utilizar 1 SU, esta tarefa de Stream Analytics seria capaz de lidar com o tráfego? Com o tamanho de lote de padrão de 1000 a tarefa deve ser capaz de manter-se a entrada. Ainda mais a função de Machine Learning foi adicionada deve gerar não mais do que um segundo de latência, o que é gerais de latência de padrão de análise de sentimentos serviço web Machine Learning (com um tamanho de lote de padrão de 1000). A tarefa de Stream Analytics **geral** ou latência de ponto-a-ponto, normalmente, seria alguns segundos. Tenha uma visão mais detalhada nesta tarefa de Stream Analytics *especialmente* as chamadas de função do Machine Learning. Com o tamanho de lote que 1000, um débito de 10 000 eventos demorar cerca de 10 pedidos ao serviço web. Mesmo com 1 SU, há suficiente conexões simultâneas para acomodar este tráfego de entrada.
 
-Mas e se a taxa de eventos de entrada aumenta ao 100 x e agora tem da tarefa de Stream Analytics processar 1.000.000 tweets por segundo? Existem duas opções:
+Se aumentar a taxa de eventos de entrada por 100 vezes, a tarefa do Stream Analytics necessita de processar tweets 1 000 000 por segundo. Existem duas opções para realizar a escala maior:
 
 1. Aumente o tamanho de lote, ou
 2. O fluxo de entrada para processar os eventos em paralelo de partição
 
 Com a primeira opção, a tarefa **latência** aumenta.
 
-Com a segunda opção, o SUs mais tem de ser aprovisionado e, por conseguinte, gerar mais pedidos simultâneos de Machine Learning web service. Isto significa que a tarefa **custo** aumenta.
+Com a segunda opção, mais SUs precisaria ser aprovisionados e, portanto, gerar pedidos de serviço da web de Machine Learning mais em simultâneo. Isso significa que a tarefa **custo** aumenta.
 
-Assumir que a latência da análise de dados de sentimento serviço web Machine Learning é 200 ms para lotes de 1000 eventos ou abaixo, ms 250 para lotes de 5000-o evento, ms 300 para 10 000 eventos lotes ou 500 ms para lotes 25,000-o evento.
+Suponha que a latência da análise de sentimentos serviço web Machine Learning é 200 ms para lotes de 1000 eventos ou abaixo, 250 ms para lotes de evento de 5.000, 300 ms para lotes de eventos de 10 000 ou 500 ms para lotes de eventos de 25.000.
 
-1. A primeira opção, a utilizar (**não** aprovisionamento mais SUs), pode ser aumentado para incluir o tamanho do lote **25,000**. Isto por sua vez, permitiria que a tarefa processar 1.000.000 eventos com 20 ligações simultâneas para o serviço web do Machine Learning (com uma latência de 500 ms por chamada). Para que a latência adicional da tarefa de Stream Analytics devido a pedidos de função de sentimento contra os pedidos de serviço web Machine Learning teria de ser aumentada de **200 ms** para **500 ms**. No entanto, tamanho do lote **não é possível** ser aumentado infinitamente o serviços web Machine Learning requer que o tamanho do payload de um pedido seja 4 MB ou menor tempo limite de pedidos de serviço web após 100 segundos da operação.
-2. Utilizar a segunda opção, o tamanho do lote for deixado em 1000, com uma latência de serviço web de 200 ms, cada 20 ligações simultâneas para o serviço web seria capazes de processar 1000 * 20 * 5 eventos = 100 000 por segundo. Por isso, para processar 1.000.000 eventos por segundo, a tarefa teria 60 SUs. Em comparação com a primeira opção, a tarefa do Stream Analytics utilizariam o pedidos mais de lote do serviço web, por sua vez gerar um custo de aumento.
+1. Com a primeira opção (**não** aprovisionamento mais SUs). O tamanho de lote pode ser aumentado para **25.000**. Isso por sua vez, permitiria que a tarefa processar 1 000 000 eventos com 20 ligações simultâneas para o serviço web do Machine Learning (com uma latência de 500 ms por chamada). Para que a latência adicional da tarefa de Stream Analytics devido a pedidos de função de sentimento contra os pedidos de serviço da web de Machine Learning poderia ser aumentada de **200 ms** ao **500 ms**. No entanto, tamanho do lote **não é possível** ser aumentado infinitamente a serviços web Machine Learning requer que o tamanho da carga de um pedido de ser de 4 MB ou menor tempo limite de pedidos de serviço de web após 100 segundos da operação.
+2. Usando a segunda opção, o tamanho do lote é deixado em 1000, com latência de serviço da web de 200 ms, todas as 20 ligações simultâneas para o serviço web seria capazes de processar 1000 * 20 * 5 eventos = 100 000 por segundo. Portanto, para processar 1 000 000 eventos por segundo, a tarefa precisaria 60 SUs. Em comparação com a primeira opção, a tarefa do Stream Analytics tornaria o mais batch solicitações de web service, por sua vez, gerando um custo maior.
 
-Segue-se uma tabela para o débito da tarefa de Stream Analytics para diferentes SUs e tamanhos de lote (num número de eventos por segundo).
+Segue-se uma tabela para o débito de tarefa do Stream Analytics para SUs diferentes e tamanhos de batch (num número de eventos por segundo).
 
-| tamanho de lote (latência de ML) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25,000 (500 ms) |
+| tamanho de lote (latência de ML) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 SUs** |5.000 |10,000 |40,000 |60,000 |100,000 |
+| **12 SUs** |5.000 |10,000 |40,000 |60,000 |100 000 |
 | **18 SUs** |7.500 |15,000 |60,000 |90,000 |150,000 |
 | **24 SUs** |10,000 |20,000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50,000 |200,000 |300,000 |500,000 |
 
-Por agora, já deverá ter uma boa compreensão sobre como funcionam as funções de Machine Learning no Stream Analytics. É provável que também compreende que dados de tarefas do Stream Analytics "solicitação" de origens de dados e cada "pull" devolve um lote de eventos para a tarefa de Stream Analytics processar. Como é que este impacto de modelo de extração de Machine Learning web pedidos de serviço?
+Agora, já deverá ter uma boa compreensão de como funcionam as funções de Machine Learning no Stream Analytics. Provavelmente também compreender que dados de tarefas do Stream Analytics "pull" de origens de dados e cada "pull" retorna um lote de eventos para a tarefa de Stream Analytics processar. Como é que esse impacto de modelo de extração o Machine Learning web pedidos de serviço?
 
-Normalmente, o tamanho do lote que definimos para funções de Machine Learning exatamente será divisible pelo número de eventos devolvidos por cada tarefa de Stream Analytics "solicitação". Quando isto ocorre que o serviço web do Machine Learning é chamado com lotes "parciais". Isto é feito não assumir overhead inerente à latência trabalhos adicionais nos eventos de agregação de solicitação a solicitação.
+Normalmente, o tamanho do lote a definir para as funções de Machine Learning não exatamente será divisível pelo número de eventos devolvidos por cada tarefa do Stream Analytics "pull". Quando isso ocorre que o serviço web do Machine Learning é chamado com "parciais" lotes. Isso é feito para não incorrem em sobrecarga de latência de tarefa adicionais nos eventos de agregação de pull para extração.
 
-## <a name="new-function-related-monitoring-metrics"></a>Nova função monitorização das métricas relacionadas com
-Na área de Monitor de uma tarefa de Stream Analytics, foram adicionadas três métricas adicionais relacionados com a função. Estes são pedidos de função, eventos de função e função de pedidos FALHADOS, conforme apresentado no gráfico abaixo.
+## <a name="new-function-related-monitoring-metrics"></a>Novas métricas de monitorização relacionados com a função
+Na área de Monitor de uma tarefa do Stream Analytics, foram adicionadas três métricas adicionais relacionados com a função. Eles são pedidos de função, eventos de função e pedidos FALHADOS de função, conforme mostrado no gráfico abaixo.
 
-![Dimensionar o do Stream Analytics com a métrica de funções do Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "dimensionar o do Stream Analytics com a métrica de funções do Machine Learning")
+![Dimensionar o Stream Analytics com a métrica de funções do Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "dimensionar o Stream Analytics com a métrica de funções do Machine Learning")
 
-O são definidos do seguinte modo:
+O estão definidos do seguinte modo:
 
 **PEDIDOS de função**: O número de pedidos de função.
 
-**EVENTOS de função**: os eventos número nos pedidos de função.
+**EVENTOS de função**: O número de eventos nos pedidos de função.
 
 **PEDIDOS FALHADOS de função**: O número de pedidos de função falhada.
 
-## <a name="key-takeaways"></a>Chaves Takeaways
-Para resumir os pontos principais, para poder dimensionar uma tarefa de Stream Analytics com as funções de Machine Learning, tem de ser considerados os seguintes itens:
+## <a name="key-takeaways"></a>Principais pedidas
+Para resumir os pontos principais, para dimensionar uma tarefa do Stream Analytics com as funções de Machine Learning, tem de ser considerados os seguintes itens:
 
 1. A taxa de eventos de entrada
-2. A latência tolerated para a tarefa de Stream Analytics em execução (e, consequentemente, o tamanho do lote dos pedidos de serviço web do Machine Learning)
-3. O aprovisionamento SUs de análise de fluxo e o número de pedidos de serviço web Machine Learning (os relacionadas com a função custos adicionais)
+2. A latência tolerada para a tarefa de Stream Analytics em execução (e, portanto, o tamanho do lote dos pedidos de serviço web do Machine Learning)
+3. O SUs de análise de Stream aprovisionado e o número de pedidos de serviço web Machine Learning (relacionados com a função custos adicionais)
 
-Uma consulta do Stream Analytics totalmente particionada foi utilizada como exemplo. Se necessitar de uma consulta mais complexa o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
+Uma consulta do Stream Analytics totalmente particionada foi utilizada como exemplo. Se uma consulta mais complexa é necessária a [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) é um ótimo recurso para obter ajuda adicional da Equipe do Stream Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o Stream Analytics, consulte:

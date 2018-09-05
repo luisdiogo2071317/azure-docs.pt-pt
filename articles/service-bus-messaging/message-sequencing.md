@@ -1,6 +1,6 @@
 ---
-title: Sequência de mensagem de Service Bus do Azure e carimbos | Microsoft Docs
-description: Preservar a sequência de mensagem do barramento de serviço e a ordem com carimbos
+title: Sequência de mensagens do Service Bus do Azure e carimbos de data / | Documentos da Microsoft
+description: Preservar a sequência de mensagem do Service Bus e ordem carimbos de data
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,43 +12,43 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: a67a9d01f686c6aa8a569239667ae14d7bf087a9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 7f31adcd7ebdd51cf930fcaf0cd2f214c7566565
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200739"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699374"
 ---
-# <a name="message-sequencing-and-timestamps"></a>Sequência de mensagem e carimbos
+# <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
 
-Sequenciação e timestamping são duas funcionalidades que são sempre ativadas em todas as entidades do Service Bus e superfície através de [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) e [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) propriedades de recebida ou navegado mensagens.
+Sequenciamento e carimbo são dois recursos que são sempre ativados em todas as entidades do Service Bus e de superfície através da [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) e [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) propriedades de recebidos ou pesquisado mensagens.
 
-Para os casos em que é significativo absoluto ordem de mensagens de e/ou em que um consumidor necessita de um identificador exclusivo fidedigno para mensagens, as mensagens de carimbos de Mediador com um intervalo-libertar, aumentar o número de sequência relativo para a fila ou tópico. Para entidades particionadas, o número de sequência é emitido relativo para a partição.
+Para os casos em que ordem absoluto das mensagens é significativo e/ou em que um consumidor tem um identificador exclusivo confiável para mensagens, as mensagens de carimbos de Mediador com uma lacuna e sem aumentar o número de sequência em relação a fila ou tópico. Para entidades particionadas, o número de sequência é emitido em relação a partição.
 
-O **SequenceNumber** valor é um número inteiro 64-bit exclusivo atribuído a uma mensagem como é aceite e armazenada pela mediador e funções como o respetivo identificador interno. Para entidades particionadas, os mais superiores 16 bits refletir o identificador de partição. Números de sequência de rollover como zero quando o intervalo de 48/64 bits se esgota.
+O **SequenceNumber** valor é um inteiro de 64 bits exclusivo atribuído a uma mensagem à medida que ele é aceite e armazenado pela broker e funções como seu identificador interno. Para entidades particionadas, os mais alto 16 bits refletem o identificador de partição. Números de sequência acumulam para zero quando o intervalo de 48/64 bits se esgota.
 
-O número de sequência de mensagens em fila pode ser fidedigno como um identificador exclusivo, uma vez que é atribuído por uma autoridade independente e centralizada e não pelos clientes. Também representa a ordem de chegada verdadeira e é mais precisa, que um carimbo de hora como um critério de ordenação porque carimbos de data / hora não pode ter uma resolução suficientemente elevada às taxas de mensagens Alpine e poderão estar sujeitas a relógio (no entanto mínimo) dissimetrias em situações em que o Mediador transições de propriedade entre nós.
+O número de sequência de mensagens em fila pode ser fidedigno como um identificador exclusivo, uma vez que é atribuído por uma autoridade central e neutra e não pelos clientes. Ele também representa a ordem de chegada de verdadeira e é mais preciso que um carimbo de data / hora como um critério de ordem, porque os carimbos de data / hora não pode ter uma resolução alta o suficiente às taxas de mensagem extreme e poderá estar sujeito a (no entanto mínima) distorção em situações em que o Mediador propriedade faz a transição entre os nós.
 
-A ordem de chegada absoluto é importante, por exemplo, no negócio cenários em que um número limitado de oferecidas bens são servidos numa base servidos de primeiro provenientes primeiro ao fontes pela última vez; vendas de permissão concert são um exemplo.
+A ordem de chegada absoluto é importante, por exemplo, nos negócios cenários em que um número limitado de fornecido bens são fornecidos numa base servidos de primeiro vêm primeiro enquanto estiver disponível pela última vez; vendas de bilhetes do conjunto são um exemplo.
 
-A capacidade de tempo-carimbo de data / atua como uma autoridade independente e fidedigna que capture com precisão a hora UTC de chegada de uma mensagem, serão refletida no **EnqueuedTimeUtc** propriedade. O valor é útil se um cenário de negócio depende prazos, por exemplo, se um item de trabalho foi submetido numa determinada data antes de à meia-noite, mas o processamento é muito atrás o registo de segurança da fila.
+O recurso de registro de tempo atua como uma autoridade de neutra e confiável que captura com precisão a hora UTC de chegada de uma mensagem, refletida na **EnqueuedTimeUtc** propriedade. O valor é útil se um cenário de negócio depende de prazos, por exemplo, se um item de trabalho foi submetido numa determinada data antes de meia-noite, mas o processamento é coisa do passado o registo de segurança da fila.
 
 ## <a name="scheduled-messages"></a>Mensagens agendadas
 
-Pode submeter mensagens para uma fila ou um tópico para o processamento atrasado; Por exemplo, para agendar uma tarefa fique disponível para o processamento por um sistema num determinado momento. Esta capacidade realiza um fiável distribuído baseados no tempo do programador.
+Pode enviar mensagens para uma fila ou tópico para processamento atrasado; Por exemplo, para agendar um trabalho fiquem disponíveis para processamento por um sistema em determinado momento. Esta capacidade apercebe-se de um agendador baseados no tempo de distribuídas fiável.
 
-Mensagens agendadas não materializar na fila até que o tempo de colocar em fila definido. Antes dessa hora agendadas mensagens podem ser canceladas. Cancelamento elimina a mensagem.
+Mensagens agendadas não materializar na fila até a hora de colocar em fila definidos. Antes dessa data, podem ser canceladas mensagens agendadas. Cancelamento elimina a mensagem.
 
-Pode agendar mensagens por definir a [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) propriedade ao enviar uma mensagem através do caminho de envio regular ou explicitamente com o [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) API. A última opção devolve imediatamente a mensagem agendada **SequenceNumber**, que pode utilizar mais tarde para cancelar a mensagem agendada, se necessário. Mensagens agendadas e os respetivos números de sequência podem também ser detetados com [mensagem navegação](message-browsing.md).
+Pode agendar mensagens de qualquer um, definindo a [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) propriedade ao enviar uma mensagem por meio do caminho de envio normal ou explicitamente com o [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) API. O segundo devolve imediatamente a mensagem agendada **SequenceNumber**, que pode utilizar mais tarde para cancelar a mensagem agendada, se necessário. Mensagens agendadas e seus números de sequência podem também ser detetados usando [navegação de mensagens](message-browsing.md).
 
-O **SequenceNumber** para uma mensagem agendada só é válida enquanto a mensagem está neste estado. Como transições de mensagem para o estado do Active Directory, a mensagem é acrescentada à fila, como se tivesse sido colocados em fila em instantâneas atual, o que inclui a atribuir um novo **SequenceNumber**.
+O **SequenceNumber** para uma mensagem agendada só é válida durante a mensagem está neste estado. Como as transições de mensagem para o estado do Active Directory, a mensagem é acrescentada à fila como se tivessem sido colocados em fila no instante atual, que inclui a atribuir um novo **SequenceNumber**.
 
-Porque a funcionalidade está ancorada no mensagens individuais e as mensagens podem apenas ser colocados em fila uma vez, o barramento de serviço não suporta agendamentos periódicos para mensagens.
+Uma vez que a funcionalidade é ancorada nas mensagens individuais e as mensagens podem apenas ser colocados em fila uma vez, do Service Bus não suporta agendamentos periódicos para mensagens.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
+Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
 
 * [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeedes
-ms.openlocfilehash: c8613697481f642066bf1d5d5db7be3af81a6529
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4094de1a1c17e844d96ac789bb4bc1655fdc1546
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307876"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integração do Azure Active Directory com Figma
 
@@ -38,10 +38,10 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 Para configurar a integração do Azure AD com Figma, terá dos seguintes itens:
 
 - Uma subscrição do Azure
-- Um Figma logon único habilitado subscrição
+- Um Figma [logon único habilitado subscrição](https://www.figma.com/pricing/)
 
 > [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção. Novos clientes e os subscritores ativos do Figma Professional Team poderão entrar em contato Figma para [atualizar a respetiva subscrição](https://www.figma.com/pricing/) para o escalão de organização Figma.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -81,15 +81,14 @@ Para configurar a integração do Figma com o Azure AD, terá de adicionar Figma
 
 Nesta secção, configure e teste do Azure AD início de sessão único com Figma com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Figma a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Figma deve ser estabelecido.
+Para o início de sessão único funcione, o Azure AD precisa estar ligado ao Figma.  Para configurar e testar o Azure AD início de sessão único com Figma, conclua os seguintes passos:
 
-Para configurar e testar o Azure AD início de sessão único com Figma, tem de concluir os seguintes blocos de construção:
-
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste Figma](#create-a-figma-test-user)**  - para ter um equivalente da Eduarda Almeida na Figma que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. [**Contacte a equipa de suporte de Figma** ](mailto:support@figma.com?subject=SAML+Config) para iniciar uma configuração de SAML para a sua organização e obter um ORG_SAML_CONFIG_ID.
+2. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Criar um utilizador de teste Figma](#create-a-figma-test-user)**  - para ter um equivalente da Eduarda Almeida na Figma que está ligado à representação de utilizador do Azure AD.
+5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -120,7 +119,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente Figma]( mailto:services-404040@figma.com) obter esses valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de Figma](mailto:support@figma.com?subject=SAML+Config) obter esses valores.
 
 5. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
 
@@ -130,7 +129,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o botão único início de sessão em Guardar](./media/figma-tutorial/tutorial_general_400.png)
 
-7. Para configurar o início de sessão único num **Figma** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de Figma]( mailto:services-404040@figma.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+7. Para configurar o início de sessão único no lado de Figma, preencha este formulário: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Ele vai aceitar sua **Url de metadados de Federação de aplicação** do passo n. º 5.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -167,9 +166,6 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 ### <a name="create-a-figma-test-user"></a>Criar um utilizador de teste Figma
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Figma. Figma suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Figma se não existir ainda.
-
-> [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Figma]( mailto:services-404040@figma.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

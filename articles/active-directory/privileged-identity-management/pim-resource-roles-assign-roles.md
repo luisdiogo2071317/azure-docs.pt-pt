@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b84addf4c45e39e68dd22f6369553d397794f6b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7b82be6cdc8b64595c11eef84e8071fad9c07191
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340517"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665468"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recursos do Azure no PIM
 
@@ -126,5 +126,6 @@ Siga estes passos para atualizar ou remover uma atribuição de função existen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- [Expandir ou renovar funções de recursos do Azure no PIM](pim-resource-roles-renew-extend.md)
 - [Configurar as definições de função de recursos do Azure no PIM](pim-resource-roles-configure-role-settings.md)
 - [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)

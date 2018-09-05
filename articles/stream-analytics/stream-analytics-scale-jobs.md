@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652547"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696807"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Dimensionar uma tarefa Azure Stream Analytics para aumentar o débito
 Este artigo mostra-lhe como otimizar uma consulta do Stream Analytics para aumentar o débito para tarefas do Stream Analytics. Pode utilizar o guia seguinte para dimensionar o seu trabalho para processar carga superior e tirar partido de mais recursos do sistema (por exemplo, mais largura de banda, mais recursos de CPU, mais memória).
@@ -70,7 +70,7 @@ Para casos, onde é mais rentável para processar dados de vários inquilinos nu
 2.  Reduza o número de partições de entrada para o valor mais baixo possível de 2, se estiver a utilizar o Hub de eventos.
 3.  Execute a consulta com 6 SU. Com a carga esperada para cada subconsulta, adicione tantos tais subconsultas possível, até que a tarefa prestes a atingir os limites de recursos de sistema. Consulte a [caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) para os sintomas quando isso acontece.
 4.  Uma vez que está a atingir o limite de subconsulta medido acima, começar a adicionar a subconsulta para uma nova tarefa. O número de tarefas para ser executado como uma função do número de consultas independentes deve ser bastante linear, partindo do princípio de que não tem qualquer carga skew. Em seguida, pode prever quantas tarefas SU 6 tem de ser executado como uma função do número de inquilinos para servir.
-5.  Ao utilizar a associação de dados de referência com estas consultas, deveria União que as entradas em conjunto, antes de trabalhar com os mesmos dados de referência, em seguida, dividir os eventos se necessário. Caso contrário, cada associação de dados de referência mantém uma cópia dos dados de referência na memória, provavelmente desse desnecessariamente o uso de memória.
+5.  Ao utilizar a associação de dados de referência com estas consultas, union as entradas em conjunto, antes de se juntar com os mesmos dados de referência. Em seguida, divida os eventos, se necessário. Caso contrário, cada associação de dados de referência mantém uma cópia dos dados de referência na memória, provavelmente desse desnecessariamente o uso de memória.
 
 > [!Note] 
 > O número de inquilinos para colocar em cada tarefa?

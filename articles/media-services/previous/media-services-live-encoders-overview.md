@@ -1,6 +1,6 @@
 ---
-title: Configurar codificadores no local ao utilizar os Media Services do Azure para criar fluxos de transmissão múltipla | Microsoft Docs
-description: Este tópico lista codificadores em direto no local que pode utilizar para capturar os eventos em direto e enviar uma transmissão em fluxo em direto para canais de AMS (que estão em direto codificação ativado) para processamento adicional. O tópico está ligado a tutoriais que mostram como configurar codificadores listadas.
+title: Configurar codificadores no local ao utilizar os serviços de multimédia do Azure para criar transmissões em fluxo | Documentos da Microsoft
+description: Este tópico lista os codificadores em direto no local que pode utilizar para capturar os eventos em direto e enviar uma transmissão em direto de velocidade de transmissão única para canais de AMS (o que são a codificação em tempo real ativada) para processamento adicional. As ligações de tópico para tutoriais que mostram como configurar codificadores listadas.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 129364c4ee5924413ed0bccb81d53b905f13d208
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b1166c34f1a0ce3f3e9be932eb6d7fb9d76389ec
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788173"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665762"
 ---
-# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os Media Services do Azure para criar fluxos de transmissão múltipla
-Este tópico lista codificadores em direto no local que pode utilizar para capturar os eventos em direto e enviar uma transmissão em fluxo em direto para canais de AMS (que estão em direto codificação ativado) para processamento adicional. O tópico também contém ligações para tutoriais que mostram como configurar codificadores listadas.
+# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os serviços de multimédia do Azure para criar transmissões em fluxo
+Este tópico lista os codificadores em direto no local que pode utilizar para capturar os eventos em direto e enviar uma transmissão em direto de velocidade de transmissão única para canais de AMS (o que são a codificação em tempo real ativada) para processamento adicional. O tópico também contém ligações para tutoriais que mostram como configurar codificadores listadas.
 
-## <a name="elemental-live"></a>Elementar em direto
-Para obter informações sobre como configurar o [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) codificador para enviar uma transmissão em fluxo em direto para um canal de AMS, consulte [configurar Elemental em direto](media-services-configure-elemental-live-encoder.md).
-
-## <a name="flash-media-live-encoder"></a>Codificador em direto Flash suporte de dados
-Para obter informações sobre como configurar o [codificador em direto de Flash multimédia](http://www.adobe.com/products/flash-media-encoder.html) codificador (FMLE) para enviar uma transmissão em fluxo em direto para um canal de AMS, consulte [configurar FMLE](media-services-configure-fmle-live-encoder.md).
+## <a name="flash-media-live-encoder"></a>Codificador em direto de mídia Flash
+Para obter informações sobre como configurar o [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) para enviar um fluxo em direto com velocidade de transmissão única para um canal de AMS, consulte [configurar FMLE](media-services-configure-fmle-live-encoder.md).
 
 ## <a name="haivision-kb-encoder"></a>Codificador Haivision KB
-Para obter informações sobre como configurar o [Haivision KB codificador](https://www.haivision.com/products/kb-series/) codificador para enviar uma transmissão em fluxo em direto para um canal de AMS, consulte [configurar codificador de KB Haivision](media-services-configure-kb-live-encoder.md).
+Para obter informações sobre como configurar o [Haivision KB codificador](https://www.haivision.com/products/kb-series/) codificador para enviar um fluxo em direto com velocidade de transmissão única para um canal de AMS, consulte [configurar o Haivision KB codificador](media-services-configure-kb-live-encoder.md).
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
-Para obter informações sobre como configurar o [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) codificador para enviar uma transmissão em fluxo em direto para um canal de AMS, consulte [configurar Wirecast](media-services-configure-wirecast-live-encoder.md).
+Para obter informações sobre como configurar o [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) codificador para enviar um fluxo em direto com velocidade de transmissão única para um canal de AMS, consulte [configurar Wirecast](media-services-configure-wirecast-live-encoder.md).
 
-## <a name="newtek-tricaster"></a>NewTek Transcodificadores
-Para obter informações sobre como configurar o [Transcodificadores](http://newtek.com/products/tricaster-40.html) codificador para enviar uma transmissão em fluxo em direto para um canal de AMS, consulte [configurar Transcodificadores](media-services-configure-tricaster-live-encoder.md).
+## <a name="newtek-tricaster"></a>Codificador de NewTek TriCaster
+Para obter informações sobre como configurar o [Tricaster](http://newtek.com/products/tricaster-40.html) codificador para enviar um fluxo em direto com velocidade de transmissão única para um canal de AMS, consulte [configurar Tricaster](media-services-configure-tricaster-live-encoder.md).
+
+## <a name="elemental-live"></a>Elemental em direto
+Para obter mais informações, consulte [Live elementar](http://www.elementaltechnologies.com/products/elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -46,5 +46,5 @@ Para obter informações sobre como configurar o [Transcodificadores](http://new
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consulte também
-[Em direto de transmissão em fluxo utilizando os Media Services do Azure para criar fluxos de transmissão múltipla](media-services-manage-live-encoder-enabled-channels.md).
+[Transmissão em fluxo através dos serviços de multimédia do Azure para criar transmissões em fluxo do Live](media-services-manage-live-encoder-enabled-channels.md).
 

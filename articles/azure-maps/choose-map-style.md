@@ -3,18 +3,18 @@ title: Mapear as funcionalidades de estilo no Azure Maps | Documentos da Microso
 description: Saiba mais sobre o Azure Maps funcionalidades relacionados com o estilo.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
+ms.date: 08/31/2018
 ms.topic: how-to-guides
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e4a54394dc2bb6784f1b1dcbd0ef71ac1f7bbabd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b95e3c325160d1c0b775320e25fdd40514b02b9f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345089"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666876"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Escolha um estilo de mapa do Azure Maps
 Mapas do Azure tem quatro estilos de mapas diferentes à sua escolha. Para mais informações sobre os estilos de mapa, consulte [suportado estilos de mapa do Azure Maps](./supported-map-styles.md). Este artigo mostra como utilizar as funcionalidades relacionadas ao estilo para definir um estilo na carga de mapa, definir um novo estilo e utilizar o controlo de Seletor de estilo.
