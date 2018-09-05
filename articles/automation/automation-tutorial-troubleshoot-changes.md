@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: alterações, controlo, automatização
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866822"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120590"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
@@ -112,7 +112,8 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 |Ativado     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
-|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\myfile.txt"       |
+|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"         |
+|Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 ### <a name="add-a-linux-file"></a>Adicionar um ficheiro do Linux
@@ -133,7 +134,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados<br>**Seguir** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados<br>**Gerir** - segue as ligações simbólicas e permite alterar o tratamento do conteúdo devolvido      |
 |Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
-   > [!NOTE]   
+   > [!NOTE]
    > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
 
 ## <a name="enable-activity-log-connection"></a>Ativar a ligação do Registo de atividades

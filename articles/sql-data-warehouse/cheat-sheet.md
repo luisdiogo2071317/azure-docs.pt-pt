@@ -139,7 +139,7 @@ Implemente com um clique os seus raios nas bases de dados SQL a partir do SQL Da
 
 
 <!--Image references-->
-[Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
+[Desenho]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
 [carregamento de dados]:design-elt-data-loading.md

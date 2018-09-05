@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920915"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247373"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
@@ -82,9 +82,19 @@ Clique em qualquer outro local na atualização para abrir o painel **Pesquisa d
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Neste passo, vai definir um alerta para informá-lo quando as atualizações foram implementadas com êxito. O alerta que criar baseia-se numa consulta do Log Analytics. Pode escrever uma consulta personalizada para alertas adicionais, de forma a cobrir muitos cenários diferentes. No portal do Azure, navegue até **Monitorizar** e, em seguida, selecione **Criar Alerta**. 
+Neste passo, aprende a configurar um alerta que o informa quando as atualizações foram implementadas com êxito através de uma consulta do Log Analytics ou através do controlo do runbook mestre da Gestão de Atualizações para implementações que falharam.
 
-Em **Criar regra**, em **1. Definir condição do alerta**, selecione **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
+### <a name="alert-conditions"></a>Condições de alerta
+
+Para cada tipo de alerta, existem diferentes condições de alerta que têm de ser definidas.
+
+#### <a name="log-analytics-query-alert"></a>Alerta de consulta do Log Analytics
+
+Para as implementações com êxito, pode criar um alerta com base numa consulta do Log Analytics. Para as implementações que falharam, pode utilizar os passos de [Alerta de runbook](#runbook-alert) para o alertar quando o runbook master que orquestra as implementações de atualizações falha. Pode escrever uma consulta personalizada para alertas adicionais, de forma a cobrir muitos cenários diferentes.
+
+No portal do Azure, navegue até **Monitorizar** e, em seguida, selecione **Criar Alerta**.
+
+Em **1. Definir condição do alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
 
 ![Criar alerta](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ Em **Lógica de alerta**, para **Limiar**, introduza **1**. Quando tiver termina
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/signal-logic.png)
 
-Em **2. Definir detalhes do alerta**, introduza um nome e uma descrição para o alerta. Defina a **Gravidade** como **Informativo(Gravidade 2)**, uma vez que o alerta é para uma execução bem sucedida.
+#### <a name="runbook-alert"></a>Alerta de runbook
+
+Para as implementações falhadas, é necessário um alerta sobre a falha do runbook mestre no portal do Azure. Vá a **Monitor** e, em seguida, selecione **Criar alerta**.
+
+Em **1. Definir condição do alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Contas de Automatização**. Selecione a sua Conta de Automatização e, em seguida, selecione **Concluído**.
+
+Para **Nome do runbook**, clique no sinal **\+** e introduza **Patch-MicrosoftOMSComputers** como nome personalizado. Para **Estado**, escolha **Com falhas** ou clique no sinal **\+** para introduzir **Com falhas**.
+
+![Configurar lógica de sinal para runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+Em **Lógica de alerta**, para **Limiar**, introduza **1**. Quando tiver terminado, selecione **Concluído**.
+
+### <a name="alert-details"></a>Detalhes do alerta
+
+Em **2. Definir detalhes do alerta**, introduza um nome e uma descrição para o alerta. Defina **Gravidade** para **Informativo (Gravidade 2)** para uma execução com êxito ou **Informativo (Gravidade 1)** para uma execução que falhou.
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -134,7 +158,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 * **Sistema operativo**: selecione o SO de destino para a implementação da atualização.
 
-* **Computadores a atualizar**: Selecione uma Pesquisa guardada, o Grupo importado ou escolha a Máquina a partir do menu pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **PREPARAÇÃO DO AGENTE DE ATUALIZAÇÃO**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, veja [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+* **Computadores a atualizar**: Selecione uma Pesquisa guardada, o Grupo importado ou escolha a Máquina a partir do menu pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Classificação da atualização**: selecione os tipos de software que a implementação da atualização incluiu na implementação. Para este tutorial, deixe todos os tipos selecionados.
 

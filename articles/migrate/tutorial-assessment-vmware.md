@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 65f1d6b448e6c0f16d51e1a4b8b897f52052ff15
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172352"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127635"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -151,7 +151,7 @@ Importe o ficheiro transferido para o vCenter Server.
     - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) acerca dos requisitos de conectividade à Internet e da lista dos URLs a que o recoletor acede.
 
     > [!NOTE]
-    > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP.
+    > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP. Se tiver um proxy de interceção, a ligação à internet poderá falhar, inicialmente, se não tiver importado o certificado de proxy. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sobre a forma como pode corrigir este problema ao importar o certificado de proxy como um certificado fidedigno na VM do recoletor.
 
     - O recoletor verifica se o serviço do recoletor está em execução. O serviço está instalado por predefinição na VM do recoletor.
     - Transfira e instale o VMware PowerCLI.

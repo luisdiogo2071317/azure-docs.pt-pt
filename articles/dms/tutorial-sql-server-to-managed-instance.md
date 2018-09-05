@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/15/2018
-ms.openlocfilehash: 4d2714305f1852a91614ce29ec5e74f489487c5a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 08/24/2018
+ms.openlocfilehash: dbf71b1fcc15743f4670c4072921f1a167a90e97
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920588"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887307"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrar o SQL Server para a Instância Gerida da Base de Dados SQL do Azure com o DMS
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Migrar o SQL Server para a Instância Gerida da Base de Dados SQL do Azure offline com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para uma [Instância Gerida da Base de Dados SQL do Azure](../sql-database/sql-database-managed-instance.md). Para métodos adicionais que podem exigir algum trabalho manual, veja o artigo [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) (Migração de instância do SQL Server para a Instância Gerida da Base de Dados SQL do Azure).
 
 > [!IMPORTANT]
@@ -100,7 +100,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 1. No portal do Azure, selecione **Todos os serviços**, procure Azure Database Migration Service e selecione **Azure Database Migration Services**.
 
-    ![Localizar todas as instâncias do Azure Database Migration Service](media\tutorial-sql-server-to-azure-sql\dms-search.png)
+    ![Localizar todas as instâncias do Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
 2. No ecrã **Azure Database Migration Service**, procure o nome da instância que criou e selecione-a.
  
@@ -135,7 +135,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 
-1.  No ecrã **Detalhes do destino da migração**, especifique os detalhes da ligação do destino, que é a Instância Gerida da Base de Dados SQL do Azure pré-aprovisionada para a qual a base de dados **AdventureWorks2012** vai ser migrada.
+1.  No ecrã **Detalhes do destino da migração**, especifique os detalhes da ligação do destino, que é a Instância Gerida da Base de Dados SQL do Azure pré-aprovisionada para a qual está a mirar a base de dados **AdventureWorks2012**.
 
     Se ainda não tiver aprovisionado a Instância Gerida da Base de Dados SQL do Azure, selecione **Não**, para obter uma ligação que o ajuda a aprovisionar a instância. Pode, mesmo assim, avançar com a criação do projeto e, depois, quando a Instância Gerida da Base de Dados SQL do Azure estiver pronta, regresse a este projeto específico e execute a migração.   
  
@@ -170,7 +170,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
     |--------|---------|
     |**Escolher a opção de cópia de segurança de origem** | Escolha a opção **Vou fornecer os ficheiros de cópia de segurança mais recentes** se já tiver ficheiros de cópia de segurança completa disponíveis para o DMS utilizar para migrar a base de dados. Escolha a opção **O Azure Database Migration Service vai criar os ficheiros de cópia de segurança** se quiser que o DMS utilize a cópia de segurança completa da base de dados de origem e a utilize para a migração. |
     |**Partilha de localização na rede** | A partilha de rede SMB local que o Azure Database Migration Service pode utilizar para criar cópias de segurança da base de dados de origem. A conta de serviço que estiver a executar a instância do SQL Server de origem tem de ter privilégios de escrita nesta partilha de rede. Indique um FQDN ou um endereço IP do servidor na partilha de rede, como, por exemplo, “\\\servername.domainname.com\backupfolder” ou “\\\IP address\backupfolder”.|
-    |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O Azure Database Migration Service vai representar a credencial do utilizador para carregar os ficheiros de cópia de segurança para o contentor de armazenamento do Azure, para a operação de restauro. Se estiverem selecionadas bases de dados ativadas para TDE para migração, o utilizador do Windows acima tem de ser a conta de administrador incorporada e o [Controlo de Conta de Utilizador](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview) tem de ser desativado, para que o Azure Database Migration Service carregue e elimine os ficheiros de certificado. |
+    |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O Azure Database Migration Service vai representar a credencial do utilizador para carregar os ficheiros de cópia de segurança para o contentor de armazenamento do Azure, para a operação de restauro. Se estiverem selecionadas bases de dados ativadas para TDE para migração, o utilizador do Windows acima tem de ser a conta de administrador incorporada e o [Controlo de Conta de Utilizador](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) tem de ser desativado, para que o Azure Database Migration Service carregue e elimine os ficheiros de certificado. |
     |**Palavra-passe** | A palavra-passe do utilizador. |
     |**Definições da conta de armazenamento** | O URI da SAS que dá ao Azure Database Migration Service acesso ao seu contentor da conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança e que é utilizado para migrar as bases de dados para a Instância Gerida da Base de Dados SQL do Azure. Veja [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) (Saiba como obter o URI da SAS para o contentor de blobs).|
     |**Definições de TDE** | Se estiver a migrar as bases de dados de origem com a Encriptação de Dados Transparente (TDE) ativada, tem de ter privilégios de escrita na Instância Gerida da BD SQL do Azure de destino.  Selecione a subscrição na qual a Instância Gerida da BD SQL do Azure foi aprovisionada, no menu pendente.  Selecione a Instância Gerida da BD SQL do Azure no menu pendente. |

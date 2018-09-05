@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188170"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107110"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -56,12 +56,27 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
 
 ## <a name="explore-the-template"></a>Explorar o modelo
 
+Ao explorar o modelo nesta secção, tente responder a estas perguntas:
+
+- Número de recursos do Azure definidos neste modelo?
+- Um dos recursos é uma conta de armazenamento do Azure.  A definição aparenta ser como a utilizada no último tutorial?
+- Pode encontrar as referências de modelo para os recursos definidos neste modelo?
+- Pode encontrar as dependências dos recursos?
+
 1. No Visual Studio Code, feche os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro de **recursos**:
 
     ![Modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Existem cinco recursos definidos pelo modelo.
-2. Expanda o quarto elemento:
+2. Expanda o primeiro recurso. É uma conta de armazenamento. A definição deve ser idêntica à usada no início do último tutorial.
+
+    ![Definição da conta de armazenamento de modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. Expanda o segundo recurso. O tipo de recurso é **Microsoft.Network/publicIPAddresses**. Para localizar a referência de modelo, navegue para [referência de modelo](https://docs.microsoft.com/azure/templates/), introduza **endereço ip público** ou **endereços ip públicos** no campo **Filtrar por título**. Compare a definição do recurso para a referência do modelo.
+
+    ![Definição do endereço IP público de modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. Repita o último passo para encontrar as referências de modelo para outros recursos definidos neste modelo.  Compare as definições do recurso para as referências.
+5. Expanda o quarto recurso:
 
     ![dependson de modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +85,7 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
     * publicIPAddress
     * virtualNetwork
 
-3. Expanda o quinto elemento. Este recurso é uma máquina virtual. Depende de dois outros recursos:
+6. Expanda o quinto recurso. Este recurso é uma máquina virtual. Depende de dois outros recursos:
 
     * storageAccount
     * networkInterface

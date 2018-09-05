@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: aab674f16fcc3fd4869f24f72f66878a8751d892
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 43b317cd9d1c9384a58e9d525fdd15d18eb63968
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301489"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246641"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Enviar notificações por e-mail sobre eventos do Hub IoT do Azure com o Logic Apps
 
@@ -29,7 +29,7 @@ Este artigo descreve uma configuração de exemplo que utiliza o Hub IoT e o Eve
 
 * Uma conta de e-mail de um fornecedor de e-mail suportado pelo Azure Logic Apps, como o Outlook do Office 365, o Outlook.com ou o Gmail. Esta conta de e-mail é utilizada para enviar notificações de eventos. Para obter uma lista completa dos conectores suportados do Logic Apps, consulte a [Descrição geral de conectores](https://docs.microsoft.com/connectors/)
 * Uma conta ativa do Azure. Se não tiver uma, pode [criar uma conta gratuita](http://azure.microsoft.com/pricing/free-trial/).
-* Um hub IoT no Azure. Se ainda não criou um, consulte [Introdução ao Hub IoT](../iot-hub/iot-hub-csharp-csharp-getstarted.md) para obter instruções. 
+* Um Hub IoT no Azure. Se ainda não criou um, consulte [Introdução ao Hub IoT](../iot-hub/iot-hub-csharp-csharp-getstarted.md) para obter instruções. 
 
 ## <a name="create-a-logic-app"></a>Criar uma aplicação lógica
 
@@ -37,8 +37,7 @@ Primeiro, crie uma aplicação lógica e adicione um acionador do Event Grid que
 
 ### <a name="create-a-logic-app-resource"></a>Criar um recurso de aplicação lógica
 
-
-1. No [portal do Azure](https://portal.azure.com), selecione **Novo** > **Enterprise Integration** > **Aplicação Lógica**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Novo** > **Integração** > **Aplicação Lógica**.
 
    ![Criar uma aplicação lógica](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
@@ -52,7 +51,7 @@ Primeiro, crie uma aplicação lógica e adicione um acionador do Event Grid que
 
 4. No Estruturador de Aplicações Lógicas, em **Modelos**, escolha **Aplicação Lógica em Branco** para criar a sua aplicação lógica de raiz.
 
-## <a name="select-a-trigger"></a>Selecionar um acionador
+### <a name="select-a-trigger"></a>Selecionar um acionador
 
 Um acionador é um evento específico que inicia a sua aplicação lógica. Neste tutorial, o acionador que desencadeia o fluxo de trabalho está a receber um pedido através de HTTP.  
 
@@ -67,64 +66,60 @@ Um acionador é um evento específico que inicia a sua aplicação lógica. Nest
 
 4. Cole o seguinte código JSON de exemplo na caixa de texto e, em seguida, selecione **Concluído**:
 
-   ```json
-   [{
-     "id": "56afc886-767b-d359-d59e-0da7877166b2",
-     "topic": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<IoT hub name>",
-     "subject": "devices/LogicAppTestDevice",
-     "eventType": "Microsoft.Devices.DeviceCreated",
-     "eventTime": "2018-01-02T19:17:44.4383997Z",
-     "data": {
-       "twin": {
-         "deviceId": "LogicAppTestDevice",
-         "etag": "AAAAAAAAAAE=",
-         "status": "enabled",
-         "statusUpdateTime": "0001-01-01T00:00:00",
-         "connectionState": "Disconnected",
-         "lastActivityTime": "0001-01-01T00:00:00",
-         "cloudToDeviceMessageCount": 0,
-         "authenticationType": "sas",
-         "x509Thumbprint": {
-           "primaryThumbprint": null,
-           "secondaryThumbprint": null
-         },
-         "version": 2,
-         "properties": {
-           "desired": {
-             "$metadata": {
-               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-             },
-             "$version": 1
-           },
-           "reported": {
-             "$metadata": {
-               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-             },
-             "$version": 1
-           }
-         }
-       },
-       "hubName": "egtesthub1",
-       "deviceId": "LogicAppTestDevice",
-       "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-       "opType": "DeviceCreated"
-     },
-     "dataVersion": "",
-     "metadataVersion": "1"
-   }]
-   ```
-5. Poderá receber uma notificação de pop-up com a indicação, **Lembre-se de incluir um cabeçalho Content-Type definido para application/json no seu pedido.** Pode ignorar esta sugestão com segurança e avançar para a secção seguinte. 
+```json
+[{
+  "id": "56afc886-767b-d359-d59e-0da7877166b2",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+  "subject": "devices/LogicAppTestDevice",
+  "eventType": "Microsoft.Devices.DeviceCreated",
+  "eventTime": "2018-01-02T19:17:44.4383997Z",
+  "data": {
+    "twin": {
+      "deviceId": "LogicAppTestDevice",
+      "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
+      "status": "enabled",
+      "statusUpdateTime": "0001-01-01T00:00:00",
+      "connectionState": "Disconnected",
+      "lastActivityTime": "0001-01-01T00:00:00",
+      "cloudToDeviceMessageCount": 0,
+      "authenticationType": "sas",
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      },
+      "version": 2,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "$metadata": {
+            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+          },
+          "$version": 1
+        }
+      }
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
 
+5. Poderá receber uma notificação de pop-up com a indicação, **Lembre-se de incluir um cabeçalho Content-Type definido para application/json no seu pedido.** Pode ignorar esta sugestão com segurança e avançar para a secção seguinte. 
 
 ### <a name="create-an-action"></a>Criar uma ação
 
 Ações são os passos que ocorrem depois de o acionador iniciar o fluxo de trabalho da aplicação lógica. Neste tutorial, a ação consiste no envio de uma notificação por e-mail a partir do seu fornecedor de e-mail. 
 
-1. Selecione **Novo passo** e, em seguida, **Adicionar uma ação**. 
-
-   ![Novo passo, adicionar uma ação](./media/publish-iot-hub-events-to-logic-apps/new-step.png)
-
-2. Procure por **E-mail**. 
+1. Selecione **Novo passo**. Esta ação irá abrir uma janela para **Escolher uma ação**.
+2. Procure por **E-mail**.
 3. Com base no seu fornecedor de e-mail, localize e selecione o conector correspondente. Este tutorial utiliza o **Outlook do Office 365**. Os passos para outros fornecedores de e-mail são semelhantes. 
 
    ![Selecionar o conector do fornecedor de e-mail](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
@@ -152,7 +147,7 @@ Antes de sair do Estruturador de Aplicações Lógicas, copie o URL que as aplic
 
 3. Guarde este URL de modo a poder referenciá-lo na secção seguinte. 
 
-## <a name="publish-an-event-from-iot-hub"></a>Publicar um evento a partir do Hub IoT
+## <a name="configure-subscription-for-iot-hub-events"></a>Configurar a subscrição de eventos do Hub IoT
 
 Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que estes ocorrem. 
 
@@ -166,21 +161,22 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
    ![Criar nova subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Crie a subscrição de evento com os seguintes valores: 
-   * **Nome**: forneça um nome descritivo.
-   * **Subscrever todos os tipos de evento**: desmarque a caixa de verificação.
-   * **Tipos de evento**: selecione **DeviceCreated**.
-   * **Tipo de subscritor**: selecione **Web Hook**.
-   * **Ponto final do subscritor**: cole o URL que copiou a partir da aplicação lógica. 
+    * **Tipo de Evento**: desmarque Subscrever todos os tipos de eventos e selecione **Dispositivo Criado** no menu.
+    * **Detalhes do Ponto Final**: selecione o Tipo de Ponto Final como **Webhook** e clique em selecionar ponto final e cole o URL que copiou da sua aplicação lógica e confirme a seleção.
 
-   Pode guardar a subscrição de evento aqui e receber notificações para cada dispositivo criado no seu hub IoT. Neste tutorial, vamos utilizar os campos opcionais para filtrar dispositivos específicos: 
+    ![selecione o url do ponto final](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-   * **Filtro de prefixo**: introduza `devices/Building1_` para filtrar eventos de dispositivo no edifício 1.
-   * **Filtro de sufixo**: introduza `_Temperature` para filtrar eventos de dispositivo relacionados com temperatura.
+    * **Detalhes da Subscrição de Evento**: forneça um nome descritivo e selecione **Esquema da Grelha de Eventos**
 
-   Quando tiver terminado, o aspeto do formulário deverá ser semelhante ao do exemplo seguinte: 
+  Pode guardar a subscrição de evento aqui e receber notificações para cada dispositivo criado no seu hub IoT. Neste tutorial, vamos utilizar os campos opcionais para filtrar dispositivos específicos: 
 
-   ![Formulário de exemplo de subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+  * **Assunto Começa Com**: introduza `devices/Building1_` para filtrar os eventos de dispositivo no edifício 1.
+  * **Assunto Termina Com**: introduza `_Temperature` para filtrar eventos de dispositivo relacionados com temperatura.
 
+  Quando tiver terminado, o aspeto do formulário deverá ser semelhante ao do exemplo seguinte: 
+
+    ![Formulário de exemplo de subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+    
 5. Selecione **Criar** para guardar a subscrição de evento.
 
 ## <a name="create-a-new-device"></a>Criar um novo dispositivo
@@ -201,7 +197,7 @@ Após adicionar alguns dispositivos ao seu hub IoT, verifique o e-mail para ver 
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-Em vez de utilizar o portal do Azure, pode realizar os passos do Hub IoT com a CLI do Azure. Para obter mais informações, consulte as páginas da CLI do Azure sobre como [criar uma subscrição de evento](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e como [criar um dispositivo IoT](https://docs.microsoft.com/cli/azure/iot/device)
+Em vez de utilizar o portal do Azure, pode realizar os passos do Hub IoT com a CLI do Azure. Para obter mais informações, consulte as páginas da CLI do Azure sobre como [criar uma subscrição de evento](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e como [criar um dispositivo IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -225,8 +221,8 @@ Mesmo que decida manter o hub IoT, poderá ser conveniente eliminar a subscriç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como [Reagir aos eventos do Hub IoT com o Event Grid para acionar ações](../iot-hub/iot-hub-event-grid.md).
-
-Saiba o que mais pode fazer com o [Event Grid](overview.md).
+* Saiba mais sobre como [Reagir aos eventos do Hub IoT com o Event Grid para acionar ações](../iot-hub/iot-hub-event-grid.md).
+* [Saiba como encomendar eventos de dispositivos ligados e desligados](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* Saiba o que mais pode fazer com o [Event Grid](overview.md).
 
 

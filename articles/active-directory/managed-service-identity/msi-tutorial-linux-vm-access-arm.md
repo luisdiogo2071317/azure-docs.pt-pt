@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d1e4d8dd7201935ef1dbdc83224f905c812f9cca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 98be87d62861295536a75201ff93e809c9ba120b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447480"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886857"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: utilizar uma identidade atribuída ao utilizador numa VM do Linux, para aceder ao Azure Resource Manager
 
@@ -40,29 +40,15 @@ Saiba como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se está a familiarizado com a Identidade de Serviço Gerida, consulte a secção [Descrição Geral](overview.md). **Certifique-se de que revê as [diferenças entre as identidades atribuídas pelo sistema e pelo utilizador](overview.md#how-does-it-work)**.
-- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para executar os passos necessários de criação de recursos e gestão de funções neste tutorial, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, veja [Utilizar o Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos de subscrição do Azure](/azure/role-based-access-control/role-assignments-portal).
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[Iniciar sessão no portal do Azure](https://portal.azure.com)
+
+[Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
-
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual do Linux num novo Grupo de Recursos
-
-Neste tutorial, vamos criar primeiro uma nova VM do Linux. Também pode optar por utilizar uma VM existente.
-
-1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
-3. Introduza as informações da máquina virtual. Em **Tipo de autenticação**, selecione **Chave SSH pública** ou **Palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão na VM.
-
-    ![Criar VM do Linux](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Escolha uma **Subscrição** para a máquina virtual na lista pendente.
-5. Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, escolha **Criar Novo**. Quando terminar, clique em **OK**.
-6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro Tipo de disco suportado. No painel de definições, mantenha as predefinições e clique em **OK**.
 
 ## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo utilizador
 

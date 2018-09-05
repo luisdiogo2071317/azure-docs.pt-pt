@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c4a5b66fe35da01a3661715e17a9fda20bc2411
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166262"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184714"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster do Kubernetes ativado para os Espaços de Programador do Azure
 
@@ -42,7 +42,7 @@ ms.locfileid: "40166262"
 
    ![Ativar Encaminhamento de Aplicações Http](../media/common/Kubernetes-Create-Cluster-3.PNG)
 
-    > [!IMPORTANT]
-    > Tem de ter a certeza de que pretende ativar o Encaminhamento de Aplicações Http quando criar o cluster de AKS. Não pode alterar esta definição mais tarde.
+    > [!Note]
+    > Para habilitar o [Encaminhamento de Aplicações Http](/azure/aks/http-application-routing) num cluster existente, utilize o comando: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Selecione **Rever + criar** e, em seguida, selecione **Criar** quando terminar.

@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41919429"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143505"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -73,7 +73,7 @@ Para enviar dados numa base de dados, precisa de um módulo que possa estruturar
 Os passos seguintes mostram-lhe como criar uma função do IoT Edge com o Visual Studio Code e a extensão Azure IoT Edge.
 
 1. Abra o Visual Studio Code.
-2. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal Integrado**.
+2. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal**.
 3. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
 4. Na paleta de comandos, escreva e execute o comando **Azure: Sign in** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
 3. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
@@ -253,15 +253,15 @@ Pode definir módulos num dispositivo através do Hub IoT, mas também pode aced
 2. Siga os avisos para iniciar sessão na conta do Azure. 
 3. Na paleta de comandos, selecione a sua subscrição do Azure e, em seguida, selecione o seu Hub IoT. 
 4. No explorador do VS Code, expanda a secção **Dispositivos do Hub IoT do Azure**. 
-5. Clique com o botão direito do rato no dispositivo destinado à implementação e selecione **Criar Implementação para o dispositivo IoT Edge**. 
+5. Clique com o botão direito do rato no dispositivo destinado à implementação e selecione **Criar Implementação para o único dispositivo**. 
 6. No explorador de ficheiros, navegue para a pasta **config** na solução e selecione **deployment.json**. Clique em **Selecionar manifesto de implementação do Edge**. 
 
 Se a implementação for efetuada com êxito, é apresentada uma mensagem de confirmação no resultado do VS Code. Também pode verificar se todos os módulos estão em execução no seu dispositivo. 
 
 No dispositivo IoT Edge, execute o seguinte comando para ver o estado dos módulos. Esta operação poderá demorar alguns minutos.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>Criar uma base de dados SQL

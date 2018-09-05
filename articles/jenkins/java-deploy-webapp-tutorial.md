@@ -1,19 +1,19 @@
 ---
 title: Utilizar o Jenkins para implementar as suas aplicações Web no Azure
 description: Utilize o Jenkins e o Docker para configurar a integração contínua a partir do GitHub no Serviço de Aplicações do Azure para as suas aplicações Web.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service, continuous integration, ci, continuous deployment, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389947"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106802"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração e a implementação contínua no Serviço de Aplicações do Azure com o Jenkins
 
@@ -33,7 +33,7 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 Para concluir este tutorial, precisa de:
 
-* [Jenkins](https://jenkins.io/) com ferramentas JDK e Maven tools configuradas. Se não tiver um sistema Jenkins, crie-o no Azure agora a partir do [modelo de solução do Jenkins](/azure/jenkins/install-jenkins-solution-template).
+* [Jenkins](https://jenkins.io/) com ferramentas JDK e Maven configuradas. Se não tiver um sistema Jenkins, crie-o no Azure agora a partir do [modelo de solução do Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Uma conta do [GitHub](https://github.com).
 * [CLI 2.0 do Azure](/cli/azure), a partir da linha de comandos local ou no [Azure Cloud Shell](/azure/cloud-shell/overview).
 

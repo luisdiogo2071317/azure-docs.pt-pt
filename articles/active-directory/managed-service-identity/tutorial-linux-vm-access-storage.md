@@ -14,23 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5117444b6312d96f87f9e1edf8ce26d0360417ef
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049342"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885756"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Tutorial: utilizar uma Identidade Gerida de VM do Linux para aceder ao Armazenamento do Azure 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-Este tutorial mostra-lhe como criar e utilizar uma Identidade Gerida de VM do Linux para aceder ao Armazenamento do Azure. Saiba como:
+Este tutorial mostra-lhe como utilizar a identidade de sistema atribuída para uma máquina virtual (VM) do Linux para aceder ao Armazenamento do Azure. Saiba como:
 
 > [!div class="checklist"]
-> * Criar uma máquina virtual do Linux num novo grupo de recursos
-> * Ativar a Identidade Gerida numa Máquina Virtual (VM) do Linux
+> * Criar uma conta de armazenamento
 > * Criar um contentor de blobs numa conta de armazenamento
 > * Conceder acesso à Identidade Gerida de VM do Linux a um contentor de Armazenamento do Azure
 > * Obter um token de acesso e utilizá-lo para chamar o Armazenamento do Azure
@@ -40,41 +38,20 @@ Este tutorial mostra-lhe como criar e utilizar uma Identidade Gerida de VM do Li
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com) antes de continuar.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Iniciar sessão no portal do Azure](https://portal.azure.com)
+
+- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
+
+- [Ativar a identidade do sistema atribuída na sua máquina virtual ](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 Para executar os exemplos de script da CLI neste tutorial, tem duas opções:
 
 - Utilizar o [Azure Cloud Shell](~/articles/cloud-shell/overview.md) do portal do Azure ou através do botão **Experimentar**, localizado no canto superior direito de cada bloco de código.
 - [Instalar a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior), se preferir utilizar uma consola CLI local.
-
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Linux num novo grupo de recursos
-
-Nesta secção, vai criar uma VM do Linux à qual será concedida mais tarde uma Identidade Gerida.
-
-1. Selecione o botão **Novo**, no canto superior esquerdo do portal do Azure.
-2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
-3. Introduza as informações da máquina virtual. Em **Tipo de autenticação**, selecione **Chave SSH pública** ou **Palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão na VM.
-
-   ![Painel "Básico" para a criação de uma máquina virtual](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Na lista **Subscrição**, selecione uma subscrição para a máquina virtual.
-5. Para selecionar um novo grupo de recursos no qual pretende que a máquina virtual seja criada, selecione **Grupo de recursos** > **Criar novo**. Quando terminar, selecione **OK**.
-6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e selecione **OK**.
-
-## <a name="enable-managed-identity-on-your-vm"></a>Ativar a Identidade Gerida na sua VM
-
-Uma Identidade Gerida de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Nos bastidores, ativar a Identidade Gerida numa Máquina Virtual através do portal do Azure faz duas coisas: regista a sua VM no Azure AD para criar uma identidade gerida e configura a identidade na VM.
-
-1. Navegue para o grupo de recursos da sua nova máquina virtual e selecione a máquina virtual que criou no passo anterior.
-2. Na categoria **Definições**, clique em **Configuração**.
-3. Para ativar a Identidade Gerida, selecione **Sim**.
-4. Clique em **Guardar** para aplicar a configuração. 
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 

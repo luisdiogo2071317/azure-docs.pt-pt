@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856812"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186835"
 ---
-# <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importar dados para utilização com a API de Tabelas do Azure Cosmos DB
+# <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
 
-Este tutorial dá instruções sobre como importar dados para utilização com a [API de Tabelas](table-introduction.md) do Azure Cosmos DB. Se tiver dados armazenados no Armazenamento de Tabelas do Azure, poderá utilizar a Ferramenta de Migração de Dados ou AzCopy para importar os seus dados. Se tiver dados armazenados numa conta API de Tabelas do Azure Cosmos DB (pré-visualização), terá de utilizar a ferramenta de Migração de Dados para migrar os dados. Depois de os dados serem importados, poderá aproveitar as capacidades Premium do Azure Cosmos DB, como distribuição global chave na mão, débito dedicado, latências de milissegundos de dígito único no 99.º percentil, elevada disponibilidade garantida e indexação secundária automática.
+Este tutorial dá instruções sobre como importar dados para utilização com a [API de Tabelas](table-introduction.md) do Azure Cosmos DB. Se tiver dados armazenados no Armazenamento de Tabelas do Azure, poderá utilizar a Ferramenta de Migração de Dados ou AzCopy para importar os seus dados para a API de Tabela do Azure Cosmos DB. Se tiver dados armazenados numa conta API de Tabelas do Azure Cosmos DB (pré-visualização), terá de utilizar a ferramenta de Migração de Dados para migrar os dados. 
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -39,11 +39,11 @@ A ferramenta de Migração de Dados do Azure Cosmos DB de linha de comandos (dt.
 Para efetuar uma migração dos dados da tabela, faça as seguintes tarefas:
 
 1. Transfira a ferramenta de migração do [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Execute `dt.exe` utilizando os argumentos da linha de comandos do seu cenário.
+2. Execute `dt.exe` utilizando os argumentos da linha de comandos do seu cenário. `dt.exe` executa um comando no seguinte formato:
 
-dt.exe executa um comando no seguinte formato:
-
+   ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
+```
 
 As opções do comando são:
 
@@ -105,7 +105,7 @@ Eis um exemplo de linha de comandos para importar da pré-visualização de API 
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
-## <a name="azcopy-command"></a>Comando AzCopy
+## <a name="migrate-data-by-using-azcopy"></a>Migrar dados utilizando o AzCopy
 
 Utilizar o utilitário da linha de comandos AzCopy é a outra opção para migrar dados do Armazenamento de Tabelas do Azure para a API de Tabelas do Azure Cosmos DB. Para utilizar AzCopy, primeiro exporta os dados conforme descrito em [Exportar dados do Armazenamento de Tabelas](../storage/common/storage-use-azcopy.md#export-data-from-table-storage) e, em seguida, importa os dados para o Azure Cosmos DB conforme descrito em [API de Tabelas do Azure Cosmos DB](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
 

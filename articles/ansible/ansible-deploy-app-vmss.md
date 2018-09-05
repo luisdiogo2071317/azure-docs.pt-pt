@@ -1,45 +1,39 @@
 ---
 title: Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
-description: Saiba como utilizar o Ansible para configurar um conjunto de dimensionamento de máquinas virtuais e implementar a aplicação no conjunto de dimensionamento no Azure
+description: Aprenda a utilizar o Ansible para configurar um conjunto de dimensionamento de máquinas virtuais e implementar aplicações no mesmo no Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, manual de comunicação social, máquina virtual, o conjunto de dimensionamento de máquina virtual, vmss
+keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008854"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918091"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
-Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar o Ansible para implantar seus aplicativos para o Azure. Este artigo mostra-lhe como implementar uma aplicação de Java para um conjunto de dimensionamento de máquina virtual do Azure (VMSS).  
+O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para implementar as suas aplicações no Azure. Este artigo mostra-lhe como implementar uma aplicação do Java num conjunto de dimensionamento de máquinas virtuais do Azure (VMSS).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure** – se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- **Configurar o Ansible** - [Azure criar credenciais e configurar o Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **O Ansible e os módulos do Azure Python SDK** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
-- **Conjunto de dimensionamento de máquina virtual** – se ainda não tiver um dimensionamento de máquinas virtuais definido, pode [criar um conjunto de dimensionamento com o Ansible](ansible-create-configure-vmss.md). 
-- **Git** - [git](https://git-scm.com) é utilizada para transferir um exemplo de Java utilizado neste tutorial.
-- **Java SE Development Kit (JDK)** -o JDK é usado para compilar o projeto de Java de exemplo.
-- **Ferramentas de compilação do Apache Maven** – a [ferramentas de compilação do Apache Maven](https://maven.apache.org/download.cgi) são usados para compilar o projeto de Java de exemplo.
+- **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- **Conjunto de dimensionamento de máquinas virtuais** – se ainda não tem um conjunto de dimensionamento de máquinas virtuais, pode [criar um conjunto de dimensionamento de máquinas virtuais com o Ansible](ansible-create-configure-vmss.md). 
+- O **git** - [git](https://git-scm.com) serve para transferir um exemplo do Java utilizado neste tutorial.
+- **Kit de Desenvolvimento SE do Java (JDK)** - O JDK serve para compilar o projeto do Java de exemplo.
+- **Ferramentas de compilação do Apache Maven** – As [ferramentas de compilação do Apache Maven](https://maven.apache.org/download.cgi) são utilizadas para compilar o projeto de Java de exemplo.
 
 > [!Note]
-> 2.6 do Ansible é necessário para executar o seguinte os playbooks de exemplo neste tutorial. 
+> O Ansible 2.6 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
 
 ## <a name="get-host-information"></a>Obter informações dos anfitriões
 
-Esta secção ilustra como utilizar o Ansible para obter informações do anfitrião para um grupo de máquinas virtuais do Azure. Segue-se um manual de comunicação do Ansible de exemplo. O código obtém os endereços IP públicos e Balanceador de carga do especificado grupo de recursos e cria um grupo de anfitriões com o nome **saclesethosts** no inventário. 
+Esta secção ilustra como utilizar o Ansible para obter informações do anfitrião para um grupo de máquinas virtuais do Azure. Abaixo encontra-se um manual de procedimentos do Ansible de exemplo. O código obtém os endereços IP públicos e o balanceador de carga no grupo de recursos especificado, e cria um grupo de anfitriões designado **saclesethosts** no inventário. 
 
-Guardar o playbook de exemplo seguintes como `get-hosts-tasks.yml`: 
+Guarde o manual de procedimentos de exemplo seguinte como `get-hosts-tasks.yml`: 
 
   ```yaml
   - name: Get facts for all Public IPs within a resource groups
@@ -65,9 +59,9 @@ Guardar o playbook de exemplo seguintes como `get-hosts-tasks.yml`:
       - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
-## <a name="prepare-an-application-for-deployment"></a>Preparar um aplicativo para implantação  
+## <a name="prepare-an-application-for-deployment"></a>Preparar uma aplicação para implementação  
 
-Nesta secção, utilize o git para clonar um projeto de exemplo de Java do GitHub e crie o projeto. Guardar o playbook seguinte como `app.yml`:
+Nesta secção, utilize o git para clonar um projeto de exemplo do Java do GitHub e compile o projeto. Guarde o manual de procedimentos seguinte como `app.yml`:
 
   ```yaml
   - hosts: localhost
@@ -85,13 +79,13 @@ Nesta secção, utilize o git para clonar um projeto de exemplo de Java do GitHu
       shell: mvn package chdir="{{ workspace }}/complete"
   ```
 
-Execute o manual de comunicação do Ansible de exemplo com o seguinte comando:
+Execute o manual de procedimentos do Ansible de exemplo com o seguinte comando:
 
   ```bash
   ansible-playbook app.yml
   ```
 
-Apresenta o resultado do comando ansible playbook saída semelhante ao seguinte, onde vê-la criado a aplicação de exemplo clonou do GitHub:
+O resultado do comando do manual de procedimentos do ansible apresenta algo semelhante ao seguinte, onde vê que criou a aplicação de exemplo clonada do GitHub:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -112,9 +106,9 @@ Apresenta o resultado do comando ansible playbook saída semelhante ao seguinte,
 
 ## <a name="deploy-the-application-to-vmss"></a>Implementar a aplicação no VMSS
 
-A seguinte secção em playbooks do Ansible instala o JRE (Java Runtime Environment) num grupo de anfitriões com o nome **saclesethosts**e implementa a aplicação de Java para um grupo de anfitriões com o nome **saclesethosts**: 
+A seguinte secção num manual de procedimentos do Ansible instala o JRE (Java Runtime Environment) num grupo de anfitriões com o nome **saclesethosts** e implementa a aplicação do Java num grupo de anfitriões com o nome **saclesethosts**: 
 
-(Alterações a `admin_password` a sua própria palavra-passe.)
+(Altere o `admin_password` pela sua própria palavra-passe.)
 
   ```yaml
   - hosts: localhost
@@ -153,25 +147,25 @@ A seguinte secção em playbooks do Ansible instala o JRE (Java Runtime Environm
       poll: 0
   ```
 
-Pode salvar o playbook de Ansible do exemplo anterior como `vmss-setup-deploy.yml`, ou [baixar o playbook de exemplo inteiro](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
+Pode guardar o manual de procedimentos do Ansible do exemplo anterior como `vmss-setup-deploy.yml` ou [transferir o manual de procedimentos de exemplo completo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
-Para utilizar o ssh tipo de ligação com palavras-passe, tem de instalar o programa de sshpass. 
-  - Para Ubunto 16.04, execute o comando `apt-get install sshpass`.
-  - No CentOS 7.4, execute o comando `yum install sshpass`.
+Para utilizar o tipo de ligação ssh com palavras-passe, tem de instalar o programa sshpass. 
+  - Para o Ubunto 16.04, execute o comando `apt-get install sshpass`.
+  - Para o CentOSo 7.4, execute o comando `yum install sshpass`.
 
-Poderá ver um erro, como **com uma palavra-passe SSH em vez de uma chave não é possível porque a chave de anfitrião a verificação está ativada e sshpass não o suporta.  Adicione a impressão digital este anfitrião a seu arquivo de known_hosts para gerir este anfitrião.** Se vir este erro, pode desativar a verificação, adicionando a seguinte linha a qualquer uma de chave de anfitrião a `/etc/ansible/ansible.cfg` ficheiro ou o `~/.ansible.cfg` ficheiro:
+Poderá ver um erro como **Não pode utilizar uma palavra-passe SSH em vez de uma chave porque a verificação da Chave de Anfitrião está ativada e o sshpass não o suporta. Adicione a impressão digital deste anfitrião ao seu ficheiro known_hosts para gerir este anfitrião.** Se vir este erro, pode desativar a verificação da chave do anfitrião, ao adicionar a seguinte linha ao ficheiro `/etc/ansible/ansible.cfg` ou ao ficheiro `~/.ansible.cfg`:
   ```bash
   [defaults]
   host_key_checking = False
   ```
 
-Execute o playbook com o seguinte comando:
+Execute o manual de procedimentos com o comando seguinte:
 
   ```bash
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-O resultado da execução do comando do ansible playbook indica que a aplicação de Java de exemplo foi instalada para o grupo de anfitriões do conjunto de dimensionamento de máquina virtual:
+O resultado da execução do comando ansible-playbook indica que a aplicação do Java de exemplo foi instalada no grupo de anfitriões do conjunto de dimensionamento de máquinas virtuais:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -208,10 +202,10 @@ O resultado da execução do comando do ansible playbook indica que a aplicaçã
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-Parabéns n!. A aplicação está em execução no Azure agora. Agora pode navegar para o URL do Balanceador de carga para o conjunto de dimensionamento de máquina virtual:
+Parabéns! A aplicação está agora em execução no Azure. Agora pode navegar para o URL do balanceador de carga para o conjunto de dimensionamento de máquinas virtuais:
 
-![Aplicação de Java em execução num conjunto de dimensionamento no Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
+![Aplicação do Java em execução num conjunto de dimensionamento de máquinas virtuais no Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"] 
-> [Manual de comunicação do Ansible exemplo para o VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Manual de procedimentos do Ansible de exemplo para o VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)

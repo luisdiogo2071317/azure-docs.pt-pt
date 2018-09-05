@@ -3,18 +3,18 @@ title: Procurar com o Azure Maps | Microsoft Docs
 description: Procurar um ponto de interesse nas proximidades com o Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 08/23/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e30d84c70f786a5bea25073c70a29b63c9a00ae9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988879"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917667"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -81,8 +81,9 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Search</title>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
 
         <style>
             html,
@@ -131,10 +132,12 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
 
 ## <a name="add-search-capabilities"></a>Adicionar capacidades de pesquisa
 
-Esta secção mostra como utilizar a API de Pesquisa do Maps para localizar um ponto de interesse no seu mapa. É uma API RESTful concebida para os programadores procurarem endereços, pontos de interesse e outras informações geográficas. O serviço de Pesquisa atribui informações de latitude e longitude a um endereço especificado. 
+Esta secção mostra como utilizar a API de Pesquisa do Maps para localizar um ponto de interesse no seu mapa. É uma API RESTful concebida para os programadores procurarem endereços, pontos de interesse e outras informações geográficas. O serviço de Pesquisa atribui informações de latitude e longitude a um endereço especificado. O **Módulo Serviço** explicado abaixo pode ser utilizado para procurar uma localização com a API de Pesquisa do Maps.
 
-1. Adicione uma nova camada ao seu mapa para apresentar os resultados da pesquisa. Adicione o seguinte código Javascript ao bloco *script*, a seguir ao código que inicializa o mapa. 
+### <a name="service-module"></a>Módulo Serviço
 
+1. Adicione uma nova camada ao seu mapa para apresentar os resultados da pesquisa. Adicione o seguinte código Javascript ao bloco de script, a seguir ao código que inicializa o mapa. 
+    
     ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
@@ -145,69 +148,50 @@ Esta secção mostra como utilizar a API de Pesquisa do Maps para localizar um p
     });
     ```
 
-2. Crie um [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adicione um processador de eventos para analisar a resposta de JSON enviada pelo serviço de pesquisa do Maps. Este fragmento de código cria o processador de eventos para recolher os endereços, os nomes e as informações de latitude e longitude para cada localização devolvida na variável `searchPins`. Por fim, adiciona esta coleção de pontos de localização ao controlo `map` como marcadores. 
+2. Para instanciar o serviço cliente, adicione o seguinte código Javascript ao bloco de script, a seguir ao código que inicializa o mapa.
 
     ```JavaScript
-    // Perform a request to the search service and create a pin on the map for each result
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        var searchPins = [];
-
-        if (this.readyState === 4 && this.status === 200) {
-            var response = JSON.parse(this.responseText);
-
-            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
-
-            searchPins = poiResults.map((poiResult) => {
-                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                    name: poiResult.poi.name,
-                    address: poiResult.address.freeformAddress,
-                    position: poiResult.position.lat + ", " + poiResult.position.lon
-                });
-            });
-
-            map.addPins(searchPins, {
-                name: searchLayerName
-            });
-
-            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
-
-            var swLon = Math.min.apply(null, lons);
-            var swLat = Math.min.apply(null, lats);
-            var neLon = Math.max.apply(null, lons);
-            var neLat = Math.max.apply(null, lats);
-
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 50
-            });
-        }
-    };
+    var client = new atlas.service.Client(subscriptionKey);
     ```
 
-3. Adicione o seguinte código ao bloco *script* para criar a consulta e enviar o XMLHttpRequest para o serviço de Pesquisa do Maps:
+3. Adicione o seguinte bloco de script para criar a consulta. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como qualquer combinação de endereço e tokens de ponto de interesse (POI). Procura Postos de Gasolina nas proximidades dentro do raio especificado. Em seguida, a resposta é analisada no formato GeoJSON e convertida em funcionalidades de ponto, que são adicionadas ao mapa como marcadores. A última parte do script adiciona limites de câmara para o mapa através da propriedade [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) do Maps.
 
     ```JavaScript
-    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-    url += "api-version=1.0";
-    url += "&query=gasoline%20station";
-    url += "&subscription-key=" + MapsAccountKey;
-    url += "&lat=47.6292";
-    url += "&lon=-122.2337";
-    url += "&radius=100000";
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
-    ``` 
-    Este fragmento utiliza a API de pesquisa básica do Search Service, denominada **Fuzzy Search**. Processa as entradas mais difusas, incluindo qualquer combinação de endereço ou tokens de ponto de interesse (POI). Procura **postos de combustível** nas proximidades dentro de um raio concreto das coordenadas de latitude e longitude especificadas. Utiliza a chave primária da sua conta fornecida anteriormente no ficheiro de exemplo para fazer a chamada para o Maps. Devolve os resultados como pares latitude/longitude para as localizações encontradas. 
-    
+    client.search.getSearchFuzzy("gasoline station", {
+     lat: 47.6292,
+     lon: -122.2337,
+     radius: 100000
+    }).then(response => {
+       // Parse the response into GeoJSON 
+       var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
+ 
+       // Create the point features that will be added to the map as pins 
+       var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => { 
+           var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat]; 
+           return new atlas.data.Feature(new atlas.data.Point(poiPosition), { 
+                name: poiResult.properties.poi.name, 
+                address: poiResult.properties.address.freeformAddress, 
+                position: poiPosition[1] + ", " + poiPosition[0] 
+           }); 
+       }); 
+ 
+       // Add pins to the map for each POI 
+       map.addPins(searchPins, { 
+           name: searchLayerName 
+       }); 
+ 
+       // Set the camera bounds 
+       map.setCameraBounds({ 
+           bounds: geojsonResponse.getGeoJsonResults().bbox, 
+           padding: 50 
+       ); 
+    }); 
+    ```
 4. Guarde o ficheiro **MapSearch.html** e atualize o browser. Deverá constatar que o mapa está agora centrado em Seattle e que os marcadores azuis marcam as localizações dos postos de combustível na área. 
 
    ![Ver o mapa com os resultados da pesquisa](./media/tutorial-search-location/pins-map.png)
 
-5. Pode ver os dados não processados que o mapa está a compor ao tirar o XMLHTTPRequest criado no ficheiro e colocá-lo no seu browser. Substitua o texto \<your account key\> pela sua chave primária. 
+5. Pode ver os dados não processados que o mapa está a compor, introduzindo o seguinte HTTPRequest no seu browser. Substitua o texto \<your account key\> pela sua chave primária. 
 
    ```http
    https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
@@ -237,7 +221,7 @@ O mapa criado até ao momento está focado apenas nos dados de latitude/longitud
         popupContentElement.appendChild(popupAddressElement);
 
         var popupPositionElement = document.createElement("div");
-        popupPositionElement.innerText = e.features[0].properties.name;
+        popupPositionElement.innerText = e.features[0].properties.position;
         popupContentElement.appendChild(popupPositionElement);
 
         popup.setPopupOptions({

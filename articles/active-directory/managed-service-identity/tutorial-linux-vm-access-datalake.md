@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 4a9d147d1605f4efa638ff258df2667b6b95230e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258835"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885163"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Tutorial: utilizar a Identidade de Serviço Gerida para uma VM do Linux aceder ao Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra-lhe como utilizar a Identidade de Serviço Gerida para uma máquina virtual (VM) do Linux aceder ao Azure Data Lake Store. O Azure gere automaticamente as identidades que criar através da Identidade de Serviço Gerida. Pode utilizar a Identidade de Serviço Gerida para autenticar em serviços que suportam a autenticação do Azure Active Directory (AD), sem ter de inserir credenciais no código. 
+Este tutorial mostra-lhe como utilizar a identidade de sistema atribuída para uma máquina virtual (VM) do Linux para aceder ao Azure Data Lake Store. O Azure gere automaticamente as identidades que criar através da Identidade de Serviço Gerida. Pode utilizar a Identidade de Serviço Gerida para autenticar em serviços que suportam a autenticação do Azure Active Directory (AD), sem ter de inserir credenciais no código. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ativar a Identidade de Serviço Gerida numa VM do Linux. 
 > * Conceder acesso à VM ao Azure Data Lake Store.
 > * Obter um token de acesso com a identidade da VM e utilizá-lo para aceder ao Azure Data Lake Store.
 
@@ -40,33 +39,11 @@ Neste tutorial, ficará a saber como:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+- [Iniciar sessão no portal do Azure](https://portal.azure.com)
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Linux num novo grupo de recursos
-
-Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa VM existente.
-
-1. Selecione o botão **Novo**, no canto superior esquerdo do portal do Azure.
-2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
-3. Introduza as informações da máquina virtual. Em **Tipo de autenticação**, selecione **Chave SSH pública** ou **Palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão na VM.
-
-   ![Painel "Básico" para a criação de uma máquina virtual](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Na lista **Subscrição**, selecione uma subscrição para a máquina virtual.
-5. Para selecionar um novo grupo de recursos no qual pretende que a máquina virtual seja criada, selecione **Grupo de recursos** > **Criar novo**. Quando terminar, selecione **OK**.
-6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e selecione **OK**.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Ativar a Identidade de Serviço Gerida na sua VM
-
-Uma Identidade de Serviço Gerida de VM permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
-
-1. Para **Máquina Virtual**, selecione a máquina virtual na qual quer ativar a Identidade de Serviço Gerida.
-2. No painel esquerdo, selecione **Configuração**.
-3. Verá a **Identidade de serviço gerida**. Para registar e ativar a Identidade de Serviço Gerida, selecione **Sim**. Se pretender desativá-la, selecione **Não**.
-   ![Seleção “Registar no Azure Active Directory”](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-4. Selecione **Guardar**.
+- [Ativar a identidade do sistema atribuída na sua máquina virtual ](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Conceder acesso à VM ao Azure Data Lake Store
 

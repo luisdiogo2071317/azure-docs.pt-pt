@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf47b2d6bd17fa5a9f7cbe98ab7db2799f6e8287
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674857"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916305"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início rápido: Criar uma sala de chat com o SignalR Service
 
@@ -93,15 +93,20 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
 
         dotnet restore
 
-3. Adicione um segredo denominado *Azure__SignalR__ConnectionString* ao Secret Manager. Este segredo é um valor de configuração hierárquica e dois pontos (:) pode não funcionar em todas as plataformas. O duplo caráter de sublinhado (_), conforme utilizado neste segredo, é suportado por todas as plataformas.  Este segredo irá conter a cadeia de ligação para aceder ao seu recurso do SignalR Service. *Azure__SignalR__ConnectionString* é a chave de configuração predefinida que o SignalR procura para estabelecer uma ligação. Substitua o valor no comando abaixo pela cadeia de ligação do recurso do SignalR Service.
+3. Adicione um segredo denominado *Azure:SignalR:ConnectionString* ao Secret Manager. 
+
+    Este segredo irá conter a cadeia de ligação para aceder ao seu recurso do SignalR Service. *Azure:SignalR:ConnectionString* é a chave de configuração predefinida que o SignalR procura para estabelecer uma ligação. Substitua o valor no comando abaixo pela cadeia de ligação do recurso do SignalR Service.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     O Secret Manager só será utilizado para testar a aplicação Web enquanto estiver alojada localmente. Num próximo tutorial, vai implementar a aplicação Web de chat no Azure. Quando a aplicação Web estiver implementada no Azure, vai utilizar uma definição de aplicação em vez de armazenar a cadeia de ligação no Secret Manager.
+
+    Este segredo é acedidos com a API de configuração. Os dois pontos (:) funcionam no nome da configuração com a API de configuração nas plataformas suportadas, veja [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+
 
 4. Abra *Startup.cs* e atualize o método `ConfigureServices` para utilizar o Azure SignalR ao chamar o método `services.AddSignalR().AddAzureSignalR()`:
 
@@ -113,7 +118,7 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
     }
     ```
 
-    Se não for transmitido um parâmetro para `AddAzureSignalR()`, este código utiliza a chave de configuração predefinida, *Azure__SignalR__ConnectionString*, para a cadeia de ligação do recurso do SignalR Service.
+    Se não for transmitido um parâmetro para `AddAzureSignalR()`, este código utiliza a chave de configuração predefinida, *Azure:SignalR:ConnectionString*, para a cadeia de ligação do recurso do SignalR Service.
 
 5. Também no *Startup.cs*, atualize o método `Configure` ao substituir a chamada para `app.UseStaticFiles()` pelo seguinte código e guarde o ficheiro.
 

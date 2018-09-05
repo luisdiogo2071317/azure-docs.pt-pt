@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 51ace875616a4627fafab89137cfc1e2d30872ad
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 671cf3d274f067354131777b9f69d75c6a9fc934
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023158"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190331"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (Node.js)
 
@@ -124,7 +124,7 @@ Primeiro tem de configurar o seu projeto de código para que o VS Code comunique
 
 Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-Esta ação adiciona a configuração de depuração para os Espaços de Programação do Azure na pasta `.vscode`.
+Esta ação adiciona a configuração de depuração para os Espaços de Programação do Azure na pasta `.vscode`. Este comando não deve ser confundido com o comando `azds prep`, que configura o projeto para implementação.
 
 ![](./media/common/command-palette.png)
 

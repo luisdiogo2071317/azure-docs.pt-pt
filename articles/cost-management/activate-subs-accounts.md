@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297976"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247241"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar subscrições e contas do Azure com o Azure Cost Management
 
@@ -103,7 +103,7 @@ Para poder gerar a chave de API do Contrato Enterprise do Azure, para configurar
 
 Também poderá ter de conceder permissões a administradores de departamento, proprietários de conta e administradores empresariais para _ver custos_ com a API de Faturação.
 
-Apenas um administrador de serviços do Azure pode ativar o Cost Management. As permissões de coadministrador são insuficientes. No entanto, pode contornar o requisito de administrador. Pode pedir que o administrador do Azure Active Directory conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script seguinte concede permissão para registar o **CloudynAzureCollector** do Principal de Serviço do Azure Active Directory.
+Apenas um administrador de serviços do Azure pode ativar o Cost Management. As permissões de coadministrador são insuficientes. No entanto, pode contornar o requisito de administrador. Pode pedir que o administrador do Azure Active Directory conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script seguinte concede permissão para registar o **CloudynAzureCollector** do Principal de Serviço do Azure Active Directory. Quando executada com êxito, a operação termina com o browser a mostrar o URL http://localhost:8080/CloudynJava.
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

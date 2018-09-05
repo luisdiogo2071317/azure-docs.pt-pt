@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216313"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746023"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -288,7 +288,7 @@ Se uma tarefa inicial falhar num nó de computação, o estado do nó é atualiz
 Se adicionar ou atualizar a tarefa de início para um agrupamento existente, tem de reiniciar os nós de computação para que a tarefa de início seja aplicada aos mesmos.
 
 >[!NOTE]
-> O tamanho total de uma tarefa de início tem de ser inferior ou igual a 32 768 carateres, incluindo ficheiros de recursos e variáveis de ambiente. Para garantir que a sua tarefa de início cumpre este requisito, pode seguir uma de duas abordagens:
+> O Batch limita o tamanho total de uma tarefa de início, o que inclui os ficheiros de recurso e as variáveis de ambiente. Se precisar de reduzir o tamanho de uma tarefa de início, pode usar uma de duas abordagens:
 >
 > 1. Pode utilizar pacotes de aplicações para distribuir aplicações ou dados para todos os nós do agrupamento do Batch. Para obter mais informações sobre os pacotes de aplicações, veja [Implementar aplicações em nós de computação com pacotes de aplicações do Batch](batch-application-packages.md).
 > 2. Pode criar manualmente um arquivo zipado que contenha os seus ficheiros de aplicação. Carregue o arquivo zipado para o Armazenamento do Azure como um blob. Especifique este arquivo como um ficheiro de recursos para a tarefa de início. Antes de executar a linha de comandos da tarefa de início, descomprima o arquivo a partir da linha de comandos. 

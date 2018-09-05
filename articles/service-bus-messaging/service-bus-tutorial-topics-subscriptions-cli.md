@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81d538c0324f8fa89a7ce86ceaf2b0a2a76b4d51
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651674"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120689"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar inventários utilizando a CLI e tópicos/subscrições
 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas
 > * Receber mensagens das subscrições
 
-Um exemplo deste cenário é uma atualização da variedade de inventário para várias lojas de comércio a retalho. Neste cenário, cada loja ou grupo de lojas recebe mensagens dirigidas a elas para atualizar a respetiva variedade. Este tutorial mostra como implementar este cenário utilizando subscrições e filtros. Primeiro, cria um tópico com três subscrições, adiciona algumas regras e filtros e, em seguida, envia e recebe mensagens do tópico e subscrições.
+Um exemplo deste cenário é uma atualização da variedade de inventário para várias lojas de comércio a retalho. Neste cenário, cada loja ou grupo de lojas recebe mensagens dirigidas a elas para atualizar a respetiva variedade. Este tutorial mostra como implementar este cenário com subscrições e filtros. Primeiro, cria um tópico com três subscrições, adiciona algumas regras e filtros e, em seguida, envia e recebe mensagens do tópico e subscrições.
 
 ![tópico](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
 
@@ -50,7 +50,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos são totalmente compatíveis no que diz respeito a protocolo e semântica com as filas do Service Bus. Os tópicos do Service Bus suportam uma vasta gama de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Sempre que uma regra tem correspondência, é criada uma mensagem. Para saber mais sobre regras, filtros e ações, clique nesta [hiperligação](topic-filters.md).
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Assim que a CLI estiver instalada, abra uma linha de comandos e indique os seguintes comandos para iniciar sessão no Azure. Estes passos não serão necessários se estiver a utilizar a Cloud Shell:
 
@@ -330,18 +330,18 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 Neste tutorial, aprovisionou recursos utilizando a CLI do Azure e enviou e recebeu mensagens de um tópico do Service Bus e respetivas subscrições. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico utilizando o portal do Azure
-> * Adicionar filtros de tópico utilizando o código .NET
+> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
+> * Adicionar filtros de tópico com o código .NET
 > * Criar duas mensagens com conteúdo diferente
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas
 > * Receber mensagens das subscrições
 
-Para mais exemplos sobre o envio e receção de mensagens, comece com os [exemplos do Service Bus do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
+Para ver mais exemplos sobre o envio e receção de mensagens, comece com os [exemplos do Service Bus do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
 
 Avance para o próximo tutorial para saber mais sobre a utilização de capacidades de publicação/subscrição do Service Bus.
 
 > [!div class="nextstepaction"]
-> [Atualizar inventário utilizando o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-portal.md)
+> [Atualizar inventário com o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-portal.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

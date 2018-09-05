@@ -1,6 +1,6 @@
 ---
-title: Criar uma aplicação Web ASP.NET Framework no Azure | Microsoft Docs
-description: Saiba como executar aplicações Web no serviço de aplicações do Azure com a implementação da aplicação Web ASP.NET predefinida.
+title: Criar uma aplicação Web ASP.NET Framework C# no Azure | Microsoft Docs
+description: Saiba como executar aplicações Web no serviço de aplicações do Azure com a implementação da aplicação Web ASP.NET C# predefinida.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,22 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191298"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Framework no Azure
 
 [As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como implementar uma aplicação Web ASP.NET em aplicações Web do Azure. Quando terminar, terá um grupo de recursos que consiste num plano de serviços de aplicações e uma aplicação Web do Azure com uma aplicação Web implementada.
 
-Assista ao vídeo para ver este guia de introdução em ação e, em seguida, siga os passos para publicar a sua primeira aplicação .NET no Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,11 +34,7 @@ Assista ao vídeo para ver este guia de introdução em ação e, em seguida, si
 
 Para concluir este tutorial:
 
-* Instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">2017 do Visual Studio</a> com as seguintes cargas de trabalho:
-    - **Desenvolvimento do ASP.NET e Web**
-    - **Desenvolvimento do Azure**
-
-    ![Desenvolvimento do ASP.NET e Web e desenvolvimento do Azure (na Web e na nuvem)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com a carga de trabalho de **desenvolvimento na Web e em ASP.NET**.
 
 Se já tiver instalado o Visual Studio, adicione as cargas de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Funcionalidades**.
 
@@ -144,6 +139,7 @@ Localize a etiqueta HTML `<div class="jumbotron">` na parte superior e substitua
 Para voltar a implementar no Azure, clique com o botão direito do rato no projeto **myFirstAzureWebApp**, no **Explorador de Soluções** e selecione **Publicar**.
 
 Na página de publicação, selecione **Publicar**.
+![Página de resumo de publicação do Visual Studio](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 Quando a publicação estiver concluída, o Visual Studio inicia um browser para o URL da aplicação Web.
 
@@ -162,6 +158,12 @@ No menu à esquerda, selecione **Serviços Aplicacionais** e selecione o nome da
 ![Painel Serviço de Aplicações no portal do Azure](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 O menu à esquerda fornece diferentes páginas para configurar a sua aplicação. 
+
+## <a name="video"></a>Vídeo
+
+Assista ao vídeo para ver este guia de introdução em ação e, em seguida, siga os passos para publicar a sua primeira aplicação .NET no Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

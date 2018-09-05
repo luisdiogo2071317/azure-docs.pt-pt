@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 5288e9900c75eae7601b84f7366edf9ac739d5da
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125808"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143547"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Azure Data Box Disk? (Pré-visualização)
 
@@ -40,7 +40,7 @@ As perguntas e respostas estão organizadas pelas seguintes categorias:
 ## <a name="about-the-service"></a>Acerca do serviço
 
 ### <a name="q-what-is-azure-data-box-service"></a>P. O que é o serviço Azure Data Box? 
-R.  O serviço Azure Data Box foi concebido para ingestão de dados offline. Este serviço gere uma panóplia de produtos feitos à medida para o transporte de dados para diferentes capacidades de armazenamento. 
+A.  O serviço Azure Data Box foi concebido para ingestão de dados offline. Este serviço gere uma panóplia de produtos feitos à medida para o transporte de dados para diferentes capacidades de armazenamento. 
 
 ### <a name="q-what-are-azure-data-box-disks"></a>P. O que são os discos do Azure Data Box Disk?
 A. Os discos do Azure Data Box Disk permitem a transferência rápida, económica e segura de terabytes de dados de e para o Azure. A Microsoft envia-lhe um a cinco discos, com uma capacidade de armazenamento máxima de 35 TB. Pode configurar, ligar e desbloquear facilmente estes discos através do serviço Data Box no portal do Azure.  
@@ -60,10 +60,10 @@ A.  Para receber os discos do Azure Data Box Disk, comece por se inscrever na [p
 A. Para cinco discos de 8 TB cada (7 TB de capacidade utilizável), a capacidade utilizável máxima são 35 TB. Assim, pode transferir 35 TB de dados numa instância.  Para transferir mais dados, tem de transferir mais discos.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>P. Como posso saber se os discos do Data Box Disk estão disponíveis na minha região? 
-A.  Os discos do Data Box Disk estão disponíveis nos E.U.A. e em todos os países da União Europeia durante a fase de pré-visualização.  
+A.  Os discos do Data Box Disk estão disponíveis nos E.U.A., Canadá e em todos os países da União Europeia durante a fase de pré-visualização.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com os discos do Data Box Disk?
-A. O Data Box Disk é suportado em todas as regiões dos E.U.A. e da Europa Ocidental e Europa do Norte para pré-visualização. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
+A. O Data Box Disk é suportado em todas as regiões dos E.U.A., Canadá e da Europa Ocidental e Europa do Norte para pré-visualização. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P. Quem devo contactar se me deparar com problemas com os discos do Data Box Disk?
 A. Se se deparar com problemas com os discos do Data Box Disk, contacte o [Suporte do Data Box Disk](mailto:expresspodsupport@microsoft.com).

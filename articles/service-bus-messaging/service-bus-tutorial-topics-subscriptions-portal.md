@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f504f3bf513a20d8590d9907106b1fd12f907877
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651690"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124219"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições
 
@@ -22,13 +22,13 @@ O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquili
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico utilizando o portal do Azure
-> * Adicionar filtros de tópico utilizando o código .NET
+> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
+> * Adicionar filtros de tópico com o código .NET
 > * Criar duas mensagens com conteúdo diferente
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas
 > * Receber mensagens das subscrições
 
-Um exemplo deste cenário é uma atualização da variedade de inventário para várias lojas de comércio a retalho. Neste cenário, cada loja ou grupo de lojas recebe mensagens dirigidas a elas para atualizar a respetiva variedade. Este tutorial mostra como implementar este cenário utilizando subscrições e filtros. Primeiro, cria um tópico com três subscrições, adiciona algumas regras e filtros e, em seguida, envia e recebe mensagens do tópico e subscrições.
+Um exemplo deste cenário é uma atualização da variedade de inventário para várias lojas de comércio a retalho. Neste cenário, cada loja ou grupo de lojas recebe mensagens dirigidas a elas para atualizar a respetiva variedade. Este tutorial mostra como implementar este cenário com subscrições e filtros. Primeiro, cria um tópico com três subscrições, adiciona algumas regras e filtros e, em seguida, envia e recebe mensagens do tópico e subscrições.
 
 ![tópico](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
 
@@ -45,17 +45,17 @@ Para concluir este tutorial, confirme que tem instalada:
 
 Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos são totalmente compatíveis no que diz respeito a protocolo e semântica com as filas do Service Bus. Os tópicos do Service Bus suportam uma vasta gama de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Sempre que uma regra tem correspondência, é criada uma mensagem. Para saber mais sobre regras, filtros e ações, clique nesta [hiperligação](topic-filters.md).
 
-## <a name="log-on-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Primeiro, entre no [Portal do Azure][Azure portal] e inicie sessão com a sua subscrição do Azure. O primeiro passo é criar um espaço de nomes de Service Bus do tipo **Mensagens**.
 
 ## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
 
-Um espaço de nomes de mensagens do Service Bus fornece um contentor de âmbito exclusivo, referenciado pela respetivo [nome de domínio completamente qualificado][], no qual cria uma ou mais filas, tópicos e subscrições. O exemplo seguinte cria um espaço de nomes de mensagens do Service Bus num [grupo de recursos](/azure/azure-resource-manager/resource-group-portal) novo ou existente:
+Um espaço de nomes de mensagens do Service Bus fornece um contentor de âmbito exclusivo, referenciado pela [nome de domínio completamente qualificado][], no qual cria uma ou mais filas, tópicos e subscrições. O exemplo seguinte cria um espaço de nomes de mensagens do Service Bus num [ grupo de recursos](/azure/azure-resource-manager/resource-group-portal) novo ou existente:
 
 1. No painel de navegação à esquerda do portal, clique em **+ Criar um recurso** e, em seguida, clique em **Enterprise Integration** e em **Service Bus**.
 2. Na caixa de diálogo **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
-3. Após se certificar de que o espaço de nomes está disponível, selecione o escalão de preço (Standard ou Premium).
+3. Após se confirmar que o espaço de nomes está disponível, selecione o escalão de preço (Standard ou Premium).
 4. No campo **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
 5. No campo **Grupo de recursos**, selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.      
 6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
@@ -95,7 +95,7 @@ Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter 
 
 ### <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
-Para executar o código, efetue o seguinte:
+Para executar o código, faça o seguinte:
 
 1. Numa linha de comandos ou na linha de comandos do PowerShell, clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) indicando o seguinte comando:
 
@@ -437,18 +437,18 @@ private async Task ReceiveMessages(string subscription)
 Neste tutorial, aprovisionou recursos utilizando o portal do Azure e enviou e recebeu mensagens de um tópico do Service Bus e respetivas subscrições. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico utilizando o portal do Azure
-> * Adicionar filtros de tópico utilizando o código .NET
+> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
+> * Adicionar filtros de tópico com o código .NET
 > * Criar duas mensagens com conteúdo diferente
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas
 > * Receber mensagens das subscrições
 
-Para mais exemplos sobre o envio e receção de mensagens, comece com os [exemplos do Service Bus do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
+Para ver mais exemplos sobre o envio e receção de mensagens, comece com os [exemplos do Service Bus do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
 
 Avance para o próximo tutorial para saber mais sobre a utilização de capacidades de publicação/subscrição do Service Bus.
 
 > [!div class="nextstepaction"]
-> [Atualizar inventário utilizando o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Atualizar inventário com o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [nome de domínio completamente qualificado]: https://wikipedia.org/wiki/Fully_qualified_domain_name

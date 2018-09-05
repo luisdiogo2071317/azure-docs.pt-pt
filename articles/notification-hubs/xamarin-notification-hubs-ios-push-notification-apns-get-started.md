@@ -1,6 +1,6 @@
 ---
 title: Enviar notificações push para aplicações Xamarin.iOS com Hubs de Notificação do Azure | Microsoft Docs
-description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Xamarin iOS.
+description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Xamarin.iOS.
 services: notification-hubs
 keywords: notificações push ios, mensagens push, notificações push, mensagem push
 documentationcenter: xamarin
@@ -14,24 +14,26 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
+ms.date: 08/23/2018
 ms.author: dimazaid
-ms.openlocfilehash: ac8e5240f4544ccbb7256acbc6e70f00eff15092
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4704d9bb04f6dc69c69df434562c03b868baf045
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917599"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917708"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações Xamarin.iOS com Hubs de Notificação do Azure
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação iOS. Vai criar uma aplicação Xamarin.iOS em branco que recebe notificações push com o [Serviço Apple Push Notification (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). 
+
+Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação iOS. Vai criar uma aplicação Xamarin.iOS em branco que recebe notificações push com o [serviço Apple Push Notification (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html).
 
 Quando tiver terminado, pode utilizar o Hub de Notificação para difundir notificações push para todos os dispositivos a executar a sua aplicação. O código concluído está disponível no exemplo [aplicação NotificationHubs][GitHub].
 
-Neste tutorial, pode criar/atualizar código para efetuar as seguintes tarefas: 
+Neste tutorial, pode criar/atualizar código para efetuar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Gerar o ficheiro de pedido de assinatura de certificado
@@ -43,7 +45,7 @@ Neste tutorial, pode criar/atualizar código para efetuar as seguintes tarefas:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Subscrição do Azure**. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Versão mais recente do [XCode][Install Xcode]
+- Versão mais recente do [Xcode][Install Xcode]
 - Um dispositivo compatível iOS 10 (ou versão posterior)
 - Associação ao [Programa de Programador da Apple](https://developer.apple.com/programs/)
 - [Visual Studio para Mac]
@@ -56,26 +58,30 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configurar o hub de notificação para notificações push do iOS
-Esta secção explica-lhe como criar um novo notification hub e configurar a autenticação com APNS através do certificado push **.p12** que criou anteriormente. Se pretender utilizar um Notification Hub que já tenha criado, pode avançar para o passo 5.
+
+Esta secção explica-lhe como criar um novo notification hub e configurar a autenticação com APNs através do certificado push **.p12** que criou anteriormente. Se pretender utilizar um Notification Hub que já tenha criado, pode avançar para o passo 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ### <a name="configure-ios-settings-for-the-notification-hub"></a>Configurar as definições do iOS para o hub de notificação
-1. Selecione **Apple (APNS)** no grupo **DEFINIÇÕES DE NOTIFICAÇÃO**. 
-2. Selecione **Certificado**, clique no ícone de **ficheiro** e selecione o ficheiro **.p12** que exportou anteriormente. 
-3. Especifique a **palavra-passe** para o certificado. 
+
+1. Selecione **Apple (APNS)** no grupo **DEFINIÇÕES DE NOTIFICAÇÃO**.
+2. Selecione **Certificado**, clique no ícone de **ficheiro** e selecione o ficheiro **.p12** que exportou anteriormente.
+3. Especifique a **palavra-passe** para o certificado.
 4. Selecione o modo **Sandbox**. Utilize o modo **Produção** apenas se quiser enviar notificações push a utilizadores que já tenham adquirido a aplicação na loja.
 
-    ![Configurar o APNS no portal do Azure][6]
+    ![Configurar APNs no portal do Azure][6]
 
-    ![Configurar certificação APNS no portal do Azure][7]
+    ![Configurar certificação APNs no portal do Azure][7]
 
 O Notification Hub já está configurado para trabalhar com APNs e tem as cadeias de ligação para registar a sua aplicação e enviar notificações push.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Ligar a aplicação ao Notification Hub
-#### <a name="create-a-new-project"></a>Criar um novo projeto
+
+### <a name="create-a-new-project"></a>Criar um novo projeto
+
 1. No Visual Studio, crie um novo projeto do iOS e selecione o modelo **Aplicação de Vista Única** e clique em **Seguinte**
-   
+
      ![Visual Studio - Selecione o Tipo de Aplicação][31]
 
 2. Introduza o identificador do nome da aplicação e a organização e, em seguida, prima **Seguinte** e **Criar**
@@ -84,137 +90,138 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
 
     ![Configuração de Aplicação do Visual Studio-iOS][32]
 
-4. Na vista Solução, faça duplo clique em *Entitlements.plist* e certifique-se de que a opção "Ativar Notificações Push" está assinalada.
+4. Na vista Solução, faça duplo clique em *Entitlements.plist* e certifique-se de que a opção **Ativar Notificações Push**"** está assinalada.
 
     ![Configuração de Elegibilidade do Visual Studio-iOS][33]
 
 5. Adicione o pacote de Mensagens do Azure. Na vista Solução, clique com o botão direito no projeto e selecione **Adicionar** > **Adicionar pacotes de NuGet**. Procure **Xamarin.Azure.NotificationHubs.iOS** e adicione o pacote ao projeto.
 
 6. Adicione um novo ficheiro à classe, nomeie-o **Constants.cs** e adicione as seguintes variáveis e substitua os marcadores de posição literais de cadeia pelo seu *nome do hub* e pela *DefaultListenSharedAccessSignature* anotada anteriormente.
-   
+
     ```csharp
-        // Azure app-specific connection string and hub path
-        public const string ListenConnectionString = "<Azure connection string>";
-        public const string NotificationHubName = "<Azure hub path>";
+    // Azure app-specific connection string and hub path
+    public const string ListenConnectionString = "<Azure DefaultListenSharedAccess Connection String>";
+    public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
 7. Em **AppDelegate.cs**, adicione o seguinte ao utilizar a instrução:
-   
+
     ```csharp
-        using WindowsAzure.Messaging;
+    using WindowsAzure.Messaging;
     ```
 
 8. Declare uma instância do **SBNotificationHub**:
-   
+
     ```csharp
-        private SBNotificationHub Hub { get; set; }
+    private SBNotificationHub Hub { get; set; }
     ```
 
-9.  Em **AppDelegate.cs**, atualize **FinishedLaunching()** para fazer corresponder o seguinte código:
-  
+9. Em **AppDelegate.cs**, atualize **FinishedLaunching()** para fazer corresponder o seguinte código:
+
     ```csharp
-        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+    public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+    {
+        if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+                                                                    (granted, error) =>
             {
-                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
-                                                                      (granted, error) =>
-                {
-                    if (granted)
-                        InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
-                });
-            } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-                var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
-                       UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
-                       new NSSet ());
-   
-                UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
-                UIApplication.SharedApplication.RegisterForRemoteNotifications ();
-            } else {
-                UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-                UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
-            }
-   
-            return true;
+                if (granted)
+                    InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
+            });
+        } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+            var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
+                    UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+                    new NSSet ());
+
+            UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
+            UIApplication.SharedApplication.RegisterForRemoteNotifications ();
+        } else {
+            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
         }
+
+        return true;
+    }
     ```
 
 10. Substitua o método **RegisteredForRemoteNotifications()** em **AppDelegate.cs**:
-   
+
     ```csharp
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
-        {
-            Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
-   
-            Hub.UnregisterAllAsync (deviceToken, (error) => {
-                if (error != null)
-                {
-                    Console.WriteLine("Error calling Unregister: {0}", error.ToString());
-                    return;
-                }
-   
-                NSSet tags = null; // create tags if you want
-                Hub.RegisterNativeAsync(deviceToken, tags, (errorCallback) => {
-                    if (errorCallback != null)
-                        Console.WriteLine("RegisterNativeAsync error: " + errorCallback.ToString());
-                });
+    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+    {
+        Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
+
+        Hub.UnregisterAllAsync (deviceToken, (error) => {
+            if (error != null)
+            {
+                System.Diagnostics.Debug.WriteLine("Error calling Unregister: {0}", error.ToString());
+                return;
+            }
+
+            NSSet tags = null; // create tags if you want
+            Hub.RegisterNativeAsync(deviceToken, tags, (errorCallback) => {
+                if (errorCallback != null)
+                    System.Diagnostics.Debug.WriteLine("RegisterNativeAsync error: " + errorCallback.ToString());
             });
-        }
+        });
+    }
     ```
 
 11. Substitua o método **ReceivedRemoteNotification()** em **AppDelegate.cs**:
-   
+
     ```csharp
-        public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
-        {
-            ProcessNotification(userInfo, false);
-        }
+    public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
+    {
+        ProcessNotification(userInfo, false);
+    }
     ```
 
 12. Crie o seguinte método **ProcessNotification()** em **AppDelegate.cs**:
-   
+
     ```csharp
-        void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
+    void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
+    {
+        // Check to see if the dictionary has the aps key.  This is the notification payload you would have sent
+        if (null != options && options.ContainsKey(new NSString("aps")))
         {
-            // Check to see if the dictionary has the aps key.  This is the notification payload you would have sent
-            if (null != options && options.ContainsKey(new NSString("aps")))
+            //Get the aps dictionary
+            NSDictionary aps = options.ObjectForKey(new NSString("aps")) as NSDictionary;
+
+            string alert = string.Empty;
+
+            //Extract the alert text
+            // NOTE: If you're using the simple alert by just specifying
+            // "  aps:{alert:"alert msg here"}  ", this will work fine.
+            // But if you're using a complex alert with Localization keys, etc.,
+            // your "alert" object from the aps dictionary will be another NSDictionary.
+            // Basically the JSON gets dumped right into a NSDictionary,
+            // so keep that in mind.
+            if (aps.ContainsKey(new NSString("alert")))
+                alert = (aps [new NSString("alert")] as NSString).ToString();
+
+            //If this came from the ReceivedRemoteNotification while the app was running,
+            // we of course need to manually process things like the sound, badge, and alert.
+            if (!fromFinishedLaunching)
             {
-                //Get the aps dictionary
-                NSDictionary aps = options.ObjectForKey(new NSString("aps")) as NSDictionary;
-   
-                string alert = string.Empty;
-   
-                //Extract the alert text
-                // NOTE: If you're using the simple alert by just specifying
-                // "  aps:{alert:"alert msg here"}  ", this will work fine.
-                // But if you're using a complex alert with Localization keys, etc.,
-                // your "alert" object from the aps dictionary will be another NSDictionary.
-                // Basically the JSON gets dumped right into a NSDictionary,
-                // so keep that in mind.
-                if (aps.ContainsKey(new NSString("alert")))
-                    alert = (aps [new NSString("alert")] as NSString).ToString();
-   
-                //If this came from the ReceivedRemoteNotification while the app was running,
-                // we of course need to manually process things like the sound, badge, and alert.
-                if (!fromFinishedLaunching)
+                //Manually show an alert
+                if (!string.IsNullOrEmpty(alert))
                 {
-                    //Manually show an alert
-                    if (!string.IsNullOrEmpty(alert))
-                    {
-                        UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
-                        avAlert.Show();
-                    }
+                    UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
+                    avAlert.Show();
                 }
             }
         }
+    }
     ```
-   > [!NOTE]
-   > Pode optar por substituir **FailedToRegisterForRemoteNotifications()** para processar situações como falha de ligação de rede. Isto é especialmente importante quando o utilizador inicia a aplicação no modo offline (por exemplo, Avião) e pretende processar cenários de mensagens push específicos para a sua aplicação.
-  
+
+    > [!NOTE]
+    > Pode optar por substituir **FailedToRegisterForRemoteNotifications()** para processar situações como falha de ligação de rede. Isto é especialmente importante quando o utilizador inicia a aplicação no modo offline (por exemplo, Avião) e pretende processar cenários de mensagens push específicos para a sua aplicação.
 
 13. Execute o aplicativo no seu dispositivo.
 
 ## <a name="send-test-push-notifications"></a>Enviar notificações push de teste
+
 Pode testar a receção das notificações na aplicação com a opção *Envio de Teste* no [portal do Azure]. Esta ação envia uma notificação push de teste para o seu dispositivo.
 
 ![Portal do Azure – Envio de Teste][30]
@@ -222,7 +229,8 @@ Pode testar a receção das notificações na aplicação com a opção *Envio d
 Normalmente, as notificações push são enviadas num serviço de back-end como Mobile Apps ou ASP.NET com uma biblioteca compatível. Caso não esteja disponível uma biblioteca para o back-end, também pode utilizar a API REST diretamente para enviar mensagens de notificação.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, enviou notificações de difusão para todos os dispositivos iOS registados no back-end. Para saber como enviar notificações push para dispositivos iOS específicos, avance para o tutorial seguinte: 
+
+Neste tutorial, enviou notificações de difusão para todos os dispositivos iOS registados no back-end. Para saber como enviar notificações push para dispositivos iOS específicos, avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
 >[Enviar notificações push para dispositivos específicos](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
@@ -241,24 +249,14 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos iOS
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
 
-
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Windows Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[Visual Studio para Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Visual Studio para Mac]: https://visualstudio.microsoft.com/vs/mac/
 
-[Local and Push Notification Programming Guide]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
-[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
+[Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
+[Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Portal do Azure]: https://portal.azure.com

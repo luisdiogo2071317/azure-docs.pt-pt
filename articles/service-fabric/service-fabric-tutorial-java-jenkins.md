@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432444"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124985"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para ativar o CI/CD para uma aplicação Java no Service Fabric
 
@@ -53,10 +53,10 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
 1. Extraia a imagem do contentor do Jenkins do Service Fabric: ``docker pull rapatchi/jenkins:v10``. Esta imagem inclui o plug-in do Jenkins do Service Fabric pré-instalado.
 
-1. Execute a imagem do contentor com a localização onde os certificados estão localizados no computador local montado
+1. Execute a imagem do contentor com a localização onde os certificados do Azure estão armazenados no computador local montado.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Obtenha o ID da instância de imagem do contentor. Pode listar todos os contentores de Docker com o comando ``docker ps –a``
@@ -86,7 +86,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
 1. Em primeiro lugar, se não tiver um repositório que possa utilizar para alojar o projeto de Voto no Github, crie um. O repositório é denominado **dev_test** no restante tutorial.
 
-1. Crie um **novo item** no dashboard do Jenkins.
+1. Crie um **novo item** no dashboard do Jenkins em ``http://<HOST-IP>:8080``.
 
 1. Introduza um nome para o item (por exemplo, **MyJob**). Selecione **free-style project** (projeto de estilo livre) e clique em **OK**.
 
@@ -123,6 +123,8 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     > [!NOTE]
     > Este cluster seria igual ao que aloja a aplicação de contentor do Jenkins, no caso de estar a utilizar o Service Fabric para implementar a imagem de contentor do Jenkins.
     >
+
+1. Clique em **Guardar**.
 
 ## <a name="update-your-existing-application"></a>Atualizar a aplicação existente
 

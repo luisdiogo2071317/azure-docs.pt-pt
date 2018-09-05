@@ -1,28 +1,23 @@
 ---
 title: Criar fluxos de trabalho automatizados com base no agendador - Azure Logic Apps | Microsoft Docs
-description: Este tutorial mostra como criar um fluxo de trabalho recorrente, automatizado e baseado num programador com o Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Tutorial - Como criar um fluxo de trabalho recorrente, automatizado e baseado num programador com o Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300774"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124023"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verificar o tráfego com uma aplicação lógica baseada num agendador
+# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Verificar o tráfego com uma aplicação lógica baseada numa agenda
 
 O Azure Logic Apps ajuda-o a automatizar fluxos de trabalho que são executados segundo uma agenda. Este tutorial mostra como pode criar uma [aplicação lógica](../logic-apps/logic-apps-overview.md) com um acionador de agendador que é executado todos os dias úteis de manhã e que verifica o tempo de deslocação, incluindo o tráfego, entre dois sítios. Se o tempo exceder um limite específico, a aplicação lógica envia um e-mail com o tempo de deslocação e o tempo adicional necessário para chegar ao destino.
 

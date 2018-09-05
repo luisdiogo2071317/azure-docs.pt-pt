@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "27998054"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815118"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
@@ -62,20 +62,17 @@ O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-
 
     ![Janela de pedidos falhados](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-5. Clique em **Ver Detalhes** para ver os detalhes da operação.  Os detalhes incluem um gráfico Gantt que mostra duas dependências falhadas, as quais coletivamente demoraram quase meio segundo a serem concluídas.  Saiba mais sobre como analisar problemas de desempenho ao completar o tutorial [Localizar e diagnosticar problemas de desempenho com o Azure Application Insights](app-insights-tutorial-performance.md).
+5. Veja os exemplos relacionados ao clicar no botão com o número de resultados filtrados. Os exemplos de "sugeridos" têm telemetria relacionada de todos os componentes, mesmo que a amostragem tenha estado em vigor em qualquer um deles. Clique no resultado da pesquisa para ver os detalhes da falha.
 
-    ![Detalhes de pedidos falhados](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Amostras dos pedidos com falhas](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Os detalhes das operações também mostram um FormatException que parece estar na origem da falha.  Clique na exceção ou na contagem **Três principais tipos de exceção** para ver os detalhes.  Pode ver que o problema deve-se a um código postal inválido.
+6. Os detalhes dos pedidos com falha mostram o gráfico de Gantt que mostra que ocorreram duas falhas de dependência nesta transação, o que também é atribuído a mais de 50% da duração total da transação. Esta experiência apresenta toda a telemetria, através de componentes de uma aplicação distribuída que estão relacionadas com este ID de operação. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md). Pode selecionar qualquer um dos itens para ver os respetivos detalhes no lado direito. 
+
+    ![Detalhes dos pedidos com falhas](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+
+7. Os detalhes das operações também mostram um FormatException que parece estar na origem da falha.  Pode ver que o problema deve-se a um código postal inválido. É possível abrir o instantâneo de depuração para ver informações de nível de depuração de código no Visual Studio.
 
     ![Detalhes da exceção](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
-
-> [!NOTE]
-Ative a [experiência de pré-visualização](app-insights-previews.md) "Detalhes unificados: Diagnósticos de Transação E2E" para ver toda a telemetria relacionada do lado do servidor, como pedidos, dependências, exceções, rastreios, eventos, entre outros, numa única vista de ecrã inteiro. 
-
-Com a pré-visualização ativada, pode ver o tempo despendido em chamadas de dependência, juntamente com quaisquer falhas ou exceções, numa experiência unificada. Para as transações entre componentes, o gráfico Gantt, juntamente com o painel de detalhes, pode ajudá-lo a diagnosticar rapidamente o componente, a dependência ou a exceção onde reside a raiz do problema. Pode expandir a secção inferior para ver a sequência de tempo de quaisquer rastreios ou eventos recolhidos para a operação de componente selecionada. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md)  
-
-![Diagnóstico da transação](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Identificar o código com falhas
 O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a raiz do problema na produção.  Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Em seguida, pode depurar o código fonte ao transferir o instantâneo e abri-lo no Visual Studio 2017.
@@ -104,15 +101,6 @@ Todos os dados recolhidos pelo Application Insights são armazenados no Azure Lo
     ![Código](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Clique em **Analisar o impacto** para abrir o Application Insights Analytics.  Este é povoado com várias consultas que fornecem detalhes sobre os pedidos falhados, tais como os utilizadores, os browsers e as regiões afetados.<br><br>![Análise](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
-
-## <a name="add-work-item"></a>Adicionar item de trabalho
-Se ligar o Application Insights a um sistema de controlo, como o Visual Studio Team Services ou o GitHub, pode criar um item de trabalho diretamente a partir do Application Insights.
-
-1. Volte ao painel **Propriedades da Exceção** no Application Insights.
-2. Clique em **Novo Item de Trabalho**.
-3. O painel **Novo Item de Trabalho** é aberto com os detalhes sobre a exceção já povoados.  Pode adicionar as informações adicionais que quiser antes de o guardar.
-
-    ![Novo Item de Trabalho](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a identificar exceções de runtime, avance para o próximo tutorial para saber como identificar e diagnosticar problemas de desempenho.

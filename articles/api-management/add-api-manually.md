@@ -3,7 +3,7 @@ title: Adicionar uma API manualmente com o portal do Azure | Microsoft Docs
 description: Este tutorial mostra como utilizar a Gestão de API (APIM) para adicionar manualmente uma API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307453"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247907"
 ---
-# <a name="add-an-api-manually"></a>Adicionar uma API manualmente 
+# <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
 Os passos neste artigo mostram como utilizar o portal do Azure para adicionar uma API manualmente à instância de Gestão de API (APIM). Um cenário comum de quando será útil criar uma API em branco e defini-la manualmente é quando pretende simular uma API. Para obter detalhes sobre a simulação de uma API, veja [Simular respostas de API](mock-api-responses.md).
 
@@ -54,17 +54,16 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
     |**Produtos**|"*Unlimited*" |Associe a API a um produto e publique-a. Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/>Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/><br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**.| 
 5. Selecione **Criar**.
 
-Neste momento, não tem operações na APIM que mapeiem para as operações na sua API de back-end. Se chamar uma operação que está exposta através do back-end, mas não através da APIM, obtém um **404**. 
+Neste momento, não tem operações na APIM que mapeiem para as operações na sua API de back-end. Se chamar uma operação que está exposta através do back-end, mas não através da APIM, obtém um **404**.
 
 >[!NOTE] 
 > Por predefinição, quando adiciona uma API, mesmo que esteja ligada a algum serviço de back-end, a APIM não irá expor quaisquer operações até colocá-las na lista de permissões. Para colocar uma operação do seu serviço de back-end numa lista de permissões, crie uma operação de APIM que mapeie para a operação de back-end.
->
 
 ## <a name="add-and-test-an-operation"></a>Adicionar e testar uma operação
 
 Esta secção mostra como adicionar uma operação "/get" para mapeá-la para a operação "http://httpbin.org/get" do back-end.
 
-### <a name="add-the-operation"></a>Adicionar a operação
+### <a name="add-an-operation"></a>Adicionar uma operação
 
 1. Selecione a API que criou no passo anterior.
 2. Clique em **+ Adicionar Operação**.
@@ -72,7 +71,7 @@ Esta secção mostra como adicionar uma operação "/get" para mapeá-la para a 
 4. Introduza "*FetchData*" para **Nome a apresentar**.
 5. Selecione **Guardar**.
 
-### <a name="test-the-operation"></a>Testar a operação
+### <a name="test-an-operation"></a>Testar uma operação
 
 Teste a operação no portal do Azure. Em alternativa, pode testá-la no **Portal do programador**.
 

@@ -1,45 +1,39 @@
 ---
-title: Criar conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
-description: Saiba como utilizar o Ansible para criar e configurar um conjunto de dimensionamento no Azure
+title: Criar conjuntos de dimensionamento de máquinas virtuais no Azure utilizando o Ansible
+description: Aprenda a utilizar o Ansible para criar e configurar um conjunto de dimensionamento de máquinas virtuais no Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, manual de comunicação social, máquina virtual, o conjunto de dimensionamento de máquina virtual, vmss
+keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 5f915f7b1b425a3bd6e5d62eb70bb3f633b7eda8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009008"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918580"
 ---
-# <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Criar conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
-Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o seu conjunto de dimensionamento de máquinas virtuais (VMSS) no Azure, o mesmo ao gerenciamento de qualquer outro recurso do Azure. Este artigo mostra-lhe como utilizar o Ansible para criar e dimensionar um conjunto de dimensionamento de máquina virtual. 
+# <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Criar conjuntos de dimensionamento de máquinas virtuais no Azure utilizando o Ansible
+O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o seu conjunto de dimensionamento de máquinas virtuais (VMSS) no Azure, tal como faria em qualquer outro recurso do Azure. Este artigo mostra-lhe como utilizar o Ansible para criar e dimensionar um conjunto de dimensionamento de máquinas virtuais. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure** – se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- **Configurar o Ansible** - [Azure criar credenciais e configurar o Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **O Ansible e os módulos do Azure Python SDK** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> 2.6 do Ansible é necessário para executar o seguinte os playbooks de exemplo neste tutorial. 
+> O Ansible 2.6 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
 
 ## <a name="create-a-vmss"></a>Criar um VMSS
-Esta secção apresenta um playbook de Ansible de exemplo que define os seguintes recursos:
-- **Grupo de recursos** na qual todos os seus recursos vão ser implementados
-- **Rede virtual** no espaço de endereços de 10.0.0.0/16
+Esta secção apresenta um manual de procedimentos do Ansible de exemplo que define os seguintes recursos:
+- **Grupo de recursos** no qual todos os seus recursos vão ser implementados
+- **Rede virtual** no espaço de endereços: 10.0.0.0/16
 - **Sub-rede** dentro da rede virtual
-- **Endereço IP público** esse wllows-o a aceder aos recursos na Internet
-- **Grupo de segurança de rede** que controla o fluxo de tráfego de rede de entrada e saída de seu conjunto de dimensionamento de máquina virtual
-- **Balanceador de carga** que distribui o tráfego por um conjunto de VMs definidas através de regras do Balanceador de carga
-- **Conjunto de dimensionamento de máquina virtual** que utiliza todos os recursos criados
+- **Endereço IP público** que lhe permite aceder aos recursos na internet
+- **Grupo de segurança de rede** que controla o fluxo de tráfego de rede que entra e sai do seu conjunto de dimensionamento de máquinas virtuais
+- **Balanceador de carga** que distribui o tráfego por um conjunto de VMs definidas através das regras do balanceador de carga
+- **Conjunto de dimensionamento de máquinas virtuais** que utiliza todos os recursos criados
 
 Introduza a sua própria palavra-passe para o *admin_password* valor.
 
@@ -137,15 +131,15 @@ Introduza a sua própria palavra-passe para o *admin_password* valor.
               caching: ReadOnly
   ```
 
-Para criar o ambiente de conjunto de dimensionamento de máquina virtual com o Ansible, guardar o playbook anterior como `vmss-create.yml`, ou [transferir o manual de comunicação do Ansible de exemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
+Para criar o ambiente de conjunto de dimensionamento de máquinas virtuais com o Ansible, guarde o manual de procedimentos anterior como `vmss-create.yml` ou [transfira o manual de procedimentos do Ansible de exemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
 
-Para executar o playbook do Ansible, utilize o **ansible playbook** comando da seguinte forma:
+Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
 
   ```bash
   ansible-playbook vmss-create.yml
   ```
 
-Depois de executar o playbook, o resultado semelhante ao seguinte exemplo mostra que o dimensionamento de máquinas virtuais conjunto criado com êxito:
+Depois de executar o manual de procedimentos, um resultado semelhante ao seguinte exemplo mostra que o conjunto de dimensionamento de máquinas virtuais foi criado com êxito:
 
   ```bash
   PLAY [localhost] ***********************************************************
@@ -179,14 +173,14 @@ Depois de executar o playbook, o resultado semelhante ao seguinte exemplo mostra
 
   ```
 
-## <a name="scale-out-a-vmss"></a>Aumentar horizontalmente uma VMSS
-O conjunto de dimensionamento de máquinas de virtuais criada tem duas instâncias. Se navega para o conjunto de dimensionamento no portal do Azure, verá **Standard_DS1_v2 (2 instâncias)**. Também pode utilizar o [Azure Cloud Shell](https://shell.azure.com/) executando o seguinte comando no Cloud Shell:
+## <a name="scale-out-a-vmss"></a>Aumentar horizontalmente um VMSS
+O conjunto de dimensionamento de máquinas de virtuais criada tem duas instâncias. Se navegar para o conjunto de dimensionamento no portal do Azure, verá **Standard_DS1_v2 (2 instâncias)**. Também pode utilizar o [Azure Cloud Shell](https://shell.azure.com/) executando o seguinte comando no Cloud Shell:
 
   ```azurecli-interactive
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-O resultado deve ser semelhante ao seguinte:
+Verá resultados semelhantes à saída seguinte:
 
   ```bash
   {
@@ -194,7 +188,7 @@ O resultado deve ser semelhante ao seguinte:
   }
   ```
 
-Agora, vamos dimensionar de duas instâncias para três instâncias. O seguinte código de manual de comunicação do Ansible obtém informação sobre o dimensionamento de máquinas virtuais e altera a sua capacidade de duas a três. 
+Agora, vamos dimensionar de duas instâncias para três instâncias. O seguinte código de manual de procedimentos do Ansible obtém informações sobre o dimensionamento de máquinas virtuais e altera a sua capacidade de duas a três. 
 
   ```yaml
   - hosts: localhost
@@ -221,15 +215,15 @@ Agora, vamos dimensionar de duas instâncias para três instâncias. O seguinte 
         azure_rm_virtualmachine_scaleset: "{{ body }}"
   ```
 
-Para aumentar horizontalmente o conjunto de dimensionamento de máquina virtual que criou, guardar o playbook anterior como `vmss-scale-out.yml` ou [transferir o manual de comunicação do Ansible de exemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)). 
+Para aumentar horizontalmente o ambiente de conjunto de dimensionamento de máquinas virtuais que criou, guarde o manual de procedimentos anterior como `vmss-scale-out.yml` ou [transfira o manual de procedimentos do Ansible de exemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml). 
 
-O seguinte comando será executado o playbook:
+O seguinte comando irá executar o manual de procedimentos:
 
   ```bash
   ansible-playbook vmss-scale-out.yml
   ```
 
-O resultado de executar o playbook do Ansible mostra que o conjunto de dimensionamento de máquina virtual foi dimensionado com êxito o:
+O resultado da execução do manual de procedimentos do Ansible mostra que o conjunto de dimensionamento de máquinas virtuais foi dimensionado horizontalmente com êxito:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -265,13 +259,13 @@ O resultado de executar o playbook do Ansible mostra que o conjunto de dimension
   localhost                  : ok=5    changed=1    unreachable=0    failed=0
   ```
 
-Se navegar para o conjunto de dimensionamento de máquinas virtuais configuradas no portal do Azure, verá **Standard_DS1_v2 (3 instâncias)**. Também pode verificar a alteração com o [Azure Cloud Shell](https://shell.azure.com/) executando o seguinte comando:
+Se navegar para o conjunto de dimensionamento de máquinas virtuais que configurou no portal do Azure, verá **Standard_DS1_v2 (3 instâncias)**. Também pode verificar a alteração com o [Azure Cloud Shell](https://shell.azure.com/), executando o seguinte comando:
 
   ```azurecli-interactive
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-Os resultados da execução do comando no Cloud Shell mostra que existem agora três instâncias. 
+O resultado da execução do comando no Cloud Shell mostra que existem agora três instâncias. 
 
   ```bash
   {
@@ -279,6 +273,6 @@ Os resultados da execução do comando no Cloud Shell mostra que existem agora t
   }
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"] 
-> [Manual de comunicação do Ansible exemplo para o VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Manual de procedimentos do Ansible de exemplo para o VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)

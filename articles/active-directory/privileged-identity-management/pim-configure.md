@@ -1,6 +1,6 @@
 ---
-title: Configurar o Azure AD Privileged Identity Management | Microsoft Docs
-description: Um tópico que explica o que é o Azure AD Privileged Identity Management e como utilizar o PIM para melhorar a segurança na cloud.
+title: O que é o Azure AD Privileged Identity Management? | Microsoft Docs
+description: Fornece uma descrição geral da Azure Active Directory Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618857"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186216"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -51,6 +51,35 @@ No Azure AD, o Azure AD Privileged Identity Management pode gerir os utilizadore
 ## <a name="just-in-time-administrator-access"></a>Acesso de administrador just-in-time
 
 Historicamente, pode atribuir um utilizador a uma função de administrador através do portal do Azure, de outros portais do Microsoft Online Services ou dos cmdlets do Azure AD no Windows PowerShell. Em resultado, esse utilizador torna-se num **administrador permanente**, sempre ativo na função atribuída. O Azure AD Privileged Identity Management introduz o conceito de **administrador elegível**. Os administradores elegíveis devem ser utilizadores que necessitam de acesso privilegiado de vez em quando, mas não durante o dia todo, todos os dias. A função está inativa até que o utilizador precise de acesso. Nessa altura, o utilizador realiza um processo de ativação e torna-se num administrador ativo durante uma quantidade pré-determinada de tempo. Cada vez mais organizações estão a optar por utilizar esta abordagem para reduzir ou eliminar o "acesso de administrador permanente" a funções com privilégios.
+
+
+## <a name="terminology"></a>Terminologia
+
+*Utilizador de função elegível* – um utilizador de função elegível é um utilizador na sua organização a quem foi atribuída uma função do Azure AD como elegível (a função necessita de ativação).
+
+*Aprovador delegado* – um aprovador delegado é um indivíduo ou vários indivíduos ou grupos dentro do seu Azure AD responsáveis pela aprovação de pedidos para ativar as funções.
+
+## <a name="scenarios"></a>Cenários
+
+O Privileged Identity Management suporta os seguintes cenários:
+
+**Enquanto Administrador de Função com Privilégios, pode:**
+
+- Ativar a aprovação de funções específicas
+- Especificar utilizadores e/ou grupos de aprovação para aprovar pedidos
+- Ver o histórico de pedidos e de aprovação de todas as funções com privilégios
+
+**Enquanto aprovador designado, pode:**
+
+- Ver aprovações pendentes (pedidos)
+- Aprovar ou rejeitar pedidos para elevação de funções (individuais e/ou em massa)
+- Fornecer justificação para aprovações/rejeições 
+
+**Enquanto utilizador de função elegível, pode:**
+
+- Pedir a ativação de uma função que requer aprovação
+- Ver o estado do seu pedido para ativação
+- Completar a sua tarefa no Azure AD se a ativação for aprovada
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Ativar o Privileged Identity Management para o seu diretório
 
@@ -157,4 +186,6 @@ Se sua organização não renovar o Azure AD Premium P2 ou se a sua avaliação 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Requisitos da subscrição para utilização do PIM](subscription-requirements.md)
+- [Funções de diretório do Azure AD que pode gerir no PIM](pim-roles.md)
+- [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

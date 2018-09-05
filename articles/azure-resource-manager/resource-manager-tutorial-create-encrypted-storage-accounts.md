@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7c78636a210ae90c5bfe1d0bfd35e4e05633f5cd
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188204"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097890"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Tutorial: criar um modelo do Azure Resource Manager para implementar uma conta de armazenamento encriptada
 
@@ -30,9 +30,7 @@ Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Abrir um modelo de Início Rápido
-> * Compreender o formato do modelo
-> * Utilizar parâmetros no modelo
-> * Utilizar variáveis no modelo
+> * Compreender o modelo
 > * Editar o modelo
 > * Implementar o modelo
 
@@ -111,10 +109,10 @@ Para utilizar a variável definida no modelo:
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-Para localizar a configuração relacionada com a encriptação da conta de armazenamento, pode utilizar a referência do modelo da conta de Armazenamento do Azure.
+O objetivo deste tutorial é definir um modelo para criar uma conta de armazenamento encriptada.  O modelo de exemplo apenas cria uma conta de armazenamento não encriptada básica. Para localizar a configuração relacionada com a encriptação, pode utilizar a referência do modelo da conta de Armazenamento do Azure.
 
 1. Navegue até [Modelos do Azure](https://docs.microsoft.com/azure/templates/).
-2. No índice à esquerda, selecione **Referência**->**Armazenamento**->**Contas de Armazenamento**. A página contém as informações para definir as informações de uma Conta de Armazenamento.
+2. No índice à esquerda, selecione **Referência**->**Armazenamento**->**Contas de Armazenamento**. Também pode introduzir **Armazenamento** no campo **Filtrar por título**.  A página contém o esquema para definir as informações de uma Conta de Armazenamento.
 3. Explore as informações relacionadas com a encriptação.  
 4. Dentro do elemento de propriedades da definição de recurso de conta de armazenamento, adicione o seguinte json:
 
@@ -130,59 +128,17 @@ Para localizar a configuração relacionada com a encriptação da conta de arma
     ```
     Esta parte ativa a função de encriptação do serviço de armazenamento de blobs.
 
-O elemento de recursos final é semelhante a:
+A partir do Visual Studio Code, modifique o modelo para que o elemento de recursos final se pareça com:
 
 ![Recursos de conta de armazenamento encriptada de modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Existem muitos métodos para implementar modelos.  Neste tutorial, vai utilizar o Cloud Shell do portal do Azure. O Cloud Shell suporta a CLI do Azure e o Azure PowerShell. As instruções aqui apresentadas utilizam a CLI.
+Veja a secção [Implementar o modelo](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) no guia de introdução do Visual Studio Code para o procedimento de implementação.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-2. Selecione **Cloud Shell** no canto superior direito, conforme mostrado na imagem seguinte:
+A captura de ecrã seguinte mostra o comando da CLI para listar a conta de armazenamento recentemente criada, o que indica que a encriptação foi ativada para o armazenamento de blobs.
 
-    ![Cloud Shell do portal do Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
-
-3. Selecione a seta para baixo e, em seguida, selecione **Bash**, se não for Bash. Vai utilizar a CLI do Azure neste tutorial.
-
-    ![CLI Cloud Shell do portal do Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
-4. Selecione **Reiniciar** para reiniciar a shell.
-5. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**.
-
-    ![Carregar ficheiro Cloud Shell do Portal do Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-6. Selecione o ficheiro que guardou anteriormente no tutorial. O nome predefinido é **azuredeploy.json**.
-7. A partir do Cloud Shell, execute o comando **ls** para se certificar de que o ficheiro foi carregado com êxito. Pode também utilizar o comando **cat** para verificar o conteúdo do modelo.
-
-    ![Ficheiro de lista de Cloud Shell do portal do Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-8. No Cloud Shell, execute os seguintes comandos:
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
-    ```
-    Segue-se a captura de ecrã de uma implementação de exemplo:
-
-    ![Modelo de implementação de Cloud Shell no portal do Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-deploy-template.png)
-
-    Na captura de ecrã, utilizam-se estes valores:
-
-    * **&lt;ResourceGroupName>**: myresourcegroup0719. O parâmetro tem duas ocorrências.  Certifique-se de que utiliza o mesmo valor.
-    * **&lt;AzureLocation>**: eastus2
-    * **&lt;DeployName>**: mydeployment0719
-    * **&lt;TemplateFile>**: azuredeploy.json
-
-    No resultado da captura de ecrã, o nome da conta de armazenamento é *fhqbfslikdqdsstandardsa*. 
-
-9. Execute o seguinte comando do PowerShell para listar a conta de armazenamento acabada de criar:
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    Deverá ver um resultado semelhante à seguinte captura de ecrã, que indica que a encriptação foi ativada para o armazenamento de blobs.
-
-    ![Conta de armazenamento encriptada do gestor de recursos do Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Conta de armazenamento encriptada do Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -195,7 +151,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a utilizar a referência de modelo para personalizar um modelo existente. O modelo utilizado neste tutorial contém apenas um recurso do Azure.  No próximo tutorial, irá desenvolver um modelo com múltiplos recursos.  Alguns dos recursos têm recursos dependentes.
+Neste tutorial, aprendeu a utilizar a referência de modelo para personalizar um modelo existente. O modelo utilizado neste tutorial contém apenas um recurso do Azure.  No próximo tutorial, irá desenvolver um modelo com múltiplos recursos. Alguns dos recursos têm recursos dependentes.
 
 > [!div class="nextstepaction"]
 > [Criar vários recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

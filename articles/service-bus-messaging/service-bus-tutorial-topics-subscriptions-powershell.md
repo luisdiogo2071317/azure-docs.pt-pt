@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237969"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126556"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar inventário através do PowerShell e tópicos/subscrições
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Um exemplo deste cenário é uma atualização da variedade de inventário para várias lojas de comércio a retalho. Neste cenário, cada loja ou grupo de lojas recebe mensagens dirigidas a elas para atualizar a respetiva variedade. Este tutorial mostra como implementar este cenário com subscrições e filtros. Primeiro, cria um tópico com três subscrições, adiciona algumas regras e filtros e, em seguida, envia e recebe mensagens do tópico e subscrições.
 
-![fila](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![tópico](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita][] antes de começar.
 
@@ -47,7 +47,7 @@ Este tutorial exige que execute a versão mais recente do Azure PowerShell. Se p
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Emita os seguintes comandos para iniciar sessão no Azure. Estes passos não são necessários se estiver a executar comandos do PowerShell na Cloud Shell: 
 
