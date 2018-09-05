@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 08/30/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447341"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698779"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
 
@@ -37,7 +37,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 1. [Carregar uma imagem de VM do Windows para o Azure para implementações do Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) ou, para uma imagem do Linux, siga as instruções descritas [máquinas virtuais Linux de implementar no Azure Stack](azure-stack-linux.md). Antes de carregar a imagem, é importante considerar os seguintes fatores:
 
-   - O Azure Stack suporta o formato VHD de disco fixo. O formato fixo estrutura o disco lógico linearmente dentro do arquivo, para que esse deslocamento do disco X é armazenado no deslocamento do blob X. Um rodapé pequeno no final do blob descreve as propriedades do VHD. Para confirmar se o disco é fixa, utilize o [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando do PowerShell.  
+   - O Azure Stack apenas suporta a geração formatar de VM um (1) no VHD de disco fixo. O formato fixo estrutura o disco lógico linearmente dentro do arquivo, para que esse deslocamento do disco X é armazenado no deslocamento do blob X. Um rodapé pequeno no final do blob descreve as propriedades do VHD. Para confirmar se o disco é fixa, utilize o [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando do PowerShell.  
 
     > [!IMPORTANT]
     >  O Azure Stack não suporta os VHDs de discos dinâmicos. Redimensionar um disco dinâmico, que está ligado a uma VM deixará a VM no estado de falha. Para atenuar este problema, elimine a VM sem eliminar disco da VM, um blob VHD numa conta de armazenamento. O, converter o VHD a partir de um disco dinâmico para um disco fixo e, em seguida, voltar a criar a máquina virtual.
@@ -48,7 +48,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
    * Tome nota do armazenamento de Blobs do URI onde carregar a imagem. O URI de armazenamento de BLOBs tem o seguinte formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*. vhd.
 
-   * Para tornar o blob acessíveis anonimamente, vá para o contentor de BLOBs da conta de armazenamento onde o VHD da imagem VM foi carregado. Selecione **Blob**e, em seguida, selecione **política de acesso**. Opcionalmente, pode em vez disso, gerar uma assinatura de acesso partilhado do contentor e incluí-lo como parte do URI de blob.
+   * Para tornar o blob acessíveis anonimamente, vá para o contentor de BLOBs da conta de armazenamento onde o VHD da imagem VM foi carregado. Selecione **Blob**e, em seguida, selecione **política de acesso**. Opcionalmente, pode em vez disso, gerar uma assinatura de acesso partilhado do contentor e incluí-lo como parte do URI de blob. Este passo torna-se de que o blob está disponível para ser usado para adicionar isso como uma imagem. Se o blob não está acessível anonimamente, será criada para a imagem de VM no estado de falha.
 
    ![Ir para os blobs de conta de armazenamento](./media/azure-stack-add-vm-image/image1.png)
 

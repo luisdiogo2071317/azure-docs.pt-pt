@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 5fbce0c20e66eec0e7d7023344051fcf302af677
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382617"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697752"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: implementar aplicações no Azure e o Azure Stack
 
@@ -108,10 +108,11 @@ Os passos seguintes descrevem o que é necessário para configurar a autenticaç
 
 ### <a name="create-a-service-principal"></a>Criar um Principal de serviço
 
-Consulte a [criação do Principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar um principal de serviço e, em seguida, escolha **aplicação/API Web** para o tipo de aplicação ou [utilizar este script do PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)conforme explicado [aqui](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+Consulte a [criação do Principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar um principal de serviço. Escolher **aplicação/API Web** para o tipo de aplicação ou [usar o script do PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) conforme explicado no artigo [crie uma ligação de serviço do Azure Resource Manager com um serviço existente principal ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
- > [!Note]
- > Se pretender utilizar o script para criar um ponto de final do Azure Stack Azure Resource Manager, tem de passar os `-azureStackManagementURL` e `-environmentName` parâmetros, o que é https://management.local.azurestack.external/ e *AzureStack*.
+ > [!Note]  
+ > Se utilizar o script para criar um ponto de final do Azure Stack Azure Resource Manager, tem de passar os **- azureStackManagementURL** parâmetro e **- environmentName** parâmetro. Por exemplo:  
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Criar uma chave de acesso
 
@@ -204,7 +205,7 @@ Crie um Token de acesso pessoal para aceder ao VSTS.
 1. Inicie sessão na sua conta do VSTS e selecione o nome do perfil de conta.
 2. Selecione **gerir a segurança** à página de criação de token de acesso.
 
-    ![Início de sessão de utilizador](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Início de sessão do utilizador](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
     ![Selecione o projeto de equipe](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
@@ -264,17 +265,17 @@ Através da criação de pontos de extremidade, uma compilação do Visual Studi
 9. Na **adicionar utilizadores e grupos**, introduza um nome de utilizador e selecione o que o utilizador da lista de utilizadores.
 10. Selecione **guardar alterações**.
 
-## <a name="create-azure-stack-endpoint"></a>Criar ponto de final do Azure Stack
+## <a name="create-an-azure-stack-endpoint"></a>Criar um ponto de final do Azure Stack
 
-Verifique [isso](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) documentação para criar uma ligação de serviço principal com um serviço existente e utilizar o seguinte mapeamento:
+Pode seguir as instruções em [criar uma ligação de serviço do Azure Resource Manager com um serviço existente principal ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artigo para criar uma ligação de serviço principal com um serviço existente e utilizar o seguinte mapeamento:
 
 - Ambiente: AzureStack
 - URL de ambiente: Algo como `https://management.local.azurestack.external`
 - ID de subscrição: ID de subscrição de utilizador do Azure Stack
 - Nome da subscrição: nome de subscrição de utilizador do Azure Stack
-- ID de cliente do Principal de serviço: O ID de principal da [isso](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) secção deste artigo.
+- ID de cliente do Principal de serviço: O ID de principal da [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) secção deste artigo.
 - Chave de Principal de serviço: A chave do mesmo artigo (ou a palavra-passe se utilizou o script).
-- ID do inquilino: O ID de inquilino obteve [aqui](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+- ID do inquilino: O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
 
 Agora que o ponto final for criado, o VSTS para ligação do Azure Stack está pronta a utilizar. O agente de compilação no Azure Stack obtém as instruções do VSTS e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
 
@@ -316,7 +317,7 @@ Pode aplicar híbrida CI/CD de código do aplicativo e o código de infraestrutu
 ### <a name="create-the-build-definition"></a>Criar a definição de compilação
 
 1. Inicie sessão no VSTS com uma conta que pode criar uma definição de compilação.
-2. Navegue para o **criar o Web Applicaiton** página para o projeto.
+2. Navegue para o **Criar aplicação Web** página para o projeto.
 
 3. Na **argumentos**, adicione **win10-x64 - r** código. Isto é necessário para acionar uma implementação independente com .net Core.
 
@@ -454,7 +455,7 @@ Esta secção mostra como pode monitorizar e controlar todas as suas implementa�
 
     Pode escolher um ícone de pessoa no **ação** coluna para uma aprovação de pré-implantação ou pós-implementação para ver quem aprovado (ou rejeitado) a implementação e a mensagem fornecidos por eles.
 
-2. Após a conclusão da implementação, todo o arquivo de log é apresentado no painel da direita. Pode selecionar qualquer **passo** no painel da esquerda para ver o ficheiro de registo para um passo único, por exemplo, "A inicializar o trabalho". A capacidade de ver os registos individuais torna mais fácil rastrear e depurar as partes da implementação geral. Também pode **salvar** o ficheiro de registo de um passo ou **transferir os registos de todas as jako zip**.
+2. Após a conclusão da implementação, todo o arquivo de log é apresentado no painel da direita. Pode selecionar qualquer **passo** no painel da esquerda para ver o ficheiro de registo para um único passo, por exemplo, "A inicializar o trabalho". A capacidade de ver os registos individuais torna mais fácil rastrear e depurar as partes da implementação geral. Também pode **salvar** o ficheiro de registo de um passo ou **transferir os registos de todas as jako zip**.
 
     ![Registos de versão](media\azure-stack-solution-hybrid-pipeline\203.png)
 

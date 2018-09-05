@@ -1,5 +1,5 @@
 ---
-title: A criação de partições da Graph API | Documentos da Microsoft
+title: A criação de partições de API do gremlin | Documentos da Microsoft
 description: Saiba como pode utilizar um gráfico particionado no Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: 202c575a917cfb24436d86881e5368b61f216d42
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 7290687c62b0a500aef80bd8786df4cc1ece8ed4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861889"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698983"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Usando um gráfico de particionadas no Azure Cosmos DB
 
-Uma das principais funcionalidades da Graph API no Azure Cosmos DB é a capacidade de processar gráficos em grande escala por meio de escalabilidade horizontal. Este processo é obtido por meio do [criação de partições de recursos no Azure Cosmos DB](partition-data.md#how-does-partitioning-work), que torna utilizar contentores, que pode dimensionar de forma independente em termos de armazenamento e débito. O Azure Cosmos DB suporta os seguintes tipos de contentores em todas as APIs:
+Um dos principais recursos da API do Gremlin no Azure Cosmos DB é a capacidade de processar gráficos em grande escala por meio de escalabilidade horizontal. Este processo é obtido por meio do [criação de partições de recursos no Azure Cosmos DB](partition-data.md#how-does-partitioning-work), que torna utilizar contentores, que pode dimensionar de forma independente em termos de armazenamento e débito. O Azure Cosmos DB suporta os seguintes tipos de contentores em todas as APIs:
 
 - **Contentor fixo**: desses contêineres podem armazenar um gráfico da base de dados até 10 GB de tamanho com um máximo de 10 000 unidades de pedido por segundo atribuída ao mesmo. Para criar um contentor fixo não é necessário especificar uma propriedade de chave de partição de dados.
 
@@ -31,7 +31,7 @@ Neste documento, os detalhes sobre como as bases de dados do gráfico são parti
 
 Seguem-se detalhes que precisa de ser entendidos ao criar um contentor de gráficos particionada:
 - **Configurar a criação de partições será necessário** se o contentor é esperado que seja mais de 10 GB de tamanho e/ou se a alocação de mais de 10.000 unidades de pedido por segundo (RU/s) será necessária.
-- **Vértices e margens são armazenadas como documentos JSON** no back-end de um contentor de Graph API do Azure Cosmos DB.
+- **Vértices e margens são armazenadas como documentos JSON** no back-end de um contentor de API do Azure Cosmos DB Gremlin.
 - **Vértices requerem uma chave de partição**. Esta chave determinará qual partição vértice será armazenado por meio de um algoritmo de hash. O nome desta chave de partição é uma cadeia de palavra única sem espaços ou carateres especiais, e ele é definido durante a criação de um novo contentor utilizando o formato `/partitioning-key-name` no portal.
 - **Margens serão armazenadas com seu vértice de origem**. Em outras palavras, para cada vértice respetiva chave de partição definirá onde serão armazenados juntamente com bordas de saída. Isso é feito para evitar consultas entre partições quando utiliza o `out()` cardinalidade em consultas de gráficos.
 - **Consultas de gráficos tem de especificar uma chave de partição**. Para aproveitar ao máximo a criação de partições horizontais no Azure Cosmos DB, a chave de partição deve ser especificada quando é selecionado um único vértice, sempre que possível. Seguem-se as consultas para a seleção de vértices de um ou vários num gráfico particionado:
@@ -69,8 +69,8 @@ Seguem-se diretrizes que devem ser seguidas para garantir o desempenho e escalab
 - **Otimizar as consultas para obter dados dentro dos limites de uma partição sempre que possível**. Uma estratégia de particionamento ideal seria alinhada para os padrões de consultas. Consultas que obtêm dados de uma única partição fornecem o melhor desempenho possível.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, foi fornecida uma visão geral dos conceitos e práticas recomendadas para criação de partições com um Graph API do Azure Cosmos DB. 
+Neste artigo, foi fornecida uma visão geral dos conceitos e práticas recomendadas para criação de partições com uma API de Gremlin do Azure Cosmos DB. 
 
 * Saiba mais sobre [particionar e dimensionar no Azure Cosmos DB](partition-data.md).
-* Saiba mais sobre o [suporte para Gremlin na API do Graph](gremlin-support.md).
-* Saiba mais sobre [introdução à Graph API](graph-introduction.md).
+* Saiba mais sobre o [suporte para Gremlin na API do Gremlin](gremlin-support.md).
+* Saiba mais sobre [introdução à API do Gremlin](graph-introduction.md).
