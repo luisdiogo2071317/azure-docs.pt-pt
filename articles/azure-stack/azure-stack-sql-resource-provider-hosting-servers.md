@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970556"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842503"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do SQL
 
@@ -78,15 +78,15 @@ Para adicionar um servidor de hospedagem independente que já está configurado,
 
 1. Inicie sessão no portal de operador do Azure Stack como administrador de serviços.
 
-2. Selecione **navegue** &gt; **recursos administrativos** &gt; **SQL que aloja servidores**.
+2. Selecione **todos os serviços** &gt; **recursos administrativos** &gt; **servidores de alojamento de SQL**.
 
    ![Servidores de alojamento de SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Sob **servidores de alojamento de SQL**, pode ligar-se o fornecedor de recursos do SQL com as instâncias do SQL Server que servem como back-end do fornecedor de recursos.
+   Sob **servidores de alojamento de SQL**, pode ligar-se o fornecedor de recursos do SQL para instâncias do SQL Server que irá servir como back-end do fornecedor de recursos.
 
-   ![Dashboard de adaptador de SQL](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![Dashboard de adaptador de SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. No **adicionar um servidor de alojamento de SQL**, forneça os detalhes de ligação para a sua instância do SQL Server.
+3. Clique em **Add** e, em seguida, forneça os detalhes de ligação para a sua instância do SQL Server sobre o **adicionar um servidor de alojamento de SQL** painel.
 
    ![Adicionar um servidor de alojamento de SQL](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 

@@ -11,16 +11,24 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286879"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841614"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
 Este guia contém informações sobre problemas comuns que poderá ter quando utilizar espaços de desenvolvimento do Azure.
+
+## <a name="enabling-detailed-logging"></a>Ativar o registo detalhado
+
+Para resolver problemas com mais eficiência, ele pode ajudar a criar registos mais detalhados para revisão.
+
+Para a extensão do Visual Studio, pode fazê-lo ao definir o `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` variável de ambiente para 1. Certifique-se de que reinicie o Visual Studio para a variável de ambiente para entrar em vigor. Uma vez ativada, os registos detalhados serão gravados no seu `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` diretório.
+
+Na CLI, o utilizador pode apresentar mais informações durante a execução do comando utilizando o `--verbose` mudar.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erro "Falha ao criar o controlador de espaços de desenvolvimento do Azure"
 

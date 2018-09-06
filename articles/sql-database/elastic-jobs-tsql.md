@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126430"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842628"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -184,7 +184,13 @@ Por exemplo, para agrupar todos os resultados da execução do trabalho mesmo em
 
 ## <a name="monitor-database-performance"></a>Monitorizar o desempenho da base de dados
 
-O exemplo seguinte cria uma nova tarefa para recolher dados de desempenho de várias bases de dados.  
+O exemplo seguinte cria uma nova tarefa para recolher dados de desempenho de várias bases de dados.
+
+Por predefinição, o agente de tarefa ficará para criar a tabela para armazenar os resultados devolvidos no. Como resultado o início de sessão associado com a credencial utilizada para a credencial de saída tem de ter permissões suficientes para realizar isso. Se quiser criar manualmente a tabela antes do tempo, em seguida, tem de ter as seguintes propriedades:
+1. Colunas com o nome correto e tipos de dados para o conjunto de resultados.
+2. Coluna adicional para internal_execution_id com o tipo de dados de uniqueidentifier.
+3. Um índice não agrupado com o nome "IX_<TableName>_Internal_Execution_ID" na coluna internal_execution_id.
+
 Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute os seguintes comandos:
 
 ```sql

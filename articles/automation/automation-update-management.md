@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 79c78da3ba3102f41a1bd623c6844f064699b30a
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382104"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782795"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -119,7 +119,7 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado a uma �
 Para obter mais informações sobre como são atualizados os pacotes de gestão de solução, consulte [ligar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 > [!NOTE]
-> Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](/system-center/scom/deploy-upgrade-agents).
+> Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirme que as máquinas não Azure são carregadas
 
@@ -217,7 +217,7 @@ Para criar uma nova implementação de atualização, selecione **agendar a impl
 | --- | --- |
 | Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Linux ou Windows|
-| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **máquinas**, a preparação da máquina é mostrada na **preparação do agente de ATUALIZAÇÃO** coluna.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
 |Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o KB sem o prefixo "KB. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
 |Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|

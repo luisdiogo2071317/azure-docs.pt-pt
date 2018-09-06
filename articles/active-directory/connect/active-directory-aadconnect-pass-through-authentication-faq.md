@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 58a33b2d3f06deab4f31c76e04d45f8bd0bbba4c
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215072"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841969"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>O Azure Active Directory autenticação pass-through: Perguntas mais frequentes
 
@@ -48,7 +48,7 @@ Sim. Suporta a autenticação pass-through `Alternate ID` como o nome de utiliza
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Sincronização de hash de palavra-passe atuar como contingência para autenticação pass-through?
 
-Não. Autenticação pass-through _não_ automaticamente a ativação pós-falha para a sincronização de hash de palavra-passe. Ele atua como contingência para apenas [cenários de autenticação pass-through não suporta atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de início de sessão de utilizador, deve configurar a autenticação pass-through para [elevada disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Não. Autenticação pass-through _não_ automaticamente a ativação pós-falha para a sincronização de hash de palavra-passe. Para evitar falhas de início de sessão de utilizador, deve configurar a autenticação pass-through para [elevada disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Pode instalar um [Proxy de aplicações do Azure AD](../manage-apps/application-proxy.md) conector no mesmo servidor como um agente de autenticação pass-through?
 
@@ -56,17 +56,17 @@ Sim. As versões remodeladas do agente de autenticação pass-through, versão 1
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Quais as versões do Azure AD Connect e o agente de autenticação pass-through precisa?
 
-Para esta funcionalidade funcione, tem de versão 1.1.486.0 ou posterior para o Azure AD Connect e 1.5.58.0 ou posterior para o agente de autenticação pass-through. Instale todo o software em servidores com o Windows Server 2012 R2 ou posterior.
+Para esta funcionalidade funcione, tem de versão 1.1.750.0 ou posterior para o Azure AD Connect e 1.5.193.0 ou posterior para o agente de autenticação pass-through. Instale todo o software em servidores com o Windows Server 2012 R2 ou posterior.
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>O que acontece se a palavra-passe meu utilizador expirou e eles tentam iniciar sessão com a autenticação pass-through?
 
-Se tiver configurado [repetição de escrita de palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md) para um utilizador específico, e se o utilizador inicia sessão utilizando a autenticação pass-through, pode alterar ou repor as palavras-passe. As palavras-passe são escritas de volta para o Active Directory no local como esperado.
+Se tiver configurado [repetição de escrita de palavra-passe](../authentication/concept-sspr-writeback.md) para um utilizador específico, e se o utilizador inicia sessão utilizando a autenticação pass-through, pode alterar ou repor as palavras-passe. As palavras-passe são escritas de volta para o Active Directory no local como esperado.
 
 Se não tiver configurado a repetição de escrita de palavra-passe para um utilizador específico, ou se o utilizador não tem um Azure AD válido licença atribuída, o utilizador não é possível atualizar a palavra-passe na cloud. Eles não é possível atualizar a palavra-passe, mesmo que a palavra-passe expirou. O utilizador em vez disso, vê esta mensagem: "sua organização não permite que atualizar a palavra-passe neste site. A atualização, de acordo com o método recomendado pela sua organização, ou peça ao seu administrador se precisar de ajuda". O utilizador ou o administrador terá de repor a palavra-passe no Active Directory no local.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Como autenticação pass-through protege contra ataques de força bruta a senhas?
 
-Leia [autenticação de pass-through do Azure Active Directory: Smart Lockout](../authentication/howto-password-smart-lockout.md) para obter mais informações.
+[Ler informações sobre o bloqueio inteligente](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>O que a agentes de autenticação pass-through a comunicar através das portas 80 e 443?
 
@@ -82,7 +82,7 @@ Sim. Se a deteção automática de Proxy da Web (WPAD) estiver ativada no seu am
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Pode instalar dois ou mais agentes de autenticação pass-through no mesmo servidor?
 
-Não, só pode instalar um agente de autenticação pass-through num único servidor. Se quiser configurar a autenticação pass-through para elevada disponibilidade, siga as instruções em [autenticação de pass-through do Azure Active Directory: Introdução](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Não, só pode instalar um agente de autenticação pass-through num único servidor. Se quiser configurar a autenticação pass-through para elevada disponibilidade, [siga as instruções aqui](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como posso remover um agente de autenticação pass-through?
 
@@ -116,6 +116,10 @@ Para a maioria dos clientes, os agentes de autenticação de dois ou três no to
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Pode instalar o agente de autenticação pass-through primeiro num servidor diferente daquele que é executado o Azure AD Connect?
 
 Não, este cenário é _não_ suportado.
+
+## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que razão necessito de uma conta de Administrador Global apenas na cloud para ativar a autenticação pass-through?
+
+Recomenda-se que ative ou desative a autenticação pass-through com uma conta de Administrador Global apenas na cloud. Saiba mais sobre [adicionar uma conta de Administrador Global apenas na cloud](../active-directory-users-create-azure-portal.md). Fazê-lo desta forma, garante que não fica bloqueado fora do seu inquilino.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Como desativar a autenticação pass-through?
 

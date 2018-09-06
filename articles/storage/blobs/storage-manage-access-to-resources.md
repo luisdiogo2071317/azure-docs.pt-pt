@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398823"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782013"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
 Pode ativar o acesso de leitura anónimo, público para um contentor e respetivos blobs no armazenamento de Blobs do Azure. Ao fazê-lo, pode conceder acesso só de leitura a esses recursos sem partilhar a sua chave de conta e sem a necessidade de uma assinatura de acesso partilhado (SAS).
@@ -39,7 +39,7 @@ Pode utilizar o seguinte para definir permissões de contentor:
 Para definir permissões de contentor [portal do Azure](https://portal.azure.com), siga estes passos:
 
 1. Abra sua **conta de armazenamento** painel no portal. Pode encontrar a sua conta de armazenamento selecionando **contas de armazenamento** no painel do menu principal do portal.
-1. Sob **serviço BLOB** no painel de menu, selecione **contentores**.
+1. Sob **serviço BLOB** no painel de menu, selecione **Blobs**.
 1. Faça duplo clique na linha de contentor ou selecione as reticências para abrir o contêiner **menu de contexto**.
 1. Selecione **política de acesso** no menu de contexto.
 1. Selecione um **acessar tipo** no menu pendente.
@@ -140,7 +140,7 @@ A tabela seguinte mostra as operações que podem ser chamadas por usuários an�
 | Blob de concessão |Apenas o proprietário |Apenas o proprietário |
 | Colocar a página |Apenas o proprietário |Apenas o proprietário |
 | Os intervalos obter páginas |Todos |Todos |
-| Blob de acréscimo |Apenas o proprietário |Apenas o proprietário |
+| Acrescentar Blob |Apenas o proprietário |Apenas o proprietário |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

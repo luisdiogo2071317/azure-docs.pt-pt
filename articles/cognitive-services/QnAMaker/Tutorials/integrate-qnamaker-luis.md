@@ -1,7 +1,7 @@
 ---
-title: Integrar Maker de QnA e LUIS - serviços cognitivos Microsoft | Microsoft Docs
+title: Integrar o LUIS - serviços cognitivos da Microsoft e o QnA Maker | Documentos da Microsoft
 titleSuffix: Azure
-description: um tutorial passo a passo sobre como integrar Maker de QnA e LUIS
+description: um tutorial passo a passo sobre como integrar o QnA Maker e o LUIS
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -10,42 +10,42 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 0a0eeb3815b793ed81f60b2b239bc459e5574788
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354110"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781752"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrar Maker de QnA e LUIS para distribuir a sua base de dados de conhecimento
-À medida que a base de dados de conhecimento de QnA Maker cresce grande, torna-se difícil mantê-lo como um único monolithic definido e não existe uma necessidade de dividir a base de dados de conhecimento em segmentos de lógicos mais pequeno.
+# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrar o QnA Maker e o LUIS para distribuir a sua base de dados de conhecimento
+À medida que sua base de dados de conhecimento do QnA Maker cresce grandes, torna-se difícil mantê-lo como um único monolítico definido e há a necessidade de dividir a base de dados de conhecimento em partes lógicas menores.
 
-Enquanto é simples criar várias bases de dados de conhecimento no Maker de QnA, terá algumas lógica para encaminhar a pergunta de entrada para a base de dados de conhecimento adequada. Pode fazê-lo utilizando LUIS.
+Embora seja fácil para criar várias bases de dados de conhecimento no Criador de FAQ, terá de alguma lógica para rotear a pergunta de entrada para a base de dados de conhecimento adequada. Pode fazê-lo ao utilizar o LUIS.
 
 ## <a name="architecture"></a>Arquitetura
 
-![Arquitetura de luis Maker de QnA](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Arquitetura de luis do QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-No cenário acima, Maker de QnA primeiro obtém a intenção da pergunta recebida de um modelo de LUIS e, em seguida, utilize-a para encaminhar para a base de dados de conhecimento Maker de QnA correta.
+No cenário acima, o QnA Maker obtém primeiro a intenção da pergunta recebida de um modelo do LUIS e, em seguida, usá-lo para encaminhar para a base de dados de conhecimento do QnA Maker correta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Inicie sessão no [LUIS](https://www.luis.ai/) portal e [criar uma aplicação](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Adicionar pendentes](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) de acordo com o seu cenário.
-- [Formação](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) e [publicar](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) aplicação LUIS.
-- Inicie sessão no [Maker de QnA](https://qnamaker.ai) e [criar dados de conhecimento]() bases de acordo com o seu cenário.
-- [Teste]() e [publicar]() constituir a base de dados de conhecimento.
+- Inicie sessão para o [LUIS](https://www.luis.ai/) portal e [criar uma aplicação](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
+- [Adicionar intenções](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) de acordo com o seu cenário.
+- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) e [publicar](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) sua aplicação LUIS.
+- Inicie sessão no [QnA Maker](https://qnamaker.ai) e [criar](https://www.qnamaker.ai/Create) bases de dados de conhecimento de acordo com o seu cenário.
+- Testar e publicar as bases de dados de conhecimento.
 
-## <a name="qna-maker--luis-bot"></a>Maker de QnA + LUIS Bot
-1. Primeiro criar um bot de aplicação Web com o modelo de LUIS, ligá-lo com a aplicação de LUIS que criou acima e modificar os pendentes. Consulte os passos detalhados [aqui](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+## <a name="qna-maker--luis-bot"></a>A ferramenta QnA Maker + Bot de LUIS
+1. Primeiro criar um bot de aplicação Web com o modelo do LUIS, ligá-lo com a aplicação do LUIS que criou acima e modificar as intenções. Veja os passos detalhados [aqui](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
-2. Adicione as dependências na parte superior do ficheiro, com as outras dependências:
+2. Adicione as dependências na parte superior do arquivo, com as outras dependências:
 
     ```
     using RestSharp;
     using System.Collections.Generic;
     using Newtonsoft.Json;
     ```
-3. Adicionar o abaixo classe para chamar o serviço de QnA Maker:
+3. Adicionar a abaixo da classe para chamar o serviço QnA Maker:
 
     ```
         /// <summary>
@@ -121,11 +121,11 @@ No cenário acima, Maker de QnA primeiro obtém a intenção da pergunta recebid
         /* END - QnA Maker Response Class */
     ```
 
-3. Aceda a https://qnamaker.ai -> meu bases de dados de conhecimento -> código do Vista da sua base de dados de conhecimento correspondente. Obter as seguintes informações:
+3. Aceda a https://qnamaker.ai -> meus bases de dados de conhecimento -> código do modo de exibição, da sua base de dados de conhecimento correspondente. Obter as seguintes informações:
 
-    ![Pedido de QnA Maker HTTP](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
+    ![Pedido de HTTP do QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-4. Instanciar a classe de QnAMakerService para cada uma das suas bases de dados de conhecimento:
+4. Criar uma instância da classe QnAMakerService para cada uma das suas bases de dados de conhecimento:
     ```
             // Instantiate the knowledge bases
             public QnAMakerService hrQnAService = new QnAMakerService("https://hrkb.azurewebsites.net", "<HR knowledge base id>", "<HR endpoint key>");
@@ -133,7 +133,7 @@ No cenário acima, Maker de QnA primeiro obtém a intenção da pergunta recebid
             public QnAMakerService financeQnAService = new QnAMakerService("https://financekb.azurewebsites.net", "<Finance knowledge base id>", "<Finance endpoint key>");
     ```
 
-5. Chamada de base de dados de conhecimento correspondente para o objetivo.
+5. Chame a base de dados de conhecimento correspondente para o objetivo.
     ```
             // HR Intent
             [LuisIntent("HR")]
@@ -161,20 +161,20 @@ No cenário acima, Maker de QnA primeiro obtém a intenção da pergunta recebid
     ```
 
 ## <a name="build-the-bot"></a>Criar o bot
-1. No editor de código, clique com botão direito no `build.cmd` e selecione **executar a partir da consola**.
+1. No editor de código, faça duplo clique em `build.cmd` e selecione **executar consola**.
 
     ![executar a partir da consola](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
-2. A vista de código é substituída por uma janela de terminal que mostra o progresso e os resultados de compilação.
+2. A visualização de código é substituída por uma janela de terminal que mostra o progresso e os resultados da compilação.
 
     ![compilação de consola](../media/qnamaker-tutorials-qna-luis/console-build.png)
 
 ## <a name="test-the-bot"></a>Testar o bot
-No portal do Azure, selecione **testar na Web Chat** para testar o bot. Tipo de mensagens de diferentes pendentes para obter a resposta a partir da base de dados de conhecimento correspondente.
+No portal do Azure, selecione **teste na Web Chat** para testar o bot. Escreva mensagens desde intenções diferentes para obter a resposta da base de dados de conhecimento correspondente.
 
-![teste de chat de Web](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
+![teste de chat na Web](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um plano de continuidade do negócio para Maker de QnA](../How-To/business-continuity-plan.md)
+> [Criar um plano de continuidade de negócio para o QnA Maker](../How-To/business-continuity-plan.md)

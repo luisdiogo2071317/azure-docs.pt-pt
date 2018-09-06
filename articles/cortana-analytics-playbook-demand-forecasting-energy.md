@@ -1,404 +1,405 @@
 ---
-title: Manual de modelo do Cortana Intelligence solução para prever a pedido de energia | Microsoft Docs
-description: Um modelo de solução com o Microsoft Cortana Intelligence que ajuda a prever a pedido para uma empresa de utilitário de energia.
-services: cortana-analytics
+title: Playbook do modelo de solução do Cortana Intelligence para previsão de procura de energia | Documentos da Microsoft
+description: Um modelo de solução no Microsoft Cortana Intelligence permite que o ajuda a prever a procura para uma empresa de utilitário de energia.
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
-ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yijichen
+ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23846431"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842595"
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual de modelo do Cortana Intelligence solução para prever a pedido de energia
+# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Playbook do modelo de solução do Cortana Intelligence para previsão de procura de energia
 ## <a name="executive-summary"></a>Resumo Executivo
-Nos últimos anos alguns, Internet das coisas (IoT), as origens de energia alternativo e macrodados intercalado criar oportunidades vasta no domínio utilitário e energia. Ao mesmo tempo, o utilitário e o setor de energia completo tem visto consumo pelo com os consumidores pedir o seu trabalho melhor formas de controlar a utilização de energia. Por conseguinte, o utilitário e de empresas de grelha inteligente são no precisa excelente inovar e renovar próprios. Além disso, muitos grelhas de ativação e utilitários são tornar-se desatualizados e muito dispendioso manter e gerir. Durante o último ano, a equipa de tem estado a trabalhar num número de ações de envolvimento dentro do domínio de energia. Durante estas ações de envolvimento, encontrámos muitos casos em que os utilitários ou ISVs (os fabricantes independentes de Software) tem sido à procura para previsão para o pedido de energia futuras. Estes previsões desempenham um papel importante na respetiva atuais e futura da empresa e ficam foundation vários casos de utilização. Estes incluem previsão da carga de energia de curto e longo prazo, comerciais, balanceamento de carga, otimização de grelha etc. Macrodados e métodos de análise avançadas (AA) como o Machine Learning (ML) são os ativadores principais para produzir previsões exatas e fiáveis.  
+Nos últimos anos, a Internet das coisas (IoT), fontes de energia alternativa e grandes quantidades de dados foram mescladas para criar grandes oportunidades no domínio utilitário e de energia. Ao mesmo tempo, o utilitário e o setor energético todo visto consumo mesclar com consumidores exigentes melhores formas de controlar o uso de energia. Por conseguinte, o utilitário e empresas de rede inteligente são na necessidade excelente para inovar e renovar propriamente ditas. Além disso, muitos grades de consumo de energia e utilitários estão se tornando desatualizada e muito dispendioso manter e gerir. Durante o ano passado, a equipe tem trabalhado num número de compromissos dentro do domínio de energia. Durante estes compromissos, mas encontrámos muitos casos em que os ISVs (fornecedores independentes de Software) ou utilitários tem procurado para previsão de procura energética futuras. Estes previsões desempenham um papel importante em seus negócios atuais e futuros e tornaram-se a base para vários casos de utilização. Estes incluem a previsão da carga de energia de curto e longo prazo, comércio, balanceamento de carga, otimização de grade etc. Grandes volumes de dados e métodos de análise avançadas (AA), como o Machine Learning (ML) são os habilitadores chave para a produção de previsões precisas e fiáveis.  
 
-Este manual de comunicação social, iremos juntar empresariais e diretrizes analíticas necessárias para o desenvolvimento com êxito e implementação de procura de energia previsão solução. Podem ajudar a estas diretrizes propostos utilitários, cientistas de dados e engenheiros de dados no estabelecer soluções totalmente operacionalizadas, baseado na nuvem, a pedido de previsão. Para as empresas que estão a iniciar os macrodados e journey análises avançadas, tal uma solução pode representar o seed inicial na respetiva estratégia a longo prazo grelha inteligente.
+Este manual de comunicação social, reunimos os negócios e analíticas diretrizes necessárias para um desenvolvimento com êxito e solução de previsão de implementação de procura de energia. Essas diretrizes propostas podem ajudar a utilitários, cientistas de dados e engenheiros de dados no estabelecimento de soluções totalmente operacionalizadas, com base na cloud, previsão de procura. Para as empresas que estão apenas começando seus macrodados e a jornada de análises avançadas, essa solução pode representar a semente inicial em sua estratégia de rede inteligente de longo prazo.
 
 > [!TIP]
-> Para transferir um diagrama que fornece uma descrição geral da arquitetura deste modelo, consulte [arquitetura de modelo de solução do Cortana Intelligence para prever a pedido de energia](cortana-analytics-architecture-demand-forecasting-energy.md).  
+> Para transferir um diagrama que fornece uma visão geral da arquitetura deste modelo, consulte [arquitetura de modelo de solução do Cortana Intelligence para previsão de procura de energia](cortana-analytics-architecture-demand-forecasting-energy.md).  
 > 
 > 
 
 ## <a name="overview"></a>Descrição geral
-Este documento aborda o negócio, dados e aspetos técnicos da utilização do Cortana Intelligence e no específica do Azure Machine Learning (AML) para a implementação e a implementação de soluções de previsão de energia. O documento consiste em três partes principais:  
+Este documento aborda os aspectos técnicos de com o Cortana Intelligence e, em particular do Azure Machine Learning (AML) para a implementação e a implantação de soluções de previsão de energia, comerciais e dados. O documento é composta por três partes principais:  
 
 1. Noções sobre empresas  
 2. Compreensão de dados  
 3. Implementação técnica
 
-O **compreensão de negócio** parte descreve o aspeto de negócio um tem de compreender e considerar antes de efetuar uma decisão de investimento. Explica como qualificar o problema empresarial em execução para garantir que a Análise Preditiva e a aprendizagem realmente eficaz e aplicável. O documento mais explica as noções básicas do machine learning e como são utilizadas para resolver problemas de energia de previsão. -Descreve os pré-requisitos e os critérios de qualificação de um caso de utilização. Alguns exemplo utilizar casos e cenário de negócio cenários também são fornecidos.
+O **Noções sobre empresas** parte descreve o aspecto de negócio é necessário compreender e considerar antes de tomar uma decisão de investimento. Explica como qualificar o problema comercial à mão para garantir a Análise Preditiva e machine learning, de fato, efetiva e aplicáveis. O documento ainda mais explica as noções básicas do machine learning e como são utilizadas para resolver problemas de previsão de energia. Ele descreve os pré-requisitos e os critérios de qualificação de um caso de utilização. Exemplo de alguns casos de utilização e caso comercial cenários também são fornecidos.
 
-Os dados são o principal ingredient para qualquer solução de aprendizagem. O **dados compreender** parte deste documento abrange alguns aspetos dos dados importantes. -Descreve o tipo de dados que é necessária para a previsão de energia, requisitos de qualidade de dados e, normalmente, existem que origens de dados. Também vamos explicar como os dados não processados são utilizados para preparar as funcionalidades de dados, na verdade, a parte de modelação de unidade.
+Os dados são o principal ingrediente para qualquer solução de machine learning. O **compreensão de dados** parte deste documento aborda alguns aspetos importantes dos dados. Ele descreve o tipo de dados que é necessária para a previsão de energia, os requisitos de qualidade de dados e que origens de dados, normalmente, existem. Também vamos explicar como os dados brutos são usados para preparar os recursos de dados que, na verdade, a parte de modelagem de unidade.
 
-O terceiro parte do documento abrange o **implementação técnica** aspeto de uma solução. Engenharia da funcionalidade e modelação são o núcleo do processo de ciência de dados e, por conseguinte, estão a ser abordados em detalhe. Abrange o conceito de serviços web, que são um vehicle importante para a implementação de nuvem das soluções de Análise Preditiva. Podemos também descrevem uma arquitetura típica de uma solução de operacionalizado ponto-a-ponto.
+A terceira parte do documento abrange a **implementação técnica** aspecto de uma solução. Engenharia de funcionalidades e modelação estão no núcleo do processo de ciência de dados e, portanto, estão sendo discutidos detalhadamente. Ele cobre o conceito de serviços web, que são um importante veículo de implementação de nuvem de soluções de Análise Preditiva. Podemos também descrevem uma arquitetura típica de uma solução de operacionalizado ponto-a-ponto.
 
-Além disso, o documento inclui o material de referência que pode utilizar para obter mais compreensão do domínio e tecnologia.
+Além disso, o documento inclui o material de referência que pode utilizar para obter ainda mais a compreensão do domínio e tecnologia.
 
-É importante ter em atenção que não pretendemos abrangem neste documento, o processo de ciência de dados mais aprofundado, os aspetos de matemática e técnicos. Estes detalhes podem ser encontrados na [documentação do Azure ML](http://azure.microsoft.com/services/machine-learning/) e [blogues](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+É importante observar que, não pretendemos abordar neste documento, o processo de ciência de dados mais aprofundado, seus aspectos técnicos e matemáticos. Esses detalhes podem ser encontrados no [documentação do Azure ML](http://azure.microsoft.com/services/machine-learning/) e [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Público-alvo
-O público-alvo para este documento é empresariais e técnicos de técnicos que gostaria de obter dados de conhecimento e compreensão do Machine Learning com base em soluções e como estas estão a ser utilizadas especificamente dentro do domínio de energia de previsão.
+O público-alvo para este documento é tanto a empresas, como a equipe de suporte técnico que gostaria de obter dados de conhecimento e compreensão do Machine Learning com base em soluções e como elas estão sendo usadas especificamente dentro do domínio de previsão de energia.
 
-Cientistas de dados também podem beneficiar de ler este documento para obter uma melhor compreensão do processo de alto nível que unidades a implementação de uma solução de previsão de energia. Neste contexto, pode também ser utilizado para estabelecer uma linha de base boa e o ponto de partida para obter mais informações detalhadas e avançadas material.
+Os cientistas de dados também podem se beneficiar de ler este documento para obter uma melhor compreensão do processo de alto nível que orienta a implantação de uma solução de previsão de energia. Nesse contexto também pode ser utilizado para estabelecer uma linha de base boa e o ponto de partida para obter mais informações detalhadas e avançadas do material.
 
-### <a name="industry-trends"></a>Tendências de setor
-Nos últimos anos alguns, IoT, origens de energia alternativo e macrodados intercalado criar oportunidades vasta no espaço de utilitário e energia. Ao mesmo tempo, o utilitário e setores de energia completo tem visto consumo pelo com os consumidores pedir o seu trabalho melhor formas de controlar a utilização de energia.
+### <a name="industry-trends"></a>Tendências da indústria
+Nos últimos anos, IoT, fontes de energia alternativa e grandes quantidades de dados foram mescladas para criar grandes oportunidades no espaço de utilitário e de energia. Ao mesmo tempo, o utilitário e os setores de energia todo visto consumo mesclar com consumidores exigentes melhores formas de controlar o uso de energia.
 
-Muitos utilitário e de empresas de energia inteligente tem sido pioneering o [grelha inteligente](https://en.wikipedia.org/wiki/Smart_grid) ao implementar um número de utilização casos que utilizam os dados gerados pela grelha. Muitos casos de utilização está centrada as características de produção de eletricidade inerentes no: não é possível ser acumulado nem reservados armazenada como o inventário. Por isso, o que é produzido tem de ser utilizado. Tem de utilitários de que pretendem tornar-se mais eficiente prever o consumo de energia simplesmente porque que irá conceder-lhes maior capacidade de **equilibrar procura e oferta**, impedindo wastage de energia, **reduzir petróleo greenhouse emission**e controlar os custos.
+Muitos utilitário e empresas de energia inteligente tem sido pioneiras a [rede inteligente](https://en.wikipedia.org/wiki/Smart_grid) mediante a implementação de um número de utilização casos que tornam a usar os dados gerados pela grade. Casos de utilização de muitos giram em torno das características inerentes de produção de eletricidade: não pode ser acumulado nem armazenado à parte como inventário. Então, o que é produzido tem de ser utilizado. Utilitários que querem tornar-se mais eficientes precisam de prever o consumo de energia simplesmente porque isso dá a eles maior capacidade de **equilibrar suprimento e demandas**, evitando assim o desperdício de energia, **reduzir gás greenhouse emissões**e controlar o custo.
 
-Quando se fala dos custos, há outro aspeto importante, o que é o preço. Novas capacidades para compromissos energia entre utilitários tem colocado numa excelente precisa **previsão pedido futuro e preços futuros de eletricidade**. Isto pode ajudar as empresas determinar os volumes de produção.
+Quando se fala dos custos, há um outro aspecto importante, o que é o preço. Trouxeram numa grande necessidade de novas capacidades de negociação de energia entre utilitários **prever a procura futura e preços futuro de eletricidade**. Isso pode ajudar as empresas a determinar os volumes de produção.
 
-Quando utilizamos a palavra 'inteligente', mas, na verdade, consulte uma grelha que pode saber mais e, em seguida, fazer predições. Pode antecipa sazonais alterações no consumo, bem como **previr situações de sobrecarga temporária e ajustar automaticamente para a mesma**. Por remotamente regular consumo (com a ajuda destes medidores inteligentes), podem ser processadas situações de sobrecarga localizada. **Ao prever primeiro e, em seguida, agir**, grelha torna-se mais inteligentes ao longo do tempo.
+Quando usamos a palavra "inteligência", nos Referimos, na verdade, a uma grade que pode saber mais e, em seguida, fazer predições. Pode prever as alterações sazonais no consumo, bem como **previr situações de sobrecarga temporária e ajustar automaticamente para o mesmo**. Por remotamente regular consumo (com a ajuda destes medidores inteligentes), podem ser processadas situações de sobrecarga localizada. **Pelo primeiro prever e, em seguida, agir**, a grade torna-se mais inteligente ao longo do tempo.
 
-Para o resto deste documento incidirá numa família específica de casos de utilização que abrangem a previsão de futuro, curta e longa duração pedido de energia. Estamos a ter sido funcionar nas seguintes áreas para alguns meses e ter adquirido alguns dados de conhecimento e skill permitem-nos produzir resultados de nível da indústria. Outros casos de utilização vai ser abordados, bem como o documento num futuro próximo.
+Para o restante deste documento, nos concentraremos numa família específica de casos de utilização que abrangem a previsão de futuro, curto e longo prazo procura de energia. Temos trabalhado nessas áreas por alguns meses e passaram a alguns dados de conhecimento e habilidades que permitem-nos produzir resultados de nível de setor. Outros casos de utilização serão abordados também o documento num futuro próximo.
 
 ## <a name="business-understanding"></a>Compreensão Empresarial
 ### <a name="business-goals"></a>Objetivos de negócio
-O **demonstração de energia** objetivo é para demonstrar uma análise preditiva típicas e a solução que pode ser implementada num intervalo de tempo muito curto de aprendizagem. Especificamente, o nosso foco atual é ativar soluções de previsão de energia a pedido para que o valor de negócio pode ser realizado e aproveitado após rapidamente. As informações neste manual de comunicação social podem ajudar o cliente realizar os seguintes objetivos:
+O **demonstração de energia** objetivo é demonstrar uma análise preditiva típico e a solução que pode ser implementada num intervalo de tempo muito curto de machine learning. Especificamente, o nosso foco atual é sobre como ativar soluções de previsão de procura de energia, para que seu valor comercial pode ser percebido e aproveitado após a rapidamente. As informações neste manual de comunicação podem ajudá-o cliente ao realizar os seguintes objetivos:
 
-* Solução baseada na curto período de tempo ao valor de aprendizagem
-* Capacidade para expandir um piloto utilizar maiúsculas e minúsculas para outros casos de utilização ou a um âmbito mais amplo com base na respetiva necessidade de negócio
-* Obter rapidamente conhecimento do produto Cortana Intelligence Suite
+* Pouco tempo para o valor do machine learning com base em solução
+* Caso para outros casos de utilização ou a um âmbito mais amplo, com base na respetiva necessidade comercial de utilização de capacidade para expandir um piloto
+* Obter rapidamente conhecimentos do produto do Cortana Intelligence Suite
 
-Com estes objetivos em mente, este manual de comunicação social visa na entrega do negócio e conhecimentos técnicos que irão ajudar a alcançar estes objetivos.
+Com estes objetivos em mente, este playbook tem como objetivo a fornecer o conhecimento comercial e técnico que irá ajudar a atingir essas metas.
 
-### <a name="power-load-and-demand-forecasting"></a>Carga de energia e prever a pedido
-Dentro do setor de energia, podem existir várias formas em que a pedido previsão pode ajudar a resolver problemas de negócio crítico. Na verdade, de previsão pedido pode ser considerada foundation vários núcleos casos de utilização da indústria. Em geral, podemos considerar dois tipos de previsões de pedido de energia: curto e longo prazo. Cada um deles pode servem um objetivo diferente e utilizar uma abordagem diferente. A principal diferença entre as duas é a previsão horizon, que significa que o intervalo de tempo no futuro para o qual podemos seria previsão.
+### <a name="power-load-and-demand-forecasting"></a>Carga de energia e a previsão de procura
+No setor energético, pode haver muitas formas no qual a pedido previsão pode ajudar a resolver problemas comerciais críticos. Na verdade, previsão da procura pode ser considerado a base para muitos casos de utilização de núcleos do setor. Em geral, consideramos que os dois tipos de previsões de procura de energia: curto e longo prazo. Cada um deles pode cumprir uma finalidade diferente e utilizar uma abordagem diferente. A principal diferença entre os dois é o horizonte previsão, o que significa que o intervalo de tempo no futuro para o qual estamos seria a previsão.
 
-#### <a name="short-term-load-forecasting"></a>A curto prazo carga previsão
-No contexto de pedido de energia, a curto prazo carregar previsão (STLF) está definido como a carga agregada que é prevista no futuro near em várias partes da grelha (ou a grelha como um todo). Neste contexto, curta está definida para ser horizon de tempo dentro do intervalo de 1 hora 24 horas. Em alguns casos, um horizon de 48 horas também é possível. Por conseguinte, STLF é muito comum num cenário de utilização operacional da grelha. Seguem-se alguns exemplos de STLF orientadas por casos de utilização:
+#### <a name="short-term-load-forecasting"></a>Carga do termo de curta de previsão
+Dentro do contexto de procura energética, a curto prazo carregar previsão (STLF) é definido como a carga agregada, que é prevista num futuro próximo em várias partes da grade (ou a grade como um todo). Neste contexto, a curto prazo é definido para ser o prazo dentro do intervalo de 1 hora para 24 horas. Em alguns casos, um horizonte de 48 horas também é possível. Portanto, STLF é muito comum num caso de utilização operacional da grade. Aqui estão alguns exemplos de STLF controlado por casos de utilização:
 
-* Procura e oferta balanceamento
-* Suporte de comercial de energia
-* Efetuar mercado (preço de energia definição)
+* Procura e balanceamento de
+* Suporte de negociação de energia
+* Tomada de mercado (preço de energia de definição)
 * Otimização de operacional de grelha
-* [Resposta a pedido](https://en.wikipedia.org/wiki/Demand_response)
-* Pico de previsão a pedido
-* Gestão de lado de pedido
-* Balanceamento de carga e a prevenção de sobrecarga
-* Longo prazo previsão de carga
-* Deteção de anomalias e de falhas
-* Curtailment/nivelamento das horas de ponta 
+* [Resposta da procura](https://en.wikipedia.org/wiki/Demand_response)
+* Picos de previsão de procura
+* Gestão de lado a pedido
+* Balanceamento de carga e prevenção de sobrecarga
+* Longo prazo a previsão de carga
+* Índice de falhas e deteção de anomalias
+* Redistribuição/curtailment de pico 
 
-Modelo STLF baseiam-se principalmente no passado near (últimos dias ou semanas) os dados de consumo e utilize previstosm temperatura como uma previsão da receita importante. Obter temperatura exata previsão para a hora seguinte e cópia de segurança para 24 horas é tornar-se inferior de um desafio dias agora. Estes modelos são menos sensíveis sazonais padrões ou tendências de consumo de longo prazo.
+Modelo STLF baseiam-se principalmente o passado quase (último dia ou semana) os dados de consumo e a utilização previstosm temperatura como um importante fator. Temperatura precisa previsão para a hora seguinte de obtenção e cópia de segurança para 24 horas está se tornando menos de um desafio dias agora. Esses modelos são menos sensíveis à sazonais padrões ou tendências de consumo a longo prazo.
 
-Soluções SLTF também são provável que gerar elevado volume de chamadas de predição (pedidos de serviço), uma vez que estão a ser invocados numa base horária e em alguns casos, mesmo com maior frequência. Também é muito comum para ver implantation onde cada substation individuais ou transformador é representada como um modelo de autónomo e, por conseguinte, o volume de predição pedidos são maiores.
+Soluções SLTF também têm probabilidades gerar o grande volume de chamadas de predição (pedidos de serviço), uma vez que estão sendo invocadas numa base horária e, em alguns casos, mesmo com freqüência mais alta. Também é muito comum ver implantation onde cada subestação individual ou transformador é representada como um modelo autónomo e, portanto, o volume de pedidos de predição são ainda maior.
 
-#### <a name="long-term-load-forecasting"></a>Longo prazo previsão de carga
-O objetivo de longo prazo carga previsão (LTLF) é a previsão pedido de energia com um horizon tempo vão de 1 semana, meses vários (e, em alguns casos, para um número de anos). Este intervalo de horizon principalmente é aplicável para o planeamento e casos de utilização do investimento.
+#### <a name="long-term-load-forecasting"></a>Longo prazo a previsão de carga
+O objetivo de longo prazo carga previsão (LTLF) é a previsão de procura de energia com um prazo que vão de 1 semana a vários meses (e, em alguns casos, para um número de anos). Esse intervalo de horizonte principalmente é aplicável para o planejamento e casos de utilização do investimento.
 
-Para cenários de longa duração, é importante ter dados de alta qualidade que abrange um intervalo de vários anos (mínimo 3 anos). Estes modelos normalmente extrair padrões de sazonalidade dos dados históricos e utilizar predicators externos, tais como meteorologia e climático padrões.
+Para cenários de longo prazo, é importante ter dados de alta qualidade que abrange um intervalo de vários anos (mínimo 3 anos). Esses modelos normalmente extrair os padrões de sazonalidade dos dados históricos e fazer uso do predicators externas, tais como os padrões de meteorologia e clima.
 
-É importante esclarecer que mais tempo a previsão horizon, a menos exato poderá de previsão. Consequentemente, é importante produzir alguns intervalos de confiança, juntamente com a previsão real que lhe permita humans para fator a variação possíveis para o seu processo de planeamento.
+É importante esclarecer o que é de previsão horizonte mais tempo, menos precisos pode ser a previsão. Portanto, é importante produzir alguns intervalos de confiança, juntamente com a previsão real que permitiria que seres humanos fatorar a variação possíveis em seu processo de planejamento.
 
-Uma vez que o cenário de consumo para LTLF principalmente está a planear, pode Esperamos muito inferiores volumes de predição (em comparação com STLF). É, normalmente, poderá ver estas predições incorporadas nas ferramentas de visualização, tais como o Excel ou do Power BI e ser invocados manualmente pelo utilizador.
+Uma vez que o cenário de consumo para LTLF principalmente está planejando, podemos esperar muito mais baixos volumes de previsão (em comparação com a STLF). Nós provavelmente verá estas predições incorporadas a ferramentas de visualização de como o Excel ou Power BI e ser invocadas manualmente pelo utilizador.
 
-### <a name="short-term-vs-long-term-prediction"></a>Curto prazo vs. Predição de longo prazo
-A tabela seguinte compara STLF e LTLF no que respeita aos atributos de mais importantes:
+### <a name="short-term-vs-long-term-prediction"></a>Curtos prazo vs. Predição de longo prazo
+A tabela seguinte compara STLF e LTLF sentido para os atributos mais importantes:
 
-| Atributo | Previsão da carga de curto prazo | Previsão da carga de longo prazo |
+| Atributo | Previsão da carga de curto prazo | Longo prazo previsão de carga |
 | --- | --- | --- |
-| Previsão Horizon |A partir de 1 hora 48 horas |Entre 1 a 6 meses ou mais |
+| Previsão de horizonte |A partir de 1 hora para 48 horas |De 1 a 6 meses ou mais |
 | Granularidade de dados |Por Hora |Hora ou diária |
-| Casos de utilização típica |<ul><li>A pedido/alimentação balanceamento</li><li>Escolha a hora de previsão</li><li>Resposta a pedido</li></ul> |<ul><li>De longo prazo planeamento</li><li>Planeamento de recursos de grelha</li><li>Planeamento de recursos</li></ul> |
-| Predictors típicas |<ul><li>Dia ou semana</li><li>Hora do dia</li><li>Temperatura por hora</li></ul> |<ul><li>Último mês do ano</li><li>Dia do mês</li><li>Temperatura de longo prazo e climático</li></ul> |
-| Intervalo de dados históricos |Anos duas a três de dados |Anos cinco para 10 de dados |
-| Precisão típica |MAPE * de 5% ou inferior |MAPE * de 25% ou inferior |
-| Frequência de previsão |Produzidos de hora a hora ou a cada 24 horas |Produzidos depois mensal, trimestral ou anuais |
+| Casos de utilização típica |<ul><li>A pedido/fornecimento balanceamento</li><li>Escolha a hora de previsão</li><li>Resposta da procura</li></ul> |<ul><li>Longo prazo planeamento</li><li>Planeamento de recursos de grelha</li><li>Planejamento de recursos</li></ul> |
+| Indicadores típicos |<ul><li>Dia ou da semana</li><li>Hora do dia</li><li>Temperatura por hora</li></ul> |<ul><li>Mês do ano</li><li>Dia do mês</li><li>Temperatura de longo prazo e climáticas</li></ul> |
+| Intervalo de dados históricos |Valor de duas ou três anos de dados |Valor de 5 a 10 anos de dados |
+| Precisão típico |MAPE * de 5% ou inferior |MAPE * de 25% ou inferior |
+| Frequência de previsão |Produzidos de hora a hora ou a cada 24 horas |Produzido depois mensal, trimestral ou anualmente |
 
-\*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – significa erros percentagem média
+\*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – significa que os erros de percentagem média
 
-Como podem ser vistos desta tabela, é bastante importante distinguir entre o curto e longo prazo previsão cenários como estas representam as necessidades de negócio diferentes e poderão ter de implementação diferentes e padrões de consumo.
+Como pode ser visto desta tabela, é realmente importante distinguir entre o curto e a longo prazo em cenários de previsão, à medida que eles representam diferentes necessidades empresariais e poderão ter de implementação diferentes e padrões de consumo.
 
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Caso de utilização de exemplo 1: eSmart sistemas – otimização de sobrecarga
-Uma função importante de um [grelha inteligente](https://en.wikipedia.org/wiki/Smart_grid) é dinamicamente constantemente otimizar e ajustar os padrões de consumo de alteração. Consumo de energia pode ser afetado por alterações de curto prazo que principalmente são causadas por flutuações de temperatura (*por exemplo,*, maior potência de é utilizada para a condição de ar ou aquecimento). Ao mesmo tempo, consumo de energia também deve influenciado pelos tendências de longo prazo. Estes podem incluir efeitos sazonalidade, feriados national, longo prazo crescimento de consumo e até mesmo económico fatores, tais como o índice de consumidor, o preço de petróleo e GDP.
+Uma função importante de um [rede inteligente](https://en.wikipedia.org/wiki/Smart_grid) é dinamicamente e constantemente otimizar e ajustar os padrões de consumo de alteração. O consumo de energia pode ser afetado por alterações a curto prazo que são principalmente causadas por flutuações de temperatura (*por exemplo,*, mais energia é utilizada para a condição de ligação sem fios ou de aquecimento...). Ao mesmo tempo, o consumo de energia também é influenciado por tendências a longo prazo. Estas podem incluir os efeitos de sazonalidade, feriados nacionais, crescimento de consumo de longo prazo e até mesmo econômicos fatores como o índice de consumidor, o preço de petróleo e o PIB.
 
-Neste caso de utilização, [eSmart](http://www.esmartsystems.com/) pretendia implementar uma solução baseada na nuvem que permite a prever propensity de uma situação de sobrecarga em qualquer substation determinado da grelha. Em particular, eSmart pretendia identificar substations que se prevê a sobrecarga dentro de uma hora, pelo que uma ação imediata foi direcionada para evitar ou resolver nessa situação.
+Neste caso, [eSmart](http://www.esmartsystems.com/) desejava implantar uma solução baseada na cloud que permite prever a propensão de uma situação de sobrecarga em qualquer determinada subestação da grade. Em particular, eSmart queria identificar subestações que provavelmente sobrecarregar dentro de uma hora, para que uma ação imediata pôde ser realizada de evitar ou resolver essa situação.
 
-Um exata e rápido efetuar predição requer a implementação de três modelos preditivos:
+Uma lista exata e a rápida execução predição requer a implementação dos três modelos de previsão:
 
-* Tempo durante o qual o modelo de termo que permite a previsão de consumo de energia em cada substation durante o próximo algumas semanas ou meses
-* Modelo de curto prazo, que permite a predição de sobrecarga situação em que um determinado substation durante a hora seguinte
+* Há muito tempo o modelo de termo que permite a previsão de consumo de energia em cada subestação durante o próximo algumas semanas ou meses
+* Modelo de curto prazo que permite a predição de situação de sobrecarga numa determinado subestação durante a hora seguinte
 * Modelo de temperatura que fornece a previsão de temperatura futura ao longo de vários cenários
 
-O objetivo do modelo de longo prazo é classificar que o substations pelo respetivo propensity de sobrecarga (fornecido a respetiva capacidade de transmissão de energia) durante a semana ou mês seguinte. Isto permite a criação de uma lista de curto período de substations serviria como entrada para a predição a curto prazo. Como a temperatura for uma previsão da receita importante para o modelo de longa duração, for necessário para constantemente produzir previsões de temperatura de cenário multi e feed-los como entrada para o modelo de longo prazo. A previsão de curta duração, em seguida, é invocado para prever que substation é provável que a sobrecarga sobre a hora seguinte.
+O objetivo do modelo de longo prazo é classificar as subestações por seus propensão para sobrecarregar (devido a respetiva capacidade de transmissão de energia) durante a semana ou mês seguinte. Isso permite que a criação de uma lista curta de subestações serviria como entrada para a predição a curto prazo. Como temperatura é um importante fator para o modelo de longo prazo, existe a necessidade de constantemente produzem previsões de temperatura de cenário multi e fornecê-los como entrada para o modelo de longo prazo. A previsão de curto prazo, em seguida, é invocada para prever a qual subestação é provável que na próxima hora de sobrecarga.
 
-Os modelos de curto e longo prazo são implementados individualmente por cada substation. Por conseguinte, a execução prática estes modelos exige um vasto conjunto orchestration. Para obter maior precisão de predição a curto prazo, um modelo mais granular encontra dedicado para cada hora do dia. Todos os estes modelos são executados a cada hora e concluir a execução dentro de alguns minutos para permitir tempo suficiente para responder e tome medidas preventivo se for necessário. Esta coleção de modelos é mantida atualizada utilizando periodical reparametrização os dados mais recentes.
+Os modelos de curto e longo prazo são implementados individualmente por cada subestação. Por conseguinte, a execução prática desses modelos requer orquestração extensa. Para obter uma maior exatidão de predição a curto prazo, um modelo mais granular é dedicado para cada hora do dia. Todos esses modelos são executados a cada hora e concluir a execução dentro de alguns minutos para permitir tempo suficiente responder e tomar ações preventivas, se necessário. Esta coleção de modelos é mantida atualizada através da utilização de reparametrização periódica os dados mais recentes.
 
 Podem encontrar mais informações sobre este caso de utilização [aqui](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### <a name="use-case-qualification-criteria--prerequisites"></a>Utilizar critérios de qualificação maiúsculas – pré-requisitos
-A segurança principal do Cortana Intelligence é na respetiva poderosa capacidade de implementar e dimensionar soluções centrado em do machine learning. Foi concebido para suportar milhares das predições que são executados em simultâneo. Pode dimensionar automaticamente para satisfazer um padrão de consumo de alteração. Foco uma solução por conseguinte, é precisão e o desempenho de capacidade de cálculo. Por exemplo, uma empresa de utilitário está interessada em produção a pedido de energia precisos para a hora seguinte e para cada hora do dia de previsão. Por outro lado, mas é menos interessadas em resposta à pergunta sobre por que motivo é prever o pedido seja dado que é (próprio modelo tratará do que).
+#### <a name="use-case-qualification-criteria--prerequisites"></a>Utilize critérios de qualificação maiúsculas – pré-requisitos
+A principal vantagem do Cortana Intelligence é em sua capacidade poderosas para implementar e dimensionar soluções centralizadas em do machine learning. Ele foi projetado para suporte a milhares de previsões que são executadas em simultâneo. Pode dimensionar automaticamente para satisfazer um padrão de consumo de alteração. Portanto, é o foco de uma solução em precisão e desempenho computacional sem paralelo. Por exemplo, uma empresa de utilitário é interessada na produção de procura de energia precisos para a hora seguinte e para cada hora do dia de previsão. Por outro lado, estamos menos interessados em responder à pergunta de por que a procura está prevista para ser como ele é (o próprio modelo encarrega-se de que).
 
-Consequentemente, é importante compreender que nem todos os casos de utilização e problemas empresariais possam ser resolvidos de forma eficaz a aprendizagem a utilizar.
+Portanto, é importante perceber que nem todos os casos de utilização e problemas de negócios podem ser resolvidos de forma eficaz a com o machine learning.
 
-Cortana Intelligence e de aprendizagem não foi possível altamente eficazes no resolver um problema empresarial fornecido quando são cumpridos os seguintes critérios:
+Cortana Intelligence e machine learning podem ser muito eficazes na resolver um problema de negócios determinado quando são cumpridos os seguintes critérios:
 
-* O problema empresarial no mão é **preditiva** natureza. Um exemplo de cenário de utilização preditiva é uma empresa de utilitário que gostaria de prever a carga de energia de um determinado substation durante a hora seguinte. Por outro lado, analisar e classificação controladores de procura histórica seria **descritivo** natureza e, por conseguinte, menos aplicável.
-* Há um eliminar **caminho de ação** a ser executadas assim que a predição estiver disponível. Por exemplo, prever uma sobrecarga num substation durante a hora seguinte pode acionar uma ação proativa de reduzir a carga que está associada esse substation e, potencialmente, impedindo uma sobrecarga.
-* Representa o caso de utilização de um **típico tipo de problema** que quando resolvidos pode pave a forma como para resolver outros semelhante casos de utilização.
-* O cliente pode definir **objetivos quantitativos e qualitativa** para demonstrar uma implementação de solução concluída com êxito. Por exemplo, um objetivo quantitativo boa para previsão de pedido de energia seria o limiar de precisão necessária (*por exemplo,*, é permitida a cópia de segurança para 5% erro) ou ao prever substation sobrecarga, em seguida, a precisão (taxa de positivos true) e devolução de chamada (extensão de positivos verdadeiros) deve ser acima de um determinado limiar. Estes objetivos devem ser derivados de objetivos de negócio do cliente.
-* Há um eliminar **o cenário de integração** com o fluxo de trabalho de empresas da empresa. Por exemplo, a previsão da carga substation pode ser integrada no Centro de controlo de grelha para permitir que as atividades de prevenção de sobrecarga.
-* O cliente tem prontos a utilizar **dados com qualidade suficiente** para suportar o caso de utilização (ver mais na secção seguinte, **qualidade dos dados**, neste manual de comunicação social).
-* A cliente engloba centrado em dados arquitetura da nuvem ou **aprendizagem baseado na nuvem**, incluindo do Azure ML e outros componentes do Cortana Intelligence Suite.
-* O cliente está disposto a estabelecer **um fluxo de dados de ponto a ponto** esse instalações a entrega de dados para a nuvem de forma contínua e está disposta a **operacionalizar** a solução.
-* O cliente está preparado para **dedicar recursos** que irá ser ativamente envolvidos durante a implementação piloto inicial, para que os dados de conhecimento e propriedade da solução podem ser transferidos para o cliente após a conclusão com êxito.
-* O recurso de cliente deve ser um **professional dados intruso qualificado**, preferencialmente, uma scientist de dados.
+* É o problema de negócios em mãos **preditiva** por natureza. Um exemplo de casos de utilização preditiva é uma empresa de utilitário que gostaria de prever a carga de energia numa determinado subestação durante a hora seguinte. Por outro lado, analisar e classificação de drivers de históricos de procura seria **descritivo** por natureza e, portanto, menos aplicável.
+* Existe um claro **caminho da ação de** a tomar depois da predição está disponível. Por exemplo, se prever uma sobrecarga numa subestação durante a hora seguinte, pode acionar uma ação de proativa de reduzir a carga que está associada essa subestação e impedindo potencialmente uma sobrecarga.
+* Representa o caso de utilização uma **típico tipo de problema** , de modo que quando resolvido, pode preparar o caminho para resolver outras semelhante de casos de utilização.
+* O cliente pode definir **objetivos quantitativos e qualitativos** para demonstrar uma implementação de solução com êxito. Por exemplo, um objetivo quantitativo boa para previsão de procura de energia deve ser o limiar de precisão necessária (*por exemplo,*, é permitido até 5% erro) ou quando prever subestação sobrecarregar, em seguida, a precisão (taxa de positivos verdadeiros) e lembre-se (extensão da positivos verdadeiros) deve ser superior um determinado limiar. Estes objetivos devem ser derivados de objetivos de negócio do cliente.
+* Existe um claro **cenário de integração** com fluxo de trabalho de negócios da empresa. Por exemplo, a previsão da carga de subestação pode ser integrada no Centro de controlo de grelha para permitir que atividades de prevenção de sobrecarga.
+* O cliente tem pronto a utilizar **dados com qualidade suficiente** para suportar o caso de utilização (consulte outras informações na secção seguinte, **qualidade dos dados**, neste manual de comunicação social).
+* A arquitetura de centrados em dados de cloud engloba cliente ou **aprendizagem baseado na nuvem**, incluindo o Azure ML e outros componentes do Cortana Intelligence Suite.
+* O cliente está disposto a estabelecer **um fluxo de dados ponto a ponto** esse instalações a entrega de dados para a cloud de forma contínua e está disposto a **operacionalizar** a solução.
+* O cliente está pronto para **dedicar recursos** que irá ser ativamente envolvidos durante a implementação piloto inicial para que os dados de conhecimento e a propriedade da solução podem ser transferidos para o cliente após a conclusão bem-sucedida.
+* O recurso de cliente deve ser um **professional dados qualificados**, preferencialmente, um cientista de dados.
 
-Qualificação de um caso de utilização com base nos critérios acima pode significativamente melhorar as taxas de êxito de um caso de utilização e estabelecer uma boa beachhead para a implementação de casos de utilização futura.
+Qualificação de um caso de utilização com base nos critérios acima pode significativamente melhorar as taxas de êxito de um caso de utilização e estabelecer uma boa base para a implementação de casos de utilização futura.
 
-### <a name="cloud-based-solutions"></a>Soluções baseadas na nuvem
-Cortana Intelligence Suite no Azure é um ambiente integrado que reside na nuvem. A implementação de uma solução de análise avançadas num ambiente de nuvem contém vantagens significativas para empresas e ao mesmo tempo podem significar que alteração grande para as empresas que ainda utilize no local soluções de TI. Dentro do setor de energia, há uma tendência clara da migração gradual de operações para a nuvem. Esta tendência passa por manualmente no lado juntamente com o desenvolvimento de grelha inteligente conforme mencionado acima, no **tendências da indústria**. Como este manual de comunicação social concentra-se numa solução baseada na nuvem no domínio de energia, é importante explicar as vantagens e outras considerações de implementação de uma solução baseada na nuvem.
+### <a name="cloud-based-solutions"></a>Soluções baseadas na cloud
+Cortana Intelligence Suite no Azure é um ambiente integrado que residem na cloud. A implementação de uma solução de análises avançadas num ambiente de cloud possui vantagens significativas para as empresas e ao mesmo tempo podem significar grande mudança para as empresas que ainda utilize no local soluções de TI. No setor energético, existe uma tendência clara da migração gradual de operações para a cloud. Essa tendência anda de mãos dadas, juntamente com o desenvolvimento da grade inteligente tal como explicado acima, na **as tendências da indústria**. Como este playbook se concentra numa solução baseada na cloud no domínio de energia, é importante explicar as vantagens e outras considerações de implantação de uma solução com base na cloud.
 
-Talvez a vantagem maior de uma solução baseada na nuvem é o custo. Como uma solução utilizam componentes de implementação de nuvem, não os custos de compromisso ou os custos de componente de COGS (custo de bens vendida) associados ao mesmo. Isto significa que não é necessário para investir em hardware, software e manutenção IT, e, por conseguinte, existe uma redução substancial no risco de negócio.
+Talvez a maior vantagem de uma solução com base na cloud é o custo. Como uma solução faz uso dos componentes implantadas na nuvem, não há custos iniciais ou os custos de componente de COGS (custo de bens vendidos) associados a ele. Isso significa que não há necessidade de investir em hardware, software e manutenção IT e, portanto, há uma redução substancial no risco de negócios.
 
-Outra vantagem importante é a estrutura de custo pay as you go das soluções baseado na nuvem. Servidores baseados na nuvem para armazenamento ou de informática podem ser implementadas e dimensionados de forma just-como-necessário. Isto representa a vantagem da eficiência de custos de uma solução baseada na nuvem.
+Outra vantagem importante é a estrutura de custos de pay as you go de soluções baseadas na cloud. Servidores com base na cloud para armazenamento ou de computação podem ser implementados e dimensionados de forma just-conforme necessário. Isso representa a vantagem da eficiência de custo de uma solução baseada na cloud.
 
-Por fim, há sem necessidade de investir no desenvolvimento de infraestrutura futuras ou manutenção IT como tudo isto faz parte de oferta baseado na nuvem. Para essa extensão, Cortana Intelligence Suite inclui o melhor nos serviços de classe e mantém evolução de mapa da estrada. Novas funcionalidades, componentes e as capacidades estão constantemente a ser introduzidas e evoluem.
+Por fim, não há necessidade de investir na manutenção IT ou desenvolvimento de infra-estrutura futuras, como tudo isso é parte da oferta com base na cloud. Até esse limite, Cortana Intelligence Suite inclui o melhor nos serviços de classe e seu mapa da estrada mantém em evolução. Novos recursos, componentes e capacidades estão constantemente sendo apresentadas e evoluem.
 
-Para uma empresa que está a iniciar a transição para a nuvem, são altamente Recomendamos a adotar uma abordagem gradual através da implementação do mapa da estrada uma nuvem migração. Acreditamos que para utilitários e as empresas no domínio de energia, os casos de utilização que são debatidos neste manual de comunicação social representam uma excelente oportunidade para testes de implementação no soluções de Análise Preditiva na nuvem.
+Para uma empresa que está a iniciar sua transição para a cloud, que altamente Recomendamos para adotar uma abordagem de gradual implementando um Roteiro de migração da cloud. Acreditamos que, para utilitários e empresas no domínio de energia, os casos de utilização que são abordados neste manual de comunicação representam uma excelente oportunidade para criar um piloto de soluções de Análise Preditiva na cloud.
 
-#### <a name="business-case-justification-considerations"></a>Considerações de negócios justificação maiúsculas
-Em muitos casos, o cliente pode estar interessado em efetuar uma justificação de negócio para um caso de utilização especificado em que uma solução baseada na nuvem e o Machine Learning são componentes importantes. Ao contrário de uma solução no local, no caso de uma solução baseada na nuvem, o componente de custo de compromisso é o mínimo e a maioria dos elementos de custos associados a utilização real. Quando for necessário para implementar uma solução no Cortana Intelligence Suite de previsão de energia, vários serviços podem ser integrados com uma estrutura de custo único comuns. Por exemplo, as bases de dados (*por exemplo,*, SQL Azure) pode ser utilizado para armazenar os dados não processados e, em seguida, para o real previsões do Azure ML é utilizada para alojar os serviços de previsão. Neste exemplo, a estrutura de custo pode incluir o armazenamento e componentes transacionais.
+#### <a name="business-case-justification-considerations"></a>Considerações de justificação caso comercial
+Em muitos casos, o cliente pode estar interessado em tirar uma justificativa comercial para um caso de uso determinado, em que uma solução baseada na cloud e Machine Learning são componentes importantes. Ao contrário de uma solução no local, no caso de uma solução baseada na cloud, o componente de custos à cabeça é mínimo e a maioria dos elementos de custo está associada a utilização real. Quando se trata de implantar um solução no Cortana Intelligence Suite de previsão de energia, vários serviços podem ser integrados com uma única estrutura comum do custo. Por exemplo, as bases de dados (*por exemplo,*, SQL Azure) pode ser utilizado para armazenar os dados não processados e, em seguida, para o Azure ML de prevê a real é utilizada para alojar os serviços de previsão. Neste exemplo, a estrutura de custo pode incluir componentes transacionais e de armazenamento.
 
-Por outro lado, um deve ter uma boa compreensão do valor de negócio de um pedido de energia (curto ou longo prazo) de previsão a funcionar. Na verdade, é importante compreender o valor de negócio de cada operação de previsão. Por exemplo, com precisão previsão carga de energia para as próximas 24 horas pode impedir overproduction ou pode ajudar a evitar sobrecargas na grelha e isto pode ser quantified em termos de reduções financeiras numa base diária.
+Por outro lado, um deve ter uma boa compreensão do valor comercial de operar uma demanda de energia, previsão do (curto ou longo prazo). Na verdade, é importante perceber o valor comercial de cada operação de previsão. Por exemplo, com precisão de previsão de carga de energia para as próximas 24 horas pode impedir overproduction ou pode ajudar a evitar sobrecargas na grade e isso pode ser quantificado em termos de economia financeira numa base diária.
 
-Uma fórmula básica para calcular o benefício de procura financeiro previsão solução seria: ![fórmula básica para calcular o benefício de procura financeiro previsão solução](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Solução seria de previsão de uma fórmula básica para calcular o benefício financeiro de procura: ![solução de previsão de fórmula básica para calcular o benefício financeiro de procura](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
-Uma vez que o Cortana Intelligence Suite fornece um modelo de preços pay as you go, não é necessário para um componente de custo fixo para esta fórmula a incorrer em. Esta fórmula pode ser calculada numa base diária, mensais ou anuais.
+Uma vez que o Cortana Intelligence Suite fornece um modelo de preços pay as you go, não há necessidade de incorrer num componente de custo fixo para esta fórmula. Esta fórmula pode ser calculada numa base diária, mensal ou anual.
 
-É possível encontrar atual Cortana Intelligence Suite e planos de preços do Azure ML [aqui](http://azure.microsoft.com/pricing/details/machine-learning/).
+Atual do Cortana Intelligence Suite e planos de preços do Azure ML podem ser encontradas [aqui](http://azure.microsoft.com/pricing/details/machine-learning/).
 
-### <a name="solution-development-process"></a>Processo de desenvolvimento da solução
-O ciclo de desenvolvimento de um pedido de energia previsão solução, normalmente, envolve 4 fases, em todos os que se a utilização de tecnologias baseadas na nuvem e serviços no Cortana Intelligence Suite.
+### <a name="solution-development-process"></a>Processo de desenvolvimento de solução
+O ciclo de desenvolvimento de uma solução, normalmente, envolve 4 fases, em todos os quais podemos tornar de previsão de procura de energia a utilização de tecnologias baseadas na nuvem e os serviços do Cortana Intelligence Suite.
 
-Esta situação é ilustrada no diagrama seguinte:
+Isso é ilustrado no diagrama seguinte:
 
-![Ciclo de grelha inteligente](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
+![Ciclo de rede inteligente](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
 
-O parágrafo seguinte descreve este processo 4 passo:
+O parágrafo a seguir descreve esse processo 4 passo:
 
-1. **Recolha de dados** – avançadas qualquer solução de análise com base se baseia nos dados (consulte **compreensão de dados**). Especificamente, quando se trata de Análise Preditiva e previsão, precisamos de fluxo em curso e dinâmico de dados. No caso de energia a pedido previsão, estes dados podem ser obtidos diretamente a partir de medidores inteligentes ou já agregados numa base de dados no local. Podemos também dependem de outras origens de dados, tais como meteorologia e temperatura externas. Este fluxo contínuo de dados deve ser orquestrado, agendado e armazenado. [O Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) é a nossa workhorse principal para realizar esta tarefa.
-2. **Modelação** – previsões de energia exata e fiável, um tem desenvolver (formação) e manter um modelo excelente que utilizam a dos dados históricos e extrai os padrões significativos e preditivos nos dados. A área de Machine Learning (ML) tem sido crescer rapidamente com algoritmos mais avançados que está a ser desenvolvidos regularmente. Azure ML Studio fornece uma experiência de utilizador excelente que ajuda a utilizar os algoritmos de ML mais avançados dentro de um fluxo de trabalho completa. Esse fluxo de trabalho é ilustrado no diagrama de fluxo de intuitivo e inclui a preparação de dados, extração de funcionalidade, modelação e avaliação de modelo. O utilizador pode solicitar em centenas de vários modelos que estão incluídos neste ambiente. No final de nesta fase, um scientist dados terão um modelo de trabalho que é completamente avaliado e pronto para a implementação.
+1. **Recolha de dados** – avançada de qualquer solução de análise com base baseia-se nos dados (consulte **compreensão de dados**). Especificamente, quando se trata de Análise Preditiva e de previsão, Contamos com fluxo contínuo e dinâmico de dados. No caso de previsão de procura de energia, estes dados podem ter origem diretamente a partir de medidores inteligentes, ou já ser agregados numa base de dados no local. Precisamos também de outras fontes externas de dados como meteorologia e temperatura. Este fluxo contínuo de dados deve ser orquestrado, agendado e armazenado. [O Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) é o nosso trabalho pesado de principal para realizar essa tarefa.
+2. **Modelagem** – para previsões de energia precisos e fiáveis, uma deve desenvolver (train) e manter um excelente modelo que faz com que utilize dos dados históricos e extrai os padrões significativos e preditivos dos dados. A área de Machine Learning (ML) tem crescido rapidamente com algoritmos mais avançados que estão sendo desenvolvidos regularmente. O Azure ML Studio oferece uma experiência de utilizador fantástica que ajuda a utilizar os mais avançados algoritmos de ML dentro de um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado no diagrama de fluxo de intuitivo e inclui a preparação de dados, extração de funcionalidade, modelação e avaliação do modelo. O utilizador pode extrair em centenas de vários modelos que estão incluídos neste ambiente. No final desta fase, um cientista de dados terão um modelo funcional totalmente avaliada e pronto para implantação.
    
-   O diagrama seguinte é uma ilustração de um fluxo de trabalho normal:
+   O diagrama seguinte é uma ilustração de um fluxo de trabalho típico:
    
-   ![Modelação de fluxo de trabalho](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
-3. **Implementação** – com um modelo de trabalho em execução, o próximo passo é a implementação. Aqui, o modelo é convertido para um serviço web que expõe uma API RESTful que pode ser invocado em simultâneo através da Internet a partir de vários clientes de consumo. Azure ML fornece uma forma simple de implementar um modelo diretamente a partir do Azure ML Studio com um único clique do botão para um. O processo de implementação de todo acontece sob definições avançadas. Esta solução possa ser automaticamente dimensionada para satisfazer o consumo de necessário.
-4. **Consumo** – nesta fase, iremos, na verdade, certifique-utiliza o modelo de previsão para produzir as predições. O consumo de pode conduzido a partir de uma aplicação de utilizador (*por exemplo,*, dashboard) ou diretamente a partir de um sistema operacional, tais como a pedido/forneça balanceamento de sistema ou uma solução de otimização de grelha. Podem ser orientadas por vários casos de utilização de um único modelo.
+   ![Fluxo de trabalho de modelagem](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
+3. **Implementação** – com um modelo funcional em mãos, a próxima etapa é a implementação. Aqui o modelo é convertido num serviço web que expõe uma API RESTful que podem ser invocados simultaneamente através da Internet de vários clientes de consumo. O Azure ML oferece uma forma simples de implementar um modelo diretamente a partir do Azure ML Studio, com um único clique de um botão. O processo de toda a implementação acontece nos bastidores. Esta solução pode dimensionar automaticamente para satisfazer o consumo necessário.
+4. **Consumo** – nesta fase, fazemos, na verdade, utilizar o modelo de previsão de produzir previsões. O consumo pode ser condicionado a partir de uma aplicação de utilizador (*por exemplo,*, dashboard) ou diretamente de um sistema operacional, como a pedido/fornecimento balanceamento de sistema ou uma solução de otimização de grade. Vários casos de utilização podem ser condicionados a partir de um único modelo.
 
-## <a name="data-understanding"></a>Dados de conhecimento
-Após que abrangem as considerações de negócio (consulte **compreensão de negócio**) de um pedido de energia previsão solução, vamos agora está prontos para abordar a parte de dados. Qualquer solução de Análise Preditiva baseia-se em dados fiáveis. Para a previsão de pedido de energia, precisamos de dados de consumo histórico com vários níveis de granularidade. Os dados históricos são utilizados como o material de raw. -Vai sofrer uma análise cuidada no qual o scientist dados identifiquem predictors (também referidos como funcionalidades) que podem ser colocados num modelo que eventualmente irá gerar os previsões necessárias.
+## <a name="data-understanding"></a>Compreensão de dados
+Depois de falarmos sobre as considerações de negócios (consulte **Noções sobre empresas**) de uma demanda de energia, solução de previsão, agora estamos prontos para discuti a parte de dados. Qualquer solução de Análise Preditiva baseia-se nos dados fiáveis. Para previsão de procura de energia, Contamos com dados históricos de consumo com vários níveis de granularidade. Que dados históricos são utilizados como o material de raw. Ele vai sofrer uma análise cuidada na qual a cientista de dados irá identificar indicadores (também denominados como recursos) que podem ser colocados num modelo que eventualmente irá gerar as previsões necessárias.
 
-As restantes desta secção, iremos irá descreve os vários passos e considerações para compreender os dados e como colocá-lo a um formulário utilizável.
+No restante desta seção, descreveremos os vários passos e considerações para compreender os dados e como colocá-lo a um formulário utilizável.
 
 ### <a name="the-model-development-cycle"></a>O ciclo de desenvolvimento do modelo
-Produzir boa previsão modelos requer alguma preparação cuidada e planeamento. Interrompendo para baixo o processo de modelação em vários passos e concentrar-se num único passo num momento podem melhorar significativamente o resultado de todo o processo.
+Produção de bons modelos requer uma preparação cuidadosa de previsão e planejamento. A divisão de processo de modelagem em várias etapas e com foco numa etapa por vez podem melhorar significativamente o o resultado de todo o processo.
 
-O diagrama seguinte ilustra a forma como o processo de modelação foi ser dividido em vários passos:
+O diagrama seguinte ilustra como o processo de modelagem pode ser dividido em vários passos:
 
 ![Ciclo de desenvolvimento do modelo](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
 
-Como podem ser vistos que o ciclo de consiste em seis passos:
+Como pode ser visto que o ciclo de consiste em seis etapas:
 
-* Formulação do problema
+* Formulação de problema
 * Ingestão de dados e exploração de dados
-* Preparação de dados e de engenharia da funcionalidade
+* Preparação de dados e de engenharia de funcionalidades
 * Modelação
-* Modelo de avaliação
+* Avaliação do modelo
 * Desenvolvimento
 
-No resto nesta secção, irá descrevem os passos individuais e itens a considerar cada passo.
+O restante desta seção descreveremos as etapas individuais e os itens a serem considerados em cada passo.
 
-### <a name="problem-formulation"></a>Problema formulação
-Iremos pode considerar formulação o problema que o passo mais crítico um tem de tomar antes de implementar qualquer solução de Análise Preditiva. Aqui iremos seria transformar o problema empresarial e decompor-lo para elementos específicos que possam ser resolvidos através da utilização de dados e técnicas de modelação. É uma boa prática formular o problema como um conjunto de perguntas que gostaria de responder. Eis algumas questões possíveis que podem ser aplicáveis no âmbito da previsão de pedido de energia:
+### <a name="problem-formulation"></a>Formulação de problema
+Pode considerá-a formulação de problema como a etapa mais importante, é necessário efetuar antes da implementação de qualquer solução de Análise Preditiva. Aqui estamos seria transformar o problema comercial e decompor-lo para elementos específicos que podem ser resolvidos através de dados e técnicas de modelagem. É uma boa prática para formular o problema como um conjunto de perguntas que gostaria de responder. Eis algumas questões possíveis que podem ser aplicáveis no âmbito da previsão de procura de energia:
 
-* O que é a carga esperada num substation individuais na hora ou dia seguinte?
-* Em que altura do dia em que a minha grelha verificará picos de procura?
-* Qual é a probabilidade meu grelha para Suster a carga máxima esperada?
-* Quanto energia deve gerar a estação de energia durante a cada hora do dia?
+* O que é a carga esperada numa subestação individual na próxima hora ou dia?
+* A que hora do dia será minha grade experiência picos de procura?
+* Qual a probabilidade é minha grade para Suster a carga máxima esperados?
+* Quantidade de energia deve gerar a estação de energia durante cada hora do dia?
 
-Formulating estas perguntas permite-nos para se focarem em obter os dados adequados e implementar uma solução que é completamente alinhada com o problema de negócio em questão. Além disso, vamos, em seguida, pode definir alguns as métricas-chave que permitem-nos avaliar o desempenho do modelo. Por exemplo, como precisos a previsão estará e o que é o intervalo de erro que ainda seja aceitável da empresa?
+Formular essas perguntas nos permite se concentrar em obter os dados corretos e implementar uma solução totalmente alinhado com o problema de negócios em questão. Além disso, pode então definir algumas métricas-chave que permitem-nos avaliar o desempenho do modelo. Por exemplo, grau de precisão a previsão será e qual é o intervalo de erro que ainda seria aceitável, a empresa?
 
 ### <a name="data-sources"></a>Origens de Dados
-Grelha inteligente moderna recolhe dados de várias partes e dos componentes de grelha. Estes dados representam diferentes aspetos da operação e a utilização de grelha de energia. Dentro do âmbito a procura de energia previsão, iremos são limitar o debate sobre origens de dados que refletem o consumo de pedido real. Uma origem importante de consumo de energia são medidores inteligentes. Utilitários à volta de todo o mundo são implementar rapidamente medidores inteligentes para os seus consumidores. Medidores inteligentes registam o consumo de energia real e constantemente estes dados para a empresa do utilitário de reencaminhamento. Dados são recolhidos e enviados, o intervalo fixo, entre cada 5 minutos e 1 hora. Mais avançados medidores inteligentes podem ser programados remotamente para controlar e equilibrar o consumo real de dentro de um núcleo. Dados de medição inteligente é relativamente fiáveis e incluem um carimbo de data / hora. Isso permite uma ingredient importante para o pedido de previsão. Dados de medição podem ser agregados (summed) em vários níveis na topologia grelha: transformador, substation, região, *etc*. Vamos, em seguida, pode escolher o nível de agregação necessárias para criar um modelo de previsão para o mesmo. Por exemplo, se pretende que a empresa utilitário prever futura carga em cada um dos respetivos substations de grelha, em seguida, dados todos os medidores podem ser agregados para cada substation individuais e utilizados como uma entrada para o modelo de previsão. Denominamos medidores inteligentes uma origem de dados interno.
+A grade inteligente modernos recolhe dados de várias partes e componentes da grade. Estes dados representam vários aspectos da operação e a utilização da grade de energia. Dentro do âmbito da procura energética, previsão, podemos são limitando a discussão sobre as origens de dados que refletem o consumo de procura real. Uma origem importante do consumo de energia são medidores inteligentes. Utilitários em todo o mundo são implantar rapidamente medidores inteligentes para seus consumidores. Medidores inteligentes registram o consumo de energia real e constantemente estes dados para a empresa prestadora de reencaminhamento. Dados são recolhidos e enviados, o intervalo fixo, desde a cada 5 minutos para 1 hora. Mais avançados medidores inteligentes podem ser programados remotamente para controlar e equilibrar o consumo real dentro de um núcleo. Os dados de medidor inteligente é relativamente fiáveis e incluem um carimbo de data / hora. Assim que um importante ingrediente para previsão de demanda. Medidor de dados podem ser agregados (summed) em vários níveis na topologia grid: transformador, subestação, região, *etc*. Em seguida, podemos escolher o nível da agregação necessário para criar um modelo de previsão para o mesmo. Por exemplo, se a empresa prestadora gostaria de prever futuros carga em cada um dos seus subestações de grade, em seguida, dados todos os medidores podem ser agregados para cada subestação individual e utilizados como uma entrada para o modelo de previsão. Nos Referimos medidores inteligentes como uma origem de dados interno.
 
-Uma previsão de pedido de energia fiável será também dependem de outras origens de dados externas. Um fator importante que afeta o consumo de energia é a meteorologia ou mais precisamente a temperatura. Os dados históricos mostram forte correlação entre a temperatura externa e consumo de energia. Durante dias summer frequente, certifique-consumidores utilizar do respetivos conditioners ondas eletromagnéticas e durante a ativação Inverno heating sistemas. Uma origem fiável de históricos temperatures na localização de grelha, por conseguinte, é chave. Além disso, também precisamos de previsão exata de temperatura como uma previsão da receita do consumo de energia.
+Uma previsão de procura de energia confiáveis serão também contam com outras origens de dados externas. Um fator importante que afeta o consumo de energia é a meteorologia ou mais precisamente a temperatura. Dados históricos mostram forte correlação entre a temperatura externa e consumo de energia. Durante os dias de acesso frequente de Verão, os consumidores que utilizam de seus aparelhos de ar-condicionado e durante o poder de Inverno no aquecer sistemas. Uma origem fiável das temperaturas históricas disponíveis na localização de grade, portanto, é fundamental. Além disso, podemos também contam com uma previsão exata da temperatura como um fator de consumo de energia.
 
-Também podem ajudar na criação de modelos de previsão de pedido de energia a outras origens de dados externas. Estes podem incluir a longo prazo climático alterações, índices económico (*por exemplo,*, GDP) entre outros. Neste documento, não irá incluir estes outras origens de dados.
+Outras origens de dados externo também podem ajudar na criação de modelos de previsão de procura de energia. Estas podem incluir as alterações climáticas de longo prazo, índices económicas (*por exemplo,*, PIB) e outros. Neste documento, não incluirá estas outras origens de dados.
 
 ### <a name="data-structure"></a>Estrutura de dados
-Depois de identificar as origens de dados necessários, gostaríamos de Certifique-se de que os dados não processados que tenham sido recolhidos incluem as funcionalidades de dados correto. Para criar um modelo de previsão pedido fiável, precisamos de garantir que os dados recolhidos incluem elementos de dados que podem ajudar a prever a procura futura. Seguem-se alguns requisitos básicos que dizem respeito à estrutura de dados (esquema) dos dados não processados.
+Depois de identificar as origens de dados necessários, gostaríamos de Certifique-se de que os dados não processados que tenham sido recolhidos incluem as funcionalidades de dados correto. Para criar um modelo de previsão de procura fiável, precisamos de garantir que os dados recolhidos incluem elementos de dados que podem ajudar a prever a procura futura. Seguem-se alguns requisitos básicos sobre a estrutura de dados (esquema) dos dados não processados.
 
-Os dados não processados é composta por linhas e colunas. Cada medida é representada como uma única linha de dados. Cada linha de dados inclui várias colunas (também referidas como funcionalidades ou campos).
+Os dados brutos é composta por linhas e colunas. Cada medição é representada como uma única linha de dados. Cada linha de dados inclui várias colunas (também denominadas como recursos ou campos).
 
-1. **Carimbo de hora** – o campo de timestamp representa a hora real, quando a medição foi registada. -Deve estar em conformidade com um dos formatos de data/hora comuns. Data e hora partes devem ser incluídas. Na maioria dos casos, não é necessário para o tempo para serem gravados até o segundo nível de granularidade. É importante especificar o fuso horário em que os dados registados.
-2. **ID de medidor** -este campo identifica o medidor ou o dispositivo de medida. É uma variável categórico e pode ser uma combinação de dígitos e carateres.
-3. **Valor de consumo** – este é o consumo real de um determinado momento data /. O consumo de pode ser medido em kWh (kilowatt-hour) ou qualquer outro preferencial unidades. É importante ter em atenção que a unidade de medida deve permanecer consistente em todos os valores de dados. Em alguns casos, pode ser fornecido consumo mais 3 fases de energia. Nesse caso seria temos de recolher todas as fases de consumo independentes.
-4. **Temperatura** – a temperatura normalmente é recolhida a partir de uma origem independente. No entanto, deve ser compatível com os dados de consumo. Deve incluir um timestamp, tal como descrito acima, que irão permiti-lhe ser sincronizados com os dados de consumo real. O valor de temperatura pode ser especificado em graus Celsius ou Fahrenheit, mas deve permanecer consistente em todos os valores.
-5. **Localização –** do campo location é normalmente associado com o local onde os dados de temperatura tenham sido recolhidos. Pode ser representado como um número de código postal ou no formato (lat/longa) de latitude/longitude.
+1. **Carimbo de data / hora** – o campo timestamp representa o tempo real quando a medida foi registada. Ele deve estar em conformidade com um dos formatos de data/hora comuns. Partes de data e hora devem ser incluídos. Na maioria dos casos, não é necessário para o tempo para ser gravado até o segundo nível de granularidade. É importante especificar o fuso horário em que os dados são registrados.
+2. **ID do medidor** -este campo identifica o medidor ou o dispositivo de medição. Ele é uma variável categórica e pode ser uma combinação de dígitos e carateres.
+3. **Valor de consumo** – este é o consumo real numa determinada data/hora. O consumo pode ser medido em kWh (kilowatt-hour) ou qualquer outro preferencial unidades. É importante observar que a unidade de medida deve permanecer consistente em todas as medições de dados. Em alguns casos, o consumo pode ser fornecido mais 3 fases de energia. Nesse caso, seria necessário recolher todas as fases de consumo independentes.
+4. **Temperatura** – a temperatura, normalmente, é recolhida a partir de uma origem de independente. No entanto, deve ser compatível com os dados de consumo. Deve incluir um carimbo conforme descrito acima, que permitirá a ser sincronizados com os dados de consumo real. O valor de temperatura pode ser especificado em graus Celsius ou Fahrenheit, mas deve permanecer consistente em todas as medidas.
+5. **Localização –** o campo de localização é normalmente associado ao local onde os dados de temperatura tenham sido recolhidos. Ele pode ser representado como um número de código postal ou no formato do latitude/longitude (lat e longos).
 
-As tabelas seguintes mostra exemplos de um formato de dados de consumo e temperatura boa:
+As tabelas a seguir mostra exemplos de um bom formato de dados de consumo e a temperatura:
 
-| **Data** | **Tempo** | **ID de medidor** | **Fase 1** | **Fase 2** | **Fase 3** |
+| **data** | **tempo** | **ID do medidor** | **Fase 1** | **Fase 2** | **Fase 3** |
 | --- | --- | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |ABC1234 |7.0 |2.1 |5.3 |
 | 7/1/2015 |10:00:01 |ABC1234 |7.1 |2.2 |4.3 |
 | 7/1/2015 |10:00:02 |ABC1234 |6.0 |2.1 |4.0 |
 
-| **Data** | **Tempo** | **Localização** | **Temperatura** |
+| **data** | **tempo** | **Localização** | **temperatura** |
 | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |11242 |24.4 |
 | 7/1/2015 |10:00:01 |11242 |24.4 |
 | 7/1/2015 |10:00:02 |11242 |24.5 |
 
-Como podem ser vistos acima, este exemplo inclui 3 valores diferentes para consumo associado 3 fases de energia. Além disso, tenha em atenção que os campos de data e hora estão separadas, no entanto também podem ser combinados numa única coluna. Neste caso, a coluna de localização é representada um formato de código postal de 5 dígitos e a temperatura num formato grau Celsius.
+Como pode ser visto acima, este exemplo inclui 3 valores diferentes para consumo associadas com 3 fases de energia. Além disso, tenha em atenção que os campos de data e hora são separados, no entanto também podem ser combinados numa única coluna. Neste caso, a coluna de localização é representada num formato de código postal de 5 dígitos e a temperatura num formato de graus Celsius.
 
 ### <a name="data-format"></a>Formato de dados
-Cortana Intelligence Suite pode suportar os formatos de data mais comuns, como CSV, TSV, JSON, *etc*. É importante que o formato de dados situa-se consistente para o ciclo de vida completo do projeto.
+Cortana Intelligence Suite pode oferecer suporte os formatos de dados mais comuns, como CSV, TSV, JSON, *etc*. É importante que o formato de dados permanece consistente para todo o ciclo de vida do projeto.
 
 ### <a name="data-ingestion"></a>Ingestion de Dados
-Uma vez que a previsão de pedido de energia é prever a constantemente e frequentemente, iremos tem de garantir que os dados não processados é que fluem através de um processo de ingestão de dados sólida e fiável. O processo de ingestão tem de garantir que os dados não processados estão disponíveis para o processo de previsão ao tempo necessário. Que indica que a frequência de ingestão de dados deve ser superior à frequência da previsão.
+Uma vez que a previsão de procura de energia é prevista de constantemente e com frequência, nós tem de garantir que os dados não processados estão a ser encaminhados por meio de um processo de ingestão de dados sólida e fiável. O processo de ingestão tem de garantir que os dados não processados estão disponíveis para o processo de previsão no tempo necessário. Isso significa que a frequência de ingestão de dados deve ser superior à frequência de previsão.
 
-Por exemplo: se a nossa pedido previsão solução irá gerar uma nova previsão às 8:00 numa base diária, em seguida, é necessário para se certificar de que incluem todos os dados que tenham sido recolhidos durante as últimas 24 horas tem sido totalmente ingeridos até que ponto e tem o mesmo na última hora de  dados.
+Por exemplo: se nossa solução de previsão da procura geraria uma previsão novo às 8:00, diariamente, em seguida, precisamos garantir que todos os dados que tenham sido recolhidos durante as últimas 24 horas tiverem sido totalmente ingeridos até esse ponto e tem até mesmo incluam de última hora de  dados.
 
-Para tal, o Cortana Intelligence Suite oferece várias formas para suportar um processo de ingestão de dados fiável. Isto será mais abordado no **implementação** secção deste documento.
+Para tal, o Cortana Intelligence Suite oferece várias formas de suporte a um processo de ingestão de dados fiável. Isso será ainda mais abordado a **implementação** seção deste documento.
 
 ### <a name="data-quality"></a>Qualidade de dados
-A origem de dados não processados que são necessária para efetuar a previsão de procura fiável e precisa tem de cumprir critérios de qualidade alguns dados básicos. Apesar de métodos de análises avançados podem ser utilizados para compensar algum problema de qualidade de dados possível, ainda temos para se certificar de são sobreutilização algumas limiar de qualidade de base de dados quando a ingestão de dados de novo. Seguem-se algumas considerações que dizem respeito à qualidade de dados não processados:
+A origem de dados não processados que é necessária para realizar a previsão de procura fiável e exata têm de cumprir alguns critérios de qualidade de dados básicos. Embora métodos estatísticos avançados podem ser utilizados para compensar algum problema de qualidade de dados, ainda precisamos Certifique-se de está ultrapassando algum limite de qualidade de base de dados quando a ingestão de novos dados. Seguem-se algumas considerações sobre a qualidade de dados não processados:
 
-* **Falta o valor** -Isto refere-se à situação quando medida específica não foi recolhida. O requisito de básico aqui é que a taxa de valor em falta não deve ser superior a 10% durante qualquer período de tempo especificado. No caso que um valor único está em falta-deve ser indicado através da utilização de um valor predefinido (por exemplo: '9999') e não '0', que pode ser uma medida válido.
-* **Precisão medida** – o valor real do consumo ou temperatura deve ser registado com exatidão. Medidas incorretas produzirá previsões incorretas. Normalmente, o erro da medida deve ser inferior a 1 de % relativo ao valor verdadeiro.
-* **Hora da medida** – é necessário que o timestamp real dos dados recolhidos serão não desvio por mais de 10 segundos em relação ao momento true da medição real.
-* **Sincronização** – quando estão a ser utilizadas várias origens de dados (*por exemplo,*, consumo e temperatura), tem de garantir que não existem sem sincronização de hora problemas entre eles. Isto significa que a diferença de tempo entre o carimbo recolhido quaisquer dois independente das origens de dados não deve exceder mais de 10 segundos.
-* **Latência** - conforme mencionado acima, no **ingestão de dados**, estamos dependentes de um processo de fluxo e ingestão de dados fiável. Para controlar o que tem garantimos que iremos controlar a latência de dados. Isto é especificado como a diferença de tempo entre a hora que foi feita a medição real e a hora em que foi carregado para o armazenamento do Cortana Intelligence Suite e está pronto a utilizar. Carga de curto prazo a previsão a latência total não deve ser superior a 30 minutos. Carga de longo prazo a previsão a latência total não deve ser maior que 1 dia.
+* **Valor em falta** – isso refere-se para a situação quando medição específica não foi recolhida. O requisito de básico aqui é que a taxa de valor em falta não deve ser superior a 10% para qualquer determinado período de tempo. No caso deve ser indicado que um único valor está em falta-lo utilizando um valor predefinido (por exemplo: '9999') e não '0', que pode ser uma medida válida.
+* **Precisão da medição** – o valor real do consumo ou temperatura deve ser registrado com precisão. Medidas incorretas produzirá previsões incorretas. Normalmente, o erro de medida deve ser inferior a 1 de % relativo ao valor true.
+* **Tempo de medida** – é necessário que o período de tempo real dos dados recolhidos serão não desviar por mais de 10 segundos em relação ao tempo true da medição real.
+* **Sincronização** — quando estão a ser utilizadas várias origens de dados (*por exemplo,*, de consumo e de temperatura), tem de garantir que não há nenhuma sincronização de hora problemas entre eles. Isso significa que a diferença de tempo entre o carimbo de hora recolhido quaisquer dois independente das origens de dados não deve exceder os mais de 10 segundos.
+* **Latência** – tal como explicado acima, na **ingestão de dados**, são dependentes de um processo de fluxo e ingestão de dados fiável. Para controlar o que podemos tem de garantir que a Microsoft controlar a latência de dados. Isto é especificado como a diferença de tempo entre o momento em que foi efetuada a medida real e a hora a que foi carregada para o armazenamento do Cortana Intelligence Suite e está pronta a utilizar. Para a carga de curto prazo a previsão a latência total não deve ser superior a 30 minutos. Para a carga de longo prazo a previsão a latência total não deve ser maior que 1 dia.
 
-### <a name="data-preparation-and-feature-engineering"></a>Preparação de dados e de engenharia da funcionalidade
-Depois dos dados não processados foi ingeridos (consulte **ingestão de dados**) e foi em segurança armazenada, está pronto para ser processado. Fase de preparação de dados é basicamente colocar os dados não processados e a conversão (transformar, reformulação) para um formulário para a fase de modelação. Que podem incluir operações simples, tais como utilizar a coluna de dados não processados como é com o respetivo valor de medida real, valores normalizados, operações mais complexas, tais como [tempo lagging](https://en.wikipedia.org/wiki/Lag_operator)entre outros. As colunas de dados recentemente criado são referidas como funcionalidades de dados e o processo de gerar estes é referido como engenharia da funcionalidade. No final deste processo, iremos teria um novo conjunto de dados que tenha sido derivado os dados não processados e pode ser utilizado para a modelação. Além disso, a fase de preparação de dados precisa de tratar dos valores em falta (consulte **qualidade dos dados**) bem como compensá-los. Em alguns casos, deverá também temos normalizar os dados para se certificar de que todos os valores são representados na mesma escala.
+### <a name="data-preparation-and-feature-engineering"></a>Preparação de dados e de engenharia de funcionalidades
+Depois dos dados não processados foram ingeridos (consulte **ingestão de dados**) e trabalha com segurança armazenada, está pronto para ser processado. A fase de preparação de dados é, basicamente, levando os dados não processados e a conversão (transformar, reformulação de) num formulário para a fase de modelagem. Que pode incluir operações simples, tais como utilizar a coluna de dados não processados, como está com seu valor de medida real, valores padronizados, operações mais complexas, como [tempo lagging](https://en.wikipedia.org/wiki/Lag_operator)entre outros. As colunas de dados recém-criado são referidas como recursos de dados e o processo de gerar estes é chamado para engenharia de funcionalidades. No final deste processo seria temos um novo conjunto de dados que tem sido derivado dos dados brutos e podem ser usado para modelagem. Além disso, a fase de preparação de dados tem de lidar com valores em falta (consulte **qualidade dos dados**) e compensá-los. Em alguns casos, precisaremos também normalizar os dados para se certificar de que todos os valores são representados na mesma escala.
 
-Nesta secção, que iremos lista algumas das funcionalidades de dados comuns que estão incluídas de energia a pedido previsão modelos.
+Nesta secção, que listamos alguns dos recursos de dados comuns, que estão incluídos na energia da previsão de procura modelos.
 
-**Tempo suscitada pelo departamento de funcionalidades:** estas funcionalidades são derivadas dos dados de carimbo de data /. Estes são extraídos e convertidos categórico funcionalidades como:
+**Controlado por funcionalidades de tempo:** estas funcionalidades são derivadas dos dados de data/timestamp. Estas são extraídas e convertidas em categóricos recursos como:
 
 * Hora do dia – esta é a hora do dia que aceita valores entre 0 e 23
-* Dia da semana – Isto representa o dia da semana e aceita valores entre 1 (Domingo) para 7 (Sábado)
-* Dia do mês – Isto representa a data real e pode demorar valores entre 1 e 31
-* Mês do ano – Isto representa o mês e aceita valores entre 1 (Janeiro) e 12 (Dezembro)
-* Fim de semana – esta é uma funcionalidade do valor binário que assume os valores de 0 para dias da semana ou 1 para o fim de semana
-* Feriado - esta é uma funcionalidade do valor binário que assume os valores de 0 para um dia regular ou 1 para um feriado
-* Termos de Fourier – os termos de Fourier são ponderações que são derivadas do timestamp e são utilizadas para capturar da sazonalidade (cycles) dos dados. Uma vez que vamos pode ter vários seasons nos nossos dados temos vários Fourier termos. Por exemplo, valores de pedido podem ter anuais, semanais e diários seasons/ciclos que resultará em termos de Fourier 3.
+* Dia da semana – isso representa o dia da semana e aceita valores entre 1 (Domingo) e 7 (Sábado)
+* Dia do mês – isso representa a data real e pode assumir valores entre 1 e 31
+* Mês do ano – isso representa o mês e aceita valores entre 1 (Janeiro) e 12 (Dezembro)
+* Fim de semana – esta é uma funcionalidade de valor binário que usa os valores de 0 para dias da semana ou 1 para o fim de semana
+* Feriado - esse é um recurso de valor binário que usa os valores de 0 para um dia regular ou 1 para um feriado
+* Termos de Fourier-os termos de Fourier são pesos que são derivados do período de tempo e são usados para capturar a sazonalidade (cycles) nos dados. Uma vez que podemos ter várias fases da vida nos nossos dados precisamos vários termos de Fourier. Por exemplo, valores de pedido podem ter anuais, semanais e diários temporadas/ciclos, o que resulta em termos de Fourier 3.
 
-**Funcionalidades de medida independente:** as funcionalidades independentes incluem todos os elementos de dados pretende utilizar como predictors no nosso modelo. Aqui iremos excluir a funcionalidade de dependente que precisamos para prever.
+**Funcionalidades de medição independente:** os recursos independentes incluem todos os elementos de dados que gostaríamos de o utilizar como indicadores no nosso modelo. Aqui, podemos excluir o recurso dependente que precisamos para prever.
 
-* Funcionalidade de desfasamento – estes são tempo desviado valores a procura real. Por exemplo, as funcionalidades de desfasamento 1 armazena o valor a pedido a hora anterior (partindo do princípio de dados por hora), relativos a timestamp atual. Da mesma forma, vamos adicionar desfasamento 2, lag 3, *etc*. A combinação de funcionalidades de desfasamento que são utilizadas real são determinados durante a fase de modelação durante a avaliação dos resultados de modelo.
-* De longo prazo tendências – esta funcionalidade representa o crescimento linear no pedido entre anos.
+* Funcionalidade de atraso – são tempo desviado valores da procura real. Por exemplo, as funcionalidades de atraso 1 irão conter o valor a pedido na hora anterior (partindo do princípio de dados por hora) em relação ao timestamp atual. Da mesma forma, vamos adicionar o desfasamento de 2, lag 3, *etc*. A combinação real dos recursos de atraso que são utilizados são determinados durante a fase de modelagem pela avaliação dos resultados de modelo.
+* Longo prazo mais populares – esta funcionalidade representa o crescimento linear de procura entre os anos.
 
-**Funcionalidade dependente:** a funcionalidade dependente é a coluna de dados que Gostaríamos o nosso modelo para prever. Com [supervisionado aprendizagem](https://en.wikipedia.org/wiki/Supervised_learning), temos de primeiro preparar o modelo utilizando as funcionalidades dependentes (que também é referido como etiquetas). Isto permite que o modelo saber os padrões de dados associados com a funcionalidade dependente. Em termos de energia previsão, normalmente, queremos prever a utilização real e, por isso, vamos utilizá-lo como a funcionalidade de dependente.
+**Funcionalidade dependente:** o recurso dependente é a coluna de dados que gostaríamos de nosso modelo para prever. Com o [supervisionado aprendizagem](https://en.wikipedia.org/wiki/Supervised_learning), precisamos primeiro preparar o modelo usando os recursos dependentes (que é também conhecido como rótulos). Isso permite que o modelo aprender os padrões nos dados associados ao recurso dependente. Previsão de procura de energia, normalmente, queremos prever a procura real e, portanto, usaríamos-lo como o recurso dependente.
 
-**Processamento de valores em falta:** durante a fase de preparação de dados, seria precisamos determinar a melhor estratégia para lidar com os valores em falta. Isto é feito principalmente através da utilização de análises várias [os métodos de imputation dados](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). No caso de energia a pedido previsão, iremos normalmente impute valores em falta utilizando média móvel anterior disponíveis dos pontos de dados.
+**Manipulação de valores em falta:** durante a fase de preparação de dados, seria necessário determinar a melhor estratégia para lidar com valores em falta. É principalmente para isso, usando as várias estatísticas [métodos de imputation dados](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). No caso de previsão de procura de energia, podemos normalmente impute valores em falta utilizando a média móvel de pontos de dados disponíveis anteriores.
 
-**Dados de normalização:** normalização de dados é outro tipo de transformação que é utilizada para assegurar a todos os dados numéricos, tais como a pedido previsão uma escala semelhante. Isto normalmente ajuda a melhorar a precisão do modelo e a precisão. É, normalmente, isto seria feito, dividindo o valor real por intervalo dos dados.
-Isto irá reduzir o valor original verticalmente para um intervalo mais pequeno, normalmente, entre -1 e 1.
+**Normalização de dados:** normalização de dados é outro tipo de transformação que é usado para trazer todos os dados numéricos, como a previsão de procura numa escala similar. Isso normalmente ajuda a melhorar a precisão do modelo e a precisão. Normalmente, fazer isso, dividindo o valor real por intervalo de dados.
+Isto irá reduzir o valor original num intervalo menor, normalmente entre -1 e 1.
 
 ## <a name="modeling"></a>Modelação
-A fase de modelação é onde ocorre a conversão de dados para um modelo. No principal deste processo existe avançado algoritmos de analisar os dados históricos (dados de formação), extrair padrões e criar um modelo. Esse modelo pode ser posteriormente utilizado para prever em novos dados que não tem sido utilizados para criar o modelo.
+A fase de modelagem é onde ocorre a conversão dos dados num modelo. No núcleo desse processo lá são avançados algoritmos de analisar os dados históricos (dados de treinamento), extrair os padrões e criar um modelo. Esse modelo pode ser utilizado mais tarde para prever sobre novos dados que não foi utilizados para criar o modelo.
 
-Assim que tivermos um modelo de fiável de trabalho, em seguida, pode utilizá-lo para pontuar novos dados estruturados para incluir as funcionalidades necessárias (X). O processo de classificação faz com que utilizam o modelo persistente (objeto de fase de formação) e prever a variável de destino que está em falta que por Ŷ.
+Assim que tivermos um modelo de fiável de trabalho que, em seguida, pode utilizá-lo para pontuar novos dados estruturados para incluir as funcionalidades necessárias (X). O processo de classificação fará com que utilize do modelo persistente (objeto da fase de treinamento) e prever a variável de destino que está em falta por Ŷ.
 
-### <a name="demand-forecasting-modeling-techniques"></a>Previsão técnicas de modelação de pedido
-No caso da pedido, iremos tornar de previsão a utilização de dados históricos, que estão ordenados por hora. É, geralmente, consulte os dados que inclui a dimensão de hora como [série de tempo](https://en.wikipedia.org/wiki/Time_series). O objetivo no modelação de séries de tempo é localizar tendências relacionadas, sazonalidade, auto-correlação (correlação ao longo do tempo), de hora e formular os para um modelo.
+### <a name="demand-forecasting-modeling-techniques"></a>Técnicas de modelagem de previsão de procura
+No caso de fazermos de previsão de procura utiliza dados históricos que estão ordenados por tempo. Referimos geralmente dados que incluem a dimensão de hora como [série de tempo](https://en.wikipedia.org/wiki/Time_series). O objetivo de modelagem de série de tempo é encontrar tempo relacionadas tendências, sazonalidade, auto-correlação (correlação ao longo do tempo) e Formulá-las num modelo.
 
-Nos últimos anos algoritmos avançados tem foi desenvolvidos para acomodar a previsão de série de tempo e para melhorar a exatidão da previsão. Resumidamente, vamos discutir alguns deles aqui.
+Nos últimos anos algoritmos avançados foram desenvolvidos para acomodar a previsão de séries de tempo e aumentar a exatidão da previsão. Resumidamente, vamos abordar algumas delas aqui.
 
 > [!NOTE]
-> Esta secção não se destina a ser utilizado como uma máquina de aprendizagem e a descrição geral de previsão, mas em vez disso, como um curto inquérito de modelação técnicas que são frequentemente utilizadas para a pedido de previsão. Para obter mais informações e material educational sobre previsão de série de tempo, recomendamos vivamente o livro online [previsão: princípios e prática](https://www.otexts.org/book/fpp).
+> Esta secção não se destina a ser utilizado como uma máquina de aprendizagem e a descrição geral de previsão, mas em vez disso, como um pequeno inquérito de modelar técnicas que são frequentemente utilizadas para previsão de procura. Para obter mais informações e instituições de ensino material sobre previsão de séries de tempo, recomendamos vivamente o livro online [previsão: princípios e práticas recomendadas](https://www.otexts.org/book/fpp).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (média móvel)**](https://www.otexts.org/fpp/6/2)
-Média móvel está as primeira analíticas de técnicas de que foi utilizado para a previsão de série de tempo e é ainda uma das mais frequentemente utilizadas técnicas a partir de hoje. Também é o alicerce da mais avançadas técnicas de previsão. Com média iremos são previsão o próximo ponto de dados por uma média através de pontos de mais recentes K, onde K indica a ordem da média móvel.
+#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (média)**](https://www.otexts.org/fpp/6/2)
+Média móvel é uma das técnicas analíticas primeiro que foi utilizado para previsão de séries de tempo e é ainda uma das mais frequentemente utilizadas técnicas até hoje. Também é a base para mais avançadas técnicas de previsão. Com a média móvel, previsão o próximo ponto de dados por uma média ao longo dos pontos mais recentes de K, onde K denota a ordem da média móvel.
 
-A mover técnica média tem o efeito de suavização a previsão e, por conseguinte, não poderá processar volatility bem grande nos dados.
+A técnica de média móvel tem o efeito de suavização a previsão e, portanto, não pode processar bem grande volatilidade dos dados.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (Suavização exponencial)**](https://www.otexts.org/fpp/7/5)
-Suavização exponencial (ETS) é uma família de vários métodos que utilizam uma média ponderada recentes de pontos de dados para prever o próximo ponto de dados. A ideia é atribuir ponderações superiores para valores mais recentes e diminuir gradualmente este importância para os valores de medida mais antigos. Existem vários métodos diferentes com esta família, algumas delas incluem processamento de sazonalidade nos dados, tais como [método sazonais Holt Winters](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (nivelamento exponencial)**](https://www.otexts.org/fpp/7/5)
+Nivelamento exponencial (ETS) é uma família de vários métodos que usam uma média ponderada de pontos de dados recentes para prever o próximo ponto de dados. A idéia é atribuir pesos superior para valores mais recentes e gradualmente diminuir este peso para valores de medida mais antigos. Há uma série de métodos diferentes com esta família, alguns deles incluem manipulação de sazonalidade nos dados, tal como [método de sazonais Holt-Winters](https://www.otexts.org/fpp/7/5).
 
-Alguns destes métodos também pesar da sazonalidade dos dados.
+Alguns desses métodos também avaliar a sazonalidade dos dados.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (automática regressão integrado mover média)**](https://www.otexts.org/fpp/8)
-Auto regressão integrada mover médio (ARIMA) é outra família dos métodos que é normalmente utilizada para a previsão de série de tempo. Praticamente combina os métodos de regressão automática com média. Métodos de regressão automática utilizam modelos de regressão, efetuando os valores de séries de tempo anterior para calcular o próximo ponto de data. Métodos ARIMA também se aplicam os métodos de diferenciação que incluem a calcular a diferença entre os pontos de dados e a utilização dos mesmos em vez do valor monitorizado original. Por fim, ARIMA também utiliza as técnicas de média móvel que são analisadas acima. A combinação de todos estes métodos de várias formas é que constrói a família de métodos ARIMA.
+#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (média móvel integrada de regressão automática)**](https://www.otexts.org/fpp/8)
+Automática regressão integrada mover média (ARIMA) é outra família de métodos que é normalmente utilizada para previsão de série temporal. Praticamente combina métodos de regressão automática com a média móvel. Os métodos de regressão automática usar modelos de regressão, efetuando os valores de séries de tempo anterior para calcular o próximo ponto de data. Métodos ARIMA também se aplicam os métodos de diferenciação que incluem a calcular a diferença entre os pontos de dados e a utilização dos mesmos em vez do valor original medido. Por fim, ARIMA também usa as técnicas de média móveis discutidos acima. A combinação de todos esses métodos de várias formas é o que constrói a família de métodos ARIMA.
 
-ETS e ARIMA são amplamente utilizado hoje para previsão de pedido de energia e muitos outros problemas de previsão. Em muitos casos estes são combinados em conjunto para fornecer resultados muito exatos.
+ETS e ARIMA são amplamente utilizada atualmente para previsão de procura de energia e muitos outros problemas de previsão. Em muitos casos combinados em conjunto para fornecer resultados muito precisos.
 
-**Regressão múltipla geral** modelos de regressão dever a abordagem mais importante de modelação dentro do domínio de machine learning e estatísticas. No contexto de séries de tempo utilizamos regressão para prever futuros valores (*por exemplo,*, de procura). Regressão iremos tirar uma combinação de linear dos predictors e saber as ponderações (também referidas como coefficients) desses predictors durante o processo de preparação. O objetivo é para produzir uma linha de regressão será previsão nosso valor previsto. Os métodos de regressão são adequados quando a variável de destino é um valor numérico e, por conseguinte, também se adequa a previsão de série de tempo. Há uma grande variedade de métodos de regressão, incluindo modelos de regressão muito simples, como [regressão Linear](https://en.wikipedia.org/wiki/Linear_regression) e mais avançadas aqueles como árvores de decisões, [aleatório florestas](https://en.wikipedia.org/wiki/Random_forest), [Neural Redes](https://en.wikipedia.org/wiki/Artificial_neural_network)e elevada árvores de decisões.
+**Regressão múltipla geral** modelos de regressão poderiam ser a abordagem de modelagem mais importante dentro do domínio do machine learning e estatísticas. No contexto de séries de tempo usamos de regressão para prever os valores de futuros (*por exemplo,*, de procura). Regressão Vamos dar uma combinação de linear dos indicadores e saiba os pesos (também referidos como coeficientes) desses indicadores durante o processo de treinamento. O objetivo é produzir uma linha de regressão que irão prever o nosso valor previsto. Métodos de regressão adequam-se quando a variável de destino é numérica e, portanto, também se adequa a previsão de séries de tempo. Há uma grande variedade de métodos de regressão, incluindo modelos de regressão muito simples, tal como [regressão Linear](https://en.wikipedia.org/wiki/Linear_regression) e muito mais avançadas, como árvores de decisões [Random florestas](https://en.wikipedia.org/wiki/Random_forest), [Neural Redes](https://en.wikipedia.org/wiki/Artificial_neural_network)e aumentou a árvores de decisões.
 
-Construir a pedido de energia previsão como um problema de regressão proporciona muita flexibilidade na seleção de funcionalidades nossos dados que podem ser combinadas dos dados de série de tempo do pedido real e fatores externos, como temperatura. Obter mais informações sobre as funcionalidades selecionadas são abordados na engenharia da funcionalidade (consulte **preparação de dados e de engenharia da funcionalidade**) secção este manual de comunicação social.
+Construir como um problema de regressão de previsão de procura de energia nos dá muita flexibilidade para selecionar os nossos recursos de dados que podem ser combinados dos dados de séries de tempo de procura real e os fatores externos como temperatura. Obter mais informações sobre as funcionalidades selecionadas são discutidas em engenharia da funcionalidade (consulte **preparação de dados e a funcionalidade de engenharia**) secção este manual de comunicação social.
 
-Da nossa experiência com a implementação e a implementação do piloto de previsões de pedido de energia, ter Descobrimos que os modelos de regressão avançadas que estão disponíveis no Azure ML têm tendência produzir os melhores resultados e iremos tornar utilizar deles.
+A nossa experiência com a implementação e implementação do piloto de previsões de procura de energia, Achamos que os modelos de regressão avançadas que estão disponíveis no Azure ML tendem a produzir os melhores resultados e ganhar utilizá-los.
 
-## <a name="model-evaluation"></a>Modelo de avaliação
-Avaliação do modelo tem um papel fundamental no **ciclo de desenvolvimento de modelo**. Neste passo, vamos ver para validar o modelo e o desempenho com dados de vida real. Durante o passo de modelação utilizamos uma parte dos dados disponíveis para o modelo de preparação. Durante a fase de avaliação, iremos tirar o resto dos dados para testar o modelo. Praticamente significa que podemos são feeding os dados de novo modelo que tenham sido restructured e contém as mesmas funcionalidades como o conjunto de dados de formação. No entanto, durante o processo de validação, utilizamos o modelo para prever a variável de destino em vez de fornecer a variável de destino disponíveis. Vamos referir-se frequentemente a este processo como modelo de classificação. Em seguida, iremos seria utilizar os valores de destino for VERDADEIRO e compará-los com as previsto. O objetivo aqui é medir e minimizar o erro de previsão, que significa que a diferença entre as predições e o valor for VERDADEIRO. Quantifying a medição de erro é a chave, uma vez que Gostaríamos otimizar o modelo e validar se o erro, na verdade, está a diminuir. Fine-Tuning o modelo pode ser feito ao modificar os parâmetros de modelo que controlam o processo de aprendizagem ou adicionando ou removendo as funcionalidades de dados (referido como [parâmetros paramétrico](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Praticamente que significa que poderá temos de iterar entre a engenharia da funcionalidade, modelação de e modelo várias vezes as fases de avaliação até que é possível reduzir o erro para o nível necessário.
+## <a name="model-evaluation"></a>Avaliação do modelo
+Avaliação do modelo tem um papel fundamental dentro de **ciclo de desenvolvimento do modelo**. Neste passo, vamos ver em validar o modelo e seu desempenho com os dados da vida real. Durante o passo de modelagem usamos uma parte dos dados disponíveis para o modelo de formação. Durante a fase de avaliação, vamos dar o resto dos dados para testar o modelo. Praticamente, significa que podemos são manutenção os dados do novo modelo que tenham sido reestruturados e contém os mesmos recursos que o conjunto de dados de treinamento. No entanto, durante o processo de validação, vamos utilizar o modelo para prever a variável de destino, em vez de fornecer a variável de destino disponíveis. Normalmente, nos Referimos a esse processo como modelo de classificação. Podemos seria, em seguida, utilize os valores de destino VERDADEIRO e compará-los por aqueles de que o previsto. O objetivo aqui é medir e minimizar o erro de previsão, que significa que a diferença entre as previsões e o valor true. Avaliando a medição de erro é a chave, uma vez que gostaríamos de ajustar o modelo e validar se o erro, na verdade, está a diminuir. Ajuste fino do modelo pode ser feito modificando os parâmetros de modelo que controlam o processo de aprendizado ou ao adicionar ou remover recursos de dados (denominados [parâmetros paramétrico](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Praticamente que significa que podemos poderá ter de iterar entre a engenharia de funcionalidades, de modelagem e modelar fases de avaliação várias vezes até que somos capazes de reduzir o erro para o nível necessário.
 
-É importante ênfase que o erro de previsão nunca será zero que nunca se um modelo que perfeitamente possível prever a cada resultado. No entanto, há um determinado magnitude erro que é aceitável da empresa. Durante o processo de validação, gostaríamos de Certifique-se de que a nossa erro de previsão do modelo ao nível do ou melhor do que o nível de tolerância de negócio. Consequentemente, é importante definir o nível de erro tolerable no início do ciclo durante o **problema formulação** fase.
+É importante ênfase que o erro de previsão nunca seja zero como nunca se dá um modelo que perfeitamente pode prever a cada resultado. No entanto, há uma determinada magnitude do erro que é aceitável pela empresa. Durante o processo de validação, gostaríamos de Certifique-se de que o nosso erro de previsão do modelo está no nível ou melhor do que o nível de tolerância de negócios. Portanto, é importante definir o nível do erro tolerável no início do ciclo de durante a **problema formulação** fase.
 
-### <a name="typical-evaluation-techniques"></a>Técnicas de avaliação típica
-Existem várias formas em que a predição de erro pode ser medido e quantified. Nesta secção, irá focar-se o debate sobre técnicas de avaliação relevantes à série de tempo e no específicas para a pedido de energia previsão.
+### <a name="typical-evaluation-techniques"></a>Técnicas de avaliação típicas
+Existem várias formas na qual predição erro pode ser medido e quantificado. Nesta secção, nos concentraremos a discussão sobre técnicas de avaliação relevantes à série de tempo e, em particular para previsão de procura de energia.
 
 #### <a name="mapehttpsenwikipediaorgwikimeanabsolutepercentageerror"></a>[**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
-MAPE representa significa erro percentagem absoluto. Com MAPE iremos são informática a diferença entre cada previstos ponto e o valor real desse ponto. Em seguida, iremos quantificar o erro por ponto calculando a proporção entre a diferença relativo ao valor real. No último passo, vamos médio estes valores. A fórmula matemática utilizada para MAPE é o seguinte:
+MAPE significa significa absoluto erro de percentagem. Com MAPE são computando a diferença entre cada previstos ponto e o valor real desse ponto. Em seguida, podemos quantificar o erro por ponto, calculando a proporção da diferença em relação ao valor real. No último passo, vamos média estes valores. A fórmula matemática usada para MAPE é o seguinte:
 
-![A fórmula MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
-*onde A<sub>t</sub> é o valor real, F<sub>t</sub> é o valor previsto e n é a previsão horizon.*
+![Fórmula MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
+*onde A<sub>t</sub> é o valor real, F<sub>t</sub> é o valor previsto e n é o horizonte de previsão.*
 
 ## <a name="deployment"></a>Implementação
-Assim que podemos ter nailed para baixo a fase de modelação e validar o desempenho do modelo que está prontos Ir para a fase de implementação. Neste contexto, a implementação significa ativar o cliente consumir o modelo executando predições reais no mesmo escala maior. O conceito de implementação é a chave no Azure ML, uma vez que o nosso objetivo principal é a invocar constantemente predições, por oposição a apenas obter as informações a partir dos dados. A fase de implementação é a parte onde iremos ativar o modelo a ser consumidos em grande escala.
+Assim que temos chegar a fase de modelagem e validar o desempenho de modelo, que estamos prontos para ir para a fase de implantação. Neste contexto, a implementação significa a habilitar o cliente consumir o modelo através da execução de previsões de indisponibilidade reais no mesmo em grande escala. O conceito de implantação é a chave do Azure ML, uma vez que o nosso objetivo principal é constantemente invocar previsões em vez de apenas obter a informação dos dados. A fase de implantação é a parte em que ativamos o modelo ser consumida em grande escala.
 
-No contexto de energia a pedido previsão, nosso objetivo é a invocar previsões contínuas e periódicas garantindo que os novos dados estão disponíveis para o modelo e que os dados previstos são enviados para o cliente de consumo.
+Dentro do contexto de previsão de procura de energia, nosso objetivo é invocar previsões periódicas e contínuas, garantindo que os dados atualizados estão disponíveis para o modelo e que os dados previstos são enviados de volta para o cliente de consumo.
 
-### <a name="web-services-deployment"></a>Implementação de serviços Web
-O bloco modular implementável principal no Azure ML é o serviço web. Esta é a forma mais eficiente para ativar o consumo de um modelo preditivo na nuvem. O serviço Web encapsula o modelo e encapsula na wrapper cópias de segurança com um [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). A API pode ser utilizada como parte de qualquer código de cliente conforme ilustrado no diagrama abaixo.
+### <a name="web-services-deployment"></a>Implementação de serviços da Web
+O bloco de construção implementável principal no Azure ML é o serviço web. Esta é a maneira mais eficiente para permitir o consumo de um modelo preditivo na cloud. O serviço Web encapsula o modelo e termina com um [RESTful](http://www.restapitutorial.com/) API (Interface de programação de aplicativo). A API pode ser utilizada como parte de qualquer código de cliente, conforme ilustrado no diagrama abaixo.
 
-![Estamos a implementação de serviço e o consumo de](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
+![Estamos a implementação do serviço e o consumo](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
-Como podem ser vistos, o serviço web está implementado na nuvem Cortana Intelligence Suite e pode ser invocado ao longo do respetivo exposta ponto final da REST API. Um tipo diferente de clientes em vários domínios pode invocar o serviço através da API Web em simultâneo. Também pode dimensionar o serviço web para suportar a milhares de chamadas em simultâneo.
+Como pode ser visto, o serviço web é implementado na nuvem do Cortana Intelligence Suite e pode ser invocado ao longo do seu ponto de extremidade exposto REST API. Um tipo diferente de clientes em vários domínios pode invocar o serviço através da API Web em simultâneo. O serviço web também pode dimensionar para oferecer suporte a milhares de chamadas simultâneas.
 
 ### <a name="a-typical-solution-architecture"></a>Uma arquitetura de solução típica
-Quando implementar um pedido de energia previsão solução, estamos interessados em implementar uma solução ponto a ponto que vai mais além do serviço web de predição e facilita o fluxo de dados completo. No momento que invocar uma previsão novo, temos de certificar-se de que o modelo sejam fornecido com as funcionalidades de dados atualizados. Que indica que os dados não processados recentemente recolhidos constantemente ingeridos, processados e transformados a funcionalidade necessária definida no qual o modelo foi criado. Ao mesmo tempo, gostaríamos de disponibilizar os dados previstos para o end consumir os clientes. Um exemplo dados de ciclo de fluxo (ou o pipeline de dados) é ilustrado no diagrama abaixo:
+Ao implementar uma solução de previsão de procura de energia, estamos interessados na implantação de uma solução ponto a ponto que faz mais do que o serviço da web de predição e facilita o fluxo de dados inteiro. No momento que podemos invocar uma previsão de novo, precisamos de certificar-se de que o modelo é fornecido com os recursos de dados atualizados. Isso significa que os dados brutos coletados recentemente é constantemente ingeridos, processados e transformados na funcionalidade necessária definida no qual o modelo foi criado. Ao mesmo tempo, gostaríamos de disponibilizar os dados previstos para o end os clientes consumidores. Um exemplo dados de ciclo de fluxo (ou pipeline de dados) está ilustrado no diagrama abaixo:
 
-![Pedido de energia previsão de fluxo de dados de ponto a ponto](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
+![Fluxo de dados ponto a ponto da previsão de procura de energia](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
-Estes são os passos que efetuar como parte do ciclo de previsão a pedido de energia:
+Estes são os passos que ocorrem como parte do ciclo de previsão de procura de energia:
 
-1. Milhões de medidores de dados implementado constantemente geraram os dados de consumo de energia em tempo real.
-2. Estes dados está a ser recolhidos e carregada para um repositório de nuvem (*por exemplo,*, Blob do Azure).
-3. Antes de ser processado, os dados não processados são agregados para um nível regional ou substation tal como definido pela empresa.
-4. O processamento da funcionalidade (consulte **preparação de dados e a funcionalidade de processamento**), em seguida, ocorra e produz os que é necessários para o modelo de dados de preparação ou de classificação – os dados de conjunto de funcionalidade são armazenados numa base de dados (*por exemplo,*, SQL Azure).
-5. O serviço novamente training é invocado para voltar a preparar o modelo de previsão – essa versão atualizada do modelo é persistente, para que possa ser utilizado pelo serviço web de classificação.
-6. O serviço web de classificação é invocado com base numa agenda que se adequa a frequência de previsão necessária.
-7. Os dados previstos são armazenados numa base de dados que pode ser acedido pelo cliente de consumo de fim.
-8. O cliente de consumo obtém os previsões, aplica-se Efetue uma cópia na grelha e consome-lo de acordo com o caso de utilização necessária.
+1. Milhões de medidores de dados implementados estão constantemente a gerar dados de consumo de energia em tempo real.
+2. Estes dados está a ser recolhidos e carregada para o repositório na cloud (*por exemplo,*, BLOBs do Azure).
+3. Antes de ser processado, os dados não processados são agregados a um subestação ou a nível regional, conforme definido pela empresa.
+4. O processamento do recurso (consulte **preparação de dados e a funcionalidade de processamento**), em seguida, ocorra e produz os que é necessários para um modelo de dados de preparação ou de classificação – os dados do conjunto de recursos são armazenados numa base de dados (*por exemplo,*, SQL Azure).
+5. O serviço novamente treinamento é invocado para voltar a preparar o modelo de previsão – essa versão atualizada do modelo é mantido para que possa ser utilizado pelo serviço web de pontuação.
+6. O serviço web de pontuação é invocado com base numa agenda que se adequa a frequência de previsão necessária.
+7. Os dados previstos são armazenados numa base de dados que pode ser acedida pelo cliente de consumo do fim.
+8. O cliente de consumo obtém as previsões, aplica-se-lo novamente para a grade e consome-lo de acordo com o caso de uso necessárias.
 
-É importante ter em atenção que este ciclo completo é totalmente automatizado e é executada com base numa agenda. A orquestração toda deste ciclo de dados pode ser feita utilizando ferramentas como [do Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+É importante observar que esta todo o ciclo é totalmente automatizado e é executada com base numa agenda. A orquestração completa deste ciclo de dados pode ser feita usando as ferramentas, tal como [do Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
-### <a name="end-to-end-deployment-architecture"></a>Arquitetura de implementação de ponto a ponto
-Para praticamente implementar uma solução de previsão de pedido de energia no Cortana Intelligence, precisamos de garantir que os componentes necessários são estabelecidos e configurados corretamente.
+### <a name="end-to-end-deployment-architecture"></a>Arquitetura de implantação de ponta a ponta
+Para implementar praticamente uma solução de previsão de procura de energia no Cortana Intelligence, é necessário garantir que os componentes necessários são estabelecidos e configurados corretamente.
 
-O diagrama seguinte ilustra uma arquitetura de Intelligence Cortana com base típica que implementa e orquestra o ciclo de fluxo de dados que é descrito acima:
+O diagrama seguinte ilustra uma arquitetura típica do Cortana Intelligence com base em que implementa e orquestra o ciclo de fluxo de dados que é descrito acima:
 
-![Arquitetura de implementação de ponto a ponto](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
+![Arquitetura de implantação de ponta a ponta](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
-Para obter mais informações sobre cada um dos componentes e a arquitetura de toda consulte o modelo de solução de energia.
+Para obter mais informações sobre cada um dos componentes e toda a arquitetura consulte o modelo de solução de energia.
 

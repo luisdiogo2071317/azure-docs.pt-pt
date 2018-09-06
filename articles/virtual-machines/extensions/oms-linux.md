@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 09/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 858c586151c8a0dd5378794a5057c22a423c43cf
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414299"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782744"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de análise de registo para Linux
 
@@ -36,18 +36,24 @@ A extensão de agente do Log Analytics pode ser executada nessas distribuições
 
 | Distribuição | Versão |
 |---|---|
-| CentOS Linux | 5, 6 e 7 (x86/x64) |
-| Oracle Linux | 5, 6 e 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 5, 6 e 7 (x86/x64) |
-| Debian GNU/Linux | 6, 7, 8 e 9 (x86/x64) |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 11 e 12 (x86/x64) |
+| CentOS Linux | 6 e 7 (x86/x64) |
+| Amazon Linux | 2017.09 | 
+| Oracle Linux | 6 e 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 6 e 7 (x86/x64) |
+| Debian GNU/Linux | 8 e 9 (x86/x64) |
+| Ubuntu | 14.04 LTS e 16.04 LTS e 18.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 12 (x86/x64) |
+
+>[!NOTE]
+>OpenSSL inferior à versão 1.x não é suportado em qualquer plataforma e versão 1.10 só é suportado em plataformas de x86_64 (64 bits).  
+>
 
 ### <a name="agent-and-vm-extension-version"></a>Versão de agente e a extensão de VM
 A tabela seguinte fornece um mapeamento da versão da extensão de VM do Log Analytics e pacote de agente do Log Analytics para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do Log Analytics está incluída. Notas de versão incluem detalhes sobre correções de bugs e novos recursos disponíveis para uma versão de determinado agente.  
 
 | Versão de extensão de VM do Linux de análise do registo | Versão do pacote de agente de análise de registo | 
 |--------------------------------|--------------------------|
+| 1.7.7 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
@@ -84,7 +90,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -102,7 +108,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | OmsAgentForLinux |
-| typeHandlerVersion | 1.6 |
+| typeHandlerVersion | 1.7 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -127,7 +133,7 @@ O exemplo a seguir supõe que a extensão de VM é aninhada dentro do recurso de
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -152,7 +158,7 @@ Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui um
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +179,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.6 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 
@@ -200,12 +206,11 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 | 9 | Ativar chamado prematuramente | [Atualizar o agente do Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
 | 10 | A VM já está ligada a uma área de trabalho do Log Analytics | Para ligar a VM para a área de trabalho especificada no esquema de extensão, definir stopOnMultipleConnections como false nas definições de públicas ou remova esta propriedade. Esta VM é faturado uma vez para cada área de trabalho está ligada. |
 | 11 | Config inválido fornecido para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implementação. |
-| 12 | O Gestor de pacotes dpkg está bloqueado | Certifique-se de que todos os dpkg operações de atualização na máquina tiver concluído a e tente novamente. |
 | 17 | Falha de instalação do pacote OMS | 
 | 19 | Falha de instalação do pacote OMI | 
 | 20 | Falha de instalação do pacote SCX |
 | 51 | Esta extensão não é suportada no sistema de operação da VM | |
-| 55 | Não é possível ligar ao serviço do Microsoft Operations Management Suite | Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID da área de trabalho. |
+| 55 | Não é possível ligar para o serviço OMS ou a pacotes necessários em falta ou o pacote de dpkg manager está bloqueado| Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID da área de trabalho de e verificar curl e tar utilitários estão instalados. |
 
 Informações adicionais de resolução de problemas podem ser encontradas no [guia de resolução de problemas do OMS agente para Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 

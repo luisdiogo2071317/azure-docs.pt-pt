@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f444c75fb7a7bcd96a508fed337dfc32adccf665
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339020"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842340"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -163,9 +163,9 @@ Para utilizar a autenticação de token de aplicação baseada em MSI do Azure A
 
 1. **Crie um grupo no Azure AD.** Torne a fábrica de MSI um membro do grupo.
 
-    a. Encontre a identidade de serviço do data factory no portal do Azure. Vá para a fábrica de dados **propriedades**. Copie o ID de identidade de serviço.
+    1. Encontre a identidade de serviço do data factory no portal do Azure. Vá para a fábrica de dados **propriedades**. Copie o ID de identidade de serviço.
 
-    b. Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo. Inicie sessão com o `Connect-AzureAD` comando. Execute os seguintes comandos para criar um grupo e adicionar a fábrica de dados MSI como membro.
+    1. Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo. Inicie sessão com o `Connect-AzureAD` comando. Execute os seguintes comandos para criar um grupo e adicionar a fábrica de dados MSI como membro.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"

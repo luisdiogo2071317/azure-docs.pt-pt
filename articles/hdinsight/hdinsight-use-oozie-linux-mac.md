@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 9989f33721d4fc18529e63b6d1417180a8d58a9a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049473"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783326"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux
 
@@ -35,7 +35,7 @@ Também pode utilizar o Oozie para agendar tarefas que são específicas para um
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster do HDInsight**: consulte [começar com o HDInsight no Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Um cluster do HDInsight**: consulte [começar com o HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
@@ -554,7 +554,7 @@ Para aceder à IU da web de Oozie, conclua os seguintes passos:
 
 8. Pode ver os detalhes para a ação, como um link para o **URL da consola**. Utilize esta ligação para ver informações de controlador de tarefa para a tarefa.
 
-## <a name="schedule-jobs"></a>Programar tarefas
+## <a name="schedule-jobs"></a>Agendar tarefas
 
 Pode utilizar o coordenador de especificar um início, fim e a frequência de ocorrência de tarefas. Para definir uma agenda para o fluxo de trabalho, conclua os seguintes passos:
 

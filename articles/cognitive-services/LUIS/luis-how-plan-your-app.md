@@ -1,27 +1,27 @@
 ---
-title: Planear as suas aplicações de LUIS | Documentos da Microsoft
+title: Planear as suas aplicações de compreensão de idiomas (LUIS) - serviços cognitivos do Azure | Documentos da Microsoft
 description: Descrever a aplicação relevante intenções e entidades e, em seguida, criar seus planos de aplicativo no Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 05/07/2017
+ms.topic: conceptual
+ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7c8974767621ad574b243fba5c3e49d97ec142e6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505533"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842277"
 ---
 # <a name="plan-your-luis-app"></a>Planear a sua aplicação LUIS
 
-É importante planear a sua aplicação antes de começar a criá-lo no LUIS. Prepare um contorno ou o esquema dos possíveis intenções e entidades que são relevantes para o tópico específica do domínio da sua aplicação.  
+É importante planear a sua aplicação. Identifica o seu domínio, incluindo possíveis intenções e entidades que são relevantes para a sua aplicação.  
 
 ## <a name="identify-your-domain"></a>Identificar o seu domínio
-Uma aplicação do LUIS centra-se um tópico específica do domínio.  Por exemplo, pode ter uma aplicação de viagens que executa a reserva de pedidos de suporte, voos, hotéis e carros de aluguel. Outra aplicação pode fornecer conteúdo relacionado para exercitar, os esforços de adequação de controlo e definir metas. 
+Uma aplicação do LUIS centra-se um tópico específica do domínio.  Por exemplo, pode ter uma aplicação de viagens que executa a reserva de pedidos de suporte, voos, hotéis e carros de aluguel. Outra aplicação pode fornecer conteúdo relacionado para exercitar, os esforços de adequação de controlo e definir metas. Identificar o domínio de ajuda para encontrar palavras ou frases que são importantes para seu domínio.
 
 > [!TIP]
 > LUIS oferecem [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md) para inúmeros cenários comuns.
@@ -33,9 +33,11 @@ Pense sobre o [intenções](luis-concept-intent.md) que são importantes para ta
 > [!NOTE]
 > É melhor prática para utilizar apenas os objetivos, conforme necessário executar as funções da sua aplicação. Se definir objetivos de demasiados, torna-se mais difícil para o LUIS classificar expressões com corretamente. Se definir muito poucos ou pode ser tão gerais como para uma sobreposição.
 
+## <a name="create-example-utterances-for-each-intent"></a>Criar expressão de exemplo para cada intenção
+Depois de determinar os objetivos, crie 10 ou 15 expressões de exemplo para cada intenção. Para começar, não existem menos do que este número ou criar muitas expressões para cada intenção. Cada ocorrência de pronunciação deve ser diferente do que a expressão anterior. Uma variedade de bom nas expressões inclui contagem de palavras geral, escolha do word, tempo verbal de verbo e pontuação. 
 
 ## <a name="identify-your-entities"></a>Identificar suas entidades
-Para programar um vôo, precisa de algumas informações como o destino, a data, a companhia aérea, a categoria de pedido de suporte e classe de viagens. Pode adicioná-las como [entidades](luis-concept-entity-types.md) porque eles são importantes para a realização de um objetivo. 
+As expressões de exemplo, identificar as entidades que pretende extraídos. Para programar um vôo, precisa de algumas informações como o destino, a data, a companhia aérea, a categoria de pedido de suporte e classe de viagens. Criar entidades para estes tipos de dados e, em seguida, marcar a [entidades](luis-concept-entity-types.md) nas expressões de exemplo porque eles são importantes para a realização de um objetivo. 
 
 Quando determinar quais entidades para utilizar na sua aplicação, tenha em atenção que existem diferentes tipos de entidades para capturar as relações entre tipos de objetos. [Entidades no LUIS](luis-concept-entity-types.md) fornece mais detalhes sobre os diferentes tipos.
 
@@ -44,49 +46,45 @@ Uma entidade descreve um único conceito.
 
 ![entidade Simple](./media/luis-plan-your-app/simple-entity.png)
 
-Ver [extração de dados](luis-concept-data-extraction.md#simple-entity-data) para saber mais sobre a entidade simple a extração do ponto de extremidade de resposta da consulta JSON. Experimente a entidade simple [guia de introdução](luis-quickstart-primary-and-secondary-data.md) para saber mais sobre como utilizar uma entidade.
+Ver [extração de dados](luis-concept-data-extraction.md#simple-entity-data) para saber mais sobre a entidade simple a extração do ponto de extremidade de resposta da consulta JSON. Experimente isto [guia de introdução](luis-quickstart-primary-and-secondary-data.md) para saber mais sobre como utilizar uma entidade.
 
 ### <a name="hierarchical-entity"></a>Entidade hierárquica
-Uma entidade hierárquica é um tipo especial de um **simples** entidade; a definição de uma categoria e seus membros na forma de relação principal-subordinado.
+Uma entidade hierárquica é um tipo especial de um **simples** entidade; a definição de uma categoria e seus membros na forma de relação principal-subordinado. A relação é determinada pelo contexto de dentro da expressão. Subordinados de uma entidade hierárquica também são entidades simples.
 
 ![entidades hierárquicas](./media/luis-plan-your-app/hierarchical-entity.png)
 
-Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente a entidade hierárquica [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
+Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente isto [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
 
 ### <a name="composite-entity"></a>Entidade composta
-Uma entidade composta é constituída por outras entidades que formam as partes de um todo. 
+Uma entidade composta é constituída por outras entidades que formam as partes de um todo. Uma entidade composta contém uma variedade de tipos de entidade.
 
 ![Entidade composta](./media/luis-plan-your-app/composite-entity.png)
 
-Ver [extração de dados](luis-concept-data-extraction.md#composite-entity-data) para saber mais sobre a extrair a entidade composta do ponto de extremidade de resposta da consulta JSON. Experimente a entidade composta [tutorial](luis-tutorial-composite-entity.md) para saber mais sobre como utilizar uma entidade composta.
+Ver [extração de dados](luis-concept-data-extraction.md#composite-entity-data) para saber mais sobre a extrair a entidade composta do ponto de extremidade de resposta da consulta JSON. Experimente isto [tutorial](luis-tutorial-composite-entity.md) para saber mais sobre como utilizar uma entidade composta.
 
 ### <a name="prebuilt-entity"></a>Entidade pré-criados
-LUIS fornece [entidades pré-concebidas](luis-prebuilt-entities.md) para tipos comuns como `Number`, que pode utilizar para o número de pedidos de suporte numa ordem de pedido de suporte.
+LUIS fornece [entidades pré-concebidas](luis-prebuilt-entities.md) para tipos de dados comuns, como o número, data, endereço de e-mail e URL. Pode utilizar a entidade pré-criados numérica para o número de pedidos de suporte numa ordem de pedido de suporte.
 
 ![Entidade pré-criados numérica](./media/luis-plan-your-app/number-entity.png)
 
-Ver [extração de dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre a extração de entidade pré-criados do ponto de extremidade de resposta da consulta JSON. 
+Ver [extração de dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre a extrair a entidade pré-criados do ponto de extremidade de resposta da consulta JSON. 
 
 ### <a name="list-entity"></a>Entidade de lista 
 Uma entidade de lista é uma lista de valores explicitamente especificada. Cada valor é composta por um ou mais sinónimos. Num aplicativo de viagens, pode optar por criar uma entidade de lista para representar nomes de aeroporto.
 
 ![entidade de lista](./media/luis-plan-your-app/list-entity.png)
 
-Ver [extração de dados](luis-concept-data-extraction.md#list-entity-data) para saber mais sobre a extração de entidades de lista do ponto de extremidade de resposta da consulta JSON. Experimente o [guia de introdução](luis-quickstart-intent-and-list-entity.md) para saber mais sobre como utilizar uma entidade de lista.
+Ver [extração de dados](luis-concept-data-extraction.md#list-entity-data) para saber mais sobre a extração de entidades de lista do ponto de extremidade de resposta da consulta JSON. Experimente isto [guia de introdução](luis-quickstart-intent-and-list-entity.md) para saber mais sobre como utilizar uma entidade de lista.
 
 ### <a name="regular-expression-entity"></a>Entidade de expressão regular
-Uma entidade de expressão regular permite que o LUIS extrair dados de uma expressão com base numa expressão regex.
+Uma entidade de expressão regular permite que o LUIS extrair dados bem formatados de uma expressão com base numa expressão regular.
 
 ![Entidade de expressão regular](./media/luis-plan-your-app/regex-entity.png)
 
 Ver [extração de dados](luis-concept-data-extraction.md#regular-expression-entity-data) para saber mais sobre a extração de entidades de expressão regular do ponto de extremidade de resposta da consulta JSON. Experimente o [guia de introdução](luis-quickstart-intents-regex-entity.md) para saber mais sobre como utilizar uma entidade de expressão regular.
 
-## <a name="after-getting-endpoint-utterances"></a>Depois de obter a expressão de ponto final
-Depois da aplicação obtenha expressões de ponto de extremidade, pretendem implementar melhorias de previsão com [aprendizagem ativa](luis-how-to-review-endoint-utt.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
-
-### <a name="patternany-entity"></a>Entidade de Pattern.any
-Patterns.any é um marcador de posição de comprimento variável usado apenas numa [do padrão](luis-concept-patterns.md) expressão de modelo para marcar onde a entidade começa e termina. Expressão de modelo está em conformidade com [sintaxe correta](luis-concept-patterns.md#pattern-syntax) para identificar as entidades e ignorable texto.
-
-
 ## <a name="next-steps"></a>Passos Seguintes
+Depois da aplicação é preparada, publicado e obtém as expressões de ponto de extremidade, pretendem implementar melhorias de previsão com [aprendizagem ativa](luis-how-to-review-endoint-utt.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
+
+
 * Ver [crie seu primeiro aplicativo do Language Understanding Intelligent Service (LUIS)](luis-get-started-create-app.md) para uma passo a passo rápido de como criar uma aplicação do LUIS.

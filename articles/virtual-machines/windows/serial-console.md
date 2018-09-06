@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 725f52e55795025671036095f209fd92636a4d9c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701504"
+ms.locfileid: "43782418"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
 
-A consola de série de Máquina Virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux e Windows. Essa conexão serial é a porta serial de COM1 da máquina virtual e fornece acesso à máquina virtual e não estão relacionadas à rede da máquina virtual / operativos o estado do sistema. Acesso à consola de série para uma máquina virtual pode ser feito apenas através do portal do Azure atualmente e permitido apenas para os utilizadores que têm Contribuidor de VM ou acima de acesso à máquina virtual. 
+A consola de série de Máquina Virtual no Azure fornece acesso a um console baseado em texto para as máquinas virtuais do Windows. Esta conexão serial é a porta serial COM1 da máquina virtual, fornecendo acesso para a máquina virtual que é independente da rede ou o estado do sistema operativo de uma máquina virtual. Aceder à consola de série para uma máquina virtual pode atualmente apenas ser feito através do portal do Azure e é permitida apenas para os utilizadores que têm Contribuidor de VM ou acima de acesso à máquina virtual. 
 
 Para obter a documentação da consola de série para VMs do Linux [clique aqui](../linux/serial-console.md).
 
@@ -46,7 +46,7 @@ Para obter a documentação da consola de série para VMs do Linux [clique aqui]
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 ## <a name="get-started-with-serial-console"></a>Introdução à consola de série
-Consola de série para máquinas virtuais só é acessível via [portal do Azure](https://portal.azure.com). Abaixo estão os passos para aceder à consola de série para máquinas virtuais através do portal 
+Consola de série para máquinas virtuais só é acessível via [portal do Azure](https://portal.azure.com). Seguem-se os passos para aceder à consola de série para máquinas virtuais através do portal.
 
   1. Abra o portal do Azure
   2. No menu da esquerda, selecione as máquinas virtuais.
@@ -55,8 +55,8 @@ Consola de série para máquinas virtuais só é acessível via [portal do Azure
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>Configurar a consola de série para Windows 
-Imagens do Windows Server mais recente no Azure terá [consola administrativa especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) ativada por predefinição. SAC é suportada em versões de servidor do Windows, mas não está disponível nas versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7). Para ativar a consola de série para máquinas de virtuais do Windows criada com o uso Feb2018 ou imagens menores utilizam os seguintes passos: 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>Ativar a consola de série em imagens personalizadas ou mais antigas
+Imagens do Windows Server mais recente no Azure terá [consola administrativa especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) ativada por predefinição. SAC é suportada em versões de servidor do Windows, mas não está disponível nas versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7). Para ativar a consola de série para máquinas de virtuais do Windows criada antes de Fevereiro de 2018, utilize os seguintes passos: 
 
 1. Ligar à máquina virtual Windows através de ambiente de trabalho remoto
 2. A partir de uma linha de comandos administrativa, execute os seguintes comandos 
@@ -73,13 +73,13 @@ Se necessário SAC pode ser ativado offline
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>Como posso saber se SAC está ativado ou não 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>Como posso saber se SAC está ativado?
 
-Se [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não está ativada a consola de série não serão apresentados na linha de comandos da SAC. Ele pode mostrar uma informações de estado de funcionamento da VM em alguns casos, ou poderia estar em branco.  
+Se [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não está ativada a consola de série não serão apresentados na linha de comandos da SAC. Em alguns casos, serão apresentadas informações de estado de funcionamento da VM e, em outros casos estará em branco.  
 
-## <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Ativar menu de inicialização Mostrar na consola de série 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Habilitar o Menu de arranque do Windows na consola de série 
 
-Se precisar de ativar o carregador de inicialização do Windows pede-lhe para mostrar na consola de série, pode adicionar as seguintes opções adicionais para o carregador de inicialização do Windows.
+Se precisar de ativar o carregador de inicialização do Windows pede-lhe para mostrar na consola de série, pode adicionar as seguintes opções adicionais aos seus dados de configuração de arranque. Ver [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) para obter mais detalhes
 
 1. Ligar à máquina virtual Windows através de ambiente de trabalho remoto
 2. A partir de uma linha de comandos administrativa, execute os seguintes comandos 
@@ -88,8 +88,14 @@ Se precisar de ativar o carregador de inicialização do Windows pede-lhe para m
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reinicie o sistema para o menu de arranque seja ativado
 
-> [!NOTE] 
-> No suporte neste ponto para a função de chaves não está ativada, se necessitar de opções de inicialização avançadas utilizam bcdedit /set {atual} onetimeadvancedoptions no, consulte [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) para obter mais detalhes
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Utilizar a consola de série para chamadas de NMI em VMs do Windows
+Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o software numa máquina virtual não será ignorada. Historicamente, NMIs foram utilizadas para monitorizar a existência de problemas de hardware em sistemas que exigem tempos de resposta específica.  Hoje, os programadores e administradores de sistema utilizam frequentemente NMI como um mecanismo para depurar ou resolver problemas de sistemas que estão a ser suspenso.
+
+A consola de série pode ser utilizada para enviar um NMI para uma máquina virtual do Azure com o ícone de teclado na barra de comando mostrada abaixo. Depois do NMI é enviado, a configuração de máquina virtual irá controlar como o sistema responde. Windows podem ser configurado para falhas e criar um despejo de memória, ao receber um NMI.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+Para obter informações sobre como configurar o Windows para criar um despejo de falha quando recebe um NMI, consulte: [como gerar um arquivo de despejo de falha completa ou de um arquivo de despejo de falhas de kernel ao utilizar um NMI num sistema baseado em Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM.
@@ -157,15 +163,6 @@ Danos/verificação de sistema de ficheiros | Aceder à consola de série e recu
 Problemas de configuração de RDP | Aceder à consola de série e alterar as definições. Vá para o [documentação de RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) para começar a utilizar.
 Bloqueio de rede para baixo do sistema| Consola de série de acesso através do portal para gerir o sistema. Alguns comandos de rede estão listados na [documentação Serial consola CMD e do PowerShell](./serial-console-cmd-ps-commands.md). 
 Interagir com o carregador de inicialização | Acesso BCD através da consola de série. Aceda a [menu de inicialização de ativação para mostrar na consola de série do](#enabling-boot-menu-to-show-in-the-serial-console) para começar a utilizar. 
-
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Utilizar a consola de série para NMI chama em VMs do Windows
-Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o software numa máquina virtual não será ignorada. Historicamente, NMIs foram utilizadas para monitorizar a existência de problemas de hardware em sistemas que exigem tempos de resposta específica.  Hoje, os programadores e administradores de sistema utilizam frequentemente NMI como um mecanismo para depurar ou resolver problemas de sistemas que estão a ser suspenso.
-
-A consola de série pode ser utilizada para enviar um NMI para uma máquina virtual do Azure com o ícone de teclado na barra de comando mostrada abaixo. Depois do NMI é enviado, a configuração de máquina virtual irá controlar como o sistema responder. Windows podem ser configurado para falhas e criar um despejo de memória, ao receber um NMI.
-
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
-
-Para obter informações sobre como configurar o Windows para criar um despejo de falha quando recebe um NMI, consulte: [como gerar um arquivo de despejo de falha completa ou de um arquivo de despejo de falhas de kernel ao utilizar um NMI num sistema baseado em Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco principal para a consola de série do Azure. Para esse fim, vamos certificar-se de que a consola de série está acessível para aqueles com visual e auditivas, bem como as pessoas que podem não ser capazes de usar um mouse.

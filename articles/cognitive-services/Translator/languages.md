@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 15e01dd55a0fe297eab69417074dc58a15b469c4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888146"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783217"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Idiomas suportados na API de texto do Microsoft Translator
 
@@ -80,6 +80,7 @@ A API de texto do Microsoft Translator suporta os seguintes idiomas para a tradu
 | Sueco        |  Neural |`sv`          |
 | Tahitian      | Estatísticas |`ty`          |
 | Tamil      | Estatísticas |`ta`          |
+| Télego   | Neural   | `te` |
 | Tailandês      | Neural |`th`          |
 | Tongan      | Estatísticas |`to`          |
 | Turco       |  Neural |`tr`          |
@@ -236,6 +237,7 @@ Os seguintes idiomas podem ser detetados pelo método de deteção. Detetar Maio
 | kiswahili |
 | Sueco |
 | Tagalog |
+| Télego |
 | Tailandês |
 | Turco |
 | Ucraniano |

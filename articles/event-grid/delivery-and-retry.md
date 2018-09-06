@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005400"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841597"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens do Event Grid e tente novamente 
 
@@ -35,19 +35,20 @@ Os seguintes códigos de resposta HTTP indicam que um evento tem foi entregue co
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Os seguintes códigos de resposta HTTP indicam que não foi uma tentativa de entrega de eventos. 
+Os seguintes códigos de resposta HTTP indicam que não foi uma tentativa de entrega de eventos.
 
 - 400 pedido inválido
 - 401 não autorizado
 - 404 Não Encontrado
 - 408 tempo limite do pedido
+- Entidade do pedido 413 demasiado grande
 - 414 URI demasiado longo
 - 429 demasiados pedidos
 - 500 Erro de Servidor Interno
 - 503 Serviço Indisponível
 - 504 Tempo Limite do Gateway
 
-Se a grelha de eventos receber um erro que indica o ponto final está temporariamente indisponível ou um pedido de futuros, talvez seja bem-sucedida, ela tentará novamente enviar o evento. Se a grelha de eventos receber um erro que indica a entrega nunca será concluída com êxito e uma [tiver sido configurado o ponto final de mensagens não entregues](manage-event-delivery.md), envia o evento para o ponto final de mensagens não entregues. 
+Se tiver [configurado um ponto de extremidade de mensagens não entregues](manage-event-delivery.md) e grelha de eventos receber qualquer um de um 400 ou 413 código de resposta, o Event Grid envia imediatamente o evento para o ponto de extremidade de mensagens não entregues. Caso contrário, o Event Grid tentará novamente todos os erros.
 
 ## <a name="retry-intervals-and-duration"></a>Intervalos de repetição e a duração
 

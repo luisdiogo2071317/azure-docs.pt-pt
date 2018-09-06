@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 404be287d2e6ac693e0942c84f630f4e067127f3
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8ec0947d041dc0d4f5423a48a443ab2dd86949e2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666757"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782540"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -80,7 +80,7 @@ Cada conta de utilizador que tem de iniciar sessão Azure AD tem de ter um valor
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
-| Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
 | Carateres não permitidos |<ul> <li>Qualquer "\@ \" caractere que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de ponto final "." imediatamente anterior a "\@ \" símbolo</li></ul> |
 | Restrições de tamanho |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Pode haver até 64 carateres antes do "\@ \" símbolo</li><li>Pode haver até 48 carateres após o "\@ \" símbolo</li></ul> |
 

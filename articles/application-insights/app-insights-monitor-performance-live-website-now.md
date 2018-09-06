@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azure | Microsoft Docs"
-description: "Monitorize o desempenho de um site sem o reimplementar. Funciona com aplicações Web ASP.NET alojadas no local, em VMs ou no Azure."
+title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azure | Microsoft Docs
+description: Monitorize o desempenho de um site sem o reimplementar. Funciona com aplicações Web ASP.NET alojadas no local, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783600"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicações Web no tempo de execução com o Application Insights
 
-
 Pode instrumentar uma aplicação Web em direto com o Azure Application Insights, sem ter de modificar ou voltar a implementar o seu código. Se as suas aplicações são alojadas por um servidor IIS no local, instale o Monitor de Estado. Se forem aplicações Web do Azure ou forem executadas numa VM do Azure, pode ativar a monitorização do Application Insights a partir do painel de controlo do Azure. (Existem artigos separados sobre instrumentação de [aplicações Web J2EE em direto](app-insights-java-live.md) e [Serviços Cloud do Azure](app-insights-cloudservices.md).) Precisará de uma subscrição do [Microsoft Azure](http://azure.com).
 
-![gráficos de exemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Gráficos de descrição geral de captura de ecrã do App Insights que contém informações sobre pedidos com falhas, tempo de resposta do servidor e pedidos de servidor](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Pode escolher entre três formas de aplicar o Application Insights às suas aplicações Web .NET:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745673"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783377"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Podemos ainda não suporta esta funcionalidade. Estamos a trabalhar ativamente n
 
 **Quais são os requisitos de porta para o runtime de integração autoalojado trabalhar?**
 
-O runtime de integração autoalojado torna conexões baseadas em HTTP para aceder à internet. As portas de saída 443 e 80 tem de ser abertas para o runtime de integração autoalojado fazer essa conexão. Abra a porta de entrada 8050 apenas ao nível da máquina (e não ao nível do firewall Corporativo) para a aplicação do Gestor de credenciais. Se a base de dados do Azure SQL ou armazém de dados SQL do Azure é utilizado como a origem ou destino, terá de abrir a porta 1433 também. Para obter mais informações, consulte a [endereços IP da lista de permissões e configurações de Firewall](#firewall-configurations-and-whitelisting-ip-address-of-gateway) secção. 
+O runtime de integração autoalojado torna conexões baseadas em HTTP para aceder à internet. As portas de saída 443 tem de ser abertas para o runtime de integração autoalojado fazer essa conexão. Abra a porta de entrada 8050 apenas ao nível da máquina (e não ao nível do firewall Corporativo) para a aplicação do Gestor de credenciais. Se a base de dados do Azure SQL ou armazém de dados SQL do Azure é utilizado como a origem ou destino, terá de abrir a porta 1433 também. Para obter mais informações, consulte a [endereços IP da lista de permissões e configurações de Firewall](#firewall-configurations-and-whitelisting-ip-address-of-gateway) secção. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

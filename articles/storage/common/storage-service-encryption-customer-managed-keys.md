@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527091"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781569"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault
 Microsoft Azure está empenhada em ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacionais. Uma forma que a plataforma de armazenamento do Azure protege os seus dados é através do Storage Service Encryption (SSE), que encripta os dados ao escrevê-lo para o armazenamento e desencripta os dados quando recuperá-lo. A encriptação e desencriptação é automático, transparente e utiliza a 256 bits [encriptação AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
@@ -34,7 +34,7 @@ Para utilizar chaves geridas pelo cliente e o SSE, pode criar um novo cofre de c
 Primeiro, crie uma conta de armazenamento, se ainda não tiver um. Para obter mais informações, consulte [criar uma nova conta de armazenamento](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Passo 2: Ativar o SSE para o armazenamento de BLOBs e ficheiros
-Para ativar o SSE com chaves geridas pelo cliente, os dois recursos de proteção de chaves, eliminação de forma recuperável e fazer limpar, também devem ser ativados. Estas definições Certifique-se que as chaves não podem ser de forma acidental ou intencionalmente eliminados. O período de retenção máximo de chaves está definido para 90 dias, proteger os usuários contra atores maliciosos ou ataques de ransomware.
+Para ativar o SSE com chaves geridas pelo cliente, os dois recursos de proteção de chaves, eliminação de forma recuperável e fazer limpar, também devem ser ativados no Azure Key Vault. Estas definições Certifique-se que as chaves não podem ser de forma acidental ou intencionalmente eliminados. O período de retenção máximo de chaves está definido para 90 dias, proteger os usuários contra atores maliciosos ou ataques de ransomware.
 
 Se quiser habilitar programaticamente a chaves geridas pelo cliente para o SSE, pode utilizar o [API de REST de fornecedor de recursos de armazenamento do Azure](https://docs.microsoft.com/rest/api/storagerp), o [biblioteca do cliente de fornecedor de recursos do armazenamento para .NET](https://docs.microsoft.com/dotnet/api), [ O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), ou o [CLI do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 

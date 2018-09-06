@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42059566"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782237"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
 
@@ -72,7 +72,9 @@ Se não pretender que o runbook principal até ser bloqueado em espera, pode inv
 
 Parâmetros para um runbook subordinado iniciado com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [parâmetros do Runbook](automation-starting-a-runbook.md#runbook-parameters). Apenas os tipos de dados simples podem ser utilizados. Se o runbook tem um parâmetro com um tipo de dados complexos, em seguida, tem de ser chamado inline.
 
-Se a trabalhar com várias subscrições o contexto da subscrição poderão perder-se ao invocar runbooks subordinados. Para garantir que o contexto da subscrição é transferido para os runbooks subordinados, adicione o `DefaultProfile` parâmetro para o cmdlet e passe o contexto para o mesmo.
+O contexto da subscrição poderão perder-se ao invocar runbooks subordinados como tarefas separadas. Por ordem para o runbook subordinado seja invocar cmdlets do Azure RM mediante uma subscrição do Azure pretendida, o runbook subordinado tem de ser autenticado para esta subscrição, independentemente do runbook principal.
+
+Se as tarefas dentro da mesma conta de automatização funcionam com várias subscrições, selecionando uma assinatura num trabalho pode alterar o contexto de subscrição selecionada atualmente para outros trabalhos, que normalmente não é desejado. Para evitar este problema, guardar o resultado do `Select-AzureRmSubscription` invocação do cmdlet e passar esse objeto para o `DefaultProfile` parâmetro de todas as subsequentes do Azure RM cmdlets invocações. Este padrão deve ser aplicado de forma consistente para todos os runbooks em execução nesta conta de automatização.
 
 ### <a name="example"></a>Exemplo
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010825"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841510"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Azure Data Box Disk e verificar
 
@@ -76,8 +76,8 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
     
     |Parâmetros/Opções  |Descrição |
     |--------------------|------------|
-    |<Source>            | Especifica o caminho para o diretório de origem.        |
-    |<Destination>       | Especifica o caminho para o diretório de destino.        |
+    |Origem            | Especifica o caminho para o diretório de origem.        |
+    |Destino       | Especifica o caminho para o diretório de destino.        |
     |/E                  | Copia os subdiretórios, incluindo diretórios vazios. |
     |/MT[:N]             | Cria cópias com múltiplos threads com N threads, em que N é um número inteiro entre 1 e 128. <br>O valor predefinido para N é 8.        |
     |/R: <N>             | Especifica o número de repetições nas cópias falhadas. O valor predefinido de N é 1.000.000 (um milhão de repetições).        |

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056744"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782030"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limites de disco de caixa de dados do Azure (pré-visualização)
 
@@ -33,7 +33,7 @@ Considere estes limites, como implantar e operar a sua solução de disco do Mic
 
 ## <a name="data-box-service-limits"></a>Limites do serviço de caixa de dados
 
- - Serviço do Data Box está disponível apenas nos EUA e da UE em todas as regiões do Azure para a cloud pública do Azure.
+ - Serviço do Data Box está disponível apenas nos EUA, UE, Canadá e Austrália em todas as regiões do Azure para a cloud pública do Azure.
  - Uma conta de armazenamento única é suportada com disco Data Box.
 
 ## <a name="data-box-disk-performance"></a>Desempenho de disco de caixa de dados
@@ -77,8 +77,8 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 
 | Tipo de objeto do Azure | Limite Predefinido                                             |
 |-------------------|-----------------------------------------------------------|
-| Blob de blocos        | ~ 8 TB                                                 |
-| BLOBs de páginas         | 1 TB <br> (Todos os ficheiros carregados no formato de Blob de páginas têm de ter 512 bytes alinhados (um múltiplo de integral), caso contrário o carregamento falha. <br> O VHD e VHDX são alinhadas de 512 bytes.) |
+| Blob de Blocos        | ~ 8 TB                                                 |
+| Blob de Página         | 1 TB <br> (Todos os ficheiros carregados no formato de Blob de páginas têm de ter 512 bytes alinhados (um múltiplo de integral), caso contrário o carregamento falha. <br> O VHD e VHDX são alinhadas de 512 bytes.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Blob de blocos do Azure e convenções de nomenclatura de BLOBs de páginas

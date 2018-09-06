@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: ee169f008cc5d6b95d2ddadc68e63673372e2dc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301838"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782282"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
 
@@ -170,7 +170,7 @@ Para criar um contentor, utilize o seguinte comando:
 
 O esquema URI para aceder a ficheiros no armazenamento do Azure a partir do HDInsight é:
 
-    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>
 
 O esquema URI fornece acesso não encriptado (com o *abfs:* prefixo) e acesso encriptado por SSL (com *abfss*). Recomendamos que utilize *abfss* sempre que possível, até mesmo ao aceder a dados que se encontrem dentro da mesma região no Azure.
 
@@ -179,7 +179,7 @@ O esquema URI fornece acesso não encriptado (com o *abfs:* prefixo) e acesso en
 
     Se os valores para &lt;FILE_SYSTEM_NAME&gt; nem &lt;nome_conta&gt; foram especificadas, o sistema de ficheiros predefinido é utilizado. Para os ficheiros no sistema de ficheiros predefinido, pode utilizar um caminho relativo ou um caminho absoluto. Por exemplo, o *hadoop-mapreduce-examples* ficheiro que é fornecido com clusters do HDInsight pode ser referido utilizando um dos seguintes caminhos:
     
-        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
         abfs:///example/jars/hadoop-mapreduce-examples.jar
         /example/jars/hadoop-mapreduce-examples.jar
 

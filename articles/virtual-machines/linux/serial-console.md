@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: e74ee48f0adc0d8ba0d2ea91b5d82415601f9405
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 857998c73abed76c9e20d5b3422ce607fb9f733d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702423"
+ms.locfileid: "43782886"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
 
-A consola de série de Máquina Virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux e Windows. Essa conexão serial é a porta serial de COM1 da máquina virtual e fornece acesso à máquina virtual e não estão relacionadas à rede da máquina virtual / operativos o estado do sistema. Acesso à consola de série para uma máquina virtual pode ser feito apenas através do portal do Azure atualmente e permitido apenas para os utilizadores que têm Contribuidor de VM ou acima de acesso à máquina virtual. 
+A consola de série de Máquina Virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux. Esta conexão serial é a porta serial COM1 da máquina virtual, fornecendo acesso para a máquina virtual que é independente da rede ou o estado do sistema operativo de uma máquina virtual. Aceder à consola de série para uma máquina virtual pode atualmente apenas ser feito através do portal do Azure e é permitida apenas para os utilizadores que têm Contribuidor de VM ou acima de acesso à máquina virtual. 
 
 Para obter a documentação da consola de série para VMs do Windows, [clique aqui](../windows/serial-console.md).
 
@@ -61,6 +61,29 @@ Consola de série para máquinas virtuais só é acessível via [portal do Azure
 
 > [!NOTE] 
 > Consola de série requer um utilizador local com uma palavra-passe configurada. Neste momento, as VMs configuradas apenas com uma chave pública SSH não terá acesso à consola de série. Para criar um utilizador local com a palavra-passe, utilize o [extensão de acesso de VM](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (também disponível no portal clicando em "Repor palavra-passe") e criar um utilizador local com uma palavra-passe.
+
+## <a name="access-serial-console-for-linux"></a>Consola de série de acesso para Linux
+Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e gravar mensagens de consola para a porta serial. A maioria dos [distribuições do Linux apoiadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Clicar simplesmente a secção de consola de série no portal do Azure irá fornecer acesso à consola. 
+
+Distro      | Acesso de consola de série
+:-----------|:---------------------
+Red Hat Enterprise Linux    | Red Hat Enterprise Linux imagens disponíveis no Azure tem acesso à consola ativado por predefinição. 
+CentOS      | As imagens de centOS disponíveis no Azure têm acesso à consola ativado por predefinição. 
+Ubuntu      | Imagens do Ubuntu disponíveis no Azure têm acesso à consola ativado por predefinição.
+CoreOS      | As imagens de CoreOS disponíveis no Azure têm acesso à consola ativado por predefinição.
+SUSE        | Mais recente SLES as imagens disponíveis no Azure têm acesso à consola ativado por predefinição. Se estiver a utilizar as versões mais antigas (10 ou abaixo) de SLES no Azure, siga os [artigo BDC](https://www.novell.com/support/kb/doc.php?id=3456486) para ativar a consola de série. 
+Oracle Linux        | Imagens do Oracle Linux disponíveis no Azure tem acesso à consola ativado por predefinição.
+Imagens do Linux personalizadas     | Para ativar a consola de série para a sua imagem de VM do Linux personalizada, permitem o acesso de consola no /etc/inittab para executar um terminal em ttyS0. Eis um exemplo para adicionar isso no arquivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obter mais informações sobre como criar adequadamente imagens personalizadas, consulte [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd).
+
+## <a name="common-scenarios-for-accessing-serial-console"></a>Cenários comuns para aceder à consola de série 
+Cenário          | Ações na consola de série                
+:------------------|:-----------------------------------------
+Ficheiro FSTAB quebrado | `Enter` chave para continuar e corrigir o ficheiro fstab com um editor de texto. Terá de estar no modo de utilizador único para isso. Ver [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar.
+Regras de firewall incorreta | Aceder à consola de série e corrigir iptables. 
+Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros. 
+Problemas de configuração de SSH/RDP | Aceder à consola de série e alterar as definições. 
+Bloqueio de rede para baixo do sistema| Consola de série de acesso através do portal para gerir o sistema. 
+Interagir com o carregador de inicialização | Acesso GRUB através da consola de série. Aceda a [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar. 
 
 ## <a name="disable-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM.
@@ -120,32 +143,6 @@ Se um usuário estiver conectado à consola de série e outro utilizador com êx
 >[!CAUTION] 
 Isso significa que o utilizador que for desligado não terminar a sessão! A capacidade de impor um fim de sessão após a desconexão (via SIGHUP ou mecanismo similar) ainda está no plano. Para o Windows há um tempo limite automático ativado no SAC, no entanto para Linux pode configurar a definição de tempo limite de terminal. Para fazer isso simplesmente de adicionar `export TMOUT=600` no seu. bash_profile ou .profile para o usuário fizer logon na consola com, para o tempo limite da sessão após 10 minutos.
 
-### <a name="disable-feature"></a>Desativar funcionalidade
-A funcionalidade de consola de série pode ser desativada para VMs específicas ao desativar a definição de diagnóstico de arranque essa VM.
-
-## <a name="common-scenarios-for-accessing-serial-console"></a>Cenários comuns para aceder à consola de série 
-Cenário          | Ações na consola de série                
-:------------------|:-----------------------------------------
-Ficheiro FSTAB quebrado | `Enter` chave para continuar e corrigir o ficheiro fstab com um editor de texto. Terá de estar no modo de utilizador único para isso. Ver [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar.
-Regras de firewall incorreta | Aceder à consola de série e corrigir iptables. 
-Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros. 
-Problemas de configuração de SSH/RDP | Aceder à consola de série e alterar as definições. 
-Bloqueio de rede para baixo do sistema| Consola de série de acesso através do portal para gerir o sistema. 
-Interagir com o carregador de inicialização | Acesso GRUB através da consola de série. Aceda a [consola de série a utilizar para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md) para começar a utilizar. 
-
-## <a name="access-serial-console-for-linux"></a>Consola de série de acesso para Linux
-Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e gravar mensagens de consola para a porta serial. A maioria dos [distribuições do Linux apoiadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Clicar simplesmente a secção de consola de série no portal do Azure irá fornecer acesso à consola. 
-
-Distro      | Acesso de consola de série
-:-----------|:---------------------
-Red Hat Enterprise Linux    | Red Hat Enterprise Linux imagens disponíveis no Azure tem acesso à consola ativado por predefinição. 
-CentOS      | As imagens de centOS disponíveis no Azure têm acesso à consola ativado por predefinição. 
-Ubuntu      | Imagens do Ubuntu disponíveis no Azure têm acesso à consola ativado por predefinição.
-CoreOS      | As imagens de CoreOS disponíveis no Azure têm acesso à consola ativado por predefinição.
-SUSE        | Mais recente SLES as imagens disponíveis no Azure têm acesso à consola ativado por predefinição. Se estiver a utilizar as versões mais antigas (10 ou abaixo) de SLES no Azure, siga os [artigo BDC](https://www.novell.com/support/kb/doc.php?id=3456486) para ativar a consola de série. 
-Oracle Linux        | Imagens do Oracle Linux disponíveis no Azure tem acesso à consola ativado por predefinição.
-Imagens do Linux personalizadas     | Para ativar a consola de série para a sua imagem de VM do Linux personalizada, permitem o acesso de consola no /etc/inittab para executar um terminal em ttyS0. Eis um exemplo para adicionar isso no arquivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obter mais informações sobre como criar adequadamente imagens personalizadas, consulte [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd).
-
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco principal para a consola de série do Azure. Para esse fim, vamos certificar-se de que a consola de série está acessível para aqueles com visual e auditivas, bem como as pessoas que podem não ser capazes de usar um mouse.
 
@@ -173,6 +170,7 @@ Problema                           |   Mitigação
 Não existe nenhuma opção com a consola de instância de conjunto de dimensionamento do virtual machine serial |  Durante a pré-visualização, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
 Acessando introdução após a faixa de ligação não mostra um registo na linha de comandos | Consulte esta página: [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isto pode acontecer se estiver a executar uma VM personalizada, a aplicação protegida ou a configuração GRUB que faz com que o Linux não sejam corretamente ligar para a porta serial.
 Uma resposta de "Proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
+Texto da consola de série ocupa apenas uma parte do tamanho da tela (muitas vezes, depois de utilizar um editor de texto) | Este é um problema conhecido com tamanho de tela desconhecida através de ligações seriais. Recomendamos instaling xterm ou algum outro utilitário semelhante, que lhe dá o comando 'redimensionamento'. Em execução 'redimensionar' irá corrigir este problema.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
@@ -183,6 +181,15 @@ A. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsole
 **P. Não consigo aceder à consola de série, onde pode enviar um incidente de suporte?**
 
 A. Esta funcionalidade de pré-visualização é abrangida por meio de termos de pré-visualização do Azure. Suporte para isso é melhor processado por meio de canais mencionadas acima. 
+
+**P. Posso utilizar a consola de série, em vez de uma ligação SSH?**
+
+A. Embora isso possa parecer tecnicamente possível, a consola de série destina-se para ser usado principalmente como uma ferramenta de resolução de problemas em situações em que a conectividade através de SSH não é possível. Recomendamos contra a utilização de consola de série como um substituto de SSH por dois motivos:
+
+1. Consola de série não tem muito mais largura de banda como ssh - é uma ligação só de texto, para que as interações de GUI intensiva mais difícil na consola de série.
+1. Acesso à consola de série está atualmente apenas por nome de utilizador e palavra-passe. Chaves SSH são muito mais seguras do que combinações de nome de utilizador/palavra-passe, assim, da perspectiva de segurança de início de sessão Recomendamos SSH através da consola de série.
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Utilizar a consola de série para [arrancar GRUB e introduza o modo de utilizador único](serial-console-grub-single-user-mode.md)

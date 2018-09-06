@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700819"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841846"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta do Video Indexer ligada ao Azure
 
@@ -80,8 +80,8 @@ Este artigo mostra como criar uma conta do Video Indexer que está ligada a uma 
         |Região de conta de indexador vídeo|O nome da região de conta do Video Indexer. Para um melhor desempenho e reduzir os custos, recomenda-se elevada para especificar o nome da região onde se encontram os recursos de serviços de multimédia do Azure e a conta de armazenamento do Azure. |
         |Inquilino do Azure Active Directory (AAD)|O nome do inquilino do Azure AD, por exemplo "contoso.onmicrosoft.com". As informações de inquilino podem ser obtidas a partir do portal do Azure. Coloque o cursor sobre o nome de utilizador com sessão iniciada no canto superior direito.|
         |ID da subscrição|A subscrição do Azure sob a qual esta ligação deverá ser criada. O ID de subscrição pode ser obtido a partir do portal do Azure. Clique em **todos os serviços** no painel esquerdo e procure "subscrições". Selecione, **subscrições** e escolha o ID de pretendida na lista das suas subscrições.|
-        |Nome do grupo de recursos do Azure|O nome para o novo grupo de recursos no qual pretende criar a ligação.|
-        |Nome de recurso do Azure|O nome do recurso dos serviços de multimédia do Azure.|
+        |Nome do grupo de recursos de serviços de multimédia do Azure|O nome do grupo de recursos em que a conta de Media Services existe.|
+        |Nome de recurso do serviço de suporte de dados|O nome do recurso dos serviços de multimédia do Azure.|
         |ID da aplicação|O ID de aplicação do Azure AD com permissões para a conta de Media Services especificada. Para obter mais informações, consulte [autenticação do principal de serviço utilização](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Chave da Aplicação|Para obter mais informações, consulte [autenticação do principal de serviço utilização](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 

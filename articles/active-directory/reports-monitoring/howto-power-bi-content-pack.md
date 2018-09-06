@@ -14,14 +14,19 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 090e7419f80bc734ee2b1cb4f976911792046a9c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057674"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782169"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o Pacote de Conteúdos do Power BI para o Azure Active Directory
+
+|  |
+|--|
+|Atualmente, o pacote de conteúdos do Azure AD Power BI utiliza as APIs do Azure AD Graph para recuperar dados de inquilino do Azure AD. Como resultado, poderá ver algumas disparidade entre os dados disponíveis no pacote de conteúdos e os dados obtidos com o [APIs de relatórios do Microsoft Graph](concept-reporting-api.md). |
+|  |
 
 Para os administradores de TI, é fundamental compreender como é que os utilizadores adotam e utilizam as funcionalidades do Azure Active Directory. Desta forma, podem planear a comunicação e a infraestrutura de TI, de modo a aumentar a utilização e tirar o máximo proveito das funcionalidades do AAD. O Pacote de Conteúdos do Power BI para o Azure Active Directory dá-lhe a capacidade de analisar mais aprofundadamente os seus dados, para saber como pode utilizá-los e obter informações mais ricas sobre o que os utilizadores estão a fazer com o Azure Active Directory e as várias capacidades em que confia plenamente.  Com a integração das APIs do Azure Active Directory no Power BI, pode transferir facilmente os pacotes de conteúdos pré-criadas e obter informações relativas a todas as atividades no seu Azure Active Directory com a avançada experiência de visualização que o Power BI oferece. Pode criar o seu próprio dashboard e partilhá-lo facilmente com qualquer pessoa da sua organização. 
 

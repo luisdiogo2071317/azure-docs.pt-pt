@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 9d31d12e400bbae441d70c5d3797d4fcdca509fc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414953"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841849"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Servidores de lógicos de base de dados SQL do Azure e a gestão
 
@@ -179,10 +179,7 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls, utilize 
 |[Servidores - atualização](/rest/api/sql/servers/update)|Atualiza um servidor existente.|
 |[Bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
 |[Bases de dados - Get](/rest/api/sql/databases/get)|Obtém uma base de dados.|
-|[Para obter bases de dados - conjunto elástico](/rest/api/sql/databases/getbyelasticpool)|Obtém uma base de dados dentro de um conjunto elástico.|
-|[Para obter bases de dados - conjunto elástico recomendado](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtém uma base de dados dentro de um conjunto elástico recommented.|
 |[Bases de dados - lista por conjunto elástico](/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|
-|[Bases de dados - lista por conjunto elástico recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devolve uma lista de bases de dados dentro de um conjunto elástico recomendado.|
 |[Bases de dados - lista por servidor](/rest/api/sql/databases/listbyserver)|Devolve uma lista de bases de dados num servidor.|
 |[Bases de dados - atualização](/rest/api/sql/databases/update)|Atualiza a base de dados existente.|
 |[Regras - de firewall criar ou atualizar](/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|

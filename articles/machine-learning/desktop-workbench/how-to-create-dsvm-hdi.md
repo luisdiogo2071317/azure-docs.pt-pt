@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 211f60b9c25b4bd20769f6a4840afaecf8373b9f
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285833"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782350"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar DSVM e HDI Spark cluster como destinos de computação
 
@@ -69,14 +69,14 @@ Para o _vmSize_ campo, pode usar qualquer tamanho VM suportado listado na [model
 >[!TIP]
 > Para [cargas de trabalho de aprendizagem profunda](how-to-use-gpu.md) pode implementar em VMs com tecnologia de GPU.
 
-- [VMs de fins gerais](/virtual-machines/linux/sizes-general.md)
+- [VMs de fins gerais](../../virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [As VMs com tecnologia de GPU](/virtual-machines/linux/sizes-gpu.md)
+- [As VMs com tecnologia de GPU](../../virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 

@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696647"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841884"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implementar o fornecedor de recursos do MySQL no Azure Stack
 
 Utilize o fornecedor de recursos do servidor MySQL para expor bases de dados MySQL como um serviço do Azure Stack. O fornecedor de recursos do MySQL é executado como um serviço numa máquina virtual (VM) do Windows Server 2016 Server Core.
+
+> [!IMPORTANT]
+> O fornecedor de recursos é suportado para criar itens nos servidores desse host SQL ou MySQL. Itens criados num servidor de anfitrião que não são criados pelo fornecedor de recursos podem resultar num estado sem correspondência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -150,6 +153,7 @@ Quando concluir o script de instalação do fornecedor de recursos, atualize o b
 2. Selecione **grupos de recursos**
 3. Selecione o **system.\< localização\>.mysqladapter** grupo de recursos.
 4. Na página de resumo para o grupo de recursos de visão geral, não deve haver nenhum implementações falhadas.
+5. Por fim, selecione **máquinas virtuais** no portal de administração para verificar que o fornecedor de recursos do MySQL VM foi com êxito criada e está em execução.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

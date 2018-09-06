@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 89343f3e4ec91dd32b24cdea6632cecd855cc6f8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523228"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782060"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Partilhas de ficheiros do Azure podem ser montadas em distribuições do Linux com o [cliente do SMB kernel](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros do Azure: a pedido com o `mount` comando e de arranque através da criação de uma entrada no `/etc/fstab`.
@@ -107,7 +107,7 @@ ms.locfileid: "39523228"
 3. **Crie um ficheiro de credenciais para armazenar o nome de utilizador (o nome de conta de armazenamento) e a palavra-passe (a chave de conta de armazenamento) para a partilha de ficheiros.** Não se esqueça de substituir `<storage-account-name>` e `<storage-account-key>` com as informações apropriadas para o seu ambiente. 
 
     ```bash
-    if [ -d "/etc/smbcredentials" ]; then
+    if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir /etc/smbcredentials
     fi
 

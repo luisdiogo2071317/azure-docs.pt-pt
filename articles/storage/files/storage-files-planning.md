@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818491"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783156"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Porque os ficheiros do Azure totalmente gerido, implantá-lo em cenários de produção é muito mais fácil do que implementar e gerir um servidor de ficheiros ou um dispositivo. Este artigo aborda os tópicos a ter em consideração quando implementar uma partilha de ficheiros do Azure para utilização em produção na sua organização.
@@ -41,7 +41,7 @@ ms.locfileid: "42818491"
 Ficheiros do Azure oferecem duas, incorporados e convenientes de acesso a dados métodos que pode utilizar em separado, ou em combinação entre si, para aceder aos seus dados:
 
 1. **Cloud acesso direto**: partilha de ficheiros do Azure de qualquer pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com o setor de bloco de mensagem de servidor padrão (SMB) protocolo ou através da API de REST de ficheiros. Com o SMB, leituras e escritas de ficheiros na partilha são feitas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, SMB 2.1. Montar no local, como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com criptografia). Além de SMB, novos aplicativos ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiros, que fornece uma interface de programação de aplicativo de fácil e escalonável para o desenvolvimento de software.
-2. **O Azure File Sync** (pré-visualização): com o Azure File Sync, partilhas podem ser replicadas para servidores do Windows no local ou no Azure. Os utilizadores seriam aceder a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados distantes de um datacenter do Azure, tal como num cenário de filiais. Dados podem ser replicados entre vários pontos de extremidade do Windows Server, tal como entre várias filiais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, que todos os dados são continua acessível através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados de forma totalmente integrada são recuperados quando aberto pelo seu utilizador.
+2. **O Azure File Sync**: com o Azure File Sync, partilhas podem ser replicadas para servidores do Windows no local ou no Azure. Os utilizadores seriam aceder a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados distantes de um datacenter do Azure, tal como num cenário de filiais. Dados podem ser replicados entre vários pontos de extremidade do Windows Server, tal como entre várias filiais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, que todos os dados são continua acessível através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados de forma totalmente integrada são recuperados quando aberto pelo seu utilizador.
 
 A tabela a seguir ilustra como os utilizadores e as aplicações podem aceder a partilha de ficheiros do Azure:
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ff023812acd5e30bfec34254379431b3e620dac9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627649"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781847"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory autenticação pass-through: Limitações atuais
 
@@ -47,7 +47,7 @@ Os cenários seguintes são _não_ suportados:
 - Autenticação pass-through não é integrada com [do Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Como solução para cenários não suportados _apenas_ (exceto a integração do Azure AD Connect Health), ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página no Assistente do Azure AD Connect. Quando os utilizadores iniciarem sessão nas aplicações listado no "não suportado cenários" seção, esses pedidos de início de sessão específicos são _não_ processado pelos agentes de autenticação pass-through e, portanto, não irá ser registradas no [ Registos de autenticação pass-through](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Como solução para cenários não suportados _apenas_ (exceto a integração do Azure AD Connect Health), ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página no Assistente do Azure AD Connect.
 
 >[!NOTE]
 Ativar a sincronização de Hash de palavra-passe dá-lhe a opção de autenticação de ativação pós-falha se a sua infraestrutura no local é interrompida. Esta ativação pós-falha da autenticação pass-through para a sincronização de Hash de palavra-passe não é automática. Terá de mudar o método de início de sessão manualmente utilizando o Azure AD Connect. Se o servidor com o Azure AD Connect ficar inativo, é necessária a ajuda de Support da Microsoft para desativar a autenticação pass-through.

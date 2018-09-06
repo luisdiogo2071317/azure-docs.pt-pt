@@ -1,6 +1,6 @@
 ---
-title: Pesquisa Visual início rápido do nó de SDK | Microsoft Docs
-description: O programa de configuração para a pesquisa de Visual aplicação de consola do nó de SDK.
+title: Guia de introdução do SDK do nó de pesquisa Visual | Documentos da Microsoft
+description: Configuração de aplicação de consola SDK Node de pesquisa Visual.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,17 +10,17 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961912"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782445"
 ---
-# <a name="visual-search-sdk-node-quickstart"></a>Início rápido do nó SDK pesquisa Visual
+# <a name="visual-search-sdk-node-quickstart"></a>Início rápido de nó do SDK de pesquisa Visual
 
-O SDK do Bing Visual Search utiliza a funcionalidade da REST API para pedidos web e os resultados da análise.
-O [código para exemplos de SDK Search Visual do nó de origem](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) está disponível no Hub de Git.
+O SDK de pesquisa Visual do Bing utiliza a funcionalidade da REST API para solicitações da web e os resultados da análise.
+O [código para amostras de SDK de pesquisa Visual do nó de origem](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) está disponível no Hub de Git.
 
 Cenários de código estão documentados nos cabeçalhos seguintes:
 * [Cliente de pesquisa Visual](#client)
@@ -28,21 +28,21 @@ Cenários de código estão documentados nos cabeçalhos seguintes:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* É necessária uma chave de API de serviços cognitivos para autenticar chamadas SDK. Inscrever-se um [chave de avaliação gratuita]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). A chave de avaliação é boa durante sete dias com uma chamada por segundo. Para cenários de produção, [comprar uma chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [obter informações sobre preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* É necessária uma chave de API dos serviços cognitivos para autenticar as chamadas SDK. Inscreva-se para uma [chave de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é bom para sete dias com uma chamada por segundo. Para cenários de produção [comprar uma chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [obter informações sobre preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
-## <a name="application-dependencies"></a>Dependências da aplicação
+## <a name="application-dependencies"></a>Dependências de aplicações
 
 * Execute `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch`.
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>Cliente de pesquisa Visual
-Para criar uma instância do `VisualSearchAPI` cliente, adicione as diretivas de a utilizar:
+Para criar uma instância do `VisualSearchAPI` cliente, adicionar com diretivas:
 ```
 const Search = require('azure-cognitiveservices-visualsearch');
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 
 ```
-Em seguida, instanciar o cliente:
+Em seguida, criar uma instância do cliente:
 ```
 let keyVar = 'YOUR-VISUAL-SEARCH-ACCESS-KEY';
 let credentials = new CognitiveServicesCredentials(keyVar);
@@ -99,7 +99,7 @@ else {
 <a name="complete"></a>
 ## <a name="complete-console-application"></a>Aplicação de consola concluída
 
-A aplicação de consola seguinte executa do código anterior, outros cenários e analisa os resultados:
+A aplicação de consola seguinte executa o código anterior, outros cenários e analisa os resultados:
 ```
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
@@ -328,4 +328,4 @@ exports.sample = sample;
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Exemplos de SDK do .NET Services cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Amostras de SDK .NET dos serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 029ba1c936862ef5c5f774dc683c4746e157c4aa
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626928"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781949"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
 
@@ -34,7 +34,7 @@ Este artigo ajuda-o a localizar informações sobre problemas comuns sobre o Azu
 - SSO totalmente integrado não funciona no Internet Explorer, quando o modo protegido avançado está ativado.
 - SSO totalmente integrado não funciona em browsers para dispositivos móveis no iOS e Android.
 - Se um utilizador faz parte de demasiados grupos no Active Directory, permissão Kerberos do utilizador deverá ser demasiado grande para processar e isso fará com que SSO totalmente integrado a falhar. Pedidos de HTTPS de AD do Azure podem ter cabeçalhos com um tamanho máximo de 50 KB; Os tíquetes Kerberos tem de ser menor do que esse limite para acomodar outros artefatos do Azure AD (normalmente, 2 a 5 KB), como cookies. A nossa recomendação é reduzir as associações de grupo do utilizador e tente novamente.
-- Se estiver sincronizando 30 ou mais florestas do Active Directory, não é possível ativar o SSO totalmente integrado através do Azure AD Connect. Como solução, pode [ative manualmente](#manual-reset-of-azure-ad-seamless-sso) a funcionalidade no seu inquilino.
+- Se estiver sincronizando 30 ou mais florestas do Active Directory, não é possível ativar o SSO totalmente integrado através do Azure AD Connect. Como solução, pode [ative manualmente](#manual-reset-of-the-feature) a funcionalidade no seu inquilino.
 - Adicionar o URL do serviço do Azure AD (https://autologon.microsoftazuread-sso.com) para a zona de sites fidedignos, em vez de zona da Local intranet *bloqueia os utilizadores se inscrevam*.
 - Desativar a utilização do **RC4_HMAC_MD5** tipo de encriptação para Kerberos nas definições do Active Directory irá interromper o SSO totalmente integrado. Na sua ferramenta de Editor de gerenciamento de diretiva de grupo Certifique-se de que o valor da política para **RC4_HMAC_MD5** sob **configuração do computador -> definições do Windows -> definições de segurança -> Políticas locais -> Opções de segurança - > "Segurança de rede: configurar os tipos de encriptação permitidos para Kerberos"** está "ativado".
 
@@ -106,10 +106,9 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passo 1: Importar o módulo do PowerShell do SSO totalmente integrado
 
-1. Transferir e instalar o [assistente Microsoft Online Services início de sessão](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Transferir e instalar o [módulo do Azure Active Directory de 64 bits para o Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navegue para o `%programfiles%\Microsoft Azure Active Directory Connect` pasta.
-4. Importar o módulo do PowerShell do SSO totalmente integrado ao utilizar este comando: `Import-Module .\AzureADSSO.psd1`.
+1. Em primeiro lugar, transfira e instale [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navegue para o `%programfiles%\Microsoft Azure Active Directory Connect` pasta.
+3. Importar o módulo do PowerShell do SSO totalmente integrado ao utilizar este comando: `Import-Module .\AzureADSSO.psd1`.
 
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Passo 2: Obter a lista de florestas do Active Directory no qual foi ativado o SSO totalmente integrado
 
@@ -129,8 +128,10 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Passo 4: Ativar o SSO totalmente integrado para cada floresta do Active Directory
 
 1. Chamar `Enable-AzureADSSOForest`. Quando lhe for pedido, introduza as credenciais de administrador de domínio para a floresta do Active Directory pretendida.
+
    >[!NOTE]
    >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
+
 2. Repita o passo anterior para cada floresta do Active Directory onde pretende configurar a funcionalidade.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Passo 5. Ativar a funcionalidade no seu inquilino

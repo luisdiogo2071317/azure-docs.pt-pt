@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344765"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782659"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 Máquina Virtual de ciência de dados (DSVM) a Microsoft é uma imagem de máquina virtual (VM) do Windows Azure. Ele tem pré-instalado e configurado com várias ferramentas que são utilizadas para análise de dados e machine learning. As ferramentas seguintes estão incluídas:
@@ -126,7 +126,7 @@ Para o desenvolvimento com o Python, tem sido instaladas distribuições Anacond
 > 
 > 
 
-Anaconda Python 3.6 é instalado em **C:\Anaconda**. Anaconda Python 2.7 é instalado em **c:\Anaconda\envs\python2**. Para obter passos detalhados, consulte [documentação das PTVS](/visualstudio/python/installing-python-interpreters.md). 
+Anaconda Python 3.6 é instalado em **C:\Anaconda**. Anaconda Python 2.7 é instalado em **c:\Anaconda\envs\python2**. Para obter passos detalhados, consulte [documentação das PTVS](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters). 
 
 ### <a name="the-jupyter-notebook"></a>O bloco de notas do Jupyter
 Distribuição de anaconda também vem com o bloco de notas do Jupyter, um ambiente para partilhar código e análise. O servidor de bloco de notas do Jupyter está pré-configurada com kernels Python 2.7 Python 3.x, PySpark, Julia e R. Para iniciar o servidor do Jupyter e iniciar o browser para aceder ao servidor de bloco de notas, aí é um ícone de área de trabalho chamado **bloco de notas do Jupyter**. 

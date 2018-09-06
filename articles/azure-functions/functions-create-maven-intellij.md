@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 317d8bf40ef152e5b7dae6406be29330feaaa8d3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002683"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842483"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Criar a primeira função com o Java e IntelliJ (pré-visualização)
 
@@ -80,11 +80,11 @@ Para iniciar o host de função no modo de depuração, adicione **- DenableDebu
 mvn azure-functions:run -DenableDebug
 ```
 
-Para depurar no IntelliJ, no **execute** menu select **editar configurações**. Clique em ** + ** para adicionar um **remoto**. Preencha **Name** e **definições**e, em seguida, clique em **OK** para guardar a configuração. Após a configuração, clique em **depurar** "Remoto sua configuração Name" ou prima **Shift + F9** para iniciar a depuração.
+Para depurar no IntelliJ, no **execute** menu select **editar configurações**. Clique em **+** para adicionar um **remoto**. Preencha **Name** e **definições**e, em seguida, clique em **OK** para guardar a configuração. Após a configuração, clique em **depurar** "Remoto sua configuração Name" ou prima **Shift + F9** para iniciar a depuração.
 
 ![Depurar funções no IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
-Quando terminar parar o depurador e o processo em execução. Anfitrião de apenas uma função pode ser ativa e em execução localmente no momento.
+Quando terminar parar o depurador e o processo em execução. Anfitrião de apenas uma função pode ser ativa e em execução localmente ao mesmo tempo.
 
 ## <a name="deploy-the-function-to-azure"></a>Implementar a função no Azure
 

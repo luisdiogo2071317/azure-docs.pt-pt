@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 96ea965ac383ae449afffa62c5e9950c6fd4e4da
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411938"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842028"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -104,17 +104,11 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 |[Conjuntos elásticos - Get](/rest/api/sql/elasticpools/get)|Obtém um conjunto elástico.|
 |[Conjuntos elásticos - lista por servidor](/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
 |[Conjuntos elásticos - atualização](/rest/api/sql/elasticpools/update)|Atualiza um conjunto elástico existente.|
-|[Recomendado conjuntos elásticos - Get](/rest/api/sql/recommendedelasticpools/get)|Obtém um conjunto elástico recomendado.|
-|[Conjuntos elásticos - lista pelo servidor recomendados](/rest/api/sql/recommendedelasticpools/listbyserver)|Devolve os conjuntos elásticos recomendados.|
-|[Recomendado conjuntos elásticos - lista de métricas](/rest/api/sql/recommendedelasticpools/listmetrics)|Devolve recomendado métricas de conjunto elástico.|
 |[Atividades do conjunto elástico](/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
 |[Atividades de base de dados do conjunto elástico](/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
 |[Bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
 |[Bases de dados - Get](/rest/api/sql/databases/get)|Obtém uma base de dados.|
-|[Para obter bases de dados - conjunto elástico](/rest/api/sql/databases/getbyelasticpool)|Obtém uma base de dados dentro de um conjunto elástico.|
-|[Para obter bases de dados - conjunto elástico recomendado](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtém uma base de dados dentro de um conjunto elástico recomendado.|
 |[Bases de dados - lista por conjunto elástico](/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|
-|[Bases de dados - lista por conjunto elástico recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devolve uma lista de bases de dados dentro de um conjunto elástico recomendado.|
 |[Bases de dados - lista por servidor](/rest/api/sql/databases/listbyserver)|Devolve uma lista de bases de dados num servidor.|
 |[Bases de dados - atualização](/rest/api/sql/databases/update)|Atualiza a base de dados existente.|
 

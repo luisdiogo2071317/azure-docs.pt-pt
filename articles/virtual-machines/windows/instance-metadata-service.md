@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: de597424c1be01e651068b7900acbece822610b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008380"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782995"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -37,10 +37,10 @@ O serviço está disponível em regiões do Azure em disponibilidade geral. Vers
 
 Regiões                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões do Azure Global disponíveis em geral](https://azure.microsoft.com/regions/)     | Disponível em geral   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível em geral | 2017-04-02,2017-08-01
-[O Azure na China](https://www.azure.cn/)                                                           | Disponível em geral | 2017-04-02,2017-08-01
-[O Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível em geral | 2017-04-02,2017-08-01
+[Todas as regiões do Azure Global disponíveis em geral](https://azure.microsoft.com/regions/)     | Disponível em Geral   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[O Azure na China](https://www.azure.cn/)                                                           | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[O Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 
 Esta tabela é atualizada quando existem atualizações de serviço e ou existem novas versões suportadas
 
@@ -49,7 +49,7 @@ Para experimentar o serviço de metadados de instância, criar uma VM a partir [
 ## <a name="usage"></a>Utilização
 
 ### <a name="versioning"></a>Controlo de versões
-O serviço de metadados de instância tem a mesma versão. Versões são obrigatórias e a versão atual no Global Azure é `2017-12-01`. Versões suportadas atuais são (2017-04-02, 2017-08-01,2017-12-01)
+O serviço de metadados de instância tem a mesma versão. Versões são obrigatórias e a versão atual no Global Azure é `2018-04-02`. Versões suportadas atuais são (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02)
 
 > [!NOTE] 
 > Versões anteriores de pré-visualização de eventos agendados suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
@@ -299,6 +299,8 @@ subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
 placementGroupId | [Grupo de colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de dimensionamento de máquinas virtuais definido | 2017-08-01
+plano | [Plano] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM na mesma é uma imagem do Azure Marketplace, contém o nome, produto e fabricante | 2017-04-02
+publicKeys | Coleção de chaves públicas [https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] atribuído à VM e caminhos | 2017-04-02
 vmScaleSetName | [Nome do conjunto de dimensionamento de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de dimensionamento de máquinas virtuais definido | 2017-12-01
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
@@ -379,6 +381,39 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
+
+### <a name="getting-azure-environment-where-the-vm-is-running"></a>Obter ambiente do Azure onde a VM está em execução 
+
+O Azure tem várias nuvens de soverign como [do Azure Government](https://azure.microsoft.com/overview/clouds/government/) , às vezes precisa para o ambiente do Azure tomar algumas decisões de tempo de execução. Exemplo seguinte irá mostrar-lhe como fazê-lo
+
+**Pedido**
+
+```
+  $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
+  $metadata = ConvertFrom-Json ($metadataResponse.Content)
+ 
+  $endpointsResponse = Invoke-WebRequest "https://management.azure.com/metadata/endpoints?api-version=2017-12-01" -UseBasicParsing
+  $endpoints = ConvertFrom-Json ($endpointsResponse.Content)
+ 
+  foreach ($cloud in $endpoints.cloudEndpoint.PSObject.Properties) {
+    $matchingLocation = $cloud.Value.locations | Where-Object {$_ -match $metadata.location}
+    if ($matchingLocation) {
+      $cloudName = $cloud.name
+      break
+    }
+  }
+ 
+  $environment = "Unknown"
+  switch ($cloudName) {
+    "public" { $environment = "AzureCloud"}
+    "usGovCloud" { $environment = "AzureUSGovernment"}
+    "chinaCloud" { $environment = "AzureChinaCloud"}
+    "germanCloud" { $environment = "AzureGermanCloud"}
+  }
+ 
+  Write-Host $environment
+```
+
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de chamar o serviço de metadados que utilizam idiomas diferentes dentro da VM 
 
 Idioma | Exemplo 
@@ -404,7 +439,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Atualmente, o serviço de metadados de instância só suporta instâncias criadas com o Azure Resource Manager. No futuro, o suporte para as VMs do serviço em nuvem podem ser adicionadas.
 3. Tempo que criei minha máquina Virtual através do Gestor de recursos do Azure. Por que ainda não estou ver informações de metadados de computação?
    * Para todas as VMs criadas depois de Setembro de 2016, adicione uma [marca](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Setembro de 2016), adicionar ou remover discos de dados ou extensões para a VM para atualizar os metadados.
-4. Não estou a ver todos os dados preenchidos para a nova versão do 2017-08-01
+4. Não estou a ver todos os dados preenchidos para a nova versão
    * Para todas as VMs criadas depois de Setembro de 2016, adicione uma [marca](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Setembro de 2016), adicionar ou remover discos de dados ou extensões para a VM para atualizar os metadados.
 5. Por que estou recebendo o erro `500 Internal Server Error`?
    * Repetir o pedido com base no sistema de término exponencial. Se o problema persistir, contacte o suporte do Azure.
@@ -414,6 +449,10 @@ Puppet | https://github.com/keirans/azuremetadata
    * Sim do serviço de metadados está disponível para instâncias de conjunto de dimensionamento. 
 8. Como posso obter suporte para o serviço?
    * Para obter suporte para o serviço, criar um problema de suporte no portal do Azure para a VM em que não é possível obter a resposta de metadados após repetições longas 
+9. Posso obter o pedido excedeu o tempo limite para a chamada ao serviço?
+   * Chamadas de metadados têm de ser efetuadas do endereço IP primário atribuído à placa de rede da VM, além no caso de ter alterado as rotas aqui tem de ser uma rota para o endereço de 169.254.0.0/16 fora de sua placa de rede.
+10. Atualizei meu etiquetas num conjunto de dimensionamento de máquinas virtuais, mas não são apresentados nas instâncias ao contrário de VMs?
+   * Atualmente para ScaleSets etiquetas mostram apenas para a VM em reinício/recriação de imagem/ou um disco alterar para a instância. 
 
    ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     

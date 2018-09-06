@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 15863679b42962d414493804f234c9fde46172ea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781163"
 documentType: LandingData
 title: Documentação dos serviços do Azure Machine Learning (pré-visualização)
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: garye
-  ms.openlocfilehash: 8e0856cd7470c65ba1484ab47d840e4b61ee91f9
-  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36266571"
 abstract:
   description: Os serviços do Azure Machine Learning (pré-visualização) permitem criar, implementar e gerir modelos de aprendizagem automática e de IA com qualquer ferramenta e biblioteca de Python. Pode utilizar uma grande variedade de serviços de dados e de computação no Azure para armazenar e processar os seus dados.
 sections:
@@ -71,4 +71,4 @@ sections:
     - title: Linguagens
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
-      html: <p><a href="model-management-api-reference">API REST de Gestão de Modelos</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">APIs de gestão REST</a></p>

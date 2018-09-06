@@ -6,25 +6,25 @@ documentationcenter: ''
 keywords: WAD2AI, Diagnóstico do Azure
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783607"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para os Serviços Cloud do Azure
 As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorizadas pelo [Application Insights][start] quanto à disponibilidade, ao desempenho, às falhas e à utilização, ao combinar dados de SDKs do Application Insights com dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus Serviços Cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
 
-![Exemplo](./media/app-insights-cloudservices/sample.png)
+![Captura de ecrã do dashboard de descrição geral](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## <a name="before-you-start"></a>Antes de começar
 Precisa de:
@@ -81,9 +81,8 @@ Se tiver decidido criar um recurso separado para cada função, e talvez um conj
 1. No [Portal do Azure][portal], crie um recurso do Application Insights novo. Para o tipo de aplicação, escolha a aplicação ASP.NET. 
 
     ![Clicar em Novo, Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. Repare que cada recurso é identificado por uma Chave de Instrumentação. Poderá precisar desta chave mais tarde, se quiser configurar ou verificar a configuração do SDK manualmente.
+2. Cada recurso é identificado por uma chave de instrumentação. Poderá precisar desta chave mais tarde, se quiser configurar ou verificar a configuração do SDK manualmente.
 
-    ![Clicar em Propriedades, selecionar a chave e premir Ctrl+C](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar os Diagnósticos do Azure para cada função
 Defina esta opção para monitorizar a sua aplicação com o Application Insights. Para funções da Web, proporciona monitorização de desempenho, alertas e diagnósticos, bem como análises de utilização. Para outras funções, pode pesquisar e monitorizar diagnósticos do Azure, como reinícios, contadores de desempenho e chamadas para System.Diagnostics.Trace. 
@@ -107,14 +106,14 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
 1. **Funções da Web**: clique com o botão direito do rato e escolha **Configurar o Application Insights** ou **Adicionar > Telemetria do Application Insights**.
 
 2. **Funções de trabalho**: 
- * Clique com o botão direito do rato no projeto e selecione **Gerir Pacotes Nuget**.
+ * Com o botão direito no projeto e selecione **gerir pacotes NuGet**.
  * Adicione [Application Insights para Servidores Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Procurar “Application Insights”](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configure o SDK para enviar dados para o recurso do Application Insights.
 
-    Numa função de arranque adequada, defina a chave de instrumentação da definição de configuração no ficheiro .cscfg:
+    Na função de arranque adequada, defina a chave de instrumentação da definição de configuração no ``.cscfg file``:
  
     ```csharp
    
@@ -128,7 +127,7 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
    * [Para páginas Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Defina o ficheiro ApplicationInsights.config para ser sempre copiado para o diretório de saída. 
    
-    (No ficheiro .config, verá mensagens que lhe pedem para pôr a chave de instrumentação aqui. Contudo, para as aplicações na cloud, é melhor defini-la a partir do ficheiro .cscfg. Isto garante que a função é identificada corretamente no portal.)
+    (No ficheiro .config, verá mensagens que lhe pedem para pôr a chave de instrumentação aqui. No entanto, para aplicações na cloud é melhor defini-lo a partir do ``.cscfg file``. Isto garante que a função é identificada corretamente no portal.)
 
 #### <a name="run-and-publish-the-app"></a>Executar e publicar a aplicação
 Execute a aplicação e inicie sessão no Azure. Abra os recursos do Application Insights que criou e verá pontos de dados individuais aparecer em [Pesquisa](app-insights-diagnostic-search.md) e dados agregados em [Explorador de Métricas](app-insights-metrics-explorer.md). 
@@ -152,7 +151,7 @@ Para ver contadores de desempenho e contagens de eventos, abra o [Explorador de 
 
 ![Dados de diagnósticos do Azure](./media/app-insights-cloudservices/23-wad.png)
 
-Utilize a [Pesquisa](app-insights-diagnostic-search.md) ou uma [consulta do Analytics](app-insights-analytics-tour.md) para pesquisar pelos vários registos de rastreio que o Diagnóstico do Azure envia. Por exemplo, imagine que tem uma exceção não processada que fez com que uma Função falhasse e se reciclasse. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio de pilha completo da exceção. Isto ajuda-o a encontrar a origem do problema.
+Utilize a [Pesquisa](app-insights-diagnostic-search.md) ou uma [consulta do Analytics](app-insights-analytics-tour.md) para pesquisar pelos vários registos de rastreio que o Diagnóstico do Azure envia. Por exemplo, imagine que tem uma exceção não processada que fez com que uma Função falhasse e se reciclasse. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio de pilha completo da exceção. Isto ajudará a determinar a causa do problema.
 
 ![Pesquisa nos diagnósticos do Azure](./media/app-insights-cloudservices/25-wad.png)
 
@@ -197,7 +196,7 @@ Para funções da Web, também são recolhidos estes contadores:
 
 Pode editar ApplicationInsights.config [, como neste exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14), para especificar contadores de desempenho personalizados ou do Windows adicionais.
 
-  ![Contadores de desempenho](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![Contadores de desempenho](./media/app-insights-cloudservices/002-servers.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Telemetria correlacionada para Funções de Trabalho
 Quando pode ver o que originou um pedido falhado ou com latência elevada, está perante uma experiência de diagnóstico avançada. Com as funções da Web, o SDK configura automaticamente a correlação entre a telemetria relacionada. Relativamente às funções de trabalho, pode utilizar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id para toda a telemetria para obter esta correlação. Isto permite-lhe ver rapidamente se o problema de latência/falha foi provocado por uma dependência no seu código. 
@@ -206,11 +205,7 @@ Eis como:
 
 * Defina o Id de correlação numa CallContext, conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Neste caso, estamos a utilizar o ID de Pedido como o Id de correlação
 * Adicione uma implementação de TelemetryInitializer personalizada para definir o Operation.Id como o correlationId definido acima. Está disponível um exemplo em [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Adicione o inicializador de telemetria personalizado. Pode fazê-lo no ficheiro ApplicationInsights.config ou no código, conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
-
-Já está! A experiência do portal já está configurada para o ajudar a ver toda a telemetria associada rapidamente:
-
-![Telemetria correlacionada](./media/app-insights-cloudservices/bHxuUhd.png)
+* Adicione o inicializador de telemetria personalizado. Poderia fazer isso no ficheiro applicationinsights. config ou no código como mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetria de cliente
 [Adicione o SDK JavaScript às suas páginas Web][client] para obter telemetria baseada no browser, como contagens de visualizações de páginas, tempos de carregamento de páginas, exceções de script, e para poder escrever telemetria personalizada nos scripts da sua página.
@@ -235,7 +230,7 @@ Compilou para .NET 4.6? O 4.6 não é suportado automaticamente nas funções do
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md) (Configurar o envio de Diagnósticos do Azure para o Application Insights)
 * [Automate creation of Application Insights resources](app-insights-powershell.md) (Automatizar a criação de recursos do Application Insights)
 * [Automatizar o Diagnóstico do Azure](app-insights-powershell-azure-diagnostics.md)

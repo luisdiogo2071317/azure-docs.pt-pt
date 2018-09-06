@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990626"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782394"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 Dimensionamento automático é uma capacidade adicional do Service Fabric para dimensionar dinamicamente os seus serviços com base na carga que serviços estão a enviar relatórios ou com base na respetiva utilização de recursos. Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento de instâncias adicionais ou partições do seu serviço a pedido. O processo de dimensionamento de automático todo é automatizada e transparente e, depois de configurar as políticas num serviço não é necessário para operações de dimensionamento manuais no nível de serviço. Dimensionamento automático pode ser ativado no momento da criação de serviço ou em qualquer altura ao atualizar o serviço.
@@ -47,7 +47,7 @@ Há dois mecanismos que são atualmente suportados para o dimensionamento autom�
 O primeiro tipo de Acionador baseia-se a carga de instâncias de uma partição de serviço sem estado. Métrica cargas são primeiro suavizadas para obter a carga para cada instância de uma partição e, em seguida, estes valores são transformadas em médias de todas as instâncias da partição. Existem três fatores que determinam quando o serviço será dimensionado:
 
 * _Limiar de carregamento inferior_ é um valor que determina quando o serviço será **reduzido horizontalmente**. Se a carga média de todas as instâncias das partições for inferior este valor, em seguida, o serviço irá ser reduzido horizontalmente.
-* _Limiar de carregamento superior_ é um valor que determina quando o serviço será **aumentados horizontalmente**. Se a carga média de todas as instâncias da partição for inferior este valor, em seguida, o serviço irá ser dimensionado.
+* _Limiar de carregamento superior_ é um valor que determina quando o serviço será **aumentados horizontalmente**. Se a carga média de todas as instâncias da partição é maior do que este valor, em seguida, o serviço irá ser dimensionado.
 * _Intervalo de dimensionamento_ determina a frequência com que o acionador será verificado. Assim que o acionador for selecionado, se o dimensionamento é necessário o mecanismo será aplicado. Se não for necessário dimensionamento, irá ser efetuada nenhuma ação. Em ambos os casos, acionador não estará marcado novamente antes de intervalo de dimensionamento novamente.
 
 Este acionador pode ser utilizado apenas com serviços sem estado (contentores sem monitoração de estado ou serviços do Service Fabric). No caso de quando um serviço tem várias partições, o acionador é avaliado separadamente para cada partição, e cada partição terão o mecanismo especificado aplicado a ele de forma independente. Portanto, neste caso, é possível que algumas das partições do serviço irão ser aumentadas horizontalmente, alguns irão ser reduzido horizontalmente e alguns não ser dimensionados em todos os ao mesmo tempo, com base na carga.

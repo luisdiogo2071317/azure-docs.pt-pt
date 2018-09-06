@@ -16,15 +16,19 @@ ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: eafbe25a5a0fa9182030304e9142a6013c9fb29b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: bf50dbf942dc7a82afbb60455be45b6c4b287ccd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060933"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782180"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Resolução de problemas de atividade do Active Directory do Azure regista erros de pacote de conteúdos 
 
+|  |
+|--|
+|Atualmente, o pacote de conteúdos do Azure AD Power BI utiliza as APIs do Azure AD Graph para recuperar dados de inquilino do Azure AD. Como resultado, poderá ver algumas disparidade entre os dados disponíveis no pacote de conteúdos e os dados obtidos com o [APIs de relatórios do Microsoft Graph](concept-reporting-api.md). |
+|  |
 
 Ao trabalhar com o pacote de conteúdos do Power BI para a pré-visualização do Azure Active Directory, é possível que se deparar com os seguintes erros: 
 

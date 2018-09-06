@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665090"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842476"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -31,13 +31,11 @@ Também precisa de uma conta do Azure e uma subscrição para o serviço de voz.
 
 1. Inicie sessão no [portal de voz personalizada](https://customvoice.ai) com a mesma conta Microsoft que utilizou para aplicam-se para obter acesso.
 
-2. Vá para "Subscrições" no nome da sua conta no canto superior direito.
+2. Vá para "todas as subscrições' em nome da sua conta no canto superior direito.
 
     ![Subscrições](media/custom-voice/subscriptions.png)
 
 3. Na página "Subscrições", escolha "Subscrição existente do Connect".
-
-     ![Ligar a subscrição existente](media/custom-voice/connect-existing-sub.png)
 
 4. Cole a chave de subscrição na tabela, conforme mostrado abaixo. Cada subscrição tem duas chaves, e pode usar qualquer um deles.
 
@@ -122,7 +120,7 @@ Depois de preparar o arquivo do arquivo de áudio e transcrições, carregá-los
 > [!NOTE]
 > Os utilizadores de subscrição gratuita podem carregar dois conjuntos de dados cada vez. Utilizadores de subscrição Standard podem carregar cinco conjuntos de dados em simultâneo. Se atingir o limite, aguardar até que pelo menos um dos seus conjuntos de dados termina a importação, em seguida, tente novamente.
 
-Quando o carregamento estiver concluído, a tabela de meus dados de voz é exibida novamente. Deverá ver uma entrada que corresponde ao conjunto de dados carregado apenas. 
+Quando o carregamento estiver concluído, a tabela de meus dados de voz é exibida novamente. Deverá ver uma entrada que corresponde ao conjunto de dados carregado apenas.
 
 Conjuntos de dados são validados automaticamente após o carregamento. Validação de dados inclui uma série de verificações nos arquivos de áudio para verificar se seu formato de ficheiro, o tamanho e a frequência de amostragem. Verificações nos arquivos de transcrição Verifique se o formato de arquivo e executam alguns normalização do texto. As expressões são transcrito usando o reconhecimento de voz e o texto resultante é comparado com a transcrição que forneceu.
 
@@ -189,17 +187,11 @@ O tempo de treinamento varia dependendo do volume de dados de áudio processados
 
 ## <a name="test-your-voice-font"></a>Testar o seu tipo de voz
 
-Depois do tipo de voz criado com êxito, pode testá-lo antes de implementar para ser utilizado. Clique em **teste** na coluna de operações. É apresentada a página de teste para o tipo de voz selecionado. A tabela estiver vazia se ainda não tiver submetido quaisquer pedidos de teste para a voz.
-
-![Meus tipos de voz, parte 2](media/custom-voice/my-voice-fonts2.png)
+Depois do tipo de voz criado com êxito, pode testá-lo antes de implementar para ser utilizado. Clique em **teste** na coluna da tabela de tipos de voz minhas operações. É apresentada a página de teste para o tipo de voz selecionado. A tabela estiver vazia se ainda não tiver submetido quaisquer pedidos de teste para a voz.
 
 Clique em **teste com texto** botão sob o título da tabela para exibir um menu pop-up de envio de solicitações de texto. Pode submeter o pedido de teste no texto sem formatação ou SSML. O tamanho máximo de entrada é 1024 carateres, incluindo todas as etiquetas para o pedido SSML. O idioma do seu texto deve ser o mesmo que o idioma do seu tipo de voz.
 
-![Teste de tipo de letra de voz](media/custom-voice/voice-font-testing.png)
-
 Depois de preencher a caixa de texto e confirmar o modo de entrada, clique em **Sim** para submeter o pedido de teste e voltar para a página de teste. A tabela inclui agora uma entrada que corresponde ao seu novo pedido e a coluna de status agora conhecido. Pode demorar alguns minutos para sintetizar voz. Quando a coluna Estado ler com êxito, pode baixar a entrada de texto (um `.txt` arquivo) e saída de áudio (um `.wav` ficheiro) e audition a última opção de qualidade.
-
-![Teste de tipo de letra, parte 2 de voz](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Criar e utilizar um ponto final personalizado
 

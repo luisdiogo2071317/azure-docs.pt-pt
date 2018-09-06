@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 429a10988fdc19863cfd6809a8d73757d33349c9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702317"
+ms.locfileid: "43783343"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -57,8 +57,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
   * [Transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md)
   * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. O serviço tem de permitir a capacidade de mover recursos. Consulte as secções abaixo neste artigo, dos quais [serviços permitem mover recursos](#services-that-can-be-moved) e em que [serviços não permitem mover recursos](#services-that-cannot-be-moved).
-3. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Se não, receberá um erro a indicar que o **subscrição não está registada para um tipo de recurso**. Poderá encontrar este problema ao mover um recurso para uma nova subscrição, mas em que esta nunca foi utilizada com esse tipo de recurso.
+1. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Se não, receberá um erro a indicar que o **subscrição não está registada para um tipo de recurso**. Poderá encontrar este problema ao mover um recurso para uma nova subscrição, mas em que esta nunca foi utilizada com esse tipo de recurso.
 
   Para o PowerShell, utilize os seguintes comandos para obter o estado do registo:
 
@@ -86,14 +85,16 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
   az provider register --namespace Microsoft.Batch
   ```
 
-4. A conta de mover os recursos tem de ter, pelo menos, as seguintes permissões:
+1. A conta de mover os recursos tem de ter, pelo menos, as seguintes permissões:
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** no grupo de recursos de origem.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** no grupo de recursos de destino.
 
-5. Antes de mover os recursos, verifique as quotas de subscrição para a subscrição que estiver a mover os recursos para. Se mover os recursos significa que a subscrição irá exceder os limites, terá de rever se podem pedir um aumento na quota. Para obter uma lista de limites e como pedir um aumento, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
+1. Antes de mover os recursos, verifique as quotas de subscrição para a subscrição que estiver a mover os recursos para. Se mover os recursos significa que a subscrição irá exceder os limites, terá de rever se podem pedir um aumento na quota. Para obter uma lista de limites e como pedir um aumento, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
 
-5. Sempre que possível, quebra de grandes passa para operações de movimentação separado. Gestor de recursos falha imediatamente as tentativas de mover os recursos mais de 800 numa única operação. No entanto, o mover os recursos de menos de 800 também poderá falhar por tempo limite.
+1. Sempre que possível, quebra de grandes passa para operações de movimentação separado. Gestor de recursos falha imediatamente as tentativas de mover os recursos mais de 800 numa única operação. No entanto, o mover os recursos de menos de 800 também poderá falhar por tempo limite.
+
+1. O serviço tem de permitir a capacidade de mover recursos. Para determinar se a mudança será bem sucedido [validar o seu pedido de movimentação](#validate-move). Consulte as secções abaixo neste artigo, dos quais [serviços permitem mover recursos](#services-that-can-be-moved) e em que [serviços não permitem mover recursos](#services-that-cannot-be-moved).
 
 ## <a name="when-to-call-support"></a>Quando deve contactar o suporte
 
@@ -106,6 +107,59 @@ Contacte [suportar](https://portal.azure.com/#blade/Microsoft_Azure_Support/Help
 
 * Mover os recursos para uma nova conta do Azure (e de inquilino do Azure Active Directory) e precisar de ajuda com as instruções na secção anterior.
 * Mover recursos clássicos, mas estiver a ter problemas com as limitações.
+
+## <a name="validate-move"></a>Validar a movimentação
+
+O [validar a operação de movimentação](/rest/api/resources/resources/validatemoveresources) permite testar o seu cenário de movimentação sem, na verdade, mover os recursos. Esta operação é utilizada para determinar se a mudança será bem sucedida. Para executar esta operação, precisa de:
+
+* nome do grupo de recursos de origem
+* ID de recurso do grupo de recursos de destino
+* ID de recurso de cada recurso para mover
+* o [token de acesso](/rest/api/azure/#acquire-an-access-token) para a sua conta
+
+Envie o pedido seguinte:
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+Com um corpo de pedido:
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+Se o pedido está formatado corretamente, a operação retornar:
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+O código de 202 estado indica foi aceite o pedido de validação, mas ele ainda não ainda por determinar se a operação de movimentação terá êxito. O `location` valor contém um URL que utilizar para verificar o estado da operação de longa execução.  
+
+Para verificar o estado, envie o pedido seguinte:
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+Enquanto a operação ainda está em execução, continua a receber o código de 202 estado. Aguardar o número de segundos, indicados a `retry-after` valor antes de tentar novamente. Se a operação de movimentação for validado com êxito, receberá o código de 204 estado. Se a validação de movimentação falhar, recebe uma mensagem de erro, tal como:
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
 
 ## <a name="services-that-can-be-moved"></a>Serviços que podem ser movidos
 

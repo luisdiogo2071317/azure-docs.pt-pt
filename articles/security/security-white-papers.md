@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2018
 ms.author: tomsh
-ms.openlocfilehash: 933d0f60b902ae2cb0abcde2ca39a58e59457c6b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056286"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841552"
 ---
 # <a name="azure-security-white-papers"></a>Técnicos de segurança do Azure
 | | |
@@ -30,7 +30,8 @@ ms.locfileid: "42056286"
 |[Registo e auditoria do Azure](azure-log-audit.md)|Fornece uma introdução para gerar, recolher e analisar registos de segurança dos serviços alojados no Azure. Estes registos podem ajudá-lo a obter informações sobre segurança nas suas implementações do Azure. |
 |[Segurança de rede do Azure](abstract-azure-network-security.md)|Apresenta a vasta gama de controlos de rede, que pode configurar para melhorar a segurança das soluções que implementa no Azure. O foco é controlos de segurança de rede do lado do cliente.|
 |[As funções do Azure e de segurança da plataforma sem servidor](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Este white paper que pode ser baixado cobre os benefícios da computação sem servidor, ao mesmo tempo, considerações de segurança e atenuações no contexto do Azure. |
-|[Segurança operacional do Azure](azure-operational-security.md)|Fornece uma visão abrangente as tecnologias de segurança operacional do lado do cliente e os serviços disponíveis com o Azure.|
+|[Segurança do contentor no Microsoft Azure](abstract-container-security-microsoft-azure.md)|Descreve os contentores, a implementação do contentor e gestão e serviços de plataforma nativa. Também descreve problemas de segurança de tempo de execução que possam surgir com o uso de contentores na plataforma do Azure. |
+|[Segurança operacional do Azure](abstract-azure-operational-security.md)|Fornece uma visão abrangente as tecnologias de segurança operacional do lado do cliente e os serviços disponíveis com o Azure.|
 |[Capacidades técnicas de segurança do Azure](azure-security-technical-capabilities.md)|Se concentra em funcionalidades de segurança e funcionalidade que suporta o armazenamento do Azure, bases de dados do Azure SQL, o modelo de máquina virtual do Azure e a infraestrutura e ferramentas que gere tudo.|
 |[Guia de segurança do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Fornece uma descrição geral de cada um dos recursos de segurança que podem ser utilizados com o armazenamento do Azure. Aborda a segurança de plano de gestão, a segurança de plano de dados, a encriptação em repouso, encriptação em trânsito e análise de armazenamento.|
 |[Classificação de dados para preparação da cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Este documento transferível apresenta os conceitos básicos da classificação de dados e o respetivo valor no contexto da cloud de informática. As organizações avaliando a cloud atualmente de computação para utilização futura ou organizações utilizando os serviços cloud e buscando maneiras de otimizar a vontade de gestão de dados se beneficiar máximo deste documento.|

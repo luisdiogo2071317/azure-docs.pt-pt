@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 00955d5de314e6efb0e491e33708495fbdd14f3b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055806"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782595"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -201,7 +201,7 @@ Ver [tamanhos de máquinas virtuais](virtual-machines/linux/sizes.md?toc=%2fazur
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### <a name="app-service-limits"></a>Limites do serviço de aplicações
-Os seguintes limites de serviço de aplicações incluem limites para aplicações Web, aplicações móveis, aplicações API e aplicações lógicas.
+Os seguintes limites de serviço de aplicações incluem limites para aplicações Web, aplicações móveis e API Apps.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 

@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 656577211a992432366033326362c9892f7ba6ef
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861901"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841739"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -43,9 +43,9 @@ Função | Permissões
 Administrador global ou administrador de conta de utilizador | Pode criar, ler, atualizar ou eliminar as definições de política de expiração de grupos do Office 365<br>Pode renovar a qualquer grupo do Office 365
 Utilizador | Pode renovar um grupo do Office 365 que possuem<br>Pode restaurar um grupo do Office 365 que possuem<br>Pode ler as definições de política de expiração
 
-Para obter mais informações sobre as permissões para restaurar um grupo eliminado, consulte [restaurar um grupo eliminado do Office 365 no Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Para obter mais informações sobre as permissões para restaurar um grupo eliminado, consulte [restaurar um grupo eliminado do Office 365 no Azure Active Directory](groups-restore-deleted.md).
 
-## <a name="set-group-expiration"></a>Definir expiração de grupo
+## <a name="set-group-expiration"></a>Definir a expiração do grupo
 
 1. Abra o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global no inquilino do Azure AD.
 
@@ -71,7 +71,7 @@ Quando um grupo de expira, o grupo é eliminado um dia após a data de expiraç�
 
 ![Notificação de e-mail de eliminação do grupo](./media/groups-lifecycle/deletion-notification.png)
 
-O grupo pode ser restaurado dentro de 30 dias após a sua eliminação selecionando **grupo de restauro** ou utilizando os cmdlets do PowerShell, conforme descrito na [restaurar um grupo eliminado do Office 365 no Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+O grupo pode ser restaurado dentro de 30 dias após a sua eliminação selecionando **grupo de restauro** ou utilizando os cmdlets do PowerShell, conforme descrito na [restaurar um grupo eliminado do Office 365 no Azure Active Directory](groups-restore-deleted.md).
     
 Se o grupo de que está a restaurar contém documentos, sites do SharePoint ou outros objetos persistentes, poderá demorar até 24 horas para restaurar completamente o grupo e o respetivo conteúdo.
 
@@ -149,5 +149,5 @@ Estes artigos fornecem informações adicionais sobre os grupos do Azure AD.
 * [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Gerir definições de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Gerir membros de um grupo](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Gerir membros de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gerir regras dinâmicas para os utilizadores num grupo](groups-dynamic-membership.md)
+* [Gerir associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Gerir regras dinâmicas dos utilizadores num grupo](groups-dynamic-membership.md)

@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: fbb43d07296ca573f0c4cb9f1e10e005633ade06
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700101"
+ms.locfileid: "43782916"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Como tópicos do barramento de serviço de utilização e as subscrições com node. js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-O `createServiceBusService` método também oferece suporte a opções adicionais, que permitem-lhe substituir as predefinições de tópico, como o tempo de live da mensagem ou tamanho de tópico máximo. 
+O `createTopicIfNotExists` método também oferece suporte a opções adicionais, que permitem-lhe substituir as predefinições de tópico, como o tempo de live da mensagem ou tamanho de tópico máximo. 
 
 O exemplo seguinte define o tamanho de tópico máximo para 5 GB, com um TTL de um minuto:
 
@@ -235,12 +235,12 @@ var rule={
 }
 ```
 
-Quando uma mensagem é agora enviada `MyTopic`, irá ser entregue aos destinatários para a `AllMessages` subscrição de tópico e entregue seletivamente aos destinatários a `HighMessages` e `LowMessages` (dependendo de subscrições de tópicos o conteúdo da mensagem).
+Quando uma mensagem é agora enviada `MyTopic`, que é entregue aos destinatários a `AllMessages` subscrição de tópico e entregue seletivamente aos destinatários a `HighMessages` e `LowMessages` subscrições de tópicos (consoante a conteúdo da mensagem).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Como enviar mensagens para um tópico
 Para enviar uma mensagem para um tópico do Service Bus, a aplicação tem de utilizar o `sendTopicMessage` método da **ServiceBusService** objeto.
 As mensagens enviadas para tópicos do Service Bus são **BrokeredMessage** objetos.
-**BrokeredMessage** objetos têm um conjunto de propriedades padrão (tais como `Label` e `TimeToLive`), um dicionário utilizado para reter propriedades personalizadas de específicas da aplicação e um corpo de dados de cadeia de caracteres. Uma aplicação pode definir o corpo da mensagem, passando um valor de cadeia de caracteres para o `sendTopicMessage` e todas as necessárias propriedades padrão serão preenchidas pelo valores predefinidos.
+**BrokeredMessage** objetos têm um conjunto de propriedades padrão (tais como `Label` e `TimeToLive`), um dicionário utilizado para reter propriedades personalizadas de específicas da aplicação e um corpo de dados de cadeia de caracteres. Uma aplicação pode definir o corpo da mensagem, passando um valor de cadeia de caracteres para o `sendTopicMessage` e todas as necessárias propriedades padrão são preenchidas por valores predefinidos.
 
 O exemplo seguinte demonstra como enviar cinco mensagens de teste para `MyTopic`. O `messagenumber` valor da propriedade de cada mensagem varia com a iteração do ciclo (Isto determina quais as subscrições que recebem a mesma):
 
@@ -268,7 +268,7 @@ Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma subscrição
 As mensagens são recebidas a partir de uma subscrição com o `receiveSubscriptionMessage` método no **ServiceBusService** objeto. Por predefinição, as mensagens são eliminadas da subscrição como eles são de leitura. No entanto, pode definir o parâmetro opcional `isPeekLock` para **true** ler (pré-visualização) e a mensagem de bloqueio sem eliminá-lo a partir da subscrição.
 
-O comportamento padrão de ler e eliminar a mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
+O comportamento padrão de ler e eliminar a mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Porque o Service Bus marcou a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, ele tem estado em falta a mensagem consumida antes da falha de sistema.
 
 Se o `isPeekLock` parâmetro estiver definido como **true**, a receção torna-se uma operação de duas etapas, o que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte para consumir, bloqueia-a para impedir a receção por outros consumidores e devolve a mesma à aplicação.
 Depois da aplicação processa a mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar **deleteMessage** método e passa a mensagem a eliminar como um parâmetro. O **deleteMessage** método marca a mensagem como consumida e remove-o da subscrição.
