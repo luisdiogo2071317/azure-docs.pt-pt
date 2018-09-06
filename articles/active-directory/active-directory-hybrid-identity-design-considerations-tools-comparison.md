@@ -54,7 +54,7 @@ PP = Pré-visualização Pública
 | Suporta as regras de sincronização do FIM e os conectores para o aprovisionamento para sistemas no local. | | | |● |● |
 
  
-& #42; Atualmente, existem duas opções suportadas para isto.  São: 
+&#42; Atualmente, existem duas opções suportadas para isto.  São: 
 
    1. Pode utilizar o conector LDAP genérico e ativá-lo fora do Azure AD Connect.  Isto é complexo e requer um parceiro para inclusão e um contrato de suporte Premier para manutenção.  Esta opção pode processar diretórios LDAP individuais e múltiplos. 
 
