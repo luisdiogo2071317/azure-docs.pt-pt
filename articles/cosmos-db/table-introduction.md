@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 352aee5d6d4f59f89e31c0b808f22e045a3dc1ea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 225811195ffa01ce26f51fdbb78ee567c747c3d1
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798258"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43282971"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: Table API
 
@@ -28,12 +28,6 @@ O [Azure Cosmos DB](introduction.md) disponibiliza a API de Tabelas às aplicaç
 * [Indexação secundária automática](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 As aplicações escritas para o armazenamento de Tabelas do Azure podem migrar para o Azure Cosmos BD com a API de Tabela sem alterações de código e tirar partido das funcionalidades premium. A API de Tabela tem SDKs do cliente disponíveis para .NET, Java, Python e Node.js.
-
-Recomendamos que veja o vídeo seguinte, onde Aravind Krishna explica como começar a utilizar a API de Tabela do Azure Cosmos DB:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
-> 
-> 
 
 ## <a name="table-offerings"></a>Ofertas de Tabelas
 Se utilizar atualmente o armazenamento de Tabelas do Azure, beneficia das vantagens seguintes se mudar para a API de Tabelas do Azure Cosmos DB:

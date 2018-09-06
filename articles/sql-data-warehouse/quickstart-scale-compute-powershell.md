@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Dimensionar a computação no Azure SQL Data Warehouse – PowerShell | Microsoft Docs'
+title: 'Início Rápido: Dimensionar a computação no Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: Dimensionar a computação do Azure SQL Data Warehouse no PowerShell. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d3a3b30539ed33bf3e8d21a8cc5e5f2692308f98
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187917"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283197"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Guia de Início Rápido: Dimensionar a computação do Azure SQL Data Warehouse no PowerShell
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Início Rápido: Dimensionar a computação do Azure SQL Data Warehouse no PowerShell
 
 Dimensionar a computação do Azure SQL Data Warehouse no PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
@@ -27,7 +27,7 @@ Este tutorial requer a versão 5.1.1 ou posterior do módulo do Azure PowerShell
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este guia de introdução pressupõe que já tem um armazém de dados SQL que pode dimensionar. Se precisar de criar um, utilize [Criar e Ligar – Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este guia de introdução pressupõe que já tem um armazém de dados SQL que pode dimensionar. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -66,7 +66,7 @@ Siga estes passos para encontrar as informações de localização para o seu ar
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [Criar e Ligar – portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
 Para alterar as unidades de armazém de dados, utilize o cmdlet do PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). O seguinte exemplo define as unidades de armazém de dados para DW300 para a base de dados **mySampleDataWarehouse**, que está alojada no grupo de Recursos **myResourceGroup** no servidor **mynewserver-20180430**.
 

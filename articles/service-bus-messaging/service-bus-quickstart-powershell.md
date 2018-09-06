@@ -2,20 +2,20 @@
 title: Início Rápido – Enviar e receber mensagens de e para o Service Bus do Azure | Microsoft Docs
 description: Neste início rápido, vai aprender a enviar e a receber mensagens do Service Bus com o PowerShell e o cliente .NET Standard
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660626"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696841"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Início Rápido: Enviar e receber mensagens com o Azure PowerShell e o .NET
 
@@ -81,9 +81,9 @@ Depois da execução do cmdlet `Get-AzureRmServiceBusKey`, copie e cole a cadeia
 
 Depois de criar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
 
-Para executar o código, realize o seguinte:
+Para executar o código, faça o seguinte:
 
-1. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o seguinte comando:
+1. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o comando seguinte:
 
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
@@ -129,7 +129,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-O nome da fila e a cadeia de ligação são transmitidos para o método `Main()` como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+Os nomes da fila e da cadeia de ligação são transmitidos para o método `Main()` como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)

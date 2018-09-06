@@ -13,21 +13,22 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: f62388c649d576cc4b52ebea0af1e9c8743f3127
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6fbe043e0232701d2aabcbc09606864b5cc27450
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42440294"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702515"
 ---
 # <a name="_Toc395809351"></a>Tutorial do MVC ASP.NET: desenvolvimento de aplicação Web com o Azure Cosmos DB
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - Pré-visualização v2.0](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 Para realçar como pode de forma eficiente tirar partido do Azure Cosmos DB para armazenar e consultar documentos JSON, este artigo serve de orientação ponto a ponto e mostra-lhe como criar uma aplicação de tarefas através do Azure Cosmos DB. As tarefas serão armazenadas como documentos JSON no Azure Cosmos DB.

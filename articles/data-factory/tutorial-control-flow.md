@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 6e2f752e829d0b839d609d7a05bc55659fb126df
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b492635da55ae08f92b18dcf9c030cb23d4fa48c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090030"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665071"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, vai querer enviar detalhes da operação de cópia com êxito (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade de cópia falhar, vai querer enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
@@ -503,7 +503,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
-
+ 
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```

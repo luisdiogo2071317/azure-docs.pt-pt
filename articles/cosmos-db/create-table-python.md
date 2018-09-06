@@ -11,14 +11,21 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3bad2e8c8011f82ab4daf75e73b1c71c46436882
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 614e22cbbb6a94d9b148b29474a5fc82c3f0fef4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38407025"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696790"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guia de Introdução: Criar uma aplicação de API de Tabela com Python e Azure Cosmos DB
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.js](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+> 
 
 Este guia de introdução mostra como utilizar o Python e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para criar uma aplicação através da clonagem de um exemplo do GitHub. Este guia de introdução mostra também como criar uma conta do Azure Cosmos DB e como utilizar o Data Explorer para criar tabelas e entidades no portal do Azure baseado na Web.
 

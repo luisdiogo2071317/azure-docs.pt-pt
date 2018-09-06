@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: 3a5978603ae57a6975b76a0736dc4e2d1f133d30
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b0fba3cee298e55702629815da4649d9af315b25
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022832"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283031"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introdução ao Azure Cosmos DB: API de MongoDB
 
@@ -49,11 +49,6 @@ As bases de dados do Azure Cosmos DB podem ser utilizadas como arquivo de dados 
 **Indexação automática:** Por predefinição, o Azure Cosmos DB indexa automaticamente toda as propriedades dentro dos documentos na base de dados do MongoDB e não espera nem requer qualquer esquema ou criação de índices secundários. Além disso, a capacidade de índice exclusivo permite uma restrição de exclusividade em quaisquer campos de documentos que já estejam indexados automaticamente no Azure Cosmos DB.
 
 **Nível empresarial**: o Azure Cosmos DB suporta várias réplicas locais para fornecer disponibilidade e proteção de dados de 99,99% em caso de falhas locais e regionais. O Azure Cosmos DB possui [certificações de conformidade](https://www.microsoft.com/trustcenter) de nível empresarial, bem como funcionalidades de segurança. 
-
-Saiba mais neste vídeo com o Gestor Sénior de Programas do Azure Cosmos DB, Aleksey Savateyev.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
-> 
 
 ## <a name="how-to-get-started"></a>Como começar
 

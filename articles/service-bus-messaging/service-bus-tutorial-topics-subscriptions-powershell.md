@@ -2,19 +2,19 @@
 title: Tutorial – Atualizar variedade de inventário de comércio a retalho com canais de publicação/subscrição e filtros de tópico com o Azure PowerShell | Microsoft Docs
 description: Neste tutorial, aprende a enviar e receber mensagens de um tópico e subscrição, e como adicionar e utilizar regras de filtro através do Azure PowerShell
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14f3fe81ab613f05154365b832d860808c3184bf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126556"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702192"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar inventário através do PowerShell e tópicos/subscrições
 
