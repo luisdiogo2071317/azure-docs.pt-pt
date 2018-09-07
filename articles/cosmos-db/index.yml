@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f83fd24605577a16257517d96208016bea95c0af
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b00d2c68748372c644a0966d76d5adb8e430e2d5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184368"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053606"
 documentType: LandingData
 title: Documentação da BD do Cosmos para o Azure
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 04/26/2018
   ms.author: sngun
 abstract:
-  description: Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuído globalmente. Utilize estes inícios rápidos, tutoriais e exemplos para desenvolver documentos, valor-chave, colunas e bases de dados com gráficos ao utilizar APIs e modelos de programação populares. Em seguida, aprenda a replicar os seus dados por qualquer número de regiões do Azure e dimensione o seu débito independentemente do seu armazenamento, enquanto tira partido de SLAs abrangentes.
+  description: O Azure Cosmos DB é um serviço de base de dados com vários modelos distribuído globalmente que suporta bases de dados de documento, chave-valor, colunas e grafo. Saiba como utilizar o Azure Cosmos DB com os nossos inícios rápidos, tutoriais e amostras.
   aside:
     image:
       alt: 
