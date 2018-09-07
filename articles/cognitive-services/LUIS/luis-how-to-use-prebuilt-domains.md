@@ -1,20 +1,21 @@
 ---
-title: Utilizar domínios pré-concebidos nas aplicações de LUIS no Azure | Documentos da Microsoft
-description: Saiba como utilizar domínios pré-concebidos em aplicativos de Language Understanding Intelligent Service (LUIS).
+title: Utilizar domínios pré-concebidos para criar aplicações mais rápido em LUIS aplicações
+titleSuffix: Azure Cognitive Services
+description: Compreensão de idiomas (LUIS) fornece domínios pré-concebidos, que são conjuntos pré-criados de objetivos e entidades que funcionam em conjunto para domínios ou categorias comuns de aplicativos de cliente. Os domínios pré-concebidos previamente treinados e estão prontos para adicionar à sua aplicação LUIS.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224182"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053728"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Utilizar domínios pré-concebidos nas aplicações de LUIS  
 

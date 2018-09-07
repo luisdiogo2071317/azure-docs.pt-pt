@@ -1,5 +1,6 @@
 ---
-title: Adicionar recursos em aplicativos de LUIS | Documentos da Microsoft
+title: Apresenta uma lista de frase para melhorar a deteção de entidade
+titleSuffix: Azure Cognitive Services
 description: Utilizar a compreensão de idiomas (LUIS) para adicionar funcionalidades de aplicação que podem melhorar a deteção ou a predição de objetivos e entidades que categorias e padrões
 services: cognitive-services
 author: diberry
@@ -7,29 +8,25 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5ec75436c7df5c08f5507794229bec1f9adb2804
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0fe4e1c64d1d443148f1d0a8ba2a9856e3566f30
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222958"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052620"
 ---
-# <a name="use-features-to-improve-your-luis-apps-performance"></a>Utilizar as funcionalidades para melhorar o desempenho da sua aplicação LUIS  
+# <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Apresenta uma lista de frase de utilização para o sinal de aumento de lista de palavras
 
-Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a precisão. Recursos ajudam o LUIS, fornecendo as sugestões que determinadas palavras e frases fazem parte de uma categoria. Se LUIS aprende a reconhecer um membro da categoria, ele pode tratar outros da mesma forma.
+Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a precisão. Recursos ajudam o LUIS, fornecendo as sugestões que determinadas palavras e frases fazem parte de um vocabulário de domínio de aplicação. 
 
 ## <a name="add-phrase-list"></a>Adicionar a lista de frase
 
 1. Abra a sua aplicação ao clicar em seu nome no **as minhas aplicações** página e, em seguida, clique em **crie**, em seguida, clique em **frase listas** no painel esquerdo da sua aplicação. 
 
-    ![Navegação de lista de frase](./media/luis-add-features/phrase-list-nav.png)
-
 2. Sobre o **frase listas** página, clique em **criar nova lista de frase**. 
  
-    ![Criar nova lista de frase](./media/luis-add-features/create-new-phrase-list.png)
-    
 3. Na **lista de frase adicionar** caixa de diálogo, escreva "Cidades" como o nome da lista frase. Na **valor** , escreva os valores da lista frase. Escreva um valor numa hora ou um conjunto de valores separados por vírgulas e, em seguida, prima **Enter**.
 
     ![Adicionar frase lista cidades](./media/luis-add-features/add-phrase-list-cities.png)
@@ -44,25 +41,12 @@ Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a precisão
 
 6. Clique em **Guardar**. A lista de frase "Cidades" é adicionada para o **frase listas** página.
 
-    ![Lista de frase adicionada](./media/luis-add-features/phrase-list-cities.png)
+<a name="edit-phrase-list"></a>
+<a name="delete-phrase-list"></a>
+<a name="deactivate-phrase-list"></a>
 
-## <a name="edit-phrase-list"></a>Editar lista de frase
-
-Clique no nome da lista frase no **frase listas** página. Na **Editar lista de frase** caixa de diálogo que é aberta, efetuar qualquer necessário editar as alterações e clique em **guardar**.
-
- ![Lista de frase adicionada](./media/luis-add-features/edit-phrase-list.png)
-
-## <a name="delete-phrase-list"></a>Eliminar expressão lista 
-
-Clique nas reticências (***...*** ) no final da linha e selecione **eliminar**.
-
- ![Eliminar lista adicionada](./media/luis-add-features/delete-phrase-list.png)
-
-## <a name="deactivate-phrase-list"></a>Desativar a lista de frase 
-
-Clique nas reticências (***...*** ) no final da linha e selecione **desativar**.
-
- ![Desativar lista adicionada](./media/luis-add-features/deactivate-phrase-list.png)
+> [!Note]
+> Pode editar, eliminar ou desativar uma lista de frase nas reticências (***...*** ) botão no final da linha da lista de frase eac.
 
 ## <a name="pattern-regular-expression-feature"></a>Funcionalidade do padrão (expressão regular) 
 **Esta funcionalidade foi preterida**. Não não possível adicionar novos recursos de padrão LUIS. Todos os recursos padrão existentes são suportados até Maio de 2018. Contribuir para a expressão regular padrão do LUIS, correspondência com um pedido Pull para o [repositório do Github de texto reconhecedores](https://github.com/Microsoft/Recognizers-Text). 

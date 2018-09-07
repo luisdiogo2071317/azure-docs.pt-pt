@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: ecf56f3172ebeab54757d7cbd164b92ca1470ce5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840994"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051175"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
 
@@ -27,7 +27,7 @@ Com o aumento horizontal, pode criar um conjunto de consultas com até sete recu
 
 Independentemente do número de réplicas de consulta que ter num conjunto de consultas, o processamento de cargas de trabalho não são distribuídas entre réplicas de consulta. Um único servidor serve como o servidor de processamento. Réplicas de consulta servem apenas de consultas em modelos sincronizados entre cada réplica de consulta no agrupamento de consulta. 
 
-Ao aumentar horizontalmente, as réplicas de consulta novos são adicionadas ao agrupamento de consulta incrementalmente. Pode demorar até cinco minutos para novos recursos de réplica de consulta a serem incluídos no agrupamento de consulta; pronto para receber ligações de cliente e consultas. Quando todas as réplicas de consulta nova estão operacionais e em execução, novas ligações de cliente são balanceada de carga em todos os recursos de agrupamento de consulta. Ligações de cliente existentes não são alteradas do recurso que estão atualmente ligados.  Quando o dimensionamento no, quaisquer ligações de cliente existentes para um recurso de conjunto de consulta que está a ser removido do conjunto de consultas estão terminadas. Eles são reconectados a um recurso de conjunto de consulta restantes quando concluir a operação de dimensionamento.
+Ao aumentar horizontalmente, as réplicas de consulta novos são adicionadas ao agrupamento de consulta incrementalmente. Pode demorar até cinco minutos para novos recursos de réplica de consulta a serem incluídos no agrupamento de consulta; pronto para receber ligações de cliente e consultas. Quando todas as réplicas de consulta nova estão operacionais e em execução, novas ligações de cliente são balanceada de carga em todos os recursos de agrupamento de consulta. Ligações de cliente existentes não são alteradas do recurso que estão atualmente ligados.  Quando o dimensionamento no, quaisquer ligações de cliente existentes para um recurso de conjunto de consulta que está a ser removido do conjunto de consultas estão terminadas. Eles são reconectados a um recurso de conjunto de consulta restantes quando a operação de dimensionamento for concluída, o que pode demorar até cinco minutos.
 
 Durante o processamento de modelos, depois das operações de processamento estiverem concluídas, tem de ser efetuada uma sincronização entre o servidor de processamento e as réplicas de consulta. Ao automatizar as operações de processamento, é importante configurar uma operação de sincronização após a conclusão bem-sucedida de operações de processamento. Sincronização pode ser executada manualmente no portal ou utilizando o PowerShell ou a REST API. 
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431645"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050005"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligar ao Azure Cosmos DB com ferramentas de análise de BI com o controlador ODBC
 
@@ -173,7 +173,7 @@ Pode definir e criar vistas como parte do processo de amostragem. Estas vistas s
 
 Para criar uma vista para os seus dados, na **Editor de esquema** janela, na **definições de exibição** coluna, clique em **Add** na linha da coleção ao exemplo. Em seguida, no **definições de exibição** janela, efetue o seguinte procedimento:
 1. Clique em **New**, introduza um nome para a vista, por exemplo, EmployeesfromSeattleView e, em seguida, clique em **OK**.
-1. Na **Editar vista** janela, introduza uma consulta do Azure Cosmos DB. Tem de ser uma consulta de SQL do Azure Cosmos DB, por exemplo`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`e, em seguida, clique em **OK**.
+1. Na **Editar vista** janela, introduza uma consulta do Azure Cosmos DB. Tem de ser uma consulta de SQL do Azure Cosmos DB, por exemplo`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`e, em seguida, clique em **OK**.
 
 Pode criar um vários modos de exibição como desejar. Quando tiver terminado definir as vistas, pode, em seguida, apresentar exemplos dos dados. 
 

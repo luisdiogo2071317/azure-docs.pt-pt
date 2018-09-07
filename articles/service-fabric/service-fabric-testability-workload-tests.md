@@ -1,6 +1,6 @@
 ---
-title: Simular falhas no Azure micro-serviços | Microsoft Docs
-description: Como proteger os seus serviços contra falhas ungraceful e correto.
+title: Simular falhas nas aplicações do Azure Service Fabric | Documentos da Microsoft
+description: Como proteger os seus serviços contra falhas amigável e inesperados.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: dccd8eeeda1a41f23c9e3dd9896e0630e2a7a0a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208901"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051919"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço
-Os cenários de teste no Service Fabric do Azure permitem aos programadores não se preocupe sobre como lidar com falhas individuais. Existem cenários, no entanto, onde um interleaving explícita de carga de trabalho do cliente e falhas poderão ser necessários. Interleaving da carga de trabalho do cliente e falhas assegura que o serviço está realmente a efetuar qualquer ação quando ocorre a falha. Tendo em conta o nível de controlo que fornece de teste, podem ser em pontos precisos da execução de cargas de trabalho. Este induction de falhas em diferentes Estados na aplicação, pode encontrar erros e melhorar a qualidade.
+Os cenários de capacidade de teste no Azure Service Fabric permitem aos programadores não se preocupar sobre como lidar com falhas individuais. Existem cenários, no entanto, onde uma intercalação explícita de carga de trabalho do cliente e falhas pode ser necessários. A intercalação de carga de trabalho do cliente e falhas garante que o serviço é realmente executar alguma ação quando ocorre falha. Tendo em conta o nível de controle que fornece a capacidade de teste, podem ser momentos exatos da execução de carga de trabalho. Este induction de falhas em Estados diferentes do aplicativo pode encontrar bugs e melhorar a qualidade.
 
 ## <a name="sample-custom-scenario"></a>Cenário de exemplo de personalizado
-Este teste mostra um cenário que interleaves a carga de trabalho do negócio com [falhas correto e ungraceful](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Devem ser induzidas falhas no meio de operações de serviço ou de computação para obter os melhores resultados.
+Este teste mostra um cenário que interleaves a carga de trabalho de negócios com [falhas amigável e inesperadas](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas no meio de operações de serviço ou de computação para obter melhores resultados.
 
-Vamos guiá-lo através de um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. cada corresponde a um conjunto de fluxos de trabalho e pode estar computação, armazenamento ou uma combinação. Com vista à, simplicidade, iremos irá abstracta terminar as cargas de trabalho no nosso exemplo. Falhas diferentes executadas neste exemplo são:
+Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. cada corresponde a um conjunto de fluxos de trabalho e pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos será abstrair as cargas de trabalho no nosso exemplo. As falhas de diferentes executadas neste exemplo são:
 
-* RestartNode: Falhas Ungraceful para simular um reinício do computador.
-* RestartDeployedCodePackage: Falhas Ungraceful falhas para simular o processo de anfitrião do serviço.
-* RemoveReplica: Falhas correto para simular a remoção de réplica.
-* MovePrimary: Falhas correto para simular réplica move accionadas pelo balanceador de carga de Service Fabric.
+* RestartNode: Falhas inesperada para simular um reinício do computador.
+* RestartDeployedCodePackage: Falhas inesperada para simular o processo de host de serviço falhar.
+* RemoveReplica: Falhas anulações normais para simular a remoção de réplica.
+* MovePrimary: Falhas anulações normais para simular a réplica move acionada pelo balanceador de carga do Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a79c09df7d5fec5884a6810b82b7c174042a4c93
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669012"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054568"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: Azure multi-factor Authentication
 
@@ -35,7 +35,7 @@ Autenticação Multifator é fornecido como parte das ofertas seguintes:
 
 * **Licenças do Azure Active Directory Premium** -completo do uso de serviço do Azure multi-factor Authentication (Cloud) ou Azure multi-factor Authentication Server (no local).
    * **Serviço de MFA do Azure (nuvem)** - **esta opção é o caminho recomendado para novas implementações**. Azure MFA na nuvem não exige nenhuma infraestrutura no local e pode ser utilizado com os seus utilizadores federados ou apenas na cloud.
-   * **O servidor MFA do Azure** -se a sua organização quer gerenciar os elementos da infraestrutura associada e implementou o AD FS no seu ambiente lhes é desta forma pode ser uma opção.
+   * **O servidor MFA do Azure** -se a sua organização quer gerenciar os elementos da infraestrutura associada e implementou o AD FS no seu ambiente no local desta forma pode ser uma opção.
 * **Multi-factor Authentication para Office 365** -um subconjunto de capacidades multi-factor Authentication do Azure estão disponíveis como parte da sua subscrição. Para obter mais informações sobre o MFA para o Office 365, consulte o artigo [planear a autenticação multifator para implementações do Office 365](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Administradores do Azure Active Directory Global** -um subconjunto de capacidades multi-factor Authentication do Azure estão disponíveis como um meio para proteger contas de administrador global.
 

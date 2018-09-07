@@ -7,14 +7,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: b4522d9eb2e9af782918f021c79bbcb155c5c383
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42057313"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053626"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do programador do Cofre de chaves do Azure
 
@@ -53,11 +53,9 @@ Recursos mencionados acima vídeo:
 
 ## <a name="creating-and-managing-key-vaults"></a>Criar e gerir cofres de chaves
 
-O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. 
+O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. Identidades geridas para recursos do Azure torna a resolver esse problema mais simples, fornecendo serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. 
 
-Para obter mais informações sobre o MSI, consulte [Managed Service Identity (MSI) para recursos do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
-
-Para obter mais informações sobre como trabalhar com o AAD, consulte [integrar aplicações com o Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+Para obter mais informações sobre identidades geridas para recursos do Azure, consulte [a visão geral de identidades geridas](../active-directory/managed-identities-azure-resources/overview.md). Para obter mais informações sobre como trabalhar com o AAD, consulte [integrar aplicações com o Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Antes de trabalhar com chaves, segredos ou certificados no seu Cofre de chaves, terá de criar e gerir o seu Cofre de chaves através da CLI, PowerShell, modelos do Resource Manager ou REST, conforme descrito nos seguintes artigos:
 
@@ -110,14 +108,14 @@ No node. js, a API de gestão do Cofre de chaves e a API de objeto do Cofre de c
 ### <a name="quick-start-guides"></a>Guias de introdução rápidos
 
 - [Criar Cofre de chaves](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Introdução ao Key Vault em node. js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Introdução ao Key Vault em node. js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>Exemplos de código
 
 Para obter exemplos de conclusão com o Key Vault com as suas aplicações, consulte:
 
-- [Exemplos de código do Azure Key Vault](http://www.microsoft.com/download/details.aspx?id=45343) -aplicação de exemplo de .NET *HelloKeyVault* e um exemplo de serviço web do Azure. 
-- [Utilizar o Azure Key Vault a partir de uma aplicação Web](key-vault-use-from-web-application.md) -tutorial para ajudá-lo utilizar o Azure Key Vault a partir de uma aplicação web no Azure. 
+- [Exemplos de código do Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault) -exemplos de código para o Azure Key Vault. 
+- [Utilizar o Azure Key Vault a partir de uma aplicação Web](quick-create-net.md) -tutorial para ajudá-lo utilizar o Azure Key Vault a partir de uma aplicação web no Azure. 
 
 ## <a name="how-tos"></a>Procedimentos
 

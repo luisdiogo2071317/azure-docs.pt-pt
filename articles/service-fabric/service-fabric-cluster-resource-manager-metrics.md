@@ -1,5 +1,5 @@
 ---
-title: Gerir o uso de métricas de carga de microsserviços do Azure | Documentos da Microsoft
+title: Gerir a carga de aplicação do Azure Service Fabric com métricas | Documentos da Microsoft
 description: Saiba mais sobre como configurar e utilizar as métricas no Service Fabric para gerir o consumo de recursos de serviço.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006289"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053317"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Consumo de recursos de gerenciamento e a carga no Service Fabric com a métrica
 *Métricas* são os recursos que o cuidado de serviços sobre e que é fornecido por nós no cluster. Uma métrica é tudo o que pretende gerir para melhorar ou monitorizar o desempenho dos seus serviços. Por exemplo, poderá ver o consumo de memória para saber se o seu serviço está sobrecarregado. Outro uso é descobrir se o serviço foi possível mover a outro lugar em que a memória é que menos restrita para obter um melhor desempenho.

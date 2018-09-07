@@ -1,6 +1,6 @@
 ---
-title: Roda os segredos na pilha do Azure | Microsoft Docs
-description: Saiba como rodar os segredos na pilha do Azure.
+title: Rodar segredos no Azure Stack | Documentos da Microsoft
+description: Saiba como rodar os segredos no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,111 +11,110 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029021"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051398"
 ---
-# <a name="rotate-secrets-in-azure-stack"></a>Roda os segredos na pilha do Azure
+# <a name="rotate-secrets-in-azure-stack"></a>Rodar segredos no Azure Stack
 
-*Estas instruções aplicam-se apenas ao Azure pilha integrada sistemas versão 1803 e mais tarde. Não tente rotação secreta em versões de pilha do pre-1802 do Azure*
+*Estas instruções aplicam-se apenas ao Azure Stack integrada sistemas versão 1803 e mais tarde. Não tente secreta rotação em versões de pilha do Azure de pré-1802*
 
-Pilha do Azure utiliza vários segredos para manter a comunicação segura entre os serviços e recursos de infraestrutura de pilha do Azure.
+O Azure Stack utiliza várias segredos para manter uma comunicação segura entre os serviços e recursos de infraestrutura do Azure Stack.
 
 - **Segredos internos**  
-Todos os os certificados, as palavras-passe, cadeias seguras e as chaves utilizadas pela infraestrutura do Azure pilha sem a intervenção do operador de pilha do Azure. 
+Todos os os certificados, palavras-passe, cadeias de caracteres seguras e as chaves utilizadas pela infraestrutura do Azure Stack sem a intervenção do operador do Azure Stack. 
 
 - **Segredos externos**  
-Certificados de infraestrutura de serviço para os serviços de acesso externo que são fornecidos pela operadora de rede de pilha do Azure. Isto inclui os certificados para os seguintes serviços: 
+Certificados de infraestrutura de serviço para os serviços de face externa que são fornecidos pela operadora de rede do Azure Stack. Isto inclui os certificados para os seguintes serviços: 
     - Portal de administrador 
     - Portal público 
     - Administrador do Azure Resource Manager 
-    - Gestor de recursos global do Azure 
-    - Administrador Keyvault 
+    - Global Azure Resource Manager 
+    - Cofre de chaves de administrador 
     - Keyvault 
-    - ACS (incluindo o blob, tabela e armazenamento de filas) 
+    - ACS (incluindo o armazenamento de filas, tabelas e BLOBs) 
     - AD FS<sup>*</sup>
     - Gráfico<sup>*</sup>
 
-    > <sup>*</sup> Apenas aplicável se o fornecedor de identidade do ambiente Active Directory Federated Services (AD FS).
+   <sup>*</sup> Apenas aplicável se o fornecedor de identidade do ambiente é o Active Directory Federated Services (AD FS).
 
 > [!NOTE]
-> Todos os outros proteger chaves e cadeias, incluindo BMC e mudar as palavras-passe, utilizador e administrador as palavras-passe de conta são atualizadas manualmente pelo administrador. 
+> Todos os outros proteger chaves e cadeias de caracteres, incluindo o BMC e alternar as palavras-passe, as senhas de contas de utilizador e administrador são atualizadas manualmente pelo administrador. 
 
-Para poder manter a integridade da infraestrutura de pilha do Azure, os operadores necessita da capacidade de periodicamente rodar os segredos da respetiva infraestrutura em frequências que são consistentes com os requisitos de segurança da respetiva organização.
+Para manter a integridade da infraestrutura do Azure Stack, operadores tem a capacidade de rodar periodicamente os segredos de sua infra-estrutura em frequências são consistentes com os requisitos de segurança da sua organização.
 
-### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rodar segredos com certificados externos de uma autoridade de certificado novo
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Girando segredos com certificados externos de uma nova autoridade de certificação
 
-Pilha do Azure suporta rotação secreta com certificados externos de uma nova autoridade de certificação (CA) nos contextos de seguintes:
+O Azure Stack suporta a rotação de secreta com certificados externos de um novo certificado de autoridade (AC) nos contextos seguintes:
 
-|Instalado de certificado de AC|AC para rodar para|Suportadas|Versões de pilha do Azure suportadas|
-|-----|-----|-----|-----|-----|
+|Instalado de certificado de AC|Autoridade de certificação para girar para|Suportadas|Versões do Azure Stack suportadas|
+|-----|-----|-----|-----|
 |De Autoassinado|Para a empresa|Não suportado||
 |De Autoassinado|Para Autoassinado|Não suportado||
-|De Autoassinado|Para público<sup>*</sup>|Suportadas|1803 & posterior|
-|Do Enterprise|Para a empresa|Suportado, desde que os clientes utilizam a mesma empresa de AC como utilizado na implementação|1803 & posterior|
+|De Autoassinado|Para o público<sup>*</sup>|Suportadas|1803 e posterior|
+|Do Enterprise|Para a empresa|Suportado, desde que os clientes utilizam a mesma empresa AC como utilizado na implementação|1803 e posterior|
 |Do Enterprise|Para Autoassinado|Não suportado||
-|Do Enterprise|Para público<sup>*</sup>|Suportadas|1803 & posterior|
-|Do público<sup>*</sup>|Para a empresa|Não suportado|1803 & posterior|
-|Do público<sup>*</sup>|Para Autoassinado|Não suportado||
-|Do público<sup>*</sup>|Para público<sup>*</sup>|Suportadas|1803 & posterior|
+|Do Enterprise|Para o público<sup>*</sup>|Suportadas|1803 e posterior|
+|De público<sup>*</sup>|Para a empresa|Não suportado|1803 e posterior|
+|De público<sup>*</sup>|Para Autoassinado|Não suportado||
+|De público<sup>*</sup>|Para o público<sup>*</sup>|Suportadas|1803 e posterior|
 
-<sup>*</sup> Aqui autoridades de certificação pública são aqueles que fazem parte do programa de raiz fidedigna do Windows. Pode encontrar a lista completa [Microsoft fidedigna Root Certificate Program: participantes (a partir da 27 de Junho de 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup> Aqui, autoridades de certificação públicas são aqueles que fazem parte do programa de raiz confiável do Windows. Pode encontrar a lista completa [Microsoft Trusted Root Certificate Program: participantes (a partir de 27 de Junho de 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
-## <a name="alert-remediation"></a>Remediação de alerta
+## <a name="alert-remediation"></a>Remediação do alerta
 
-Quando são segredos no prazo de 30 dias de expiração, os seguintes alertas são gerados no Portal do administrador: 
+Quando os segredos são dentro de 30 dias de expiração, os seguintes alertas são gerados no Portal do administrador: 
 
 - Expiração de palavra-passe da conta de serviço pendente 
 - Expiração do certificado interno pendente 
 - Expiração do certificado externo pendente 
 
-Executar rotação secreta utilizando as instruções abaixo irá remediar estes alertas.
+Executar a rotação secreta com as instruções abaixo irá remediar estes alertas.
 
-## <a name="pre-steps-for-secret-rotation"></a>Pré-passos para rotação secreta
+## <a name="pre-steps-for-secret-rotation"></a>Passos anteriores para a rotação de secreta
 
-1.  Notifique os utilizadores de quaisquer operações de manutenção. Agende janelas de manutenção normal, quanto possíveis, durante o horário não comercial. Operações de manutenção podem afetar as cargas de trabalho de utilizador e operações portais.
-
+   > [!IMPORTANT]  
+   > Certifique-se de rotação secreta ainda não foi executada com êxito no seu ambiente. Se já foi executada a rotação secreta, atualize o Azure Stack para a versão 1807 ou posterior antes de executar a rotação secreta. 
+1.  Notificar os utilizadores de quaisquer operações de manutenção. Agende janelas de manutenção normal, tanto quanto possíveis, durante o horário não comercial. Operações de manutenção podem afetar as cargas de trabalho de utilizador e de operações do portal.
     > [!note]  
-    > Os passos seguintes aplicam-se apenas quando a rotação dos segredos externos pilha do Azure.
+    > Os passos seguintes aplicam-se apenas quando alternar segredos externos do Azure Stack.
+3. Prepare um novo conjunto de substituição de certificados externos. O novo conjunto corresponde as especificações do certificado descritas a [requisitos de certificado PKI do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Store uma cópia de segurança nos certificados utilizados para a rotação num local de cópia de segurança seguro. Se a rotação é executado e, em seguida, falha, substitua os certificados na partilha de ficheiros com as cópias de segurança antes de voltar a executar a rotação. Tenha em atenção, manter cópias de segurança na localização de cópia de segurança segura.
+5.  Crie uma partilha de ficheiros que pode aceder a partir de ERCS VMs. A partilha de ficheiros tem de ser legíveis e gravável para o **CloudAdmin** identidade.
+6.  Abra uma consola do ISE do PowerShell a partir de um computador em que tem acesso à partilha de ficheiros. Navegue para a partilha de ficheiros. 
+7.  Execute **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para os certificados externos.
 
-2. Certifique-se de rotação secreta ainda não foi executada com êxito no seu ambiente no mês passado. Neste ponto no tempo a pilha do Azure suporta apenas a rotação secreta uma vez por mês. 
-3. Prepare um novo conjunto de substituição certificados externos. O novo conjunto corresponde as especificações de certificado descritas no [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-4.  Armazene uma cópia de segurança nos certificados utilizados para rotação numa localização segura cópia de segurança. Se a rotação é executado e, em seguida, falha, substitua os certificados na partilha de ficheiros com as cópias de segurança antes de voltar a executar a rotação. Tenha em atenção, manter cópias de segurança na localização de cópia de segurança segura.
-5.  Crie uma partilha de ficheiros que pode aceder a partir de VMs ERCS. A partilha de ficheiros tem de ser legível e gravável para o **CloudAdmin** identidade.
-6.  Abra uma consola do ISE do PowerShell a partir de um computador onde tenha acesso à partilha de ficheiros. Navegue para a partilha de ficheiros. 
-7.  Executar **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para os certificados externos.
+## <a name="rotating-external-and-internal-secrets"></a>Girando segredos externos e internos
 
-## <a name="rotating-external-and-internal-secrets"></a>Rodar segredos internos e externos
+Para girar um segredo interno externas:
 
-Para rodar ambas externo um segredo interno:
-
-1. Dentro do recém-criada **certificados** diretório que criou nos pré-passos de, coloque o novo conjunto de certificados externos de substituição na estrutura de diretório, de acordo com o formato descrito na secção certificados obrigatório do [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
-2. Criar uma sessão do PowerShell com o [ponto final com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) utilizando o **CloudAdmin** conta e armazenar as sessões como uma variável. Irá utilizar esta variável como o parâmetro no próximo passo.
+1. Dentro do recém-criado **certificados** diretório criado nos passos anteriores, coloque o novo conjunto de certificados externos de substituição na estrutura de diretórios, de acordo com o formato descrito na secção certificados obrigatórios do [requisitos de certificado PKI do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
+2. Criar uma sessão do PowerShell com o [ponto final com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) utilizando o **CloudAdmin** da conta e armazenar as sessões como uma variável. Irá utilizar esta variável como o parâmetro no próximo passo.
 
     > [!IMPORTANT]  
-    > Não introduza a sessão, armazene a sessão como uma variável.
+    > Não introduza a sessão, armazenar a sessão como uma variável.
     
-3. Executar  **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Transmitir a variável de sessão do PowerShell com privilégios de ponto final como a **sessão** parâmetro. 
-4. Executar **início SecretRotation** com os seguintes parâmetros:
+3. Execute  **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Passar a variável de sessão do PowerShell com privilégios de ponto final como a **sessão** parâmetro. 
+4. Execute **Start-SecretRotation** com os seguintes parâmetros:
     - **PfxFilesPath**  
-    Especifique o caminho de rede para o diretório de certificados que criou anteriormente.  
+    Especifique o caminho de rede para o seu diretório de certificados que criou anteriormente.  
     - **PathAccessCredential**  
     Um objeto PSCredential as credenciais para a partilha. 
     - **CertificatePassword**  
-    Uma cadeia segura a palavra-passe utilizada para todos os ficheiros de certificado pfx criados.
-4. Aguarde enquanto o rodar os segredos.  
-Quando a rotação secreta é concluída com êxito, a consola irá apresentar **estado geral da ação: êxito**. 
-5. Após a conclusão bem-sucedida da rotação secreta, remova os certificados da partilha criada no passo anterior ao e armazená-las numa localização de cópia de segurança segura. 
+    Uma cadeia segura da palavra-passe utilizada para todos os ficheiros de certificado pfx, criados.
+4. Aguarde enquanto o girar seus segredos.  
+Quando a rotação do segredo é concluída com êxito, a consola apresentará **estado da ação geral: êxito**. 
+5. Após a conclusão com êxito de rotação secreta, remova os certificados da partilha criada no passo anterior e armazená-las em seu local de cópia de segurança seguro. 
 
-## <a name="walkthrough-of-secret-rotation"></a>Instruções de rotação secreta
+## <a name="walkthrough-of-secret-rotation"></a>Passo a passo de rotação secreta
 
-O exemplo do PowerShell seguinte demonstra os cmdlets e parâmetros para executar para rodar os segredos.
+O exemplo de PowerShell seguinte mostra os cmdlets e parâmetros de executar para girar seus segredos.
 
 ```powershell
 #Create a PEP Session
@@ -131,16 +130,16 @@ Invoke-Command -session $PEPsession -ScriptBlock {
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
 ```
-## <a name="rotating-only-internal-secrets"></a>Rodar apenas segredos internos
+## <a name="rotating-only-internal-secrets"></a>Girando apenas internos segredos
 
-Para rodar apenas do Azure pilha internos segredos:
+Para girar apenas do Azure Stack internos segredos:
 
 1. Criar uma sessão do PowerShell com o [ponto final com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
-2. Na sessão do ponto final com privilégios, execute **início SecretRotation** sem argumentos.
+2. Na sessão do ponto final com privilégios, execute **Start-SecretRotation** sem argumentos.
 
-## <a name="start-secretrotation-reference"></a>Referência de início SecretRotation
+## <a name="start-secretrotation-reference"></a>Referência de SecretRotation de início
 
-Roda os segredos de um sistema de pilha do Azure. Só é executado contra o Endpoint com privilégios de pilha do Azure.
+Gira os segredos de um sistema de pilha do Azure. Só é executado no ponto final do Azure com privilégios do Stack.
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -152,27 +151,28 @@ Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredent
 
 ### <a name="description"></a>Descrição
 
-O cmdlet Start-SecretRotation roda os segredos de infraestrutura de um sistema de pilha do Azure. Por predefinição, roda todos os segredos expostos à rede de infraestrutura interna, com a intervenção do utilizador, também roda os certificados de todos os pontos finais infraestrutura de rede externa. Quando a rotação dos pontos finais de infraestrutura de rede externa, SecretRotation de início deve ser executado através de um bloco de script de Invoke-Command com sessão de ponto final com privilégios o ambiente do Azure pilha transmitido como o parâmetro de sessão.
+O cmdlet Start-SecretRotation gira os segredos de infraestrutura de um sistema de Azure Stack. Por padrão que ele gira todos os segredos expostos na rede de infra-estrutura interna, com entrada do usuário-lo também gira os certificados de todos os pontos de extremidade de infraestrutura de rede externa. Quando alternar pontos finais de infraestrutura de rede externa, SecretRotation de início deve ser executado por meio de um bloco de script de Invoke-Command com a sessão de ponto final com privilégios do ambiente do Azure Stack passado como o parâmetro de sessão.
  
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Tipo | Necessário | Posição | Predefinição | Descrição |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Cadeia  | Falso  | Com o nome  | Nenhuma  | O caminho de partilha de ficheiros para o **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Só é necessário quando a rotação dos segredos internos e externos. Diretório de fim tem de estar **\Certificates**. |
-| CertificatePassword | SecureString | Falso  | Com o nome  | Nenhuma  | A palavra-passe para todos os certificados fornecidas - PfXFilesPath. Valor necessário se PfxFilesPath é fornecida quando rodam segredos internos e externos. |
-|
+| PfxFilesPath | Cadeia  | Falso  | com o nome  | Nenhuma  | O caminho de partilha de ficheiros para o **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos ou todos os segredos. Diretório de fim tem de ser **\Certificates**. |
+| CertificatePassword | SecureString | Falso  | com o nome  | Nenhuma  | A palavra-passe para todos os certificados fornecido no - PfXFilesPath. Valor obrigatório se PfxFilesPath é fornecida quando são revezados de segredos internos e externos. |
+| PathAccessCredential | PSCredential | Falso  | com o nome  | Nenhuma  | A credencial do PowerShell para a partilha de ficheiros do **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos ou todos os segredos.  |
+| Voltar a executar | SwitchParameter | Falso  | com o nome  | Nenhuma  | Tem de ser utilizada voltar a executar em qualquer altura rotação secreta é tentada novamente após uma tentativa falhada. |
 
 ### <a name="examples"></a>Exemplos
  
-**Roda apenas segredos de infra-estrutura interna**
+**Rodar apenas os segredos de infra-estrutura interna**
 
 ```powershell  
 PS C:\> Start-SecretRotation  
 ```
 
-Este comando roda todos os segredos de infraestrutura expostos à rede interna de pilha do Azure. Início SecretRotation roda todos os segredos gerado de pilha, mas porque não existem nenhum certificados fornecidos, certificados de ponto final externo não define a rotação.  
+Este comando gira todos os segredos de infraestrutura expostos à rede interna do Azure Stack. Start-SecretRotation gira todos os segredos da pilha gerado, mas como não há nenhum certificado fornecido, os certificados de ponto final externo não ser girados.  
 
-**Roda os segredos de infraestrutura internos e externos**
+**Rodar segredos de infra-estrutura interna e externa**
   
 ```powershell
 PS C:\> Invoke-Command -session $PEPSession -ScriptBlock { 
@@ -180,16 +180,16 @@ Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $u
 Remove-PSSession -Session $PEPSession
 ```
 
-Este comando roda todos os segredos de infraestrutura expostos à rede interna de pilha do Azure, bem como os certificados TLS utilizados para pontos finais de infraestrutura de rede externa da pilha do Azure. Início SecretRotation roda todos os segredos gerado de pilha e porque são fornecidos certificados, os certificados de ponto final externo também rotação.  
+Este comando gira todos os segredos de infraestrutura expostos à rede interna do Azure Stack, bem como os certificados TLS utilizados para pontos finais de infraestrutura de rede externa do Azure Stack. Início SecretRotation gira todos os segredos da pilha gerado e, uma vez que recebem certificados, os certificados de ponto final externo irão também precisar ser girados.  
 
 
-## <a name="update-the-baseboard-management-controller-bmc-password"></a>Atualizar a palavra-passe do bmc gestão controlador BMC
+## <a name="update-the-baseboard-management-controller-bmc-password"></a>Atualizar a palavra-passe do baseboard management controller (BMC)
 
-O controlador de gestão de placas base (BMC) monitoriza o estado dos seus servidores físico. As especificações e instruções sobre como atualizar a palavra-passe do BMC variam com base no seu fornecedor de hardware de fabricante de equipamento original (OEM). Deve ser atualizado as palavras-passe para os componentes de pilha do Azure a uma cadência regular.
+O controlador de gestão da placa base (BMC) monitoriza o estado físico dos seus servidores. As especificações e instruções sobre como atualizar a palavra-passe do BMC variam consoante o fornecedor do hardware de fabricante de equipamento original (OEM). Atualize as palavras-passe para os componentes do Azure Stack numa cadência regular.
 
-1. Atualize o BMC em servidores físicos a pilha do Azure ao seguir as instruções do OEM. A palavra-passe para cada BMC no seu ambiente tem de ser o mesmo.
-2. Abra um ponto final com privilégios em sessões de pilha do Azure. Para instruções, consulte [utilizando o ponto final com privilégios na pilha de Azure](azure-stack-privileged-endpoint.md).
-3. Depois do PowerShell linha foi alterada para **[endereço IP ou ERCS VM nome]: PS >** ou **[azs ercs01]: PS >**, consoante o ambiente, execute `Set-BmcPassword` executando `invoke-command`. A variável de sessão do ponto final com privilégios de passar como parâmetro. Por exemplo:
+1. Atualize o BMC em servidores físicos do Azure Stack com as instruções do seu OEM. A palavra-passe para cada BMC no seu ambiente tem de ser o mesmo.
+2. Abra um ponto final com privilégios em sessões do Azure Stack. Para obter instruções, consulte [utilizando o ponto final com privilégios no Azure Stack](azure-stack-privileged-endpoint.md).
+3. Depois do PowerShell, linha foi alterado para **[VM de ERCS do endereço IP ou nome]: PS >** ou a **[azs-ercs01]: PS >**, dependendo do ambiente, execute `Set-BmcPassword` executando `invoke-command`. Passe a variável de sessão do ponto final com privilégios, como um parâmetro. Por exemplo:
 
     ```powershell
     # Interactive Version
@@ -205,7 +205,7 @@ O controlador de gestão de placas base (BMC) monitoriza o estado dos seus servi
     Remove-PSSession -Session $PEPSession
     ```
     
-    Também pode utilizar a versão do PowerShell estática com as palavras-passe como linhas de código:
+    Também pode utilizar a versão estática do PowerShell com as palavras-passe como linhas de código:
     
     ```powershell
     # Static Version
@@ -225,4 +225,4 @@ O controlador de gestão de placas base (BMC) monitoriza o estado dos seus servi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba mais sobre a segurança de pilha do Azure](azure-stack-security-foundations.md)
+[Saiba mais sobre a segurança do Azure Stack](azure-stack-security-foundations.md)

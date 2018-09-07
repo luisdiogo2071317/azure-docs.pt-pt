@@ -1,6 +1,6 @@
 ---
-title: Depurar micro-serviços do Azure no Linux | Microsoft Docs
-description: Saiba como monitorizar e diagnosticar os serviços escritos utilizando o Microsoft Azure Service Fabric numa máquina de desenvolvimento local.
+title: Depurar o Azure Service Fabric aplicações no Linux | Documentos da Microsoft
+description: Saiba como monitorizar e diagnosticar os serviços do Service Fabric numa máquina de desenvolvimento local do Linux.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 563f9d73d5a8d56e834c36d03aed75812ec123ba
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5aeb87538968304d3eaf73873d4c4c762c07329c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212715"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051379"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar os serviços de uma configuração de desenvolvimento do computador local
+# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local
 
 
 > [!div class="op_single_selector"]
@@ -30,16 +30,16 @@ ms.locfileid: "34212715"
 >
 >
 
-Monitorização, detetar, diagnosticar e resolver problemas permitem de serviços continuar com a mínima interrupção a experiência de utilizador. Monitorização e diagnóstico é crítico num ambiente de produção implementado real. Adotar um modelo semelhante durante o desenvolvimento de serviços assegura que o pipeline de diagnóstico funciona quando mover para um ambiente de produção. Service Fabric torna mais fácil para os programadores de serviço implementar o diagnóstico de forma totalmente integrada pode trabalhar em setups única máquina de desenvolvimento local e setups de cluster de produção do mundo real.
+Monitoramento, detetar e diagnosticar e resolução de problemas permitem para os serviços continuar com a mínima interrupção para a experiência do usuário. Monitorização e diagnóstico é essencial num ambiente de produção implementado real. A adoção de um modelo semelhante durante o desenvolvimento de serviços garante que o pipeline de diagnóstico funciona ao mover para um ambiente de produção. Service Fabric torna mais fácil para os desenvolvedores de serviço implementar o diagnóstico de forma totalmente integrada pode trabalhar em configurações de desenvolvimento local da única máquina e configurações de cluster de produção do mundo real.
 
 
-## <a name="debugging-service-fabric-java-applications"></a>A depuração de aplicações Java de recursos de infraestrutura de serviço
+## <a name="debugging-service-fabric-java-applications"></a>Depuração de aplicações Java do Service Fabric
 
-Para aplicações de Java, [várias arquiteturas de registo](http://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Uma vez que `java.util.logging` é a opção predefinida com o JRE, também é utilizado para o [exemplos em github de código](http://github.com/Azure-Samples/service-fabric-java-getting-started).  O debate da seguinte explica como configurar o `java.util.logging` framework.
+Para aplicações de Java [várias arquiteturas de registo](http://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Uma vez que `java.util.logging` é a opção predefinida com o JRE, também é utilizado para o [exemplos no github de código](http://github.com/Azure-Samples/service-fabric-java-getting-started).  A discussão seguinte explica como configurar o `java.util.logging` framework.
 
-Utilizar Util pode redirecionar os registos de aplicação para memória, as sequências de saída, ficheiros de consola ou sockets. Para cada uma destas opções, existem processadores predefinidos já são fornecidos no framework. Pode criar um `app.properties` ficheiros para configurar o processador de ficheiros para a sua aplicação redirecionar todos os registos para um ficheiro local.
+Usando Util pode redirecionar os registos da aplicação para a memória, fluxos de saída, arquivos de console ou sockets. Para cada uma destas opções, existem manipuladores padrão já é fornecidos no framework. Pode criar um `app.properties` arquivo para configurar o manipulador de arquivo para a sua aplicação redirecionar todos os registos para um ficheiro local.
 
-O fragmento de código seguinte contém uma configuração de exemplo:
+O fragmento de código seguinte contém um exemplo de configuração:
 
 ```java
 handlers = java.util.logging.FileHandler
@@ -51,34 +51,34 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
 ```
 
-A pasta indicada pelo `app.properties` ficheiro tem de existir. Depois do `app.properties` ficheiro é criado, tem também modificar o script de ponto de entrada, `entrypoint.sh` no `<applicationfolder>/<servicePkg>/Code/` pasta para definir a propriedade `java.util.logging.config.file` para `app.propertes` ficheiro. A entrada deverá existir o seguinte fragmento:
+A pasta apontada pelo `app.properties` ficheiro tem de existir. Depois do `app.properties` ficheiro é criado, terá de também modificar o script de ponto de entrada `entrypoint.sh` no `<applicationfolder>/<servicePkg>/Code/` pasta para definir a propriedade `java.util.logging.config.file` para `app.propertes` ficheiro. A entrada deve ter um aspeto como o seguinte fragmento:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
 
 
-Esta configuração resulta em registos estão a ser recolhidos de forma rotating em `/tmp/servicefabric/logs/`. O ficheiro de registo neste caso é denominado mysfapp%u.%g.log onde:
-* **%u** é um número exclusivo para resolver conflitos entre os processos de Java em simultâneo.
-* **%g** é o número de geração para distinguir entre a rotação dos registos.
+Esta configuração resulta em registos a ser recolhidos de forma rotação em `/tmp/servicefabric/logs/`. O ficheiro de registo neste caso é denominado mysfapp%u.%g.log onde:
+* **%u** é um número exclusivo para resolver conflitos entre processos simultâneos de Java.
+* **%g** é o número de geração de distinguir entre girando registos.
 
-Por predefinição se nenhuma rotina de tratamento explicitamente estiver configurada, o processador de consola está registado. Um pode ver os registos do syslog em /var/log/syslog.
+Por predefinição se nenhum manipulador explicitamente estiver configurado, o processador de consola está registado. Um pode ver os registos de syslog em /var/log/syslog.
 
-Para obter mais informações, consulte o [exemplos em github de código](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
-
-
-## <a name="debugging-service-fabric-c-applications"></a>Depurar aplicações de Service Fabric c#
+Para obter mais informações, consulte a [exemplos no github de código](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
 
-Várias estruturas estão disponíveis para rastreio CoreCLR aplicações no Linux. Para obter mais informações, consulte [GitHub: registo](http:/github.com/aspnet/logging).  Uma vez que EventSource familiar para c# programadores,' Este artigo utiliza EventSource para o rastreio nos exemplos CoreCLR no Linux.
+## <a name="debugging-service-fabric-c-applications"></a>Depurando aplicativos do Service Fabric em C#
 
-O primeiro passo é incluir System.Diagnostics.Tracing, de modo a que pode escrever os registos de memória, as sequências de saída ou ficheiros da consola.  Para o registo através de EventSource, adicione o projeto seguinte à sua project.json:
+
+Várias estruturas estão disponíveis para rastreio CoreCLR aplicações no Linux. Para obter mais informações, consulte [GitHub: registo](http:/github.com/aspnet/logging).  Uma vez que EventSource é familiar para os desenvolvedores de c#,' Este artigo usa EventSource para rastreamento nos exemplos de CoreCLR no Linux.
+
+A primeira etapa é incluir System.Diagnostics.Tracing para que possa escrever os registos de memória, fluxos de saída ou ficheiros da consola.  Para o Registro em log usando EventSource, adicione ao projeto seguinte ao seu Project:
 
 ```
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 
-Pode utilizar um EventListener personalizado para escutar para o evento de serviço e, em seguida, redirecioná-los adequadamente para ficheiros de rastreio. O fragmento de código seguinte mostra uma implementação de exemplo de início de sessão através de EventSource e um EventListener personalizado:
+Pode usar um EventListener personalizado para ouvir o evento de serviço e, em seguida, redirecioná-los adequadamente para ficheiros de rastreio. O fragmento de código seguinte mostra uma implementação de exemplo do início de sessão usando EventSource e um EventListener personalizado:
 
 
 ```csharp
@@ -131,16 +131,16 @@ Pode utilizar um EventListener personalizado para escutar para o evento de servi
 ```
 
 
-O fragmento anterior produz os registos para um ficheiro no `/tmp/MyServiceLog.txt`. Este nome de ficheiro tem de ser corretamente atualizado. No caso de pretender redirecionar os registos para a consola, utilize o seguinte fragmento na sua classe EventListener personalizado:
+O trecho anterior produz os registos para um ficheiro no `/tmp/MyServiceLog.txt`. Este nome de ficheiro tem de ser atualizados adequadamente. Caso deseje redirecionar os registos de consola, utilize o fragmento seguinte na sua classe EventListener personalizado:
 
 ```csharp
 public static TextWriter Out = Console.Out;
 ```
 
-Os exemplos em [amostras de c#](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) utilizar EventSource e um EventListener personalizada para eventos de registo para um ficheiro.
+Os exemplos em [amostras de c#](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) utilizar EventSource e um EventListener personalizado para registar eventos para um ficheiro.
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-O mesmo código de rastreio adicionado à sua aplicação também funciona com o diagnóstico da aplicação num cluster do Azure. Consulte estes artigos que abordam as diferentes opções para as ferramentas e descrevem como configurá-los.
-* [Como recolher registos de diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-lad.md)
+O mesmo código de rastreamento adicionado ao seu aplicativo também funciona com o diagnóstico da sua aplicação num cluster do Azure. Veja estes artigos que discutem as diferentes opções para as ferramentas e descrevem como configurá-los.
+* [Como recolher registos com o diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-lad.md)

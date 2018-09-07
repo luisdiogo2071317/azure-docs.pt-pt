@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144043"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055544"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve como personalizar as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para clusters autónomos, personalizar definições ao atualizar o ficheiro de ClusterConfig.json e efetuar uma atualização de configuração no seu cluster. 
@@ -624,10 +624,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="security"></a>Segurança
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD Cert ponto final de formato, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|cadeia de caracteres, a predefinição é ""|Estático|Nome da aplicação cliente nativo ou ID que representam os clientes de recursos de infraestrutura |
 |AADClusterApplication|cadeia de caracteres, a predefinição é ""|Estático|Nome da aplicação Web API ou o ID que representa o cluster |
+|AADLoginEndpoint|cadeia de caracteres, a predefinição é ""|Estático|AAD início de sessão do ponto de extremidade, padrão do Azure comercial, especificado para o ambiente de não-padrão, como o Azure Government "https://login.microsoftonline.us" |
 |AADTenantId|cadeia de caracteres, a predefinição é ""|Estático|ID do inquilino (GUID) |
 |AdminClientCertThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprints dos certificados utilizados pelos clientes na função de administrador. É uma lista de nomes separados por vírgulas. |
+|AADTokenEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD ponto final do Token, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https://login.microsoftonline.us/{0}" |
 |AdminClientClaims|cadeia de caracteres, a predefinição é ""|Dinâmica|Todos os possíveis declarações esperadas de clientes da administração; o mesmo formato que ClientClaims; Esta lista internamente é adicionada à ClientClaims; portanto, não é necessário também adicionar as entradas do mesmo a ClientClaims. |
 |AdminClientIdentities|cadeia de caracteres, a predefinição é ""|Dinâmica|Identidades do Windows de clientes de recursos de infraestrutura na função de administrador utilizado para autorizar as operações de recursos de infraestrutura com privilégios. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo. Para sua comodidade; a conta que executa fabric.exe é atribuída automaticamente a função de administrador portanto, é agrupar ServiceFabricAdministrators. |
 |CertificateExpirySafetyMargin|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(43200)|Estático|Especifique o período de tempo em segundos. Margem de segurança para a expiração do certificado; Estado de relatório de estado de funcionamento do certificado é alterado de OK para aviso quando a expiração é mais parecido com que isso. A predefinição é 30 dias. |

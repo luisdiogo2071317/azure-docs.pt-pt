@@ -9,18 +9,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172243"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054551"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utilize o Azure Site Recovery para proteger o Active Directory e DNS
 
 Aplicações empresariais, como SharePoint, Dynamics AX e o SAP dependem do Active Directory e uma infraestrutura DNS para funcionar corretamente. Quando configurar a recuperação após desastre para aplicações, com freqüência precisar de recuperar o Active Directory e DNS antes de os recuperar outros componentes da aplicação, para garantir que a funcionalidade de aplicação correta.
 
-Pode usar [recuperação de Site](site-recovery-overview.md) para criar um plano de recuperação após desastre para o Active Directory. Quando ocorre uma interrupção, pode iniciar uma ativação pós-falha. Pode ter-se ao Active Directory cópia de segurança e em execução dentro de alguns minutos. Se tiver implementado o Active Directory para várias aplicações no seu site primário, por exemplo, para o SharePoint e SAP, poderá fazer a ativação pós-falha do site concluído. Em primeiro lugar pode efetuar a ativação pós-falha do Active Directory usando ite recuperação. Em seguida, a ativação pós-falha nos outros aplicativos, com planos de recuperação específico do aplicativo.
+Pode usar [recuperação de Site](site-recovery-overview.md) para criar um plano de recuperação após desastre para o Active Directory. Quando ocorre uma interrupção, pode iniciar uma ativação pós-falha. Pode ter-se ao Active Directory cópia de segurança e em execução dentro de alguns minutos. Se tiver implementado o Active Directory para várias aplicações no seu site primário, por exemplo, para o SharePoint e SAP, poderá fazer a ativação pós-falha do site concluído. Em primeiro lugar pode efetuar a ativação pós-falha do Active Directory com o Site Recovery. Em seguida, a ativação pós-falha nos outros aplicativos, com planos de recuperação específico do aplicativo.
 
 Este artigo explica como criar uma solução de recuperação após desastre para o Active Directory. Inclui pré-requisitos e instruções de ativação pós-falha. Deve estar familiarizado com o Active Directory e o Site Recovery antes de começar.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d09505e4738243576dbde64fa6daba22d054bc8e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527495"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053272"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilizar a CLI 2.0 do Azure com o armazenamento do Azure
 
@@ -105,7 +105,7 @@ Em seguida, trabalharemos com um script de shell pequeno que emite alguns comand
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -210,7 +210,7 @@ Agora que tem a chave, pode definir ele e o nome da conta como variáveis de amb
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 Outra forma de definir uma conta de armazenamento predefinida é usar uma cadeia de ligação. Primeiro, obtenha a cadeia de ligação com o `show-connection-string` comando:
@@ -228,7 +228,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> Todos os exemplos nas secções seguintes deste artigo partem do princípio de que define a `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` variáveis de ambiente.
+> Todos os exemplos nas secções seguintes deste artigo partem do princípio de que define a `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_KEY` variáveis de ambiente.
 
 ## <a name="create-and-manage-blobs"></a>Criar e gerir blobs
 Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Esta secção assume que já está familiarizado com conceitos de armazenamento de Blobs do Azure. Para obter informações detalhadas, consulte [introdução ao armazenamento de Blobs do Azure com .NET](../blobs/storage-dotnet-how-to-use-blobs.md) e [conceitos do serviço Blob](/rest/api/storageservices/blob-service-concepts).
@@ -257,6 +257,8 @@ az storage blob upload \
     --container-name <container_name> \
     --name <blob_name>
 ```
+
+Se gostaria de carregar diretamente para uma pasta no interior do contentor na conta de armazenamento, substitua `--name <blob_name>` com `--name <folder/blob_name>`.
 
  Por predefinição, o `blob upload` comando carrega ficheiros *. vhd para blobs de páginas ou blobs de blocos, caso contrário. Para especificar outro tipo ao carregar um blob, pode utilizar o `--type` argumento – valores permitido são `append`, `block`, e `page`.
 

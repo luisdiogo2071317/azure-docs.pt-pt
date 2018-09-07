@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a66a17a0f8daed5f61753dd7c20ed5d9987c0b15
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782307"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053905"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar c# módulos do Azure IoT Edge
 
@@ -44,7 +44,7 @@ Para configurar o local ambiente de desenvolvimento para depurar, executar e tes
    pip install --upgrade iotedgehubdev
    ```
 
-Para testar seu módulo num dispositivo, precisa de um hub IoT Active Directory com, pelo menos, um dispositivo do IoT Edge. Para utilizar o seu computador como um dispositivo IoT Edge, siga os passos no guia de introdução para [Windows](quickstart.md) ou [Linux](quickstart-linux.md). 
+Para testar seu módulo num dispositivo, precisa de um hub IoT Active Directory com pelo menos um ID de dispositivo IoT Edge criou. Se estiver a executar o daemon de IoT Edge no computador de desenvolvimento, poderá ter de parar EdgeHub e EdgeAgent antes de prosseguir para o passo seguinte. 
 
 ## <a name="create-a-new-solution-with-c-module"></a>Criar uma nova solução com o módulo de c#
 
@@ -111,9 +111,6 @@ O módulo do IoT Edge c# é um .net Core a aplicação. E isso depende do Azure 
     dotnet build
     ```
 
-   > [!TIP]
-   > Também pode utilizar [PostMan](https://www.getpostman.com/) ou outras ferramentas de API para enviar mensagens através de, em vez de `curl`.
-
 2. Navegue para `program.cs`. Adicione um ponto de interrupção nesse arquivo.
 
 3. Navegue para a vista de depuração do VS Code. Selecione a configuração de depuração **ModuleName depurar Local (.NET Core)**. 
@@ -136,7 +133,7 @@ O módulo do IoT Edge c# é um .net Core a aplicação. E isso depende do Azure 
 
     ![Variáveis de inspeção](media/how-to-develop-csharp-module/single-module-variables.png)
 
-7. Para parar a sessão de depuração, clique no botão Parar ou o press **Shift + F5**. E na paleta de comandos do VS Code, escreva e selecione **do Azure IoT Edge: parar simulador do IoT Edge**.
+7. Para parar a sessão de depuração, clique no botão Parar ou o press **Shift + F5**. E na paleta de comandos do VS Code, escreva e selecione **do Azure IoT Edge: parar simulador do IoT Edge** parar e limpar o simulador.
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Criar contentor de módulo para depuração e de depuração no modo de anexar
 

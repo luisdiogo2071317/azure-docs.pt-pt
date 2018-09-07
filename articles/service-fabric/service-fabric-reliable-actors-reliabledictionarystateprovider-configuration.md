@@ -1,6 +1,6 @@
 ---
-title: Alterar as definições de ReliableDictionaryActorStateProvider no Azure micro-serviços | Microsoft Docs
-description: Saiba mais sobre a configuração de atores com monitorização de estado do Azure Service Fabric do tipo ReliableDictionaryActorStateProvider.
+title: Alterar as definições de ReliableDictionaryActorStateProvider em atores do Azure Service Fabric | Documentos da Microsoft
+description: Saiba mais sobre a configuração de atores com monitoração de estado do Azure Service Fabric ReliableDictionaryActorStateProvider typu.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 13cf9c148e36201bd8ee81d4072d8b8cd8660bd1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017900"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053153"
 ---
-# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurar Reliable Actors – ReliableDictionaryActorStateProvider
-Pode modificar a configuração predefinida ReliableDictionaryActorStateProvider alterando o ficheiro de settings.xml gerado na raiz do pacote Visual Studio sob a pasta de configuração para os atores especificado.
+# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuração dos Reliable Actors – ReliableDictionaryActorStateProvider
+Pode modificar a configuração predefinida de ReliableDictionaryActorStateProvider alterando o arquivo Settings XML gerado na raiz do pacote do Visual Studio sob a pasta de configuração para o ator especificado.
 
-O tempo de execução do Service Fabric do Azure analisa para nomes de secção predefinidas no ficheiro settings.xml e consome os valores de configuração ao criar os componentes runtime subjacente.
+O tempo de execução do Azure Service Fabric procura os nomes predefinidos em Settings XML e consome os valores de configuração ao criar os componentes de tempo de execução subjacente.
 
 > [!NOTE]
-> Efetue **não** eliminar ou modificar os nomes de secção das seguintes configurações no ficheiro settings.xml que é gerado na solução Visual Studio.
+> Fazer **não** eliminar ou modificar os nomes de seção das seguintes configurações em Settings XML que é gerado na solução do Visual Studio.
 > 
 > 
 
-Existem também definições globais que afetam a configuração de ReliableDictionaryActorStateProvider.
+Também existem definições globais que afetam a configuração do ReliableDictionaryActorStateProvider.
 
 ## <a name="global-configuration"></a>Configuração global
-A configuração global é especificada no manifesto do cluster para o cluster na secção KtlLogger. Permite que a configuração da localização de registo partilhado e tamanho com os limites de memória global utilizados pelo registo. Tenha em atenção que as alterações no manifesto do cluster afetam todos os serviços que utilizam ReliableDictionaryActorStateProvider e reliable services com monitorização de estado.
+A configuração global é especificada no manifesto do cluster para o cluster na secção KtlLogger. Ele permite a configuração da localização do registo partilhado e tamanho além dos limites de memória global utilizados pelo agente. Tenha em atenção que as alterações no manifesto do cluster afetam todos os serviços que utilizam ReliableDictionaryActorStateProvider e serviços com estado fiável.
 
-O manifesto do cluster é um único ficheiro XML que contém as definições e configurações que se aplicam a todos os nós e serviços no cluster. O ficheiro é normalmente denominado ClusterManifest.xml. Pode ver o cluster para o cluster utilizando o comando do powershell Get-ServiceFabricClusterManifest manifesto.
+O manifesto do cluster é um único arquivo XML que contém definições e configurações que se aplicam a todos os nós e serviços no cluster. O ficheiro é normalmente chamado ClusterManifest.xml. Pode ver o cluster de manifesto para o seu cluster com o comando do powershell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nomes de configuração
 | Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB alocar no modo de kernel para o conjunto de memória do registador escrita da memória intermédia. Este conjunto de memória é utilizado para colocar em cache as informações de estado antes de escrever no disco. |
-| WriteBufferMemoryPoolMaximumInKB |Kilobytes |Sem Limite |Pode aumentar o tamanho máximo para o qual o registo escrever o conjunto de memória de memória intermédia. |
-| SharedLogId |GUID |"" |Especifica um GUID exclusivo a utilizar para identificar o ficheiro de registo partilhado predefinido utilizado por todos os serviços fiáveis em todos os nós no cluster que não especificam o SharedLogId na respetiva configuração específica do serviço. Se não for especificado SharedLogId, em seguida, SharedLogPath deve ser também especificado. |
-| SharedLogPath |Nome de caminho completamente qualificado |"" |Especifica o caminho completamente qualificado, onde o ficheiro de registo partilhado utilizado por todos os serviços fiáveis em todos os nós no cluster que não especificam o SharedLogPath na respetiva configuração específica do serviço. No entanto, se SharedLogPath for especificado, em seguida, SharedLogId deve ser também especificado. |
-| SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB de espaço em disco para alocar estaticamente para o registo partilhado. O valor tem de ser 2048 ou superior. |
+| WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB para alocar no modo de kernel para o conjunto de memória de memória intermédia de escrita de agente de log. Este conjunto de memória é usado para colocar em cache de informações de estado antes de escrever no disco. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobytes |Sem Limite |Pode aumentar o tamanho máximo para o qual o agente de log escrever o conjunto de memória de memória intermédia. |
+| SharedLogId |GUID |"" |Especifica um GUID exclusivo a utilizar para identificar o ficheiro de registo partilhado predefinido utilizado por todos os serviços fiáveis em todos os nós do cluster que não especificam o SharedLogId em suas configurações específicas do serviço. Se SharedLogId for especificada, em seguida, SharedLogPath deve também ser especificado. |
+| SharedLogPath |Nome do caminho completamente qualificado |"" |Especifica o caminho totalmente qualificado, onde o ficheiro de registo partilhado utilizado por todos os serviços fiáveis em todos os nós do cluster que não especificam o SharedLogPath em suas configurações específicas do serviço. No entanto, se SharedLogPath for especificada, em seguida, SharedLogId deve também ser especificado. |
+| SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB de espaço em disco para alocar estaticamente para o início de sessão partilhado. O valor tem de ser maior ou 2048. |
 
 ### <a name="sample-cluster-manifest-section"></a>Secção de manifesto do cluster de exemplo
 ```xml
@@ -59,43 +59,43 @@ O manifesto do cluster é um único ficheiro XML que contém as definições e c
 ```
 
 ### <a name="remarks"></a>Observações
-O registo tem um conjunto de memória atribuída da memória de kernel não paginadas que está disponível para todos os serviços fiáveis num nó para a colocação em cache dados de estado antes de a ser escritos no registo dedicado associada com a réplica de serviço fiável global. O tamanho do conjunto é controlado pelas definições de WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB Especifica o tamanho inicial deste conjunto de memória e o tamanho menor para os quais pode reduzir o conjunto de memória. WriteBufferMemoryPoolMaximumInKB é o tamanho maior para o qual pode aumentar o conjunto de memória. Cada réplica fiável de serviço que é aberta pode aumentar o tamanho do conjunto de memória por um período de sistema determinado até WriteBufferMemoryPoolMaximumInKB. Se existir mais de pedido de memória no agrupamento de memória que está disponível, pedidos de memória irão sofrer um atraso de até que a memória está disponível. Por conseguinte, se o conjunto de memória de memória intermédia de escrita é demasiado pequeno para uma configuração específica, em seguida, o desempenho poderá diminuir.
+Agente coletor tem um conjunto global de memória alocada da memória não paginada do kernel, que está disponível para todos os serviços fiáveis num nó para colocar em cache os dados de estado antes de que estão sendo gravados no log de dedicado associadas com a réplica de reliable Services. O tamanho do conjunto é controlado pelas definições de WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB Especifica o tamanho inicial deste agrupamento de memória e o tamanho mais baixo a que pode reduzir o conjunto de memória. WriteBufferMemoryPoolMaximumInKB é o tamanho maior para o qual pode aumentar o conjunto de memória. Cada réplica de reliable Services que é aberta pode aumentar o tamanho do conjunto de memória por uma quantidade de sistema determinado até WriteBufferMemoryPoolMaximumInKB. Se houver mais a pedido para a memória do conjunto de memória que está disponível, solicitações de memória serão atrasadas até que a memória está disponível. Portanto, se o conjunto de memória de memória intermédia de escrita é demasiado pequeno para uma configuração específica, em seguida, o desempenho poderá diminuir.
 
-As definições de SharedLogId e SharedLogPath são sempre utilizadas em conjunto para definir o GUID e a localização do registo partilhado predefinido para todos os nós do cluster. O registo partilhado predefinido é utilizado para todos os serviços fiáveis que não especificam as definições em settings.xml para o serviço específico. Para melhor desempenho, os ficheiros de registo partilhado devem ser colocados em discos que são utilizados apenas para o ficheiro de registo partilhado para reduzir a contenção.
+As definições de SharedLogId e SharedLogPath são sempre utilizadas em conjunto para definir o GUID e o local para o registo de partilhado do padrão para todos os nós do cluster. O log de partilhado do padrão é usado para todos os serviços fiáveis que não especificam as definições no Settings para o serviço específico. Para um melhor desempenho, os ficheiros de registo partilhado devem ser colocados em discos que são utilizados apenas para o ficheiro de registo partilhado para reduzir a contenção.
 
-SharedLogSizeInMB Especifica a quantidade de espaço em disco para prealocar para o registo partilhado predefinição em todos os nós.  SharedLogId e SharedLogPath não tem de ser especificado por ordem para SharedLogSizeInMB seja especificado.
+SharedLogSizeInMB Especifica a quantidade de espaço em disco para pré-alocar para o log de partilhado padrão em todos os nós.  SharedLogId e SharedLogPath não têm de ser especificado para que SharedLogSizeInMB seja especificado.
 
 ## <a name="replicator-security-configuration"></a>Configuração de segurança do replicador
-Configurações de segurança do replicador são utilizadas para proteger o canal de comunicação que é utilizado durante a replicação. Isto significa que os serviços não podem ver uns dos outros tráfego de replicação, garantindo que os dados que são efetuados elevados também são seguros.
-Por predefinição, uma secção de configuração de segurança vazio impede a segurança da replicação.
+Configurações de segurança do replicador são utilizadas para proteger o canal de comunicação que é utilizado durante a replicação. Isso significa que os serviços não é possível ver uns dos outros tráfego de replicação, garantir que os dados que esteja altamente disponíveis também são seguros.
+Por predefinição, uma seção de configuração de segurança vazio impede que a segurança de replicação.
 
 > [!IMPORTANT]
-> Em nós do Linux, os certificados devem estar formatados PEM. Para saber mais sobre localizar e configurar certificados para o Linux, consulte [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
+> Em nós do Linux, certificados tem de ser formatada PEM. Para saber mais sobre localizar e configurar os certificados para Linux, veja [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Nome de secção
+### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuração do replicador
-Configurações do replicador são utilizadas para configurar o replicador que é responsável por verificar o estado do fornecedor de estado de Ator altamente fiável ao replicar e a persistência do Estado localmente.
-A configuração predefinida é gerada pelo modelo de Visual Studio e deve suffice. Esta secção aborda as configurações adicionais que estão disponíveis para otimizar o replicador.
+Configurações do replicador são utilizadas para configurar o replicator, que é responsável por verificar o estado de fornecedor de estado do Ator altamente confiável, replicar e manter o estado localmente.
+A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre as configurações adicionais que estão disponíveis para otimizar o replicator.
 
-### <a name="section-name"></a>Nome de secção
+### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
 | Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador na aguarda secundária depois de receber uma operação antes de enviar fazer uma cópia de uma confirmação para o site primário. Quaisquer outras confirmações sejam enviados para operações de processamento dentro deste intervalo são enviadas como uma resposta. |
-| ReplicatorEndpoint |N/A |Sem predefinição - parâmetro necessário |Definir o endereço IP e a porta que o replicador principal/secundário irá utilizar para comunicar com outros os replicadores na réplica. Isto deverá referenciar um ponto de final de recursos TCP no manifesto de serviço. Consulte [recursos do serviço do manifesto](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto final no manifesto do serviço. |
+| BatchAcknowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicator nas esperas secundários depois de receber uma operação antes de enviar de volta uma confirmação para o principal. Qualquer as confirmações para serem enviados para operações processadas dentro deste intervalo são enviadas como uma resposta. |
+| ReplicatorEndpoint |N/A |Sem predefinição - parâmetro necessário |Endereço IP e porta que o replicator primária/secundária irá utilizar para comunicar com outros replicators na réplica definidos. Isso deve fazer referência a um ponto de final de recurso TCP no manifesto do serviço. Consulte a [recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto final no manifesto do serviço. |
 | MaxReplicationMessageSize |Bytes |50 MB |Tamanho máximo de dados de replicação que podem ser transmitidos numa única mensagem. |
-| MaxPrimaryReplicationQueueSize |Número de operações |8192 |Número máximo de operações na fila principal. Uma operação é libertada cópias de segurança depois do replicador primário recebe uma confirmação dos secundários replicadores. Este valor tem de ser superior a 64 e uma potência de 2. |
-| MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é libertada cópias de segurança depois de efetuar o seu estado de elevada disponibilidade através de persistência. Este valor tem de ser superior a 64 e uma potência de 2. |
-| CheckpointThresholdInMB |MB |200 |Quantidade de espaço no ficheiro de registo após o qual o estado é checkpointed. |
-| MaxRecordSizeInKB |KB |1024 |Tamanho de registo maior que o replicador pode escrever no registo. Este valor tem de ser um múltiplo de 4 e superior a 16. |
-| OptimizeLogForLowerDiskUsage |Booleano |true |Quando verdadeiro, o registo está configurado para que o ficheiro de registo dedicado a réplica é criado utilizando um ficheiro disperso NTFS. Isto reduz a utilização do espaço em disco real para o ficheiro. Se for FALSO, o ficheiro é criado com alocações fixas, que fornecem que o melhor desempenho de escrita. |
-| SharedLogId |GUID |"" |Especifica um guid exclusivo a utilizar para identificar o ficheiro de registo partilhados utilizado com esta réplica. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogId for especificado, em seguida, SharedLogPath deve ser também especificado. |
-| SharedLogPath |Nome de caminho completamente qualificado |"" |Especifica o caminho completamente qualificado, onde o ficheiro de registo partilhado para esta réplica será criado. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogPath for especificado, em seguida, SharedLogId deve ser também especificado. |
+| MaxPrimaryReplicationQueueSize |Número de operações |8192 |Número máximo de operações na fila principal. Uma operação for liberada depois do replicador primário recebe uma confirmação de todos os replicators secundários. Este valor tem de ser superior a 64 e uma potência de 2. |
+| MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação for liberada depois de fazer o seu estado de elevada disponibilidade através de persistência. Este valor tem de ser superior a 64 e uma potência de 2. |
+| CheckpointThresholdInMB |MB |200 |Quantidade de espaço de ficheiro de registo após o qual o estado é foi efetuada a verificação. |
+| MaxRecordSizeInKB |KB |1024 |Maior tamanho de registo que o replicator pode escrever no registo. Este valor tem de ser um múltiplo de 4 e superior a 16. |
+| OptimizeLogForLowerDiskUsage |Booleano |true |Quando verdadeiro, o registo está configurado para que o ficheiro de registo dedicado a réplica é criado utilizando um ficheiro disperso de NTFS. Isso reduz a utilização do espaço em disco real para o ficheiro. Quando falso, o ficheiro é criado com alocações fixas, que fornecem que o melhor desempenho de escrita. |
+| SharedLogId |GUID |"" |Especifica um guid exclusivo a utilizar para identificar o arquivo de log partilhados utilizado com esta réplica. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogId for especificada, em seguida, SharedLogPath deve também ser especificado. |
+| SharedLogPath |Nome do caminho completamente qualificado |"" |Especifica o caminho totalmente qualificado, onde o ficheiro de registo partilhado para esta réplica será criado. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogPath for especificada, em seguida, SharedLogId deve também ser especificado. |
 
 ## <a name="sample-configuration-file"></a>Ficheiro de configuração de exemplo
 ```xml
@@ -119,14 +119,14 @@ A configuração predefinida é gerada pelo modelo de Visual Studio e deve suffi
 ```
 
 ## <a name="remarks"></a>Observações
-O parâmetro BatchAcknowledgementInterval controla a latência de replicação. Um valor de '0' resulta numa menor latência possível, ao custo de débito (como mais mensagens de confirmação tem de ser enviadas e processadas, cada que contém menos confirmações).
-Quanto maior for o valor BatchAcknowledgementInterval, quanto maior for o geral débito de replicação, ao custo de latência de operação superior. Isto traduz-se diretamente para a latência de consolidações de transações.
+O parâmetro BatchAcknowledgementInterval controla a latência de replicação. Um valor de '0' resulta em menor latência possível, ao custo de débito (como mais mensagens de confirmação tem de ser enviadas e processadas, cada um deles contendo as confirmações menos).
+Quanto maior for o valor para BatchAcknowledgementInterval, maior será a replicação produtividade geral, ao custo de latência superior de operação. Isto traduz-se diretamente para a latência de consolidações de transações.
 
-O parâmetro CheckpointThresholdInMB controla a quantidade de espaço em disco que pode utilizar o replicador para armazenar informações de estado no ficheiro de registo dedicado a réplica. Aumentar este para um valor superior à predefinição de pode resultar em tempos mais rápidos de reconfiguração quando uma nova réplica é adicionada ao conjunto. Isto acontece porque a transferência de estado parcial ocorre devido à disponibilidade do histórico mais operações no registo. Potencialmente, isto pode aumentar o tempo de recuperação de uma réplica após uma falha.
+O parâmetro CheckpointThresholdInMB controla a quantidade de espaço em disco que o replicator pode utilizar para armazenar informações de estado no arquivo de log dedicado a réplica. Aumentar isso para um valor mais alto que não o predefinido pode resultar em tempos mais rápidos de reconfiguração quando uma nova réplica é adicionada ao conjunto. Isso se deve a transferência de estado parcial que ocorre devido à disponibilidade de histórico mais operações no registo. Isso, potencialmente, pode aumentar o tempo de recuperação de uma réplica após uma pane.
 
-Se definir OptimizeForLowerDiskUsage como true, espaço do ficheiro de registo será excessiva aprovisionado para que as réplicas Active Directory podem armazenar mais informações de Estado nos respetivos ficheiros de registo, enquanto réplicas Inativas irão utilizar menos espaço em disco. Isto torna possível alojar réplicas mais de um nó. Se definir OptimizeForLowerDiskUsage como false, as informações de estado são escritas mais depressa para os ficheiros de registo.
+Se definir OptimizeForLowerDiskUsage como true, espaço de ficheiro de registo serão provisionado em excesso, para que as réplicas do Active Directory podem armazenar informações de estado mais em seus arquivos de log, enquanto réplicas Inativas utilizarão menos espaço em disco. Isto torna possível hospedar mais réplicas num nó. Se definir OptimizeForLowerDiskUsage como false, as informações de estado são escritas para os ficheiros de registo mais rapidamente.
 
-A definição de MaxRecordSizeInKB define o tamanho máximo de um registo que pode ser escrito pelo replicador para o ficheiro de registo. Na maioria dos casos, o tamanho de 1024-KB registo predefinido é o ideal. No entanto, se o serviço está a causar maior itens de dados como parte das informações de estado, este valor poderá ter de ser aumentada. Não há pouca benefício tomar MaxRecordSizeInKB inferior a 1024, como registos de menores utilizam apenas o espaço necessário para o registo mais pequeno. Esperamos que este valor deverá ser necessário alterar apenas em casos raros.
+A definição de MaxRecordSizeInKB define o tamanho máximo de um registo que pode ser gravado pelo replicador no ficheiro de registo. Na maioria dos casos, o tamanho de 1024 KB registo predefinido é o ideal. No entanto, se o serviço está a causar maiores itens de dados como parte das informações de estado, em seguida, este valor poderá ter de ser aumentados. Há poucas vantagens em se tornar MaxRecordSizeInKB menor do que 1024, como registos menores, utilize apenas o espaço necessário para o registo mais pequeno. Esperamos que este valor teriam de ser alteradas apenas em casos raros.
 
-As definições de SharedLogId e SharedLogPath são sempre utilizadas em conjunto para tornar um serviço a utilizar um registo partilhado separado do registo partilhado predefinido para o nó. Para melhor eficiência, como muitos serviços possível devem especificar o mesmo registo partilhado. Ficheiros de registo partilhado devem ser colocados em discos que são utilizados apenas para o ficheiro de registo partilhado, para reduzir a contenção de movimento head. Esperamos que estes valores deverá ser necessário alterar apenas em casos raros.
+As definições de SharedLogId e SharedLogPath são sempre utilizadas em conjunto para tornar um serviço a utilizar o registo partilhado separado do log partilhada padrão para o nó. Para uma melhor eficiência, como vários serviços possível devem especificar o mesmo registo partilhado. Ficheiros de registo partilhado devem ser colocados em discos que são utilizados apenas para o ficheiro de registo partilhado, para reduzir a contenção de movimentação do cabeçote. Esperamos que esses valores teriam de ser alteradas apenas em casos raros.
 

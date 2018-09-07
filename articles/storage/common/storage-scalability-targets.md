@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 1db7219beead4d7ee228baff4c802c105419ba1c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 248ec73b09c25c162c5bdc77ceb18e610d604b77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524608"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052178"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Alvos de Dimensionamento e Desempenho do Armazenamento do Azure
 ## <a name="overview"></a>Descrição geral
@@ -46,6 +46,8 @@ Para obter mais informações sobre os alvos de dimensionamento e desempenho par
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Alvos de dimensionamento do Azure File Sync
+Com o Azure File Sync, tentamos tanto quanto possível para conceber para utilização ilimitada, no entanto, isso nem sempre é possível. A tabela abaixo indica os limites de nosso teste, e os destinos são limites, na verdade, disco rígidos:
+
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## <a name="azure-queue-storage-scale-targets"></a>Metas de dimensionamento de armazenamento de filas do Azure

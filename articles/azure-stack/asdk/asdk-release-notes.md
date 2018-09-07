@@ -11,20 +11,159 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fe6be5a041b87af2323c7978c5371e326b3cd3d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43101650"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051277"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Azure Stack Development Kit  
-Estas notas de versão fornecem informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
+Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Mantenha-se atualizado com o que há de novo no ASDK inscrevendo-se para o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11808097"></a>Compilação 1.1808.0.97
+
+### <a name="new-features"></a>Novos recursos
+Esta compilação inclui as seguintes melhorias e correções para o Azure Stack.  
+
+- <!-- 2682594   | ASDK  -->   **Todos os ambientes do Azure Stack agora utilizam o formato de fuso horário da hora Universal Coordenada (UTC).**  Todos os registos de dados e informações relacionadas agora apresenta no formato UTC. 
+
+- <!-- 2437250  | IS  ASDK --> **Discos geridos são suportados.** Agora, pode utilizar discos geridos em máquinas de virtuais do Azure Stack e conjuntos de dimensionamento de máquina virtual. Para obter mais informações, consulte [Managed Disks do Azure Stack: diferenças e considerações](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+ 
+- <!-- 2563799  | IS  ASDK -->  **O Azure Monitor**. Como o Azure Monitor, no Azure, o Azure Monitor no Azure Stack fornece registos e métricas de infraestrutura de nível de base para a maioria dos serviços. Para obter mais informações, consulte [do Azure Monitor no Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+
+- <!-- ASDK --> **Itens de galeria para conjuntos de dimensionamento de máquinas virtuais estão agora incorporados**.  O conjunto de dimensionamento de máquinas virtuais itens da Galeria são agora disponibilizados nos portais de utilizador e administrador sem ter de transferi-los. 
+
+- <!-- IS, ASDK --> **O conjunto de dimensionamento de máquinas virtuais dimensionamento**.  Pode utilizar o portal para [dimensionar um conjunto de dimensionamento de Máquina Virtual](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+
+- <!-- 2489570 | IS ASDK--> **Suporte para configurações de política de IPSec/IKE personalizadas** para [gateways de VPN no Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+
+### <a name="fixed-issues"></a>Problemas de fixos
+- <!-- IS ASDK--> Foi corrigido o problema para a criação de um conjunto de disponibilidade no portal do que resultou no conjunto de um domínio de falha e o domínio de atualização de 1.
+
+- <!-- IS ASDK --> Definições para dimensionar conjuntos de dimensionamento de máquinas virtuais estão agora disponíveis no portal.  
+
+- <!-- 2494144- IS, ASDK --> Agora é resolvido o problema que impediu que aparece ao selecionar um tamanho de VM para a implementação de alguns tamanhos de máquinas virtuais de série F. 
+
+- <!-- IS, ASDK --> Melhorias de desempenho durante a criação de máquinas virtuais e muito mais otimizada a utilização de armazenamento subjacente.
+
+- **Várias correções** de desempenho, estabilidade, segurança e o sistema operativo que é utilizado pelo Azure Stack
+
+
+### <a name="changes"></a>Alterações
+- <!-- 1697698  | IS, ASDK --> *Tutoriais de início rápido* na ligação de agora de dashboard do portal de utilizador para os artigos relevantes na documentação do Azure Stack online.
+
+- <!-- 2515955   | IS ,ASDK--> *Todos os serviços* substitui *mais serviços* nos portais do administrador e utilizador do Azure Stack. Agora, pode utilizar *todos os serviços* como uma alternativa para navegar nos portais do Azure Stack, da mesma forma que nos portais do Azure.
+
+- <!--  TBD – IS, ASDK --> *Básico A* tamanhos de máquinas virtuais foram extinguidos para [criar conjuntos de dimensionamento de máquinas virtuais](.\.\azure-stack-compute-add-scalesets.md) (VMSS) através do portal. Para criar um VMSS com este tamanho, utilize o PowerShell ou um modelo. 
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+#### <a name="portal"></a>Portal  
+-  <!--  2873083 - IS ASDK --> Quando utiliza o portal para criar um dimensionamento de máquina virtual definido (VMSS), o *tamanho da instância* pendente não carregados corretamente ao utilizar o Internet Explorer. Para contornar este problema, use outro navegador ao utilizar o portal para criar um VMSS.  
+
+- <!-- TBD  ASDK --> O fuso horário predefinido para todas as implementações do Azure Stack agora são definidas para Hora Universal Coordenada (UTC). Pode selecionar um fuso horário ao instalar o Azure Stack, no entanto, ele é automaticamente revertida para UTC como predefinição durante a instalação.
+
+- <!-- 2931230 – IS  ASDK --> Não não possível eliminar os planos que são adicionados a uma subscrição de utilizador como um plano de suplemento, mesmo quando remover o plano de subscrição de utilizador. O plano irá permanecer até que as subscrições que referenciam o plano de suplemento também são eliminadas. 
+
+- <!--2760466 – IS  ASDK --> Quando instala um novo ambiente do Azure Stack que executar esta versão, o alerta que indica *ativação necessária* poderão não ser apresentados. [Ativação](.\.\azure-stack-registration.md) é necessária antes de poder utilizar a distribuição de mercado. 
+
+- <!-- TBD - IS ASDK --> Os dois tipos de subscrição administrativas que estavam [introduzido com a versão 1804](.\.\azure-stack-update-1804.md#new-features) não deve ser utilizado. Os tipos de subscrição são **medição subscrição**, e **subscrição de consumo**. Esses tipos de subscrição são **medição subscrição**, e **subscrição de consumo**. Esses tipos de subscrição são visíveis no novos ambientes do Azure Stack a partir da versão 1804, mas ainda não estão prontos a utilizar. Deve continuar a utilizar o **subscrição do fornecedor predefinido** tipo.
+
+- <!-- TBD -  IS ASDK --> A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos inteiro e, em seguida, eliminar subscrições de utilizador.
+
+- <!-- TBD -  IS ASDK --> Não é possível ver as permissões à sua subscrição a utilizar os portais do Azure Stack. Como solução, utilize o PowerShell para verificar as permissões.
+
+
+
+#### <a name="health-and-monitoring"></a>Estado de funcionamento e monitorização
+- <!-- 1264761 - IS ASDK -->  Poderá ver alertas para o *controlador de estado de funcionamento* componente que tem os seguintes detalhes:  
+
+   #1 do alerta:
+   - NOME: Função de infraestrutura mau estado de funcionamento
+   - GRAVIDADE: aviso
+   - COMPONENTE: Controlador de estado de funcionamento
+   - Descrição: O Scanner de Heartbeat do controlador de estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.  
+
+  Alerta #2:
+   - NOME: Função de infraestrutura mau estado de funcionamento
+   - GRAVIDADE: aviso
+   - COMPONENTE: Controlador de estado de funcionamento
+   - Descrição: O Scanner de falhas de controlador do Estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.
+
+  Ambos os alertas podem ser ignoradas com segurança e fechará automaticamente ao longo do tempo.  
+
+- <!-- 2368581 - IS. ASDK --> Um operador do Azure Stack, se receber um alerta de pouca memória e máquinas de virtuais de inquilino não for possível implementar com um *erro de criação de recursos de infraestrutura de VM*, é possível que o carimbo de data / Azure Stack está disponível memória esgotada. Utilize o [Planeador de capacidade do Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para melhor compreender a capacidade disponível para as cargas de trabalho.
+
+
+#### <a name="compute"></a>Computação  
+- <!-- 2869209 – IS, ASDK --> Ao utilizar o [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), tem de utilizar o **- OsUri** parâmetro como a conta de armazenamento URI onde o disco é carregado. Se utilizar o caminho local do disco, o cmdlet falhar com o seguinte erro: *operação de longa execução falhou com o estado 'Com falhas'*. 
+
+- <!--  2966665 – IS, ASDK --> Anexar discos de dados SSD para tamanho premium geridos disco máquinas virtuais (DS, DSv2, Fs, Fs_V2) falha com um erro: *Falha ao atualizar discos para a máquina virtual "vmname" erro: pedida não é possível efetuar a operação porque o tipo de conta de armazenamento " Premium_LRS não é suportada para o tamanho da VM "Standard_DS/Ds_V2/FS/Fs_v2)*
+
+   Para contornar este problema, utilize *Standard_LRS* discos de dados em vez de *Premium_LRS discos*. Usar *Standard_LRS* discos de dados não é alterado IOPs ou o custo de faturação.  
+
+- <!--  2795678 – IS, ASDK --> Ao utilizar o portal para criar máquinas virtuais (VM) num tamanho VM premium (DS, Ds_v2, FS, FSv2), a VM é criada numa conta de armazenamento standard. Criação de uma conta de armazenamento standard não afeta funcionalmente, IOPs, ou de faturação. 
+
+   Pode ignorar o aviso que diz: *que escolheu utilizar um disco padrão num tamanho que suporte discos premium. Isso pode afetar o desempenho do sistema operativo e não é recomendado. Considere utilizar o armazenamento premium (SSD) em vez disso.*
+
+- <!-- 2967447 - IS, ASDK --> Experiência de criar o conjunto de dimensionamento de máquinas virtuais (VMSS) fornece baseada em CentOS 7.2 como uma opção para implementação. Porque essa imagem não está disponível no Azure Stack, selecione outro sistema operacional para a sua implementação ou utilizar um modelo ARM especificando outra imagem do CentOS que foi transferida pela operadora de rede antes da implantação do marketplace.
+
+- <!-- TBD -  IS ASDK --> Definições de dimensionamento para conjuntos de dimensionamento de máquinas virtuais não estão disponíveis no portal. Como solução, pode usar [do Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro, em vez de `-VMScaleSetName`.
+
+- <!-- TBD -  IS ASDK --> Ao criar máquinas virtuais no portal de utilizador do Azure Stack, o portal apresenta um número incorreto de discos de dados que pode anexar uma VM da série D. Série de D suportada todas as VMs pode acomodar os discos de dados como a configuração do Azure.
+
+- <!-- TBD -  IS ASDK --> Quando não for possível criar uma imagem de VM, pode ser adicionado um item com falha que não é possível eliminar para o painel de computação de imagens VM.
+
+  Como solução, criar uma nova imagem VM com um VHD fictício que pode ser criado através de Hyper-V (New-VHD-caminho C:\dummy.vhd-fixo - SizeBytes 1 GB). Este processo deve resolver o problema que impede a eliminar o item falhado. Em seguida, 15 minutos depois de criar a imagem fictícia, pode com êxito eliminá-la.
+
+  Em seguida, pode repetir a transferência da imagem VM que falhou anteriormente.
+
+- <!-- TBD -  IS ASDK --> Se uma extensão numa implantação de VM o aprovisionamento demora demasiado tempo, os utilizadores devem permitir que o limite de tempo de aprovisionamento em vez de tentar interromper o processo para desaloque ou elimine a VM.  
+
+- <!-- 1662991 - IS ASDK --> Diagnóstico de VM do Linux não é suportado no Azure Stack. Quando implementa uma VM do Linux com o diagnóstico VM ativado, a implementação falhar. A implementação falhar, também, se ativar as métricas básicas de VM do Linux através das definições de diagnóstico.
+
+- <!-- 2724961- IS ASDK --> Quando registra o **Microsoft.Insight** fornecedor de recursos nas definições de subscrição e criar uma VM do Windows com o convidado SO diagnóstico ativado, o gráfico de percentagem de CPU na página de descrição geral de VM não será capaz de mostrar dados métricos.
+ 
+  Para localizar o gráfico de percentagem de CPU para a VM, vá para o **métricas** métricas de convidado de painel e mostrar todas as VMS suportadas do Windows.
+
+ 
+
+#### <a name="networking"></a>Redes
+- <!-- 1766332 - IS, ASDK --> Sob **Networking**, se clicar em **criar Gateway de VPN** para configurar uma ligação de VPN, **baseado em política** está listado como um tipo de VPN. Não selecione esta opção. Apenas os **rota com base** opção é suportada no Azure Stack.
+
+- <!-- 1902460 -  IS ASDK --> O Azure Stack oferece suporte a uma única *gateway de rede local* por endereço IP. Isso é verdadeiro em todas as subscrições de inquilino. Após a criação da primeira rede local ligação de gateway, subsequente tenta criar um recurso de gateway de rede local com o mesmo endereço IP são bloqueados.
+
+- <!-- 16309153 -  IS ASDK --> Numa rede Virtual que foi criado com uma definição de servidor DNS de *automática*, a mudança para uma falha de servidor DNS personalizado. As definições atualizadas não são enviadas para as VMs nessa vnet.
+
+- <!-- 2702741 -  IS ASDK --> IPs públicos, que são implementadas utilizando o método alocação dinâmica não é garantido ser preservadas quando uma paragem da Desalocação é emitido.
+
+- <!-- 2529607 - IS ASDK --> Durante o Azure Stack *segredo rotação*, existe um período em que os endereços IP públicos estão inacessíveis para dois a cinco minutos.
+
+-   <!-- 2664148 - IS ASDK --> Em cenários em que o inquilino está a aceder a suas máquinas virtuais utilizando um túnel S2S VPN, poderão surgir um cenário em que as tentativas de ligação falharem se a sub-rede no local foi adicionada ao Gateway de rede Local já foi criado o gateway. 
+
+
+<!--  #### SQL and MySQL  -->
+
+
+#### <a name="app-service"></a>Serviço de Aplicações
+- <!-- 2352906 - IS ASDK --> Os utilizadores tem de registar o fornecedor de recursos de armazenamento antes de ser criar sua primeira função do Azure na subscrição.
+
+- <!-- TBD - IS ASDK --> Para ampliar a infraestrutura (funções de trabalho, gerenciamento, funções de front-end), tem de utilizar o PowerShell, tal como descrito nas notas de versão para computação.  
+
+
+#### <a name="usage"></a>Utilização  
+- <!-- TBD -  IS ASDK --> Dados de medidor de utilização de endereços de IP público de utilização mostram o mesmo *EventDateTime* valor para cada registo, em vez do *TimeDate* carimbo que mostra quando o registo foi criado. Atualmente, não pode utilizar estes dados para efetuar gestão de contas preciso de utilização de endereços IP pública.
+
+<!-- #### Identity -->
+
+
 
 
 ## <a name="build-11807076"></a>Compilação 1.1807.0.76
@@ -140,7 +279,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 
 - <!-- 2368581 - IS. ASDK --> Um operador do Azure Stack, se receber um alerta de pouca memória e máquinas de virtuais de inquilino não for possível implementar com um *erro de criação de recursos de infraestrutura de VM*, é possível que o carimbo de data / Azure Stack está disponível memória esgotada. Utilize o [Planeador de capacidade do Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para melhor compreender a capacidade disponível para as cargas de trabalho.
 
-- <!-- TBD - IS. ASDK --> Ao executar o cmdlet de teste AzureStack no ponto final de privilégio (PEP), irá gerar uma mensagem de aviso para a VM ERCS. Pode continuar a utilizar o ASDK. 
+- <!-- TBD - IS. ASDK --> Ao executar o cmdlet de teste AzureStack no ponto final de privilégio (PEP), o teste irá gerar uma mensagem de aviso de êxito/falha para a VM ERCS. Pode continuar a utilizar o ASDK.
 
 #### <a name="compute"></a>Computação
 - <!-- 2494144 - IS, ASDK --> Ao selecionar um tamanho de máquina virtual para uma implementação da máquina virtual, alguns tamanhos de VM da série F não estão visíveis como parte do Seletor de tamanho, ao criar uma VM. Os seguintes tamanhos VM não aparecem no Seletor de: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  
@@ -226,14 +365,14 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 
 - <!-- 2297790 - IS, ASDK --> **O Azure Stack inclui agora uma *Syslog* cliente** como uma *funcionalidade de pré-visualização*. Este cliente permite que o reencaminhamento de registos de auditoria e segurança relacionados com a infraestrutura do Azure Stack para um Syslog servidor ou segurança informações e eventos (SIEM) software de gestão que é externo ao Azure Stack. Atualmente, o cliente de Syslog só suporta ligações não autenticadas de UDP através da porta de predefinição 514. O payload de cada mensagem do Syslog é formatado em comum o formato de evento (CEF).
 
-  Para configurar o cliente de Syslog, utilize o **Set-SyslogServer** cmdlet exposto o ponto final com privilégios.
+  Para configurar o cliente de Syslog, utilize o **Set-SyslogServer** cmdlet no ponto final com privilégios.
 
   Com esta pré-visualização, poderá ver os alertas de três seguintes. Quando apresentado ao Azure Stack, estes alertas incluem *descrições* e *remediação* orientações.
   - Título: Desativar a integridade do código  
   - Título: A integridade do código no modo de auditoria
   - Título: Conta de utilizador criada
 
-  Enquanto esta funcionalidade está em pré-visualização, ele deve não é confiável em ambientes de produção.   
+  Enquanto esta funcionalidade está em pré-visualização, não deve confiar em ambientes de produção.   
 
 
 ### <a name="fixed-issues"></a>Problemas de fixos
@@ -383,144 +522,4 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 - <!-- TBD -  IS ASDK --> Dados de medidor de utilização de endereços de IP público de utilização mostram o mesmo *EventDateTime* valor para cada registo, em vez do *TimeDate* carimbo que mostra quando o registo foi criado. Atualmente, não pode utilizar estes dados para efetuar gestão de contas preciso de utilização de endereços IP pública.
 
 <!-- #### Identity -->
-
-
-## <a name="build-201805131"></a>Compilação 20180513.1
-
-### <a name="new-features"></a>Novos recursos
-Esta compilação inclui as seguintes melhorias e correções para o Azure Stack.  
-
-- <!-- 1759172 - IS, ASDK --> **Novas subscrições administrativas**. Com 1804 há dois novos tipos de subscrição disponíveis no portal. Esses novos tipos de subscrição são, além da subscrição do fornecedor predefinida e visíveis com novas instalações do Azure Stack a partir da versão 1804. *Não utilize esses novos tipos de subscrição com esta versão do Azure Stack*. <!-- We will announce the availability to use these subscription types in with a future update. -->
-
-  Esses novos tipos de subscrição são visíveis, mas faz parte de uma alteração maior para proteger a subscrição do fornecedor predefinida e, para que seja mais fácil de implantar recursos compartilhados, como servidores SQL que aloja.
-
-  Os tipos de subscrição de três agora disponíveis são:  
-  - Padrão de subscrição do fornecedor: continuar a utilizar este tipo de subscrição.
-  - Medição de subscrição: *não utilize este tipo de subscrição.*
-  - Subscrição de consumo: *não utilize este tipo de subscrição*
-
-### <a name="fixed-issues"></a>Problemas de fixos
-- <!-- IS, ASDK -->  No portal de administração, já não tem de atualizar o mosaico de atualização antes de apresenta informações.
-
-- <!-- 2050709 - IS, ASDK -->  Agora, pode utilizar o portal de administração para editar as métricas de armazenamento para o serviço Blob, serviço tabela e o serviço de fila.
-
-- <!-- IS, ASDK --> Sob **Networking**, quando clicar em **ligação** para configurar uma ligação de VPN, **Site-site (IPsec)** agora é a única opção disponível.
-
-- **Várias correções** de desempenho, estabilidade, segurança e o sistema operativo que é utilizado pelo Azure Stack
-
-<!-- ### Changes  -->
-### <a name="additional-releases-timed-with-this-update"></a>Versões adicionais excedeu o tempo limite com esta atualização  
-A seguir está agora disponível, mas não precisam de atualização do Azure Stack 1804.
-- **Atualizar para o pacote de monitorização do Microsoft Azure Stack System Center Operations Manager**. Uma nova versão (1.0.3.0) do Microsoft System Center Operations Manager monitorização Pack para o Azure Stack está disponível para [transferir](https://www.microsoft.com/download/details.aspx?id=55184). Com esta versão, pode utilizar principais de serviço ao adicionar uma implementação do Azure Stack ligada. Esta versão também apresenta uma experiência de gestão de atualizações permite-lhe tomar medidas de remediação diretamente a partir de dentro do Operations Manager. Há também novos dashboards que apresentam os fornecedores de recursos, unidades de escala e dimensionar nós de unidade.
-
-- **Versão do PowerShell de administrador 1.3.0 de pilha do Azure novo**.  O Azure Stack do PowerShell 1.3.0 está agora disponível para instalação. Esta versão fornece comandos para todos os fornecedores de recursos de administração gerir o Azure Stack.  Com esta versão, algum conteúdo irá ser preterido a partir do GitHub de ferramentas do Azure Stack [repositório](https://github.com/Azure/AzureStack-Tools).
-
-   Para obter detalhes de instalação, siga os [instruções](.\.\azure-stack-powershell-install.md) ou o [ajudar](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) conteúdo para o módulo do Azure Stack 1.3.0.
-
-- **Lançamento de referência da Rest API do Azure Stack inicial**. O [referência da API para todos os fornecedores de recursos de administração do Azure Stack](https://docs.microsoft.com/rest/api/azure-stack/) agora está publicada.
-
-### <a name="known-issues"></a>Problemas conhecidos
-
-#### <a name="portal"></a>Portal
-- <!-- TBD - IS ASDK --> A capacidade [para abrir um novo pedido de suporte na lista pendente](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, utilize a seguinte hiperligação:     
-    - Para o Azure Stack Development Kit, utilize https://aka.ms/azurestackforum.    
-
-- <!-- 2403291 - IS ASDK --> Poderá não ter o uso da barra de deslocamento horizontal na parte inferior de portais de administrador e utilizador. Se não conseguir aceder a barra de deslocamento horizontal, utilize a estrutura de ligações para navegar até um painel anterior no portal ao selecionar o nome do painel pretende visualizar na lista de trilha encontrado na parte superior esquerda do portal.
-  ![Navegação estrutural](media/asdk-release-notes/breadcrumb.png)
-
-- <!-- TBD -  IS ASDK --> A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos inteiro e, em seguida, eliminar subscrições de utilizador.
-
-- <!-- TBD -  IS ASDK --> Não é possível ver as permissões à sua subscrição a utilizar os portais do Azure Stack. Como solução, utilize o PowerShell para verificar as permissões.
-
--   <!-- TBD -  IS ASDK --> No portal de administração, poderá ver um alerta crítico para o componente de Microsoft.Update.Admin. O nome do alerta, descrição e remediação todos são apresentadas como:  
-    - *ERRO - o modelo para typu FaultType ResourceProviderTimeout está em falta.*
-
-    Este alerta pode ser ignorado com segurança.
-
-#### <a name="health-and-monitoring"></a>Estado de funcionamento e monitorização
-- <!-- 1264761 - IS ASDK -->  Poderá ver alertas para o *controlador de estado de funcionamento* componente que tem os seguintes detalhes:  
-
-   #1 do alerta:
-   - NOME: Função de infraestrutura mau estado de funcionamento
-   - GRAVIDADE: aviso
-   - COMPONENTE: Controlador de estado de funcionamento
-   - Descrição: O Scanner de Heartbeat do controlador de estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.  
-
-  Alerta #2:
-   - NOME: Função de infraestrutura mau estado de funcionamento
-   - GRAVIDADE: aviso
-   - COMPONENTE: Controlador de estado de funcionamento
-   - Descrição: O Scanner de falhas de controlador do Estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.
-
-  Ambos os alertas podem ser ignoradas com segurança. Será fechada automaticamente ao longo do tempo.  
-
-#### <a name="marketplace"></a>Marketplace
-- Os utilizadores podem procurar o marketplace completo sem uma subscrição e podem ver itens administrativos, como os planos e ofertas. Esses itens estão não funcional para os utilizadores.
-
-#### <a name="compute"></a>Computação
-- <!-- TBD -  IS ASDK --> Definições de dimensionamento para conjuntos de dimensionamento de máquinas virtuais não estão disponíveis no portal. Como solução, pode usar [do Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro, em vez de `-VMScaleSetName`.
-
-- <!-- TBD -  IS ASDK --> Ao criar máquinas virtuais no portal de utilizador do Azure Stack, o portal apresenta um número incorreto de discos de dados que pode anexar a uma VM da série DS. Séries de DS VMs capaz de acomodar os discos de dados como a configuração do Azure.
-
-- <!-- TBD -  IS ASDK --> Quando não for possível criar uma imagem de VM, pode ser adicionado um item com falha que não é possível eliminar para o painel de computação de imagens VM.
-
-  Como solução, criar uma nova imagem VM com um VHD fictício que pode ser criado através de Hyper-V (New-VHD-caminho C:\dummy.vhd-fixo - SizeBytes 1 GB). Este processo deve resolver o problema que impede a eliminar o item falhado. Em seguida, 15 minutos depois de criar a imagem fictícia, pode com êxito eliminá-la.
-
-  Em seguida, pode repetir a transferência da imagem VM que falhou anteriormente.
-
-- <!-- TBD -  IS ASDK --> Se uma extensão numa implantação de VM o aprovisionamento demora demasiado tempo, os utilizadores devem permitir que o limite de tempo de aprovisionamento em vez de tentar interromper o processo para desaloque ou elimine a VM.  
-
-- <!-- 1662991 - IS ASDK --> Diagnóstico de VM do Linux não é suportado no Azure Stack. Quando implementa uma VM do Linux com o diagnóstico VM ativado, a implementação falhar. A implementação falhar, também, se ativar as métricas básicas de VM do Linux através das definições de diagnóstico.
-
-#### <a name="networking"></a>Redes
-- <!-- 1766332 - IS, ASDK --> Sob **Networking**, se clicar em **criar Gateway de VPN** para configurar uma ligação de VPN, **baseado em política** está listado como um tipo de VPN. Não selecione esta opção. Apenas os **rota com base** opção é suportada no Azure Stack.
-
-- <!-- 2388980 -  IS ASDK --> Depois de uma VM é criada e associada a um endereço IP público, não é possível desassociar VM desse endereço IP. Desassociação parece funcionar, mas o endereço IP público atribuído anteriormente que permanece associado com a VM original.
-
-  Atualmente, tem de utilizar apenas novos endereços IP públicos para novas VMs que criar.
-
-  Este comportamento ocorre mesmo que a reatribuir o endereço IP a uma VM nova (geralmente conhecida como uma *alternância de VIP*). Todos os futuro tenta se conectar por meio deste resultado de endereço IP numa ligação para a VM original e não para a nova.
-
-- <!-- 2292271 - IS ASDK --> Se aumentar um limite de Quota para um recurso de rede que faz parte de uma oferta e o plano que está associado uma subscrição de inquilino, o novo limite não se aplica a essa subscrição. No entanto, o novo limite é aplicável às novas assinaturas que são criadas após a quota for aumentada.
-
-  Para contornar este problema, utilize um plano de suplemento para aumentar uma Quota de rede quando o plano já está associado uma subscrição. Para obter mais informações, consulte como [disponibilizar um plano de suplemento](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
-
-- <!-- 2304134 IS ASDK --> Não é possível eliminar uma subscrição que tem recursos de zona DNS ou os recursos de tabela de rotas associados ao mesmo. Para eliminar com êxito a subscrição, tem primeiro de eliminar os recursos de zona DNS e a tabela de rotas da subscrição do inquilino.
-
-
-- <!-- 1902460 -  IS ASDK --> O Azure Stack oferece suporte a uma única *gateway de rede local* por endereço IP. Isso é verdadeiro em todas as subscrições de inquilino. Após a criação da primeira rede local ligação de gateway, subsequente tenta criar um recurso de gateway de rede local com o mesmo endereço IP são bloqueados.
-
-- <!-- 16309153 -  IS ASDK --> Numa rede Virtual que foi criado com uma definição de servidor DNS de *automática*, a mudança para uma falha de servidor DNS personalizado. As definições atualizadas não são enviadas para as VMs nessa vnet.
-
-- <!-- TBD -  IS ASDK --> O Azure Stack não suporta a adição de interfaces de rede adicionais para uma instância VM depois de implementada a VM. Se a VM exigir mais de uma interface de rede, tem de ser definidos no momento da implementação.
-
-
-#### <a name="sql-and-mysql"></a>SQL e o MySQL
-- <!-- TBD - ASDK --> Servidores a alojar a base de dados tem de estar dedicada para utilização pelas cargas de trabalho do utilizador e o fornecedor de recursos. Não é possível utilizar uma instância que está a ser utilizada por outros consumidores, incluindo serviços de aplicações.
-
-- <!-- IS, ASDK --> Caracteres especiais, incluindo espaços e períodos, não são suportadas no **família** dê um nome ao criar um SKU para os fornecedores de recursos do SQL e o MySQL.
-
-#### <a name="app-service"></a>Serviço de Aplicações
-- <!-- TBD -  IS ASDK --> Os utilizadores tem de registar o fornecedor de recursos de armazenamento antes de ser criar sua primeira função do Azure na subscrição.
-
-- <!-- TBD -  IS ASDK --> Para ampliar a infraestrutura (funções de trabalho, gerenciamento, funções de front-end), tem de utilizar o PowerShell, tal como descrito nas notas de versão para computação.
-
-#### <a name="usage"></a>Utilização  
-- <!-- TBD -  IS ASDK --> Dados de medidor de utilização de endereços de IP público de utilização mostram o mesmo *EventDateTime* valor para cada registo, em vez do *TimeDate* carimbo que mostra quando o registo foi criado. Atualmente, não pode utilizar estes dados para efetuar gestão de contas preciso de utilização de endereços IP pública.
-
-<!--
-#### Identity
--->
-
-
-
-#### <a name="downloading-azure-stack-tools-from-github"></a>Baixar ferramentas de pilha do Azure a partir do GitHub
-- Ao utilizar o *invoke-webrequest* cmdlet do PowerShell para transferir o Azure Stack de ferramentas do Github, recebe um erro:     
-    -  *Invoke-webrequest: O pedido foi abortado: não foi possível criar o canal seguro SSL/TLS.*     
-
-  Este erro ocorre devido a uma recente descontinuação de suporte do GitHub dos Tlsv1 e Tlsv1.1 padrões de criptografia (o padrão para o PowerShell). Para obter mais informações, consulte [aviso de remoção de padrões de criptografia fraca](https://githubengineering.com/crypto-removal-notice/).
-
-<!-- #### Identity -->
-
-
 

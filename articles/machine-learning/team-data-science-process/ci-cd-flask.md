@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6de1832dde1764b2655d4c34643d6a026e198f64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968796"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052229"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicações de Inteligência Artificial (IA): a criar o pipeline de integração contínua no Azure utilizando o Docker e Kubernetes
 Para uma aplicação de IA, há frequentemente dois fluxos de trabalho, criação de modelos de machine learning e os desenvolvedores de aplicativos criando o aplicativo e expô-lo para os utilizadores finais consumam os cientistas de dados. Neste artigo, demonstraremos como implementar uma integração contínua (CI) / pipeline de entrega contínua (CD) para uma aplicação de IA. Aplicação de IA é uma combinação de código da aplicação incorporada com um modelo de pré-preparadas com machine learning (ML). Neste artigo, estamos buscando um modelo pretrained de uma conta de armazenamento de Blobs do Azure privado, pode ser uma conta AWS S3 também. Utilizamos uma aplicação de web do flask python simples para o artigo.
@@ -65,7 +65,7 @@ A arquitetura de pipeline é indicada abaixo.
 11. Servidor DNS passa a solicitação ao balanceador de carga e envia a resposta de volta para o utilizador.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Consulte a [tutorial]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) para seguir os detalhes e implementar seu próprio pipeline CI/CD para a sua aplicação.
+* Consulte a [tutorial](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) para seguir os detalhes e implementar seu próprio pipeline CI/CD para a sua aplicação.
 
 ## <a name="references"></a>Referências
 * [Processo de ciência de dados de equipa (TDSP)](https://aka.ms/tdsp)

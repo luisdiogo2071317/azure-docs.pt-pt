@@ -1,42 +1,42 @@
 ---
-title: Como containerize micro-serviços o Service Fabric do Azure (pré-visualização)
-description: Azure Service Fabric tem de adicionar novas funcionalidades para containerize micro-serviços o Service Fabric. Esta funcionalidade encontra-se em pré-visualização.
+title: Crie contentores seus serviços do Azure Service Fabric no Windows
+description: Aprenda a colocar num contentor de seus serviços do Service Fabric Reliable Services e Reliable Actors no Windows.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
 manager: anmolah
-editor: anmolah
+editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/04/2017
+ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 3741e74e70769d186da2757b43ca60bbb1e78a1f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212658"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057214"
 ---
-# <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Como containerize o serviço de recursos de infraestrutura Reliable Services e Reliable Actors (pré-visualização)
+# <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar num contentor do Service Fabric Reliable Services e Reliable Actors no Windows
 
-Service Fabric suporta containerizing micro-serviços de Service Fabric (Reliable Services e serviços de Atores fiável com base em). Para obter mais informações, consulte [contentores de recursos de infraestrutura de serviço](service-fabric-containers-overview.md).
+O Service Fabric suporta empacotar microsserviços de Service Fabric (Reliable Services e serviços de Reliable Actor com base). Para obter mais informações, consulte [contentores de recursos de infraestrutura do serviço](service-fabric-containers-overview.md).
 
-Esta funcionalidade está em pré-visualização e este artigo fornece os vários passos para obter o serviço está em execução no interior de um contentor.  
+Este documento fornece orientações para o serviço em execução num contentor do Windows.
 
 > [!NOTE]
-> Esta funcionalidade está em pré-visualização e não é suportada na produção. Atualmente, esta funcionalidade funciona apenas para o Windows. Para executar contentores, o cluster tem de executar no Windows Server 2016 com contentores.
+> Atualmente esta funcionalidade funciona apenas para Windows. Para executar contentores, tem de executar o cluster no Windows Server 2016 com contentores.
 
-## <a name="steps-to-containerize-your-service-fabric-application"></a>Passos para containerize a aplicação de recursos de infraestrutura do serviço
+## <a name="steps-to-containerize-your-service-fabric-application"></a>Passos para colocar num contentor da sua aplicação do Service Fabric
 
-1. Abra a aplicação de Service Fabric no Visual Studio.
+1. Abra a aplicação do Service Fabric no Visual Studio.
 
-2. Adicionar classe de [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) ao seu projeto. O código nesta classe é um programa auxiliar de carregar corretamente os binários de tempo de execução do Service Fabric no interior da sua aplicação ao executar dentro de um contentor.
+2. Adicionar a classe [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) ao seu projeto. O código nessa classe é um auxiliar para carregar corretamente os binários de runtime do Service Fabric dentro do seu aplicativo quando em execução num contentor.
 
-3. Para cada pacote do código que gostaria de containerize, inicializar o carregador de entrada de programa do ponto. Adicione o construtor estático mostrado no seguinte fragmento de código para o ficheiro de ponto de entrada do programa.
+3. Para cada pacote de código que gostaria de colocar num contentor, inicializar o carregador na entrada de programa do ponto. Adicione o construtor estático mostrado no seguinte fragmento de código ao seu ficheiro de ponto de entrada do programa.
 
   ```csharp
   namespace MyApplication
@@ -55,20 +55,29 @@ Esta funcionalidade está em pré-visualização e este artigo fornece os vário
           {
   ```
 
-4. Criar e [pacote](service-fabric-package-apps.md#Package-App) seu projeto. Para compilar e criar um pacote, clique com o botão direito no projeto de aplicação no Explorador de soluções e escolha o **pacote** comando.
+4. Criar e [pacote](service-fabric-package-apps.md#Package-App) seu projeto. Para compilar e criar um pacote, clique com o botão direito do projeto de aplicativo no Explorador de soluções e escolha o **pacote** comando.
 
-5. Para cada pacote do código é necessário containerize, execute o script de PowerShell [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). A utilização é o seguinte:
-  ```powershell
-    $codePackagePath = 'Path to the code package to containerize.'
-    $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
-    $applicationExeName = 'Name of the ode package executable.'
-    CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
- ```
-  O script cria uma pasta com artefactos de Docker em $dockerPackageOutputDirectoryPath. Modificar o Dockerfile gerado para expor as portas, execute scripts de configuração etc. com base nas suas necessidades.
+5. Para cada pacote do código tem de colocar num contentor, execute o script do PowerShell [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). A utilização é o seguinte:
 
-6. Em seguida precisa [criar](service-fabric-get-started-containers.md#Build-Containers) e [push](service-fabric-get-started-containers.md#Push-Containers) seu pacote de contentor do Docker para o seu repositório.
+    .NET completo
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $applicationExeName = 'Name of the Code package executable.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
+      ```
+    .NET Core
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
+      ```
+      O script cria uma pasta com os artefactos de Docker em $dockerPackageOutputDirectoryPath. Modificar o Dockerfile gerado para `expose` qualquer portas, executadas scripts de configuração e assim por diante. com base nas suas necessidades.
 
-7. Modificar o ApplicationManifest.xml e ServiceManifest.xml para adicionar a imagem de contentor, informações do repositório, autenticação de registo e mapeamento de porta para o anfitrião. Para modificar os manifestos, consulte [criar uma aplicação de contentor do Azure Service Fabric](service-fabric-get-started-containers.md). A definição de pacote do código no manifesto de serviço tem de ser substituído com a imagem de contentor correspondente. Certifique-se alterar o ponto de entrada para um tipo de ContainerHost.
+6. Em seguida precisa [crie](service-fabric-get-started-containers.md#Build-Containers) e [push](service-fabric-get-started-containers.md#Push-Containers) seu pacote de contentor do Docker para o seu repositório.
+
+7. Modificar a applicationmanifest. XML e o servicemanifest. XML para adicionar a imagem de contentor, informações do repositório, autenticação de registo e mapeamento de porta-a-anfitrião. Para modificar os manifestos, consulte [criar uma aplicação de contentor do Azure Service Fabric](service-fabric-get-started-containers.md). A definição de pacote de código no manifesto do serviço tem de ser substituído com a imagem de contentor correspondente. Certifique-se alterar o ponto de entrada para um tipo de ContainerHost.
 
   ```xml
 <!-- Code package is your service executable. -->
@@ -79,11 +88,11 @@ Esta funcionalidade está em pré-visualização e este artigo fornece os vário
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
   </EntryPoint>
-  <!-- Pass environment variables to your container: -->    
+  <!-- Pass environment variables to your container: -->
 </CodePackage>
   ```
 
-8. Adicione o mapeamento do anfitrião de porta para o replicador e o ponto final de serviço. Uma vez que ambas estas portas são atribuídas durante a execução pelo Service Fabric, o ContainerPort está definido como zero para utilizar a porta atribuída para o mapeamento.
+8. Adicione o mapeamento de porta-a-anfitrião para o seu replicator e o ponto final de serviço. Uma vez que ambas estas portas são atribuídas em tempo de execução pelo Service Fabric, o ContainerPort é definida como zero para utilizar a porta atribuída para o mapeamento.
 
  ```xml
 <Policies>
@@ -94,7 +103,24 @@ Esta funcionalidade está em pré-visualização e este artigo fornece os vário
 </Policies>
  ```
 
-9. Para testar esta aplicação, tem de implementá-la para um cluster que está a executar versão 5.7 ou superior. Além disso, tem de editar e atualizar as definições de cluster para ativar esta funcionalidade de pré-visualização. Siga os passos deste [artigo](service-fabric-cluster-fabric-settings.md) para adicionar a definição mostrada seguinte.
+9. Para configurar o modo de isolamento de contentor, veja [modo de isolamento de configurar]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V. Os fragmentos seguintes mostram como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
+
+ ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+  ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+
+10. Para testar esta aplicação, terá de implementá-la a um cluster que esteja executando a versão 5.7 ou superior. Para versões de tempo de execução 6.1 ou inferiores, terá de editar e atualizar as definições de cluster para ativar esta funcionalidade de pré-visualização. Siga os passos desta [artigo](service-fabric-cluster-fabric-settings.md) para adicionar a definição mostrada a seguir.
 ```
       {
         "name": "Hosting",
@@ -106,9 +132,10 @@ Esta funcionalidade está em pré-visualização e este artigo fornece os vário
         ]
       }
 ```
-10. Seguinte [implementar](service-fabric-deploy-remove-applications.md) o pacote de aplicação editado para este cluster.
 
-Agora, deve ter uma aplicação de Service Fabric de executar o seu cluster.
+11. Próxima [implementar](service-fabric-deploy-remove-applications.md) o pacote de aplicação editado para este cluster.
+
+Agora, deve ter uma aplicação em contentores do Service Fabric com o seu cluster.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-get-started-containers.md).

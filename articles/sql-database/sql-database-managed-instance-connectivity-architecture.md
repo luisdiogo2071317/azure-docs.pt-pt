@@ -12,12 +12,12 @@ ms.date: 08/16/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 54917c6548c7f0bfacad6408732c5619e6346683
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 56a1e7038515a64f1dfe3fda639213bcfcde63d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177685"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053436"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de conectividade de instância de gerida de base de dados SQL do Azure 
 
@@ -73,7 +73,7 @@ Serviços de gerenciamento e implantação de ligar à instância gerida com o p
 - Para uma descrição geral, consulte [o que é uma instância gerida](sql-database-managed-instance.md) 
 - Para obter mais informações sobre a configuração de VNet, veja [configuração de VNet de instância gerida](sql-database-managed-instance-vnet-configuration.md). 
 - Para um início rápido, veja como criar a instância gerida: 
-  - do [Portal do Azure](sql-database-managed-instance-create-tutorial-portal.md) 
+  - Do [portal do Azure](sql-database-managed-instance-get-started.md) 
   - usando [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
   - usando [modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 
   - usando [modelo Azure Resource Manager (jumpbox com o SSMS incluídos)](https://portal.azure.com/) 

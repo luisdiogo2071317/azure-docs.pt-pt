@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3e5316ac0ca20c58a0960818d3151c238927df0d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382155"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054602"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
 
@@ -91,9 +91,17 @@ Para delegar a gestão de acesso para uma reserva:
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="cancellations-and-exchanges"></a>Cancelamentos e trocas
+
+Dependendo do tipo de reserva, poderá cancelar ou trocar uma reserva. Para obter mais informações, consulte o cancelamento e trocas secções nos seguintes tópicos:
+
+- [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Efetue o pré-pagamento do planos de software SUSE das reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Alteração de otimizar a definição para instâncias de VM reservadas
 
- Quando comprar uma instância de VM reservada, pode escolher flexibilidade de tamanho de instância ou prioridade de capacidade. Flexibilidade de tamanho de instância aplica o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](https://aka.ms/RIVMGroups). Prioridade de capacidade reserva-se a capacidade do Centro de dados para as suas implementações. Essa opção oferece uma confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas.
+ Quando comprar uma instância de VM reservada, pode escolher flexibilidade de tamanho de instância ou prioridade de capacidade. Flexibilidade de tamanho de instância aplica o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](https://aka.ms/RIVMGroups). Prioridade de capacidade dá prioridade à capacidade do Centro de dados para as suas implementações. Essa opção oferece uma confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas.
 
 Por predefinição, quando o âmbito da reserva é partilhado, a flexibilidade de tamanho de instância é na. A capacidade de centro de dados não está priorizada para implementações de VM.
 

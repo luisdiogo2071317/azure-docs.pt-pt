@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 12/15/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f0de2f8700bef83b5a8a9303e90c97aab29722a3
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66e974e80fa6f5e002b1f54584ea48e22a7b13ce
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060193"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053192"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>O Azure Active Directory latências dos relatórios
 
@@ -39,10 +39,10 @@ Existem duas áreas de relatórios de atividade:
 
 A tabela seguinte lista as informações de latência para relatórios de atividade.
 
-| Relatório | Latência (P95) |Latência (P99)|
+| Relatório | Latência (95%) |Latência (99%)|
 | :-- | --- | --- | 
-| Registos de auditoria | 2 minutos  | 5 minutos  |
-| Inícios de sessão | 2 minutos  | 5 minutos |
+| Registos de auditoria | 2 mins  | 5 mins  |
+| Inícios de sessão | 2 mins  | 5 mins |
 
 
 

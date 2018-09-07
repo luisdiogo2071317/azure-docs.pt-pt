@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/06/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698065"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055299"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar do serviço de controlo de acesso do Azure
 
-Controlo de acesso do Azure, um serviço do Azure Active Directory (Azure AD), será descontinuado a 7 de Novembro de 2018. Aplicações e serviços que a utilizam atualmente o controlo de acesso devem ser totalmente migrados para um mecanismo de autenticação diferentes até lá. Este artigo descreve as recomendações para os clientes atuais, à medida que planeia preterir a utilização do controlo de acesso. Se não utilizar atualmente o controlo de acesso, não precisa de tomar qualquer ação.
-
+Microsoft Azure controlo de acesso Service (ACS), um serviço do Azure Active Directory (Azure AD), será descontinuado a 7 de Novembro de 2018. Aplicações e serviços que a utilizam atualmente o controlo de acesso devem ser totalmente migrados para um mecanismo de autenticação diferentes até lá. Este artigo descreve as recomendações para os clientes atuais, à medida que planeia preterir a utilização do controlo de acesso. Se não utilizar atualmente o controlo de acesso, não precisa de tomar qualquer ação.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -73,7 +72,6 @@ Aqui está o agendamento para descontinuar os componentes de controlo de acesso:
 - **2 de Abril de 2018**: portal clássico do Azure completamente é extinguido, o que significa que a gestão de espaço de nomes do controlo de acesso já não está disponível através de qualquer URL. Neste momento, não é possível desativar ou ativar, eliminar ou enumerar os espaços de nomes do controlo de acesso. No entanto, o portal de gestão de controlo de acesso será totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes de controlo de acesso continuam a funcionar normalmente.
 - **7 de Novembro de 2018**: componentes de controlo de acesso de todos os permanentemente são encerrados. Isto inclui o portal de gestão de controlo de acesso, o serviço de gestão, STS e o motor de regras de transformação de token. Neste momento, todos os pedidos enviados para o controlo de acesso (localizado em \<espaço de nomes\>. accesscontrol.windows.net) falhar. Deve migração todas as aplicações e serviços existentes para outras tecnologias bem antes desta data.
 
-
 ## <a name="migration-strategies"></a>Estratégias de migração
 
 As secções seguintes descrevem as recomendações de alto nível para a migração de controlo de acesso a outras tecnologias da Microsoft.
@@ -98,7 +96,6 @@ Cada serviço cloud da Microsoft que aceita tokens que são emitidos pelo contro
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>Clientes do SharePoint
 
@@ -175,26 +172,14 @@ Para usar WS-Federation ou o WIF para integrar com o Azure AD, recomendamos o se
 - Obtenha total flexibilidade de personalização de token do Azure AD. Pode personalizar as afirmações que são emitidas pelo Azure AD para corresponder as afirmações que são emitidas pelo controlo de acesso. Especialmente, isto inclui a afirmação de identificador de nome ou ID de utilizador. Para continuar a receber os identificadores de usuário consistente para os seus utilizadores depois de alterar as tecnologias, certifique-se de que o usuário IDs emitido pela correspondência do Azure AD os emitidos pelo controlo de acesso.
 - Pode configurar um certificado de assinatura de tokens de mensagens em fila que é específico para seu aplicativo e com uma duração que controla.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > Essa abordagem exige uma licença do Azure AD Premium. Se for um cliente de controlo de acesso e requerem uma licença premium para configurar o início de sessão único para uma aplicação, contacte-nos. Podemos ficará satisfeitos fornecer licenças de desenvolvedor para que possa utilizar.
 
 Uma abordagem alternativa passa por seguir [este exemplo de código](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), que dá instruções um pouco diferentes para configurar WS-Federation. Este exemplo de código não utiliza o WIF, mas em vez disso, o middleware da OWIN do ASP.NET 4.5. No entanto, as instruções para o registo de aplicação são válidas para aplicações que utilizam o WIF e não necessitam de uma licença do Azure AD Premium. 
 
-Se escolher esta abordagem, precisa entender [iniciar o rollover da chave de sessão do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta abordagem utiliza o Azure AD global de chave para emitir tokens de assinatura. Por predefinição, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD roda as chaves de assinatura global, sua implementação do WIF precisa estar preparado para aceitar as alterações.
+Se escolher esta abordagem, precisa entender [iniciar o rollover da chave de sessão do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta abordagem utiliza o Azure AD global de chave para emitir tokens de assinatura. Por predefinição, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD roda as chaves de assinatura global, sua implementação do WIF precisa estar preparado para aceitar as alterações. Para obter mais informações, consulte [informações importantes sobre o rollover da chave de assinatura no Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
 
 Se pode integrar com o Azure AD com os protocolos de OpenID Connect ou do OAuth, é recomendável fazê-lo. Temos documentação extensa sobre e orientações sobre como integrar o Azure AD na sua aplicação web disponível no nosso [Guia do programador do Azure AD](https://aka.ms/aaddev).
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrar para o Azure Active Directory B2C
 
@@ -237,7 +222,6 @@ Se decidir que o Azure AD B2C é o melhor caminho de migração das suas aplica�
 - [Políticas personalizadas do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Os preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrar para a Ping Identity ou Auth0
 
 Em alguns casos, pode achar que o Azure AD e o Azure AD B2C não são suficientes para substituir o controlo de acesso em seus aplicativos web sem fazer alterações importantes no código. Alguns exemplos comuns podem incluir:
@@ -249,8 +233,6 @@ Em alguns casos, pode achar que o Azure AD e o Azure AD B2C não são suficiente
 - Aplicações web de vários inquilinos que utilizam o ACS para gerir centralmente o Federação para muitos fornecedores de identidade diferente
 
 Nestes casos, poderá querer considerar a migração da sua aplicação web para outro serviço de autenticação em nuvem. Recomendamos a explorar as seguintes opções. Cada uma das seguintes opções oferecem recursos semelhantes ao controlo de acesso:
-
-
 
 |     |     | 
 | --- | --- |

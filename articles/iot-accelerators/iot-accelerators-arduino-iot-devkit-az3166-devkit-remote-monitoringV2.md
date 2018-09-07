@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 92ce85a3cc94702468a13348d3a41667498c68f5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d3175290c1a7fca5e35f4438392f29324868f1a3
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187396"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054921"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Ligar o MXChip IoT DevKit AZ3166 para o acelerador de solução de monitorização remota do IoT
 
@@ -27,64 +27,35 @@ O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é uma área de compatível de 
 
 ## <a name="what-you-need"></a>Do que precisa
 
-Concluir o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) para:
+Avance para o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) e **concluir as secções seguintes apenas**:
 
-* Sua DevKit tiver ligado ao Wi-Fi
+* Prepare o hardware
+* Configurar Wi-Fi
+* Começar a utilizar o DevKit
 * Preparar o ambiente de desenvolvimento
 
 
-## <a name="open-the-remotemonitoring-sample"></a>Abra o exemplo de RemoteMonitoring
+## <a name="open-the-remotemonitoring-sample-in-vs-code"></a>Abra o exemplo de RemoteMonitoring no VS Code
 
-1. Desligar o DevKit do seu computador, se estiver ligado.
+1. Desligar o MXChip DevKit do seu computador, se estiver ligado.
 
 2. Inicie o VS Code.
 
-3. Ligar o DevKit ao seu computador. O VS Code automaticamente Deteta sua DevKit e abre-se as seguintes páginas:
-  * A página de introdução de DevKit.
-  * Exemplos de Arduino: Exemplos práticos para começar com DevKit.
+3. Ligar o MXChip DevKit ao seu computador.
 
-4. Expanda o lado esquerdo **exemplos de ARDUINO** secção, navegue até **exemplos para MXCHIP AZ3166 > AzureIoT**e selecione **RemoteMonitoringv2**. Abre uma nova janela do VS Code com uma pasta de projeto.
+4. Uso `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
+
+ 5. Expanda o lado esquerdo **exemplos de ARDUINO** secção, navegue até **exemplos para MXCHIP AZ3166 > AzureIoT**e selecione **RemoteMonitoringv2**. Abre uma nova janela do VS Code com uma pasta de projeto.
+
+  > [!NOTE]
+  > Se não vir **exemplos para MXCHIP**, utilize `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos e o tipo **Gestor de tabuleiro de Arduino**. Selecione-o, em seguida, procure **AZ3166** dentro do Gestor de tabuleiro. Em seguida, deve ser capaz de Repita o passo 5 acima e veja os exemplos.
 
   ![Abrir projeto de monitorização remota](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-arduino-examples.png)
-
 
   > [!NOTE]
   > Se fechar o painel, pode abri-lo novamente. Uso `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
 
-## <a name="add-a-new-physical-device"></a>Adicionar um novo dispositivo físico
-
-No portal, aceda a **dispositivos** secção e, clique nas **+ novo dispositivo** botão. 
-
-![Adicionar um novo dispositivo](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-add-device.png)
-
-O *novo formulário de dispositivo* devem ser preenchidos.
-1. Clique em **físico** no *tipo de dispositivo* secção.
-2. Definir seu próprio ID do dispositivo (por exemplo *MXChip* ou *AZ3166*).
-3. Escolher **chaves de geração automática** no *chave de autenticação* secção.
-4. Clique em *aplicar* botão.
-
-![Adicionar um novo formulário de dispositivo](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-add-new-device-form.png)
-
-Aguarde até que o portal, termine o aprovisionamento do novo dispositivo.
-
-![Provisionamento de um novo dispositivo ](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-add-device-provisioning.png)
-
-
-Em seguida, a configuração do novo dispositivo, será apresentado.
-Copiar o **cadeia de ligação** gerado.
-
-![Cadeia de ligação do dispositivo](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-new-device-connstring.png)
-
-
-Esta cadeia de ligação será utilizada na secção seguinte.
-
-
-
-
-
-## <a name="build-and-upload-the-device-code"></a>Criar e carregar o código de dispositivo
-
-Volte para o Visual Studio Code: 
+## <a name="build-and-upload-the-device-code-to-your-mxchip"></a>Criar e carregar o código de dispositivo para o seu MXChip
 
 1. Uso `Ctrl+P` (macOS: `Cmd + P`) e o tipo **ligação de dispositivos de configuração de tarefas**.
 
@@ -94,7 +65,7 @@ Volte para o Visual Studio Code:
 
   ![Cole a cadeia de ligação](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-task-config-device-conexion-choose-iot-hub-press-button-A.png)
 
-3. Por vezes, o terminal pede-lhe para introduzir o modo de configuração. Para fazer isso, premido o botão A, em seguida, push e largue o botão de reposição e, em seguida, largue o botão do r. A tela exibe a DevKit ID e a 'Configuração'.
+3. Por vezes, o terminal pede-lhe para introduzir o modo de configuração. Para fazer isso, mantenha premida **botão um**, em seguida, enviar por push e de versão do **botão Redefinir** e, em seguida, largue o botão do r. A tela exibe a DevKit ID e a 'Configuração'.
 
   ![Ecrã do dispositivo DevKit](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-screen.png)
 
@@ -103,22 +74,25 @@ Volte para o Visual Studio Code:
 
   ![Procure a cadeia de ligação](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-connection-string-of-a-device.png)
 
+  Agora com êxito ligado e verificado seu MXChip de dispositivo ao IoT Hub. Para ver o novo dispositivo físico na seção de código de VS de "Dispositivos de Hub do IoT do Azure", tem de transferir o [extensão IoT Toolkit do Azure.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 
 
-Agora, pode ver o novo dispositivo físico na seção de código de VS "Dispositivos de Hub do IoT do Azure":
+  Agora, pode ver o novo dispositivo físico na seção de código de VS "Dispositivos de Hub do IoT do Azure":
 
-![Tenha em atenção a novos dispositivos no Hub IoT](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-new-iot-hub-device.png)
+  ![Tenha em atenção a novos dispositivos no Hub IoT](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-new-iot-hub-device.png)
+
+4. Por fim, irá carregar o código de RemoteMonitoringV2.ino em seu MxChip para começar a enviar dados para o seu acelerador de solução de IoT. Uso `Ctrl + Shift + P` (macOS: `Cmd + Shift + P`) e o tipo **Arduino carregar**. O VS Code, em seguida, irá começar a carregar o código no seu MXChip e notificá-lo quando terminar. 
 
 ## <a name="test-the-project"></a>Testar o projeto
 
-Quando a aplicação de exemplo é executado, DevKit envia dados de sensores por Wi-Fi para seus Aceleradores de solução de IoT. Para ver o resultado, siga estes passos:
+Quando a aplicação de exemplo é executado, o seu MXChip DevKit envia dados de sensores por Wi-Fi para seus Aceleradores de solução de IoT. Para ver o resultado, siga estes passos:
 
 1. Aceda ao seu acelerador de solução de IoT e clique em **DASHBOARD**.
 
-2. Na consola de acelerador de solução de IoT, verá o estado de sensor DevKit. 
+2. Na consola de acelerador de solução de IoT, verá o estado de sensor MXChip DevKit. 
 
 ![Dados de sensores em Aceleradores de solução de IoT](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
 
-Se clicar no nome do sensor (AZ3166) é aberto um separador no lado direito do dashboard, onde pode ver o gráfico de sensores de MX Chip em tempo real.
+Se clicar no nome do sensor (AZ3166) é aberto um separador no lado direito do dashboard, onde pode ver o gráfico de sensores de MXChip em tempo real.
 
 
 ## <a name="send-a-c2d-message"></a>Enviar uma mensagem de C2D
@@ -127,7 +101,7 @@ O código de exemplo do MX Chip publica três métodos que pode ver a secção d
 
 ![Métodos MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-methods.png)
 
-Pode alterar a cor de um dos leds de MX Chip usando o método "LedColor". Para se fazer isso, selecione a caixa de verificação do dispositivo e clique no botão de agenda. 
+Pode alterar a cor de um dos LEDs de Chip MX usando o método "LedColor". Para se fazer isso, selecione a caixa de verificação do dispositivo e clique no botão de agenda. 
 
 ![Métodos MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-schedule.png)
 
@@ -135,9 +109,9 @@ Escolha o método chamado ChangeColor na lista pendente, onde todos os métodos 
 
 ![Lista pendente MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-change-color.png)
 
-Em vários segundos, o seu Chip MX físico deve alterar a cor de RGB levado (abaixo de um botão)
+Em alguns segundos, o seu Chip MX físico deve alterar a cor do RGB LED (abaixo de um botão)
 
-![Ministrados por Chip de MX](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
+![Chip de MX do LED](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
 ## <a name="problems-and-feedback"></a>Problemas e comentários
 

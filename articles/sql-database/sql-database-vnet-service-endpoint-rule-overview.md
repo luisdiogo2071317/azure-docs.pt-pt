@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 38806b3dbf47b21885ef704cfec8be3c491a66a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143815"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055391"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
 
@@ -184,7 +184,7 @@ Se optar por utilizar esta funcionalidade com uma conta de armazenamento que est
 Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL dw a partir de contas de armazenamento. Se a conta de armazenamento que está a carregar dados de limite o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade entre o PolyBase e a conta. Há uma atenuação para isso, e pode contactar o suporte da Microsoft para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Blob do Azure SQLDB auditoria
-Auditoria de BLOBs envia por push de registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais de serviço de eventos, em seguida, irá interromper a conectividade da SQLDB do Azure para a conta de armazenamento.
+Auditoria de BLOBs envia por push de registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais de serviço de VNet, em seguida, irá interromper a conectividade da SQLDB do Azure para a conta de armazenamento.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall da VNET ao seu servidor sem ativar na VNET pontos finais de serviço
 
@@ -254,7 +254,7 @@ Já tem de ter uma sub-rede que está marcada com o ponto de extremidade de serv
 
 ### <a name="azure-portal-steps"></a>Passos do portal do Azure
 
-1. Inicie sessão para o [portal do Azure][http-azure-portal-link-ref-477t].
+1. Inicie sessão no [Portal do Azure][http-azure-portal-link-ref-477t].
 
 2. Em seguida, navegue até ao portal para **servidores SQL** &gt; **Firewall / redes virtuais**.
 

@@ -1,22 +1,23 @@
 ---
-title: Batch testar a sua aplicação LUIS – Azure | Documentos da Microsoft
-description: Use o teste de batch de compreensão de idiomas (LUIS) para encontrar expressões com incorretas intenções e entidades.
+title: Teste de batch com expressões de exemplo de 1000
+titleSuffix: Azure Cognitive Services
+description: Utilize o batch de compreensão de idiomas (LUIS) conjuntos de testes para encontrar expressões com incorretas intenções e entidades.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e5820b7d65cb989411657670ae19ef1bdca2122d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888631"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054779"
 ---
-# <a name="batch-testing"></a>Testes em lote
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Lote de teste com um conjunto de expressões de exemplo
  Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888631"
     ![Ligação de teste de batch](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Selecione **conjunto de dados de importação**. O **novo conjunto de dados importação** é apresentada a caixa de diálogo. Selecione **Escolher ficheiro** e localize um ficheiro JSON com o correto [formato JSON](luis-concept-batch-test.md#batch-file-format) que contém *não mais do que 1.000* expressões para testar.
-
-    ![Importar ficheiro de conjunto de dados](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Erros de importação são apresentados numa barra de notificação vermelho na parte superior do navegador. Quando uma importação tem erros, não é criado nenhum conjunto de dados. Para obter mais informações, consulte [erros comuns](luis-concept-batch-test.md#common-errors-importing-a-batch).
 

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42748051"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053089"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Utilizar o Key Vault para armazenar e aceder a chaves do Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Os seguintes passos são necessários para armazenar e ler as chaves de acesso d
 
 ## <a name="create-an-azure-web-application"></a>Criar uma aplicação web do Azure
 
-1. Criar uma aplicação web do Azure ou pode transferir a aplicação a partir da [repositório do GitHub](https://github.com/rsarosh/CosmosDB-KeyVault). É uma simple aplicação de MVC.  
+1. Criar uma aplicação web do Azure ou pode transferir a aplicação a partir da [repositório do GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). É uma simple aplicação de MVC.  
 
 2. Deszipe o aplicativo baixado e abra o **HomeController.cs** ficheiro. Atualize o ID secreto na linha a seguir:
 
@@ -87,11 +87,9 @@ Agora, se executar o aplicativo, é possível ler o segredo do Key Vault.
 
 ![Aplicação implementada com o segredo](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-Da mesma forma, pode adicionar um utilizador aceder à chave do cofre. Terá de adicionar a próprio para o Key Vault ao clicar em "Políticas de acesso" e, em seguida, atribua a permissão all que terá de executar a aplicação a partir do Visual studio. Quando esta aplicação está em execução no ambiente de trabalho, que demora a sua identidade.
+Da mesma forma, pode adicionar um utilizador aceder à chave do cofre. Terá de adicionar a próprio para o Key Vault, selecionando **políticas de acesso** e, em seguida, conceder todas as permissões que precisa executar a aplicação a partir do Visual studio. Quando esta aplicação está em execução no ambiente de trabalho, que demora a sua identidade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Configurar uma firewall para Azure Cosmos DB, veja [suporte de firewall](firewall-support.md) artigo.
 * Para configurar o ponto final de serviço de rede virtual, consulte [proteger o acesso ao utilizar o ponto final de serviço de VNet](vnet-service-endpoint.md) artigo.
-
-

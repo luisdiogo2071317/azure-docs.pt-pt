@@ -1,24 +1,25 @@
 ---
-title: Entidades pré-concebidas no LUIS | Documentos da Microsoft
-description: Este artigo contém listas de entidades pré-criadas que estão incluídas no Language Understanding Intelligent Service (LUIS).
+title: Entidades previamente concebidas para a compreensão de idiomas (LUIS)
+titleSuffix: Azure Cognitive Services
+description: LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento de tipos comuns de informações, como as datas, horas, números, medidas e moeda. Suporte de entidade pré-criados varia consoante a cultura da sua aplicação LUIS.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f62c078a023d9ee7ca535cb5e02623df7a568e8a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248242"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052878"
 ---
-# <a name="prebuilt-entities"></a>Entidades pré-concebidas
+# <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades previamente concebidas para reconhecer os tipos de dados comuns
 
-LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento de tipos comuns de informações, como as datas, horas, números, medidas e moeda. Suporte de entidade pré-criados varia consoante a cultura da sua aplicação LUIS. Para obter uma lista completa das entidades pré-criados que suporte o LUIS, incluindo o suporte por cultura, consulte a [referência de entidade pré-criados](./luis-reference-prebuilt-entities.md).
+LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento de tipos comuns de informações, como datas, horas, números, medidas e moeda. Suporte de entidade pré-criados varia consoante a cultura da sua aplicação LUIS. Para obter uma lista completa das entidades pré-criados que suporte o LUIS, incluindo o suporte por cultura, consulte a [referência de entidade pré-criados](./luis-reference-prebuilt-entities.md).
 
 > [!NOTE]
 > **Builtin.DateTime** foi preterido. Ele é substituído por [ **builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), que fornece o reconhecimento de data e intervalos de tempo, bem como reconhecimento aperfeiçoado de ambíguas datas e horas.
@@ -28,7 +29,6 @@ LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento 
 1. Abra a sua aplicação ao clicar em seu nome na **as minhas aplicações** página e, em seguida, clique em **entidades** no lado esquerdo. 
 2. Sobre o **entidades** página, clique em **gerir entidades pré-concebidas**.
 
-    ![Página de entidades - gerir entidades pré-concebidas](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. Na **adicionar entidades pré-concebidas** caixa de diálogo, clique na entidade pré-criados que pretende adicionar (por exemplo, "datetimeV2"). Em seguida, clique em **Guardar**.
 
     ![Adicionar a caixa de diálogo de entidade predefinidos](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)

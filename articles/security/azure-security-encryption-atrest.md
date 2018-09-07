@@ -1,6 +1,6 @@
 ---
-title: Dados de Microsoft Azure encriptação-em-Rest | Microsoft Docs
-description: Este artigo fornece uma descrição geral do Microsoft Azure dados encriptação em-rest, as capacidades gerais e as considerações gerais.
+title: Microsoft Azure dados encriptação em repouso | Documentos da Microsoft
+description: Este artigo fornece uma visão geral do Microsoft Azure encriptação inativa de dados, as capacidades globais e as considerações gerais.
 services: security
 documentationcenter: na
 author: barclayn
@@ -14,275 +14,275 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 2be65ba185ebc1ad8bde0cdf33f264351301d45a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294061"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051413"
 ---
-# <a name="azure-data-encryption-at-rest"></a>Dados do Azure encriptação em Rest
+# <a name="azure-data-encryption-at-rest"></a>Encriptação em repouso da dados do Azure
 
-Microsoft Azure inclui ferramentas para salvaguardar os dados de acordo com as necessidades de segurança e conformidade da sua empresa. Este documento centra-se em:
+Microsoft Azure inclui ferramentas para salvaguardar os dados de acordo com as necessidades de segurança e conformidade da sua empresa. Este documento se concentra em:
 
-- Como os dados estão protegidos Inativos em todo o Microsoft Azure
-- Descreve os vários componentes a demorar de parte da implementação da proteção de dados,
-- Revê os profissionais de TI e contras das abordagens de proteção de gestão de chaves diferentes. 
+- Como os dados são protegidos em inatividade em todo o Microsoft Azure
+- Aborda os vários componentes que utilizar a implementação de proteção de dados,
+- Revisões de prós e contras das abordagens de proteção de gestão de chaves diferentes. 
 
-Encriptação de Inativos é um requisito de segurança comuns. No Azure, as organizações podem alcançar a encriptação de Inativos sem ter do custo de implementação e gestão e o risco de uma solução de gestão de chaves personalizadas. As organizações têm a opção de permitir que o Azure completamente gerir a encriptação de inativos. Além disso, as organizações têm várias opções para gerir encriptação ou chaves de encriptação.
+Encriptação inativa é um requisito de segurança comuns. No Azure, as organizações podem alcançar a encriptação inativa sem ter o custo da implementação e gestão e o risco de uma solução de gestão de chaves personalizadas. As organizações têm a opção de permitir que o Azure gerir totalmente a encriptação em repouso. Além disso, as organizações têm várias opções para gerenciar atentamente a encriptação ou chaves de encriptação.
 
-## <a name="what-is-encryption-at-rest"></a>O que é a encriptação de Inativos?
+## <a name="what-is-encryption-at-rest"></a>O que é a encriptação em repouso?
 
-Encriptação de Inativos é a codificação (encriptação) de dados quando é mantida. A encriptação em estruturas de Rest no Azure utilizar encriptação simétricas para encriptar e desencriptar grandes quantidades de dados rapidamente, de acordo com um modelo conceptual simple:
+Encriptação inativa é a codificação (criptografia) de dados, quando ela é persistida. A encriptação em designs de Rest no Azure usar a criptografia simétrica para criptografar e descriptografar grandes quantidades de dados rapidamente, de acordo com um modelo conceitual simple:
 
-- Uma chave de encriptação simétrica é utilizada para encriptar os dados que está escrito para o armazenamento. 
-- A mesma chave de encriptação é utilizada para desencriptar os dados, que é readied para utilização na memória.
-- Poderão ser particionados dados e podem ser utilizadas chaves diferentes para cada partição.
-- As chaves têm de ser armazenadas numa localização segura com políticas de controlo de acesso limitar o acesso a determinadas identidades e utilização de chave de registo. Chaves de encriptação de dados, muitas vezes, são encriptadas com encriptação assimétrica para limitar ainda mais o acesso.
+- Uma chave de criptografia simétrica é utilizada para encriptar dados, como ele é escrito para o armazenamento. 
+- A mesma chave de encriptação é utilizada para desencriptar esses dados, como ele é readied para utilização na memória.
+- Os dados podem ser particionados e chaves diferentes podem ser utilizadas para cada partição.
+- As chaves devem ser armazenadas numa localização segura com políticas de controlo de acesso, limitar o acesso a determinadas identidades e utilização de chave de registo. Chaves de encriptação de dados, muitas vezes, são encriptadas com a criptografia assimétrica para limitar ainda mais o acesso.
 
-Na prática, cenários de gestão e o controlo de chaves, bem como oferece garantias ao rendimento dimensionamento e disponibilidade, requerem construções adicionais. Microsoft Azure a encriptação Rest conceitos e componentes são descritas abaixo.
+Na prática, principais cenários de gerenciamento e controle, bem como as garantias de disponibilidade e dimensionamento, necessitam de construções adicionais. Encriptação do Azure da Microsoft em Rest conceitos e componentes estão descritos abaixo.
 
-## <a name="the-purpose-of-encryption-at-rest"></a>O objetivo de encriptação de Inativos
+## <a name="the-purpose-of-encryption-at-rest"></a>A finalidade de encriptação em repouso
 
-Encriptação de Inativos fornece proteção de dados para dados armazenados (Inativos). Os ataques contra dados em rest incluem tenta obter acesso físico para o hardware no qual os dados são armazenados e, em seguida, comprometer os dados contidos. Num ataque de unidade de disco rígido de um servidor pode ter sido mishandled durante a manutenção, permitindo que um atacante remover o disco rígido. Mais tarde o atacante seria colocar o disco rígido no computador sob o seu controlo a tentar aceder os dados. 
+Encriptação em repouso fornece proteção de dados para dados armazenados (Inativos). Ataques contra dados em repouso incluem tentativas de obter acesso físico ao hardware no qual os dados são armazenados e, em seguida, comprometer os dados contidos. Num ataque, unidade de disco rígido de um servidor pode ter sido mishandled durante a manutenção, permitindo que um atacante remover o disco rígido. Mais tarde o invasor poderia colocar o disco rígido num computador sob seu controle a tentar aceder os dados. 
 
-Encriptação de Inativos foi concebida para impedir que o atacante acedam a não encriptada dados, assegurando que os dados são encriptados quando no disco. Se um atacante obter um disco rígido com tais encriptados sem acesso às chaves de encriptação e dados, o atacante não iria comprometer os dados sem dificuldade em excelente. Neste cenário, um atacante teria tentar ataques contra dados encriptados, o que são muito mais complexos e consumir recursos que aceder não encriptada dados num disco rígido. Por este motivo, a encriptação de Inativos é vivamente recomendável e é um requisito de alta prioridade para muitas organizações. 
+Encriptação em repouso foi concebida para impedir que o invasor acedam a não encriptada dados ao garantir que os dados são encriptados quando no disco. Se um invasor fosse obter uma unidade de disco rígido com, encriptada dados e sem acesso às chaves de encriptação, o invasor não poderia comprometer os dados sem uma grande dificuldade. Neste cenário, um invasor precisaria tentar ataques contra os dados encriptados, que são muito mais complexos e consumo de recursos que acessar sem a criptografia de dados num disco rígido. Por esse motivo, a encriptação em repouso é altamente recomendável e é um requisito de alta prioridade para muitas organizações. 
 
-Encriptação de Inativos também poderá ser necessário por necessidade de uma organização de esforços de governação e conformidade de dados. As normas da indústria e governamentais, como HIPAA, PCI e FedRAMP, esquematizar salvaguardas específicas sobre requisitos de encriptação e proteção de dados. Encriptação de Inativos é uma medida obrigatória necessária para a compatibilidade com algumas dessas normas.
+Também pode ser necessária a encriptação em repouso pela necessidade de uma organização de iniciativas de governação e conformidade de dados. Os regulamentos da indústria e governamentais, como HIPAA, PCI e FedRAMP, criar o layout garantias específicas sobre os requisitos de proteção e encriptação de dados. Encriptação inativa é uma medida obrigatória necessária para a compatibilidade com alguns desses regulamentos.
 
-Para além dos requisitos de regulamentação e conformidade, encriptação de Inativos deve ser interpretada como uma capacidade de plataforma de defesa em profundidade. Apesar da Microsoft fornece uma plataforma em conformidade para os serviços, aplicações, e dados, das instalações abrangente e segurança física, dados de controlo de acesso e auditoria, é importante fornecer adicionais "sobrepostos" medidas de segurança no caso de uma das outras segurança mede a falhar. Encriptação de Inativos fornece essa um mecanismo de defesa adicional.
+Além dos requisitos regulamentares e de conformidade, a encriptação em repouso deve ser percebida como um recurso de plataforma de defesa em profundidade. Embora a Microsoft oferece uma plataforma em conformidade para os serviços, aplicativos, e dados, a instalação abrangente e a segurança física, dados de controlo de acesso e auditoria, é importante fornecer as medidas de segurança de "sobreposição" adicionais no caso de uma das outras Falha de medidas de segurança. Encriptação em repouso fornece tal um mecanismo de defesa adicional.
 
-A Microsoft está empenhada em fornecer opções de rest a encriptação em serviços de nuvem e para fornecer aos clientes adequada capacidade de gestão de chaves de encriptação e acesso a registos a mostrar quando são utilizadas chaves de encriptação. Além disso, a Microsoft está a trabalhar para o objetivo de efetuar todos os dados de cliente encriptados em descanso ao, por predefinição.
+A Microsoft está empenhada em fornecer encriptação nas opções de rest em serviços cloud e para fornecer aos clientes a capacidade de gestão adequada das chaves de encriptação e aceder aos registos que mostra quando as chaves de encriptação são utilizadas. Além disso, a Microsoft está trabalhando para o objetivo de tornar todos os dados dos clientes Inativos encriptados por predefinição.
 
-## <a name="azure-encryption-at-rest-components"></a>Componentes de Rest a encriptação do Azure
+## <a name="azure-encryption-at-rest-components"></a>Encriptação do Azure nos componentes de Rest
 
-Tal como descrito anteriormente, o objetivo de encriptação de Inativos é que os dados que são mantidos no disco são encriptados com uma chave de encriptação do segredo. Para alcançar a criação de chaves segura esse objetivo, armazenamento, o controlo de acesso e gestão de chaves de encriptação tem de ser fornecidos. Embora detalhes podem variar, serviços do Azure encriptação em implementações de Rest podem ser descritos em termos de ilustrado no diagrama seguinte.
+Conforme descrito anteriormente, o objetivo de encriptação em repouso é que os dados que são persistidos no disco são encriptados com uma chave secreta de criptografia. Para alcançar a criação de chaves segura esse objetivo, armazenamento, o controlo de acesso e gestão das chaves de encriptação devem ser fornecidos. Embora os detalhes podem variar, serviços do Azure a encriptação em implementações da Rest podem ser descritos em termos ilustrados no diagrama seguinte.
 
 ![Componentes](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-A localização de armazenamento de chaves de encriptação e controlo de acesso a essas chaves é fundamental para uma encriptação no modelo de rest. As chaves têm de ser altamente seguros, mas gerível pelos utilizadores especificados e disponível para serviços específicos. Para serviços do Azure, o Cofre de chaves do Azure é a solução de armazenamento de chave recomendado e fornece uma experiência de gestão comuns em serviços. As chaves são armazenadas e geridas no cofres de chaves, e pode ser especificado o acesso a um cofre de chaves para utilizadores ou serviços. O Cofre de chaves do Azure suporta a criação de cliente de chaves ou a importação das chaves de cliente para utilização em situações de chave de encriptação gerida pelo cliente.
+A localização de armazenamento de chaves de encriptação e controlo de acesso a essas chaves é central para uma encriptação no modelo rest. As chaves tem de ser altamente protegidos, mas gerenciável por utilizadores especificados e disponíveis para serviços específicos. Para os serviços do Azure, Azure Key Vault é a solução de armazenamento de chaves recomendada e fornece uma experiência de gerenciamento comuns em todos os serviços. As chaves são armazenadas e gerenciadas em cofres de chaves, e acesso a um cofre de chaves pode ser fornecido para utilizadores ou serviços. O Azure Key Vault suporta a criação de cliente de chaves ou importação de chaves de cliente para utilização em cenários de chave de encriptação gerida pelo cliente.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Permissões para utilizar as chaves armazenadas no Cofre de chaves do Azure para gerir ou para aceder aos mesmos para a encriptação de encriptação de inativos e desencriptação, podem ser especificadas para as contas do Azure Active Directory. 
+Permissões para utilizar as chaves armazenadas no Azure Key Vault, para gerir ou acessá-los para a encriptação na encriptação de inativos e a descriptografia, podem ser atribuídas às contas do Azure Active Directory. 
 
-### <a name="key-hierarchy"></a>Hierarquia de chave
+### <a name="key-hierarchy"></a>Hierarquia de chaves
 
-Mais do que uma chave de encriptação é utilizada numa encriptação na implementação de rest. Encriptação assimétrica é útil para estabelecer a fidedignidade e o necessário para a gestão e acesso a chaves de autenticação. Encriptação simétrica é mais eficiente para encriptação em massa e de desencriptação, permitindo uma encriptação mais forte e melhor desempenho. Limitar a utilização de uma chave de encriptação único diminui o risco de que a chave serão comprometida e o custo de reencriptação quando uma chave têm de ser substituída. Azure encriptações em modelos de rest utilizam uma hierarquia de chave efetuada cópias de segurança dos seguintes tipos de chaves:
+Mais do que uma chave de encriptação é usada numa encriptação na implementação de rest. Criptografia assimétrica é útil para estabelecer a confiança e de autenticação necessário para a gestão e acesso de chave. A criptografia simétrica é mais eficiente para encriptação em massa e de desencriptação, permitindo a encriptação mais forte e um melhor desempenho. Limitar a utilização de uma chave de encriptação único diminui o risco de que a chave será comprometida e o custo da nova criptografia quando uma chave têm de ser substituída. Azure encriptações em modelos de rest utilizam uma hierarquia de chaves constituída pelos seguintes tipos de chaves:
 
-- **Chave de encriptação de dados (DEK)** – uma chave simétrica de AES256 utilizada para encriptar uma partição ou o bloco de dados.  Um único recurso pode ter partições muitas e muitas chaves de encriptação de dados. Encriptação de cada bloco de dados com uma chave diferente torna ataques de análise de criptografia mais difícil. Acesso a DEKs é necessário para a instância de aplicação ou fornecedor de recursos que está a encriptar e desencriptar um bloco específico. Quando um DEK é substituída por uma nova chave apenas os dados no respetivo bloco associado tem de ser encriptados novamente com a nova chave.
-- **Chave de encriptação de chaves (KEK)** – uma chave de encriptação assimétrico utilizada para encriptar as chaves de encriptação de dados. Utilização de uma chave de encriptação de chave permite que as chaves de encriptação de dados próprios sejam encriptados e controlado. A entidade que tem acesso para a KEK pode ser diferente de entidade que requer o DEK. Uma entidade pode Mediador de acesso para o DEK para limitar o acesso de cada DEK para uma partição específica. Uma vez que a KEK é necessário para desencriptar os DEKs, a KEK é efetivamente um ponto único através do qual DEKs podem ser efetivamente eliminados por eliminação da KEK.
+- **Chave de encriptação de dados (DEK)** – uma chave simétrica de AES256 utilizada para encriptar uma partição ou o bloco de dados.  Um único recurso pode ter partições muitos e muitos chaves de encriptação de dados. Criptografar cada bloco de dados com uma chave diferente torna a ataques de análise de criptografia mais difícil. Acesso a DEKs é necessária para a instância de fornecedor ou a aplicação de recurso que está a encriptar e desencriptar um bloco específico. Quando um DEK é substituída por uma nova chave apenas os dados no seu bloco associado tem de ser encriptados novamente com a nova chave.
+- **Chave de encriptação de chaves (KEK)** – uma chave de criptografia assimétrica utilizada para encriptar as chaves de encriptação de dados. Utilização de uma chave de encriptação de chave permite que as chaves de encriptação de dados propriamente ditos sejam encriptados e controlado. A entidade que tem acesso para a KEK pode ser diferente do que a entidade que requer o DEK. Uma entidade pode mediador acesso a DEK para limitar o acesso de cada DEK para uma partição específica. Uma vez que a KEK é necessário para desencriptar os DEKs, a KEK é, efetivamente, um ponto único pelo qual DEKs podem ser efetivamente eliminados pela eliminação da KEK.
 
-As chaves de encriptação de dados encriptados com as chaves de encriptação de chave são armazenadas em separado e apenas uma entidade com acesso à chave de encriptação de chave pode obter as chaves de encriptação de dados encriptados com essa chave. São suportados modelos diferentes, de armazenamento de chaves. Vamos abordar cada modelo em mais detalhe posteriormente na secção seguinte.
+As chaves de encriptação de dados criptografados com chaves de encriptação de chave são armazenadas em separado e apenas uma entidade com acesso à chave de encriptação de chave pode obter as chaves de encriptação dados criptografados com essa chave. Diferentes modelos de armazenamento de chaves são suportados. Vamos discutir cada modelo mais detalhadamente mais tarde na secção seguinte.
 
 ## <a name="data-encryption-models"></a>Modelos de encriptação de dados
 
-Compreender os vários modelos de encriptação e os respetivos os profissionais de TI e contras é essencial para compreender a forma como os vários fornecedores de recursos no Azure implementam a encriptação de inativos. Estas definições são partilhadas entre todos os fornecedores de recursos no Azure para garantir que o idioma e taxonomia comuns. 
+Uma compreensão dos vários modelos de encriptação e seus prós e contras é essencial para entender como os vários fornecedores de recursos no Azure implementam a encriptação em repouso. Estas definições são partilhadas entre todos os fornecedores de recursos no Azure para garantir que o idioma e taxonomia comuns. 
 
-Existem três cenários de encriptação do lado do servidor:
+Existem três cenários para a encriptação do lado do servidor:
 
-- Encriptação do lado do servidor utilizando as chaves de serviço geridas
-    - Fornecedores de recursos do Azure efetuarem as operações de encriptação e desencriptação
-    - Microsoft gere as chaves
-    - Funcionalidade completa de nuvem
+- Encriptação do lado do servidor a utilizar chaves geridas por serviços
+    - Fornecedores de recursos do Azure realizar as operações de encriptação e desencriptação
+    - Microsoft gerencia as chaves
+    - Funcionalidade de cloud completa
 
-- Encriptação do lado do servidor utilizando as chaves gerida pelo cliente no Cofre de chaves do Azure
-    - Fornecedores de recursos do Azure efetuarem as operações de encriptação e desencriptação
-    - Cliente controla chaves através do Cofre de chaves do Azure
-    - Funcionalidade completa de nuvem
+- Encriptação do lado do servidor a utilizar chaves geridas pelo cliente no Azure Key Vault
+    - Fornecedores de recursos do Azure realizar as operações de encriptação e desencriptação
+    - Cliente controla as chaves através do Azure Key Vault
+    - Funcionalidade de cloud completa
 
-- Utilizar chaves gerida pelo cliente no hardware controlados pelo cliente de encriptação do lado do servidor
-    - Fornecedores de recursos do Azure efetuarem as operações de encriptação e desencriptação
-    - Cliente controla as chaves de hardware controlados pelo cliente
-    - Funcionalidade completa de nuvem
+- Encriptação do lado do servidor a utilizar chaves geridas pelo cliente em hardware controlado pelo cliente
+    - Fornecedores de recursos do Azure realizar as operações de encriptação e desencriptação
+    - Cliente controla as chaves no hardware controlado pelo cliente
+    - Funcionalidade de cloud completa
 
 Para a encriptação do lado do cliente, considere o seguinte:
 
-- Serviços do Azure não podem ver dados desencriptados
-- Os clientes gerir e armazenam as chaves no local (ou noutras secure arquivos). As chaves não estão disponíveis aos serviços do Azure
-- Funcionalidade reduzida de nuvem
+- Serviços do Azure não podem ver os dados descriptografados
+- Os clientes gerir e armazenam as chaves no local (ou em outras proteger arquivos). As chaves não estão disponíveis para os serviços do Azure
+- Funcionalidades da cloud reduzida
 
-Os modelos de encriptação suportados no Azure dividida em dois grupos principais: "Encriptação de cliente" e "encriptação do lado do servidor" mencionado anteriormente. Tenha em atenção que, independente da encriptação no modelo de rest dos serviços do Azure, utilizados sempre Recomendamos a utilização de um transporte seguro, tais como TLS ou HTTPS. Por conseguinte, a encriptação no transporte deve ser resolvida pelo protocolo de transporte e não deve ser um fator principais determinar qual o modelo de rest para utilizar a encriptação.
+Os modelos de encriptação suportados no Azure dividido em dois grupos principais: "Criptografia de cliente" e "encriptação do lado do servidor" mencionado anteriormente. Tenha em atenção que, independentemente da encriptação no modelo rest serviços do Azure utilizados sempre Recomendamos a utilização de um transporte seguro, como TLS ou HTTPS. Por conseguinte, a encriptação no transporte deve ser resolvida pelo protocolo de transporte e não deve ser um fator principal na determinação de qual encriptação no modelo de rest para utilizar.
 
 ### <a name="client-encryption-model"></a>Modelo de encriptação do cliente
 
-Modelo de encriptação do cliente refere-se a encriptação que é executada fora do fornecedor de recursos ou do Azure, o serviço ou aplicação de chamada. Pode ser efetuada a encriptação, a aplicação de serviço no Azure ou uma aplicação em execução no Centro de dados de cliente. Em ambos os casos, ao tirar partido deste modelo de encriptação, o fornecedor de recursos do Azure, receber um blob encriptado dos dados sem a capacidade para desencriptar os dados de qualquer forma ou ter acesso às chaves de encriptação. Neste modelo, a gestão de chaves é feita à chamar/aplicação de serviço e é opaco para o serviço do Azure.
+Modelo de encriptação do cliente refere-se a encriptação que é executada fora do fornecedor de recursos ou do Azure, o serviço ou aplicação de chamada. A criptografia pode ser executada, a aplicação de serviço no Azure ou uma aplicação em execução no Centro de dados de cliente. Em ambos os casos, ao tirar partido deste modelo de encriptação, o fornecedor de recursos do Azure, recebe um blob encriptado dos dados sem a capacidade para desencriptar os dados de qualquer forma ou de ter acesso às chaves de encriptação. Nesse modelo, a gestão de chaves é feita pela aplicação/serviço de chamada e opacos para o serviço do Azure.
 
 ![Cliente](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
 ### <a name="server-side-encryption-model"></a>Modelo de encriptação do lado do servidor
 
-Modelos de encriptação do lado do servidor referir-se a encriptação é efetuada pelo serviço do Azure. No modelo de que o fornecedor de recursos executa as operações de encriptar e desencriptar. Por exemplo, o Storage do Azure pode receber dados em operações de texto simples e irá efetuar a encriptação e desencriptação internamente. O fornecedor de recursos poderá utilizar chaves de encriptação que são geridas pela Microsoft ou pelo cliente, consoante a configuração fornecida. 
+Modelos de encriptação do lado do servidor referem-se a encriptação é efetuada pelo serviço do Azure. Esse modelo, o fornecedor de recursos efetua as operações de encriptar e desencriptar. Por exemplo, o armazenamento do Azure podem receber dados em operações de texto sem formatação e irá efetuar a encriptação e desencriptação internamente. O fornecedor de recursos poderá utilizar as chaves de encriptação que são geridas pela Microsoft ou pelo cliente consoante a configuração fornecida. 
 
 ![Servidor](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>Modelos de gestão de chaves de encriptação do lado do servidor
 
-Cada um dos modelos de rest a encriptação da lado do servidor implica distinctive características da gestão de chaves. Isto inclui onde e como as chaves de encriptação são criadas e armazenadas, bem como os modelos de acesso e os procedimentos de rotação da chave. 
+Cada um a encriptação do lado do servidor em modelos de rest implica características distintas da gestão de chaves. Isto inclui onde e como as chaves de encriptação são criadas e armazenadas, bem como os modelos de acesso e os procedimentos de rotação de chaves. 
 
-#### <a name="server-side-encryption-using-service-managed-keys"></a>Com o serviço gerido chaves de encriptação do lado do servidor
+#### <a name="server-side-encryption-using-service-managed-keys"></a>Utilizar chaves geridas pelo serviço de encriptação do lado do servidor
 
-Para muitos clientes, o requisito de essencial é Certifique-se de que os dados são encriptados sempre que estejam inativos. Utilizando o serviço gerido chaves de encriptação do lado do servidor permite que este modelo, permitindo que os clientes marcar o recurso específico (conta de armazenamento, base de dados SQL, etc.) para a encriptação e deixando todos os aspetos de gestão de chaves, tais como a emissão de chave, rotação e cópia de segurança para a Microsoft. Suporta a maioria dos serviços do Azure que suportam encriptação de inativos, normalmente, este modelo de descarga a gestão de chaves de encriptação para o Azure. O fornecedor de recursos do Azure cria as chaves, coloca-os no armazenamento seguro e obtém-las quando necessário. Isto significa que o serviço tem acesso total para as chaves e o serviço tem controlo total sobre a gestão de ciclo de vida de credencial.
+Para muitos clientes, o requisito essencial é garantir que os dados são encriptados sempre que estejam inativos. Utilizar chaves geridas do serviço de encriptação do lado do servidor permite que esse modelo, permitindo que os clientes marcar o recurso específico (conta de armazenamento, BD SQL, etc.) para a encriptação e deixando todos os aspetos de gestão de chaves, como emissão de chave, rotação e cópia de segurança para a Microsoft. A maioria dos serviços do Azure que suportam encriptação em repouso normalmente suporta este modelo de descarga o gerenciamento de chaves de encriptação para o Azure. O fornecedor de recursos do Azure cria as chaves, coloca-os no armazenamento seguro e obtém-los quando necessário. Isso significa que o serviço tem acesso total para as chaves e o serviço tem controle total sobre o gerenciamento de ciclo de vida de credencial.
 
 ![Gerido](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-Encriptação do lado do servidor a utilizar chaves de serviço gerida, por conseguinte, rapidamente aborda a necessidade de ter a encriptação Inativos com baixo overhead ao cliente. Se estiver disponível um cliente, normalmente, abre-se o portal do Azure para a subscrição de destino e o fornecedor de recursos e verifica uma caixa que indica, gostaria os dados sejam encriptados. Em alguns gestores de recursos a encriptação do lado do servidor com o serviço gerido chaves está ativada por predefinição.
+Encriptação do lado do servidor a utilizar chaves geridas pelo serviço, por conseguinte, rapidamente aborda a necessidade de ter a encriptação em repouso com baixa sobrecarga para o cliente. Se estiver disponível um cliente normalmente é aberto o portal do Azure para a subscrição de destino e o fornecedor de recursos e verifica uma caixa que indica, gostaria de ter os dados sejam encriptados. Em alguns gerenciadores de recursos a encriptação do lado do servidor com chaves geridas pelo serviço está ativada por predefinição.
 
-Encriptação do lado do servidor com chaves gerida pela Microsoft implica o serviço tem acesso total para armazenar e gere as chaves. Embora alguns clientes poderão querer gerir as chaves porque estes sentir ganham maior segurança, o custo e os riscos associados uma solução de armazenamento de chaves devem ser considerados ao avaliar este modelo. Em muitos casos, organização pode determinar que riscos de uma solução no local ou restrições de recurso podem maior do que o risco de gestão de nuvem de encriptação de chaves de rest.  No entanto, este modelo poderá não ser suficiente para as organizações que têm requisitos para controlar a criação ou o ciclo de vida das chaves de encriptação ou ter diferentes técnico gerir chaves de encriptação de um serviço que são gerir o serviço (ou seja, segregação de gestão de chaves do modelo global de gestão para o serviço).
+Encriptação do lado do servidor com chaves geridas pelo Microsoft implica o serviço tem acesso total ao armazenar e gere as chaves. Embora alguns clientes talvez queira gerenciar as chaves porque acham que obtêm maior segurança, o custo e o risco associados a uma solução de armazenamento de chaves devem ser considerados ao avaliar esse modelo. Em muitos casos, organização pode determinar que restrições de recursos ou os riscos de uma solução no local podem maior do que o risco de gestão na cloud de criptografia em chaves de rest.  No entanto, esse modelo pode não ser suficiente para as organizações que têm requisitos para controlar a criação ou o ciclo de vida das chaves de criptografia ou ter pessoal diferente de gerir chaves de encriptação de um serviço que aquelas gestão do serviço (ou seja, a segregação de gestão de chaves do modelo de gestão geral para o serviço).
 
 ##### <a name="key-access"></a>Acesso a chaves
 
-Quando é utilizada a encriptação do lado do servidor com o serviço gerido chaves, a criação de chave, armazenamento e acesso de serviço são todos os geridos pelo serviço. Normalmente, os fornecedores de recursos do Azure fundamentais sobre irão armazenar as chaves de encriptação de dados num arquivo que está próximo os dados e rapidamente disponível e acessível às chaves de encriptação de chave são armazenados num arquivo seguro interno.
+Quando é utilizada a encriptação do lado do servidor com chaves geridas pelo serviço, a criação da chave, armazenamento e acesso de serviço são todos os geridos pelo serviço. Normalmente, os fornecedores de recursos do Azure básico irão armazenar as chaves de encriptação de dados num arquivo que está próximo dos dados e rapidamente disponível e acessível ao mesmo tempo as chaves de encriptação de chave são armazenados num arquivo interno seguro.
 
 **Vantagens**
 
 - Configuração simples
-- Microsoft gere a rotação da chave, a cópia de segurança e a redundância
-- Cliente não tem o custo associado à implementação ou o risco de um esquema de gestão de chaves personalizadas.
+- Microsoft gerir a rotação de chaves, a cópia de segurança e a redundância
+- Cliente não tem o custo associado a implementação ou o risco de um esquema de gestão de chaves personalizadas.
 
 **Desvantagens**
 
-- Não controla cliente as chaves de encriptação (especificação da chave, do ciclo de vida, revogação, etc.)
-- Sem capacidade para segregar do modelo global de gestão para o serviço de gestão de chaves
+- Nenhum controle de cliente sobre as chaves de encriptação (especificação da chave, ciclo de vida, revogação, etc.)
+- Nenhuma capacidade para separar a partir do modelo de gestão geral para o serviço de gestão de chaves
 
-#### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do lado do servidor utilizando o cliente chaves geridas no Cofre de chaves do Azure 
+#### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do lado do servidor cliente a utilizar chaves geridas no Azure Key Vault 
 
-Para cenários em que o requisito é encriptar os dados em rest e controlo dos clientes de chaves de encriptação podem utilizar com o cliente gerido chaves no Cofre de chaves de encriptação do lado do servidor. Alguns serviços poderão armazenar apenas a chave de encriptação de chave de raiz no Cofre de chaves do Azure e armazenar a chave de encriptação de dados encriptado numa localização interna próximo aos dados. Em que os clientes de cenário podem colocar as suas próprias chaves para o Cofre de chave (BYOK – traga a sua própria chave), ou gerar novos e utilizá-los para encriptar os recursos pretendidos. Enquanto o fornecedor de recursos executa as operações de encriptação e desencriptação utiliza a chave configurada como a chave de raiz para todas as operações de encriptação. 
+Para cenários em que o requisito encriptar os dados em rest e controle os clientes de chaves de encriptação podem utilizar com chaves geridas do cliente no Cofre de chaves de encriptação do lado do servidor. Alguns serviços podem armazenar apenas a chave de encriptação de chave de raiz no Azure Key Vault e armazene a chave de encriptação de dados encriptado numa localização interna mais próximo aos dados. Em que os clientes de cenário podem trazer suas próprias chaves para o Cofre de chave (BYOK – traga a sua própria chave), ou gerar novos e usá-los para encriptar os recursos desejados. Enquanto o fornecedor de recursos efetua as operações de criptografia e descriptografia utiliza a chave configurada como a chave de raiz para todas as operações de encriptação. 
 
 ##### <a name="key-access"></a>Acesso a chaves
 
-O modelo de encriptação do lado do servidor com o cliente gerido chaves no Cofre de chaves do Azure envolve o serviço de aceder às chaves de para encriptar e desencriptar conforme necessário. A encriptação chaves rest que são efetuados acessível a um serviço através de uma política de controlo de acesso. Esta política concede ao acesso de identidade de serviço para receberem a chave. Um serviço do Azure em execução em nome de uma subscrição associada pode ser configurado com uma identidade nessa subscrição. O serviço pode efetuar a autenticação do Azure Active Directory e receber um token de autenticação identificar-se automaticamente como esse serviço agir em nome da subscrição. Esse token, em seguida, pode ser apresentada ao Cofre de chaves para obter uma chave que foi indicado acesso a.
+O modelo de encriptação do lado do servidor com chaves gerida pelo cliente no Azure Key Vault envolve o serviço de aceder às chaves de para encriptar e desencriptar conforme necessário. Encriptação em chaves de rest são feitas acessível a um serviço através de uma política de controlo de acesso. Esta política concede o acesso de identidade de serviço para receber a chave. Um serviço do Azure em execução em nome de uma subscrição associada pode ser configurado com uma identidade nessa subscrição. O serviço pode efetuar a autenticação do Azure Active Directory e receber um token de autenticação identificar em si como esse serviço agir em nome da subscrição. Esse token pode ser apresentado para o Key Vault para obter uma chave tem sido dado acesso.
 
-Para operações utilizando chaves de encriptação, uma identidade de serviço pode ser concedida acesso a qualquer uma das seguintes operações: desencriptar, encriptar, unwrapKey, wrapKey, certifique-se, iniciar sessão, obter, listar, atualizar, criar, importar, eliminar, cópia de segurança e restaurar.
+Para operações com chaves de encriptação, uma identidade de serviço pode ser concedida acesso a qualquer uma das seguintes operações: desencriptar, encriptar, unwrapKey, wrapKey, verificar, iniciar sessão, obter, listar, atualizar, criar, importar, eliminar, de cópia de segurança e restaurar.
 
-Para obter uma chave para utilização num encriptar ou desencriptar dados Inativos a identidade de serviço que a instância de serviço do Gestor de recursos será executada como tem de ter UnwrapKey (para obter a chave de desencriptação) e WrapKey (para inserir uma chave de Cofre de chaves ao criar uma nova chave).
+Para obter uma chave para utilização em encriptar ou desencriptar dados em repouso a identidade de serviço que a instância de serviço do Gestor de recursos será executado como tem de ter UnwrapKey (para obter a chave de desencriptação) e WrapKey (para inserir uma chave no Cofre de chaves ao criar uma nova chave).
 
 
 >[!NOTE] 
->Para mais detalhes sobre o Cofre de chaves autorização Consulte a segura página do seu Cofre de chaves no [documentação do Cofre de chaves do Azure](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault). 
+>Para obter mais detalhes sobre o Key Vault autorização ver a segura página do Cofre de chaves no [documentação do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault). 
 
 **Vantagens**
 
-- Controlo total sobre as chaves utilizadas – encriptação de chaves são geridas no Cofre de chaves do cliente sob o controlo do cliente.
-- Encriptar múltiplos serviços para um nó principal
-- Pode segregar do modelo global de gestão para o serviço de gestão de chaves
-- Pode definir o serviço e a localização da chave em regiões
+- Controlo total sobre as chaves utilizadas – encriptação de chaves são geridas no Cofre de chaves do cliente sob o controle do cliente.
+- Capacidade de criptografar vários serviços para uma principal
+- Pode segregar a partir do modelo de gestão geral para o serviço de gestão de chaves
+- Pode definir o serviço e a localização da chave em várias regiões
 
 **Desvantagens**
 
-- O cliente tem responsabilidade completa de gestão de chaves de acesso
-- O cliente tem responsabilidade completa de gestão do ciclo de vida das chave
-- Overhead de configuração do & configuration adicional
+- O cliente tem total responsabilidade para a gestão de acesso a chaves
+- O cliente tem total responsabilidade para a gestão de ciclo de vida de chave
+- Sobrecarga adicional de instalação e configuração
 
-#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>Utilizar chaves de serviço gerido no hardware controlados pelo cliente de encriptação do lado do servidor
+#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>Encriptação do lado do servidor com chaves geridas pelo serviço no hardware controlado pelo cliente
 
-Alguns serviços do Azure permitem o modelo de gestão de chaves de anfitrião sua própria chave (HYOK). Este modo de gestão é útil em cenários onde existe uma necessidade para encriptar dados inativos e gerir as chaves num repositório proprietária fora do controlo da Microsoft. Neste modelo, o serviço tem de obter a chave de um site externo. As garantias de disponibilidade e desempenho são afetadas e configuração for mais complexa. Além disso, uma vez que o serviço tem acesso para o DEK durante as operações de encriptação e desencriptação de garantias de segurança geral deste modelo são semelhantes aos quando as chaves são cliente gerido no Cofre de chaves do Azure.  Como resultado, este modelo não é adequado para a maioria das organizações, a menos que têm requisitos de gestão de chaves específico. Devido a estas limitações, a maioria dos serviços do Azure não suportam a encriptação do lado do servidor utilizando as chaves de servidor gerido no hardware controlados pelo cliente.
+Alguns serviços do Azure permitem o modelo de gestão de chaves de anfitrião Your Own Key (HYOK). Esse modo de gestão é útil em cenários onde há a necessidade de encriptar dados inativos e gerir as chaves num repositório proprietária fora do controlo da Microsoft. Nesse modelo, o serviço tem de obter a chave de um site externo. Garantias de desempenho e disponibilidade são afetadas e configuração é mais complexa. Além disso, uma vez que o serviço tem acesso para o DEK durante as operações de criptografia e descriptografia as garantias de segurança geral desse modelo são semelhantes às quando as chaves são cliente gerido no Azure Key Vault.  Como resultado, esse modelo não é adequado para a maioria das organizações, exceto se tiverem requisitos de gestão de chaves específico. Devido a essas limitações, a maioria dos serviços do Azure não suportam a encriptação do lado do servidor com chaves geridas pelo servidor no hardware controlado pelo cliente.
 
 ##### <a name="key-access"></a>Acesso a chaves
 
-Quando é utilizada a encriptação do lado do servidor utilizando o serviço gerido chaves no hardware de cliente controlado as chaves são mantidas num sistema configurado pelo cliente. Serviços do Azure que suportem este modelo fornecem um meio de estabelecer uma ligação segura para um cliente fornecido armazenamento de chaves.
+Quando é utilizada a encriptação do lado do servidor com chaves geridas pelo serviço no hardware de cliente controlado as chaves são mantidas num sistema configurado pelo cliente. Serviços do Azure que suportam este modelo fornecem um meio de estabelecer uma ligação segura para um cliente fornecido pelo arquivo de chaves.
 
 **Vantagens**
 
 - Controlo total sobre a chave de raiz utilizado – encriptação de chaves são geridas por um arquivo de cliente fornecido
-- Encriptar múltiplos serviços para um nó principal
-- Pode segregar do modelo global de gestão para o serviço de gestão de chaves
-- Pode definir o serviço e a localização da chave em regiões
+- Capacidade de criptografar vários serviços para uma principal
+- Pode segregar a partir do modelo de gestão geral para o serviço de gestão de chaves
+- Pode definir o serviço e a localização da chave em várias regiões
 
 **Desvantagens**
 
-- Responsabilidade completa para o armazenamento de chaves, segurança, desempenho e disponibilidade
-- Responsabilidade completa de gestão de chaves de acesso
-- Responsabilidade completa de gestão do ciclo de vida das chave
-- Programa de configuração significativo, configuração e os custos de manutenção em curso
-- Dependência de uma maior disponibilidade da rede entre o Centro de dados do cliente e os datacenters do Azure.
+- Total responsabilidade para o armazenamento de chaves, segurança, desempenho e disponibilidade
+- Total responsabilidade para a gestão de acesso a chaves
+- Total responsabilidade para a gestão de ciclo de vida de chave
+- Configuração significativa, configuração e os custos de manutenção em curso
+- Dependência aumentada na disponibilidade de rede entre o Centro de dados do cliente e os datacenters do Azure.
 
-## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Encriptação de Inativos na cloud services da Microsoft
+## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Encriptação em inatividade nos serviços cloud da Microsoft
 
-Serviços Cloud da Microsoft são utilizados em todos os modelos de nuvem três: IaaS, PaaS, SaaS. Abaixo, pode encontrar exemplos de como se ajustar a cada modelo:
+Serviços Cloud da Microsoft são utilizados em todos os modelos de três cloud: IaaS, PaaS, SaaS. Abaixo, pode encontrar exemplos de como eles se relacionam em cada modelo:
 
-- Serviços de software, referidos como Software como um servidor ou o SaaS, que têm aplicações fornecidas pela nuvem, como o Office 365.
-- Serviços da plataforma que clientes tirar partido da nuvem nas respetivas aplicações, com a nuvem para coisas como armazenamento, a análise e a funcionalidade de barramento de serviço.
-- Serviços de infraestrutura ou de infraestrutura como serviço (IaaS) na qual cliente implementa sistemas operativos e aplicações que estão alojadas na nuvem e, possivelmente, tirar partido de outros serviços em nuvem.
+- Serviços de software, chamado de Software como um servidor ou o SaaS, com a aplicação fornecida pela cloud como o Office 365.
+- Serviços de plataforma que clientes tirar partido da cloud nas respetivas aplicações, utilizando a cloud para armazenamento, análise e funcionalidade de barramento de serviço.
+- Serviços de infraestrutura ou de infraestrutura como serviço (IaaS) no qual cliente implementa sistemas operativos e aplicações alojadas na cloud e, possivelmente, tirar partido de outros serviços em nuvem.
 
-### <a name="encryption-at-rest-for-saas-customers"></a>Encriptação de Inativos para clientes de SaaS
+### <a name="encryption-at-rest-for-saas-customers"></a>Encriptação em repouso para clientes de SaaS
 
-Software como um clientes do serviço (SaaS) têm normalmente encriptação de inativos disponíveis em cada serviço ou ativada. Office 365 tem várias opções para os clientes verificar ou ativar a encriptação de inativos. Para obter informações sobre serviços do Office 365, consulte tecnologias de encriptação de dados para o Office 365.
+Software como um clientes de serviço (SaaS), normalmente, tem a encriptação em repouso disponível em cada serviço ou ativado. Office 365 tem várias opções para os clientes verificar ou ativar a encriptação em repouso. Para obter informações sobre serviços do Office 365, consulte as tecnologias de encriptação de dados para o Office 365.
 
-### <a name="encryption-at-rest-for-paas-customers"></a>Encriptação de Inativos para clientes de PaaS
+### <a name="encryption-at-rest-for-paas-customers"></a>Encriptação em repouso para clientes de PaaS
 
-Plataforma como dados de um cliente de serviço (PaaS) normalmente reside num ambiente de execução da aplicação e os fornecedores de recursos do Azure utilizados para armazenar dados de cliente. Para ver a encriptação de Inativos opções disponíveis, examine a tabela abaixo para as plataformas de armazenamento e a aplicação que utiliza. Se suportado, são fornecidas hiperligações para obter instruções sobre como ativar a encriptação de Inativos para cada fornecedor de recursos. 
+Plataforma como dados de um cliente de serviço (PaaS) normalmente reside num ambiente de execução de aplicativos e quaisquer fornecedores de recursos do Azure utilizada para armazenar dados do cliente. Para ver a encriptação em repouso, as opções disponíveis para examinar a tabela abaixo para as plataformas de armazenamento e a aplicação que utiliza. Onde for suportado, são fornecidas hiperligações para instruções sobre como ativar a encriptação em repouso para cada fornecedor de recursos. 
 
-### <a name="encryption-at-rest-for-iaas-customers"></a>Encriptação de Inativos para clientes do IaaS
+### <a name="encryption-at-rest-for-iaas-customers"></a>Encriptação em repouso para clientes de IaaS
 
-Infraestrutura como um clientes do serviço (IaaS) pode ter uma variedade de serviços e aplicações em utilização. Serviços de IaaS podem ativar a encriptação de Inativos no respetivo Azure alojada máquinas virtuais e VHDs utilizando a Azure Disk Encryption. 
+Infraestrutura como um clientes de serviço (IaaS) pode ter uma variedade de serviços e aplicações em utilização. Serviços de IaaS podem ativar a encriptação em repouso no seu Azure alojado máquinas virtuais e os VHDs com o Azure Disk Encryption. 
 
 #### <a name="encrypted-storage"></a>Armazenamento encriptado
 
-Como PaaS, soluções de IaaS podem tirar partido outros serviços do Azure que armazenam dados encriptados em pausa. Nestes casos, pode ativar a encriptação no suporte de Rest conforme fornecida pelos cada serviço do Azure foram consumido. A tabela abaixo enumera o armazenamento principais, serviços e plataformas de aplicação e o modelo de encriptação de Inativos suportado. Se suportado, são fornecidas hiperligações para obter instruções sobre como ativar a encriptação de inativos. 
+Como PaaS, soluções IaaS podem aproveitar a outros serviços do Azure que armazenam dados Inativos encriptados. Nestes casos, pode ativar a encriptação no suporte da Rest conforme fornecido por cada serviço do Azure consumido. A tabela abaixo enumera o armazenamento de principais, serviços e plataformas de aplicações e o modelo de encriptação em repouso suportado. Onde for suportado, são fornecidas hiperligações para instruções sobre como ativar a encriptação em repouso. 
 
-#### <a name="encrypted-compute"></a>Encriptados de computação
+#### <a name="encrypted-compute"></a>Computação encriptada
 
-A encriptação completa uma solução de Rest requer que os dados nunca são continuados no formato não encriptado. Enquanto em utilização, num servidor de carregar os dados na memória, os dados podem ser persistente localmente de várias formas, incluindo o ficheiro de paginação do Windows, as informações de falhas e qualquer aplicação pode efetuar o registo. Para garantir que estes dados são encriptados em descanso aplicações de IaaS podem utilizar o Azure Disk Encryption uma máquina virtual de IaaS do Azure (Windows ou Linux) e o disco virtual. 
+Uma encriptação completa na solução de Rest requer que os dados nunca são persistidos no formato descriptografado. Enquanto estiver em uso, num servidor de carregar os dados na memória, os dados podem ser mantidos localmente de várias formas, incluindo o ficheiro de paginação do Windows, um despejo de falha e o registo que a aplicação pode efetuar. Para garantir que estes dados são encriptados em descanso aplicativos IaaS podem utilizar o Azure Disk Encryption numa máquina de virtual IaaS do Azure (Windows ou Linux) e o disco virtual. 
 
-#### <a name="custom-encryption-at-rest"></a>Encriptação personalizado Inativos
+#### <a name="custom-encryption-at-rest"></a>Personalizado encriptação inativa
 
-Recomenda-se que sempre que possível, aplicações de IaaS tirar partido do Azure Disk Encryption e encriptação em Opções de Rest fornecidas por todos os serviços do Azure foram consumidos. Em alguns casos, tais como requisitos de encriptação de dados ou não do Azure com base em armazenamento, um programador de uma aplicação de IaaS poderá ter de implementar a encriptação rest próprios. Os programadores de IaaS soluções podem melhor integram expectativas de gestão e o cliente do Azure através do aproveitamento determinados componentes do Azure. Especificamente, os programadores devem utilizar o serviço Cofre de chaves do Azure para fornecer armazenamento de chaves seguro, bem como para fornecer os seus clientes com opções de gestão de chaves consistente com que mais Azure de serviços da plataforma. Além disso, soluções personalizadas devem utilizar identidades do serviço Azure-Managed para permitir contas de serviço aceder às chaves de encriptação. Para obter informações de Programador no Cofre de chaves do Azure e identidades de serviço geridas por ver os seus respetivos SDKs.
+Recomenda-se que, sempre que possível, aplicativos de IaaS aproveitam os Azure Disk Encryption e encriptação fornecida pelo serviços do Azure consumidos de opções de Rest. Em alguns casos, tais como requisitos de encriptação irregulares ou armazenamento baseado em do não pertencente ao Azure, um desenvolvedor de um aplicativo de IaaS, poderá ter de implementar a criptografia em rest propriamente ditos. Os desenvolvedores de IaaS soluções podem melhor integração com expectativas de gestão e o cliente do Azure ao tirar partido de determinados componentes do Azure. Especificamente, os desenvolvedores devem usar o serviço Azure Key Vault para fornecer armazenamento de chaves seguro, bem como para fornecer aos clientes opções de gestão de chaves consistente com dos serviços de plataforma mais do Azure. Além disso, as soluções personalizadas devem utilizar Azure-Managed identidades de serviço para permitir que contas de serviço para aceder a chaves de encriptação. Para obter informações do desenvolvedor no Azure Key Vault e identidades de serviço geridas por ver os respetivos SDKs.
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Suporte de modelo de encriptação de fornecedores de recursos do Azure
 
-Serviços do Microsoft Azure cada suporta um ou mais da encriptação em modelos de rest. Para alguns serviços, no entanto, um ou mais dos modelos de encriptação podem não ser aplicáveis. Para os serviços que suportam cenários-chave gerida pelo cliente, poderá suportam apenas um subconjunto dos tipos de chaves que suporte o Cofre de chaves do Azure para as chaves de encriptação de chaves. Além disso, os serviços podem de versão suporte para estes tipos de chave diferentes agendamentos e cenários. Esta secção descreve a encriptação no suporte de rest no momento desta redação para cada um dos serviços de armazenamento de dados do Azure principais.
+Serviços do Microsoft Azure cada suporta um ou mais da encriptação em modelos de rest. Para alguns serviços, no entanto, um ou mais dos modelos de encriptação podem não ser aplicáveis. Para os serviços que suportam cenários-chave gerida pelo cliente, eles podem suportar apenas um subconjunto de tipos de chaves do Azure Key Vault suporta chaves de encriptação de chave. Além disso, os serviços podem versão suporte para estes cenários e tipos de chaves em diferentes agendamentos. Esta secção descreve a encriptação no suporte de rest no momento da redação deste artigo para cada um dos serviços de armazenamento de dados do Azure principais.
 
 ### <a name="azure-disk-encryption"></a>Encriptação de disco do Azure
 
-Qualquer cliente utilizando a infraestrutura do Azure como um serviço (IaaS) funcionalidades podem alcançar a encriptação de Inativos as respetivas VMs de IaaS e discos através do Azure Disk Encryption. Para obter mais informações sobre o disco do Azure encriptação Consulte o [documentação do Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
+Todos os clientes utilizando a infraestrutura do Azure como um serviço (IaaS) funcionalidades podem alcançar encriptação em repouso para as suas VMs de IaaS e os discos através de encriptação de disco do Azure. Para obter mais informações sobre o Azure Disk encryption consulte a [documentação do Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
 #### <a name="azure-storage"></a>Storage do Azure
 
-Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas e ficheiros do Azure) suportam a encriptação do lado do servidor inativos, com alguns dos serviços de suporte gerida pelo cliente chaves e a encriptação do lado do cliente.  
+Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, o armazenamento de tabelas e ficheiros do Azure) suportam a encriptação do lado do servidor em repouso, com alguns serviços de suporte de chaves geridas pelo cliente e a encriptação do lado do cliente.  
 
-- Lado do servidor: Todos os serviços de armazenamento do Azure ativar a encriptação do lado do servidor por predefinição, utilizando o serviço gerido chaves, que é transparente para a aplicação. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Armazenamento de Blobs do Azure e de ficheiros do Azure também suportam RSA 2048 bits gerida pelo cliente chaves no Cofre de chaves do Azure. Para obter mais informações, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- Do lado do cliente: Blobs do Azure, tabelas e filas suportam a encriptação do lado do cliente. Quando utilizar a encriptação do lado do cliente, os clientes encriptar os dados e carregar os dados como um blob encriptado. Gestão de chaves é feita pelo cliente. Para obter mais informações, consulte [encriptação do lado do cliente e o Cofre de chaves do Azure para armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Lado do servidor: Todos os serviços de armazenamento do Azure ativar a encriptação do lado do servidor por predefinição, com chaves geridas pelo serviço, que é transparente para a aplicação. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Armazenamento de Blobs do Azure e de ficheiros do Azure também suportam chaves geridas pelo cliente de RSA 2048 bits no Azure Key Vault. Para obter mais informações, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Lado do cliente: Filas, tabelas e Blobs do Azure suportam a encriptação do lado do cliente. Quando utilizar a encriptação do lado do cliente, os clientes encriptam os dados e carregar os dados como um blob encriptado. Gestão de chaves é feita pelo cliente. Para obter mais informações, consulte [encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 
-Atualmente, a base de dados SQL do Azure suporta encriptação de Inativos para cenários de encriptação do lado do cliente e do lado de serviço gerida pela Microsoft.
+Atualmente, a base de dados SQL do Azure suporta a encriptação inativa para cenários de encriptação do lado do cliente e de lado de serviço gerida pela Microsoft.
 
-Suporte para encriptação de servidor atualmente é fornecido através da funcionalidade SQL denominada a encriptação transparente de dados. Depois de um cliente de SQL Database do Azure permite chave TDE são automaticamente criados e geridos para os mesmos. Pode ser ativada a encriptação de Inativos nos níveis de base de dados e servidor. A partir de Junho de 2017, [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) está ativada por predefinição nas bases de dados recentemente criados. Base de dados SQL do Azure suporta RSA 2048 bits gerida pelo cliente chaves no Cofre de chaves do Azure. Para obter mais informações, consulte [encriptação transparente de dados com suporte de colocar a sua própria chave para a SQL Database do Azure e do armazém de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Suporte para encriptação de servidor atualmente é fornecido por meio do recurso chamado criptografia transparente de dados SQL. Assim que um cliente de base de dados do Azure SQL permite que o chave TDE são automaticamente criados e geridos para os mesmos. Pode ser ativada a encriptação em repouso nos níveis de base de dados e o servidor. A partir de Junho de 2017 [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) está ativada por predefinição nas bases de dados recentemente criados. Base de dados SQL do Azure suporta chaves geridas pelo cliente de RSA 2048 bits no Azure Key Vault. Para obter mais informações, consulte [encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados do Azure SQL e o armazém de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-Encriptação do lado do cliente de dados de SQL Database do Azure é suportada através de [sempre encriptados](https://msdn.microsoft.com/library/mt163865.aspx) funcionalidade. Sempre encriptado utiliza uma chave que criada e armazenada pelo cliente. Os clientes podem armazenar a chave mestra num arquivo de certificados do Windows, o Cofre de chaves do Azure ou um módulo de Hardware de segurança local. Utilizar o SQL Server Management Studio, os utilizadores do SQL Server escolhem que gostaria de utilizar para encriptar as colunas de chave.
+Encriptação do lado do cliente de dados SQL Database do Azure é suportada através da [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) funcionalidade. Sempre encriptado usa uma chave que criado e armazenado pelo cliente. Os clientes podem armazenar a chave mestra num arquivo de certificados do Windows, o Azure Key Vault ou um módulo de segurança de Hardware local. Com o SQL Server Management Studio, os utilizadores do SQL escolha que eles gostariam de utilizar para encriptar a coluna de chave.
 
 |                                  |                    | **Modelo de encriptação e gestão de chaves** |                   |                    |
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
-|                                  | **Lado do servidor utilizando a chave de serviço gerido**     | **Lado do servidor utilizando gerida pelo cliente no Cofre de chaves**             |  **Lado do servidor com gerida pelo cliente no local**                  | **Cliente utilizando o cliente gerido**      |
+|                                  | **Lado do servidor com chave gerida pelo serviço**     | **Lado do servidor usando gerida pelo cliente no Cofre de chaves**             |  **Lado do servidor usando gerida pelo cliente no local**                  | **Cliente gerido pelo cliente a utilizar**      |
 | **Armazenamento e bases de dados**        |                    |                    |                    |                    |                    |
-| Disco (IaaS)                      | -                  | Sim, RSA 2048 bits  | Sim               | -                  |
-| SQL Server (IaaS)                | Sim                | Sim, RSA 2048 bits  | Sim                | Sim                |
-| Base de dados SQL do Azure (PaaS)        | Sim                | Sim, RSA 2048 bits  | -                  | Sim                |
-| Armazenamento do Azure (Blobs de blocos/páginas) | Sim                | Sim, RSA 2048 bits  | -                  | Sim                |
-| Armazenamento do Azure (ficheiros)            | Sim                | Sim, RSA 2048 bits  | -                  | -                  |
+| Disco (IaaS)                      | -                  | Sim, RSA de 2048 bits  | Sim               | -                  |
+| SQL Server (IaaS)                | Sim                | Sim, RSA de 2048 bits  | Sim                | Sim                |
+| Base de dados SQL do Azure (PaaS)        | Sim                | Sim, RSA de 2048 bits  | -                  | Sim                |
+| Armazenamento do Azure (Blobs de bloco/páginas) | Sim                | Sim, RSA de 2048 bits  | -                  | Sim                |
+| Armazenamento do Azure (ficheiros)            | Sim                | Sim, RSA de 2048 bits  | -                  | -                  |
 | Armazenamento do Azure (tabelas, filas)   | Sim                | -                  | -                  | Sim                |
-| Cosmos BD (documento DB)          | Sim                | -                  | -                  | -                  |
+| Cosmos DB (Document DB)          | Sim                | -                  | -                  | -                  |
 | StorSimple                       | Sim                | -                  | -                  | Sim                |
 | Cópia de segurança                           | -                  | -                  | -                  | Sim                |
-| **Intelligence e análise**   |                    |                    |                    |                    |
+| **Inteligência e análise**   |                    |                    |                    |                    |
 | Azure Data Factory               | Sim                | -                  | -                  | -                  |
-| Azure Machine Learning           | -                  | Pré-visualização, RSA 2048 bits | -                  | -                  |
+| Azure Machine Learning           | -                  | Pré-visualização, RSA de 2048 bits | -                  | -                  |
 | Azure Stream Analytics           | Sim                | -                  | -                  | -                  |
 | HDInsight (armazenamento de Blobs do Azure)   | Sim                | -                  | -                  | -                  |
 | HDInsight (armazenamento do Data Lake)    | Sim                | -                  | -                  | -                  |
-| Azure Data Lake Store            | Sim                | Sim, RSA 2048 bits  | -                  | -                  |
+| Azure Data Lake Store            | Sim                | Sim, RSA de 2048 bits  | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  | -                  |
 | Power BI                         | Sim                | -                  | -                  | -                  |
-| **Serviços IoT**                 |                    |                    |                    |                    |
+| **Serviços de IoT**                 |                    |                    |                    |                    |
 | IoT Hub                          | -                  | -                  | -                  | Sim                |
 | Service Bus                      | Sim                | -                  | -                  | Sim                |
-| Event Hubs                       | Sim                | -                  | -                  | -                  |
+| Hubs de Eventos                       | Sim                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusão
 
-Proteção de dados de cliente armazenados dentro de serviços do Azure é essencial da importância à Microsoft. Todos os Azure alojada serviços são consolidados para fornecer encriptação em Opções de Rest. Serviços de intelligence e serviços fundamentais sobre como o Storage do Azure, SQL Database do Azure e análise de chave já fornecem a encriptação em Opções de Rest. Alguns destes serviços suportam chaves cliente controlada e encriptação do lado do cliente, bem como as chaves de serviço gerido e encriptação. Serviços do Microsoft Azure são amplamente Otimização da encriptação na disponibilidade de Rest e novas opções estejam planeadas para pré-visualização e disponibilidade geral nos meses futuros.
+Proteção de dados de clientes armazenados nos serviços do Azure é de fundamental importância para Microsoft. Todos os Azure hosted services são seu compromisso de fornecer encriptação nas opções de Rest. Serviços fundamentais, como o armazenamento do Azure, a base de dados SQL do Azure e a análise de chave e os serviços de inteligência já fornecem criptografia de opções de Rest. Alguns destes serviços suportam chaves dos clientes controlado e encriptação do lado do cliente, bem como as chaves geridas pelo serviço e encriptação. Serviços do Microsoft Azure amplamente a melhorar encriptação no momento da disponibilidade do Rest e novas opções estão planeadas para disponibilidade geral e pré-visualização nos próximos meses.

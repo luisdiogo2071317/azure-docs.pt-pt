@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b742f3eb9124093bcf0c3c912bbae0367cdcce56
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421265"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Azure Active Directory com Slack
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Slack, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Slack logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Slack com o Azure AD, terá de adicionar Slack
 
 **Para adicionar o Slack a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -114,11 +114,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.slack.com`
 
-    b. Na **identificador** caixa de texto, escreva o URL: `https://slack.com`
+    b. Na **identificador** caixa de texto, atualize o valor com o início de sessão no URL. Este é o seu domínio de área de trabalho. Por exemplo: `https://contoso.slack.com`
 
-    > [!NOTE] 
-    > O valor não é real. Terá de atualizar o valor com o início de sessão no URL real. Contacte [equipa de suporte Slack](https://slack.com/help/contact) para obter o valor.
-     
 1. Aplicação Slack espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos da "**atributos de utilizador**" secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.
     
     ![Configurar o início de sessão único](./media/slack-tutorial/tutorial_slack_attribute.png)

@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494130"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052773"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?
 Início de sessão único significa ser capaz de aceder a todas as aplicações e recursos de que precisa para fazer negócios, ao iniciar sessão apenas uma vez com uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todos os aplicativos que necessita sem ter que está a ser necessária para autenticar (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -46,7 +46,7 @@ O Azure AD suporta três formas diferentes de iniciar sessão nas aplicações:
 
 * **Único início de sessão federado** permite que os aplicativos redirecionar para o Azure AD para autenticação de utilizador em vez de solicitar a sua própria palavra-passe. Início de sessão único federado é suportada para aplicações que suporte protocolos, tais como SAML 2.0, WS-Federation e OpenID Connect e é o modo mais sofisticado de início de sessão único.
 * **Com base em palavra-passe de início de sessão único** permite proteger o armazenamento de palavra-passe de aplicação e utilizar uma extensão de browser ou aplicação móvel de repetição. Com base em palavra-passe de início de sessão único usa o processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe e não exige que o usuário saber a palavra-passe.
-* **Existente início de sessão único** permite ao Azure AD tirar partido de qualquer existente início de sessão único que tenha sido configurado para o aplicativo, mas permite que esses aplicativos a ser ligado aos portais de painel de acesso do Office 365 ou do Azure AD e também ativa adicionais relatórios no Azure AD quando as aplicações são iniciadas lá.
+* **Ligado início de sessão único** permite ao Azure AD tirar partido de qualquer existente início de sessão único que tenha sido configurado para o aplicativo, mas permite que esses aplicativos a ser ligado aos portais de painel de acesso do Office 365 ou do Azure AD e também ativa adicionais relatórios no Azure AD quando as aplicações são iniciadas lá.
 
 Assim que um usuário foi autenticado com uma aplicação, também têm de ter um registo de conta aprovisionado no aplicativo que informa ao aplicativo, onde as permissões e o nível de acesso estão dentro do aplicativo. O aprovisionamento deste registo de conta pode optar por ocorrer automaticamente, ou pode ocorrer manualmente por um administrador antes do utilizador é fornecido o acesso de início de sessão único.
 
@@ -79,10 +79,10 @@ Para SSO de palavra-passe, os navegadores do usuário final podem ser:
 * Cromado, No Windows 7 ou posterior e no MacOS X ou posterior
 * Firefox 26.0 ou mais tarde, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
-### <a name="existing-single-sign-on"></a>Existente início de sessão único
-Ao configurar o início de sessão único para uma aplicação, o portal do Azure fornece uma terceira opção de "existente Single Sign-On". Esta opção permite simplesmente ao administrador criar uma ligação para um aplicativo e coloque-a no painel de acesso dos utilizadores selecionados.
+### <a name="linked-single-sign-on"></a>Ligado início de sessão único
+Ao configurar o início de sessão único para uma aplicação, o portal do Azure fornece uma terceira opção de "ligado Single Sign-On". Esta opção permite simplesmente ao administrador criar uma ligação para um aplicativo e coloque-a no painel de acesso dos utilizadores selecionados.
 
-Por exemplo, se existir uma aplicação que está configurada para autenticar os utilizadores com o Active Directory Federation Services 2.0, um administrador pode utilizar a opção "existente início de sessão único" para criar uma ligação ao mesmo no painel de acesso. Quando os utilizadores acedem a ligação, são autenticados com o Active Directory Federation Services 2.0 ou qualquer que seja única início de sessão na solução existente é fornecida pela aplicação.
+Por exemplo, se existir uma aplicação que está configurada para autenticar os utilizadores com o Active Directory Federation Services 2.0, um administrador pode utilizar a opção "ligado início de sessão único" para criar uma ligação ao mesmo no painel de acesso. Quando os utilizadores acedem a ligação, são autenticados com o Active Directory Federation Services 2.0 ou qualquer que seja única início de sessão na solução existente é fornecida pela aplicação.
 
 ### <a name="user-provisioning"></a>Aprovisionamento de utilizadores
 Para selecionar aplicativos, do Azure AD permite automatizado do utilizador provisionamento e desprovisionamento de contas em aplicações de SaaS de terceiros partir no portal do Azure, utilizando as suas informações de identidade do Windows Server Active Directory ou do Azure AD. Quando um utilizador recebe permissões no Azure AD para uma destas aplicações, pode ser automaticamente criada uma conta (aprovisionada) no destino aplicação SaaS.
@@ -172,7 +172,7 @@ Mais aplicações federadas que suportam SAML 2.0, WS-Federation ou OpenID conec
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Ligações de início de sessão em diretas para aplicações federada, com base em palavra-passe ou existente
-O Azure AD também suporta únicas início de sessão em ligações diretas para aplicativos individuais que oferecem suporte baseado em palavra-passe de início de sessão único existente início de sessão único e qualquer outra forma de início de sessão único federado.
+O Azure AD também suporta únicas início de sessão em ligações diretas para aplicativos individuais que oferecem suporte baseado em palavra-passe de início de sessão único, ligado início de sessão único e qualquer outra forma de início de sessão único federado.
 
 Estas ligações são especificamente elaboradas URLs que enviam um utilizador através do processo de início de sessão do AD do Azure para uma aplicação específica sem a necessidade do lançamento de utilizador-los a partir do Azure AD aceder ao painel ou do Office 365. Estes URLs de início de sessão único no separador Dashboard de qualquer aplicação previamente integrada podem ser encontradas na seção do Active Directory do portal do Azure, conforme mostrado na captura de ecrã abaixo.
 

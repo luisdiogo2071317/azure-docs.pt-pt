@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 015b8570e9cbb06a33107de7a8cb9ae00d60cacb
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287130"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053993"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução à entrega de conteúdos a pedido com REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -54,7 +54,7 @@ As seguintes tarefas são apresentadas neste guia de introdução.
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver a utilizar sempre os mesmos dias / permissões, por exemplo, políticas para localizadores que pretendam permanecem em vigor durante muito tempo (políticas de não carregamento) de acesso. Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
-Para obter detalhes sobre as entidades de REST do AMS usadas neste artigo, consulte [referência da API do REST do Azure Media Services](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference). Além disso, veja [conceitos de Media Services do Azure](media-services-concepts.md).
+Para obter detalhes sobre as entidades de REST do AMS usadas neste artigo, consulte [referência da API do REST do Azure Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Além disso, veja [conceitos de Media Services do Azure](media-services-concepts.md).
 
 >[!NOTE]
 >Ao aceder a entidades nos serviços de multimédia, tem de definir campos de cabeçalho específicas e os valores nos seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST do Media Services](media-services-rest-how-to-use.md).
@@ -405,7 +405,7 @@ Se tiver êxito, é devolvido o seguinte:
 
 ## <a id="encode"></a>Codificar o ficheiro de origem para um conjunto de ficheiros MP4 de velocidade de transmissão adaptável
 
-Após a ingestão de que ativos para os serviços de multimédia, suporte de dados podem ser codificados, transmuxed, digital e assim por diante, antes que é entregue aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são denominadas tarefas, e cada uma é composta por tarefas atómicas que fazem o trabalho real no ficheiro de elemento (para obter mais informações, consulte [tarefa](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [tarefa](https://docs.microsoft.com/en-us/rest/api/media/operations/task) descrições).
+Após a ingestão de que ativos para os serviços de multimédia, suporte de dados podem ser codificados, transmuxed, digital e assim por diante, antes que é entregue aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são denominadas tarefas, e cada uma é composta por tarefas atómicas que fazem o trabalho real no ficheiro de elemento (para obter mais informações, consulte [tarefa](https://docs.microsoft.com/rest/api/media/operations/job), [tarefa](https://docs.microsoft.com/rest/api/media/operations/task) descrições).
 
 Como foi mencionado anteriormente, ao trabalhar com suporte de dados do Azure, serviços de um dos cenários mais comuns é a distribuição de transmissão em fluxo de velocidade de transmissão adaptável para os seus clientes. Serviços de multimédia podem empacotar dinamicamente um conjunto de ficheiros MP4 de velocidade de transmissão adaptável dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 

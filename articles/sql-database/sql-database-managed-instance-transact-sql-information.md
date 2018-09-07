@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: f05f6f785ec8466fc6d0ae2c94c975312ef37fa2
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42058794"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051243"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -425,4 +425,4 @@ Instância gerida poderá mostrar o valor de guid em vez do nome de base de dado
 
 - Para obter detalhes sobre a instância gerida, veja [o que é uma instância gerida?](sql-database-managed-instance.md)
 - Para funcionalidades e lista de comparação, veja [recursos comuns de SQL](sql-database-features.md).
-- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).
