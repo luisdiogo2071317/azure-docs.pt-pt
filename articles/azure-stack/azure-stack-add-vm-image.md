@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698779"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022769"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
 
@@ -54,7 +54,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
    ![Acesso de blob de conjunto para o público](./media/azure-stack-add-vm-image/image2.png)
 
-2. Inicie sessão no Azure Stack como operador. No menu, selecione **mais serviços**. Em seguida, selecione **computação** > **imagens de VM** > **adicionar**.
+2. Inicie sessão no Azure Stack como operador. No menu, selecione **todos os serviços**. Em seguida, no **ADMINISTRATION** selecionar categoria **computação** > **imagens de VM** > **adicionar**.
 
 3. Sob **adicionar uma imagem de VM**, introduza o publicador, oferta, SKU e versão da imagem de máquina virtual. Esses segmentos de nome referem-se à imagem de VM em modelos do Resource Manager. Certifique-se de selecionar o **osType** valor corretamente. Para **URI de Blob de disco de SO**, introduza o URI de Blob em que a imagem foi carregada. Em seguida, selecione **criar** para começar a criar a imagem de VM.
 
@@ -115,7 +115,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
     Para obter mais informações, consulte a referência do PowerShell para o [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet e os [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Adicionar uma imagem VM personalizada para o mercado com o PowerShell
-
+ 
 1. [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  

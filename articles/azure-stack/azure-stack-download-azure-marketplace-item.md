@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412904"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024805"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir itens do marketplace do Azure para o Azure Stack
 
@@ -151,7 +151,7 @@ Existem duas partes para este cenário:
 2. Utilize o portal de administração para carregar o pacote de item do marketplace (o arquivo .azpkg) para o armazenamento de Blobs do Azure Stack. Carregamento do pacote torna-o disponível para o Azure Stack para poder publicar o item mais tarde a pilha do Azure Marketplace.
 
    Carregamento requer que tenha uma conta de armazenamento com um contentor publicamente acessível (consulte os pré-requisitos para este cenário)   
-   1. No portal de administração do Azure Stack, aceda a **mais serviços** > **contas de armazenamento**.  
+   1. No portal de administração do Azure Stack, aceda a **todos os serviços** e, em seguida, sob o **dados + armazenamento** categoria, selecione **contas de armazenamento**.  
    
    2. Selecione uma conta de armazenamento da sua subscrição e, em seguida, em **serviço BLOB**, selecione **contentores**.  
       ![Serviço blob](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -198,7 +198,7 @@ Existem duas partes para este cenário:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Depois de publicar um item da galeria, pode vê-lo a partir **mais serviços** > **Marketplace**.  Se seu download é um modelo de solução, certifique-se de que adicione qualquer imagem VHD dependente para esse modelo de solução.  
+5. Depois de publicar um item da galeria,-lo acedendo a **todos os serviços**. Em seguida, sob o **gerais** categoria, selecione **Marketplace**.  Se seu download é um modelo de solução, certifique-se de que adicione qualquer imagem VHD dependente para esse modelo de solução.  
   ![Marketplace do Vista](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

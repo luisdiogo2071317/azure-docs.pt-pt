@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139347"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025415"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Início rápido: criar uma máquina de virtual de servidor do Linux com o portal do Azure Stack
 
@@ -27,6 +27,10 @@ Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com o portal do Azure
 * Ligar à máquina virtual com um cliente remoto.
 * Instale um servidor de web NGINX.
 * Limpe seus recursos.
+
+> [!NOTE]  
+> As imagens de ecrã neste artigo são atualizadas de acordo com as alterações introduzidas com a versão do Azure Stack 1808. 1808 adiciona suporte para o uso *discos geridos* , além de discos não geridos. Se utilizar uma versão anterior, algumas imagens para tarefas como a seleção de disco serão diferentes do que o que é apresentado neste artigo.  
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +70,9 @@ Inicie sessão no portal do Azure Stack. O endereço do portal do Azure Stack de
 1. Clique em **criar um recurso** no canto superior esquerdo do portal do Azure Stack.
 
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
-3. Clique em **Criar**.
+   
+   ![Selecione o servidor do Linux](media/azure-stack-quick-linux-portal/select.png)
+1. Clique em **Criar**.
 
 4. Tipo de informações da máquina virtual. Para **Tipo de autenticação**, selecione **Chave pública de SSH**. Cole a chave pública de SSH que guardou e, em seguida, clique em **OK**.
 
@@ -75,24 +81,28 @@ Inicie sessão no portal do Azure Stack. O endereço do portal do Azure Stack de
 
    ![Noções básicas do painel - Configurar a máquina virtual](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. Selecione **D1_V2** para a máquina virtual.
+5. Selecione **D1** para a máquina virtual.
 
    ![Painel de tamanho - escolher um tamanho de máquina virtual](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. Sobre o **configurações** página, mantenha as predefinições e clique em **OK**.
+6. Sobre o **definições** página, efetue as alterações de pretendida para as predefinições.
+   
+    - A partir da versão do Azure Stack 1808, pode configurar **armazenamento** onde pode optar por utilizar *discos geridos*. Antes da versão 1808 podem ser usados apenas os discos não geridos.    
+      ![Configurar o armazenamento para discos geridos](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+    Quando as configurações estiver prontas, selecione **OK** para continuar.
 
-7. Sobre o **resumo** página, clique em **OK** para iniciar a implementação da máquina virtual.
+7. Sobre o **resumo** página, clique em **OK** para iniciar a implementação da máquina virtual.  
+   ![Implementar](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## <a name="connect-to-the-virtual-machine"></a>Ligar à máquina virtual
 
-1. Clique em **Connect** na página de máquina virtual. Esta ação apresenta uma cadeia de ligação de SSH tem de se ligar à máquina virtual.
-
-   ![Ligar a máquina virtual](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. Clique em **Connect** na página de máquina virtual. Esta ação apresenta uma cadeia de ligação de SSH tem de se ligar à máquina virtual. 
 
 2. Abra o PuTTY.
-3. Sobre o **configuração do PuTTY** ecrã que irá utilizar o **categoria** janela de se deslocar para cima ou para baixo. Desloque para baixo até **SSH**, expanda **SSH**e, em seguida, clique em **Auth**. Clique em **procurar** e escolha o ficheiro de chave privada que guardou.
 
-   ![Selecione a chave privada PuTTY](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. Sobre o **configuração do PuTTY** ecrã que irá utilizar o **categoria** janela de se deslocar para cima ou para baixo. Desloque para baixo até **SSH**, expanda **SSH**e, em seguida, clique em **Auth**. Clique em **procurar** e escolha o ficheiro de chave privada que guardou.
+   ![Ligar a máquina virtual](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Deslocar para cima na **categoria** janela e clique em **sessão**.
 5. Na **nome de anfitrião (ou endereço IP)** caixa, cole a cadeia de ligação apresentada no portal do Azure Stack. Neste exemplo, a cadeia de caracteres é ```asadmin@192.168.102.34```.
@@ -136,7 +146,7 @@ Com o NGINX instalado e a porta 80 aberta na sua máquina virtual, pode acessar 
 
 Abra um browser e navegue para ```http://<public IP address>```.
 
-![Página de boas-vindas do servidor de web do NGINX](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![Página de boas-vindas do servidor de web do NGINX](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

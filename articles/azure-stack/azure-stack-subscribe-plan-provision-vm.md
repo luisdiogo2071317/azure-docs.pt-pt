@@ -1,6 +1,6 @@
 ---
-title: Subscrever uma oferta na pilha do Azure | Microsoft Docs
-description: Criar subscrições para ofertas na pilha do Azure
+title: Subscrever uma oferta no Azure Stack | Documentos da Microsoft
+description: Criar subscrições para as ofertas no Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,90 +12,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
+ms.date: 09/05/2018
 ms.author: brenduns
-ms.openlocfilehash: 9153649774a67533649fb62da83a3f50abd592da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b35e75d7cfcaa46da46d2edcb80fe37c112a66a3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295215"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025576"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Criar subscrições de ofertas na pilha do Azure
+# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Criar subscrições de ofertas no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Depois de [criar uma oferta](azure-stack-create-offer.md), os utilizadores necessitam de uma subscrição para esse oferta antes de poderem utilizar. Existem duas formas que os utilizadores podem obter subscrito para uma oferta:
+Depois de [criar uma oferta](azure-stack-create-offer.md), os utilizadores precisam de uma subscrição para essa oferta antes de poderem utilizar. Existem duas formas a que os utilizadores podem obter subscrito para uma oferta:
 
-- Como um operador da nuvem, pode criar uma subscrição para um utilizador a partir do portal do administrador. Subscrições que cria podem ser para ofertas de públicas e privadas.
+- Como um operador de cloud, pode criar uma subscrição de um utilizador no portal do administrador. As subscrições que cria podem ser para as ofertas privadas e públicas.
 - Como um utilizador de inquilino, pode subscrever uma oferta pública ao utilizar o portal de utilizador.  
 
-## <a name="create-a-subscription-as-a-cloud-operator"></a>Criar uma subscrição como um operador da nuvem
+## <a name="create-a-subscription-as-a-cloud-operator"></a>Criar uma subscrição como um operador de cloud
 
-Os operadores da nuvem podem utilizar o portal de administração para criar uma subscrição para uma oferta para um utilizador.  Pode criar subscrições para membros do seu próprio inquilino de diretório.  Quando [vários inquilinos](azure-stack-enable-multitenancy.md) está ativada, também pode criar subscrições para os utilizadores em inquilinos do adicionais.
+Operadores da nuvem podem utilizar o portal de administração para criar uma subscrição para uma oferta para um utilizador.  Pode criar subscrições para os membros do seu próprio inquilino do diretório.  Quando [multi-inquilinos](azure-stack-enable-multitenancy.md) é ativada, também pode criar subscrições para os utilizadores nos inquilinos do diretório adicional.
 
-Se não pretender que os seus inquilinos a criar as seus próprios subscrições, faça as ofertas privada e, em seguida, criar subscrições para os inquilinos. Esta abordagem é comum quando integrar a pilha do Azure com os sistemas de catálogo de serviço ou de faturação externa.
+Se não quiser que seus inquilinos a criar seus próprios subscrições, tornar as suas ofertas privado e, em seguida, criar subscrições para os seus inquilinos. Essa abordagem é comum ao integrar o Azure Stack com faturação externa ou sistemas de catálogo de serviço.
 
-Depois de criar uma subscrição para um utilizador, pode iniciar sessão no portal de utilizador e ver que está a subscrito para a oferta.  
+Depois de criar uma subscrição para um utilizador, podem iniciar sessão no portal de utilizador e ver o que está subscrito para a oferta.  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>Para criar uma subscrição para um utilizador
 
-1. No portal de administração, aceda a **subscrições de utilizador.**
-2. Selecione **Adicionar**. Em **nova subscrição de utilizador**, introduza as seguintes informações:  
+1. No portal de administração, aceda a **subscrições do utilizador.**
+2. Selecione **Adicionar**. Sob **nova subscrição de utilizador**, introduza as seguintes informações:  
 
-   - **Nome a apresentar** – um nome amigável para identificar a subscrição que aparece como o *nome de subscrição de utilizador*.
-   - **Utilizador** – Especifique um utilizador de um inquilino do diretório disponível para esta subscrição. O nome de utilizador é apresentado como *proprietário*.  O formato do nome de utilizador depende da sua solução de identidade. Por exemplo:
+   - **Nome a apresentar** – um nome amigável para identificar a subscrição que aparece como o *nome da subscrição de utilizador*.
+   - **Utilizador** – Especifique um utilizador de um inquilino do diretório disponível para esta subscrição. O nome de utilizador é apresentado como *proprietário*.  O formato do nome do utilizador depende da sua solução de identidade. Por exemplo:
 
-     - **Azure AD:***&lt;user1 > @&lt;contoso.onmicrosoft.com >* 
+     - **O Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:***&lt;user1 > @&lt;azurestack.local >* 
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
-   - **Inquilino do** – selecione o inquilino de diretório em que a conta de utilizador pertence. Se ainda não ativou a vários inquilinos, apenas o inquilino de diretório local está disponível.
+   - **Inquilino do diretório** – selecione o inquilino do diretório em que a conta de utilizador pertence. Se ainda não ativou a vários inquilinos, apenas o inquilino do diretório local está disponível.
 
-3. Selecione **oferecem**. Em **oferece**, escolha um **oferecem** para esta subscrição. Porque está a criar a subscrição para um utilizador, selecione **privada** como o estado de acessibilidade.
+3. Selecione **oferecem**. Sob **oferece**, escolha um **oferecer** para esta subscrição. Uma vez que está a criar a subscrição para um utilizador, selecione **privada** como o estado de acessibilidade.
 
-4. Selecione **criar** para criar a subscrição. Verá que a nova subscrição em **subscrição de utilizador**. Quando o utilizador inicia sessão no portal de utilizador podem ver os detalhes da subscrição.
+4. Selecione **criar** para criar a subscrição. Verá que a nova subscrição sob **subscrição do utilizador**. Quando o utilizador inicia sessão portal de utilizador podem ver os detalhes da subscrição.
 
 ### <a name="to-make-an-add-on-plan-available"></a>Para disponibilizar um plano de suplemento
 
-Um operador da nuvem pode adicionar um plano de suplemento para uma subscrição em qualquer altura criada anteriormente:
+Um operador da cloud pode adicionar um plano de suplemento para uma subscrição criada anteriormente em qualquer altura:
 
-1. No portal de administração, selecione **mais serviços** > **subscrições de utilizador**. Selecione a subscrição que pretende alterar.
+1. No portal de administração, selecione **todos os serviços** e, em seguida, sob o **recursos administrativos** categoria, selecione **subscrições de utilizador**. Selecione a subscrição que pretende alterar.
 
 2. Selecione **suplementos** e, em seguida, selecione **+ adicionar**.  
 
-3. Em **adicionar plano**, selecione o plano de que pretende como suplemento.
+3. Sob **adicionar plano**, selecione o plano que pretende como um suplemento.
 
 ## <a name="create-a-subscription-as-a-user"></a>Criar uma subscrição como um utilizador
 
-Como um utilizador, pode iniciar sessão portal de utilizador para localizar e subscrever ofertas públicas e planos de suplemento para o seu inquilino do directory (organização).
+Como um utilizador, pode iniciar sessão portal de utilizador para localizar e subscrever de públicas ofertas e planos de suplementos para o seu inquilino do diretório (organização).
 
 >[!NOTE]
->Se o seu ambiente de pilha do Azure suporta [vários inquilinos](azure-stack-enable-multitenancy.md) também pode subscrever ofertas de um inquilino do diretório remoto.
+>Se o seu ambiente do Azure Stack suporta [multi-inquilinos](azure-stack-enable-multitenancy.md) também pode subscrever as ofertas de um inquilino do diretório remoto.
 
 ### <a name="to-subscribe-to-an-offer"></a>Para subscrever uma oferta
 
-1. [Inicie sessão no](azure-stack-connect-azure-stack.md) portal de utilizador de pilha do Azure (https://portal.local.azurestack.external) e selecione **obter uma subscrição**.
+1. [Iniciar sessão](azure-stack-connect-azure-stack.md) para o portal de utilizador do Azure Stack (https://portal.local.azurestack.external) e selecione **obter uma subscrição**.
 
    ![Obter uma subscrição](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
-2. Em **obter uma subscrição**, introduza o nome amigável da subscrição no **nome a apresentar**. Selecione **oferecem** e, em **escolher uma oferta**, escolha uma oferta. Selecione **criar** para criar a subscrição.
+2. Sob **obter uma subscrição**, introduza o nome amigável da subscrição no **nome a apresentar**. Selecione **oferecem** e, em **escolher uma oferta**, escolha uma oferta. Selecione **criar** para criar a subscrição.
 
    ![Criar uma oferta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
-3. Depois de subscrever uma oferta, atualize o portal para ver quais os serviços fazem parte da nova subscrição.
-4. Para ver a subscrição que criou, selecione **mais serviços** e, em seguida, selecione **subscrições**. Selecione a subscrição para ver os detalhes da subscrição.  
+3. Depois de subscrever uma oferta, atualize o portal para ver quais os serviços que fazem parte da nova subscrição.
+4. Para ver a subscrição que criou, selecione **todos os serviços** e, em seguida, sob o **geral** selecionar categoria **subscrições**. Selecione a subscrição para ver os detalhes da subscrição.  
 
 ### <a name="to-subscribe-to-an-add-on-plan"></a>Para subscrever um plano de suplemento
 
-Se uma oferta tiver um plano de suplemento, pode adicionar esse plano para a sua subscrição em qualquer altura.  
+Se uma oferta tem um plano de suplemento, pode adicionar esse plano à sua subscrição em qualquer altura.  
 
-1. No portal de utilizador, selecione **mais serviços** > **subscrições**e, em seguida, selecione a subscrição que pretende alterar. Se existirem quaisquer planos de suplemento disponíveis, **+ adicionar plano** está ativa e se existe um mosaico para **planos de suplemento**.
+1. No portal de utilizador, selecione **todos os serviços**. Em seguida, no **gerais** selecionar categoria **subscrições**e, em seguida, selecione a subscrição que pretende que a alteração. Se existirem quaisquer planos de suplementos disponíveis, **+ adicionar plano** está ativa e existe um mosaico para **planos de suplementos**.
 
    >[!NOTE]
-   >Se **+ adicionar plano** não está ativo, em seguida, sabemos de nenhum planos de suplemento para a oferta associadas com essa subscrição.
+   >Se **+ adicionar plano** não está ativo, em seguida, não existem quaisquer planos de suplementos para a oferta associada a essa subscrição.
 
-1. Selecione **+ adicionar plano** ou **planos de suplemento** mosaico. Em **planos de suplemento**, selecione o plano de que pretende adicionar.
+1. Selecione **+ adicionar plano** ou o **planos de suplementos** mosaico. Sob **planos de suplementos**, selecione o plano que pretende adicionar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
