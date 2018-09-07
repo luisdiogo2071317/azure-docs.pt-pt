@@ -1,9 +1,9 @@
 ---
-title: Personalizar as configurações de segurança do SO no Centro de segurança do Azure (pré-visualização) | Microsoft Docs
+title: Personalizar as configurações de segurança de SO no Centro de segurança do Azure (pré-visualização) | Documentos da Microsoft
 description: Este artigo demonstra como personalizar as avaliações de centro de segurança
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,117 +12,111 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
-ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 18/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 91a77902e03b4240e00f40dfdb15b6c854f5a29d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200015"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027117"
 ---
-# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança do SO no Centro de segurança do Azure (pré-visualização)
+# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança de SO no Centro de segurança do Azure (pré-visualização)
 
-Esta explicação passo a passo demonstra como personalizar as avaliações de configuração do SO segurança no Centro de segurança do Azure.
+Estas instruções demonstram como personalizar as avaliações de configuração de segurança de SO no Centro de segurança do Azure.
 
-## <a name="what-are-os-security-configurations"></a>Quais são as configurações de segurança do SO?
+## <a name="what-are-os-security-configurations"></a>Quais são as configurações de segurança do sistema operacional?
 
-Centro de segurança do Azure monitoriza configurações de segurança aplicando um conjunto de [mais de 150 recomendado regras](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o sistema operativo, incluindo regras relacionadas com as firewalls, auditoria, políticas de palavra-passe e muito mais. Se for encontrada uma máquina ter uma configuração vulnerável, o Centro de segurança gera uma recomendação de segurança.
+Centro de segurança do Azure monitoriza as configurações de segurança através da aplicação de um conjunto de [mais de 150 recomendado regras](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o sistema operacional, incluindo regras relacionadas com firewalls, auditoria, as políticas de palavra-passe e muito mais. Se uma máquina é encontrada ter uma configuração vulnerável, o Centro de segurança gera uma recomendação de segurança.
 
-Ao personalizar as regras, as organizações podem controlar as opções de configuração são mais adequadas para o respetivo ambiente. Pode definir uma política personalizada de avaliação e, em seguida, aplicam-se em todas as máquinas aplicáveis na subscrição.
-
-> [!NOTE]
-> - Atualmente, a personalização da configuração de segurança do SO está disponível para Windows Server 2008, 2008 R2, 2012 e 2012 R2 de versões apenas nos sistemas operativos.
-> - A configuração aplica-se a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição selecionada.
-> - Personalização de configuração de segurança do SO não está disponível apenas na camada padrão de centro de segurança.
->
->
-
-Pode personalizar as regras de configuração de segurança de SO por ativar e desativar uma regra específica, alterar a definição pretendida para uma regra existente ou adicionar uma nova regra com base nos tipos de regra suportados (registo, política de auditoria e política de segurança). Atualmente, a definição pretendida tem de ser um valor exato.
-
-Novas regras tem de estar no mesmo formato e estrutura como outras regras existentes do mesmo tipo.
+Ao personalizar as regras, as organizações podem controlar quais opções de configuração são mais adequadas para o seu ambiente. Pode definir uma política personalizada de avaliação e, em seguida, aplicá-la em todos os computadores aplicáveis na subscrição.
 
 > [!NOTE]
-> Para personalizar as configurações de segurança do SO, tem de ser atribuída a função de *proprietário da subscrição*, *contribuinte de subscrição*, ou *administrador de segurança*.
+> - Atualmente, a personalização da configuração de segurança do sistema operacional está disponível para Windows Server 2008, 2008 R2, 2012 e 2012 R2 de versões apenas nos sistemas operativos.
+> - A configuração é aplicada a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição selecionada.
+> - Personalização de configuração de segurança do SO está disponível apenas no escalão standard do Centro de segurança.
 >
 >
 
-## <a name="customize-the-default-os-security-configuration"></a>Personalizar a configuração de segurança de SO predefinida
+Pode personalizar as regras de configuração de segurança do sistema operacional ao ativar e desativar uma regra específica, alterar a definição pretendida para uma regra existente ou adicionar uma nova regra que baseia-se sobre os tipos de regra suportados (registo, política de auditoria e a política de segurança). Atualmente, a definição pretendida tem de ser um valor exato.
 
-Para personalizar a configuração de segurança de SO predefinida no Centro de segurança, efetue o seguinte:
+Novas regras tem de ser o mesmo formato e estrutura como outras regras existentes do mesmo tipo.
+
+> [!NOTE]
+> Para personalizar as configurações de segurança do SO, tem de ser atribuída a função de *proprietário da subscrição*, *contribuinte da subscrição*, ou *administrador de segurança*.
+>
+>
+
+## <a name="customize-the-default-os-security-configuration"></a>Personalizar a configuração de segurança do sistema operacional padrão
+
+Para personalizar a configuração de segurança do sistema operacional padrão no Centro de segurança, faça o seguinte:
 
 1.  Abra o dashboard **Centro de Segurança**.
 
-2.  No painel esquerdo, selecione **política de segurança**.  
-    O **Centro de segurança - política de segurança** é aberta a janela.
+2.  No painel esquerdo, selecione **política de segurança**.      
 
-    ![Lista de políticas de segurança](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![Lista de políticas de segurança](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Selecione a subscrição que pretende efetuar a personalização para.
+3.  Na linha da subscrição que pretende personalizar, clique em **editar as definições de**.
 
-4. Em **componentes da política**, selecione **configurações de segurança de editar**.  
-    O **configurações de segurança de editar** é aberta a janela.
+4. Selecione **editar configurações de segurança**.  
+    
+    ![A janela de "Editar configurações de segurança"](media/security-center-customize-os-security-config/blade.png)
 
-    ![A janela "Editar configurações de segurança"](media/security-center-customize-os-security-config/blade.png)
-
-5. No painel da direita, siga os passos para transferir, editar e carregar o ficheiro modificado.
+5. Siga os passos para transferir, editar e carregar o arquivo modificado.
 
    > [!NOTE]
-   > Por predefinição, o ficheiro de configuração que transferir está a ser *json* formato. Para obter instruções sobre como modificar este ficheiro, aceda a [personalizar o ficheiro de configuração](#customize-the-configuration-file).
+   > Por predefinição, o ficheiro de configuração que baixar está no *json* formato. Para obter instruções sobre como modificar esse arquivo, aceda a [personalizar o ficheiro de configuração](#customize-the-configuration-file).
    >
 
-   Depois de ter guardado com êxito o ficheiro, a configuração é aplicada a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição. O processo normalmente demora alguns minutos, mas pode demorar mais tempo, dependendo do tamanho de infraestrutura.
+   Depois de ter guardado com êxito o ficheiro, a configuração é aplicada a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição. O processo normalmente demora alguns minutos mas pode demorar mais tempo, dependendo do tamanho de infraestrutura.
 
-6. Para confirmar a alteração, selecione **guardar**. Caso contrário, a política não está armazenada.
+6. Para consolidar a alteração, selecione **guardar**. Caso contrário, a política não é armazenada.
 
-    ![O botão Guardar](media/security-center-customize-os-security-config/save-successfully.png)
-
-Em qualquer momento, só pode repor a configuração atual da política no estado predefinido. Para tal, no **as regras de configuração de segurança de editar o SO** janela, selecione **repor**. Confirme esta opção, selecionando **Sim** na janela de pop-up de confirmação.
+Em qualquer momento, pode repor a configuração da política atual no estado predefinido. Para tal, na **regras de configuração de segurança de editar o sistema operacional** janela, selecione **repor**. Confirme esta opção, selecionando **Sim** na janela de pop-up de confirmação.
 
 ![A janela de confirmação de reposição](media/security-center-customize-os-security-config/edit-alert.png)
 
 ## <a name="customize-the-configuration-file"></a>Personalizar o ficheiro de configuração
 
-No ficheiro de personalização, cada versão suportada do SO tem um conjunto de regras ou ruleset. Cada ruleset tem o seu próprio nome e um ID exclusivo, conforme mostrado no exemplo seguinte:
+O arquivo de personalização, cada versão suportada do SO tem um conjunto de regras ou conjunto de regras. Cada conjunto de regras tem seu próprio nome e o ID exclusivo, conforme mostrado no exemplo a seguir:
 
-![O nome de ruleset e o ID](media/security-center-customize-os-security-config/custom-file.png)
+![O nome do conjunto de regras e ID](media/security-center-customize-os-security-config/custom-file.png)
 
 > [!NOTE]
 > Este ficheiro de exemplo foi editado no Visual Studio, mas também pode utilizar o bloco de notas se tiver o plug-in de Visualizador de JSON instalado.
 >
 >
 
-Ao editar o ficheiro de personalização, pode modificar uma regra ou todos eles. Cada ruleset inclui um *regras* secção que é separada nas três categorias: registo, a política de auditoria e a política de segurança, conforme mostrado aqui:
+Ao editar o arquivo de personalização, pode modificar uma regra ou todos eles. Cada conjunto de regras inclui um *regras* secção é separada em três categorias: registo, a política de auditoria e a política de segurança, como mostrado aqui:
 
-![Três categorias de ruleset](media/security-center-customize-os-security-config/rules-section.png)
+![Três categorias de conjunto de regras](media/security-center-customize-os-security-config/rules-section.png)
 
-Cada categoria tem o seu próprio conjunto de atributos. Pode alterar os seguintes atributos:
+Cada categoria tem seu próprio conjunto de atributos. Pode alterar os seguintes atributos:
 
-- **expectedValue**: tipo de dados do campo este atributo tem de corresponder aos valores suportados por *tipo de regra*, por exemplo:
+- **expectedValue**: o tipo de dados do campo este atributo tem de corresponder aos valores suportados por *tipo de regra*, por exemplo:
 
-  - **baselineRegistryRules**: O valor deve corresponder a [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) que está definida nessa regra.
+  - **baselineRegistryRules**: O valor deve corresponder a [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) que é definida nessa regra.
 
-  - **baselineAuditPolicyRules**: Utilize um dos seguintes valores de cadeia:
+  - **baselineAuditPolicyRules**: Utilize um dos seguintes valores de cadeia de caracteres:
 
     - *Êxito e falha*
 
     - *Êxito*
 
-  - **baselineSecurityPolicyRules**: Utilize um dos seguintes valores de cadeia:
+  - **baselineSecurityPolicyRules**: Utilize um dos seguintes valores de cadeia de caracteres:
 
-    - *Nenhum*
+    - *Ninguém*
 
     - Lista de permitidos grupos de utilizadores, por exemplo: *administradores*, *operadores de cópia de segurança*
 
--   **estado**: A cadeia pode conter as opções *desativado* ou *ativado*. Para esta versão de pré-visualização privada, a cadeia é maiúsculas e minúsculas.
+-   **estado**: A cadeia de caracteres pode conter as opções *desativada* ou *ativado*. Para esta versão de pré-visualização privada, a cadeia de caracteres diferencia maiúsculas de minúsculas.
 
-Estes são os campos únicos que podem ser configurados. Se viola o formato de ficheiro ou o tamanho, não poderá guardar a alteração. A seguinte mensagem de erro ocorre quando não é possível processar o ficheiro:
+Estes são os campos únicos que podem ser configurados. Se violar o formato de ficheiro ou o tamanho, não será possível guardar a alteração. Receberá uma mensagem de erro informando que terá de carregar um ficheiro de configuração JSON válido.
 
-![Mensagem de erro de configuração de segurança](media/security-center-customize-os-security-config/invalid-json.png)
+Para obter uma lista de outros erros possíveis, consulte [códigos de erro](#error-codes).
 
-Para obter uma lista de outros erros de potenciais, consulte [códigos de erro](#error-codes).
-
-As secções seguintes três contém exemplos das regras anteriores. O *expectedValue* e *estado* atributos podem ser alterados.
+As três seções seguintes contêm exemplos das regras anteriores. O *expectedValue* e *estado* atributos podem ser alterados.
 
 **baselineRegistryRules**
 ```
@@ -182,35 +176,35 @@ As secções seguintes três contém exemplos das regras anteriores. O *expected
     }
 ```
 
-Algumas regras estão duplicadas para os diferentes tipos de SO. Regras duplicadas com o mesmo *originalId* atributo.
+Algumas regras são duplicadas para os diferentes tipos de SO. Regras duplicadas têm a mesma *originalId* atributo.
 
 ## <a name="create-custom-rules"></a>Criar regras personalizadas
 
 Também pode criar novas regras. Antes de criar uma nova regra, tenha em atenção as seguintes restrições:
 
--   Versão do esquema, *baselineId* e *baselineName* não pode ser alterada.
+-   Versão de esquema *baselineId* e *baselineName* não pode ser alterado.
 
--   Não é possível remover RuleSet.
+-   Não é possível remover o conjunto de regras.
 
--   Não é possível adicionar RuleSet.
+-   Não é possível adicionar o conjunto de regras.
 
--   O número máximo de regras permitidos (incluindo as regras predefinidas) é 1000.
+-   O número máximo de regras de permissão (incluindo as regras predefinidas) é 1000.
 
-Novas regras personalizadas são marcadas com uma nova origem personalizada (! = "Microsoft"). O *ruleId* campo pode ser nulo nem estar vazio. Se estiver vazia, a Microsoft gera um. Se não estiver vazia, tem de ter um GUID válido que seja exclusivo em todas as regras (predefinidos e personalizados). Reveja as seguintes restrições para os campos de núcleo:
+Novas regras personalizadas são marcadas com uma nova origem personalizada (! = "Microsoft"). O *ruleId* campo pode ser nulo nem estar vazio. Se estiver vazia, a Microsoft gera um. Se não estiver vazia, tem de ter um GUID válido que seja exclusivo em todas as regras (padrão e personalizada). Reveja as seguintes restrições para os campos de núcleos:
 
 -   **originalId**: pode ser nulo nem estar vazio. Se *originalId* é não vazio, deve ser um GUID válido.
 
 -   **cceId**: pode ser nulo nem estar vazio. Se *cceId* é não vazio, tem de ser exclusivo.
 
--   **ruleType**: (selecionar um) registo, AuditPolicy ou SecurityPolicy.
+-   **ruleType**: (selecione uma) registro, AuditPolicy ou SecurityPolicy.
 
--   **Gravidade**: (selecionar um) desconhecido, crítico, aviso ou informativos.
+-   **Gravidade**: (selecione uma) desconhecido, crítico, aviso ou informativo.
 
 -   **analyzeOperation**: tem de ser *é igual a*.
 
 -   **auditPolicyId**: tem de ser um GUID válido.
 
--   **regValueType**: (selecionar um) Int, longa, cadeia ou MultipleString.
+-   **regValueType**: (selecione uma) Int, Long, String, ou MultipleString.
 
 > [!NOTE]
 > Ramo de registo tem de ser *LocalMachine*.
@@ -251,7 +245,7 @@ Exemplo de uma nova regra personalizada:
    "state": "Enabled"
    }
 ```
-**A política de auditoria**:
+**Política de auditoria**:
 ```
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
@@ -267,9 +261,7 @@ Exemplo de uma nova regra personalizada:
 
 ## <a name="file-upload-failures"></a>Falhas de carregamento de ficheiros
 
-Se o ficheiro de configuração submetido é inválido devido a erros de valores ou formatação, é apresentado um erro de falha. Pode transferir um relatório de erros detalhados. csv para remediar e corrigir os erros antes de submeter um ficheiro de configuração corrigida.
-
-![Mensagem de erro "ação de guardar falhou"](media/security-center-customize-os-security-config/invalid-configuration.png)
+Se o ficheiro de configuração submetido é inválido devido a erros no valores ou a formatação, um erro de falha é apresentado, tais como **ação de guardar falhou**. Pode transferir um relatório do. csv de erros detalhados para remediar e corrigir os erros antes de voltar a submeter um ficheiro de configuração corrigido.
 
 Exemplo de um ficheiro de erro:
 
@@ -277,49 +269,49 @@ Exemplo de um ficheiro de erro:
 
 ## <a name="error-codes"></a>Códigos de erro
 
-Todos os potenciais erros estão listados na seguinte tabela:
+Todos os erros potenciais estão listados na tabela a seguir:
 
 | **Erro**                                | **Descrição**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | A propriedade *schemaVersion* encontrada inválido ou está vazio. O valor deve ser definido como *{0}*.                                                         |
-| BaselineInvalidStringError               | A propriedade *{0}* não pode conter  *\\ n* .                                                                                                         |
+| BaselineConfiguratiohSchemaVersionError  | A propriedade *schemaVersion* foi encontrado inválido ou está vazio. O valor tem de ser definido como *{0}*.                                                         |
+| BaselineInvalidStringError               | A propriedade *{0}* não pode conter  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | A lista de regras de configuração de linha de base contém uma regra com o valor *nulo*.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | O ID de CCE *{0}* não é exclusivo.                                                                                                                  |
+| BaselineRuleCceIdNotUniqueError          | O ID do CCE *{0}* não é exclusivo.                                                                                                                  |
 | BaselineRuleEmptyProperty                | A propriedade *{0}* está em falta ou é inválido.                                                                                                       |
-| BaselineRuleIdNotInDefault               | A regra tem uma propriedade de origem *Microsoft* mas não foi encontrada no ruleset de predefinição Microsoft.                                                   |
-| BaselineRuleIdNotUniqueError             | O Id de regra não é exclusivo.                                                                                                                       |
-| BaselineRuleInvalidGuid                  | A propriedade *{0}* encontrada inválido. O valor não é um GUID válido.                                                                             |
+| BaselineRuleIdNotInDefault               | A regra tem uma propriedade de origem *Microsoft* mas não foi encontrada no conjunto de regras de predefinição da Microsoft.                                                   |
+| BaselineRuleIdNotUniqueError             | A Id de regra não é exclusiva.                                                                                                                       |
+| BaselineRuleInvalidGuid                  | A propriedade *{0}* foi encontrado inválido. O valor não é um GUID válido.                                                                             |
 | BaselineRuleInvalidHive                  | O ramo de registo tem de ser LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | O nome da regra não é exclusivo.                                                                                                                 |
 | BaselineRuleNotExistInConfigError        | A regra não foi encontrada na configuração de novo. Não é possível eliminar a regra.                                                                     |
-| BaselineRuleNotFoundError                | A regra não foi encontrada no predefinido ruleset de linha de base.                                                                                        |
-| BaselineRuleNotInPlace                   | A regra corresponde a uma regra predefinida com tipo {0} e está listada na lista de {1}.                                                                       |
-| BaselineRulePropertyTooLong              | A propriedade *{0}* é demasiado longo. Número máximo permitido de comprimento: {1}.                                                                                        |
+| BaselineRuleNotFoundError                | A regra não foi encontrada em default conjunto de regras de linha de base.                                                                                        |
+| BaselineRuleNotInPlace                   | A regra corresponder uma regra predefinida com o tipo {0} e está listado no {1} lista.                                                                       |
+| BaselineRulePropertyTooLong              | A propriedade *{0}* é demasiado longo. Máximo permitido de comprimento: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | O valor esperado *{0}* não corresponde ao tipo de valor de registo que está definido.                                                              |
-| BaselineRulesetAdded                     | Ruleset com o ID *{0}* não foi encontrado na configuração predefinida. Não é possível adicionar o ruleset.                                               |
-| BaselineRulesetIdMustBeUnique            | A linha base especificada ruleset *{0}* tem de ser exclusivo.                                                                                           |
-| BaselineRulesetNotFound                  | Ruleset com o id *{0}* e nome *{1}* não foi encontrado na configuração indicada. Não é possível eliminar o ruleset.                                |
-| BaselineRuleSourceNotMatch               | A regra com o ID *{0}* já está definido.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | O tipo de regra predefinida é *{0}*.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | O tipo real da regra é *{0}*, mas o *ruleType* propriedade é *{1}*.                                                                          |
-| BaselineRuleUnpermittedChangesError      | Apenas *expectedValue* e *estado* são permitidas propriedades de ser alteradas.                                                                       |
-| BaselineTooManyRules                     | O número máximo de regras personalizadas permitidas é {0} regras. A configuração indicada contém regras {1}, regras de predefinidas {2} e regras de {3} personalizado. |
-| ErrorNoConfigurationStatus               | Não foi encontrado nenhum Estado de configuração. Indicar o estado de configuração pretendida: *predefinido* ou *personalizada*.                                    |
+| BaselineRulesetAdded                     | O conjunto de regras com o ID *{0}* não foi encontrado na configuração predefinida. Não é possível adicionar o conjunto de regras.                                               |
+| BaselineRulesetIdMustBeUnique            | O conjunto de regras de linha de base especificada *{0}* tem de ser exclusivo.                                                                                           |
+| BaselineRulesetNotFound                  | O conjunto de regras com o id *{0}* e o nome *{1}* não foi encontrado na configuração especificada. Não é possível eliminar o conjunto de regras.                                |
+| BaselineRuleSourceNotMatch               | A regra com ID *{0}* já está definido.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | É o tipo de regra predefinida *{0}*.                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | É o tipo real da regra *{0}*, mas o *ruleType* propriedade é *{1}*.                                                                          |
+| BaselineRuleUnpermittedChangesError      | Apenas *expectedValue* e *estado* propriedades têm permissão para ser alterada.                                                                       |
+| BaselineTooManyRules                     | O número máximo de regras personalizadas permitidas é {0} regras. Contém a configuração de determinado {1} regras, {2} regras, predefinidas e {3} personalizado regras. |
+| ErrorNoConfigurationStatus               | Não foi encontrado nenhum Estado de configuração. O estado de configuração pretendida de estado: *predefinido* ou *personalizado*.                                    |
 | ErrorNonEmptyRulesetOnDefault            | O estado da configuração é definido como predefinido. O *BaselineRulesets* lista tem de ser nulo nem estar vazio.                                                          |
-| ErrorNullRulesetsPropertyOnCustom        | O estado de configuração indicado é *personalizada* , mas a *baselineRulesets* propriedade é nulo ou está vazio.                                             |
+| ErrorNullRulesetsPropertyOnCustom        | O estado de determinada configuração é *personalizada* , mas a *baselineRulesets* propriedade é nulo ou estar vazio.                                             |
 | ErrorParsingBaselineConfig               | A configuração especificada é inválida. Um ou mais dos valores definidos tem um valor nulo ou um tipo inválido.                                  |
-| ErrorParsingIsDefaultProperty            | O dado *configurationStatus* valor *{0}* é inválido. O valor só pode ser *predefinido* ou *personalizada*.                                         |
-| InCompatibleViewVersion                  | A versão de vista *{0}* é *não* suportado neste tipo de área de trabalho.                                                                                   |
-| InvalidBaselineConfigurationGeneralError | A configuração de linha base especificada foi encontrada com um ou mais erros de validação de tipo.                                                          |
-| ViewConversionError                      | A vista é uma versão mais antiga que suporta a área de trabalho. Falha na conversão de ver: {0}.                                                                 |
+| ErrorParsingIsDefaultProperty            | O determinado *configurationStatus* valor *{0}* é inválido. O valor só pode ser *predefinido* ou *personalizado*.                                         |
+| InCompatibleViewVersion                  | A versão do modo de exibição *{0}* é *não* suportado neste tipo de área de trabalho.                                                                                   |
+| InvalidBaselineConfigurationGeneralError | A configuração de linha de base especificada foi encontrada com um ou mais erros de validação de tipo.                                                          |
+| ViewConversionError                      | A visualização é uma versão mais antiga que oferece suporte a área de trabalho. Falha na conversão de ver: {0}.                                                                 |
 
-Se não tiver permissões suficientes, poderá obter um erro de falha geral, conforme mostrado aqui:
+Se não tiver permissões suficientes, poderá obter um erro de falha geral, como mostrado aqui:
 
-![Mensagem de erro "ação de guardar falhou"](media/security-center-customize-os-security-config/general-failure-error.png)
+![Mensagem de erro "salvar a ação falhou"](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Este artigo abordados como personalizar as avaliações de configuração do SO segurança no Centro de segurança. Para saber mais sobre as regras de configuração e remediação, consulte:
+Este artigo abordou a forma de personalizar as avaliações de configuração de segurança de SO no Centro de segurança. Para saber mais sobre as regras de configuração e a remediação, consulte:
 
-- [Identificadores de configuração comuns do Centro de segurança e regras de linha de base](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
-- Centro de segurança utiliza enumeração comuns de configuração (de CCE) para atribuir os identificadores exclusivos para as regras de configuração. Para obter mais informações, consulte [CCE](https://nvd.nist.gov/config/cce/index).
-- Para resolver vulnerabilidades quando a configuração do SO não corresponde as regras de configuração de segurança recomendadas, consulte [remediar configurações de segurança](security-center-remediate-os-vulnerabilities.md).
+- [Identificadores de configuração do Centro de segurança comuns e regras de linha de base](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
+- Centro de segurança utiliza a enumeração de configuração comum (CCE) para atribuir os identificadores exclusivos para as regras de configuração. Para obter mais informações, consulte [CCE](https://nvd.nist.gov/config/cce/index).
+- Para resolver vulnerabilidades quando a configuração do SO não coincide com as regras de configuração de segurança recomendado, veja [remediar configurações de segurança](security-center-remediate-os-vulnerabilities.md).

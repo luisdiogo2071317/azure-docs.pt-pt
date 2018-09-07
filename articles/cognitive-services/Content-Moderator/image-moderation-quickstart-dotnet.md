@@ -1,6 +1,6 @@
 ---
-title: Moderator conteúdo do Azure - imagens moderadas através do .NET | Microsoft Docs
-description: Como imagens moderadas utilizando o SDK de Moderator conteúdo do Azure para .NET
+title: Azure Content Moderator - moderados imagens usando o .NET | Documentos da Microsoft
+description: Como moderar as imagens com o SDK de moderador de conteúdos do Azure para .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,48 +9,48 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: cc2329c233029a1ff6bd82da3d090c4e98a8bac8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4a73892d44b4ae92f08976c8f54771292bba3a1d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351709"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025521"
 ---
 # <a name="moderate-images-using-net"></a>Imagens moderadas através do .NET
 
-Este artigo fornece informações e exemplos de código para o ajudar a começar a utilizar o SDK Moderator conteúdo para o .NET para: 
-- Verificar uma imagem de conteúdo para adultos ou racy
-- Detetar e extraia o texto a partir de uma imagem
-- Detetar faces numa imagem
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [conteúdo de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para: 
+- Verificar uma imagem para o conteúdo de adultos
+- Detetar e extrair texto de uma imagem
+- Detetar rostos numa imagem
 
-Este artigo pressupõe que já estiver familiarizado com o Visual Studio e c#.
+Este artigo pressupõe que já está familiarizado com o Visual Studio e c#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se os serviços de Moderator conteúdo
+## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para os serviços do Content Moderator
 
-Antes de poder utilizar os serviços de Moderator conteúdo através da API REST ou o SDK, precisa de uma chave de subscrição.
-Consulte o [início rápido](quick-start.md) para saber como pode obter a chave.
+Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
+Consulte a [guia de introdução](quick-start.md) para saber como pode obter a chave.
 
-## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar o seu projeto do Visual Studio
 
-1. Adicione um novo **aplicação de consola (.NET Framework)** projeto para a sua solução.
+1. Adicionar um novo **aplicação de consola (.NET Framework)** projeto à sua solução.
 
-   No código de exemplo, nome do projeto **ImageModeration**.
+   No código de exemplo, nomeie o projeto **ImageModeration**.
 
 1. Selecione este projeto como o projeto de arranque único para a solução.
 
-1. Adicione uma referência para o **ModeratorHelper** projeto de assemblagem que criou no [início rápido do programa auxiliar de cliente Moderator conteúdo](content-moderator-helper-quickstart-dotnet.md).
+1. Adicionar uma referência para o **ModeratorHelper** projeto assembly que criou no [guia de introdução do Content Moderator cliente auxiliar](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Instalar pacotes necessários
 
-Instale os pacotes de NuGet seguintes:
+Instale os seguintes pacotes de NuGet:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft
 
-### <a name="update-the-programs-using-statements"></a>O programa de atualização do instruções de utilização
+### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
 
-Modificar o programa de instruções de utilização.
+Modifique o programa usando instruções.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -61,9 +61,9 @@ Modificar o programa de instruções de utilização.
     using System.IO;
     using System.Threading;
 
-### <a name="initialize-application-specific-settings"></a>Inicializar definições específicas da aplicação
+### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
 
-Adicione os seguintes campos estáticos para o **programa** a classe Program. cs.
+Adicione os seguintes campos estáticos para o **programa** classe no Program.cs.
 
     ///<summary>
     ///The name of the file that contains the image URLs to evaluate.
@@ -82,13 +82,13 @@ Adicione os seguintes campos estáticos para o **programa** a classe Program. cs
 
 
 > [!NOTE]
-> Este exemplo utiliza as seguintes imagens para gerar a saída para este início rápido.
+> O exemplo usa as seguintes imagens para gerar a saída para este início rápido.
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
-## <a name="store-the-analysis-results"></a>Armazenar os resultados de análise
+## <a name="store-the-analysis-results"></a>Store os resultados da análise
 
-Adicione a seguinte classe para o **programa** classe. Utilize uma instância desta classe para registar os resultados de moderação interrupção para as imagens revistas.
+Adicione a seguinte classe para o **programa** classe. Utilize uma instância dessa classe para registrar os resultados de moderação para as imagens de revistas.
 
     /// <summary>
     /// Contains the image moderation results for an image, 
@@ -117,12 +117,12 @@ Adicione a seguinte classe para o **programa** classe. Utilize uma instância de
         public FoundFaces FaceDetection;
     }
 
-## <a name="evaluate-an-individual-image"></a>Avaliar uma imagem individuais
+## <a name="evaluate-an-individual-image"></a>Avaliar uma imagem individual
 
-Adicione o seguinte método à classe **Programa**. Este método avalia uma única imagem e devolve os resultados da avaliação.
+Adicione o seguinte método à classe **Programa**. Esse método avalia uma única imagem e retorna os resultados da avaliação.
 
 > [!NOTE]
-> A chave do serviço Moderator conteúdo tem um pedidos por segundo (RPS) para o limite de velocidade e, se for excedido o limite, o SDK emite uma exceção com um código de 429 erro. 
+> A chave de serviço do Content Moderator tem um pedidos por segundo limite de taxa (RPS) e, se exceder o limite, o SDK lançará uma exceção com um código de 429 erro. 
 >
 > Uma chave de escalão gratuito tem um limite de taxa de um RPS.
 
@@ -165,14 +165,14 @@ Adicione o seguinte método à classe **Programa**. Este método avalia uma úni
         return imageData;
     }
 
-O **EvaluateUrlInput** método é um wrapper para a API de REST de moderação interrupção de imagem.
-O valor devolvido contém o objeto devolvido da chamada de API.
+O **EvaluateUrlInput** método é um wrapper para a API de REST de moderação de imagens.
+O valor devolvido contém o objeto retornado da chamada API.
 
-O **OCRUrlInput** método é um wrapper para a API de REST de OCR de imagem.
-O valor devolvido contém o objeto devolvido da chamada de API.
+O **OCRUrlInput** método é um wrapper para a API de REST de OCR de imagens.
+O valor devolvido contém o objeto retornado da chamada API.
 
-O **FindFacesUrlInput** método é um wrapper para a imagem localizar enfrenta API REST.
-O valor devolvido contém o objeto devolvido da chamada de API.
+O **FindFacesUrlInput** método é um wrapper para a imagem encontrar enfrenta API REST.
+O valor devolvido contém o objeto retornado da chamada API.
 
 ## <a name="process-the-image-urls-in-your-code"></a>Processar os URLs de imagem no seu código
 
@@ -211,11 +211,11 @@ Adicione o seguinte código para o **Main** método.
 
 ## <a name="run-the-program-and-review-the-output"></a>Execute o programa e reveja o resultado
 
-O seguinte objeto JSON contém o resultado para o programa.
+O seguinte objeto JSON contém a saída para o programa.
 
 > [!NOTE]
-> `isImageAdultClassified` representa a presença potencial de imagens que pode ser considerada sexually explícita ou para adultos em determinadas situações.
-> `isImageRacyClassified` representa a presença potencial de imagens que pode ser considerada sexually suggestive ou madura em determinadas situações.
+> `isImageAdultClassified` representa a presença de potencial de imagens que podem ser considerados sexualmente explícita ou para adultos em determinadas situações.
+> `isImageRacyClassified` representa a presença de potencial de imagens que podem ser considerados sexualmente suggestive ou madura e em determinadas situações.
 >
 
     [
@@ -401,6 +401,6 @@ O seguinte objeto JSON contém o resultado para o programa.
     ]
 
 
-## <a name="next-steps---get-the-source-code"></a>Próximos passos - obter o código de origem
+## <a name="next-steps---get-the-source-code"></a>Passos seguintes - obter o código-fonte
 
-[Transferir a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esta e outros inícios rápidos de Moderator conteúdo para o .NET e começar a utilizar a integração.
+Obter o [SDK de .NET do conteúdo moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e o [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET e começar a trabalhar com sua integração.

@@ -18,12 +18,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223954"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022803"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -71,7 +71,7 @@ Roaming de estado empresarial requer que o dispositivo ser registado com o Azure
 **Problema em potencial**: **WamDefaultSet** e **AzureAdJoined** tem o valor do campo "Não", o dispositivo foi associado a um domínio e registado com o Azure AD e do dispositivo não sincroniza. Se está a mostrar isso, o dispositivo poderá ter de aguardar para a política seja aplicada ou a autenticação do dispositivo falhou ao estabelecer ligação ao Azure AD. O utilizador pode ter de esperar algumas horas para a política seja aplicada. Outros passos de resolução de problemas podem incluir repetir o registo automático ao terminar a sessão e de volta no ou a iniciar a tarefa no agendador de tarefas. Em alguns casos, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
 
 
-**Problema em potencial**: O campo de **AzureAdSettingsUrl** está vazia e o dispositivo não sincroniza. O utilizador pode ter iniciou sessão no dispositivo antes do Roaming de estado empresarial foi ativada no Portal do Azure Active Directory. Reiniciar o dispositivo e ter o início de sessão do utilizador. Opcionalmente, no portal, tente ter o administrador de TI desative e volte a ativar utilizadores podem sincronizar definições e dados de aplicação empresariais. Uma vez reativada, reiniciar o dispositivo e tem o início de sessão do utilizador. Se isso não resolver o problema **AzureAdSettingsUrl** pode estar vazio no caso de um certificado de dispositivo. Neste caso, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
+**Problema em potencial**: O campo de **SettingsUrl** está vazia e o dispositivo não sincroniza. O utilizador pode ter iniciou sessão no dispositivo antes do Roaming de estado empresarial foi ativada no Portal do Azure Active Directory. Reiniciar o dispositivo e ter o início de sessão do utilizador. Opcionalmente, no portal, tente ter o administrador de TI desative e volte a ativar utilizadores podem sincronizar definições e dados de aplicação empresariais. Uma vez reativada, reiniciar o dispositivo e tem o início de sessão do utilizador. Se isso não resolver o problema **SettingsUrl** pode estar vazio no caso de um certificado de dispositivo. Neste caso, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Roaming de estado empresarial e multi-factor Authentication 
 Sob determinadas condições, Roaming de estado empresarial pode não conseguir sincronizar os dados se o Azure multi-factor Authentication está configurado. Para obter detalhes adicionais sobre esses sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -81,7 +81,7 @@ Sob determinadas condições, Roaming de estado empresarial pode não conseguir 
 **Problema em potencial**: sincronização pode falhar se o administrador configura a política de acesso condicional de autenticação do multi-factor dos serviços de Federação do Active Directory e o token de acesso do dispositivo expira. Certifique-se de que iniciar sessão e termine com o Microsoft Passport para o PIN de trabalho ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
-Para resolução de problemas avançada, o Visualizador de eventos pode ser utilizado para localizar erros específicos. Estas estão documentadas na tabela abaixo. Os eventos podem ser encontrados no Visualizador de eventos > registos de serviços e aplicações > **Microsoft** > **Windows** > **SettingSync** e para problemas relacionados com a identidade com o sync **Microsoft** > **Windows** > **AAD**.
+Para resolução de problemas avançada, o Visualizador de eventos pode ser utilizado para localizar erros específicos. Estas estão documentadas na tabela abaixo. Os eventos podem ser encontrados no Visualizador de eventos > registos de serviços e aplicações > **Microsoft** > **Windows** > **SettingSync Azure** e para problemas relacionados com a identidade com o sync **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
@@ -174,14 +174,6 @@ No Visualizador de eventos em registos de AAD/Operational, este erro pode ser vi
 
 **Ação recomendada**  
 Continue com os passos listados [KB3196528](https://support.microsoft.com/kb/3196528).  
-
-
-
-## <a name="next-steps"></a>Passos Seguintes
-
-- Utilize o [fórum do Uservoice](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) para fornecer comentários e sugestões sobre como melhorar o Roaming de estado empresarial.
-
-- Para obter mais informações, consulte a [descrição geral do Roaming de estado empresarial](active-directory-windows-enterprise-state-roaming-overview.md). 
 
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Visão geral o roaming de estado empresarial](active-directory-windows-enterprise-state-roaming-overview.md)

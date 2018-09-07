@@ -11,12 +11,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8bfe069ba03aec2476d437f25ebb00f8a934c845
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525591"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025558"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Início rápido: Configurar clusters no HDInsight
 
@@ -242,7 +242,7 @@ Alguns componentes de Java nativos, como o Mahout e Cascading, podem ser executa
 Para obter mais informações, consulte [clusters do HDInsight personalizar com o arranque de](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Definições avançadas: Expandir clusters com uma rede virtual
-Se sua solução necessitar de tecnologias que são distribuídas por vários tipos de cluster do HDInsight, um [rede virtual do Azure](../../hdinsight/https://docs.microsoft.com/azure/virtual-network) pode ligar-se os tipos de cluster necessários. Esta configuração permite que os clusters e qualquer código que implementar aos mesmos, para comunicar diretamente entre si.
+Se sua solução necessitar de tecnologias que são distribuídas por vários tipos de cluster do HDInsight, um [rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network) pode ligar-se os tipos de cluster necessários. Esta configuração permite que os clusters e qualquer código que implementar aos mesmos, para comunicar diretamente entre si.
 
 Para obter mais informações sobre como utilizar uma rede virtual do Azure com o HDInsight, consulte [estender o HDInsight com redes virtuais do Azure](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md).
 

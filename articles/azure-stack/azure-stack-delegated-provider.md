@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060212"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024781"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
 
@@ -128,7 +128,7 @@ Inicie sessão no portal de utilizador como o fornecedor de delegado e, em segui
 
 4. As ofertas delegadas públicas agora estão visíveis apenas através do portal do delegado. Para localizar e altere este URL:
 
-    a.  Selecione **navegue** > **mais serviços** > **subscrições**. Em seguida, selecione a subscrição do fornecedor delegado. Por exemplo, **DPSubscription** > **propriedades**.
+    a.  Selecione **navegue** > **todos os serviços**e, no **geral** categoria, selecione **subscrições**. Selecione a subscrição do fornecedor delegado. Por exemplo, **DPSubscription** > **propriedades**.
 
     b.  Copie o portal de URL para uma localização separada, como o bloco de notas.
 

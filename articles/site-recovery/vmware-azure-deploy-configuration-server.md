@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666437"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025281"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -42,7 +42,7 @@ Os requisitos de dimensionamento para o servidor de configuração dependem da t
 | 12 vCPUs (2 sockets * 6 núcleos \@ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar máquinas de 100 150. |
 | 16 vCPUs (2 sockets * 8 núcleos \@ 2,5 GHz) |32 GB |1 TB |1 TB para 2 TB |Replicar máquinas de 150 a 200. |
 
-Se estiver a replicar mais do que uma VM de VMware, leia [considerações de planeamento de capacidade](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Executar o [ferramenta Planeador de implementações](site-recovery-deployment-planner.md) para a replicação de VMWare.
+Se estiver a replicar mais do que uma VM de VMware, leia [considerações de planeamento de capacidade](site-recovery-plan-capacity-vmware.md). Executar o [ferramenta Planeador de implementações](site-recovery-deployment-planner.md) para a replicação de VMWare.
 
 ## <a name="download-the-template"></a>Transferir o modelo
 
@@ -119,21 +119,21 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 
 ## <a name="faq"></a>FAQ
 
-1. Pode utilizar a VM, onde o servidor de configuração está instalado, para fins diferentes?
+1. Pode utilizar a VM, onde está instalado o servidor de configuração, para fins diferentes?
 
-    **Não**, recomendamos que utilize a VM para o único propósito de servidor de configuração. Confirme que segue todas as especificações mencionadas a [secção anterior](vmware-azure-deploy-configuration-server.md#Prerequisites) para a gestão eficiente de recuperação após desastre.
+    **Não**, recomendamos que utilize a VM para o único propósito de servidor de configuração. Certifique-se de que segue todas as especificações mencionadas na [pré-requisitos](#prerequisites) para a gestão eficiente de recuperação após desastre.
 2. Pode alternar o Cofre já está registado no servidor de configuração com um cofre recém-criado?
 
     **Não**, depois de um cofre está registado no servidor de configuração, não pode ser alterado.
 3. Pode utilizar o mesmo servidor de configuração para proteger máquinas virtuais e físicas?
 
-    **Sim**, mesmo servidor de configuração pode ser utilizado para replicar máquinas físicas e virtuais. No entanto, o computador físico pode ser falha back apenas a uma VM de VMware.
+    **Sim**, o mesmo servidor de configuração pode ser utilizado para replicar máquinas físicas e virtuais. No entanto, o computador físico pode ser falha back apenas a uma VM de VMware.
 4. Qual é a finalidade de um servidor de configuração e em que é utilizada?
 
-    Consulte a nossa arquitetura de Azure Site Recovery [aqui](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e as funcionalidades do mesmo.
+    Consulte a [arquitetura de replicação do Azure de VMware para](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e as funcionalidades do mesmo.
 5. Onde posso encontrar a versão mais recente do servidor de configuração?
 
-    Consulte o artigo sobre os passos para atualizar o servidor de configuração [através do portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pode baixá-lo de também diretamente [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Para obter os passos atualizar o servidor de configuração através do portal, consulte [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pode baixá-lo de também diretamente [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 6. Onde posso transferir a frase de acesso para o servidor de configuração?
 
     Consulte a [este artigo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para transferir a frase de acesso.
@@ -143,7 +143,7 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
-Para atualizar o servidor de configuração para a versão mais recente, leia os passos [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+Para atualizar o servidor de configuração para a versão mais recente, siga estes [passos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## <a name="manage-the-configuration-server"></a>Gerir o servidor de configuração
 

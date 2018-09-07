@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 48e04d3bdd783d1dc04ac5cc77c4183ef5f87865
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ac6d3a23e3afcc3a4c17798db7f63d846b123fba
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818444"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022118"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -70,6 +70,9 @@ As versões atuais são:
 * 15.7 de 2017 do Visual Studio inclui as ferramentas do Service Fabric para Visual Studio 2.3.10710.1 
 
 Para obter uma lista das versões suportadas, consulte [Service Fabric support (Suporte do Service Fabric)](service-fabric-support.md)
+
+> [!NOTE]
+> Atualiza a única máquina clusters (OneBox) não são suportados para o aplicativo ou Cluster; eliminar o cluster OneBox e recrie-o se tiver de executar uma atualização de Cluster ou tem quaisquer problemas a efetuar uma atualização da aplicação. 
 
 ## <a name="enable-powershell-script-execution"></a>Ativar a execução do script do PowerShell
 O Service Fabric utiliza scripts do Windows PowerShell para criar um cluster de desenvolvimento local e para implementação de aplicações do Visual Studio. Por predefinição, o Windows bloqueará a execução destes scripts. Para ativá-los, tem de modificar a política de execução do PowerShell. Abra o PowerShell como administrador e introduza o seguinte comando:

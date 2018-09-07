@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921494"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021998"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para a replicação de VMs de VMware e servidores físicos para um site secundário
 
@@ -112,7 +112,7 @@ O serviço de mobilidade coordena a replicação entre servidores de VMware no l
 
 **Atualização** | **Detalhes** 
 --- | --- 
-Atualizações do Scout | [Conheça e baixe](/vmware-physical-secondary-disaster-recovery.md#updates) as atualizações mais recentes do Scout | Scout atualizações são cumulativas.
+Atualizações do Scout | [Conheça e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as atualizações mais recentes do Scout | Scout atualizações são cumulativas.
 Atualizações de componentes | Scout atualizações incluem atualizações para todos os componentes, incluindo o servidor do RX, servidor de configuração, processo e servidores de destino mestre, servidores de vContinuum e servidores de origem que pretende proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

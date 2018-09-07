@@ -1,3 +1,21 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 09/06/2018
+ms.author: raynew
+ms.custom: include file
+ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44058372"
+---
 1. Execute o ficheiro de instalação Configuração Unificada.
 2. Na **antes de começar**, selecione **instalar o servidor de configuração e o servidor de processos**.
 
@@ -21,10 +39,7 @@
 7. Em **Configuração do MySQL**, crie as credenciais para iniciar sessão na instância de servidor do MySQL que está instalada.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. Em **Detalhes do ambiente**, selecione se pretende replicar VMs do VMware. Se estiver, a configuração verifica se o PowerCLI 6.0 está instalado.
-
-    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-
+8. Na **detalhes do ambiente**, selecione não se está a replicar VMs do Azure Stack ou servidores físicos. 
 9. Em **Localização de Instalação**, selecione onde pretende instalar os binários e armazenar a cache. A unidade que selecionar tem de ter, pelo menos, 5 GB de espaço disponível no disco, mas recomenda-se uma unidade de cache com, pelo menos, 600 GB de espaço livre.
 
     ![Localização de instalação](./media/site-recovery-add-configuration-server/combined-wiz8.png)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058160"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025315"
 ---
 # <a name="back-up-azure-stack"></a>Criar cópias de segurança do Azure Stack
 
@@ -81,7 +81,7 @@ O resultado deverá ser semelhante a seguinte saída:
 Utilize o portal de administração do Azure Stack para verificar que essa cópia de segurança foi concluída com êxito ao seguir estes passos:
 
 1. Abra o [portal de administração do Azure Stack](azure-stack-manage-portals.md).
-2. Selecione **mais serviços** > **cópia de segurança da infraestrutura**. Escolher **Configuration** no **cópia de segurança da infraestrutura** painel.
+2. Selecione **todos os serviços**e, no **administração** categoria selecione > **cópia de segurança da infraestrutura**. Escolher **Configuration** no **cópia de segurança da infraestrutura** painel.
 3. Encontrar o **Name** e **data concluída** da cópia de segurança no **cópias de segurança disponíveis** lista.
 4. Verifique se o **estado** é **Succeeded**.
 

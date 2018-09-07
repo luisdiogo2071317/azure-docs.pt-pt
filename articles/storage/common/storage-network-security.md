@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523262"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023397"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure Firewalls e redes virtuais
 O armazenamento do Azure fornece um modelo de segurança em camadas, permitindo-lhe proteger as contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede estiverem configuradas, apenas as aplicações de redes permitidas podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, o aplicações continuam a exigir a autorização adequada (uma chave de acesso válido ou um token SAS) para aceder à conta de armazenamento.
 
 > [!IMPORTANT]
-> Ativar as regras de Firewall para a sua conta de armazenamento irá bloquear o acesso a pedidos recebidos para os dados, incluindo a partir de outros serviços do Azure.  Isto inclui a utilizar o Portal, escrever os registos, etc.  Para os serviços de participantes pode reativar o funcionalidade por meio da [exceções](#Exceptions) secção abaixo.  Para aceder ao Portal terá de fazê-lo a partir de uma máquina dentro do limite confiável (IP ou VNet) que configurou.
+> Ativar as regras de Firewall para a sua conta de armazenamento irá bloquear o acesso a pedidos recebidos para os dados, incluindo a partir de outros serviços do Azure.  Isto inclui a utilizar o Portal, escrever os registos, etc.  Para os serviços de participantes pode reativar o funcionalidade por meio da [exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) secção abaixo.  Para aceder ao Portal terá de fazê-lo a partir de uma máquina dentro do limite confiável (IP ou VNet) que configurou.
 >
 
 ## <a name="scenarios"></a>Cenários
@@ -35,7 +35,7 @@ O tráfego de disco da máquina virtual (incluindo montar e desmontar as operaç
 
 Contas de armazenamento clássicas **não** suportar Firewalls e redes virtuais.
 
-Cópia de segurança e restauro das máquinas virtuais com discos não geridos nas contas de armazenamento com regras de rede aplicadas é suportado por meio de criar uma exceção, conforme documentado no [exceções](/storage/common/storage-network-security#exceptions) seção deste artigo.  Exceções de firewall não são aplicáveis com os Managed Disks, como já são geridos pelo Azure.
+Cópia de segurança e restauro das máquinas virtuais com discos não geridos nas contas de armazenamento com regras de rede aplicadas é suportado por meio de criar uma exceção, conforme documentado no [exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) seção deste artigo.  Exceções de firewall não são aplicáveis com os Managed Disks, como já são geridos pelo Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Alterar a regra de acesso de rede predefinida
 Por predefinição, as contas de armazenamento aceitam ligações de clientes em qualquer rede.  Para limitar o acesso a redes selecionadas, primeiro tem de alterar a ação predefinida.

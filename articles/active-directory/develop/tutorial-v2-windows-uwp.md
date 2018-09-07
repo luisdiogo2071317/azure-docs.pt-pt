@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cd6cf2e94b032408fd6c3b298294d84837e102a6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496322"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024753"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar o Microsoft Graph API a partir de uma aplicação plataforma Universal do Windows (XAML)
 
@@ -71,11 +71,14 @@ Este guia cria um aplicativo que exibe um botão que consultas do Graph API, um 
 2. Copie e cole o seguinte comando no **Package Manager Console** janela:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > Este comando instala [biblioteca de autenticação da Microsoft](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). A MSAL adquire, coloca em cache e atualiza os tokens de utilizador que acessem a APIs protegidas pelo Azure Active Directory v2.
+
+> [!NOTE]
+> Este tutorial não contém a versão mais recente do MSAL.NET, porém usar, mas estamos a trabalhar a atualizá-los.
 
 ## <a name="initialize-msal"></a>Inicializar a MSAL
 Este passo ajuda-o a criar uma classe para lidar com a interação com MSAL, como a manipulação de tokens.

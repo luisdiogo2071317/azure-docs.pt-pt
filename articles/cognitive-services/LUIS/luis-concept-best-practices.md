@@ -1,5 +1,6 @@
 ---
-title: Compreender as práticas recomendadas do LUIS – Azure | Documentos da Microsoft
+title: Melhores práticas para criar aplicações com os LUIS - compreensão de idiomas
+titleSuffix: Azure Cognitive Services
 description: Aprenda as práticas recomendadas do LUIS para obter os melhores resultados.
 services: cognitive-services
 author: diberry
@@ -9,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: diberry
-ms.openlocfilehash: 81a2523f37cac926d9f498953a831c2d877a7528
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2c844aa9dbaa1b228558e9cee80565cdc95650b7
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224012"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025623"
 ---
-# <a name="best-practices"></a>Melhores práticas
+# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criar uma aplicação de compreensão de idiomas com os serviços cognitivos
 Utilize a processo de criação de aplicações para criar a sua aplicação LUIS. 
 
 * Criar modelo de idioma

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fd93f1ad83f6627f27534eca17f91c9fe9b2cc9f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667862"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025069"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Compreender a utilização de máquina virtual do Azure
-Ao analisar os dados de utilização do Azure, pode ser obtida a informações sobre consumo poderosas – informações que podem ativar a custam melhor gerenciamento e a alocação em toda a organização. Este documento fornece uma descrição aprofundada seus detalhes de consumo de computação do Azure. Para obter mais detalhes sobre a utilização do Azure geral, navegue para [entender a sua fatura](/billing/billing-understand-your-bill.md).
+Ao analisar os dados de utilização do Azure, pode ser obtida a informações sobre consumo poderosas – informações que podem ativar a custam melhor gerenciamento e a alocação em toda a organização. Este documento fornece uma descrição aprofundada seus detalhes de consumo de computação do Azure. Para obter mais detalhes sobre a utilização do Azure geral, navegue para [entender a sua fatura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## <a name="download-your-usage-details"></a>Transferir os seus detalhes de utilização
 Para começar, [transferir os seus detalhes de utilização](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). A tabela abaixo fornece os valores de definição e exemplo de utilização para máquinas virtuais implementadas através do Azure Resource Manager. Este documento não contém informações detalhadas para as VMs implementadas através do nosso modelo clássico.
@@ -143,5 +143,6 @@ No modelo clássico, a faturação de recursos é agregada ao nível do serviço
 O armazenamento Premium com capacidade de VMs são faturadas a mesma tarifa não premium storage VMs com capacidade. Apenas os custos de armazenamento diferem. Visite o [página de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre os seus detalhes de utilização, veja [compreender a sua fatura do Microsoft Azure.](/billing/billing-understand-your-bill.md)
+Para saber mais sobre os seus detalhes de utilização, veja [compreender a sua fatura do Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)
 

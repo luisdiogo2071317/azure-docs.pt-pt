@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917457"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024309"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infra-estrutura de chave pública do Azure Stack
 
@@ -76,6 +76,8 @@ Para a sua implementação, o [Região] e [externalfqdn] valores têm de corresp
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL de caráter universal) | Armazenamento de filas | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL de caráter universal) | Cofre de Chaves | cofre. &lt;região >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL de caráter universal) |  Cofre de chaves interno |  adminvault. &lt;região >. &lt;fqdn > |
+| Anfitrião de extensão de administração | *.adminhosting. \<região >. \<fqdn > (certificados de SSL de caráter universal) | Anfitrião de extensão de administração | adminhosting. \<região >. \<fqdn > |
+| Anfitrião de pública de extensão | * .hosting. \<região >. \<fqdn > (certificados de SSL de caráter universal) | Anfitrião de pública de extensão | hospedando. \<região >. \<fqdn > |
 
 Se implementar o Azure Stack, utilizando o modo de implementação do Azure AD, só precisa de pedir certificados listados na tabela anterior. No entanto, se implementar o Azure Stack, utilizando o modo de implementação do AD FS, tem também de solicitar certificados descritos na tabela a seguir:
 

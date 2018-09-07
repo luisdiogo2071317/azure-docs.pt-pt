@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6a2d067625e96aefdcb0197e1abb13b0c41fbe7f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521443"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027134"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>O serviço importar/exportar do Azure: Perguntas mais frequentes 
 Seguem-se perguntas e respostas que possa ter quando utiliza o serviço importar/exportar do Azure para transferir dados para o armazenamento do Azure. As perguntas e respostas estão organizadas pelas seguintes categorias:
@@ -119,7 +119,7 @@ Quando preparar um disco rígido para uma tarefa de importação, o destino é e
 Depende. Quando preparar a unidade, pode especificar se os ficheiros de destino devem ser substituídos ou ignorado usando o campo no ficheiro CSV de conjunto de dados chamado disposição: < mudar o nome | não-substituir | substituir >. Por predefinição, o serviço muda o nome de novos ficheiros em vez de substituir blobs existentes ou ficheiros.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>A ferramenta de WAImportExport é compatível com sistemas operativos de 32 bits?
-Não. A ferramenta de WAImportExport só é compatível com sistemas de operativos do Windows de 64 bits. Para obter uma lista completa de SO suportado, aceda a [sistemas operativos suportados](). 
+Não. A ferramenta de WAImportExport só é compatível com sistemas de operativos do Windows de 64 bits. Para obter uma lista completa de SO suportado, aceda a [sistemas operativos suportados](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Qual é o Blob de blocos e o tamanho do Blob de página suportados pelo Azure importar/exportar máximo?

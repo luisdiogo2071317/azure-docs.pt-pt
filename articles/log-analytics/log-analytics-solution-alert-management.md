@@ -1,6 +1,6 @@
 ---
-title: Alerta de solução de gestão no Log Analytics do Azure | Microsoft Docs
-description: A solução de gestão de alertas no Log Analytics ajuda a analisar todos os alertas no seu ambiente.  Para além dos alertas consolidar gerados na análise de registos,-importa alertas de grupos de gestão do System Center Operations Manager ligados para análise de registos.
+title: Solução de gestão do Azure Log Analytics de alertas | Documentos da Microsoft
+description: A solução de gestão de alertas no Log Analytics ajuda a analisar todos os alertas no seu ambiente.  Além de consolidar alertas geradas no Log Analytics, ele importa alertas de grupos de gestão do System Center Operations Manager ligados para o Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,31 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: acf9e512e188c34c0124832a6a534135790f1e2d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131052"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049206"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
 ![Ícone de gestão de alertas](media/log-analytics-solution-alert-management/icon.png)
 
-A solução de gestão de alertas ajuda a analisar todos os alertas no seu repositório de análise de registos.  Estes alertas podem ter provenientes de uma variedade de origens, incluindo as origens [criados pela análise de registos](log-analytics-alerts.md) ou [importados a partir da Nagios ou da Zabbix](log-analytics-linux-agents.md).  A solução também importa alertas a partir de qualquer [ligado grupos de gestão do System Center Operations Manager](log-analytics-om-agents.md).
+A solução de gestão de alertas ajuda a analisar todos os alertas no seu repositório do Log Analytics.  Estes alertas podem proveniente de uma variedade de origens, incluindo essas origens [criado pelo Log Analytics](log-analytics-alerts.md) ou [importados a partir do Nagios ou Zabbix](log-analytics-linux-agents.md). A solução importa também alertas a partir de qualquer [ligadas a grupos de gestão do System Center Operations Manager](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-A solução funciona com qualquer registos no repositório de análise de registos com um tipo de **alerta**, por isso, tem de efetuar qualquer configuração é necessária para recolher estes registos.
+A solução funciona com quaisquer registos no repositório do Log Analytics com o tipo de **alerta**, por isso, tem de efetuar qualquer configuração é necessária para recolher estes registos.
 
-- Existência de alertas de análise de registos, [criar regras de alertas](log-analytics-alerts.md) para criar registos de alerta diretamente no repositório.
-- Existência de alertas da Nagios e da Zabbix, [configurar esses servidores](log-analytics-linux-agents.md) para enviar alertas para análise de registos.
-- Existência de alertas do System Center Operations Manager, [ligue o grupo de gestão do Operations Manager a sua área de trabalho de análise de registos](log-analytics-om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para análise de registos.  
+- Para os alertas do Log Analytics, [criar regras de alerta](log-analytics-alerts.md) para criar registos de alerta diretamente no repositório.
+- Para os alertas do Nagios e do Zabbix, [configurar esses servidores](log-analytics-linux-agents.md) para enviar alertas para o Log Analytics.
+- Para os alertas do System Center Operations Manager, [ligar o seu grupo de gestão do Operations Manager à sua área de trabalho do Log Analytics](log-analytics-om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração
-Adicionar a solução de gestão de alertas a sua área de trabalho de análise de registos com o processo descrito no [adicionar soluções](log-analytics-add-solutions.md).  Não há nenhuma configuração adicional.
+Adicionar a solução de gestão de alertas à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](log-analytics-add-solutions.md). Não há nenhuma configuração adicional.
 
 ## <a name="management-packs"></a>Pacotes de gestão
-Se o grupo de gestão do System Center Operations Manager está ligado à sua área de trabalho de análise de registos, os seguintes pacotes de gestão estão instalados no System Center Operations Manager ao adicionar esta solução.  Não há nenhuma configuração ou a manutenção dos pacotes de gestão necessários.  
+Se o grupo de gestão do System Center Operations Manager estiver ligado à sua área de trabalho do Log Analytics, os seguintes pacotes de gestão são instalados no System Center Operations Manager quando adicionar esta solução.  Não existe nenhuma configuração ou a manutenção dos pacotes de gestão necessário.
 
 * Gestão de alertas do Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -51,73 +51,73 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 | Origem Ligada | Suporte | Descrição |
 |:--- |:--- |:--- |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não |Agentes diretos do Windows não gerar alertas.  É possível criar alertas de análise do registo de eventos e dados de desempenho recolhidos a partir do Windows, os agentes. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não |Diretos agentes Linux não gerar alertas.  Alertas de análise do registo podem ser criadas de eventos e os dados de desempenho recolhidas de agentes Linux.  Alertas da Nagios e da Zabbix são recolhidas a partir desses servidores que requerem o agente Linux. |
-| [Grupo de gestão do System Center Operations Manager](log-analytics-om-agents.md) |Sim |Alertas que são gerados agentes do Operations Manager são fornecidos para o grupo de gestão e, em seguida, reencaminhados para a análise de registos.<br><br>Não é necessária uma ligação direta de agentes do Operations Manager para análise de registos. Dados de alerta são reencaminhados do grupo de gestão para o repositório de análise de registos. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do log Analytics podem ser criadas a partir de eventos e dados de desempenho recolhidos a partir de Windows agentes. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do log Analytics podem ser criadas do eventos e dados de desempenho recolhidas pelos agentes do Linux.  Alertas do Nagios e do Zabbix são recolhidas a partir desses servidores que exigem o agente do Linux. |
+| [Grupo de gestão do System Center Operations Manager](log-analytics-om-agents.md) |Sim |Alertas que são gerados em agentes do Operations Manager são entregues para o grupo de gestão e, depois, reencaminhadas para o Log Analytics.<br><br>Não é necessária uma conexão direta de agentes do Operations Manager ao Log Analytics. Dados de alertas são reencaminhados do grupo de gestão para o repositório do Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequência da recolha
-- Registos de alerta estão disponíveis para a solução, assim que são armazenados no repositório.
-- Dados de alertas são enviados do grupo de gestão do Operations Manager para análise de registos a cada três minutos.  
+- Alerta de registos que estão disponível para a solução assim que eles são armazenados no repositório.
+- Dados de alerta são enviados do grupo de gestão do Operations Manager ao Log Analytics a cada três minutos.  
 
 ## <a name="using-the-solution"></a>Utilizar a solução
-Quando adiciona a solução de gestão de alertas a sua área de trabalho de análise de registos, o **gestão de alertas** mosaico é adicionado ao dashboard.  Este mosaico mostra uma contagem e a representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar este intervalo de tempo.
+Quando adiciona a solução de gestão de alertas a sua área de trabalho do Log Analytics, o **gestão de alertas** mosaico é adicionado ao seu dashboard.  Este mosaico apresenta uma contagem e uma representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar este intervalo de tempo.
 
-![Mosaico de gestão de alertas](media/log-analytics-solution-alert-management/tile.png)
+![Mosaico gestão de alertas](media/log-analytics-solution-alert-management/tile.png)
 
-Clique em de **gestão de alertas** mosaico para abrir o **gestão de alertas** dashboard.  O dashboard inclui as colunas da tabela seguinte.  Cada coluna apresenta os alertas de 10 principais por contagem correspondentes aos critérios dessa coluna para o âmbito especificado e o intervalo de tempo.  Pode executar uma pesquisa de registo que fornece a lista completa clicando **ver todos os** na parte inferior da coluna ou ao clicar no cabeçalho da coluna.
+Clique nas **gestão de alertas** mosaico para abrir o **gestão de alertas** dashboard.  O dashboard inclui as colunas da tabela seguinte.  Cada coluna apresenta os alertas de 10 principais por contagem que satisfaçam os critérios dessa coluna para o âmbito especificado e o intervalo de tempo.  Pode executar uma pesquisa de registos que fornece toda a lista clicando **ver todas as** na parte inferior da coluna ou ao clicar no cabeçalho da coluna.
 
 | Coluna | Descrição |
 |:--- |:--- |
-| Alertas Críticos |Todos os alertas com uma gravidade de crítico agrupado por nome do alerta.  Clique num nome do alerta para executar uma pesquisa de registo devolver todos os registos para esse alerta. |
-| Alertas de Aviso |Todos os alertas com uma gravidade de aviso agrupado por nome do alerta.  Clique num nome do alerta para executar uma pesquisa de registo devolver todos os registos para esse alerta. |
+| Alertas Críticos |Todos os alertas com uma gravidade de crítico agrupado por nome do alerta.  Clique num nome de alerta para executar uma pesquisa de registos que devolva todos os registos para esse alerta. |
+| Alertas de Aviso |Todos os alertas com uma gravidade de aviso, agrupada por nome do alerta.  Clique num nome de alerta para executar uma pesquisa de registos que devolva todos os registos para esse alerta. |
 | Alertas SCOM Ativos |Todos os alertas recolhidos a partir do Operations Manager com qualquer Estado diferente de *fechado* agrupados por origem que gerou o alerta. |
-| Todos os alertas ativos |Todos os alertas com qualquer gravidade agrupados por nome do alerta. Incluir apenas alertas do Operations Manager com qualquer Estado diferente de *fechado*. |
+| Todos os alertas ativos |Todos os alertas com qualquer gravidade agrupados por nome do alerta. Inclui apenas alertas do Operations Manager com qualquer Estado diferente de *fechado*. |
 
-Se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar um [pesquisa registo](log-analytics-log-searches.md) para dados de alertas.
+Se se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar uma [pesquisa de registos](log-analytics-log-searches.md) para dados de alertas.
 
 ![Dashboard de gestão de alertas](media/log-analytics-solution-alert-management/dashboard.png)
 
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
-A solução de gestão de alertas analisa qualquer registo com um tipo de **alerta**.  Alertas criados pela análise de registos ou recolhidos a partir da Nagios ou da Zabbix não são recolhidas diretamente pela solução.
+A solução de gestão de alertas analisa qualquer registo com um tipo de **alerta**.  Alertas criado pelo Log Analytics ou recolhidos a partir de Nagios ou Zabbix não são recolhidas diretamente pela solução.
 
-A solução de importar alertas do System Center Operations Manager e cria um registo correspondente para cada um com um tipo de **alerta** e um SourceSystem de **OpsManager**.  Estes registos de ter as propriedades na tabela seguinte:  
+A solução de importar alertas do System Center Operations Manager e cria um registo correspondente para cada um com um tipo de **alerta** e um SourceSystem de **OpsManager**.  Estes registos têm as propriedades na tabela a seguir:  
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Tipo |*Alerta* |
+| Tipo |*Alertar* |
 | SourceSystem |*OpsManager* |
-| AlertContext |Detalhes do item de dados que causou o alerta ser gerado no formato XML. |
+| AlertContext |Detalhes do item de dados que causou o alerta a ser gerado no formato XML. |
 | AlertDescription |Descrição detalhada do alerta. |
 | AlertId |GUID do alerta. |
 | AlertName |Nome do alerta. |
 | AlertPriority |Nível de prioridade do alerta. |
 | AlertSeverity |Nível de gravidade do alerta. |
-| AlertState |Mais recente estado de resolução do alerta. |
+| AlertState |Último Estado de resolução do alerta. |
 | LastModifiedBy |Nome do utilizador que o alerta da última modificação. |
-| ManagementGroupName |Nome do grupo de gestão onde o alerta foi gerado. |
-| RepeatCount |Número de vezes que o mesmo alerta foi gerado para o mesmo monitorizados objeto desde que está a ser resolvido. |
-| ResolvedBy |Nome do utilizador que o alerta resolvido. Vazio se o alerta ainda não foi resolvido. |
+| ManagementGroupName |Nome do grupo de gestão em que o alerta foi gerado. |
+| RepeatCount |Número de vezes que o mesmo alerta foi gerado para o mesmo monitorizado objeto desde a ser resolvidos. |
+| ResolvedBy |Nome do utilizador que o alerta foi resolvido. Vazio se o alerta ainda não foi resolvido. |
 | SourceDisplayName |Nome a apresentar do objecto de monitorização que gerou o alerta. |
 | SourceFullName |Nome completo do objeto de monitorização que gerou o alerta. |
-| TicketId |ID de permissão para o alerta se o ambiente do System Center Operations Manager está integrado com um processo para atribuir permissões para alertas.  ID vazio de nenhuma permissão está atribuído. |
+| TicketId |ID de pedido de suporte para o alerta se o ambiente do System Center Operations Manager está integrado com um processo para atribuir permissões para alertas.  ID vazio de nenhum pedido está atribuído. |
 | TimeGenerated |Data e hora em que o alerta foi criado. |
 | TimeLastModified |Data e hora em que o alerta foi alterado pela última vez. |
 | TimeRaised |Data e hora em que o alerta foi gerado. |
 | TimeResolved |Data e hora em que o alerta foi resolvido. Vazio se o alerta ainda não foi resolvido. |
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
-A tabela seguinte fornece pesquisas de registo de exemplo para registos alertas recolhidos por esta solução: 
+A tabela seguinte disponibiliza pesquisas de registos de exemplo para esta solução recolhidas registos de alerta: 
 
 | Consulta | Descrição |
 |:---|:---|
-| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "error" e TimeRaised > ago(24h) |Alertas críticos gerados nas últimas 24 horas |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "erro" e TimeRaised > ago(24h) |Alertas críticos gerados nas últimas 24 horas |
 | Alerta &#124; onde AlertSeverity = = "aviso" e TimeRaised > ago(24h) |Alertas de aviso gerados nas últimas 24 horas |
-| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertState! = "Fechado" e TimeRaised > ago(24h) &#124; resumir contagem = existente pelo SourceDisplayName |Origens com alertas ativos gerados nas últimas 24 horas |
-| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "error" e TimeRaised > ago(24h) e AlertState! = "Fechado" |Alertas críticos gerados nas últimas 24 horas que continuam ativos |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertState! = "Fechado" e TimeRaised > ago(24h) &#124; resumir contagem = count () by SourceDisplayName |Origens com alertas ativos gerados nas últimas 24 horas |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "erro" e TimeRaised > ago(24h) e AlertState! = "Fechado" |Alertas críticos gerados nas últimas 24 horas que ainda estão ativas |
 | Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(24h) e AlertState = = "Fechado" |Alertas gerados nas últimas 24 horas que agora estão fechadas |
-| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; resumir contagem = existente pelo AlertSeverity |Alertas gerados durante o último dia, agrupados pelo respetivo grau de gravidade |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; resumir contagem = count () by AlertSeverity |Alertas gerados durante o último dia, agrupados pelo respetivo grau de gravidade |
 | Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; ordenar por RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo seu valor de contagem de repetição |
 
 

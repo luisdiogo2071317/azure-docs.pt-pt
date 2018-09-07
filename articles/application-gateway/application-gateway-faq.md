@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054346"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022921"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -84,7 +84,7 @@ Não, o Gateway de aplicação não suporta endereços IP públicos estáticos, 
 
 Apenas um endereço IP público é suportado num Gateway de aplicação.
 
-**P. O tamanho deve fazer minha sub-rede de Gateway de aplicação?**
+**P. Como grande deve verifico minha sub-rede de Gateway de aplicação?**
 
 Gateway de aplicação consome um endereço IP privado por instância, além de outro endereço IP privado, se uma configuração de IP de front-end privado está configurada. Além disso, o Azure reserva os primeiros quatro e o último endereço IP em cada sub-rede para utilização interna.
 Por exemplo, se o Gateway de aplicação está definido como três instâncias e não existe nenhum IP de front-end privado, em seguida, / 29 sub-rede tamanho ou superior é necessária. Neste caso, o Gateway de aplicação utiliza três endereços IP. Se tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, em seguida, / 28 sub-rede tamanho ou superior é necessário porque são necessários quatro endereços IP.
@@ -211,8 +211,8 @@ A tabela seguinte mostra um débito de desempenho médio para cada instância de
 
 | Tamanho de resposta médio da página back-end | Pequeno | Médio | Grande |
 | --- | --- | --- | --- |
-| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100KB |35 Mbps |100 Mbps |200 Mbps |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > Estes valores são valores aproximados para um débito de gateway de aplicação. O débito real depende de vários detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para servir uma página. Para números de desempenho exatos, deve executar o seus próprios testes. Estes valores são fornecidos apenas para a capacidade orientação de planeamento.
@@ -333,7 +333,7 @@ Atualmente, o WAF suporta CRS [2.2.9](application-gateway-crs-rulegroups-rules.m
 
 **P. O WAF também oferece suporte a prevenção de DDoS?**
 
-Não, o WAF não fornece a prevenção de DDoS.
+Sim. Pode ativar a proteção contra DDos na VNet em que o gateway de aplicação é implementado. Isto garante que o gateway de aplicação que VIP é também protegido com o serviço Azure DDos Protection.
 
 ## <a name="diagnostics-and-logging"></a>Registo e diagnóstico
 

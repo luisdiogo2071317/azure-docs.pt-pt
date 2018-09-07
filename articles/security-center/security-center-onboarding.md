@@ -3,7 +3,7 @@ title: A adesão ao Azure Security Center Standard para segurança avançada | D
 description: " Saiba como para carregar para o Azure Security Center Standard for enhanced security. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 21ffab10b87925513a50198b5b0e66188ef15455
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479466"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024915"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuitamente durante 60 dias. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -40,59 +40,40 @@ Pode atualizar uma subscrição do Azure completa para o escalão Standard, que 
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Atualizar uma subscrição do Azure
-Para atualizar todas as subscrições Standard:
-1. No menu principal do Centro de Segurança, selecione **Inclusão de segurança avançada**.
-2. Sob **inclusão de segurança avançada**, o Centro de segurança apresenta uma lista de subscrições elegíveis para inclusão. Pode atualizar todas as subscrições listadas selecionando **plano Standard aplicam-se**.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Atualizar uma subscrição do Azure ou a área de trabalho
+Para atualizar uma subscrição ou a área de trabalho padrão:
+1. No menu principal do Centro de segurança, selecione **introdução ao**.
+  ![Introdução](./media/security-center-onboarding/get-started.png)
+2. Sob **atualizar**, o Centro de segurança apresenta uma lista de subscrições e áreas de trabalho elegíveis para inclusão. 
+   - Pode clicar no expansível **aplicam-se a sua versão de avaliação** para ver uma lista de todas as subscrições e áreas de trabalho com o respetivo estado de avaliação de elegibilidade.
+   -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para a versão de avaliação.
+   -    Pode selecionar áreas de trabalho elegíveis e subscrições para iniciar a avaliação.
+3.  Clique em **iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
+  ![Selecione a subscrição](./media/security-center-onboarding/select-subscription.png)
 
-  ![Atualizar todas as subscrições][1]
-
-Para atualizar uma subscrição individual para o Standard: pode atualizar uma subscrição a partir **inclusão** ao selecionar **aplicar o escalão Standard**. Para atualizar um grupo de recursos na subscrição para o Standard, selecione a subscrição:
-1. Selecione uma subscrição.  **Política de segurança** fornece informações sobre o grupo de recursos contido na subscrição.
-2. Selecione a subscrição ou grupo de recursos.
-
-  ![Atualizar todas as subscrições][2]
-
-3. Selecione **padrão** atualizar de gratuito para Standard.
-4. Selecione **Guardar**.
-
-> [!NOTE]
-> Atualizando uma assinatura padrão ativará [aprovisionamento automático](security-center-enable-data-collection.md) se tiver sido desativada anteriormente. Recomendamos que o serviço de aprovisionamento automático do agente de monitorização.
->
->
-
-## <a name="upgrade-a-workspace"></a>Atualizar uma área de trabalho
-Aplicar o padrão para a área de trabalho aplica-se a todos os recursos de relatórios para a área de trabalho.
-
-1. Retorno para o **inclusão** painel.
-2. Selecione uma área de trabalho.
-
-  ![Atualizar uma área de trabalho][8]
-
-3. Selecione **padrão** para atualizar.  
-4. Selecione **Guardar**.
 
    > [!NOTE]
-   > Há um cenário em que pode não ter gratuito ou Standard aplicado à sua área de trabalho. Se selecionar gratuito, funções gratuitas do Centro de segurança são aplicadas apenas as VMs do Azure. Os recursos gratuitos não são aplicados aos seus computadores não Azure. Se selecionar padrão, os recursos padrão são aplicados a todas as VMs do Azure e computadores não Azure relatórios para a área de trabalho. Recomendamos que aplique padrão para fornecer segurança avançada para o Azure e os recursos não Azure.
+   > Funções gratuitas do Centro de segurança são aplicadas para apenas as VMs do Azure. Os recursos gratuitos não são aplicados aos seus computadores não Azure. Se selecionar padrão, os recursos padrão são aplicados a todas as VMs do Azure e computadores não Azure relatórios para a área de trabalho. Recomendamos que aplique padrão para fornecer segurança avançada para o Azure e os recursos não Azure.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>Integrar computadores não Azure
-O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. Pode adicionar computadores não pertencentes ao Azure a partir do **inclusão** painel ou a partir do **computação** painel. Vamos explicar através de ambos os métodos.
+O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. Pode adicionar computadores não pertencentes ao Azure a partir da **introdução ao** painel ou a partir do **computação** painel. Vamos explicar através de ambos os métodos.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>Adicionar novos computadores não pertencentes ao Azure a partir de integração
+### <a name="add-new-non-azure-computers-from-getting-started"></a>Adicionar novos computadores não pertencentes ao Azure a partir de **introdução**
 
-1. Volte ao **inclusão**.   
-2. Selecione **que pretende adicionar novos computadores não Azure**.
+1. Volte ao **introdução ao**.   
+2. Selecione o **começar** separador.
 
-  ![Adicionar computador não pertencente ao Azure][3]
+  ![Não Pertencente ao Azure](./media/security-center-onboarding/non-azure.png)
+
+3. Clique em **configurar** sob **adicionar novos computadores não Azure**. É apresentada uma lista das suas áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que pretende utilizar.
+
+  ![Adicionar computador não pertencente ao Azure][7]
 
 Se tiver áreas de trabalho existentes, estão listados na **adicionar novos computadores não pertencentes ao Azure**. Pode adicionar computadores a uma área de trabalho existente ou criar uma nova área de trabalho. Para criar uma nova área de trabalho, selecione a ligação **adicionar uma nova área de trabalho**.
 
-Vamos examinar os dois métodos:
-
-- Criar uma nova área de trabalho e adicionar o computador
-- Selecione uma área de trabalho existente e adicionar o computador
+### <a name="add-new-non-azure-computers-from-compute"></a>Adicionar novos computadores não pertencentes ao Azure a partir de **de computação**
 
 **Criar uma nova área de trabalho e adicionar o computador**
 
@@ -134,9 +115,9 @@ Neste artigo, aprendeu a carregar Azure e de recursos não Azure para se benefic
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

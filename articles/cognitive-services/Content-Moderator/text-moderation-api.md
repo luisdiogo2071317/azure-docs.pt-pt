@@ -1,6 +1,6 @@
 ---
-title: Moderator conteúdo do Azure - moderação de interrupção de texto | Microsoft Docs
-description: Utilize a moderação de interrupção de texto para possíveis indesejável texto, PII, e personalizada apresenta uma lista dos termos de licenciamento.
+title: Azure Content Moderator - moderação de texto | Documentos da Microsoft
+description: Utilize a moderação de texto para o possível indesejável texto, PII, e personalizada apresenta uma lista dos termos.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,31 +9,31 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b2edaa145650ea3c9fe3c0e9fd5e496ec7d30b99
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085764"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025486"
 ---
 # <a name="text-moderation"></a>Moderação de texto
 
-Utilize a moderação de interrupção do Moderator de conteúdo texto assistida por máquina e [revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) capacidades para moderada de conteúdos de texto.
+Utilize a moderação de texto de assistida do Content Moderator e [revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) capacidades moderar conteúdo de texto.
 
-Se bloquear, aprova ou revisar o conteúdo com base nos limiares e políticas. Utilizá-la para aumentar a moderação de interrupção humana dos ambientes onde parceiros, funcionários e os consumidores geram conteúdo de texto. Estes incluem gabinetes de chat, quadros de debate, chatbots, eCommerce catálogos e documentos. 
+O bloquear, aprova ou rever o conteúdo com base nas suas políticas e limiares. Usá-lo para incrementar humana moderação de ambientes em que os funcionários, parceiros e os consumidores geram conteúdo de texto. Estes incluem salas de chat, quadros de discussão, chatbots, catálogos de comércio eletrónico e documentos. 
 
 A resposta do serviço inclui as seguintes informações:
 
-- Profanity: com base no prazo de correspondência de lista incorporada dos termos profanas em vários idiomas
-- Classificação: classificação assistida por máquina em três categorias
+- Linguagem inapropriada: com base no termo correspondência com uma lista interna de impróprias termos em várias linguagens
+- Classificação: assistida classificação em três categorias
 - Informações de identificação pessoal (PII)
-- Texto auto-corrigidos
+- Texto corrigidas automaticamente
 - Texto original
 - Idioma
 
-## <a name="profanity"></a>Profanity
+## <a name="profanity"></a>Linguagem inapropriada
 
-Se a API Deteta quaisquer termos profanas em nenhum do [idiomas suportados](Text-Moderation-API-Languages.md), esses termos estão incluídos na resposta. A resposta também contém a respetiva localização (`Index`) no texto original. O `ListId` no seguinte exemplo JSON refere-se termos encontrados na [termo personalizado listas](try-terms-list-api.md) se estiver disponível.
+Se a API detetar quaisquer termos impróprias em qualquer uma da [idiomas suportados](Text-Moderation-API-Languages.md), esses termos estão incluídos na resposta. A resposta também contém a respetiva localização (`Index`) no texto original. O `ListId` no exemplo a seguir JSON refere-se termos encontrados no [listas de termos personalizado](try-terms-list-api.md) se estiver disponível.
 
     "Terms": [
     {
@@ -44,15 +44,15 @@ Se a API Deteta quaisquer termos profanas em nenhum do [idiomas suportados](Text
     }
 
 > [!NOTE]
-> Para o **idioma** parâmetro, atribuir `eng` ou deixe vazio para ver a máquina assistida por **classificação** resposta (funcionalidade de pré-visualização). **Esta funcionalidade só suporta o inglês**.
+> Para o **linguagem** parâmetro, atribuir `eng` ou deixe vazio para ver o assistida **classificação** resposta (funcionalidade de pré-visualização). **Esta funcionalidade só suporta o inglês**.
 >
-> Para **termos profanity** deteção, utilize o [código ISO 639 3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas suportados listados neste artigo, ou deixe em branco.
+> Para **termos de linguagem inapropriada** deteção, utilize o [código ISO 639 3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte demonstrados neste artigo ou deixe-o vazio.
 
 ## <a name="classification"></a>Classificação
 
-Moderator conteúdo da máquina assistida **funcionalidade de classificação de texto** suporta **apenas inglês**, e ajuda a detetar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequadas, dependendo de contexto. Transmite a probabilidade de cada categoria e poderá recomendar uma revisão humana. A funcionalidade utiliza um modelo preparado para identificar possíveis idioma abusivo, derogatory ou discriminatory. Isto inclui slang, abreviadas palavras, palavras ofensivas e intencionalmente com erros ortográficos para revisão. 
+O Content Moderator da assistida **funcionalidade de classificação de texto** suporta **inglês apenas**, e ajuda a detetar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado consoante o contexto. Ele transmite a probabilidade de cada categoria e poderá recomendar uma revisão humana. A funcionalidade utiliza um modelo preparado para identificar possíveis linguagem abusiva, depreciativo ou discriminatory. Isto inclui gíria, abreviadas palavras, palavras ofensivas e intencionalmente com erros ortográficos para revisão. 
 
-O extrair no extrair JSON seguinte mostra um exemplo de saída:
+O seguinte extrato no extrato de JSON mostra uma saída de exemplo:
 
     "Classification": {
         "ReviewRecommended": true,
@@ -69,22 +69,22 @@ O extrair no extrair JSON seguinte mostra um exemplo de saída:
 
 ### <a name="explanation"></a>Explicação
 
-- `Category1` refere-se à presença de potencial de idioma que pode ser considerada sexually explícita ou para adultos em determinadas situações.
-- `Category2` refere-se à presença de potencial de idioma que pode ser considerada sexually suggestive ou madura em determinadas situações.
-- `Category3` refere-se à presença de potencial de idioma que pode ser considerada ofensiva em determinadas situações.
-- `Score` está entre 0 e 1. Quanto maior for a classificação, quanto maior for o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo de análises, em vez de resultados manualmente codificados. Recomendamos que teste com o seus próprios conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
-- `ReviewRecommended` é true ou false, dependendo do modelo de pontuação interno limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base nas políticas os respetivos conteúdas.
+- `Category1` refere-se a presença de potencial de idioma que pode ser considerada sexualmente explícita ou para adultos em determinadas situações.
+- `Category2` refere-se a presença de potencial de idioma que pode ser considerada sexualmente suggestive ou madura e em determinadas situações.
+- `Category3` refere-se a presença de potencial de idioma que pode ser considerada ofensiva em determinadas situações.
+- `Score` é entre 0 e 1. Quanto maior for a pontuação, maior será o modelo é a previsão que a categoria pode ser aplicável. Esta funcionalidade baseia-se num modelo estatístico em vez de resultados codificados manualmente. Recomendamos que teste com o seu próprio conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
+- `ReviewRecommended` é true ou false dependendo da pontuação interna limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base em suas diretivas de conteúdo.
 
 ## <a name="personally-identifiable-information-pii"></a>Informações de identificação pessoal (PII)
 
-A funcionalidade PII Deteta a presença potencial estas informações:
+A funcionalidade PII detecta a presença potencial estas informações:
 
 - Endereço de e-mail
-- Endereço de Mailing E.U.A.
+- Endereço de correio dos EUA
 - Endereço IP
-- Número de telefone E.U.A.
-- Número de telefone do RU
-- Número de segurança social (SSN)
+- Número de telefone dos EUA
+- Número de telefone do Reino Unido
+- Número da Previdência Social (SSN)
 
 O exemplo seguinte mostra uma resposta de exemplo:
 
@@ -136,20 +136,20 @@ O exemplo seguinte mostra uma resposta de exemplo:
 
 ## <a name="auto-correction"></a>Correção automática
 
-Suponha que é o texto de entrada (as 'lzay' e 'f0x' são intencional):
+Suponha que seja a introdução de texto (o 'lzay' e 'f0x' são intencionais):
 
     The qu!ck brown f0x jumps over the lzay dog.
 
-Se lhe pedir correção automática, a resposta contém a versão corrigida do texto:
+Se solicitar a correção automática, a resposta contém a versão corrigida do texto:
 
     The quick brown fox jumps over the lazy dog.
 
-## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Criar e gerir a sua listas personalizadas dos termos de licenciamento
+## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Criar e gerir as suas listas personalizadas dos termos
 
-Apesar do predefinido, uma lista global dos termos funciona muito bem para a maioria dos casos, poderá querer ecrã contra termos específicos para as suas necessidades de negócio. Por exemplo, poderá filtrar quaisquer competitivos nomes de marca de publicações pelos utilizadores.
+Embora o padrão, a lista global de termos funciona muito bem para a maioria dos casos, pode querer ecrã contra termos que são específicos para suas necessidades empresariais. Por exemplo, pode querer filtrar qualquer competitivos os nomes de postagens por utilizadores.
 
 > [!NOTE]
-> Há um limite máximo de **apresenta uma lista de 5 termo** com cada lista para **não pode exceder 10 000 termos**.
+> Existe um limite máximo de **apresenta uma lista de 5 termo** cada lista para **não pode exceder 10 000 termos**.
 >
 
 O exemplo seguinte mostra o ID de lista correspondente:
@@ -162,8 +162,8 @@ O exemplo seguinte mostra o ID de lista correspondente:
         "Term": "crap"
     }
 
-O conteúdo Moderator fornece um [termo lista API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) com operações de gestão personalizado termo apresenta uma lista. Começar a utilizar o [termo apresenta uma lista de API consola](try-terms-list-api.md) e utilizar os exemplos de código da REST API. Consulte também o [início rápido do termo apresenta uma lista de .NET](term-lists-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
+O Content Moderator fornece uma [API de lista do termo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) com operações para o gerenciamento de termo personalizado apresenta uma lista. Começar com o [consola de API de lista termo](try-terms-list-api.md) e utilize os exemplos de código da REST API. Verifique também a [guia de introdução do .NET apresenta uma lista de termo](term-lists-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Testar o [consola de moderação de interrupção API texto](try-text-api.md) e utilizar os exemplos de código da REST API. Consulte também o [guia de introdução do texto moderação interrupção .NET](text-moderation-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.
+Faça o test drive da [consola de API de moderação de texto](try-text-api.md) e utilize os exemplos de código da REST API. Verifique também a [guia de introdução de .NET de moderação de texto](text-moderation-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.

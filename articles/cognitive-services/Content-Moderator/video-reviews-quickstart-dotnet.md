@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: fe321d08a44e7f843228668908c8b2c4ff3a3c32
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 808ee3637d67ff4874c5d4837d5c53cbe7b18680
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41987619"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024595"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar as revisões de vídeo com o .NET
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar o SDK de moderador de conteúdo com o c# para:
+Este artigo fornece informações e exemplos de código para ajudá-lo a rapidamente começar a utilizar o [SDK de moderador de conteúdo com o c#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 
 - Criar uma revisão de vídeo para moderadores humanos
 - Adicionar quadros para uma revisão
@@ -32,11 +32,22 @@ Este artigo pressupõe que tenha [moderado o vídeo (consulte o guia de introdu�
 
 Este artigo também assume que já está familiarizado com o Visual Studio e c#.
 
-### <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para os serviços do Content Moderator
+## <a name="sign-up-for-content-moderator"></a>Inscreva-se o Content Moderator
 
 Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
+Consulte a [guia de introdução](quick-start.md) para saber como pode obter a chave.
 
-No Dashboard de moderador de conteúdo, pode encontrar a chave de subscrição **configurações** > **credenciais** > **API**  >  **Avaliação Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [descrição geral](overview.md).
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscrever-se para uma conta da ferramenta de revisão se não foi concluída no passo anterior
+
+Se recebeu o Content Moderator do portal do Azure, também [Inscreva-se a conta da ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipa de revisão. Terá da equipe de Id e a ferramenta de revisão para chamar a API de revisão para iniciar uma tarefa e ver as críticas na ferramenta de revisão.
+
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisão
+
+Depois de concluir os passos anteriores, pode acabar com duas chaves do Content Moderator se tiver iniciado a partir do portal do Azure. 
+
+Se planear utilizar a chave de API fornecida pelo Azure no seu exemplo SDK, siga os passos mencionados na [chave de utilizar o Azure com a API de revisão](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) secção para permitir que a aplicação chamar a API de revisão e criar as revisões.
+
+Se utilizar a chave de avaliação gratuita, gerada pela ferramenta de revisão, sua conta da ferramenta de revisão já sabe sobre a chave e por isso, não existem passos adicionais necessários.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Preparar o seu vídeo e os quadros de vídeo para revisão
 
@@ -536,8 +547,8 @@ Por último, verá que a revisão de vídeo no seu Content Moderator reveja a co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+Obter o [SDK de .NET do conteúdo moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e o [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET.
+
 Saiba como adicionar [moderação de transcrição](video-transcript-moderation-review-tutorial-dotnet.md) para a revisão de vídeo. 
 
 Veja o tutorial detalhado sobre como desenvolver um [concluir a solução de moderação de vídeos](video-transcript-moderation-review-tutorial-dotnet.md).
-
-[Transferir a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET.

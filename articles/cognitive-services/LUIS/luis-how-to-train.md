@@ -1,20 +1,21 @@
 ---
-title: Preparar a sua aplicação LUIS – Azure | Documentos da Microsoft
-description: Utilize a compreensão de idiomas (LUIS) para preparar o seu modelo.
+title: Preparar a sua aplicação LUIS
+titleSuffix: Azure Cognitive Services
+description: Treinamento é o processo de ensinar a sua aplicação de compreensão de idiomas (LUIS) para aprimorar sua compreensão de linguagem natural. Treine a sua aplicação LUIS após as atualizações para o modelo de como adicionar, editar, etiquetagem ou a eliminação de entidades, intenções ou expressões com.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 42cff3dd8237598da5aa71ed1a4d6462c5b4c25d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223189"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049136"
 ---
 # <a name="train-your-luis-app"></a>Preparar a sua aplicação LUIS
 
@@ -32,11 +33,7 @@ Para iniciar o processo iterativo, primeiro tem de preparar a sua aplicação LU
 
 2. Na sua aplicação, selecione **Train** no painel superior. 
 
-    ![Botão de preparação](./media/luis-how-to-train/train-button.png)
-
 3. Quando o treinamento estiver concluído, uma barra de notificação de verde é apresentada na parte superior do navegador.
-
-    ![Treinar e testar a aplicação de página](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 

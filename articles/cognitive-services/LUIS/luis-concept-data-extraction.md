@@ -1,5 +1,6 @@
 ---
-title: Compreender os conceitos de extração de dados do LUIS - Azure | Documentos da Microsoft
+title: Conceitos de extração de dados do LUIS - compreensão de idiomas
+titleSuffix: Azure Cognitive Services
 description: Saiba de que tipo de dados pode ser extraído de compreensão de idiomas (LUIS)
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40c7e0744825697779e6bd19a78d8d3512b5d63e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225687"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023465"
 ---
 # <a name="data-extraction"></a>Extração de dados
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, uma aplicação ou um chatbot para tomar medidas.
@@ -104,7 +105,7 @@ Se adicionar domínios pré-concebidos, o nome de intenção indica o domínio, 
 }
 ```
     
-|Domínio|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
+|Domain|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
 |--|--|--|--|--|
 |Serviços Públicos|Intenção|Cadeia|.intent intenções [0]|"<b>Utilitários</b>. ShowNext"|
 |Comunicação|Intenção|Cadeia|.intent intenções [1]|<b>Comunicação</b>. StartOver"|

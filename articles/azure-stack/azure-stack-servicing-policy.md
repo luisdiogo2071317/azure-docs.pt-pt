@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f74a4ad0507f1c1f029befff88d733ffa719a763
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056722"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023516"
 ---
 # <a name="azure-stack-servicing-policy"></a>O Azure Stack a política de manutenção
 Este artigo descreve a política de manutenção para sistemas integrados do Azure Stack e o que deve fazer para manter seu sistema num estado suportado. 
@@ -38,9 +38,10 @@ Existem dois tipos de pacotes de atualização para os sistemas integrados:
 A Microsoft espera libertar os pacotes de atualização de software a uma cadência mensal. No entanto, é possível ter várias ou nenhuma versões de atualização num mês. Fornecedores de hardware de OEM da versão suas atualizações de forma conforme necessário. 
 
 Encontrar documentação sobre como planear e gerir atualizações e como determinar sua versão atual na [descrição geral de atualizações de gerir](azure-stack-updates.md). Para obter informações sobre uma atualização específica, incluindo como transferi-lo, consulte as notas de versão para que atualizar: 
+- [Atualização de 1808 de pilha do Azure](azure-stack-update-1808.md)
 - [Atualização de 1807 de pilha do Azure](azure-stack-update-1807.md)
 - [Atualização de 1805 de pilha do Azure](azure-stack-update-1805.md)
-- [Atualização de 1804 de pilha do Azure](azure-stack-update-1804.md)
+
 
 ## <a name="hotfixes"></a>Correções
 Ocasionalmente, a Microsoft fornece correções para o Azure Stack esse endereço de um problema específico que é muitas vezes preventiva ou sensíveis ao tempo.  Cada correção é fornecida com um artigo correspondente na Base de dados de conhecimento da Microsoft que explica em detalhe o problema, a causa e a resolução. 

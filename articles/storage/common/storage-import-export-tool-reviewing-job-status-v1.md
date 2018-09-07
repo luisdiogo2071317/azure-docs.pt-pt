@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 51a73a4466f3460beead0ce03ddbf011a0b9cc3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b9d1993c9e90411c7b05d9874721a159275f22
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527666"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021833"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Revisão do Estado da tarefa de importar/exportar do Azure com ficheiros de registo de cópia
-Quando o serviço de importação/exportação do Microsoft Azure processa unidades associadas a uma tarefa de importação ou exportação, escreve copiar ficheiros de registo para a conta de armazenamento para ou a partir do qual está a importar ou exportar blobs. O ficheiro de registo contém o estado detalhado sobre cada ficheiro que foi importado ou exportado. O URL para cada ficheiro de registo de cópia é devolvido ao consultar o estado de uma tarefa concluída; ver [Get Job de](/rest/api/storageservices/Get-Job3) para obter mais informações.  
+Quando o serviço de importação/exportação do Microsoft Azure processa unidades associadas a uma tarefa de importação ou exportação, escreve copiar ficheiros de registo para a conta de armazenamento para ou a partir do qual está a importar ou exportar blobs. O ficheiro de registo contém o estado detalhado sobre cada ficheiro que foi importado ou exportado. O URL para cada ficheiro de registo de cópia é devolvido ao consultar o estado de uma tarefa concluída; ver [Get Job de](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) para obter mais informações.  
 
 ## <a name="example-urls"></a>URLs de exemplo
 

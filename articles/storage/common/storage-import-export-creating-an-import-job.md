@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666024"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021851"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criar uma tarefa de importação para o serviço importar/exportar do Azure
 
@@ -97,7 +97,7 @@ Tem envie as suas unidades para o endereço que obteve no passo anterior e tem d
 >  Têm de ser enviados suas unidades através de um serviço de deteção de carrier suportados, o que irá fornecer um número de controlo para o seu pacote.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>A atualizar a tarefa de importação com as suas informações de envio
-Depois de ter o seu número de controlo, chamar o [atualizar propriedades da tarefa](/api/storageimportexport/jobs#Jobs_Update) operação para atualizar o nome da operadora de envio, o número de controlo para a tarefa e o número de conta de operadora para envio de devolução. Opcionalmente, pode especificar o número de unidades e também a data de remessa.
+Depois de ter o seu número de controlo, chamar o [atualizar propriedades da tarefa](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) operação para atualizar o nome da operadora de envio, o número de controlo para a tarefa e o número de conta de operadora para envio de devolução. Opcionalmente, pode especificar o número de unidades e também a data de remessa.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6ddae66ee6408a3cab905826cd0d7c0831607d33
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e20e0c412206b2a35973b192ef911bb99ed7c210
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526390"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021868"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Autenticar com o Azure AD a partir de uma identidade de serviço gerido do Azure (pré-visualização)
 
-O armazenamento do Azure suporta a autenticação do Azure Active Directory (Azure AD) com [identidade do serviço gerido](../../active-directory/managed-service-identity/overview.md). Identidade de serviço gerida (MSI) fornece uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar o MSI para autenticar-se ao armazenamento do Azure a partir de aplicações em execução em máquinas virtuais do Azure, aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros. Ao utilizar o MSI e tirar partido do poder de autenticação do Azure AD, é possível evitar o armazenamento de credenciais com as aplicações que são executados na cloud.  
+O armazenamento do Azure suporta a autenticação do Azure Active Directory (Azure AD) com [identidade do serviço gerido](../../active-directory/managed-identities-azure-resources/overview.md). Identidade de serviço gerida (MSI) fornece uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar o MSI para autenticar-se ao armazenamento do Azure a partir de aplicações em execução em máquinas virtuais do Azure, aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros. Ao utilizar o MSI e tirar partido do poder de autenticação do Azure AD, é possível evitar o armazenamento de credenciais com as aplicações que são executados na cloud.  
 
 Para conceder permissões para uma identidade de serviço gerido para os contentores de armazenamento ou filas, atribuir uma função RBAC que abrange as permissões de armazenamento para o MSI. Para obter mais informações sobre as funções do RBAC no armazenamento, consulte [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md). 
 
@@ -33,14 +33,14 @@ Este artigo mostra como autenticar para o armazenamento do Azure com o MSI a par
 Antes de poder utilizar o MSI para autenticar para o armazenamento do Azure, a partir da sua VM, primeiro tem de ativar MSI na VM. Para saber como ativar o MSI, consulte um dos seguintes artigos:
 
 - [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [CLI do Azure](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Modelo Azure Resource Manager](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [SDKs do Azure](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Modelo Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [SDKs do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="get-an-msi-access-token"></a>Obtenha o token de acesso MSI
 
-Para autenticar com o MSI, a sua aplicação ou script tem de adquirir um token de acesso MSI. Para saber mais sobre como adquirir um token de acesso, veja [como utilizar um Azure VM Managed Service Identity (MSI) para a aquisição do token](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+Para autenticar com o MSI, a sua aplicação ou script tem de adquirir um token de acesso MSI. Para saber mais sobre como adquirir um token de acesso, veja [como utilizar um Azure VM Managed Service Identity (MSI) para a aquisição do token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035338"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026207"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicar atualizações no Azure Stack
 
@@ -42,7 +42,7 @@ O procedimento seguinte mostra como importar e instalar pacotes de atualização
 > [!IMPORTANT]
 > Recomendamos vivamente que notifique os utilizadores de quaisquer operações de manutenção e agendar a janelas de manutenção normal durante o horário não comercial tanto quanto possível. Operações de manutenção podem afetar as cargas de trabalho de utilizador e de operações do portal.
 
-1. No portal do administrador, selecione **mais serviços**. Em seguida, no **dados + armazenamento** categoria, selecione **contas de armazenamento**. (Ou, na caixa de filtro, comece a escrever **contas de armazenamento**e selecioná-lo.)
+1. No portal do administrador, selecione **todos os serviços**. Em seguida, no **dados + armazenamento** categoria, selecione **contas de armazenamento**. (Ou, na caixa de filtro, comece a escrever **contas de armazenamento**e selecioná-lo.)
 
     ![Mostra onde encontrar as contas de armazenamento no portal](media/azure-stack-apply-updates/ApplyUpdates1.png)
 

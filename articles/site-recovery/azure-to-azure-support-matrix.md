@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c3852f4055b5afe84aaa233c50f50732f98537a2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444831"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022897"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -38,8 +38,8 @@ Este artigo resume as configurações suportadas e componentes ao replicar e rec
 --- | --- | ---
 **Mover o Cofre entre grupos de recursos** | Não suportado<br/><br/> Não é possível mover um cofre dos serviços de recuperação entre grupos de recursos.
 **Mover os recursos de armazenamento/computação/rede entre grupos de recursos** | Não suportado.<br/><br/> Se mover uma VM ou componentes associados, como o armazenamento/rede depois que está a replicar, terá de desativar a replicação e reativar a replicação para a VM.
-**Replicar VMs do Azure a partir de uma subscrição para outro para recuperação após desastre** | Suportado no mesmo inquilino do Azure Active Directory.
-**Migrar VMs entre subscrições** | Não suportado.
+**Replicar VMs do Azure a partir de uma subscrição para outro para recuperação após desastre** | Suportado no mesmo inquilino do Azure Active Directory para VMs de "Modelo de implementação do Resource manager". Não é suportada para VMs de "Modelo de implementação clássico".
+**Migrar VMs entre regiões dentro os clusters geográficos suportados (dentro e entre subscrições)** | Suportado no mesmo inquilino do Azure Active Directory para VMs de "Modelo de implementação do Resource manager". Não é suportada para VMs de "Modelo de implementação clássico".
 **Migrar VMs na mesma região** | Não suportado.
 
 
@@ -147,6 +147,7 @@ Adicionar disco à VM replicada | Não suportado. Precisa para desativar a repli
 --- | --- | ---
 Tamanho | Qualquer tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e 1 GB de RAM | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
 Conjuntos de disponibilidade | Suportadas | Se utilizar a opção predefinida durante o passo de "Ativar replicação" no portal, o conjunto de disponibilidade é automaticamente criada com base na configuração da região de origem. Pode alterar a destino conjunto de disponibilidade no "item replicado > Definições > computação e rede > conjunto de disponibilidade" qualquer altura.
+Zonas de disponibilidade | Não suportado | As VMs implementadas em zonas de disponibilidade não são atualmente suportadas.
 VMs de benefício (HUB) de utilização híbrida | Suportadas | Se a VM de origem tiver uma licença HUB ativada, a ativação pós-falha de teste ou de uma VM de ativação pós-falha também utiliza a licença HUB.
 Conjuntos de dimensionamento de máquinas virtuais | Não suportado |
 Imagens da galeria do Azure - Microsoft publicado | Suportadas | Suportado, desde que a VM é executado num sistema operativo suportado pelo Site Recovery

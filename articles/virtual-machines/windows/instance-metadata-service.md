@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ccaa6e79d9a24409b8c905561b265c70ea781dc2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782995"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022580"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -310,7 +310,7 @@ prefixo de sub-rede / | Prefixo de sub-rede, 24 de exemplo | 2017-04-02
 ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
 macAddress | Endereço mac VM | 2017-04-02 
 scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01
-identidade | (Pré-visualização) Identidade do serviço gerido. Consulte [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
+identidade | (Pré-visualização) Identidade do serviço gerido. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários de utilização  
 

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9108d9e1b230fe2267f0195bd2c33c5a4c57d956
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390658"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021945"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Agente de compilação de utilização do Azure Container Instances, como um Jenkins
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre o Azure Container Instances, consulte [sobre
 
    ![Definições adicionais para a implementação de portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Para a integração de principal de serviço, selecione **Auto(MSI)** ter [identidade do serviço gerido do Azure] [ managed-service-identity] criar automaticamente uma identidade de autenticação para o Jenkins instância. Selecione **Manual** para fornecer suas próprias credenciais de principal de serviço.
+4. Para a integração de principal de serviço, selecione **Auto(MSI)** ter [Azure identidade do serviço gerido] [-identidades-azure-recursos geridos] Criar automaticamente uma identidade de autenticação para a instância do Jenkins. Selecione **Manual** para fornecer suas próprias credenciais de principal de serviço.
 
 5. Agentes de cloud configurar uma plataforma com base na cloud, para tarefas de compilação do Jenkins. Neste artigo, selecione **ACI**. Com o agente de cloud ACI, cada tarefa de compilação do Jenkins é executada numa instância de contentor.
 
@@ -128,9 +128,9 @@ Para testar a tarefa de compilação e observe como a plataforma de compilação
 
    ![Grupo de recursos com o container instances removido](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de resolução de problemas
+## <a name="troubleshooting-the-jenkins-plugin"></a>Resolver problemas nos plug-ins do Jenkins
 
-Se tiver quaisquer erros com os plug-ins do Jenkins, comunique o assunto na [Jenkins JIRA](https://issues.jenkins-ci.org/) para o componente específico.
+Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

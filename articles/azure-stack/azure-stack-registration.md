@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 52d0706177482e162d1f4bc038c967a4596fd3b3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841935"
+ms.locfileid: "44024863"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -45,7 +45,7 @@ As informações neste artigo descrevem o registo de integrado do Azure Stack de
 
 Antes de registar o Azure Stack com o Azure, tem de ter:
 
-- O ID de subscrição para uma subscrição do Azure. Para obter o ID, inicie sessão no Azure, clique em **mais serviços** > **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o ID da subscrição.
+- O ID de subscrição para uma subscrição do Azure. Para obter o ID, inicie sessão no Azure, clique em **todos os serviços**. Em seguida, no **gerais** categoria, selecione **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o ID de subscrição.
 
   > [!Note]  
   > Subscrições de cloud da Alemanha não são atualmente suportadas.
@@ -284,7 +284,7 @@ Opcionalmente, pode utilizar o cmdlet Get-Content para apontar para um ficheiro 
 Utilize estes passos para verificar que o Azure Stack com êxito é registrado com o Azure.
 
 1. Inicie sessão para o Azure Stack [portal de administrador](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;região >. &lt;fqdn >*.
-2. Selecione **mais serviços** > **gestão de Marketplace** > **adicionar a partir do Azure**.
+2. Selecione **todos os serviços**e, em seguida, sob o **administração** categoria, selecione **gestão Marketplace** > **adicionar a partir do Azure**.
 
 Se vir uma lista de itens disponíveis do Azure (por exemplo, WordPress), a ativação foi concluída com êxito. No entanto, em ambientes desligados não verá itens do marketplace do Azure no mercado do Azure Stack.
 

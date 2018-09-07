@@ -1,5 +1,6 @@
 ---
-title: Compreender a colaboração de aplicação do LUIS – Azure | Documentos da Microsoft
+title: Colaboração de aplicação do LUIS - compreensão de idiomas
+titleSuffix: Azure Cognitive Services
 description: LUIS aplicações requerem um único proprietário e colaboradores opcionais.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fd4955cb2d7ea76e8d0fd6c60027740b64bd8b24
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399576"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026252"
 ---
 # <a name="collaborating"></a>Colaborar
 
@@ -41,7 +42,7 @@ Se pretender partilhar várias aplicações com os colaboradores, cada aplicaç�
 ## <a name="managing-multiple-authors"></a>Gerir vários autores
 O [LUIS](luis-reference-regions.md#luis-website) site atualmente não oferece a criação de ao nível da transação. Pode permitir que os autores funcione em versões independentes de uma versão base. Dois métodos diferentes são descritos nas seções a seguir.
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Gerir facilmente várias versões na mesma aplicação
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Gerir facilmente várias versões na mesma aplicação
 Comece por [clonagem](luis-how-to-manage-versions.md#clone-a-version), de uma versão de base, para cada autor. 
 
 Cada autor faz alterações à sua própria versão da aplicação. Assim que cada autor estiver satisfeito com o modelo, exporte as novas versões para ficheiros JSON.  
@@ -50,7 +51,7 @@ As aplicações exportadas são arquivos de formato JSON, que podem ser comparad
 
 Este método permite-lhe ter uma versão de Active Directory, uma versão de fase e uma versão publicada. É possível comparar os resultados no painel de teste interativo em três versões.
 
-### <a name="manage-multiple-versions-as-apps"></a>Gerir facilmente várias versões das aplicações
+## <a name="manage-multiple-versions-as-apps"></a>Gerir facilmente várias versões das aplicações
 [Exportar](luis-how-to-manage-versions.md#export-version) a versão da base. Cada autor importa a versão. A pessoa que importa a aplicação é o proprietário da versão. Quando são feitas modificar a aplicação, exportar a versão. 
 
 As aplicações exportadas são arquivos de formato JSON, que podem ser comparados com a exportação de base para que as alterações. Combine os ficheiros para criar um único ficheiro JSON da nova versão. Alteração da **versionId** propriedade no JSON para indicar a nova versão intercalada. Importe essa versão para a aplicação original.

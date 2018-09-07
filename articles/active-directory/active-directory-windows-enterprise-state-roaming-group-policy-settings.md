@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9db0fa29f6af0053d45f9f0238b52ac34fdb464a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f1bbbecf1f40b110614b3da9874d5d2c560f9e58
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223266"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024640"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Definições de política de grupo e MDM
 Use esses diretiva de grupo e definições de gestão (MDM) de dispositivos móveis apenas em dispositivos pertencentes à empresa uma vez que estas políticas são aplicadas para o dispositivo do utilizador inteiro. Aplicar uma política MDM para desativar a sincronização de definições para um pessoal, dispositivos pertencentes ao utilizador irão afetar negativamente a utilização desse dispositivo. Além disso, outras contas de utilizador no dispositivo também serão afetadas pela política.
@@ -30,7 +30,7 @@ As empresas que desejam gerenciar roaming para os dispositivos pessoais (não ge
 As tabelas seguintes descrevem as definições de política disponíveis.
 
 ## <a name="mdm-settings"></a>Definições de MDM
-Aplicam as definições de política MDM para Windows 10 e Windows 10 Mobile.  Existe um suporte de Windows 10 Mobile apenas para a conta Microsoft com base em roaming através de conta do OneDrive do utilizador.  Consulte a secção "Dispositivos e os pontos finais" para obter detalhes sobre os dispositivos são suportados para sincronização do Azure AD com base.
+Aplicam as definições de política MDM para Windows 10 e Windows 10 Mobile.  Existe um suporte de Windows 10 Mobile apenas para a conta Microsoft com base em roaming através de conta do OneDrive do utilizador.  Consulte a [dispositivos e os pontos finais](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) para obter detalhes sobre os dispositivos são suportados para sincronização do Azure AD com base.
 
 | Nome | Descrição |
 | --- | --- |

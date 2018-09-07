@@ -1,6 +1,7 @@
 ---
-title: Compreender o armazenamento de dados no LUIS - Azure | Documentos da Microsoft
-description: Saiba como os dados são armazenados na compreensão de idiomas (LUIS)
+title: Armazenamento de dados no LUIS - compreensão de idiomas
+titleSuffix: Azure Cognitive Services
+description: Saiba como os dados são armazenados na compreensão de idiomas (LUIS). LUIS armazena dados criptografados num arquivo de dados do Azure correspondente para a região especificada pela chave.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -9,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: diberry
-ms.openlocfilehash: e4e289db0803a127bdbff5122095ae2125cdbb38
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a34426efd998a5573277e9129b832f5167c5da5e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226197"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022384"
 ---
-# <a name="data-storage-and-removal"></a>Armazenamento de dados e de remoção
+# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento de dados e remoção nos serviços cognitivos de compreensão de idiomas (LUIS)
 LUIS armazena dados criptografados num arquivo de dados do Azure correspondente para a região especificada pela chave. Estes dados são armazenados durante 30 dias. 
 
 ## <a name="export-and-delete-app"></a>Exportar e eliminar a aplicação

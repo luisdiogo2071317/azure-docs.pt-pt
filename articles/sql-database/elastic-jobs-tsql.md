@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d524f7756c8dd394d8651839a1f6426c512d6a73
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842628"
+ms.locfileid: "44023533"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -482,7 +482,7 @@ sp_add_job tem de ser executada a partir da base de dados de agente do trabalho 
 Depois de sp_add_job foi executado para adicionar uma tarefa, sp_add_jobstep pode ser utilizado para adicionar os passos que executam as atividades para a tarefa. Número de versão inicial da tarefa é 0, que será incrementada para 1 quando a primeira etapa é adicionada.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 
 - jobs_reader
 
@@ -544,7 +544,7 @@ Data na qual tarefa pode parar a execução. schedule_end_time é DATETIME2, com
 Depois de sp_add_job foi executado para adicionar uma tarefa, sp_add_jobstep pode ser utilizado para adicionar os passos que executam as atividades para a tarefa. Número de versão inicial da tarefa é 0, que será incrementada para 1 quando a primeira etapa é adicionada.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -576,7 +576,7 @@ Especifica se pretende eliminar se a tarefa tem quaisquer execuções em curso e
 Histórico de tarefas é eliminado automaticamente quando um trabalho é eliminado.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -701,7 +701,7 @@ O nível máximo de paralelismo por conjunto elástico. Se o conjunto, em seguid
 Quando sp_add_jobstep for bem-sucedida, o número da versão atual da tarefa é incrementado. Da próxima vez que a tarefa é executada, a nova versão será utilizada. Se a tarefa está atualmente em execução, dessa execução não irá conter o novo passo.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:  
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:  
 
 - jobs_reader
 
@@ -825,7 +825,7 @@ O nível máximo de paralelismo por conjunto elástico. Se o conjunto, em seguid
 Quaisquer execuções em curso do trabalho não serão afetadas. Quando sp_update_jobstep for bem-sucedida, o número da versão da tarefa é incrementado. Da próxima vez que a tarefa é executada, a nova versão será utilizada.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 
 - jobs_reader
 
@@ -870,7 +870,7 @@ Quaisquer execuções em curso do trabalho não serão afetadas. Quando sp_updat
 Os outros passos de tarefa irão ser renumerados automaticamente para preencher a lacuna deixado pelo passo de tarefa eliminada.
  
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -906,7 +906,7 @@ Parâmetro que será atribuído o id de execução da tarefa de saída. job_vers
 Nenhum.
  
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -934,7 +934,7 @@ O número de identificação da execução da tarefa para parar. job_execution_i
 Nenhum.
  
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -966,7 +966,7 @@ O nome do grupo de destino para criar. target_group_name é nvarchar(128), com n
 Grupos de destino fornecem uma forma fácil de uma tarefa numa coleção de bases de dados de destino.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -994,7 +994,7 @@ O nome do grupo de destino para eliminar. target_group_name é nvarchar(128), co
 Nenhum.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -1050,7 +1050,7 @@ Valores de retorno código 0 (êxito) ou 1 (falha)
 Uma tarefa é executada em todas as bases de dados dentro de um servidor ou conjunto elástico em tempo de execução, quando um servidor lógico ou conjunto elástico está incluído no grupo de destino.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -1115,7 +1115,7 @@ O nome do grupo de destino a partir da qual pretende remover o membro do grupo d
 Grupos de destino fornecem uma forma fácil de uma tarefa numa coleção de bases de dados de destino.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -1166,7 +1166,7 @@ O nome da tarefa para o qual pretende eliminar os registos do histórico. job_na
 0 (êxito) ou grupos de destino de comentários do 1 (falha) fornecem uma forma fácil de uma tarefa numa coleção de bases de dados de destino.
 
 #### <a name="permissions"></a>Permissões
-Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. A restringir um utilizador para apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
+Por predefinição, os membros da função de servidor fixa sysadmin podem executar este procedimento armazenado. Restringem que um usuário apenas poder monitorizar tarefas, pode conceder ao utilizador para fazer parte da seguinte função de base de dados do banco de dados de agente do trabalho especificado quando criar o agente de tarefa:
 - jobs_reader
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
@@ -1336,7 +1336,7 @@ Mostra todos os membros de todos os grupos de destino.
 
 ## <a name="resources"></a>Recursos
 
- - ![Ícone de ligação do tópico](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "ícone de ligação do tópico") [convenções de sintaxe do Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Ícone de ligação do tópico](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "ícone de ligação do tópico") [convenções de sintaxe do Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Passos Seguintes

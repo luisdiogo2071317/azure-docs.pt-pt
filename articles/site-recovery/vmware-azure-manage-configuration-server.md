@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 0935867e835fe88568f1cdce1ea8dfcea14a451a
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1d2f194eb6a2186fc1e8451a7022d26cd1013bb2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669320"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022401"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerir o servidor de configuração para VMs de VMware
 
@@ -88,7 +88,22 @@ Pode voltar a registar o servidor de configuração no mesmo cofre se for necess
           net stop obengine
           net start obengine
   ```
-  
+
+## <a name="register-a-configuration-server-with-a-different-vault"></a>Registar um servidor de configuração com outro Cofre
+
+> [!WARNING]
+> O passo seguinte disassociates o servidor de configuração do cofre do atual e a replicação de todas as máquinas de virtuais protegidas sob o servidor de configuração está parada.
+
+1. Inicie sessão no servidor de configuração.
+2. Abra uma janela de comando do PowerShell de administrador e execute o seguinte comando:
+
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
+3. Inicie o portal de browser da aplicação do configuration server usando o atalho no ambiente de trabalho.
+4. Execute os passos de registo semelhantes para um novo servidor de configuração [registo](vmware-azure-tutorial.md#register-the-configuration-server).
+
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
 Execute update rollups para atualizar o servidor de configuração. As atualizações podem ser aplicadas para até versões N-4. Por exemplo:

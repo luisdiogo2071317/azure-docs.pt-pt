@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223672"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023356"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
 Segue-se uma lista completa de todas as definições que serão movidas ou uma cópia de segurança no Windows 10. 
@@ -44,10 +44,11 @@ Os seguintes grupos de definições estão disponíveis para os utilizadores fin
 
 * Tema: fundo, o mosaico de utilizador, a posição de barra de tarefas, etc. 
 * Configurações do Internet Explorer: histórico de navegação digitado URLs, Favoritos, etc. 
-* As palavras-passe: [cacifo de credenciais do Windows](https://technet.microsoft.com/library/jj554668.aspx), incluindo perfis Wi-Fi 
+* Palavras-passe: Gestor de credenciais do Windows, incluindo perfis Wi-Fi 
 * Preferências de idioma: dicionário de ortografia, definições de idioma do sistema 
 * Facilidade de acesso: Narrador, teclado no ecrã, Lupa 
 * Outras definições do Windows: veja os detalhes de definições do Windows
+* Configuração do navegador de borda: Favoritos do Microsoft Edge, lista de leitura e outras definições
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ As definições que não são carregados ou sincronização não irão pertencer
 | **Dados da aplicação**: aplicações individuais, podem sincronizar dados |cópia de segurança de sincronização |cópia de segurança de sincronização |Interno |
 | **Lista de aplicações**: lista de aplicações instaladas |X |cópia de segurança |Outros |
 | **Bluetooth**: todas as definições de Bluetooth |X |X | |
-| **Linha de comandos**: definições de "Padrão" de linha de comandos |Sincronização |X | |
+| **Linha de comandos**: definições de "Padrão" de linha de comandos |Sincronização |X |Interno |
 | **Credenciais**: cacifo de credenciais |Sincronização |Sincronização |palavra-passe |
 | **Data, hora e região**: tempo automática (sincronização de hora da Internet) |Sincronização |Sincronização |Idioma |
 | **Data, hora e região**: relógio de 24 horas |Sincronização |X |Idioma |

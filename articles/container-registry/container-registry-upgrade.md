@@ -3,17 +3,16 @@ title: Atualizar um registo de contentor do Azure clássico
 description: Tire partido da expandidos conjunto de funcionalidades do Basic, Standard e Premium geridos registos de contentores ao atualizar o seu registo de contentor clássico não gerido.
 services: container-registry
 author: mmacy
-manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 951866c1c74cb14536ea341d80c06e0fcfe0e4fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189026"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025593"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registo de contentor clássico
 
@@ -23,7 +22,7 @@ O SKU clássico está a ser preterido e não estará disponível depois de Març
 
 ## <a name="why-upgrade"></a>Por que atualizar?
 
-O registo clássico SKU está sendo **preterido**e não estará disponível a partir de **Março de 2019**. Todos os registos de clássico existentes devem ser a atualização antes de Março de 2019.
+O registo clássico SKU está sendo **preterido**e não estará disponível a partir de **Março de 2019**. Todos os registos de clássico existentes devem ser atualizados antes de Março de 2019.
 
 Devido a preterição planeada e seus recursos limitados de registos de clássico não gerido, todos os registos de clássico ser atualizados para básico, Standard ou Premium registos geridos. Essas SKUs de nível mais alto integrar o registo mais profundamente às capacidades do Azure.
 

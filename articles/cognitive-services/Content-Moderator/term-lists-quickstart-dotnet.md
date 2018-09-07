@@ -1,6 +1,6 @@
 ---
-title: Moderada com listas de termo personalizado no Moderator conteúdo do Azure | Microsoft Docs
-description: Como moderada com termo personalizado lista utilizando o SDK de Moderator conteúdo do Azure para .NET.
+title: Moderada com listas de termos personalizado no Azure Content Moderator | Documentos da Microsoft
+description: Como a moderadas com termo personalizado apresenta uma lista com o SDK de moderador de conteúdos do Azure para .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,47 +9,47 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6da72ad070d9c3a6be38e24626dff77b52fed852
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ae080518a9ad78552a8ec173e7f4d70085c7a6b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351847"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022645"
 ---
-# <a name="moderate-with-custom-term-lists-in-net"></a>Moderada com listas de termo personalizado no .NET
+# <a name="moderate-with-custom-term-lists-in-net"></a>Moderar com listas de termos personalizado no .NET
 
-Lista global dos termos de licenciamento no Azure conteúdo Moderator predefinido é suficiente para as necessidades de moderação interrupção mais conteúdas. No entanto, poderá ter de o ecrã para os termos que são específicos para a sua organização. Por exemplo, pode querer nomes de competitor etiquetas para revisão adicional. 
+A lista global de padrão de termos no Azure Content Moderator é suficiente para as necessidades de moderação mais conteúdas. No entanto, poderá ter de o ecrã para termos que são específicos para sua organização. Por exemplo, pode querer nomes de concorrência de etiquetas para examinar detalhadamente. 
 
-Pode utilizar o SDK Moderator conteúdo para .NET para criar listas personalizadas dos termos de licenciamento para utilizar com a API de moderação interrupção de texto.
+Pode utilizar o [conteúdo de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para criar listas personalizadas de termos para utilizar com a API de moderação de texto.
 
 > [!NOTE]
-> Há um limite máximo de **apresenta uma lista de 5 termo** com cada lista para **não pode exceder 10 000 termos**.
+> Existe um limite máximo de **apresenta uma lista de 5 termo** cada lista para **não pode exceder 10 000 termos**.
 >
 
-Este artigo fornece informações e exemplos de código para o ajudar a começar a utilizar o SDK Moderator conteúdo para o .NET para:
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o SDK de moderador de conteúdo para o .NET para:
 - Crie uma lista.
 - Adicione termos a uma lista.
-- Termos de licenciamento do ecrã contra os termos de uma lista.
-- Elimine termos numa lista.
+- Termos de tela contra os termos numa lista.
+- Elimine termos de uma lista.
 - Elimine uma lista.
-- Edite as informações da lista.
-- Atualize o índice, para que as alterações à lista de estão incluídas numa nova análise.
+- Edite informações da lista.
+- Atualize o índice para que as alterações à lista estão incluídas numa nova análise.
 
-Este artigo pressupõe que já estiver familiarizado com o Visual Studio e c#.
+Este artigo pressupõe que já está familiarizado com o Visual Studio e c#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se os serviços de Moderator conteúdo
+## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para os serviços do Content Moderator
 
-Antes de poder utilizar os serviços de Moderator conteúdo através da API REST ou o SDK, precisa de uma chave de subscrição.
+Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
 
-No Dashboard do conteúdo Moderator, pode encontrar a chave de subscrição no **definições** > **credenciais** > **API**  >  **Avaliação Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [descrição geral](overview.md).
+No Dashboard de moderador de conteúdo, pode encontrar a chave de subscrição **configurações** > **credenciais** > **API**  >  **Avaliação Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [descrição geral](overview.md).
 
-## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar o seu projeto do Visual Studio
 
-1. Adicione um novo **aplicação de consola (.NET Framework)** projeto para a sua solução.
+1. Adicionar um novo **aplicação de consola (.NET Framework)** projeto à sua solução.
 
 1. Nomeie o projeto **TermLists**. Selecione este projeto como o projeto de arranque único para a solução.
 
-1. Adicione uma referência para o **ModeratorHelper** projeto de assemblagem que criou no [início rápido do programa auxiliar de cliente Moderator conteúdo](content-moderator-helper-quickstart-dotnet.md).
+1. Adicionar uma referência para o **ModeratorHelper** projeto assembly que criou no [guia de introdução do Content Moderator cliente auxiliar](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Instalar pacotes necessários
 
@@ -60,9 +60,9 @@ Instale os seguintes pacotes de NuGet para o projeto de TermLists:
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft
 
-### <a name="update-the-programs-using-statements"></a>O programa de atualização do instruções de utilização
+### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
 
-Modificar o programa de instruções de utilização.
+Modifique o programa usando instruções.
 
     using System;
     using System.Threading;
@@ -72,7 +72,7 @@ Modificar o programa de instruções de utilização.
 
 ### <a name="add-private-properties"></a>Adicionar propriedades privadas
 
-Adicione as seguintes propriedades privadas ao espaço de nomes TermLists, classe de programa.
+Adicione as seguintes propriedades privadas ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// The language of the terms in the term lists.
@@ -91,14 +91,14 @@ Adicione as seguintes propriedades privadas ao espaço de nomes TermLists, class
     /// </summary>
     private const double latencyDelay = 0.5;
 
-## <a name="create-a-term-list"></a>Criar uma lista de termo
+## <a name="create-a-term-list"></a>Criar uma lista de termos
 
-Pode criar uma lista de duração com **ContentModeratorClient.ListManagementTermLists.Create**. O primeiro parâmetro **criar** é uma cadeia que contém um tipo MIME, que deve ser "application/json". Para obter mais informações, consulte o [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). O segundo parâmetro é uma **corpo** objeto que contém um nome e descrição para a lista de novo termo.
+Crie uma lista de termo com **ContentModeratorClient.ListManagementTermLists.Create**. O primeiro parâmetro para **criar** é uma cadeia que contém um tipo MIME, o que deve ser "application/json". Para obter mais informações, consulte a [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). O segundo parâmetro é um **corpo** objeto que contém um nome e descrição para a lista de novo termo.
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
 > [!NOTE]
-> A chave do serviço Moderator conteúdo tem um pedidos por segundo (RPS) para o limite de velocidade e, se for excedido o limite, o SDK emite uma exceção com um código de 429 erro. 
+> A chave de serviço do Content Moderator tem um pedidos por segundo limite de taxa (RPS) e, se exceder o limite, o SDK lançará uma exceção com um código de 429 erro. 
 >
 > Uma chave de escalão gratuito tem um limite de taxa de um RPS.
 
@@ -128,9 +128,9 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
 
 ## <a name="update-term-list-name-and-description"></a>Atualizar o termo lista nome e descrição
 
-Atualizar as informações da lista de duração com **ContentModeratorClient.ListManagementTermLists.Update**. O primeiro parâmetro **atualização** é o ID de lista de prazo. O segundo parâmetro é um tipo MIME, que deve ser "application/json". Para obter mais informações, consulte o [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). O terceiro parâmetro é uma **corpo** objeto, que contém o novo nome e descrição.
+Atualizar as informações da lista com o termo **ContentModeratorClient.ListManagementTermLists.Update**. O primeiro parâmetro para **atualização** é o ID de lista de termo. O segundo parâmetro é um tipo MIME, o que deve ser "application/json". Para obter mais informações, consulte a [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). O terceiro parâmetro é um **corpo** objeto, que contém o novo nome e descrição.
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Update the information for the indicated term list.
@@ -147,9 +147,9 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
         Thread.Sleep(throttleRate);
     }
 
-## <a name="add-a-term-to-a-term-list"></a>Adicionar um termo a uma lista de termo
+## <a name="add-a-term-to-a-term-list"></a>Adicionar um termo para uma lista de termos
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Add a term to the indicated term list.
@@ -166,7 +166,7 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
 
 ## <a name="get-all-terms-in-a-term-list"></a>Obter todos os termos de uma lista de termo
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Get all terms in the indicated term list.
@@ -187,11 +187,11 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
 
 ## <a name="add-code-to-refresh-the-search-index"></a>Adicionar código para atualizar o índice de pesquisa
 
-Depois de efetuar alterações a uma lista de prazo, que atualiza o respetivo índice de pesquisa para que as alterações de ser incluída na próxima vez que utilize a lista de duração para texto de ecrã. Isto é semelhante à forma como um motor de busca no ambiente de trabalho (se estiver ativada) ou um motor de busca web continuamente atualiza respetivo índice para incluir novos ficheiros ou páginas.
+Depois de efetuar alterações a uma lista de termo, atualiza seu índice de pesquisa para que as alterações a serem incluídos na próxima vez que utilize a lista de termo em texto do ecrã. Isto é semelhante à forma como um mecanismo de pesquisa no ambiente de trabalho (se ativada) ou um mecanismo de pesquisa web continuamente atualiza seu índice para incluir novos ficheiros ou páginas.
 
-Atualizar um índice de pesquisa da lista de duração com **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
+Atualizar um índice de pesquisa da lista de termo com **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Refresh the search index for the indicated term list.
@@ -205,22 +205,22 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
         Thread.Sleep((int)(latencyDelay * 60 * 1000));
     }
 
-## <a name="screen-text-using-a-term-list"></a>Texto de ecrã utilizando uma lista de termo
+## <a name="screen-text-using-a-term-list"></a>Texto de tela usando uma lista de termos
 
-Ecrã texto utilizando uma lista de duração com **ContentModeratorClient.TextModeration.ScreenText**, que utiliza os seguintes parâmetros.
+Ecrã o texto usando uma lista de termo com **ContentModeratorClient.TextModeration.ScreenText**, que utiliza os seguintes parâmetros.
 
-- O idioma de termos na lista de prazo.
-- Um tipo de MIME, que pode ser "text/html", "texto/xml", "texto/markdown" ou "text/plain".
-- O texto para o ecrã.
-- Valor booleano. Defina este campo para **verdadeiro** para autocorrect texto antes da filtragem-lo.
-- Valor booleano. Defina este campo para **verdadeiro** para detetar informações de identificação pessoal (PII) no texto.
-- O ID de lista de prazo.
+- O idioma dos termos na lista de termo.
+- Um tipo MIME, que pode ser "text/html", "texto/xml", "text/markdown" ou "text/plain".
+- O texto a tela.
+- Um valor booleano. Defina este campo para **true** a autocorreção o texto antes do bloqueio-lo.
+- Um valor booleano. Defina este campo para **true** para detetar informações de identificação pessoal (PII) no texto.
+- O ID de lista de termo.
 
-Para obter mais informações, consulte o [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
+Para obter mais informações, consulte a [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** devolve um **ecrã** objeto, que tenha um **termos** propriedade que apresenta uma lista de quaisquer termos desse conteúdo Moderator detetado na e filtragens. Tenha em atenção que se Moderator conteúdo não detetou quaisquer termos durante o e filtragens, o **termos** propriedade tem um valor **nulo**.
+**ScreenText** retorna um **ecrã** objeto, que tem uma **termos** esse Content Moderator detetada no bloqueio de termos de propriedade que apresenta uma lista de qualquer um. Observe que, se o Content Moderator não detetou quaisquer termos durante o bloqueio, o **termos** vlastnost má hodnotu **nulo**.
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Screen the indicated text for terms in the indicated term list.
@@ -246,17 +246,17 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
         read.Sleep(throttleRate);
     }
 
-## <a name="delete-terms-and-lists"></a>Eliminar os termos e listas
+## <a name="delete-terms-and-lists"></a>Eliminar termos e listas
 
-Eliminar um termo ou uma lista é simples. Utilize o SDK para efetuar as seguintes tarefas:
+A eliminar um termo ou uma lista é simples. Utilize o SDK para efetuar as seguintes tarefas:
 
 - Elimine um termo. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- Elimine todos os termos de licenciamento numa lista sem a eliminação da lista. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
+- Elimine todas as condições numa lista sem a eliminação da lista. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
 - Elimine uma lista e todos os respetivos conteúdos. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>Eliminar um termo
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Delete a term from the indicated term list.
@@ -273,7 +273,7 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
 
 ### <a name="delete-all-terms-in-a-term-list"></a>Eliminar todos os termos de uma lista de termo
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Delete all terms from the indicated term list.
@@ -289,7 +289,7 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
 
 ### <a name="delete-a-term-list"></a>Eliminar uma lista de termo
 
-Adicione a seguinte definição de método ao espaço de nomes TermLists, classe de programa.
+Adicione a seguinte definição de método ao espaço de nomes TermLists, classe Program.
 
     /// <summary>
     /// Delete the indicated term list.
@@ -303,9 +303,9 @@ Adicione a seguinte definição de método ao espaço de nomes TermLists, classe
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Passar todos os em conjunto
+## <a name="putting-it-all-together"></a>Juntando as peças
 
-Adicionar o **Main** definição de método ao espaço de nomes TermLists, classe de programa. Por fim, feche a classe de programa e o espaço de nomes TermLists.
+Adicionar a **Main** definição de método ao espaço de nomes TermLists, classe de programa. Por fim, feche a classe de programa e o espaço de nomes de TermLists.
 
     static void Main(string[] args)
     {
@@ -341,9 +341,9 @@ Adicionar o **Main** definição de método ao espaço de nomes TermLists, class
         }
     }
 
-## <a name="run-the-application-to-see-the-output"></a>Execute a aplicação para ver o resultado
+## <a name="run-the-application-to-see-the-output"></a>Executar a aplicação para ver a saída
 
-A saída será nas seguintes linhas mas os dados podem variar.
+A saída será nas seguintes linhas, mas os dados podem variar.
 
     Creating term list.
     Term list created. ID: 252.
@@ -375,4 +375,4 @@ A saída será nas seguintes linhas mas os dados podem variar.
     
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Transferir a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esta e outros inícios rápidos de Moderator conteúdo para o .NET e começar a utilizar a integração.
+Obter o [SDK de .NET do conteúdo moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e o [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET e começar a trabalhar com sua integração.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630761"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026861"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 Este artigo responde a algumas perguntas que os administradores de TI podem ter sobre as definições e sincronização de dados de aplicações.
@@ -35,12 +35,12 @@ Este artigo responde a algumas perguntas que os administradores de TI podem ter 
 * *As palavras-passe*, incluindo palavras-passe de Internet, perfis de Wi-Fi e outras pessoas.
 * *Preferências de idioma*, que inclui as definições de layouts de teclado, idioma do sistema, data e hora e muito mais.
 * *Facilidade de funcionalidades de acesso*, como o tema de alto contraste, o Narrador e Lupa.
-* *Outras definições do Windows*, tais como definições de linha de comandos e lista de aplicativos.
+* *Outras definições do Windows*, tais como definições de mouse.
 
 **Os dados da aplicação**: Windows Universal apps podem escrever dados de definições para uma pasta de roaming e todos os dados gravados para esta pasta automaticamente serão sincronizados. Cabe-lhe para o desenvolvimento de aplicações individuais como conceber uma aplicação para tirar partido desta capacidade. Para obter mais detalhes sobre como desenvolver uma aplicação Windows Universal, que utiliza o roaming, consulte a [API do armazenamento de appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [appdata do Windows 8 blog de desenvolvedores de roaming](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Que conta é utilizada para sincronização de definições?
-No Windows 8 e Windows 8.1, a sincronização de definições sempre utilizadas contas da Microsoft de consumidor. Os utilizadores empresariais tinham a capacidade de ligar uma conta Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de definições. No Windows 10, isso ligado funcionalidade está a ser substituída com uma estrutura de conta primária/secundária de conta da Microsoft.
+No Windows 8.1, a sincronização de definições sempre utilizadas contas da Microsoft de consumidor. Os utilizadores empresariais tinham a capacidade de ligar uma conta Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de definições. No Windows 10, isso ligado funcionalidade está a ser substituída com uma estrutura de conta primária/secundária de conta da Microsoft.
 
 A conta principal é definida como a conta utilizada para iniciar sessão no Windows. Isso pode ser uma conta Microsoft, uma conta do Azure Active Directory (Azure AD), uma conta do Active Directory no local ou uma conta local. Além da conta principal, os utilizadores do Windows 10 podem adicionar uma ou mais contas de cloud secundário para o respetivo dispositivo. Uma conta secundária é, geralmente, uma conta Microsoft, uma conta do Azure AD ou alguma outra conta como o Gmail ou Facebook. Estas contas secundárias fornecem acesso a serviços adicionais, como início de sessão único e a Windows Store, mas eles não têm capacidade de ligar a sincronização de definições.
 
@@ -59,7 +59,7 @@ Se não é possível identificar o proprietário de uma aplicação, forem se mo
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Como faço a atualização da sincronização de definições de conta Microsoft no Windows 8 para o Azure AD a sincronização de definições no Windows 10?
-Se está associados ao domínio do Active Directory com o Windows 8 ou Windows 8.1 com uma conta Microsoft ligada, irá sincronizar as definições através da sua conta Microsoft. Depois de atualizar para o Windows 10, continuará a sincronizar definições de utilizador através da conta Microsoft, desde que seja um utilizador associado a um domínio e domínio do Active Directory não estabelecer ligação com o Azure AD.
+Se está associados ao domínio do Active Directory, executando o Windows 8.1 com uma conta Microsoft ligada, irá sincronizar as definições através da sua conta Microsoft. Depois de atualizar para o Windows 10, continuará a sincronizar definições de utilizador através da conta Microsoft, desde que seja um utilizador associado a um domínio e domínio do Active Directory não estabelecer ligação com o Azure AD.
 
 Se o domínio do Active Directory no local de se ligar com o Azure AD, o dispositivo irá tentar sincronizar as configurações usando o ligados conta do Azure AD. Se o administrador do Azure AD não ativa o Roaming de estado empresarial, sua ligados conta do Azure AD irá parar a sincronização de definições. Se for um usuário do Windows 10 e iniciar sessão com uma identidade do Azure AD, começa a sincronizar definições do windows, assim que o administrador ativa a sincronização de definições através do Azure AD.
 
@@ -94,7 +94,7 @@ Os administradores podem configurar a UE-V para se mover dados de aplicativo de 
 No futuro, a Microsoft pode investigar maneiras de tornar o UE-V profundamente integrada ao Windows e estender o UE-V para se mover as definições através da cloud do Azure AD.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Posso armazenar definições sincronizadas e os dados no local?
-Roaming de estado empresarial armazena todos os dados de sincronização na cloud do Azure. UE-V oferece uma local roaming de solução.
+Roaming de estado empresarial armazena todos os dados de sincronização na cloud da Microsoft. UE-V oferece uma local roaming de solução.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Quem tem os dados que estão a ser movidos?
 As empresas próprias ganhar mobilidade os dados por meio de Roaming de estado empresarial. Dados são armazenados num datacenter do Azure. Todos os dados de utilizador são encriptados em trânsito e em inatividade na cloud com o serviço Azure Rights Management do Azure Information Protection. Essa é uma melhoria em comparação comparada a sincronização de definições com base na conta da Microsoft, que criptografa apenas determinados dados confidenciais, como credenciais de utilizador, antes mesmo de sair do dispositivo.

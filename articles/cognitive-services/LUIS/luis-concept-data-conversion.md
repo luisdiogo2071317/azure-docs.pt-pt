@@ -1,20 +1,21 @@
 ---
-title: Compreender os conceitos de conversão de dados do LUIS - Azure | Documentos da Microsoft
+title: Conceitos de conversão de dados do LUIS - compreensão de idiomas
+titleSuffix: Azure Cognitive Services
 description: Saiba como expressões podem ser alterados antes de previsões de indisponibilidade na compreensão de idiomas (LUIS)
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: diberry
-ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e1d0e0a0205190846612d727fbf34404e33c3ad4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223706"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027083"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>Conceitos de conversão de dados do LUIS
 LUIS, fornece uma forma para converter expressões com expressões faladas em expressões de texto antes de predição. 
