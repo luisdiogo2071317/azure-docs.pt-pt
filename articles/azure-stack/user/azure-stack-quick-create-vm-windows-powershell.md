@@ -1,6 +1,6 @@
 ---
-title: Criar uma máquina virtual do Windows utilizando o PowerShell na pilha do Azure | Microsoft Docs
-description: Crie uma máquina virtual do Windows com o PowerShell na pilha do Azure.
+title: Criar uma máquina virtual do Windows com o PowerShell no Azure Stack | Documentos da Microsoft
+description: Crie uma máquina virtual do Windows com o PowerShell no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,38 +12,40 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aaeed9c86f340d2eda2524922c7af9a8285a1782
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152124"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162672"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: criar uma máquina virtual do Windows utilizando o PowerShell na pilha do Azure
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: criar uma máquina virtual do Windows Server com o PowerShell no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pode criar uma máquina virtual do Windows Server 2016 com o Azure PowerShell de pilha. Siga os passos neste artigo para criar e utilizar uma máquina virtual. Este artigo também dá-lhe os passos para:
+Pode criar uma máquina virtual do Windows Server 2016 com o Azure Stack do PowerShell. Siga os passos neste artigo para criar e utilizar uma máquina virtual. Este artigo também dá-lhe os passos para:
 
 * Ligar à máquina virtual com um cliente remoto.
-* Instalar o servidor de web IIS e ver a home page predefinida.
-* Limpe os seus recursos.
+* Instalar o servidor web IIS e ver a home page do padrão.
+* Limpe seus recursos.
 
 >[!NOTE]
- Pode executar os passos descritos neste artigo, o Kit de desenvolvimento de pilha do Azure ou a partir de um cliente externo baseado em Windows, se estiver ligado através de uma VPN.
+ Pode executar os passos descritos neste artigo do Development Kit do Azure Stack ou de um cliente externo com base no Windows, se estiver ligado através de uma VPN.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Certifique-se de que o operador de pilha do Azure adicionou a imagem "Windows Server 2016" para o mercado de pilha do Azure.
+* Certifique-se de que o operador do Azure Stack adicionou a **Windows Server 2016** imagem para o mercado do Azure Stack.
 
-* Pilha do Azure requer uma versão específica do Azure PowerShell para criar e gerir os recursos. Se não tiver configurado para a pilha do Azure do PowerShell, siga os passos para [instalar](azure-stack-powershell-install.md) e [configurar](azure-stack-powershell-configure-user.md) PowerShell.
+* O Azure Stack requer uma versão específica do Azure PowerShell para criar e gerir os recursos. Se não tiver configurado para o Azure Stack do PowerShell, siga os passos para [instalar](azure-stack-powershell-install.md) PowerShell.
+
+* Com o Azure Stack do PowerShell configurar, terá de ligar ao seu ambiente do Azure Stack. Para obter instruções, consulte [ligue-se ao Azure Stack com o PowerShell como um utilizador](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico na qual pilha do Azure recursos são implementados e geridos. A partir da sua kit de desenvolvimento ou o sistema de pilha do Azure integrado, execute o seguinte bloco de código para criar um grupo de recursos. Os valores são atribuídos para todas as variáveis neste documento, pode utilizar estes valores ou atribuir os novos valores.
+Um grupo de recursos é um contentor lógico em que o Azure Stack os recursos são implementados e geridos. A partir de seu kit de desenvolvimento ou o sistema integrado do Azure Stack, execute o seguinte bloco de código para criar um grupo de recursos. Valores são atribuídos para todas as variáveis neste documento, pode utilizar estes valores ou atribuir novos valores.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -57,7 +59,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Criar recursos de armazenamento
 
-Crie uma conta do storage e um contentor de armazenamento para armazenar a imagem do Windows Server 2016.
+Crie uma conta de armazenamento e um contentor de armazenamento para armazenar a imagem do Windows Server 2016.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -163,7 +165,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Criar uma configuração da máquina virtual. Esta configuração inclui as definições utilizadas quando implementar a máquina virtual. Por exemplo: as credenciais, tamanho e a imagem de máquina virtual.
+Criar uma configuração da máquina virtual. Esta configuração inclui as definições utilizadas quando implementar a máquina virtual. Por exemplo: as credenciais, o tamanho e a imagem de máquina virtual.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -214,7 +216,7 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Ligar à máquina virtual
 
-Para remoto para a máquina virtual que criou no passo anterior, é necessário o endereço IP público. Execute o seguinte comando para obter o endereço IP público da máquina virtual:
+Remotamente na máquina virtual que criou no passo anterior, terá do endereço IP público. Execute o seguinte comando para obter o endereço IP público da máquina virtual:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
@@ -237,13 +239,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Ver a página de boas-vindas do IIS
 
-Com o IIS instalado e com a porta 80 aberto na sua VM, pode utilizar um browser web à sua escolha para ver a página de boas-vindas do IIS predefinido. Utilize o *publicIpAddress* documentados na secção anterior para visitar a página predefinida.
+Com o IIS instalado e com a porta 80 aberta na sua VM, pode utilizar um browser à sua escolha para ver a página de boas-vindas do IIS predefinida. Utilize o *publicIpAddress* documentadas na secção anterior para visitar a página predefinida.
 
 ![Site predefinido do IIS](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-virtual-machine"></a>Eliminar a máquina virtual
 
-Quando já não é necessário, utilize o seguinte comando para remover o grupo de recursos que contém a máquina virtual e os respetivos recursos relacionados:
+Quando já não for necessário, utilize o seguinte comando para remover o grupo de recursos que contém a máquina virtual e respetivos recursos relacionados:
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -252,4 +254,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este guia de introdução, implementou uma máquina virtual simple do Windows. Para saber mais sobre as máquinas virtuais de pilha do Azure, avance para [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).
+Neste início rápido, implementou uma máquina de virtual do Windows simples. Para saber mais sobre as máquinas virtuais do Azure Stack, avance para [considerações para máquinas virtuais no Azure Stack](azure-stack-vm-considerations.md).
