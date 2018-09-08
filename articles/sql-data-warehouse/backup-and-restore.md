@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/24/2018
+ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248667"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092483"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilizar dados do armazém de instantâneos para recuperação ou copie o seu armazém de dados para um ponto de restauro anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização. 
@@ -28,7 +28,7 @@ R *restauro do armazém de dados* é um novo armazém de dados que é criado a p
 ## <a name="automatic-restore-points"></a>Pontos de Restauro Automático
 Os instantâneos são uma funcionalidade incorporada do serviço que cria pontos de restauro. Não é necessário que ativar esta capacidade. Pontos de restauro automático atualmente não não possível eliminar por utilizadores onde o serviço utiliza estes restaurar aponta para manter os SLAs para recuperação.
 
-O SQL Data Warehouse tira instantâneos do seu armazém de dados ao longo do dia a criação de pontos de restauro que estão disponíveis durante sete dias. Não é possível alterar o período de retenção. SQL Data Warehouse suporta um objetivo de ponto de recuperação (RPO) oito horas. Pode restaurar o armazém de dados na região primária a partir de qualquer um dos instantâneos realizados nos últimos sete dias.
+O SQL Data Warehouse tira instantâneos do seu armazém de dados ao longo do dia a criação de pontos de restauro que estão disponíveis durante sete dias. Não é possível alterar o período de retenção. SQL Data Warehouse suporta um objetivo de ponto de recuperação de oito horas (RPO). Pode restaurar o armazém de dados na região primária a partir de qualquer um dos instantâneos realizados nos últimos sete dias.
 
 Para ver quando o último instantâneo iniciado, execute esta consulta no seu armazém de dados online do SQL. 
 
@@ -40,19 +40,20 @@ order by run_id desc
 ```
 
 ## <a name="user-defined-restore-points"></a>Pontos de Restauro Definidos pelo Utilizador
-Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para criar pontos de restauração do seu armazém de dados antes e depois grandes modificações. Esta capacidade assegura que os pontos de restauração estão logicamente consistente que fornece proteção de dados adicional em caso de quaisquer interrupções de carga de trabalho ou erros de utilizador para o tempo de recuperação rápida. Pontos de restauro definidas pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção de pontos de restauro definidas pelo utilizador. Apenas 42 pontos de restauro definidas pelo utilizador são suportados em qualquer ponto no tempo para que têm de ser [eliminado](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode acionar instantâneos para criar pontos de restauro definidas pelo utilizador através da [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) ou do Portal do Azure.
+Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para criar pontos de restauração do seu armazém de dados antes e depois grandes modificações. Esta capacidade assegura que os pontos de restauração estão logicamente consistente que fornece proteção de dados adicional em caso de quaisquer interrupções de carga de trabalho ou erros de utilizador para o tempo de recuperação rápida. Pontos de restauro definidas pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção de pontos de restauro definidas pelo utilizador. **pontos de restauro de 42 definidas pelo utilizador** são garantidas em qualquer ponto no tempo para que estes têm de estar [eliminado](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode acionar instantâneos para criar pontos de restauro definidas pelo utilizador através da [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) ou o portal do Azure.
 
 
 > [!NOTE]
 > Se necessitar de mais de 7 dias de pontos de restauração, votar, para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. Se precisar de uma cópia ativa do armazém de dados restaurada, pode retomar o que deverá demorar apenas alguns minutos.
 >
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Retenção de instantâneo quando um armazém de dados está em pausa
-O SQL Data Warehouse não cria instantâneos e não expirar a pontos de restauração, enquanto um armazém de dados está em pausa. Restaurar pontos não são alterados, enquanto o armazém de dados está em pausa. Restaure ponto de retenção baseia-se no número de dias em que o armazém de dados está online, não os dias de calendário.
-
-Por exemplo, se um instantâneo começa em 1 de Outubro às 16:00 e o armazém de dados está em pausa 3 de Outubro às 16:00, os pontos de restauro são até dois dias de antiguidade. Quando o armazém de dados fica online novamente o ponto de restauro é dois dias de antiguidade. Se o armazém de dados online 5 de Outubro às 16:00, o ponto de restauro é dois dias de antiguidade e durante cinco dias mais.
-
-Quando o armazém de dados estiver online novamente, o SQL Data Warehouse retoma a criação de novos pontos de restauro e expira-los quando têm mais de sete dias de dados.
+### <a name="restore-point-retention"></a>Retenção do ponto de restauro
+O seguinte descreve os detalhes em períodos de retenção do ponto de restauro:
+1. O SQL Data Warehouse elimina um ponto de restauro, quando ela atinge o período de retenção de 7 dias **e** quando existem, pelo menos, 42 pontos de restauro total (incluindo definidas pelo utilizador e automática)
+2. Não são tirados instantâneos quando um armazém de dados está em pausa
+3. A duração de um ponto de restauro é medida aos dias de calendário absoluto desde o momento em que o ponto de restauro está a ser utilizado incluindo quando o armazém de dados está em pausa
+4. Em qualquer altura, é garantido que um armazém de dados poderá armazenar até 42 pontos de restauro definidas pelo utilizador e 42 pontos de restauro automático, desde que esses pontos de restauro não atingiu o período de retenção de 7 dias
+5. Se um instantâneo, o armazém de dados, em seguida, fica em pausa durante mais de 7 dias e, em seguida, retoma, é possível que o ponto de restauro persistir até que haja 42 pontos de restauro total (incluindo definidas pelo utilizador e automática)
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retenção de instantâneo quando é arrastado para um armazém de dados
 Quando remover um armazém de dados, o SQL Data Warehouse cria um instantâneo final e guarda-o durante sete dias. Pode restaurar o armazém de dados para o ponto de restauro final criado na eliminação. 
@@ -67,7 +68,7 @@ O SQL Data Warehouse efetua uma cópia de segurança geo uma vez por dia para um
 Cópias de segurança geo são ativados por padrão. Se o seu armazém de dados é a geração 1, pode [para anular](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não pode desativar cópias de segurança geo para a geração 2, como proteção de dados é uma incorporada garantida.
 
 > [!NOTE]
-> Se necessitar de um RPO mais curto para cópias de segurança geo, votar, para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados numa região diferente. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. e, em seguida, colocar em pausa. Se necessitar de uma cópia ativa do armazém de dados, é possível retomar o que deve demorar apenas alguns minutos.
+> Se necessitar de um RPO mais curto para cópias de segurança geo, votar para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados numa região diferente. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. e, em seguida, colocar em pausa. Se necessitar de uma cópia ativa do armazém de dados, é possível retomar o que deve demorar apenas alguns minutos.
 >
 
 

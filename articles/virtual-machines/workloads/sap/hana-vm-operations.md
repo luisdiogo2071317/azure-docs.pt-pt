@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2018
+ms.date: 09/06/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0a6c9d4ad27eb6dc6b0aba24f32a4a0dfde3c784
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917963"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163319"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações de infraestrutura de SAP HANA e operações no Azure
 Este documento fornece orientações para configurar a infraestrutura do Azure e operar sistemas SAP HANA que estão implementados em máquinas de virtuais (VMs) nativas do Azure. O documento também inclui informações de configuração para o SAP HANA aumentar horizontalmente para o SKU de VM M128s. Este documento não se destina a substituir a documentação de SAP padrão, o que inclui o seguinte conteúdo:
 
-- [Guia de administração do SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [Guia de administração do SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [Guias de instalação SAP](https://service.sap.com/instguides)
 - [Notas SAP](https://sservice.sap.com/notes)
 
@@ -212,6 +212,11 @@ Ao instalar as VMs a executar o SAP HANA, tem das VMs:
 
 - Duas NICs virtuais instalados: uma NIC para estabelecer ligação à sub-rede de gestão e uma NIC para ligar a partir da rede no local ou a outras redes, para a instância do SAP HANA na VM do Azure.
 - Endereços IP privados estáticos que são implementados por ambas as NICs virtuais.
+
+> [!NOTE]
+> Deve atribuir endereços IP estáticos através do Azure meios para vNICs individuais. Não deve atribuir endereços IP estáticos no SO convidado para um vNIC. Alguns serviços do Azure como o serviço de cópia de segurança do Azure confiam no fato de que, no mínimo a vNIC principal está definida para DHCP e não para endereços IP estáticos. Consulte também o documento [cópia de segurança de máquina virtual de resolução de problemas do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Se tiver de atribuir vários endereços IP estáticos a uma VM, terá de atribuir múltiplos vNICs a uma VM.
+>
+>
 
 No entanto, para implementações que são duradouros, terá de criar uma arquitetura de rede do virtual datacenter no Azure. Esta arquitetura recomenda a separação de Gateway de VNet do Azure que liga ao local para uma VNet do Azure separada. Esta VNet separada deve hospedar todo o tráfego que sai para no local ou na internet. Esta abordagem permite-lhe implementar software para auditoria e registo de tráfego que entra o datacenter virtual no Azure deste hub separado de VNet. Portanto, tem uma VNet que aloja o software e configurações que diz respeito ao tráfego-in - e de saída para a implementação do Azure.
 

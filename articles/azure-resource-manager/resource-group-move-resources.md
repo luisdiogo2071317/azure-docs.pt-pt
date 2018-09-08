@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: e0a2e26fb3dd0afeb4d1f3d030cb42bdc181e63c
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783343"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094965"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -210,7 +210,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Dashboards de portais
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - veja [limitações de IP público](#pip-limitations)
-* Cache de Redis
+* Cache de redis - se a instância de Cache de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Scheduler
 * Pesquisa
 * Service Bus

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186201"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160053"
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitorização de operações do IoT Hub
 
@@ -96,7 +96,7 @@ A categoria de telemetria do dispositivo rastreia erros ocorridos no IoT hub e e
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Comandos do cloud-para-dispositivo
+### <a name="cloud-to-device-commands"></a>Comandos de cloud para dispositivo
 
 A categoria de comandos do cloud-para-dispositivo rastreia erros ocorridos no IoT hub e estão relacionadas com o pipeline de mensagens da cloud para o dispositivo. Esta categoria inclui erros que ocorrem quando enviar mensagens da cloud para o dispositivo (por exemplo, o remetente não autenticado), receber mensagens da cloud para o dispositivo (por exemplo, a contagem de entrega excedida) e receber comentários de mensagem de cloud-para-dispositivo (como comentários expiraram). Esta categoria não detectar erros de um dispositivo que trata incorretamente uma mensagem de cloud para o dispositivo se a mensagem de cloud para o dispositivo foi entregue com êxito.
 
@@ -185,26 +185,6 @@ A categoria de roteamento de mensagem rastreia erros que ocorrem durante a avali
     "details": "ExternalEndpointDisabled"
 }
 ```
-
-## <a name="view-events"></a>Ver eventos
-
-Pode utilizar o *iothub-explorer* ferramenta para testar rapidamente se o seu hub IoT está a gerar eventos de monitorização. Para instalar a ferramenta, consulte as instruções a [iothub-explorer] [ lnk-iothub-explorer] repositório do GitHub.
-
-1. Certifique-se a **ligações** monitorização categoria é definido como **verboso** no portal.
-
-1. Numa linha de comandos, execute o seguinte comando para ler a partir do ponto de final de monitorização:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. Em outra linha de comandos, execute o seguinte comando para simular um dispositivo enviar mensagens dispositivo-para-cloud:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. A primeira linha de comandos mostra os eventos de monitorização conforme se conecta o dispositivo simulado ao seu hub IoT.
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Ligar para o ponto final de monitorização
 
@@ -303,5 +283,4 @@ Para explorar ainda mais os recursos do IoT Hub, veja:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

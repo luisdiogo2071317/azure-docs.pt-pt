@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391382"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162721"
 ---
 # <a name="manage-your-security-info-preview"></a>Gerir as suas informações de segurança (pré-visualização)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Pode utilizar as informações de segurança para iniciar sessão na sua conta escolar ou profissional ou a repor a palavra-passe.
 
@@ -92,13 +92,13 @@ Este artigo ajuda-o a resolver problemas de suas informações de segurança, in
 
 - Siga um dos seguintes artigos de procedimentos para saber mais sobre como configurar seus dispositivos na área de informações de segurança:
 
-    - [Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)
+    - [Configurar as informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)
 
-    - [Definir informações de segurança para utilizar chamadas telefónicas](security-info-setup-phone-number.md)
+    - [Configurar as informações de segurança para utilizar chamadas telefónicas](security-info-setup-phone-number.md)
 
     - [Definir informações de segurança para utilizar as mensagens de texto](security-info-setup-text-msg.md)
 
-    - [Definir informações de segurança para utilizar o e-mail](security-info-setup-email.md)
+    - [Configurar as informações de segurança para utilizar o e-mail](security-info-setup-email.md)
 
     - [Definir informações de segurança para utilizar perguntas de segurança](security-info-setup-questions.md)
 

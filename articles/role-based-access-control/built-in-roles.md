@@ -1,6 +1,6 @@
 ---
-title: Funções incorporadas no Azure | Documentos da Microsoft
-description: Descreve as funções incorporadas para o controlo de acesso baseado em funções (RBAC) no Azure. Lista de ações, NotActions, DataActions e NotDataActions.
+title: Funções incorporadas para recursos do Azure | Documentos da Microsoft
+description: Descreve as funções incorporadas para controlo de acesso baseado em funções (RBAC) e recursos do Azure. Lista de ações, NotActions, DataActions e NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/19/2018
+ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44b32746c43569705b445ac5df0a5727463acbe0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048373"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095339"
 ---
-# <a name="built-in-roles-in-azure"></a>Funções incorporadas no Azure
+# <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
 
 As funções incorporadas estão sempre a evoluir. Para obter as definições de função mais recentes, utilize [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list).
@@ -43,7 +43,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Função de operador de serviço de gestão de API](#api-management-service-operator-role) | Pode gerir o serviço, mas não as APIs |
 | [Função de leitor de serviço de gestão de API](#api-management-service-reader-role) | Acesso só de leitura para o serviço e APIs |
 | [Contribuinte de componente do Application Insights](#application-insights-component-contributor) | Permite gerir componentes do Application Insights |
-| [Snapshot Debugger do Application Insights](#application-insights-snapshot-debugger) | Dá permissão ao utilizador para ver e transferir os instantâneos de depuração recolhidos com o Snapshot Debugger do Application Insights. Tenha em atenção que esta função está incluída em nenhum do [proprietário](#owner) nem [contribuinte](#contributor) funções. |
+| [Snapshot Debugger do Application Insights](#application-insights-snapshot-debugger) | Dá permissão ao utilizador para ver e transferir os instantâneos de depuração recolhidos com o Snapshot Debugger do Application Insights. Tenha em atenção que estas permissões não estão incluídas no [proprietário](#owner) ou [contribuinte](#contributor) funções. |
 | [Operador de tarefas de automatização](#automation-job-operator) | Criar e Gerir Tarefas através de Runbooks de Automatização. |
 | [Operador de automatização](#automation-operator) | Os Operadores de Automatização podem iniciar, parar, suspender e retomar tarefas |
 | [Operador de Runbook de automatização](#automation-runbook-operator) | Ler as propriedades do Runbook para que possa criar Tarefas do runbook. |
@@ -62,10 +62,11 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor de Rede Clássica](#classic-network-contributor) | Permite-lhe gerir redes virtuais, mas não aceder-lhes. |
 | [Contribuinte de conta de armazenamento clássicas](#classic-storage-account-contributor) | Permite-lhe gerir contas de armazenamento clássico, mas não aceder às mesmas. |
 | [Função do serviço de operador de chave de conta de armazenamento clássicas](#classic-storage-account-key-operator-service-role) | Os Operadores de Chave da Conta de Armazenamento Clássica têm permissão para listar e regenerar chaves em Contas de Armazenamento Clássicas |
-| [Contribuinte de Máquina Virtual clássica](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas.|
+| [Contribuinte de Máquina Virtual clássica](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
+| [Utilizador dos serviços cognitivos](#cognitive-services-user) | Permite-lhe ler e lista as chaves dos serviços cognitivos. |
 | [Função de leitor de conta do cosmos DB](#cosmos-db-account-reader-role) | Pode ler os dados da conta do Azure Cosmos DB. Ver [contribuinte de conta do DocumentDB](#documentdb-account-contributor) para a gestão de contas do Azure Cosmos DB. |
 | [Contribuinte de caixa de dados](#data-box-contributor) | Permite-lhe gerir tudo no serviço do Data Box, exceto que lhe dá acesso a outras pessoas. |
-| [Operador de caixa de dados](#data-box-operator) | Permite-lhe gerir o serviço do Data Box, exceto a ordem de criação ou edição de detalhes do pedido e que lhe dá acesso a outras pessoas. |
+| [Leitor de dados de caixa](#data-box-reader) | Permite-lhe gerir o serviço do Data Box, exceto a ordem de criação ou edição de detalhes do pedido e que lhe dá acesso a outras pessoas. |
 | [Contribuinte do Data Factory](#data-factory-contributor) | Permite-lhe gerir fábricas de dados, mas não aceder-lhes. |
 | [Programador do Data Lake Analytics](#data-lake-analytics-developer) | Permite-lhe submeter, monitorizar e gerir as suas tarefas, mas não criar ou eliminar as contas do Data Lake Analytics. |
 | [Purger de dados](#data-purger) | Pode remover dados de análise |
@@ -80,6 +81,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor da aplicação lógica](#logic-app-contributor) | Permite-lhe gerir aplicações lógicas, mas não aceder às mesmas. |
 | [Operador de aplicação lógica](#logic-app-operator) | Permite-lhe ler, ativar e desativar a aplicação lógica. |
 | [Função de operador de aplicação gerida](#managed-application-operator-role) | Permite-lhe ler e executar ações nos recursos de aplicação gerida |
+| [Leitor de aplicativos gerenciados](#managed-applications-reader) | Permite-lhe ler os recursos de acesso JIT gerido de aplicação e a pedido. |
 | [Contribuidor de identidade gerido](#managed-identity-contributor) | Criar, Ler, Atualizar e Eliminar a Identidade Atribuída ao Utilizador |
 | [Operador de identidade gerido](#managed-identity-operator) | Ler e Atribuir a Identidade Atribuída ao Utilizador |
 | [Contribuinte do grupo de gestão](#management-group-contributor) | Função de Contribuinte do Grupo de Gestão |
@@ -259,7 +261,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Dá permissão ao utilizador para utilizar as funcionalidades do Snapshot Debugger do Application Insights |
+> | **Descrição** | Dá permissão ao utilizador para ver e transferir os instantâneos de depuração recolhidos com o Snapshot Debugger do Application Insights. Tenha em atenção que estas permissões não estão incluídas no [proprietário](#owner) ou [contribuinte](#contributor) funções. |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -653,6 +655,27 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
+## <a name="cognitive-services-user"></a>Utilizador dos serviços cognitivos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe ler e lista as chaves dos serviços cognitivos. |
+> | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **Ações** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | Listar chaves |
+> | Microsoft.Insights/metricdefinitions/read | Ler definições de métrica |
+> | Microsoft.Insights/metrics/read | Ler métricas |
+> | Microsoft.Insights/alertRules/read | Ler um alerta de métrica clássico |
+> | Microsoft.Insights/diagnosticSettings/read | Ler uma definição de diagnóstico de recursos |
+> | Microsoft.Insights/logDefinitions/read | Ler definições de registo |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
+> | Microsoft.Resources/deployments/operations/read | Obtém ou lista as operações de implementação. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação de subscrição. |
+> | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
 ## <a name="cosmos-db-account-reader-role"></a>Função do Leitor da Conta do Cosmos DB
 > [!div class="mx-tableFixed"]
 > | | |
@@ -663,7 +686,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções, pode ler permissões concedidas a cada utilizador |
 > | Microsoft.DocumentDB/*/read | Ler qualquer coleção |
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Lê a base de dados de chaves da conta só de leitura. |
-> | Microsoft.Insights/MetricDefinitions/read | Ler definições de métricas |
+> | Microsoft.Insights/MetricDefinitions/read | Ler definições de métrica |
 > | Microsoft.Insights/Metrics/read | Ler métricas |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
@@ -682,7 +705,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.Databox/* |  |
 
-## <a name="data-box-operator"></a>Operador de caixa de dados
+## <a name="data-box-reader"></a>Leitor de dados de caixa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -690,9 +713,11 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.Databox/*/read |  |
+> | Microsoft.Databox/jobs/listsecrets/action | Lista os segredos não encriptados relativos à encomenda. |
+> | Microsoft.Databox/locations/availableSkus/action | Este método devolve a lista de SKUs disponíveis. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
-> | Microsoft.Databox/jobs/listsecrets/action | Lista os segredos não encriptados relativos à encomenda. |
 
 ## <a name="data-factory-contributor"></a>Contribuinte do Data Factory
 > [!div class="mx-tableFixed"]
@@ -865,6 +890,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crie um laboratório numa conta do laboratório. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenha informações de disponibilidade regional para cada categoria de tamanho configurada com uma conta de laboratório |
+> | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obtenha informações de disponibilidade regional para cada categoria de tamanho configurada com uma conta de laboratório |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
@@ -964,6 +990,17 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.Solutions/applications/read | Obtém uma lista de aplicações. |
 
+## <a name="managed-applications-reader"></a>Leitor de aplicativos gerenciados
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe ler os recursos de acesso JIT gerido de aplicação e a pedido. |
+> | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | **Ações** |  |
+> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
+> | Microsoft.Solutions/jitRequests/* |  |
+
 ## <a name="managed-identity-contributor"></a>Contribuidor de Identidade Gerida
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1036,7 +1073,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Ler definições de métrica (lista de tipos de métricas disponíveis para um recurso). |
 > | Microsoft.Insights/Metrics/* | Ler métricas para um recurso. |
-> | Microsoft.Insights/Register/Action | Registar o fornecedor do Microsoft Insights |
+> | Microsoft.Insights/Register/Action | Registar o fornecedor de Microsoft Insights |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Testes web do Application Insights de leitura/escrita/eliminar. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Pacotes de soluções do Log Analytics de leitura/escrita/eliminar. |
@@ -1045,7 +1082,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Obtém as chaves partilhadas para a área de trabalho. Estas chaves são utilizadas para ligar os agentes de informações operacionais da Microsoft à área de trabalho. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Leitura/escrita/eliminar configurações de informações de armazenamento do Log Analytics. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
-> | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/monitors/* |  |
+> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Monitorização de métricas de publicador

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 36460257b5c170c600ef08eff07bb3f64a391cd8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6827b01e72cd72d3f017df36205ccb985b4f242e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028624"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157655"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure com os SDKs do Azure 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Este artigo fornece uma lista de exemplos do SDK, que demonstram a utilização de seus respectivos suporte do SDK Azure para identidades geridas para recursos do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos

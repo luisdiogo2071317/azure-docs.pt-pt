@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859872"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163282"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Com o Bash no Cloud Shell, pode executar um comando chamado `clouddrive`, que pe
 #### <a name="prerequisites-for-manual-mounting"></a>Pré-requisitos para a montagem manual
 Pode atualizar a partilha de ficheiros que está associada à Cloud Shell, utilizando o `clouddrive mount` comando.
 
-Se montar uma partilha de ficheiros existentes, as contas de armazenamento tem de ser:
-* Armazenamento localmente redundante ou armazenamento georredundante, para oferecer suporte a partilhas de ficheiros.
-* Localizado na sua região atribuído. Quando estiver a integrar, a região que está atribuído a está listada no nome do grupo de recursos `cloud-shell-storage-<region>`.
+Se montar uma partilha de ficheiros existentes, as contas de armazenamento tem de estar localizadas na sua região do Cloud Shell selecione. Obter a localização, executando `env` partir do Bash e verificando o `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>O `clouddrive mount` comando
 

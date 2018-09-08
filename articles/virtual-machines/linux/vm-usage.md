@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d9df71f6fa2f64544cbefc7d9aca8c153c86ac98
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025069"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094260"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Compreender a utilização de máquina virtual do Azure
 Ao analisar os dados de utilização do Azure, pode ser obtida a informações sobre consumo poderosas – informações que podem ativar a custam melhor gerenciamento e a alocação em toda a organização. Este documento fornece uma descrição aprofundada seus detalhes de consumo de computação do Azure. Para obter mais detalhes sobre a utilização do Azure geral, navegue para [entender a sua fatura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -128,7 +128,7 @@ O campo de ImageType só é preenchido para um subconjunto de imagens. Se não i
 ### <a name="why-is-the-vmname-blank-in-the-additional-info"></a>Por que é o VMName em branco nas informações adicionais?
 VMName só é preenchido no campo de informações adicionais para as VMs num conjunto de dimensionamento. O campo de InstanceID contém o nome da VM para VMs do conjunto de dimensionamento não.
 ### <a name="what-does-computehr-mean-in-the-usagetype-field-in-the-additional-info"></a>O que significa ComputeHR no campo UsageType as informações adicionais?
-ComputeHR significa hora de computação, que representa o evento de utilização para o custo de infrasturcture subjacente. Se o UsageType for ComputeHR\_SW, o evento de utilização representa o custo de software de premium para a VM.
+ComputeHR significa horas de computação de mensagens em fila que representa o evento de utilização para o custo da infraestrutura subjacente. Se o UsageType for ComputeHR\_SW, o evento de utilização representa o custo de software de premium para a VM.
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Como posso saber se me cobrada a de software do premium?
 Ao explorar a imagem de VM melhor se adequa às suas necessidades, certifique-se de que consulte o [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). A imagem tem a taxa de plano de software. Se vir "Gratuito" para a taxa, não há sem custos adicionais para o software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>O que é a diferença entre a Microsoft. classiccompute e Microsoft. Compute no serviço consumido?

@@ -1,40 +1,36 @@
 ---
-title: Orchestrations secundárias para funções duráveis - Azure
-description: Como chamar orchestrations de orchestrations na extensão do durável funções para as funções do Azure.
+title: Orquestrações secundária para funções duráveis - Azure
+description: Como chamar orquestrações de orquestrações na extensão de funções duráveis para as funções do Azure.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 59e8eb41b7e9fe3d57196f6844d1a768c3ef598b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33761338"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094444"
 ---
-# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Secundárias orchestrations nas funções duráveis (funções do Azure)
+# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações secundárias nas funções duráveis (funções do Azure)
 
-Para chamar as funções de atividade, além de funções do orchestrator podem chamar outras funções do orchestrator. Por exemplo, pode criar uma maior orchestration fora de uma biblioteca de funções do orchestrator. Em alternativa, pode executar várias instâncias de uma função do orchestrator em paralelo.
+Para além de chamar funções de atividade, as funções do orchestrator podem chamar outras funções do orchestrator. Por exemplo, pode criar uma orquestração maior fora de uma biblioteca de funções do orchestrator. Em alternativa, pode executar várias instâncias de uma função de orquestrador em paralelo.
 
-Uma função do orchestrator pode chamar outra função do orchestrator, chamando o [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) método. O [erro processamento & compensação](durable-functions-error-handling.md#automatic-retry-on-failure) artigo tem mais informações sobre a repetição automática.
+Uma função de orquestrador pode chamar a função de orquestrador de outro ao chamar o [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou o [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) método. O [tratamento de erro & compensação](durable-functions-error-handling.md#automatic-retry-on-failure) artigo tem mais informações sobre a repetição automática.
 
-As funções do orchestrator secundárias comportam-se, tal como as funções de atividade da perspetiva da função invocadora. Estes podem devolver um valor, acionar uma excepção e pode ser aguardado pela função principal do orchestrator.
+As funções do orchestrator secundárias se comportam como funções de atividade do ponto de vista do chamador. Eles podem retornar um valor, lance uma exceção e podem ser colocadas em espera pela função de orquestrador principal.
 
 > [!NOTE]
 > O `CallSubOrchestratorAsync` e `CallSubOrchestratorWithRetryAsync` métodos ainda não estão disponíveis em JavaScript.
 
 ## <a name="example"></a>Exemplo
 
-O exemplo a seguir ilustra um cenário de IoT ("Internet das coisas") em que existem vários dispositivos que têm de ser aprovisionado. Há um determinado orchestration que deverá ocorrer para cada um dos dispositivos, o que poderão ter um aspeto semelhante a seguinte:
+O exemplo a seguir ilustra um cenário de IoT ("Internet das coisas") em que existem vários dispositivos que têm de ser aprovisionado. Há uma orquestração específica que precisa para ocorrer para cada um dos dispositivos, que podem ser semelhante ao seguinte:
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -55,7 +51,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-Esta função do orchestrator pode ser utilizada como-é para aprovisionamento de dispositivos pontuais ou pode fazer parte de uma orquestração maior. No caso desta última opção, a função do principal do orchestrator pode agendar instâncias de `DeviceProvisioningOrchestration` utilizando o `CallSubOrchestratorAsync` API.
+Esta função de orquestrador pode ser usada como-é para aprovisionamento de dispositivos pontuais ou ele pode fazer parte de uma orquestração maior. No último caso, a função de orquestrador principal pode agendar a instâncias de `DeviceProvisioningOrchestration` usando o `CallSubOrchestratorAsync` API.
 
 Eis um exemplo que mostra como executar várias funções do orchestrator em paralelo.
 

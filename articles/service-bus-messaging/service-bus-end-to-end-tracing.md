@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e30c6b9ef8f593f2fea3f6e3f5ccf22734ca5bee
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057358"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092178"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação por meio de mensagens do Service Bus
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 Neste exemplo, `RequestTelemetry` é comunicada para cada mensagem processada, ter um timestamp, a duração e o resultado (êxito). A telemetria também tem um conjunto de propriedades de correlação.
 Aninhada rastreios e exceções reportadas durante o processamento de mensagem também são marcadas com propriedades de correlação, que representa-los como filhos do `RequestTelemetry`.
 
-No caso de fazer chamadas para componentes externos suportados durante o processamento da mensagem, também são automagicamente controlados e correlacionados. Consulte a [controlar operações personalizadas com o .NET SDK do Application Insights](../application-insights/application-insights-custom-operations-tracking.md) para o controlo manual e a correlação.
+No caso de fazer chamadas para componentes externos suportados durante o processamento da mensagem, são também automaticamente controladas e correlacionados. Consulte a [controlar operações personalizadas com o .NET SDK do Application Insights](../application-insights/application-insights-custom-operations-tracking.md) para o controlo manual e a correlação.
 
 ### <a name="tracking-without-tracing-system"></a>Sem o sistema de rastreamento de controlo
-No caso de seu sistema de rastreamento não suporta automagical do Service Bus chamadas de controlo que esteja procurando para adicionar esse suporte num sistema de rastreamento ou na sua aplicação. Esta secção descreve os eventos de diagnóstico enviados pelo cliente .NET do Service Bus.  
+No caso de seu sistema de rastreamento não suporta automática de Service Bus de chamadas de controlo que esteja procurando para adicionar esse suporte num sistema de rastreamento ou na sua aplicação. Esta secção descreve os eventos de diagnóstico enviados pelo cliente .NET do Service Bus.  
 
 Cliente de .NET do Service Bus é instrumentado usando primitivos de rastreamento do .NET [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) e [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -153,7 +153,7 @@ Cada evento 'Stop' tem `Status` propriedade com o `TaskStatus` operação assín
 
 Eis a lista completa das operações instrumentadas:
 
-| Nome da Operação | API controlada | Propriedades de Payload específico|
+| Nome da operação | API controlada | Propriedades de Payload específico|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> mensagens – lista de mensagens sendo enviadas |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Mensagem de mensagem - mensagem a ser processado<br/>DateTimeOffset ScheduleEnqueueTimeUtc - desvio de mensagem agendada<br/>SequenceNumber longo - número de sequência de mensagem agendada ('Stop' payload do evento) |

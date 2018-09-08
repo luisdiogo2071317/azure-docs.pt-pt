@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
-ms.openlocfilehash: 0fa8fc6408a81429dfa9e8d73ef842644591c144
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1c9fe9fb63b45233ed1a11bb63c0763c6103bc6d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365944"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095186"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -173,7 +173,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
+| **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
 
 - - -
 ### <a name="switch"></a>Comutador
@@ -185,7 +185,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
+| **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
 | **defaultValue** |Opcional |Cadeia |Valor predefinido a utilizar quando a origem não corresponde a quaisquer chaves. Pode ser uma cadeia de caracteres vazia (""). |
 | **chave** |Necessário |Cadeia |**Chave** comparar **origem** com de valor. |
 | **valor** |Necessário |Cadeia |Valor de substituição para o **origem** correspondentes a chave. |
@@ -207,7 +207,7 @@ Por exemplo, se o domínio "contoso.com", em seguida, poderia usar a seguinte ex
 Se estiver a utilizar uma área de segurança do Salesforce, precisará de acrescentar um sufixo adicional a todos os seus nomes de utilizador antes de sincronizá-los.
 
 **Expressão:** <br>
-`Append([userPrincipalName], ".test"))`
+`Append([userPrincipalName], ".test")`
 
 **Exemplo de entrada/saída:** <br>
 

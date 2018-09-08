@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527369"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157859"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Tutorial: Melhorar a aplicação com pattern.any entidade
 
@@ -26,7 +26,7 @@ Neste tutorial, utilize a entidade de pattern.any para aumentar a predição de 
 * Criar padrão que utiliza pattern.any
 * Como verificar as melhorias de predição
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Se não tiver a aplicação de recursos humanos do [padrão de funções](luis-tutorial-pattern-roles.md) tutorial, [importar](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site. A aplicação para importar se encontra no [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) repositório do GitHub.
@@ -108,7 +108,7 @@ A entidade de Pattern.any extrai entidades de comprimento variável. Ela só fun
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testar o novo padrão para extração de dados de forma livre
 1. Selecione **testar** a partir da barra superior para abrir o painel de teste. 
@@ -125,7 +125,7 @@ A entidade de Pattern.any extrai entidades de comprimento variável. Ela só fun
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

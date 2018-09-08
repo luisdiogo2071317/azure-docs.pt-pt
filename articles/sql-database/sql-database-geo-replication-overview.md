@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 71268c07f7e653e1f7cf545f373717fd2760fee9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 026b9147bf6f0f5ab4732d1937bd61d803967854
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918240"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159525"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Descrição geral: Grupos de georreplicação e ativação pós-falha automática Active Directory
 
@@ -30,7 +30,7 @@ Replicação geográfica activa foi concebida como uma solução de continuidade
 > Replicação geográfica activa não está disponível na instância gerida.
 >  
 
-Grupos de ativação pós-falha automática é uma extensão da georreplicação ativa. Ela foi concebida para gerir a ativação pós-falha de várias bases de dados georreplicada sumultaneously, usando um failover de aplicativos iniciado ou delegação de ativação pós-falha a ser feito pelo serviço de base de dados SQL com base num utilizador definido critérios. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
+Grupos de ativação pós-falha automática é uma extensão da georreplicação ativa. Ela foi concebida para gerir a ativação pós-falha de vários georreplicado bases de dados em simultâneo com um failover de aplicativos iniciado ou delegação de ativação pós-falha a ser feito pelo serviço de base de dados SQL com base num utilizador definido critérios. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
 
 > [!NOTE]
 > Utilize a georreplicação ativa se vários secundários são necessários.

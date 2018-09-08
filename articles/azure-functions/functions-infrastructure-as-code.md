@@ -1,49 +1,45 @@
 ---
-title: Automatizar a implementação de recursos para uma aplicação de função das funções do Azure | Microsoft Docs
-description: Saiba como criar um modelo Azure Resource Manager que implementa a aplicação de função.
+title: Automatizar a implementação de recursos para uma aplicação de função nas funções do Azure | Documentos da Microsoft
+description: Saiba como criar um modelo do Azure Resource Manager que implementa a aplicação de funções.
 services: Functions
 documtationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
-keywords: Azure funções, funções, arquitetura sem servidor, infraestrutura como o Gestor de recursos de código, do azure
+manager: jeconnoc
+keywords: Azure funções, funções, arquitetura sem servidor, infraestrutura como Gestor de recursos de código, do azure
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d63686524c619b349a590c389e20e473b0d98641
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937066"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091480"
 ---
-# <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de função das funções do Azure
+# <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de função nas funções do Azure
 
-Pode utilizar um modelo Azure Resource Manager para implementar uma aplicação de função. Este artigo descreve os recursos necessários e parâmetros para fazê-lo. Poderá ter de implementar recursos adicionais, consoante o [acionadores e enlaces](functions-triggers-bindings.md) na sua aplicação de função.
+Pode utilizar um modelo Azure Resource Manager para implementar uma aplicação de funções. Este artigo descreve os recursos necessários e os parâmetros para fazer isso. Poderá ter de implementar recursos adicionais, dependendo do [acionadores e enlaces](functions-triggers-bindings.md) na sua aplicação de função.
 
 Para obter mais informações sobre a criação de modelos, consulte [modelos Authoring Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Para modelos de exemplo, consulte:
-- [aplicação de função no plano de consumo]
-- [aplicação de função no plano do App Service do Azure]
+- [Aplicação de funções no plano de consumo]
+- [Aplicação de funções num plano do serviço de aplicações do Azure]
 
 ## <a name="required-resources"></a>Recursos necessários
 
-Uma aplicação de função requer estes recursos:
+Uma aplicação de funções requer estes recursos:
 
-* Um [Storage do Azure](../storage/index.yml) conta
-* Um plano de alojamento (plano do App Service ou plano de consumo)
-* Uma aplicação de função 
+* Uma [armazenamento do Azure](../storage/index.yml) conta
+* Um plano de alojamento (plano de consumo ou plano de serviço de aplicações)
+* Uma aplicação de funções 
 
 ### <a name="storage-account"></a>Conta de armazenamento
 
-Uma conta de armazenamento do Azure é necessária para uma aplicação de função. Necessita de uma conta de objetivo geral que suporta blobs, tabelas, filas e os ficheiros. Para obter mais informações, consulte [requisitos de conta de armazenamento das funções do Azure](functions-create-function-app-portal.md#storage-account-requirements).
+Uma conta de armazenamento do Azure é necessária para uma aplicação de funções. Precisa de uma conta de fins gerais que suporta blobs, tabelas, filas e ficheiros. Para obter mais informações, consulte [requisitos de conta de armazenamento das funções do Azure](functions-create-function-app-portal.md#storage-account-requirements).
 
 ```json
 {
@@ -57,11 +53,11 @@ Uma conta de armazenamento do Azure é necessária para uma aplicação de funç
 }
 ```
 
-Além disso, a propriedade `AzureWebJobsStorage` devem ser especificadas como uma definição de aplicação na configuração do site. Se a aplicação de função não utiliza o Application Insights para monitorização, deve também especificar `AzureWebJobsDashboard` como uma definição de aplicação.
+Além disso, a propriedade `AzureWebJobsStorage` deve ser especificado como uma definição de aplicação na configuração do site. Se a aplicação de funções não utiliza o Application Insights para monitorização, ele deve também especificar `AzureWebJobsDashboard` como uma definição de aplicação.
 
-O tempo de execução das funções do Azure utiliza o `AzureWebJobsStorage` cadeia de ligação para criar filas internas.  Quando o Application Insights não está ativado, utiliza o tempo de execução a `AzureWebJobsDashboard` cadeia de ligação para iniciar sessão Table storage do Azure e a desativação a **Monitor** separador no portal.
+O runtime das funções do Azure utiliza o `AzureWebJobsStorage` cadeia de ligação para criar filas internas.  Quando o Application Insights não está ativado, o tempo de execução utiliza a `AzureWebJobsDashboard` cadeia de ligação para iniciar sessão para o armazenamento de tabelas do Azure e power a **Monitor** separador no portal do.
 
-Estas propriedades são especificadas no `appSettings` coleção no `siteConfig` objeto:
+Estas propriedades especificadas a `appSettings` coleção no `siteConfig` objeto:
 
 ```json
 "appSettings": [
@@ -77,11 +73,11 @@ Estas propriedades são especificadas no `appSettings` coleção no `siteConfig`
 
 ### <a name="hosting-plan"></a>Plano de alojamento
 
-A definição do plano de alojamento varia consoante utilize ou não um plano de consumo ou o serviço de aplicações. Consulte [implementar uma aplicação de função no plano de consumo](#consumption) e [implementar uma aplicação de função no plano do App Service](#app-service-plan).
+A definição do plano de alojamento varia consoante utilize ou um plano de consumo ou serviço de aplicações. Ver [implementar uma aplicação de funções no plano de consumo](#consumption) e [implementar uma aplicação de funções no plano de serviço de aplicações](#app-service-plan).
 
-### <a name="function-app"></a>Function App
+### <a name="function-app"></a>Function app
 
-O recurso de aplicação de função é definido através da utilização de um recurso do tipo **Microsoft.Web/Site** e tipo **functionapp**:
+O recurso de aplicação de função é definido usando um recurso do tipo **Microsoft.Web/Site** e o tipo **functionapp**:
 
 ```json
 {
@@ -98,15 +94,15 @@ O recurso de aplicação de função é definido através da utilização de um 
 
 <a name="consumption"></a>
 
-## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Implementar uma aplicação de função no plano de consumo
+## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Implementar uma aplicação de funções no plano de consumo
 
-Pode executar uma aplicação de função em dois modos diferentes: plano de consumo e o plano de serviço de aplicações. O plano de consumo atribui automaticamente a capacidade de computação quando o código está em execução, aumenta horizontalmente de forma conforme necessário para processar carga e, em seguida, dimensiona quando o código não está em execução. Por isso, não tem de pagar VMs Inativas, e não tiver a capacidade de reserva antecipadamente. Para saber mais sobre planos de alojamento, consulte o artigo [planos de consumo de funções do Azure e do serviço de aplicações](functions-scale.md).
+Pode executar uma aplicação de funções em dois modos diferentes: o plano de consumo e o plano de serviço de aplicações. O plano de consumo aloca automaticamente a potência de computação quando seu código está em execução, aumenta horizontalmente conforme necessário para processar a carga e, em seguida, aumenta diminui quando o código não está em execução. Então, não precisa de pagar as VMs Inativas, e não tiver a capacidade de reserva com antecedência. Para saber mais sobre os planos de alojamento, veja [planos de consumo de funções do Azure e o serviço de aplicações](functions-scale.md).
 
-Para um modelo de Gestor de recursos do Azure de exemplo, consulte [aplicação de função no plano de consumo].
+Para um modelo do Azure Resource Manager de exemplo, consulte [aplicação de funções no plano de consumo].
 
 ### <a name="create-a-consumption-plan"></a>Criar um plano de consumo
 
-Um plano de consumo é um tipo especial de "serverfarm" recursos. Especificou utilizando o `Dynamic` valor para o `computeMode` e `sku` propriedades:
+Plano de consumo é um tipo especial de recurso de "farm de servidores". Especificou utilizando o `Dynamic` o valor para o `computeMode` e `sku` propriedades:
 
 ```json
 {
@@ -124,7 +120,7 @@ Um plano de consumo é um tipo especial de "serverfarm" recursos. Especificou ut
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Além disso, um plano de consumo requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Estas propriedades de configurar o caminho de ficheiro e a conta de armazenamento onde o código de aplicação de função e configuração são armazenados.
+Além disso, o plano de consumo requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Estas propriedades de configurar o caminho de ficheiro e da conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas.
 
 ```json
 {
@@ -169,11 +165,11 @@ Além disso, um plano de consumo requer duas definições adicionais na configur
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Implementar uma aplicação de função no plano de serviço de aplicações
+## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Implementar uma aplicação de funções no plano de serviço de aplicações
 
-O plano de serviço de aplicações, a aplicação de função é executada em VMs dedicadas em básicas, Standard e Premium SKUs, semelhante às web apps. Para obter mais informações sobre como funciona o plano do App Service, consulte o [descrição geral dos planos do App Service do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+No plano do serviço de aplicações, a aplicação function app é executada em VMs dedicadas no básico, Standard e Premium SKUs, semelhante aos aplicativos web. Para obter detalhes sobre como funciona o plano do serviço de aplicações, consulte a [descrição geral aprofundada dos planos do App Service do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Para um modelo de Gestor de recursos do Azure de exemplo, consulte [aplicação de função no plano do App Service do Azure].
+Para um modelo do Azure Resource Manager de exemplo, consulte [aplicação de funções num plano do serviço de aplicações do Azure].
 
 ### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
@@ -195,12 +191,12 @@ Para um modelo de Gestor de recursos do Azure de exemplo, consulte [aplicação 
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função 
 
-Depois de selecionar uma opção de dimensionamento, crie uma aplicação de função. A aplicação é o contentor que retém todas as suas funções.
+Depois de selecionar uma opção de dimensionamento, crie uma aplicação de funções. A aplicação é o contentor que retém todas as suas funções.
 
-Uma aplicação de função tem muitos recursos subordinados que pode utilizar na sua implementação, incluindo as definições de aplicação e as opções de controlo de origem. Também pode optar por remover o **sourcecontrols** recursos subordinados e utilize outro [a opção de implementação](functions-continuous-deployment.md) em vez disso.
+Uma aplicação de funções tem muitos recursos filho que podem ser utilizados na sua implementação, incluindo as definições da aplicação e opções de controle de origem. Também pode optar por remover o **sourcecontrols** recurso subordinado e utilize outro [opção de implementação](functions-continuous-deployment.md) em vez disso.
 
 > [!IMPORTANT]
-> Para implementar com êxito a aplicação utilizando o Gestor de recursos do Azure, é importante compreender a forma como os recursos são implementados no Azure. No exemplo seguinte, as configurações de nível superior são aplicadas utilizando **siteConfig**. É importante definir estas configurações num nível superior, porque estes transmitir informações para o motor de execução e a implementação de funções. São necessárias informações de nível superior antes do subordinado **sourcecontrols/web** recurso é aplicado. Embora seja possível configurar estas definições no nível subordinado **configuração/appSettings** recurso, em alguns casos, a aplicação de função tem de ser implementada *antes* **configuração/appSettings**  é aplicada. Por exemplo, quando estiver a utilizar as funções com [Logic Apps](../logic-apps/index.yml), as suas funções são uma dependência de outro recurso.
+> Para implementar com êxito a sua aplicação através da utilização do Azure Resource Manager, é importante compreender a forma como os recursos são implementados no Azure. No exemplo seguinte, as configurações de nível superior são aplicadas utilizando **siteConfig**. É importante definir essas configurações num nível superior, porque eles veicular informações para o mecanismo de tempo de execução e implementação de funções. São necessárias informações de nível superior antes do filho **sourcecontrols/web** recurso é aplicado. Embora seja possível configurar estas definições no nível subordinado **config/appSettings** recurso, em alguns casos, a aplicação de função tem de ser implementada *antes* **config/appSettings**  é aplicada. Por exemplo, quando estiver a utilizar funções com [Logic Apps](../logic-apps/index.yml), as suas funções são uma dependência de outro recurso.
 
 ```json
 {
@@ -255,28 +251,28 @@ Uma aplicação de função tem muitos recursos subordinados que pode utilizar n
 }
 ```
 > [!TIP]
-> Este modelo utiliza a [projeto](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) o valor de definições de aplicação, que define o diretório de base na qual o motor de implementação de funções (Kudu) procura código implementável. No nosso repositório nosso funções estão numa subpasta do **src** pasta. Por isso, no exemplo anterior, iremos definir o valor de definições de aplicação `src`. Se as suas funções estão na raiz do repositório, ou se não estiver a implementar do controlo de origem, pode remover este valor de definições de aplicação.
+> Este modelo utiliza a [projeto](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) valor de definições de aplicação, que define o diretório base no qual o motor de implementação de funções (Kudu) procura por código implantável. No nosso repositório, as nossas funções estão numa subpasta dos **src** pasta. Por isso, no exemplo anterior, definimos o valor de definições de aplicação como `src`. Se as suas funções estão na raiz do repositório, ou se não estiver a implementar no controle da fonte, pode remover este valor de definições de aplicação.
 
 ## <a name="deploy-your-template"></a>Implementar o modelo
 
-Pode utilizar qualquer uma das seguintes formas para implementar o modelo:
+Pode usar qualquer uma das seguintes formas para implementar o modelo:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-### <a name="deploy-to-azure-button"></a>Implementar para botão do Azure
+### <a name="deploy-to-azure-button"></a>Implementar no botão do Azure
 
-Substitua ```<url-encoded-path-to-azuredeploy-json>``` com um [com codificação URL](https://www.bing.com/search?q=url+encode) versão do caminho não processado do seu `azuredeploy.json` ficheiro no GitHub.
+Substitua ```<url-encoded-path-to-azuredeploy-json>``` com um [com codificação URL](https://www.bing.com/search?q=url+encode) versão do caminho não processado de sua `azuredeploy.json` ficheiro no GitHub.
 
-Eis um exemplo que utiliza o markdown:
+Eis um exemplo que usa o markdown:
 
 ```markdown
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
-Eis um exemplo que utiliza HTML:
+Eis um exemplo que usa o HTML:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
@@ -292,5 +288,5 @@ Saiba mais sobre como desenvolver e configurar as funções do Azure.
 
 <!-- LINKS -->
 
-[aplicação de função no plano de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[aplicação de função no plano do App Service do Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplicação de funções no plano de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[Aplicação de funções num plano do serviço de aplicações do Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

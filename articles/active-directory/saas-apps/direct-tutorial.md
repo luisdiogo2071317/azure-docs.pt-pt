@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Direct | Documentos da Microsoft'
+title: 'Tutorial: Integração do Azure Active Directory com o direct | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e direto.
 services: active-directory
 documentationCenter: na
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: e9003df88e8ed330e0344c63ee0516bc24a7eaad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433906"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092891"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Azure Active Directory com o Direct
+# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Azure Active Directory com o direct
 
 Neste tutorial, irá aprender a integração direta com o Azure Active Directory (Azure AD).
 
 Integração direta com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Direct
+- Pode controlar no Azure AD que tenha acesso ao direcionar
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para direcionar (Single Sign-On) com as suas contas do Azure AD
 - Pode gerir as suas contas num local central – portal do Azure
 
@@ -35,10 +35,10 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Direct, terá dos seguintes itens:
+Para configurar a integração do Azure AD com direto, precisa do seguinte:
 
-- Uma subscrição do Azure AD
-- Uma única início de sessão ativada assinatura Direct
+- Uma subscrição do Azure
+- Uma única início de sessão ativada assinatura direct
 
 > [!NOTE]
 > Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
@@ -49,92 +49,89 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar direta a partir da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-## <a name="adding-direct-from-the-gallery"></a>Adicionar direta a partir da Galeria
+1. Adicionar diretamente com a Galeria
+2. Configuração e teste do Azure AD início de sessão único
+
+## <a name="adding-direct-from-the-gallery"></a>Adicionar diretamente com a Galeria
+
 Para configurar a integração do direto para o Azure AD, terá de adicionar direta a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar direta a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-1. Na caixa de pesquisa, escreva **direto**.
-
-    ![Criar um utilizador de teste do Azure AD](./media/direct-tutorial/tutorial_direct_search.png)
-
-1. No painel de resultados, selecione **direto**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **direto**. Selecione **direto** no painel de resultados e, em seguida, selecione a **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/direct-tutorial/tutorial_direct_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configurar e testar o Azure AD início de sessão único com o direta com base num utilizador de teste chamado "Eduarda Almeida."
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+
+Nesta secção, configure e teste do Azure AD início de sessão único com direta com base num utilizador de teste chamado "Eduarda Almeida."
 
 Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte em direto a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em direto tem de ser estabelecida.
 
 Em direto, atribuir o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD início de sessão único com Direct, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com direct, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste direto](#creating-a-direct-test-user)**  - para ter um equivalente da Eduarda Almeida em direto que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste direto](#creating-a-direct-test-user)**  - para ter um equivalente da Eduarda Almeida em direto que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
 Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação em direta.
 
-**Para configurar o Azure AD início de sessão único com Direct, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com direct, execute os seguintes passos:**
 
 1. No portal do Azure, sobre o **direto** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/direct-tutorial/tutorial_direct_samlbase.png)
 
-1. Na **direto de domínio e URLs** secção, se desejar configurar a aplicação na **IDP** iniciada pelo modo:
+3. Sobre o **direcionar o domínio e URLs** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/direct-tutorial/tutorial_direct_url.png)
 
     Na **identificador** caixa de texto, escreva o URL: `https://direct4b.com/`
 
-1. Verifique **Mostrar definições de URL avançadas**, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+4. Verifique **Mostrar definições de URL avançadas**, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/direct-tutorial/tutorial_direct_url1.png)
 
      Na **URL de início de sessão** caixa de texto, escreva o URL: `https://direct4b.com/sso` 
-    
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+
+5. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Configurar o início de sessão único](./media/direct-tutorial/tutorial_direct_certificate.png) 
 
-1. Clique em **guardar** botão.
+6. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/direct-tutorial/tutorial_general_400.png)
 
-1. Para configurar o início de sessão único num **direto** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte direto](https://direct4b.com/ja/support.html#inquiry). 
-
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Para configurar o início de sessão único num **direto** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte direto](https://direct4b.com/ja/support.html#inquiry).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
@@ -145,16 +142,16 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/direct-tutorial/create_aaduser_01.png) 
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/direct-tutorial/create_aaduser_02.png) 
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+
     ![Criar um utilizador de teste do Azure AD](./media/direct-tutorial/create_aaduser_03.png) 
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+
     ![Criar um utilizador de teste do Azure AD](./media/direct-tutorial/create_aaduser_04.png) 
 
     a. Na **Name** caixa de texto, tipo **BrittaSimon**.
@@ -164,41 +161,41 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
     c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-a-direct-test-user"></a>Criar um utilizador de teste direto
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida em direto. Trabalhar com [equipa de suporte direto](https://direct4b.com/ja/support.html#inquiry) para adicionar os utilizadores na plataforma direta. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso direto a.
+Nesta secção, vai ativar Eduarda Almeida para utilização do Azure-início de sessão único, concedendo acesso para direcionar o.
 
 ![Atribuir utilizador][200] 
 
-**Para atribuir a Eduarda Almeida a Direct, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida para direcionar, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir utilizador][201] 
 
-1. Na lista de aplicações, selecione **direto**.
+2. Na lista de aplicações, selecione **direto**.
 
     ![Configurar o início de sessão único](./media/direct-tutorial/tutorial_direct_app.png) 
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+3. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
@@ -207,12 +204,12 @@ Nesta secção, vai testar a configuração do Azure AD única início de sessã
 
     Quando clica no **direto** mosaico no painel de acesso, deve obter automaticamente com sessão iniciada para sua **direto** aplicação.
 
-1. Se desejar testar em **modo de iniciada pelo SP**:
-    
+2. Se desejar testar em **modo de iniciada pelo SP**:
+
     a. Clique nas **direto** mosaico no painel de acesso e será redirecionado para a página de início de sessão na aplicação.
 
     b. Entrada sua `subdomain` na caixa de texto apresentada e prima "次へ (Avançar)" e deve obter automaticamente com sessão iniciada para sua **direto** aplicação.
-    
+
 Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -233,4 +230,3 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 [201]: ./media/direct-tutorial/tutorial_general_201.png
 [202]: ./media/direct-tutorial/tutorial_general_202.png
 [203]: ./media/direct-tutorial/tutorial_general_203.png
-

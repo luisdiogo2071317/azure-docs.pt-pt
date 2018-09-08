@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, visão geral, aprovisionar na cloud, gestão d
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: e710770131c844598762feebe09ba50dc120de0c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106905"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160750"
 ---
 # <a name="ansible-with-azure"></a>Ansible com o Azure
 
@@ -37,13 +37,17 @@ Assim que tiver utilizado o Ansible para definir a sua infraestrutura, pode apli
 
 ## <a name="automate-cloud-native-application-in-azure"></a>Automatizar a aplicação nativa da cloud no Azure
 
-Ansible permite-lhe automatizar aplicações nativas da cloud no Azure através de microsserviços do Azure, como [as funções do Azure](https://azure.microsoft.com//services/functions/) e [Kubernetes no Azure](https://azure.microsoft.com/services/container-service/kubernetes/)).  
+Ansible permite-lhe automatizar aplicações nativas da cloud no Azure através de microsserviços do Azure, como [as funções do Azure](https://azure.microsoft.com//services/functions/) e [Kubernetes no Azure](https://azure.microsoft.com/services/container-service/kubernetes/).  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>Gerenciar Implantações com o inventário dinâmicas
 Através do respetivo [inventário dinâmicas](http://docs.ansible.com/ansible/intro_dynamic_inventory.html) funcionalidade, Ansible fornece a capacidade para inventário de solicitação dos recursos do Azure. Pode, em seguida, marque as suas implementações do Azure existentes e gerenciar essas implementações marcadas por meio do Ansible.
 
 ## <a name="additional-azure-marketplace-options"></a>Opções adicionais do Azure Marketplace
 O [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) imagem do Azure Marketplace da Red Hat ajuda as organizações a dimensionar a automatização de TI e gerir implementações complexas em físicos, virtuais e infraestruturas de cloud. Ansible Tower inclui as funcionalidades que fornecem níveis adicionais de visibilidade, controlo, segurança e eficiência necessária para empresas hoje em dia. Ansible Tower encripta as credenciais, tais como chaves do Azure e o SSH para que pode delegar tarefas aos funcionários experientes menos sem o risco de expor as suas credenciais.
+
+## <a name="ansible-module-and-version-matrix-for-azure"></a>Matriz de módulo e a versão do Ansible para o Azure
+O Ansible é fornecido com um número de módulos que podem ser executados diretamente nos hosts remotos ou por meio de playbooks.
+O [matriz de módulo e a versão do Ansible](./ansible-matrix.md) apresenta uma lista de módulos o Ansible para o Azure que pode aprovisionar os recursos de cloud do Azure como máquina virtual, redes e serviços de contentores. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Configurar o Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

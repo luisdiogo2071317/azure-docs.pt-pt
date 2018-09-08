@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 5bdd764c3e3c273e3495085f2b684cfdd316706d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9021f65e3418ace408177e618390438d312cfed2
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028242"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158947"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurar identidades geridas para recursos do Azure na VM do Azure com um modelo
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
@@ -68,7 +68,7 @@ Nesta secção, irá ativar e desativar uma identidade gerida atribuído ao sist
 3. (Opcional) Adicione as identidades VM gerida para a extensão de recursos do Azure como um `resources` elemento. Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também.  Utilize a seguinte sintaxe:
 
    >[!NOTE] 
-   > O exemplo a seguir supõe uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está a ser implementado. Também pode configurar para Linux, utilizando `ManagedIdentityExtensionForLinux` em vez disso, para o `"name"` e `"type"` elementos.
+   > O exemplo a seguir supõe uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está a ser implementado. Também pode configurar para Linux, utilizando `ManagedIdentityExtensionForLinux` em vez disso, para o `"name"` e `"type"` elementos. A extensão de VM está prevista para preterição em Janeiro de 2019.
    >
 
    ```JSON
@@ -251,7 +251,7 @@ Nesta secção, atribua uma identidade gerida atribuído ao utilizador a uma VM 
    ```
        
 
-2. (Opcional) Em seguida, sob o `resources` elemento, adicione a seguinte entrada para atribuir a extensão de identidade gerida para a VM. Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também. Utilize a seguinte sintaxe:
+2. (Opcional) Em seguida, sob o `resources` elemento, adicione a seguinte entrada para atribuir a extensão de identidade gerida para a VM (planeada para preterição em Janeiro de 2019). Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também. Utilize a seguinte sintaxe:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",

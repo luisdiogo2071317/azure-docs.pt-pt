@@ -1,28 +1,21 @@
 ---
-title: 'Configurar as ligações de Rede de VPNs e ExpressRoute que podem coexistir: Resource Manager: Azure | Microsoft Docs'
-description: Este artigo explica-lhe como configurar o ExpressRoute e uma ligação de Rede de VPNs que pode coexistir para o modelo do Resource Manager.
-documentationcenter: na
+title: 'Configurar ligações VPN Site a Site e ExpressRoute que podem coexistir: PowerShell: Azure | Documentos da Microsoft'
+description: Este artigo explica como configurar o ExpressRoute e uma ligação de VPN de Site a Site que pode coexistir para o modelo do Resource Manager com o PowerShell
 services: expressroute
 author: charwen
 manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/17/2018
-ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 09/07/2018
+ms.author: charwen
+ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41917758"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162347"
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar ligações coexistentes ExpressRoute e de Site a Site com o PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell – Clássica](expressroute-howto-coexist-classic.md)
@@ -34,7 +27,7 @@ A configuração de ligações de Rede de VPNs e ExpressRoute coexistentes tem v
 * Pode configurar uma Rede de VPNs como um caminho de ativação pós-falha para o ExpressRoute. 
 * Em alternativa, pode utilizar a Rede de VPNs para se ligar a sites que não estão ligados através do ExpressRoute. 
 
-São abrangidos neste artigo os passos para configurar ambos os cenários. Este artigo aplica-se ao modelo de implementação do Resource Manager e utiliza o PowerShell. 
+São abrangidos neste artigo os passos para configurar ambos os cenários. Este artigo aplica-se ao modelo de implementação do Resource Manager e utiliza o PowerShell. Também pode configurar estes cenários através do Portal do Azure, embora a documentação ainda não está disponível.
 
 >[!NOTE]
 >Se pretender criar uma Rede de VPNs através de um circuito do ExpressRoute, veja [este artigo](site-to-site-vpn-over-microsoft-peering.md).
@@ -236,5 +229,5 @@ Pode seguir os passos abaixo para adicionar a configuração Ponto a Site para o
 
 Para obter mais informações sobre VPNs Ponto a Site, veja [Configurar uma ligação Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).

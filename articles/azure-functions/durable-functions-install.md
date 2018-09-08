@@ -3,23 +3,19 @@ title: Instalar a extensão Durable Functions e os exemplos - Azure
 description: Saiba como instalar a extensão de funções duráveis para as funções do Azure, para o desenvolvimento de portais ou de desenvolvimento do Visual Studio.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 8c5f3114172a7d27685e7aee2972b43b9ebef4e9
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058472"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093011"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalar a extensão Durable Functions e os exemplos (funções do Azure)
 

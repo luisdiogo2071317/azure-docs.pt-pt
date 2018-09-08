@@ -1,35 +1,31 @@
 ---
-title: Estado de orquestração personalizados nas funções durável - Azure
-description: Saiba como configurar e utilizar o estado do orchestration personalizada para funções durável.
+title: Estado de orquestração personalizado nas funções duráveis - Azure
+description: Saiba como configurar e utilizar o estado de orquestração personalizado para funções duráveis.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 840b96b9cfdb28ca1b17f54698677f4d491342c8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310352"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093096"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestração personalizados nas funções durável (funções do Azure)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestração personalizado nas funções durável (funções do Azure)
 
-Estado de orquestração personalizada permite-lhe definir um valor de estado personalizado para a função do orchestrator. Este estado é fornecido através da API de GetStatus HTTP ou o `DurableOrchestrationClient.GetStatusAsync` API.
+Estado de orquestração personalizado permite-lhe definir um valor de estado personalizado para sua função de orquestrador. Este estado é fornecido através da API de GetStatus HTTP ou a `DurableOrchestrationClient.GetStatusAsync` API.
 
 ## <a name="sample-use-cases"></a>Casos de utilização de exemplo 
 
-### <a name="visualize-progress"></a>Visualizar o progresso
+### <a name="visualize-progress"></a>Visualizar progresso
 
-Os clientes podem consultar o ponto final de estado e apresenta um progresso IU que visualiza a fase de execução atual. O exemplo seguinte demonstra a partilha de progresso:
+Os clientes podem consultar o ponto final do Estado e apresentar uma interface de Usuário que visualiza o estágio de execução atual de progresso. O exemplo seguinte demonstra a partilha de progresso:
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -56,7 +52,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-E, em seguida, o cliente receberá o resultado a orquestração apenas quando `CustomStatus` campo está definido como "Londres":
+E, em seguida, o cliente irá receber a saída da orquestração apenas quando `CustomStatus` campo é definido como "Londres":
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -91,7 +87,7 @@ public static async Task<HttpResponseMessage> Run(
 
 ### <a name="output-customization"></a>Personalização de saída 
 
-Outro cenário interessante é segmentar os utilizadores devolvendo saída personalizada com base nas características exclusivas ou interações. Com a ajuda do Estado de orquestração personalizado, o código do lado do cliente e irá permanecer genérico. Todas as modificações principais irão acontecer no lado do servidor, conforme mostrado no seguinte exemplo:
+Outro cenário interessante é segmentar os utilizadores, retornando o resultado personalizado com base nas características exclusivas ou interações. Com a ajuda do Estado de orquestração personalizado, o código do lado do cliente permanecerá genérico. Todas as modificações principais irão acontecer no lado do servidor, conforme mostrado no exemplo a seguir:
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -129,9 +125,9 @@ public static void Run(
 } 
 ```
 
-### <a name="instruction-specification"></a>Especificação de instruções 
+### <a name="instruction-specification"></a>Especificação de instrução 
 
-O orchestrator pode fornecer instruções exclusivas para os clientes através de estado personalizado. As instruções de estado personalizado serão mapeadas para os passos no código orchestration:
+O orchestrator pode fornecer instruções exclusivas para os clientes através de estado personalizada. As instruções de estado personalizado serão mapeadas para os passos no código de orquestração:
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -161,7 +157,7 @@ public static async Task<bool> Run(
 
 ## <a name="sample"></a>Sample
 
-O exemplo seguinte, o estado personalizado é definido pela primeira vez;
+No exemplo a seguir, o estado personalizado é definido pela primeira vez;
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
@@ -176,7 +172,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-Enquanto o orchestration está em execução, clientes externos podem obter este estado personalizado:
+Durante a execução de orquestração, clientes externos podem obter este estado personalizado:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/instance123
@@ -197,12 +193,12 @@ Os clientes obterá a seguinte resposta:
 ```
 
 > [!WARNING]
->  O payload de estado personalizado está limitado a 16 KB de texto JSON UTF-16 porque tem de conseguir caber uma coluna do Table Storage do Azure. Os programadores podem utilizar o armazenamento externo se precisarem de payload maior.
+>  O payload de estado personalizado está limitado a 16 KB de texto JSON de UTF-16, uma vez que ele precisa ser capaz de se ajustar numa coluna de armazenamento de tabelas do Azure. Os programadores podem utilizar o armazenamento externo se precisarem de payload maior.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre APIs HTTP duráveis funções](durable-functions-http-api.md)
+> [Saiba mais sobre APIs HTTP nas funções duráveis](durable-functions-http-api.md)
 
 

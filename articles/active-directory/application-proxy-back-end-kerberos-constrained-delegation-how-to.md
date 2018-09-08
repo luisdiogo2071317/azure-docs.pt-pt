@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ad2140d9d94cc4655043625200d42485b03c719b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 258df8f784cf673d628e3e70874a89c8ade692bd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364296"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093690"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restringida de Kerberos para o Proxy de aplicações
 
@@ -117,42 +117,42 @@ O consumidor do tíquete Kerberos fornecido pelo conector. Nesta fase, esperar q
 
 3.  Executar DevTools (**F12**) no Internet Explorer ou utilizar [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) partir do anfitrião do conector. Vá para a aplicação utilizando o URL interno. Inspecionar os cabeçalhos de autorização de WWW oferecidos devolvidos na resposta da aplicação para se certificar de que qualquer um negociar ou Kerberos está presente. 
 
-    a. O blob de Kerberos seguinte, que é devolvido na resposta do navegador para o aplicativo começa com **YII**. Estas letras indicam que o Kerberos está em execução. Microsoft NT LAN Manager (NTLM), por outro lado, sempre começa com **TlRMTVNTUAAB**, que lê o fornecedor de suporte de segurança da NTLM (NTLMSSP) ao descodificar a partir de Base64. Se vir **TlRMTVNTUAAB** no início do blob, Kerberos não estiver disponível. Se não vir **TlRMTVNTUAAB**, Kerberos é provável que disponíveis.
-
+    - O blob de Kerberos seguinte, que é devolvido na resposta do navegador para o aplicativo começa com **YII**. Estas letras indicam que o Kerberos está em execução. Microsoft NT LAN Manager (NTLM), por outro lado, sempre começa com **TlRMTVNTUAAB**, que lê o fornecedor de suporte de segurança da NTLM (NTLMSSP) ao descodificar a partir de Base64. Se vir **TlRMTVNTUAAB** no início do blob, Kerberos não estiver disponível. Se não vir **TlRMTVNTUAAB**, Kerberos é provável que disponíveis.
+   
        > [!NOTE]
        > Se utilizar o Fiddler, este método requer que desabilitar temporariamente a proteção expandida na configuração da aplicação no IIS.
-
-       ![Janela de inspeção de rede do browser](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
-
-    b. O blob nesta figura não começa com **TIRMTVNTUAAB**. Neste exemplo, Kerberos estiver disponível, e o blob de Kerberos não começa com **YII**.
+      
+      ![Janela de inspeção de rede do browser](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
+   
+    - O blob nesta figura não começa com **TIRMTVNTUAAB**. Neste exemplo, Kerberos estiver disponível, e o blob de Kerberos não começa com **YII**.
 
 4.  Remova temporariamente NTLM a partir da lista de fornecedores no site do IIS. Aceda à aplicação diretamente a partir do Internet Explorer no anfitrião do conector. NTLM não se encontra na lista de fornecedores. Pode aceder à aplicação através de Kerberos apenas. Se o acesso falhar, poderá haver um problema com a configuração da aplicação. A autenticação Kerberos não está a funcionar.
 
-    a. Se o Kerberos não estiver disponível, verifique as definições de autenticação da aplicação no IIS. Certifique-se **negociar** está listada na parte superior, com o NTLM apenas sob ela. Se vir **negociar**, **Kerberos ou negociar**, ou **PKU2U**, continue apenas se o Kerberos é funcional.
+    - Se o Kerberos não estiver disponível, verifique as definições de autenticação da aplicação no IIS. Certifique-se **negociar** está listada na parte superior, com o NTLM apenas sob ela. Se vir **negociar**, **Kerberos ou negociar**, ou **PKU2U**, continue apenas se o Kerberos é funcional.
 
        ![Provedores de autenticação do Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
-    b. Com o Kerberos e NTLM no local, desative temporariamente a pré-autenticação para a aplicação no portal. Tente aceder a partir da internet ao utilizar o URL externo. Lhe for pedido para se autenticar. Pode fazê-lo com a mesma conta utilizada no passo anterior. Caso contrário, existe um problema com a aplicação de back-end, não KCD.
+    - Com o Kerberos e NTLM no local, desative temporariamente a pré-autenticação para a aplicação no portal. Tente aceder a partir da internet ao utilizar o URL externo. Lhe for pedido para se autenticar. Pode fazê-lo com a mesma conta utilizada no passo anterior. Caso contrário, existe um problema com a aplicação de back-end, não KCD.
 
-    c. Volte a ativar a pré-autenticação no portal. Autenticar-se através do Azure ao tentar ligar-se para a aplicação através do respetivo URL externo. Se falhar de SSO, verá uma mensagem de erro proibido no browser e o evento 13022 no registo de:
+    - Volte a ativar a pré-autenticação no portal. Autenticar-se através do Azure ao tentar ligar-se para a aplicação através do respetivo URL externo. Se falhar de SSO, verá uma mensagem de erro proibido no browser e o evento 13022 no registo de:
 
        *Conector do Proxy de aplicações do Microsoft AAD não é possível autenticar o utilizador porque o servidor de back-end reage a tentativas de autenticação de Kerberos com um erro de HTTP 401.*
 
        ![401 HTTTP proibido erro](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
-
-    d. Verifique o aplicativo do IIS. Certifique-se de que o conjunto aplicacional configurado e o SPN estão configurados para utilizar a mesma conta no Azure AD. Navegue no IIS, conforme mostrado na ilustração seguinte:
-
+   
+    - Verifique o aplicativo do IIS. Certifique-se de que o conjunto aplicacional configurado e o SPN estão configurados para utilizar a mesma conta no Azure AD. Navegue no IIS, conforme mostrado na ilustração seguinte:
+      
        ![Janela de configuração de aplicativo do IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
-
+      
        Depois de saber a identidade, certifique-se de que esta conta está configurada com o SPN em questão. Um exemplo é `setspn –q http/spn.wacketywack.com`. Introduza o seguinte texto num prompt de comando:
-
+      
        ![Janela de comando SetSPN](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
-
-    e. Verifique o SPN definido contra as configurações do aplicativo no portal. Certifique-se de que o mesmo SPN configurado em relação a conta do Azure AD de destino é utilizado pelo conjunto de aplicações do aplicativo.
+      
+    - Verifique o SPN definido contra as configurações do aplicativo no portal. Certifique-se de que o mesmo SPN configurado em relação a conta do Azure AD de destino é utilizado pelo conjunto de aplicações do aplicativo.
 
        ![Configuração do SPN no portal do Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
-    f. Vá para o IIS e selecione o **Editor de configuração** opção para a aplicação. Navegue para **system.webServer/security/authentication/windowsAuthentication**. Certificar-se de que o valor **UseAppPoolCredentials** é **verdadeiro**.
+    - Vá para o IIS e selecione o **Editor de configuração** opção para a aplicação. Navegue para **system.webServer/security/authentication/windowsAuthentication**. Certificar-se de que o valor **UseAppPoolCredentials** é **verdadeiro**.
 
        ![Opção de credenciais de pools de aplicativos de configuração do IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 

@@ -1,10 +1,26 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 09/07/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44169229"
+---
 ## <a name="extended-iot-scenarios"></a>Cenários de IoT alargados
 
 Utilize outros serviços e ferramentas do Azure. Depois de ligar o seu dispositivo ao Hub IoT, pode explorar mais cenários que utilizam outras ferramentas e serviços do Azure:
 
 | Cenário                                                   | Serviço ou ferramenta do Azure              |
 |----------------------------------------------------------- |------------------------------------|
-| [Gerir mensagens do Hub IoT][Mg_IoT_Hub_Msg]                  | ferramenta iothub-explorer               |
 | [Gerir mensagens do Hub IoT][Mg_IoT_Toolkit]                  | Extensão do VS o Kit de ferramentas do código do Azure IoT|
 | [Gerir o seu dispositivo IoT][Mg_IoT_Dv]                        | CLI 2.0 do Azure e a extensão de IoT|
 | [Gerir o seu dispositivo IoT][Mg_IoT_Dv_Toolkit]                | Extensão do VS o Kit de ferramentas do código do Azure IoT|
@@ -19,7 +35,6 @@ Utilize outros serviços e ferramentas do Azure. Depois de ligar o seu dispositi
 Depois de concluir estes tutoriais, pode explorar ainda mais as capacidades do Hub IoT no [Manual para programadores][lnk-dev-guide]. Pode encontrar tutoriais adicionais na secção [Procedimentos][lnk-how-to].
 
 
-[Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md

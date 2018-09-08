@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 6d503526ed97dd1f61269acd83810cd44598d72f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 936d549469df2cf4c303f0c3fd185f07281bb69b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028594"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160137"
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade de serviço gerida (MSI) a um recurso com o PowerShell
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Assim que tiver configurado um recurso do Azure com um MSI, pode dar o acesso MSI para outro recurso, tal como qualquer entidade de segurança. Este exemplo mostra como conceder acesso MSI de uma máquina virtual do Azure para uma conta de armazenamento do Azure, com o PowerShell.
 

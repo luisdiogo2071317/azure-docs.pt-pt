@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 618180f9cbd1c65863e3e039bac40d1cc493bc37
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918505"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160478"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -157,14 +157,16 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar uma aplica
     ```bash
     npm install -g yo
     ```
-3. Instale o gerador Yeoman que prefira seguindo os passos na [documentação](service-fabric-get-started-linux.md) da introdução. Para criar aplicações do Service Fabric utilizando o Yeoman, siga estes passos:
+3. Instale o gerador Yeoman que prefira seguindo os passos na [documentação](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) da introdução. Para criar aplicações do Service Fabric utilizando o Yeoman, siga estes passos:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Para criar uma aplicação Java do Service Fabric no Mac, o JDK versão 1.8 e o Gradle devem estar instalados na máquina anfitriã. O software pode ser instalado utilizando o [HomeBrew](https://brew.sh/), da seguinte forma: 
+4. Depois de instalar os geradores, crie serviços de contentor ou executáveis convidados ao executar `yo azuresfguest` ou `yo azuresfcontainer`, respetivamente.
+
+5. Para criar uma aplicação Java do Service Fabric no Mac, o JDK versão 1.8 e o Gradle devem estar instalados na máquina anfitriã. O software pode ser instalado utilizando o [HomeBrew](https://brew.sh/), da seguinte forma: 
 
     ```bash
     brew update

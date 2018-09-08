@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: c34e858f3dc798310778877ce282fbed2788c7ea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 93ca9cd55d89b87f8436a632fb5a25657a4bfca6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028241"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157741"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurar identidades geridas para recursos do Azure em conjuntos de dimensionamento de máquina virtual com o PowerShell
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
@@ -128,7 +128,7 @@ Para atribuir uma identidade gerida atribuído ao utilizador a um conjunto de di
 
 2. Obter primeiro o dimensionamento de máquinas virtuais definir propriedades usando o `Get-AzureRmVM` cmdlet. Em seguida, para atribuir uma identidade gerida atribuído ao utilizador para o conjunto de dimensionamento de máquina virtual, utilize o `-IdentityType` e `-IdentityID` alternar o [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet. Substitua `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` pelos seus próprios valores.
 
-   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```powershell
    Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"

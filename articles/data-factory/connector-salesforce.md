@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 56f1721240d4b685133149d50dd7c2a0e6b7e974
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442059"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158846"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,7 +293,7 @@ Ao copiar dados do Salesforce, pode utilizar a consulta SOQL ou consulta SQL. Te
 | Seleção de coluna | Tem de enumarate os campos a serem copiadas da consulta, por exemplo `SELECT field1, filed2 FROM objectname` | `SELECT *` é suportada para além de seleção de coluna. |
 | Entre aspas duplas | Nomes de campo/objeto não podem estar escritos entre aspas. | Nomes de campo/objetos podem estar escritos entre aspas, por exemplo `SELECT "id" FROM "Account"` |
 | Formato DateTime |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na secção seguinte. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e exemplos na secção seguinte. |
-| Valores Boolianos | Representados como `False` e `Ture`, por exemplo, `SELECT … WHERE IsDeleted=True`. | Representados como 0 ou 1, por exemplo, `SELECT … WHERE IsDeleted=1`. |
+| Valores Boolianos | Representados como `False` e `True`, por exemplo, `SELECT … WHERE IsDeleted=True`. | Representados como 0 ou 1, por exemplo, `SELECT … WHERE IsDeleted=1`. |
 | Mudar o nome de coluna | Não suportado. | Suportada, por exemplo: `SELECT a AS b FROM …`. |
 | Relação | Suportada, por exemplo, `Account_vod__r.nvs_Country__c`. | Não suportado. |
 

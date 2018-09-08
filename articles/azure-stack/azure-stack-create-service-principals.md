@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: f7233d6a27b9ec3d58f33f7032bbec7a646d24f7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42366124"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092549"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecimento de acesso de aplicações ao Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Quando uma aplicação precisa de aceder para implementar ou configurar recursos através do Azure Resource Manager no Azure Stack, criar um serviço principal, que é uma credencial para a sua aplicação.  Em seguida, pode delegar as permissões necessárias para esse principal de serviço.  
+Quando uma aplicação precisa de aceder para implementar ou configurar recursos através do Azure Resource Manager no Azure Stack, criar um serviço principal, que é uma credencial para a sua aplicação. Em seguida, pode delegar as permissões necessárias para esse principal de serviço.  
 
-Por exemplo, pode ter uma ferramenta de gerenciamento de configuração que utiliza o Azure Resource Manager para Inventariar os recursos do Azure.  Neste cenário, pode criar um principal de serviço, conceder a função de leitor a esse principal de serviço e limitar a ferramenta de gestão de configuração para acesso só de leitura. 
+Por exemplo, pode ter uma ferramenta de gerenciamento de configuração que utiliza o Azure Resource Manager para Inventariar os recursos do Azure. Neste cenário, pode criar um principal de serviço, conceder a função de leitor a esse principal de serviço e limitar a ferramenta de gestão de configuração para acesso só de leitura. 
 
 Principais de serviço são preferíveis a executar o aplicativo em suas próprias credenciais porque:
 
@@ -36,17 +36,17 @@ Principais de serviço são preferíveis a executar o aplicativo em suas própri
 
 ## <a name="getting-started"></a>Introdução
 
-Dependendo de como tiver implementado o Azure Stack, comece por criar um serviço principal.  Este documento orienta-o ao longo da criação de um principal de serviço para os dois [do Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) e [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Depois de criar o principal de serviço, um conjunto de passos comuns para AD FS e o Azure Active Directory está habituado [delegar permissões](azure-stack-create-service-principals.md#assign-role-to-service-principal) à função.     
+Dependendo de como tiver implementado o Azure Stack, comece por criar um serviço principal. Este documento descreve a criação de um principal de serviço para os dois [do Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad) e [Active Directory Federation Services(AD FS)](#create-service-principal-for-ad-fs). Depois de criar o principal de serviço, um conjunto de passos comuns para AD FS e o Azure Active Directory está habituado [delegar permissões](#assign-role-to-service-principal) à função.     
 
 ## <a name="create-service-principal-for-azure-ad"></a>Criar principal de serviço para o Azure AD
 
-Se implementar o Azure Stack com o Azure AD como o repositório de identidades, pode criar principais de serviço, tal como fazer para o Azure.  Esta secção mostra como efetuar os passos no portal.  Verifique se tem o [do Azure AD permissões obrigatórias](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar.
+Se implementar o Azure Stack com o Azure AD como o repositório de identidades, pode criar principais de serviço, tal como fazer para o Azure. Esta secção mostra como efetuar os passos no portal. Verifique se tem o [do Azure AD permissões obrigatórias](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar.
 
 ### <a name="create-service-principal"></a>Criar um principal de serviço
 Nesta secção, vai criar uma aplicação (principal de serviço) no Azure AD que representa a sua aplicação.
 
 1. Inicie sessão na sua conta do Azure através da [portal do Azure](https://portal.azure.com).
-2. Selecione **do Azure Active Directory** > **registos das aplicações** > **adicionar**   
+2. Selecione **do Azure Active Directory** > **registos das aplicações** > **novo registo de aplicação**   
 3. Indique um nome e um URL para a aplicação. Selecione **aplicação Web / API** ou **nativo** para o tipo de aplicação que pretende criar. Depois de definir os valores, selecione **criar**.
 
 Criou um principal de serviço para a sua aplicação.
@@ -63,23 +63,21 @@ Quando iniciar sessão programaticamente, utilize o ID para a sua aplicação e 
 
 4. Indique uma descrição e uma duração para a chave. Quando terminar, selecione **Guardar**.
 
-Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor, porque não vai conseguir obter a chave mais tarde. Forneça o valor da chave com o ID da aplicação para iniciar sessão como o aplicativo. Armazene o valor da chave num local onde a aplicação o possa obter.
+Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor para o bloco de notas ou noutra localização temporária, porque não é possível obter a chave mais tarde. Forneça o valor da chave com o ID da aplicação para iniciar sessão como o aplicativo. Store o valor da chave num local em que o seu aplicativo pode recuperá-la.
 
 ![chave guardada](./media/azure-stack-create-service-principal/image15.png)
 
-
-Depois de concluído, avance para [atribuir uma função de seu aplicativo](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Depois de concluído, avance para [atribuir uma função de seu aplicativo](#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Criar principal de serviço para o AD FS
 Se tiver implementado o Azure Stack com o AD FS, pode utilizar o PowerShell para criar um principal de serviço, atribuir uma função de acesso e iniciar sessão a partir do PowerShell usando essa identidade.
 
 O script é executado a partir do ponto final com privilégios numa máquina virtual ERCS.
 
-
 Requisitos:
 - É necessário um certificado.
 
-**Parâmetros**
+#### <a name="parameters"></a>Parâmetros
 
 As seguintes informações são necessárias como entrada para os parâmetros de automatização:
 
@@ -88,36 +86,36 @@ As seguintes informações são necessárias como entrada para os parâmetros de
 |---------|---------|---------|
 |Nome|Nome da conta SPN|MyAPP|
 |ClientCertificates|Matriz de objetos de certificado|X509 certificado|
-|ClientRedirectUris<br>(Opcional)|URI de redirecionamento da aplicação|         |
+|ClientRedirectUris<br>(Opcional)|URI de redirecionamento da aplicação|-|
 
-**Exemplo**
+#### <a name="example"></a>Exemplo
 
 1. Abra uma sessão elevada do Windows PowerShell e execute os seguintes comandos:
 
    > [!NOTE]
-   > Este exemplo cria um certificado autoassinado. Ao executar estes comandos numa implementação de produção, utilize Get-certificado para recuperar o objeto de certificado para o certificado que pretende utilizar.
+   > Este exemplo cria um certificado autoassinado. Ao executar estes comandos numa implementação de produção, utilize [Get-Certificate](/powershell/module/pkiclient/get-certificate) para recuperar o objeto de certificado para o certificado que pretende utilizar.
 
    ```PowerShell  
-    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
 
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
 
-    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
     # Register an AzureRM environment that targets your Azure Stack instance
@@ -146,7 +144,7 @@ As seguintes informações são necessárias como entrada para os parâmetros de
 
    Por exemplo:
 
-   ```
+   ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
@@ -156,7 +154,7 @@ As seguintes informações são necessárias como entrada para os parâmetros de
    ```
 
 ### <a name="assign-a-role"></a>Atribuir uma função
-Depois de criar o Principal de serviço, tem [atribuí-lo a uma função](azure-stack-create-service-principals.md#assign-role-to-service-principal)
+Depois de criar o Principal de serviço, deve [atribuí-lo a uma função](#assign-role-to-service-principal).
 
 ### <a name="sign-in-through-powershell"></a>Inicie sessão através do PowerShell
 Assim que tiver atribuído uma função, pode iniciar sessão no Azure Stack com o principal de serviço com o seguinte comando:

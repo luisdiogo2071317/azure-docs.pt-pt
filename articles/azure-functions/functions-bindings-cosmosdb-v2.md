@@ -4,23 +4,19 @@ description: Compreenda como utilizar o Azure Cosmos DB acionadores e enlaces na
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 919ccdc1a3623a0bb52dbf287b7868fc1929d16e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288324"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093435"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB enlaces das funções do Azure 2.x (pré-visualização)
 

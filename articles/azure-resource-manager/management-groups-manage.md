@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 04d5f5dc340d6be47a26baf05aa3d2f2ea7458ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f7677d8b545c28522c370f3af422a55f3a656646
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428823"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091191"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
@@ -167,7 +167,7 @@ Para ver quais as permissões que tem, selecione o grupo de gestão e, em seguid
     ![Crianças](media/management-groups/add_context_sub.png)
 1. Selecione "Guardar"
 
-**Remover uma assinatura de um grupo de gestão**
+**Mover uma subscrição para outro grupo de gestão**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 2. Selecione **todos os serviços** > **grupos de gestão** 

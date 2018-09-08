@@ -1,33 +1,29 @@
 ---
-title: Processar eventos externos nas funções durável - Azure
-description: Saiba como processar eventos externos na extensão do durável funções para as funções do Azure.
+title: Processar eventos externos na funções duráveis - Azure
+description: Saiba como manipular eventos externos na extensão de funções duráveis para as funções do Azure.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 77087f04ea641c24a92edd2091432cbcb4329ecd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 728ed892b4be4334574a04c9794bf3ea549944d4
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763200"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093989"
 ---
-# <a name="handling-external-events-in-durable-functions-azure-functions"></a>Processamento de eventos externos nas funções durável (funções do Azure)
+# <a name="handling-external-events-in-durable-functions-azure-functions"></a>Manipulação de eventos externos nas funções durável (funções do Azure)
 
-As funções do Orchestrator têm a capacidade de espera e escutar eventos externos. Esta funcionalidade de [funções durável](durable-functions-overview.md) , muitas vezes, é útil para processamento de interação humana ou outros acionadores externos.
+As funções do Orchestrator têm a capacidade de esperar e escutar eventos externos. Esta funcionalidade de [funções duráveis](durable-functions-overview.md) , muitas vezes, é útil para lidar com interação humana ou outros acionadores externos.
 
-## <a name="wait-for-events"></a>Aguarde eventos
+## <a name="wait-for-events"></a>Aguardar por eventos
 
-O [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) método permite que uma função do orchestrator no modo assíncrono, aguarde e escutar um evento externo. A função Serviço de escuta do orchestrator declara o *nome* do evento e o *forma dos dados* espera receber.
+O [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) método permite que uma função de orquestrador aguardar e escutar um evento externo de forma assíncrona. A função de orquestrador escuta declara a *name* do evento e o *forma dos dados* ele espera receber.
 
 #### <a name="c"></a>C#
 
@@ -48,7 +44,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
 
 ```javascript
 const df = require("durable-functions");
@@ -63,9 +59,9 @@ module.exports = df(function*(context) {
 });
 ```
 
-O exemplo anterior escuta para um único evento específico e executa a ação quando é recebido.
+O exemplo anterior está à escuta de um único evento específico e efetua uma ação quando é recebido.
 
-Pode oiça vários eventos em simultâneo, tal como no exemplo seguinte, que aguarda que um dos três notificações de eventos possíveis.
+Pode ouvir por vários eventos em simultâneo, como no exemplo seguinte, que aguarda uma das três notificações de eventos possíveis.
 
 #### <a name="c"></a>C#
 
@@ -94,7 +90,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
 
 ```javascript
 const df = require("durable-functions");
@@ -137,7 +133,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
 
 ```javascript
 const df = require("durable-functions");
@@ -156,18 +152,18 @@ module.exports = df(function*(context) {
 });
 ```
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) aguarda indefinidamente algumas entrada.  A aplicação de função pode estar em segurança descarregada ao aguardar a resposta. Se e quando é recebido um evento para esta instância de orquestração, é reativado automaticamente e imediatamente processa o evento.
+[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) aguarda indefinidamente alguma entrada.  A aplicação de funções pode ser com segurança descarregada enquanto espera. Se e quando é recebido um evento para esta instância de orquestração, ele é acordado automaticamente e imediatamente processa o evento.
 
 > [!NOTE]
-> Se a sua aplicação de função utiliza o plano de consumo, são cobradas taxas não enquanto uma função do orchestrator está a aguardar uma tarefa de `WaitForExternalEvent`, independentemente do período de tempo de espera.
+> Se a sua aplicação function app utiliza o plano de consumo, sem custos de faturas são incorridos enquanto uma função de orquestrador está aguardando uma tarefa de `WaitForExternalEvent`, independentemente do período de tempo de espera.
 
-No .NET, se o payload do evento não é possível converter o tipo esperado `T`, é emitida uma exceção.
+No .NET, se a carga do evento não pode ser convertida para o tipo esperado `T`, é emitida uma exceção.
 
 ## <a name="send-events"></a>Enviar eventos
 
-O [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe envia os eventos que `WaitForExternalEvent` aguarda.  O `RaiseEventAsync` método *eventName* e *eventData* como parâmetros. Os dados do evento tem de ser serializáveis JSON.
+O [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe enviará os eventos que `WaitForExternalEvent` aguarda.  O `RaiseEventAsync` leva *eventName* e *eventData* como parâmetros. Os dados do evento tem de ser serializável JSON.
 
-Segue-se uma função de acionada pela fila de exemplo que enviará um evento de "Aprovação" a uma instância de função do orchestrator. O ID de instância de orquestração provém do corpo da mensagem de fila.
+Segue-se uma função de acionada por fila de exemplo que envia um evento de "Aprovação" para uma instância de função do orchestrator. O ID de instância da orquestração é proveniente do corpo da mensagem de fila.
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -179,19 +175,19 @@ public static async Task Run(
 }
 ```
 
-Internamente, `RaiseEventAsync` enqueues uma mensagem que obtém captada pela função espera do orchestrator.
+Internamente, `RaiseEventAsync` coloca em fila uma mensagem que obtém captada por função de orquestrador de espera.
 
 > [!WARNING]
-> Se não houver nenhuma instância de orquestração com especificado *ID de instância* ou se a instância não está à espera que o especificado na *nome do evento*, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte o [problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> Se não existir nenhuma instância de orquestração com especificado *ID da instância* ou se a instância não está à espera no especificado *nome do evento*, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como configurar eternal orchestrations](durable-functions-eternal-orchestrations.md)
+> [Saiba como configurar a orquestrações externas](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Execute um exemplo que aguarda eventos externos](durable-functions-phone-verification.md)
+> [Executar um exemplo que tem de aguardar por eventos externos](durable-functions-phone-verification.md)
 
 > [!div class="nextstepaction"]
-> [Execute um exemplo que aguarda para uma interação humana](durable-functions-phone-verification.md)
+> [Executar um exemplo que aguarda a interação humana](durable-functions-phone-verification.md)
 

@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/02/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 26828efedac9953ce1c7375fc62269e93019ce50
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: d7357dc7e8fa473bd8517dd80ede749b9d8e3f07
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094875"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162840"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -40,9 +40,9 @@ Eis alguns termos-chave:
 - **Consumidor do cofre**: um consumidor do cofre pode efetuar ações nos recursos dentro do cofre de chaves quando o proprietário do cofre lhe concede acesso. As ações disponíveis dependem das permissões concedidas.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: o Azure AD é o serviço do Active Directory para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino. 
 - **ID do inquilino do Azure**: um ID do inquilino é uma forma exclusiva para identificar uma instância do Azure AD numa subscrição do Azure.
-- **Identidade de Serviço Gerida**: o Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de ser autenticado no Key Vault para poder obtê-los. A Identidade de Serviço Gerida simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar esta identidade para autenticar no Key Vault ou em qualquer serviço que suporta a autenticação Azure AD, sem ser necessário ter credenciais no seu código. Para obter mais informações, consulte [Identidade de Serviço Gerida para recursos do Azure](../active-directory/managed-service-identity/overview.md).
+- **Gerido identidades para recursos do Azure**: Azure Key Vault oferece uma forma de armazenar em segurança as credenciais e outras chaves e segredos, mas o seu código precisa para autenticar para o Key Vault para recuperá-los. Utilizar uma identidade gerida faz a resolver esse problema mais simples, fornecendo serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar esta identidade para autenticar no Key Vault ou em qualquer serviço que suporta a autenticação Azure AD, sem ser necessário ter credenciais no seu código. Para obter mais informações, veja a imagem abaixo e o [geridos identidades para descrição geral de recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagrama de como a Identidade de Serviço Gerida funciona](./media/key-vault-whatis/msi.png)
+    ![Diagrama de como geridos identidades para funciona de recursos do Azure](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Funções do Key Vault
 
@@ -68,7 +68,7 @@ Este administrador iria fornecer URIs aos programadores para os contactar a part
 
 Os programadores também podem gerir as chaves diretamente, com APIs. Para obter mais informações, consulte o [manual do programador da chave](key-vault-developers-guide.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para consultar um tutorial de introdução para um administrador, veja [Introdução ao Azure Key Vault](key-vault-get-started.md).
 

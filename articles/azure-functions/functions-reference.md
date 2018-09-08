@@ -4,24 +4,20 @@ description: Aprenda os conceitos de funções do Azure e técnicas que precisa 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: funções de guia, do azure programador, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5214a59b6a1aa27c80759c5af3d91ad4711de660
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d2b05c83f77a58e224760d90d111b270d71a6514
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343982"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092432"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia para programadores do funções do Azure
 Nas funções do Azure, funções específicas partilham alguns conceitos técnicos de núcleos e componentes, independentemente do idioma ou associação usada. Antes de conhecer em detalhes específicos para um determinado idioma ou enlace de aprendizagem, certifique-se de que leia esta visão geral que se aplica a todos eles.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3b836859dd2af45e84d0f53db06d2c7ab2828253
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 4ecc94f4ab5e9091db1705e99d4a5df6abbaf350
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057166"
+ms.locfileid: "44161089"
 ---
 # <a name="security-in-azure-data-lake-store"></a>Segurança no Azure Data Lake Store
 Muitas empresas estão a tirar partido da análise de macrodados para as informações de negócio para os ajudar a tomar decisões inteligentes. Uma organização pode ter um ambiente complexo e regulado, com um número crescente de diversos usuários. É fundamental para uma empresa para se certificar de que a dados empresariais críticos são armazenados de forma mais segura, com o nível correto de acesso concedido a utilizadores individuais. Azure Data Lake Store foi concebido para ajudar a satisfazer esses requisitos de segurança. Neste artigo, saiba mais sobre as capacidades de segurança do Data Lake Store, incluindo:
@@ -80,7 +80,7 @@ Azure Data Lake Store protege os dados em todo o seu ciclo de vida. Para dados e
 
 O Data Lake Store também fornece encriptação para dados armazenados na conta. Pode optar por encriptar os seus dados ou por não utilizar encriptação. Se optar por encriptação, os dados armazenados no Data Lake Store são encriptados antes de serem armazenados em suportes de dados persistentes. Nesse caso, o Data Lake Store automaticamente encripta os dados antes de persistir e desencripta-os antes da obtenção, pelo que é completamente transparente para o cliente a aceder aos dados. Não há nenhuma alteração de código necessária do lado do cliente para dados de encriptação/desencriptação.
 
-Gestão de chaves, o Data Lake Store disponibiliza dois modos para gerir as chaves de encriptação mestra (MEKs), que são necessárias para desencriptar todos os dados que são armazenados na Store de Lake dados. Pode optar por permitir que os Data Lake Store faça a gestão de MEKs para, ou optar por manter a propriedade de MEKs com a sua conta do Azure Key Vault. Especifique o modo de gestão de chaves enquanto ao criar uma conta do Data Lake Store. Para obter mais informações sobre como fornecer configuração relacionada com encriptação, veja [Introdução ao Azure Data Lake Store utilizando o Portal do Azure](data-lake-store-get-started-portal.md).
+Gestão de chaves, o Data Lake Store disponibiliza dois modos para gerir as chaves de encriptação mestra (MEKs), que são necessárias para desencriptar todos os dados que são armazenados na Store de Lake dados. Pode optar por permitir que os Data Lake Store faça a gestão de MEKs para, ou optar por manter a propriedade de MEKs com a sua conta do Azure Key Vault. Especifique o modo de gestão de chaves ao criar uma conta do Data Lake Store. Para obter mais informações sobre como fornecer configuração relacionada com encriptação, veja [Introdução ao Azure Data Lake Store utilizando o Portal do Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="activity-and-diagnostic-logs"></a>Atividade e os registos de diagnóstico
 Pode usar a atividade ou registos de diagnóstico, dependendo se estiver à procura de registos de atividades relacionadas com a gestão de conta ou atividades relacionadas com dados.

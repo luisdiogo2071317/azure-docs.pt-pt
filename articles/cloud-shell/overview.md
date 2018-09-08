@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ff50ea8c49d35306ccb48ec703de39c27c24bf7b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258930"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160681"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo, acessível para o browser para o gerenciamento de recursos do Azure.
@@ -35,6 +35,7 @@ Experimente a partir do portal do Azure com o ícone do Cloud Shell.
 ![Lançamento de portal](media/overview/portal-launch-icon.png)
 
 ## <a name="features"></a>Funcionalidades
+
 ### <a name="browser-based-shell-experience"></a>Experiência de shell baseada no browser
 Cloud Shell permite o acesso a uma experiência da linha de comandos baseada no browser e criado com tarefas de gestão do Azure em mente.
 Tire partido dos Cloud Shell para trabalhar untethered de um computador local de uma forma apenas para a cloud pode fornecer.
@@ -65,33 +66,11 @@ O cloud Shell é uma ferramenta flexível que pode ser usada em:
 * [Extensão da conta do Azure de código de VS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Ligar o seu armazenamento de ficheiros do Microsoft Azure
-Cloud Shell máquinas são temporárias e requerem uma partilha de ficheiros do Azure para ser montado como `clouddrive` para manter os ficheiros.
+Cloud Shell máquinas são temporárias e requerem uma partilha de ficheiros do Azure nova ou existente para ser montado como `clouddrive` para manter os ficheiros.
 
 Na primeira execução que cloud Shell pede-lhe para criar um recurso do grupo de conta de armazenamento e ficheiros do Azure partilham em seu nome. Este é um passo de uma única vez e será automaticamente anexado para todas as sessões. Uma partilha de ficheiros único pode ser mapeada e será utilizada pelo Bash e o PowerShell no Cloud Shell (pré-visualização).
 
-#### <a name="create-new-storage"></a>Criar novo armazenamento
-![](media/overview/basic-storage.png)
-
-Uma conta de armazenamento localmente redundante (LRS) e a partilha de ficheiros do Azure podem ser criados em seu nome. A partilha de ficheiros do Azure será utilizada para ambientes de Bash e o PowerShell se optar por utilizar ambas. Os custos de armazenamento normais aplicam-se.
-
-Três recursos serão criados em seu nome:
-1. Grupo de recursos com o nome: `cloud-shell-storage-<region>`
-2. Conta de armazenamento com o nome: `cs<uniqueGuid>`
-3. Partilha de ficheiros com o nome: `cs-<user>-<domain>-com-<uniqueGuid>`
-
-> [!Note]
-> Bash no Cloud Shell também cria uma imagem de disco de 5 GB de padrão para manter `$Home`. Todos os ficheiros no seu diretório $Home, tais como chaves SSH são mantidos em sua imagem de disco de utilizador armazenada na partilha de ficheiros do Azure montada. Aplica as práticas recomendadas ao guardar os ficheiros no seu diretório de $Home e partilha de ficheiros do Azure montada.
-
-#### <a name="use-existing-resources"></a>Utilizar recursos existentes
-![](media/overview/advanced-storage.png)
-
-Uma opção avançada é fornecida para associar os recursos existentes para o Cloud Shell.
-Na linha de comandos do programa de configuração de armazenamento, clique em "Mostrar definições avançadas" para mostrar as opções adicionais.
-
-> [!Note]
-> Listas pendentes são filtradas para a sua região do Cloud Shell previamente atribuído e contas de armazenamento LRS/GRS/ZRS.
-
-[Saiba mais sobre armazenamento de Cloud Shell, atualização de partilhas de ficheiros do Azure e carregar/transferir ficheiros.](persisting-shell-storage.md)
+Leia mais para aprender a montar um [conta de armazenamento nova ou existente](persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Conceitos
 * Cloud Shell é executado num anfitrião temporário fornecido numa por sessão, por utilizador

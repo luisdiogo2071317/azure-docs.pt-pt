@@ -4,23 +4,19 @@ description: Saiba como utilizar acionadores e enlaces nas funções do Azure pa
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346607"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092960"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 
@@ -28,7 +24,7 @@ Este artigo é uma descrição geral conceptual dos acionadores e enlaces nas fu
 
 ## <a name="overview"></a>Descrição geral
 
-R *acionador* define como uma função é invocada. Uma função tem de ter exatamente um acionador. Acionadores tem associado a dados, o que é normalmente o payload que acionou a função.
+R *acionador* define como uma função é invocada. Uma função tem de ter exatamente um acionador. Os acionadores têm dados associados, que é normalmente o payload que acionou a função.
 
 Entrada e saída *enlaces* proporcionam uma forma declarativa para ligar a dados a partir de seu código. Enlaces são opcionais e uma função pode ter várias entradas de ligações de saída. 
 

@@ -1,37 +1,35 @@
 ---
-title: Erro de funções do Azure processamento orientações | Microsoft Docs
-description: Fornece orientações gerais para processamento de erros que ocorrem no quando executar as suas funções e ligações para tópicos de erros específicos de enlace.
+title: Documentação de orientação de tratamento de erros de funções de Azure | Documentos da Microsoft
+description: Fornece orientações gerais para a manipulação de erros que ocorrem no quando executar as suas funções e ligações para tópicos de erros de ligação específica.
 services: functions
 cloud: ''
 documentationcenter: ''
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: multiple
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: glenga; cfowler
-ms.openlocfilehash: 82cdc62b3070811186583fdf1ce5e6ce421ebc34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5a8dae73c164b319b4c291685deff402f9798364
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118490"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091845"
 ---
-# <a name="azure-functions-error-handling"></a>Processamento de erros de funções do Azure
+# <a name="azure-functions-error-handling"></a>Tratamento de erros de funções do Azure
 
-Este tópico fornece orientações gerais para processamento de erros que ocorrem quando executar as suas funções. Também fornece ligações para tópicos que descrevem os erros de enlace específicas que podem ocorrer. 
+Este tópico fornece orientações gerais para o tratamento de erros que ocorrem ao executar as suas funções. Ele também fornece ligações para os tópicos que descrevem os erros de ligação específicos que podem ocorrer. 
 
-## <a name="handing-errors-in-functions"></a>Erros nas funções de manipulação
+## <a name="handing-errors-in-functions"></a>Erros nas funções de processamento
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
  
 ## <a name="binding-error-codes"></a>Códigos de erro de enlace
 
-Quando a integração com serviços do Azure, pode ter erros gerados provenientes das APIs dos serviços subjacentes. Ligações para o erro código documentação para estes serviços podem ser encontrados no **exceções e códigos de retorno** secção das seguinte acionador e tópicos de referência de enlace:
+Ao integrar com serviços do Azure, pode ter os erros levantados provenientes as APIs dos serviços subjacentes. Documentação de código de ligações para o erro para estes serviços podem ser encontrados no **exceções e códigos de retorno** secção das seguinte acionador e tópicos de referência de ligação:
 
 + [BD do Cosmos para o Azure](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

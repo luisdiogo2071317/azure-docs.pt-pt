@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520729"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094897"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do serviço de armazenamento do Azure para dados Inativos
-Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. Com esta funcionalidade, a plataforma de armazenamento do Azure encripta automaticamente os dados antes de persisti-los para Managed Disks do Azure, o armazenamento de Blobs do Azure, o ficheiros do Azure ou o armazenamento de filas do Azure e descriptografa os dados antes da obtenção. O processamento de encriptação, encriptação em repouso, desencriptação e gestão de chaves de encriptação do serviço de armazenamento é transparente para os utilizadores. Todos os dados escritos para a plataforma de armazenamento do Azure são criptografados por meio de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
+Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. Com esta funcionalidade, a plataforma de armazenamento do Azure encripta automaticamente os dados antes de persisti-los para Managed Disks do Azure, armazenamento de Blobs do Azure, filas ou tabelas ou ficheiros do Azure e descriptografa os dados antes da obtenção. O processamento de encriptação, encriptação em repouso, desencriptação e gestão de chaves de encriptação do serviço de armazenamento é transparente para os utilizadores. Todos os dados escritos para a plataforma de armazenamento do Azure são criptografados por meio de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
 
 Encriptação do serviço de armazenamento está ativada para todas as contas de armazenamento de novas e existentes e não pode ser desativada. Porque os seus dados estão protegidos por predefinição, não terá de modificar as suas aplicações para tirar partido da encriptação do serviço de armazenamento ou de código.
 

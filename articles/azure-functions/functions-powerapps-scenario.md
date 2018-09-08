@@ -3,26 +3,21 @@ title: Chamar uma função a partir do PowerApps | Documentos da Microsoft
 description: Criar um conector personalizado, em seguida, chamar uma função com esse conector.
 services: functions
 keywords: aplicações na cloud, cloud processos de negócio de serviços, o PowerApps, aplicativo de negócios
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 55de3cd8830834a2af512661d5389952d927ef9f
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586981"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094320"
 ---
 # <a name="call-a-function-from-powerapps"></a>Chamar uma função a partir do PowerApps
 O [PowerApps](https://powerapps.microsoft.com) plataforma foi concebida para os especialistas em negócios criar aplicações sem código de aplicação tradicional. Desenvolvedores profissionais que pode utilizar as funções do Azure para expandir as funcionalidades do PowerApps, ao PowerApps criadores de aplicativos dos detalhes técnicos de proteção.

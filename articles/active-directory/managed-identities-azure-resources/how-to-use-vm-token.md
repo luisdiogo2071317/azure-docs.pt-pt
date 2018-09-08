@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 6bb2fa30d79093eab2259cc8234115cfcd1fd1c3
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 86830d8a13e4d83ff48bcf7e2f2dfac41d764718
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028714"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161429"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para adquirir um token de acesso 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
 Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
@@ -78,7 +78,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `object_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o object_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver várias identidades geridas atribuído ao utilizador.|
 | `client_id` | (Opcional) Um parâmetro da cadeia de consulta, que indica o client_id de a identidade gerida que gostaria de ter o token para. Necessário se a VM tiver várias identidades geridas atribuído ao utilizador.|
 
-Pedido de exemplo com as identidades geridas para recursos do Azure ponto final da extensão de VM *(para ser preterida)*:
+Pedido de exemplo com as identidades geridas para recursos do Azure ponto final da extensão de VM *(planeada para preterição em Janeiro de 2019)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1

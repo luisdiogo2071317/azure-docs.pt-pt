@@ -2,30 +2,26 @@
 title: Enlaces de ficheiro externos para as funções do Azure (experimental)
 description: Utilizar enlaces de ficheiro externo nas funções do Azure
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27607926"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093775"
 ---
-# <a name="azure-functions-external-file-bindings-experimental"></a>Azure enlaces de funções de ficheiro externo (experimental)
-Este artigo mostra como manipular ficheiros a partir de diferentes fornecedores de SaaS (como o Dropbox ou Google Drive) nas funções do Azure. Funções do Azure suporta acionam, de entrada e saída enlaces para ficheiros externos. Destes enlaces criar ligações de API para fornecedores de SaaS, ou utilizem as ligações de API existentes do grupo de recursos da sua aplicação de função.
+# <a name="azure-functions-external-file-bindings-experimental"></a>Enlaces de ficheiro externo de funções do Azure (experimentais)
+Este artigo mostra como manipular ficheiros a partir de diferentes fornecedores de SaaS (como o Dropbox ou Google Drive) nas funções do Azure. Funções do Azure suporta acionaram, de entrada e saída enlaces para arquivos externos. Essas associações criar ligações de API para fornecedores SaaS ou utilizam as ligações de API existentes do grupo de recursos da sua aplicação de função.
 
 > [!IMPORTANT]
-> Os enlaces de ficheiro externo são experimental e poderão nunca alcançam Estado geralmente disponível (GA). Estes são incluídas apenas no Azure funciona 1. x e não existem nenhum planos para adicioná-los para as funções do Azure 2. x. Para cenários que requerem acesso aos dados de fornecedores de SaaS, considere a utilização [as logic apps que chamam para funções](functions-twitter-email.md). Consulte o [conector sistema de ficheiros de aplicações lógicas](../logic-apps/logic-apps-using-file-connector.md).
+> Os enlaces de ficheiro externo estão experimentais e nunca atinja o estado de geralmente disponível (GA). Eles estão incluídos apenas no Azure funciona 1.x, e não existirem não existem planos para adicioná-los para as funções do Azure 2.x. Para cenários que exigem acesso a dados em fornecedores de SaaS, considere a utilização [aplicações lógicas que chamam funções](functions-twitter-email.md). Consulte a [conector de sistema de ficheiros de aplicações lógicas](../logic-apps/logic-apps-using-file-connector.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,27 +35,27 @@ Este artigo mostra como manipular ficheiros a partir de diferentes fornecedores 
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive para Empresas](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Unidade do Google](https://www.google.com/drive/)||x|x|
+|[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
-> Ligações de ficheiro externas, também podem ser utilizadas no [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
+> Ligações externas do ficheiro também podem ser utilizadas no [do Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 ## <a name="trigger"></a>Acionador
 
-O acionador de ficheiro externo permite-lhe monitorizar uma pasta remota e executar o código de função quando são detetadas alterações.
+O acionador de ficheiro externo permite-lhe monitorizar uma pasta remota e executar o código de função quando forem detetadas alterações.
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 
-Veja o exemplo de específicas do idioma:
+Veja o exemplo de idioma específico:
 
-* [Script do c#](#trigger---c-script-example)
+* [Script c#](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de ficheiro externo enlace num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função regista o conteúdo de cada ficheiro que é adicionado à pasta monitorizada.
+O exemplo seguinte mostra um acionador de ficheiro externo ligando uma *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função regista o conteúdo de cada ficheiro que é adicionado à pasta monitorizada.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -76,7 +72,7 @@ Segue-se os dados do enlace *function.json* ficheiro:
 }
 ```
 
-Eis o código de script do c#:
+Aqui está o código de script do c#:
 
 ```cs
 public static void Run(string myFile, TraceWriter log)
@@ -87,9 +83,9 @@ public static void Run(string myFile, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de ficheiro externo enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função regista o conteúdo de cada ficheiro que é adicionado à pasta monitorizada.
+O exemplo seguinte mostra um acionador de ficheiro externo ligando uma *Function* ficheiro e um [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função regista o conteúdo de cada ficheiro que é adicionado à pasta monitorizada.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -117,19 +113,19 @@ module.exports = function(context) {
 
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiro.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro.
 
-|propriedade de Function.JSON | Descrição|
+|propriedade de Function | Descrição|
 |---------|---------|----------------------|
-|**tipo** | tem de ser definido como `apiHubFileTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | O nome da variável que representa o item de eventos no código da função. | 
-|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação. A definição de aplicação é criada automaticamente quando adicionar uma ligação na integrar IU no portal do Azure.|
-|**caminho** | A pasta para monitorizar e, opcionalmente um padrão de nome.|
+|**tipo** | Tem de ser definido como `apiHubFileTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação. A definição de aplicação é criada automaticamente quando adiciona uma ligação de integrar da interface do Usuário, no portal do Azure.|
+|**path** | A pasta para monitorizar e, opcionalmente, um padrão de nome.|
 
 ### <a name="name-patterns"></a>Padrões de nome
 
-Pode especificar um padrão de nome de ficheiro no `path` propriedade. A pasta referenciada tem de existir no fornecedor de SaaS.
+Pode especificar um padrão de nome de ficheiro no `path` propriedade. A pasta referenciada tem de existir no fornecedor SaaS.
 
 Exemplos:
 
@@ -137,7 +133,7 @@ Exemplos:
 "path": "input/original-{name}",
 ```
 
-Este caminho seria localizar um ficheiro denominado *original File1.txt* no *entrada* pasta e o valor do `name` variável no código da função seria `File1.txt`.
+Este caminho seria encontrar um ficheiro denominado *original File1.txt* no *entrada* pasta e o valor da `name` variável no código de função seria `File1.txt`.
 
 Outro exemplo:
 
@@ -145,37 +141,37 @@ Outro exemplo:
 "path": "input/{filename}.{fileextension}",
 ```
 
-Este caminho também poderia localizar um ficheiro denominado *original File1.txt*e o valor do `filename` e `fileextension` variáveis no código da função seria *original File1* e *txt* .
+Este caminho encontrará um arquivo chamado *original File1.txt*e o valor da `filename` e `fileextension` variáveis no código de função seria *original File1* e *txt* .
 
-Pode restringir o tipo de ficheiro de ficheiros utilizando um valor fixo para a extensão de ficheiro. Por exemplo:
+Pode restringir o tipo de ficheiro de ficheiros ao utilizar um valor fixo para a extensão de ficheiro. Por exemplo:
 
 ```json
 "path": "samples/{name}.png",
 ```
 
-Neste caso, apenas *PNG* ficheiros no *amostras* pasta acionar a função.
+Neste caso, apenas *. PNG* arquivos no *exemplos* pasta acione a função.
 
-Chavetas são carateres especiais no nome. Para especificar os nomes de ficheiros que tenham chavetas no nome, faça duplo chavetas.
+Chavetas são carateres especiais em padrões de nome. Para especificar os nomes de ficheiros que têm chaves no nome, faça duplo das chaves.
 Por exemplo:
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-Este caminho seria localizar um ficheiro denominado *{20140101}-soundfile.mp3* no *imagens* pasta e o `name` valor da variável no código da função seria *soundfile.mp3*.
+Este caminho seria encontrar um ficheiro denominado  *{20140101}-soundfile.mp3* no *imagens* pasta e a `name` valor da variável no código de função seria *soundfile.mp3*.
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-C# funções, vincular os dados de ficheiro de entrada através de um parâmetro com nome na sua assinatura da função, como `<T> <name>`.
-Onde `T` é o tipo de dados que pretende anular a serialização de dados e `paramName` é o nome especificado no [acionar JSON](#trigger). Funções de Node.js, vai aceder a dados de ficheiro de entrada utilizando `context.bindings.<name>`.
+No c# das funções, ligar para os dados de ficheiro de entrada usando um parâmetro com nome em sua assinatura de função, como `<T> <name>`.
+Em que `T` é o tipo de dados que pretende anular a serialização de dados, e `paramName` é o nome que especificou no [acionar JSON](#trigger). Funções de node. js, vai aceder os dados de ficheiro de entrada com `context.bindings.<name>`.
 
-O ficheiro pode ser desserializado em qualquer um dos seguintes tipos:
+O ficheiro possa ser desserializado em qualquer um dos seguintes tipos:
 
-* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para dados de ficheiro serializados para JSON.
-  Se declarar um tipo de entrada personalizado (por exemplo, `FooType`), as funções do Azure tentar anular a serialização os dados JSON para o tipo especificado.
-* Cadeia - útil para dados de ficheiro de texto.
+* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para dados de ficheiro JSON serializado.
+  Se declarar um tipo de entrada personalizado (por exemplo, `FooType`), as funções do Azure tenta desserializar os dados JSON em seu tipo especificado.
+* Cadeia de caracteres - útil para dados de ficheiro de texto.
 
-C# funções, é também possível vincular a qualquer um dos seguintes tipos e o tempo de execução de funções tenta anular a serialização dos dados de ficheiros utilizando esse tipo:
+Também pode ligar a qualquer um dos seguintes tipos de funções c#, e o runtime das funções tenta desserializar os dados de arquivo usando esse tipo:
 
 * `string`
 * `byte[]`
@@ -199,33 +195,33 @@ File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure st
 To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
 --->
 
-## <a name="trigger---poison-files"></a>Acionador - nocivas ficheiros
+## <a name="trigger---poison-files"></a>Acionador - ficheiros não processáveis
 
-Quando uma função de Acionador de ficheiro externo falha, as funções do Azure tentará novamente essa função até 5 vezes por predefinição (incluindo a primeira tentativa) para um determinado ficheiro.
-Se a todas as tentativas de 5 falharem, as funções adiciona uma mensagem para uma fila de armazenamento com o nome *webjobs-apihubtrigger-poison*. A mensagem da fila para ficheiros nocivas é um objeto JSON que contém as seguintes propriedades:
+Quando ocorre uma falha numa função de Acionador de ficheiro externo, as funções do Azure repete essa função até 5 vezes por predefinição (incluindo a primeira tentativa) para um determinado ficheiro.
+Se todas as tentativas de 5 falharem, as funções adiciona uma mensagem numa fila de armazenamento com o nome *webjobs-apihubtrigger-veneno*. A mensagem de fila de ficheiros não processáveis é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionId (no formato  *&lt;nome da aplicação de função >*. Funções.  *&lt;nome de função >*)
-* FileType
+* FunctionId (no formato  *&lt;nome da aplicação >*. Funções.  *&lt;nome da função >*)
+* fileType
 * FolderName
-* nome de ficheiro
+* Nome de ficheiro
 * ETag (um identificador de versão do ficheiro, por exemplo: "0x8D1DC6E70A277EF")
 
 ## <a name="input"></a>Input
 
-O enlace de entrada do ficheiro externo do Azure permite-lhe utilizar um ficheiro a partir de uma pasta na sua função externa.
+O enlace de entrada de ficheiro externo do Azure permite-lhe utilizar um ficheiro a partir de uma pasta externa na sua função.
 
 ## <a name="input---example"></a>Entrada - exemplo
 
-Veja o exemplo de específicas do idioma:
+Veja o exemplo de idioma específico:
 
-* [Script do c#](#input---c-script-example)
+* [Script c#](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
-### <a name="input---c-script-example"></a>Entrada - exemplo de script do c#
+### <a name="input---c-script-example"></a>Introdução - exemplo de script do c#
 
-O exemplo seguinte mostra o ficheiro externo enlaces de entrada e de saída num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função copia um ficheiro de entrada para um ficheiro de saída.
+O exemplo seguinte mostra o arquivo externo enlaces de entrada e saída numa *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função copia um ficheiro de entrada para um ficheiro de saída.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -256,7 +252,7 @@ Segue-se os dados do enlace *function.json* ficheiro:
 }
 ```
 
-Eis o código de script do c#:
+Aqui está o código de script do c#:
 
 ```cs
 public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
@@ -266,11 +262,11 @@ public static void Run(string myQueueItem, string myInputFile, out string myOutp
 }
 ```
 
-### <a name="input---javascript-example"></a>Entrada - exemplo de JavaScript
+### <a name="input---javascript-example"></a>Introdução - exemplo de JavaScript
 
-O exemplo seguinte mostra o ficheiro externo enlaces de entrada e de saída num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função copia um ficheiro de entrada para um ficheiro de saída.
+O exemplo seguinte mostra o arquivo externo enlaces de entrada e saída numa *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função copia um ficheiro de entrada para um ficheiro de saída.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -313,27 +309,27 @@ module.exports = function(context) {
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiro.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro.
 
-|propriedade de Function.JSON | Descrição|
+|propriedade de Function | Descrição|
 |---------|---------|----------------------|
-|**tipo** | tem de ser definido como `apiHubFile`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | O nome da variável que representa o item de eventos no código da função. | 
-|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação. A definição de aplicação é criada automaticamente quando adicionar uma ligação na integrar IU no portal do Azure.|
-|**caminho** | Tem de conter o nome de pasta e o nome de ficheiro. Por exemplo, se tiver um [acionador de fila](functions-bindings-storage-queue.md) na sua função, pode utilizar `"path": "samples-workitems/{queueTrigger}"` para apontar para um ficheiro a `samples-workitems` pasta com um nome que corresponda ao nome de ficheiro especificado na mensagem de Acionador.   
+|**tipo** | Tem de ser definido como `apiHubFile`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação. A definição de aplicação é criada automaticamente quando adiciona uma ligação de integrar da interface do Usuário, no portal do Azure.|
+|**path** | Tem de conter o nome da pasta e o nome de ficheiro. Por exemplo, se tem um [acionador de fila](functions-bindings-storage-queue.md) na sua função, pode usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um ficheiro no `samples-workitems` pasta com um nome correspondente ao nome de ficheiro especificado na mensagem de Acionador.   
 
-## <a name="input---usage"></a>Entrada - utilização
+## <a name="input---usage"></a>Introdução - utilização
 
-C# funções, vincular os dados de ficheiro de entrada através de um parâmetro com nome na sua assinatura da função, como `<T> <name>`. `T`é o tipo de dados que pretende anular a serialização de dados e `name` é o nome especificado no vínculo da entrada. Funções de Node.js, vai aceder a dados de ficheiro de entrada utilizando `context.bindings.<name>`.
+No c# das funções, ligar para os dados de ficheiro de entrada usando um parâmetro com nome em sua assinatura de função, como `<T> <name>`. `T` é o tipo de dados que pretende anular a serialização de dados, e `name` é o nome que especificou no enlace de entrada. Funções de node. js, vai aceder os dados de ficheiro de entrada com `context.bindings.<name>`.
 
-O ficheiro pode ser desserializado em qualquer um dos seguintes tipos:
+O ficheiro possa ser desserializado em qualquer um dos seguintes tipos:
 
-* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para dados de ficheiro serializados para JSON.
-  Se declarar um tipo de entrada personalizado (por exemplo, `InputType`), as funções do Azure tentar anular a serialização os dados JSON para o tipo especificado.
-* Cadeia - útil para dados de ficheiro de texto.
+* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para dados de ficheiro JSON serializado.
+  Se declarar um tipo de entrada personalizado (por exemplo, `InputType`), as funções do Azure tenta desserializar os dados JSON em seu tipo especificado.
+* Cadeia de caracteres - útil para dados de ficheiro de texto.
 
-C# funções, é também possível vincular a qualquer um dos seguintes tipos e o tempo de execução de funções tenta anular a serialização dos dados de ficheiros utilizando esse tipo:
+Também pode ligar a qualquer um dos seguintes tipos de funções c#, e o runtime das funções tenta desserializar os dados de arquivo usando esse tipo:
 
 * `string`
 * `byte[]`
@@ -343,35 +339,35 @@ C# funções, é também possível vincular a qualquer um dos seguintes tipos e 
 
 ## <a name="output"></a>Saída
 
-O ficheiro externo do Azure enlace de saída permite-lhe escrever ficheiros para uma pasta na sua função externa.
+O ficheiro externo do Azure enlace de saída permite-lhe escrever ficheiros para uma pasta externa na sua função.
 
-## <a name="output---example"></a>De saída - exemplo
+## <a name="output---example"></a>Saída - exemplo
 
-Consulte o [exemplo de enlace de entrada](#input---example).
+Consulte a [exemplo de enlace de entrada](#input---example).
 
-## <a name="output---configuration"></a>De saída - configuração
+## <a name="output---configuration"></a>Saída - configuração
 
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiro.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro.
 
-|propriedade de Function.JSON | Descrição|
+|propriedade de Function | Descrição|
 |---------|---------|----------------------|
-|**tipo** | tem de ser definido como `apiHubFile`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | O nome da variável que representa o item de eventos no código da função. | 
-|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação. A definição de aplicação é criada automaticamente quando adicionar uma ligação na integrar IU no portal do Azure.|
-|**caminho** | Tem de conter o nome de pasta e o nome de ficheiro. Por exemplo, se tiver um [acionador de fila](functions-bindings-storage-queue.md) na sua função, pode utilizar `"path": "samples-workitems/{queueTrigger}"` para apontar para um ficheiro a `samples-workitems` pasta com um nome que corresponda ao nome de ficheiro especificado na mensagem de Acionador.   
+|**tipo** | Tem de ser definido como `apiHubFile`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | Tem de ser definido como `out`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação. A definição de aplicação é criada automaticamente quando adiciona uma ligação de integrar da interface do Usuário, no portal do Azure.|
+|**path** | Tem de conter o nome da pasta e o nome de ficheiro. Por exemplo, se tem um [acionador de fila](functions-bindings-storage-queue.md) na sua função, pode usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um ficheiro no `samples-workitems` pasta com um nome correspondente ao nome de ficheiro especificado na mensagem de Acionador.   
 
 ## <a name="output---usage"></a>Saída - utilização
 
-C# funções, vincular o ficheiro de saída utilizando o nomeado `out` como parâmetro a assinatura da função, `out <T> <name>`, onde `T` é o tipo de dados que pretende serializar os dados para, e `name` é o nome especificado no o enlace de saída. Funções de Node.js, vai aceder a ficheiros de saída com `context.bindings.<name>`.
+Em c# funções, ligar para o ficheiro de saída usando o nomeado `out` parâmetro na assinatura de função, como `out <T> <name>`, onde `T` é o tipo de dados que deseja serializar os dados, e `name` é o nome que especificou no o enlace de saída. Nas funções do node. js, acessar o arquivo de saída com `context.bindings.<name>`.
 
-Pode escrever o ficheiro de saída com qualquer um dos seguintes tipos:
+Pode escrever o ficheiro de saída usando qualquer um dos seguintes tipos:
 
-* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para serialização JSON.
-  Se declarar um tipo de saída personalizado (por exemplo, `out OutputType paramName`), as funções do Azure tentar serializar o objeto em JSON. Se o parâmetro de saída é nulo quando a função sai, o tempo de execução de funções cria um ficheiro como um objeto nulo.
-* Cadeia - (`out string paramName`) útil para dados de ficheiro de texto. o tempo de execução de funções cria um ficheiro apenas se o parâmetro de cadeia não nulo quando a função sai.
+* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para a serialização do JSON.
+  Se declarar um tipo de saída personalizado (por exemplo, `out OutputType paramName`), as funções do Azure tenta serializar o objeto em JSON. Se o parâmetro de saída é nulo quando a função sai, o runtime das funções cria um ficheiro como um objeto nulo.
+* Cadeia de caracteres - (`out string paramName`) útil para dados de ficheiro de texto. o runtime das funções cria um ficheiro apenas se o parâmetro de cadeia de caracteres é não nulo quando a função é fechado.
 
-C# funções também pode apresentar a qualquer um dos seguintes tipos:
+No c# funções também pode emitir para qualquer um dos seguintes tipos:
 
 * `TextWriter`
 * `Stream`

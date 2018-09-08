@@ -9,17 +9,17 @@ editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857485"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159338"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
 Os subscritores do Azure poderão gerir os respetivos ambientes de nuvem a partir de vários dispositivos, incluindo estações de trabalho de gestão, PCs de programadores e, até mesmo, dispositivos de utilizador final com privilégios que tenham permissões específicas de tarefas. Em alguns casos, as funções administrativas são efetuadas através das consolas baseadas na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Noutros casos, poderão existir ligações diretas para o Azure a partir de sistemas no local através de Redes Privadas Virtuais (VPNs), Serviços de Terminal, protocolos de aplicações cliente ou (através de programação) a API de Gestão de Serviço do Azure (SMAPI). Além disso, os pontos finais de cliente podem ser um domínio associado ou isolado e não gerido, como tablets ou smartphones.
@@ -220,7 +220,7 @@ Minimizar o número de tarefas que os administradores podem realizar numa estaç
 ## <a name="summary"></a>Resumo
 Utilizar uma configuração de estação de trabalho protegida para administrar os Cloud Services, as Virtual Machines e as aplicações do Azure pode ajudar a evitar vários riscos e ameaças que podem resultar da gestão remota de uma infraestrutura de TI crítica. Tanto o Azure como o Windows fornecem mecanismos que pode utilizar para ajudar a proteger e controlar as comunicações, a autenticação e o comportamento do cliente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Os recursos seguintes estão disponíveis para fornecer informações mais gerais acerca do Azure e dos serviços relacionados da Microsoft, para além de itens específicos referenciados neste documento:
 
 * [Proteger o Acesso Privilegiado](https://technet.microsoft.com/library/mt631194.aspx) – obtenha os detalhes técnicos para estruturação e criação de uma estação de trabalho administrativa segura para gestão do Azure

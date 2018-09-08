@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 4f7e672aa75d8344f0c4ae35ff2f573d1f48a0ea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4ebbf4c69f589c105aa3e7553a6b24470e266382
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028597"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161888"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos do Azure
 
 Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Utilizar uma identidade gerida, pode autenticar a qualquer serviço que suporta a autenticação do Azure AD sem ter credenciais em seu código. Estamos no processo de integração de identidades geridas para recursos do Azure e a autenticação do Azure AD no Azure. Verificar back, muitas vezes, a existência de atualizações.
+
+> [!NOTE]
+> Identidades de gerido para recursos do azure é o novo nome para o serviço anteriormente conhecido como identidade de serviço gerida (MSI).
 
 ## <a name="azure-services-that-support-managed-identities-for-azure-resources"></a>Serviços do Azure que suportam identidades geridas para os recursos do Azure
 

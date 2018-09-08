@@ -1,74 +1,70 @@
 ---
-title: Unidade de durável funções do Azure de teste
-description: Saiba como a unidade de teste funções durável.
+title: Teste de unidade de funções duráveis do Azure
+description: Saiba como a unidade de teste funções duráveis.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81d187cf5b75b7bd943d9dcedc97b56ba9c397de
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762765"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092581"
 ---
-# <a name="durable-functions-unit-testing"></a>Unidade de funções durável teste
+# <a name="durable-functions-unit-testing"></a>Teste de unidade de funções durável
 
-Unidade de teste é uma parte importante das práticas de desenvolvimento de software moderna. Testes de unidade verificar o comportamento de lógica de negócio e proteger a introdução de alterações despercebidas no futuro. Funções duráveis facilmente podem aumentar em complexidade para que testes de unidade introdução às irão ajudar a evitar interrompendo as alterações. As secções seguintes explicam como a unidade testar os tipos de três função - cliente, o Orchestrator e atividade Orchestration funções. 
+Teste de unidade é uma parte importante de práticas de desenvolvimento de software Moderno. Testes de unidade verificar o comportamento de lógica de negócios e proteger a introdução de alterações de última hora despercebidas no futuro. Funções duráveis facilmente podem crescer em complexidade, de modo a apresentar de testes de unidade irão ajudar a evitar alterações significativas. As secções seguintes explicam como a unidade de testar os tipos de três função - cliente de orquestração, Orchestrator e atividade de funções. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os exemplos neste artigo requerem conhecimentos dos conceitos e estruturas que se seguem: 
+Os exemplos neste artigo requerem conhecimento dos conceitos e estruturas seguintes: 
 
 * Teste de unidade
 
 * Funções Duráveis 
 
-* [xUnit](https://xunit.github.io/) -teste framework
+* [xUnit](https://xunit.github.io/) -estrutura de testes
 
-* [moq](https://github.com/moq/moq4) -Mocking framework
+* [moq](https://github.com/moq/moq4) -estrutura de simulação
 
 
-## <a name="base-classes-for-mocking"></a>Classes base para mocking 
+## <a name="base-classes-for-mocking"></a>Classes base para a simulação 
 
-Mocking é suportada através de duas classes abstratas durável funções:
+Simulação é suportado através de duas classes abstratas nas funções duráveis:
 
 * [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 
 
 * [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
 
-Estas classes são classes base para [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) e [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) que definir métodos Orchestration cliente e do Orchestrator. Os mocks irão definir o comportamento esperado para métodos de classe base para que o teste da unidade pode verificar a lógica de negócio. Há um fluxo de trabalho em dois passos para a unidade lógica de negócio de teste no cliente de orquestração e do Orchestrator:
+Essas classes são classes base para [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) e [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) que definem os métodos de cliente de orquestração e o Orchestrator. As simulações irão definir o comportamento esperado para métodos de classe base para que o teste de unidade pode verificar a lógica de negócios. Há um fluxo de trabalho de dois passos para teste de unidade lógica de negócios no cliente de orquestração e o Orchestrator:
 
-1. Utilize as classes base em vez da implementação concreta quando se definem as assinaturas de cliente de orquestração e do Orchestrator.
-2. Nos testes de unidade mock o comportamento das base classes e certifique-se a lógica de negócio. 
+1. Use as classes bases, em vez da implementação concreta, quando definir as assinaturas de cliente de orquestração e do Orchestrator.
+2. Os testes de unidade simular o comportamento das base classes e verifique se a lógica de negócios. 
 
-Obter mais detalhes nos parágrafos seguintes para testar as funções que utilizam o cliente de orquestração do enlace e o orchestrator acionam o enlace.
+Encontrar mais detalhes nos próximos parágrafos para testar as funções que utilizem a ligação do cliente de orquestração e o orquestrador de acionam a ligação.
 
-## <a name="unit-testing-trigger-functions"></a>Funções de Acionador de teste de unidade
+## <a name="unit-testing-trigger-functions"></a>Funções de Acionador testes de unidade
 
-Nesta secção, o teste da unidade irá validar a lógica da função de Acionador HTTP seguinte para iniciar nova orchestrations.
+Nesta secção, o teste de unidade validará a lógica da função de Acionador HTTP seguinte para iniciar a nova orquestrações.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-A tarefa de teste da unidade será para verificar o valor da `Retry-After` cabeçalho fornecido no payload de resposta. Para o teste da unidade será mock algumas das [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) métodos para garantir um comportamento previsível. 
+A tarefa de teste de unidade será para verificar o valor da `Retry-After` fornecido no payload de resposta de cabeçalho. Para que o teste de unidade irá simular algumas das [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) métodos para garantir um comportamento previsível. 
 
-Em primeiro lugar, é necessário um mock da classe base [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). O mock pode ser uma nova classe que implementa [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). No entanto, utilizar uma estrutura mocking como [moq](https://github.com/moq/moq4) simplifica o processo:    
+Em primeiro lugar, é necessária, uma simulação da classe base [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). A simulação pode ser uma nova classe que implementa [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). No entanto, usando uma estrutura de simulação, como [moq](https://github.com/moq/moq4) simplifica o processo:    
 
 ```csharp
     // Mock DurableOrchestrationClientBase
     var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
 ```
 
-Em seguida, `StartNewAsync` método é mocked para devolver um ID de instância bem conhecidos.
+Em seguida, `StartNewAsync` método é simulado para retornar um ID de instância bem conhecido.
 
 ```csharp
     // Mock StartNewAsync method
@@ -77,7 +73,7 @@ Em seguida, `StartNewAsync` método é mocked para devolver um ID de instância 
         ReturnsAsync(instanceId);
 ```
 
-Seguinte `CreateCheckStatusResponse` é mocked para sempre devolver uma resposta de HTTP 200 vazia.
+Próxima `CreateCheckStatusResponse` é simulada para sempre devolver uma resposta HTTP 200 vazia.
 
 ```csharp
     // Mock CreateCheckStatusResponse method
@@ -90,7 +86,7 @@ Seguinte `CreateCheckStatusResponse` é mocked para sempre devolver uma resposta
         });
 ```
 
-`TraceWriter` Também é mocked:
+`TraceWriter` Também é simulada:
 
 ```csharp
     // Mock TraceWriter
@@ -98,7 +94,7 @@ Seguinte `CreateCheckStatusResponse` é mocked para sempre devolver uma resposta
 
 ```  
 
-Agora a `Run` método é chamado a partir de teste da unidade:
+Agora o `Run` método é chamado do teste de unidade:
 
 ```csharp
     // Call Orchestration trigger function
@@ -113,7 +109,7 @@ Agora a `Run` método é chamado a partir de teste da unidade:
         traceWriterMock.Object);
  ``` 
 
- O último passo consiste em comparar o resultado com o valor esperado:
+ O último passo é comparar o resultado com o valor esperado:
 
 ```csharp
     // Validate that output is not null
@@ -123,25 +119,25 @@ Agora a `Run` método é chamado a partir de teste da unidade:
     Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
-Depois de combinar todos os passos, o teste da unidade terá o seguinte código: 
+Depois de combinar todos os passos, o teste de unidade terá o seguinte código: 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
-## <a name="unit-testing-orchestrator-functions"></a>Unidade testar as funções do orchestrator
+## <a name="unit-testing-orchestrator-functions"></a>Funções de orchestrator de teste de unidade
 
-As funções do Orchestrator são ainda mais interessantes para a unidade, uma vez que têm, normalmente, muito mais lógica de negócio de teste.
+As funções do Orchestrator são ainda mais interessantes para uma vez que normalmente têm muito mais lógica de negócio de teste de unidade.
 
-Nesta secção a unidade testes irão validar o resultado a `E1_HelloSequence` função do Orchestrator:
+Nesta secção, a unidade testes irão validar o resultado do `E1_HelloSequence` função de Orquestrador:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-O código de teste da unidade será comece por criar um mock:
+O código de teste de unidade será iniciado com a criação de uma simulação:
 
 ```csharp
     var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
 ```
 
-Em seguida, irão ser mocked as chamadas de método da atividade:
+Em seguida, irão ser simuladas as chamadas de método de atividade:
 
 ```csharp
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
@@ -149,13 +145,13 @@ Em seguida, irão ser mocked as chamadas de método da atividade:
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
 ```
 
-Em seguida o teste da unidade irá chamar `HelloSequence.Run` método:
+Em seguida chamará o teste de unidade `HelloSequence.Run` método:
 
 ```csharp
     var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
 ```
 
-E, finalmente, o resultado será validado:
+E, finalmente, a saída vai ser validada:
 
 ```csharp
     Assert.Equal(3, result.Count);
@@ -164,19 +160,19 @@ E, finalmente, o resultado será validado:
     Assert.Equal("Hello London!", result[2]);
 ```
 
-Depois de combinar todos os passos, o teste da unidade terá o seguinte código:
+Depois de combinar todos os passos, o teste de unidade terá o seguinte código:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceOrchestratorTests.cs)]
 
-## <a name="unit-testing-activity-functions"></a>Funções de atividade de teste de unidade
+## <a name="unit-testing-activity-functions"></a>Funções de atividade testes de unidade
 
-Funções de atividade podem ser unidade testada da mesma forma como as funções não durável. Funções de atividade não tem uma classe base para mocking. Por isso, os testes de unidade utilizam diretamente os tipos de parâmetro.
+Funções de atividade podem ter suas unidades testadas da mesma forma como as funções de não duradoura. Funções de atividade não tem uma classe base para a simulação. Portanto, os testes de unidade usar diretamente os tipos de parâmetro.
 
-Nesta secção, o teste da unidade irá validar o comportamento do `E1_SayHello` função da atividade:
+Nesta secção, o teste de unidade irá validar o comportamento do `E1_SayHello` função de atividade:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-E o teste da unidade irá verificar o formato de saída:
+E o teste de unidade irá verificar o formato da saída:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

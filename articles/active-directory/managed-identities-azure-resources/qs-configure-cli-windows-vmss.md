@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d5c285f13ce45047619b327b9440fbd69c18267e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2ec52adec85cc209cee07225cc753a2c40d874c0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028687"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157638"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurar identidades geridas para recursos do Azure num conjunto de dimensionamento da CLI do Azure
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
@@ -109,7 +109,7 @@ Se tiver uma máquina virtual que já não tem atribuído o sistema de identidad
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Para remover as identidades geridas para a extensão VM de recursos do Azure, utilize [remover a identidade do vmss az](/cli/azure/vmss/identity/#az-vmss-remove-identity) comando para remover o atribuído de sistema de identidade gerida de uma VMSS:
+Para remover as identidades geridas para a extensão VM de recursos do Azure (planeada para preterição em Janeiro de 2019), utilize [remover a identidade do vmss az](/cli/azure/vmss/identity/#az-vmss-remove-identity) comando para remover o atribuído de sistema de identidade gerida de uma VMSS:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -131,7 +131,7 @@ Esta secção descreve a criação de um VMSS e a atribuição de uma identidade
 
 2. Criar uma identidade gerida atribuído ao utilizador com [identidade az criar](/cli/azure/identity#az-identity-create).  O `-g` parâmetro especifica o grupo de recursos onde a identidade gerida atribuído ao utilizador é criada, e o `-n` parâmetro especifica o respetivo nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
-   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```azurecli-interactive
    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>

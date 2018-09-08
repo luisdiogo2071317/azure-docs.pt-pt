@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894260"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161038"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Capacidades de deteção do Centro de Segurança do Azure
 Este documento descreve as capacidades de deteção avançadas do Centro de Segurança do Azure, o que ajuda a identificar ameaças ativas que ameaçam os seus recursos do Microsoft Azure e fornece informações necessárias para responder rapidamente.
@@ -27,7 +27,7 @@ Este documento descreve as capacidades de deteção avançadas do Centro de Segu
 As deteções avançadas estão disponíveis no Escalão Standard do Centro de Segurança do Azure. Está disponível uma avaliação gratuita de 60 dias. Pode atualizar a partir da seleção do Escalão de Preço na [Política de Segurança](security-center-policies.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre os preços. 
 
 > [!NOTE]
-> O Centro de Segurança lançou uma pré-visualização limitada de um novo conjunto de deteções que tiram partido dos registos de auditoria, um framework de auditoria comum, para detetar comportamentos maliciosos em computadores Linux. [Envie-nos](mailto:ASC_linuxdetections@microsoft.com) um e-mail com os seus IDs de subscrição para aderir à pré-visualização.
+> Centro de segurança lançou uma pré-visualização limitada, um novo conjunto de deteções que tiram partido dos registos auditados, uma estrutura de auditoria comum, para detetar comportamentos maliciosos em máquinas do Linux. [Envie-nos](mailto:ASC_linuxdetections@microsoft.com) um e-mail com os seus IDs de subscrição para aderir à pré-visualização.
 
 ## <a name="responding-to-todays-threats"></a>Responder às ameaças atuais
 Nos últimos 20 anos, ocorreram alterações significativas no campo das ameaças. No passado, geralmente, as empresas só tinham de se preocupar com a desfiguração do site por parte de atacantes individuais que estavam interessados, sobretudo, em ver “o que podiam fazer”. Os atacantes de hoje são muito mais sofisticados e organizados. Têm, muitas vezes, objetivos financeiros e estratégicos específicos. Também têm mais recursos disponíveis, uma vez que podem ser financiados por Estados ou pelo crime organizado.

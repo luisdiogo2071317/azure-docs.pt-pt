@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 75b7ecac465fa12b1e19ca409d1535d89c755801
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7dde80d8134a6f30f4f32086a2dd030712051256
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021892"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093147"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gerir os direitos de acesso a dados de armazenamento do Azure com o RBAC (pré-visualização)
 
@@ -34,10 +34,7 @@ Para obter mais informações sobre como as funções incorporadas são definida
 
 Também pode definir funções personalizadas para utilização com contentores e filas. Para obter mais informações, consulte [criar funções personalizadas para controlo de acesso](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> Esta pré-visualização destina-se apenas a utilização de não produção. Contratos de nível de serviço de produção (SLAs) não estarão disponíveis até que a integração do Azure AD para o armazenamento do Azure é declarada em disponibilidade geral. Se a integração do Azure AD ainda não é suportada para o seu cenário, continue a usar a autorização de chave partilhada ou SAS tokens em seus aplicativos. Para obter mais informações sobre a pré-visualização, veja [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).
->
-> Durante a pré-visualização, as atribuições de funções do RBAC podem demorar até cinco minutos para propagar.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Atribuir uma função a uma entidade de segurança
 

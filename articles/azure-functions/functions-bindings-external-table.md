@@ -1,40 +1,36 @@
 ---
-title: Vínculo de tabela externo para as funções do Azure (experimental)
-description: Utilizar enlaces de tabela externa em funções do Azure
+title: Associação de tabelas externa para as funções do Azure (experimental)
+description: Utilizar enlaces de tabela externa nas funções do Azure
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 24728414747d8ad8a8d7ee0d8a21be2177a15ddd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27613286"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093817"
 ---
-# <a name="external-table-binding-for-azure-functions-experimental"></a>Vínculo de tabela externo para as funções do Azure (experimental)
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Associação de tabelas externa para as funções do Azure (experimental)
 
-Este artigo explica como trabalhar com dados de tabela em fornecedores de SaaS, como o Sharepoint e Dynamics, nas funções do Azure. Funções do Azure suporta entrada e saída enlaces para as tabelas externas.
+Este artigo explica como trabalhar com dados tabulares em fornecedores de SaaS, como o Sharepoint e Dynamics, nas funções do Azure. Funções do Azure suporta de entrada e saída enlaces para tabelas externas.
 
 > [!IMPORTANT]
-> O vínculo de tabela externa é experimental e poderá nunca alcançam Estado geralmente disponível (GA). Está incluído apenas no Azure funciona 1. x e não existirem não planos para adicioná-lo para as funções do Azure 2. x. Para cenários que requerem acesso aos dados de fornecedores de SaaS, considere a utilização [as logic apps que chamam para funções](functions-twitter-email.md).
+> O enlace da tabela externa é experimental e nunca atinja o estado de geralmente disponível (GA). Está incluído apenas no Azure funciona 1.x, e não existirem não existem planos para adicioná-lo para as funções do Azure 2.x. Para cenários que exigem acesso a dados em fornecedores de SaaS, considere a utilização [aplicações lógicas que chamam funções](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="api-connections"></a>Ligações de API
 
-Enlaces de tabela tirar partido das ligações externas de API para autenticar com fornecedores de SaaS de terceiros. 
+Enlaces de tabelas tirar partido das ligações externas de API para autenticar com fornecedores de SaaS de terceiros. 
 
-Ao atribuir um enlace pode criar uma nova ligação de API ou utilizar uma ligação de API existente no mesmo grupo de recursos.
+Quando atribui uma ligação pode criar uma nova ligação de API ou utilizar uma ligação de API existente no mesmo grupo de recursos.
 
 ### <a name="available-api-connections-tables"></a>Ligações de API disponíveis (tabelas)
 
@@ -46,10 +42,10 @@ Ao atribuir um enlace pode criar uma nova ligação de API ou utilizar uma liga�
 |[Dynamics NAV](https://msdn.microsoft.com/library/gg481835.aspx)||x|x
 |[Folhas do Google](https://docs.microsoft.com/azure/connectors/connectors-create-api-googledrive)||x|x
 |[Informix](https://docs.microsoft.com/azure/connectors/connectors-create-api-informix)||x|x
-|[Dynamics 365 para Financials](https://docs.microsoft.com/azure/connectors/connectors-create-api-crmonline)||x|x
+|[Dynamics 365 for Financials](https://docs.microsoft.com/azure/connectors/connectors-create-api-crmonline)||x|x
 |[MySQL](https://docs.microsoft.com/azure/store-php-create-mysql-database)||x|x
 |[Oracle Database](https://docs.microsoft.com/azure/connectors/connectors-create-api-oracledatabase)||x|x
-|[Serviço de dados comuns](https://docs.microsoft.com/common-data-service/entity-reference/introduction)||x|x
+|[Common Data Service](https://docs.microsoft.com/common-data-service/entity-reference/introduction)||x|x
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
@@ -58,19 +54,19 @@ Ao atribuir um enlace pode criar uma nova ligação de API ou utilizar uma liga�
 |Zendesk||x|x
 
 > [!NOTE]
-> Ligações de tabela externas também podem ser utilizadas em [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
+> Ligações externas de tabela, também podem ser utilizadas no [do Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 ## <a name="creating-an-api-connection-step-by-step"></a>Criar uma ligação de API: passo a passo
 
 1. Na página de portal do Azure para a sua aplicação de função, selecione o sinal de adição (**+**) para criar uma função.
 
-1. No **cenário** caixa, selecione **Experimental**.
+1. Na **cenário** caixa, selecione **Experimental**.
 
 1. Selecione **tabela externa**.
 
 1. Selecione um idioma.
 
-2. Em **ligação de tabela externa**, selecione uma ligação existente ou selecione **novo**.
+2. Sob **ligação de tabela externa**, selecione uma ligação existente ou selecione **novo**.
 
 1. Para uma nova ligação, configure as definições e selecione **autorizar**.
 
@@ -78,13 +74,13 @@ Ao atribuir um enlace pode criar uma nova ligação de API ou utilizar uma liga�
 
 1. Selecione **integrar > tabela externa**.
 
-1. Configure a ligação para utilizar a tabela de destino. Estas definições irão variar entre os fornecedores de SaaS. Os exemplos são incluídos na secção seguinte.
+1. Configure a ligação para utilizar a sua tabela de destino. Estas definições irão variar entre fornecedores de SaaS. Exemplos estão incluídos na secção seguinte.
 
 ## <a name="example"></a>Exemplo
 
-Neste exemplo estabelece ligação a uma tabela com o nome "Contacte" com o Id, FirstName e LastName, colunas. O código de lista de entidades de contacto na tabela e regista os nomes de primeiro e últimos.
+Este exemplo liga a uma tabela chamada "Contact" com Id, FirstName e LastName, colunas. O código lista as entidades de contacto na tabela e regista os nomes e apelidos.
 
-Eis o *function.json* ficheiro:
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -108,7 +104,7 @@ Eis o *function.json* ficheiro:
 }
 ```
 
-Eis o código de script do c#:
+Aqui está o código de script do c#:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -149,7 +145,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 
 ### <a name="sql-server-data-source"></a>Origem de dados do SQL Server
 
-Para criar uma tabela no SQL Server para utilizar com este exemplo, eis um script. `dataSetName`é "predefinida".
+Para criar uma tabela no SQL Server para utilizar com este exemplo, eis um script. `dataSetName` é "padrão".
 
 ```sql
 CREATE TABLE Contact
@@ -168,35 +164,35 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets-data-source"></a>Origem de dados de folhas do Google
+### <a name="google-sheets-data-source"></a>Origem de dados do Google Sheets
 
-Para criar uma tabela a utilizar com este exemplo no Google Docs, criar uma folha de cálculo com uma folha de cálculo denominada `Contact`. O conector não é possível utilizar o nome a apresentar a folha de cálculo. As necessidades de nome interno (em negrito) para ser utilizado como dataSetName, por exemplo: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  adicionar os nomes das colunas `Id`, `LastName`, `FirstName` para a primeira linha, em seguida, preencher dados em linhas subsequentes.
+Para criar uma tabela para utilizar com este exemplo no Google Docs, crie uma folha de cálculo com uma folha de cálculo denominada `Contact`. O conector não é possível utilizar o nome a apresentar a folha de cálculo. As necessidades de nome interno (em negrito) a ser utilizado como dataSetName, por exemplo: `docs.google.com/spreadsheets/d/` **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** adicionar os nomes das colunas `Id`, `LastName`, `FirstName` para a primeira linha, em seguida, preencher dados em linhas subsequentes.
 
 ### <a name="salesforce"></a>Salesforce
 
-Para utilizar este exemplo com Salesforce, `dataSetName` é "predefinida".
+Para utilizar este exemplo com o Salesforce, `dataSetName` é "padrão".
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiro.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro.
 
-|propriedade de Function.JSON | Descrição|
+|propriedade de Function | Descrição|
 |---------|----------------------|
-|**tipo** | tem de ser definido como `apiHubTable`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | O nome da variável que representa o item de eventos no código da função. | 
-|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação de API. A definição de aplicação é criada automaticamente quando adicionar uma ligação de API a integrar IU.|
-|**dataSetName**|O nome do conjunto de dados que contém a tabela a ler.|
+|**tipo** | Tem de ser definido como `apiHubTable`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**ligação**| Identifica a definição de aplicação que armazena a cadeia de ligação de API. A definição de aplicação é criada automaticamente quando adicionar uma ligação de API na integrar da interface do Usuário.|
+|**dataSetName**|O nome do conjunto de dados que contém a tabela de ler.|
 |**tableName**|O nome da tabela|
-|**entityId**|Deve estar vazio para enlaces de tabela.
+|**entityId**|Tem de estar vazio para enlaces de tabelas.
 
-Um conector tabela fornece conjuntos de dados e cada conjunto de dados contém tabelas. O nome do conjunto de dados predefinido é "predefinida". Os títulos de para um conjunto de dados e uma tabela de vários fornecedores de SaaS são listados abaixo:
+Um conector de tabela fornece conjuntos de dados e cada conjunto de dados contém tabelas. O nome do conjunto de dados predefinido é "padrão". Os títulos de para um conjunto de dados e uma tabela em vários fornecedores de SaaS são listados abaixo:
 
 |Conector|Conjunto de dados|Tabela|
 |:-----|:---|:---| 
 |**SharePoint**|Site|Lista do SharePoint
 |**SQL**|Base de Dados|Tabela 
-|**Folha do Google**|Folha de cálculo|Folha de Cálculo 
+|**Folha de cálculo do Google**|Folha de cálculo|Folha de Cálculo 
 |**Excel**|Ficheiro do Excel|Folha 
 
 ## <a name="next-steps"></a>Passos Seguintes

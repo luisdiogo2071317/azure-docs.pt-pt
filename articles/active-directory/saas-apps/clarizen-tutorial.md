@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438091"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Azure Active Directory com Clarizen
 
@@ -39,7 +39,7 @@ Se pretender obter mais detalhes sobre o software como uma integração de aplic
 ## <a name="prerequisites"></a>Pré-requisitos
 Para configurar a integração do Azure AD com Clarizen, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma subscrição de Clarizen que está ativada para início de sessão único
 
 Para testar os passos neste tutorial, siga as seguintes recomendações:
@@ -188,7 +188,7 @@ No portal do Azure, crie um utilizador de teste Eduarda Almeida.
 
 ### <a name="create-a-clarizen-test-user"></a>Criar um utilizador de teste Clarizen
 
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Clarizen. Clarizen suporta o aprovisionamento automático de utilizadores, que está por predefinição, ativada. Pode encontrar mais detalhes [aqui](clarizen-provisioning-tutorial.md) sobre como configurar o aprovisionamento automático de utilizadores.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Clarizen.
 
 **Se precisar de criar manualmente o utilizador, execute, os seguintes passos:**
 
@@ -196,11 +196,11 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Clarizen, terá de apr
 
 1. Inicie sessão no site da sua empresa Clarizen como um administrador.
 
-1. Clique em **pessoas**.
+2. Clique em **pessoas**.
 
     ![Clicar em "Quem"](./media/clarizen-tutorial/create_aaduser_001.png "pessoas")
 
-1. Clique em **convidar utilizador**.
+3. Clique em **convidar utilizador**.
 
     ![Botão "Convidar o utilizador"](./media/clarizen-tutorial/create_aaduser_002.png "convidar utilizadores")
 
@@ -242,7 +242,7 @@ Ative a Eduarda Almeida utilizar o Azure início de sessão único ao conceder a
 
 1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 Teste a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico Clarizen no painel de acesso, deve ser automaticamente conectado à sua aplicação Clarizen.
@@ -251,7 +251,6 @@ Quando clica no mosaico Clarizen no painel de acesso, deve ser automaticamente c
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar o aprovisionamento do utilizador](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

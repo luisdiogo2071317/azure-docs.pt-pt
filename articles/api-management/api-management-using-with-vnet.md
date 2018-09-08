@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187388"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093197"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 | Origem / porta de destino (s) | Direção | Protocolo de transporte | Origem / destino | Finalidade (*) | Tipo de rede virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente para gestão de API|Externo |
-| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e Powershell |Interno |
+| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e Powershell |Externo e interno |
 | * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Dependência do armazenamento do Azure**, Service bus do Azure e Azure Active Directory (quando aplicável).|Externo e interno |
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso a pontos finais do SQL do Azure** |Externo e interno |
 | * / 5672 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência para o registo de política do Hub de eventos e o agente de monitorização |Externo e interno |

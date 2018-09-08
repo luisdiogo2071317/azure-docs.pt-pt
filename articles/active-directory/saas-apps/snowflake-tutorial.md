@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ad3f42563878d829f900d5cddb0c6866d2deab5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 247d18eb13f7bad10cbfd89891a80d2d1c6135c3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307797"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Azure Active Directory com floco de neve
 
@@ -39,6 +39,7 @@ Para configurar a integração do Azure AD com floco de neve, terá dos seguinte
 
 - Uma subscrição do Azure
 - Um floco de neve logon único habilitado subscrição
+- Os clientes que não tem uma conta de floco de neve e gostariam de experimentá-lo através da Galeria de aplicações do Azure AD, consulte [isso](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp) ligação.
 
 > [!NOTE]
 > Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
@@ -103,22 +104,22 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
  
     ![Caixa de diálogo de início de sessão único](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
 
-3. Sobre o **floco de neve de domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+3. Sobre o **floco de neve de domínio e URLs** secção, execute os seguintes passos:
 
     ![Floco de neve domínio e URLs únicas início de sessão em informações](./media/snowflake-tutorial/tutorial_snowflake_url.png)
 
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<SNOWFLAKE-URL>`
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SNOWFLAKE-URL>/fed/login`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Floco de neve domínio e URLs únicas início de sessão em informações](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<SNOWFLAKE-URL>`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
      
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente de Snowflake](https://support.snowflake.net/s/snowflake-support) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão.
 
 5. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -132,7 +133,22 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de snowflake](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
 
-8. Para configurar o início de sessão único num **floco de neve** lado, terá de enviar o transferido **certificado (Base64)** e **SAML único início de sessão no URL do serviço** para [ A equipa de suporte do snowflake](https://support.snowflake.net/s/snowflake-support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+8. Numa janela do browser web diferente, início de sessão para floco de neve como um administrador de segurança.
+
+9. Executar o abaixo a consulta SQL na folha de cálculo, definindo a **certificado** valor para o **dowloaded certificado** e **ssoUrl** para o copiado **SAML Single Sign-On URL do serviço** do Azure AD para o valor, conforme mostrado abaixo.
+
+    ![Sql floco de neve](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+
+    ```
+    use role accountadmin;
+    alter account set saml_identity_provider = '{
+    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+    "ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+    "type":"custom",
+    "label":"AzureAD"
+    }';
+    alter account set sso_login_page = TRUE;
+    ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -168,7 +184,25 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-snowflake-test-user"></a>Criar um utilizador de teste de Snowflake
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no floco de neve. Trabalhar com [equipa de suporte de Snowflake](https://support.snowflake.net/s/snowflake-support) para adicionar os utilizadores na plataforma do Snowflake. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Para ativar a utilizadores do Azure AD iniciar sessão no floco de neve, tem de ser aprovisionados em floco de neve. No floco de neve, o aprovisionamento é uma tarefa manual.
+
+**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+
+1. Inicie sessão no floco de neve como um administrador de segurança.
+
+2. **Mudar de função** para **ACCOUNTADMIN**, ao clicar no **perfil** no canto superior direito da página.  
+
+    ![O administrador de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+3. Criar o utilizador ao executar o abaixo a consulta SQL, garantir o "Nome de início de sessão" está definido como o nome de utilizador do Azure AD na planilha conforme mostrado abaixo.
+
+    ![O adminsql floco de neve ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+
+    ```
+
+    use role accountadmin;
+    CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
+    ```
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

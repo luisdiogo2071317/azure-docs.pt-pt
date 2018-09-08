@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: d4b27feab5c1bb5913d2ba26f7f43aca9a899aa0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b24860aaf10ba483aeab54d215816314a7d0bc36
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697674"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162857"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Portanto, quiser saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse do Service Fabric e descreve os principais conceitos, modelos, ciclo de vida do aplicativo, teste, clusters e monitorização de estado de funcionamento de programação. Leitura a [descrição geral](service-fabric-overview.md) e [o que são microsserviços?](service-fabric-overview-microservices.md) para uma introdução e como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista de conteúdo abrangente, mas associar à descrição geral e ao obter os artigos de introdução para todas as áreas do Service Fabric. 
@@ -84,7 +84,7 @@ Por que tem os microsserviços com estado, juntamente com aqueles sem monitoraç
 Service Fabric oferece várias maneiras de escrever e gerir os seus serviços. Serviços podem utilizar as APIs de recursos de infraestrutura do serviço para tirar partido das funcionalidades e estruturas de aplicativo da plataforma. Os serviços também podem ser qualquer programa executável compilado escritas em qualquer linguagem e alojadas num cluster do Service Fabric. Para obter mais informações, consulte [modelos de programação suportados](service-fabric-choose-framework.md).
 
 ### <a name="containers"></a>Contentores
-Por predefinição, o Service Fabric implementa e ativa a serviços como processos. Service Fabric também pode implementar serviços no [contentores](service-fabric-containers-overview.md). Importante, pode combinar serviços em processos e serviços em contentores no mesmo aplicativo. Service Fabric suporta a implementação de contentores do Linux contentores do Windows no Windows Server 2016. Pode implementar aplicações existentes, serviços sem estado ou serviços com estado em contentores. 
+Por predefinição, o Service Fabric implementa e ativa a serviços como processos. Service Fabric também pode implementar serviços no [contentores](service-fabric-containers-overview.md). Importante, pode combinar serviços em processos e serviços em contentores no mesmo aplicativo. Service Fabric suporta a implementação de contentores do Linux e contentores do Windows no Windows Server 2016. Pode implementar aplicações existentes, serviços sem estado ou serviços com estado em contentores. 
 
 ### <a name="reliable-services"></a>Reliable Services
 [Serviços fiáveis](service-fabric-reliable-services-introduction.md) é uma estrutura leve para serviços que se integram com a plataforma do Service Fabric e o conjunto completo de funcionalidades de plataforma se beneficiar de escrever. Reliable Services pode ser sem estado (semelhante a maioria das plataformas de serviço, como servidores web ou funções de trabalho no Azure Cloud Services), em que estado é mantido numa solução externa, como o Azure DB ou o armazenamento de tabelas do Azure. Reliable Services também pode ser com monitoração de estado, onde o estado é mantido diretamente no serviço do próprio utilizando as coleções fiáveis. Estado é efetuado [elevada disponibilidade](service-fabric-availability-services.md) através da replicação e distribuídos por meio [criação de partições](service-fabric-concepts-partitioning.md), todos os geridos automaticamente pelo Service Fabric.

@@ -11,46 +11,45 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 09/06/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 2619f959dbefba84ea1a4d5aa974055998b78b5a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b563117f4d4b0e3859f0478a66610b0238f265dd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055965"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092564"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalar o PowerShell para o Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Terá de instalar os módulos do PowerShell compatíveis do Azure Stack para trabalhar com a sua cloud. Compatibilidade é ativada através de um recurso chamado *perfis de API*.
+Para trabalhar com a sua cloud, tem de instalar módulos do PowerShell do Azure Stack compatíveis. Compatibilidade é ativada através de um recurso chamado *perfis de API*.
 
 Os perfis de API fornecem uma forma de gerenciar as diferenças de versão entre o Azure e o Azure Stack. Um perfil da versão de API é um conjunto de módulos do PowerShell do Azure Resource Manager com as versões de API específicas. Cada plataforma de cloud tem um conjunto de perfis de versão de API suportados. Por exemplo, o Azure Stack suporta uma versão de perfil com data específico, tal como **2017-03-09-perfil**, e o Azure suporta o **mais recente** perfil da versão de API. Ao instalar um perfil, são instalados os módulos do PowerShell do Azure Resource Manager que correspondem para o perfil especificado.
 
-É possível instalar os módulos do PowerShell do Azure Stack compatíveis na Internet conectado, parcialmente conectada, ou num cenário de desligado. Neste artigo, orientaremos pelas instruções detalhadas para instalar o PowerShell para o Azure Stack para estes cenários.
+Pode instalar o Azure Stack módulos do PowerShell compatíveis na Internet conectados, parcialmente ligado ou desligado cenários. Este artigo explica as instruções detalhadas para instalar o PowerShell para o Azure Stack para estes cenários.
 
 ## <a name="1-verify-your-prerequisites"></a>1. Verifique os pré-requisitos
 
-Antes da obter uma introdução do Azure Stack e o PowerShell, terá de ter alguns requisitos no local.
+Antes de começar a utilizar com o Azure Stack e o PowerShell, tem de ter os seguintes pré-requisitos:
 
 - **Versão do PowerShell 5.0**  
-Para verificar a sua versão, execute $PSVersionTable.PSVersion e comparar os **principais** versão. Se não tiver PowerShell 5.0, siga os [link](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) para atualizar para o PowerShell 5.0.
+Para verificar a sua versão, execute **$PSVersionTable.PSVersion** e comparar os **principais** versão. Se não tiver PowerShell 5.0, siga os [link](/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) para atualizar para o PowerShell 5.0.
 
   > [!Note]  
   > PowerShell 5.0 requer uma máquina Windows.
 
-- **Executar o Powershell uma linha de elevada**  
-  Terá de ser capaz de executar o PowerShell com privilégios administrativos.
+- **Executar o Powershell num prompt de comando elevado**  
+  Tem de executar o PowerShell com privilégios administrativos.
 
 - **Acesso de galeria do PowerShell**  
-  Precisará de acesso para o [galeria do PowerShell](https://www.powershellgallery.com). A galeria é o repositório central para o conteúdo do PowerShell. O **PowerShellGet** módulo contém cmdlets para descobrir, instalar, atualizar e publicar artefactos de PowerShell, como módulos, recursos de DSC, funcionalidades de função e scripts a partir da galeria do PowerShell e outros privados repositórios. Se estiver a utilizar o PowerShell num cenário de desligado, terá de recuperar os recursos de uma máquina com uma ligação à Internet e armazená-las numa localização acessível para o seu computador desconectado.
-
+  Precisa de acesso para o [galeria do PowerShell](https://www.powershellgallery.com). A galeria é o repositório central para o conteúdo do PowerShell. O **PowerShellGet** módulo contém cmdlets para descobrir, instalar, atualizar e publicar artefactos de PowerShell, como módulos, recursos de DSC, funcionalidades de função e scripts a partir da galeria do PowerShell e outros privados repositórios. Se estiver a utilizar o PowerShell num cenário de desligado, tem de recuperar os recursos de uma máquina com uma ligação à Internet e armazená-las numa localização acessível para o seu computador desconectado.
 
 <!-- Nuget? -->
 
-## <a name="2-validate-if-the-powershell-gallery-is-accessible"></a>2. Validar se a galeria do PowerShell está acessível
+## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. Validar a acessibilidade de galeria do PowerShell
 
 Valide se PSGallery está registado como um repositório.
 
@@ -130,7 +129,7 @@ Se a instalação for bem-sucedida, os módulos AzureRM e AzureStack são aprese
 
 Num cenário de desligado, tem de transferir primeiro os módulos do PowerShell para um computador que tenha conectividade à Internet e, em seguida, transferi-las para o Development Kit do Azure Stack para a instalação.
 
-Inicie sessão no computador em que tem ligação à Internet e utilize os seguintes scripts para transferir os pacotes do Azure Resource Manager e AzureStack no seu computador local, dependendo da versão do Azure Stack.
+Inicie sessão computador com ligação à Internet e utilize os seguintes scripts para transferir os pacotes do Azure Resource Manager e AzureStack, dependendo da versão do Azure Stack:
 
 
   - **Versão 1.3.0** (o Azure Stack 1804 ou superior)
@@ -161,7 +160,7 @@ Inicie sessão no computador em que tem ligação à Internet e utilize os segui
 
 3. Inicie sessão para a estação de trabalho e copie os pacotes do dispositivo USB num local na estação de trabalho.
 
-4. Agora tem de registar esta localização como o repositório de padrão e instalar os módulos AzureRM e AzureStack partir este repositório:
+4. Agora, registe-se nesta localização, como o repositório de padrão e instalar os módulos AzureRM e AzureStack partir este repositório:
 
    ```PowerShell
    #requires -Version 5
@@ -181,19 +180,18 @@ Inicie sessão no computador em que tem ligação à Internet e utilize os segui
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. Configurar o PowerShell para utilizar um servidor proxy
 
-Em cenários que necessitam de um servidor proxy para aceder à Internet, primeiro tem de configurar o PowerShell para utilizar um servidor de proxy existente.
+Em cenários que necessitam de um servidor proxy para aceder à Internet, primeiro tem de configurar o PowerShell para utilizar um servidor de proxy existente:
 
 1. Abra uma linha de comandos elevada do PowerShell.
 2. Execute os seguintes comandos:
 
-````PowerShell  
-  #To use Windows credentials for proxy authentication
-  [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
+   ```PowerShell  
+   #To use Windows credentials for proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
-  #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
-
-  [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
-````
+   #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
+   ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

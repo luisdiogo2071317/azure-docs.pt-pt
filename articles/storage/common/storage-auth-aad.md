@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 90868961475c2e9d0ac7d28c5d9a50c8eb281675
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 78df10f3b6062a157e1ec5a057e9f39fc40193e5
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525210"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091770"
 ---
 # <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)
 
@@ -32,7 +32,7 @@ Tenha em atenção os seguintes pontos relativamente a pré-visualização:
 - O Azure AD autorização de acesso a recursos em contas de armazenamento standard é atualmente suportada. Autorização de acesso para blobs de páginas em contas de armazenamento premium será suportada em breve.
 - O armazenamento do Azure suporta funções do RBAC incorporadas e personalizadas. Pode atribuir funções no âmbito da subscrição, o grupo de recursos, a conta de armazenamento, ou um contentor individual ou fila.
 - As bibliotecas de cliente de armazenamento do Azure que suportam atualmente a integração do Azure AD incluem:
-    - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0)
+    - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
     - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) (utilizar 7.1.x-Preview)
     - Python
         - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
@@ -40,18 +40,13 @@ Tenha em atenção os seguintes pontos relativamente a pré-visualização:
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs))
 
-> [!IMPORTANT]
-> Esta pré-visualização destina-se apenas a utilização de não produção. Contratos de nível de serviço de produção (SLAs) não estarão disponíveis até que a integração do Azure AD para o armazenamento do Azure é declarada em disponibilidade geral. Se a integração do Azure AD ainda não é suportada para o seu cenário, continue a usar a autorização de chave partilhada ou SAS tokens em seus aplicativos.
->
-> Durante a pré-visualização, as atribuições de funções do RBAC podem demorar até cinco minutos para propagar.
->
-> A integração do Azure AD com o armazenamento do Azure requer a utilização do HTTPS para operações de armazenamento do Azure.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="get-started-with-azure-ad-for-storage"></a>Introdução ao Azure AD para o armazenamento
 
-É a primeira etapa no uso de integração do Azure AD com o armazenamento do Azure atribuir funções RBAC para dados de armazenamento para o seu principal de serviço (um utilizador, grupo ou principal de serviço de aplicação) ou a identidade de serviço gerida (MSI). Funções RBAC abrangem comuns conjuntos de permissões para contentores e filas. Para saber mais sobre as funções do RBAC do armazenamento do Azure, veja [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
+É a primeira etapa no uso de integração do Azure AD com o armazenamento do Azure atribuir funções RBAC para dados de armazenamento para o seu principal de serviço (um utilizador, grupo ou principal de serviço de aplicação) ou identidades geridas para recursos do Azure. Funções RBAC abrangem comuns conjuntos de permissões para contentores e filas. Para saber mais sobre as funções do RBAC do armazenamento do Azure, veja [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
 
-Para utilizar o Azure AD para autorizar o acesso aos recursos de armazenamento nas suas aplicações, terá de solicitar um token de acesso de OAuth 2.0 a partir do código. Para saber como solicitar um token de acesso e utilizá-lo para autorizar os pedidos ao armazenamento do Azure, veja [autenticar com o Azure AD a partir de uma aplicação de armazenamento do Azure (pré-visualização)](storage-auth-aad-app.md). Se estiver a utilizar um Azure Managed Service Identity (MSI), veja [autenticar com o Azure AD a partir de um Azure VM identidade do serviço gerido (pré-visualização)](storage-auth-aad-msi.md).
+Para utilizar o Azure AD para autorizar o acesso aos recursos de armazenamento nas suas aplicações, terá de solicitar um token de acesso de OAuth 2.0 a partir do código. Para saber como solicitar um token de acesso e utilizá-lo para autorizar os pedidos ao armazenamento do Azure, veja [autenticar com o Azure AD a partir de uma aplicação de armazenamento do Azure (pré-visualização)](storage-auth-aad-app.md). Se estiver a utilizar uma identidade gerida, veja [Authenticate acesso para blobs e filas com o Azure managed identidades para recursos do Azure (pré-visualização)](storage-auth-aad-msi.md).
 
 CLI do Azure e o PowerShell suportam agora iniciar sessão com uma identidade do Azure AD. Depois de iniciar sessão com uma identidade do Azure AD, a sessão é executado sob essa identidade. Para obter mais informações, consulte [utilizar uma identidade do Azure AD para aceder ao armazenamento do Azure com a CLI ou o PowerShell (pré-visualização)](storage-auth-aad-script.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: a61dca8332a613176b01eb85b44cd743ff8b4085
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0f8789d64b550d9f0a45aa65728fbc1db64d6def
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028708"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094931"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para início de sessão 
 
@@ -89,7 +89,7 @@ As respostas, como a seguir podem indicar a identidade gerida da VM para recurso
 Se receber um desses erros, regresse à VM do Azure no [portal do Azure](https://portal.azure.com) e:
 
 - Vá para o **identidade** página e certifique-se **sistema atribuído** está definido como "Sim".
-- Vá para o **extensões** página e certifique-se a identidades geridas para a extensão de recursos do Azure implementado com êxito.
+- Vá para o **extensões** página e certifique-se a identidades geridas para a extensão de recursos do Azure **(planeada para preterição em Janeiro de 2019)** implementado com êxito.
 
 Se uma for incorreta, terá de voltar a implementar as identidades geridas para recursos do Azure no seu recurso, ou a falha de implementação de resolução de problemas. Ver [identidades geridas por um configurar recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração da VM.
 

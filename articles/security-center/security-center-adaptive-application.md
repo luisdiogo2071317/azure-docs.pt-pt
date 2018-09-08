@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6dd971ff8cd51435978ab80db006f6494dff8a94
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
-ms.translationtype: HT
+ms.openlocfilehash: 8efb629575f94c8970dd68113eeb27a9dd36e643
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389332"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158760"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlos de aplicações adaptáveis no Centro de Segurança do Azure
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.
@@ -172,7 +172,7 @@ A lista contém:
 - **NOME**: o nome do grupo e da subscrição
 - **VMs**: o número de máquinas virtuais no grupo
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste documento, aprendeu a utilizar os controlos de aplicações adaptativos no Centro de Segurança do Azure para adicionar as aplicações em execução em VMs do Azure à lista de permissões. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.

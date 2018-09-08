@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 196882cf4515be8afd129128402e9eaee322cb4b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782418"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093588"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
@@ -75,7 +75,7 @@ Se necessário SAC pode ser ativado offline
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Como posso saber se SAC está ativado?
 
-Se [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não está ativada a consola de série não serão apresentados na linha de comandos da SAC. Em alguns casos, serão apresentadas informações de estado de funcionamento da VM e, em outros casos estará em branco.  
+Se [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não está ativada a consola de série não serão apresentados na linha de comandos da SAC. Em alguns casos, serão apresentadas informações de estado de funcionamento da VM e, em outros casos estará em branco. Se estiver a utilizar uma imagem do Windows Server criada antes de Fevereiro de 2018, SAC provavelmente não será ativado.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Habilitar o Menu de arranque do Windows na consola de série 
 
@@ -194,7 +194,7 @@ Não existe nenhuma opção com a consola de instância de conjunto de dimension
 Acessando introdução após a faixa de ligação não mostra um registo na linha de comandos | Consulte esta página: [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isto pode acontecer se estiver a executar uma VM personalizada, alta da aplicação ou configuração de GRUB esse Windows causers não sejam corretamente ligar para a porta serial.
 Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Isso será apresentada se o Console de administração especial não tenha sido ativado para a sua imagem do Windows. Ver [acesso à consola de série para Windows](#access-serial-console-for-windows) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Obter mais detalhes podem ser encontrados em [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Não é possível digitar em SAC perguntar se a depuração de kernel está ativada | RDP para a VM e execute `bcdedit /debug {current} off` num prompt de comando elevado. Se não for possível RDP em vez disso, pode anexar o disco do SO a outra VM do Azure e modificá-lo enquanto anexado como um disco de dados com `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, em seguida, trocar o disco voltar.
-Colar no PowerShell nos resultados de SAC num caractere de terceiro, se o conteúdo original tinha um caractere de repetição | É uma solução alternativa remover o módulo de PSReadLine. `Remove-Module PSReadLine` irá remover o módulo de PSReadLine da sessão atual.
+Colar no PowerShell nos resultados de SAC num caractere de terceiro, se o conteúdo original tinha um caractere de repetição | Uma solução alternativa é descarregar o módulo de PSReadLine da sessão atual. Executar `Remove-Module PSReadLine` descarregar o módulo de PSReadLine da sessão atual - isto não irá eliminar ou desinstalar o módulo.
 Algumas entradas de teclado produzem estranha SAC saída (por exemplo, `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) seqüências de escape não são suportadas pela linha de comandos da SAC.
 Uma resposta de "Proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
 

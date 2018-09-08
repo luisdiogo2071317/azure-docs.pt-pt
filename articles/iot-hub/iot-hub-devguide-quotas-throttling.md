@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: c9004e776488006d563fd4de791cade69736a5b8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 3989ff6e8ef600500f1c3dcc292d4385d6fb4a8b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024374"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162568"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
@@ -25,7 +25,7 @@ Cada hub IoT é aprovisionada com um determinado número de unidades de um escal
 A camada também determina os limites de limitação que o IoT Hub impõe em todas as operações.
 
 ## <a name="operation-throttles"></a>Limitações de operação
-Limitações de operação são as limitações de taxa que são aplicadas em intervalos de minutos e foram concebidas para evitar abusos. IoT Hub tentem evitar a devolver erros sempre que possível, mas começa retornando exceções se a limitação é violada durante muito tempo.
+Limitações de operação são as limitações de taxa que são aplicadas em intervalos de minutos e foram concebidas para evitar abusos. IoT Hub tenta evitar a devolver erros sempre que possível, mas começa retornando `429 ThrottlingException` se a limitação é violada durante muito tempo.
 
 Em qualquer momento, pode aumentar as quotas ou limites de limitação do aumento do número de unidades aprovisionados num IoT hub.
 
@@ -42,15 +42,14 @@ A tabela seguinte mostra os imposto limitadores. Valores referem-se para um hub 
 | Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
 | Duplo (dispositivo e módulo) leituras<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
 | Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
-| Tarefas de criar, atualizar, listam e eliminar operações | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
-| Duplo de tarefas de atualização, invocar operações do método direto | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
-| Operações de importação/exportação em massa de tarefas | 1 tarefas ativas por hub | 1 tarefas ativas por hub | 1 tarefas ativas por hub |
+| Tarefas de operações<sup>1,3</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
+| Tarefas de operações de dispositivo<sup>1</sup> <br/> (atualizar duplo, invocar o método direto) | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
 | Configurações e implementações de borda<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) |
 
 
-<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB.
+<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB. <br/><sup>3</sup>só pode ter uma tarefa de importação/exportação de dispositivos ativos por vez.
 
-O *ligações de dispositivos* limitação rege a taxa a que seja possível estabelecer novas ligações de dispositivo com um hub IoT. O *ligações de dispositivos* limitação não controlam o número máximo de dispositivos ligados em simultâneo. A limitação depende o número de unidades que sejam aprovisionados para o hub IoT.
+O *ligações de dispositivos* limitação rege a taxa a que seja possível estabelecer novas ligações de dispositivo com um hub IoT. O *ligações de dispositivos* limitação não controlam o número máximo de dispositivos ligados em simultâneo. O *ligações de dispositivos* limitação de taxa depende do número de unidades que sejam aprovisionados para o hub IoT.
 
 Por exemplo, se comprar uma única unidade de S1, obterá uma limitação de 100 conexões por segundo. Por conseguinte, para ligar a 100 000 dispositivos, demora, pelo menos, 1 000 segundos (aproximadamente 16 minutos). No entanto, pode ter quantos dispositivos ligados em simultâneo que tenha dispositivos registados no registo de identidade.
 

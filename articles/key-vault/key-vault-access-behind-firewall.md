@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 6bb757fe072f0fc3ecbda5ae125aa2bf928479fb
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: 4d342efb88d3c6e560fe4d0a1c3629bf84548c73
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920092"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157907"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Aceder ao Cofre de Chaves do Azure protegido por firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>P: A minha aplicação cliente do cofre de chaves tem de estar protegida por uma firewall. Que portas, anfitriões ou endereços IP devo abrir para ativar o acesso a um cofre de chaves?
@@ -63,6 +63,6 @@ Para todas as operações criptográficas e de gestão de objetos do cofre de ch
 ## <a name="ip-address-ranges"></a>Intervalos de endereços IP
 O serviço Cofre de Chaves utiliza outros recursos do Azure, como a infraestrutura PaaS. Por isso, não é possível fornecer um intervalo de endereços IP específico que os pontos finais do serviço Cofre de Chaves terão num determinado momento. Se a sua firewall só suporta intervalos de endereço IP, consulte o documento [Intervalos IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). A Autenticação e Identidade (Azure Active Directory) é um serviço global e pode efetuar a ativação pós-falha noutras regiões ou mover tráfego sem aviso prévio. Neste cenário, todos os intervalos de IP listados em [Endereços IP de Identidade e Autenticação](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devem ser adicionados à firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se tiver perguntas sobre o Cofre de Chaves, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
