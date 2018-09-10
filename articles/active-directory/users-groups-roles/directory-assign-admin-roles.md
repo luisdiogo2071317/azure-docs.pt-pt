@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: c49f15ddde60513be47feb264da0e35f4e8b3a0d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 9aa8e5e6e683da0cb95583979e96c1d315dffff9
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055578"
+ms.locfileid: "44094303"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -158,26 +158,26 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.aad.Directory/Domains/Basic/Read | Ler as propriedades básicas sobre domínios no Azure Active Directory. |
+| Microsoft.aad.Directory/Domains/default/Read | Ler as propriedades básicas sobre domínios no Azure Active Directory. |
 | microsoft.aad.directory/groups/appRoleAssignments/read | Leia a propriedade groups.appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Groups/Basic/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/members/Read | Leia a propriedade members no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Owners/Read | Leia a propriedade Owners no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Settings/Read | Leia a propriedade groups.settings no Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/basic/read | Ler as propriedades básicas em oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/oAuth2PermissionGrants/default/read | Ler as propriedades básicas em oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/oAuth2PermissionGrants/update | Atualize oAuth2PermissionGrants no Azure Active Directory. |
-| Microsoft.aad.Directory/Organization/Basic/Read | Ler as propriedades básicas na organização no Azure Active Directory. |
+| Microsoft.aad.Directory/Organization/default/Read | Ler as propriedades básicas na organização no Azure Active Directory. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Leia a propriedade organization.trustedCAsForPasswordlessAuth no Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Gira licenças em utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/read | Leia a propriedade approleassignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Leia a propriedade directreports no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedBy/read | Leia a propriedade invitedby no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedUsers/read | Leia a propriedade invitedusers no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Read | Leia a propriedade Users no Azure Active Directory. |
 | microsoft.aad.directory/users/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedDevices/read | Leia a propriedade owneddevices no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedObjects/read | Leia a propriedade ownedobjects no Azure Active Directory. |
 | microsoft.aad.directory/users/registeredDevices/read | Leia a propriedade de registereddevices no Azure Active Directory. |
@@ -194,7 +194,7 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 | --- | --- |
 | Microsoft.aad.Directory/Applications/Audience/Update | Atualize a propriedade applications.audience no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Authentication/Update | Atualize a propriedade applications.authentication no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Basic/Update | Atualize as propriedades básicas em aplicações no Azure Active Directory. |
+| Microsoft.aad.Directory/Applications/default/Update | Atualize as propriedades básicas em aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Create | Crie aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/credentials/Update | Atualize a propriedade applications.credentials no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/DELETE | Elimine aplicações no Azure Active Directory. |
@@ -205,14 +205,14 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 | microsoft.aad.directory/appRoleAssignments/read | Leia appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/update | Atualize appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Elimine appRoleAssignments no Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/update | Atualize a propriedade policies.applicationConfiguration no Azure Active Directory. |
+| microsoft.aad.directory/policies/applicationConfiguration/default/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
+| microsoft.aad.directory/policies/applicationConfiguration/default/update | Atualize a propriedade policies.applicationConfiguration no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Crie políticas no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/delete | Elimine políticas no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | Atualize a propriedade policies.applicationConfiguration no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/default/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/create | Crie servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/delete | Elimine servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
@@ -256,7 +256,7 @@ Pode executar tarefas de faturação comuns, como atualizar as informações de 
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.aad.Directory/Organization/Basic/Update | Atualize as propriedades básicas na organização no Azure Active Directory. |
+| Microsoft.aad.Directory/Organization/default/Update | Atualize as propriedades básicas na organização no Azure Active Directory. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Atualize a propriedade organization.trustedCAsForPasswordlessAuth no Azure Active Directory. |
 | microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
@@ -277,7 +277,7 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 | --- | --- |
 | Microsoft.aad.Directory/Applications/Audience/Update | Atualize a propriedade applications.audience no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Authentication/Update | Atualize a propriedade applications.authentication no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Basic/Update | Atualize as propriedades básicas em aplicações no Azure Active Directory. |
+| Microsoft.aad.Directory/Applications/default/Update | Atualize as propriedades básicas em aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Create | Crie aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/credentials/Update | Atualize a propriedade applications.credentials no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/DELETE | Elimine aplicações no Azure Active Directory. |
@@ -288,15 +288,15 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 | microsoft.aad.directory/appRoleAssignments/update | Atualize appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Elimine appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Crie políticas no Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/update | Atualize a propriedade policies.applicationConfiguration no Azure Active Directory. |
+| microsoft.aad.directory/policies/applicationConfiguration/default/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
+| microsoft.aad.directory/policies/applicationConfiguration/default/update | Atualize a propriedade policies.applicationConfiguration no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/delete | Elimine políticas no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | Atualize a propriedade policies.applicationConfiguration no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Leia a propriedade policies.applicationConfiguration no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Atualize a propriedade Serviceprincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/default/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/create | Crie servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/delete | Elimine servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Atualize a propriedade Serviceprincipals no Azure Active Directory. |
@@ -421,8 +421,8 @@ Pode gerir capacidades de acesso condicional.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.directory/policies/conditionalAccess/basic/read | Leia a propriedade policies.conditionalAccess no Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/basic/update | Atualize a propriedade policies.conditionalAccess no Azure Active Directory. |
+| microsoft.aad.directory/policies/conditionalAccess/default/read | Leia a propriedade policies.conditionalAccess no Azure Active Directory. |
+| microsoft.aad.directory/policies/conditionalAccess/default/update | Atualize a propriedade policies.conditionalAccess no Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/create | Crie políticas no Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/delete | Elimine políticas no Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Leia a propriedade policies.conditionalAccess no Azure Active Directory. |
@@ -479,8 +479,8 @@ Os membros desta função são adicionados ao grupo Administradores local em dis
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.directory/groupSettings/basic/read | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/basic/read | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
+| microsoft.aad.directory/groupSettings/default/read | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
+| microsoft.aad.directory/groupSettingTemplates/default/read | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
 
 ### <a name="device-managers"></a>Gestores de Dispositivo
 Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizacionais de clientes.
@@ -497,8 +497,8 @@ Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizaciona
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.aad.Directory/Devices/Basic/Read | Ler as propriedades básicas em dispositivos no Azure Active Directory. |
-| Microsoft.aad.Directory/Devices/Basic/Update | Atualize as propriedades básicas em dispositivos no Azure Active Directory. |
+| Microsoft.aad.Directory/Devices/default/Read | Ler as propriedades básicas em dispositivos no Azure Active Directory. |
+| Microsoft.aad.Directory/Devices/default/Update | Atualize as propriedades básicas em dispositivos no Azure Active Directory. |
 | microsoft.aad.directory/devices/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredOwners/read | Leia a propriedade devices.registeredOwners no Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredOwners/update | Atualize a propriedade devices.registeredOwners no Azure Active Directory. |
@@ -515,54 +515,50 @@ Pode ler as informações de diretório básicas. Para conceder acesso a aplica�
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.directory/administrativeUnits/basic/read | Ler as propriedades básicas no administrativeUnits no Azure Active Directory. |
+| microsoft.aad.directory/administrativeUnits/default/read | Ler as propriedades básicas no administrativeUnits no Azure Active Directory. |
 | microsoft.aad.directory/administrativeUnits/members/read | Leia a propriedade Administrativeunits no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Audience/Read | Leia a propriedade applications.audience no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Authentication/Read | Leia a propriedade applications.authentication no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Basic/Read | Ler as propriedades básicas em aplicações no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/credentials/Read | Leia a propriedade applications.credentials no Azure Active Directory. |
+O Azure Active Directory. |
+| Microsoft.aad.Directory/Applications/default/Read | Ler as propriedades básicas em aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Owners/Read | Leia a propriedade Owners no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Permissions/Read | Leia a propriedade applications.permissions no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Policies/Read | Leia a propriedade applications.policies no Azure Active Directory. |
-| Microsoft.aad.Directory/Contacts/Basic/Read | Ler as propriedades básicas para contactos no Azure Active Directory. |
+| Microsoft.aad.Directory/Contacts/default/Read | Ler as propriedades básicas para contactos no Azure Active Directory. |
 | microsoft.aad.directory/contacts/memberOf/read | Leia a propriedade contacts.memberOf no Azure Active Directory. |
-| Microsoft.aad.Directory/Contracts/Basic/Read | Ler as propriedades básicas sobre contratos no Azure Active Directory. |
-| Microsoft.aad.Directory/Devices/Basic/Read | Ler as propriedades básicas em dispositivos no Azure Active Directory. |
+| Microsoft.aad.Directory/Contracts/default/Read | Ler as propriedades básicas sobre contratos no Azure Active Directory. |
+| Microsoft.aad.Directory/Devices/default/Read | Ler as propriedades básicas em dispositivos no Azure Active Directory. |
 | microsoft.aad.directory/devices/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredOwners/read | Leia a propriedade devices.registeredOwners no Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredUsers/read | Leia a propriedade devices.registeredUsers no Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/basic/read | Ler as propriedades básicas no directoryRoles no Azure Active Directory. |
+| microsoft.aad.directory/directoryRoles/default/read | Ler as propriedades básicas no directoryRoles no Azure Active Directory. |
 | microsoft.aad.directory/directoryRoles/eligibleMembers/read | Leia a propriedade directoryRoles.eligibleMembers no Azure Active Directory. |
 | microsoft.aad.directory/directoryRoles/members/read | Leia a propriedade directoryRoles.members no Azure Active Directory. |
-| Microsoft.aad.Directory/Domains/Basic/Read | Ler as propriedades básicas sobre domínios no Azure Active Directory. |
+| Microsoft.aad.Directory/Domains/default/Read | Ler as propriedades básicas sobre domínios no Azure Active Directory. |
 | microsoft.aad.directory/groups/appRoleAssignments/read | Leia a propriedade groups.appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Groups/Basic/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/members/Read | Leia a propriedade members no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Owners/Read | Leia a propriedade Owners no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Settings/Read | Leia a propriedade groups.settings no Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/basic/read | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/basic/read | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/basic/read | Ler as propriedades básicas em oAuth2PermissionGrants no Azure Active Directory. |
-| Microsoft.aad.Directory/Organization/Basic/Read | Ler as propriedades básicas na organização no Azure Active Directory. |
+| microsoft.aad.directory/groupSettings/default/read | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
+| microsoft.aad.directory/groupSettingTemplates/default/read | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
+| microsoft.aad.directory/oAuth2PermissionGrants/default/read | Ler as propriedades básicas em oAuth2PermissionGrants no Azure Active Directory. |
+| Microsoft.aad.Directory/Organization/default/Read | Ler as propriedades básicas na organização no Azure Active Directory. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Leia a propriedade organization.trustedCAsForPasswordlessAuth no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Leia a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Leia a propriedade Serviceprincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/read | Ler as propriedades básicas no servicePrincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/default/read | Ler as propriedades básicas no servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Leia a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Leia a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Leia a propriedade Ownedobjects no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Leia a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/read | Leia a propriedade servicePrincipals.policies no Azure Active Directory. |
-| microsoft.aad.directory/subscribedSkus/basic/read | Ler as propriedades básicas no subscribedSkus no Azure Active Directory. |
+| microsoft.aad.directory/subscribedSkus/default/read | Ler as propriedades básicas no subscribedSkus no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/read | Leia a propriedade approleassignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Leia a propriedade directreports no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedBy/read | Leia a propriedade invitedby no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedUsers/read | Leia a propriedade invitedusers no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Read | Leia a propriedade Users no Azure Active Directory. |
 | microsoft.aad.directory/users/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedDevices/read | Leia a propriedade owneddevices no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedObjects/read | Leia a propriedade ownedobjects no Azure Active Directory. |
 | microsoft.aad.directory/users/registeredDevices/read | Leia a propriedade de registereddevices no Azure Active Directory. |
@@ -580,8 +576,8 @@ Só é utilizada pelo serviço do Azure AD Connect.
 | microsoft.aad.directory/organization/dirSync/update | Atualize a propriedade organization.dirSync no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/Create | Crie políticas no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/DELETE | Elimine políticas no Azure Active Directory. |
-| Microsoft.aad.Directory/Policies/Basic/Read | Ler as propriedades básicas nas políticas no Azure Active Directory. |
-| Microsoft.aad.Directory/Policies/Basic/Update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
+| Microsoft.aad.Directory/Policies/default/Read | Ler as propriedades básicas nas políticas no Azure Active Directory. |
+| Microsoft.aad.Directory/Policies/default/Update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/Owners/Read | Leia a propriedade policies.owners no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/Owners/Update | Atualize a propriedade policies.owners no Azure Active Directory. |
 | microsoft.aad.directory/policies/policiesAppliedTo/read | Leia a propriedade policies.policiesAppliedTo no Azure Active Directory. |
@@ -589,11 +585,11 @@ Só é utilizada pelo serviço do Azure AD Connect.
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Leia a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Atualize a propriedade Serviceprincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/read | Ler as propriedades básicas no servicePrincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/default/read | Ler as propriedades básicas no servicePrincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/default/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/create | Crie servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Leia a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Leia a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Leia a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Atualize a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Leia a propriedade Ownedobjects no Azure Active Directory. |
@@ -614,16 +610,16 @@ Pode ler e gravar informações de diretório básicas. Para conceder acesso a a
 | Microsoft.aad.Directory/Groups/Create | Crie grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/createAsOwner | Crie grupos no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Atualize a propriedade groups.appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Groups/Basic/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/members/Update | Atualize a propriedade members no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Settings/Update | Atualize a propriedade groups.settings no Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/basic/update | Atualize as propriedades básicas no groupSettings no Azure Active Directory. |
+| microsoft.aad.directory/groupSettings/default/update | Atualize as propriedades básicas no groupSettings no Azure Active Directory. |
 | microsoft.aad.directory/groupSettings/create | Crie groupSettings no Azure Active Directory. |
 | microsoft.aad.directory/groupSettings/delete | Elimine groupSettings no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Gira licenças em utilizadores no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalide todos os tokens de atualização de utilizador no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Update | Atualize a propriedade Users no Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Atualize a propriedade users.userPrincipalName no Azure Active Directory. |
@@ -660,16 +656,11 @@ Função predefinida para os utilizadores convidados. Pode ler um conjunto limit
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.aad.Directory/Applications/Audience/Read | Leia a propriedade applications.audience no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Authentication/Read | Leia a propriedade applications.authentication no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Basic/Read | Ler as propriedades básicas em aplicações no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/credentials/Read | Leia a propriedade applications.credentials no Azure Active Directory. |
+| Microsoft.aad.Directory/Applications/default/Read | Ler as propriedades básicas em aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Owners/Read | Leia a propriedade Owners no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Permissions/Read | Leia a propriedade applications.permissions no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Policies/Read | Leia a propriedade applications.policies no Azure Active Directory. |
-| Microsoft.aad.Directory/Domains/Basic/Read | Ler as propriedades básicas sobre domínios no Azure Active Directory. |
+| Microsoft.aad.Directory/Domains/default/Read | Ler as propriedades básicas sobre domínios no Azure Active Directory. |
 | microsoft.aad.directory/groups/appRoleAssignments/read | Leia a propriedade groups.appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Groups/Basic/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/members/Read | Leia a propriedade members no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Owners/Read | Leia a propriedade Owners no Azure Active Directory. |
@@ -677,23 +668,23 @@ Função predefinida para os utilizadores convidados. Pode ler um conjunto limit
 | microsoft.aad.directory/organization/basicProfile/read | Leia as informações de perfil de organização básica no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Leia a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Leia a propriedade Serviceprincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/read | Ler as propriedades básicas no servicePrincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/default/read | Ler as propriedades básicas no servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/members/read | Leia a propriedade servicePrincipals.members no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Leia a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Leia a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Leia a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Leia a propriedade Ownedobjects no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/read | Leia a propriedade servicePrincipals.policies no Azure Active Directory. |
 | microsoft.aad.directory/users/basicProfile/read | Leia a propriedade basicprofile no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/read | Leia a propriedade approleassignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Leia a propriedade directreports no Azure Active Directory. |
 | microsoft.aad.directory/users/eligibleMemberOf/read | Leia a propriedade users.eligibleMemberOf no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedBy/read | Leia a propriedade invitedby no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedUsers/read | Leia a propriedade invitedusers no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Read | Leia a propriedade Users no Azure Active Directory. |
 | microsoft.aad.directory/users/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedDevices/read | Leia a propriedade owneddevices no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedObjects/read | Leia a propriedade ownedobjects no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/password/Update | Atualize as palavras-passe para todos os utilizadores no Azure Active Directory. Consulte a documentação online para obter mais detalhes. |
@@ -712,14 +703,14 @@ Podem convidar os utilizadores convidados independentemente dos membros podem co
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Leia a propriedade approleassignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Read | Ler as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Leia a propriedade directreports no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedBy/read | Leia a propriedade invitedby no Azure Active Directory. |
 | microsoft.aad.directory/users/inviteGuest | Convide utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/invitedUsers/read | Leia a propriedade invitedusers no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Read | Leia a propriedade Users no Azure Active Directory. |
 | microsoft.aad.directory/users/memberOf/read | Leia a propriedade memberof no Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Leia a propriedade users.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedDevices/read | Leia a propriedade owneddevices no Azure Active Directory. |
 | microsoft.aad.directory/users/ownedObjects/read | Leia a propriedade ownedobjects no Azure Active Directory. |
 | microsoft.aad.directory/users/registeredDevices/read | Leia a propriedade de registereddevices no Azure Active Directory. |
@@ -778,16 +769,16 @@ Pode gerir todos os aspetos do produto Intune.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.aad.Directory/Contacts/Basic/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
+| Microsoft.aad.Directory/Contacts/default/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/Create | Crie contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/DELETE | Elimine contactos no Azure Active Directory. |
-| Microsoft.aad.Directory/Devices/Basic/Update | Atualize as propriedades básicas em dispositivos no Azure Active Directory. |
+| Microsoft.aad.Directory/Devices/default/Update | Atualize as propriedades básicas em dispositivos no Azure Active Directory. |
 | Microsoft.aad.Directory/Devices/Create | Crie dispositivos no Azure Active Directory. |
 | Microsoft.aad.Directory/Devices/DELETE | Elimine dispositivos no Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredOwners/update | Atualize a propriedade devices.registeredOwners no Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredUsers/update | Atualize a propriedade devices.registeredUsers no Azure Active Directory. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Atualize a propriedade groups.appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Groups/Basic/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Create | Crie grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/createAsOwner | Crie grupos no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
 | Microsoft.aad.Directory/Groups/DELETE | Elimine grupos no Azure Active Directory. |
@@ -797,7 +788,7 @@ Pode gerir todos os aspetos do produto Intune.
 | Microsoft.aad.Directory/Groups/Restore | Restaure grupos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Settings/Update | Atualize a propriedade groups.settings no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Update | Atualize a propriedade Users no Azure Active Directory. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
 | microsoft.intune/allEntities/allTasks | Gerir todos os aspetos do Intune. |
@@ -874,7 +865,7 @@ Não utilize – não se destina a utilização geral.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.aad.Directory/Contacts/Basic/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
+| Microsoft.aad.Directory/Contacts/default/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/Create | Crie contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/DELETE | Elimine contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Create | Crie grupos no Azure Active Directory. |
@@ -883,7 +874,7 @@ Não utilize – não se destina a utilização geral.
 | Microsoft.aad.Directory/Groups/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Gira licenças em utilizadores no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/DELETE | Elimine utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalide todos os tokens de atualização de utilizador no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Update | Atualize a propriedade Users no Azure Active Directory. |
@@ -911,7 +902,7 @@ Não utilize – não se destina a utilização geral.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.aad.Directory/Contacts/Basic/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
+| Microsoft.aad.Directory/Contacts/default/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/Create | Crie contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/DELETE | Elimine contactos no Azure Active Directory. |
 | microsoft.aad.directory/domains/allTasks | Crie e elimine domínios e leia e atualize propriedades padrão no Azure Active Directory. |
@@ -919,11 +910,11 @@ Não utilize – não se destina a utilização geral.
 | Microsoft.aad.Directory/Groups/DELETE | Elimine grupos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/members/Update | Atualize a propriedade members no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Restore | Restaure grupos no Azure Active Directory. |
-| Microsoft.aad.Directory/Organization/Basic/Update | Atualize as propriedades básicas na organização no Azure Active Directory. |
+| Microsoft.aad.Directory/Organization/default/Update | Atualize as propriedades básicas na organização no Azure Active Directory. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Atualize a propriedade organization.trustedCAsForPasswordlessAuth no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Gira licenças em utilizadores no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/DELETE | Elimine utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalide todos os tokens de atualização de utilizador no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Manager/Update | Atualize a propriedade Users no Azure Active Directory. |
@@ -1012,7 +1003,7 @@ Pode ler as informações de segurança e relatórios
 | **Ações** | **Descrição** |
 | --- | --- |
 | Microsoft.aad.Directory/Applications/Policies/Update | Atualize a propriedade applications.policies no Azure Active Directory. |
-| Microsoft.aad.Directory/Policies/Basic/Update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
+| Microsoft.aad.Directory/Policies/default/Update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/Create | Crie políticas no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/DELETE | Elimine políticas no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/Owners/Update | Atualize a propriedade policies.owners no Azure Active Directory. |
@@ -1104,11 +1095,11 @@ Pode gerir todos os aspetos de utilizadores e grupos
 | microsoft.aad.directory/appRoleAssignments/create | Crie appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Elimine appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/update | Atualize appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Contacts/Basic/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
+| Microsoft.aad.Directory/Contacts/default/Update | Atualize as propriedades básicas para contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/Create | Crie contactos no Azure Active Directory. |
 | Microsoft.aad.Directory/Contacts/DELETE | Elimine contactos no Azure Active Directory. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Atualize a propriedade groups.appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Groups/Basic/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Create | Crie grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/createAsOwner | Crie grupos no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
 | Microsoft.aad.Directory/Groups/DELETE | Elimine grupos no Azure Active Directory. |
@@ -1119,7 +1110,7 @@ Pode gerir todos os aspetos de utilizadores e grupos
 | Microsoft.aad.Directory/Groups/Settings/Update | Atualize a propriedade groups.settings no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Gira licenças em utilizadores no Azure Active Directory. |
-| Microsoft.aad.Directory/Users/Basic/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
+| Microsoft.aad.Directory/Users/Default/Update | Atualize as propriedades básicas sobre os utilizadores no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/Create | Crie utilizadores no Azure Active Directory. |
 | Microsoft.aad.Directory/Users/DELETE | Elimine utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalide todos os tokens de atualização de utilizador no Azure Active Directory. |
@@ -1144,7 +1135,7 @@ Função predefinida para os utilizadores de membro. Pode ler todos e escrever u
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Crie aplicações no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
-| Microsoft.aad.Directory/Groups/Basic/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Read | Ler as propriedades básicas sobre os grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/createAsOwner | Crie grupos no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
 | microsoft.aad.directory/oAuth2PermissionGrants/create | Crie oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/oAuth2PermissionGrants/delete | Elimine oAuth2PermissionGrants no Azure Active Directory. |
@@ -1152,10 +1143,7 @@ Função predefinida para os utilizadores de membro. Pode ler todos e escrever u
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Crie servicePrincipals no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
 | microsoft.aad.directory/users/activateServicePlan | Activateserviceplan utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/inviteGuest | Convide utilizadores no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Audience/Update | Atualize a propriedade applications.audience no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Authentication/Update | Atualize a propriedade applications.authentication no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/Basic/Update | Atualize as propriedades básicas em aplicações no Azure Active Directory. |
-| Microsoft.aad.Directory/Applications/credentials/Update | Atualize a propriedade applications.credentials no Azure Active Directory. |
+| Microsoft.aad.Directory/Applications/default/Update | Atualize as propriedades básicas em aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/DELETE | Elimine aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
 | Microsoft.aad.Directory/Applications/Permissions/Update | Atualize a propriedade applications.permissions no Azure Active Directory. |
@@ -1163,19 +1151,19 @@ Função predefinida para os utilizadores de membro. Pode ler todos e escrever u
 | Microsoft.aad.Directory/Applications/Restore | Restaure aplicações no Azure Active Directory. |
 | Microsoft.aad.Directory/Devices/disable | Desative dispositivos no Azure Active Directory. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Atualize a propriedade groups.appRoleAssignments no Azure Active Directory. |
-| Microsoft.aad.Directory/Groups/Basic/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/default/Update | Atualize as propriedades básicas sobre os grupos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/DELETE | Elimine grupos no Azure Active Directory. |
 | microsoft.aad.directory/groups/dynamicMembershipRule/update | Atualize a propriedade groups.dynamicMembershipRule no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/members/Update | Atualize a propriedade members no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Restore | Restaure grupos no Azure Active Directory. |
 | Microsoft.aad.Directory/Groups/Settings/Update | Atualize a propriedade groups.settings no Azure Active Directory. |
-| Microsoft.aad.Directory/Policies/Basic/Update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
+| Microsoft.aad.Directory/Policies/default/Update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/DELETE | Elimine políticas no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/Owners/Update | Atualize a propriedade policies.owners no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Atualize a propriedade Serviceprincipals no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/default/update | Atualize as propriedades básicas no servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/delete | Elimine servicePrincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Atualize a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Atualize a propriedade servicePrincipals.policies no Azure Active Directory. |
