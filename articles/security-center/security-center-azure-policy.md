@@ -1,6 +1,6 @@
 ---
-title: Integração de políticas de segurança do Centro de Segurança do Azure com o Azure Policy | Microsoft Docs
-description: Este documento ajuda-o a configurar as políticas de segurança do Centro de Segurança do Azure com o Azure Policy.
+title: Políticas de segurança do Centro de segurança do Azure podem ser definidas individualmente ou como parte de políticas do Azure | Documentos da Microsoft
+description: Este documento ajuda-o a definir políticas no Centro de segurança do Azure ou no Azure Policy.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,20 +9,27 @@ editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.openlocfilehash: bc6226d462bac7e9c50ce3f348007023bf861ec3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018568"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162296"
 ---
-# <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrar políticas de segurança do Centro de Segurança no Azure Policy
-Este artigo ajuda-o a configurar políticas de segurança do Centro de Segurança do Azure, que têm tecnologia [Azure Policy](../azure-policy/azure-policy-introduction.md).
+# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Definir políticas de segurança no Centro de segurança ou no Azure Policy
+
+Este artigo ajuda-o a configurar as políticas de segurança do Centro de segurança do Azure. As políticas do Centro de segurança do Azure podem ser integradas com as políticas do Azure, para que pode defini-los no Centro de segurança uma subscrição específica ou em [do Azure Policy](../azure-policy/azure-policy-introduction.md), que permite-lhe definir políticas em grupos de gestão e em vários subscrições....
+
+## <a name="what-are-security-policies"></a>O que são políticas de segurança?
+As políticas de segurança definem a configuração pretendida para as suas cargas de trabalho e ajudam a garantir a conformidade com os requisitos da empresa ou regulamentares. No Centro de segurança do Azure, pode definir políticas para as suas subscrições do Azure e adaptá-los para o tipo de carga de trabalho ou à sensibilidade dos seus dados. Por exemplo, as aplicações que utilizam dados regulados como, por exemplo, informações de identificação pessoal, podem exigir um nível mais elevado de segurança que outras cargas de trabalho. Para definir uma política nas subscrições ou em grupos de gestão, defina-os no [do Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+> [!NOTE]
+> Se anteriormente tiver configurado políticas de segurança numa assinatura que faz parte de um grupo de gestão, ou que tenha várias atribuições de funções de política, as diretivas são apresentados cinzento no Centro de segurança para que possa gerir a política ao nível do grupo de gestão do Azure Página de política. 
 
 ## <a name="how-security-policies-work"></a>Como funcionam as políticas de segurança
 O Centro de Segurança cria automaticamente uma política de segurança predefinida para cada uma das suas subscrições do Azure. Pode editar as políticas no Centro de Segurança ou utilizar o Azure Policy para fazer o seguinte:
@@ -40,8 +47,17 @@ Uma política do Azure é composta pelos seguintes componentes:
 
 Um recurso é avaliado relativamente às políticas atribuídas ao mesmo e recebe uma taxa de conformidade de acordo com o número de políticas com as quais o recurso está em conformidade.
 
+## <a name="who-can-edit-security-policies"></a>Quem pode editar as políticas de segurança?
+Centro de segurança utiliza baseada em funções controlo de acesso (RBAC), que fornece funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços no Azure. Quando os utilizadores abrem o Centro de segurança, veem apenas informações relacionadas com a recursos que aos quais têm acesso. Isto significa que os utilizadores são atribuídos a função de proprietário, contribuinte ou leitor para o subscrição ou grupo de recursos que um recurso pertence. Além destas funções, há duas funções específicas do Centro de Segurança:
+
+- Leitor de segurança: ter direitos de exibição ao centro de segurança, que incluem recomendações, alertas, políticas e estado de funcionamento, mas eles não podem fazer alterações.
+- Administrador de segurança: têm os mesmos direitos de exibição como leitor de segurança, e também pode atualizar a política de segurança e ignorar recomendações e alertas.
+
 ## <a name="edit-security-policies"></a>Editar as políticas de segurança
 Pode editar a política de segurança predefinida para cada uma das suas subscrições e grupos de gestão do Azure no Centro de Segurança. Para modificar uma política de segurança, tem de ser proprietário, contribuidor ou administrador de segurança dessa subscrição ou do grupo de gestão que a contém. Para ver as suas políticas de segurança no Centro de Segurança:
+
+> [!NOTE]
+> Todas as políticas definidas numa assinatura que faz parte de um grupo de gestão, ou que tenha várias atribuições de funções de política, serão apresentada cinzento no Centro de segurança. Pode editar estas políticas no [do Azure Policy](../azure-policy/azure-policy-introduction.md). 
 
 1. No dashboard **Centro de Segurança**, em **POLÍTICA E CONFORMIDADE**, selecione **Política de segurança**. É aberta a **Gestão de Políticas**.
 
@@ -100,7 +116,7 @@ Se a sua organização tiver várias subscrições, poderá precisar de uma form
 >
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a configurar as políticas de segurança no Centro de Segurança. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
 * [Guia de operações e planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md): saiba como planear e compreender as considerações de conceção do Centro de Segurança do Azure.
