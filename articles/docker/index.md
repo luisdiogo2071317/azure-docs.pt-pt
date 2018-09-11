@@ -11,18 +11,19 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: e34f6bc4de95c72083e67f9e8481a93ea3b6f239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ae73659ee8fbf9099e7e8fab65e020a170126e3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23069108"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304174"
 ---
 <div class="content">
    <h1>Docker no Azure</h1>   
     <div class="introHolder" style="justify-content: space-between;">
     <div class="intro" style="min-width: 200px">
-     <img src="media/Docker.png" align="right" alt="Docker Logo"> O Docker é uma plataforma popular de processamento de imagens e de gestão de contentores que lhe permite trabalhar rapidamente com contentores no Linux e no Windows.  Saiba como tirar partido do Docker no Azure com os nossos tutoriais e guias de introdução.
+     <img src="media/Docker.png" align="right" alt="Docker Logo">
+O Docker é uma plataforma popular de processamento de imagens e de gestão de contentores que lhe permite trabalhar rapidamente com contentores no Linux e no Windows.  Saiba como tirar partido do Docker no Azure com os nossos tutoriais e guias de introdução.
     </div>
     </div>
 <h2>Inícios rápidos de cinco minutos</h2>
@@ -32,7 +33,7 @@ ms.locfileid: "23069108"
 <p>Saiba como utilizar o Docker na sua aplicação e como parte do seu pipeline CI/CD:</p>
 <ol>
   <li><a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Criar Python e PostgreSQL com o Docker</a></li>
-  <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD com o Docker Swarm e o Visual Studio Team Services</a></li>
+  <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD com Docker Swarm e Serviços de DevOps do Azure</a></li>
   <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrar VMs do Docker, Jenkins e Linux</a></li>
 </ol>
 <h2>Recursos</h2>

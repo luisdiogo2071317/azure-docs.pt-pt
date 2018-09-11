@@ -8,15 +8,15 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172749"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301298"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicações
-O Serviço de Aplicações do Azure permitem-lhe criar e alojar aplicações Web na linguagem de programação da sua preferência sem ter de gerir infraestrutura nem a linguagem ou o runtime do framework da Web. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Visual Studio Team Services ou de qualquer repositório de Git. Saiba como utilizar o Serviço de Aplicações do Azure com os nossos guias de introdução, tutoriais e amostras.
+O Serviço de Aplicações do Azure permitem-lhe criar e alojar aplicações Web na linguagem de programação da sua preferência sem ter de gerir infraestrutura nem a linguagem ou o runtime do framework da Web. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Serviços de DevOps do Azure ou de qualquer repositório de Git. Saiba como utilizar o Serviço de Aplicações do Azure com os nossos guias de introdução, tutoriais e amostras.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
 As [Aplicações Web](/app-service/app-service-web-overview) são a oferta principal do Serviço de Aplicações para criar e alojar aplicações Web através de ambientes do Windows. Os programadores que preferem um ambiente Linux podem escolher [O Serviço de Aplicações para Linux](/app-service/containers/app-service-linux-intro). Os programadores também podem implementar imagens do Docker diretamente no Serviço de Aplicações para Linux de modo a implementar os runtimes/arquiteturas personalizados.
