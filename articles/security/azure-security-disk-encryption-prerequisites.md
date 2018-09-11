@@ -1,24 +1,18 @@
 ---
 title: Pré-requisitos de encriptação de disco do Azure | Documentos da Microsoft
 description: Este artigo fornece pré-requisitos para utilizar o Microsoft Azure Disk Encryption para VMs de IaaS.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 1b2daefc-1326-44dd-9c8b-10e413769af7
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.date: 09/10/2018
+ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381985"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348281"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption 
  Neste artigo, os pré-requisitos do Azure Disk Encryption, explica os itens que precisam de estar em vigor antes de poder utilizar o Azure Disk Encryption. O Azure Disk Encryption está integrado [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ajudar a gerir as chaves de encriptação. Pode usar [do Azure PowerShell](/powershell/azure/overview), [CLI do Azure](/cli/azure/), ou o [portal do Azure](https://portal.azure.com) para configurar a encriptação de disco do Azure.
@@ -76,7 +70,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
         -  Instale o PowerShell Core, o Azure PowerShell para .NET Core e carregar o módulo azurerm. Netcore.
 
 2. Verifique se as versões instaladas do módulo AzureRM. Se for necessário, [atualizar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
-    -  A versão do módulo de AzureRM tem de ser 6.0.0 ou superior.
+    -  A versão do módulo AzureRM tem de ser a 6.0.0 ou superior.
     - É recomendado utilizar a versão mais recente do módulo AzureRM.
 
      ```powershell
@@ -131,7 +125,7 @@ O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta da linha de comandos para ger
 Se já estiver familiarizado com os pré-requisitos do Key Vault e o Azure AD para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter mais informações sobre como utilizar o script de pré-requisitos, consulte a [encriptar um início rápido de VM](quick-encrypt-vm-powershell.md) e o [apêndice de encriptação de disco do Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Se necessário, crie um grupo de recursos.
-2. Crie um cofre de chaves. 
+2. Criar um cofre de chaves. 
 3. Cofre de chaves conjunto avançado de políticas de acesso.
  
 ## <a name="bkmk_KeyVault"></a> Criar um cofre de chaves 

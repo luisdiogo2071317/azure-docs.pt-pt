@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445694"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346394"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para aprovisionamento automático de utilizadores
 
 O objetivo deste tutorial é mostrar-lhe como aprovisionar e desaprovisionar contas de utilizador do Azure Active Directory (Azure AD) ao G Suite.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](./../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com G Suite, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um G Suite logon único habilitado subscrição
 - Uma subscrição do Google Apps ou a subscrição de Google Cloud Platform.
 
@@ -88,7 +88,7 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
 
     b. Selecione **nome de domínio** no painel de navegação esquerdo e, em seguida, selecione **Add**.
      
-     ![Domínio](./media/google-apps-provisioning-tutorial/domain_1.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
 
      ![Adicionar domínio](./media/google-apps-provisioning-tutorial/domain_2.png)
 
@@ -100,7 +100,7 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
     
     Para obter instruções mais abrangentes sobre como verificar nomes de domínio com o Azure AD, consulte [adicionar seu próprio nome de domínio para o Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![Domínio](./media/google-apps-provisioning-tutorial/domain_4.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Repita os passos anteriores para todos os domínios que pretende adicionar ao seu diretório.
 
@@ -172,13 +172,13 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
 
 Este processo inicia a sincronização inicial de quaisquer utilizadores ou grupos que são atribuídos ao G Suite na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos enquanto o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades de aprovisionamento. Estes registos descrevem todas as ações que são executadas pelo serviço de aprovisionamento na sua aplicação.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar o início de sessão único](google-apps-tutorial.md)
+* [Configure single sign-on](google-apps-tutorial.md) (Configurar o início de sessão único)
 
 
 

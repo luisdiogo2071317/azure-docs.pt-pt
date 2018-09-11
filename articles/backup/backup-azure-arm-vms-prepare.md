@@ -7,14 +7,14 @@ manager: carmonm
 keywords: cópias de segurança; cópias de segurança;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc9d7b924f51fb3a4e9662dfa7ad4b9557b481bc
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445748"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347006"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -46,6 +46,7 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações ao fazer backup e restaurar uma VM
 Antes de preparar o seu ambiente, certifique-se de que compreender estas limitações:
 
+* Atualmente, o backup das VMs com Standard SSD não é suportada.
 * Cópias de máquinas virtuais com mais de 16 discos de dados não é suportada.
 * Cópias de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido não é suportada.
 * Não é suportada para o backup das VMs de Linux encriptado através da encriptação de Linux Unified chave configuração (LUKS).

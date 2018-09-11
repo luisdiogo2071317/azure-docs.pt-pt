@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620941"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347788"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory
 
@@ -96,11 +96,11 @@ Para resolver o erro:
     - Afirmações emitidas no token
     - Certificado utilizado para assinar o token. Para obter informações sobre como analisar a resposta SAML, consulte [protocolo SAML de início de sessão único](single-sign-on-saml-protocol.md).
 4. Para obter mais informações sobre a resposta SAML, consulte [protocolo SAML de início de sessão único](single-sign-on-saml-protocol.md).
-5. Agora que viu a resposta SAML, veja [erro na página de uma aplicação depois de iniciar sessão](../application-sign-in-problem-application-error.md) para obter orientações sobre como resolver o problema. 
+5. Agora que viu a resposta SAML, veja [erro na página de uma aplicação depois de iniciar sessão](../manage-apps/application-sign-in-problem-application-error.md) para obter orientações sobre como resolver o problema. 
 6. Se ainda não conseguir iniciar sessão com êxito, pode pedir o fornecedor do aplicativo o que está em falta na resposta SAML.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que o início de sessão único está trabalhando para seu aplicativo, poderia [automatizar o aprovisionamento de utilizador e a aplicações SaaS de desaprovisionamento](../active-directory-saas-app-provisioning.md), ou [começar com o acesso condicional](../conditional-access/app-based-conditional-access.md).
+Agora que o início de sessão único está trabalhando para seu aplicativo, poderia [automatizar o aprovisionamento de utilizador e a aplicações SaaS de desaprovisionamento](../manage-apps/user-provisioning.md), ou [começar com o acesso condicional](../conditional-access/app-based-conditional-access.md).
 
 

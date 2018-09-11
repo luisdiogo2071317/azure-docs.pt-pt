@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: a2ad07809963560b1225ff07b095509c93618996
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 26f8880d01da00780317ee2a6f66ee5007576a50
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160426"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347669"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: Diferenças e considerações
 Este artigo resume as diferenças conhecidas entre Managed Disks do Azure Stack e Managed Disks do Azure. Para saber mais sobre das principais diferenças entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
@@ -38,7 +38,7 @@ Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas d
 |Opções de recuperação após desastre |Suporte do Azure Site Recovery |Ainda não é suportado|
 |Tipos de disco     |Premium SSD e Standard HDD SSD Standard (pré-visualização) |Premium SSD, HDD padrão |
 |Discos Premium  |Totalmente suportado |Pode ser aprovisionado, mas sem limite de desempenho ou garantir  |
-|Discos Premium  |IOPs  |Depende do tamanho 2300 IOPs por disco de disco |
+|IOPs de discos Premium  |Depende do tamanho do disco  |2300 IOPs por disco |
 |Débito de discos Premium |Depende do tamanho do disco |145 MB por segundo por disco |
 |Tamanho máximo do disco  |4 TB       |1 TB       |
 |Análise de desempenho de discos |Agregar as métricas e por métrica de disco suportada |Ainda não é suportado |

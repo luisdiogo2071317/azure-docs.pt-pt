@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3c0efe7fbeb3d3259d1e8505a965499cfb941e9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b1ab1381271391da9f4775488908af4eb1e47f5d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049393"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346275"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB SDK para .NET Core para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ ms.locfileid: "44049393"
 ## <a name="release-notes"></a>Notas de Versão
 
 O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão mais recente dos [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Suporte a cancelamento de solicitação foi adicionado.
+* Foi adicionado SetCurrentLocation para ConnectionPolicy, que preenche automaticamente as localizações preferenciais com base na região.
+* Foi corrigido o erro em consultas de partição cruzada com mínima/máxima e um filtro que corresponda ao não existem documentos numa partição individual.
+* Agora, os métodos DocumentClient tem paridade com IDocumentClient.
+* Atualizado TCP transporte pilha diretos para reduzir o número de ligações estabelecidas.
+* Foi adicionado suporte para TCP de modo direto para clientes não Windows.
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -186,8 +195,7 @@ Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](http:
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 de Julho de 2018 |--- |
-| [2.0.0-Preview](#2.0.0-preview) |11 de Maio de 2018 |--- |
+| [2.0.0](#2.0.0) |07 de Setembro de 2018 |--- |
 | [1.9.1](#1.9.1) |09 de Março de 2018 |--- |
 | [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |
 | [1.8.1](#1.8.1) |05 de Fevereiro de 2018 |--- |

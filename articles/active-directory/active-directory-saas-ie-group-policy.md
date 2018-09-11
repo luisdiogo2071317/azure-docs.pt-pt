@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70552e982ff4c21d02b5f52ea48f108ce7f3b97e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ce27f51dc5e80b4ce2bd83b5f9f6c75853a2ea73
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366814"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325282"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implementar a extensão do painel de acesso para o Internet Explorer usando a diretiva de grupo
 Este tutorial mostra como utilizar a política de grupo para instalar remotamente a extensão do painel de acesso para o Internet Explorer nos computadores dos seus utilizadores. É necessária para os usuários do Internet Explorer que tem de iniciar sessão em aplicações que estão configuradas ao utilizar esta extensão [baseado em palavra-passe de início de sessão único](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -120,7 +120,7 @@ A extensão agora deve ser ativada para as máquinas na UO selecionada. [Saiba m
 ## <a name="step-5-optional-disable-remember-password-prompt"></a>Passo 5 (opcional): desativar linha de comandos "Memorizar palavra-passe"
 Quando os utilizadores iniciam sessão em Web sites com a extensão do painel de acesso, o Internet Explorer pode mostrar o seguinte pedido perguntando "Gostaria de armazenar a palavra-passe?"
 
-![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+![Prompt de senha](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
 Se desejar impedir que os utilizadores vejam esta linha de comandos, em seguida, siga os passos abaixo para impedir a conclusão automática de memorizar palavras-passe:
 

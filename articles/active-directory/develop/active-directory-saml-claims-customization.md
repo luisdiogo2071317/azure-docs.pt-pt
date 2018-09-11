@@ -17,12 +17,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2405f1a8ab5ef03e5ed2992b7a089571077ce59b
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579423"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348519"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory
 Hoje em dia o Azure Active Directory suporta início de sessão único com a maioria das aplicações empresariais, incluindo as duas aplicações pré-integradas na Galeria de aplicações do Azure AD, bem como as aplicações personalizadas. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD através do protocolo SAML 2.0, o Azure AD envia um token para a aplicação (através de um HTTP POST). E, em seguida, o aplicativo valida e utiliza o token para registar o utilizador em vez de solicitar um nome de utilizador e palavra-passe. Estes tokens SAML contêm informações sobre o utilizador conhecido como "afirmações".
@@ -130,7 +130,7 @@ Existem alguns restritas afirmações no SAML. Se adicionar essas declarações,
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](../active-directory-apps-index.md)
-* [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Resolução de problemas com base em SAML início de sessão único](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

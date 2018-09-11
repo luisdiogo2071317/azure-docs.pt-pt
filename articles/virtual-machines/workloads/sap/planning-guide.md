@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ed29b100e0fab0f0e386f771dc6f71d7b424c6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7b1f937a71a0ff5b8030c922073dc463af3c8430
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163418"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349267"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1921,6 +1921,7 @@ As construções do Azure seguintes são utilizadas para o sistema SAP NetWeaver
 * O sistema completo é executado dentro de uma subscrição do Azure (obrigatória).
 * O sistema completo é executado dentro de uma Azure Virtual Network (obrigatório).
 * A separação das VMs de um sistema SAP em três conjuntos de disponibilidade é possível até mesmo com todas as VMs que pertencem à mesma rede Virtual.
+* Cada camada (por exemplo, DBMS, ASCS, servidores de aplicações) têm de utilizar um conjunto de disponibilidade dedicado.
 * Todas as VMs a executar instâncias do DBMS de um sistema SAP estão num conjunto de disponibilidade. Partimos do princípio de que existe mais do que uma VM a executar instâncias do DBMS por sistema desde disponibilidade elevada nativa do DBMS, recursos são usados, como o AlwaysOn do SQL Server ou o Oracle Data Guard.
 * Todas as VMs a executar instâncias do DBMS usam sua própria conta de armazenamento. Arquivos de dados e de log do DBMS são replicados a partir de uma conta de armazenamento, para outra conta de armazenamento com as funções de elevada disponibilidade do DBMS que sincronizam os dados. Indisponibilidade de uma conta de armazenamento fará com que a indisponibilidade de um nó de cluster do Windows de SQL, mas não o serviço inteiro do SQL Server.
 * Todas as VMs a executar a instância de um sistema SAP (A) SCS estão num conjunto de disponibilidade. Um Cluster de ativação pós-falha do servidor de Windows (WSFC) está configurado dentro dessas VMs para proteger a (A) a instância SCS.

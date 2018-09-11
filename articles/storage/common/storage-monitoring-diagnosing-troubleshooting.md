@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528719"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304684"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ Para obter um guia prático para resolução de problemas ponto a ponto em aplic
   * [Apêndice 2: Wireshark a utilizar para capturar o tráfego de rede]
   * [Apêndice 3: Utilizar o Microsoft Message Analyzer para capturar o tráfego de rede]
   * [Apêndice 4: Com o Excel para ver métricas e registo de dados]
-  * [Apêndice 5: Monitorizar com o Application Insights para Visual Studio Team Services]
+  * [Apêndice 5: Monitorizar com o Application Insights para DevOps do Azure]
 
 ## <a name="introduction"></a>Introdução
 Este guia mostra-lhe como utilizar funcionalidades como a análise de armazenamento do Azure, do lado do cliente de registo na biblioteca de cliente de armazenamento do Azure e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas do armazenamento do Azure relacionados com problemas.
@@ -125,7 +125,7 @@ Pode utilizar o [portal do Azure](https://portal.azure.com) para ver o estado de
 O [portal do Azure](https://portal.azure.com) também pode fornecer notificações de incidentes que afetam os vários serviços do Azure.
 Nota: Estas informações estavam anteriormente disponíveis, juntamente com dados históricos, sobre o [Dashboard de serviço do Azure](http://status.azure.com).
 
-Embora o [portal do Azure](https://portal.azure.com) recolhe informações de estado de funcionamento de dentro dos datacenters do Azure (monitorização do avesso), precisa também considerar adotar uma abordagem de fora para dentro para gerar transações sintéticas que acedem a periodicamente seu aplicativo web alojadas no Azure de várias localizações. Serviços oferecidos pela [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights para Visual Studio Team Services são exemplos desta abordagem. Para obter mais informações sobre o Application Insights para Visual Studio Team Services, consulte o apêndice "[apêndice 5: monitorizar com o Application Insights para Visual Studio Team Services](#appendix-5)."
+Embora o [portal do Azure](https://portal.azure.com) recolhe informações de estado de funcionamento de dentro dos datacenters do Azure (monitorização do avesso), precisa também considerar adotar uma abordagem de fora para dentro para gerar transações sintéticas que acedem a periodicamente seu aplicativo web alojadas no Azure de várias localizações. Serviços oferecidos pela [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights para DevOps do Azure são exemplos desta abordagem. Para obter mais informações sobre o Application Insights para DevOps do Azure, consulte o apêndice "[apêndice 5: monitorizar com o Application Insights para DevOps do Azure](#appendix-5)."
 
 ### <a name="monitoring-capacity"></a>Capacidade de monitorização
 Métricas de armazenamento só armazena as métricas de capacidade para o serviço de BLOBs como blobs, normalmente, a conta para a maior proporção de dados armazenados (no momento da escrita, não é possível utilizar as métricas de armazenamento para monitorizar a capacidade das tabelas e filas). Pode encontrar estes dados no **$MetricsCapacityBlob** se tiver ativado a monitorização para o serviço de Blob de tabela. Métricas de armazenamento regista estes dados uma vez por dia, e pode usar o valor do **RowKey** para determinar se a linha contém uma entidade que se relaciona com dados de utilizador (valor **dados**) ou dados de análise (o valor **analytics**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento utilizado (**capacidade** medido em bytes) e o número atual de contentores (**ContainerCount**) e blobs (**ObjectCount** ) em utilização na conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas no **$MetricsCapacityBlob** da tabela, consulte [esquema de tabela de métricas de análise de armazenamento](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -466,7 +466,7 @@ A causa mais comum deste erro é um cliente a desligar antes de um tempo limite 
 ### <a name="the-client-is-receiving-403-messages"></a>O cliente está a receber mensagens HTTP 403 (proibido)
 Se a aplicação cliente que está a gerar erros de HTTP 403 (proibido), das causas prováveis é que o cliente está a utilizar um expiradas acesso assinatura partilhado (SAS) quando envia um pedido de armazenamento (embora outras causas possíveis incluem o relógio chaves inválido distorção e cabeçalhos vazios ). Se uma chave SAS expirada é a causa, não verá todas as entradas nos dados de registo de armazenamento de registo do lado do servidor. A tabela seguinte mostra um exemplo de registo do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra este problema ocorrer:
 
-| Origem | Verbosidade | Verbosidade | ID de pedido do cliente | Texto de operação |
+| Origem | Verbosidade | Verbosidade | ID de pedido de cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A iniciar a operação com a localização primária por modo de local PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;is = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
@@ -571,7 +571,7 @@ A tabela seguinte mostra uma mensagem de registo do lado do servidor de exemplo 
 | URL do pedido        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Cabeçalho de ID do pedido  | a1f348d5-8032-4912-93ef-b393e5252a3b |
-| ID de pedido do cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+| ID de pedido de cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
 Investigar por que a aplicação cliente está a tentar realizar uma operação para o qual ele não foram concedido permissões.
@@ -625,7 +625,7 @@ Se este problema ocorrer com freqüência, deve investigar por que o cliente est
 ### <a name="the-client-is-receiving-409-messages"></a>O cliente está a receber mensagens HTTP 409 (conflito)
 A tabela seguinte mostra um extrato de registo do lado do servidor para duas operações de cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de contentor de Blobs. Cada operação de cliente resulta em dois pedidos enviados para o servidor, primeiro uma **GetContainerProperties** pedido para verificar se o contentor existe, seguido da **DeleteContainer** ou  **CreateContainer** pedido.
 
-| Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido do cliente |
+| Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido de cliente |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -799,8 +799,8 @@ Para importar os dados de registo de armazenamento para o Excel, depois de trans
 
 No passo 1 do **Assistente de importação de texto**, selecione **ponto e vírgula** como o delimitador único e escolha aspas duplas como o **qualificador de texto**. Em seguida, clique em **concluir** e escolha onde pretende colocar os dados no seu livro.
 
-### <a name="appendix-5"></a>Apêndice 5: Monitorizar com o Application Insights para Visual Studio Team Services
-Também pode utilizar o recurso do Application Insights para Visual Studio Team Services como parte de seu desempenho e a monitorização de disponibilidade. Essa ferramenta pode:
+### <a name="appendix-5"></a>Apêndice 5: Monitorizar com o Application Insights para DevOps do Azure
+Também pode utilizar o recurso do Application Insights para DevOps do Azure como parte de seu desempenho e a monitorização de disponibilidade. Essa ferramenta pode:
 
 * Certifique-se de que o serviço web está disponível e é reativo. Se a aplicação é um web site ou uma aplicação de dispositivo que utiliza um serviço da web, pode testar o seu URL intervalos de poucos minutos a partir de localizações em todo o mundo e informá-lo a se existe um problema.
 * Diagnostique rapidamente quaisquer problemas de desempenho ou exceções no seu serviço web. Descubra se a CPU ou de outros recursos estão a ser transferidos, obter rastreamentos de pilha de exceções e pesquisar facilmente por meio de rastreios de registos. Se o desempenho da aplicação descer abaixo dos limites aceitáveis, a Microsoft pode enviar uma mensagem de e-mail. Pode monitorar serviços da web .NET e Java.
@@ -865,7 +865,7 @@ Pode encontrar mais informações em [o que é o Application Insights](../../app
 [Apêndice 2: Wireshark a utilizar para capturar o tráfego de rede]: #appendix-2
 [Apêndice 3: Utilizar o Microsoft Message Analyzer para capturar o tráfego de rede]: #appendix-3
 [Apêndice 4: Com o Excel para ver métricas e registo de dados]: #appendix-4
-[Apêndice 5: Monitorizar com o Application Insights para Visual Studio Team Services]: #appendix-5
+[Apêndice 5: Monitorizar com o Application Insights para DevOps do Azure]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

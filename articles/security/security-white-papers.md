@@ -9,22 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/17/2018
+ms.date: 9/10/2018
 ms.author: tomsh
-ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b6953cc45305cf0812b185187c01149f0345756d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841552"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346072"
 ---
 # <a name="azure-security-white-papers"></a>Técnicos de segurança do Azure
 | | |
 |-|-|
 |[Introdução&nbsp;para&nbsp;Azure&nbsp;segurança](azure-security.md)|Explica a coleção de controles de segurança implementados no Azure a partir das perspetivas do cliente e o Microsoft operations. Fornece uma visão abrangente os controlos de segurança do lado do cliente disponíveis com o Azure.|
+|[Melhores práticas de segurança para soluções do Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Uma coleção de melhores práticas de segurança a utilizar quando estiver conceber, implementar e gerir soluções na cloud ao utilizar o Azure.|
 |[Deteção avançada de ameaças](azure-threat-detection.md)|Guias de que através do Azure se aproxima para avaliações de vulnerabilidade de ameaças, diagnóstico e análise. Explica como a Microsoft usa mecanismos de deteção de ameaças avançada para proteger a plataforma. Também explica como o Microsoft inclui estes mecanismos nos serviços e funcionalidades destinado ao públicas.|
 |[Encriptação em repouso da dados do Azure](azure-security-encryption-atrest.md)|Foca-se em como os dados são protegidos em inatividade no Azure e os vários componentes que utilizar a implementação de proteção de dados. Analisa os prós e contras das abordagens de proteção de gestão de chaves diferentes.|
 |[Registo e auditoria do Azure](azure-log-audit.md)|Fornece uma introdução para gerar, recolher e analisar registos de segurança dos serviços alojados no Azure. Estes registos podem ajudá-lo a obter informações sobre segurança nas suas implementações do Azure. |

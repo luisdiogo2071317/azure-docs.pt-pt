@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 294dea695f120ff47712e0ccf79072a41baca07b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b33c9246bef2ca22542e338a1ec1f91a92aa300e
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092823"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324840"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -26,11 +26,11 @@ As ferramentas de núcleo das funções do Azure permite-lhe desenvolver e testa
 
 ## <a name="core-tools-versions"></a>Versões de ferramentas de núcleo
 
-Existem duas versões de ferramentas de núcleo de funções do Azure. A versão que utilizar depende do seu ambiente de desenvolvimento local, a escolha de idioma e o nível de suporte necessário:
+Existem duas versões de ferramentas de núcleo de funções do Azure. A versão que utilizar depende do seu ambiente de desenvolvimento local [escolha da linguagem](supported-languages.md)e o nível de suporte necessário:
 
-+ [Versão 1.x](#v1): suporta a versão 1.x do runtime, o que está geralmente disponível (GA). Esta versão das ferramentas só é suportado em computadores Windows e é instalado a partir um [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm). Com esta versão, pode criar funções em linguagens experimentais que não são suportadas oficialmente. Para obter mais informações, consulte [idiomas suportados nas funções do Azure](supported-languages.md)
++ [Versão 1.x](#v1): suporta a versão 1.x do runtime, o que está geralmente disponível (GA). Esta versão das ferramentas só é suportado em computadores Windows e é instalado a partir um [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
-+ [Versão 2.x](#v2): suporta [versão 2.x do runtime](functions-versions.md). Esta versão suporta [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Utiliza os gestores de pacotes específicos da plataforma ou npm para instalação. Como o runtime 2.x, esta versão das ferramentas de núcleo está atualmente em pré-visualização. 
++ [Versão 2.x](#v2): suporta [versão 2.x do runtime](functions-versions.md). Esta versão suporta [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Utiliza os gestores de pacotes específicos da plataforma ou npm para instalação. Como o runtime 2.x, esta versão das ferramentas de núcleo está atualmente em pré-visualização. Na versão 2.x, todas as funções na aplicação de função tem de utilizar o mesmo runtime de linguagem.
 
 Salvo indicação em contrário, os exemplos neste artigo são para a versão 2.x. Para receber atualizações importantes na versão 2.x, incluindo a última hora altera anúncios, veja a [anúncios de serviço de aplicações do Azure](https://github.com/Azure/app-service-announcements/issues) repositório.
 

@@ -1,24 +1,18 @@
 ---
 title: Azure Disk Encryption para VMs de Linux IaaS e do Windows | Documentos da Microsoft
 description: Este artigo é o anexo de Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 98bbcb84-8e6c-4eb2-8490-c2a0c67aad79
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 2f932ff39495916c4a9fb55714c73383e06c72e1
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887938"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346848"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para a encriptação de disco do Azure 
 Este artigo é um apêndice ao [do Azure Disk Encryption para IaaS VMs](azure-security-disk-encryption-overview.md). Certifique-se de que o Azure Disk Encryption para IaaS VMs artigos primeiro para compreender o contexto de leitura. Este artigo descreve como preparar VHDs previamente encriptados e outras tarefas.
@@ -116,7 +110,7 @@ A tabela seguinte mostra quais parâmetros podem ser utilizados no script do Pow
 |------|------|------|
 |$resourceGroupName| Nome do grupo de recursos a que o Cofre de chaves pertence.  Será criado um novo grupo de recursos com este nome, caso não exista.| Verdadeiro|
 |$keyVaultName|Nome do Cofre de chaves na encriptação de que as chaves devem ser colocados. Será criado um novo cofre com este nome, caso não exista.| Verdadeiro|
-|$location|Localização do Cofre de chaves. Certificar-se de que o Cofre de chaves e as VMs a encriptar estão na mesma localização. Obter uma lista de localização com `Get-AzureRMLocation`.|Verdadeiro|
+|$location|Localização do Cofre de chaves. Certificar-se de que o Cofre de chaves e as VMs a encriptar estão na mesma localização. Obtenha uma lista de localizações com `Get-AzureRMLocation`.|Verdadeiro|
 |$subscriptionId|Identificador da subscrição do Azure a ser utilizado.  Pode obter o seu ID de subscrição com `Get-AzureRMSubscription`.|Verdadeiro|
 |$aadAppName|Nome da aplicação do Azure AD que será utilizada para escrever segredos no Cofre de chaves. Será criada uma nova aplicação com este nome, caso ainda não exista. Se esta aplicação já existir, transmita o parâmetro de aadClientSecret ao script.|Falso|
 |$aadClientSecret|Segredo do cliente de aplicação do Azure AD criado anteriormente.|Falso|

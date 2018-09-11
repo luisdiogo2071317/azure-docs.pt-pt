@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: cc9b5810085d3300861735a95a94e577bf61d70e
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059709"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346054"
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -48,14 +48,13 @@ Os serviços pagos do Azure AD, como o Enterprise Mobility + Security complement
 
 - - -
 
-**P: Quais as diferenças entre Administrador da Subscrição e Administrador do Diretório?**
+**P: quais são as diferenças entre Administrador Global e o proprietário?**
 
-**R:** Por predefinição, quando se inscreve no Azure, é-lhe atribuída a função de Administrador da Subscrição. O administrador da subscrição pode utilizar uma conta Microsoft ou uma conta profissional ou escolar do diretório ao qual a subscrição do Azure está associada.  Esta função está autorizada a gerir serviços no portal do Azure.
+**R:** por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída a função de proprietário para recursos do Azure. Um proprietário pode utilizar uma conta Microsoft ou uma conta profissional ou escolar do diretório que está associada à subscrição do Azure.  Esta função está autorizada a gerir serviços no portal do Azure.
 
-Se outras pessoas tiverem de iniciar sessão e aceder aos serviços com a mesma subscrição, pode adicioná-las como coadministradores. Esta função tem os mesmos privilégios de acesso do administrador de serviços, mas não pode alterar a associação de subscrições a diretórios do Azure.  Para obter mais informações sobre os administradores da subscrição, consulte [How to add or change Azure administrator roles (Como adicionar ou alterar funções de administrador do Azure)](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) e [How Azure subscriptions are associated with Azure Active Directory (Como as subscrições do Azure estão associadas ao Azure Active Directory)](active-directory-how-subscriptions-associated-directory.md).
+Se outras pessoas tiverem de iniciar sessão e aceder aos serviços com a mesma subscrição, pode atribuí-los apropriado [função incorporada](../../role-based-access-control/built-in-roles.md). Para obter mais informações, consulte [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
-
-O Azure AD tem um conjunto diferente de funções administrativas para gerir o diretório e as funções relacionadas com a identidade.  Estes administradores terão acesso às várias funcionalidades no portal do Azure ou no portal do Azure. A função do administrador determina o que pode fazer, como criar ou editar utilizadores, atribuir funções administrativas a outras pessoas, repor palavras-passe de utilizador, gerir licenças de utilizador ou gerir domínios.  Para obter mais informações sobre os administradores de diretório do Azure AD e as respetivas funções, consulte [Assigning administrator roles in Azure Active Directory (Atribuir funções de administrador no Azure Active Directory)](../users-groups-roles/directory-assign-admin-roles.md).
+Por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída a função de Administrador Global do diretório. O Administrador Global tenha acesso a todas as funcionalidades de diretório do Azure AD. O Azure AD tem um conjunto diferente de funções de administrador para gerir o diretório e as funcionalidades relacionadas com a identidade. Estes administradores terão acesso às várias funcionalidades no portal do Azure. Função do administrador determina o que eles podem fazer, como criar ou editar utilizadores, atribuir funções administrativas a outras pessoas, repor palavras-passe do utilizador, gerir licenças de utilizador ou gerir domínios.  Para obter informações adicionais sobre os administradores de diretórios do Azure AD e as respetivas funções, consulte [atribuir um utilizador a funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 Além disso, os serviços pagos do Azure AD, como o Enterprise Mobility + Security complementam outros serviços da Web, como o Office 365 e o Microsoft Azure com soluções abrangentes de gestão empresarial e de segurança.
 
@@ -163,7 +162,7 @@ Para obter a lista completa das aplicações previamente integradas, consulte [A
 
 Para obter mais informações, consulte:
 
-* [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -208,7 +207,7 @@ Para mais informações, consulte [Securing access to Office 365 and other apps 
 
 **R:** Utilize o Azure AD para automatizar a criação, a manutenção e a remoção de identidades de utilizadores em diversas aplicações SaaS na cloud populares.
 
-Para obter mais informações, consulte [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory (Automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory)](../active-directory-saas-app-provisioning.md).
+Para obter mais informações, consulte [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory (Automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory)](../manage-apps/user-provisioning.md).
 
 - - -
 **P: Posso configurar uma ligação LDAP segura ao Azure AD?** 

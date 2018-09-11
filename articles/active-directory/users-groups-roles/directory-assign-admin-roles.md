@@ -14,12 +14,12 @@ ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 9aa8e5e6e683da0cb95583979e96c1d315dffff9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2768ba4726ccaf5e2249e356e425aeafaaaf91f6
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094303"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349250"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -86,7 +86,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Suporte de escalão 2 de parceiros](#partner-tier2-support)**: não utilize. Esta função foi preterida e será removida do Azure AD no futuro. Esta função é destinada à utilização por um pequeno número de parceiros de revenda da Microsoft e não se destina a utilização geral.
 
-* **[Palavra-passe de administrador / administrador de suporte técnico](#helpdesk-administrator)**: os utilizadores com esta função podem alterar palavras-passe, gerir pedidos de serviço e monitorizar o estado de funcionamento do serviço. Os administradores de suporte técnico podem alterar as palavras-passe apenas para utilizadores e outros administradores de suporte técnico. 
+* **[Palavra-passe de administrador / administrador de suporte técnico](#helpdesk-administrator)**: os utilizadores com esta função podem alterar palavras-passe, invalidar os tokens de atualização, gerir pedidos de serviço e monitorizar o estado de funcionamento do serviço. Os administradores de suporte técnico podem alterar as palavras-passe e invalidar os tokens de atualização apenas para utilizadores e outros administradores de suporte técnico. Invalidar um token de atualização força o utilizador iniciar sessão novamente.
 
   > [!NOTE]
   > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "Administrador de suporte técnico". É "Administrador de palavras-passe" na [portal do Azure](https://portal.azure.com/).
@@ -126,7 +126,7 @@ As seguintes funções de administrador estão disponíveis:
   >
   >
 
-* **[Administrador de conta de utilizador](#user-account-administrator)**: os utilizadores com esta função podem criar e gerir todos os aspetos de utilizadores e grupos. Além disso, esta função inclui a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Aplicam-se algumas restrições. Por exemplo, esta função não permite a eliminação de um administrador global. Os administradores de conta de utilizador pode alterar as palavras-passe para utilizadores, administradores de suporte técnico e outros administradores de conta de utilizador apenas.
+* **[Administrador de conta de utilizador](#user-account-administrator)**: os utilizadores com esta função podem criar e gerir todos os aspetos de utilizadores e grupos. Além disso, esta função inclui a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Aplicam-se algumas restrições. Por exemplo, esta função não permite a eliminação de um administrador global. Os administradores de conta de utilizador podem alterar as palavras-passe e invalidar os tokens de atualização para os utilizadores, administradores de suporte técnico e outros administradores de conta de utilizador apenas. Invalidar um token de atualização força o utilizador iniciar sessão novamente.
 
 | Pode fazer | Não é possível fazer |
 | --- | --- |
@@ -1176,6 +1176,6 @@ Função predefinida para os utilizadores de membro. Pode ler todos e escrever u
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre como alterar os administradores para uma subscrição do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, veja [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como o Azure Active Directory está relacionado com a sua subscrição do Azure, veja [Como as subscrições do Azure estão associadas ao Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
