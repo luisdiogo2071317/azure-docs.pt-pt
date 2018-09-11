@@ -1,5 +1,5 @@
 # Espaços de Programador do Azure
-## [Descrição geral](azure-dev-spaces.md)
+## [Descrição geral](index.yml)
 
 ## Inícios rápidos
 ### [Java (VS Code e CLI)](quickstart-java.md)
