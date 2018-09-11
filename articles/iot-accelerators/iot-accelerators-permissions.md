@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c88ae933360b5040ad3d2b877041049512f08b0d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450019"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303409"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>Permissões no azureiotsolutions.com site
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre utilizadores e funções no AAD, consulte os
 
 As funções de administrador do Azure controlam a capacidade de mapear uma subscrição do Azure para um inquilino do AAD.
 
-Saiba mais sobre as funções de administrador do Azure no artigo [como adicionar ou alterar o Coadministrador do Azure, o administrador de serviços e o administrador de conta][lnk-admin-roles].
+Saiba mais sobre as funções de administrador do Azure no artigo [adicionar ou alterar os administradores de subscrição do Azure][lnk-admin-roles].
 
 ## <a name="faq"></a>FAQ
 

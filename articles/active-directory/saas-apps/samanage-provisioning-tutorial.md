@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 98a1746804d0d5a9526e264f99d03ed4e8590ad6
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043852"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347958"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar Samanage para aprovisionamento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no Samanage e o Azure Active Directory (Azure AD) para configurar o Azure AD automaticamente aprovisionar e desaprovisionar utilizadores e/ou grupos para Samanage.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -135,7 +135,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
     ![Aprovisionamento Samanage](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-13. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../active-directory-saas-scoping-filters.md).
+13. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. Para ativar o Azure AD para Samanage do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção.
 
@@ -152,7 +152,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **âmbito** no **definições** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do AD do Azure está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para o relatório de atividade, que descreve todas as ações executadas pelo Azure AD no Samanage do serviço de aprovisionamento de aprovisionamento.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -162,7 +162,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png

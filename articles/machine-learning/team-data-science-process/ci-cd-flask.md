@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 6de1832dde1764b2655d4c34643d6a026e198f64
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052229"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304293"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicações de Inteligência Artificial (IA): a criar o pipeline de integração contínua no Azure utilizando o Docker e Kubernetes
 Para uma aplicação de IA, há frequentemente dois fluxos de trabalho, criação de modelos de machine learning e os desenvolvedores de aplicativos criando o aplicativo e expô-lo para os utilizadores finais consumam os cientistas de dados. Neste artigo, demonstraremos como implementar uma integração contínua (CI) / pipeline de entrega contínua (CD) para uma aplicação de IA. Aplicação de IA é uma combinação de código da aplicação incorporada com um modelo de pré-preparadas com machine learning (ML). Neste artigo, estamos buscando um modelo pretrained de uma conta de armazenamento de Blobs do Azure privado, pode ser uma conta AWS S3 também. Utilizamos uma aplicação de web do flask python simples para o artigo.
@@ -35,7 +35,7 @@ Pode baixar o código-fonte [GitHub](https://github.com/Azure/DevOps-For-AI-Apps
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 Seguem-se os pré-requisitos para seguir o pipeline de CI/CD descrito abaixo:
-* [Conta do Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Organização de DevOps do Azure](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Cluster do Container Service (AKS) do Azure em execução no Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Conta de inventário de contentor (ACR) do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -53,12 +53,12 @@ A arquitetura de pipeline é indicada abaixo.
 
 ## <a name="steps-of-the-cicd-pipeline"></a>Passos para o pipeline de CI/CD
 1. Para desenvolvedores trabalhar num IDE de sua escolha no código da aplicação.
-2. Eles consolidar o código ao controle de fonte de sua escolha (VSTS tem bom suporte para vários controles da fonte)
+2. Eles consolidar o código ao controle de fonte de sua escolha (do Azure DevOps tem bom suporte para vários controles da fonte)
 3. Separadamente, cientista de dados funcionam sobre como desenvolver o seu modelo.
 4. Depois de satisfeito, publicam o modelo para um repositório de modelo, neste caso estamos a utilizar uma conta de armazenamento de Blobs. Isso pode ser facilmente substituído com o serviço de gestão de modelos do Azure ML Workbench através de suas APIs de REST.
-5. Uma compilação é iniciada no VSTS com base na consolidação no GitHub.
-6. Pipeline de compilação VSTS obtém o modelo mais recente do contentor de BLOBs e cria um contentor.
-7. VSTS envia a imagem para o repositório de imagem privada no Azure Container Registry
+5. Uma compilação é iniciada no Azure DevOps, com base na consolidação no GitHub.
+6. Pipeline de compilação de DevOps do Azure obtém o modelo mais recente do contentor de BLOBs e cria um contentor.
+7. DevOps do Azure envia a imagem para o repositório de imagem privada no Azure Container Registry
 8. Numa agenda definida (noturna), o pipeline de lançamento é iniciada.
 9. Imagem mais recente do ACR é obtida e implementada no cluster de Kubernetes no ACS.
 10. Pedido de utilizadores da aplicação passa pelo servidor DNS.

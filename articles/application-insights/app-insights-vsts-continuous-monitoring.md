@@ -1,92 +1,93 @@
 ---
-title: "Monitorização contínua de pipeline de versão do DevOps com VSTS e o Azure Application Insights | Microsoft Docs"
-description: "Fornece instruções para configurar rapidamente a monitorização contínua com o Application Insights"
+title: Monitorização contínua do seu pipeline de lançamento de DevOps com o Azure DevOps e o Azure Application Insights | Documentos da Microsoft
+description: Fornece instruções para configurar rapidamente a monitorização contínua com o Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301634"
 ---
-# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar a monitorização contínua para o pipeline de versão
+# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar a monitorização contínua para o seu pipeline de lançamento
 
-Serviços de equipa do Visual Studio (VSTS) integra-se com o Azure Application Insights para permitir a monitorização contínua de pipeline de versão do DevOps em todo o ciclo de vida de desenvolvimento de software. 
+Serviços de DevOps do Azure integra-se com o Azure Application Insights para permitir a monitorização contínua do seu pipeline de lançamento do DevOps em todo o ciclo de vida do desenvolvimento de software. 
 
-VSTS agora suporta a monitorização contínua whereby pipelines de versão podem incorporar dados de monitorização do Application Insights e outros recursos do Azure. Quando é detetado um alerta do Application Insights, a implementação pode permanecer gated ou revertida até que o alerta é resolvido. Se todas as verificações de passaram, implementações podem avançar automaticamente de teste para produção sem a necessidade de intervenção manual. 
+Serviços de DevOps do Azure agora suporta a monitorização contínua, por meio das quais os pipelines de versão podem incorporar dados de monitorização do Application Insights e outros recursos do Azure. Quando é detetado um alerta do Application Insights, a implementação pode permanecer Check ou revertida até que o alerta é resolvido. Se passam todas as verificações, implementações podem avançar automaticamente de teste para produção sem a necessidade de intervenção manual. 
 
 ## <a name="configure-continuous-monitoring"></a>Configurar a monitorização contínua
 
-1. Selecione um projeto de VSTS existente.
+1. Selecione um projeto de serviços de DevOps do Azure existente.
 
-2. Coloque o cursor sobre **compilar e versão** > selecione **versões** > clique o **sinal de adição** > **Criar definição de versão** > Procurar **monitorização** > **implementação do App Service do Azure com a monitorização contínua.**
+2. Coloque o cursor sobre **criar e lançar** > selecione **versões** > clique o **sinal de adição** > **Criar definição de versão** > Procure **monitoramento** > **implementação de serviço de aplicações do Azure com a monitorização contínua.**
 
-   ![Nova definição de versão VSTS](.\media\app-insights-continuous-monitoring\001.png)
+   ![Novo Pipeline de lançamento de serviços do Azure DevOps](.\media\app-insights-continuous-monitoring\001.png)
 
-3. Clique em **aplicar.**
+3. Clique em **aplicam-se.**
 
 4. Junto ao ponto de exclamação vermelho, selecione o texto azul para **ver tarefas do ambiente.**
 
    ![Tarefas da vista de ambiente](.\media\app-insights-continuous-monitoring\002.png)
 
-   Será apresentada uma caixa de configuração, utilize a tabela seguinte para preencher os campos de entrada.
+   Será exibida uma caixa de configuração, utilize a seguinte tabela para preencher os campos de entrada.
 
     | Parâmetro        | Valor |
    | ------------- |:-----|
-   | **Nome do ambiente**      | Nome que descreva o ambiente de definição da versão |
-   | **Subscrição do Azure** | Pendente preenche com quaisquer subscrições do Azure associadas à conta de VSTS|
-   | **Nome do serviço de aplicações** | Introdução manual de um novo valor poderão ser necessária para este campo consoante outros seleções |
-   | **Grupo de Recursos**    | Pendente preenche com grupos de recursos disponíveis |
-   | **Nome de recurso do Application Insights** | Pendente preenche todos os recursos do Application Insights que correspondem ao grupo de recursos selecionado anteriormente.
+   | **Nome do ambiente**      | Nome que descreve o ambiente de pipeline de lançamento |
+   | **Subscrição do Azure** | Lista pendente preenche com quaisquer subscrições do Azure ligadas para a organização de serviços do Azure DevOps|
+   | **Nome do serviço de aplicações** | Introdução manual de um novo valor poderá ser necessária para este campo dependendo outras seleções |
+   | **Grupo de Recursos**    | Lista pendente preenche com grupos de recursos disponíveis |
+   | **Nome de recurso do Application Insights** | Baixo será preenchido com todos os recursos do Application Insights que correspondem ao grupo de recursos selecionado anteriormente.
 
 5. Selecione **alertas de configurar o Application Insights**
 
-6. Para regras de alerta predefinido, selecione **guardar** > introduza um comentário descritivo > clique **OK**
+6. Para regras de alerta predefinidas, selecione **salvar** > introduza um comentário descritivo > clique em **OK**
 
-## <a name="modify-alert-rules"></a>Modificar regras de alertas
+## <a name="modify-alert-rules"></a>Modificar regras de alerta
 
-1. Para modificar as definições de alerta predefinidas, clique na caixa com **reticências...**  à direita do **regras de alertas.**
+1. Para modificar as definições de alerta predefinidas, clique na caixa de com **reticências...**  à direita do **regras de alerta.**
 
-   (Existem regras de alerta de out-of-box quatro: disponibilidade, pedidos falhados, tempo de resposta do servidor, exceções de servidor.)
+   (As regras de alerta de out-of-box quatro estão presentes: disponibilidade, pedidos falhados, tempo de resposta do servidor, exceções de servidor.)
 
-2. Clique o símbolo de lista pendente junto a **disponibilidade.**
+2. Clique no símbolo de lista pendente junto a **disponibilidade.**
 
-3. Modificar a disponibilidade **limiar** para satisfazer os seus requisitos de nível de serviço.
+3. Modificar a disponibilidade **limiar** para cumprir os requisitos de nível de serviço.
 
-   ![Modificar alerta de](.\media\app-insights-continuous-monitoring\003.png)
+   ![Modificar alerta](.\media\app-insights-continuous-monitoring\003.png)
 
-4. Selecione **OK** > **guardar** > introduza um comentário descritivo > clique **OK.**
+4. Selecione **OK** > **guardar** > introduza um comentário descritivo > clique em **OK.**
 
 ## <a name="add-deployment-conditions"></a>Adicionar condições de implementação
 
-1. Clique em **Pipeline** > selecione o **Pre** ou **condições de pós-implementação** símbolo consoante a etapa que necessita de uma porta de monitorização contínua.
+1. Clique em **Pipeline** > selecione o **pré** ou **condições de pós-implementação** símbolo consoante o estágio de que necessita de uma porta de monitorização contínua.
 
    ![Condições de pré-implementação](.\media\app-insights-continuous-monitoring\004.png)
 
-2. Definir **portas** para **ativado** > **portas de aprovação**> clique **adicionar.**
+2. Definir **Gates** ao **ativado** > **gates aprovação**> clique em **adicionar.**
 
-3. Selecione **Azure Monitor** (esta opção dá-lhe a capacidade para alertas de acesso tanto do Monitor do Azure e o Application Insights)
+3. Selecione **do Azure Monitor** (esta opção dá-lhe a capacidade para alertas de acesso tanto a partir do Azure Monitor e o Application Insights)
 
     ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
 
-4. Introduza um **tempo limite de portas** valor.
+4. Introduza um **Gates tempo-limite** valor.
 
 5. Introduza um **intervalo de amostragem.**
 
 ## <a name="deployment-gate-status-logs"></a>Registos de estado de porta de implementação
 
-Depois de adicionar as portas de implementação, um alerta no Application Insights que excede o limiar definido anteriormente, guards a implementação da versão indesejável promoção. Depois do alerta é resolvido, a implementação para poder continuar automaticamente.
+Depois de adicionar grupos de implementação, um alerta no Application Insights, que excede o limiar definido anteriormente, protege a sua implementação a partir de promoção de versão indesejados. Depois do alerta é resolvido, a implementação pode avançar automaticamente.
 
-Para reparar este comportamento, selecione **versões** > nome de versão com o botão direito **abrir** > **registos.**
+Para observar esse comportamento, selecione **versões** > nome da versão com o botão direito **abrir** > **registos.**
 
 ![Registos](.\media\app-insights-continuous-monitoring\006.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre criar VSTS e versão experimente estes [inícios rápidos.](https://docs.microsoft.com/vsts/build-release/)
+Para saber mais sobre Pipelines do Azure experimente estes [inícios rápidos.](https://docs.microsoft.com/azure/devops/pipelines)

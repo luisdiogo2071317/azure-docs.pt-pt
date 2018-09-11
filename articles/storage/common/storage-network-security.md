@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023397"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296742"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure Firewalls e redes virtuais
 O armazenamento do Azure fornece um modelo de segurança em camadas, permitindo-lhe proteger as contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede estiverem configuradas, apenas as aplicações de redes permitidas podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, o aplicações continuam a exigir a autorização adequada (uma chave de acesso válido ou um token SAS) para aceder à conta de armazenamento.
@@ -208,7 +208,7 @@ Regras de rede IP para as contas de armazenamento podem ser geridas através do 
 2. Clique no menu de definições denominado **Firewalls e redes virtuais**.
 3. Certifique-se de que tiver optado por permitir acesso a partir de "Redes selecionadas".
 4. Para conceder acesso a um internet intervalo de IP, introduza o endereço IP ou intervalo de endereços (no formato CIDR) na Firewall, intervalos de endereços.
-5. Para remover uma regra de rede IP, clique em "..." para abrir o menu de contexto para a regra e clique em "Remover".
+5. Para remover uma regra de rede IP, clique no ícone de caixote do lixo junto a regra de rede.
 6. Clique em *guardar* para aplicar as alterações.
 
 #### <a name="powershell"></a>PowerShell

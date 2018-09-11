@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6055dbab85acb1e5fed9679a5072144bc84712c
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f58c156019048a4e6b08267bf28325857ec69b3a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917128"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302210"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -33,7 +33,7 @@ Transferi a sua subscrição para outro utilizador no Centro de contas para alte
 > Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função na [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente do inquilino de origem e não são migradas para o inquilino de destino.
 
 > [!div class="nextstepaction"]
-> [Ajude a melhorar os documentos de faturas do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma subscrição do Azure
 
@@ -77,7 +77,7 @@ O administrador de empresa pode transferir a propriedade de subscrições dentro
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passos seguintes depois de aceitar a propriedade de uma subscrição
 
-1. Agora, está o administrador de conta. Rever e atualizar o administrador de serviço e outras funções do RBAC Coadministradores. Para obter mais informações, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou os serviços](billing-add-change-azure-subscription-administrator.md).
+1. Agora, está o administrador de conta. Rever e atualizar o administrador de serviço e outras funções do RBAC Coadministradores. Para obter mais informações, consulte [adicionar ou alterar os administradores de subscrição do Azure](billing-add-change-azure-subscription-administrator.md) e [gerir o acesso com RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas com serviços nesta subscrição, incluindo:
    1. Certificados de gestão que concedem ao utilizador direitos de administrador aos recursos de subscrição. Para obter mais informações, consulte [criar e carregar um gerenciamento de certificados para o Azure](../cloud-services/cloud-services-certs-create.md)
    1. Chaves de acesso para serviços como o armazenamento. Para obter mais informações, consulte [sobre as contas de armazenamento](../storage/common/storage-create-storage-account.md)

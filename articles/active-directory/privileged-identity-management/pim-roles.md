@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cf0c9b76a7edace9f2a9147823b292e218e20bf7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666341"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300278"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Funções de diretório do Azure AD que pode gerir no PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -63,21 +63,19 @@ Se quiser dar outro acesso de utilizador para gerir no PIM em si, as funções q
 ## <a name="roles-not-managed-in-pim"></a>Funções não são geridas no PIM
 Funções no Exchange Online ou SharePoint Online, exceto aquelas mencionadas acima, não são representadas no Azure AD e, portanto, não estão visíveis no PIM. Para obter mais informações sobre como alterar as atribuições de funções detalhadas nestes serviços do Office 365, consulte [permissões no Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-As subscrições do Azure e grupos de recursos também não são representados no Azure AD. Para gerir as subscrições do Azure, consulte [como adicionar ou alterar funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md) e, para obter mais informações sobre o Azure RBAC, veja [controlo de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md).
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## <a name="user-roles-and-signing-in"></a>Funções de utilizador e iniciar sessão
 Para algumas aplicações e serviços Microsoft, atribuir um utilizador a uma função pode não ser suficiente para permitir que o utilizador ser um administrador.
 
-Acesso ao portal do Azure requer que o utilizador ser um administrador de serviços ou coadministrador numa subscrição do Azure, mesmo que o usuário não precisa de gerir as subscrições do Azure.  Por exemplo, para gerir as definições de configuração para o Azure AD, um utilizador tem de ser um administrador global no Azure AD e um coadministrador da subscrição numa subscrição do Azure.  Para saber como adicionar utilizadores às subscrições do Azure, veja [como adicionar ou alterar funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md).
+Acesso ao portal do Azure requer que o utilizador ser proprietário de uma subscrição do Azure, mesmo que o usuário não precisa de gerir as subscrições do Azure.  Por exemplo, para gerir definições de configuração para o Azure AD, um utilizador tem de ser um Administrador Global no Azure AD e um proprietário de uma subscrição do Azure.  Para saber como adicionar utilizadores às subscrições do Azure, veja [gerir o acesso com RBAC e o portal do Azure](../..//role-based-access-control/role-assignments-portal.md).
 
 Acesso a Serviços Online da Microsoft pode exigir o também ser atribuída uma licença do utilizador antes de poderem abrir o portal do serviço ou executar tarefas administrativas.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Atribuir uma licença a um utilizador no Azure AD
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com) com uma conta de Administrador Global ou uma conta de Coadministrador.
+1. Inicie sessão para o [portal do Azure](http://portal.azure.com) com uma função de Administrador Global ou proprietário.
 
 1. Selecione o diretório do Azure AD que pretende trabalhar e que tenha licenças associadas ele.
 

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055596"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298952"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua no App Service do Azure
-Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](app-service-web-overview.md). Serviço de aplicações permite a implementação contínua do BitBucket, GitHub, e [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) Pegando as atualizações mais recentes do seu repositório existente em um destes serviços.
+Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](app-service-web-overview.md). Serviço de aplicações permite a implementação contínua do BitBucket, GitHub, e [serviços do Azure DevOps](https://www.visualstudio.com/team-services/) Pegando as atualizações mais recentes do seu repositório existente em um destes serviços.
 
 Para obter informações sobre como configurar a implementação contínua manualmente a partir de um repositório de cloud não listado pelo portal do Azure (por exemplo, [GitLab](https://gitlab.com/)), veja [configuração de implementação contínua com passos manuais](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Publicar o seu repositório preparado para um dos serviços com suporte. Para mais informações sobre como publicar o seu projeto nestes serviços, veja [Criar um repositório (GitHub)], [Criar um repositório (BitBucket)], e [Introdução ao VSTS].
+Publicar o seu repositório preparado para um dos serviços com suporte. Para obter mais informações sobre a publicação de seu projeto para estes serviços, consulte [criar um repositório (GitHub)], [criar um repositório (BitBucket)], e [Introdução aos serviços do Azure DevOps].
 
 ## <a name="deploy-continuously-from-github"></a>Implementar continuamente a partir do GitHub
 
@@ -47,18 +47,18 @@ Na **fornecedor de compilação** página, escolha o fornecedor de compilação 
 
 Na **configurar** , selecione a organização, o repositório e o ramo do qual deseja implantar continuamente. Quando terminar, clique em **continuar**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Opção 2: utilizar a entrega contínua do VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Opção 2: utilizar a entrega contínua de serviços do Azure DevOps
 
 > [!NOTE]
-> Para o serviço de aplicações criar a compilação necessária e definições na sua conta do VSTS de versão, sua conta do Azure tem de ter a função de **proprietário** na sua subscrição do Azure.
+> Para o serviço de aplicações para criar Pipelines do Azure necessários na sua organização de serviços do Azure DevOps, sua conta do Azure tem de ter a função de **proprietário** na sua subscrição do Azure.
 >
 
 No **configurar** página, além da **código** secção, selecione a organização, o repositório e o ramo do qual deseja implantar continuamente. Quando terminar, clique em **continuar**.
 
-Na **configurar** página, além do **criar** secção, configurar uma nova conta do VSTS ou especificar uma conta. Quando terminar, clique em **continuar**.
+Na **configurar** página, além do **criar** secção, configurar uma nova organização de serviços de DevOps do Azure ou especificar uma organização existente. Quando terminar, clique em **continuar**.
 
 > [!NOTE]
-> Se pretender utilizar uma conta existente do VSTS que não esteja listada, terá [associar a conta VSTS a sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se pretender utilizar uma organização de serviços de DevOps do Azure existente que não esteja listada, terá [associar a organização de serviços de DevOps do Azure à sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Na **teste** página, escolha se pretende ativar a testes de carga, em seguida, clique em **continuar**.
 
@@ -90,11 +90,11 @@ Na **resumo** página, verifique as suas opções e clique em **concluir**.
 
 Quando tiver concluído a configuração, novas consolidações no repositório selecionado são continuamente implementadas na sua aplicação de serviço de aplicações.
 
-## <a name="deploy-continuously-from-vsts"></a>Implementar continuamente do VSTS
+## <a name="deploy-continuously-from-azure-devops-services"></a>Implementar continuamente a partir dos serviços de DevOps do Azure
 
-Para ativar a implementação contínua com o VSTS, navegue até à página da aplicação do serviço de aplicações na [portal do Azure](https://portal.azure.com).
+Para ativar a implementação contínua com os serviços de DevOps do Azure, navegue até à página da aplicação do serviço de aplicações na [portal do Azure](https://portal.azure.com).
 
-No menu à esquerda, clique em **Deployment Center** > **VSTS** > **continuar**. 
+No menu à esquerda, clique em **Deployment Center** > **dos serviços de DevOps do Azure** > **continuar**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,20 +102,20 @@ Na **fornecedor de compilação** página, escolha o fornecedor de compilação 
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Opção 1: utilizar o servidor de compilação Kudu do serviço de aplicações
 
-Na **configurar** , selecione a conta VSTS, projeto, repositório e ramo a partir do qual deseja implantar continuamente. Quando terminar, clique em **continuar**.
+Na **configurar** , selecione a organização de serviços do Azure DevOps, projeto, repositório e ramo partir do qual deseja implantar continuamente. Quando terminar, clique em **continuar**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Opção 2: utilizar a entrega contínua do VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Opção 2: utilizar a entrega contínua de serviços do Azure DevOps
 
 > [!NOTE]
-> Para o serviço de aplicações criar a compilação necessária e definições na sua conta do VSTS de versão, sua conta do Azure tem de ter a função de **proprietário** na sua subscrição do Azure.
+> Para o serviço de aplicações para criar Pipelines do Azure necessários na sua organização de serviços do Azure DevOps, sua conta do Azure tem de ter a função de **proprietário** na sua subscrição do Azure.
 >
 
-No **configurar** página, além da **código** secção, selecione a conta VSTS, projeto, repositório e ramo a partir do qual deseja implantar continuamente. Quando terminar, clique em **continuar**.
+No **configurar** página, além da **código** secção, selecione a organização de serviços do Azure DevOps, projeto, repositório e ramo partir do qual deseja implantar continuamente. Quando terminar, clique em **continuar**.
 
 > [!NOTE]
-> Se pretender utilizar uma conta existente do VSTS que não esteja listada, terá [associar a conta VSTS a sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se pretender utilizar uma organização de serviços de DevOps do Azure existente que não esteja listada, terá [associar a organização de serviços de DevOps do Azure à sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-Na **configurar** página, além do **criar** secção, especifique a estrutura de idioma que VSTS deve utilizar para executar as tarefas de compilação para o repositório selecionado. Quando terminar, clique em **continuar**.
+Na **configurar** página, além do **criar** secção, especifique a estrutura de idioma que os serviços do Azure DevOps deve utilizar para executar as tarefas de compilação para o repositório selecionado. Quando terminar, clique em **continuar**.
 
 Na **teste** página, escolha se pretende ativar a testes de carga, em seguida, clique em **continuar**.
 
@@ -131,7 +131,7 @@ Quando tiver concluído a configuração, novas consolidações no repositório 
 
 Para desativar a implementação contínua, navegue até à página da aplicação do serviço de aplicações na [portal do Azure](https://portal.azure.com).
 
-No menu à esquerda, clique em **Deployment Center** > **GitHub** ou **VSTS** ou **BitBucket**  >  **Desligar**.
+No menu à esquerda, clique em **Deployment Center** > **GitHub** ou **serviços do Azure DevOps** ou **BitBucket**  >  **Desligar**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -153,4 +153,4 @@ No menu à esquerda, clique em **Deployment Center** > **GitHub** ou **VSTS** ou
 
 [Criar um repositório (GitHub)]: https://help.github.com/articles/create-a-repo
 [Criar um repositório (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Introdução ao VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Introdução aos serviços do Azure DevOps]: https://www.visualstudio.com/docs/vsts-tfs-overview

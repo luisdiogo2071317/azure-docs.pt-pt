@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 24033431bc170969ccbdf1e993e4b6a5501acd81
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286278"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325401"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -72,9 +72,6 @@ sistemas operativos de 32 bits | A máquina pode arrancar no Azure, mas o Azure 
 
 Depois de uma máquina é marcada como preparado para o Azure, Azure Migrate tamanhos de VM e os respetivos discos para o Azure. Se o critério de dimensão especificado nas propriedades de avaliação é fazer o dimensionamento com base no desempenho, o Azure Migrate considera o histórico de desempenho da máquina para identificar o tipo de disco e de tamanho VM no Azure. Este método é útil em cenários em que alocou demasiado a VM no local, mas a utilização for baixa e gostaria de dimensionar as VMs no Azure para poupar no custo.
 
-> [!NOTE]
-> O Azure Migrate recolhe histórico de desempenho das VMs no local a partir do servidor vCenter. Para garantir o dimensionamento certo preciso, certifique-se de que a definição de estatística no vCenter Server está definida como nível 3 e aguarde, pelo menos, um dia antes de iniciar a deteção das VMs no local. Se a definição de estatística no vCenter Server for inferior ao nível 3, os dados de desempenho de disco e rede não são coletados.
-
 Se não pretender considerar o histórico de desempenho para o dimensionamento de VM e deseja levar a VM como-é para o Azure, pode especificar o critério de dimensionamento como *como no local* e o Azure Migrate, em seguida, irá dimensionar as VMs com base no local configuração sem considerar os dados de utilização. Disco de tamanho, neste caso, será feita com base no tipo de armazenamento que especificar nas propriedades de avaliação (disco Standard ou disco Premium)
 
 ### <a name="performance-based-sizing"></a>Dimensionamento com base no desempenho
@@ -119,14 +116,24 @@ Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados d
    61%-80% | 4 Estrelas
    81%-100% | 5 Estrelas
 
-Uma avaliação pode não ter todos os pontos de dados disponíveis por um dos seguintes motivos:
-- A definição das estatísticas no vCenter Server não está definida para o nível 3. Se a definição de estatística no vCenter Server for inferior ao nível 3, os dados de desempenho para o disco e rede não são recolhidos do vCenter Server. Neste caso, a recomendação dada pelo Azure Migrate para disco e rede não se baseia na utilização. Sem considerar o IOPS/débito do disco, o Azure Migrate não pode identificar se o disco precisará de um disco premium no Azure. Neste caso, o Azure Migrate recomenda discos Standard para todos os discos.
-- A definição de estatística no vCenter Server foi definida como nível 3 para uma duração mais curta, antes de iniciar a deteção. Por exemplo, consideremos o cenário em que muda o nível de definição de estatística para 3 hoje e inicia a deteção com a aplicação recoletora amanhã (após 24 horas). Se estiver a criar uma avaliação para um dia, terá todos os pontos de dados e a classificação de confiança da avaliação será de 5 estrelas. No entanto, se estiver a mudar a duração do desempenho nas propriedades de avaliação para um mês, a classificação de confiança irá descer, uma vez que os dados de desempenho de rede e disco do último mês não estarão disponíveis. Se pretender considerar os dados de desempenho do último mês, é recomendado que mantenha a definição de estatística do vCenter Server no nível 3 durante um mês antes de iniciar a deteção.
-- Poucas VMs foram encerradas durante o período para o qual a avaliação é calculada. Se houver VMs desligadas durante algum tempo, o vCenter Server não terá os dados de desempenho correspondentes a esse período.
-- Poucas VMs foram criadas no período para o qual a avaliação é calculada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Em casos como este, o histórico de desempenho das novas VMs não estará lá para o período completo.
+   Abaixo estão os motivos pelos quais relativamente à razão pela qual uma avaliação foi possível obter uma classificação de confiança baixa:
 
-> [!NOTE]
-> Se a classificação de confiança de qualquer avaliação for abaixo de 4 Estrelas, recomendamos que altere o nível das definições de estatística do vCenter Server para 3, aguarde o tempo que pretende considerar para avaliação (1 dia/1 semana/1 mês) e, em seguida, efetue a deteção e avaliação. Se não conseguir fazê-lo, o dimensionamento baseado em desempenho poderá não ser fiável e recomenda-se que mude para o *dimensionamento no local* ao alterar as propriedades de avaliação.
+   **Deteção de uso individual**
+
+   - A definição das estatísticas no vCenter Server não está definida para o nível 3. Uma vez que o modelo de deteção única depende as definições de estatísticas do vCenter Server, se as estatísticas no vCenter Server for inferior ao nível 3, dados de desempenho de disco e rede não são recolhidos do vCenter Server. Neste caso, a recomendação dada pelo Azure Migrate para disco e rede não se baseia na utilização. Sem considerar o IOPS/débito do disco, o Azure Migrate não pode identificar se o disco precisará de um disco premium no Azure. Neste caso, o Azure Migrate recomenda discos Standard para todos os discos.
+   - A definição de estatística no vCenter Server foi definida como nível 3 durante um período mais curto antes de iniciar a deteção. Por exemplo, consideremos o cenário em que muda o nível de definição de estatística para 3 hoje e inicia a deteção com a aplicação recoletora amanhã (após 24 horas). Se estiver a criar uma avaliação para um dia, terá todos os pontos de dados e a classificação de confiança da avaliação será de 5 estrelas. No entanto, se estiver a mudar a duração do desempenho nas propriedades de avaliação para um mês, a classificação de confiança irá descer, uma vez que os dados de desempenho de rede e disco do último mês não estarão disponíveis. Se pretender considerar os dados de desempenho do último mês, é recomendado que mantenha a definição de estatística do vCenter Server no nível 3 durante um mês antes de iniciar a deteção.
+
+   **Deteção contínua**
+
+   - Não criar perfis seu ambiente para a duração para o qual está a criar a avaliação. Por exemplo, se estiver a criar a avaliação com duração de desempenho definida para 1 dia, terá de aguardar pelo menos um dia após iniciar a deteção para todos os pontos de dados obter recolhidos.
+
+   **Motivos comuns**  
+
+   - Poucas VMs foram encerradas durante o período para o qual a avaliação é calculada. Se quaisquer VMs desligadas durante algum, não será possível recolher os dados de desempenho durante esse período.
+   - Poucas VMs foram criadas no período para o qual a avaliação é calculada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Em casos como este, o histórico de desempenho das novas VMs não estará lá para o período completo.
+
+   > [!NOTE]
+   > Se a classificação de confiança de qualquer avaliação for abaixo de 4 estrelas, para o modelo de deteção única, recomendamos que altere o nível de definições de estatísticas do servidor vCenter para 3, aguarde o tempo que pretende considerar para avaliação (1 dia/1 semana/1 mês) e, em seguida, fazer Deteção e avaliação. Para o modelo de deteção contínua, aguarde pelo menos um dia para a aplicação para o ambiente de perfil e, em seguida *recalcular* a avaliação. Se anterior não pode ser feito, o dimensionamento com base no desempenho poderá não ser fiável e recomenda-se que mude para o *no local dimensionamento* ao alterar as propriedades de avaliação.
 
 ## <a name="monthly-cost-estimation"></a>Estimativa de custo mensal
 

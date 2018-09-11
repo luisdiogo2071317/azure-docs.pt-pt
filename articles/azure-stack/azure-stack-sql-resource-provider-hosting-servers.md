@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c33d1fe1385619420215ec0f0fa3b0a2f90dddc0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842503"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299462"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do SQL
 
@@ -45,6 +45,9 @@ Antes de adicionar um servidor de alojamento de SQL, reveja os seguintes requisi
 Imagens de máquinas virtuais de IaaS do SQL estão disponíveis através da funcionalidade de gestão do Marketplace. Estas imagens são as mesmas que as VMs de SQL que estão disponíveis no Azure.
 
 Certifique-se de que sempre transferir a versão mais recente dos **extensão de IaaS do SQL** antes de implementar uma VM do SQL com um item do mercado. A extensão de IaaS e o portal correspondente melhorias fornecem funcionalidades adicionais, como a aplicação de patches automática e de cópia de segurança. Para obter mais informações sobre esta extensão, consulte [automatizar tarefas de gestão em máquinas virtuais do Azure com a extensão de agente do SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> A extensão de IaaS do SQL é _necessário_ para todos os SQL nas imagens do Windows no marketplace; a VM não será a implementar se não a transferir a extensão. Não é utilizado com imagens de máquinas virtuais do SQL baseado em Linux.
 
 Existem outras opções para implementar VMs de SQL, incluindo modelos no [Galeria de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -125,7 +128,7 @@ Para ativar o seeding automático em todas as instâncias, editar e, em seguida,
   GO
   ```
 
-Tenha em atenção que o grupo de disponibilidade deve estar entre parênteses Retos.
+O grupo de disponibilidade deve estar entre parênteses Retos.
 
 Em nós do secundários, execute o seguinte comando SQL:
 

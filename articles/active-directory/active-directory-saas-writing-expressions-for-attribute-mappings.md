@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
-ms.openlocfilehash: 1c9fe9fb63b45233ed1a11bb63c0763c6103bc6d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a48b5aabdaf7f8f9e7269a995d92d046cca21786
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095186"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325571"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -269,6 +269,6 @@ Se o código de estado não corresponder a qualquer uma das opções predefinida
 * [Personalizar mapeamentos de atributos para o aprovisionamento do utilizador](active-directory-saas-customizing-attribute-mappings.md)
 * [Filtros de âmbito para o aprovisionamento do utilizador](active-directory-saas-scoping-filters.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Notificações do aprovisionamento de contas](active-directory-saas-account-provisioning-notifications.md)
+* [Notificações do aprovisionamento de contas](active-directory-saas-app-provisioning.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](saas-apps/tutorial-list.md)
 

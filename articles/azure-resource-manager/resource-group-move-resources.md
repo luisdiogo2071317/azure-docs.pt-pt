@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e0a2e26fb3dd0afeb4d1f3d030cb42bdc181e63c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 807026d2de40de1b14d2eb1d9eeb9da0aade4ad7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094965"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297762"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -163,7 +163,7 @@ Enquanto a operação ainda está em execução, continua a receber o código de
 
 ## <a name="services-that-can-be-moved"></a>Serviços que podem ser movidos
 
-Os serviços que permitem mover para um novo grupo de recursos e uma subscrição são:
+A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser movidos para um novo grupo de recursos e subscrição. Para mais detalhes, consulte [mover o suporte de operação para recursos](move-support-resources.md).
 
 * Analysis Services
 * Gestão de API
@@ -173,6 +173,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Automatização
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* DevOps do Azure - as organizações de DevOps do Azure com a extensão de não-Microsoft compras obrigatória [cancelar as suas compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder avançar a conta em várias subscrições.
 * Azure Maps
 * Reencaminhamento do Azure
 * O Azure Stack - registos
@@ -227,12 +228,11 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Máquinas virtuais (clássico) - consulte [limitações da implementação clássica](#classic-deployment-limitations)
 * Veja conjuntos de dimensionamento de máquinas virtuais - [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Redes virtuais - veja [limitações de redes virtuais](#virtual-networks-limitations)
-* Visual Studio Team Services - as contas VSTS com a extensão de não-Microsoft compras obrigatória [cancelar as suas compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder avançar a conta em várias subscrições.
 * Gateway de VPN
 
 ## <a name="services-that-cannot-be-moved"></a>Serviços que não não possível mover
 
-Os serviços que atualmente não permitem mover um recurso são:
+A lista seguinte fornece um resumo geral dos serviços do Azure que não pode ser movido para um novo grupo de recursos e subscrição. Para mais detalhes, consulte [mover o suporte de operação para recursos](move-support-resources.md).
 
 * Serviços de domínio do AD
 * Serviço de estado de funcionamento do AD híbrido

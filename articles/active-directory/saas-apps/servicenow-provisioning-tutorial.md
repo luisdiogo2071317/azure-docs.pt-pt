@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426909"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348111"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar o ServiceNow para aprovisionamento automático de utilizadores no Azure Active Directory
 
 O objetivo deste tutorial é mostrar a os passos que necessários para executar em ServiceNow e o Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD ao ServiceNow.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](./../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com ServiceNow, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Para o ServiceNow, uma instância ou um inquilino do ServiceNow, versão Calgary ou superior
 - Para o ServiceNow Express, uma instância do ServiceNow Express, versão Helsínquia ou superior
 
@@ -100,7 +100,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 Ele começa a sincronização inicial de todos os utilizadores e/ou grupos atribuídos ao ServiceNow na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades, que descrevem a todas as ações executadas pelo serviço de aprovisionamento na sua aplicação ServiceNow de aprovisionamento.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

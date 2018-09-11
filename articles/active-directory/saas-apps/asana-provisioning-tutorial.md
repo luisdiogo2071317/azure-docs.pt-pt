@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 26642fefbb86b2709e110b13d782286fd18d5e60
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427657"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348060"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar Asana para aprovisionamento automático de utilizadores
 
@@ -89,7 +89,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
 1. Sob o **mapeamentos** secção, selecione **sincronizar utilizadores do Azure Active Directory para Asana**.
 
-1. Na **mapeamentos de atributos** secção, reveja os atributos de utilizador a ser sincronizados a partir do Azure AD para Asana. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Asana para operações de atualização. Selecione **guardar** para consolidar as alterações. Para obter mais informações, consulte [personalizar mapeamentos de atributos do utilizador aprovisionar](../active-directory-saas-customizing-attribute-mappings.md).
+1. Na **mapeamentos de atributos** secção, reveja os atributos de utilizador a ser sincronizados a partir do Azure AD para Asana. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Asana para operações de atualização. Selecione **guardar** para consolidar as alterações. Para obter mais informações, consulte [personalizar mapeamentos de atributos do utilizador aprovisionar](../manage-apps/customize-application-attributes.md).
 
 1. Para ativar o Azure AD para Asana, do serviço de aprovisionamento no **configurações** secção, altere **estado de aprovisionamento** para **no**.
 
@@ -97,10 +97,10 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
 Agora é iniciada a sincronização inicial para todos os utilizadores atribuídos a Asana no **utilizadores** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Utilize o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades de aprovisionamento. Os registos de auditoria descrevem todas as ações executadas pelo serviço de aprovisionamento na sua aplicação do Asana.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [um relatório sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [um relatório sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar o início de sessão único](asana-tutorial.md)
+* [Configure single sign-on](asana-tutorial.md) (Configurar o início de sessão único)

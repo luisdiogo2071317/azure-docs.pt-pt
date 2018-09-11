@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1da742f54a9a415c6078a6185a9605db700dffd5
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369087"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324959"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativos de baseadas em atributos com filtros de âmbito
 O objetivo deste artigo é explicar como utilizar filtros de âmbito para definir regras baseadas em atributos que determinam quais usuários são aprovisionados para um aplicativo.
@@ -115,7 +115,7 @@ Filtros de âmbito são configurados como parte dos mapeamentos de atributos par
 * [Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS de utilizador](active-directory-saas-app-provisioning.md)
 * [Personalizar mapeamentos de atributos para o aprovisionamento do utilizador](active-directory-saas-customizing-attribute-mappings.md)
 * [Escrever expressões para mapeamentos de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Notificações do aprovisionamento de contas](active-directory-saas-account-provisioning-notifications.md)
+* [Notificações do aprovisionamento de contas](active-directory-saas-app-provisioning.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](saas-apps/tutorial-list.md)
 

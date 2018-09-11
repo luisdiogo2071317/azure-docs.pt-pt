@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: c2d7cc21b1546c9594a2ef174927777f583a6841
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9516534216c4a2c0f61e33ea3cbf1bbcb2ab58c7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055148"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301315"
 ---
 # <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Assistente
 
@@ -60,6 +60,10 @@ Distorção de dados pode provocar afunilamentos de movimento ou recurso de dado
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Criar ou atualizar estatísticas de tabela Desatualizadas em sua tabela de armazém de dados SQL para melhorar o desempenho de consulta
 
 Advisor identifica as tabelas que não tenham atualizado [estatísticas de tabela](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) e recomenda criar ou atualizar estatísticas de tabela. Consulta otimizador utiliza ukazatelé atualizado para estimar a cardinalidade ou o número de linhas no resultado da consulta que permite que o otimizador de consultas criar um plano de consulta de alta qualidade para um desempenho mais rápido do armazém de dados do SQL.
+
+## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrar a sua conta de armazenamento para o Azure Resource Manager para obter todas as funcionalidades do Azure mais recente
+
+Migre o seu modelo de implementação da conta de armazenamento para Azure Resource Manager (ARM) para tirar partido das implementações de modelo, opções de segurança adicionais e a capacidade de atualizar para uma conta GPv2 para utilização de funcionalidades mais recentes do armazenamento do Azure. O assistente irá identificar quaisquer contas de armazenamento autónomo que estão a utilizar o modelo de implementação clássica e recomenda a migração para o modelo de implementação ARM. 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

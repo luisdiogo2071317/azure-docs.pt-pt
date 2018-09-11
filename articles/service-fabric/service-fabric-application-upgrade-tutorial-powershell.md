@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055609"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348774"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização da aplicação de Service Fabric com o PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Criar e publicar a aplicação ao clicar com o botão direito no projeto de apli
 > 
 > 
 
-Depois de compilar o projeto no Visual Studio, pode utilizar o comando do PowerShell [cópia ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) para copiar o pacote de aplicação para o ImageStore. Se pretender verificar o pacote de aplicação localmente, utilize o [teste ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. A próxima etapa é registrar o aplicativo para o runtime do Service Fabric com o [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. O passo seguinte é iniciar uma instância da aplicação com o [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  Estes três passos são análogos para utilizar o **Deploy** item de menu no Visual Studio.  Assim que o aprovisionamento estiver concluído, deverá limpar o pacote de aplicação copiados do arquivo de imagens para reduzir os recursos consumidos.  Se um tipo de aplicação já não for necessário, deve ser anulado o registo pela mesma razão. Ver [implementar e remover aplicações com o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) para obter mais informações.
+Depois de compilar o projeto no Visual Studio, pode utilizar o comando do PowerShell [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) para copiar o pacote de aplicação para o ImageStore. Se pretender verificar o pacote de aplicação localmente, utilize o [teste ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet. A próxima etapa é registrar o aplicativo para o runtime do Service Fabric com o [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) cmdlet. O passo seguinte é iniciar uma instância da aplicação com o [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  Estes três passos são análogos para utilizar o **Deploy** item de menu no Visual Studio.  Assim que o aprovisionamento estiver concluído, deverá limpar o pacote de aplicação copiados do arquivo de imagens para reduzir os recursos consumidos.  Se um tipo de aplicação já não for necessário, deve ser anulado o registo pela mesma razão. Ver [implementar e remover aplicações com o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) para obter mais informações.
 
 Agora, pode usar [Service Fabric Explorer para ver o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo tem um serviço web que pode navegar no Internet Explorer, escrevendo [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) na barra de endereço.  Deverá ver alguns objetos visuais flutuantes em movimento na tela.  Além disso, pode usar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para verificar o estado do aplicativo.
 

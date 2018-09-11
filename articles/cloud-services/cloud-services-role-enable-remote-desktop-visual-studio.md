@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 87c7029836bf28464fd48e17480119a4dcb1201c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055841"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304060"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure com o Visual Studio
 
@@ -30,7 +30,7 @@ Ambiente de trabalho remoto permite-lhe aceder a área de trabalho de uma funç�
 
 O Assistente de publicação que o Visual Studio fornece para serviços em nuvem inclui uma opção para ativar o ambiente de trabalho remoto durante o processo de publicação, usando as credenciais fornecidas. Utilizar esta opção é adequada ao utilizar o Visual Studio 2017 versão 15.4 e anterior.
 
-No entanto, com o Visual Studio 2017 versão 15.5 e posterior, é recomendável que evite ativar o ambiente de trabalho remoto através do Assistente de publicação, a menos que está trabalhando apenas como um único desenvolvedor. Para qualquer situação em que o projeto pode ser aberto por outros desenvolvedores, ativar em vez disso, ambiente de trabalho remoto através do portal do Azure, através do PowerShell ou a partir de uma definição de versão num fluxo de trabalho de implementação contínua. Esta recomendação é devido a uma alteração na forma como Visual Studio comunica com o ambiente de trabalho remoto no serviço em nuvem da VM, conforme é explicado neste artigo.
+No entanto, com o Visual Studio 2017 versão 15.5 e posterior, é recomendável que evite ativar o ambiente de trabalho remoto através do Assistente de publicação, a menos que está trabalhando apenas como um único desenvolvedor. Para qualquer situação em que o projeto pode ser aberto por outros desenvolvedores, ativar em vez disso, ambiente de trabalho remoto através do portal do Azure, através do PowerShell ou a partir de um pipeline de lançamento num fluxo de trabalho de implementação contínua. Esta recomendação é devido a uma alteração na forma como Visual Studio comunica com o ambiente de trabalho remoto no serviço em nuvem da VM, conforme é explicado neste artigo.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configurar o ambiente de trabalho remoto através do Visual Studio 2017 versão 15.4 e anterior
 
@@ -82,9 +82,9 @@ Se estiver a partilhar o projeto com uma equipe, em seguida, é melhor desmarque
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Implementar a partir de um servidor de compilação com o Visual Studio 2017 versão 15.5 e posterior
 
-Pode implementar um projeto de serviço em nuvem de um servidor de compilação (por exemplo, com o Visual Studio Team Services) no qual Visual Studio 2017 versão 15.5 ou posterior está instalado no agente de compilação. Com essa organização, a implementação acontece no mesmo computador no qual o certificado de encriptação está disponível.
+Pode implementar um projeto de serviço em nuvem de um servidor de compilação (por exemplo, com os serviços de DevOps do Azure) no qual Visual Studio 2017 versão 15.5 ou posterior está instalado no agente de compilação. Com essa organização, a implementação acontece no mesmo computador no qual o certificado de encriptação está disponível.
 
-Para utilizar a extensão RDP do Visual Studio Team Services, incluem os seguintes detalhes em sua definição de compilação:
+Para utilizar a extensão RDP dos serviços de DevOps do Azure, incluem os seguintes detalhes no seu pipeline de compilação:
 
 1. Incluir `/p:ForceRDPExtensionOverPlugin=true` em seus argumentos de MSBuild para se certificar de que a implantação funciona com a extensão RDP em vez do plug-in RDP. Por exemplo:
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 47ce9729e25fdfe3b72f45b3090473bb7dbeaa7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059904"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296334"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o aprovisionamento de contas de utilizadores automático
 
@@ -30,11 +30,11 @@ Este artigo descreve como verificar o estado do aprovisionamento tarefas depois 
 
 ## <a name="overview"></a>Descrição geral
 
-Conectores de aprovisionamento são a configurar e configurado com o [portal do Azure](https://portal.azure.com), seguindo a [apresentava uma documentação](saas-apps/tutorial-list.md) para a aplicação suportada. Depois de configurado e em execução, o aprovisionamento de tarefas pode ser comunicado sobre como utilizar um dos dois métodos:
+Conectores de aprovisionamento são a configurar e configurado com o [portal do Azure](https://portal.azure.com), seguindo a [apresentava uma documentação](./saas-apps/tutorial-list.md) para a aplicação suportada. Depois de configurado e em execução, o aprovisionamento de tarefas pode ser comunicado sobre como utilizar um dos dois métodos:
 
 * **Portal de gestão do Azure** -este artigo descreve, principalmente, recuperando informações de relatório a partir do [portal do Azure](https://portal.azure.com), que fornece tanto um relatório de resumo de aprovisionamento, bem como aprovisionamento detalhadas registos de auditoria para um determinado aplicativo.
 
-* **API de auditoria** -Azure Active Directory também fornece uma API de auditoria que permite a obtenção programática dos logs de auditoria de aprovisionamento detalhadas. Ver [auditoria do Azure Active Directory referência da API](active-directory-reporting-api-audit-reference.md) para obter a documentação específica para utilizarem esta API. Embora este artigo não abrange como utilizar a API especificamente, de detalhe os tipos de aprovisionamento de eventos que são registrados no log de auditoria.
+* **API de auditoria** -Azure Active Directory também fornece uma API de auditoria que permite a obtenção programática dos logs de auditoria de aprovisionamento detalhadas. Ver [auditoria do Azure Active Directory referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) para obter a documentação específica para utilizarem esta API. Embora este artigo não abrange como utilizar a API especificamente, de detalhe os tipos de aprovisionamento de eventos que são registrados no log de auditoria.
 
 ### <a name="definitions"></a>Definições
 
@@ -131,7 +131,7 @@ Para melhor legibilidade no portal do Azure, selecione o **colunas** botão e se
 
 Os registos de auditoria e relatório de resumos aprovisionamento um papel importante ajudar os administradores a resolver problemas de configuração de contas de utilizador de vários.
 
-Para orientação baseada em cenário sobre como resolver problemas de aprovisionamento automático de utilizadores, consulte [problemas ao configurar e aprovisionar utilizadores para uma aplicação](active-directory-application-provisioning-content-map.md).
+Para orientação baseada em cenário sobre como resolver problemas de aprovisionamento automático de utilizadores, consulte [problemas ao configurar e aprovisionar utilizadores para uma aplicação](application-provisioning-config-problem.md).
 
 
 ## <a name="additional-resources"></a>Recursos Adicionais

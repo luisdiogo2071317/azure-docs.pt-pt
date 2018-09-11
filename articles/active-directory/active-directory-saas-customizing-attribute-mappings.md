@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4d3967acc7c6dc3b2c94236cc53e8b45e09e6b6d
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056194"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325384"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários
 Microsoft Azure AD fornece suporte para aprovisionamento de utilizadores para aplicações de SaaS de terceiros, como o Salesforce, Google Apps e outros. Se tiver de aprovisionamento de utilizadores para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de mapeamentos de atributos.
@@ -33,18 +33,18 @@ Existe um conjunto pré-configuradas de atributos e mapeamentos de atributos ent
 No portal do Azure AD, pode aceder a esta funcionalidade ao clicar num **mapeamentos** configuração em **aprovisionamento** no **gerir** secção de um  **Aplicação empresarial**.
 
 
-![Salesforce][5] 
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/21.png) 
 
 Clicar num **mapeamentos** configuração, é aberto o relacionados **mapeamento do atributo** ecrã. Existem mapeamentos de atributos que são necessários para uma aplicação SaaS para funcionar corretamente. Para os atributos necessários, o **eliminar** funcionalidade não está disponível.
 
 
-![Salesforce][6]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/22.png)
 
 No exemplo acima, pode ver que o **nome de utilizador** atributo de um objeto gerido no Salesforce é preenchido com o **userPrincipalName** valor do objeto ligado para o Azure Active Directory.
 
 Pode personalizar a existente **mapeamentos de atributos** ao clicar num mapeamento. Esta ação abre o **Editar atributo** ecrã.
 
-![Salesforce][7]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/23.png)
 
 
 ### <a name="understanding-attribute-mapping-types"></a>Compreender os tipos de mapeamento do atributo
@@ -77,7 +77,7 @@ Para além desta propriedade, mapeamentos de atributos também suportam os segui
 
 Um número selecionado de aplicativos, como o ServiceNow, a caixa e o Google Apps, suporta a capacidade de provisionar objetos de grupo, além de objetos de utilizador. Objetos de grupo podem conter propriedades do grupo, como os nomes a apresentar e aliases, além de membros do grupo de e-mail.
 
-![ServiceNow][8]  
+![ServiceNow](media/active-directory-saas-customizing-attribute-mappings/24.png)
 
 Aprovisionamento do grupo pode ser opcionalmente ativado ou desativado, selecionando o mapeamento de grupo sob **mapeamentos**e a definição **ativado** para a opção pretendida no **mapeamento do atributo** ecrã.
 
@@ -104,7 +104,7 @@ Aplicações e sistemas que suportam a personalização da lista de atributos in
 >[!NOTE]
 >Editar a lista de atributos suportados apenas é recomendada para os administradores que tem personalizado o esquema de seus aplicativos e sistemas e tenham conhecimento de primeira mão de como seus atributos personalizados foram definidos. Às vezes, isso exige familiaridade com as ferramentas APIs e os desenvolvedores fornecidas por um aplicativo ou sistema. 
 
-![Editor][9]  
+![Editor](media/active-directory-saas-customizing-attribute-mappings/25.png) 
 
 Ao editar a lista de atributos suportados, são fornecidas as seguintes propriedades:
 
@@ -152,10 +152,4 @@ A seleção desta opção efetivamente forçará uma nova sincronização de tod
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](saas-apps/tutorial-list.md)
 
-<!--Image references-->
-[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
-[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
-[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-[8]: ./media/active-directory-saas-customizing-attribute-mappings/24.png
-[9]: ./media/active-directory-saas-customizing-attribute-mappings/25.PNG
 

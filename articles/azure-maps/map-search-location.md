@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0cc0ec79cf23d3bba01845ed64493df010c1ca66
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b324d0a68fde8f47072a087330f2e40a99378984
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161701"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299479"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -22,7 +22,7 @@ Este artigo mostra como procurar a localização de interesse e mostrar os resul
 
 Existem duas formas de procurar uma localização de interesse, uma delas é através da utilização de um módulo de serviço para fazer um pedido de pesquisa e a outra é fazendo uma solicitação de pesquisa por meio de um [XMLHttpRequest](https://xhr.spec.whatwg.org/) para [APIdepesquisadifusademapasdoAzure](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). Vamos discutir, ambos abaixo.
 
-## <a name="use-service-module-to-make-a-search-request"></a>Utilizar o módulo de serviço para fazer um pedido de pesquisa
+## <a name="making-a-search-request-via-service-module"></a>Fazer uma solicitação de pesquisa através do módulo de serviço
 
 ### <a name="understand-the-code"></a>Compreender o código
 
@@ -36,7 +36,7 @@ O segundo bloco de código usa a pesquisa difusa [API de pesquisa difusa do Azur
 O último bloco de código ajusta os limites de câmera para o mapa através do mapa [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) propriedade.
 
 
-## <a name="search-by-xmlhttprequest"></a>Procurar por XMLHttpRequest
+##  <a name="making-a-search-request-via-xmlhttprequest"></a>Fazer uma solicitação de pesquisa via XMLHttpRequest
 
 ### <a name="understand-the-code"></a>Compreender o código
 

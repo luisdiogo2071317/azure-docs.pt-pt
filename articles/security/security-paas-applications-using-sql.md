@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 00b2b249f5889888f34d57fd1577ccfea776d00c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493026"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347975"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Protegendo bancos de dados de PaaS no Azure
 
@@ -79,7 +79,7 @@ Para saber mais sobre as restrições de IP e Firewall do SQL Azure, veja:
 ### <a name="encryption-of-data-at-rest"></a>Encriptação de dados inativos
 [Encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/azure/bb934049) está ativada por predefinição. TDE transparente encripta os ficheiros de registo e de dados do SQL Server, SQL Database do Azure e Azure SQL Data Warehouse. TDE protege contra um comprometimento de acesso direto à sua cópia de segurança ou os ficheiros. Isto permite-lhe encriptar dados Inativos sem alterar os aplicativos existentes. TDE deve sempre ficar ativado; No entanto, isto não irá parar um atacante a utilizar o caminho de acesso normal. TDE fornece a capacidade para estar em conformidade com várias leis, regulamentações e diretrizes estabelecidas em vários setores.
 
-SQL do Azure gere problemas relacionados com chaves para TDE. Como com TDE, no local especial deve ter cuidado para garantir a capacidade de recuperação e quando mover bases de dados. Em cenários mais sofisticados, as chaves podem ser explicitamente geridas no Azure Key Vault através da gestão de chave extensível (consulte [ativar a TDE no SQL Server usando EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Isto também permite para Bring Your Own Key (BYOK) através de capacidade de BYOK de cofres de chaves do Azure.
+SQL do Azure gere problemas relacionados com chaves para TDE. Como com TDE, no local especial deve ter cuidado para garantir a capacidade de recuperação e quando mover bases de dados. Em cenários mais sofisticados, as chaves podem ser explicitamente geridas no Azure Key Vault através da gestão de chave extensível (consulte [ativar a TDE no SQL Server usando EKM](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm)). Isto também permite para Bring Your Own Key (BYOK) através de capacidade de BYOK de cofres de chaves do Azure.
 
 SQL do Azure fornece encriptação para colunas através de [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Isso permite que o acesso apenas aplicativos autorizados para colunas confidenciais. Usar esse tipo de criptografia limita a consultas SQL em colunas encriptadas para valores com base na igualdade.
 

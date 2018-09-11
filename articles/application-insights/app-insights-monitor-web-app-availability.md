@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
-ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: 392abef7f92dce024ba6e4af091cf58fde5119b6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302396"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -113,7 +115,7 @@ A partir de um resultado de teste de disponibilidade, pode:
 
 * Inspecionar a resposta recebida do seu servidor.
 * Diagnosticar falhas com a telemetria de lado do servidor recolhida durante o processamento a instância de pedido falhado.
-* Registe um problema ou item de trabalho no Git ou no VSTS para controlar o problema. O erro irá conter uma ligação para este evento.
+* Inicie sessão um problema ou item de trabalho no Git ou do Azure DevOps, para controlar o problema. O erro irá conter uma ligação para este evento.
 * Abra o resultado do teste da Web no Visual Studio.
 
 *Os resultados parecem estar OK mas foi reportada uma falha?* Veja as [FAQ](#qna) para formas de reduzir o ruído.
@@ -180,7 +182,9 @@ Utilize o Visual Studio Enterprise para guardar uma sessão Web.
 
 Veja os resultados do teste e as eventuais falhas da mesma forma que os testes com URL único.
 
-Além disso, pode transferir os resultados do teste para visualizá-los no Visual Studio.
+Também pode transferir os resultados do teste para visualizá-los no Visual Studio.
+
+Para transferir os resultados do teste. Navegue para o resumo de teste de disponibilidade, clique num resultado no gráfico para abrir a janela de resultados do teste de disponibilidade e, em seguida, clique em **abra no Visual Studio** para transferir o resultado do teste.
 
 #### <a name="too-many-failures"></a>Tem demasiadas falhas?
 
@@ -253,7 +257,7 @@ Se o teste tiver de iniciar sessão com a OAuth, a abordagem geral será:
 ## <a name="performance-tests"></a>Testes de desempenho
 Pode executar um teste de carga no seu Website. Como o teste de disponibilidade, pode enviar pedidos simples ou pedidos com vários passos a partir dos nossos pontos a nível mundial. Ao contrário de um teste de disponibilidade, são enviados muitos pedidos, simulando vários utilizadores em simultâneo.
 
-No painel Descrição geral, abra **Definições**, **Testes de desempenho**. Quando cria um teste, recebe um convite para ligar ou criar uma conta dos Serviços da Equipa do Visual Studio.
+No painel Descrição geral, abra **Definições**, **Testes de desempenho**. Quando cria um teste, está convidado para ligar ou criar uma organização de serviços de DevOps do Azure.
 
 Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e taxas de êxito.
 

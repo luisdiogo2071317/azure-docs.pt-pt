@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c38623bba4c15add9abae289fae97af33be4f393
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4396a16ec78d604b3d6c3bea5571d21ca48d5921
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443471"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346292"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar Jive para aprovisionamento automático de utilizadores
 
@@ -97,7 +97,7 @@ Como parte deste procedimento, é necessário para fornecer um token de seguran�
 
 Ele começa a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Jive na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades, que descrevem a todas as ações executadas pelo serviço de aprovisionamento na sua aplicação do Jive de aprovisionamento.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

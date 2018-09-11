@@ -11,12 +11,12 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126782"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297473"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Crie seu primeiro aplicativo sem servidor com o Azure Logic Apps e as funções do Azure - Visual Studio
 
@@ -122,7 +122,7 @@ Para criar o seu projeto de funções e a função com JavaScript, Python, F #, 
 
 ## <a name="deploy-functions-from-visual-studio"></a>Implementar as funções a partir do Visual Studio
 
-O modelo de implementação implementa todas as funções do Azure que tem na sua solução do repositório Git que é especificado por meio de variáveis no `azuredeploy.json` ficheiro. Se cria e cria o projeto de funções na sua solução, pode verificar esse projeto no controle de origem do Git, por exemplo, o GitHub ou o Visual Studio Team Services e, em seguida, atualize o `repo` variável para que o modelo implementa a função do Azure.
+O modelo de implementação implementa todas as funções do Azure que tem na sua solução do repositório Git que é especificado por meio de variáveis no `azuredeploy.json` ficheiro. Se cria e cria o projeto de funções na sua solução, pode verificar esse projeto no controle de origem do Git, por exemplo, o GitHub ou o Azure DevOps e, em seguida, atualize o `repo` variável para que o modelo implementa a função do Azure.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Gerir aplicações lógicas e ver o histórico de execuções
 

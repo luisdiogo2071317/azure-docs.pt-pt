@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 16349af5932987cc0db4295355a0365c8579fcbf
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697246"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345745"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuração de rede no Azure Kubernetes Service (AKS)
 
@@ -173,11 +173,14 @@ As perguntas e respostas seguintes aplicam-se para o **avançadas** configuraç�
 
 Saiba mais sobre o funcionamento em rede no AKS nos seguintes artigos:
 
-[Utilizar um endereço IP estático com o Balanceador de carga do Azure Kubernetes Service (AKS)](static-ip.md)
+- [Utilizar um endereço IP estático com o Balanceador de carga do Azure Kubernetes Service (AKS)](static-ip.md)
+- [Utilizar um balanceador de carga interno com o Azure Container Service (AKS)](internal-lb.md)
 
-[Entrada HTTPS no Azure Container Service (AKS)](ingress.md)
-
-[Utilizar um balanceador de carga interno com o Azure Container Service (AKS)](internal-lb.md)
+- [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
+- [Ativar o suplemento de encaminhamento de aplicação de HTTP][aks-http-app-routing]
+- [Criar um controlador de entrada que utiliza uma rede interna, privada e o endereço IP][aks-ingress-internal]
+- [Criar um controlador de entrada com um IP público dinâmico e configurar a encriptar vamos para gerar automaticamente certificados TLS][aks-ingress-tls]
+- [Criar um controlador de entrada com um IP público estático e configurar a encriptar vamos para gerar automaticamente certificados TLS][aks-ingress-static-tls]
 
 ### <a name="acs-engine"></a>Motor de ACS
 
@@ -200,3 +203,8 @@ Clusters de Kubernetes criados com o motor de ACS de suportar o [kubenet] [ kube
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
+[aks-ingress-basic]: ingress-basic.md
+[aks-ingress-tls]: ingress-tls.md
+[aks-ingress-static-tls]: ingress-static-ip.md
+[aks-http-app-routing]: http-application-routing.md
+[aks-ingress-internal]: ingress-internal-ip.md

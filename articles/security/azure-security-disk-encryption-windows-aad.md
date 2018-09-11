@@ -1,24 +1,18 @@
 ---
 title: Ativar a encriptação de disco do Azure com aplicações do Azure AD para VMs de IaaS do Windows (versão anterior) | Documentos da Microsoft
 description: Este artigo fornece instruções sobre como ativar o Microsoft disco encriptação para o Windows VMs IaaS do Azure.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 30b1151b-3314-4526-ba4e-4f6b23b1b280
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 2ecc177f810c9a3fe2d096b71aed4886cf89d7b4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 52b16341a4d2fb23709c4b97a7fec92ac3923c7d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889629"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348876"
 ---
 #  <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Ativar o disco de encriptação para o Windows VMs IaaS do Azure (versão anterior)
 

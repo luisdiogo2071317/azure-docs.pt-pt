@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e53e3e551041ed5bb04ae8e692a3fe3baf2521f8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919011"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302244"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos Azure Resource Manager
 
 O [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) permite-lhe facilmente [adicionar uma VM ao mesmo tempo a um laboratório](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). No entanto, se o ambiente contém várias VMs, cada VM tem de ser individualmente criada. Para cenários como uma aplicação Web de várias camada ou um farm do SharePoint, é necessário um mecanismo para permitir a criação de várias VMs num único passo. Ao utilizar modelos Azure Resource Manager, pode agora definir a infraestrutura e a configuração da sua solução do Azure e implementar repetidamente a várias VMs num estado consistente. Esta funcionalidade fornece as seguintes vantagens:
 
-- Modelos Azure Resource Manager são carregados diretamente a partir do seu repositório de controle de origem (GitHub ou Git do Team Services).
+- Modelos Azure Resource Manager são carregados diretamente a partir do seu repositório de controle de origem (GitHub ou Git de serviços de DevOps do Azure).
 - Depois de configurada, os seus utilizadores podem criar um ambiente escolhendo um modelo do Azure Resource Manager do portal do Azure, como fazem outros tipos de [bases de VM](./devtest-lab-comparing-vm-base-image-types.md).
 - Recursos de PaaS do Azure podem ser aprovisionados num ambiente a partir de um modelo Azure Resource Manager, além de VMs de IaaS.
 - O custo de ambientes pode ser controlado no laboratório, além de VMs individuais criados por outros tipos de bases.
@@ -42,7 +42,7 @@ Saiba mais sobre os muitos [vantagens da utilização de modelos do Resource Man
 O Azure DevTest Labs tem um [repositório público dos modelos do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que pode utilizar para criar ambientes sem ter de ligar a uma origem externa do GitHub sozinho. Este repositório inclui modelos usados com freqüência, como aplicações Web do Azure, o Cluster do Service Fabric e o desenvolvimento de ambiente de Farm do SharePoint. Esta funcionalidade é semelhante para o repositório público de artefactos que é incluído para todos os laboratórios que criar. O repositório de ambiente permite-lhe começar a utilizar rapidamente com modelos de ambiente previamente criados com parâmetros de entrada mínimos para lhe fornecer uma experiência de introdução ao obter uniforme para os recursos de PaaS dentro de laboratórios. Para obter mais informações, consulte [configurar e utilizar ambientes públicos no DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
 ## <a name="configure-your-own-template-repositories"></a>Configurar os seus próprios repositórios de modelo
-Como uma das melhores práticas com a infraestrutura como código e a configuração como código, modelos de ambiente devem ser geridos no controle de origem. O Azure DevTest Labs segue essa prática e carrega todos os modelos do Azure Resource Manager diretamente a partir de seus repositórios do GitHub ou o Git do VSTS. Como resultado, os modelos do Resource Manager podem ser utilizados no ciclo de lançamento de todo o ambiente de teste para o ambiente de produção.
+Como uma das melhores práticas com a infraestrutura como código e a configuração como código, modelos de ambiente devem ser geridos no controle de origem. O Azure DevTest Labs segue essa prática e carrega todos os modelos do Azure Resource Manager diretamente a partir de seus repositórios do GitHub ou o Git de serviços do Azure DevOps. Como resultado, os modelos do Resource Manager podem ser utilizados no ciclo de lançamento de todo o ambiente de teste para o ambiente de produção.
 
 Veja os modelos criados pela equipe do DevTest Labs no [repositório do GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Neste repositório público, pode ver modelos partilhados por outros utilizadores, que pode utilizar diretamente ou personalize-os para satisfazer as suas necessidades. Depois de criar o seu modelo, armazená-lo neste repositório para partilhá-lo com outras pessoas. Também pode configurar seu próprio repositório de Git com modelos que podem ser utilizadas para configurar ambientes na cloud. 
 
@@ -79,9 +79,9 @@ Os seguintes passos guiá-lo por meio de adicionar um repositório ao seu labora
 1. Selecione **adicionar +** para adicionar o seu repositório de modelos do Azure Resource Manager.
 1. Quando a segunda **repositórios** abre painel, introduza as informações necessárias da seguinte forma:
     - **Nome** -introduza o nome do repositório que é utilizado no laboratório.
-    - **URL de clone de Git** -introduza o URL de clone de GIT HTTPS a partir do GitHub ou o Visual Studio Team Services.  
+    - **URL de clone de Git** -introduza o URL de clone de GIT HTTPS a partir do GitHub ou dos serviços de DevOps do Azure.  
     - **Ramo** -introduza o nome do ramo para acessar as definições de modelo do Azure Resource Manager. 
-    - **Token de acesso pessoal** -o token de acesso pessoal é utilizado para aceder de forma segura o repositório. Para obter o token do Visual Studio Team Services, selecione  **&lt;YourName >> meu perfil > Segurança > token de acesso público**. Para obter o token a partir do GitHub, selecione seu avatar seguido selecionando **definições > token de acesso público**. 
+    - **Token de acesso pessoal** -o token de acesso pessoal é utilizado para aceder de forma segura o repositório. Para obter o token de DevOps nos serviços do Azure, selecione  **&lt;YourName >> meu perfil > Segurança > token de acesso público**. Para obter o token a partir do GitHub, selecione seu avatar seguido selecionando **definições > token de acesso público**. 
     - **Caminhos de pastas** -através de um dos dois campos de entrada, introduza o caminho da pasta que começa com uma barra - / - e é relativo ao seu URI klonu GITU a qualquer uma, as definições de artefacto (o primeiro campo de entrada) ou as definições de modelo do Azure Resource Manager .   
     
         ![Repositório público](./media/devtest-lab-create-environment-from-arm/repo-values.png)

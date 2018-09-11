@@ -1,6 +1,6 @@
 ---
-title: Execução de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs
-description: Como um scientist dados acompanhar o progresso de um projeto de ciência de dados.
+title: Execução de projetos de ciência de dados - Azure Machine Learning | Documentos da Microsoft
+description: Como um cientista de dados poderá acompanhar o progresso de um projeto de ciência de dados.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: e50390a1b6385cabfd0e6b30340634860a062d8d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 32390b05d2ec258a68ed4f53135399675105a7e9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838947"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302090"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Controlar o progresso de projetos de ciência de dados
+# <a name="track-progress-of-data-science-projects"></a>Controlar o progresso dos projetos de ciência de dados
 
-Gestores de grupo de ciência de dados, clientes potenciais clientes potenciais de equipa e a necessidade de clientes potenciais clientes potenciais de projeto para acompanhar o progresso dos seus projetos de equipa, o trabalho tiver sido realizado nos mesmos e por quem e permanece na lista de ações pendentes. 
+Gestores de grupo de ciência de dados, a líderes de equipe e a necessidade de oportunidades potenciais de projeto para controlar o progresso de seus projetos, o qual trabalho tiver sido realizado nos mesmos e por quem e permanece nas listas de tarefas. 
 
-## <a name="vsts-dashboards"></a>VSTS dashboards
-Se estiver a utilizar serviços de equipa do Visual Studio (VSTS), é capaz de criar dashboards para controlar as atividades e os itens de trabalho associados um determinado projeto seja ágil. 
+## <a name="azure-devops-dashboards"></a>Dashboards de DevOps do Azure
+Se estiver a utilizar o Azure DevOps, é possível criar dashboards para controlar as atividades e os itens de trabalho associados um determinado projeto Agile. 
 
-Para obter mais informações sobre como criar e personalizar os dashboards e widgets no Visual Studio Team Services, consulte os seguintes conjuntos de instruções:
+Para obter mais informações sobre como criar e personalizar os dashboards e widgets em DevOps do Azure, consulte os seguintes conjuntos de instruções:
 
-- [Adicionar e gerir dashboards](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
-- [Adicionar widgets a um dashboard](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard).
+- [Adicionar e gerir dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
+- [Adicionar widgets ao dashboard](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
 
 ## <a name="example-dashboard"></a>Dashboard de exemplo
 
-Eis um dashboard de exemplo simples que é criado para controlar as atividades de sprint de um projeto de ciência de dados seja ágil, bem como o número de consolidações para repositórios associados. O **principais esquerda** painel mostra:
+Aqui está um dashboard de exemplo simples que foi criado para controlar as atividades de sprint de um projeto de ciência de dados ágil, bem como o número de consolidações para repositórios associados. O **principais esquerda** painel mostra:
 
-- a contagem decrescente de sprint atual, 
+- a contagem regressiva do sprint atual, 
 - o número de consolidações de cada repositório nos últimos 7 dias
 - o item de trabalho para utilizadores específicos. 
 
 Os painéis restantes mostram o diagrama de fluxo cumulativo (CFD), burndown e burnup para um projeto:
 
-- **Na parte inferior esquerda**: CFD a quantidade de trabalho num determinado Estado, Mostrar aprovados em cinzento, consolidada azul e efetuada a verde.
-- **Principais direito**: burndown gráfico o trabalho restante para concluir versus o tempo restante).
-- **Na parte inferior direita**: burnup gráfico o trabalho que foi concluído em comparação com a quantidade total de trabalho.
+- **Parte inferior esquerda**: CFD a quantidade de trabalho num determinado Estado, que mostra aprovados em cinza, aplicadas a azul e, feito em verde.
+- **Canto superior direito**: gráfico de burndown do trabalho restante para concluir versus o tempo restante).
+- **Parte inferior direita**: burnup o trabalho que foi concluído em comparação com a quantidade total de trabalho do gráfico.
 
 ![dashboard](./media/track-progress/dashboard.png)
 
-Para obter uma descrição de como criar estes gráficos, consulte os inícios rápidos e tutoriais em [Dashboards](https://docs.microsoft.com/vsts/report/dashboards/).
+Para obter uma descrição de como criar estes gráficos, veja os inícios rápidos e tutoriais na [Dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/).
  
 ## <a name="next-steps"></a>Passos Seguintes
 
-Instruções que demonstram todos os passos no processo de **cenários específicos** também são fornecidos. São listados e ligados com descrições de miniaturas no [instruções de exemplo](walkthroughs.md) artigo. Estes mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
+Orientações passo a passo que demonstram todas as etapas do processo para **cenários específicos** também são fornecidas. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) artigo. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: af7c0f9d7e02e4a3074f2fddbdf8a6e0ab52d423
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024329"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295858"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Utilizar perfis de versão de API com o Azure CLI 2.0 do Azure Stack
 
@@ -160,8 +160,11 @@ Utilize os seguintes passos para ligar ao Azure Stack:
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
+
+    >[!NOTE]  
+    >Se estiver a executar uma versão do Azure Stack, antes da compilação de 1808, irá precisar usar o perfil da versão de API **2017-03-09-perfil** em vez do perfil da versão de API **2018-03-01-híbrida**.
 
 1. Inicie sessão no seu ambiente do Azure Stack, utilizando o `az login` comando. Pode iniciar sessão no ambiente do Azure Stack como um utilizador ou como um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 

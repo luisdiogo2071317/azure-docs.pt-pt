@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: f4ce2130b18b183f633c649f98fc1add30753a27
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699969"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296012"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -41,7 +41,7 @@ O Azure Migrate é um serviço de avaliação que ajuda a detetar as suas cargas
 O Azure Migrate é uma ferramenta de planejamento de migração e do Azure Site Recovery Deployment Planner é uma recuperação após desastre (DR), ferramenta de planejamento.
 
 **Migração do VMware para Azure**: Se pretender migrar as cargas de trabalho no local para o Azure, utilizar o Azure Migrate para planeamento da migração. O Azure Migrate avalia cargas de trabalho no local e fornece orientações, informações e mecanismos para ajudá-lo a migrar para o Azure. Assim que estiver pronto com o seu plano de migração, pode utilizar serviços como o Azure Site Recovery e o serviço de migração de base de dados do Azure para migrar as máquinas para o Azure.
-
+ 
 **Migração do Hyper-V para o Azure**: Azure Migrate atualmente suporta apenas a avaliação das máquinas de virtuais de VMware para migração para o Azure. Suporte para Hyper-V está nas previsões para o Azure Migrate. Até lá, pode usar o Site Recovery Deployment Planner. Assim que o suporte de Hyper-V está ativado no Azure Migrate, pode utilizar o Azure Migrate para planejamento de migração de cargas de trabalho do Hyper-V.
 
 **Recuperação após desastre do VMware/Hyper-V para o Azure**: se pretende fazer a recuperação após desastre (DR) no Azure com o Azure Site Recovery (recuperação de sites), utilize o Site Recovery Deployment Planner para planejamento de DR. Site Recovery Deployment Planner faz uma avaliação profunda ASR específicos do seu ambiente no local. Fornece recomendações que são necessários pelo Site Recovery para operações bem-sucedidas de DR, como replicação, ativação pós-falha das suas máquinas virtuais.  
@@ -87,6 +87,10 @@ A deteção com base na aplicação recolhe metadados sobre as VMs no local, a l
   - Saída de rede
 
 A deteção baseada em agente é uma opção disponível sobre a deteção com base na aplicação e ajuda os clientes [visualize as dependências](how-to-create-group-machine-dependencies.md) das VMs no local. Os agentes de dependência recolher detalhes como IP FQDN, o sistema operacional, endereço, endereço MAC, processos em execução dentro da VM e as ligações de TCP de entrada/saída da VM. A deteção baseada em agente é opcional e pode optar por não instalar os agentes se não pretender visualizar as dependências das VMs.
+
+### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Deve haver nenhum impacto no desempenho no ambiente de anfitrião do ESXi analisado?
+
+Uma vez que as informações que recolhemos através do vCenter server, não existe nenhum impacto no desempenho nos anfitriões ESXi. Até mesmo no vCenter server, há quase zero impacto no desempenho.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Em que são os dados recolhidos armazenados e como há muito tempo?
 

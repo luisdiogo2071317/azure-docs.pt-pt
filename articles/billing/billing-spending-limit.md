@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1eb2a3c13a1bbf7f2fd7a9691d833fc9c4b3a2b8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669896"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294039"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Compreender o limite e como removê-lo de gastos do Azure
 
@@ -64,7 +64,7 @@ Para remover o seu limite de gastos, siga estes passos:
 
 O limite de gastos pode evitar que implemente ou utilize determinados de terceiros e os serviços da Microsoft. Estes são os cenários em que deve remover o limite de gastos da sua subscrição.
 
-* Planeia implementar imagens de serviços primários como o Oracle e serviços como o Visual Studio Team Services. Este cenário causa que exceda o limite de gastos quase imediatamente e faz com que a sua subscrição seja desativada.
+* Planeja implantar imagens de serviços primários como Oracle e serviços como os serviços de DevOps do Azure. Este cenário causa que exceda o limite de gastos quase imediatamente e faz com que a sua subscrição seja desativada.
 * Tem serviços que não podem ser interrompidos.
 * Tem serviços e recursos com definições como endereços IP virtuais que não quer perder. Estas definições serão perdidas quando os serviços e recursos são desalocados.
 

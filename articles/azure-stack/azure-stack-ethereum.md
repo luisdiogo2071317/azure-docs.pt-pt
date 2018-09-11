@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446980"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298119"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelos de soluções de blockchain Ethereum de pilha do Azure
 
@@ -25,16 +25,14 @@ Com um punhado de entradas do utilizador e uma implementação de clique único 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Transferir o seguinte procedimento [do Marketplace](azure-stack-download-azure-marketplace-item.md):
+Transferir os itens mais recente [do Marketplace](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS versão 16.04.201802220
-* Windows Server 2016 
-* Script personalizado para Linux 2.0 
-* Extensão de Script Personalizado 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Script personalizado para Linux 2.0
+* Extensão de Script personalizado para Windows
 
-Para obter mais informações sobre os cenários de blockchain no Azure, consulte [modelo de solução de prova de trabalho consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
-
-Uma subscrição do Azure que pode suportar a implementação de várias máquinas de virtuais é necessária. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+Para obter mais informações sobre os cenários de blockchain, consulte [modelo de solução de prova de trabalho consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -43,6 +41,7 @@ Este modelo de solução pode implementar única ou de múltiplas rede de consó
 ## <a name="deployment-use-cases"></a>Casos de utilização de implementação
 
 O modelo pode implementar Ethereum consortium para líder e a associação de membro de diversas formas, aqui são aqueles que testamos:
+
 - Numa pilha do Azure com vários nós, com o Azure AD ou AD FS, implementar líder e membro com a mesma subscrição ou com diferentes subscrições.
 - Num nó único do Azure Stack (com o Azure AD) implemente líder e membro com a mesma subscrição.
 

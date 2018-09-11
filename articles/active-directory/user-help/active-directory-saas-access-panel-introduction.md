@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2e74e45761a2f21c522f80d453da48948e17de58
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302282"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347755"
 ---
 # <a name="what-is-the-myapps-portal"></a>O que é o portal MyApps?
 
@@ -109,16 +109,6 @@ A equipa do Azure Active Directory publica a aplicação móvel as minhas aplica
 
 > [!NOTE]
 > Pode iniciar sessão aplicações que suportam o federação com o Azure AD (incluindo o Salesforce, Google Apps, Dropbox, caixa, Concur, Workday, do Office 365 e mais de 70 outros) em praticamente qualquer navegador da web, em qualquer dispositivo, sem precisar de uma aplicação de plug-in ou móvel. A ser utilizado num dispositivo móvel, o outro [experiências de MyApps portal](https://myapps.microsoft.com/) também não necessitam de aplicação móvel das minhas aplicações.
->
->
-
-### <a name="my-apps-for-android"></a>Minhas aplicações para Android
-
-As minhas aplicações para Android é suportado em qualquer dispositivo Android que está a executar a versão Android 4.1 ou posterior.  
-
-Ele está disponível na [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![Minhas aplicações para Android][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>Minhas aplicações para iPhone e iPad
 
@@ -129,13 +119,13 @@ Ele está disponível na [da Apple App Store](https://itunes.apple.com/us/app/my
 ![Minhas aplicações para iOS][4]    
 
 
-## <a name="managed-browser-for-my-apps"></a>Browser gerido para as minhas aplicações
+## <a name="intune-managed-browser-for-my-apps"></a>Browser gerido do Intune para as minhas aplicações
 
-As minhas aplicações também está integrado com o Intune Managed Browser. O Intune Managed Browser para dispositivos iOS e Android desempenha um papel fundamental na ajudando a garantir que os dados em dispositivos móveis se mantém seguros. O browser permite-lhe ver e navegue páginas da Web que podem conter informações da empresa em segurança, e ajuda a proporcionar uma experiência de navegação na web seguro.  
+As minhas aplicações também está integrado com o Intune Managed Browser. O Intune Managed Browser para dispositivos iOS e Android ajuda a com mais segurança exibir e navegar páginas Web que pode conter informações da empresa, ajudando a proporcionar uma experiência de navegação na web mais segura.  
 
-Obtém acesso rápido para as minhas aplicações na sua home page do Managed Browser e em seus indicadores, para que menos cliques são necessários para chegar a qualquer aplicação que pretende aceder.
+Pode acessar as minhas aplicações de ambos os Managed Browser home page e de seus indicadores, que significa que existem menos cliques necessários para atingir as suas aplicações.
 
-Browser gerido do Intune está disponível na [da Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Browser gerido do Intune está disponível na [da Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
 ![Browser gerido para as minhas aplicações][5]    
 
@@ -216,11 +206,10 @@ Por exemplo, se um aplicativo estiver configurado para autenticar os utilizadore
  
 - Para saber mais sobre como gerir aplicações com o Azure AD, veja a [introdução ao acesso de aplicação única de início de sessão e a gerir com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
  
-- Para saber mais sobre o aprovisionamento de utilizadores, veja [automatizar o aprovisionamento de utilizador e a aplicações SaaS de desaprovisionamento](../active-directory-saas-app-provisioning.md).
+- Para saber mais sobre o aprovisionamento de utilizadores, veja [automatizar o aprovisionamento de utilizador e a aplicações SaaS de desaprovisionamento](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png

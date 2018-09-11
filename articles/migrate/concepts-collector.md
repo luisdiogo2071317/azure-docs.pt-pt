@@ -4,21 +4,19 @@ description: Fornece uma descrição geral da aplicação Recoletora e como conf
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665585"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325537"
 ---
 # <a name="collector-appliance"></a>Aplicação recoletora
 
 [O Azure Migrate](migrate-overview.md) avalia as cargas de trabalho no local para migração para o Azure. Este artigo fornece informações sobre como utilizar a aplicação Recoletora.
-
-
 
 ## <a name="overview"></a>Descrição geral
 
@@ -27,6 +25,17 @@ Um Recoletor do Azure Migrate é uma aplicação simples que pode ser utilizada 
 A aplicação Recoletora é um OVF que pode baixar do projeto do Azure Migrate. Ele cria uma instância de uma máquina virtual do VMware com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operativo da aplicação é o Windows Server 2012 R2 (64 bits).
 
 É possível criar o Recoletor ao seguir os passos aqui – [como criar a VM do Recoletor](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="discovery-methods"></a>Métodos de deteção
+
+Existem dois métodos em que descobre que o seu ambiente no local:
+
+a. **Deteção única:** o recoletor para esse modelo, se comunica com o vCenter Server para recolher os metadados sobre as VMs. Para a recolha de dados de desempenho das VMs, ele conta com os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Nesse modelo, o Azure Migrate recolhe média de contador (vs. o contador de pico) para cada uma, [Saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre os contadores de desempenho recolhidos pelo Azure Migrate. Uma vez que é uma deteção única, a aplicação neste caso não é continuamente conectada ao projeto. Por conseguinte, as alterações no ambiente no local não são refletidas no Azure Migrate depois de concluída a deteção. Se pretender que as alterações para refletir, que precisa fazer uma redeteção do mesmo ambiente para o mesmo projeto.
+
+b. **Deteção contínua:** a aplicação recoletora, para este modelo fica continuamente conectada ao projeto do Azure Migrate. Cria perfis continuamente o ambiente no local para recolher dados de utilização em tempo real em cada 20 segundos. A aplicação, em seguida, rolls-up os exemplos de 20 segundos e cria um ponto de dados individual para cada 15 minutos ao escolherem o valor máximo, o que é enviado para o Azure. Este modelo não depende das definições de estatísticas do vCenter Server para a recolha de dados de desempenho. Pode parar a contínua criação de perfis em qualquer altura da aplicação.
+
+> [!NOTE]
+> A funcionalidade de deteção contínua está em pré-visualização.
 
 ## <a name="collector-communication-diagram"></a>Diagrama de comunicação do recoletor
 
@@ -39,13 +48,9 @@ A aplicação Recoletora é um OVF que pode baixar do projeto do Azure Migrate. 
 | Recoletor      | vCenter Server        | Predefinição 443                             | Recoletor deve ser capaz de comunicar com o servidor vCenter. Ele se conecta ao vCenter em 443 por predefinição. Se o vCenter escuta numa porta diferente, essa porta deve estar disponível como porta de saída no recoletor |
 | Recoletor      | RDP|   | TCP 3389 | Para que possa fazer o RDP à máquina do Recoletor |
 
-
-
-
-
 ## <a name="collector-pre-requisites"></a>Pré-requisitos do recoletor
 
-O Recoletor tem de passar algumas verificações de pré-requisitos para garantir que se pode ligar o serviço Azure Migrate e carregar os dados detetados. Este artigo examina cada um dos pré-requisitos e compreender por que motivo é necessário.
+O Recoletor tem de passar algumas verificações de pré-requisitos para garantir que se pode ligar o serviço Azure Migrate e carregar os dados detetados. Este artigo examina cada um dos pré-requisitos e compreenda por que motivo é necessário.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
@@ -77,8 +82,8 @@ Se o servidor de proxy a que utilizar para ligar à internet é um proxy de inte
 6. Escolha a opção para **colocar todos os certificados no seguinte arquivo**. Clique em **navegue** e selecione **fabricantes fidedignos** na lista de certificados que surgem. Clique em **Seguinte**.
 
     ![Arquivo de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
-    
-7. Clique em **Concluir**. Isto irá importar o certificado. 
+
+7. Clique em **Concluir**. Isto irá importar o certificado.
 8. Opcionalmente, pode verificar que o certificado é importado ao abrir a ferramenta de certificados como no passo 1 e 2 acima.
 9. Na aplicação de recoletor do Azure Migrate, verifique se que a verificação de pré-requisitos de conectividade de internet é efetuada com êxito.
 
@@ -132,7 +137,7 @@ O Recoletor deve ligar ao vCenter Server e ser capaz de consultar as máquinas v
 
     |Tarefa  |Conta/função necessária  |Permissões  |
     |---------|---------|---------|
-    |Deteção de aplicação com base do recoletor    | Tem de, pelo menos, um utilizador só de leitura        |Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura         |
+    |Deteção de recoletores de com base na aplicação    | Tem de, pelo menos, um utilizador só de leitura        |Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura         |
 
 2. Podem ser acessados apenas os data Centers que sejam acessíveis à conta do vCenter especificada para a deteção.
 3. Tem de especificar o endereço FQDN/IP para ligar ao servidor vCenter do vCenter. Por predefinição, irá ligar através da porta 443. Se tiver configurado o vCenter para escutar um número de porta diferente, pode especificá-lo como parte do endereço de servidor sob a forma IPAddress:Port_Number ou FQDN:Port_Number.
@@ -166,7 +171,7 @@ Assim que for iniciado a deteção, as máquinas de virtuais de vCenter são det
 
 ### <a name="what-data-is-collected"></a>Que dados são recolhidos?
 
-O trabalho de recolha Deteta os seguintes metadados estático sobre as máquinas virtuais selecionadas.
+A aplicação recoletora Deteta os seguintes metadados estático sobre as máquinas virtuais selecionadas.
 
 1. Nome a apresentar da VM (no vCenter)
 2. Caminho de inventário da VM (anfitrião/pasta no vCenter)
@@ -177,7 +182,9 @@ O trabalho de recolha Deteta os seguintes metadados estático sobre as máquinas
 6. Tamanho da memória, tamanhos de disco
 7. E contadores de desempenho da VM, disco e rede, tal como indicado na tabela abaixo.
 
-A tabela seguinte lista os contadores de desempenho que são recolhidas e também apresenta uma lista de resultados da avaliação que são afetados se um contador específico não é coletado.
+Para o modelo no tempo de deteção, a tabela seguinte lista os contadores de desempenho exatos que são recolhidas e também apresenta uma lista de resultados da avaliação que são afetados se um contador específico não é coletado.
+
+Para a deteção contínua, os mesmos contadores são recolhidos em tempo real (intervalo de 20 segundos), portanto, não há nenhuma dependência no nível de estatísticas do vCenter. A aplicação, em seguida, rolls-up os exemplos de 20 segundos para criar um ponto de dados individual para cada 15 minutos, selecionando o valor de pico de exemplos de 20 segundos e envia-os para o Azure.
 
 |Contador                                  |Nível    |Nível de por dispositivo  |Impacto da avaliação                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
@@ -191,13 +198,17 @@ A tabela seguinte lista os contadores de desempenho que são recolhidas e també
 |net.transmitted.average                  | 2       |3                 |Custo de tamanho e a rede VM                        |
 
 > [!WARNING]
-> Se apenas tiver definido um nível mais elevado de estatísticas, ele irá demorar um dia para gerar os contadores de desempenho. Por isso, recomendamos que execute a deteção após um dia.
+> Para deteção única, se apenas tiver definido um nível mais elevado de estatísticas, ele irá demorar um dia para gerar os contadores de desempenho. Por isso, recomendamos que execute a deteção após um dia. Para o modelo de deteção contínua, aguarde pelo menos um dia após iniciar a deteção da aplicação para o ambiente de perfil e, em seguida, criar avaliações.
 
 ### <a name="time-required-to-complete-the-collection"></a>Tempo necessário para concluir a recolha
 
-O Recoletor só Deteta os dados da máquina e envia-os ao projeto. O projeto pode demorar mais tempo antes dos dados detetados são apresentados no portal e pode começar a criar uma avaliação.
+**Deteção de uso individual**
 
-Com base no número de máquinas virtuais no âmbito selecionado, demora até 15 minutos para enviar os metadados de estático para o projeto. Depois dos metadados estático estão disponível no portal, pode ver a lista de máquinas no portal e começar a criar grupos. Não é possível criar uma avaliação até que a tarefa de coleção é concluída e o projeto processou os dados. Uma vez a tarefa de coleção foi concluída no Recoletor, pode demorar até uma hora para os dados de desempenho estejam disponíveis no portal, com base no número de máquinas virtuais no âmbito selecionado.
+Nesse modelo, o recoletor recolhe o histórico de desempenho e configuração das VMs do vCenter Server e envia-os ao projeto. A aplicação neste caso não é continuamente conectada ao projeto. Com base no número de máquinas virtuais no âmbito selecionado, demora até 15 minutos para enviar os metadados de configuração para o projeto. Depois dos metadados de configuração estão disponível no portal, pode ver a lista de máquinas no portal e começar a criar grupos. Quando são recolhidos os dados de configuração, pode demorar até uma hora para os dados de desempenho estejam disponíveis no portal, com base no número de máquinas virtuais no âmbito selecionado.
+
+**Deteção contínua**
+
+Nesse modelo, os dados de configuração das VMs no local estão disponíveis depois de 1 hora de acionamento de dados de desempenho e de deteção começa a se tornarem disponíveis após 2 horas. Uma vez que esse é um modelo contínuo, o recoletor continuamente mantém a enviar dados de desempenho para o projeto do Azure Migrate.
 
 ## <a name="locking-down-the-collector-appliance"></a>Bloquear a aplicação recoletora
 Recomendamos a execução contínuas atualizações do Windows em que a aplicação recoletora. Se um recoletor não forem atualizado durante 60 dias, o recoletor será iniciado automaticamente-encerrar a máquina. Se estiver a executar uma deteção, a máquina será não ser desativada, mesmo que seja seu período de 60 dias. A tarefa de deteção de publicação estiver concluída, a máquina será desativada. Se estiver a utilizar o recoletor por mais de 45 dias, é recomendável manter a máquina de atualização em todo o tempo pela atualização do Windows em execução.

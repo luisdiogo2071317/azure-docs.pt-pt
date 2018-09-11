@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 08b27acc2d3114486b86aa0c311b9396c0bed48f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235453"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297320"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -88,17 +88,17 @@ Para obter um artigo abrangente sobre como criar funções personalizadas e atri
 
 **CI/CD integração e Automação**
 ## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>Integrar o DevTest Labs com minha coleção de ferramentas de CI/CD?
-Se estiver a utilizar o Visual Studio Team Services, pode utilizar um [extensão de tarefas de laboratórios DevTest](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) para automatizar o seu pipeline de lançamento no DevTest Labs. Algumas das tarefas que pode fazer com esta extensão incluem:
+Se estiver a utilizar o Azure DevOps, pode utilizar um [extensão de tarefas de laboratórios DevTest](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) para automatizar o seu pipeline de lançamento no DevTest Labs. Algumas das tarefas que pode fazer com esta extensão incluem:
 
-* Criar e implementar automaticamente uma VM. Também pode configurar a VM com a compilação mais recente com tarefas de cópia de ficheiros do Azure ou PowerShell Team Services.
+* Criar e implementar automaticamente uma VM. Também pode configurar a VM com a compilação mais recente com tarefas de cópia de ficheiros do Azure ou serviços de DevOps do Azure PowerShell.
 * Capture automaticamente o estado de uma VM após os testes para reproduzir um erro na mesma VM para uma investigação mais aprofundada.
 * Elimine a VM no final do pipeline de versões, quando já não for necessário.
 
-As seguinte mensagens de blogue oferta orientações e informações sobre como utilizar a extensão do Team Services:
+As seguinte mensagens de blogue oferta orientações e informações sobre como utilizar a extensão de serviços de DevOps do Azure:
 
-* [Laboratórios Dev/Test e a extensão do Visual Studio Team Services](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Implementar uma nova VM num laboratório DevTest Labs existente do Team Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Com o Team Services release management para implementações contínuas DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [Laboratórios Dev/Test e a extensão do Azure DevOps](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [Implementar uma nova VM num laboratório DevTest Labs existente dos serviços de DevOps do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [Com o Azure DevOps Services release management para implementações contínuas DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 Para outra integração contínua (CI) / cadeias de ferramentas de entrega contínua (CD), é possível obter os mesmos cenários por implantar [modelos Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) utilizando [cmdlets do Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) e [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Também pode utilizar [APIs REST para os laboratórios DevTest](http://aka.ms/dtlrestapis) para integrar com a sua coleção de ferramentas.  
 
@@ -112,7 +112,7 @@ Uma imagem personalizada é um disco rígido virtual (VHD). Uma fórmula é uma 
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Como posso criar várias VMs do modelo mesmo ao mesmo tempo?
 Tem duas opções para criar simultaneamente várias VMs a partir do mesmo modelo:
-* Pode utilizar o [extensão de tarefas de serviços de equipe do Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* Pode utilizar o [extensão de tarefas de DevOps do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
 * Pode [gerar um modelo do Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) enquanto estiver a criar uma VM, e [implementar o modelo de Gestor de recursos do Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Como posso mover minhas VMs do Azure existentes em meu laboratório do DevTest Labs?

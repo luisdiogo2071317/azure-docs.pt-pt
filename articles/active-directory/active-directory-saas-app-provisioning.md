@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 0d6f345a35275328212d6a245242083b809943b7
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3ec19c2b8ef4ae75a28690fb7e38b80a454f8b0c
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144089"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325316"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o aprovisionamento automatizado do utilizador para aplicações SaaS?
@@ -228,7 +228,7 @@ Para obter informações sobre como a leitura os registos de auditoria no portal
 
 ##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Como posso resolver problemas com o aprovisionamento de utilizadores?
 
-Para orientação baseada em cenário sobre como resolver problemas de aprovisionamento automático de utilizadores, consulte [problemas ao configurar e aprovisionar utilizadores para uma aplicação](active-directory-application-provisioning-content-map.md).
+Para orientação baseada em cenário sobre como resolver problemas de aprovisionamento automático de utilizadores, consulte [problemas ao configurar e aprovisionar utilizadores para uma aplicação](application-provisioning-config-problem.md).
 
 
 ##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quais são as melhores práticas para implementar o aprovisionamento automático de utilizadores?

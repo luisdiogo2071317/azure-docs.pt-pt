@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444594"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295723"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
 
@@ -74,7 +74,7 @@ Sim, precisa definir uma aplicação chamada `WEBSITE_WEBDEPLOY_USE_SCM` para *f
 
 Se falhar a implementação do Git para a sua aplicação web do Linux, escolha uma das seguintes opções para implementar o código da aplicação:
 
-- Utilizar a funcionalidade de entrega contínua (pré-visualização): pode armazenar o código-fonte da sua aplicação num repositório de Git do Team Services ou o repositório do GitHub para utilizar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para aplicação web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilizar a funcionalidade de entrega contínua (pré-visualização): pode armazenar o código-fonte da sua aplicação num repositório de Git de DevOps do Azure ou o repositório do GitHub para utilizar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para aplicação web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Utilizar o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para utilizar esta API, [SSH na sua aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e aceda à pasta onde pretende implementar o seu código. Execute o seguinte código:
 

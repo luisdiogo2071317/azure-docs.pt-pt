@@ -1,5 +1,5 @@
 ---
-title: Gerir o acesso ao Azure através de funções de faturação | Microsoft Docs
+title: Gerir o acesso a faturação a utilização de funções do Azure | Documentos da Microsoft
 description: ''
 services: ''
 documentationcenter: ''
@@ -15,68 +15,68 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 38702fde344bb5fb831f7c26177438456035beae
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204127"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294464"
 ---
-# <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gerir o acesso a informações de faturação do Azure utilizando o controlo de acesso baseado em funções
+# <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gerir o acesso a informações de faturação para o Azure com o controlo de acesso baseado em funções
 
-Pode conceder acesso para as informações de faturação do Azure para os membros da sua equipa atribuindo uma das seguintes funções de utilizador à sua subscrição: conta de administrador, administrador de serviço, coadministrador, proprietário, Contribuidor, leitor e faturação leitor. Seria têm acesso a informações de faturação no [portal do Azure](https://portal.azure.com/), e podem utilizar o [APIs faturação](billing-usage-rate-card-overview.md) programaticamente obter faturas (uma vez optado por participar) e detalhes de utilização. Para obter mais informações sobre quem pode conceder funções e que funções podem fazer com que, consulte [funções no Azure RBAC](../role-based-access-control/built-in-roles.md).
+Pode conceder acesso a informações de faturação do Azure para membros de sua equipe atribuindo uma das seguintes funções de utilizador à sua subscrição: administrador de conta, administrador de serviços, coadministrador, proprietário, Contribuidor, leitor e leitor de faturação. Teriam acesso às informações de faturas no [portal do Azure](https://portal.azure.com/), e eles podem usar o [APIs de faturação](billing-usage-rate-card-overview.md) para obter programaticamente notas fiscais (uma vez optado por participar) e detalhes de utilização. Para obter mais informações sobre quem pode conceder funções e que funções podem fazer o que, consulte [funções no Azure RBAC](../role-based-access-control/built-in-roles.md).
 
-## <a name="opt-in"></a> Permitir que os utilizadores adicionais acesso faturas
+## <a name="opt-in"></a> Permitir que os utilizadores adicionais aceder a notas fiscais
 
-O administrador da conta tem ativamente por participar no utilizando o [portal do Azure](https://portal.azure.com/) permitir o acesso ao faturas para outros utilizadores e através de API.
+O administrador de conta tem de participar no utilizando o [portal do Azure](https://portal.azure.com/) permitir o acesso às notas fiscais para outros utilizadores e através da API.
 
-1. Como o administrador da conta, selecione a sua subscrição do [painel subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
+1. Como administrador de conta, selecione a sua subscrição do [painel de subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 
-1. Selecione **faturas** e, em seguida, **acesso ao faturas**.
+1. Selecione **notas fiscais** e, em seguida **acesso às notas fiscais**.
 
-    ![Captura de ecrã mostra como delegar o acesso às faturas](./media/billing-manage-access/AA-optin.png)
+    ![Captura de ecrã mostra como delegar o acesso às notas fiscais](./media/billing-manage-access/AA-optin.png)
 
-1. Ativar **no** funções para transferir a fatura no âmbito de acesso seguido de guardar as alterações, para permitir que os utilizadores na subscrição.
+1. Ative **no** funções para transferir fatura de âmbito de acesso seguido de a guardar as alterações, para permitir que os utilizadores na subscrição.
 
-    ![Captura de ecrã mostra no convocaremos para delegar o acesso a fatura](./media/billing-manage-access/AA-optinAllow.png)
+    ![Captura de ecrã mostra no-off para delegar o acesso à fatura](./media/billing-manage-access/AA-optinAllow.png)
 
-Aceitar permite que o administrador de serviço, coadministrador, proprietário, Contribuidor, leitor e faturação leitor na subscrição para transferir faturas PDF no portal do Azure. No entanto, faturas anteriores Dezembro de 2016 estão disponíveis apenas para o administrador da conta por agora.
+Aceitar permite que o administrador de serviço, coadministrador, proprietário, Contribuidor, leitor e leitor de faturação na subscrição para transferir faturas PDF no portal do Azure. No entanto, a notas fiscais com mais de Dezembro de 2016 estão disponíveis apenas para o administrador de conta por agora.
 
-O administrador da conta também pode configurar ter faturas enviadas por e-mail. Para obter mais informações, consulte [obter da sua fatura no e-mail](billing-download-azure-invoice-daily-usage-date.md).
+O administrador de conta também pode configurar ter faturas enviadas por e-mail. Para obter mais informações, consulte [receber sua fatura no e-mail](billing-download-azure-invoice-daily-usage-date.md).
 
-## <a name="adding-users-to-the-billing-reader-role"></a>Adicionar utilizadores à função de leitor de faturação
+## <a name="adding-users-to-the-billing-reader-role"></a>Adicionar utilizadores à função do leitor de faturação
 
-A função de leitor de Faturação tem acesso só de leitura às informações de faturação da subscrição no portal do Azure e sem acesso a serviços como VMs e as contas de armazenamento. Atribua a função de leitor de faturação a alguém que precisa de aceder as informações de faturação da subscrição, mas não a capacidade de gerir os serviços do Azure. Esta função é adequada para os utilizadores numa organização que efetuar apenas financeiro e de custo de gestão de subscrições do Azure.
+A função de leitor de Faturação tem acesso só de leitura às informações de faturação de subscrição no portal do Azure e nenhum acesso a serviços, como VMs e contas de armazenamento. Atribua a função de leitor de faturação para alguém que precise acessar as informações de faturação de subscrição, mas não a capacidade de gerir serviços do Azure. Esta função é adequada para os utilizadores numa organização que apenas executam gerenciamento financeiro e de custo para as subscrições do Azure.
 
-1. Selecione a sua subscrição do [painel subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
+1. Selecione a sua subscrição a partir da [painel de subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 
-1. Selecione **(IAM) do controlo de acesso** e, em seguida, clique em **adicionar**.
+1. Selecione **controlo de acesso (IAM)** e, em seguida, clique em **Add**.
 
-    ![Captura de ecrã mostra IAM no painel de subscrição](./media/billing-manage-access/select-iam.PNG)
+    ![Captura de ecrã mostra IAM no painel da subscrição](./media/billing-manage-access/select-iam.PNG)
 
-1. Escolha **faturação leitor** no **selecionar uma função** página.
+1. Escolher **leitor de faturação** no **selecionar uma função** página.
 
     ![Captura de ecrã mostra o leitor de faturação na vista de pop-up](./media/billing-manage-access/select-roles.PNG)
 
-1. Escreva o e-mail para o utilizador pretende convidar, em seguida, clique em **OK** para enviar o convite.
+1. Escreva a mensagem de e-mail para o utilizador que pretende convidar, em seguida, clique em **OK** para enviar o convite.
 
-    ![Captura de ecrã que mostra a introdução de e-mail para convidar alguém](./media/billing-manage-access/add-user.PNG)
+    ![Captura de ecrã que mostra que introduza o e-mail para convidar alguém](./media/billing-manage-access/add-user.PNG)
 
-1. Siga as instruções no e-mail de convite para iniciar sessão como um leitor de faturação.
+1. Siga instruções no e-mail de convite para iniciar sessão como um leitor de faturação.
 
-    ![Captura de ecrã que mostra que o leitor de faturação podem ver no portal do Azure](./media/billing-manage-access/billing-reader-view.png)
+    ![Captura de ecrã que mostra o que pode ver o leitor de faturação no portal do Azure](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> A funcionalidade de leitor de faturação está em pré-visualização e ainda não suporta subscrições de empresa (EA) ou de nuvens não global.
+> A funcionalidade de leitor de faturação está em pré-visualização e ainda não suporta subscrições enterprise (EA) ou nuvens não global.
 
 ## <a name="adding-users-to-other-roles"></a>Adicionar utilizadores a outras funções
 
-Os utilizadores nas outras funções, tais como proprietário ou contribuinte, podem aceder a informações de faturação não apenas, mas, bem como os serviços do Azure. Para gerir estas funções, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou serviços](billing-add-change-azure-subscription-administrator.md).
+Utilizadores nas outras funções, como proprietário ou contribuinte, podem aceder a informações de faturação não apenas, mas também para serviços do Azure. Para gerir estas funções, consulte [gerir o acesso com RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>Quem pode aceder a [Centro de contas](https://account.windowsazure.com)?
 
-Apenas o administrador da conta pode iniciar sessão para o Centro de contas. O administrador da conta é o proprietário legal da subscrição. Por predefinição, a pessoa que inscreveu no ou comprou a subscrição do Azure é o administrador da conta, a menos que o [propriedade de subscrição foi transferida](billing-subscription-transfer.md) para outra pessoa. O administrador da conta pode criar subscrições, cancelar subscrições, alterar o endereço para faturação para uma subscrição e gerir políticas de acesso para a subscrição.
+Apenas o administrador de conta pode iniciar sessão para o Centro de contas. O administrador de conta é o proprietário legal da subscrição. Por predefinição, a pessoa que inscreveu ou comprou a subscrição do Azure é o administrador de conta, a menos que o [a propriedade de subscrição foi transferida](billing-subscription-transfer.md) para outra pessoa. O administrador de conta pode criar subscrições, cancelar subscrições, alterar o endereço de cobrança de uma subscrição e gerir políticas de acesso para a subscrição.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.
+Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

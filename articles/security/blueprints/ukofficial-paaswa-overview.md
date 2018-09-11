@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617254"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297560"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: PaaS Web de hospedagem de aplicativos para cargas de trabalho oficial do Reino Unido
 
@@ -27,7 +27,7 @@ Este Azure no Security and Compliance Blueprint fornece scripts de automação e
 
 Este esquema tiver sido revisto pelo do Reino Unido National Cyber Security Centre (NCSC) e alinha os princípios de segurança de Cloud de 14 NCSC.
 
-A arquitetura utiliza o Azure [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) componentes para entregar um ambiente que permite aos clientes evitar a despesa e a complexidade da compra de licenças de software, de gestão da infraestrutura subjacente do aplicativo e middleware ou as ferramentas de desenvolvimento e outros recursos. Os clientes gerir as aplicações e serviços que desenvolve, concentrando-se em fornecer valor comercial, lidando simultaneamente e o Microsoft Azure gere os outros recursos do Azure como máquinas virtuais, armazenamento e rede, colocar mais do [divisão da responsabilidade](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) para a gestão de infraestrutura para a plataforma do Azure. [Serviços de aplicações Azure](https://azure.microsoft.com/services/app-service/) oferece o dimensionamento automático, de elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Visual Studio Team Services ou qualquer repositório de Git como serviços de predefinição. Durante a utilização dos serviços de aplicações, os desenvolvedores podem se concentrar no fornecimento de valor de negócio sem a sobrecarga de gerenciamento de infraestrutura. É possível criar novas aplicações de web de Java, PHP, node. js, Python, HTML ou c# de ambiente intacto, ou também para migrar a nuvem existente ou no local da web aplicações para serviços de aplicações do Azure (embora completa devida diligência e de teste para confirmar o desempenho é necessário).
+A arquitetura utiliza o Azure [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) componentes para entregar um ambiente que permite aos clientes evitar a despesa e a complexidade da compra de licenças de software, de gestão da infraestrutura subjacente do aplicativo e middleware ou as ferramentas de desenvolvimento e outros recursos. Os clientes gerir as aplicações e serviços que desenvolve, concentrando-se em fornecer valor comercial, lidando simultaneamente e o Microsoft Azure gere os outros recursos do Azure como máquinas virtuais, armazenamento e rede, colocar mais do [divisão da responsabilidade](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) para a gestão de infraestrutura para a plataforma do Azure. [Serviços de aplicações Azure](https://azure.microsoft.com/services/app-service/) oferece o dimensionamento automático, de elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, do Azure DevOps ou qualquer repositório de Git como serviços de predefinição. Durante a utilização dos serviços de aplicações, os desenvolvedores podem se concentrar no fornecimento de valor de negócio sem a sobrecarga de gerenciamento de infraestrutura. É possível criar novas aplicações de web de Java, PHP, node. js, Python, HTML ou c# de ambiente intacto, ou também para migrar a nuvem existente ou no local da web aplicações para serviços de aplicações do Azure (embora completa devida diligência e de teste para confirmar o desempenho é necessário).
 
 Este esquema enfoca o aprovisionamento de uma base segura [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) interface baseada na web para utilizadores do office também voltar e pública. Neste cenário de design do esquema considera que a utilização do Azure alojada serviços baseados na web, onde um usuário público pode com segurança submeter, ver e gerir dados confidenciais; também que um operador de back-office ou do Governo pode processar os dados confidenciais que o usuário público submeteu em segurança. Casos de utilização para este cenário podem incluir:
 
@@ -103,7 +103,7 @@ Os dados é o trânsito de fora e entre os componentes do Azure protegidos utili
 
 #### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
 
-Aplicações Web do Azure fornece um ambiente para o aplicativo web desenvolvido no Java, PHP, node. js Python, HTML e c#, sem ter de gerir a infraestrutura de alojamento na web completamente gerida. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite automatizada implementações a partir [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) ou de qualquer repositório baseada no Git.
+Aplicações Web do Azure fornece um ambiente para o aplicativo web desenvolvido no Java, PHP, node. js Python, HTML e c#, sem ter de gerir a infraestrutura de alojamento na web completamente gerida. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite automatizada implementações a partir [do Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) ou de qualquer repositório baseada no Git.
 
 Serviço de aplicações é [ISO, SOC e PCI em conformidade](https://www.microsoft.com/TrustCenter/) e pode autenticar utilizadores com [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) ou com início de sessão social ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), e [autenticação da Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 

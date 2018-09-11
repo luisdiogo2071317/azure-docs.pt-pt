@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/21/2018
+ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6c080d44aed7c2b3db54a34f4b711db66681cbe9
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 5de5177db92e4069710e597a41c44287e5af90b2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058276"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325299"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -36,6 +36,16 @@ Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [a
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+
+ 
+## <a name="118820"></a>1.1.882.0  
+
+9/7/2018: lançado para download, não será a versão de atualização automática 
+
+### <a name="fixed-issues"></a>Problemas de fixos  
+
+O Azure AD Connect atualizar falhará se sempre na disponibilidade do SQL está configurada para a BD do ADSync. Esta correção resolve esse problema e permite a atualização com êxito. 
 
 ## <a name="118800"></a>1.1.880.0
 
@@ -91,7 +101,7 @@ Novos recursos e aperfeiçoamentos
 - Configuração de repetição de escrita do dispositivo é agora gerida unicamente no Assistente do Azure para ligar AD.
 - Um novo módulo do PowerShell chamado ADSyncTools.psm1 é adicionado que pode ser utilizado para resolver problemas de conectividade de SQL e vários outros utilitários de resolução de problemas. Saiba mais sobre o módulo de ADSyncTools [aqui](active-directory-aadconnect-tshoot-sql-connectivity.md). 
 - Foi adicionada uma nova tarefa adicional "Configurar opções de dispositivo". Pode utilizar a tarefa para configurar as seguintes duas operações: 
-    -   **Associação ao Azure AD híbrido**: se o ambiente tiver no local requisitos de espaço do AD e também deseja o benefício dos recursos fornecidos pelo Azure Active Directory, pode implementar dispositivos de associados ao Azure AD híbrido. Estes são os dispositivos que estão ambos, associado ao seu local do Active Directory e o Azure Active Directory.
+    -   **Associação ao Azure AD híbrido**: se o ambiente tiver no local requisitos de espaço do AD e também deseja o benefício dos recursos fornecidos pelo Azure Active Directory, pode implementar dispositivos de associados ao Azure AD híbrido. Estes são dispositivos associados tanto ao Active Directory no local, como ao Azure Active Directory.
     -   **Repetição de escrita do dispositivo**: repetição de escrita do dispositivo é utilizada para ativar o acesso condicional com base em dispositivos para o AD FS (2012 R2 ou superior) protegidos de dispositivos
 
    >[!NOTE] 
@@ -257,9 +267,9 @@ Permitir    | Administradores                | Controlo Total         | Este obj
 Permitir    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Permissões de Leitura     | Este objeto  |
-Permitir    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
-Permitir    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
-Permitir    | Utilizadores autenticados           | Permissões de Leitura     | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Listar conteúdo        | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as definições para o AD DS conta que pode ser executado [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell irá atribuir as permissões mencionadas acima para a conta do AD DS.
 

@@ -1,30 +1,23 @@
 ---
 title: 'Ligar um computador a uma rede virtual do Azure através de Ponto a Site e da autenticação de certificados nativa do Azure: Portal do Azure | Microsoft Docs'
-description: Ligue os clientes Windows e Mac OS X de forma segura a uma rede virtual do Azure, utilizando certificados autoassinados ou emitidos pela AC ou P2S. Este artigo utiliza o portal do Azure.
+description: Ligar com segurança os clientes Windows, Mac OS X e Linux para uma rede virtual do Azure com P2S e autoassinados ou emitidos certificados de AC. Este artigo utiliza o portal do Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
 tags: azure-resource-manager
-ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd82c110590c3aa5ede729b317fb722e58cc406
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 477913ba13c2bcfe6dd7ba88ee4e53546fd69be6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41919578"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303545"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurar uma ligação Ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: Portal do Azure
 
-Este artigo ajuda-o a ligar de forma segura clientes individuais com Windows ou Mac OS X a uma VNet do Azure. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Pode também utilizar P2S em vez de uma VPN Site a Site, quando são poucos os clientes que precisam de ligar a uma VNet. As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2. Para obter mais informações sobre VPN Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
+Este artigo ajuda-o a ligar de forma segura clientes individuais com Windows, Linux ou Mac OS X para uma VNet do Azure. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Pode também utilizar P2S em vez de uma VPN Site a Site, quando são poucos os clientes que precisam de ligar a uma VNet. As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2. Para obter mais informações sobre VPN Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
 
 ![Ligar um computador a uma VNet do Azure - diagrama da ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
@@ -245,7 +238,7 @@ Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de re
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
 
 Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

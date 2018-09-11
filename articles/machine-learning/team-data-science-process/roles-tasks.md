@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308529"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296708"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Team Data Science Process
 
 O processo de ciência de dados de equipa é uma estrutura desenvolvida pela Microsoft que fornece uma metodologia estruturada para criar soluções de Análise Preditiva e aplicações inteligentes com eficiência. Este artigo descreve as funções de pessoal-chave e das respetivas tarefas associadas que são processadas por uma ciência de dados de equipa padronização sobre esse processo. 
 
-Este links de introdução para tutoriais que fornecem instruções sobre como configurar o ambiente do TDSP para o grupo de ciência de dados inteiro, as equipas de ciência de dados e projetos. Ele fornece orientações detalhadas usando o Visual Studio Team Services (VSTS) nos tutoriais.  O VSTS fornece uma plataforma de alojamento de código e a ferramenta de planejamento agile para gerir as tarefas de equipe, controlar o acesso e gerenciar os repositórios. 
+Este links de introdução para tutoriais que fornecem instruções sobre como configurar o ambiente do TDSP para o grupo de ciência de dados inteiro, as equipas de ciência de dados e projetos. Ele fornece orientações detalhadas através do Azure DevOps nos tutoriais. DevOps do Azure fornece uma plataforma de alojamento de código e a ferramenta de planejamento agile para gerir as tarefas de equipe, controlar o acesso e gerenciar os repositórios. 
 
 Pode usar essas informações para implementar o TDSP na sua própria ferramenta de planejamento ágil e alojamento de código. 
 
@@ -64,7 +64,7 @@ A imagem seguinte ilustra as tarefas de nível superior para o pessoal por funç
 Esse esquema e a estrutura seguinte, mais detalhada de tarefas que estão atribuídos a cada função no TDSP devem ajudar a escolher o tutorial adequado com base em suas responsabilidades na organização.
 
 > [!NOTE]
-> As instruções seguintes mostram as etapas de como configurar um ambiente de TDSP e realizar outras tarefas de ciência de dados no Visual Studio Team Services (VSTS). Especificamos como realizar estas tarefas com o VSTS, uma vez que é o que estamos a utilizar para implementar o TDSP na Microsoft. VSTS facilita a colaboração ao integrar a gestão de itens de trabalho que controlar as tarefas e um serviço de alojamento de código usado para compartilhar utilitários, versões de organizar e fornecer a segurança baseada em funções. É possível escolher outras plataformas, se preferir, para implementar as tarefas descritas pelo TDSP. Mas, dependendo da sua plataforma, algumas funcionalidades tirar partidas do VSTS podem não estar disponíveis. 
+> As instruções seguintes mostram as etapas de como configurar um ambiente de TDSP e concluir a outras tarefas de ciência de dados no Azure DevOps. Especificamos como realizar estas tarefas com o Azure DevOps, uma vez que é o que estamos a utilizar para implementar o TDSP na Microsoft. DevOps do Azure facilita a colaboração ao integrar a gestão de itens de trabalho que controlar as tarefas e um serviço de alojamento de código usado para compartilhar utilitários, versões de organizar e fornecer a segurança baseada em funções. É possível escolher outras plataformas, se preferir, para implementar as tarefas descritas pelo TDSP. Mas, dependendo da sua plataforma, algumas funcionalidades tirar partidas do Azure DevOps podem não estar disponíveis. 
 >
 >Instruções aqui também utilizam o [Máquina Virtual de ciência de dados (DSVM)](http://aka.ms/dsvm) sobre o Azure como na nuvem a área de trabalho de análise com várias ferramentas de ciência de dados populares pré-configuradas e integradas em diversos softwares da Microsoft e o Azure serviços. Pode usar a DSVM ou qualquer outro ambiente de desenvolvimento para implementar o TDSP. 
 
@@ -73,7 +73,7 @@ Esse esquema e a estrutura seguinte, mais detalhada de tarefas que estão atribu
 
 As seguintes tarefas são concluídas, o Gestor de grupo (ou um administrador de sistema do TDSP designado) adotar o TDSP:
 
-- Criar uma **conta de grupo** num código de hospedagem de plataforma (como o Github, Git, VSTS ou outros)
+- Criar uma **conta de grupo** num código de plataforma (como o Github, Git, Azure DevOps ou outras pessoas) de alojamento
 - Criar uma **repositório de modelos de projeto** na conta de grupo e seed-lo a partir do repositório de modelos de projeto desenvolvido pela equipe do Microsoft TDSP. O repositório de modelos de projeto TDSP da Microsoft 
     - Fornece uma **padronizados a estrutura de diretórios** incluindo diretórios de dados, código e documentos, 
     - Fornece um conjunto de **padronizadas modelos de documentos** para orientar o processo de ciência de dados eficiente. 
@@ -86,10 +86,10 @@ Para obter instruções passo a passo detalhadas, consulte [tarefas de Gestor de
 
 ## <a name="team-lead-tasks"></a>Tarefas de líder de equipe
 
-As seguintes tarefas são concluídas o líder da Equipe (ou um administrador de projeto de equipe designado) adotar o TDSP:
+As seguintes tarefas são concluídas, o líder da Equipe (ou um administrador de projeto designado) adotar o TDSP:
 
-- Se o VSTS é selecionado para ser a plataforma de alojamento de código para controle de versão e colaboração, crie uma **projeto de equipe** no servidor VSTS do grupo. Caso contrário, esta tarefa pode ser ignorada.
-- Criar a **repositório de modelos de projeto de equipe** sob o projeto de equipe e seed-lo a partir do repositório de modelos de projeto de Grupo configurar ao seu Gestor de grupo ou o delegado do gestor. 
+- Se o DevOps do Azure está selecionado para ser a plataforma de alojamento de código para controle de versão e colaboração, crie uma **projeto** nos serviços de DevOps do Azure do grupo. Caso contrário, esta tarefa pode ser ignorada.
+- Criar a **repositório de modelos de projeto** sob o projeto e seed-lo a partir do repositório de modelos de projeto de Grupo configurar ao seu Gestor de grupo ou o delegado do gestor. 
 - Criar a **repositório de utilitário de equipe**e adicione os utilitários de específicas para a equipe para o repositório. 
 - (Opcional) Crie **[file storage do Azure](https://azure.microsoft.com/services/storage/files/)** a ser utilizado para armazenar elementos de dados que podem ser útil para toda a equipe. Outros membros da Equipe podem montar este arquivo de ficheiros de cloud partilhado em suas áreas de trabalho de análise.
 - (Opcional) Montar o armazenamento de ficheiros do Azure para o **máquina de Virtual de ciência de dados** (DSVM) da Equipe líder e adicionar recursos de dados no mesmo.
@@ -102,7 +102,7 @@ Para obter instruções passo a passo detalhadas, consulte [líder da equipe de 
 
 As seguintes tarefas são concluídas, o líder de projeto para adotar o TDSP:
 
-- Criar uma **repositório projeto** sob o projeto de equipe e seed-lo da Equipe do repositório de modelos de projeto. 
+- Criar uma **repositório projeto** sob o projeto e efetuar o seeding do repositório de modelos de projeto. 
 - (Opcional) Crie **armazenamento de ficheiros do Azure** a ser utilizado para armazenar elementos de dados do projeto. 
 - (Opcional) Montar o armazenamento de ficheiros do Azure para o **máquina de Virtual de ciência de dados** (DSVM) do projeto levar e adicionar recursos de dados do projeto no mesmo.
 - Configurar o **controlo de segurança** ao adicionar membros do projeto e configurar seus privilégios. 
@@ -125,7 +125,7 @@ Para obter instruções detalhadas passo a passo para a integração num projeto
  
 Ao seguir o conjunto relevante de instruções, cientistas de dados, líder de projeto e líderes de equipe podem criar itens de trabalho para controlar todas as tarefas e fases que precisa de um projeto desde o início para o respetivo fim. Com o git também promove a colaboração entre cientistas de dados e garante que os artefatos gerados durante a execução do projeto estão versão controlada e partilhados por todos os membros do projeto.
 
-As instruções fornecidas para a execução do projeto foram desenvolvidas com base no pressuposto de que ambos os itens de trabalho e projeto git repositórios estão no VSTS. Usando o VSTS para ambos permite-lhe ligar os seus itens de trabalho com os ramos do Git dos seus repositórios do projeto. Dessa forma, pode controlar facilmente o que foi feito para um item de trabalho. 
+As instruções fornecidas para a execução do projeto foram desenvolvidas com base no pressuposto de que ambos os itens de trabalho e projeto git repositórios estão no Azure DevOps. Utilização do Azure DevOps para ambos permite-lhe ligar os seus itens de trabalho com os ramos do Git dos seus repositórios do projeto. Dessa forma, pode controlar facilmente o que foi feito para um item de trabalho. 
 
 A figura a seguir descreve o fluxo de trabalho para utilizar o TDSP de execução do projeto.
 

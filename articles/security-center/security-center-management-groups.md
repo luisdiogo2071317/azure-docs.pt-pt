@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441699"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298783"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade ao nível do inquilino para o Centro de segurança do Azure
 Este artigo ajuda-o a começar a utilizar ao fazer várias ações que maximizar os benefícios de que Centro de segurança do Azure oferece. Realizar essas ações permite-lhe obter visibilidade em todas as subscrições do Azure que estejam ligadas ao seu inquilino do Azure Active Directory e eficaz de gerir a postura de segurança da sua organização em escala ao aplicar políticas de segurança em vários assinaturas de forma aggregative.

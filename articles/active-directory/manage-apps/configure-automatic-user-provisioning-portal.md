@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2b2b44deacf8278b8e8c2554cc873c5d0b75f6f9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366193"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349148"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações empresariais no portal do Azure
-Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir a conta de utilizador automático provisionamento e desprovisionamento para aplicações que suportem-la, particularmente as que foram adicionados na categoria "featured" do [ Galeria de aplicações do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o aprovisionamento de contas de utilizadores automático e como ele funciona, veja [automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir a conta de utilizador automático provisionamento e desprovisionamento para aplicações que suportem-la, particularmente as que foram adicionados na categoria "featured" do [ Galeria de aplicações do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o aprovisionamento de contas de utilizadores automático e como ele funciona, veja [automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Encontrar as suas aplicações no portal
 Todas as aplicações que estão configuradas para início de sessão único num diretório, por um administrador do diretório a utilizar o [Galeria de aplicações do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), poderão ser exibidos e gerenciados no [portal do Azure](https://portal.azure.com). Os aplicativos podem ser encontrados no **todos os serviços** &gt; **aplicações empresariais** seção do portal. Aplicações empresariais são as aplicações que são implementadas e utilizadas na sua organização.
@@ -46,7 +46,7 @@ O **aprovisionamento** painel começa com um **modo** menu, que mostra a quais m
 Selecionar o **automática** opção exibe uma tela que está dividida em quatro seções:
 
 ### <a name="admin-credentials"></a>Credenciais de Administrador
-Esta secção é onde as credenciais necessárias para o Azure AD ligar à gestão de utilizadores da aplicação API são introduzidos. A entrada necessária varia consoante a aplicação. Para saber mais sobre os requisitos para determinados aplicativos e tipos de credenciais, consulte a [tutorial de configuração para aquele aplicativo específico](../active-directory-saas-app-provisioning.md).
+Esta secção é onde as credenciais necessárias para o Azure AD ligar à gestão de utilizadores da aplicação API são introduzidos. A entrada necessária varia consoante a aplicação. Para saber mais sobre os requisitos para determinados aplicativos e tipos de credenciais, consulte a [tutorial de configuração para aquele aplicativo específico](user-provisioning.md).
 
 Selecionar o **Testar ligação** botão permite-lhe as credenciais de teste fazendo com que do Azure AD tenta ligar-se para a aplicação do aprovisionamento de aplicação com as credenciais fornecidas.
 
@@ -60,7 +60,7 @@ Existe um conjunto pré-configuradas de mapeamentos entre objetos de utilizador 
 Personalizações suportadas incluem:
 
 * Ativar e desativar mapeamentos para objetos específicos, como o objeto de utilizador do Azure AD para o objeto de utilizador da aplicação SaaS.
-* Editar os atributos que o fluam a partir do objeto de utilizador do Azure AD para o objeto de utilizador da aplicação. Para obter mais informações sobre o mapeamento do atributo, consulte [Noções básicas sobre os tipos de mapeamento de atributos](../active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Editar os atributos que o fluam a partir do objeto de utilizador do Azure AD para o objeto de utilizador da aplicação. Para obter mais informações sobre o mapeamento do atributo, consulte [Noções básicas sobre os tipos de mapeamento de atributos](customize-application-attributes.md#understanding-attribute-mapping-types).
 * Filtre as ações de aprovisionamento do Azure AD realiza na aplicação de destino. Em vez de precisar do Azure AD totalmente sincronizar objetos, pode limitar as ações executadas. Por exemplo, ao selecionar apenas **atualização**, do Azure AD apenas as atualizações de contas num aplicativo de usuário existente e não criar novos. Ao selecionar apenas **criar**, apenas o Azure cria novas contas de utilizador mas não atualiza os existentes. Esta funcionalidade permite aos administradores criar mapeamentos diferentes para a criação de conta e atualizar os fluxos de trabalho.
 
 ### <a name="settings"></a>Definições

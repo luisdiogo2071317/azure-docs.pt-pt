@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 100b3fa0e43be054a85ca9e32d9bb1b11033afb8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061475"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296266"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de utilização: A implementação contínua para máquinas virtuais com a configuração de estado de automatização e Chocolatey
 
@@ -182,7 +182,7 @@ Esse nuspec deve ser compilado e armazenado no seu servidor do NuGet. Este proce
 ## <a name="step-6-tying-it-all-together"></a>Passo 6: Juntando as peças
 
 Sempre que uma versão passa o controle de qualidade e é aprovada para implementação, o pacote criado nuspec e nupkg atualizado e implementados no servidor do NuGet. Além disso, a configuração (passo 4 acima) tem de ser atualizada para os Concordo com o novo número de versão. Tem de ser enviado para o servidor de solicitação e compilado.
-Daí em diante, cabe para as VMs que dependem de que a configuração para extrair a atualização e instalá-lo. Cada uma destas atualizações são simples - apenas uma ou duas linhas do PowerShell. No caso do Visual Studio Team Services, algumas delas são encapsuladas em tarefas de compilação que podem ser encadeadas numa compilação. Isso [artigo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fornece mais detalhes. Isso [repositório do GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes sobre as diversas tarefas de compilação disponíveis.
+Daí em diante, cabe para as VMs que dependem de que a configuração para extrair a atualização e instalá-lo. Cada uma destas atualizações são simples - apenas uma ou duas linhas do PowerShell. No caso do Azure DevOps, alguns deles são encapsuladas em tarefas de compilação que podem ser encadeadas numa compilação. Isso [artigo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fornece mais detalhes. Isso [repositório do GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes sobre as diversas tarefas de compilação disponíveis.
 
 ## <a name="notes"></a>Notas
 

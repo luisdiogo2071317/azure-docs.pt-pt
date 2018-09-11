@@ -1,6 +1,6 @@
 ---
-title: Equipa dados ciência processo projeto levar tarefas - Azure | Microsoft Docs
-description: Uma descrição das tarefas para um projeto levar num projeto de equipa de ciência de dados.
+title: Da Equipe líder do projeto dados ciência processo tarefas - Azure | Documentos da Microsoft
+description: Uma descrição de tarefas para um líder de projeto num projeto de equipe de ciência de dados.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,108 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 58c5826240b7c49ba29c0d8e86a2896e3ce2f7f7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6a618efc6860371883bff7ebb953880293ad3120
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838403"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303886"
 ---
-# <a name="project-lead-tasks"></a>Tarefas de oportunidades potenciais do projeto
+# <a name="project-lead-tasks"></a>Tarefas de líder do projeto
 
-Este tutorial destaca as tarefas que é uma antecedência de projeto esperado concluir a sua equipa de projeto. O objetivo consiste em estabelecer o ambiente de colaboração de equipa que uniformiza no [o processo de ciência de dados de equipa](overview.md) (TDSP). O TDSP é uma arquitetura desenvolvida pela Microsoft que fornece uma sequência de atividades para executar as soluções de Análise Preditiva baseado na nuvem, de forma eficiente structured. Para uma descrição das funções de pessoal e das respetivas tarefas associadas são processados por uma equipa de ciência de dados uniformizar neste processo, consulte o artigo [funções do processo de ciência de dados de equipa e tarefas](roles-tasks.md).
+Este tutorial descreve as tarefas que um líder de projeto é esperado concluir para sua equipe de projeto. O objetivo é estabelecer o ambiente de equipa de colaboração que padroniza sobre o [Team Data Science Process](overview.md) (TDSP). O TDSP é uma estrutura desenvolvida pela Microsoft que fornece uma sequência estruturada de atividades para executar soluções de Análise Preditiva com base na cloud de forma eficiente. Para uma descrição das funções pessoal e das respetivas tarefas associadas que são processadas por uma equipa de ciência de dados padronizar este processo, consulte [Team Data Science Process funções e tarefas](roles-tasks.md).
 
-A **projeto levar** gere as atividades diárias de cientistas de dados individual num projeto de ciência de dados específicos. O fluxo de trabalho para as tarefas a ser concluídos por leva de projeto a configurar este ambiente estão representados na figura seguinte:
+R **líder de projeto** gerencia as atividades diárias de cientistas de dados individuais num projeto de ciência de dados específicos. O fluxo de trabalho para as tarefas a serem concluídas pela oportunidades potenciais de projeto para configurar este ambiente estão representados na figura a seguir:
 
 ![1](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
 
-Este tópico inclui atualmente tarefas 1,2 e 6 deste fluxo de trabalho de clientes potenciais clientes potenciais do projeto.
+Este tópico inclui atualmente tarefas 1,2 e 6, este fluxo de trabalho para oportunidades potenciais do projeto.
 
->[AZURE.NOTE] Iremos descrevem os passos necessários para configurar um ambiente de equipa TDSP para um projeto com os serviços de equipa do Visual Studio (VSTS) nas instruções seguintes. Especificamos como realizar estas tarefas com VSTS, uma vez que é a forma como implementamos TDSP na Microsoft. Se for utilizada noutra plataforma de alojamento de código para o grupo, as tarefas que necessitam de ser concluídos pela antecedência de equipa, geralmente, não alteram. Mas a forma para concluir estas tarefas vai ser diferentes.
+>[AZURE.NOTE] Descrevemos os passos necessários para configurar um ambiente de equipe do TDSP para um projeto de DevOps do Azure a utilizar nas seguintes instruções. Especificamos como realizar estas tarefas com o Azure DevOps, uma vez que é saber como implementamos TDSP na Microsoft. Se outra plataforma de alojamento de código é utilizada para o seu grupo, as tarefas que devem ser concluídas pelo líder da Equipe geralmente não são alterados. Mas a forma de concluir estas tarefas vai ser diferente.
 
 
 ## <a name="repositories-and-directories"></a>Repositórios e diretórios
 
-Este tutorial utiliza nomes abreviados para repositórios e diretórios. Estes nomes tornam mais fácil de seguir as operações entre os repositórios e diretórios. Este notation (R para repositórios de Git) e D para diretórios locais no seu DSVM é utilizado nas seguintes secções:
+Este tutorial utiliza nomes abreviados para repositórios e diretórios. Esses nomes tornam mais fáceis de compreender as operações entre os repositórios e diretórios. Este notação (R repositórios do Git) e D para diretórios locais na sua DSVM é usada nas seções a seguir:
 
-- **R3**: A equipa **ProjectTemplate** repositório de Git antecedência sua equipa tiver configurado.
-- **R5**: O repositório de projeto no Git, o programa de configuração para o seu projeto.
-- **D3**: O diretório local clonado a partir do R3.
-- **D5**: O diretório local clonado a partir do R5.
+- **R3**: A equipe **ProjectTemplate** repositório de Git configurou seu chefe de equipe.
+- **R5**: O repositório do projeto no Git para o seu projeto de configuração.
+- **D3**: O diretório de local clonar a partir R3.
+- **D5**: O diretório de local clonar a partir R5.
 
 
 ## <a name="0-prerequisites"></a>0. Pré-requisitos
 
-Os pré-requisitos são satisfeitos, efetuando as tarefas atribuídas para o Gestor de grupo descrito na [Gestor do grupo de tarefas para uma equipa de ciência de dados](group-manager-tasks.md) e para a equipa de oportunidades potenciais descritos na [tarefas de fabrico da equipa de uma equipa de ciência de dados](team-lead-tasks.md). 
+Os pré-requisitos são cumpridos ao concluir as tarefas atribuídas para o seu Gestor de grupo descrita [tarefas de Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md) e para da Equipe líder descrito no [tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md). 
 
-Para resumir aqui, os seguintes requisitos têm de cumprir antes de começar com as tarefas de oportunidades potenciais equipa: 
+Para resumir aqui, os seguintes requisitos tem de cumprir antes de iniciar as tarefas de líder de equipe: 
 
-- O **servidor do grupo VSTS** (ou conta de grupo algumas plataforma de alojamento de código) tiver sido configurada pelo seu Gestor de grupo.
-- O **TeamProjectTemplate repositório** (R3) tiver sido configurada na sua conta de grupo pelo seu antecedência de equipa na plataforma de alojamento de código que pretende utilizar.
-- Ter sido **autorizado** pelo seu antecedência de agrupamento para criar repositórios na sua conta de grupo para a sua equipa.
-- Git tem de estar instalado no seu computador. Se estiver a utilizar uma Máquina Virtual de ciência de dados (DSVM), Git tiver sido previamente instalado e estiver pronto para continuar. Caso contrário, consulte o [apêndice plataformas e ferramentas](platforms-and-tools.md#appendix).  
-- Se estiver a utilizar um **Windows DSVM**, tem de ter [Gestor de credenciais de Git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado no seu computador. No ficheiro README.md, desloque para baixo até o **transferir e instalar** secção e clique em de *instalador mais recente*. Isto leva-o para a página de instalador mais recente. Transferir o instalador .exe aqui e executá-la. 
-- Se estiver a utilizar **Linux DSVM**, crie uma chave pública SSH no seu DSVM e adicioná-la ao seu servidor VSTS de grupo. Para obter mais informações sobre o SSH, consulte o **criar chave pública SSH** secção o [apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
+- Sua **grupo de serviços do Azure DevOps** (ou conta de grupo em outra plataforma de alojamento de código) tiver sido configurado pelo seu Gestor de grupo.
+- Sua **TeamProjectTemplate repositório** (R3) tiver sido configurada na sua conta do grupo pelo seu chefe de equipe na plataforma de alojamento de código que pretende utilizar.
+- A sua sessão foi **autorizado** pelo seu chefe de equipe para criar repositórios na sua conta de grupo para a sua equipa.
+- Git tem de estar instalado no seu computador. Se estiver a utilizar uma Máquina Virtual de ciência de dados (DSVM), o Git tiver sido previamente instalado e estiver pronto para começar. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).  
+- Se estiver a utilizar um **DSVM do Windows**, tem de ter [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado no seu computador. No ficheiro README.md, desloque para baixo para o **transfira e instale** secção e clique nas *instalador mais recente*. Isto leva-o para a página de instalador mais recente. Transfira o instalador .exe aqui e executá-lo. 
+- Se estiver a utilizar **DSVM do Linux**, crie uma chave pública SSH na sua DSVM e adicioná-lo aos seus serviços de DevOps do Azure de grupo. Para obter mais informações sobre o SSH, consulte a **criar chave pública SSH** secção a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-a-project-repository-r5"></a>1. Criar um repositório de projeto (R5)
 
-- Inicie sessão no seu servidor VSTS grupo *https://\<nome do servidor VSTS\>. visualstudio.com*. 
-- Em **projetos recentes & equipas**, clique em **procurar**. Uma janela que aparece apresenta uma lista de todos os projetos de equipa no servidor de VSTS. 
+- Inicie sessão no seu grupo nos serviços de DevOps do Azure no *https://\<nome de serviços do Azure DevOps\>. visualstudio.com*. 
+- Sob **projetos recentes & equipes**, clique em **procurar**. Uma janela que surge apresenta uma lista de todos os projetos nos serviços de DevOps do Azure. 
 
     ![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
 
-- Clique no nome do projeto de equipa no qual vai criar o seu repositório de projeto. Neste exemplo, clique em **MyTeam**. 
-- Em seguida, clique em **navegar** para ser direcionado para a home page do projeto de equipa **MyTeam**:
+- Clique no nome do projeto em que pretende criar o seu repositório do projeto. Neste exemplo, clique em **MyTeam**. 
+- Em seguida, clique em **Navigate** para ser direcionado para a home page do projeto **MyTeam**:
 
     ![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
 
-- Clique em **Collaborate no código** para ser direcionado para a home page do git do seu projeto de equipa.  
+- Clique em **Colabore em código** para ser direcionado para a home page do git de seu projeto.  
 
     ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
-- Clique na seta descendente no canto superior esquerdo e selecione **+ novo repositório de**. 
+- Clique na seta para baixo no canto superior esquerdo e selecione **+ novo repositório**. 
     
     ![5](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
 
-- No **criar um novo repositório de** janela, introduza um nome para o repositório de git do projeto. Certifique-se de que seleciona **Git** como o tipo do repositório. Neste exemplo, utilizamos o nome *DSProject1*. 
+- Na **criar um novo repositório** janela, introduza um nome para o repositório de git do projeto. Certifique-se de que seleciona **Git** como o tipo do repositório. Neste exemplo, utilizamos o nome *DSProject1*. 
 
     ![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
-- Para criar o ***DSProject1*** repositório de git do projeto, clique em **criar**.
+- Para criar sua ***DSProject1*** repositório de git do projeto, clique em **criar**.
 
 
-## <a name="2-seed-the-dsproject1-project-repository"></a>2. O repositório de projeto DSProject1 de seed
+## <a name="2-seed-the-dsproject1-project-repository"></a>2. Efetuar o seeding o repositório do projeto DSProject1
 
-A tarefa aqui é seed o **DSProject1** repositório do projeto (R5) do seu repositório de modelo de projeto de equipa (R3). O procedimento de propagação utiliza os diretórios D3 e D5 no seu local DSVM como sites de transição intermédios. Em resumo, é o caminho de propagação: R3 -> D3 -> D5 -> R5.
+A tarefa aqui é seed a **DSProject1** o repositório de projeto (R5) do seu repositório do modelo de projeto (R3). O procedimento de propagação utiliza os diretórios D3 e D5 em sua DSVM local como sites intermediários de testes. Em resumo, o caminho de propagação é: R3 -> D3 -> D5 -> R5.
 
-Se precisar de personalizar o **DSProject1** repositório de projeto para satisfazer algumas específico necessita do projeto, fazê-lo no passo penultimate do procedimento a seguir. Eis um resumo dos passos utilizados para efetuar o seeding o conteúdo a **DSProject1** repositório de projeto. Os passos individuais correspondem para que as subsecções no procedimento propagação:
+Se precisar de personalizar seu **DSProject1** repositório de projeto para atender a alguns específicos do projeto às suas necessidades, fazê-lo na etapa a mais do procedimento a seguir. Aqui está um resumo dos passos utilizados para efetuar o seeding o conteúdo do **DSProject1** repositório do projeto. Os passos individuais correspondem para as subsecções no procedimento propagação:
 
-- Repositório do modelo de projeto de equipa do clone para o diretório local: equipa R3 - clonado para -> local D3.
-- Repositório de DSProject1 do clone para um diretório local: equipa R5 - clonado para -> local D5.
-- Copie o conteúdo do modelo de projeto de equipa clonado para clone local do repositório de DSProject1: D3 - conteúdos copiados para -> D5.
+- Repositório de modelos de projeto de clone para diretório local: R3 - clonado a -> local D3 da equipe.
+- Repositório de DSProject1 clone para um diretório local: R5 - clonado a -> local D5 da equipe.
+- Copiar o conteúdo do modelo de projeto clonado para o clone local do repositório de DSProject1: D3 - conteúdo copiado a -> D5.
 - (Opcional) D5 local de personalização.
-- Push local DSProject1 conteúdo repositórios de equipa: D5 - conteúdo Adicionar -> equipa R5.
+- Conteúdo por push local DSProject1 para repositórios de equipe: adicionar de conteúdo D5 - a -> equipa R5.
 
 
-### <a name="clone-your-team-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone o repositório de modelo de projeto (R3) de equipa para um diretório (D3) no seu computador local.
+### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone o repositório de modelos de projeto (R3) para um diretório (D3) no seu computador local.
 
 No seu computador local, crie um diretório:
 
 - *C:\GitRepos\MyTeamCommon* para Windows 
 - *$home/GitRepos/MyTeamCommon* para Linux
 
-Alterar a esse diretório. Em seguida, execute o seguinte comando para clonar o repositório de modelo de projeto de equipa no seu computador local. 
+Altere para esse diretório. Em seguida, execute o seguinte comando para clonar o repositório de modelos de projeto no seu computador local. 
 
 **Windows**
             
     git clone <the HTTPS URL of the TeamProjectTemplate repository>
     
-Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmente, o *URL HTTPS do repositório de modelo de projeto de equipa* é:
+Se estiver a utilizar do Azure DevOps como a plataforma de alojamento de código, normalmente, o *URL de HTTPS do seu repositório de modelos de projeto* é:
 
- ***https://\<nome do servidor VSTS\>.visualstudio.com/\<no nome do projeto de equipa\>/_git/\<o nome de repositório de modelo de projeto de equipa\>***. 
+ ***https://\<nome de serviços do Azure DevOps\>.visualstudio.com/\<o nome do projeto\>/_git/\<seu nome de repositório do modelo de projeto\>***. 
 
-Neste exemplo, temos de:
+Neste exemplo, temos:
 
 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/MyTeamProjectTemplate***. 
 
@@ -127,17 +127,17 @@ Neste exemplo, temos de:
         
 ![8](./media/project-lead-tasks/project-leads-8-clone-team-project-template-linux.png)
 
-Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmente, o *SSH URL do repositório de modelo de projeto de equipa* é:
+Se estiver a utilizar do Azure DevOps como a plataforma de alojamento de código, normalmente, o *SSH URL do repositório de modelos de projeto* é:
 
-***SSH: / /\<nome do servidor VSTS\>@\<nome do servidor VSTS\>.visualstudio.com:22/\<o nome do projeto de equipa > /_git/\<o nome de repositório de modelo de projeto de equipa \>.*** 
+***o SSH: / /\<nome de serviços do Azure DevOps\>@\<nome de serviços do Azure DevOps\>.visualstudio.com:22/\<nome do seu projeto > /_git/\<seu modelo de projeto nome do repositório\>.*** 
 
-Neste exemplo, temos de:
+Neste exemplo, temos:
 
 ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
 
-### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>Clone o repositório de DSProject1 (R5) para um diretório (D5) no seu computador local
+### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>Clonar o repositório de DSProject1 (R5) para um diretório (D5) no seu computador local
 
-Diretório de alteração para **GitRepos**, e execute o seguinte comando para clonar o repositório de projeto para o computador local. 
+Altere o diretório para **GitRepos**, e execute o seguinte comando para clonar o repositório de projeto no seu computador local. 
 
 **Windows**
             
@@ -145,7 +145,7 @@ Diretório de alteração para **GitRepos**, e execute o seguinte comando para c
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmente, o _URL HTTPS do repositório projeto_ é ***https://\<nome do servidor VSTS\>.visualstudio.com/\<sua equipa Nome do projeto > /_git/ < no nome do repositório de projeto\>***. Neste exemplo, temos ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
+Se estiver a utilizar do Azure DevOps como a plataforma de alojamento de código, normalmente, o _URL de HTTPS do repositório do projeto_ é ***https://\<nome de serviços do Azure DevOps\>.visualstudio.com/\<Nome do seu projeto > /_git/ < nome do seu projeto repositório\>***. Neste exemplo, temos ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
 
 **Linux**
 
@@ -153,11 +153,11 @@ Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmen
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Se estiver a utilizar VSTS como a plataforma de alojamento de código, normalmente, o _SSH URL do repositório projeto_ é _ssh: / / < nome do servidor VSTS\>@< nome do servidor VSTS\>.visualstudio.com:22/<Your Team Project Name> / \_git / < nome do repositório do projeto\>. Neste exemplo, temos ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Se estiver a utilizar do Azure DevOps como a plataforma de alojamento de código, normalmente, o _SSH URL do repositório do projeto_ é _ssh: / / < nome de serviços do Azure DevOps\>@< nome de serviços do Azure DevOps\>. visualstudio.com:22/<Your Project Name>/\_git / < nome do seu repositório de projeto\>. Neste exemplo, temos ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
-### <a name="copy-contents-of-d3-to-d5"></a>Copiar conteúdos de D3 para D5 
+### <a name="copy-contents-of-d3-to-d5"></a>Copie o conteúdo do D3 para D5 
 
-Agora no seu computador local, tem de copiar o conteúdo de _D3_ para _D5_, exceto os metadados do git no diretório .git. Os scripts seguintes executará a tarefa. Certifique-se ao tipo nos caminhos corretos e completos para os diretórios. Pasta de origem é o para a sua equipa (_D3_); a pasta de destino é o para o seu projeto (_D5_).    
+Agora no seu computador local, precisa copiar o conteúdo do _D3_ ao _D5_, exceto os metadados de git no diretório do projeto. Os seguintes scripts fará a tarefa. Certifique-se de digitar os caminhos corretos e completos para os diretórios. Pasta de origem é o para a sua equipa (_D3_); pasta de destino é a para seu projeto (_D5_).    
 
 **Windows**
     
@@ -166,7 +166,7 @@ Agora no seu computador local, tem de copiar o conteúdo de _D3_ para _D5_, exce
     
 ![11](./media/project-lead-tasks/project-leads-11-local-copy-project-lead-new.png)
 
-Agora pode ver na _DSProject1_ pasta, todos os ficheiros (excluindo o .git) são copiados do _MyTeamProjectTemplate_.
+Agora pode ver na _DSProject1_ pasta, todos os ficheiros (excluindo o projeto) são copiados do _MyTeamProjectTemplate_.
 
 ![12](./media/project-lead-tasks/project-leads-12-teamprojectTemplate_copied_to_local.png)
 
@@ -177,48 +177,48 @@ Agora pode ver na _DSProject1_ pasta, todos os ficheiros (excluindo o .git) são
         
 ![13](./media/project-lead-tasks/project-leads-13-local_copy_project_lead_linux_new.png)
 
-Agora pode ver na _DSProject1_ pasta, todos os ficheiros (exceto os metadados no .git) são copiados do _MyTeamProjectTemplate_.
+Agora pode ver na _DSProject1_ pasta, todos os ficheiros (exceto os metadados em. Git) são copiados do _MyTeamProjectTemplate_.
 
 ![14](./media/project-lead-tasks/project-leads-14-teamprojectTemplate_copied_to_local_linux_new.png)
 
 
-### <a name="customize-d5-if-you-need-to-optional"></a>Personalizar D5 se for necessário (opcional)
+### <a name="customize-d5-if-you-need-to-optional"></a>Personalizar o D5 se precisar de (opcional)
 
-Se o seu projeto tem algumas diretórios específicos ou documentos, sem ser aqueles que aproveitar o modelo de projeto de equipa (copiado para o seu diretório D5 no passo anterior), pode personalizar o conteúdo de D5 agora. 
+Se o projeto precise alguns diretórios específicos ou documentos, diferentes dos que obtém a partir do seu modelo de projeto (copiado para o seu diretório D5 no passo anterior), pode personalizar o conteúdo de D5 agora. 
 
-### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>Adicionar conteúdo de DSProject1 D5 para R5 no seu servidor VSTS de grupo
+### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-azure-devops-services"></a>Adicionar conteúdo de DSProject1 no D5 para R5 nos seus serviços do grupo do Azure DevOps
 
-Tem agora push o conteúdo **_DSProject1_** para _R5_ repositório no seu projeto de equipa no servidor VSTS do seu grupo. 
+Agora preciso de enviar por push o conteúdo **_DSProject1_** para _R5_ repositório no seu projeto nos serviços de DevOps do Azure do seu grupo. 
 
 
 - Mude para diretório **D5**. 
-- Utilize os seguintes comandos de git para adicionar o conteúdo no **D5** para **R5**. Os comandos são os mesmos para sistemas Windows e Linux. 
+- Utilize os seguintes comandos do git para adicionar o conteúdo na **D5** ao **R5**. Os comandos são os mesmos para sistemas Windows e Linux. 
     
-    Adicione o git do Git estado.
-    push de git do Git consolidação -m "push de win DSVM"
+    Adicione git de estado do Git.
+    push de git do Git consolidação -m "push do win DSVM"
     
-- Consolide as alterações e push. 
+- Consolide a alteração e push. 
 
->[AZURE.NOTE] Se esta for a primeira vez, aceita um repositório de Git, terá de configurar parâmetros globais *user.name* e *user.email* antes de executar o `git commit` comando. Execute os seguintes dois comandos:
+>[AZURE.NOTE] Se esta for a primeira vez que se comprometer com um repositório de Git, terá de configurar parâmetros globais *user.name* e *user.email* antes de executar o `git commit` comando. Execute os dois comandos seguintes:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>
  
-> Se são consolidar para vários repositórios de Git, utilize o mesmo nome e endereço de e-mail em todos eles. Utilizar o mesmo nome e endereço de correio eletrónico comprova conveniente mais tarde quando criar dashboards do Power BI para controlar as atividades de Git em repositórios de vários.
+> Se empenhados em vários repositórios de Git, utilize o mesmo nome e endereço de e-mail em todos eles. Com o mesmo nome e endereço de e-mail prova conveniente posteriormente quando cria dashboards do Power BI para controlar as atividades de Git em vários repositórios.
 
 ![15](./media/project-lead-tasks/project-leads-15-git-config-name.png)
 
 
-## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. Criar e montar o file storage do Azure como recursos de projeto (opcional)
+## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. Criar e montar o armazenamento de ficheiros do Azure como recursos de projeto (opcional)
 
-Se pretender criar o file storage do Azure para partilhar dados, tais como o projeto de dados não processados ou as funcionalidades geradas para o seu projeto, para que todos os membros de projeto tenham acesso aos mesmos conjuntos de dados de vários DSVMs, siga as instruções nas secções 3 e 4 de [ Tarefas de antecedência para uma equipa de ciência de dados de equipa](team-lead-tasks.md). 
+Se pretende criar o armazenamento de ficheiros do Azure para partilhar dados, como o projeto de dados não processados ou as funcionalidades geradas para seu projeto, para que todos os membros do projeto tenham acesso aos conjuntos de dados mesmo de vários DSVMs, siga as instruções nas secções 3 e 4 de [ Tarefas de oportunidades potenciais para uma equipa de ciência de dados de equipa](team-lead-tasks.md). 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Seguem-se ligações para as descrições das funções e tarefas definidas pelo processo de ciência de dados de equipa mais detalhadas:
+Seguem-se ligações para as descrições mais detalhadas das funções e tarefas definidas pelo processo de ciência de dados de equipa:
 
-- [Grupo do Gestor de tarefas para uma equipa de ciência de dados](group-manager-tasks.md)
-- [Tarefas de fabrico da equipa de uma equipa de ciência de dados](team-lead-tasks.md)
-- [Tarefas de fabrico de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
-- [Contribuintes individuais de projeto para uma equipa de ciência de dados](project-ic-tasks.md)
+- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
+- [Tarefas de líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
+- [Contribuidores individuais do projeto para uma equipa de ciência de dados](project-ic-tasks.md)

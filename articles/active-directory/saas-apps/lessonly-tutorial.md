@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121714"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutorial: Integração do Azure Active Directory com Lessonly.com
 
@@ -126,7 +126,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Lessonly.com](mailto:dev@lessonly.com) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Lessonly.com](mailto:support@lessonly.com) obter esses valores. 
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -165,7 +165,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Para configurar o início de sessão único num **Lessonly.com** lado, terá de enviar o transferido **Certificate(Base64)** e **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** para [equipa de suporte de Lessonly.com](mailto:dev@lessonly.com).
+1. Para configurar o início de sessão único num **Lessonly.com** lado, terá de enviar o transferido **Certificate(Base64)** e **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** para [equipa de suporte de Lessonly.com](mailto:support@lessonly.com).
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +208,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Lesson
 Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder Lessonly.com se não existir ainda será criado um novo utilizador.
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Lessonly.com](mailto:dev@lessonly.com).
+> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Lessonly.com](mailto:support@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

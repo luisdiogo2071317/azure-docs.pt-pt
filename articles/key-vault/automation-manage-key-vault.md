@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2016
 ms.author: magoedte
-ms.openlocfilehash: 6484c8c9ae1ad109820c3b3912c3a7ea8d49c2a2
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: be7829c35f299381a5e82621412feb13cc2e8bb2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054161"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299241"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gerir o Azure Key Vault com a automatização do Azure
 Este guia apresenta-lhe para o serviço de automatização do Azure e como ele pode ser usado para simplificar a gestão das chaves e segredos no Azure Key Vault.

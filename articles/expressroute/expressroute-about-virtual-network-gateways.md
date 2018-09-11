@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 09/10/2018
 ms.author: cherylmc
-ms.openlocfilehash: d89463826cb05bf4cafd36cf4a38e60852d93094
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 34d84a27406f0ebabd7bca576ee443da1d0c9bcd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060861"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348809"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca dos gateways de rede virtual para o ExpressRoute
 Um gateway de rede virtual é utilizado para enviar tráfego de rede entre redes virtuais do Azure e localizações no local. Pode utilizar um virtual gateway de rede pode ser utilizado para o tráfego de ExpressRoute ou o tráfego VPN. Este artigo se concentra em gateways de rede virtual do ExpressRoute.
@@ -31,7 +31,7 @@ Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway
 ## <a name="gwsku"></a>SKUs de Gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Se pretender atualizar o gateway de um SKU de gateway mais poderosa, na maioria dos casos pode utilizar o cmdlet do PowerShell "Redimensionamento-AzureRmVirtualNetworkGateway". Isso funcionará para atualizações para Standard e o SKU HighPerformance. No entanto, para atualizar para o SKU de UltraPerformance, precisa de recriar o gateway.
+Se pretender atualizar o gateway de um SKU de gateway mais poderosa, na maioria dos casos pode utilizar o cmdlet do PowerShell "Redimensionamento-AzureRmVirtualNetworkGateway". Isso funcionará para atualizações para Standard e o SKU HighPerformance. No entanto, para atualizar para o SKU de UltraPerformance, precisa de recriar o gateway. Recriação de um gateway, incorre em tempo de inatividade.
 
 ### <a name="aggthroughput"></a>Desempenhos estimados pelo SKU do gateway
 A tabela seguinte mostra os tipos de gateway e os desempenhos estimados. Esta tabela aplica-se aos modelos de implementação clássica e Resource Manager.

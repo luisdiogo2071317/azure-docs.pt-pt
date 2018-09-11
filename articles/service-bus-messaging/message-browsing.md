@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: bafc08eae4a32f803f485097401a586a662f64e9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a8213ebfe1d2643fd3c38e655b2571de82ef048f
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700412"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346565"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
 
-Mensagem de navegação ("observação") permite que um cliente de Service Bus enumerar todas as mensagens que residem numa fila ou subscrição, normalmente para diagnóstico e fins de depuração.
+A procura de mensagem ou observação, permite que um cliente de Service Bus enumerar todas as mensagens que residem numa fila ou subscrição, normalmente, para fins de diagnósticos e depuração.
 
 As operações de pré-visualização retornam todas as mensagens que existem no registo de mensagem fila ou subscrição, não apenas os disponíveis para aquisição de imediato com `Receive()` ou o `OnMessage()` loop. O `State` propriedade de cada mensagem informa se a mensagem está ativa (disponível para ser recebida), [diferida](message-deferral.md), ou [agendada](message-sequencing.md).
 
@@ -30,13 +30,13 @@ Mensagens consumidas e expiradas são limpos pelo assíncrona "coleta de lixo", 
 
 Isso é especialmente importante a ter em conta quando tenta recuperar diferidas mensagens da fila. Uma mensagem para o qual o [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) instantâneas passou já não é elegível para obtenção regular de outros meios, mesmo quando estão a ser devolvido por Peek. Essas mensagens a devolver é proposital, uma vez que a pré-visualização é uma ferramenta de diagnóstico que reflete o estado atual do registo.
 
-Observar também devolve mensagens que foram bloqueadas e estão atualmente a ser processadas por outros recetores, mas ainda não foram concluídas. No entanto, como pré-visualização retorna um instantâneo de desligado, o estado de bloqueio de uma mensagem não pode ser observado nas mensagens de pré-visualizar e o [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) e [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) propriedades throw um [ InvalidOperationException](/dotnet/api/system.invalidoperationexception) quando a aplicação tenta lê-los.
+Observar também devolve mensagens que foram bloqueadas e estão atualmente a ser processadas por outros recetores, mas ainda não foram concluídas. No entanto, como pré-visualização retorna um instantâneo de desligado, o estado de bloqueio de uma mensagem não pode ser observado nas mensagens de pré-visualizar e o [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) e [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) propriedades throw um [ InvalidOperationException](/dotnet/api/system.invalidoperationexception) quando a aplicação tenta lê-los.
 
 ## <a name="peek-apis"></a>APIs de pré-visualização
 
 O [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) métodos existem nas bibliotecas de cliente de todos os .NET e Java e em todos os objetos de destinatário: **MessageReceiver**, **MessageSession**, **QueueClient**, e **SubscriptionClient**. Pré-visualização funciona em todas as filas e subscrições e suas respectivas filas de mensagens não entregues.
 
-Quando chamado repetidamente, o método de pré-visualização enumera todas as mensagens que existem no registo de fila ou subscrição, na ordem de número de sequência, do número mais baixo sequência disponíveis para o maior. Esta é a ordem na qual as mensagens foram colocados em fila; Não é a ordem na qual mensagens, eventualmente, poderão ser recuperadas.
+Quando chamado repetidamente, o método de pré-visualização enumera todas as mensagens que existem no registo de fila ou subscrição, na ordem de número de sequência, do número mais baixo sequência disponíveis para o maior. Esta é a ordem na qual as mensagens foram colocados em fila e não é a ordem na qual mensagens, eventualmente, poderão ser recuperadas.
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) obtém várias mensagens e devolve-os como uma enumeração. Se nenhuma mensagem estiver disponível, o objeto de enumeração é não nulo, estar vazio.
 

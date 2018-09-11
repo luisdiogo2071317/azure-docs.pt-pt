@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ca1ea5fb95ba1c49b5c1e3660c598e8f1443b43c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8680a8fa9c460983b88aa4845adcbe72d3a43abf
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666272"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325520"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -121,19 +121,7 @@ Seguem-se alguns cenários comuns para ajudar a compreender que permissões são
 * Para a pasta enumerar, o autor da chamada precisa de permissões de **Leitura + Execução**.
 * Para todas as pastas predecessoras, o autor da chamada precisa de permissões de **Execução**.
 
-## <a name="viewing-permissions-in-the-azure-portal"></a>Permissões de visualização no portal do Azure
 
-Partir do **Data Explorer** painel da conta do Data Lake Storage Gen1, clique em **acesso** para ver as ACLs para o ficheiro ou pasta a ser visualizado no Data Explorer. Clique em **Acesso** para ver as ACLs da pasta **catalog**, na conta **mydatastore**.
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Neste painel, a secção superior mostra as permissões dos proprietários. (Na captura de ecrã, o utilizador proprietário é Bob.) A seguir, são apresentadas as ACLs de Acesso atribuídas. 
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Clique em **Vista Avançada** para ver a vista mais avançada, onde são apresentadas as ACLs Predefinidas, a máscara e uma descrição do superutilizador.  Este painel também proporciona uma forma de definir recursivamente ACLs de Acesso e Predefinidas para ficheiros e pastas subordinados com base nas permissões da pasta atual.
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>O superutilizador
 
@@ -227,30 +215,27 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## <a name="the-mask-and-effective-permissions"></a>A máscara (mask) e as "permissões efetivas"
+## <a name="the-mask"></a>A máscara
 
-**Mask** é um valor RWX que é utilizado para limitar o acesso a **utilizadores nomeados**, ao **grupo proprietário** e aos **grupos nomeados**, quando estiver a efetuar o algoritmo de verificação de acesso. Eis os conceitos-chave da mask.
-
-* A máscara cria "permissões efetivas". Isto significa que modifica as permissões no momento da verificação de acesso.
-* A máscara pode ser editada diretamente pelo proprietário do ficheiro e por qualquer superutilizador.
-* A máscara pode remover permissões para criar a permissão efetiva. A máscara *não pode* adicionar permissões à permissão efetiva.
-
-Vejamos alguns exemplos. No exemplo seguinte, a máscara está definida como **RWX**, o que significa que não remove nenhuma permissão. As permissões efetivas do utilizador nomeado, do grupo proprietário e do grupo nomeado não são alteradas durante a verificação de acesso.
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
-
-No exemplo seguinte, a máscara está definida como **R-X**. Isto significa que **desativa as permissões de Escrita** do **utilizador nomeado**, do **grupo proprietário** e do **grupo nomeado** no momento da verificação de acesso.
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-Para referência, é aqui que é apresentada a máscara de um ficheiro ou pasta no portal do Azure.
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+Conforme ilustrado no algoritmo de verificação de acesso, a máscara limita o acesso para **utilizadores nomeados**, o **grupo proprietário**, e **grupos nomeados**.  
 
 > [!NOTE]
 > Para uma nova conta de geração 1 de armazenamento do Data Lake, a máscara da ACL de acesso da pasta raiz ("/") está predefinida como RWX.
 >
 >
+
+### <a name="the-sticky-bit"></a>O sticky bit
+
+O sticky bit é uma funcionalidade mais avançada de um sistema de ficheiros POSIX. No contexto de geração 1 de armazenamento do Data Lake, é improvável que o sticky bit seja necessário.
+
+A tabela seguinte mostra como o sticky bit funciona no Data Lake Storage Gen1.
+
+| Grupo de utilizadores         | Ficheiro    | Pasta |
+|--------------------|---------|-------------------------|
+| Sticky bit **DESLIGADO** | Nenhum efeito   | Nenhum efeito.           |
+| Bit temporário **LIGADO**  | Nenhum efeito   | Impede qualquer pessoa, exceto os **superutilizadores** e o **utilizador proprietário** de um item subordinado, de eliminar ou alterar o nome desse item subordinado.               |
+
+O sticky bit não é apresentado no portal do Azure.
 
 ## <a name="permissions-on-new-files-and-folders"></a>Permissões em novos ficheiros e pastas
 
@@ -278,34 +263,37 @@ Quando é criada uma pasta subordinada numa pasta principal, a ACL Predefinida d
 
 Seguem-se alguns tópicos avançados para ajudar a compreender como as ACLs são determinadas para os ficheiros de geração 1 de armazenamento do Data Lake ou pastas.
 
-### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Função da umask na criação de ACL de Acesso para novos ficheiros e pastas
+### <a name="umask"></a>umask
 
-Num sistema compatível com POSIX, o conceito geral é que umask é um valor de 9 bits na pasta principal utilizado para transformar a permissão de **utilizador proprietário**, de **grupo proprietário** e de **outros** na ACL de Acesso de um ficheiro ou pasta subordinado novo. Os bits de uma umask identificam que bits desligar na ACL de Acesso do item subordinado. Deste modo, é utilizado para impedir seletivamente a propagação de permissões para **utilizador proprietário**, **grupo proprietário** e **outro**.
+Ao criar um ficheiro ou pasta, a umask é utilizada para modificar a forma como as ACLs padrão são definidas no item subordinado. umask é um pouco de 9 um valor de 9 bits na pastas principais, que contém um valor RWX para **utilizador proprietário**, **grupo proprietário**, e **outros**.
 
-Num sistema do HDFS, a umask é, normalmente, uma opção de configuração ao nível do site que é controlada pelos administradores. Geração 1 de armazenamento do Data Lake utiliza um **umask ao nível da conta** que não pode ser alterado. A tabela seguinte mostra a umask para geração 1 de armazenamento do Data Lake.
+A umask para o Azure Data Lake Storage Gen1 uma constante de valor ou seja definido como 007. Este valor se traduz em
 
-| Grupo de utilizadores  | Definição | Efeito na ACL de Acesso de novo item subordinado |
-|------------ |---------|---------------------------------------|
-| Utilizador proprietário | ---     | Nenhum efeito                             |
-| Grupo proprietário| ---     | Nenhum efeito                             |
-| Outros       | RWX     | Remover Leitura + Escrita + Execução         |
+* umask.owning_user = # 0--
+* umask.owning_group = # 0--
+* umask.other = 7 # RWX
 
-A ilustração seguinte mostra esta umask em ação. O efeito prático é remover a **Leitura + Escrita + Execução** para **outro** utilizador. Uma vez que a umask não especifica os bits para o **utilizador proprietário** e para o **grupo proprietário**, essas permissões não são transformadas.
+Este valor de umask significa efetivamente que o valor para outros nunca é transmitido por predefinição em novos filhos - independentemente do que indica a ACL predefinida. 
 
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+O psuedocode seguinte mostra como é que a umask é aplicada ao criar as ACLs para um item subordinado.
 
-### <a name="the-sticky-bit"></a>O sticky bit
+```
+def set_default_acls_for_new_child(parent, child):
+    child.acls = []
+    foreach entry in parent.acls :
+        new_entry = None
+        if (entry.type == OWNING_USER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
+        elif (entry.type == OWNING_GROUP) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
+        elif (entry.type == OTHER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.other))
+        else :
+            new_entry = entry.clone(perms = entry.perms )
+        child_acls.add( new_entry )
+```
 
-O sticky bit é uma funcionalidade mais avançada de um sistema de ficheiros POSIX. No contexto de geração 1 de armazenamento do Data Lake, é improvável que o sticky bit seja necessário.
 
-A tabela seguinte mostra como o sticky bit funciona no Data Lake Storage Gen1.
-
-| Grupo de utilizadores         | Ficheiro    | Pasta |
-|--------------------|---------|-------------------------|
-| Sticky bit **DESLIGADO** | Nenhum efeito   | Nenhum efeito.           |
-| Bit temporário **LIGADO**  | Nenhum efeito   | Impede qualquer pessoa, exceto os **superutilizadores** e o **utilizador proprietário** de um item subordinado, de eliminar ou alterar o nome desse item subordinado.               |
-
-O sticky bit não é apresentado no portal do Azure.
 
 ## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Perguntas comuns sobre as ACLs no Data Lake Storage Gen1
 
@@ -348,15 +336,6 @@ Quando um utilizador deixa de existir no Azure AD, é apresentado um GUID. Norma
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Geração 1 de armazenamento do Data Lake suporta a herança de ACLs?
 
 Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para ficheiros e pastas subordinados criados recentemente na pasta principal.  
-
-### <a name="what-is-the-difference-between-mask-and-umask"></a>Qual é a diferença entre mask e umask?
-
-| mask | umask|
-|------|------|
-| A propriedade **mask** está disponível em todos os ficheiros e pastas. | O **umask** é uma propriedade da conta do Data Lake Storage Gen1. Assim, há apenas uma única umask a geração de 1 de armazenamento do Data Lake.    |
-| A propriedade mask num ficheiro ou pasta pode ser alterada pelo utilizador proprietário ou grupo proprietário de um ficheiro ou por um superutilizador. | A propriedade umask não pode ser modificada por nenhum utilizador, nem mesmo por superutilizadores. É um valor constante, inalterável.|
-| A propriedade mask é utilizada durante o algoritmo de verificação de acesso em runtime para determinar se um utilizador tem o direito de realizar uma operação num ficheiro ou pasta. A função da mask é criar "permissões efetivas" no momento da verificação de acesso. | A umask não é utilizada durante a verificação de acesso. A umask é utilizada para determinar a ACL de Acesso de novos itens subordinados de uma pasta. |
-| A mask é um valor RWX de 3 bits que se aplica ao utilizador nomeado, ao grupo proprietário e ao grupo nomeado no momento da verificação de acesso.| A umask é um valor de 9 bits que se aplica ao utilizador proprietário, ao grupo proprietário e a **outros** de um novo item subordinado.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso obter mais informações sobre o modelo de controlo de acesso POSIX?
 

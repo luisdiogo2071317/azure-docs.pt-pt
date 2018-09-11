@@ -1,6 +1,6 @@
 ---
-title: Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure | Microsoft Docs
-description: Este documento mostra como implementar a recomendação de centro de segurança do Azure **restringir o acesso através da Internet com o ponto final**.
+title: Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure | Documentos da Microsoft
+description: Este documento mostra como implementar a recomendação do Centro de segurança do Azure **restringir o acesso através da Internet destinada ao ponto final**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,22 +9,22 @@ editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0b7de1f63f765705a78535ae04c1b844e06c029c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363058"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301162"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure
-Centro de segurança do Azure recomendará que restringir o acesso através de pontos finais de acesso à Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tem uma ou mais regras de entrada que permite o acesso de "qualquer" endereço IP de origem. Abrir o acesso a "nenhum" pode permitir que os atacantes aceder aos recursos. Centro de segurança irá recomendar que editar estas regras de entrada para restringir o acesso aos endereços IP de origem que, na verdade, precisam de acesso.
+Centro de segurança do Azure recomendará que restringir o acesso através de pontos finais de acesso à Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tem um ou mais regras de entrada que permitem o acesso de "qualquer" endereço IP de origem. Abrir o acesso a "todos" pode permitir que atacantes acedam aos seus recursos. Centro de segurança irá recomendar que editar estas regras de entrada para restringir o acesso a endereços IP de origem que realmente precisam de acesso.
 
-Esta recomendação é gerada para qualquer porta de web não tem "qualquer" como origem.
+Esta recomendação é gerada para qualquer porta não web que tenha "qualquer" como origem.
 
 > [!NOTE]
 > Este documento apresenta o serviço ao utilizar um exemplo de implementação. Não se trata de um guia passo-a-passo.
@@ -32,28 +32,28 @@ Esta recomendação é gerada para qualquer porta de web não tem "qualquer" com
 >
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-1. No **painel recomendações**, selecione **restringir o acesso através da Internet com o ponto final**.
+1. Na **painel recomendações**, selecione **restringir o acesso através da Internet destinada ao ponto final**.
 
    ![Restringir o acesso através de um ponto final com acesso à Internet][1]
-2. Esta ação abre o painel **restringir o acesso através da Internet com o ponto final**. Este painel lista as máquinas virtuais (VMs) com as regras de entrada que criam um potencial problema de segurança. Selecione uma VM.
+2. Esta ação abre o painel **restringir o acesso através da Internet destinada ao ponto final**. Este painel apresenta uma lista as máquinas virtuais (VMs) com as regras de entrada que criam um potencial problema de segurança. Selecione uma VM.
 
    ![Selecione uma VM][2]
-3. O **NSG** painel mostra informações do grupo de segurança de rede, relacionadas com as regras de entrada e a VM associada. Selecione **editar regras de entrada** para continuar com a edição de uma regra de entrada.
+3. O **NSG** painel apresenta informações de grupo de segurança de rede, regras de entrada relacionadas e a VM associada. Selecione **editar regras de entrada** para continuar com a edição de uma regra de entrada.
 
    ![Painel do grupo de segurança de rede][3]
-4. No **regras de segurança de entrada** painel selecione a regra de entrada para editar. Neste exemplo, vamos selecione **AllowWeb**.
+4. Sobre o **regras de segurança de entrada** painel, selecione a regra de entrada para editar. Neste exemplo, vamos selecionar **AllowWeb**.
 
    ![Regras de segurança de entrada][4]
 
-   Tenha em atenção, também pode selecionar **predefinido regras** para ver o conjunto de regras de predefinidas contido por todos os NSGs. Não não possível eliminar as regras predefinidas, mas como lhes é atribuída uma prioridade mais baixa, podem ser substituídas pelas regras que criar. Saiba mais sobre [predefinido regras](../virtual-network/security-overview.md#default-security-rules).
+   Observe, também pode selecionar **regras predefinidas** para ver o conjunto de regras predefinidas contidos por todos os NSGs. Não não possível eliminar as regras predefinidas, mas como lhes é atribuída uma prioridade mais baixa, podem ser substituídas pelas regras que criar. Saiba mais sobre [regras predefinidas](../virtual-network/security-overview.md#default-security-rules).
 
    ![Regras predefinidas][5]
-5. No **AllowWeb** painel, editar as propriedades da regra de entrada para que o **origem** é um endereço IP ou o bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte o artigo [regras do NSG](../virtual-network/security-overview.md#security-rules).
+5. Sobre o **AllowWeb** painel, editar as propriedades da regra de entrada para que o **origem** é um endereço IP ou o bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte [regras do NSG](../virtual-network/security-overview.md#security-rules).
 
    ![Editar regra de entrada][6]
 
 ## <a name="see-also"></a>Consulte também
-Este artigo mostrou como implementar a recomendação de centro de segurança "Restringir o acesso através de ponto de final com acesso à Internet." Para obter mais informações sobre como ativar regras e os NSGs, consulte o seguinte:
+Este artigo mostrou como implementar a recomendação do Centro de segurança "Restringir o acesso através de ponto de final com acesso à Internet." Para saber mais sobre como ativar os NSGs e regras, consulte o seguinte:
 
 * [O que é um Grupo de Segurança de Rede (NSG)? (What is a Network Security Group (NSG)?)](../virtual-network/security-overview.md)
 * [Gerir um grupo de segurança de rede](../virtual-network/manage-network-security-group.md)

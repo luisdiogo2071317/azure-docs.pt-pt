@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: c268538cf401b29f68210c6d017c2eac55e88939
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 87ae5e4999b586d431882615ec8a603413f168ed
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056403"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296416"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fornecer detalhes de contactos de segurança no Centro de segurança do Azure
 Centro de segurança do Azure irá recomendar que forneça os detalhes de contacto de segurança para a sua subscrição do Azure se ainda não o fez. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. MSRC executa segurança selecione monitorização da rede do Azure e infraestrutura e recebe a reclamações de abuso e inteligência de ameaças de terceiros.

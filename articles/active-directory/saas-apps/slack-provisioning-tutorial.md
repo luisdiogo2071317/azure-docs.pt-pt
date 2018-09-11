@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 9763c7a9e79f4c9e9d6296efb79e944205e8a99c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264152"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348910"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar o Slack para aprovisionamento automático de utilizadores
 
@@ -111,7 +111,7 @@ Opcionalmente, pode ativar o aprovisionamento de objetos de grupo do Azure AD pa
 
 Este resultado em qualquer objeto de grupo atribuído a Slack no **utilizadores e grupos** secção totalmente a ser sincronizados do Azure AD para o Slack. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para aprovisionamento de registos de atividade, que descrevem a todas as ações executadas pelo serviço de aprovisionamento na sua aplicação Slack.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Recursos Adicionais

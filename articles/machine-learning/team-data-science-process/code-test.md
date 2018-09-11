@@ -1,5 +1,5 @@
 ---
-title: Código de ciência de dados de teste no Azure com o UCI rendimento para adultos predição conjunto de dados - processo de ciência de dados de equipa e o Visual Studio Team Services
+title: Código de ciência de dados de teste no Azure com o UCI rendimento para adultos predição conjunto de dados - processo de ciência de dados de equipa e os serviços do Azure DevOps
 description: Código de ciência de dados de teste com dados de predição de rendimento para adultos UCI
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439502"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294700"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Código de ciência de dados de teste com o conjunto de dados de predição de rendimento para adultos UCI
 Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciência de dados. Esses testes fornece os cientistas de dados uma forma sistemática e eficiente para verificar a qualidade e o resultado esperado do seu código. Um Team Data Science Process (TDSP), usamos [projeto que usa o conjunto de dados de rendimento para adultos de UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos anteriormente para mostrar como teste de código pode ser feito. 
@@ -37,8 +37,8 @@ Este artigo substitui o termo "testes de unidade" com "código de teste." Refere
 
 Este artigo fornece referências, como recursos úteis.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services para a estrutura de testes
-Este artigo descreve como realizar e automatizar os testes com o Visual Studio Team Services (VSTS). Pode optar por utilizar as ferramentas alternativas. Também vamos mostrar como configurar uma compilação automática com o VSTS e agentes de compilação. Agentes de compilação, vamos utilizar máquinas de virtuais de ciência de dados de Azure (DSVMs).
+## <a name="azure-devops-for-the-testing-framework"></a>DevOps do Azure para a estrutura de testes
+Este artigo descreve como realizar e automatizar os testes com o Azure DevOps. Pode optar por utilizar as ferramentas alternativas. Também vamos mostrar como configurar uma compilação automática através da utilização do Azure DevOps e agentes de compilação. Agentes de compilação, vamos utilizar máquinas de virtuais de ciência de dados de Azure (DSVMs).
 
 ## <a name="flow-of-code-testing"></a>Fluxo de código de teste
 O fluxo de trabalho geral de código de teste num projeto de ciência de dados tem esta aparência: 
@@ -48,7 +48,7 @@ O fluxo de trabalho geral de código de teste num projeto de ciência de dados t
     
 ## <a name="detailed-steps"></a>Passos detalhados
 
-Utilize os seguintes passos para configurar e executar testes de código e uma compilação automatizada com um agente de compilação e VSTS:
+Utilize os seguintes passos para configurar e executar testes de código e uma compilação automatizada com um agente de compilação e DevOps do Azure:
 
 1. Crie um projeto no aplicativo de desktop do Visual Studio:
 
@@ -60,7 +60,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
     ![Explorador de Soluções](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Feed seu código de projeto para o repositório de código do projeto VSTS: 
+1. Feed seu código de projeto para o repositório de código do projeto de DevOps do Azure: 
 
     ![Repositório de código do projeto](./media/code-test/create_repo.PNG)
 
@@ -108,13 +108,13 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
     ![Executar os testes](./media/code-test/run_tests.PNG)
 
-1. Verifique no seu código para o repositório do projeto ao utilizar comandos do Git. Seu trabalho mais recente será refletido daqui a pouco no VSTS.
+1. Verifique no seu código para o repositório do projeto ao utilizar comandos do Git. Seu trabalho mais recente será refletido daqui a pouco no Azure DevOps.
 
     ![Comandos do Git para a verificação no código](./media/code-test/git_check_in.PNG)
 
-    ![Trabalho mais recente no VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Trabalho mais recente em DevOps do Azure](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Configurar a compilação automática e teste no VSTS:
+1. Configurar a compilação automática e teste no Azure DevOps:
 
     a. No repositório do projeto, selecione **criar e lançar**e, em seguida, selecione **+ novo** para criar um novo processo de compilação.
 
@@ -128,7 +128,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie a compilação e selecione o agente. Se pretender utilizar uma DSVM para concluir o processo de compilação, pode escolher o padrão aqui. Para obter mais informações sobre agentes de definição, consulte [criar e lançar agentes](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. Nomeie a compilação e selecione o agente. Se pretender utilizar uma DSVM para concluir o processo de compilação, pode escolher o padrão aqui. Para obter mais informações sobre agentes de definição, consulte [criar e lançar agentes](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecione **guardar e colocar em fila** para concluir o processo de definição de compilação.
+    g. Selecione **guardar e colocar em fila** para concluir o processo de pipeline de compilação.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Agora sempre que uma consolidação novo é emitida para o repositório de código, o processo de compilação será iniciada automaticamente. (Aqui, vamos utilizar mestre como o repositório, mas pode definir qualquer ramo.) O processo é executado o **test1.py** ficheiro no computador agente para certificar-se de que tudo definidas no código é executado corretamente. 
 
-Se os alertas estão configurados corretamente, será notificado por e-mail quando a compilação estiver concluída. Também pode verificar o estado de compilação no VSTS. Se falhar, pode verificar os detalhes da compilação e descobrir qual parte foi interrompida.
+Se os alertas estão configurados corretamente, será notificado por e-mail quando a compilação estiver concluída. Também pode verificar o estado da compilação do Azure DevOps. Se falhar, pode verificar os detalhes da compilação e descobrir qual parte foi interrompida.
 
 ![Notificação de e-mail de êxito de compilação](./media/code-test/email_build_succeed.PNG)
 
-![Notificação de VSTS de sucesso de compilação](./media/code-test/vs_online_build_succeed.PNG)
+![Notificação de DevOps do Azure de sucesso de compilação](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Consulte a [repositório de predição de renda UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para exemplos concretos de testes de unidade para cenários de ciência de dados.
@@ -161,5 +161,5 @@ Se os alertas estão configurados corretamente, será notificado por e-mail quan
 ## <a name="references"></a>Referências
 * [Processo de Ciência de Dados de Equipa](https://aka.ms/tdsp)
 * [Ferramentas de teste do Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
-* [Recursos de teste do VSTS](https://www.visualstudio.com/team-services/)
+* [Recursos de teste de DevOps do Azure](https://www.visualstudio.com/team-services/)
 * [Máquinas de virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

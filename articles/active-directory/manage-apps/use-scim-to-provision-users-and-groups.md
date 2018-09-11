@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443516"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347703"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
 
@@ -84,7 +84,7 @@ Aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas 
 13. Clique em **guardar** para iniciar o serviço de aprovisionamento do AD do Azure. 
 14. Se a sincronização atribuído apenas a utilizadores e grupos (recomendados), certifique-se de que selecione os **utilizadores e grupos** separador e atribua os utilizadores e/ou grupos que pretende sincronizar.
 
-Assim que tiver iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações executadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Assim que tiver iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações executadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](check-status-user-account-provisioning.md).
 
 >[!NOTE]
 >A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. 
@@ -152,7 +152,7 @@ Para facilitar este processo, [exemplos de código](https://github.com/Azure/Azu
 13. Clique em **guardar** para iniciar o serviço de aprovisionamento do AD do Azure. 
 14. Se a sincronização atribuído apenas a utilizadores e grupos (recomendados), certifique-se de que selecione os **utilizadores e grupos** separador e atribua os utilizadores e/ou grupos que pretende sincronizar.
 
-Assim que tiver iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações executadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Assim que tiver iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações executadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](check-status-user-account-provisioning.md).
 
 A verificar o exemplo a etapa final é abrir o ficheiro de TargetFile.csv na pasta \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug no seu computador Windows. Assim que o processo de aprovisionamento é executado, este ficheiro mostra os detalhes de todos os atribuído e aprovisionamento de utilizadores e grupos.
 
@@ -692,11 +692,11 @@ A ilustração seguinte mostra as mensagens que Azure AcD envia a um serviço SC
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](../active-directory-apps-index.md)
-* [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](../active-directory-saas-app-provisioning.md)
-* [Personalizar mapeamentos de atributos para o aprovisionamento do utilizador](../active-directory-saas-customizing-attribute-mappings.md)
-* [Escrever expressões para mapeamentos de atributos](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Filtros de âmbito para o aprovisionamento do utilizador](../active-directory-saas-scoping-filters.md)
-* [Notificações do aprovisionamento de contas](../active-directory-saas-app-provisioning.md)
+* [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](user-provisioning.md)
+* [Personalizar mapeamentos de atributos para o aprovisionamento do utilizador](customize-application-attributes.md)
+* [Escrever expressões para mapeamentos de atributos](functions-for-customizing-application-data.md)
+* [Filtros de âmbito para o aprovisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Notificações do aprovisionamento de contas](user-provisioning.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

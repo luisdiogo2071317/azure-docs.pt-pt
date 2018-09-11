@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: ff22ad4f8abae019591150dd9a8ea2cd4ca4e5d9
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: f069134c0665769316b794122cc077b05941f635
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054183"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346173"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para o aprovisionamento automático de utilizadores
 
@@ -98,7 +98,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos ao GitHub na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades, que descrevem a todas as ações executadas pelo serviço de aprovisionamento de aprovisionamento.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -108,4 +108,4 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449870"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301196"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize processos do Application Insights ao utilizar o Logic Apps
 
@@ -25,7 +25,7 @@ Encontra-se a executar repetidamente as mesmas consultas nos seus dados de telem
 
 Com esta integração, pode automatizar vários processos sem ter de escrever uma única linha de código. Pode criar uma aplicação lógica com o conector do Application Insights para rapidamente automatizar qualquer processo do Application Insights. 
 
-Pode adicionar ações adicionais também. A funcionalidade de aplicações lógicas do serviço de aplicações do Azure disponibiliza a centenas de ações. Por exemplo, ao utilizar uma aplicação lógica, pode automaticamente enviar uma notificação por e-mail ou criar um bug no Visual Studio Team Services. Também pode utilizar um dos muitos disponíveis [modelos](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) para ajudar a agilizar o processo de criação da sua aplicação lógica. 
+Pode adicionar ações adicionais também. A funcionalidade de aplicações lógicas do serviço de aplicações do Azure disponibiliza a centenas de ações. Por exemplo, ao utilizar uma aplicação lógica, pode automaticamente enviar uma notificação por e-mail ou criar um bug no Azure DevOps. Também pode utilizar um dos muitos disponíveis [modelos](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) para ajudar a agilizar o processo de criação da sua aplicação lógica. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Criar uma aplicação lógica para o Application Insights
 

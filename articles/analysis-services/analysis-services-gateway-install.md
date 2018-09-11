@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89b21af5303afc2082d3d56ddb9e894f3ae4c4b8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158435"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348893"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 Um gateway de dados no local é necessário quando um ou mais servidores do Azure Analysis Services na mesma região que se ligam a origens de dados no local. Para saber mais sobre o gateway, veja [gateway de dados no local](analysis-services-gateway.md).
@@ -35,9 +35,9 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 * Durante a configuração, ao registar o gateway com o Azure, é selecionada a região predefinida para a sua subscrição. Pode escolher uma região diferente. Se tiver servidores em mais do que uma região, tem de instalar um gateway para cada região. 
 * O gateway não pode ser instalado num controlador de domínio.
 * Apenas um gateway pode ser instalado num único computador.
-* Por predefinição, o gateway utiliza a conta NT SERVICE\PBIEgwService para iniciar sessão. Uma conta diferente pode ser especificada durante a configuração ou em serviços. Definições de política de grupo Certifique-se de permitir que a conta de serviço tem registo que privilégios de serviço.
 * Instale o gateway num computador que permanece no e não entra em suspensão.
 * Não instale o gateway num computador wirelessly ligado à sua rede. Pode ser reduzido o desempenho.
+* Ao instalar o gateway, a conta de utilizador que tem sessão iniciada para o seu computador com necessita de registo no como privilégios de serviço. Quando a instalação estiver concluída, o serviço de gateway de dados no local utiliza a conta NT SERVICE\PBIEgwService para iniciar sessão como um serviço. Uma conta diferente pode ser especificada durante a configuração ou em serviços, após a conclusão da configuração. Definições de política de grupo Certifique-se de permitir que a conta que iniciou sessão com durante a instalação e a conta de serviço que escolher tem registo no como privilégios de serviço.
 * Inicie sessão no Azure com uma conta no Azure AD para o mesmo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que a subscrição que está a registar o gateway. B2B do Azure contas (convidado) não são suportadas quando instalar e registar um gateway.
 * Se a origens de dados estiverem numa rede Virtual do Azure (VNet), tem de configurar o [AlwaysUseGateway](analysis-services-vnet-gateway.md) propriedade do servidor.
 * O gateway (unificado) descrito aqui não é suportado nas regiões de soberania Azure Government, Azure Alemanha e China do Azure. Uso **gateway no local dedicado para o Azure Analysis Services**, instalado a partir do seu servidor **início rápido** no portal. 
@@ -79,7 +79,7 @@ Para criar um recurso de gateway no Azure, tem de registar a instância local in
 ## <a name="create-resource"></a>Criar um recurso do gateway do Azure
 Depois de ter instalado e registado o gateway, terá de criar um recurso de gateway na sua subscrição do Azure. Inicie sessão no Azure com a mesma conta que utilizou quando registar o gateway.
 
-1. No portal do Azure, clique em **criar um novo serviço** > **integração empresarial** > **gateway de dados no local**  >   **Criar**.
+1. No portal do Azure, clique em **criar um recurso** > **integração** > **gateway de dados no local**.
 
    ![Criar um recurso de gateway](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

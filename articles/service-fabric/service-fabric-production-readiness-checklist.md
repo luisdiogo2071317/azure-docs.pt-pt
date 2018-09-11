@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 5092bf377f6ab213a2db52e01fb7b89ff0c218ce
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127593"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295875"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 
@@ -45,7 +45,7 @@ ms.locfileid: "39127593"
 15. Estabelecer um objetivo de ponto de recuperação (RPO) para o seu serviço e configurar uma [processo de recuperação após desastre](service-fabric-disaster-recovery.md) e testá-lo.
 16. Planear [dimensionamento](service-fabric-cluster-scaling.md) seu cluster manualmente ou através de programação.
 17. Planear [aplicação de patches](service-fabric-patch-orchestration-application.md) os nós do cluster. 
-18. Estabelece um pipeline CI/CD para que as alterações mais recentes estão a ser testadas continuamente. Por exemplo, utilizando [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+18. Estabelece um pipeline CI/CD para que as alterações mais recentes estão a ser testadas continuamente. Por exemplo, utilizando [do Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. Testar o seu desenvolvimento e teste clusters em condições de carga com o [serviço de análise de falhas](service-fabric-testability-overview.md) e induza controlado [chaos](service-fabric-controlled-chaos.md). 
 20. Planear [dimensionamento](service-fabric-concepts-scalability.md) seus aplicativos. 
 

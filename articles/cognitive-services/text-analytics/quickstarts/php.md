@@ -1,5 +1,6 @@
 ---
-title: Guia de introdução do PHP para os serviços cognitivos do Azure, API de análise de texto | Documentos da Microsoft
+title: 'Início rápido: Utilizar o PHP para chamar a API de análise de texto | Documentos da Microsoft'
+titleSuffix: Azure Cognitive Services
 description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de análise de texto nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 602988747f54c3dbdfa933986d47b631b757db65
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840775"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298714"
 ---
-# <a name="quickstart-for-text-analytics-api-with-php"></a>Início rápido para API com PHP de análise de texto 
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Utilizar o PHP para chamar o serviço cognitivos de análise de texto
 <a name="HOLTop"></a>
 
 Este artigo mostra-lhe como ao [detetar o idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction), e [identificar entidades associadas](#Entities) usando o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com PHP.

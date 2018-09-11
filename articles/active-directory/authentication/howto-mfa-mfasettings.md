@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162148"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349097"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -200,7 +200,7 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Ativar a funcionalidade de IPs fidedignos, utilizando as definições de serviço
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
+2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores**.
 3. Selecione **multi-factor Authentication**.
 4. Em multi-factor Authentication, selecione **definições do serviço**.
 5. Sobre o **definições do serviço** página, em **IPs fidedignos**, escolha entre as duas opções seguintes:

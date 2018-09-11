@@ -10,15 +10,15 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/08/2018
+ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: e6a3df79bf0786b536dc4c454d19beea2730125a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c033a465bb6e8e03c909ac7bc5a233f6b8b4cd76
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093129"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298091"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador das funções do Azure 
 
@@ -191,10 +191,13 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto de timer no código de função. | 
 |**schedule**|**ScheduleExpression**|R [expressão CRON](#cron-expressions) ou uma [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado num plano do serviço de aplicações. Pode colocar a expressão de agendamento numa definição de aplicação e definir esta propriedade para a aplicação encapsulado em do nome da definição **%** sinais, tal como neste exemplo: "% ScheduleAppSetting %". |
-|**runOnStartup**|**RunOnStartup**|Se `true`, a função é invocada quando o tempo de execução é iniciado. Por exemplo, o tempo de execução é iniciado quando a aplicação de funções reativado depois de ficar ociosa devido a inatividade. Quando a aplicação de funções reinicia devido a alterações de função e, quando a aplicação de funções aumenta horizontalmente. Então **runOnStartup** deve raramente se alguma vez ser definido como `true`, como isso tornará o código executado em momentos imprevisíveis elevada.|
+|**runOnStartup**|**RunOnStartup**|Se `true`, a função é invocada quando o tempo de execução é iniciado. Por exemplo, o tempo de execução é iniciado quando a aplicação de funções reativado depois de ficar ociosa devido a inatividade. Quando a aplicação de funções reinicia devido a alterações de função e, quando a aplicação de funções aumenta horizontalmente. Então **runOnStartup** deve raramente se alguma vez ser definido como `true`, especialmente em produção. |
 |**useMonitor**|**UseMonitor**|Defina como `true` ou `false` para indicar se a agenda deve ser monitorizada. Agenda de monitorização mantém as ocorrências de agenda para ajudar a garantir que a agenda é mantida corretamente, mesmo quando reiniciar instâncias de aplicações de função. Se não estiver definido explicitamente, a predefinição é `true` para agendas que têm um intervalo de periodicidade superior a 1 minuto. Para agendamentos que acionam mais de uma vez por minuto, a predefinição é `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> Recomendamos a definição **runOnStartup** para `true` na produção. Com esta definição faz com código executar em momentos imprevisíveis altamente. Em determinadas configurações de produção, essas execuções Extras podem resultar em custos significativamente mais para aplicações alojadas nos planos de consumo. Por exemplo, com **runOnStartup** ativado o acionador na invocado sempre que a sua aplicação function app é dimensionada. Certifique-se de que compreende totalmente o comportamento de produção das suas funções antes de ativar **runOnStartup** na produção.   
 
 ## <a name="usage"></a>Utilização
 

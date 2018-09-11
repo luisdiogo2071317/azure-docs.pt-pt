@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4fd6175f68f98cce726e70e76b0b884a7a31fbda
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783105"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325333"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões de máquina virtual e funcionalidades para Windows
 
@@ -66,7 +66,7 @@ Algumas extensões não são suportadas em todos os sos e pode emitir *51 de có
 Pacotes de extensão são transferidos a partir do repositório de extensão do armazenamento do Azure e carregamentos de estado de extensão são lançados para o armazenamento do Azure. Se usar [suportado](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versão dos agentes, não é necessário permitir o acesso ao armazenamento do Azure na região da VM, como pode utilizar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações de agente. Se estiver numa versão não suportada do agente, terá de permitir o acesso de saída para o armazenamento do Azure na região da VM.
 
 > [!IMPORTANT]
-> Se bloqueou o acesso a *168.63.129.1* utilizando a firewall de convidado, em seguida, extensões falharem independentemente acima.
+> Se bloqueou o acesso a *168.63.129.16* utilizando a firewall de convidado, em seguida, extensões falharem independentemente acima.
 
 Agentes só podem ser utilizados para transferir pacotes de extensão e comunicar o estado. Por exemplo, se uma instalação da extensão tem de transferir um script a partir do GitHub (Script personalizado) ou tem de aceder ao armazenamento do Azure (Azure Backup), em seguida, adicionais/rede de firewall segurança portas de grupo tem de ser aberto. Extensões diferentes têm requisitos diferentes, uma vez que são aplicativos por si mesmos. Para extensões que necessitam de acesso ao armazenamento do Azure, pode permitir acesso utilizando as etiquetas de serviço do Azure NSG para [armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

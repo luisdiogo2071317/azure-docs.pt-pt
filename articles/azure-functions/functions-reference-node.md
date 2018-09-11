@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 36307c86332ac331e444d65ba27c044585379e68
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093407"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298017"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -67,13 +67,19 @@ module.exports = function(context) {
 ```
 context.bindings
 ```
-Devolve um objeto nomeado que contém todos os seus dados de entrada e saídos. Por exemplo, a seguinte definição de ligação no seu *Function* permite que acesse o conteúdo da fila do `context.bindings.myInput` objeto. 
+Devolve um objeto nomeado que contém todos os seus dados de entrada e saídos. Por exemplo, as seguintes definições de ligação no seu *Function* permite que acesse o conteúdo de uma fila de `context.bindings.myInput` e atribua saídas para uma fila usando `context.bindings.myOutput`.
 
 ```json
 {
     "type":"queue",
     "direction":"in",
     "name":"myInput"
+    ...
+},
+{
+    "type":"queue",
+    "direction":"out",
+    "name":"myOutput"
     ...
 }
 ```
@@ -87,25 +93,27 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
+Tenha em atenção que pode optar por definir através de dados de enlace de saída a `context.done` método em vez do `context.binding` objeto (ver abaixo).
+
 ### <a name="contextdone-method"></a>método Context.Done
 ```
 context.done([err],[propertyBag])
 ```
 
-Informa o tempo de execução que terminou a seu código. Se a sua função utiliza a `async function` declaração (disponível através do nó 8 + na versão de funções 2.x), não é necessário utilizar `context.done()`. O `context.done` implicitamente é chamado de retorno de chamada.
+Informa o tempo de execução que terminou a seu código. Se a sua função usa o JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração (disponível através do nó 8 + na versão de funções 2.x), não é necessário utilizar `context.done()`. O `context.done` implicitamente é chamado de retorno de chamada.
 
 Se a sua função não é uma função de async **tem de chamar `context.done`**  para informar o tempo de execução que sua função está concluída. A execução será o tempo limite, se estiver em falta.
 
-O `context.done` método permite que passe tanto um erro definidas pelo usuário de volta para o tempo de execução e uma matriz de propriedades de propriedades que substituir as propriedades no `context.bindings` objeto.
+O `context.done` método permite que passe tanto um erro definidas pelo usuário de volta para o tempo de execução e um objeto JSON que contém dados de enlace de saída. Propriedades transmitidos para `context.done` irá substituir qualquer item definido no `context.bindings` objeto.
 
 ```javascript
 // Even though we set myOutput to have:
-//  -> text: hello world, number: 123
+//  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 // the done method will overwrite the myOutput binding to be: 
-//  -> text: hello there, world, noNumber: true
+//  -> text: 'hello there, world', noNumber: true
 ```
 
 ### <a name="contextlog-method"></a>método Context.log  
@@ -113,7 +121,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 context.log(message)
 ```
-Permite-lhe escrever para os transmissão em fluxo registos de consola no nível de rastreio predefinido. No `context.log`, métodos de registo adicionais estão disponíveis, que lhe permite gravar no log de consola em outros níveis de rastreio:
+Pode escrever nos registos de função de transmissão em fluxo no nível de rastreio predefinido. No `context.log`, métodos de registo adicionais estão disponíveis, que permitem que escreva registos de função em outros níveis de rastreio:
 
 
 | Método                 | Descrição                                |
@@ -123,12 +131,14 @@ Permite-lhe escrever para os transmissão em fluxo registos de consola no nível
 | **info(_message_)**    | Grava em nível de informações registo ou inferior.    |
 | **verbose(_message_)** | Escreve no registo de nível verboso.           |
 
-O exemplo seguinte escreve para a consola no nível de rastreio de aviso:
+O exemplo a seguir registra um log no nível de rastreio de aviso:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
-Pode definir o limiar de nível de rastreio para o registo no ficheiro de Host. JSON ou desativá-la.  Para obter mais informações sobre como escrever nos registos, consulte a secção seguinte.
+Pode [configurar o limiar de nível de rastreio para o registo de](#configure-the-trace-level-for-console-logging) no ficheiro de Host. JSON. Para obter mais informações sobre como escrever os registos, consulte [escrever saídas de rastreio](#writing-trace-output-to-the-console) abaixo.
+
+Leia [monitorizar as funções do Azure](functions-monitoring.md) para saber mais sobre ver e consultar os registos da função.
 
 ## <a name="binding-data-type"></a>Tipo de dados de ligação
 
@@ -143,11 +153,11 @@ Para definir o tipo de dados para um enlace de entrada, utilize o `dataType` pro
 }
 ```
 
-Outras opções para `dataType` estão `stream` e `string`.
+Opções de `dataType` são: `binary`, `stream`, e `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Escrever os resultados de rastreio na consola 
 
-As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. Neste momento, não é possível utilizar `console.log` para escrever no console.
+As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. Não pode utilizar as funções v1.x, `console.log` para escrever no console. No v2.x de funções, rastrear ouputs via `console.log` são capturados ao nível da aplicação de função. Isso significa que produz de `console.log` não estão associadas a uma invocação de função específica.
 
 Quando chama `context.log()`, a mensagem é escrita para a consola no nível de rastreio predefinido, que é o _informações_ rastrear nível. Escreve o código a seguir para a consola no nível de rastreio de informações:
 
@@ -155,22 +165,21 @@ Quando chama `context.log()`, a mensagem é escrita para a consola no nível de 
 context.log({hello: 'world'});  
 ```
 
-O código anterior é equivalente ao seguinte código:
+Esse código é equivalente para o código acima:
 
 ```javascript
 context.log.info({hello: 'world'});  
 ```
 
-Escreve o código a seguir para a consola no nível de erro:
+Esse código grava no console no nível de erro:
 
 ```javascript
 context.log.error("An error has occurred.");  
 ```
 
-Uma vez _erro_ se o rastreio de mais alto nível, este rastreio é escrito para a saída em todos os níveis de rastreio, desde que o registo está ativado.  
+Uma vez _erro_ se o rastreio de mais alto nível, este rastreio é escrito para a saída em todos os níveis de rastreio, desde que o registo está ativado.
 
-
-Todos os `context.log` métodos suportam o mesmo formato de parâmetro que é suportado pelo node. js [util.format método](https://nodejs.org/api/util.html#util_util_format_format). Considere o código a seguir, que escreve para a consola utilizando o nível de rastreio predefinido:
+Todos os `context.log` métodos suportam o mesmo formato de parâmetro que é suportado pelo node. js [util.format método](https://nodejs.org/api/util.html#util_util_format_format). Considere o código a seguir, que escreve os registos da função utilizando o nível de rastreio predefinido:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -204,7 +213,7 @@ HTTP e acionadores de webhook e HTTP de saída ligações usam os objetos reques
 
 ### <a name="request-object"></a>Objeto de solicitação
 
-O `request` objeto tem as seguintes propriedades:
+O `context.req` (pedido) objeto tem as seguintes propriedades:
 
 | Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
@@ -219,7 +228,7 @@ O `request` objeto tem as seguintes propriedades:
 
 ### <a name="response-object"></a>Objeto de resposta
 
-O `response` objeto tem as seguintes propriedades:
+O `context.res` objeto (resposta) tem as seguintes propriedades:
 
 | Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
@@ -230,13 +239,7 @@ O `response` objeto tem as seguintes propriedades:
 
 ### <a name="accessing-the-request-and-response"></a>Aceder a solicitação e resposta 
 
-Ao trabalhar com acionadores HTTP, pode acessar os objetos de solicitação e resposta HTTP em qualquer uma das três formas:
-
-+ Na entrada nomeada e enlaces de saída. Dessa forma, o acionador HTTP e os enlaces funcionam da mesma forma como qualquer outra ligação. O exemplo seguinte define o objeto de resposta utilizando uma determinada `response` enlace: 
-
-    ```javascript
-    context.bindings.response = { status: 201, body: "Insert succeeded." };
-    ```
+Ao trabalhar com acionadores HTTP, pode acessar os objetos de solicitação e resposta HTTP de diversas formas:
 
 + Partir `req` e `res` das propriedades no `context` objeto. Dessa forma, pode usar o padrão convencional para dados de acesso HTTP do objeto de contexto, em vez de precisar usar toda a `context.bindings.name` padrão. O exemplo seguinte mostra como aceder a `req` e `res` objetos no `context`:
 
@@ -247,7 +250,20 @@ Ao trabalhar com acionadores HTTP, pode acessar os objetos de solicitação e re
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Ao chamar `context.done()`. Um tipo especial de enlace HTTP retorna a resposta que é passada para o `context.done()` método. Enlace de saída HTTP seguinte define uma `$return` parâmetro de saída:
++ Na entrada nomeada e enlaces de saída. Dessa forma, o acionador HTTP e os enlaces funcionam da mesma forma como qualquer outra ligação. O exemplo seguinte define o objeto de resposta utilizando uma determinada `response` enlace: 
+
+    ```json
+    {
+        "type": "http",
+        "direction": "out",
+        "name": "response"
+    }
+    ```
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
+
++ [Apenas de resposta] Ao chamar `context.done()`. Um tipo especial de enlace HTTP retorna a resposta que é passada para o `context.done()` método. Enlace de saída HTTP seguinte define uma `$return` parâmetro de saída:
 
     ```json
     {
@@ -256,15 +272,13 @@ Ao trabalhar com acionadores HTTP, pode acessar os objetos de solicitação e re
       "name": "$return"
     }
     ``` 
-    Este enlace de saída espera que fornecer a resposta ao chamar `done()`, da seguinte forma:
-
     ```javascript
      // Define a valid response object.
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
 
-## <a name="node-version-and-package-management"></a>Gerenciamento de versão e o pacote de nós
+## <a name="node-version"></a>Versão do nó
 
 A tabela seguinte mostra a versão do node. js utilizada por cada versão principal do runtime das funções:
 
@@ -275,6 +289,7 @@ A tabela seguinte mostra a versão do node. js utilizada por cada versão princi
 
 Pode ver a versão atual que está a utilizar o tempo de execução imprimindo `process.version` de qualquer função.
 
+## <a name="package-management"></a>Gestão de pacotes
 Os seguintes passos permitem-lhe incluir pacotes na sua aplicação de função: 
 
 1. Aceda a `https://<function_app_name>.scm.azurewebsites.net`.

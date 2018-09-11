@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 20cc91a1754c3d68b447430abf21a3aad5925e05
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365353"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347652"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de aplicações e mensagens de erro
 Se ocorrerem erros na Acessando um aplicativo publicado ou na publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -67,7 +67,7 @@ Esta tabela abrange os erros mais comuns que vêm da configuração de Kerberos 
 | 13016 - as do azure AD não é possível obter um tíquete Kerberos em nome do utilizador, porque não existe nenhum UPN no token de limite ou o cookie de acesso. | Existe um problema com a configuração de STS. Corrija a configuração de afirmação UPN no STS. |
 | 13019 - as do azure AD não é possível obter um tíquete Kerberos em nome do utilizador devido ao erro seguinte de API geral. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de controlador de domínio ou um problema na configuração de data e hora em ambas as máquinas. O controlador de domínio recusou o pedido de Kerberos criado pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicações de back-end estão configurados corretamente, especialmente a configuração do SPN. Certificar-se de que o Azure AD está associado ao mesmo domínio que o controlador de domínio para se certificar de que o controlador de domínio estabelece a fidedignidade com o Azure AD. Certifique-se de que a configuração de data e hora no Azure AD e o controlador de domínio são sincronizadas. |
 | 13020 - as do azure AD não é possível obter um tíquete Kerberos em nome do utilizador, porque o SPN do servidor de back-end não está definido. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de controlador de domínio ou um problema na configuração de data e hora em ambas as máquinas. O controlador de domínio recusou o pedido de Kerberos criado pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicações de back-end estão configurados corretamente, especialmente a configuração do SPN. Certificar-se de que o Azure AD está associado ao mesmo domínio que o controlador de domínio para se certificar de que o controlador de domínio estabelece a fidedignidade com o Azure AD. Certifique-se de que a configuração de data e hora no Azure AD e o controlador de domínio são sincronizadas. |
-| 13022 - as do azure AD não é possível autenticar o utilizador porque o servidor de back-end reage a tentativas de autenticação de Kerberos com um erro de HTTP 401. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de aplicações de back-end ou um problema na configuração de data e hora em ambas as máquinas. O servidor de back-end recusou o pedido de Kerberos criado pelo Azure AD. Certifique-se de que o Azure AD e o servidor de back-end de aplicações estão configuradas corretamente. Certifique-se de que a configuração de data e hora no Azure AD e o servidor de aplicações de back-end são sincronizadas. Para obter mais informações, consulte [resolver problemas de Kerberos restrita delegação configurações de Proxy de aplicações](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
+| 13022 - as do azure AD não é possível autenticar o utilizador porque o servidor de back-end reage a tentativas de autenticação de Kerberos com um erro de HTTP 401. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de aplicações de back-end ou um problema na configuração de data e hora em ambas as máquinas. O servidor de back-end recusou o pedido de Kerberos criado pelo Azure AD. Certifique-se de que o Azure AD e o servidor de back-end de aplicações estão configuradas corretamente. Certifique-se de que a configuração de data e hora no Azure AD e o servidor de aplicações de back-end são sincronizadas. Para obter mais informações, consulte [resolver problemas de Kerberos restrita delegação configurações de Proxy de aplicações](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Erros de utilizador final
 

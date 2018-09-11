@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818278"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300992"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de PaaS para a Austrália protegida
 
@@ -101,7 +101,7 @@ Permitir a utilização de ambientes de serviço de aplicações para esta arqui
 - [Firewall de aplicações Web – restringir dados](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Permitir [tráfego de base de dados do Azure SQL](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Aplicação Web do Azure**: [aplicações Web do Azure](https://docs.microsoft.com/azure/app-service/) permite aos clientes criar e alojar aplicações web na linguagem de programação de sua preferência sem ter de gerir infraestrutura. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Visual Studio Team Services ou de qualquer repositório de Git.
+**Aplicação Web do Azure**: [aplicações Web do Azure](https://docs.microsoft.com/azure/app-service/) permite aos clientes criar e alojar aplicações web na linguagem de programação de sua preferência sem ter de gerir infraestrutura. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, dos serviços de DevOps do Azure ou qualquer repositório de Git.
 
 ### <a name="virtual-network"></a>Rede Virtual
 A arquitetura define uma rede privada virtual com um espaço de endereços de 10.200.0.0/16.
@@ -202,7 +202,7 @@ A seguinte do Log Analytics [soluções de gestão](https://docs.microsoft.com/a
 
 **O Azure Monitor**: [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo o controlo de chamadas à API no seu Azure recursos.
 
-Observador de rede do Azure: [Observador de rede do Azure] 9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) fornece ferramentas para monitorizar, diagnosticar, veja as métricas e ativar ou desativar os registos de recursos numa rede virtual do Azure.  Entidades de Comunidade devem implementar os registos de fluxo do observador de rede para NSGs e máquinas virtuais. Estes registos devem ser armazenados numa conta de armazenamento dedicado que apenas os registos de segurança são armazenados no e acesso à conta de armazenamento deve ser protegido por controlos de acesso com base em função.
+Observador de rede do Azure: [Observador de rede do Azure] 9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) fornece ferramentas para monitorizar, diagnosticar, veja as métricas e ativar ou desativar os registos de recursos numa rede virtual do Azure.  Entidades de Comunidade devem implementar os registos de fluxo do observador de rede para NSGs e máquinas virtuais. Estes registos devem ser armazenados numa conta de armazenamento dedicado que apenas os registos de segurança são armazenados no e acesso à conta de armazenamento deve ser protegido por controlos de acesso com base em função.
 
 ## <a name="threat-model"></a>Modelo de risco
 

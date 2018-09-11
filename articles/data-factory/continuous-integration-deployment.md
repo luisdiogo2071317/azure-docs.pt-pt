@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058258"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300245"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e implementação no Azure Data Factory
 
@@ -53,9 +53,9 @@ Selecione **carregar ficheiro** para selecionar o modelo do Resource Manager exp
 ![Vista de código aberto para ver a cadeia de ligação](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de integração contínua
-Aqui está todo o ciclo de vida para integração contínua e implementação que pode utilizar depois de ativar a integração de VSTS GIT na IU do Data Factory:
+Aqui está todo o ciclo de vida para integração contínua e implementação que pode utilizar depois de ativar a integração de GIT de serviços de DevOps do Azure na IU do Data Factory:
 
-1.  Defina uma fábrica de dados de desenvolvimento com o VSTS em que todos os desenvolvedores podem criar recursos do Data Factory, como conjuntos de dados, pipelines etc.
+1.  Defina uma fábrica de dados de desenvolvimento com os serviços de DevOps do Azure na qual todos os desenvolvedores podem criar recursos do Data Factory, como conjuntos de dados, pipelines etc.
 
 1.  Em seguida, os desenvolvedores podem modificar recursos, tais como pipelines. À medida que faz a suas modificações, pode selecionar **depurar** para ver como o pipeline é executado com as alterações mais recentes.
 
@@ -67,25 +67,25 @@ Aqui está todo o ciclo de vida para integração contínua e implementação qu
 
 1.  O modelo exportado do Resource Manager pode ser implementado com ficheiros de parâmetros diferentes para a fábrica de teste e a fábrica de produção.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatizar a integração contínua com as versões do VSTS
+## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Automatizar a integração contínua com as versões de serviços do Azure DevOps
 
-Eis os passos para configurar uma versão do VSTS para que pode automatizar a implementação de uma fábrica de dados em vários ambientes.
+Eis os passos para configurar uma versão de serviços do Azure DevOps, para que pode automatizar a implementação de uma fábrica de dados em vários ambientes.
 
-![Diagrama da integração contínua com VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagrama da integração contínua com os serviços do Azure DevOps](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Requisitos
 
--   Uma subscrição do Azure ligada ao Team Foundation Server ou o VSTS usando o [ *ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Uma subscrição do Azure ligada ao Team Foundation Server ou serviços de DevOps do Azure utilizando o [ *ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Uma fábrica de dados com o Git do VSTS configurado.
+-   Uma fábrica de dados com o Git de serviços do Azure DevOps configurado.
 
 -   Uma [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contém os segredos.
 
-### <a name="set-up-a-vsts-release"></a>Configurar uma versão do VSTS
+### <a name="set-up-a-azure-devops-services-release"></a>Configurar uma versão de serviços do Azure DevOps
 
-1.  Aceda à página do VSTS no mesmo projeto que aquela configurado com a fábrica de dados.
+1.  Aceda à sua página de serviços de DevOps do Azure no mesmo projeto que aquela configurado com a fábrica de dados.
 
-1.  Clique no menu superior **criar e lançar** &gt; **versões** &gt; **Criar definição de versão**.
+1.  Clique no menu superior **Pipelines do Azure** &gt; **versões** &gt; **Criar definição de versão**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,15 @@ Eis os passos para configurar uma versão do VSTS para que pode automatizar a im
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Guarde a definição de versão.
+1.  Guarde o pipeline de lançamento.
 
-1.  Crie uma nova versão a partir desta definição de versão.
+1.  Crie uma nova versão partir este pipeline de lançamento.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional – obter os segredos no Azure Key Vault
 
-Se tiver de segredos para passar num modelo Azure Resource Manager, recomendamos que utilize o Azure Key Vault com o lançamento do VSTS.
+Se tiver de segredos para passar num modelo Azure Resource Manager, recomendamos que utilize o Azure Key Vault com o lançamento de serviços de DevOps do Azure.
 
 Existem duas formas de lidar com os segredos:
 
@@ -148,7 +148,7 @@ Existem duas formas de lidar com os segredos:
 
     -   O ficheiro de parâmetros tem de ser no ramo de publicação.
 
-1.  Adicionar uma [tarefas de Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da implantação de Gestor de recursos do Azure, descrito na secção anterior:
+1.  Adicionar uma [tarefas de Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes da implantação de Gestor de recursos do Azure, descrito na secção anterior:
 
     -   Selecione o **tarefas** separador, criar uma nova tarefa, procure **Azure Key Vault** e adicioná-lo.
 
@@ -156,13 +156,13 @@ Existem duas formas de lidar com os segredos:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Conceder permissões para o agente do VSTS
-A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente do VSTS. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obtenha* e *lista* são as permissões mínimas necessárias).
+### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Conceder permissões para o agente dos serviços de DevOps do Azure
+A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente dos serviços de DevOps do Azure. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obtenha* e *lista* são as permissões mínimas necessárias).
 
 ### <a name="update-active-triggers"></a>Atualizar o Active Directory acionadores
 Se tentar atualizar os acionadores de Active Directory, a implementação pode falhar. Para atualizar os acionadores de Active Directory, terá de manualmente pará-los e iniciá-las após a implementação. Pode adicionar uma tarefa do Azure Powershell para essa finalidade, conforme mostrado no exemplo a seguir:
 
-1.  No separador tarefas da versão do VSTS, procure **do Azure Powershell** e adicioná-lo.
+1.  No separador tarefas da versão de serviços do Azure DevOps, procure **do Azure Powershell** e adicioná-lo.
 
 1.  Escolher **do Azure Resource Manager** da ligação escreva e selecione a sua subscrição.
 
@@ -180,7 +180,7 @@ Pode seguir passos semelhantes e utilizar um código semelhante (com o `Start-Az
 
 ## <a name="sample-deployment-template"></a>Modelo de implementação de exemplo
 
-Aqui está um modelo de implementação de exemplo que pode ser importado no VSTS.
+Aqui está um modelo de implementação de exemplo que pode ser importado nos serviços de DevOps do Azure.
 
 ```json
 {

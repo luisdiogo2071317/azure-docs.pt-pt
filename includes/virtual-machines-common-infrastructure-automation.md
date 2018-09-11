@@ -10,8 +10,7 @@ Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à esc
     - [A automatização do Azure](#azure-automation) pode realizar ações em toda a infraestrutura do Azure e no local.
 
 - Automatizar a implantação de aplicativos e de entrega
-    - Os exemplos incluem [Visual Studio Team Services](#visual-studio-team-services) e [Jenkins](#jenkins).
-
+    - Os exemplos incluem [serviços do Azure DevOps](#visual-studio-team-services) e [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) é um motor de automatização para gestão de configuração, a criação da VM ou implementação de aplicação. Ansible utiliza um modelo sem agente, normalmente, com chaves SSH, para autenticar e gerir máquinas de destino. Tarefas de configuração são definidas no playbooks, com um número de módulos do Ansible disponíveis para executar tarefas específicas. Para obter mais informações, consulte [funciona como Ansible](https://www.ansible.com/how-ansible-works).
@@ -52,8 +51,8 @@ O cloud-init também funciona em distribuições. Por exemplo, não utiliza **ap
 |Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic |CentOS |7-CI |mais recente |pré-visualizar |
-|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualizar |
+|OpenLogic |CentOS |7-CI |mais recente |pré-visualização |
+|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualização |
 
 Saiba mais detalhes sobre a inicialização da cloud no Azure:
 
@@ -114,12 +113,12 @@ Aprenda a:
 - [Utilizar a DSC de automatização do Azure](../articles/automation/automation-dsc-getting-started.md).
 
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Serviços da Equipe](https://www.visualstudio.com/team-services/) é um conjunto de ferramentas que ajudam a partilha e controle de código, usar compilações automatizadas e criar um pipeline de desenvolvimento (CI/CD) e a completa integração contínua. Team Services é integrado ao Visual Studio e outros editores para simplificar a utilização. Serviços de equipe podem também criar e configurar as VMs do Azure e, em seguida, implementar código a eles.
+## <a name="azure-devops-services"></a>Serviços de DevOps do Azure
+[Os serviços do Azure DevOps](https://www.visualstudio.com/team-services/) é um conjunto de ferramentas que ajudam a partilha e controle de código, usar compilações automatizadas e criar um pipeline de desenvolvimento (CI/CD) e a completa integração contínua. Serviços de DevOps do Azure integra-se com o Visual Studio e outros editores para simplificar a utilização. Serviços de DevOps do Azure pode também criar e configurar as VMs do Azure e, em seguida, implementar código a eles.
 
 Aprenda a:
 
-- [Criar um pipeline de integração contínua com o Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Criar um pipeline de integração contínua com os serviços do Azure DevOps](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## <a name="jenkins"></a>Jenkins

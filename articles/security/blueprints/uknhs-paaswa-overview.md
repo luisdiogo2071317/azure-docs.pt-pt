@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 319c89969e98eafd792af078bf3094ca0aa9a7dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8c5e36daf8d404bd4db3a53769db45754f2734be
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342982"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301988"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-uk-nhs"></a>Azure Security and Compliance Blueprint: aplicação Web de PaaS para NHS do Reino Unido
 
@@ -79,7 +79,7 @@ Utilização do ambiente de serviço de aplicações para esta arquitetura permi
 - [Firewall de aplicações Web – restringir dados](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Permitir [tráfego de base de dados do Azure SQL](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Aplicação Web do Azure**: [aplicações Web do Azure](https://docs.microsoft.com/azure/app-service/) permite aos clientes criar e alojar aplicações web na linguagem de programação de sua preferência sem ter de gerir infraestrutura. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Visual Studio Team Services ou de qualquer repositório de Git.
+**Aplicação Web do Azure**: [aplicações Web do Azure](https://docs.microsoft.com/azure/app-service/) permite aos clientes criar e alojar aplicações web na linguagem de programação de sua preferência sem ter de gerir infraestrutura. Ele oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, do Azure DevOps ou qualquer repositório de Git.
 
 ### <a name="virtual-network"></a>Rede Virtual
 

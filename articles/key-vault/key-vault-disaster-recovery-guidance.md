@@ -1,6 +1,6 @@
 ---
-title: O que fazer em caso de um Azure service interrupção que afeta o Cofre de chaves do Azure | Microsoft Docs
-description: Saiba o que fazer em caso de uma interrupção do serviço do Azure que afeta o Cofre de chaves do Azure.
+title: O que fazer em caso de um Azure service interrupção que afeta o Azure Key Vault | Documentos da Microsoft
+description: Saiba o que fazer em caso de interrupção de serviço do Azure que afeta o Azure Key Vault.
 services: key-vault
 documentationcenter: ''
 author: adamglick
@@ -11,41 +11,41 @@ ms.service: key-vault
 ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: aglick
-ms.openlocfilehash: 11c2fe5d4b84f99c3b0e303d1abeea73442f57aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e3da7bee0211380b31e1c8ae2f1de45ade8a5f6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409346"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296844"
 ---
-# <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade do Cofre de chaves do Azure e de redundância
-O Cofre de chaves do Azure inclui várias camadas de redundância para se certificar de que as chaves e segredos permanecem disponíveis para a sua aplicação, mesmo se os componentes individuais do serviço falharem.
+# <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de chaves do Azure
+O Azure Key Vault apresenta várias camadas de redundância para se certificar de que as suas chaves e segredos permanecem disponíveis para a sua aplicação, mesmo se falharam de componentes individuais do serviço.
 
-O conteúdo do seu Cofre de chaves é replicado na região e para uma região secundária, pelo menos, 150 quilómetros ausente mas a mesma geografia. Isto mantém elevada durabilidade das suas chaves e segredos. Consulte o [Azure emparelhado regiões](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) documento para obter detalhes sobre os pares de região específica.
+O conteúdo do seu Cofre de chaves é replicado dentro da região e para uma região secundária, pelo menos, 150 quilómetros de distância, mas dentro da mesma geografia. Isso mantém uma elevada durabilidade das chaves e segredos. Consulte a [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) documento para obter detalhes sobre os pares de região específica.
 
-Se falharem a componentes individuais no serviço Cofre de chaves, alternativos componentes na região passo para servir o pedido para se certificar de que não há nenhum degradação de funcionalidade. Não é necessário efetuar qualquer ação para acionar esta. -Ocorre automaticamente e será transparente para si.
+Caso de falham de componentes individuais no serviço Cofre de chaves, componentes alternativos dentro da região entrar para atender sua solicitação para se certificar de que não existe nenhuma degradação de funcionalidade. Não é necessário efetuar qualquer ação para acionar esta. Ele ocorre automaticamente e será transparente para.
 
-No evento raro uma região do Azure completa não está disponível, os pedidos efetuadas do Cofre de chaves do Azure nessa região são encaminhados automaticamente (*pós-falha*) para uma região secundária. Quando a região primária estiver novamente disponível, os pedidos são encaminhados novamente (*falha novamente*) para a região primária. Novamente, não é necessário efetuar qualquer ação porque isto ocorre automaticamente.
+No evento raro que toda uma região do Azure não está disponível, os pedidos que fazem do Azure Key Vault nessa região são automaticamente encaminhados (*a ativação pós-falha*) para uma região secundária. Quando a região primária estiver novamente disponível, os pedidos são encaminhados novamente (*realizarão a reativação pós-falha*) para a região primária. Novamente, não é necessário efetuar qualquer ação porque isto ocorre automaticamente.
 
 Existem algumas limitações a ter em consideração:
 
-* Em caso de uma ativação pós-falha de região, poderá demorar alguns minutos para que o serviço de ativação pós-falha. Os pedidos efetuados, durante este tempo poderão falhar até que conclua a ativação pós-falha.
-* Após uma ativação pós-falha estiver concluída, o seu Cofre de chaves está em modo só de leitura. Se a pedidos que são suportados neste modo:
-  * Lista cofres de chaves
+* Em caso de uma ativação pós-falha de região, poderá demorar alguns minutos para que o serviço para efetuar a ativação pós-falha. Pedidos que são feitos durante este período poderão falhar até que conclua a ativação pós-falha.
+* Após uma ativação pós-falha estiver concluída, o seu Cofre de chaves está em modo só de leitura. São pedidos que são suportados neste modo:
+  * Cofres de chaves da lista
   * Obter propriedades de cofres de chaves
   * Lista os segredos
   * Obter segredos
-  * Lista de chaves
-  * Obter chaves (propriedades do)
+  * Listar chaves
+  * Obter chaves de (propriedades de)
   * Encriptar
   * Desencriptar
-  * Moldar
-  * Desenrolar
+  * Encapsular
+  * Anular a moldagem
   * Verificar
   * Assinar
-  * Backup
-* Após uma ativação pós-falha é falha novamente, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
+  * Cópia de segurança
+* Após uma ativação pós-falha é realizarão a reativação, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
 

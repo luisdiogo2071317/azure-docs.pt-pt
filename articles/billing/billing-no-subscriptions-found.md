@@ -1,6 +1,6 @@
 ---
-title: Não foram encontradas subscrições erro quando tentarem iniciar sessão portal do Azure ou centro de contas do Azure | Microsoft Docs
-description: Fornece a solução para um problema em que não foram encontradas subscrições erro ocorre quando iniciar sessão no portal do Azure ou centro de contas do Azure.
+title: Não foram encontradas subscrições erro quando tentarem iniciar sessão portal do Azure ou centro de contas do Azure | Documentos da Microsoft
+description: Oferece a solução para um problema em que não foram encontradas subscrições erro ocorre quando iniciar sessão no portal do Azure ou centro de contas do Azure.
 services: ''
 documentationcenter: ''
 author: genlin
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 475a4ad72a1c2fc2ebf99387e193713797cc2586
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b5fd1db06d13ce0c12a80752e64a6f5c64867761
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070622"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298256"
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Não foram encontradas subscrições erro no portal do Azure ou centro de contas do Azure
 
-Poderá receber uma mensagem de erro "Não foram localizadas subscrições" ao tentar iniciar sessão para o [portal do Azure](https://portal.azure.com/) ou [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions). Este artigo fornece uma solução para este problema.
+Poderá receber uma mensagem de erro "Não foram encontradas subscrições" ao tentar iniciar sessão para o [portal do Azure](https://portal.azure.com/) ou o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions). Este artigo fornece uma solução para este problema.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando tenta iniciar sessão para o [portal do Azure](https://portal.azure.com/) ou [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions), receber a seguinte mensagem de erro: "Não foram localizadas subscrições".
+Quando tenta iniciar sessão para o [portal do Azure](https://portal.azure.com/) ou o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions), receberá a seguinte mensagem de erro: "Não foram encontradas subscrições".
 
 ## <a name="cause"></a>Causa
 
@@ -40,19 +40,19 @@ Este problema ocorre se tiver selecionado no diretório errado ou se a sua conta
 
 Para corrigir este problema:
 
-* Certifique-se de que o diretório do Azure correto está selecionado clicando a sua conta no canto superior direito.
+* Certifique-se de que o diretório do Azure correto está selecionado ao clicar em sua conta no canto superior direito.
 
   ![Selecione o diretório na parte superior direita do portal do Azure](./media/billing-no-subscriptions-found/directory-switch.png)
-* Se o diretório à direita do Azure está selecionado, mas continuar a receber a mensagem de erro, [ter a sua conta adicionada como um proprietário](billing-add-change-azure-subscription-administrator.md).
+* Se for selecionado o diretório do Azure certo, mas continuar a receber a mensagem de erro [atribuir a função de proprietário à sua conta](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Cenário 2: Mensagem de erro é recebida no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions)
 
-Verifique se a conta que utilizou o administrador da conta. Para verificar que o administrador de conta, siga estes passos:
+Verifique se a conta que utilizou é o administrador de conta. Para verificar quem é o administrador de conta, siga estes passos:
 
-1. Iniciar sessão para o [Ver subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Inicie sessão para o [subscrições ver no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecione a subscrição que pretende verificar e, em seguida, procure em **definições**.
-1. Selecione **propriedades**. O administrador da conta da subscrição é apresentado no **administrador da conta** caixa.  
+1. Selecione **propriedades**. O administrador de conta da subscrição é apresentado na **administrador de conta** caixa.  
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se ainda precisar de ajuda, [contacte o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para obter o seu problema resolvido rapidamente. 
+Se precisar de ajuda, ainda [contacte o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para a sua questão resolvidos rapidamente. 

@@ -11,28 +11,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 07/24/2018
+ms.date: 09/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190181"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303069"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por e-mail no PIM
 
-Quando ocorrem eventos chave no Azure AD Privileged Identity Management (PIM), notificações por e-mail são enviadas para o utilizador ou administrador relevante. Por exemplo, o PIM envia e-mails para os seguintes eventos:
+Quando ocorrem eventos chave no Azure AD Privileged Identity Management (PIM), são enviadas notificações de e-mail. Por exemplo, o PIM envia e-mails para os seguintes eventos:
 
 - Quando uma ativação de função com privilégios está com aprovação pendente
-- Quando um pedido de ativação de função com privilégios é aprovado
+- Quando um pedido de ativação de função com privilégios é concluído
 - Quando uma função com privilégios é ativada
 - Quando é atribuída uma função com privilégios
 - Quando está ativado o Azure AD PIM
 
-Começando no final de Julho de 2018, notificações por e-mail enviadas por meio do PIM terá um novo endereço de e-mail do remetente e um novo design visual. Esta atualização irá afetar os dois PIM do Azure AD e o PIM para recursos do Azure. Todos os eventos que foram acionados anteriormente uma notificação por e-mail irão continuar a enviar um e-mail. Conteúdo de ter atualizado por alguns emails fornecendo informações mais específicas.
+Notificações por e-mail são enviadas para os administradores do seguintes:
+
+- Administrador de Função com Privilégios 
+- Administrador de Segurança
+
+Notificações de e-mail também são enviadas para o utilizador final que tenha a função com privilégios para os seguintes eventos:
+
+- Quando um pedido de ativação de função com privilégios é concluído
+- Quando é atribuída uma função com privilégios
+
+Começando no final de Julho de 2018, notificações por e-mail enviadas por meio do PIM tem um novo endereço de e-mail do remetente e um novo design visual. Esta atualização irá afetar os dois PIM do Azure AD e o PIM para recursos do Azure. Todos os eventos que foram acionados anteriormente uma notificação por e-mail irão continuar a enviar um e-mail. Conteúdo de ter atualizado por alguns emails fornecendo informações mais específicas.
 
 ## <a name="sender-email-address"></a>Endereço de e-mail do remetente
 

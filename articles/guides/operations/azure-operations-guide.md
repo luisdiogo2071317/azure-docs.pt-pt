@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190430"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296861"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -149,7 +149,7 @@ Um dos todos os benefícios de utilizar o Azure é que pode implantar seus aplic
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-O portal do Azure é uma aplicação baseada na web que pode ser utilizada para criar, gerir e remover recursos do Azure e serviços. O portal do Azure está localizado em [Shell.Azure.com](https://portal.azure.com). Ele inclui um dashboard personalizável e as ferramentas para gerir recursos do Azure. Também fornece informações de faturação e subscrição. Para obter mais informações, consulte [descrição geral do Microsoft Azure portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [recursos de gerir o Azure através do portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+O portal do Azure é uma aplicação baseada na web que pode ser utilizada para criar, gerir e remover recursos do Azure e serviços. O portal do Azure está localizado em [portal.azure.com](https://portal.azure.com). Ele inclui um dashboard personalizável e as ferramentas para gerir recursos do Azure. Também fornece informações de faturação e subscrição. Para obter mais informações, consulte [descrição geral do Microsoft Azure portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [recursos de gerir o Azure através do portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Recursos
 
@@ -185,7 +185,7 @@ Os administradores podem aceder a Azure PowerShell e CLI do Azure através de um
 
 ## <a name="azure-subscriptions"></a>Subscrições do Azure
 
-Uma subscrição é um agrupamento lógico de serviços do Azure que está ligado a uma conta do Azure. Uma única conta do Azure pode conter várias subscrições. A faturação de serviços do Azure é feita numa base por subscrição. As subscrições do Azure tem um administrador de conta, que tem controlo total sobre a subscrição e administrador de serviços, que tem controlo sobre todos os serviços na subscrição. Além dos administradores, contas individuais podem ser concedidas detalhadas de controlo de recursos do Azure através do controlo de acesso baseado em funções (RBAC).
+Uma subscrição é um agrupamento lógico de serviços do Azure que está ligado a uma conta do Azure. Uma única conta do Azure pode conter várias subscrições. A faturação de serviços do Azure é feita numa base por subscrição. As subscrições do Azure têm um administrador de conta, que tem controlo total sobre a subscrição, e um administrador de serviço, que tem controlo sobre todos os serviços na subscrição. Para obter informações sobre os administradores de subscrição clássica, consulte [adicionar ou alterar os administradores de subscrição do Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Além dos administradores, contas individuais podem ser concedidas detalhadas de controlo de recursos do Azure, utilizando [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selecionar e ativar uma subscrição do Azure
 
@@ -205,13 +205,9 @@ Se ultrapassar o montante do crédito, seu serviço estão desativadas até que 
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo para uma subscrição do Azure
 
-Várias funções de administrador de conta estão disponíveis e podem ser alteradas em qualquer altura. Duas funções principais são:
+RBAC tem várias funções incorporadas que pode utilizar para atribuir permissões. Para tornar um utilizador administrador de uma subscrição do Azure, atribuí-los a [proprietário](../../role-based-access-control/built-in-roles.md#owner) função no âmbito da subscrição. A função de proprietário dá ao usuário acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas.
 
-- **Administrador de serviços**: esta função está autorizada para gerir os serviços do Azure. Por predefinição, é concedido acesso a mesma conta que o administrador de conta.
-
-- **Coadministrador**: esta função tem o mesmo acesso que o administrador de serviços. No entanto, esta função não é possível alterar a associação de uma subscrição a diretórios do Azure.
-
-Para obter mais informações, consulte [como adicionar ou alterar funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md).
+Para obter mais informações, consulte [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Ver informações de faturação no portal do Azure
 
@@ -307,7 +303,7 @@ Pode conceder acesso operacional para contas de utilizador num âmbito especific
 
 Para conceder acesso, atribuir uma função ao utilizador ou grupo de utilizadores. Existem muitas funções predefinidas. Também pode definir suas próprias funções personalizadas.
 
-Aqui estão algumas funções de exemplo parte integradas do Azure:
+Aqui estão alguns de exemplo [funções incorporadas no Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Proprietário**: um utilizador com esta função pode gerir tudo, incluindo o acesso.
 
@@ -317,11 +313,11 @@ Aqui estão algumas funções de exemplo parte integradas do Azure:
 
 - **Contribuinte da BD SQL**: um utilizador com esta função pode gerir bases de dados SQL, mas não as políticas relacionadas com segurança.
 
-- **Gestor de segurança SQL**: um utilizador com esta função pode gerir as políticas relacionadas com a segurança dos servidores SQL e bancos de dados.
+- **Gestor de segurança de SQL**: um utilizador com esta função pode gerir as políticas relacionadas com a segurança dos servidores SQL e bancos de dados.
 
 - **Contribuinte de conta de armazenamento**: um utilizador com esta função podem gerir contas de armazenamento, mas não é possível gerir o acesso às contas de armazenamento.
 
-Para obter mais informações, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, consulte [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340044"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349233"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -340,7 +340,7 @@ Se a aplicação tiver ativado o aprovisionamento, poderá ter de aguardar algun
 | Passo | Recursos |
 | --- | --- |
 | Remover o utilizador do grupo que a aplicação é atribuída a | [Gerir a associação de grupo para utilizadores no seu inquilino do Azure Active Directory](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Aguarde alguns minutos para cancelamento de aprovisionamento | [Automatizada o aprovisionamento de utilizador de aplicações de SaaS no Azure AD: como faz o trabalho de aprovisionamento automatizado?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Aguarde alguns minutos para cancelamento de aprovisionamento | [Automatizada o aprovisionamento de utilizador de aplicações de SaaS no Azure AD: como faz o trabalho de aprovisionamento automatizado?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | Numa sessão de browser separados, inicie sessão como o operador de informações para meu portal de aplicações e confirme esse mosaico está em falta | http://myapps.microsoft.com |
 
 

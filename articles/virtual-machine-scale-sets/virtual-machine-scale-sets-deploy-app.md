@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25773124fcd479489f5d2d544cc5b6e3b11e325a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718986"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301145"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Este artigo apresenta as formas de criar uma imagem VM personalizada para as instâncias numa escala definido ou executar automaticamente scripts de instalação nas instâncias VM existentes. Também irá aprender a gerir aplicações ou atualizações de sistema operacional num conjunto de dimensionamento.
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Instalar aplicações com as atualizações do SO
 Quando novas versões de sistema operacional estiverem disponíveis, pode utilizar ou criar uma nova imagem personalizada e [implementar as atualizações de SO](virtual-machine-scale-sets-upgrade-scale-set.md) para uma escala definido. Cada instância de VM é atualizada para a imagem mais recente que especificar. Pode utilizar uma imagem personalizada com a aplicação previamente instalada, a extensão de Script personalizado ou o PowerShell DSC para que seu aplicativo automaticamente disponível, à medida que efetua a atualização. Terá de planear a manutenção de aplicativos à medida que efetua este processo para assegurar que não haja nenhuma versão problemas de compatibilidade.
 
-Se utilizar uma imagem VM personalizada com o aplicativo previamente instalado, pode integrar as atualizações de aplicação com um pipeline de implementação para criar as novas imagens e implementar as atualizações de SO no conjunto de dimensionamento. Essa abordagem permite que o pipeline escolher as compilações de aplicação mais recente, criar e validar uma imagem de VM, em seguida, atualizar as instâncias VM no conjunto de dimensionamento. Para executar um pipeline de implementação que cria e implementa atualizações de aplicativos em imagens de VM personalizadas, poderia [criar uma imagem do Packer e implementar com o Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), ou utilize outra plataforma, como [Spinnaker ](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
+Se utilizar uma imagem VM personalizada com o aplicativo previamente instalado, pode integrar as atualizações de aplicação com um pipeline de implementação para criar as novas imagens e implementar as atualizações de SO no conjunto de dimensionamento. Essa abordagem permite que o pipeline escolher as compilações de aplicação mais recente, criar e validar uma imagem de VM, em seguida, atualizar as instâncias VM no conjunto de dimensionamento. Para executar um pipeline de implementação que cria e implementa atualizações de aplicativos em imagens de VM personalizadas, poderia [criar uma imagem do Packer e implementar com os serviços do Azure DevOps](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), ou utilize outra plataforma, como [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

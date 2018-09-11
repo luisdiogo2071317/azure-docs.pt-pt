@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 83e1fbfeee75534757dcb3c0275ca881e1eea517
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171481"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298000"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implementar um bot de aprendiz de conversação
 
@@ -96,7 +96,7 @@ Publica o seu bot de aprendiz de conversação semelhante da mesma forma que pre
 
 Depois do bot é implementado e em execução pode ligar-se diferentes canais ao mesmo, como o Facebook, Teams, Skype etc usando um registo de canal de Bot do Azure. Para obter a documentação sobre esse processo, veja: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
 
-Seguem-se as instruções passo a passo para implementar um Bot de aprendiz de conversação para o Azure.  Estas instruções partem do princípio de que a sua origem de bot está disponível a partir de uma origem com base na cloud, como o VSTS, GitHub, BitBucket ou o OneDrive e irá configurar o seu bot para a implementação contínua.
+Seguem-se as instruções passo a passo para implementar um Bot de aprendiz de conversação para o Azure.  Estas instruções partem do princípio de que a sua origem de bot está disponível a partir de uma origem com base na cloud, como os serviços do Azure DevOps, GitHub, BitBucket ou o OneDrive e irá configurar o seu bot para a implementação contínua.
 
 1. Inicie sessão no portal do Azure em https://portal.azure.com
 

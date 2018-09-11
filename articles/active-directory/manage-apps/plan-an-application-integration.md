@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: e90ffa0a7b5eb9e622a666fdcfa956763abd7633
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d52ec316f9f5540d4d0d0fe0bc4e4bf778e1daf7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162806"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345450"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integração do Azure Active Directory com aplicativos de introdução
 
@@ -85,7 +85,7 @@ Se pretende adicionar a sua aplicação personalizada para a Galeria de aplicaç
 Os seguintes artigos descrevem formas que pode gerir o acesso a aplicações assim que tiver sido integrados com o Azure AD através do Azure AD conectores e o Azure AD.
 
 * [Gerir o acesso a aplicações com o Azure AD](what-is-access-management.md)
-* [Automatizar com conectores do Azure AD](../active-directory-saas-app-provisioning.md)
+* [Automatizar com conectores do Azure AD](user-provisioning.md)
 * [Atribuir utilizadores a uma aplicação](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Atribuir grupos a uma aplicação](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Partilhar contas](../active-directory-sharing-accounts.md)

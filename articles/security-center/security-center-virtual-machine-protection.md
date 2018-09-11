@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cf5f86d9a2d121ff54c40e27c6bc50847a4dfdf
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1692e111d48a6e4574b2b114c0de84d9bc9f3203
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132788"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299836"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.

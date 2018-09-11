@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123470"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304242"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implementar aplicações lógicas
 
@@ -173,7 +173,7 @@ Se tiver um projeto do grupo de recursos existente, pode adicionar a sua aplica�
 
 ## <a name="deploy-a-logic-app-template"></a>Implementar um modelo de aplicação lógica
 
-Pode implementar o modelo ao utilizar quaisquer ferramentas como o PowerShell, REST API, [Visual Studio Team Services Release Management](#team-services)e a implementação do modelo através do portal do Azure.
+Pode implementar o modelo ao utilizar quaisquer ferramentas como o PowerShell, REST API, [gestão de versões do Azure DevOps](#team-services)e a implementação do modelo através do portal do Azure.
 Além disso, para armazenar os valores para parâmetros, recomendamos que crie uma [ficheiro de parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Saiba como [implementar recursos com modelos Azure Resource Manager e PowerShell](../azure-resource-manager/resource-group-template-deploy.md) ou [implementar recursos com modelos Azure Resource Manager e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,13 +185,13 @@ Para autorizar OAuth ligações, abra a aplicação lógica no Designer de aplic
 Existe um script de exemplo no GitHub sob o [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) projeto.
 
 <a name="team-services"></a>
-## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services Release Management
+## <a name="azure-devops-release-management"></a>Gestão de versões de DevOps do Azure
 
-Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como o gerenciamento de liberação no Visual Studio Team Services, com um modelo de implementação de aplicação lógica. Visual Studio Team Services inclui um [implementar o grupo de recursos do Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) tarefas que pode adicionar a qualquer compilação ou pipeline de versões. Tem de ter uma [principal de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para autorização para implementar e, em seguida, pode gerar a definição de versão.
+Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como o gerenciamento de liberação em DevOps do Azure, com um modelo de implementação de aplicação lógica. DevOps do Azure inclui um [implementar o grupo de recursos do Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) tarefas que pode adicionar a qualquer compilação ou pipeline de versões. Tem de ter uma [principal de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para autorização para implementar e, em seguida, pode gerar o pipeline de lançamento.
 
-1. Na gestão de versões, selecione **vazio** para que criar uma definição vazia.
+1. Na gestão de versões, selecione **vazio** para que criar um pipeline vazio.
 
-    ![Criar definição vazia][1]
+    ![Criar o pipeline vazio][1]
 
 2. Escolha quaisquer recursos de que precisa para isso, provavelmente, incluindo o modelo de aplicação lógica que é gerado manualmente ou como parte do processo de compilação.
 3. Adicionar uma **implementação de grupo de recursos do Azure** tarefas.

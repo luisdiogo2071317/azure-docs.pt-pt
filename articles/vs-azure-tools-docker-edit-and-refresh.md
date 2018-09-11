@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: 01741ba25ac3a6ab187a08636b7e26ee58dbee90
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 07a7c1e11d8ca20ff4f42abcb84961cb7cd9e0e1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055769"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298221"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Depurar aplicações num contentor do Docker local
 ## <a name="overview"></a>Descrição geral
@@ -96,7 +96,7 @@ Com o suporte do Docker no Visual Studio 2017, pode obter a produtividade de tra
 [Resolução de problemas de desenvolvimento do Visual Studio Docker](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Mais informações sobre o Docker com o Visual Studio, Windows e do Azure
-* [Ferramentas do docker para Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) - criar e implementar contentores do docker
+* [Ferramentas do docker para Azure DevOps](http://aka.ms/dockertoolsforvsts) - criar e implementar contentores do docker
 * [Ferramentas do docker para Visual Studio Code](http://aka.ms/dockertoolsforvscode) -serviços de idioma na edição de arquivos de docker, com mais cenários de e2e futuras
 * [Informações de contentor do Windows](http://aka.ms/containers)-informações do Windows Server e o servidor Nano
 * [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [conteúdo de serviço de contentor do Azure](http://aka.ms/AzureContainerService)

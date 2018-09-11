@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124649"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299751"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar o dashboard de conhecimentos dos clientes de transmissão em fluxo com o Azure Logic Apps e as funções do Azure
 
@@ -103,7 +103,7 @@ Para a vista anterior históricos de execuções no Visual Studio ou o portal do
 
 ## <a name="create-automated-deployment-templates"></a>Criar modelos de implementação automatizada
 
-Depois de criar uma solução de aplicação lógica, pode capturar e implementar a sua aplicação como uma [modelo Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) para qualquer região do Azure do mundo. Pode utilizar esta capacidade para modificar os parâmetros para a criação de versões diferentes da sua aplicação e para integrar a sua solução numa compilação e o pipeline de versões. Também pode incluir as funções do Azure no seu modelo de implementação, para que possa gerir a solução completa com todas as dependências como um único modelo. Saiba mais [como criar modelos de implementação de aplicação de lógica](../logic-apps/logic-apps-create-deploy-template.md).
+Depois de criar uma solução de aplicação lógica, pode capturar e implementar a sua aplicação como uma [modelo Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) para qualquer região do Azure do mundo. Pode utilizar esta capacidade de modificar os parâmetros para a criação de versões diferentes da sua aplicação e para integrar a sua solução em Pipelines do Azure. Também pode incluir as funções do Azure no seu modelo de implementação, para que possa gerir a solução completa com todas as dependências como um único modelo. Saiba mais [como criar modelos de implementação de aplicação de lógica](../logic-apps/logic-apps-create-deploy-template.md).
 
 Para um modelo de implementação de exemplo com uma função do Azure, consulte a [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382538"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348961"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para aprovisionamento automático de utilizadores
 
@@ -89,7 +89,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
 1. Sob o **mapeamentos** secção, selecione **sincronizar utilizadores do Azure Active Directory para Pingboard**.
 
-1. Na **mapeamentos de atributos** secção, reveja os atributos de utilizador a ser sincronizados a partir do Azure AD para Pingboard. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Pingboard para operações de atualização. Selecione **guardar** para consolidar as alterações. Para obter mais informações, consulte [mapeamentos de atributos de aprovisionamento de utilizadores de personalizar](../active-directory-saas-customizing-attribute-mappings.md).
+1. Na **mapeamentos de atributos** secção, reveja os atributos de utilizador a ser sincronizados a partir do Azure AD para Pingboard. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Pingboard para operações de atualização. Selecione **guardar** para consolidar as alterações. Para obter mais informações, consulte [mapeamentos de atributos de aprovisionamento de utilizadores de personalizar](../manage-apps/customize-application-attributes.md).
 
 1. Para ativar o Azure AD para Pingboard, do serviço de aprovisionamento no **configurações** secção, altere **estado de aprovisionamento** para **no**.
 
@@ -97,7 +97,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
 A sincronização inicial demora mais tempo a executar a seguintes sincronizações, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Utilize o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades de aprovisionamento. Os registos de descrevem todas as ações que o serviço de aprovisionamento na sua aplicação Pingboard.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [um relatório sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [um relatório sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

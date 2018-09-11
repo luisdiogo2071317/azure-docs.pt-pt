@@ -1,6 +1,6 @@
 ---
-title: Exportar dados de segurança do Azure para o SIEM - configuração do Pipeline [pré-visualização] | Microsoft Docs
-description: Este artigo documentos produzir de obter os registos do System center para um SIEM de segurança do Azure
+title: Dados de segurança do Azure exportar para SIEM – Pipeline de configuração [Preview] | Documentos da Microsoft
+description: Este artigo documenta a produzir de obter registos de center para um SIEM de segurança do Azure
 services: security-center
 documentationcenter: na
 author: Barclayn
@@ -9,61 +9,61 @@ editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124838"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298238"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Exportação de dados de segurança do Azure para o SIEM - configuração do Pipeline [pré-visualização]
+# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Dados de segurança do Azure exportar para SIEM – Pipeline de configuração [pré-visualização]
 
-Este documento fornece detalhes sobre o procedimento para exportar dados de segurança do Centro de segurança do Azure para um SIEM.
+Este documento detalha o procedimento para exportar dados de segurança do Centro de segurança do Azure para um SIEM.
 
-Eventos processados produzidos pelo centro de segurança do Azure são publicados para o Azure [registo de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), um registo de tipos disponíveis por meio do Monitor do Azure. Monitor do Azure oferece um pipeline consolidado para o encaminhamento qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Isto é feito por transmissão em fluxo de dados para um Hub de eventos em que, em seguida, ser solicitado para uma ferramenta de parceiro.
+Os eventos processados produzidos pelo centro de segurança do Azure são publicados para o Azure [registo de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), um registo de tipos disponíveis através do Azure Monitor. Monitor do Azure oferece um pipeline consolidado para o encaminhamento qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Isso é feito por transmissão em fluxo de dados para um Hub de eventos em que ele, em seguida, pode ser extraído para uma ferramenta de parceiro.
 
-Este pipe utiliza o [monitorização do Azure único pipeline](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) para obter acesso aos dados de monitorização do seu ambiente do Azure. Isto permite-lhe configurar facilmente SIEMs e ferramentas de monitorização para consumir dados.
+Este pipe utiliza a [monitorização do Azure único pipeline](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) para obter acesso aos dados de monitorização do seu ambiente do Azure. Isto permite-lhe configurar facilmente SIEMs e ferramentas de monitorização para consumir os dados.
 
-As secções seguintes descrevem como configurar dados de transmissão em fluxo para um hub de eventos. Os passos partem do princípio de que já tenha configurado na sua subscrição do Azure do Centro de segurança do Azure.
+As secções seguintes descrevem como configurar dados sejam transmitidos para um hub de eventos. Os passos partem do princípio de que já tenha configurado na sua subscrição do Azure no Centro de segurança do Azure.
 
 Descrição geral de alto nível
 
 ![Descrição geral de alto nível](media/security-center-export-data-to-siem/overview.png)
 
-## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>O que é expostos à SIEM os dados de segurança do Azure?
+## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>O que é expostos para o SIEM os dados de segurança do Azure?
 
-Nesta versão de pré-visualização expomos o [alertas de segurança.](../security-center/security-center-managing-and-responding-alerts.md) Em versões futuras, iremos irá enriqueça o conjunto de dados com recomendações de segurança.
+Nesta versão de pré-visualização expomos a [alertas de segurança.](../security-center/security-center-managing-and-responding-alerts.md) Em versões futuras, podemos irá melhorar o conjunto de dados com recomendações de segurança.
 
 ## <a name="how-to-setup-the-pipeline"></a>Como configurar o pipeline? 
 
 ### <a name="create-an-event-hub"></a>Criar um Hub de Eventos 
 
-Antes de começar, terá de [criar um espaço de nomes de Event Hubs](../event-hubs/event-hubs-create.md). Este espaço de nomes e o Hub de eventos é o destino para todos os dados de monitorização.
+Antes de começar, precisa [criar um espaço de nomes de Hubs de eventos](../event-hubs/event-hubs-create.md). Este espaço de nomes e o Hub de eventos é o destino para todos os seus dados de monitorização.
 
-### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Fluxo de registo de atividade do Azure para os Event Hubs
+### <a name="stream-the-azure-activity-log-to-event-hubs"></a>O registo de atividades do Azure para os Hubs de eventos do Stream
 
-Consulte o artigo seguinte [registo de atividade de fluxo para os Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+Veja o artigo seguinte [registo de atividades de fluxo para os Hubs de eventos](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 
-### <a name="install-a-partner-siem-connector"></a>Instalar um conector do parceiro SIEM 
+### <a name="install-a-partner-siem-connector"></a>Instalar um conector SIEM parceiro 
 
-Encaminhamento os dados de monitorização para um Hub de eventos com a monitorização do Azure permite-lhe integrar facilmente com parceiros SIEM e ferramentas de monitorização.
+Encaminhamento seus dados de monitorização para um Hub de eventos com o Azure Monitor permite-lhe integrar facilmente com parceiros SIEM e ferramentas de monitorização.
 
-Consulte a seguinte ligação para ver a lista de [suportado SIEMs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Veja a seguinte ligação para ver a lista de [suportado SIEMs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 
-## <a name="example-for-querying-data"></a>Exemplo para consultar os dados 
+## <a name="example-for-querying-data"></a>Exemplo para consultar dados 
 
-Eis algumas consultas de Splunk que pode utilizar para solicitar dados de alerta:
+Eis algumas consultas de Splunk que pode utilizar para extrair dados de alertas:
 
 | **Descrição da consulta**                                | **Consulta**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Todos os Alertas                                              | o índice = Microsoft.Security/locations/alerts principal                                                                                         |
-| Resumir contagem das operações pelo respetivo nome             | o índice = sourcetype principal = "amal: segurança" \| tabela operationName \| estatísticas contagem por operationName                                |
-| Obter as informações de alertas: tempo, o nome, o estado, o ID e o subscrição | o índice = Microsoft.Security/locations/alerts principal \| tabela \_tempo, properties.eventName, estado, properties.operationId, am_subscriptionId |
+| Todos os Alertas                                              | índice = Microsoft.Security/locations/alerts principal                                                                                         |
+| Resumir contagem das operações pelo respetivo nome             | índice = sourcetype principal = "amal: segurança" \| operationName tabela \| estatísticas contagem por operationName                                |
+| Obter as informações de alertas: tempo, o nome, o estado, o ID e o subscrição | índice = principal Microsoft.Security/locations/alerts \| tabela \_tempo, properties.eventName, estado, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

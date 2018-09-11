@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: spelluru
-ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e6dd30fc8da919995849ba818f608604a57a0b37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702457"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346831"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Obtenção prévia de mensagens do Service bus do Azure
 
@@ -44,7 +44,7 @@ Com o [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)
 
 Na [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) receber modo, as mensagens obtidas para o buffer de obtenção prévia são adquiridas para o buffer no estado bloqueado e tem o período de tempo limite para o bloqueio a funcionar corretamente. Se a memória intermédia de obtenção prévia é grande, e o processamento demorar tanto tempo que a mensagem bloqueios expirarem ao mesmo tempo que reside na memória intermédia de obtenção prévia ou até mesmo enquanto a aplicação está a processar a mensagem, pode haver alguns eventos confusos para a aplicação processar.
 
-O aplicativo poderá adquirir uma mensagem com um bloqueio expirado ou imminently prestes a expirar. Se assim for, a aplicação pode processar a mensagem, mas, em seguida, encontre o que ele não é possível concluí-la devido à expiração de um bloqueio. A aplicação pode verificar o [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) propriedade (que está sujeito a distorção entre o agente e o relógio do computador local). Se o bloqueio da mensagem tiver expirado, o aplicativo deve ignorar a mensagem; nenhuma chamada de API no ou com a mensagem deve ser feita. Se a mensagem não expirou, mas expiração é iminente, o bloqueio pode ser renovado e estendido por outro período de bloqueio do padrão chamando [mensagem. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
+O aplicativo poderá adquirir uma mensagem com um bloqueio expirado ou imminently prestes a expirar. Se assim for, a aplicação pode processar a mensagem, mas, em seguida, encontre o que ele não é possível concluí-la devido à expiração de um bloqueio. A aplicação pode verificar o [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) propriedade (que está sujeito a distorção entre o agente e o relógio do computador local). Se o bloqueio da mensagem tiver expirado, o aplicativo deve ignorar a mensagem; nenhuma chamada de API no ou com a mensagem deve ser feita. Se a mensagem não expirou, mas expiração é iminente, o bloqueio pode ser renovado e estendido por outro período de bloqueio do padrão chamando [mensagem. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 
 Se o bloqueio expirar silenciosamente na memória intermédia de obtenção prévia, a mensagem é tratada como abandonada e novamente é disponibilizada para a obtenção da fila. Que pode fazer com que ele ser buscada na memória intermédia de obtenção prévia; colocados no final. Se a memória intermédia de obtenção prévia, normalmente, não pode ser trabalhada com durante a expiração de mensagem, isso faz com que as mensagens sejam repetidamente pré-obtidos porém entregues nunca efetivamente num estado utilizável (legitimamente bloqueado) e, eventualmente, são movidos para a fila de mensagens não entregues uma vez a contagem máxima de entrega foi excedida.
 

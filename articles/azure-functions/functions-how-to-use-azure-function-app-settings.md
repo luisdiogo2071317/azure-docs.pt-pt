@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 90b5009b3b260a0f4245459467ae248f800ad818
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094540"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301488"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
 
@@ -111,7 +111,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 | | |
 |-|-|
-| ![Opções de implementação de aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | As funções permitem desenvolver o código de função no seu computador local. Em seguida, pode carregar seu projeto de aplicação de função local para o Azure. Para além da tradicional de carregamento FTP, as funções permite-lhe implementar a sua aplicação de função usando soluções de integração contínua populares, como o GitHub, VSTS, Dropbox, Bitbucket e outros. Para obter mais informações, consulte [implementação contínua para funções do Azure](functions-continuous-deployment.md). Para carregar manualmente através de FTP ou local Git, terá também [configurar as credenciais de implementação](functions-continuous-deployment.md#credentials). |
+| ![Opções de implementação de aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | As funções permitem desenvolver o código de função no seu computador local. Em seguida, pode carregar seu projeto de aplicação de função local para o Azure. Para além da tradicional de carregamento FTP, as funções permite-lhe implementar a sua aplicação de função usando soluções de integração contínua populares, como o GitHub, do Azure DevOps, Dropbox, Bitbucket e outros. Para obter mais informações, consulte [implementação contínua para funções do Azure](functions-continuous-deployment.md). Para carregar manualmente através de FTP ou local Git, terá também [configurar as credenciais de implementação](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS

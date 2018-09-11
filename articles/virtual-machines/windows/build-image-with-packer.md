@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5f19a6cb356332e95f96484953f1be3df006dd09
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 03723b8653e42bca371f47e16657e7e973c257ae
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931927"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294991"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como utilizar o Packer para criar imagens de máquinas virtuais do Windows no Azure
 Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. O Azure Marketplace proporciona muitas imagens que o primeiro e de terceiros para o sistema operacional mais comuns e ambientes de aplicativos, ou criar suas próprias imagens personalizadas ajustadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de código-fonte aberto [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -243,6 +243,6 @@ Para ver a sua VM, que inclui a instalação do IIS do Packer provisioner, em a�
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste exemplo, utilizou Packer para criar uma imagem de VM com o IIS já instalado. Pode utilizar esta imagem de VM, juntamente com fluxos de trabalho de implementação existentes, por exemplo, para implementar a sua aplicação para as VMs criadas a partir da imagem com o Team Services, o Ansible, Chef ou Puppet.
+Neste exemplo, utilizou Packer para criar uma imagem de VM com o IIS já instalado. Pode utilizar esta imagem de VM, juntamente com fluxos de trabalho de implementação existentes, por exemplo, para implementar a sua aplicação para as VMs criadas a partir da imagem com serviços de DevOps do Azure, o Ansible, Chef ou Puppet.
 
 Para modelos de exemplo adicionais Packer para outras distribuições do Windows, consulte [deste repositório do GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

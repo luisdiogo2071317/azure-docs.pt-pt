@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782659"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298210"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 Máquina Virtual de ciência de dados (DSVM) a Microsoft é uma imagem de máquina virtual (VM) do Windows Azure. Ele tem pré-instalado e configurado com várias ferramentas que são utilizadas para análise de dados e machine learning. As ferramentas seguintes estão incluídas:
@@ -40,7 +40,7 @@ Máquina Virtual de ciência de dados (DSVM) a Microsoft é uma imagem de máqui
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Extração de dados visual e aprendizagem automática software em Java.
   * [Apache Drill](https://drill.apache.org/). Um sem esquema motor de consulta SQL para Apache Hadoop, NoSQL e armazenamento na cloud.  Ele oferece suporte a interfaces ODBC e JDBC para consultar o NoSQL e de ficheiros a partir de ferramentas de BI padrão, como o Power BI, o Microsoft Excel e o Tableau.
 * Bibliotecas em R e Python para utilizam no Azure Machine Learning e outros serviços do Azure.
-* Git, incluindo o Git Bash, trabalhar com repositórios de código de origem que incluem o GitHub e Visual Studio Team Services. Git fornece várias Linux da linha de comandos utilitários populares que são acessíveis no Git Bash e de um prompt de comando. Os exemplos são awk, PO, perl, grep, find, wget e curl.
+* Git, incluindo o Git Bash, trabalhar com repositórios de código de origem que incluem o GitHub e do Azure DevOps. Git fornece várias Linux da linha de comandos utilitários populares que são acessíveis no Git Bash e de um prompt de comando. Os exemplos são awk, PO, perl, grep, find, wget e curl.
 
 Ciência de dados envolve a iteração numa seqüência de tarefas:
 

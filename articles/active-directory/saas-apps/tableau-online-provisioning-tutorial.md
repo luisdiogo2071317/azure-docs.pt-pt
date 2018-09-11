@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: bbee7f0e6022e2945563c102a851819734d52e77
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40107267"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345867"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para aprovisionamento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no Tableau Online e o Azure Active Directory (Azure AD) para configurar o Azure AD para aprovisionar e desaprovisionar utilizadores e/ou grupos a Tableau Online automaticamente.
 
 > [!NOTE]
-> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -149,7 +149,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
     ![Tableau Online aprovisionamento](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../active-directory-saas-scoping-filters.md).
+15. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 16. Para ativar o Azure AD para o Tableau Online do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção.
 
@@ -165,7 +165,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **âmbito** no **definições** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do AD do Azure está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para o relatório de atividade, que descreve todas as ações executadas pelo Azure AD no Tableau Online do serviço de aprovisionamento de aprovisionamento.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../active-directory-saas-provisioning-reporting.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -175,7 +175,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

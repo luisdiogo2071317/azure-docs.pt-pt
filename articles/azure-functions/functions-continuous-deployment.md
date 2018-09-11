@@ -11,15 +11,15 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 4561b343fa15346388572a70616840be0dd06679
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095492"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301553"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
-As funções do Azure torna mais fácil de implementar a sua aplicação de função a utilizar a integração contínua do serviço de aplicações. Funções integra-se com o BitBucket, Dropbox, GitHub e Visual Studio Team Services (VSTS). Isto permite que um fluxo de trabalho que onde o código de função atualizações feito através de um desses implantação de Acionador de serviços integrados no Azure. Se estiver familiarizado com as funções do Azure, comece com [descrição geral das funções do Azure](functions-overview.md).
+As funções do Azure torna mais fácil de implementar a sua aplicação de função a utilizar a integração contínua do serviço de aplicações. Funções integra-se com o BitBucket, Dropbox, GitHub e do Azure DevOps. Isto permite que um fluxo de trabalho que onde o código de função atualizações feito através de um desses implantação de Acionador de serviços integrados no Azure. Se estiver familiarizado com as funções do Azure, comece com [descrição geral das funções do Azure](functions-overview.md).
 
 A implementação contínua é uma excelente opção para projetos em que várias e frequentes contribuições estão a ser integradas. Ele também permite manter o controlo de origem no seu código de funções. Atualmente são suportadas as seguintes origens de implementação:
 
@@ -29,7 +29,7 @@ A implementação contínua é uma excelente opção para projetos em que vária
 * [Repositório de Git local](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Serviços de DevOps do Azure](https://www.visualstudio.com/team-services/)
 
 As implementações são configuradas numa base por função de aplicação. Depois da implementação contínua é ativada, o acesso ao código de função no portal do estiver definido como *só de leitura*.
 
@@ -39,10 +39,10 @@ Tem de ter sua origem de implementação configurado e o código de funções na
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Para poder implementar a partir do VSTS, deve primeiro ligar a sua conta do VSTS com a sua subscrição do Azure. Para obter mais informações, consulte [configure a cobrança para sua conta do VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+Para poder implementar a partir do Azure DevOps, deve primeiro ligar a sua organização de DevOps do Azure com a sua subscrição do Azure. Para obter mais informações, consulte [configure a cobrança para sua organização de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Definir implementação contínua
-Utilize este procedimento para configurar a implementação contínua para uma aplicação de função existente. Estes passos demonstram a integração com um repositório do GitHub, mas os passos semelhantes são aplicáveis para Visual Studio Team Services ou outros serviços de implementação.
+Utilize este procedimento para configurar a implementação contínua para uma aplicação de função existente. Estes passos demonstram a integração com um repositório do GitHub, mas os passos semelhantes são aplicáveis para DevOps do Azure ou outros serviços de implementação.
 
 1. Na sua aplicação de função no [portal do Azure](https://portal.azure.com), clique em **recursos da plataforma** e **opções de implementação**. 
    

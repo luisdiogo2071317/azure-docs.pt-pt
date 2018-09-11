@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 6010ea7f4997e4604e72cdf4a993956ab76b1ef2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629852"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296572"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -64,7 +64,7 @@ Pode atribuir uma política de acesso condicional para as seguintes aplicações
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- DevOps do Azure
 
 - Microsoft Teams
 
@@ -192,7 +192,7 @@ Esta definição não tem um impacto em tentativas de acesso do seguintes de apl
 |Aplicação móvel do Outlook|Office 365 Exchange Online|Android, iOS|
 |Aplicação do Power BI|Serviço Power BI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
 |Skype para Empresas|Office 365 Exchange Online|Android, IOS |
-|Aplicação de serviços da Equipe do Visual Studio|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
+|Aplicação de DevOps do Azure|DevOps do Azure|Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
 

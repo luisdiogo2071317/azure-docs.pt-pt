@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: d17b5967519bc51e4fb33a410149d17c82c28d10
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052773"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347992"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?
 Início de sessão único significa ser capaz de aceder a todas as aplicações e recursos de que precisa para fazer negócios, ao iniciar sessão apenas uma vez com uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todos os aplicativos que necessita sem ter que está a ser necessária para autenticar (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -89,7 +89,7 @@ Para selecionar aplicativos, do Azure AD permite automatizado do utilizador prov
 
 Quando um utilizador é eliminado ou as informações de alteram no Azure AD, essas alterações também são refletidas na aplicação SaaS. Isso significa que, configurar a gestão de ciclo de vida de identidade automática permite aos administradores controlar e fornecer automatizada de aprovisionamento e cancelamento de aprovisionamento de aplicações SaaS. No Azure AD, esta automatização da gestão de ciclo de vida de identidades é ativada através do aprovisionamento de utilizador.
 
-Para obter mais informações, consulte [aprovisionamento automatizado do utilizador e cancelar o aprovisionamento a aplicações SaaS](../active-directory-saas-app-provisioning.md)
+Para obter mais informações, consulte [aprovisionamento automatizado do utilizador e cancelar o aprovisionamento a aplicações SaaS](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>Introdução à Galeria de aplicações do Azure AD
 Pronto para começar? Para implementar o início de sessão único entre o Azure AD e aplicações SaaS que utiliza a sua organização, siga estas diretrizes.
@@ -109,7 +109,7 @@ Depois de encontrar seu aplicativo, pode começar a utilizar, seguindo as instru
 ### <a name="application-not-in-the-gallery"></a>Aplicação não na galeria do?
 Se seu aplicativo não for encontrado na Galeria de aplicações do Azure AD, em seguida, tem estas opções:
 
-* **Adicionar uma aplicação não listada estiver a utilizar** -utilizar a categoria personalizado na Galeria de aplicações no portal do Azure para ligar uma aplicação não listada que sua organização está a utilizar. Pode adicionar qualquer aplicação que suporte SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma baseada em HTML início de sessão página como uma aplicação SSO de palavra-passe. Para obter mais detalhes, veja este artigo sobre [adicionando seu próprio aplicativo](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Adicionar uma aplicação não listada estiver a utilizar** -utilizar a categoria personalizado na Galeria de aplicações no portal do Azure para ligar uma aplicação não listada que sua organização está a utilizar. Pode adicionar qualquer aplicação que suporte SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma baseada em HTML início de sessão página como uma aplicação SSO de palavra-passe. Para obter mais detalhes, veja este artigo sobre [adicionando seu próprio aplicativo](configure-federated-single-sign-on-non-gallery-applications.md).
 * **Adicionar a sua própria aplicação estiver a desenvolver** - se de que desenvolveram o aplicativo por conta própria, siga as diretrizes na documentação de programador do Azure AD para implementar o início de sessão único federado ou aprovisionamento com o Azure AD graph API. Para obter mais informações, consulte estes recursos:
   
   * [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md)

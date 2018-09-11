@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112710"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324755"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes de recolha de dados para soluções de gestão no Azure
 Este artigo inclui uma lista dos [soluções de gestão](monitoring-solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Também fornece informações no seu método e a frequência de recolha de dados para o Log Analytics.  Pode utilizar as informações neste artigo, para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo e a ligação de dados para soluções de gestão diferentes. 
@@ -65,7 +65,7 @@ Explicações das colunas são os seguintes:
 | [Monitor de Desempenho da Rede](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Os handshakes TCP em 5 segundos, dados enviados a cada 3 minutos |
 | [Análise do Office 365 (pré-visualização)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |na notificação |
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |
-| [Análise do Service Fabric (pré-visualização)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minutos |
+| [Análise do Service Fabric](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutos |
 | [Mapa do Serviço](../operations-management-suite/operations-management-suite-service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 15 segundos |
 | [Avaliação do SQL](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |na chegada |

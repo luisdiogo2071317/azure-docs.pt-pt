@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125764"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303783"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -71,7 +71,7 @@ O diagrama seguinte fornece uma exibição de grade das tarefas (a azul) e artef
 
 ## <a name="standardized-project-structure"></a>Estrutura do projeto padronizado
 
-Ter todos os projetos Compartilhar uma estrutura de diretório e usar modelos para documentos de projeto torna mais fácil para os membros da Equipe obter informações sobre seus projetos. Todos os código e os documentos são armazenados num sistema de controle de versão (VCS) como o Git, TFS ou o Subversion para permitir a colaboração em equipe. Controlo de tarefas e recursos num sistema como Jira de acompanhamento de projetos agile, Rally, Visual Studio Team Services permite mais perto de controlo de código para recursos individuais. Esse controle também permite às equipes obter estimativas de custo melhor. TDSP recomenda a criação de um repositório separado para cada projeto no VCS para controle de versão, a segurança de informações e colaboração. A estrutura padronizada para todos os projetos ajuda a criar o conhecimento institucional toda a organização.
+Ter todos os projetos Compartilhar uma estrutura de diretório e usar modelos para documentos de projeto torna mais fácil para os membros da Equipe obter informações sobre seus projetos. Todos os código e os documentos são armazenados num sistema de controle de versão (VCS) como o Git, TFS ou o Subversion para permitir a colaboração em equipe. Controlo de tarefas e recursos num sistema, como no Jira, Rally e DevOps do Azure de acompanhamento de projetos agile permite que mais perto de controlo de código para recursos individuais. Esse controle também permite às equipes obter estimativas de custo melhor. TDSP recomenda a criação de um repositório separado para cada projeto no VCS para controle de versão, a segurança de informações e colaboração. A estrutura padronizada para todos os projetos ajuda a criar o conhecimento institucional toda a organização.
 
 Fornecemos modelos para a estrutura de pastas e os documentos necessários em locais padrão. Esta estrutura de pastas organiza os ficheiros que contêm o código de exploração de dados e a extração de recurso e que registe iterações do modelo. Estes modelos tornam mais fácil para os membros da Equipe para compreender o trabalho realizado por terceiros e para adicionar novos membros de equipes. É fácil ver e atualizar os modelos de documento no formato de markdown. Utilize modelos para fornecer a listas de verificação principais perguntas para cada projeto assegurar que o problema é bem definido e que os resultados finais cumprem a qualidade esperada. Os exemplos incluem:
 

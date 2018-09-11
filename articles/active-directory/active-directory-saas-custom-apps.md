@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 928e4811f15953313df167375043231478f5c11a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3dafef052f181a961cdf30cb647328ee1b2db601
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056042"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299921"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory
 
@@ -42,17 +42,17 @@ Estas capacidades, também conhecidas como *modelos de integração de aplicaç�
 ## <a name="adding-an-unlisted-application"></a>Adicionar uma aplicação não listada
 Para ligar uma aplicação com um modelo de integração de aplicações, inicie sessão no portal do Azure com a sua conta de administrador do Azure Active Directory. Navegue para o **do Active Directory > aplicações empresariais > novo aplicativo > aplicação da Galeria não** secção, selecione **Add**e, em seguida, **adicionar uma aplicação a partir da Galeria** .
 
-  ![](./media/active-directory-saas-custom-apps/customapp1.png)
+  ![Adicionar aplicação](./media/active-directory-saas-custom-apps/customapp1.png)
 
 Na Galeria de aplicações, pode adicionar uma aplicação não listada, selecionando o **aplicação da Galeria não** mosaico que mostra os resultados da pesquisa se a aplicação pretendida não foi encontrada. Depois de introduzir um nome para a sua aplicação, pode configurar o comportamento e as opções de início de sessão único. 
 
 **Dica rápida**: como melhor prática, utilize a função de pesquisa para verificar se a aplicação já existe na Galeria de aplicações. Se a aplicação for encontrada e sua descrição menciona início de sessão único, a aplicação já é suportada para o início de sessão único federado.
 
-  ![](./media/active-directory-saas-custom-apps/customapp2.png)
+  ![Pesquisa](./media/active-directory-saas-custom-apps/customapp2.png)
 
 Adicionar uma aplicação desta forma, fornece uma experiência semelhante das disponível para aplicações previamente integradas. Para começar, selecione **configurar o início de sessão único** ou clique em **início de sessão único** no menu de navegação do lado esquerdo da aplicação. O ecrã seguinte apresenta as opções de configuração de início de sessão único. As opções são descritas nas próximas seções deste artigo.
   
-![](./media/active-directory-saas-custom-apps/customapp3.png)
+![Opções de configuração](./media/active-directory-saas-custom-apps/customapp3.png)
 
 ## <a name="saml-based-single-sign-on"></a>Início de sessão único baseado em SAML
 Selecione esta opção para configurar a autenticação baseada no SAML para o aplicativo. Isto requer que a aplicação suporta SAML 2.0. Deve coletar informações sobre como utilizar as capacidades SAML da aplicação antes de continuar. Conclua as secções seguintes para configurar o início de sessão único entre o aplicativo e do Azure AD.
@@ -98,7 +98,7 @@ Quando um utilizador efetua a autenticação à aplicação, do Azure AD irá em
 
 Pode ver ou editar as afirmações enviadas no token SAML para o aplicativo sob o **atributos** separador.
 
-  ![](./media/active-directory-saas-custom-apps/customapp7.png)
+  ![Atributos](./media/active-directory-saas-custom-apps/customapp7.png)
 
 Existem dois motivos por que razão poderá ter de editar as declarações emitidas no SAML token:
 
@@ -138,7 +138,7 @@ Assim que a sua aplicação tiver sido configurada para utilizar o Azure AD como
 
 Para atribuir um utilizador ou grupo à sua aplicação, clique nas **atribuir utilizadores** botão. Selecione o utilizador ou grupo que pretende atribuir e, em seguida, selecione o **atribuir** botão.
 
-  ![](./media/active-directory-saas-custom-apps/customapp6.png)
+  ![Atribuir utilizadores](./media/active-directory-saas-custom-apps/customapp6.png)
 
 Atribuir um utilizador permitirá que o Azure AD para emitir um token para o utilizador. Também faz com que um mosaico para esta aplicação para que sejam apresentadas no painel de acesso do utilizador. Um mosaico da aplicação também será apresentado no iniciador de aplicações do Office 365, se o utilizador estiver a utilizar o Office 365. 
 
@@ -175,5 +175,5 @@ Depois de selecionar **seguinte**, será solicitado que introduza o URL da aplic
 
 - [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 - [Como personalizar afirmações emitidas no Token SAML para aplicações previamente integradas](active-directory-saml-claims-customization.md)
-- [Resolução de problemas com base em SAML início de sessão único](active-directory-saml-debugging.md)
+- [Resolução de problemas com base em SAML início de sessão único](develop/howto-v1-debug-saml-sso-issues.md)
 

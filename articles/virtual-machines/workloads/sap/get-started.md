@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3892b546bb6873a802d85b30cd89801abc9a7424
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7653541a6a66ce5e94119dbb720213a4b40adc81
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162432"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303441"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizar o Azure para alojar e executar cenários de carga de trabalho SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -335,60 +335,22 @@ Passos seguintes:
 
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>SAP HANA nas Máquinas Virtuais do Azure
+Esta secção da documentação abrange a diferentes aspetos do SAP HANA. Como pré-condição, deve estar familiarizado com os princípio os serviços do Azure que fornecem serviços elementares de IaaS do Azure. então, principalmente os conhecimentos do Azure de computação, armazenamento e rede. Muitos desses tópicos são processadas no relacionados com o SAP NetWeaver [guia de planejamento de Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide). 
 
-### <a name="getting-started-with-sap-hana-on-azure"></a>Introdução ao SAP HANA no Azure
-Título: Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure
+A documentação específica para HANA no Azure consiste em fora desta lista de artigos e artigos de frações de herdeiro:
 
-Resumo: Este guia de início rápido ajuda a configurar um sistema de SAP HANA instância única em VMs do Azure por uma instalação manual de 7.5 do SAP NetWeaver e SAP HANA SP12. O guia parte do princípio de que o leitor está familiarizado com noções básicas de IaaS do Azure, como como implementar máquinas virtuais ou redes virtuais através do portal do Azure ou Powershell/CLI, incluindo a opção para utilizar modelos json. Além disso, o que se espera que o leitor está familiarizado com o SAP HANA, SAP NetWeaver e como instalá-lo no local.
+- [Início rápido: Instalação Manual de instância única SAP HANA em VMs do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Implementar o SAP S/4HANA ou BW/4HANA no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/cal-s4h)
+- [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Elevada disponibilidade de SAP HANA para máquinas virtuais do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [Disponibilidade do SAP HANA dentro de uma região do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
+- [Disponibilidade do SAP HANA em regiões do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
+- [Elevada disponibilidade do SAP HANA em máquinas virtuais do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
+- [Guia de segurança para SAP HANA em máquinas de virtuais do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Cópia de segurança do SAP HANA do Azure no nível de ficheiro](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+- [Cópia de segurança do SAP HANA com base nos instantâneos de armazenamento](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
-
-[Este guia pode ser encontrado aqui](hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="s4hana-sap-cal-deployment-on-azure"></a>Implementação de SAP CAL de S/4HANA no Azure
-Título: Implementar o SAP S/4HANA ou BW/4HANA no Azure
-
-Resumo: Este guia ajuda para demonstrar a implementação de S/4HANA SAP no Azure com o SAP Cloud Appliance Library. SAP Cloud Appliance Library é um serviço da SAP que permite implementar aplicações SAP no Azure. O guia passo a passo descreve a implementação.
-
-
-[Este guia pode ser encontrado aqui](cal-s4h.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="high-availability-of-sap-hana-in-azure-virtual-machines"></a>Elevada disponibilidade do SAP HANA em máquinas virtuais do Azure
-Título: Elevada disponibilidade do SAP HANA em máquinas virtuais do Azure
-
-Resumo: Este guia orienta-a através da configuração de elevada disponibilidade do sistema operacional de 12 do SUSE e do SAP HANA para acomodar os replicação de sistema HANA com ativação pós-falha automática. O guia é específico para o SUSE e máquinas virtuais do Azure. O Guia não se aplica ainda para Red Hat ou bare-metal ou privadas na cloud ou outras implementações de cloud pública do não pertencente ao Azure.
-
-
-
-[Este guia pode ser encontrado aqui](sap-hana-high-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="sap-hana-backup-overview-on-azure-vms"></a>Descrição geral de cópia de segurança SAP HANA em VMs do Azure
-Title: Guia de segurança para SAP HANA em máquinas de virtuais do Azure
-
-Resumo: Este guia fornece informações básicas sobre a cópia de segurança possibilidades de execução do SAP HANA em máquinas de virtuais do Azure.
-
-
-
-[Este guia pode ser encontrado aqui](sap-hana-backup-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="sap-hana-file-level-backup-on-azure-vms"></a>Backup de nível de arquivos de SAP HANA em VMs do Azure
-Título: Cópia de segurança do SAP HANA com base nos instantâneos de armazenamento
-
-Resumo: Este guia fornece informações sobre a utilização de cópias de segurança baseadas em instantâneos em VMs do Azure, quando a execução do SAP HANA em máquinas de virtuais do Azure.
-
-
-
-[Este guia pode ser encontrado aqui](sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-### <a name="sap-hana-snapshot-based-backups-on-azure-vms"></a>Cópias de segurança do SAP HANA instantâneo com base em VMs do Azure
-Título: SAP HANA Azure Backup no nível de ficheiro
-
-Resumo: Este guia fornece informações sobre como utilizar o backup do arquivo de SAP HANA nível execução do SAP HANA em máquinas de virtuais do Azure
-
-
-
-[Este guia pode ser encontrado aqui](sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+ 
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP NetWeaver implementado em máquinas de virtuais do Azure
 

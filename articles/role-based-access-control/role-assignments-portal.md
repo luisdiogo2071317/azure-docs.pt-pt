@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 14ac23e6b69302ac412aac3ecab06345e5d722fd
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715374"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296351"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerir o acesso através do RBAC e portal do Azure
 
@@ -89,7 +89,7 @@ Ao gerir o acesso, pretende saber quem tem acesso, quais são as suas permissõe
 
     ![Painel de controlo (IAM) de acesso para uma subscrição](./media/role-assignments-portal/subscription-access-control.png)
 
-    Os administradores e coadministradores de subscrição clássica são considerados proprietários da subscrição no modelo RBAC.
+    Os administradores de subscrição clássica e coadministradores são considerados proprietários da subscrição no modelo de RBAC.
 
 ### <a name="list-role-assignments-for-a-management-group"></a>Lista de atribuições de funções para um grupo de gestão
 
@@ -109,9 +109,9 @@ Ao gerir o acesso, pretende saber quem tem acesso, quais são as suas permissõe
 
 ## <a name="grant-access"></a>Conceder acesso
 
-No RBAC, para conceder acesso, crie uma atribuição de função. Siga estes passos para conceder acesso em âmbitos diferentes.
+No RBAC, para conceder acesso, atribuir uma função. Siga estes passos para conceder acesso em âmbitos diferentes.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Criar uma atribuição de função num âmbito do grupo de recursos
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Atribuir uma função com um âmbito de grupo de recursos
 
 1. Na lista de navegação, selecione **Grupos de recursos**.
 
@@ -131,11 +131,11 @@ No RBAC, para conceder acesso, crie uma atribuição de função. Siga estes pas
 
 1. Na lista **Selecionar**, selecione um utilizador, grupo ou aplicação. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
 
-1. Escolha **Guardar** para criar a atribuição de função.
+1. Escolher **guardar** para atribuir a função.
 
    Após alguns instantes, é atribuída ao principal de segurança a função no âmbito do grupo de recursos.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Criar uma atribuição de função num âmbito de subscrição
+### <a name="assign-a-role-at-a-subscription-scope"></a>Atribuir uma função no âmbito da subscrição
 
 1. No portal do Azure, escolha **Todos os serviços** e, em seguida, **Subscrições**.
 
@@ -155,11 +155,37 @@ No RBAC, para conceder acesso, crie uma atribuição de função. Siga estes pas
 
 1. Na lista **Selecionar**, selecione um utilizador, grupo ou aplicação. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
 
-1. Escolha **Guardar** para criar a atribuição de função.
+1. Escolher **guardar** para atribuir a função.
 
    Após alguns instantes, é atribuída ao principal de segurança a função no âmbito da subscrição.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Criar uma atribuição de função a um âmbito de grupo de gestão
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Atribuir um utilizador como administrador de uma subscrição
+
+Para tornar um utilizador administrador de uma subscrição do Azure, atribuí-los a [proprietário](built-in-roles.md#owner) função no âmbito da subscrição. A função de proprietário dá ao usuário acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas. Estes passos são os mesmos como qualquer outra atribuição de função.
+
+1. No portal do Azure, escolha **Todos os serviços** e, em seguida, **Subscrições**.
+
+1. Escolha a sua subscrição.
+
+1. Escolha **Controlo de acesso (IAM)** para ver a lista atual de atribuições de funções no âmbito da subscrição.
+
+   ![Painel de controlo (IAM) de acesso para uma subscrição](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Escolha **Adicionar** para abrir o painel **Adicionar permissões**.
+
+   Se não tiver permissões para atribuir funções, não verá a opção **Adicionar**.
+
+   ![Painel Adicionar permissões](./media/role-assignments-portal/add-permissions.png)
+
+1. Na **função** na lista pendente, selecione a **proprietário** função.
+
+1. Na **selecione** , selecione um utilizador. Se não vir o utilizador na lista, pode digitar o **selecione** caixa para procurar o diretório para os nomes a apresentar e endereços de e-mail.
+
+1. Escolher **guardar** para atribuir a função.
+
+   Após alguns instantes, o utilizador tem atribuída a função de proprietário no âmbito da subscrição.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Atribuir uma função com um âmbito de grupo de gestão
 
 1. No portal do Azure, escolha **todos os serviços** e, em seguida **grupos de gestão**.
 
@@ -185,7 +211,7 @@ No RBAC, para conceder acesso, crie uma atribuição de função. Siga estes pas
 
 1. Na lista **Selecionar**, selecione um utilizador, grupo ou aplicação. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
 
-1. Escolha **Guardar** para criar a atribuição de função.
+1. Escolher **guardar** para atribuir a função.
 
    Após alguns instantes, o principal de segurança é atribuída a função no âmbito do grupo de gestão.
 

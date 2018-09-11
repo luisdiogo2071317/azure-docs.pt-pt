@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 20d2f289f4d40d773fde9f6b770dc49b87c34804
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576190"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297252"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar ficheiros para um servidor Windows ou para um computador cliente Windows com o modelo de implementação Resource Manager
 
@@ -54,6 +54,9 @@ Se um ficheiro eliminado acidentalmente e deseja restaurá-lo na mesma máquina 
 > [!IMPORTANT]
 > A opção de restaurar *ficheiros e pastas individuais* requer o .NET Framework 4.5.2 ou superior. Se não vir a *ficheiros e pastas individuais* opção, tem de atualizar .NET Framework versão 4.5.2 ou superior e tente novamente.
 
+> [!TIP]
+> O *ficheiros e pastas individuais* permite a opção para um acesso rápido aos dados de ponto de recuperação. É adequado para a recuperação de arquivos individuais, com tamanhos totalling não mais de 80 GB de tamanho e ofertas de transferência/Copiar acelera MBps até 6 durante a recuperação. O *Volume* opção recupera todas as cópias de segurança de dados num determinado Volume. Esta opção fornece velocidades de transferência (até 60 MBps), que é ideal para a recuperação de grande tamanho de dados ou volumes inteiros.
+
 5. Sobre o **selecionar Volume e data** painel, selecione o volume que contém os ficheiros de e/ou pastas que pretende restaurar.
 
     No calendário, selecione um ponto de recuperação. Pode restaurar a partir de qualquer ponto de recuperação no tempo. As datas em **negrito** indicam a disponibilidade de, pelo menos, um ponto de recuperação. Depois de selecionar uma data, se vários pontos de recuperação disponíveis, selecione o ponto de recuperação específica a partir da **tempo** menu pendente.
@@ -72,6 +75,7 @@ Se um ficheiro eliminado acidentalmente e deseja restaurá-lo na mesma máquina 
 8. No Explorador do Windows, copie os ficheiros de e/ou pastas que pretende restaurar e cole-os em qualquer localização local para o servidor ou computador. Pode abrir ou transmitir ficheiros diretamente a partir do volume de recuperação e certifique-se de que está a recuperar as versões corretas.
 
     ![Copie e cole os ficheiros e pastas a partir do volume montado para localização local](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
 
 9. Quando tiver terminado de restaurar os ficheiros de e/ou pastas, sobre o **procurar e ficheiros de recuperação** painel, clique em **Unmount**. Em seguida, clique em **Sim** para confirmar que pretende desmontar o volume.
 

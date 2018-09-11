@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 541ab91bf3a79b1b91fa237880f48bd8e0ccc152
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054132"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348077"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recomendações de elevada disponibilidade do Assistente
 
@@ -66,6 +66,10 @@ Perfis do Gestor de tráfego com mais de um ponto final experiência maior dispo
 Se todos os pontos finais num perfil do Gestor de tráfego que está configurado para o encaminhamento de proximidade estiverem na mesma região, os utilizadores a partir de outras regiões podem ocorrem atrasos de ligação. Adicionar ou mover um ponto de extremidade para outra região irá melhorar o desempenho geral e proporcionar melhor disponibilidade se falharem de todos os pontos finais numa única região. Advisor identifica os perfis do Gestor de tráfego configurados para o encaminhamento de proximidade onde todos os pontos finais estão na mesma região e recomenda adicionar ou mover um ponto de extremidade para outra região do Azure.
 
 Se um perfil do Gestor de tráfego estiver configurado para encaminhamento geográfico, em seguida, o tráfego é encaminhado para pontos finais com base em regiões definidas. Se uma região falhar, não há nenhum predefinida de ativação pós-falha. Ter um ponto de extremidade em que o agrupamento Regional está configurado para "Todos (World)", evitar o tráfego a ser removido e melhorar a disponibilidade do serviço. Advisor identifica configurados para encaminhamento geográfico onde não existe nenhum ponto final configurado para ter o agrupamento Regional como "Todos (World)" e recomenda fazer essa alteração de configuração de perfis do Gestor de tráfego.
+
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Eliminar o uso de forma recuperável na sua conta de armazenamento do Azure para guardar e recuperar dados em caso de uma substituição acidental ou eliminação
+
+Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na sua conta de armazenamento, de modo a que eliminou a transição de blobs para um Estado de eliminado de forma recuperável em vez de ser permanentemente eliminado. Quando dados são substituídos, é gerado um instantâneo eliminado de forma recuperável para guardar o estado dos dados substituídos. Isto permite-lhe recuperar em caso da eliminação acidental, ou substitui. O assistente identifica as contas de armazenamento que não têm a eliminação de forma recuperável ativada e sugere que o ative.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de elevada disponibilidade no Advisor
 

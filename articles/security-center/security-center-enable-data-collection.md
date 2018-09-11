@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 92e0b485f51ebeb2b743c8c01372e9056af4b6eb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124872"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304123"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.

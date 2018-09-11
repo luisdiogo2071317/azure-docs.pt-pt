@@ -1,5 +1,5 @@
 ---
-title: Permissões no Centro de segurança do Azure | Microsoft Docs
+title: Permissões no Centro de segurança do Azure | Documentos da Microsoft
 description: Este artigo explica como o Centro de segurança do Azure utiliza o controlo de acesso baseado em funções para atribuir permissões a utilizadores e identifica as ações permitidas para cada função.
 services: security-center
 cloud: na
@@ -11,53 +11,53 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.openlocfilehash: f85f49bd54eacbca67143b35eaf555cfb744a41d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410527"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295467"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões no Centro de segurança do Azure
 
-Centro de segurança do Azure utiliza [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídos a utilizadores, grupos e serviços no Azure.
+Centro de segurança do Azure utiliza [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
 
-Centro de segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de segurança, verá apenas informações relacionadas com a um recurso quando são atribuídas a função de proprietário, Contribuidor ou leitor para a subscrição ou grupo de recursos que um recurso pertence.
+Centro de segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de segurança, apenas verá informações relacionadas com a um recurso quando for atribuída a função de proprietário, contribuinte ou leitor para a subscrição ou grupo de recursos que um recurso pertence.
 
 Além destas funções, há duas funções específicas do Centro de Segurança:
 
-* **Leitor de segurança**: um utilizador que pertence a esta função tem de ver direitos ao centro de segurança. O utilizador pode ver as recomendações, alertas, uma política de segurança e Estados de segurança, mas não é possível efetuar alterações.
-* **Administrador de segurança**: um utilizador que pertence a esta função tem os mesmos direitos como o leitor de segurança e também pode atualizar a política de segurança e dispensar alertas e recomendações.
+* **Leitor de segurança**: um utilizador que pertence a esta função tem a ver direitos ao centro de segurança. O utilizador pode ver recomendações, alertas, uma política de segurança e Estados de segurança, mas não pode fazer alterações.
+* **Administrador de segurança**: um utilizador que pertence a esta função tem os mesmos direitos que o leitor de segurança e de que pode também atualizar a política de segurança e dispensar alertas e recomendações.
 
 > [!NOTE]
-> As funções de segurança, segurança leitor e administrador de segurança, tem acesso apenas no Centro de segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure como armazenamento, Web & Mobile ou Internet das coisas.
+> As funções de segurança, leitor de segurança e o administrador de segurança, tem acesso apenas no Centro de segurança. As funções de segurança não tem acesso a outras áreas de serviço do Azure como armazenamento, Web e móveis ou de Internet das coisas.
 >
 >
 
-## <a name="roles-and-allowed-actions"></a>Funções e as ações permitidas
+## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
-A tabela seguinte apresenta as funções e permitido ações no Centro de segurança. Um X indica que a ação é permitida para essa função.
+A tabela seguinte mostra as funções e permitido ações no Centro de segurança. Um X indica que a ação tem permissões para essa função.
 
-| Função | Editar política de segurança | Aplicar as recomendações de segurança para um recurso | Dispensar alertas e recomendações | Ver alertas e recomendações |
+| Função | Editar política de segurança | Aplicar recomendações de segurança de um recurso | Dispensar alertas e recomendações | Ver alertas e recomendações |
 |:--- |:---:|:---:|:---:|:---:|
 | Proprietário da subscrição | X | X | X | X |
-| Contribuinte de subscrição | X | X | X | X |
+| Contribuidor de Subscrição | X | X | X | X |
 | Proprietário do grupo de recursos | -- | X | -- | X |
-| Grupo de recursos contribuinte | -- | X | -- | X |
+| Contribuinte do grupo de recursos | -- | X | -- | X |
 | Leitor | -- | -- | -- | X |
 | Administrador de Segurança | X | -- | X | X |
 | Leitor de Segurança | -- | -- | -- | X |
 
 > [!NOTE]
-> Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua a função de leitor para utilizadores que apenas necessitam para ver informações sobre o estado de funcionamento de segurança de um recurso, mas não tomar medidas, tal como aplicar recomendações ou editar políticas.
+> Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua a função de leitor para utilizadores que apenas precisam de ver informações sobre o estado de funcionamento de segurança de um recurso, mas não tomar medidas, como aplicar recomendações ou editar políticas.
 >
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-Este artigo explicado como o Centro de segurança utiliza o RBAC para atribuir permissões a utilizadores e identificado as ações permitidas para cada função. Agora que está familiarizado com as atribuições de função necessárias para monitorizar o estado de segurança da sua subscrição, edite as políticas de segurança e aplicar recomendações, saiba como:
+Este artigo explicou como o Centro de segurança utiliza o RBAC para atribuir permissões a utilizadores e identificou as ações permitidas para cada função. Agora que está familiarizado com as atribuições de função necessárias para monitorizar o estado de segurança da sua subscrição, editar as políticas de segurança e aplicar recomendações, saiba como:
 
 - [Definir políticas de segurança no Centro de segurança](security-center-policies.md)
 - [Gerir recomendações de segurança no Centro de segurança](security-center-recommendations.md)

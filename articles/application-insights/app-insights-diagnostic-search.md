@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4d49b6c4fca668a6afe88ade5fbafb0ea9c02dfc
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137386"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296164"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizar a pesquisa no Application Insights
 A pesquisa é uma funcionalidade do [Application Insights](app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, como vistas de páginas, exceções ou pedidos da web. E pode ver os rastreios de registos e eventos que codificou tem.
@@ -133,13 +133,13 @@ Se a sua aplicação gerar uma grande quantidade de telemetria (e estiver usando
 [Saiba mais sobre a amostragem](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>Criar item de trabalho
-Pode criar um bug no GitHub ou o Visual Studio Team Services com os detalhes de qualquer item de telemetria. 
+Pode criar um bug no GitHub ou do Azure DevOps com os detalhes de qualquer item de telemetria. 
 
 ![Clique em Novo Item de trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/42.png)
 
-Na primeira vez que fizer isso, é-lhe perguntado para configurar uma ligação à sua conta do Team Services e o projeto.
+Na primeira vez que fizer isso, é-lhe perguntado para configurar uma ligação à sua organização de DevOps do Azure e o projeto.
 
-![Preencher o URL do seu servidor do Team Services e o nome do projeto e clique em autorizar](./media/app-insights-diagnostic-search/41.png)
+![Preencher o URL de seus serviços de DevOps do Azure e o nome do projeto e clique em autorizar](./media/app-insights-diagnostic-search/41.png)
 
 (Também pode configurar a ligação no painel de itens de trabalho.)
 

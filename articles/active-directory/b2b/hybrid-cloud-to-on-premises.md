@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057677"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346343"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Os utilizadores de concessão B2B no Azure AD acedem às suas aplicações no local
 
@@ -27,7 +27,7 @@ Se a sua aplicação no local utiliza autenticação baseada no SAML, pode facil
 
 Terá de efetuar os seguintes elementos:
 
-- Integrar a aplicação SAML, utilizando o modelo de aplicativo externas à galeria, conforme descrito em [configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory](../active-directory-saas-custom-apps.md). Certifique-se de observar o que utilizar para o **URL de início de sessão** valor.
+- Integrar a aplicação SAML, utilizando o modelo de aplicativo externas à galeria, conforme descrito em [configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Certifique-se de observar o que utilizar para o **URL de início de sessão** valor.
 -  Utilizar o Proxy de aplicações do Azure AD para publicar a aplicação no local, com **do Azure Active Directory** configurado como origem de autenticação. Para obter instruções, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Quando configura a **Url interno** definir, utilize o URL de início de sessão que especificou no modelo de aplicativo externas à galeria. Dessa forma, os utilizadores podem aceder a aplicação a partir de fora do limite da organização. Proxy da aplicação executa o SAML início de sessão único para a aplicação no local.

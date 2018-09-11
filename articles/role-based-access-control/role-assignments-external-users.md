@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437040"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304446"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gerir o acesso para utilizadores externos através do RBAC
 
@@ -42,7 +42,7 @@ Existem dois exemplos comuns ao RBAC é utilizado (mas não limitado a):
 Funções RBAC podem ser concedidas apenas pelo **proprietários** da subscrição. Por conseguinte, o administrador deve estar conectado como um utilizador com esta função previamente atribuído ou tiver criado a subscrição do Azure.
 
 No portal do Azure, depois de iniciar sessão como administrador, selecione "Subscrições" e escolha aquela pretendido.
-![Painel de subscrição no portal do Azure](./media/role-assignments-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador será apresentado como **administrador de conta**, é a função de subscrição. Para obter mais informações sobre as funções de subscrição do Azure, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou os serviços](../billing/billing-add-change-azure-subscription-administrator.md).
+![Painel de subscrição no portal do Azure](./media/role-assignments-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador será apresentado como **administrador de conta**, é a função de subscrição. Para obter mais informações sobre as funções de subscrição do Azure, consulte [adicionar ou alterar os administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** da "Versão de avaliação gratuita" de subscrição no AAD inquilino "Padrão inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a inicial Account da Microsoft "Outlook" (Microsoft Account = Outlook, etc. Live) será o nome de domínio predefinido para todos os outros utilizadores adicionados neste inquilino **"\@ alflaniganuoutlook.onmicrosoft.com"**. Por predefinição, a sintaxe do novo domínio é formada pela juntar o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". onmicrosoft.com"**.
 Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais informações sobre como verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).

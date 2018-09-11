@@ -1,24 +1,18 @@
 ---
 title: FAQ de encriptação de disco do Azure | Documentos da Microsoft
 description: Este artigo fornece respostas para perguntas freqüentes sobre o Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: b93ad4d6d4637b3060d92fb5e17747294c7e6211
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 9d1414959ef8eae2277e530e6eca57ec06aaec37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885997"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345512"
 ---
 # <a name="azure-disk-encryption-faq"></a>FAQ de encriptação de disco do Azure
 
@@ -30,7 +24,7 @@ Encriptação de disco para Windows e Linux VMs de IaaS do Azure está em dispon
 
 ## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Ocorre com o qual o utilizador que estão disponíveis com o Azure Disk Encryption?
 
-Disponibilidade geral de encriptação de disco do Azure oferece suporte a modelos do Azure Resource Manager, do Azure PowerShell e CLI do Azure. As várias experiências de utilizador dão-lhe flexibilidade. Tem três opções diferentes para ativar a encriptação de disco para as VMs de IaaS. Para obter mais informações sobre a experiência de utilizador e a orientação passo a passo disponível no Azure Disk Encryption, consulte [ativar o Azure disco encriptação para Windows](azure-security-disk-encryption-windows.md) e [ativar o Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md).
+Disponibilidade geral de encriptação de disco do Azure oferece suporte a modelos do Azure Resource Manager, do Azure PowerShell e CLI do Azure. As experiências de utilizador diferente dão-lhe flexibilidade. Tem três opções diferentes para ativar a encriptação de disco para as VMs de IaaS. Para obter mais informações sobre a experiência de utilizador e a orientação passo a passo disponível no Azure Disk Encryption, consulte [ativar o Azure disco encriptação para Windows](azure-security-disk-encryption-windows.md) e [ativar o Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md).
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Quanto custa o Azure Disk Encryption?
 
@@ -82,7 +76,7 @@ Para começar, leia os [descrição geral do Azure Disk Encryption](azure-securi
 
 Sim, pode criptografar volumes de arranque e de dados para VMs de IaaS de Linux e Windows. Para VMs do Windows, não é possível encriptar os dados sem primeiro criptografar o volume do sistema operacional. Para VMs do Linux, é possível criptografar o volume de dados sem ter de criptografar o volume do sistema operacional pela primeira vez. Depois de criptografia do volume do sistema operacional para Linux, desativar a encriptação num volume do sistema operacional para VMs de IaaS Linux não é suportada.
 
-## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok-capability"></a>O Azure Disk Encryption permite traga seu próprio capacidades-chave (BYOK)?
+## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>O Azure Disk Encryption permite traga a sua própria chave (BYOK)?
 
 Sim, pode fornecer suas próprias chaves de encriptação de chave. Estas chaves são salvaguardadas no Azure Key Vault, que é o armazenamento de chaves do Azure Disk Encryption. Para obter mais informações sobre as chaves de encriptação de chave oferecer suporte a cenários, consulte [pré-requisitos do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md).
 
@@ -106,7 +100,7 @@ Existem pré-requisitos para a encriptação de disco do Azure. Consulte a [pré
 Sim. Encriptação de disco a utilizar uma aplicação do Azure AD ainda é suportada. No entanto, quando novas VMs a encriptar é recomendado que utilize o novo método, em vez de encriptar com uma aplicação do Azure AD. 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Pode migrar as VMs que eram criptografadas com uma aplicação do Azure AD para encriptação sem uma aplicação do Azure AD?
-Atualmente, não é um caminho de migração direta de máquinas que era criptografado com uma aplicação do Azure AD para encriptação sem uma aplicação do Azure AD. Além disso, também não existe um caminho direto de criptografia sem uma aplicação do Azure AD para a encriptação com uma aplicação do AD. 
+  Atualmente, não um caminho de migração direta de máquinas que era criptografado com uma aplicação do Azure AD para encriptação sem uma aplicação do Azure AD. Além disso, não um caminho direto de criptografia sem uma aplicação do Azure AD para a encriptação com uma aplicação do AD. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Qual a versão do Azure PowerShell suporta o Azure Disk Encryption?
 
@@ -126,9 +120,9 @@ Sim, pode efetuar uma atualização ou uma VM do Red Hat Linux de patches. Para 
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>O que é o fluxo de trabalho de encriptação de disco do Azure recomendado para o Linux?
 
 O seguinte fluxo de trabalho é recomendado ter os melhores resultados no Linux:
-* Começar a partir da imagem de galeria sem modificações de stock correspondente para a distribuição de SO pretendida e a versão
-* Cópia de segurança de quaisquer unidades montadas que serão encriptadas.  Assim, para a recuperação se houver uma falha, por exemplo se a VM é reiniciada antes de encriptação foi concluída.
-* Encriptar (pode demorar várias horas ou até mesmo dias dependendo características da vm e o tamanho de quaisquer discos de dados anexados)
+* Começar a partir da imagem de galeria sem modificações de stock correspondente para o SO distro e a versão necessária
+* Cópia de segurança de quaisquer unidades montadas que serão encriptadas.  Isto volta até permite recuperação se houver uma falha, por exemplo se a VM é reiniciada antes de encriptação foi concluída.
+* Encriptar (pode demorar várias horas ou até mesmo dias dependendo do tamanho de quaisquer discos de dados anexados e de características da VM)
 * Personalizar e adicione software à imagem, conforme necessário.
 
 Se este fluxo de trabalho não for possível, contando [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) no armazenamento de plataforma camada da conta pode ser uma alternativa para encriptação de disco completa com dm-crypt.
@@ -139,12 +133,15 @@ Se este fluxo de trabalho não for possível, contando [Storage Service Encrypti
 > [!NOTE]
 > Não elimine ou edite qualquer conteúdo neste disco. Não desmonte o disco, uma vez que a presença de chaves de encriptação é necessária para quaisquer operações de encriptação na IaaS VM.
 
+## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu utilizar EncryptFormatAll e especifique todos os tipos de volume, irá apagar os dados em unidades de dados que nós já de ser encriptados?
+Não, os dados não ser apagados da unidades de dados que já são encriptadas com o Azure Disk Encryption. Semelhante a como EncryptFormatAll não voltar a encriptar a unidade do SO, ele não criptografa novamente a unidade de dados já encriptados. Para obter mais informações, consulte a [EncryptFormatAll critérios](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Onde posso ir para colocar questões ou comentários?
 
 Pode fazer perguntas ou enviar comentários sobre o [fórum do Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste documento, ficou a saber mais sobre as perguntas mais frequentes relacionadas com o Azure Disk Encryption. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
+Neste documento, ficou a saber mais sobre as perguntas mais frequentes relacionadas com o Azure Disk Encryption. Para obter mais informações sobre este serviço, consulte os artigos seguintes:
 
 - [Descrição geral da encriptação de disco do Azure](azure-security-disk-encryption-overview.md)
 - [Aplicar encriptação de disco no Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

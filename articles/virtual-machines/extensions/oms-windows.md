@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 94e45462a676f6a03e838f63ad37dfbf68839eb4
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414747"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325078"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de análise de registo para Windows
 
@@ -74,8 +74,10 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceId (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+\* O workspaceId denomina-se a consumerId na API de análise do registo.
 
 ## <a name="template-deployment"></a>Implementação de modelos
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d0bf66a224a8a42f813bc817f78321167e309bdb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060241"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303528"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps com o portal do Azure
 A plataforma do Azure está cheia de fluxos de trabalho flexíveis do DevOps. Neste tutorial, irá aprender a alavancar as capacidades do portal do Azure para desenvolver, testar, implementar, resolver problemas, monitorizar e gerir aplicações em execução. Este tutorial concentra-se no seguinte:
@@ -82,7 +82,7 @@ Criar uma aplicação Web com o [Serviço de Aplicações do Azure](https://azur
     
     ![image15][image15]
     
-    Ativar a implementação contínua com o portal do Azure é uma experiência simples. Também pode criar pipelines de versão mais complexos e utilizar muitas outras técnicas com controlo de origem existente e sistemas de integração contínua para implementar para o Azure, tal como tirar partido da criação automatizada e sistemas de gestão de versões.
+    Ativar a implementação contínua com o portal do Azure é uma experiência simples. Também pode criar pipelines de versão mais complexos e utilizar muitas outras técnicas com controlo de origem existente e automatizada de sistemas de integração contínua para implementar no Azure, tais como tirar partido de sistemas de gestão de Pipelines do Azure.
 
 ## <a name="develop-and-test-an-app"></a>Desenvolver e testar uma aplicação
 Em seguida, faça algumas alterações ao código de base e implemente rapidamente essas alterações. Irá também configurar alguns testes de desempenho para a aplicação Web.
@@ -99,7 +99,7 @@ Em seguida, faça algumas alterações ao código de base e implemente rapidamen
 4. Na janela da consola, pode emitir comandos em tempo real para a sua aplicação. Escreva o comando dir e clique em enter. Tenha em atenção que os comandos que precisam de privilégios elevados não funcionam.
    
    ![image19][image19]
-5. Regresse à categoria Desenvolver e escolha o Visual Studio Online. Nota: o Visual Studio Online tem agora o nome Visual Studio Team Services.
+5. Regresse à categoria Desenvolver e escolha o Visual Studio Online. Nota: Visual Studio Online tem agora o nome dos serviços de DevOps do Azure.
    
    ![image20][image20]
 6. Ative a experiência de edição no browser para a sua Aplicação.
@@ -125,7 +125,7 @@ Em seguida, faça algumas alterações ao código de base e implemente rapidamen
 12. Regresse ao painel de ferramentas e na categoria Desenvolver, clique em Teste de Desempenho.
     
     ![image28][image28]
-13. Tem de configurar uma conta de serviços da equipa. Leia este artigo para obter mais detalhes: [criar uma conta do Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+13. Tem de definir uma organização de serviços de DevOps do Azure. Leia este artigo para obter mais detalhes: [criar uma organização de serviços do Azure DevOps](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Clique em Novo para criar um teste de desempenho.
     
     ![image29][image29]

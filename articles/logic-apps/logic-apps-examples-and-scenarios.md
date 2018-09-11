@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: f35822351a1ff5176548d67c8d94ada02f470421
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123713"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304429"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Comuns cenários, exemplos, tutoriais e orientações passo a passo para o Azure Logic Apps
 
@@ -76,7 +76,7 @@ O Logic apps inclui capacidades avançadas para o fluxo de controle avançado, c
 
 ## <a name="deploy-and-manage-logic-apps"></a>Implementar e gerir aplicações lógicas
 
-Totalmente pode desenvolver e implementar aplicações lógicas com o Visual Studio, os Visual Studio Team Services, ou qualquer outro controlo de código fonte e ferramentas automatizadas de compilação. Para suportar a implementação para fluxos de trabalho e ligações dependentes num modelo de recursos, aplicações lógicas utilizam modelos de implementação de recursos do Azure. O Visual Studio tools gerar automaticamente estes modelos, que pode verificar controle de origem para controlo de versões.
+Totalmente pode desenvolver e implementar aplicações lógicas com o Visual Studio, os DevOps do Azure, ou qualquer outro controlo de código fonte e ferramentas automatizadas de compilação. Para suportar a implementação para fluxos de trabalho e ligações dependentes num modelo de recursos, aplicações lógicas utilizam modelos de implementação de recursos do Azure. O Visual Studio tools gerar automaticamente estes modelos, que pode verificar controle de origem para controlo de versões.
 
 * [Criar e implementar aplicações lógicas com o Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Ativar monitorização, registo e alertas para o logic apps existentes](../logic-apps/logic-apps-monitor-your-logic-apps.md)

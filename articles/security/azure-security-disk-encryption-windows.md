@@ -1,24 +1,18 @@
 ---
 title: Ativar a encriptação de disco do Azure para VMs de IaaS do Windows | Documentos da Microsoft
 description: Este artigo fornece instruções sobre como ativar o Microsoft disco encriptação para o Windows VMs IaaS do Azure.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 8b3905c8-844f-4ec7-ad95-b386e9843053
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 2d43c906fa717b036382a119efbaa2551fe50b1f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: d827c2f0a53a1292dd3ba6e15015d9132a45441b
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887894"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346309"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs de IaaS do Windows 
 
@@ -31,7 +25,7 @@ Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-dis
 
 
 ## <a name="bkmk_RunningWinVM"></a> Ativar a encriptação em existente ou executar VMs do Windows de IaaS
-Neste cenário, pode ativar a encriptação com um modelo, cmdlets do PowerShell ou comandos da CLI. As secções seguintes explicam como ativar o Azure Disk Encryption em mais detalhes. 
+Neste cenário, pode ativar a encriptação com um modelo, cmdlets do PowerShell ou comandos da CLI. As secções seguintes explicam como ativar o Azure Disk Encryption em mais detalhes. Se precisar de informações de esquema para a extensão de máquina virtual, consulte a [extensão de encriptação de disco do Azure para Windows](../virtual-machines/extensions/azure-disk-enc-windows.md) artigo.
 
 >[!IMPORTANT]
  >É obrigatório para instantâneo e/ou a cópia de segurança um disco gerido com base instância de VM fora do e antes de ativar o Azure Disk Encryption. Pode ser criado um instantâneo do disco gerido a partir do portal, ou [Azure Backup](../backup/backup-azure-vms-encryption.md) pode ser utilizado. As cópias de segurança Certifique-se de que uma opção de recuperação é possível no caso de qualquer falha inesperada durante a encriptação. Assim que for feita uma cópia de segurança, o cmdlet Set-AzureRmVMDiskEncryptionExtension pode servir para encriptar discos geridos ao especificar o parâmetro - skipVmBackup. O comando Set-AzureRmVMDiskEncryptionExtension irá falhar nas VMs de disco gerido com base em até que foi efetuada uma cópia de segurança e este parâmetro foi especificado. 

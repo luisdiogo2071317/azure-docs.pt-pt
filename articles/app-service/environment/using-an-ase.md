@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446855"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303375"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
 
@@ -136,7 +136,7 @@ Com um ASE externo, todas estas opções de publicação se comportam da mesma. 
 
 A principal diferença com a publicação é relativamente a um ASE de ILB. Com um ASE de ILB, os pontos finais de publicação estão disponíveis apenas através do ILB. O ILB é um IP privado na sub-rede do ASE na rede virtual. Se não tiver acesso à rede para o ILB, não é possível publicar todas as aplicações no ASE. Conforme observado na [criar e utilizar um ASE de ILB][MakeILBASE], terá de configurar o DNS para as aplicações no sistema. Que inclui o ponto de extremidade do SCM. Se não estão definidos corretamente, não é possível publicar. Seus IDEs também tem de ter acesso à rede para o ILB para publicar diretamente no mesmo.
 
-Sistemas CI baseados na Internet, como o GitHub e Visual Studio Team Services, não funcionam com um ASE de ILB porque o ponto final de publicação não está acessível pela Internet. Em alternativa, tem de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
+Sistemas CI baseados na Internet, como o GitHub e do Azure DevOps, não funcionam com um ASE de ILB porque o ponto final de publicação não está acessível pela Internet. Em alternativa, tem de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
 
 Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Pode ver no perfil de publicação da aplicação e no painel da aplicação do portal (no **descrição geral** > **Essentials** e, também no **propriedades**). 
 

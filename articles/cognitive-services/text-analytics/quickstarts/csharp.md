@@ -1,5 +1,6 @@
 ---
-title: Início rápido em C#, para os serviços cognitivos, API de análise de texto | Documentos da Microsoft
+title: 'Início rápido: Utilizar c# para chamar a API de análise de texto | Documentos da Microsoft'
+titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar rapidamente a utilizar a API de análise de texto nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42a682898303b742a17b0a6d4d98c2b9fedf9003
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b4d945b7495897caf1f4edd1e909581614798a23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841699"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303026"
 ---
-# <a name="quickstart-for-the-text-analytics-api-with-c"></a>Início rápido para a análise de texto API com c# 
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Utilizar c# para chamar o serviço cognitivos de análise de texto
 <a name="HOLTop"></a>
 
 Este artigo mostra-lhe como detetar idioma, analisar sentimentos e extrair expressões-chave, utilizando o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com c#. O código foi escrito para trabalhar num aplicativo do .NET Core, com um mínimo referências a bibliotecas externas, portanto, também pode executá-lo no Linux ou MacOS.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424233"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297303"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -58,7 +58,7 @@ Pode criar aplicações web, back-ends de aplicações móveis e aplicações AP
 
 Uma vez que todos os três tipos de aplicações partilham o tempo de execução do serviço de aplicações, pode alojar um Web site, oferecer suporte a clientes móveis e expor as suas APIs no Azure, tudo a partir do mesmo projeto ou solução. Para saber mais sobre o serviço de aplicações, veja [o que é o Azure Web Apps](../../app-service/app-service-web-overview.md).
 
-Serviço de aplicações foi desenvolvido com DevOps em mente. Ele oferece suporte a várias ferramentas para implementações de integração contínua e publicação, incluindo GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity e outras pessoas.
+Serviço de aplicações foi desenvolvido com DevOps em mente. Ele oferece suporte a várias ferramentas para implementações de integração contínua e publicação, incluindo GitHub webhooks, Jenkins, Azure DevOps, TeamCity e outras pessoas.
 
 Pode migrar seus aplicativos existentes no serviço de aplicações ao utilizar o [ferramenta de migração online](https://www.migratetoazure.net/).
 
@@ -186,7 +186,7 @@ Com a sua aplicação em execução no Azure, precisa de ser capaz de monitoriza
 
 ### <a name="devops-integration"></a>Integração DevOps
 
-Se está aprovisionamento de VMs ou publicar as suas aplicações web com a integração contínua, o Azure integra-se com a maioria das ferramentas de DevOps populares. Com suporte para ferramentas como o Jenkins, GitHub, a Puppet, Chef, TeamCity, o Ansible, VSTS e outras pessoas, pode trabalhar com as ferramentas que já tem e maximizar a sua experiência existente.
+Se está aprovisionamento de VMs ou publicar as suas aplicações web com a integração contínua, o Azure integra-se com a maioria das ferramentas de DevOps populares. Com suporte para ferramentas como o Jenkins, GitHub, a Puppet, Chef, TeamCity, Ansible, Azure DevOps e outras pessoas, pode trabalhar com as ferramentas que já tem e maximizar a sua experiência existente.
 
 >**Experimente agora:** [experimentar várias das integrações de DevOps](https://azure.microsoft.com/try/devops/).
 
@@ -269,19 +269,7 @@ Além de definir individual Azure da conta identidades, também denominadas *usu
 
 ### <a name="manage-your-subscriptions"></a>Gerir as suas subscrições
 
-Uma subscrição é uma unidade lógica de serviços do Azure que está ligada a uma conta do Azure. Cada conta associada tem uma função numa subscrição. A faturação de serviços do Azure é feita numa base por subscrição. Para obter uma lista de ofertas de subscrição disponíveis por tipo, consulte [detalhes de oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Funções de administrador
-
-Uma subscrição do Azure tem várias funções de administrador de conta, que pode atribuir a qualquer momento.
-
--   **Administrador de conta**: esta função tem controlo total sobre a subscrição e é a conta que é responsável pela faturação.
-
--   **Administrador de serviços**: esta função tem controlo sobre todos os serviços na subscrição. Por predefinição, esta é a mesma conta como o administrador de conta.
-
--   **Coadministrador**: esta função tem o mesmo acesso como administrador de serviços, exceto pelo fato de ele não é possível alterar a associação da subscrição para um diretório do Azure.
-
-Para saber mais sobre as funções de administrador, veja [como adicionar ou alterar funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+Uma subscrição é um agrupamento lógico de serviços do Azure que está ligado a uma conta do Azure. Uma única conta do Azure pode conter várias subscrições. A faturação de serviços do Azure é feita numa base por subscrição. Para obter uma lista de ofertas de subscrição disponíveis por tipo, consulte [detalhes de oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). As subscrições do Azure têm um administrador de conta, que tem controlo total sobre a subscrição, e um administrador de serviço, que tem controlo sobre todos os serviços na subscrição. Para obter informações sobre os administradores de subscrição clássica, consulte [adicionar ou alterar os administradores de subscrição do Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Além dos administradores, contas individuais podem ser concedidas detalhadas de controlo de recursos do Azure, utilizando [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Grupos de recursos
 
@@ -293,11 +281,11 @@ O Explorador de recursos do Azure é uma ótima ferramenta para visualizar os re
 
 Ao permitir o acesso aos recursos do Azure, é sempre melhor prática para fornecer aos utilizadores com o menor privilégio necessário para executar uma determinada tarefa.
 
--   **Controlo de acesso baseado em funções (RBAC)**: no Azure, pode conceder acesso a contas de utilizador (principais) com um âmbito especificado: subscrição, grupo de recursos ou recursos individuais. RBAC permite-lhe implementar um conjunto de recursos num grupo de recursos e conceder permissões a um grupo ou utilizador específico. Ele também permitem-lhe limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Também pode conceder acesso a um único recurso, como uma máquina virtual ou a rede virtual. Para conceder acesso, atribuir uma função para o utilizador, grupo ou principal de serviço. Existem muitas funções predefinidas, e também pode definir suas próprias funções personalizadas.
+-   **Controlo de acesso baseado em funções (RBAC)**: no Azure, pode conceder acesso a contas de utilizador (principais) com um âmbito especificado: subscrição, grupo de recursos ou recursos individuais. RBAC permite-lhe implementar um conjunto de recursos num grupo de recursos e conceder permissões a um grupo ou utilizador específico. Ele também permitem-lhe limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Também pode conceder acesso a um único recurso, como uma máquina virtual ou a rede virtual. Para conceder acesso, atribuir uma função para o utilizador, grupo ou principal de serviço. Existem muitas funções predefinidas, e também pode definir suas próprias funções personalizadas. Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md).
 
-    >**Quando utilizar**: quando terá de gestão de acessos detalhada para utilizadores e grupos.
+    >**Quando utilizar**: quando necessitar de gestão de acessos detalhada para os utilizadores e grupos ou quando precisa de fazer um proprietário de uma subscrição de um utilizador.
 
-    >**Começar a utilizar**: para obter mais informações, consulte [introdução à gestão de acesso no portal do Azure](../../role-based-access-control/overview.md).
+    >**Começar a utilizar**: para obter mais informações, consulte [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Objetos de principal de serviço**: Além de fornecer acesso a entidades de utilizador e grupos, pode conceder o mesmo acesso a um principal de serviço.
 

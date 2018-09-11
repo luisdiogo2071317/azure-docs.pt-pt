@@ -3,18 +3,18 @@ title: Mostrar informações sobre uma coordenada com o Azure Maps | Documentos 
 description: Como exibir informações sobre um endereço no mapa, quando um usuário seleciona uma coordenada
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/07/2018
+ms.date: 09/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d1baa4adc555e65c4a25928d19f201dba6109142
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 993d1da4b2a99ec0f30a5a685835d9f6b6d35a9e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157689"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302899"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações a partir de uma coordenada
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como fazer uma pesquisa inversa de endereços e, após um
 
 Existem duas formas de fazer uma pesquisa inversa de endereço, uma é através da consulta a [API de pesquisa de endereço inversa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) através de um serviço de módulo e o outro está fazendo uma [XMLHttpRequest](https://xhr.spec.whatwg.org/) para a API para consultar o endereço. Vamos discutir, ambos abaixo.
 
-## <a name="use-the-service-module-to-make-a-reverse-address-search"></a>Utilizar o módulo de serviço para fazer uma pesquisa inversa de endereço
+## <a name="making-a-reverse-search-request-via-service-module"></a>Fazer um pedido de pesquisa inversa através do módulo de serviço
 
 ### <a name="understand-the-code"></a>Compreender o código
 
@@ -41,7 +41,7 @@ O último bloco de código adiciona uma escuta de eventos de cliques do mouse. A
 
 Para uma resposta com êxito, recolhe o endereço para a localização de cliques e define o conteúdo do popup e a posição via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) função da classe pop-up.
 
-## <a name="use-xmlhttprequest-to-make-a-reverse-address-search"></a>Usar XMLHTTPRequest para fazer uma pesquisa inversa de endereço
+## <a name="making-a-reverse-search-request-via-xmlhttprequest"></a>Fazer uma solicitação de pesquisa inversa via XMLHttpRequest
 
 ### <a name="understand-the-code"></a>Compreender o código
 

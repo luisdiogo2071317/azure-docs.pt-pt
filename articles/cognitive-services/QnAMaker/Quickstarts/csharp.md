@@ -1,20 +1,21 @@
 ---
-title: Início rápido em C# para o Microsoft QnA Maker API (V4) - serviços cognitivos do Azure | Documentos da Microsoft
+title: 'Início rápido: C# para API (V4) do QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3c0248b08dbaa1d81843474fcc65590c719e8170
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866088"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348315"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Início rápido para API c# do Microsoft QnA Maker 
 <a name="HOLTop"></a>
@@ -38,7 +39,7 @@ Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A edição de Comunidade gratuito irá funcionar.)
+Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
 Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **Microsoft-API QnA Maker**. Precisará de uma chave de subscrição paga do seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

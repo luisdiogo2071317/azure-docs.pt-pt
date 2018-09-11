@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35b8ae347181d272dc899f41f07af36a611aa9f0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421938"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299156"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Implementar um cluster do Docker CE
 
@@ -169,7 +169,7 @@ Neste início rápido, foram utilizadas imagens de contentor pré-criadas para c
 
 Neste guia de início rápido, implementou um cluster do Docker Swarm e implementou uma aplicação de vários contentores no mesmo.
 
-Para saber mais sobre como integrar o Docker Swarm no Visual Studio Team Services, continue para o artigo CI/CD com Docker Swarm e VSTS.
+Para saber mais sobre como integrar o Docker swarm no Azure DevOps, avance para o CI/CD com Docker Swarm e do Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [CI/CD com Docker Swarm e VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD com Docker Swarm e de DevOps do Azure](./container-service-docker-swarm-setup-ci-cd.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: d13c02696c9babae9fd04233ae7d2fdc75fca25f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d768367b8e35c30b1e8cb1646e6cbfceb6151dec
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090692"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348298"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerir capturas de pacotes com o observador de rede do Azure com o PowerShell
 
@@ -35,7 +35,7 @@ Este artigo orienta-o por tarefas de gestão diferentes que estão atualmente di
 
 - [**Iniciar uma captura de pacotes**](#start-a-packet-capture)
 - [**Parar uma captura de pacotes**](#stop-a-packet-capture)
-- [**Eliminar uma captura de pacotes**](#delete-a-packet-capture)
+- [**eliminar uma captura de pacotes**](#delete-a-packet-capture)
 - [**Transferir uma captura de pacotes**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -67,7 +67,7 @@ O exemplo seguinte obtém as informações de extensão necessárias para execut
 Para as máquinas virtuais do Windows:
 
 ```powershell
-$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.13.0
+$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
 $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
@@ -144,7 +144,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name test
 Filtros podem ser usados para limitar os dados que são armazenados pela captura de pacotes. O exemplo seguinte define dois filtros.  Um filtro recolhe o tráfego de TCP de saída apenas a partir de local IP 10.0.0.3 às portas de destino, 20, 80 e 443.  O segundo filtro recolhe apenas o tráfego UDP.
 
 ```powershell
-$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
+$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
 $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 ```
 
@@ -255,7 +255,7 @@ Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketC
 > [!NOTE]
 > O cmdlet devolve sem resposta quando foi executado numa sessão de captura atualmente em execução ou de uma sessão existente que já foi parado.
 
-## <a name="delete-a-packet-capture"></a>Eliminar uma captura de pacotes
+## <a name="delete-a-packet-capture"></a>eliminar uma captura de pacotes
 
 ```powershell
 Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
