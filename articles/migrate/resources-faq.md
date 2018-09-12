@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: f4ce2130b18b183f633c649f98fc1add30753a27
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296012"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377551"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -48,13 +48,13 @@ O Azure Migrate é uma ferramenta de planejamento de migração e do Azure Site 
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Que regiões do Azure são suportados pelo Azure Migrate?
 
-O Azure Migrate suporta atualmente E.U.A. leste e e.u.a. Centro-Oeste como localizações de projeto de migração. Tenha em atenção que, mesmo que só pode criar projetos de migração nos e.u.a. centro-oeste e este dos E.U.A., ainda pode avaliar as máquinas para [várias localizações dos destinos](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A localização do projeto só é utilizada para armazenar os dados detetados.
+O Azure Migrate suporta atualmente E.U.A. leste e e.u.a. Centro-Oeste como localizações de projeto de migração. Mesmo que só pode criar projetos de migração nos e.u.a. centro-oeste e este dos E.U.A., ainda pode avaliar as máquinas para [várias localizações dos destinos](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A localização do projeto só é utilizada para armazenar os dados detetados.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Como ligar o site no local para o Azure Migrate?
 
 A ligação pode ser através da internet ou utilizar o ExpressRoute com peering público.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Pode posso proteger a VM que configurar com o. Modelo de OVA?
+### <a name="can-i-harden-the-vm-set-up-with-theova-template"></a>Pode posso proteger a VM que configurar com o. Modelo de OVA?
 
 Componentes adicionais (por exemplo, software antivírus) é possível adicionar o. Modelo de OVA, desde que forem deixadas com as regras de comunicação e de firewall necessárias para a aplicação do Azure Migrate trabalhar é.   
 
@@ -90,7 +90,9 @@ A deteção baseada em agente é uma opção disponível sobre a deteção com b
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Deve haver nenhum impacto no desempenho no ambiente de anfitrião do ESXi analisado?
 
-Uma vez que as informações que recolhemos através do vCenter server, não existe nenhum impacto no desempenho nos anfitriões ESXi. Até mesmo no vCenter server, há quase zero impacto no desempenho.
+No caso do [uma abordagem de deteção de tempo](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), para recolher os dados de desempenho, o nível de estatísticas no vCenter server tinha que ser definido como 3. Defini-la para este nível recolheria uma grande quantidade de dados, que seriam armazenados na base de dados do servidor vCenter de resolução de problemas. Portanto, poderão resultar em alguns problemas de desempenho no vCenter Server. Deve haver impacto mínimo no anfitrião ESXi.
+
+Introduzimos de criação de perfis contínua de dados de desempenho (o que estão em pré-visualização). Com a criação de perfis contínua, já não existe a necessidade de alterar o nível de estatísticas do servidor para executar uma avaliação com base no desempenho do vCenter. A aplicação recoletora vai agora criar perfis para as máquinas no local para medir os dados de desempenho das máquinas virtuais. Isso ter um impacto de desempenho de quase zero nos anfitriões ESXi, bem como no vCenter Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Em que são os dados recolhidos armazenados e como há muito tempo?
 

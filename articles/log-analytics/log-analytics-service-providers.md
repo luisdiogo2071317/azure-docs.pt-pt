@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 7e555eb2618dbebf939fe0ab2f313b88299cd2d0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7898af1a8d516fa74deef5614b5373f1dbd22f5a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346207"
+ms.locfileid: "44378607"
 ---
 # <a name="log-analytics-for-service-providers"></a>O log Analytics para fornecedores de serviços
 O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
@@ -84,4 +84,4 @@ Existem duas opções para implementar o local central no Log Analytics:
 * Automatizar a criação de áreas de trabalho com [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Uso [alertas](log-analytics-alerts.md) para integrar com sistemas existentes
 * Gerar relatórios de resumo com [Power BI](log-analytics-powerbi.md)
-
+* Reveja o processo de [configurando o Log Analytics e o Power BI para monitorizar vários clientes CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

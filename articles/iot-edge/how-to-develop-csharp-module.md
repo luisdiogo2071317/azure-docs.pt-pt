@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a66a17a0f8daed5f61753dd7c20ed5d9987c0b15
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 7fec050f43ed6facef548ea19d1d67030458fbb1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053905"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380255"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar c# módulos do Azure IoT Edge
 
@@ -116,6 +116,9 @@ O módulo do IoT Edge c# é um .net Core a aplicação. E isso depende do Azure 
 3. Navegue para a vista de depuração do VS Code. Selecione a configuração de depuração **ModuleName depurar Local (.NET Core)**. 
 
 4. Clique em **iniciar depuração** ou prima **F5**. Começa a sessão de depuração.
+
+   > [!NOTE]
+   > Se o .net Core `TargetFramework` não é consistente com o caminho do programa no `launch.json`. Tem de atualizar manualmente o caminho de programa na `launch.json` respeitar o `TargetFramework` em seu arquivo. csproj. Portanto, esse código VS pode iniciar este programa.
 
 5. No terminal integrado do VS Code, execute o seguinte comando para enviar um **Olá, mundo** mensagem ao módulo. Este é o comando mostrado nos passos anteriores quando configurado com êxito o simulador do IoT Edge.
 

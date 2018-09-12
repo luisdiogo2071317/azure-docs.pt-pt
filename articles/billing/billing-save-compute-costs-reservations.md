@@ -1,5 +1,5 @@
 ---
-title: Quais são as reservas do Azure? | Microsoft Docs
+title: O que é o Azure Reservations? | Microsoft Docs
 description: Saiba mais sobre as reservas do Azure e preços para guardar em suas máquinas virtuais, bases de dados SQL e outros custos do recurso.
 services: billing
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 82b23f46acc94fefccc871583657200b90a33f05
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9ca31a09cd14a8b05e6f98d05f552e202ca4a9fd
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43303567"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391866"
 ---
-# <a name="what-are-azure-reservations"></a>Quais são as reservas do Azure?
+# <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
 Capacidade, ou outros recursos do Azure de computação do Azure ajuda de reservas economizar dinheiro ao pagar previamente para um ano ou três anos de máquina virtual, base de dados SQL. Pré-pagamento permite-lhe obter um desconto sobre os recursos que utiliza. As reservas podem reduzir significativamente sua máquina virtual, computação de base de dados SQL ou outros custos do recurso até 72% em preços pay as you go. Reservas de fornecem um desconto de faturação e não afetam o estado de tempo de execução dos seus recursos.
 
@@ -70,13 +70,21 @@ Para compreender melhor como as reservas afeta sua faturação, consulte os segu
 
 No final do período de reserva, expira o desconto de faturação e a máquina virtual, a base de dados SQL ou a outro recurso é cobrada de acordo com o pay as you acedo preço. Reservas do Azure não a renovação automática. Para continuar a obter o desconto de faturação, tem de comprar uma reserva nova para o software e serviços elegíveis.
 
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>Desconto aplica-se a tamanhos diferentes com a flexibilidade de tamanho de instância
+
+Ao comprar uma reserva, pode aplicar o desconto para as outras instâncias com atributos que estão dentro do mesmo grupo de tamanho. A flexibilidade da cobertura de desconto depende do tipo de reserva e os atributos que escolher quando comprar a reserva.
+
+- Instâncias de VM reservadas: Quando adquire a reserva, se selecionar **otimizado para**: **flexibilidade de tamanho de instância**, a cobertura de desconto depende de selecionar o tamanho da VM. A reserva pode aplicar os tamanhos de máquinas virtuais (VMs) no mesmo grupo de séries de tamanho. Para obter mais informações, consulte [flexibilidade de tamanho de Máquina Virtual com as instâncias de VM reservadas](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Plano de software SUSE Linux Enterprise: A cobertura de desconto depende de vCPUs das VMs em que executa o software SUSE. Para obter mais informações, consulte [compreender a forma como o desconto de plano de software SUSE Linux Enterprise é aplicado](billing-understand-suse-reservation-charges.md).
+- Capacidade de reserva de base de dados SQL: A cobertura de desconto depende do escalão de desempenho que escolher. Para obter mais informações, consulte [compreender a forma como um desconto de reserva do Azure é aplicado](billing-understand-reservation-charges.md).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Iniciar a guardar nas suas máquinas virtuais ao comprar uma [instância de VM reservada](../virtual-machines/windows/prepay-reserved-vm-instances.md) ou [capacidade de reserva de base de dados SQL](../sql-database/sql-database-reserved-capacity.md).
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
-- [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
+- [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com reservas](billing-reserved-instance-windows-software-costs.md)

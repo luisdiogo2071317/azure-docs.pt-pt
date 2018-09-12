@@ -33,7 +33,7 @@ Este artigo explica como alterar as definições de um grupo no Azure Active Dir
 
    ![Abrir o painel de todos os grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. No painel **Utilizadores e grupos - Todos os grupos**, selecione um grupo.
-5. No painel **Grupo - *groupname***, selecione **Propriedades**.
+5. No painel **Grupo - \*groupname\*,** selecione **Propriedades**.
 
    ![Abrir o painel Propriedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Quando terminar de alterar as propriedades do grupo, selecione **Guardar**.    

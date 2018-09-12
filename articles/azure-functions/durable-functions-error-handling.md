@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0b19fe7441d3c2c5222095c31d9c3677b8c9cf34
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092722"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377910"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Tratamento de erros nas funções durável (funções do Azure)
 
@@ -92,7 +92,7 @@ Existem várias opções para personalizar a política de repetição automátic
 * **Coeficiente de término**: O coeficiente utilizado para determinar a taxa de aumento do número de término. Predefinição é 1.
 * **Intervalo de repetição máximo**: A quantidade máxima de tempo de espera entre tentativas de repetição.
 * **Repetição do tempo limite**: A quantidade máxima de tempo para fazer tentativas. O comportamento padrão é repetir indefinidamente.
-* **Custom**: pode ser especificado um retorno de chamada definida pelo utilizador que determina se é ou não uma chamada de função deve ser repetida.
+* **Lidar com**: pode ser especificado um retorno de chamada definida pelo utilizador que determina se é ou não uma chamada de função deve ser repetida.
 
 ## <a name="function-timeouts"></a>Tempos limite de função
 

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: a4be3f063c51f26e1df9ecf4cca4ae0655554750
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 596db56a71d4cc73517b9a9cbfe9b97e536aa83a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059601"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378851"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gerir os recursos associados com suas contas do Azure no Gerenciador de nuvem do Visual Studio
 Explorador de cloud permite-lhe ver os seus recursos do Azure e grupos de recursos, Inspecione as respetivas propriedades e executar ações de diagnóstico de chave do desenvolvedor de dentro do Visual Studio. 
@@ -40,9 +40,9 @@ Para ver os recursos associados uma conta do Azure, primeiro tem de adicionar a 
 
     ![Ícone de definições de conta de Explorer Azure de cloud](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Selecione **Adicionar nova conta**. 
+1. Selecione **gerir contas**. 
 
-    ![Ligação de adicionar a conta do Explorador de cloud](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+    ![Ligação de adicionar a conta do Explorador de cloud](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. Inicie sessão na conta do Azure cujos recursos que pretende procurar. 
 
@@ -56,13 +56,17 @@ Para ver os recursos associados uma conta do Azure, primeiro tem de adicionar a 
 
 ## <a name="remove-an-azure-account-from-cloud-explorer"></a>Remover uma conta do Azure do Cloud Explorer 
 
-1. Na **Cloud Explorer**, selecione **definições de conta do Azure**.
+1. Na **Cloud Explorer**, selecione **gestão de contas**.
 
     ![Ícone de definições de conta de Explorer Azure de cloud](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Junto a conta que pretende remover, selecione **remover**.
+1. Junto a conta que pretende remover, selecione **gerir contas**.
 
     ![Ícone de definições de conta de Explorer Azure de cloud](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+
+1. Escolher **remover** para remover uma conta.
+
+    ![Caixa de diálogo do cloud Explorer gerir contas](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
 ## <a name="view-resource-types-or-resource-groups"></a>Ver os tipos de recursos ou grupos de recursos
 Para ver os recursos do Azure, pode escolher entre **tipos de recursos** ou **grupos de recursos** vista.

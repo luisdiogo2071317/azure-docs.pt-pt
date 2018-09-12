@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055603"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378545"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -97,7 +97,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 8. Introduza as informações para a partilha de ficheiros e, em seguida, selecione **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome completamente qualificado domínio (FQDN) ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >O instalador tentará testar a conectividade para a partilha de ficheiros antes de continuar. No entanto, se estiver a implementar uma rede virtual existente, este teste de conectividade pode de ficheiros. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se a partilha de ficheiros informações estão corretas, continue a implantação.
+   >O instalador tentará testar a conectividade para a partilha de ficheiros antes de continuar. No entanto, se estiver a implementar uma rede virtual existente, o teste de ligação poderá falhar. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se a partilha de ficheiros informações estão corretas, continue a implantação.
 
    ![Instalador do serviço de aplicações][7]
 

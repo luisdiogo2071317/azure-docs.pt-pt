@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 505b3e7df64ef804448bd5753bdaa6148b22a2c3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 382b484f5ed1e45863d24635554cd7c3a55176a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357700"
+ms.locfileid: "44378419"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Links na página não funcionam com uma aplicação de Proxy de aplicações
 
@@ -43,9 +43,7 @@ Existem três formas de resolver este problema. As opções abaixo no constam au
 
     Essa opção assegura que as ligações na sua aplicação estão acessíveis externamente por meio do Proxy de aplicações, uma vez que as ligações na aplicação para os URLs internos também são reconhecidas externamente. Todas as ligações ainda têm de pertencer a uma aplicação publicada. No entanto, com esta opção as ligações não têm de pertencer à mesma aplicação e podem pertencer a várias aplicações.
 
-3.  Se nenhuma dessas opções são viáveis, pode visualizar um novo recurso que faz a tradução/reescrever URL. Com esta funcionalidade, interno URLs ligações existentes no corpo do HTML de seus aplicativos são traduzidas ou "mapeadas", para os URLs de Proxy da aplicação externa publicados. Essa conversão só funciona em ligações no HTML ou CSS e não ajuda se a ligação é gerada por meio de JS. 
-
-Como resultado, é altamente recomendável utilizar o [domínios personalizados](application-proxy-configure-custom-domain.md) solução se possível. Se quiser aderir à pré-visualização, envie um e-mail <aadapfeedback@microsoft.com> com o applicationId(s).
+3.  Se nenhuma dessas opções são viáveis, existem várias opções para ativar a conversão de link inline. Estas opções incluem-se com o Intune Managed Browser, extensão as minhas aplicações, ou com a definição de tradução de ligação na sua aplicação. Para saber mais sobre cada uma destas opções e como para ativá-las, veja [redirecionar codificado links para as aplicações publicadas com o Proxy de aplicações do Azure AD](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Trabalhar com servidores de proxy no local existentes](application-proxy-configure-connectors-with-proxy-servers.md)

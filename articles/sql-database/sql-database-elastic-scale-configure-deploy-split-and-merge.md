@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 10ba369c9627f7492f9776a757d4bccb74013b5f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c7682b63689d9b47fce5fa65a3c0a2301d53502a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349199"
+ms.locfileid: "44379202"
 ---
 # <a name="deploy-a-split-merge-service"></a>Implementar um serviço de divisão/intercalação
 A ferramenta de dividir / unir permite mover dados entre bases de dados em partição horizontal. Consulte [mover dados entre bases de dados de cloud escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -143,7 +143,7 @@ Se a função de trabalho falha a ficar online, mas a função da web for conclu
 
 ## <a name="test-the-service-deployment"></a>Testar a implementação do serviço
 ### <a name="connect-with-a-web-browser"></a>Conecte-se um navegador da web
-Determine o ponto de extremidade de web do seu serviço de divisão / intercalação. Pode encontrá-lo no portal clássico do Azure ao aceder a **Dashboard** do seu serviço de nuvem e observar sendo **URL do Site** no lado direito. Substitua **http://** com **https://** , uma vez que as configurações de segurança padrão desativar ponto de extremidade HTTP. Carregar a página para este URL no seu browser.
+Determine o ponto de extremidade de web do seu serviço de divisão / intercalação. Pode encontrá-lo no portal ao aceder a **descrição geral** do seu serviço de nuvem e observar sendo **URL do Site** no lado direito. Substitua **http://** com **https://** , uma vez que as configurações de segurança padrão desativar ponto de extremidade HTTP. Carregar a página para este URL no seu browser.
 
 ### <a name="test-with-powershell-scripts"></a>Testar com scripts do PowerShell
 A implementação e o seu ambiente podem ser testados através da execução de scripts do PowerShell de exemplo incluídos.

@@ -8,16 +8,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c6dfb8ac36f3b5d51cc1d6126449b458f8f4946c
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060960"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377434"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir a eventos de armazenamento de BLOBs
 
-Eventos de armazenamento do Azure permitem que os aplicativos reagir para a criação e eliminação de blobs com modernas arquiteturas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de consulta dispendiosa e ineficiente.  Em vez disso, os eventos são enviados por meio [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para os assinantes, tal como [as funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio serviço de escuta de http personalizado e apenas pague apenas aquilo que utiliza. 
+Eventos de armazenamento do Azure permitem que os aplicativos reagir para a criação e eliminação de blobs com modernas arquiteturas sem servidor. Ele faz isso sem a necessidade de código complicado ou serviços de consulta dispendiosa e ineficiente.  Em vez disso, os eventos são enviados por meio [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para os assinantes, tal como [as funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio serviço de escuta de http personalizado e apenas pague apenas aquilo que utiliza.
+
+Eventos de armazenamento de Blobs com fiabilidade são enviados para o serviço de grelha de eventos que fornece serviços de entrega fiável às suas aplicações através de políticas de repetição sofisticado e entrega de mensagens não entregues.
 
 Cenários de evento de armazenamento de BLOBs comuns incluem o processamento de vídeo ou imagem, a indexação da pesquisa ou qualquer fluxo de trabalho orientados por arquivos.  Carregamentos de ficheiros assíncronos são uma excelente escolha para eventos.  Quando as alterações são pouco frequentes, mas o seu cenário requer a capacidade de resposta imediata, com base em eventos arquitetura pode ser especialmente eficiente.
 

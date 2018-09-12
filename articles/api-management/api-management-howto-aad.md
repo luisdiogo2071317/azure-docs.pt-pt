@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054379"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391883"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de programador com o Azure Active Directory na gestão de API do Azure
 
@@ -79,7 +79,10 @@ Este artigo mostra-lhe como permitir o acesso ao portal do programador para os u
 
     ![Caixas de verificação de permissões](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Selecione **conceder permissões** para dar consentimento a permissões de aplicação.
+
     Para obter mais informações sobre as permissões de aplicação e permissões delegadas, consulte [aceder à API do Graph][Accessing the Graph API].
+    
 1. No painel esquerdo, copie os **ID da aplicação** valor.
 
     ![Valor de "ID da aplicação"](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ Este artigo mostra-lhe como permitir o acesso ao portal do programador para os u
     > Tome nota desta chave. Depois de fechar o painel de configuração do Azure AD, a chave não é possível apresentar novamente.
     > 
     > 
+
 1. Mude para a sua aplicação de gestão de API. 
 
     Na **Adicionar fornecedor de identidade** janela, cole a chave no **segredo do cliente** caixa de texto.
@@ -106,6 +110,7 @@ Este artigo mostra-lhe como permitir o acesso ao portal do programador para os u
     > Certifique-se atualizar o **segredo do cliente** antes da chave expirar. 
     >  
     >
+
 1. O **Adicionar fornecedor de identidade** janela também contém o **inquilinos permitidos** caixa de texto. Lá, especifique os domínios das instâncias do Azure AD aos quais pretende conceder acesso às APIs de instância de serviço de gestão de API. É possível separar vários domínios com vírgulas, espaços ou garantidamente.
 
     É possível especificar vários domínios no **inquilinos permitidos** secção. Antes de qualquer utilizador pode iniciar sessão a partir de um domínio diferente daquele domínio original em que a aplicação foi registrada, um administrador global do domínio diferente tem de conceder permissão para a aplicação para aceder a dados do diretório. Para conceder permissão, o administrador global deve:

@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398369"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346921"
 ---
 # <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
 O Microsoft Azure Active Directory (Azure AD) é uma solução na cloud de gestão de acessos e identidades que proporciona serviços de diretório, governação de identidade e gestão de acesso a aplicações. O Azure AD [ativa rapidamente o início de sessão único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) em milhares de aplicações comerciais pré-integradas e personalizadas da [galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Provavelmente, já utiliza muitas dessas aplicações, como o Office 365, o Salesforce.com, o Box, o ServiceNow e o Workday.
@@ -110,10 +110,10 @@ Temos dezenas de excelentes recursos online para o ajudar a saber tudo sobre o A
 
 * [Ativar o seu diretório para gestão híbrida com o Azure AD Connect](../connect/active-directory-aadconnect.md)
 * [Additional security for an ever connected world](../authentication/multi-factor-authentication.md) (Segurança adicional para um mundo cada vez mais ligado)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
 * [Manage your passwords from anywhere](../user-help/active-directory-passwords-update-your-own-password.md) (Gerir as suas palavras-passe em qualquer local)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
 * [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) (Como fornecer acesso remoto seguro a aplicações no local)
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](active-directory-manage-groups.md)
 * [O que é o licenciamento do Microsoft Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)

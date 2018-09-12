@@ -3,7 +3,7 @@ title: Consola de série do Azure para GRUB e modo de utilizador único | Docume
 description: A utilizar a consola de série para grub em máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 9952720e917dc9202630b2feda0fadd0402d9eb6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057412"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377875"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 Modo de utilizador único é um ambiente mínimo com a funcionalidade mínima. Pode ser útil para os problemas de rede ou investigar problemas de arranque como menos de serviços podem ser executadas em segundo plano, e, consoante o runlevel, um sistema de ficheiros poderá não até mesmo ser automaticamente montado. Isto é útil para investigar situações como um sistema de ficheiros danificado, um fstab quebrada, ou (configuração de iptables incorreta) de conectividade de rede.
+
+Para acessar o GRUB, terá de reiniciar a VM, mantendo o painel de consola de série aberto. Isso pode ser feito com uma SysRq `'b'` comando ou ao clicar o reinício botão no painel de descrição geral. Algumas distribuições irão exigir a entrada de teclado para mostrar o GRUB, enquanto outros automaticamente mostrará GRUB por alguns segundos no arranque e permitir a entrada do usuário cancelar o tempo limite com entrada de teclado. 
 
 Algumas distribuições irão automaticamente remover em modo de utilizador único ou modo de emergência se a VM não é possível para efetuar o arranque. No entanto, outras pessoas, exigem configuração adicional antes de eles podem soltar no modo de utilizador único ou de emergência automaticamente.
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 manager: douge
-ms.openlocfilehash: 155f823b53ac6a6e391b1f4f71994d896070092a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ac1872cf3f5ee8b83da9fa4c489188504aa8ad22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42110192"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161548"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introdução ao Azure Dev Spaces com o .NET Core e o Visual Studio
 
@@ -29,9 +29,9 @@ Neste guia, vai aprender a:
 - Desenvolver de modo independente dois serviços separados e utilizar a deteção do serviço DNS de Kubernetes para fazer uma chamada para outro serviço.
 - Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+[!INCLUDE [](includes/see-troubleshooting.md)]
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+[!INCLUDE [](includes/portal-aks-cluster.md)]
 
 ## <a name="get-the-visual-studio-tools"></a>Obter as ferramentas do Visual Studio
 1. Instale a versão mais recente do [Visual Studio 2017](https://www.visualstudio.com/vs/)

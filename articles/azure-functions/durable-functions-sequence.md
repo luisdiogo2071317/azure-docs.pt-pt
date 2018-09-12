@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ea8c275e5cc37f8c5ecd7c29491b7146669d00fb
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c84977dacddcf9ccca7fde735ad4acb8a1523fa9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092908"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378708"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Função de encadeamento de funções duráveis - exemplo de sequência de Hello
 
@@ -104,6 +104,9 @@ Para executar o `E1_HelloSequence` orquestração, o envio do pedido HTTP POST s
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> O trecho de código anterior do HTTP pressupõe que existe uma entrada no `host.json` ficheiros que remove a predefinição `api/` prefixo a partir de todos os URLs de funções de Acionador HTTP. Pode encontrar a marcação para esta configuração no `host.json` ficheiro nos exemplos.
 
 Por exemplo, se estiver a executar o exemplo de uma aplicação de funções com o nome "myfunctionapp", substitua "{host}" com "myfunctionapp.azurewebsites.net".
 

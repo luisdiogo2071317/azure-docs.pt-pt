@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 196882cf4515be8afd129128402e9eaee322cb4b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1bb6e464b748f2558cec35a95554bb3e08b667f0
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093588"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378334"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
@@ -98,7 +98,10 @@ A consola de série pode ser utilizada para enviar um NMI para uma máquina virt
 Para obter informações sobre como configurar o Windows para criar um despejo de falha quando recebe um NMI, consulte: [como gerar um arquivo de despejo de falha completa ou de um arquivo de despejo de falhas de kernel ao utilizar um NMI num sistema baseado em Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Desativar a consola de série
-Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM.
+Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM. 
+
+> [!Note] 
+> Para ativar ou desativar a consola de série para uma subscrição, tem de ter permissões de escrita para a subscrição. Isto inclui, mas não se limita às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
 ### <a name="subscription-level-disable"></a>Desativar o nível de assinatura
 Consola de série pode ser desabilitada para uma subscrição completa por através da [chamada à API de REST de consola desativar](https://aka.ms/disableserialconsoleapi). Pode usar a funcionalidade "Experimente-lo" disponível na página de documentação da API desativar e ativar a consola de série para uma subscrição. Introduza o seu `subscriptionId`, "padrão" no `default` campo e clique em executar. Os comandos da CLI do Azure ainda não estão disponíveis e vão deparar-se numa data posterior. [Experimente a chamada de API do REST aqui](https://aka.ms/disableserialconsoleapi).
@@ -190,7 +193,6 @@ Como estamos ainda nas fases de pré-visualização para acesso à consola de s�
 
 Problema                             |   Mitigação 
 :---------------------------------|:--------------------------------------------|
-Não existe nenhuma opção com a consola de instância de conjunto de dimensionamento do virtual machine serial | Durante a pré-visualização, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
 Acessando introdução após a faixa de ligação não mostra um registo na linha de comandos | Consulte esta página: [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isto pode acontecer se estiver a executar uma VM personalizada, alta da aplicação ou configuração de GRUB esse Windows causers não sejam corretamente ligar para a porta serial.
 Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Isso será apresentada se o Console de administração especial não tenha sido ativado para a sua imagem do Windows. Ver [acesso à consola de série para Windows](#access-serial-console-for-windows) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Obter mais detalhes podem ser encontrados em [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Não é possível digitar em SAC perguntar se a depuração de kernel está ativada | RDP para a VM e execute `bcdedit /debug {current} off` num prompt de comando elevado. Se não for possível RDP em vez disso, pode anexar o disco do SO a outra VM do Azure e modificá-lo enquanto anexado como um disco de dados com `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, em seguida, trocar o disco voltar.
@@ -203,9 +205,25 @@ Uma resposta de "Proibido" foi encontrada ao aceder à conta de armazenamento do
 
 A. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Em alternativa menos (preferencial) envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
 
-**P. Não consigo aceder à consola de série, onde pode enviar um incidente de suporte?**
+**P. Consola de série suporta copiar/colar?**
 
-A. Esta funcionalidade de pré-visualização é abrangida por meio de termos de pré-visualização do Azure. Suporte para isso é melhor processado por meio de canais mencionadas acima. 
+A. Sim faz. Utilize Ctrl + Shift + C e Ctrl + Shift + V para copiar e colar no terminal.
+
+**P. Quem pode ativar ou desativar a consola de série para a minha subscrição?**
+
+A. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. Funções com permissão de escrita incluem, mas não sejam limitam às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
+
+**P. Quem pode aceder a consola de série para a minha VM?**
+
+A. Tem de ter acesso de nível de Contribuidor ou superior para uma VM para aceder à consola de série da VM. 
+
+**P. Meu consola de série não está visível qualquer coisa, o que fazer?**
+
+A. A imagem é provavelmente mal configurada para acesso à consola de série. Ver [consola de série ativar em imagens personalizadas ou mais antigas](#Enable-Serial-Console-in-custom-or-older-images) para obter detalhes sobre como configurar a sua imagem para ativar a consola de série.
+
+**P. Consola de série está disponível para conjuntos de dimensionamento de máquinas virtuais?**
+
+A. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter um guia detalhado sobre a comandos CMD e do PowerShell, pode utilizar o SAC do Windows, clique em [aqui](serial-console-cmd-ps-commands.md).

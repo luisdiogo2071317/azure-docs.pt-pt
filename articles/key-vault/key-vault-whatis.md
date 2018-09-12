@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d7357dc7e8fa473bd8517dd80ede749b9d8e3f07
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 580ebbf219daa4c22034ffbf9ee3abbbdd0c8130
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162840"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378768"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
 O Azure Key Vault ajuda a resolver os seguintes problemas
-- O Azure Key Vault pode ser utilizado para armazenar de forma segura e controlar totalmente o acesso aos tokens, palavras-passe, certificados, chaves de API e outros segredos
-- O Azure Key Vault também pode ser utilizado como uma solução de gestão de chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
-- O Azure Key Vault também é um serviço que lhe permite aprovisionar, gerir e implementar facilmente certificados de Secure Sockets Layer/Transport Layer Security (SSL/TLS) públicos e privados para utilização com o Azure e seus recursos ligados internos. 
-- Estes segredos e estas chaves podem ser protegidos por software ou FIPS 140-2 Nível 2 valida HSMs
+- **Gestão de segredos** -Azure Key Vault pode ser utilizado para armazenar de forma segura e totalmente controlar o acesso aos tokens, palavras-passe, certificados, chaves de API e outros segredos
+- **A gestão de chaves** -Azure Key Vault também pode ser utilizado como uma solução de gestão de chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
+- **Gestão de certificados** - Azure Key Vault também é um serviço que lhe permite facilmente aprovisionar, gerir e implementar certificados de Secure Sockets Layer/Transport Layer Security (SSL/TLS) públicos e privados para utilização com o Azure e ligadas interno recursos. 
+- **Módulos de hardware de segurança** -os segredos e as chaves podem ser protegidas por software ou FIPS 140-2 nível 2 valida HSMs
 
 ## <a name="basic-concepts"></a>Conceitos básicos
 

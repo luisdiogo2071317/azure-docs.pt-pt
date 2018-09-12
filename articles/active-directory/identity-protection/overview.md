@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 06e3a596b60bf96319071fff68b0bf1655869559
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 791abd52ff4c016fe873288008e9d9b6adec6480
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003802"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378501"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -83,7 +83,7 @@ O balanceamento de carga as atividades de gestão em torno de sua implementaçã
 | :--                          | ---                                |  ---   |
 | Administrador global         | Acesso total ao Identity Protection, carregar Identity Protection| |
 | Administrador de segurança       | Acesso total ao Identity Protection | Carregar Identity Protection, repor palavras-passe para um utilizador |
-| Leitor de segurança              | Acesso só de leitura ao Identity Protection | Carregar Identity Protection, os utilizadores de remidiate, configurar políticas, repor palavras-passe |
+| Leitor de segurança              | Acesso só de leitura ao Identity Protection | Carregar Identity Protection, remediar utilizadores, configurar políticas, repor palavras-passe |
 
 
 

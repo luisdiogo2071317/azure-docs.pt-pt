@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 136316feab5a08308a9f10e499f645aaee0c90d3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d6160f8c66fd749942be581cb2992977da82911
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093248"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377994"
 ---
 # <a name="durable-functions-overview"></a>Descrição geral de funções durável
 
@@ -334,7 +334,7 @@ Nos bastidores, a extensão de funções duráveis baseia-se do [durável de tar
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Origem do evento, pontos de verificação e repetição
 
-As funções do Orchestrator com fiabilidade mantêm seu estado de execução usando um padrão de conceção de nuvem conhecido como [origem do evento](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Em vez de armazenar diretamente a *atual* estado de uma orquestração, a extensão durável utiliza um arquivo só de acréscimo para registar o *completa de série de ações* tomada pela orquestração de função. Isso tem muitas vantagens adicionais, incluindo a melhorar o desempenho, escalabilidade e capacidade de resposta em comparação com o estado do tempo de execução completa de "despejo". Os outros benefícios estão fornecendo consistência eventual para os dados transacionais e manter registos de auditoria completos e histórico. Os registos de auditoria próprios permitem ações de compensação fiáveis.
+As funções do Orchestrator com fiabilidade mantêm seu estado de execução usando um padrão de design, conhecido como [origem do evento](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Em vez de armazenar diretamente a *atual* estado de uma orquestração, a extensão durável utiliza um arquivo só de acréscimo para registar o *completa de série de ações* tomada pela orquestração de função. Isso tem muitas vantagens adicionais, incluindo a melhorar o desempenho, escalabilidade e capacidade de resposta em comparação com o estado do tempo de execução completa de "despejo". Os outros benefícios estão fornecendo consistência eventual para os dados transacionais e manter registos de auditoria completos e histórico. Os registos de auditoria próprios permitem ações de compensação fiáveis.
 
 A utilização de origem do evento por esta extensão é transparente. Nos bastidores, o `await` operador numa função de orquestrador produz o controle do orchestrator thread para o dispatcher do Framework de tarefa durável. O dispatcher, em seguida, consolida todas as novas ações que a função de orquestrador agendada (por exemplo, chamar uma ou mais funções de subordinado ou agendamento de um temporizador durável) para o armazenamento. Esta ação de consolidação transparente acrescenta para o *histórico de execução* da instância de orquestração. O histórico é armazenado numa tabela de armazenamento. A ação de consolidação, em seguida, adiciona uma mensagem numa fila para agendar o trabalho real. Neste momento, a função de orquestrador pode ser baixada da memória. A faturação para o mesmo deixa de se estiver a utilizar o plano de consumo de funções do Azure.  Quando existe mais de trabalho, a função é reiniciada e seu estado é reconstruído.
 
@@ -369,6 +369,8 @@ A extensão de funções duráveis utiliza blobs, tabelas e filas de armazenamen
 As funções do Orchestrator agendar as funções de atividade e recebem suas respostas através de mensagens da fila interna. Quando uma aplicação de função é executada no plano de consumo de funções do Azure, estas filas são monitorizadas pelos [controlador de dimensionamento de funções do Azure](functions-scale.md#how-the-consumption-plan-works) e novo cálculo instâncias são adicionadas conforme necessário. Ao aumentar horizontalmente para várias VMs, uma função de orquestrador pode ser executadas numa VM durante a execução de funções de atividade, que ele chama em várias VMs diferentes. Pode encontrar mais detalhes sobre o comportamento de dimensionamento de funções durável nas [desempenho e dimensionamento](durable-functions-perf-and-scale.md).
 
 Armazenamento de tabelas é utilizado para armazenar o histórico de execução para contas do orchestrator. Sempre que uma instância rehydrates numa VM específica, obtém o histórico de execução do armazenamento de tabela para que ele pode recriar seu estado local. Uma das coisas convenientes relacionada com o histórico disponível no armazenamento de tabelas é que pode dar uma olhada e ver o histórico de suas orquestrações com ferramentas, como [Explorador de armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+
+Blobs de armazenamento são utilizados principalmente como um mecanismo de locação para coordenar o Escalamento horizontal de instâncias de orquestração de várias VMs. Eles também são utilizados para armazenar os dados para mensagens grandes que não não possível armazenar diretamente em tabelas ou filas.
 
 ![Captura de ecrã de Explorador de armazenamento do Azure](media/durable-functions-overview/storage-explorer.png)
 

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127484"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377399"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso no Azure Logic Apps
 
@@ -77,7 +77,7 @@ Esta definição pode ser configurada nas definições de aplicação lógica:
 1. Clique nas **definições de fluxo de trabalho** item de menu **definições**
 1. Especificar a lista de intervalos de endereços IP para ser Aceito pelo acionador
 
-Um intervalo IP válido assume o formato `192.168.1.1/255`. Se pretender que a aplicação lógica para acionar apenas como uma aplicação lógica aninhada, selecione o **apenas outras aplicações lógicas** opção. Esta opção escreve uma matriz vazia para o recurso, que significa apenas chamadas a partir do serviço em si (aplicações de lógica principal) são acionados com êxito.
+Um intervalo IP válido assume o formato `192.168.1.1/32`. Se pretender que a aplicação lógica para acionar apenas como uma aplicação lógica aninhada, selecione o **apenas outras aplicações lógicas** opção. Esta opção escreve uma matriz vazia para o recurso, que significa apenas chamadas a partir do serviço em si (aplicações de lógica principal) são acionados com êxito.
 
 > [!NOTE]
 > Pode continuar a executar uma aplicação lógica com um acionador de pedido por meio da API de REST / gestão `/triggers/{triggerName}/run` , independentemente de IP. Este cenário requer a autenticação com base na API de REST do Azure e todos os eventos apareceria no Log de auditoria do Azure. Acesso de conjunto de políticas de controlo em conformidade.

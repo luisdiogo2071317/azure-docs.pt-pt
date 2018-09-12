@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349097"
+ms.locfileid: "44391849"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -180,7 +180,7 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **acesso condicional** > **localizações com nome**.
 3. Selecione **IPs fidedignos de MFA configurar**.
-4. Sobre o **definições do serviço** página, em **IPs fidedignos**, escolha entre as duas opções seguintes:
+4. Na **definições do serviço** página, em **IPs fidedignos**, escolha a partir de qualquer uma das duas opções seguintes:
    
    * **Para pedidos de utilizadores federados com origem na minha intranet**: Escolha esta opção, selecione a caixa de verificação. Todos os utilizadores federados que iniciar sessão a partir da rede empresarial ignorar a verificação de dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego apropriado. Se a regra de não existir, crie a seguinte regra no AD FS:<br/>
 
@@ -203,7 +203,7 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores**.
 3. Selecione **multi-factor Authentication**.
 4. Em multi-factor Authentication, selecione **definições do serviço**.
-5. Sobre o **definições do serviço** página, em **IPs fidedignos**, escolha entre as duas opções seguintes:
+5. Sobre o **definições do serviço** página, em **IPs fidedignos**, escolha uma (ou ambas) as duas opções seguintes:
    
    * **Para pedidos de utilizadores federados na minha intranet**: Escolha esta opção, selecione a caixa de verificação. Todos os utilizadores federados que iniciar sessão a partir da rede empresarial ignorar a verificação de dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego apropriado. Se a regra de não existir, crie a seguinte regra no AD FS:<br/>
 

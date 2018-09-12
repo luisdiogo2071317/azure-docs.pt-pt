@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 082002b25b02e1e496221f4686d0e636630dd438
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1cb00035dc8f1cdeabd1beb22ca69f47bf4bd89e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324396"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379575"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiões do serviço de voz
 
@@ -35,11 +35,16 @@ Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de c
 
 A tabela abaixo lista as regiões disponíveis para **reconhecimento de fala** e **tradução**:
 
-Região| Valor do parâmetro de região no SDK de voz
+Região| Valor do parâmetro de região no SDK de voz| Portal
 -|-
-EUA Oeste| `westus`
-Ásia Oriental| `eastasia`
-Europa do Norte| `northeurope`
+EUA Oeste| `westus`| https://westus.cris.ai
+E.U.A. Oeste 2| `westus2`| https://westus2.cris.ai
+EUA Leste| `eastus`| https://eastus.cris.ai
+E.U.A. Leste 2| `eastus2`| https://eastus2.cris.ai
+Ásia Oriental| `eastasia`| https://eastasia.cris.ai
+Sudeste Asiático| `southeastasia`| https://southeastasia.cris.ai
+Europa do Norte| `northeurope`| https://northeurope.cris.ai
+Europa Ocidental|  `westeurope`| https://westeurope.cris.ai
 
 ### <a name="regions-for-intent-recognition"></a>Regiões para o reconhecimento da intenção do
 

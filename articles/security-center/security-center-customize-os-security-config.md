@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 18/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: f43ebff65cf32dce1dae6bb9a592b491e56c8810
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295400"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378368"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança de SO no Centro de segurança do Azure (pré-visualização)
 
@@ -69,9 +69,11 @@ Para personalizar a configuração de segurança do sistema operacional padrão 
    > Por predefinição, o ficheiro de configuração que baixar está no *json* formato. Para obter instruções sobre como modificar esse arquivo, aceda a [personalizar o ficheiro de configuração](#customize-the-configuration-file).
    >
 
-   Depois de ter guardado com êxito o ficheiro, a configuração é aplicada a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição. O processo normalmente demora alguns minutos mas pode demorar mais tempo, dependendo do tamanho de infraestrutura.
-
 6. Para consolidar a alteração, selecione **guardar**. Caso contrário, a política não é armazenada.
+
+    ![O botão salvar](media/security-center-customize-os-security-config/save-successfully.png)
+
+   Depois de ter guardado com êxito o ficheiro, a configuração é aplicada a todas as VMs e computadores que estão ligados a áreas de trabalho sob a subscrição. O processo normalmente demora alguns minutos mas pode demorar mais tempo, dependendo do tamanho de infraestrutura.
 
 Em qualquer momento, pode repor a configuração da política atual no estado predefinido. Para tal, na **regras de configuração de segurança de editar o sistema operacional** janela, selecione **repor**. Confirme esta opção, selecionando **Sim** na janela de pop-up de confirmação.
 

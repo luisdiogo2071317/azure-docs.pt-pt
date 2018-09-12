@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: e40283abd418552f296f7539e554e0ad5232e49a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5ab5452aec5b0371caaf437b6e364ed7b922db3a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031697"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162262"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -76,7 +76,7 @@ O portal do Azure mostra apenas as funcionalidades que funcionam atualmente para
 
 Algumas funcionalidades, como a integração da rede virtual, a autenticação do Azure Active Directory/terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Assim que estas funcionalidades estiverem disponíveis, atualizaremos a nossa documentação e o blogue com as alterações.
 
-O Serviço de Aplicações no Linux é suportado apenas com os planos do Serviço de Aplicações [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem um escalão [Gratuito ou Partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). O [Linux no ASE (Escalão isolado)](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/announcing-the-linux-on-app-service-environment-public-preview/) está no modo de pré-visulização e neste momento não é suportado para cargas de trabalho de produção. Não pode criar a Aplicação Web para Contentores num plano do Serviço de Aplicações que já aloja Aplicações Web que não são do Linux. Também existe uma limitação atual no que diz respeito a não misturar aplicações Windows e Linux no mesmo grupo de recursos.
+O Serviço de Aplicações no Linux é suportado apenas com os planos do Serviço de Aplicações [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem um escalão [Gratuito ou Partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). Não pode criar a Aplicação Web para Contentores num plano do Serviço de Aplicações que já aloja Aplicações Web que não são do Linux. Também existe uma limitação atual no que diz respeito a não misturar aplicações Windows e Linux no mesmo grupo de recursos.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d805a39831ce2eea204689a4daa069d10b757e8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193466"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054075"
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger a sua Base de Dados SQL do Azure
 
@@ -46,11 +46,11 @@ Para concluir este tutorial, certifique-se de que tem o seguinte:
 
 - Instalou a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Instalou o Microsoft Excel
-- Criou um servidor e uma base de dados SQL do Azure. Consulte [Criar uma base de dados SQL do Azure no portal do Azure](sql-database-get-started-portal.md), [Criar uma base de dados SQL do Azure única com a CLI do Azure](sql-database-get-started-cli.md) e [Criar uma base de dados SQL do Azure única com o PowerShell](sql-database-get-started-powershell.md). 
+- Criou um servidor e uma base de dados SQL do Azure. Consulte [Criar uma base de dados SQL do Azure no portal do Azure](sql-database-get-started-portal.md), [Criar uma base de dados SQL do Azure única com a CLI do Azure](sql-database-cli-samples.md) e [Criar uma base de dados SQL do Azure única com o PowerShell](sql-database-powershell-samples.md). 
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall ao nível do servidor no portal do Azure
 
@@ -61,7 +61,7 @@ A configuração mais segura consiste em definir a opção "Permitir acesso a se
 Siga estes passos para criar uma [regra de firewall ao nível do servidor da Base de Dados SQL](sql-database-firewall-configure.md) para o seu servidor de modo a permitir ligações a partir de um endereço IP específico. 
 
 > [!NOTE]
-> Se tiver criado uma base de dados de exemplo no Azure com a ajuda de um dos tutoriais ou guias de início rápido anteriores e estiver a realizar este tutorial num computador com o mesmo endereço IP que tinha quando percorreu esses tutoriais, pode ignorar este passo porque já terá criado uma regra de firewall ao nível do servidor.
+> Se tiver criado uma base de dados de exemplo no Azure com a ajuda de um dos tutoriais ou inícios rápidos anteriores e estiver a realizar este tutorial num computador com o mesmo endereço IP que tinha quando percorreu esses tutoriais, pode ignorar este passo porque já terá criado uma regra de firewall ao nível do servidor.
 >
 
 1. Clique em **Bases de dados SQL** no menu do lado esquerdo e clique na base de dados para a qual quer configurar a regra de firewall na página **Bases de dados SQL**. É aberta a página de descrição geral da base de dados, que mostra o nome de servidor completamente qualificado (como **mynewserver-20170313.database.windows.net**) e oferece opções para configuração adicional.

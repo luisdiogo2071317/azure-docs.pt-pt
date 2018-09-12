@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: bc3b5cfc106fdb90e99fb918113f4f371f928b26
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285362"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377960"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>O que é o Azure Active Directory totalmente integrada início de sessão único?
 
-Azure Active Directory totalmente integrada início de sessão único (Azure AD Seamless SSO) inicia automaticamente os utilizadores quando estão nos respetivos dispositivos empresariais ligados à sua rede empresarial. Quando ativada, os utilizadores não precisam digitar as palavras-passe para iniciar sessão com o Azure AD e, em geral, até mesmo digitar seus nomes de utilizador. Esta funcionalidade fornece aos utilizadores acesso fácil aos seus aplicativos baseados na nuvem sem a necessidade de quaisquer componentes no local adicionais.
+O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO Totalmente Integrado do Azure AD) inicia sessão automaticamente pelos utilizadores quando estão a utilizar os dispositivos da empresa ligados à sua rede empresarial. Quando ativada, os utilizadores não precisam digitar as palavras-passe para iniciar sessão com o Azure AD e, em geral, até mesmo digitar seus nomes de utilizador. Esta funcionalidade dá aos utilizadores acesso fácil às aplicações baseadas na cloud sem serem precisos componentes no local adicionais.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -62,13 +62,15 @@ SSO totalmente integrado pode ser combinada com ambos os [sincronização de Has
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim|Não|Sim|Sim\*|N/A
-|Windows 8.1|Sim|N/A|Sim|Sim\*|N/A
-|Windows 8|Sim|N/A|Sim|Sim\*|N/A
-|Windows 7|Sim|N/A|Sim|Sim\*|N/A
-|Mac OS X|N/A|N/A|Sim\*|Sim\*|Sim\*
+|Windows 10|Sim\*|Não|Sim|Sim\*\*|N/A
+|Windows 8.1|Sim\*|N/A|Sim|Sim\*\*|N/A
+|Windows 8|Sim\*|N/A|Sim|Sim\*\*|N/A
+|Windows 7|Sim\*|N/A|Sim|Sim\*\*|N/A
+|Mac OS X|N/A|N/A|Sim\*\*|Sim\*\*|Sim\*
 
-\*Requer [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+\*Necessita de versões do Internet Explorer 10 ou superior
+
+\*\*Requer [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Para Windows 10, a recomendação é usar [associação do Azure AD](../active-directory-azureadjoin-overview.md) para a única início de sessão numa experiência ideal com o Azure AD.

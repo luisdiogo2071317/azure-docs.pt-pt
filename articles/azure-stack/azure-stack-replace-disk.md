@@ -1,6 +1,6 @@
 ---
-title: Substituir um disco físico na pilha do Azure | Microsoft Docs
-description: Descreve o processo para como substituir um disco físico na pilha do Azure.
+title: Substituir um disco físico no Azure Stack | Documentos da Microsoft
+description: Descreve o processo para como substituir um disco físico no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,48 +12,48 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311326"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376957"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Substituir um disco físico na pilha do Azure
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Substituir um disco físico no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Este artigo descreve o processo geral para substituir um disco físico na pilha do Azure. Se falhar um disco físico, deve substitui-lo logo que possível.
+Este artigo descreve o processo geral para substituir um disco físico no Azure Stack. Se um disco físico falhar, deverá substituí-la logo que possível.
 
-Pode utilizar este procedimento para sistemas integrados e para implementações de kit de desenvolvimento que tenham acesso frequente-swappable discos.
+Pode utilizar este procedimento para os sistemas integrados e para as implementações do kit de desenvolvimento com discos de fontes.
 
-Substituição do disco real passos variam com base no seu fornecedor de hardware de fabricante de equipamento original (OEM). Consulte a documentação do fornecedor campo unidade substituível em (FRU) para obter passos detalhados que são específicas para o seu sistema. 
+Substituição de disco real passos irão variar com base no seu fornecedor de hardware do fabricante de equipamento original (OEM). Consulte a documentação do fornecedor campo unidade substituível em (FRU) para obter passos detalhados que são específicas para o seu sistema. 
 
 ## <a name="review-disk-alert-information"></a>Reveja as informações de alerta de disco
 Quando um disco falha, receberá um alerta que indica que conectividade foi perdida a um disco físico. 
 
- ![Perdeu a conectividade de alerta que mostra a disco físico](media/azure-stack-replace-disk/DiskAlert.png)
+ ![Disco físico perdeu a conectividade de exibição de alerta](media/azure-stack-replace-disk/DiskAlert.png)
 
-Se abrir o alerta, a descrição do alerta contém o nó de unidade de escala e a localização de bloco físico exato para o disco que tem de substituir. Ainda mais a pilha do Azure ajuda-o a identificar o disco com falhas utilizando o LED indicador capacidades.
+Se abrir o alerta, a descrição do alerta contém o nó de unidade de escala e a localização exata de bloco físico para o disco que tem de substituir. Ainda mais o Azure Stack ajuda-o a identificar o disco com falha através de capacidades de indicador LED.
 
  ## <a name="replace-the-disk"></a>Substituir o disco
 
-Siga FRU instruções sobre o fornecedor de hardware de OEM a substituição de disco real.
+Siga as instruções de FRU do seu fornecedor de hardware de OEM para substituição de disco real.
 
 > [!note]
-> Substitua discos para um nó de unidade de escala cada vez. Aguarde que as tarefas de reparação de disco virtual concluir antes de passar para o próximo nó de unidade de escala
+> Substitua discos para um nó de unidade de escala por vez. Aguarde que as tarefas de reparo de disco virtual concluir antes de passar para o próximo nó de unidade de escala
 
-Para impedir a utilização de um disco não suportado num sistema integrado, o sistema bloqueia discos que não são suportados pelo seu fornecedor. Se tentar utilizar um disco não suportado, um novo alerta indica que um disco tem foi colocado em quarentena devido a um modelo não suportado ou o firmware.
+Para impedir a utilização de um disco não suportado num sistema integrado, o sistema bloqueia discos que não são suportados pelo seu fornecedor. Se tentar usar um disco não suportado, um novo alerta indica que um disco tem sido colocado em quarentena devido a um modelo não suportado ou firmware.
 
-Depois de as substituir o disco, a pilha de Azure Deteta o disco novo automaticamente e inicia o processo de reparação do disco virtual.  
+Depois de substituir o disco, o Azure Stack é automaticamente Deteta o novo disco e inicia o processo de reparação do disco virtual.  
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Verificar o estado de reparação de disco virtual
  
- Depois de substituir o disco, pode monitorizar o estado de funcionamento de disco virtual e repare o progresso da tarefa, utilizando o ponto final com privilégios. Siga estes passos a partir de qualquer computador que tenha conectividade de rede para o ponto final com privilégios.
+ Depois de substituir o disco, pode monitorizar o estado de funcionamento de disco virtual e reparar o progresso da tarefa, utilizando o ponto final com privilégios. Siga estes passos em qualquer computador que tem conectividade de rede para o ponto final com privilégios.
 
-1. Abra uma sessão do Windows PowerShell e ligue para o ponto final com privilégios.
+1. Abra uma sessão do Windows PowerShell e ligue-se para o ponto final com privilégios.
     ````PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
@@ -74,7 +74,7 @@ Depois de as substituir o disco, a pilha de Azure Deteta o disco novo automatica
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>Resolver problemas de reparação de disco virtual
 
-Se o disco virtual reparar tarefa é apresentada bloqueada, execute o seguinte comando para reiniciar a tarefa:
+Se o disco virtual reparar tarefa aparece bloqueada, execute o seguinte comando para reiniciar a tarefa:
   ````PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 

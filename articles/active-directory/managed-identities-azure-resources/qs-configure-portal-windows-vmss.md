@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: cfd9936a4eb43fcecb66e672767b6f1133262c1d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0a6440b7fffe1aec26ba4755f21fa2f56935887e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345720"
+ms.locfileid: "44377586"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurar identidades geridas para recursos do Azure num conjunto de dimensionamento no portal do Azure
 
@@ -32,8 +32,10 @@ Neste artigo, com o PowerShell, aprenderá a efetuar as seguintes identidades ge
 - Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md).
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de controlo de acesso baseado em funções do Azure seguintes:
+
     > [!NOTE]
     > Nenhum adicionais do Azure AD directory as atribuições de funções necessárias.
+
     - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para ativar e remover atribuído de sistema de identidade gerida de um conjunto de dimensionamento de máquina virtual.
 
 ## <a name="system-assigned-managed-identity"></a>Atribuído ao sistema de identidade gerida
