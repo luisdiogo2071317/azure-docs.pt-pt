@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f8dcee53aecfcb7468d87c480c68f14715dea035
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391577"
 documentType: LandingData
 title: Documentação do Centro de IoT do Azure (pré-visualização)
 metadata:
@@ -11,15 +17,13 @@ metadata:
   ms.service: iot-central
   services: iot-central
   manager: timlt
-  ms.openlocfilehash: df6acc821183e7336d8079895c7494eed397eea1
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34628577"
 abstract:
   description: O Azure IoT Central é um serviço SaaS (software como um serviço) e totalmente gerido que lhe facilita a tarefa de ligar, monitorizar e gerir os seus recursos de IoT à escala. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
 sections:
+- title: Alteração futura
+  items:
+  - type: paragraph
+    text: O Azure IoT Central passará a utilizar o serviço de Aprovisionamento de Dispositivos no Azure Hub IoT (DPS) para todas as ligações de dispositivo nas próximas semanas. Assim que esta alteração entrar em vigor, ser-lhe-á pedido para atualizar o código de dispositivo para utilizar o SDK do DPS para registar e ligar dispositivos. Todas as aplicações que utilizam a funcionalidade de exportação de dados contínuos e/ou o modelo de soluções do Power BI terão de alterar o contentor de armazenamento de destino e criar um novo modelo de solução. <a href="https://aka.ms/iotcentral-create-technical-support-ticket">Contacte o suporte técnico para obter mais informações.</a>
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph

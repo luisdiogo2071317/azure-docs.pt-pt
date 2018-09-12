@@ -197,6 +197,7 @@
 #### [Restrições de inquilino](manage-apps/tenant-restrictions.md)
 #### [Utilizar utilizadores de aprovisionamento SCIM](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Compreender as experiências de consentimento da aplicação do Azure AD](application-consent-experience.md)
 
 ### Resolução de problemas
 

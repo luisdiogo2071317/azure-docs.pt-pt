@@ -11,18 +11,27 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: ac9d0291b38e7a8679e9c6e7707e13a90554b914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0c174b6979e1601d992b0e19d216d1b7211e51d3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582523"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701036"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de gráficos com Java e o portal do Azure
 
+> [!div class="op_single_selector"]
+> * [Consola do Gremlin](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
+
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Com o Azure Cosmos DB, pode criar e consultar rapidamente documentos geridos, tabelas e bases de dados de gráfico. 
 
-Este guia de início rápido cria uma base de dados de gráficos simples com as ferramentas do portal do Azure para o Azure Cosmos DB. Este início rápido também lhe mostra como criar rapidamente uma aplicação de consola Java com uma base de dados [Graph API](graph-introduction.md) com o controlador OSS [Apache TinkerPop](http://tinkerpop.apache.org/). As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Esta início rápido irá familiarizá-lo-á com a criação e modificação de gráficos na IU ou programaticamente, conforme a sua preferência. 
+Este guia de início rápido cria uma base de dados de gráficos simples com as ferramentas do portal do Azure para o Azure Cosmos DB. Este início rápido também lhe mostra como criar rapidamente uma aplicação de consola Java com uma base de dados [Gremlin API](graph-introduction.md) com o controlador OSS [Apache TinkerPop](http://tinkerpop.apache.org/). As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Esta início rápido irá familiarizá-lo-á com a criação e modificação de gráficos na IU ou programaticamente, conforme a sua preferência. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -49,7 +58,7 @@ Antes de poder criar uma base de dados de gráficos, tem de criar uma conta de b
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos trabalhar com código. Vamos clonar uma aplicação do Graph API a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.  
+Agora, vamos trabalhar com código. Vamos clonar uma aplicação da API do Gremlin a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.  
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 

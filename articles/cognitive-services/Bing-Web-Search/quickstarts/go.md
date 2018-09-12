@@ -1,104 +1,193 @@
 ---
-title: Visite o início rápido para os serviços do Azure cognitivos, pesquisa na Web Bing API | Microsoft Docs
-description: Começar rapidamente utilizando a linguagem de ir para consultar a API de pesquisa do Bing Web no Microsoft serviços cognitivos no Azure.
+title: 'Início rápido: Utilizar o Go para chamar a API de Pesquisa na Web do Bing'
+description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do Go e receber uma resposta JSON.
 services: cognitive-services
-author: Nhoya
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 03/09/2018
-ms.author: rosh
-ms.reviewer: nhoyadx@gmail.com, v-gedod
-ms.openlocfilehash: 86cb67d46bca40c83c2f175ab7fdf6fbf52cb02f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
+ms.openlocfilehash: 3f5fc8461103b2f4ee04750ceba35e05eaa5515c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352699"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886627"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-go"></a>Chamada e resposta: A primeira consulta de pesquisa na Web Bing em viagem
+# <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Go para chamar a API de Pesquisa na Web do Bing  
 
-A API de pesquisa do Bing Web é semelhante à Bing.com, devolver resultados da pesquisa relevantes para a consulta do utilizador. Os resultados podem incluir páginas Web, imagens, vídeos, notícias e entidades, juntamente com consultas de pesquisa relacionados, as correções ortografia, fusos horários, a conversão de unidade, traduções e cálculos. Os resultados são baseados no respetiva relevância e a camada de APIs de pesquisa do Bing que subscrever.
+Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
 
-Consulte o [referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes sobre as APIs.
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
-Instalar o [aceda binários](https://golang.org/dl/).
- 
-Este tutorial utiliza apenas **core** bibliotecas, pelo que não existem sem dependências externas.
+Aqui estão algumas coisas de que precisará antes de executar este início rápido:
 
-## <a name="core-libraries"></a>Bibliotecas de principais
+* [Binários do Go](https://golang.org/dl/)
+* Uma chave de subscrição
 
-Utilize `http` para enviar o pedido para o ponto final, `ioutil` ler a resposta `time` e `json` para processar o json e `fmt` para imprimir o resultado
+Este início rápido exige apenas bibliotecas de **núcleo**, não existem dependências externas.  
 
-```
+## <a name="create-a-project-and-import-core-libraries"></a>Criar um projeto e importar bibliotecas de núcleo
+
+Crie um novo projeto do Go no seu IDE ou editor favorito. Em seguida, importe `net/http` para pedidos, `ioutil` para ler a resposta `time` e `encoding/json` para processar o JSON, e `fmt` para imprimir o resultado.
+
+```go
 package main
-
 import (
     "fmt"
     "net/http"
-    "io/iutil"
+    "io/ioutil"
     "time"
     "encoding/json"
 )
 ```
 
-## <a name="define-variables"></a>Definir variáveis
-Defina o ponto final de API e o termo de pesquisa.
+## <a name="create-a-struct-to-format-the-search-results"></a>Criar uma estrutura para formatar os resultados de pesquisa
 
-```
-//This is the valid endpoint at the time of the writing
-const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
-//API token
-token := "YOUR-ACCESS-KEY"
-searchTerm := "Microsoft Cognitive Services"
+A estrutura `BingAnswer` formata os dados apresentados na resposta.
+
+```go
+// This struct formats the answers provided by the Bing Web Search API.
+type BingAnswer struct {
+        Type         string `json:"_type"`
+        QueryContext struct {
+                OriginalQuery string `json:"originalQuery"`
+        } `json:"queryContext"`
+        WebPages struct {
+                WebSearchURL          string `json:"webSearchUrl"`
+                TotalEstimatedMatches int    `json:"totalEstimatedMatches"`
+                Value                 []struct {
+                        ID               string    `json:"id"`
+                        Name             string    `json:"name"`
+                        URL              string    `json:"url"`
+                        IsFamilyFriendly bool      `json:"isFamilyFriendly"`
+                        DisplayURL       string    `json:"displayUrl"`
+                        Snippet          string    `json:"snippet"`
+                        DateLastCrawled  time.Time `json:"dateLastCrawled"`
+                        SearchTags       []struct {
+                                Name    string `json:"name"`
+                                Content string `json:"content"`
+                        } `json:"searchTags,omitempty"`
+                        About []struct {
+                                Name string `json:"name"`
+                        } `json:"about,omitempty"`
+                } `json:"value"`
+        } `json:"webPages"`
+        RelatedSearches struct {
+                ID    string `json:"id"`
+                Value []struct {
+                        Text         string `json:"text"`
+                        DisplayText  string `json:"displayText"`
+                        WebSearchURL string `json:"webSearchUrl"`
+                } `json:"value"`
+        } `json:"relatedSearches"`
+        RankingResponse struct {
+                Mainline struct {
+                        Items []struct {
+                                AnswerType  string `json:"answerType"`
+                                ResultIndex int    `json:"resultIndex"`
+                                Value       struct {
+                                        ID string `json:"id"`
+                                } `json:"value"`
+                        } `json:"items"`
+                } `json:"mainline"`
+                Sidebar struct {
+                        Items []struct {
+                                AnswerType string `json:"answerType"`
+                                Value      struct {
+                                        ID string `json:"id"`
+                                } `json:"value"`
+                        } `json:"items"`
+                } `json:"sidebar"`
+        } `json:"rankingResponse"`
+}
 ```
 
-## <a name="building-and-sending-the-request"></a>Criar e enviar o pedido
+## <a name="declare-the-main-function-and-define-variables"></a>Declarar a função principal e definir variáveis  
 
+Este código declara a função principal e define as variáveis que são precisas. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`.
+
+```go
+// Declare the main function. This is required for all Go programs.
+func main() {
+// Verify the endpoint URI and replace the token string with a valid subscription key.  
+    const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+    token := "YOUR-ACCESS-KEY"
+    searchTerm := "Microsoft Cognitive Services"
+
+// The remaining code in this quickstart goes in the main function.
+
+}
 ```
-//Declare a new GET request
+
+## <a name="construct-a-request"></a>Construir um pedido
+
+Este código declara o pedido HTTP, insere o cabeçalho e o payload, e cria uma instância do cliente.
+
+```go
+// Declare a new GET request.
 req, err := http.NewRequest("GET", endpoint, nil)
 if err != nil {
     panic(err)
 }
-//Add the payload to the request
+
+// Add the payload to the request.  
 param := req.URL.Query()
 param.Add("q", searchTerm)
-//Encoding the payload
 req.URL.RawQuery = param.Encode()
 
-//Insert the API token in the request header
+// Insert the request header.  
 req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
-//create new client
+// Instantiate a client.  
 client := new(http.Client)
-//Send the request
+```
+
+## <a name="make-a-request"></a>Fazer um pedido
+
+Utilize este código para chamar a API de Pesquisa na Web do Bing e feche a ligação depois de ser devolvida uma resposta.
+
+```go
+// Send the request to Bing.  
 resp, err := client.Do(req)
 if err != nil {
     panic(err)
 }
-//Close the response body at the function exit
-defer resp.Body.Close() 
-```
 
-## <a name="printing-the-answer"></a>Imprimir a resposta
-O resultado da pesquisa está dentro do `resp` variável. Imprima o corpo de resposta a variável.
-
-```
+// Close the connection.
+defer resp.Body.Close()
 body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
     panic(err)
 }
-//Convert body from byte to string.
-fmt.Println(string(body))
 ```
 
-## <a name="put-everything-together"></a>Juntar tudo
+## <a name="handle-the-response"></a>Processar a resposta
 
+Lembra-se da estrutura que criámos anteriormente? Vamos utilizá-la para formatar a resposta e imprimir os resultados de pesquisa.
+
+```go
+// Create a new answer.  
+ans := new(BingAnswer)
+err = json.Unmarshal(body, &ans)
+if err != nil {
+    fmt.Println(err)
+}
+// Iterate over search results and print the result name and URL.
+for _, result := range ans.WebPages.Value {
+    fmt.Println(result.Name, "||", result.URL)
+}
 ```
+
+## <a name="put-it-all-together"></a>Juntar tudo
+
+O último passo é validar o seu código e executá-lo! Se desejar comparar o seu código com o nosso, aqui está o programa concluído:
+
+```go
 package main
 import (
     "fmt"
@@ -108,7 +197,7 @@ import (
     "encoding/json"
 )
 
-//The struct that will contain the answer
+// The is the struct for the data returned by Bing.
 type BingAnswer struct {
         Type         string `json:"_type"`
         QueryContext struct {
@@ -163,51 +252,76 @@ type BingAnswer struct {
         } `json:"rankingResponse"`
 }
 
+// Verify the endpoint URI and replace the token string with a valid subscription key.  
 func main() {
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
     token := "YOUR-ACCESS-KEY"
     searchTerm := "Microsoft Cognitive Services"
-    
+
+    // Declare a new GET request.
     req, err := http.NewRequest("GET", endpoint, nil)
     if err != nil {
         panic(err)
     }
-    
+
+    // Add the payload to the request.  
     param := req.URL.Query()
     param.Add("q", searchTerm)
     req.URL.RawQuery = param.Encode()
 
+    // Insert the request header.  
     req.Header.Add("Ocp-Apim-Subscription-Key", token)
-    
+
+    // Create a new client.  
     client := new(http.Client)
+
+    // Send the request to Bing.  
     resp, err := client.Do(req)
     if err != nil {
         panic(err)
     }
-    defer resp.Body.Close() 
+
+    // Close the response.
+    defer resp.Body.Close()
     body, err := ioutil.ReadAll(resp.Body)
     if err != nil {
         panic(err)
     }
-    //creating a new answer struct
+
+    // Create a new answer.  
     ans := new(BingAnswer)
     err = json.Unmarshal(body, &ans)
     if err != nil {
          fmt.Println(err)
     }
-    //Iterate over search results
+
+    // Iterate over search results and print the result name and URL.
     for _, result := range ans.WebPages.Value {
-         //Printing result name and URL
          fmt.Println(result.Name, "||", result.URL)
     }
 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="sample-response"></a>Resposta de amostra  
 
-[Descrição geral de pesquisa na Web Bing](../overview.md)  
-[Experimente](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-[referência da API de pesquisa do Bing Web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de exemplo foi formatada com a estrutura `BingAnswer` e apresenta `result.Name` e `result.URL`.
 
+```go
+Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
+Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
+Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/en-us/try/cognitive-services/
+What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/en-us/azure/cognitive-services/Welcome
+Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
+Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
+Microsoft Enterprise Services - Microsoft Enterprise || https://enterprise.microsoft.com/en-us/services/
+Microsoft Cognitive Services || https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/en-us/magazine/mt742868.aspx  
+```
+
+## <a name="next-steps"></a>Passos seguintes
+
+> [!div class="nextstepaction"]
+> [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)
+
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

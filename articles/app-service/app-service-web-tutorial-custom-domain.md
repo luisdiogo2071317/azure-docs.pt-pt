@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461644"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664892"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Mapear um nome DNS personalizado já existente para as Aplicações Web do Azure
 
@@ -37,8 +37,6 @@ Neste tutorial, ficará a saber como:
 > * Mapear um domínio com carateres universais (por exemplo, `*.contoso.com`) através da utilização de um registo CNAME
 > * Redirecionar o URL predefinido para um diretório personalizado
 > * Automatizar o mapeamento de domínios com scripts
-
-Para migrar um site em direto e o respetivo nome de domínio DNS para o Serviço de Aplicações, veja [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md) (Migrar um nome DNS ativo para o Serviço de Aplicações do Azure).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -304,6 +302,10 @@ Se receber o erro de HTTP 404 (Não Encontrado) ao navegar para o URL do seu dom
 - O cliente do browser colocou em cache o endereço IP antigo do seu domínio. Limpe a cache e volte a testar a resolução de DNS. Num computador Windows, limpe a cache com `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
+
+## <a name="migrate-an-active-domain"></a>Migrar um domínio ativo
+
+Para migrar um site em direto e o respetivo nome de domínio DNS para o Serviço de Aplicações, consulte [Migrar um nome DNS ativo para o Serviço de Aplicações do Azure](app-service-custom-domain-name-migrate.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Redirecionar para um diretório personalizado
 

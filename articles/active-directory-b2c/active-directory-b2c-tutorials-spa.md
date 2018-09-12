@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591572"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343867"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação de aplicações de página única com contas através do Azure Active Directory B2C
 
@@ -24,24 +24,24 @@ Este tutorial mostra como utilizar o Azure Active Directory (Azure AD) B2C para 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Registe uma aplicação de página única no seu inquilino do Azure AD B2C.
+> * Registe uma aplicação de página única no seu diretório do Azure AD B2C.
 > * Criar políticas para inscrição e início de sessão de utilizadores, editar um perfil e repor a palavra-passe.
-> * Configurar o exemplo de aplicação para utilizar o seu inquilino do Azure AD B2C.
+> * Configurar o exemplo de aplicação para utilizar o seu diretório do Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Criar o seu próprio [Inquilino do Azure AD B2C](active-directory-b2c-get-started.md)
+* Criar o seu próprio [Diretório do Azure AD B2C](active-directory-b2c-get-started.md)
 * Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento na Web e em ASP.NET**.
 * [SDK .NET Core 2.0.0](https://www.microsoft.com/net/core) ou posterior
 * Instalar o [Node. js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>Registar a aplicação de página única
 
-As aplicações têm de ser [registadas](../active-directory/develop/developer-glossary.md#application-registration) no inquilino antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registo de aplicações cria um [ID de aplicação](../active-directory/develop/developer-glossary.md#application-id-client-id) para a aplicação no inquilino. 
+As aplicações têm de ser [registadas](../active-directory/develop/developer-glossary.md#application-registration) no diretório antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registo de aplicações cria um [ID de aplicação](../active-directory/develop/developer-glossary.md#application-id-client-id) para a aplicação no diretório. 
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
+Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do diretório do Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrado
 
 2. Nas definições do B2C, clique em **Aplicações** e, em seguida, clique em **Adicionar**. 
 
-    Para registar a aplicação Web de exemplo no inquilino, utilize as seguintes definições:
+    Para registar a aplicação Web de exemplo no diretório, utilize as seguintes definições:
     
     ![Adicionar uma nova aplicação](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrado
     
 3. Clique em **Criar** para registar a aplicação.
 
-As aplicações registadas são apresentadas na lista de aplicações para o inquilino do Azure AD B2C. Selecione a aplicação de página única na lista. É apresentado o painel de propriedades da aplicação de página única registada.
+As aplicações registadas são apresentadas na lista de aplicações para o diretório do Azure AD B2C. Selecione a aplicação de página única na lista. É apresentado o painel de propriedades da aplicação de página única registada.
 
 ![Propriedades de aplicações de página única](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Para ativar a reposição de palavras-passe na aplicação, tem de criar uma **p
 
 ## <a name="update-single-page-app-code"></a>Atualizar o código de aplicação de página única
 
-Agora que tem uma aplicação registada e as políticas criadas, tem de configurar a aplicação para utilizar o inquilino do Azure AD B2C. Neste tutorial, irá configurar uma aplicação SPA JavaScript de exemplo que pode transferir a partir do GitHub. 
+Agora que tem uma aplicação registada e as políticas criadas, tem de configurar a aplicação para utilizar o diretório do Azure AD B2C. Neste tutorial, irá configurar uma aplicação SPA JavaScript de exemplo que pode transferir a partir do GitHub. 
 
 [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-O exemplo de aplicação demonstra como uma aplicação de página única pode utilizar o Azure AD B2C para inscrever e iniciar a sessão do utilizador e chamar uma API Web protegida. Tem de alterar a aplicação para utilizar o registo de aplicações no seu inquilino e configurar as políticas criadas por si. 
+O exemplo de aplicação demonstra como uma aplicação de página única pode utilizar o Azure AD B2C para inscrever e iniciar a sessão do utilizador e chamar uma API Web protegida. Tem de alterar a aplicação para utilizar o registo de aplicações no seu diretório e configurar as políticas criadas por si. 
 
 Para alterar as definições da aplicação:
 
 1. Abra o ficheiro `index.html` no exemplo de aplicação de página única Node.js.
-2. Configure o exemplo com as informações de registo de inquilino do Azure AD B2C. Altere as seguintes linhas de código:
+2. Configure o exemplo com as informações de registo de diretório do Azure AD B2C. Altere as seguintes linhas de código (certifique-se de que substitui os valores pelos nomes do seu diretório e APIs):
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ A aplicação de exemplo suporta inscrição, início de sessão, edição de pe
 
     ![Fluxo de trabalho de inscrição](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Clique em **Criar** para criar uma conta local no inquilino do Azure AD B2C.
+4. Clique em **Criar** para criar uma conta local no diretório do Azure AD B2C.
 
 Agora, o utilizador pode utilizar o respetivo endereço de e-mail para iniciar sessão e utilizar a aplicação SPA.
 
 > [!NOTE]
-> Após iniciar sessão, a aplicação mostra um erro de "permissões insuficientes". Recebe este erro porque está a tentar aceder a um recurso a partir do inquilino de demonstração. Como o seu token de acesso só é válido para o seu inquilino do Azure AD, a chamada à API não é autorizada. Avance para o próximo tutorial para criar uma API Web protegida para o seu inquilino. 
+> Após iniciar sessão, a aplicação mostra um erro de "permissões insuficientes". Recebe este erro porque está a tentar aceder a um recurso a partir do diretório de demonstração. Como o seu token de acesso só é válido para o seu diretório do Azure AD, a chamada à API não é autorizada. Avance para o próximo tutorial para criar uma API Web protegida para o seu diretório. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros tutoriais do Azure AD B2C. Quando já não for necessário, pode [eliminar o inquilino do Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Pode utilizar o diretório do Azure AD B2C se planeia experimentar outros tutoriais do Azure AD B2C. Quando já não for preciso, pode [eliminar o diretório do Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar um inquilino do Azure AD B2C, criar políticas e atualizar a aplicação de página única de exemplo para utilizar o inquilino do Azure AD B2C. Avance para o próximo tutorial para aprender a registar, configurar e chamar uma API Web protegida a partir de uma aplicação de ambiente de trabalho.
+Neste tutorial, aprendeu a criar um diretório do Azure AD B2C, criar políticas e atualizar a aplicação de página única de exemplo para utilizar o diretório do Azure AD B2C. Avance para o próximo tutorial para aprender a registar, configurar e chamar uma API Web protegida a partir de uma aplicação de ambiente de trabalho.
 
 > [!div class="nextstepaction"]
 > 

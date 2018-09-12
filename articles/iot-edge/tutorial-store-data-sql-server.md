@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143505"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300358"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -176,7 +176,11 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
 1. No explorador do Visual Studio Code, abra o ficheiro **deployment.template.json**. 
 2. Localize a secção **moduleContent.$edgeAgent.properties.desired.modules**. Devem existir dois módulos listados: **tempSensor**, que gera dados simulados, e o módulo **sqlFunction**.
-3. Adicione o código seguinte para declarar um terceiro módulo:
+3. Se estiver a utilizar contentores do Windows, modifique a secção **sqlFunction.settings.image**.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. Adicione o código seguinte para declarar um terceiro módulo. Adicione uma vírgula depois da secção sqlFunction e insira:
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
    }
    ```
 
-4. Consoante o sistema operativo do dispositivo IoT Edge, atualize os parâmetros **sql.settings** com o seguinte código:
+   Eis um exemplo, se houver uma confusão com a adição de um elemento JSON. ![Adicionar um contentor do sql server](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. Consoante o tipo de contentores do Docker no dispositivo IoT Edge, atualize os parâmetros **sql.settings** com o seguinte código:
+
+   * Contentores do Windows:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Contentores do Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
    >[!Tip]
    >Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-5. Guarde o ficheiro **deployment.template.json**. 
+6. Guarde o ficheiro **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Criar a sua solução do IoT Edge
 
 Nas secções anteriores, criou uma solução com um módulo e, em seguida, adicionou outra ao modelo de manifesto de implementação. Agora, tem de criar a solução, criar imagens de contentor para os módulos e enviar as imagens para o seu registo de contentor. 
 
-1. No ficheiro deployment.template.json, indique as suas credenciais de registo ao runtime do IoT Edge para que este possa aceder às imagens do módulo. Localize a secção **moduleContent.$edgeAgent.properties.desired.runtime.settings**. 
-2. Insira o seguinte código JSON após **loggingOptions**:
+1. No ficheiro .env, indique as suas credenciais de registo ao runtime do IoT Edge para que este possa aceder às imagens do módulo. Encontre as secções **CONTAINER_REGISTRY_USERNAME** e **CONTAINER_REGISTRY_PASSWORD** e insira as suas credenciais após o símbolo de igual: 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. Insira as credenciais de registo nos campos **nome de utilizador**, **palavra-passe** e **endereço**. Utilize os valores que copiou quando criou o Azure Container Registry no início do tutorial.
-4. Guarde o ficheiro **deployment.template.json**.
-5. Inicie sessão no seu registo de contentor do Visual Studio Code para que possa enviar as imagens para o seu registo. Utilize as mesmas credenciais que acabou de adicionar ao manifesto de implementação. Introduza o seguinte comando no terminal integrado: 
+2. Guarde o ficheiro. env.
+3. Inicie sessão no seu registo de contentor do Visual Studio Code para que possa enviar as imagens para o seu registo. Utilize as mesmas credenciais que adicionou ao ficheiro .env. Introduza o seguinte comando no terminal integrado:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ Nas secções anteriores, criou uma solução com um módulo e, em seguida, adic
     Login Succeeded
     ```
 
-6. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar solução do IoT Edge**. 
+4. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**. 
 
 ## <a name="deploy-the-solution-to-a-device"></a>Implementar a solução num dispositivo
 
@@ -287,7 +285,7 @@ Esta secção orienta-o na configuração da base de dados do SQL Server para ar
    * Contentor do Windows:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Contentor do Linux: 

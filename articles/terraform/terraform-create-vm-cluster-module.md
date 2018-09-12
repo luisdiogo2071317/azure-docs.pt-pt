@@ -1,39 +1,39 @@
 ---
-title: Utilize módulos Terraform para criar um cluster VM no Azure
-description: Saiba como utilizar módulos Terraform para criar um cluster de máquina virtual do Windows no Azure
-keywords: terraform devops, máquina virtual, rede, módulos
-author: rloutlaw
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure
+title: Utilizar módulos do Terraform para criar um cluster de VMs no Azure
+description: Aprenda a utilizar módulos do Terraform para criar um cluster de máquina virtual do Windows no Azure
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, máquina virtual, rede, módulos
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.custom: devops
-ms.author: routlaw
-ms.openlocfilehash: e33aef252413eeb243b03543f171d5f1e2385b48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 03c09e190fce9cbbd98cea3565dd2437f79dadf1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952222"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666638"
 ---
-# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Criar um cluster VM com Terraform com o módulo de registo
+# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Criar um cluster de VMs com o Terraform através do Registo de Módulo
 
-Este artigo explica como criar um cluster VM pequeno com o Terraform [módulo de computação do Azure](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). Neste tutorial, ficará a saber como: 
+Este artigo explica como criar um pequeno cluster de VM com o [módulo de computação do Azure](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2) do Terraform. Neste tutorial, ficará a saber como: 
 
 > [!div class="checklist"]
-> * Configurar a autenticação com o Azure
-> * Criar o modelo de Terraform
+> * Configurar autenticação com o Azure
+> * Criar o modelo do Terraform
 > * Visualizar as alterações com o plano
-> * Aplicar a configuração para criar o cluster VM
+> * Aplicar a configuração para criar o cluster da VM
 
-Para obter mais informações sobre Terraform, consulte o [Terraform documentação](https://www.terraform.io/docs/index.html).
+Para obter mais informações sobre o Terraform, veja a [documentação do Terraform](https://www.terraform.io/docs/index.html).
 
-## <a name="set-up-authentication-with-azure"></a>Configurar a autenticação com o Azure
+## <a name="set-up-authentication-with-azure"></a>Configurar autenticação com o Azure
 
 > [!TIP]
-> Se lhe [utilizar variáveis de ambiente de Terraform](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) ou executar este tutorial no [Shell de nuvem do Azure](/azure/cloud-shell/overview), ignore este passo.
+> Se [utilizar variáveis de ambiente do Terraform](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) ou executar este tutorial no [Azure Cloud Shell](/azure/cloud-shell/overview), ignore este passo.
 
- Reveja [Terraform instalar e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure) para criar um Azure principal de serviço. Utilize este principal de serviço para preencher um novo ficheiro `azureProviderAndCreds.tf` num diretório vazio com o seguinte código:
+ Reveja [Instalar o Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure) para criar um principal de serviço do Azure. Utilize este principal de serviço para preencher um novo ficheiro `azureProviderAndCreds.tf` num diretório vazio com o código a seguir:
 
 ```tf
 variable subscription_id {}
@@ -51,7 +51,7 @@ provider "azurerm" {
 
 ## <a name="create-the-template"></a>Criar o modelo
 
-Criar um novo modelo de Terraform `main.tf` com o seguinte código:
+Criar um novo modelo do Terraform com o nome `main.tf` com o código a seguir:
 
 ```tf
 module mycompute {
@@ -85,24 +85,24 @@ output "vm_private_ips" {
 }
 ```
 
-Executar `terraform init` no seu diretório de configuração. Utilizar uma versão de Terraform de, pelo menos, 0.10.6 mostra o seguinte resultado:
+Execute `terraform init` no seu diretório de configuração. Utilizar uma versão do Terraform de, pelo menos, 0.10.6 mostra o resultado seguinte:
 
 ![Terraform Init](media/terraformInitWithModules.png)
 
 ## <a name="visualize-the-changes-with-plan"></a>Visualizar as alterações com o plano
 
-Executar `terraform plan` para pré-visualizar a infraestrutura de máquina virtual criada pelo modelo.
+Execute `terraform plan` para pré-visualizar a infraestrutura da máquina virtual criada pelo modelo.
 
-![Plano de Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
+![Plano do Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
-## <a name="create-the-virtual-machines-with-apply"></a>Criar as máquinas virtuais com aplicar
+## <a name="create-the-virtual-machines-with-apply"></a>Crie as máquinas virtuais com o apply
 
-Executar `terraform apply` para aprovisionar as VMs no Azure.
+Execute `terraform apply` para aprovisionar as VMs no Azure.
 
-![Aplicar Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Procurar a lista de [módulos Terraform do Azure](https://registry.terraform.io/modules/Azure)
-- Criar um [do conjunto de dimensionamento de máquina virtual com Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- Navegar na lista de [módulos do Terraform no Azure](https://registry.terraform.io/modules/Azure)
+- Criar um [conjunto de dimensionamento de máquinas virtuais com o Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

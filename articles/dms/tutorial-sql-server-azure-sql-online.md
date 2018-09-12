@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 90d5ce098241dfc207356a8594a3c8c2d268ad83
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 08/31/2018
+ms.openlocfilehash: b4cbc7fc7e031fcbd25229792488dbb4002ea23e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049085"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340216"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para a [Base de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) com um período de indisponibilidade reduzido. Neste tutorial, vai migrar a base de dados **Adventureworks2012** restaurada para uma instância do SQL Server 2016 (ou posterior) no local para a Base de Dados SQL do Azure com o Azure Database Migration Service.
@@ -30,6 +30,9 @@ Neste tutorial, ficará a saber como:
 > * Executar a migração.
 > * Monitorizar a migração.
 > * Transferir um relatório da migração.
+
+> [!IMPORTANT]
+> Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, precisa de:
@@ -278,7 +281,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 ## <a name="perform-migration-cutover"></a>Realizar transferência de migração
 Depois de concluída a Carga completa inicial, as bases de dados são marcadas como **Preparadas para transferência**.
 
-1. Quando estiver pronto para concluir a migração de base de dados, selecione **Iniciar Transferência**.
+1. Quando estiver pronto para concluir a migração da base de dados, selecione **Iniciar Transferência**.
 
     ![Iniciar transferência](media\tutorial-sql-server-to-azure-sql-online\dms-start-cutover.png)
  

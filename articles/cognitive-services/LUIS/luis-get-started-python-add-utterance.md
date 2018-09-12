@@ -1,96 +1,55 @@
 ---
-title: Tutorial para aprender a adicionar expressões a uma aplicação LUIS com Python | Microsoft Docs
-description: Neste tutorial, vai aprender a chamar uma aplicação LUIS com Python.
+title: Início rápido - alterar o modelo e treinar a aplicação LUIS com Python - Serviços Cognitivos do Azure | Microsoft Docs
+description: Neste início rápido do Node.js, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 3e1ca2ea874b6b39ac8a1b1eaa94fe9ff1894ea3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: acc57a33b24a31159eb6a8f063212899540f7f6b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264306"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43771851"
 ---
-# <a name="tutorial-add-utterances-to-app-using-python"></a>Tutorial: Adicionar expressões a uma aplicação com Python
-Neste tutorial, vai escrever um programa para adicionar uma expressão a uma intenção com as APIs de Criação em Python.
+# <a name="quickstart-change-model-using-python"></a>Início rápido: Alterar o modelo com Python
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Criar o projeto de consola do Visual Studio 
-> * Adicionar o método para chamar a API LUIS para adicionar a expressão e preparar a aplicação
-> * Adicionar o ficheiro JSON com expressões de exemplo para a intenção BookFlight
-> * Executar a consola e ver o estado de preparação para as expressões
-
-Para obter mais informações, consulte a documentação técnica para as APIs [adicionar expressão de exemplo à intenção](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), [preparar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) e [estado de preparação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-Para este artigo, precisa de uma conta do [LUIS][LUIS] gratuita para criar a sua aplicação LUIS.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Python 3.6](https://www.python.org/downloads/) ou posterior.
-* **[Recomendado]**  [Visual Studio Code](https://code.visualstudio.com/) para IntelliSense e depuração.
-* A **[chave de criação](luis-concept-keys.md#authoring-key)** do LUIS. Pode encontrar esta chave em Definições da Conta no site do [LUIS](luis-reference-regions.md).
-* O [**ID da aplicação**](./luis-get-started-create-app.md) LUIS existente. O ID da aplicação é apresentado no dashboard de aplicações. A aplicação LUIS com as intenções e entidades utilizadas no ficheiro `utterances.json` tem de existir antes de executar o código em `add-utterances.js`. O código neste artigo não cria as intenções e as entidades. Adiciona apenas as expressões para intenções e entidades existentes. 
-* O **ID da versão** na aplicação que recebe as expressões. O ID predefinido é "0.1"
-* Crie um novo ficheiro denominado `add-utterances-3-6.py` no VSCode.
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-> [!NOTE] 
-> O ficheiro `add-utterances-3-6.py` completo está disponível a partir do repositório do Github [ **LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/authoring-api-samples/python).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
 
-## <a name="write-the-python-code"></a>Escrever o código Python
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-1. Copie os fragmentos de código seguintes:
+## <a name="create-quickstart-code"></a>Criar código de início rápido
 
-   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/authoring-api-samples/python/add-utterances-3-6.py)]
+1. Copie o seguinte fragmento de código para o ficheiro chamado `add-utterances-3-6.py`:
 
-## <a name="specify-utterances-to-add"></a>Especificar as expressões a adicionar
-Crie e edite o ficheiro `utterances.json` para especificar a **matriz de expressões** que quer adicionar à aplicação LUIS. A intenção e as entidades **têm** de já estar na aplicação LUIS.
+   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
-> [!NOTE]
-> A aplicação LUIS com as intenções e entidades utilizadas no ficheiro `utterances.json` tem de existir antes de executar o código em `add-utterances.js`. O código neste artigo não cria as intenções e as entidades. Adiciona apenas as expressões para intenções e entidades existentes.
-
-O campo `text` contém o texto da expressão. O campo `intentName` tem de corresponder ao nome de uma intenção na aplicação LUIS. O campo `entityLabels` é obrigatório. Se não quiser etiquetar nenhuma entidade, forneça uma lista vazia, conforme mostrado no exemplo seguinte:
-
-Se a lista entityLabels não estiver vazia, `startCharIndex` e `endCharIndex` têm de marcar a entidade referida no campo `entityName`. Ambos os índices são contagens baseadas em zero, o que significa que o 6 no exemplo anterior se refere ao "S" de Seattle e não ao espaço antes do S maiúsculo.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Adicionar uma expressão a partir da linha de comandos
-
+## <a name="run-code"></a>Executar código
 Execute a aplicação a partir de uma linha de comandos com Python 3.6.
+
+### <a name="add-utterances-from-the-command-line"></a>Adicionar expressões a partir da linha de comandos
 
 Chamar add-utterance sem argumentos adiciona uma expressão à aplicação, sem prepará-la.
 
-````
+```CMD
 > python add-utterances-3-6.py
-````
+```
 
-Este exemplo cria um ficheiro com `results.json` que contém os resultados da chamada à API de expressões a adicionar. O campo `response` está neste formato para as expressões adicionadas. `hasError` é falso, o que indica que a expressão foi adicionada.  
+A seguinte resposta devolve quando as expressões são adicionadas ao modelo.  
 
 ```json
     "response": [
@@ -111,19 +70,8 @@ Este exemplo cria um ficheiro com `results.json` que contém os resultados da ch
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Adicionar uma expressão e preparar a partir da linha de comandos
-Chame add-utterance com o argumento `-train` para enviar um pedido para preparar e, subsequentemente, o estado de preparação do pedido. O estado é colocado em fila de espera imediatamente após o início da preparação. Os detalhes do estado são escritos num ficheiro.
-
-````
-> python add-utterances-3-6.py -train
-````
-
-> [!NOTE]
-> As expressões duplicadas não são adicionadas novamente, mas não originam um erro. `response` contém o ID da expressão original.
-
-Quando chamar o exemplo com o argumento `-train`, cria um ficheiro `training-results.json` que indica que o pedido para preparar a aplicação LUIS foi colocado em fila de espera com êxito. 
-
 Em seguida, é mostrado o resultado de um pedido para preparar com êxito:
+
 ```json
 {
     "request": null,
@@ -134,20 +82,105 @@ Em seguida, é mostrado o resultado de um pedido para preparar com êxito:
 }
 ```
 
-Depois de o pedido para preparar ser colocado em fila de espera, pode demorar alguns minutos a concluir a preparação.
+```JSON
+Requested training status.
+[
+   {
+      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   }
+]
+```
 
-## <a name="get-training-status-from-the-command-line"></a>Obter o estado de preparação a partir da linha de comandos
-Chame o exemplo com o argumento `-status` para verificar o estado de preparação e escrever os detalhes do estado num ficheiro.
-
-````
-> python add-utterances-3-6.py -status
-````
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando tiver terminado o tutorial, remova o Visual Studio e a aplicação de consola, se já não forem necessários. 
+Quando tiver terminado o início rápido, remova todos os ficheiros criados neste início rápido. 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"] 
 > [Criar uma aplicação LUIS programaticamente](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-

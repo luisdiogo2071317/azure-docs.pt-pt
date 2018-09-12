@@ -1,192 +1,308 @@
 ---
-title: 'Início rápido: Utilizar a SDK de pesquisa Web Bing para Python'
-description: Configuração para a aplicação de consola do SDK de pesquisa da Web.
-titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
+title: 'Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Python'
+description: Saiba como utilizar o SDK de Pesquisa na Web do Bing para Python.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: v-gedod, erhopf
-ms.openlocfilehash: faf43d84724cdbf799219c120f87dfc333c5026f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: MT
+ms.author: erhopf
+ms.openlocfilehash: ff8dc93693a5aec7b6efa3aefd05de8c90f517ed
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888531"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186818"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início rápido: Utilizar a SDK de pesquisa Web Bing para Python
+# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Python
 
-O SDK de pesquisa Web Bing contém a funcionalidade da API REST para consultas de web e os resultados da análise.
+O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Python. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
-O [da origem de código para amostras de Python SDK de pesquisa do Bing Web](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) está disponível no GitHub.
+Quer ver o código imediatamente? Os [exemplos de SDK de Pesquisa na Web do Bing para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) estão disponíveis para o GitHub.
 
-## <a name="application-dependencies"></a>Dependências de aplicações
-Se não o tiver, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-A recomendação geral para o desenvolvimento do Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html).
-Instalar e inicializar o ambiente virtual com o [venv módulo](https://pypi.python.org/pypi/virtualenv). Tem de instalar virtualenv para o Python 2.7.
+## <a name="prerequisites"></a>Pré-requisitos
+
+O SDK de Pesquisa na Web do Bing é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6. Recomendamos utilizar um ambiente virtual para este início rápido.
+
+* Python 2.7, 3.3, 3.4, 3.5 ou 3.6
+* [virtualenv](https://docs.python.org/3/tutorial/venv.html) para Python 2.7
+* [venv](https://pypi.python.org/pypi/virtualenv) para Python 3.x
+
+## <a name="create-and-configure-your-virtual-environment"></a>Criar e configurar o seu ambiente virtual
+
+As instruções para instalar e configurar um ambiente virtual são diferentes para o Python 2.x e Python 3.x. Siga os passos abaixo para criar e inicializar o ambiente virtual.
+
+### <a name="python-2x"></a>Python 2.x
+
+Crie um ambiente virtual com `virtualenv` para Python 2.7:
+
+```console
+virtualenv mytestenv
 ```
+
+Ativar o seu ambiente:
+
+```console
+cd mytestenv
+source bin/activate
+```
+
+Instale as dependências do SDK de Pesquisa na Web do Bing:
+
+```console
+python -m pip install azure-cognitiveservices-search-websearch
+```
+
+### <a name="python-3x"></a>Python 3.x
+
+Crie um ambiente virtual com `venv` para Python 3.x:
+
+```console
 python -m venv mytestenv
 ```
-Instale as dependências do SDK de pesquisa Web Bing:
-```
+
+Instale as dependências do SDK de Pesquisa na Web do Bing:
+
+```console
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-websearch
 ```
-## <a name="web-search-client"></a>Cliente de pesquisa Web
-Obter um [chave de subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) sob *pesquisa*.
-Adicione importações e criar uma instância do `CognitiveServicesCredentials`:
-```
-from azure.cognitiveservices.search.websearch import WebSearchAPI
-from azure.cognitiveservices.search.websearch.models import SafeSearch
-from msrest.authentication import CognitiveServicesCredentials
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-Em seguida, criar uma instância do cliente:
-```
-client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-Para obter os resultados de pesquisa e imprimir o primeiro resultado de página da Web:
-```
-web_data = client.web.search(query="Yosemite")
-print("\r\nSearched for Query# \" Yosemite \"")
+## <a name="create-a-client-and-print-your-first-results"></a>Criar um cliente e imprimir os seus primeiros resultados
 
-# WebPages
-if web_data.web_pages.value:
+Agora que configurou o seu ambiente virtual e instalou dependências, vamos criar um cliente. O cliente irá processar pedidos para e respostas da API de Pesquisa na Web do Bing.
 
-    print("\r\nWebpage Results#{}".format(len(web_data.web_pages.value)))
+Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impresso o primeiro resultado para cada.
 
-    first_web_page = web_data.web_pages.value[0]
-    print("First web page name: {} ".format(first_web_page.name))
-    print("First web page URL: {} ".format(first_web_page.url))
+1. Crie um novo projeto do Python através do seu editor ou IDE favorito.
+2. Copie este código de exemplo para o seu projeto:  
+    ```python
+    # Import required modules.
+    from azure.cognitiveservices.search.websearch import WebSearchAPI
+    from azure.cognitiveservices.search.websearch.models import SafeSearch
+    from msrest.authentication import CognitiveServicesCredentials
 
-else:
-    print("Didn't see any Web data..")
-```
-Outros tipos de resultado, incluindo imagens, notícias e vídeos de impressão:
-```
-# Images
-if web_data.images.value:
+    # Replace with your subscription key.
+    subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
-    print("\r\nImage Results#{}".format(len(web_data.images.value)))
-
-    first_image = web_data.images.value[0]
-    print("First Image name: {} ".format(first_image.name))
-    print("First Image URL: {} ".format(first_image.url))
-
-else:
-    print("Didn't see any Image..")
-
-# News
-if web_data.news.value:
-
-    print("\r\nNews Results#{}".format(len(web_data.news.value)))
-
-    first_news = web_data.news.value[0]
-    print("First News name: {} ".format(first_news.name))
-    print("First News URL: {} ".format(first_news.url))
-
-else:
-    print("Didn't see any News..")
-
-# Videos
-if web_data.videos.value:
-
-    print("\r\nVideos Results#{}".format(len(web_data.videos.value)))
-
-    first_video = web_data.videos.value[0]
-    print("First Videos name: {} ".format(first_video.name))
-    print("First Videos URL: {} ".format(first_video.url))
-
-else:
-    print("Didn't see any Videos..")
-
-```
-Procurar (melhor restaurantes em Seattle), verifique o número de resultados e imprimir `name` e `URL` do primeiro resultado.
-```
-def web_results_with_count_and_offset(subscription_key):
-
+    # Instantiate the client.
     client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
 
-    try:
-        web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
-        print("\r\nSearched for Query# \" Best restaurants in Seattle \"")
+    # Make a request. Replace Yosemite if you'd like.
+    web_data = client.web.search(query="Yosemite")
+    print("\r\nSearched for Query# \" Yosemite \"")
 
-        if web_data.web_pages.value:
+    '''
+    Web pages
+    If the search response contains web pages, the first result's name and url
+    are printed.
+    '''
+    if hasattr(web_data.web_pages, 'value'):
 
-            print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+        print("\r\nWebpage Results#{}".format(len(web_data.web_pages.value)))
 
-            first_web_page = web_data.web_pages.value[0]
-            print("First web page name: {} ".format(first_web_page.name))
-            print("First web page URL: {} ".format(first_web_page.url))
+        first_web_page = web_data.web_pages.value[0]
+        print("First web page name: {} ".format(first_web_page.name))
+        print("First web page URL: {} ".format(first_web_page.url))
 
-        else:
-            print("Didn't see any Web data..")
+    else:
+        print("Didn't find any web pages...")
 
-    except Exception as err:
-        print("Encountered exception. {}".format(err))```
+    '''
+    Images
+    If the search response contains images, the first result's name and url
+    are printed.
+    '''
+    if hasattr(web_data.images, 'value'):
 
-```
-Procure "xbox" com `response_filter` atribuídas a `News`.  Detalhes dos resultados de notícias de impressão.
-```
-def web_search_with_response_filter(subscription_key):
+        print("\r\nImage Results#{}".format(len(web_data.images.value)))
 
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+        first_image = web_data.images.value[0]
+        print("First Image name: {} ".format(first_image.name))
+        print("First Image URL: {} ".format(first_image.url))
 
-    try:
-        web_data = client.web.search(query="xbox", response_filter=["News"])
-        print("\r\nSearched for Query# \" xbox \" with response filters \"News\"")
+    else:
+        print("Didn't find any images...")
 
-        # News attribute since I filtered "News"
-        if web_data.news.value:
+    '''
+    News
+    If the search response contains news, the first result's name and url
+    are printed.
+    '''
+    if hasattr(web_data.news, 'value'):
 
-            print("Webpage Results#{}".format(len(web_data.news.value)))
+        print("\r\nNews Results#{}".format(len(web_data.news.value)))
 
-            first_web_page = web_data.news.value[0]
-            print("First web page name: {} ".format(first_web_page.name))
-            print("First web page URL: {} ".format(first_web_page.url))
+        first_news = web_data.news.value[0]
+        print("First News name: {} ".format(first_news.name))
+        print("First News URL: {} ".format(first_news.url))
 
-        else:
-            print("Didn't see any Web data..")
+    else:
+        print("Didn't find any news...")
 
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
+    '''
+    If the search response contains videos, the first result's name and url
+    are printed.
+    '''
+    if hasattr(web_data.videos, 'value'):
 
-```
-Pesquise com a consulta "Niagara cai", usando `answerCount` e `promote` parâmetros. Detalhes dos resultados de impressão.
-```
-def web_search_with_answer_count_promote_and_safe_search(subscription_key):
+        print("\r\nVideos Results#{}".format(len(web_data.videos.value)))
 
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+        first_video = web_data.videos.value[0]
+        print("First Videos name: {} ".format(first_video.name))
+        print("First Videos URL: {} ".format(first_video.url))
 
-    try:
-        web_data = client.web.search(
-            query="Niagara Falls",
-            answer_count=2,
-            promote=["videos"],
-            safe_search=SafeSearch.strict  # or directly "Strict"
-        )
-        print("\r\nSearched for Query# \" Niagara Falls\"")
+    else:
+        print("Didn't find any videos...")
+    ```
+3. Substitua `subscription_key` por uma chave de subscrição válida.
+4. Execute o programa. Por exemplo: `python your_program.py`.
 
-        if web_data.web_pages.value:
+## <a name="define-functions-and-filter-results"></a>Definir funções e filtrar resultados
 
-            print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+Agora que fez a sua primeira chamada à API de Pesquisa na Web do Bing, vamos ver algumas funções que destacam a funcionalidade do SDK para refinar consultas e filtrar resultados. Pode adicionar cada função ao programa Python que foi criado na secção anterior.
 
-            first_web_page = web_data.web_pages.value[0]
-            print("First web page name: {} ".format(first_web_page.name))
-            print("First web page URL: {} ".format(first_web_page.url))
+### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitar o número de resultados devolvidos pelo Bing
 
-        else:
-            print("Didn't see any Web data..")
+Este exemplo utiliza os parâmetros `count` e `offset` para limitar o número de resultados devolvidos através do método [`search` do SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). O `name` e `URL` para o primeiro resultado são impressos.
 
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
+1. Adicione este código ao seu projeto Python:
+    ```python
+    # Declare the function.
+    def web_results_with_count_and_offset(subscription_key):
+        client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
 
-```
-## <a name="next-steps"></a>Passos Seguintes
+        try:
+            '''
+            Set the query, offset, and count using the SDK's search method. See:
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            '''
+            web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
+            print("\r\nSearching for \"Best restaurants in Seattle\"")
 
-[Amostras do SDK de Python de serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+            if web_data.web_pages.value:
+                '''
+                If web pages are available, print the # of responses, and the first and second
+                web pages returned.
+                '''
+                print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+
+                first_web_page = web_data.web_pages.value[0]
+                print("First web page name: {} ".format(first_web_page.name))
+                print("First web page URL: {} ".format(first_web_page.url))
+
+            else:
+                print("Didn't find any web pages...")
+
+        except Exception as err:
+            print("Encountered exception. {}".format(err))
+    ```
+2. Execute o programa.
+
+### <a name="filter-for-news-and-freshness"></a>Filtrar por notícias e atualização
+
+Este exemplo recorre aos parâmetros `response_filter` e `freshness` para filtrar os resultados da pesquisa com base no método [`search` do SDK](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). Os resultados da pesquisa devolvidos estão limitados a artigos de notícias e páginas que o Bing descobriu nas últimas 24 horas. O `name` e `URL` para o primeiro resultado são impressos.
+
+1. Adicione este código ao seu projeto Python:
+    ```python
+    # Declare the function.
+    def web_search_with_response_filter(subscription_key):
+        client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+        try:
+            '''
+            Set the query, response_filter, and freshness using the SDK's search method. See:
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            '''
+            web_data = client.web.search(query="xbox",
+                response_filter=["News"],
+                freshness="Day")
+            print("\r\nSearching for \"xbox\" with the response filter set to \"News\" and freshness filter set to \"Day\".")
+
+            '''
+            If news articles are available, print the # of responses, and the first and second
+            articles returned.
+            '''
+            if web_data.news.value:
+
+                print("# of news results: {}".format(len(web_data.news.value)))
+
+                first_web_page = web_data.news.value[0]
+                print("First article name: {} ".format(first_web_page.name))
+                print("First article URL: {} ".format(first_web_page.url))
+
+                print("")
+
+                second_web_page = web_data.news.value[1]
+                print("\nSecond article name: {} ".format(second_web_page.name))
+                print("Second article URL: {} ".format(second_web_page.url))
+
+            else:
+                print("Didn't find any news articles...")
+
+        except Exception as err:
+            print("Encountered exception. {}".format(err))
+
+    # Call the function.
+    web_search_with_response_filter(subscription_key)
+    ```
+2. Execute o programa.
+
+### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Utilizar a pesquisa segura, a contagem de respostas e o filtro de promover
+
+Este exemplo recorre aos parâmetros `answer_count`, `promote` e `safe_search` para filtrar os resultados da pesquisa com base no método [`search` do SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). O `name` e `URL` para o primeiro resultado são apresentados.
+
+1. Adicione este código ao seu projeto Python:
+    ```python
+    # Declare the function.
+    def web_search_with_answer_count_promote_and_safe_search(subscription_key):
+
+        client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+
+        try:
+            '''
+            Set the query, answer_count, promote, and safe_search parameters using the SDK's search method. See:
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            '''
+            web_data = client.web.search(
+                query="Niagara Falls",
+                answer_count=2,
+                promote=["videos"],
+                safe_search=SafeSearch.strict  # or directly "Strict"
+            )
+            print("\r\nSearching for \"Niagara Falls\"")
+
+            '''
+            If results are available, print the # of responses, and the first result returned.
+            '''
+            if web_data.web_pages.value:
+
+                print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+
+                first_web_page = web_data.web_pages.value[0]
+                print("First web page name: {} ".format(first_web_page.name))
+                print("First web page URL: {} ".format(first_web_page.url))
+
+            else:
+                print("Didn't see any Web data..")
+
+        except Exception as err:
+            print("Encountered exception. {}".format(err))
+    ```
+2. Execute o programa.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando tiver terminado este projeto, certifique-se de que remove a sua chave de subscrição do código do programa e desativa o seu ambiente virtual.
+
+## <a name="next-steps"></a>Passos seguintes
+
+> [!div class="nextstepaction"]
+> [Exemplos de SDK do Python nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+
+## <a name="see-also"></a>Consulte também
+
+* [Referência do SDK Python do Azure](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)

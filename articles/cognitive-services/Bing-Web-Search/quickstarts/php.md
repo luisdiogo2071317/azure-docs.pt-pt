@@ -1,78 +1,73 @@
 ---
-title: Chamada e resposta - guia de introdução do PHP para serviços do Azure cognitivos, API de pesquisa do Bing Web | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de pesquisa do Bing Web no Microsoft serviços cognitivos no Azure.
+title: 'Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing'
+description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do PHP e receber uma resposta JSON.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2e54db4ba59d89271077d243589243768bf8b7fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: ef5263ce65efccdab0fb461165e66156dd4fce52
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352382"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888434"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-php"></a>Chamada e resposta: a primeira consulta de pesquisa na Web Bing no PHP
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing  
 
-A API de pesquisa do Bing Web fornece uma experiência semelhante ao Bing.com/Search devolvendo resultados de pesquisa que o Bing determina são relevantes para a consulta do utilizador. Os resultados podem incluir páginas Web, imagens, vídeos, notícias e entidades, juntamente com consultas de pesquisa relacionados, as correções ortografia, fusos horários, a conversão de unidade, traduções e cálculos. Os tipos de resultados, obter baseiam-se no respetiva relevância e a camada de APIs de pesquisa do Bing que subscrever.
+Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
 
-Este artigo inclui uma aplicação de consola simples que executa uma consulta de API de pesquisa do Bing Web e apresenta os resultados da pesquisa em bruto devolvido, que estão no formato JSON. Enquanto esta aplicação é escrita em PHP, a API é um serviço RESTful Web compatível com qualquer linguagem de programação que pode efetuar pedidos HTTP e analisar JSON. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
+Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+* [PHP 5.6.x](http://php.net/downloads.php) ou posterior
+* Uma chave de subscrição  
 
-## <a name="running-the-application"></a>Executar a aplicação
+## <a name="enable-secure-http-support"></a>Ativar o suporte HTTP seguro
 
-Para executar esta aplicação, siga estes passos.
+Antes de começar, encontre `php.ini` e anule os comentários desta linha:
 
-1. Certifique-se de suporte para HTTP seguro está ativado no seu `php.ini` conforme descrito no comentário do código. No Windows, este ficheiro está a ser `C:\windows`.
-2. Crie um novo projeto do PHP no seu IDE ou editor favorito.
-3. Adicione o código fornecido.
-4. Substitua o `accessKey` valor com uma chave de acesso válida para a sua subscrição.
-5. Execute o programa.
+```
+;extension=php_openssl.dll
+```
+
+## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis  
+
+Crie um novo projeto PHP no seu IDE ou editor preferido. Não se esqueça de adicionar etiquetas de abertura e fecho, `<?php` e `?>`.
+
+Tem de definir algumas variáveis para que possamos continuar. Confirme que `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `$term`.
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';
-
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this value against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
 $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-
 $term = 'Microsoft Cognitive Services';
+```
 
+## <a name="construct-a-request"></a>Construir um pedido
+
+Este código declara uma função chamada `BingWebSearch`, que é utilizada para criar pedidos para a API de Pesquisa na Web do Bing. Exige três argumentos: `$url`, `$key` e `$query`.
+
+```php
 function BingWebSearch ($url, $key, $query) {
-    // Prepare HTTP request
-    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    /* Prepare the HTTP request.
+     * NOTE: Use the key 'http' even if you are making an HTTPS request.
+     * See: http://php.net/manual/en/function.stream-context-create.php.
+     */
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
                            'method' => 'GET'));
 
-    // Perform the Web request and get the JSON response
+    // Perform the request and get a JSON response.
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-    // Extract Bing HTTP headers
+    // Extract Bing HTTP headers.
     $headers = array();
     foreach ($http_response_header as $k => $v) {
         $h = explode(":", $v, 2);
@@ -83,18 +78,25 @@ function BingWebSearch ($url, $key, $query) {
 
     return array($headers, $result);
 }
+```
 
+## <a name="make-a-request-and-print-the-response"></a>Fazer um pedido e imprimir a resposta
+
+Este código valida a chave de subscrição, faz um pedido e imprime a resposta.
+
+```php
+// Validates the subscription key.
 if (strlen($accessKey) == 32) {
 
     print "Searching the Web for: " . $term . "\n";
-    
+    // Makes the request.
     list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
-    
+
     print "\nRelevant Headers:\n\n";
     foreach ($headers as $k => $v) {
         print $k . ": " . $v . "\n";
     }
-    
+    // Prints JSON encoded response.
     print "\nJSON Response:\n\n";
     echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
@@ -104,12 +106,55 @@ if (strlen($accessKey) == 32) {
     print("Please paste yours into the source code.\n");
 
 }
+```
+
+## <a name="put-it-all-together"></a>Juntar tudo
+
+O último passo é validar o seu código e executá-lo! Se desejar comparar o seu código com o nosso, aqui está o programa concluído:
+
+```php
+<?php
+$accessKey = 'enter key here';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$term = 'Microsoft Cognitive Services';
+
+function BingWebSearch ($url, $key, $query) {
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+                          'header' => $headers,
+                           'method' => 'GET'));
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+}
+
+if (strlen($accessKey) == 32) {
+    print "Searching the Web for: " . $term . "\n";
+    list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
+    print "\nRelevant Headers:\n\n";
+    foreach ($headers as $k => $v) {
+        print $k . ": " . $v . "\n";
+    }
+    print "\nJSON Response:\n\n";
+    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
+} else {
+    print("Invalid Bing Search API subscription key!\n");
+    print("Please paste yours into the source code.\n");
+}
 ?>
 ```
 
-## <a name="json-response"></a>Resposta JSON
+## <a name="sample-response"></a>Resposta de amostra
 
-Segue uma resposta de amostra. Para limitar o comprimento de JSON, apenas um único resultado é apresentado e outras partes da resposta tem sido truncados. 
+As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.  
 
 ```json
 {
@@ -233,14 +278,9 @@ Segue uma resposta de amostra. Para limitar o comprimento de JSON, apenas um ún
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa do Bing Web](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
-
-[Descrição geral de pesquisa na Web Bing](../overview.md)  
-[Experimente](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Referência da API de pesquisa do Bing Web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

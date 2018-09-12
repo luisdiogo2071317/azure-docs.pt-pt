@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/14/2017
+ms.date: 06/13/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 110d1a0fe52f50f057f7ea7ccbc426706473306d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db8aa2d1bb5d79b5d2c9b04789b4ac18fbec5897
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23947677"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664595"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
 Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação Web quanto à disponibilidade, ao desempenho e à utilização.  Também pode identificar e diagnosticar erros rapidamente na sua aplicação sem ter de esperar que um utilizador os comunique.  Com as informações que recolher com o Application Insights sobre o desempenho e a eficácia da sua aplicação, pode tomar decisões informadas para manter e melhorar a sua aplicação.
 
-Este início rápido mostra como adicionar o Application Insights a uma aplicação Web ASP.NET existente e iniciar a análise das estatísticas em direto, um dos vários métodos que pode utilizar para analisar a sua aplicação. Se não tiver uma aplicação Web ASP.NET, pode criar uma seguindo o [Início rápido para criar uma aplicação Web ASP.NET](../app-service/app-service-web-get-started-dotnet.md).
+Este início rápido mostra como adicionar o Application Insights a uma aplicação Web ASP.NET existente e iniciar a análise das estatísticas em direto, um dos vários métodos que pode utilizar para analisar a sua aplicação. Se não tiver uma aplicação Web ASP.NET, pode criar uma seguindo o [Início rápido para criar uma aplicação Web ASP.NET](../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido:
@@ -37,17 +37,23 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 1. Abra o projeto no Visual Studio 2017.
 2. Selecione **Configurar o Application Insights** no menu Projeto. O Visual Studio adiciona o Application Insights SDK à sua aplicação.
-3. Clique em **Iniciar Gratuito**, selecione o seu plano de faturação preferencial e clique em **Registar**.
 
-    ![Adicionar o Application Insights ao Visual Studio](./media/quick-monitor-portal/add-application-insights.png)
+    > [!IMPORTANT]
+    > O processo de adicionar o Application Insights varia consoante o tipo de modelo do ASP.NET. Se estiver a utilizar o modelo **Vazio** ou **Aplicação Móvel do Azure**, selecione **Projeto** > **Adicionar Telemetria do Application Insights**. Relativamente a todos os outros modelos ASP.NET, consulte as instruções no passo acima. 
 
-4. Execute a sua aplicação selecionando **Iniciar Depuração** no menu **Depurar** ou premindo a tecla F5.
+3. Clique em **Introdução** (as versões anteriores do Visual Studio apresentam um botão **Iniciar a Versão Gratuita**).
+
+    ![Adicionar o Application Insights ao Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
+
+4. Selecione a sua subscrição e clique em **Registo**.
+
+5. Execute a sua aplicação selecionando **Iniciar Depuração** no menu **Depurar** ou premindo a tecla F5.
 
 ## <a name="confirm-app-configuration"></a>Confirmar a configuração da aplicação
 
 O Application Insights recolhe dados de telemetria da sua aplicação, independentemente de estar ou não em execução. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Abra o Application Insights clicando em **Projeto** -> **Application Insights** -> **Pesquisar Telemetria da Sessão de Depuração**.  É apresentada a telemetria da sua sessão atual.<BR><br>![Telemetria no Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Abra o Application Insights com um clique em **Vista** -> **Outras Janelas** -> **Application Insights Search**.  É apresentada a telemetria da sua sessão atual.<BR><br>![Telemetria no Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Clique no primeiro pedido na lista (GET Home/Index neste exemplo) para ver os detalhes do pedido. Tenha em atenção que o código de estado e o tempo de resposta são incluídos juntamente com outras informações importantes sobre o pedido.<br><br>![Detalhes de resposta no Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -57,11 +63,11 @@ Agora, pode abrir o Application Insights no portal do Azure para ver os vários 
 
 1. Clique com o botão direito na pasta **Application Insights para Serviços Ligados** no Explorador de Soluções e clique em **Abril Portal do Application Insights**.  São apresentadas algumas informações sobre a sua aplicação e uma variedade de opções.
 
-    ![Mapeamento de Aplicações](media/quick-monitor-portal/001.png)
+    ![Mapeamento de Aplicações](media/quick-monitor-portal/overview-001.png)
 
-2. Clique em **Mapeamento de aplicações** para obter um esquema visual das relações de dependência entre os componentes da aplicação.  Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
+2. Clique em **Mapa da Aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação.  Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-    ![Mapeamento de Aplicações](media/quick-monitor-portal/application-map.png)
+    ![Mapeamento de Aplicações](media/quick-monitor-portal/application-map-001.png)
 
 3. Clique no ícone **Análise da Aplicação** ![Mapeamento de Aplicações](media/quick-monitor-portal/app-analytics-icon.png) num dos componentes da aplicação.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights.  Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico.  Pode escrever as suas próprias consultas para analisar outros dados.
 

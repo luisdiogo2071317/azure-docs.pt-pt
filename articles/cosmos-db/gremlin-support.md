@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c675f37e50f5b8a259048d9a92fcdbe5b947068c
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 593b7ac636b92db5c72cfad8f73fc2c418639358
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797622"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700217"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráficos do Gremlin do Azure Cosmos DB
-O Azure Cosmos DB suporta a linguagem transversal de gráficos do [Apache Tinkerpop](http://tinkerpop.apache.org), o [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma Graph API para criar entidades de gráficos e efetuar operações de consulta de gráficos. Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
+O Azure Cosmos DB suporta a linguagem transversal de gráficos do [Apache Tinkerpop](http://tinkerpop.apache.org), o [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma Gremlin API para criar entidades de gráficos e realizar operações de consulta de gráficos. Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
 
 O Azure Cosmos DB oferece funcionalidades prontas para empresas para bases de dados de gráficos. Isto inclui distribuição global, dimensionamento independente de armazenamento e débito, latências de milissegundos de um dígito previsíveis, indexação automática, SLAs, disponibilidade de leitura para contas de bases de dados que abrangem duas ou mais regiões do Azure. Como o Azure Cosmos DB suporta o TinkerPop/Gremlin, pode migrar facilmente aplicações escritas com outra base de dados de gráficos sem ter de fazer alterações de código. Além disso, graças ao suporte do Gremlin, o Azure Cosmos DB está totalmente integrado com arquiteturas de análise ativadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Neste artigo, fornecemos instruções rápidas do Gremlin e enumeramos as funcionalidades e passos do Gremlin que são suportados pela Graph API.
+Neste artigo, apresentamos instruções rápidas do Gremlin e enumeramos as funcionalidades e passos do Gremlin que são suportados pela Gremlin API.
 
 ## <a name="gremlin-by-example"></a>Exemplo do Gremlin
 Vamos utilizar um gráfico de exemplo para compreender como as consultas podem ser expressadas no Gremlin. A imagem seguinte apresenta uma aplicação empresarial que gere dados sobre os utilizadores, interesses e dispositivos sob a forma de um gráfico.  
@@ -132,8 +132,8 @@ As propriedades utilizadas pelo GraphSON para vértices são as seguintes:
 | --- | --- |
 | ID | O ID do vértice. Tem de ser exclusivo (em combinação com o valor de _partition se aplicável) |
 | label | A etiqueta do vértice. Isto é opcional e é utilizado para descrever o tipo de entidade. |
-| type | É utilizado para distinguir vértices de documentos que não são gráficos |
-| properties | Conjunto de propriedades definidas pelo utilizador associadas ao vértice. Cada propriedade tem múltiplos valores. |
+| tipo | É utilizado para distinguir vértices de documentos que não são gráficos |
+| propriedades | Conjunto de propriedades definidas pelo utilizador associadas ao vértice. Cada propriedade tem múltiplos valores. |
 | _partition (configurável) | A chave de partição do vértice. Pode ser utilizada para aumentar horizontalmente gráficos para múltiplos servidores |
 | outE | Contém uma lista de limites de um vértice. Armazenar a informação de contiguidade com o vértice permite uma execução rápida das transversais. Os limites são agrupados com base nas etiquetas. |
 
@@ -144,13 +144,13 @@ O limite contém a seguinte informação para ajudar com a navegação para outr
 | ID | O ID do limite. Tem de ser exclusivo (em combinação com o valor de _partition se aplicável) |
 | label | A etiqueta do limite. Esta propriedade é opcional e é utilizada para descrever o tipo de relação. |
 | inV | Contém uma lista de vértices de um limite. Armazenar as informações de contiguidade com o limite permite uma execução rápida das transversais. Os vértices são agrupados com base nas etiquetas. |
-| properties | Conjunto de propriedades definidas pelo utilizador associadas ao limite. Cada propriedade tem múltiplos valores. |
+| propriedades | Conjunto de propriedades definidas pelo utilizador associadas ao limite. Cada propriedade tem múltiplos valores. |
 
 Cada propriedade pode armazenar múltiplos valores numa matriz. 
 
 | Propriedade | Descrição |
 | --- | --- |
-| value | O valor da propriedade
+| valor | O valor da propriedade
 
 ## <a name="gremlin-steps"></a>Passos do Gremlin
 Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter referências completas do Gremlin, veja [Referências do TinkerPop](http://tinkerpop.apache.org/docs/current/reference).

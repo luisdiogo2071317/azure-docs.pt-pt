@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920602"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343467"
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 O Cofre de Chaves do Azure é um serviço em nuvem que protege chaves e segredos de encriptação (como certificados, cadeias de ligação e palavras-passe) das suas aplicações na nuvem. Uma vez que estes dados são confidenciais e vitais para a sua atividade, é fundamental proteger o acesso aos seus cofres de chaves, de modo a que só os utilizadores e as aplicações com autorização possam aceder aos mesmos. Este artigo disponibiliza uma descrição geral do modelo de acesso do cofre de chaves, explica a autenticação e a autorização e descreve como proteger o acesso ao cofre de chaves das suas aplicações com um exemplo.
@@ -94,8 +94,8 @@ As políticas de acesso dos cofres de chaves concedem permissões para chaves, s
 
 > [!IMPORTANT]
 > Tenha em atenção que as políticas de acesso do cofre de chaves são aplicadas ao nível do cofre. Por exemplo, quando é concedida permissão a um utilizador para criar e eliminar chaves, esse utilizador pode fazer essas operações em todas as chaves no cofre de chaves.
-> 
-> 
+
+Além das políticas de acesso, o acesso ao plano de serviço de dados também pode ser restringido através de [Pontos Finais do Serviço de Rede Virtual para o Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) configurando [Firewalls e regras de rede virtual](key-vault-network-security.md) para um camada adicional de segurança.
 
 ## <a name="example"></a>Exemplo
 Imaginemos que está a desenvolver uma aplicação que utiliza um certificado para SSL, o Armazenamento do Azure para armazenar dados e uma chave RSA de 2048 bits para operações de assinatura. Imaginemos, agora, que a aplicação é executada numa VM (ou num Conjunto de Dimensionamento de VM). Pode utilizar um cofre de chaves para armazenar todos os segredos da aplicação e utilizar o cofre de chaves para armazenar o certificado do programa de arranque do sistema que a aplicação utiliza para autenticar com o Azure Active Directory.
@@ -201,8 +201,8 @@ Este exemplo mostra um cenário simples. Os cenários da vida real podem ser mai
 
 > [!NOTE]
 > Nota: este exemplo mostra como o acesso do cofre de chaves estará bloqueado na produção. Os programadores devem ter a sua própria subscrição ou grupo de recursos nos quais tenham permissões completas para gerir os cofres, as VMs e a conta de armazenamento em que desenvolveram a aplicação.
-> 
-> 
+
+É altamente recomendável para proteger melhor o acesso ao seu Key Vault através da [configuração de firewalls e de redes virtuais do Key Vault](key-vault-network-security.md).
 
 ## <a name="resources"></a>Recursos
 * [Controlo de Acesso Baseado em Funções do Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ Este exemplo mostra um cenário simples. Os cenários da vida real podem ser mai
   Ligações para documentação de referência sobre cmdlets do PowerShell para gerir a política de acesso do cofre de chaves.
 
 ## <a name="next-steps"></a>Passos Seguintes
+[Configurar firewalls e redes virtuais do Key Vault](key-vault-network-security.md)
+
 Para obter um tutorial introdutório para administradores, veja [Introdução ao Cofre de Chaves do Azure](key-vault-get-started.md).
 
 Para obter mais informações sobre o registo de utilização do cofre de chave, veja [Registo do Cofre de Chaves do Azure](key-vault-logging.md).

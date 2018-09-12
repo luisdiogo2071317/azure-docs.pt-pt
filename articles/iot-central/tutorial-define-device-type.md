@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41917738"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702549"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na aplicação do Azure IoT Central
 
@@ -280,22 +280,22 @@ Utilize *definições* para permitir que um operador envie dados de configuraç�
 
 ## <a name="use-properties--device-properties"></a>Propriedades de utilização/propriedades do dispositivo
 
-Utilize *propriedades* para armazenar informações sobre o seu dispositivo na aplicação. Nesta secção, irá adicionar as propriedades do dispositivo ao modelo de dispositivo **Ar Condicionado Ligado** para armazenar o número de série e a versão de firmware do dispositivo. Tenha em atenção que ambas as propriedades são só de leitura comunicadas pelo dispositivo e não é possível atribuir-lhes valores. As propriedades que pode utilizar às quais é possível atribuir valores para incluir a localização do dispositivo, as informações de propriedade e a data/hora do último serviço do dispositivo.
+Utilize *propriedades* para armazenar informações sobre o seu dispositivo na aplicação. Nesta secção, irá adicionar as propriedades da cloud ao modelo de dispositivo **Ar Condicionado Ligado** para armazenar a localização do dispositivo e a data da última assistência. Tenha em atenção que ambas as propriedades do dispositivo são editáveis. Existem também propriedades só de leitura comunicadas pelo dispositivo que não podem ser alteradas, como o número de série do dispositivo e a versão de firmware.
  
 1. Navegue para a página **Propriedades** para o seu modelo de dispositivo **Ar Condicionado Ligado**:
 
     ![Preparar para adicionar uma propriedade](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    Pode criar propriedades do dispositivo de diferentes tipos, como texto ou números. Para adicionar uma propriedade de número de série ao modelo de dispositivo, escolha **Texto**.
+    Pode criar propriedades do dispositivo de diferentes tipos, como texto ou números. Para adicionar uma propriedade de localização ao modelo de dispositivo, escolha **Localização**.
 
-2. Para configurar a propriedade do número de série, utilize as informações na tabela seguinte:
+2. Para configurar a propriedade da localização, utilize as informações na tabela seguinte:
 
     | Campo                | Valor                |
     | -------------------- | -------------------- |
-    | Nome a Apresentar         | Número de série        |
-    | Nome do Campo           | serialNumber         |
-    | Valor Inicial        | cac00001             |
-    | Descrição          | Número de série do dispositivo |
+    | Nome a Apresentar         | Localização             |
+    | Nome do Campo           | localização             |
+    | Valor Inicial        | Seattle, WA          |
+    | Descrição          | Localização do dispositivo      |
 
     Deixe os outros campos com os respetivos valores predefinidos.
 
@@ -303,16 +303,16 @@ Utilize *propriedades* para armazenar informações sobre o seu dispositivo na a
 
     Escolha **Guardar**.
 
-3. Para adicionar uma versão de firmware às propriedades do modelo de dispositivo, selecione **Texto**.
+3. Para adicionar uma propriedade da data da última assistência ao modelo de dispositivo, escolha **Data**.
 
-4. Para configurar a propriedade do dispositivo da versão do firmware, utilize as informações na tabela seguinte:
+4. Para configurar a propriedade da data da última assistência, utilize as informações na tabela seguinte:
 
     | Campo                | Valor                   |
     | -------------------- | ----------------------- |
-    | Nome a Apresentar         | Versão do firmware        |
-    | Nome do Campo           | firmwareVersion         |
-    | Valor Inicial        | 0.1                     |
-    | Descrição          | Versão do firmware do dispositivo |
+    | Nome a Apresentar         | Data da Última Assistência       |
+    | Nome do Campo           | serviceDate             |
+    | Valor Inicial        | 01/01/2018                |
+    | Descrição          | Última assistência           |
 
     ![Configurar as propriedades do dispositivo](./media/tutorial-define-device-type/configureproperties2.png)
 
