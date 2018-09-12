@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: HT
+ms.openlocfilehash: d8c5e660b460e763fb4a500463543316c8c914ed
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343467"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159412"
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 O Cofre de Chaves do Azure é um serviço em nuvem que protege chaves e segredos de encriptação (como certificados, cadeias de ligação e palavras-passe) das suas aplicações na nuvem. Uma vez que estes dados são confidenciais e vitais para a sua atividade, é fundamental proteger o acesso aos seus cofres de chaves, de modo a que só os utilizadores e as aplicações com autorização possam aceder aos mesmos. Este artigo disponibiliza uma descrição geral do modelo de acesso do cofre de chaves, explica a autenticação e a autorização e descreve como proteger o acesso ao cofre de chaves das suas aplicações com um exemplo.
@@ -242,7 +242,7 @@ Este exemplo mostra um cenário simples. Os cenários da vida real podem ser mai
   
   Ligações para documentação de referência sobre cmdlets do PowerShell para gerir a política de acesso do cofre de chaves.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 [Configurar firewalls e redes virtuais do Key Vault](key-vault-network-security.md)
 
 Para obter um tutorial introdutório para administradores, veja [Introdução ao Cofre de Chaves do Azure](key-vault-get-started.md).
