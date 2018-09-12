@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029959"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44381100"
 ---
 Data factory é um serviço de multi-inquilino, que tem os seguintes limites predefinidos no local para se certificar de subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitos dos limites podem ser facilmente aumentados para a sua subscrição até ao limite máximo ao contactar o suporte.
 
@@ -28,7 +28,7 @@ Data factory é um serviço de multi-inquilino, que tem os seguintes limites pre
 | Execuções de pipeline em simultâneo por fábrica de dados | 10,000  | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Atividades de máx. por pipeline (inclui atividades internas para contentores) | 40 | 40 |
 | Parâmetros de máx. por pipeline | 50 | 50 |
-| Itens ForEach | 100,000 | 100,000 |
+| Itens ForEach | 100 000 | 100 000 |
 | Paralelismo ForEach | 20 | 50 |
 | Carateres por expressão | 8,192 | 8,192 |
 | Intervalo mínimo de Acionador de janela em cascata | 15 min | 15 min |
@@ -38,6 +38,8 @@ Data factory é um serviço de multi-inquilino, que tem os seguintes limites pre
 | Unidades de integração de dados por execução de atividade de cópia <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Escrever chamadas de API | 2500/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chamadas de API de leitura | 12,500/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não o Azure Data Factory. | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Monitorização de consultas por minuto | 1000 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Operações CRUD de entidade por minuto | 50 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### <a name="version-1"></a>Versão 1

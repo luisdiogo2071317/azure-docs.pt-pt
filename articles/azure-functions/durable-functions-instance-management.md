@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 72ea5e54bf86ce408700c0456f6d37f5f3c29924
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 70ea13c1badf79c86bed53a34d9036706dbbac6a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091787"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378161"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias de funções durável (funções do Azure)
 
@@ -145,8 +145,6 @@ Os parâmetros a serem [RaiseEventAsync](https://azure.github.io/azure-functions
 * **EventData**: um payload JSON serializável para enviar para a instância.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -207,7 +205,8 @@ Dependendo do tempo necessário para obter a resposta da instância de orquestra
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -228,12 +227,12 @@ O método retorna uma instância do [HttpManagementPayload](https://azure.github
 * **StatusQueryGetUri**: O URL de estado da instância de orquestração.
 * **SendEventPostUri**: O URL de "emitir um evento" da instância de orquestração.
 * **TerminatePostUri**: O URL "terminar" da instância de orquestração.
+* **RewindPostUri**: O URL de "o recuo" da instância de orquestração.
 
 Funções de atividade podem enviar uma instância do [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) a sistemas externos para monitorizar ou acionem eventos para uma orquestração:
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -246,6 +245,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>Avanço rápido instances (pré-visualização)
+
+Pode ser uma instância da orquestração com falhas *rewound* num anteriormente bom estado de funcionamento por meio do [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API. Funciona ao colocar a orquestração de volta para o *em execução* estado e executar novamente as falhas de execução de atividade de e/ou orquestração secundárias que causou a falha de orquestração.
+
+> [!NOTE]
+> Esta API não se destina a ser uma substituição para o tratamento de erros adequado e políticas de repetição. Em vez disso, destina-se a ser usado apenas em casos em que as instâncias de orquestração falharem por motivos de inesperado. Para obter mais detalhes sobre políticas de repetição e manipulação de erro, consulte a [tratamento de erros](durable-functions-error-handling.md) tópico.
+
+Um exemplo utilizar maiúsculas e minúsculas para *Retroceder* é um fluxo de trabalho que envolve uma série de [aprovações humanas](durable-functions-overview.md#pattern-5-human-interaction). Suponhamos que haja uma série de funções de atividade que notifique a pessoa que é necessária a sua aprovação e aguarde que a resposta em tempo real. Afinal de contas da aprovação, actividades recebeu as respostas ou o tempo limite, a falha de outra atividade devido a uma configuração incorreta do aplicativo (por exemplo, uma cadeia de ligação de base de dados inválido). O resultado é uma falha de orquestração profundamente o fluxo de trabalho. Com o `RewindAsync` API, o administrador de uma aplicação pode corrigir o erro de configuração e *Retroceder* a orquestração com falha de volta para o estado de imediatamente antes da falha. Nenhum dos passos de interação humana precisa de ser novamente aprovados e a orquestração pode agora ser concluída com êxito.
+
+> [!NOTE]
+> O *Retroceder* funcionalidade não suporta e instâncias de orquestração de avanço rápido, que utilizam os temporizadores duráveis.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

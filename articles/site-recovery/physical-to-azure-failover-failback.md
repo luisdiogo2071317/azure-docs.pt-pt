@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
-ms.openlocfilehash: 93f62bac3e2207caa265b3fca6634656d64b1491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918242"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391152"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Ativação pós-falha e reativação pós-falha de servidores físicos replicados no Azure
 
-Este tutorial descreve como fazer a ativação pós-falha de um servidor físico para o Azure. Depois que tive a ativação pós-falha, falhar o servidor de volta para o seu site no local quando estiver disponível. 
+Este tutorial descreve como fazer a ativação pós-falha de um servidor físico para o Azure. Depois que tive a ativação pós-falha, falhar o servidor de volta para o seu site no local quando estiver disponível.
 
 ## <a name="preparing-for-failover-and-failback"></a>Preparar a ativação pós-falha e a reativação pós-falha
 
-Servidores físicos replicados no Azure com o Site Recovery só podem falhar novamente como VMs de VMware. Terá de uma infraestrutura do VMware para a reativação pós-falha. 
+Servidores físicos replicados no Azure com o Site Recovery só podem falhar novamente como VMs de VMware. Terá de uma infraestrutura do VMware para a reativação pós-falha.
 
 A ativação pós-falha e a reativação pós-falha têm quatro fases:
 
@@ -44,7 +44,7 @@ Verifique se as propriedades do servidor e certifique-se de que ele está em con
 
 1. Em **Definições** > **Itens replicados**, clique no computador > **Ativação Pós-falha**.
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Pode utilizar uma das opções seguintes:
-   - **Mais recente** (predefinição): esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
+   - **Mais recente**: esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
    - **Processado mais recentemente**: esta opção efetuará a ativação pós-falha da máquina do ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
    - **Mais recente consistente com a aplicação**: esta opção efetuará a ativação pós-falha da máquina para o ponto mais recente recuperação consistente com a aplicação processado pelo Site Recovery.
    - **Personalizado**: especifique um ponto de recuperação.
@@ -55,7 +55,13 @@ Verifique se as propriedades do servidor e certifique-se de que ele está em con
 
 > [!WARNING]
 > Não cancele uma ativação pós-falha em curso. Antes do início da ativação pós-falha, deixa de replicação da máquina. Se cancelar a ativação pós-falha, parar, mas a máquina não replicar novamente.
-> Para servidores físicos, processamento de ativação pós-falha adicional pode demorar cerca de oito a dez minutos para concluir. 
+> Para servidores físicos, processamento de ativação pós-falha adicional pode demorar cerca de oito a dez minutos para concluir.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
+
+Se pretender ligar a VMs do Azure com RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver problemas de qualquer conectividade problemas após a ativação pós-falha.
 
 ## <a name="create-a-process-server-in-azure"></a>Criar um servidor de processos no Azure
 
@@ -70,7 +76,7 @@ O servidor de processos recebe dados da VM do Azure e envia-os para o site no lo
 Por predefinição, o servidor de destino mestre recebe dados de reativação pós-falha. Ele é executado no servidor de configuração no local.
 
 - Se estiver a VM de VMware para o qual efetuar a reativação pós-falha num anfitrião ESXi gerido pelo servidor vCenter do VMware, o servidor de destino principal tem de ter acesso ao arquivo de dados da VM (VMDK), para escrever os dados replicados para os discos da VM. Certifique-se de que o arquivo de dados da VM está montado no anfitrião do servidor de destino mestre, com acesso de leitura/escrita.
-- Se o anfitrião do ESXi que não seja gerido por um vCenter server, o serviço Site Recovery cria uma nova VM durante a nova proteção. A VM é criada no anfitrião ESX no qual criou a VM de destino mestre. O disco rígido da VM tem de ser um arquivo de dados que seja acessível pelo anfitrião no qual o servidor de destino mestre está em execução.
+- Se o anfitrião do ESXi que não seja gerido por um vCenter server, o serviço Site Recovery cria uma nova VM durante a nova proteção. A VM é criada no anfitrião ESX no qual criou a VM de destino mestre. O disco rígido da VM tem de estar num arquivo de dados que seja acessível pelo anfitrião no qual o servidor de destino principal está em execução.
 - Para máquinas físicas que efetuar a reativação pós-falha, deve concluir a deteção do anfitrião no qual o servidor de destino mestre está em execução, antes de poder voltar a proteger a máquina.
 - Outra opção, se a VM no local já existe para a reativação pós-falha, é eliminá-lo antes de fazer uma reativação pós-falha. A reativação pós-falha cria, em seguida, uma VM nova no mesmo anfitrião do anfitrião ESX do servidor de destino mestre. Quando fizer a reativação pós-falha para uma localização alternativa, os dados são recuperados para o mesmo arquivo de dados e para o mesmo anfitrião ESX que foi utilizado pelo servidor de destino mestre no local.
 - Não pode utilizar o Storage vMotion no servidor de destino mestre. Se o fizer, a reativação pós-falha não funcionará, porque os discos não estão disponíveis para a mesma. Exclua os servidores de destino mestre da sua lista do vMotion.
@@ -114,10 +120,9 @@ Execute a ativação pós-falha da seguinte forma:
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>Voltar a proteger máquinas no local para o Azure
 
-Os dados devem agora estar novamente no seu site no local, mas não está a replicar para o Azure. Pode iniciar a replicação para o Azure novamente da seguinte forma:
+Os dados devem estar agora outra vez no site no local, mas não estão a ser replicados para o Azure. Pode iniciar a replicação para o Azure novamente da seguinte forma:
 
 1. Em cofre > **Definições** >**Itens Replicados**, selecione as VMs das quais foi feita reativação pós-falha e clique em **Voltar a Proteger**.
 2. Selecione o servidor de processos que é utilizado para enviar os dados replicados para o Azure e clique em **OK**.
 
 Após a conclusão da nova proteção, a VM é replicada outra vez para o Azure e pode executar uma ativação pós-falha, conforme necessário.
-

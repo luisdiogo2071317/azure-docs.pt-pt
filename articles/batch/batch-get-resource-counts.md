@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698388"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391764"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorizar soluções do Batch por contagem de tarefas e nós pelo Estado
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 Pode utilizar um padrão semelhante para REST e outros idiomas com suporte para obter contagens de tarefas para uma tarefa. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Contagens por um grande número de tarefas
-
-A operação obter contagens de tarefas devolve as contagens dos Estados de tarefas no sistema num ponto no tempo. Quando o trabalho tiver um grande número de tarefas, as contagens devolvidas por obter contagens de tarefas podem lag os Estados de tarefa real por até alguns segundos. Batch garante a consistência eventual entre os resultados de obter a conta de tarefa e os Estados de tarefa real (que pode consultar através da API de tarefas da lista). No entanto, se o trabalho tiver um grande número de tarefas (> 200.000), recomendamos que utilize a API de tarefas da lista e um [consulta filtrada](batch-efficient-list-queries.md) em vez disso, que fornece mais informações atualizadas. 
-
-Versões de API de serviço do batch antes de 2018-08-01.7.0 também retornar um `validationStatus` propriedade na resposta obter contagens de tarefas. Esta propriedade indica se o Batch verificado que o estado de conta para manter a consistência com os Estados relatados na API de tarefas da lista. Um valor de `validated` indica apenas que o Batch verificada a consistência dos, pelo menos, uma vez para a tarefa. O valor da `validationStatus` propriedade não indica se as contagens que retorna obter contagens de tarefas estão atualmente atualizadas.
+> [!NOTE]
+> Versões de API de serviço do batch antes de 2018-08-01.7.0 também retornar um `validationStatus` propriedade na resposta obter contagens de tarefas. Esta propriedade indica se o Batch verificado que o estado de conta para manter a consistência com os Estados relatados na API de tarefas da lista. Um valor de `validated` indica apenas que o Batch verificada a consistência dos, pelo menos, uma vez para a tarefa. O valor da `validationStatus` propriedade não indica se as contagens que retorna obter contagens de tarefas estão atualmente atualizadas.
+>
 
 ## <a name="node-state-counts"></a>Contagens de estado do nó
 

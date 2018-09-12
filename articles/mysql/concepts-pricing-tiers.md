@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 614ea0dd69c9bb07df20634298c1192e6ffee789
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173678"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380340"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -45,7 +45,7 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
-| EUA Central | X |  |
+| EUA Central | X | X |
 | EUA Leste | X | X |
 | EUA Leste 2 | X | X |
 | EUA Centro-Norte | X | X |
@@ -57,7 +57,7 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 | Sul do Brasil | X | X |
 | Europa do Norte | X | X |
 | Europa Ocidental |  | X |
-| Centro de França |  | X |
+| França Central |  | X |
 | Reino Unido Oeste |  | X |
 | Reino Unido Sul |  | X |
 | Ásia Oriental | X | X |
@@ -67,11 +67,11 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 | Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
 | Índia Central | X | X |
-| Índia Ocidental | X | X |
+| Oeste da Índia | X | X |
 | Sul da Índia |  | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
-| Coreia Central |  | X |
+| Coreia do Sul Central |  | X |
 | Coreia do Sul |  | X |
 
 ## <a name="storage"></a>Armazenamento

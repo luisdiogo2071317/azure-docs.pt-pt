@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e4b6d115aebfd96d127e0d72c0c99188bedd93e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057190"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391815"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Limites e quotas de serviço do batch AI
 
@@ -33,22 +33,7 @@ Se planeja executar cargas de trabalho de produção no Batch AI, terá de aumen
 
 ## <a name="resource-quotas"></a>Quotas de recursos
 
-No Batch AI, há um limite de quota predefinidos o número de núcleos e o número de clusters permitidas por região numa subscrição.
-
-| **Recurso** | **Limite predefinido** | **Limite máximo** |
-| --- | --- | --- |
-| Núcleos dedicados por região | 10 - 24 | N/A<sup>1</sup> |
-| Núcleos de prioridade baixa por região | 10 - 24 | N/D<sup>2</sup> |
-| Clusters por região | 20 | 200<sup>3</sup> |
-
-> [!NOTE]
-> Limites predefinidos variam consoante o tipo de subscrição.
-
-<sup>1</sup> pode ser aumentado o número de núcleos dedicados por subscrição do Batch AI, mas o número máximo é não especificado. Contacte o suporte do Azure para discutir as opções de aumento.
-
-<sup>2</sup> pode ser aumentado o número de núcleos de prioridade baixa por subscrição do Batch AI, mas o número máximo é não especificado. Contacte o suporte do Azure para discutir as opções de aumento.
-
-<sup>3</sup> suporte do Azure de contacto para pedir um aumento para lá deste limite.
+[!INCLUDE [azure-batch-ai-limits](../../includes/azure-batch-ai-limits.md)]
 
 ## <a name="other-limits"></a>Outros limites
 

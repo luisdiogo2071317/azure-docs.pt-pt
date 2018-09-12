@@ -1,6 +1,6 @@
 ---
-title: Comparação de Azure Data Lake Store com o Azure Storage Blob | Documentos da Microsoft
-description: Comparação de Azure Data Lake Store com o Azure Storage Blob
+title: Comparação de geração 1 do Data Lake Storage do Azure com o Azure Storage Blob | Documentos da Microsoft
+description: Comparação de geração 1 do Data Lake Storage do Azure com o Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b374e92a1e1d9828bc8c095e29e1dfdfd13275b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 3cc38e7ede9882e78e509738351696a64c938c40
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492916"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391424"
 ---
-# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparar o Azure Data Lake Store e o armazenamento de Blobs do Azure
-A tabela este artigo resume as diferenças entre o Azure Data Lake Store e o armazenamento de Blobs do Azure ao longo de alguns aspetos-chave de processamento de macrodados. Armazenamento de Blobs do Azure é uma finalidade geral, o armazenamento de objetos dimensionável que foi concebido para uma grande variedade de cenários de armazenamento. Azure Data Lake Store é um repositório de hiperescala que está otimizado para cargas de trabalho de análise de macrodados.
+# <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparar o Azure Data Lake Storage Gen1 e o armazenamento de Blobs do Azure
+A tabela este artigo resume as diferenças entre a geração 1 de armazenamento do Azure Data Lake e o armazenamento de Blobs do Azure ao longo de alguns aspetos-chave de processamento de macrodados. Armazenamento de Blobs do Azure é uma finalidade geral, o armazenamento de objetos dimensionável que foi concebido para uma grande variedade de cenários de armazenamento. Geração de armazenamento 1 do Azure Data Lake é um repositório de hiperescala que está otimizado para cargas de trabalho de análise de macrodados.
 
-|  | Azure Data Lake Store | Armazenamento de Blobs do Azure |
+|  | Armazenamento do Azure Data Lake Ger1 | Armazenamento de Blobs do Azure |
 | --- | --- | --- |
 | Objetivo |Armazenamento otimizado para cargas de trabalho de análise de macrodados |Arquivo de objetos de fins gerais para uma grande variedade de cenários de armazenamento, incluindo a análise de macrodados |
 | Casos de utilização |Lote, interativas, transmissão em fluxo de análise e machine learning de dados, tais como ficheiros de registo, dados de IoT, clique em fluxos de grandes conjuntos de dados |Qualquer tipo de dados de texto ou binários, como o aplicativo faça uma cópia de ponto, dados de cópia de segurança e armazenamento de suportes de dados para dados de finalidade de transmissão em fluxo e geral. Além disso, total suporte para cargas de trabalho de análise; lote, interativas, transmissão em fluxo de análise e machine learning de dados, tais como ficheiros de registo, dados de IoT, clique em fluxos de grandes conjuntos de dados |
-| Conceitos-chave |Conta do Data Lake Store contém pastas, que por sua vez, contém armazenados como arquivos de dados |Conta de armazenamento tem contentores, que por sua vez tem dados na forma de blobs |
+| Conceitos-chave |Conta de armazenamento geração-1 do Data Lake contém pastas, que por sua vez contém os dados armazenados como arquivos |Conta de armazenamento tem contentores, que por sua vez tem dados na forma de blobs |
 | estrutura |Sistema de ficheiros hierárquico |Arquivo de objetos com o espaço de nomes simples |
 | API |API de REST através de HTTPS |API de REST através de HTTP/HTTPS |
 | API do lado do servidor |[API REST compatíveis com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[REST API do armazenamento de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: b7b5dcd88b6e4e09dd9beb21e83ef405df148115
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443389"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391015"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha de uma máquina virtual para o Azure
 
@@ -45,36 +45,51 @@ Recuperação de sites não foi possível criar um com falha através de máquin
 
 * Um dos recursos, como uma rede virtual que é necessário para a máquina virtual a ser criada não existe. Criar a rede virtual, conforme indicado nas definições de computação e rede da máquina virtual ou modificar a definição a uma rede virtual que já existe e, em seguida, repita a ativação pós-falha.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Não é possível ligar/RDP/SSH na máquina virtual devido a ativação pós-falha cinzento botão Conectar na máquina virtual
+## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>Não é possível ligar/RDP/SSH - VM ligar botão a cinzento
 
-Se o botão ligar está a cinzento e não estiver ligado ao Azure através de uma Express Route ou VPN de Site a Site ligação, em seguida,
+Se o **Connect** botão na ativação pós-falha VM no Azure está a cinzento e não estiver ligado ao Azure através de uma Express Route ou VPN de Site a Site ligação, em seguida,
 
 1. Aceda a **Máquina Virtual** > **redes**, clique no nome da interface de rede necessária.  ![interface de rede](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-1. Navegue para **configurações de Ip**, em seguida, clique no campo de nome de configuração de IP necessárias. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-1. Para ativar o endereço IP público, clique em **ativar**. ![Ativar o IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-1. Clique em **configurar definições necessárias** > **criar novo**. ![Criar um novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-1. Introduza o nome do endereço público, escolha as opções predefinidas para **SKU** e **atribuição**, em seguida, clique em **OK**.
-1. Agora, para guardar as alterações feitas, clique em **guardar**.
-1. Feche os painéis e navegue para **descrição geral** secção de máquina virtual para ligar/RDP.
+2. Navegue para **configurações de Ip**, em seguida, clique no campo de nome de configuração de IP necessárias. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Para ativar o endereço IP público, clique em **ativar**. ![Ativar o IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Clique em **configurar definições necessárias** > **criar novo**. ![Criar um novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Introduza o nome do endereço público, escolha as opções predefinidas para **SKU** e **atribuição**, em seguida, clique em **OK**.
+6. Agora, para guardar as alterações feitas, clique em **guardar**.
+7. Feche os painéis e navegue para **descrição geral** secção de máquina virtual para ligar/RDP.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>Não é possível ligar/RDP/SSH ao longo do virtual machine, embora Connect botão está disponível (não a cinzento) na máquina virtual
+## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Não é possível ligar/RDP/SSH - botão ligação da VM disponível
 
-Verifique **diagnósticos de arranque** na sua máquina Virtual e a verificação de erros, conforme listado neste artigo.
+Se o **Connect** botão na ativação pós-falha VM no Azure está disponível (não a cinzento), em seguida, verificar **diagnósticos de arranque** na sua máquina Virtual e a verificação de erros, conforme listado na [neste artigo](../virtual-machines/windows/boot-diagnostics.md).
 
 1. Se a máquina virtual tiver sido iniciada, experimente fazer failover para um ponto de recuperação mais antigo.
-1. Se o aplicativo dentro da máquina virtual não estiver em execução, tente a efetuar ativação pós-falha para um ponto de recuperação consistente com a aplicação.
-1. Se a máquina virtual está associado a um domínio, em seguida, certifique-se que esse controlador de domínio está a funcionar com precisão. Isso pode ser feito ao seguir a seguir uma lista de passos.
-    a. criar uma nova máquina virtual na mesma rede
+2. Se o aplicativo dentro da máquina virtual não estiver em execução, tente a efetuar ativação pós-falha para um ponto de recuperação consistente com a aplicação.
+3. Se a máquina virtual está associado a um domínio, em seguida, certifique-se que esse controlador de domínio está a funcionar com precisão. Isso pode ser feito ao seguir a seguir uma lista de passos:
+
+    a. Crie uma nova máquina virtual na mesma rede.
 
     b.  Certifique-se de que é capaz de aderir ao mesmo domínio em que a máquina virtual com ativação pós-falha é esperado que surgem.
 
-    c. Se o controlador de domínio estiver **não** funcionar com precisão, em seguida, tente o registo para a máquina virtual através de uma conta de administrador local com ativação pós-falha
-1. Se estiver a utilizar um servidor DNS personalizado, em seguida, certifique-se de que está acessível. Isso pode ser feito ao seguir a seguir uma lista de passos.
-    a. Crie uma nova máquina virtual na mesma rede e b. Verifique se a máquina virtual é capaz de resolver nomes com o servidor DNS personalizado
+    c. Se o controlador de domínio estiver **não** funcionar com precisão, em seguida, tente o registo para a máquina virtual através de uma conta de administrador local com ativação pós-falha.
+4. Se estiver a utilizar um servidor DNS personalizado, em seguida, certifique-se de que está acessível. Isso pode ser feito ao seguir a seguir uma lista de passos:
+
+    a. Criar uma nova máquina virtual na mesma rede e
+
+    b. Verifique se a máquina virtual é capaz de resolver nomes com o servidor DNS personalizado
 
 >[!Note]
 >Ativação de qualquer definição que não seja o diagnóstico de arranque exigiria que o agente da VM do Azure ser instalado na máquina virtual antes da ativação pós-falha
 
+## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensagem de encerramento inesperado (6008 de ID de evento)
+
+Quando a arrancar, uma VM do Windows após a ativação pós-falha, se receber uma mensagem de encerramento inesperado na VM recuperada, ele indica que um Estado de encerramento VM não foi capturado no ponto de recuperação utilizado para a ativação pós-falha. Isto acontece quando recuperar para um ponto quando a VM tinha não foi totalmente encerrada.
+
+Isso normalmente não é preocupante e geralmente pode ser ignorado para ativações pós-falha não planeadas. No caso de uma ativação pós-falha, certifique-se de que a VM está corretamente encerrada antes da ativação pós-falha e fornecer tempo suficiente para pendentes replicação dados no local a serem enviados para o Azure. Em seguida, utilize o **mais recente** opção a [ecrã de ativação pós-falha](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure são processados num ponto de recuperação, que, em seguida, é utilizado para a ativação pós-falha da VM.
+
+## <a name="retaining-drive-letter-after-failover"></a>Mantendo a letra de unidade após a ativação pós-falha
+Para manter a letra de unidade em máquinas virtuais após ativação pós-falha, pode definir o **política de SAN** para a máquina virtual no local para **OnlineAll**. [Leia mais](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+
 ## <a name="next-steps"></a>Passos Seguintes
+- Resolver problemas de [ligação de RDP à VM do Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Resolver problemas de [ligação SSH à VM do Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
 Se precisar de mais ajuda, em seguida, publique sua consulta no [fórum de recuperação de Site](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) ou deixe um comentário no final deste documento. Temos uma Comunidade ativa que deve ser capaz de ajudá-lo.

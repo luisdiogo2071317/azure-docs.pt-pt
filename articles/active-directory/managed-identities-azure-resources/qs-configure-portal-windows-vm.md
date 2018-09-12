@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: f729a7972a36d53cb8f4f3769aedde4ca2005d80
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 77953884253002c6da7b0151151d97bb65a6c659
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346136"
+ms.locfileid: "44377093"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurar identidades geridas para recursos do Azure numa VM com o portal do Azure
 
@@ -34,8 +34,10 @@ Neste artigo, saiba como ativar e desativar o sistema e de identidades geridas a
 - Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md).
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de controlo de acesso baseado em funções do Azure seguintes:
+
     > [!NOTE]
     > Nenhum adicionais do Azure AD directory as atribuições de funções necessárias.
+
     - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para ativar e remover atribuído de sistema de identidade gerida de uma VM do Azure.
 
 ## <a name="system-assigned-managed-identity"></a>Atribuído ao sistema de identidade gerida

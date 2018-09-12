@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918310"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391322"
 ---
 # <a name="failover-in-site-recovery"></a>Reativação pós-falha na Recuperação de Sites
 Este artigo descreve como máquinas de virtuais de ativação pós-falha e físico servidores protegidos pelo Site Recovery.
@@ -31,14 +31,14 @@ Utilize a tabela seguinte para saber sobre as opções de ativação pós-falha 
 
 
 ## <a name="run-a-failover"></a>Executar uma ativação pós-falha
-Este procedimento descreve como executar uma ativação pós-falha para uma [plano de recuperação](site-recovery-create-recovery-plans.md). Em alternativa pode executar a ativação pós-falha para uma única máquina virtual ou servidor físico a partir da **itens replicados** página
+Este procedimento descreve como executar uma ativação pós-falha para uma [plano de recuperação](site-recovery-create-recovery-plans.md). Em alternativa pode executar a ativação pós-falha para uma única máquina virtual ou servidor físico a partir da **itens replicados** página, tal como descrito [aqui](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
 ![Ativação pós-falha](./media/site-recovery-failover/Failover.png)
 
 1. Selecione **planos de recuperação** > *recoveryplan_name*. Clique em **ativação pós-falha**
 2. Sobre o **ativação pós-falha** ecrã, selecione um **ponto de recuperação** a ativação pós-falha. Pode utilizar uma das opções seguintes:
-    1.  **Mais recente** (predefinição): esta opção inicia a tarefa pela primeira processar todos os dados que tenham sido enviados para o serviço Site Recovery. Processar os dados cria um ponto de recuperação para cada máquina virtual. Este ponto de recuperação é utilizado pela máquina virtual durante a ativação pós-falha. Esta opção disponibiliza o último RPO (objetivo de ponto de recuperação) que a máquina virtual criada após a ativação pós-falha tem todos os dados que foram replicada para o serviço Site Recovery quando a ativação pós-falha foi acionada.
+    1.  **Mais recente**: esta opção inicia a tarefa pela primeira processar todos os dados que tenham sido enviados para o serviço Site Recovery. Processar os dados cria um ponto de recuperação para cada máquina virtual. Este ponto de recuperação é utilizado pela máquina virtual durante a ativação pós-falha. Esta opção disponibiliza o último RPO (objetivo de ponto de recuperação) que a máquina virtual criada após a ativação pós-falha tem todos os dados que foram replicada para o serviço Site Recovery quando a ativação pós-falha foi acionada.
     1.  **Processado mais recentemente**: esta opção efetuará a ativação pós-falha de todas as máquinas virtuais do plano de recuperação do ponto de recuperação mais recente que já foram processados pelo serviço Site Recovery. Quando estiver fazendo a ativação pós-falha de teste de uma máquina virtual, o carimbo de data / hora do ponto de recuperação processados também é mostrado. Se estiver a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e examinar **pontos de recuperação mais recentes** mosaico para obter essas informações. Como não é despendido tempo a processar os dados não processados, esta opção fornece uma opção de ativação pós-falha RTO (objetivo de tempo de recuperação) baixo.
     1.  **Mais recente consistente com a aplicação**: esta opção efetuará a ativação pós-falha de todas as máquinas virtuais do plano de recuperação do ponto de recuperação consistente com a mais recente do aplicativo que já foram processados pelo serviço Site Recovery. Quando estiver fazendo a ativação pós-falha de teste de uma máquina virtual, o carimbo de hora o mais recente consistente com a aplicação do ponto de recuperação também é mostrado. Se estiver a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e examinar **pontos de recuperação mais recentes** mosaico para obter essas informações.
     1.  **MULTI-VM mais recente processado**: esta opção só está disponível para planos de recuperação que tenham, pelo menos, uma máquina virtual com consistência de várias VMS no. Ponto de máquinas virtuais que fazem parte de um grupo de replicação ativação pós-falha para a recuperação mais recente comuns multi-VMS consistente. Outra ativação pós-falha de máquinas virtuais para o ponto mais recente processado recuperação.  
@@ -104,18 +104,19 @@ Em certos casos, a ativação pós-falha de máquinas virtuais requer uma etapa 
 
 Em todos os outros casos, este passo intermédio não é necessário e o tempo decorrido para a ativação pós-falha é inferior.
 
-
-
-
-
 ## <a name="using-scripts-in-failover"></a>Usando scripts na ativação pós-falha
 Convém automatizar determinadas ações ao efetuar uma ativação pós-falha. Pode utilizar scripts ou [runbooks de automatização do Azure](site-recovery-runbook-automation.md) na [planos de recuperação](site-recovery-create-recovery-plans.md) para fazer isso.
 
 ## <a name="post-failover-considerations"></a>Considerações de ativação pós-falha de postagem
 Após a ativação pós-falha que pode querer considerar as seguintes recomendações:
 ### <a name="retaining-drive-letter-after-failover"></a>Mantendo a letra de unidade após a ativação pós-falha
-Para manter a letra de unidade em máquinas virtuais após ativação pós-falha, pode definir o **política de SAN** para a máquina virtual **OnlineAll**. [Leia mais](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Para manter a letra de unidade em máquinas virtuais após ativação pós-falha, pode definir o **política de SAN** para a máquina virtual **OnlineAll**. [Leia mais](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
+
+Se pretender ligar a VMs do Azure com RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver problemas de qualquer conectividade problemas após a ativação pós-falha.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

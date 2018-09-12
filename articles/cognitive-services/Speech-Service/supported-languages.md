@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 704534ed50e12e7f9290cb321ad3b9e1b99117d5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668585"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377893"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas suportados para o serviço de voz
 
@@ -29,13 +29,22 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas.
  ar-por exemplo | Árabe (Egito), standard moderna | Não | Sim | Não
  it-IT | Italiano (Itália) | Não | Sim | Não 
  de-DE | Alemão (Alemanha) | Não | Sim | Sim
- ja-JP | Japonês (Japão) | Não | Sim | Não
- pt-PT | Inglês (Estados Unidos) | Sim | Sim | Sim
- pt-BR | Português (Brasil) | Não | Sim | Não
- es-ES | Espanhol (Espanha) | Não | Sim | Não
- ru-RU | Russo (Rússia) | Não | Sim | Não
  FR-FR | Francês (França) | Não | Sim | Não
+ pt-PT | Inglês (Estados Unidos) | Sim | Sim | Sim
+ en-GB | Inglês (British) | Não | Sim | Não
+ en-CA | Inglês (Canadá) | Não | Sim | Não
+ EN-AU | Inglês (Austrália) | Não | Sim | Não
+ es-ES | Espanhol (Espanha) | Não | Sim | Não
+ NL-NL | Holandês (Países Baixos) | Não | Sim | Não
+ pt-PT | Portoguese (Portogal) | Não | Sim | Não
+ tr-TR | Turco (Turquia) | Não | Sim | Não
+ pt-BR | Português (Brasil) | Não | Sim | Não
+ ru-RU | Russo (Rússia) | Não | Sim | Não
  zh-CN | Chinês (simplificado Mandarim) | Não | Sim | Não
+ zh-HK | Chinês (Mandarim, tradicional) | Não | Sim | Não
+ zh-TW | Chinês (Taiwanês Mandarim) | Não | Sim | Não
+ ja-JP | Japonês (Japão) | Não | Sim | Não
+ ko-KR | Coreano (Coreia) | Não | Sim | Não
 
 ## <a name="text-to-speech"></a>Conversão de Texto em Voz
 

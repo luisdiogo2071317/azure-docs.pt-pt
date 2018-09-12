@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: bb5e58c0cb06baabf76d7d0443e94b368549176f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 7948b54bd6402cf238c5709d270087746ed4fa95
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051345"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380374"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Runtime de integração autoalojado
 O Runtime de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do Runtime de integração](concepts-integration-runtime.md).
@@ -134,7 +134,6 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 
 - O certificado tem de ser um publicamente fidedigno X509 v3 certificado. Recomendamos que utilize certificados emitidos por uma autoridade de certificação de (de terceiros) pública (AC).
 - Cada nó do integration runtime têm de confiar este certificado.
-- Os certificados de caráter universal são suportados. Se o nome FQDN for **node1.domain.contoso.com**, pode utilizar ***. domain.contoso.com** como nome do requerente do certificado.
 - Certificados SAN não são recomendados uma vez que será utilizado apenas o último item dos nomes alternativos do requerente e todos os outros serão ignorados devido a limitação atual. Por exemplo, tem um certificado SAN é cujo SAN **node1.domain.contoso.com** e **node2.domain.contoso.com**, só pode utilizar este certificado no computador cujo FQDN for **node2.domain.contoso.com**.
 - Suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados SSL.
 - Usando a CNG de certificado não são suportadas chaves.  

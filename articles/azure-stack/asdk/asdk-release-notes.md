@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: fe6be5a041b87af2323c7978c5371e326b3cd3d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051277"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391951"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Azure Stack Development Kit  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -60,6 +60,8 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 - <!-- 1697698  | IS, ASDK --> *Tutoriais de início rápido* na ligação de agora de dashboard do portal de utilizador para os artigos relevantes na documentação do Azure Stack online.
 
 - <!-- 2515955   | IS ,ASDK--> *Todos os serviços* substitui *mais serviços* nos portais do administrador e utilizador do Azure Stack. Agora, pode utilizar *todos os serviços* como uma alternativa para navegar nos portais do Azure Stack, da mesma forma que nos portais do Azure.
+
+- <!-- TBD | IS, ASDK --> **+ Criar um recurso** substitui **+ novo** nos portais do administrador e utilizador do Azure Stack.  Agora, pode utilizar *+ criar um recurso* como uma alternativa para navegar nos portais do Azure Stack, da mesma forma que nos portais do Azure. 
 
 - <!--  TBD – IS, ASDK --> *Básico A* tamanhos de máquinas virtuais foram extinguidos para [criar conjuntos de dimensionamento de máquinas virtuais](.\.\azure-stack-compute-add-scalesets.md) (VMSS) através do portal. Para criar um VMSS com este tamanho, utilize o PowerShell ou um modelo. 
 

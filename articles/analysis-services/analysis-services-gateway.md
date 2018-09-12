@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ba46223f0d0a4db7615bc94fe8a1bbfa18e57f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ed2614969952eab90dfec572d9b61071981c4bf
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442343"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391628"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ligar a origens de dados no local com o Gateway de dados do Azure no local
-O gateway de dados no local atua como uma ponte, fornecendo a transferência de dados segura entre origens de dados no local e os servidores do Azure Analysis Services na cloud. Além de trabalhar com vários servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com o Azure Logic Apps, o Power BI, o Power Apps e o Microsoft Flow. Pode associar vários serviços na mesma região com um único gateway. 
+O gateway de dados no local atua como uma ponte, fornecendo a transferência de dados segura entre origens de dados no local e os servidores do Azure Analysis Services na cloud. Além de trabalhar com vários servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com o Azure Logic Apps, o Power BI, o Power Apps e o Microsoft Flow. Pode associar vários serviços na mesma subscrição e na mesma região com um único gateway. 
 
 Obter configuração com o gateway pela primeira vez é um processo de quatro partes:
 
@@ -26,7 +26,7 @@ Obter configuração com o gateway pela primeira vez é um processo de quatro pa
 
 - **Criar um recurso de gateway no Azure** -neste passo, vai criar um recurso de gateway na sua subscrição do Azure.
 
-- **Ligar os servidores para o recurso de gateway** -depois de ter um recurso de gateway na sua subscrição, pode começar a ligar os servidores ao mesmo. Pode ligar vários servidores e outros recursos ao mesmo.
+- **Ligar os servidores para o recurso de gateway** -depois de ter um recurso de gateway na sua subscrição, pode começar a ligar os servidores ao mesmo. Pode ligar vários servidores e outros recursos, desde que estejam na mesma subscrição e na mesma região.
 
 Para dar os primeiros passos, veja [instalar e configurar o gateway de dados no local](analysis-services-gateway-install.md).
 

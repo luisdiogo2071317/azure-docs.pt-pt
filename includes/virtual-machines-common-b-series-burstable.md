@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182594"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369350"
 ---
 A família VM de série B permite-lhe escolher o tamanho VM fornece-lhe o desempenho de nível de base necessárias para a sua carga de trabalho, a capacidade de desempenho de CPU de rajada de até 100% de um v4 Intel® Broadwell E5-2673 2.3 GHz ou um processador de v3 Intel® Haswell 2.4 GHz E5-2673 vCPU.
 
-As VMs de série B são ideais para cargas de trabalho que não necessita de um desempenho total da CPU continuamente, como servidores web, desenvolvimento e pequenas bases de dados e os ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece-lhe a possibilidade de comprar um tamanho de VM com o desempenho de linha de base e a instância VM cria créditos quando está a utilizar menos do que sua linha de base. Quando a VM acumular crédito, a VM pode ultrapassar os limites acima a linha de base com até 100% da vCPU quando a sua aplicação necessitar de desempenho de CPU superior.
+As VMs de série B são ideais para cargas de trabalho que não é necessário um desempenho total da CPU continuamente, como servidores web, prova de conceitos, pequenas bases de dados e ambientes de compilação de desenvolvimento. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece-lhe a possibilidade de comprar um tamanho de VM com o desempenho de linha de base e a instância VM cria créditos quando está a utilizar menos do que sua linha de base. Quando a VM acumular crédito, a VM pode ultrapassar os limites acima a linha de base com até 100% da vCPU quando a sua aplicação necessitar de desempenho de CPU superior.
 
 A série B possui os seguintes seis tamanhos VM:
 
@@ -47,11 +47,11 @@ Para obter mais informações sobre como acessar os dados das métricas para o A
 ### <a name="q-how-are-credits-accumulated"></a>P: como os créditos são acumulados?
 **A**: taxas de acumulação e o consumo da VM são definidas, de modo a que uma VM em execução em exatamente seu nível de desempenho de base terá nem uma acumulação de rede ou o consumo de extrapolação créditos.  Uma VM terá um aumento de net em créditos sempre que estiver em execução abaixo seu nível de desempenho de base e terá uma diminuição líquida créditos sempre que a VM estiver a utilizar a CPU mais do que seu nível de desempenho de base.
 
-**Exemplo**: eu implantar uma VM com o tamanho de B1ms para meu aplicativo de banco de dados de tempo de pequeno e participação. Este tamanho permite que a minha aplicação utilizar até 20% de um vCPU como minha linha de base, o que é.2 créditos por minuto, que posso usar ou banco. 
+**Exemplo**: eu implantar uma VM com o tamanho de B1ms para meu aplicativo de banco de dados de tempo de pequeno e participação. Este tamanho permite que a minha aplicação utilizar até 20% de um vCPU como minha linha de base, o que é 0,2 créditos por minuto, que posso usar ou banco. 
 
-Meu aplicativo está ocupado no início e fim do dia de trabalho meus funcionários, entre 7:00 - 9:00 e 4: - 6 das 12:00:00. Durante as outras 20 horas do dia, meu aplicativo é, normalmente, em inatividade, usando apenas 10% da vCPU. Para as horas de pico, ganhe créditos 0,2 por minuto, mas só consumir 0.l créditos por minuto, para que a minha VM será bancária.1 x 60 = 6 créditos por hora.  Para 20 horas que estou fora de pico, eu será bancária 120 créditos.  
+Meu aplicativo está ocupado no início e fim do dia de trabalho meus funcionários, entre 7:00 - 9:00 e 4: - 6 das 12:00:00. Durante as outras 20 horas do dia, meu aplicativo é, normalmente, em inatividade, usando apenas 10% da vCPU. Para as horas de pico, eu Ganhe créditos 0,2 por minuto, mas só consumir 0.l créditos por minuto, para que a minha VM será bancária 0,1 x 60 = 6 créditos por hora.  Para 20 horas que estou fora de pico, eu será bancária 120 créditos.  
 
-Durante o horário de pico meu aplicativo calcula a média 60% de utilização de vCPU, eu ainda Ganhe créditos 0,2 por minuto, mas eu consumir 0,6 créditos por minuto, um custo líquido de.4 créditos um minuto ou.4 x 60 = 24 créditos, por hora. Tenho 4 horas por dia de pico do uso de, pelo que custa 24 x 4 = 96 créditos quanto ao meu uso de pico.
+Durante o horário de pico meu aplicativo calcula a média 60% de utilização de vCPU, eu ainda Ganhe créditos 0,2 por minuto, mas eu consumir 0,6 créditos por minuto, um custo líquido de 0.4 créditos um minuto ou 0.4 x 60 = 24 créditos, por hora. Tenho 4 horas por dia de pico do uso de, pelo que custa 24 x 4 = 96 créditos quanto ao meu uso de pico.
 
 Se eu tirar os 120 créditos que obter fora de pico e subtrair os 96 créditos que usei para meu as horas de ponta, eu bancária um créditos adicionais 24 por dia em que posso usar para outros absorver picos de atividade.
 

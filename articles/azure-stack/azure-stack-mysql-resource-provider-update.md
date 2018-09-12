@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 86e72787347cddd399fbdde4cd943b86ba48375f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fb9f022f0af821d81e5b61b99ecb52b7f7151b5f
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697837"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391560"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Atualizar o fornecedor de recursos do MySQL 
 
@@ -40,6 +40,9 @@ O **UpdateMySQLProvider.ps1** script cria uma nova VM com o código do Provedor 
 
 >[!NOTE]
 >Recomendamos que baixe a imagem do Windows Server 2016 Core mais recente da gestão do Marketplace. Se precisar de instalar uma atualização, pode colocar um **único** pacote MSU no caminho do local de dependência. O script irá falhar se houver mais de um ficheiro MSU nesta localização.
+
+>[!NOTE]  
+> 
 
 O script requer a utilização dos mesmos argumentos que são descritos para o script de DeployMySqlProvider.ps1. Forneça o certificado aqui também.  
 

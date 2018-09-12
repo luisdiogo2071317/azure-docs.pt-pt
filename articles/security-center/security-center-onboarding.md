@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e74a5a431144c303b0301c8b7a22417784ecb65b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300505"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380000"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuitamente durante 60 dias. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -103,7 +103,7 @@ Pode adicionar um computador, seguindo o fluxo de trabalho do **inclusão**, con
 
    ![Adicionar computadores][7]
 
- O **agente direto** painel fornece um link para baixar um agente do Windows ou Linux e as chaves para o seu ID de área de trabalho para utilizar na configuração do agente.   
+ O **agente direto** painel fornece um link para baixar um agente do Windows ou Linux, bem como o ID de área de trabalho e as chaves a utilizar na configuração do agente.   
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a carregar Azure e de recursos não Azure para se beneficiar das segurança avançada do Centro de segurança.  Para fazer mais com os recursos de integração, consulte

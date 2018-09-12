@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887349"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380295"
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook num alerta de métrica do Azure
+# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook
 Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para serviços que enviam mensagens SMS, para registrar bugs, para notificar a equipa através de bate-papo ou serviços de mensagens ou para várias outras ações. 
 
 Este artigo descreve como definir um webhook num alerta de métrica do Azure. Ele também mostra o payload para o HTTP POST para um webhook como fica. Para obter informações sobre o programa de configuração e o esquema de uma atividade do Azure alerta de registo (alerta em eventos), consulte [chamar um webhook num alerta de registo de atividades do Azure](insights-auditlog-to-webhook-email.md).
@@ -72,20 +72,20 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 | Campo | Obrigatório | Conjunto fixo de valores | Notas |
 |:--- |:--- |:--- |:--- |
 | status |S |Ativado, resolvido |O estado do alerta com base nas condições que definir. |
-| contexto |S | |O contexto do alerta. |
+| Contexto |S | |O contexto do alerta. |
 | carimbo de data/hora |S | |A hora em que o alerta foi acionado. |
 | ID |S | |Cada regra de alerta tem um ID exclusivo. |
 | nome |S | |O nome do alerta. |
 | descrição |S | |Uma descrição do alerta. |
 | conditionType |S |Métrica, eventos |Dois tipos de alertas são suportados: métricas e eventos. Alertas de métricas são baseadas em condições de métricas. Alertas de eventos baseiam-se num evento no registo de atividades. Utilize este valor para verificar se o alerta é com base numa métrica ou num evento. |
-| condição |S | |Os campos específicos para verificar se baseia a **conditionType** valor. |
-| metricName |Para alertas de métricas | |O nome da métrica que define o que a regra monitoriza. |
+| condition |S | |Os campos específicos para verificar se baseia a **conditionType** valor. |
+| MetricName |Para alertas de métricas | |O nome da métrica que define o que a regra monitoriza. |
 | metricUnit |Para alertas de métricas |Bytes, BytesPerSecond, contagem, CountPerSecond, por cento, segundos |A unidade permitida na métrica. Ver [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Para alertas de métricas | |O valor real da métrica que causou o alerta. |
-| limiar |Para alertas de métricas | |O valor de limiar em que o alerta está ativado. |
+| Limiar |Para alertas de métricas | |O valor de limiar em que o alerta está ativado. |
 | windowSize |Para alertas de métricas | |O período de tempo que é utilizado para monitorizar a atividade de alerta com base no limiar. O valor tem de ser entre 5 minutos e 1 dia. O valor tem de estar no formato de duração ISO 8601. |
 | timeAggregation |Para alertas de métricas |Média, último, máximo, mínimo, None, Total |Como os dados que são recolhidos devem ser combinados ao longo do tempo. O valor predefinido é média. Ver [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operador |Para alertas de métricas | |O operador que é utilizado para comparar os dados de métricos atuais para o limiar definido. |
+| Operador |Para alertas de métricas | |O operador que é utilizado para comparar os dados de métricos atuais para o limiar definido. |
 | subscriptionId |S | |O ID de subscrição do Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
 | resourceName |S | |O nome de recurso do recurso afetado. |

@@ -1,25 +1,24 @@
 ---
-title: "SDK .NET: operações do sistema de ficheiros no Azure Data Lake Store | Microsoft Docs"
-description: "Utilize o SDK .NET do Azure Data Lake Store para executar operações do sistema de ficheiros no Data Lake Store, como criar pastas, etc."
+title: '.NET SDK: Operações de sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
+description: Utilização do Azure Data Lake Gen1 SDK .NET do armazenamento para executar operações de sistema de ficheiros no Data Lake Storage Gen1, como criar pastas, etc.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1094a5ea3c000707aa7736d22d4df0558da32b5e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391492"
 ---
-# <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Operações do sistema de ficheiros no Azure Data Lake Store com o SDK .NET
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
 > * [SDK do .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK Java](data-lake-store-get-started-java-sdk.md)
@@ -28,16 +27,16 @@ ms.lasthandoff: 02/27/2018
 >
 >
 
-Neste artigo, aprenderá a efetuar operações do sistema de ficheiros no Data Lake Store com o SDK .NET. As operações do sistema de ficheiros incluem criar pastas numa conta do Data Lake Store, carregar ficheiros, transferir ficheiros, etc.
+Neste artigo, irá aprender a efetuar operações de sistema de ficheiros no Data Lake Storage Gen1 com o .NET SDK. Operações de sistema de ficheiros incluem criar pastas numa conta do Data Lake Storage Gen1, carregar ficheiros, transferir ficheiros, etc.
 
-Para obter instruções sobre como efetuar operações de gestão de contas no Data Lake Store com o SDK .NET, veja [Operações de gestão de contas no Data Lake Store com o SDK .NET](data-lake-store-get-started-net-sdk.md).
+Para obter instruções sobre como efetuar operações de gestão de conta na geração 1 de armazenamento do Data Lake com o .NET SDK, consulte [operações de gestão no Gen1 de armazenamento do Data Lake com o .NET SDK da conta](data-lake-store-get-started-net-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Visual Studio 2013, 2015 ou 2017**. As instruções abaixo utilizam o Visual Studio 2017.
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Conta do Azure Data Lake Store**. Para obter instruções sobre como criar uma conta, veja [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md)
+* **Conta do Azure de geração 1 de armazenamento do Data Lake**. Para obter instruções sobre como criar uma conta, consulte [introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-a-net-application"></a>Criar uma aplicação .NET
 O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) explica-lhe o processo de criação de ficheiros no arquivo, de concatenação de ficheiros, de transferência de um ficheiro e de eliminação de alguns ficheiros do arquivo. Esta secção do artigo explica-lhe as partes principais do código.
@@ -85,7 +84,7 @@ O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/da
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
+                private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";        
             }
         }
 
@@ -93,21 +92,21 @@ Nas restantes secções do artigo, pode ver como utilizar os métodos .NET dispo
 
 ## <a name="authentication"></a>Autenticação
 
-* Para a autenticação de utilizador final na sua aplicação, veja [Autenticação de utilizador final com o Data Lake Store com o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md).
-* Para a autenticação serviço a serviço na sua aplicação, veja [Autenticação serviço a serviço com o Data Lake Store com o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
+* Para a autenticação de utilizador final para a sua aplicação, veja [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* Para a autenticação de serviço a serviço para a sua aplicação, veja [autenticação de serviço para serviço com geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 
 ## <a name="create-client-object"></a>Criar o objeto de cliente
-O fragmento seguinte cria o objeto de cliente filesystem do Data Lake Store, que é utilizado para emitir pedidos ao serviço.
+O fragmento seguinte cria o objeto de cliente de sistema de ficheiros de geração 1 de armazenamento do Data Lake, que é utilizado para emitir pedidos ao serviço.
 
     // Create client objects
-    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## <a name="create-a-file-and-directory"></a>Criar um ficheiro e um diretório
 Adicione o fragmento seguinte à sua aplicação. Este fragmento adiciona um ficheiro, bem como qualquer diretório principal que não exista.
 
     // Create a file - automatically creates any parent directories that don't exist
-    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
+    // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
     using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
     {
         byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
@@ -118,7 +117,7 @@ Adicione o fragmento seguinte à sua aplicação. Este fragmento adiciona um fic
     }
 
 ## <a name="append-to-a-file"></a>Acrescentar a um ficheiro
-O fragmento seguinte liga dados a um ficheiro já existente na conta do Data Lake Store.
+O fragmento seguinte liga dados a um arquivo existente na conta de geração 1 de armazenamento do Data Lake.
 
     // Append to existing file
     using (var stream = client.GetAppendStream(fileName))
@@ -128,7 +127,7 @@ O fragmento seguinte liga dados a um ficheiro já existente na conta do Data Lak
     }
 
 ## <a name="read-a-file"></a>Ler um ficheiro
-O fragmento seguinte lê os conteúdos de ficheiros no Data Lake Store.
+O fragmento seguinte lê o conteúdo de um ficheiro na geração 1 de armazenamento do Data Lake.
 
     //Read file contents
     using (var readStream = new StreamReader(client.GetReadStream(fileName)))
@@ -150,14 +149,14 @@ O fragmento seguinte devolve as propriedades associadas a um ficheiro ou diretó
 A definição do método `PrintDirectoryEntry` está disponível como parte do exemplo [no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>Mudar o nome de um ficheiro
-O fragmento seguinte muda o nome de um ficheiro já existente numa conta do Data Lake Store.
+O fragmento seguinte muda o nome de um ficheiro existente numa conta de geração 1 de armazenamento do Data Lake.
 
     // Rename a file
     string destFilePath = "/Test/testRenameDest3.txt";
     client.Rename(fileName, destFilePath, true);
 
 ## <a name="enumerate-a-directory"></a>Enumerar um diretório
-O fragmento seguinte enumera os diretórios numa conta do Data Lake Store.
+O fragmento seguinte enumera os diretórios numa conta de geração 1 de armazenamento do Data Lake
 
     // Enumerate directory
     foreach (var entry in client.EnumerateDirectory("/Test"))
@@ -170,17 +169,17 @@ A definição do método `PrintDirectoryEntry` está disponível como parte do e
 ## <a name="delete-directories-recursively"></a>Eliminar diretórios recursivamente
 O fragmento seguinte elimina um diretório e todos os respetivos sub-diretórios, recursivamente.
 
-    // Delete a directory and all it's subdirectories and files
+    // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");
 
 ## <a name="samples"></a>Amostras
-Seguem-se alguns exemplos da utilização do SDK Filesystem do Data Lake Store.
+Aqui estão alguns exemplos sobre como utilizar o SDK de sistema de ficheiros de geração 1 do Data Lake Storage.
 * [Exemplo básico no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Exemplo avançado no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Consulte também
-* [Operações de gestão de contas no Data Lake Store com o SDK .NET](data-lake-store-get-started-net-sdk.md)
-* [Referência do SDK .NET do Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Operações de gestão de conta na geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Referência do SDK de .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Passos seguintes
-* [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
+## <a name="next-steps"></a>Passos Seguintes
+* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 55a271e49977feb6d8e5c188f1724b66db4cb4f5
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060905"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Azure Active Directory com várias contas do Amazon Web Services (AWS)
 
@@ -317,6 +317,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 27. Assim que os grupos são criados, selecione o grupo e atribuir à aplicação.
 
     ![Configurar o início de sessão único adicionar](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+
+> [!Note]
+> Grupos aninhados não são suportados durante a atribuição de grupos.
 
 28. Para atribuir a função ao grupo, selecione a função e clique em **atribuir** botão na parte inferior da página.
 

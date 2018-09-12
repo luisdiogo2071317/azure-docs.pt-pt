@@ -8,16 +8,18 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 512f251a91a035d3d48566c414076b1a5b6d8805
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e8d12320eea1d0fa2dad7fffb8d29ae8b53cee14
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37907105"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369395"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para bases de dados de grandes volumes de dados SQL e NoSQL. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
-A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.  
+A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.  As VMs da série ls são ideais para aplicações que requerem baixa latência, alto débito e armazenamento de disco local grandes. 
+
+Casos de utilização de exemplo incluem bases de dados NoSQL como Cassandra, MongoDB, Cloudera e Redis, o armazenamento de dados e grandes bancos de dados transacionais.
 
 ## <a name="ls-series"></a>Série Ls
 

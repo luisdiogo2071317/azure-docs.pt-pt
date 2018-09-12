@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 120068cb9dcd92b2b18c2e175793d2072baa2724
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95d6c392bb0fcb5dfef21fabde9b0bd44e2284a3
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112168"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379490"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -242,7 +242,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
   | Edge: tamanho VM de recomendado | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Sul do Brasil e oeste do Japão apenas (não existem tamanhos v2):
 
-  | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Servidor de ML |
+  | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Serviço ML |
   | --- | --- | --- | --- | --- | --- | --- |
   | Cabeça: tamanho VM predefinido |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | HEAD: recomendado tamanhos de VM |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

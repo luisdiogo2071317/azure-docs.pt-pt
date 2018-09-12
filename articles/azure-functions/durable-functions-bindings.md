@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 32cf0ad791a8b36d6a90519d428df0b21d542a31
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6a9ecbcc5161f47a192d5bf3a893a42b3ee9ce2f
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092806"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379507"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -121,7 +121,7 @@ module.exports = df(function*(context) {
 
 O acionador de atividade permite-lhe criar funções que são chamados por funções do orchestrator.
 
-Se estiver a utilizar o Visual Studio, o acionador de atividade é configurado com o [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) atributo .NET. 
+Se estiver a utilizar o Visual Studio, o acionador de atividade é configurado com o [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) atributo .NET. 
 
 Se estiver a utilizar o portal do Azure para desenvolvimento, o acionador de atividade é definido pelo seguinte objeto JSON no `bindings` matriz de *Function*:
 

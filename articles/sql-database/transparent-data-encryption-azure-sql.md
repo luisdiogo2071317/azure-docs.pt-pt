@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 0ed05fd2d55f1c4c80bec9f64925be2eddddc067
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043858"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380204"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 
@@ -128,7 +128,7 @@ Para configurar a encriptação de dados transparente através da API REST, tem 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral da encriptação transparente de dados, veja [encriptação de dados transparente] ((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption).
+- Para obter uma descrição geral da encriptação transparente de dados, consulte [encriptação de dados transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Para saber mais sobre a encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados SQL e o armazém de dados, veja [encriptação de dados transparente com suporte de traga a sua própria chave](transparent-data-encryption-byok-azure-sql.md).
 - Para começar a utilizar a encriptação de dados transparente com suporte de traga a sua própria chave, consulte o guia de procedimentos [ativar a criptografia transparente de dados utilizando a sua própria chave do Key Vault com o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - Para obter mais informações sobre o Key Vault, consulte a [página de documentação do Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

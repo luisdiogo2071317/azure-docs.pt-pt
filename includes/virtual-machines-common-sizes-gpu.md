@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 268da0e5d078f7b6b4b36929dbf6755068adb444
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1527ea5fbd97527312600e74417ac444422ab614
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37907179"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369264"
 ---
 VM com otimização de GPU são de tamanhos de máquinas virtuais especializadas disponíveis com GPUs NVIDIA únicas ou múltiplas. Estes tamanhos foram concebidos para cargas de trabalho de computação intensiva, grande intensidade de gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. Largura de banda de armazenamento, débito e de rede também estão incluídos para cada tamanho neste agrupamento. 
 
-* **NC, a NCv2, NCv3 e ND** tamanhos estão otimizados para aplicações de computação e rede intensivas e algoritmos. Alguns exemplos são aplicações baseadas em CUDA e OpenCL e simulações, IA e aprendizagem aprofundada. 
-* **NV** tamanhos são otimizados e concebidos para visualização remota, transmissão em fluxo, jogos, codificação e cenários VDI com arquiteturas, como OpenGL e DirectX.  
+* **NC, a NCv2, NCv3 e ND** tamanhos estão otimizados para aplicações de computação e rede intensivas e algoritmos. Alguns exemplos são aplicações baseadas em CUDA e OpenCL e simulações, IA e aprendizagem aprofundada. A série NC se concentra em alto desempenho cargas de trabalho computacionais do placa GPU da NVIDIA Tesla V100.  A série ND destina-se a cenários de formação e inferência para aprendizagem aprofundada. Utiliza o GPU NVIDIA Tesla P40.
+* **NV** tamanhos são otimizados e concebidos para visualização remota, transmissão em fluxo, jogos, codificação e cenários VDI com arquiteturas, como OpenGL e DirectX.  Estas VMs são apoiadas por NVIDIA Tesla M60 GPU.
 
 
 ## <a name="nc-series"></a>Série NC

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173712"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379547"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -46,7 +46,7 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
-| EUA Central | X |  |
+| EUA Central | X | X |
 | EUA Leste | X | X |
 | EUA Leste 2 | X | X |
 | EUA Centro-Norte | X | X |
@@ -58,7 +58,7 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 | Sul do Brasil | X | X |
 | Europa do Norte | X | X |
 | Europa Ocidental |  | X |
-| Centro de França |  | X |
+| França Central |  | X |
 | Reino Unido Oeste |  | X |
 | Reino Unido Sul |  | X |
 | Ásia Oriental | X | X |
@@ -68,11 +68,11 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 | Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
 | Índia Central | X | X |
-| Índia Ocidental | X | X |
+| Oeste da Índia | X | X |
 | Sul da Índia |  | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
-| Coreia Central |  | X |
+| Coreia do Sul Central |  | X |
 | Coreia do Sul |  | X |
 
 ## <a name="storage"></a>Armazenamento

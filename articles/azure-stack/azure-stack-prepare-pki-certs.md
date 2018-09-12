@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 387c4ce51d7bc9b618bb87fd347b9448926452b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426800"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379593"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparar os certificados PKI de pilha do Azure para a implementação
 Os ficheiros de certificado [obtido a partir de sua autoridade de certificação à escolha](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes a requisitos de certificado do Azure Stack.
@@ -45,7 +44,7 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
     ![Configurar o arquivo de certificados](.\media\prepare-pki-certs\3.png)
 
-    a. Se estiver a importar um PFX ser-lhe-á apresentada uma caixa de diálogo adicional. Sobre o **proteção por chave privada** página, introduza a palavra-passe para os seus ficheiros de certificado e, em seguida, ative o **marcar esta chave como exportável. Isto permite-lhe criar cópias de segurança ou transportar as chaves num momento posterior** opção. Selecione **Seguinte**.
+    a. Se estiver a importar um PFX, ser-lhe-á apresentada uma caixa de diálogo adicional. Sobre o **proteção por chave privada** página, introduza a palavra-passe para os seus ficheiros de certificado e, em seguida, ative o **marcar esta chave como exportável. Isto permite-lhe criar cópias de segurança ou transportar as chaves num momento posterior** opção. Selecione **Seguinte**.
 
     ![Marcar chave como exportável](.\media\prepare-pki-certs\2.png)
 
