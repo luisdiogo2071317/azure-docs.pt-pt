@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/11/2018
 ms.author: bonova
-ms.openlocfilehash: 5caafdfbaca1a701d2728afdfcb31e8e73b4fded
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 7a2b98f0a78c82b65d7d29181a048ab59f237107
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050311"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391934"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância gerida (pré-visualização)?
 
@@ -200,7 +200,7 @@ Gerido cenários de usuário de destinos de instância com a migração de base 
 ### <a name="backup-and-restore"></a>Cópia de segurança e restauro  
 
 A abordagem de migração tira partido de cópias de segurança SQL para o armazenamento de Blobs do Azure. As cópias de segurança armazenadas no blob de armazenamento do Azure podem ser diretamente restauradas na instância gerida utilizando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Para obter um tutorial que mostra como restaurar Wide a World Importers - ficheiro de cópia de segurança da base de dados Standard, veja [restaurar um ficheiro de cópia de segurança para uma instância gerida](sql-database-managed-instance-get-started-restore.md). Este tutorial mostra de que tem de carregar um ficheiro de cópia de segurança para o armazenamento do blogue do Azure e seguro mesmo com uma chave de assinatura (SAS) de acesso partilhado.
+  - Para um início rápido que mostra como restaurar Wide a World Importers - ficheiro de cópia de segurança da base de dados padrão, consulte [restaurar um ficheiro de cópia de segurança para uma instância gerida](sql-database-managed-instance-get-started-restore.md). Este início rápido mostra de que tem de carregar um ficheiro de cópia de segurança para o armazenamento do blogue do Azure e seguro mesmo com uma chave de assinatura (SAS) de acesso partilhado.
   - Para obter informações sobre o restauro a partir do URL, consulte [nativo restaurar a partir do URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
   
 ### <a name="data-migration-service"></a>Serviço de migração de dados
@@ -251,6 +251,6 @@ A tabela seguinte mostra várias propriedades, acessíveis através de Transact 
 - Para saber como criar a sua primeira instância gerida, veja [guia de início rápido](sql-database-managed-instance-get-started.md).
 - Para funcionalidades e lista de comparação, veja [recursos comuns de SQL](sql-database-features.md).
 - Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-vnet-configuration.md).
-- Para obter um tutorial que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
+- Para um início rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 - Para obter um tutorial, utilizando o Azure Database Migration Service (DMS) para migração, veja [Migração de Instância Gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - Para obter informações sobre preços, consulte [preços da SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
