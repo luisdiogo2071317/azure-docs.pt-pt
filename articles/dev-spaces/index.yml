@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b275387e5d884f8ca6484690b7caf5a84759e9e2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: cf8cdf228a492f643501367cba2946964ab3e5c2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44326045"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390489"
 documentType: LandingData
 title: Espaços de Programador do Azure
 metadata:
@@ -62,4 +62,4 @@ sections:
     - text: Gere ativos de configuração como código do Docker e Kubernetes para utilizar desde o desenvolvimento até à produção.
     - text: Partilhe um cluster de Kubernetes gerido com a sua equipa e trabalhe em conjunto de forma colaborativa. Desenvolver o seu código em isolamento e fazer um teste ponto-a-ponto com outros componentes, sem réplicas de dependências ou fictícias.
   - type: markdown
-    text: '![](media/azure-dev-spaces/vscode-overview.png)'
+    text: '![](media/azure-dev-spaces/collaborate-graphic.gif)'
