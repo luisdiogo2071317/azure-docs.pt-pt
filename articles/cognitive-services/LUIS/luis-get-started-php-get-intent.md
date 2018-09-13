@@ -9,16 +9,16 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 08/23/2018
 ms.author: diberry
-ms.openlocfilehash: 14ac32ffc0f4332d0cbc0da59a55ccc500e216d7
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 80d9371cc36ca9ab6b25e79a78e15b7445f0084d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43771690"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160273"
 ---
 # <a name="quickstart-analyze-text-using-php"></a>Guia de introdução: analisar texto com PHP
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
@@ -29,15 +29,15 @@ ms.locfileid: "43771690"
 * ID da aplicação pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## <a name="analyze-text-with-browser"></a>Analisar texto com um browser
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
 ## <a name="analyze-text-with-php"></a>Analisar texto com PHP 
 
@@ -53,7 +53,7 @@ Pode utilizar o PHP para aceder aos mesmos resultados que viu na janela do brows
 
 ## <a name="luis-keys"></a>Chaves LUIS
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

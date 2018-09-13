@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 564824ae18cfeac22a2e817af67b2504d8f0b93c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a02d723d01eca5ea4d4312146bbb938179331fd3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697888"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161565"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Tutorial de introdução à API SQL
 
@@ -26,7 +26,7 @@ ms.locfileid: "43697888"
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js– v2](sql-api-nodejs-get-started-preview.md) 
+> * [Node.js – v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Bem-vindo tutorial de introdução da API SQL do Azure Cosmos DB! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
@@ -53,7 +53,7 @@ Agora comecemos!
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passo 1: Criar uma conta do Azure Cosmos DB
 Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende utilizar, pode avançar diretamente para [Configurar a sua solução do Visual Studio](#SetupVS). Se estiver a utilizar o Emulador do Azure Cosmos DB, siga os passos em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e avance para [Configurar a Solução do Visual Studio](#SetupVS).
@@ -262,7 +262,7 @@ Copie e cole as classes **Família**, **Principal**, **Subordinado**, **Animal d
         public string City { get; set; }
     }
 
-Copie e cole o método **CreateFamilyDocumentIfNotExists** por baixo da classe **Endereço**.
+Copie e cole o método **CreateFamilyDocumentIfNotExists** por baixo da classe **ndereço**.
 
     // ADD THIS PART TO YOUR CODE
     private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)

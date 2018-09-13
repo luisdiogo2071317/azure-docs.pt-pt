@@ -6,20 +6,18 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: funções do azure, funções, processamento de eventos, computação, arquitetura sem servidor
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3840d8d1e18e73c1f08c450859032c07e441cff2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 16d6dd6a589256ad98a37465e64e847778d0cc7e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699180"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092598"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Crie a sua primeira função com o Java e o Maven (Pré-visualização)
 
@@ -70,7 +68,7 @@ O Maven pede-lhe os valores necessários para terminar de gerar o projeto. Para 
 
 O valor `appRegion` especifica a [região do Azure](https://azure.microsoft.com/global-infrastructure/regions/) que pretende executar a aplicação de Funções implementada. Pode obter uma lista de valores de nome de região através do comando `az account list-locations` na CLI do Azure. O valor `resourceGroup` especifica o grupo de recursos do Azure em que a aplicação de funções será criada.
 
-Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são utilizados como exemplo e para facilitar a leitura dos passos posteriores deste guia de introdução. É encorajado a indicar os seus próprios valores para o Maven neste passo.
+Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são utilizados como exemplo e para facilitar a leitura dos passos posteriores deste início rápido. É encorajado a indicar os seus próprios valores para o Maven neste passo.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
