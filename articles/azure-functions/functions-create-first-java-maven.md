@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aeb00bf55c578f61e5e1edbaab11c7773b9eab94
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 3840d8d1e18e73c1f08c450859032c07e441cff2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023221"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699180"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Crie a sua primeira função com o Java e o Maven (Pré-visualização)
 
@@ -70,7 +70,7 @@ O Maven pede-lhe os valores necessários para terminar de gerar o projeto. Para 
 
 O valor `appRegion` especifica a [região do Azure](https://azure.microsoft.com/global-infrastructure/regions/) que pretende executar a aplicação de Funções implementada. Pode obter uma lista de valores de nome de região através do comando `az account list-locations` na CLI do Azure. O valor `resourceGroup` especifica o grupo de recursos do Azure em que a aplicação de funções será criada.
 
-Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são utilizados como exemplo e para facilitar a leitura dos passos posteriores deste início rápido. É encorajado a indicar os seus próprios valores para o Maven neste passo.
+Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são utilizados como exemplo e para facilitar a leitura dos passos posteriores deste guia de introdução. É encorajado a indicar os seus próprios valores para o Maven neste passo.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -175,11 +175,37 @@ curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.
 Hello, AzureFunctionsTest
 ```
 
+## <a name="make-changes-and-redeploy"></a>Fazer alterações e reimplementar
+
+Edite o ficheiro de origem `src/main.../Function.java` no projeto gerado para alterar o texto devolvido pela sua aplicação de funções. Altere esta linha:
+
+```java
+return request.createResponse(200, "Hello, " + name);
+```
+
+Para a seguinte:
+
+```java
+return request.createResponse(200, "Hi, " + name);
+```
+
+Guarde as alterações e implemente novamente ao executar `azure-functions:deploy` a partir do terminal, como fez anteriormente. A aplicação de funções será atualizada e este pedido:
+
+```bash
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+```
+
+Terá resultados atualizados:
+
+```Output
+Hi, AzureFunctionsTest
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Criou uma aplicação de funções do Java com um acionador HTTP simples e implementou-a nas Funções do Azure.
 
 - Reveja o [Guia para programadores das Funções do Java](functions-reference-java.md) para obter mais informações sobre a programação de funções do Java.
 - Adicione mais funções com diferentes acionadores ao seu projeto com o destino do Maven `azure-functions:add`.
-- Depure funções localmente com o Visual Studio Code. Com o [pacote de extensão do Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) instalado e o projeto de Funções aberto no Visual Studio Code, [anexe o depurador](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) à porta 5005. Em seguida, defina um ponto de interrupção no editor e acione a função enquanto está a ser executado localmente: ![Debug functions in Visual Studio Code (Depurar funções no Visual Studio Code)](media/functions-create-java-maven/vscode-debug.png)
-- Depure funções remotamente com o Visual Studio Code. Consulte a documentação sobre [Escrever Aplicações Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) para obter instruções.
+- Escreva e depure funções localmente com o [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) e [Eclipse](functions-create-maven-eclipse.md). 
+- Depure funções implementadas no Azure com o Visual Studio Code. Veja a documentação do Visual Studio Code sobre [aplicações Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) para obter instruções.

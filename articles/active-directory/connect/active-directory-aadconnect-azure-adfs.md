@@ -17,15 +17,15 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917140"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381759"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementação do Serviço de Federação do Active Directory no Azure
-O AD FS proporciona federação de identidade simplificada e protegida e capacidades de início de sessão único (SSO) na Web. A Federação com o Azure AD ou o O365 permite aos utilizadores autenticarem-se com credenciais no local e aceder a todos os recursos na nuvem. Como resultado, torna-se importante ter uma infraestrutura do AD FS de elevada disponibilidade para garantir acesso aos recursos no local e na nuvem. Implementar o AD FS no Azure pode ajudar a alcançar a elevada disponibilidade necessária com um esforço mínimo.
+O AD FS proporciona federação de identidade simplificada e protegida e capacidades de início de sessão único (SSO) na Web. A Federação com o Azure AD ou o O365 permite aos utilizadores autenticarem-se com credenciais no local e aceder a todos os recursos na cloud. Como resultado, torna-se importante ter uma infraestrutura do AD FS de elevada disponibilidade para garantir acesso aos recursos no local e na cloud. Implementar o AD FS no Azure pode ajudar a alcançar a elevada disponibilidade necessária com um esforço mínimo.
 Existem várias vantagens de implementar o AD FS no Azure, entre as quais:
 
 * **Elevada Disponibilidade** - com o poder dos Conjuntos de Disponibilidade do Azure, garante uma infraestrutura de elevada disponibilidade.
@@ -187,12 +187,14 @@ Selecione o ILB recentemente criado no painel Balanceadores de Carga. É aberto 
 
 **6.3. A configurar a sonda**
 
-No painel de definições do ILB, selecione Sondas.
+No painel de definições do ILB, selecione Sondas de estado de funcionamento.
 
 1. Clique em “adicionar”
-2. Indique os detalhes da sonda a. **Nome**: nome da sonda b. **Protocolo**: TCP c. **Porta**: 443 (HTTPS) d. **Intervalo**: 5 (valor predefinido) – este é o intervalo a que o ILB vai sondar as máquinas no conjunto de back-ends e. **Limite do limiar de mau estado de funcionamento**: 2 (valor predefinido) – este é o limiar de falhas de sonda consecutivas após o qual o ILB vai declarar uma máquina no conjunto de back-ends como não reativa e parar de enviar o tráfego para a mesma.
+2. Indique os detalhes da sonda a. **Nome**: nome da sonda b. **Protocolo**: HTTP c. **Porta**: 80 (HTTP) d. **Caminho**: /adfs/probe e. **Intervalo**: 5 (valor predefinido) – este é o intervalo a que o ILB vai sondar as máquinas no conjunto de back-ends f. **Limite do limiar de mau estado de funcionamento**: 2 (valor predefinido) – este é o limiar de falhas de sonda consecutivas após o qual o ILB vai declarar uma máquina no conjunto de back-ends como não reativa e parar de enviar o tráfego para a mesma.
 
 ![Configurar a sonda do ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+Vamos utilizar o ponto final /adfs/probe que foi criado explicitamente para verificações de estado de funcionamento num ambiente do AD FS, no qual não possa acontecer uma verificação completa de caminho HTTPS.  Isto é significativamente melhor do que uma verificação de porta 443 básica, a qual não reflete devidamente o estado de uma implementação AD FS moderna.  Estão disponíveis mais informações em https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Criar regras de balanceamento de carga**
 

@@ -1,307 +1,309 @@
 ---
-title: Extensão do Terraform do Azure VS Code | Documentos da Microsoft
-description: Neste artigo, saiba como instalar e utilizar a extensão do Terraform no Visual Studio Code.
-keywords: terraform, devops, máquina virtual, azure
-author: v-mavick
-ms.author: v-mavick
-ms.date: 08/14/2018
-ms.topic: article
-ms.prod: vs-code
-ms.openlocfilehash: 0c88879faae100372055479ad4edb8c36d8f557d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: MT
+title: Instalar e utilizar a extensão do Azure Terraform no Visual Studio Code
+description: Saiba como instalar e utilizar a extensão do Azure Terraform no Visual Studio Code.
+services: terraform
+ms.service: terraform
+keywords: terraform, azure, devops, visual studio code, extensão
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
+ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190359"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668330"
 ---
-# <a name="azure-terraform-vs-code-extension"></a>Extensão do VS Code do Terraform do Azure
+# <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Instalar e utilizar a extensão do Azure Terraform no Visual Studio Code
 
-A extensão do Microsoft Azure Terraform Visual Studio Code (código de VS) foi concebida para aumentar a produtividade do desenvolvedor, criação, teste e com o Terraform e o Azure. A extensão fornece suporte de comando do Terraform, visualização de gráfico de recursos e integração de CloudShell do VS Code.
+A extensão do Microsoft Azure Terraform Visual Studio Code foi concebida para aumentar a produtividade para o programador em termos de criação, testes e utilização do Terraform com o Azure. A extensão fornece suporte de comandos do Terraform, visualização de gráficos de recursos e integração no CloudShell a partir do Visual Studio Code.
 
-## <a name="what-you-do"></a>O que fazer
+Neste artigo, vai aprender a:
+> [!div class="checklist"]
+> * Utilizar o Terraform para automatizar e simplificar o aprovisionamento de serviços do Azure.
+> * Instalar e utilizar a extensão do Microsoft Terraform no Visual Studio Code para serviços do Azure.
+> * Utilizar o Visual Studio Code para escrever, planear e executar planos do Terraform.
 
-- Instale o executável do Terraform da HashiCorp de código-fonte aberto no seu computador.
-- Instale a extensão de código de VS do Terraform do Azure na sua instalação local do VS Code.
+## <a name="prerequisites"></a>Pré-requisitos
+- **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-## <a name="what-you-learn"></a>O que irá aprender
+- **Terraform**: [Instalar e configurar o Terraform](/azure/virtual-machines/linux/terraform-install-configure).
 
-Neste tutorial, vai aprender:
+- **Visual Studio Code**: instalar a versão do [Visual Studio Code](https://code.visualstudio.com/download) mais adequada ao seu ambiente.
 
-- Como o Terraform pode automatizar e simplificar o aprovisionamento de serviços do Azure.
-- Como instalar e utilizar a extensão do Microsoft Terraform VS Code para serviços do Azure.
-- Como utilizar o VS Code para escrever, planejar e executar o Terraform planos.
-
-## <a name="what-you-need"></a>Do que precisa
-
-- Um computador com Windows 10, Linux ou macOS 10.10 +.
-- [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US).
-- Uma subscrição ativa do Azure. [Ativar uma conta gratuita de 30 dias avaliação Microsoft Azure](https://azure.microsoft.com/free/).
-- Uma instalação do [Terraform](https://www.terraform.io/) ferramenta de código-fonte aberto no seu computador local.
-  
 ## <a name="prepare-your-dev-environment"></a>Preparar o ambiente de desenvolvimento
 
 ### <a name="install-git"></a>Instalar o Git
 
-Para concluir os exercícios no artigo, precisa [instalar o Git](https://git-scm.com/).
+Para concluir os exercícios neste artigo, precisa de [instalar o Git](https://git-scm.com/).
 
 ### <a name="install-hashicorp-terraform"></a>Instalar o Terraform da HashiCorp
 
-Siga as instruções da HashiCorp [Terraform instalar](https://www.terraform.io/intro/getting-started/install.html) página da Web, que abrange:
+Siga as instruções na página Web [Install Terraform](https://www.terraform.io/intro/getting-started/install.html) (Instalar o Terraform) da HashiCorp, a qual abrange:
 
-- Baixar o Terraform
+- Transferir o Terraform
 - Instalar o Terraform
-- Verificar o Terraform está corretamente instalado
+- Verificar se o Terraform está corretamente instalado
 
 >[!Tip]
->Certifique-se de que siga as instruções relativas ao definir a variável de sistema do caminho.
+>Certifique-se de que segue as instruções referentes à definição da sua variável do sistema PATH.
 
 ### <a name="install-nodejs"></a>Instalar o Node.js
 
-Para utilizar o Terraform no Cloud Shell, precisa [instalar node. js](https://nodejs.org/) 6.0 +.
+Para utilizar o Terraform no Cloud Shell, tem de [instalar o Node.js](https://nodejs.org/) 6.0+.
 
 >[!NOTE]
->Para verificar se o node. js está instalado, abra uma janela de terminal e introduza: `node -v`
+>Para confirmar que o Node.js está instalado, abra uma janela do terminal e introduza `node -v`.
 
-### <a name="install-graphviz"></a>Instalar GraphViz
+### <a name="install-graphviz"></a>Instalar o GraphViz
 
-Para utilizar o Terraform visualizar a função, precisa [instalar GraphViz](http://graphviz.org/).
+Para utilizar a função de visualização do Terraform, precisa de [instalar o GraphViz](http://graphviz.org/).
 
 >[!NOTE]
->Para verificar se GraphViz é instalado, abra uma janela de terminal e introduza: `dot -V`
+>Para confirmar que o GraphViz está instalado, abra uma janela do termo e introduza `dot -V`.
 
-### <a name="install-the-azure-terraform-vs-code-extension"></a>Instale a extensão do VS Code Terraform do Azure:
+### <a name="install-the-azure-terraform-visual-studio-code-extension"></a>Instalar a extensão do Azure Terraform no Visual Studio Code
 
-1. Inicie o VS Code.
-2. Clique nas **extensões** ícone.
+1. Abra o Visual Studio Code.
 
-    ![Botão de extensões](media/terraform-vscode-extension/tf-vscode-extensions-button.png)
+1. Selecione **Extensions** (Extensões).
 
-3. Utilize o **extensões de pesquisa no Marketplace** caixa de texto para procurar a extensão do Terraform do Azure:
+    ![Botão Extensions (Extensões)](media/terraform-vscode-extension/tf-vscode-extensions-button.png)
 
-    ![Extensões do VS Code de pesquisa no Marketplace](media/terraform-vscode-extension/tf-search-extensions.png)
+1. Utilize a caixa de texto **Search Extensions in Marketplace** (Procurar Extensões no Marketplace) para procurar a extensão do Azure Terraform:
 
-4. Clique em **Instalar**.
+    ![Procurar extensões do Visual Studio Code no Marketplace](media/terraform-vscode-extension/tf-search-extensions.png)
+
+1. Selecione **Install** (Instalar).
 
     >[!NOTE]
-    >Quando clica em **instalar** relativamente à extensão do Terraform do Azure, VS Code instalará automaticamente a extensão da conta do Azure. Conta do Azure é um ficheiro de dependência para a extensão do Azure do Terraform, o que ele usa para executar autenticações de subscrição do Azure e extensões de código relacionados com o Azure.
+    >Quando selecionar **Install** (Instalar) para a extensão Azure Terraform, o Visual Studio Code irá automaticamente instalar a extensão de Conta do Azure. A Conta do Azure é um ficheiro de dependência para a extensão do Azure Terraform, que utiliza para executar autenticações de subscrição do Azure e extensões de código relacionadas com o Azure.
 
-#### <a name="verify-the-terraform-extension-is-installed-in-visual-studio-code"></a>Verifique se que a extensão do Terraform está instalada no Visual Studio Code
+#### <a name="verify-the-terraform-extension-is-installed-in-visual-studio-code"></a>Verificar se a extensão do Terraform está instalada no Visual Studio Code
 
-1. Clique no ícone de extensões.
-2. Tipo de `@installed` na caixa de texto de pesquisa.
+1. Selecione **Extensions** (Extensões).
+
+1. Introduza `@installed` na caixa de texto de pesquisa.
 
     ![Extensões instaladas](media/terraform-vscode-extension/tf-installed-extensions.png)
 
-A extensão do Terraform do Azure irá aparecer na lista de extensões instaladas.
+A extensão Azure Terraform irá aparecer na lista de extensões instaladas.
 
-![Extensões instaladas do Terraform](media/terraform-vscode-extension/tf-installed-terraform-extension-button.png)
+![Extensões Terraform instaladas](media/terraform-vscode-extension/tf-installed-terraform-extension-button.png)
 
-Agora, pode executar todos os comandos suportados do Terraform no seu ambiente de Cloud Shell a partir do VS Code.
+Pode agora executar todos os comandos suportados do Terraform no seu ambiente do Cloud Shell a partir do Visual Studio Code.
 
-## <a name="exercise-1-basic-terraform-commands-walk-through"></a>Exercício 1: Noções básicas de comandos do Terraform básica
+## <a name="exercise-1-basic-terraform-commands-walk-through"></a>Exercício: guia de comandos básicos do Terraform
 
-Neste exercício, pode criar e executar um ficheiro de configuração básico do Terraform que aprovisiona um novo grupo de recursos do Azure.
+Neste exercício, irá criar e executar um ficheiro de configuração básico do Terraform que aprovisiona um novo grupo de recursos do Azure.
 
-### <a name="prepare-a-test-plan-file"></a>Preparar um arquivo de plano de teste
+### <a name="prepare-a-test-plan-file"></a>Preparar um ficheiro de plano de teste
 
-1. No VS Code, selecione **ficheiro > novo ficheiro** na barra de menus.
-2. Navegue para o [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) e copie o código na **exemplo de utilização** bloco de código:
-3. Cole o código copiado para o novo ficheiro criado no VS Code.
+1. No Visual Studio Code, selecione **File > New File** (Ficheiro > Novo Ficheiro) na barra de menus.
 
-    ![Cole o código de exemplo de utilização](media/terraform-vscode-extension/tf-paste-example-usage-code.png)
+1. Navegue para [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) e copie o bloco de código **Example Usage** (Utilização de Exemplo):
 
-    >[!NOTE]
-    >Pode alterar o **nome** valor do grupo de recursos, mas tem de ser exclusivo para a sua subscrição do Azure.
+1. Cole o código copiado no novo ficheiro que criou no Visual Studio Code.
 
-4. Na barra de menus, selecione **ficheiro > Guardar como**.
-5. Na **guardar como** caixa de diálogo, navegue para um local de sua preferência e, em seguida, clique em **nova pasta**. (Alterar o nome da pasta nova para algo mais descritiva do que *nova pasta*.)
+    ![Cole o código Example Usage](media/terraform-vscode-extension/tf-paste-example-usage-code.png)
 
     >[!NOTE]
-    >Neste exemplo, a pasta com o nome o plano de teste TERRAFORM.
+    >Pode alterar o valor **name** do grupo de recursos, mas este tem de ser exclusivo para a sua subscrição do Azure.
 
-6. Certifique-se de que a sua nova pasta é realçada (selecionado) e, em seguida, clique em **aberto**.
-7. Na **guardar como** caixa de diálogo, altere o nome predefinido do ficheiro a *main.tf*.
+1. Na barra de menus, selecione **File > Save As** (Ficheiro > Guardar Como).
+
+1. Na caixa de diálogo **Save As** (Guardar Como), navegue para um local à sua escolha e selecione **New folder** (Nova pasta). (Mude o nome da nova pasta para um mais descritivo do que *New folder*.)
+
+    >[!NOTE]
+    >Neste exemplo, o nome da pasta é TERRAFORM-TEST-PLAN.
+
+1. Certifique-se de que a nova pasta está selecionada e, em seguida, selecione **Open** (Abrir).
+
+1. Na caixa de diálogo **Save As** (Guardar Como), mude o nome predefinido do ficheiro para *main.tf*.
 
     ![Guardar como main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
-8. Clique em **Guardar**.
-- Na barra de menus, selecione **ficheiro > Abrir pasta**. Navegue até e selecione a nova pasta que criou.
+1. Selecione **Save** (Guardar).
+- Na barra de menus, selecione **File > Open Folder** (Ficheiro > Abrir Pasta). Navegue para e selecione a nova pasta que criou.
 
-### <a name="run-terraform-init-command"></a>Execute o Terraform *init* comando
+### <a name="run-terraform-init-command"></a>Executar o comando *init* do Terraform
 
-1. Inicie o Visual Studio Code.
-2. Na barra de Menu do código de VS, selecione **ficheiro > Abrir pasta...**  e localize e selecione sua *main.tf* ficheiro.
+1. Abra o Visual Studio Code.
 
-    ![ficheiro de main.TF](media/terraform-vscode-extension/tf-main-tf.png)
+1. Na barra de menus do Visual Studio Code, selecione **File > Open Folder...** (Ficheiro > Abrir Pasta) e selecione o ficheiro *main.tf*.
 
-3. Na barra de menus, selecione **vista > paleta de comandos... > Azure Terraform: Init**.
-4. Após alguns instantes, quando lhe for perguntado *que pretende abrir o Cloud Shell?* Clique em **OK**.
+    ![Ficheiro main.tf](media/terraform-vscode-extension/tf-main-tf.png)
 
-    ![Pretende abrir o Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
+1. Na barra de menus, selecione **View > Command Palette... > Azure Terraform: Init** (Ver > Paleta de Comandos... > Azure Terraform: Init).
 
-5. Na primeira vez que iniciar o Cloud Shell a partir de uma nova pasta, será solicitado para configurar a aplicação web. Clique em **aberto**.
+1. Quando aparecer a confirmação, selecione **OK**.
 
-    ![Primeira inicialização do Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
+    ![Quer abrir o Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-6. O bem-vindo à página do Azure Cloud Shell é aberto. Selecione o Bash ou o PowerShell.
+1. Da primeira vez que iniciar o Cloud Shell numa nova pasta, ser-lhe-á pedido que configure uma aplicação Web. Selecione **Open** (Abrir).
+
+    ![Primeiro início do Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
+
+1. É aberta a página de Boas-vindas ao Azure Cloud Shell. Selecione Bash ou PowerShell.
 
     ![Bem-vindo ao Azure Cloud Shell](media/terraform-vscode-extension/tf-welcome-to-azure-cloud-shell.png)
 
     >[!NOTE]
-    >Neste exemplo, Bash (Linux) foi selecionado.
+    >Neste exemplo, foi selecionado, Bash (Linux).
 
-7. Se já não configurado uma conta de armazenamento do Azure, é apresentado o ecrã seguinte. Clique em **criar armazenamento**.
+1. Se ainda não tiver configurado uma conta de armazenamento do Azure, aparecerá o seguinte ecrã. Selecione **Create storage** (Criar armazenamento).
 
     ![Não tem armazenamento montado](media/terraform-vscode-extension/tf-you-have-no-storage-mounted.png)
 
-1. O Azure Cloud Shell é iniciado no shell selecionada e apresenta informações para a unidade de cloud que acabou de criar para anteriormente.
+1. O Azure Cloud Shell é iniciado no shell que selecionou anteriormente e apresenta informações para a unidade de cloud que acabou de criar.
 
-    ![Tiver sido criada a sua unidade de cloud](media/terraform-vscode-extension/tf-your-cloud-drive-has-been-created-in.png)
+    ![A sua unidade de cloud foi criada](media/terraform-vscode-extension/tf-your-cloud-drive-has-been-created-in.png)
 
-9. Agora pode sair do Cloud Shell
-10. Na barra de menus, selecione **View** > **paleta de comandos** > **Azure Terraform: init**.
+1. Pode sair do Cloud Shell
 
-    ![Terraform foi inicializado com êxito](media/terraform-vscode-extension/tf-terraform-has-been-successfully-initialized.png)
+1. Na barra de menus, selecione **View** (Ver) > **Command Palette**(Paleta de Comandos) > **Azure Terraform: init**.
 
-### <a name="visualize-the-plan"></a>Visualizar o plano
+    ![O Terraform foi inicializado com êxito](media/terraform-vscode-extension/tf-terraform-has-been-successfully-initialized.png)
 
-Anteriormente neste tutorial, instalou GraphViz. Terraform pode utilizar GraphViz para gerar uma representação visual de plano de uma configuração ou a execução. A extensão do VS Code Terraform do Azure implementa esta funcionalidade através da *visualizar* comando.
+### <a name="visualize-the-plan"></a>Ver o plano
 
-- Do **barra de menus**, selecione**vista > paleta de comandos > Azure Terraform: Visualize**.
+Numa fase anterior deste tutorial, instalou o GraphViz. O Terraform pode usar o GraphViz para gerar uma representação visual de uma configuração ou plano de execução. A extensão Azure Terraform do Visual Studio Code implementa esta funcionalidade por meio do comando *visualize*.
 
-    ![Visualizar o plano](media/terraform-vscode-extension/tf-graph.png)
+- Na barra de menus, selecione **View > Command Palette > Azure Terraform: Visualize** (Ver > Paleta de Comandos... > Azure Terraform: Visualize).
 
-### <a name="run-terraform-plan-command"></a>Execute o Terraform *plano* comando
+    ![Ver o plano](media/terraform-vscode-extension/tf-graph.png)
 
-O Terraform *plano* comando é usado para verificar se o plano de execução para um conjunto de alterações, fazer o que pretendia.
+### <a name="run-terraform-plan-command"></a>Executar o comando *plan* do Terraform
+
+O comando *plan* do Terraform utiliza-se para ver se o plano de execução para um conjunto de alterações fará o que queria.
 
 >[!NOTE]
->Terraform *plano* não faça quaisquer alterações aos recursos do real Azure. Na verdade, fazer as alterações contidas no seu plano, usamos o Terraform *aplicar* comando.
+>O *plan* não faz mudanças aos seus recursos reais do Azure. Para fazer realmente as alterações contidas no seu plano, usamos o comando *apply* do Terraform.
 
-- Na barra de menus, selecione **View** > **paleta de comandos** > **Azure Terraform: plano**.
+- Na barra de menus, selecione **View** (Ver) > **Command Palette** (Paleta de Comandos) > **Azure Terraform: plan**.
 
-    ![Plano do Terraform](media/terraform-vscode-extension/tf-terraform-plan.png)
+    ![Comando plan do Terraform](media/terraform-vscode-extension/tf-terraform-plan.png)
 
-### <a name="run-terraform-apply-command"></a>Execute o Terraform *aplicar* comando
+### <a name="run-terraform-apply-command"></a>Execute o comando *apply* do Terraform
 
-Depois de a ser satisfeita com os resultados do Terraform *plano*, pode executar o *aplicar* comando.
+Quando estiver satisfeito com os resultados do *plan* do Terraform, pode executar o comando *apply* do Terraform.
 
-1. Na barra de menus, selecione **View** > **paleta de comandos** > **Azure Terraform: aplicar**.
+1. Na barra de menus, selecione **View** (Ver) > **Command Palette** (Paleta de Comandos) > **Azure Terraform: apply**.
 
-    ![Aplicam-se do Terraform](media/terraform-vscode-extension/tf-terraform-apply.png)
+    ![Comando apply do Terraform](media/terraform-vscode-extension/tf-terraform-apply.png)
 
-2. Tipo *Sim*.
+1. Introduza `yes`.
 
-    ![Terraform aplicar Sim](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
+    ![Comndo apply - yes do Terraform](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
 
-### <a name="verify-your-terraform-plan-was-executed"></a>Certifique-se de que o plano de Terraform foi executado
+### <a name="verify-your-terraform-plan-was-executed"></a>Verificar se o plano do Terraform foi executado
 
-Para ver se o seu novo grupo de recursos do Azure foi criado com êxito:
+Para ver se o novo grupo de recursos do Azure foi criado com êxito:
 
 1. Abra o portal do Azure.
-2. Selecione **grupos de recursos** no painel de navegação esquerdo.
 
-    ![Verifique se o seu novo recurso](media/terraform-vscode-extension/tf-verify-resource-group-created.png)
+1. Selecione **Grupos de Recursos** no painel de navegação à esquerda.
 
-Seu novo grupo de recursos deve ser listado no **nome** coluna.
+    ![Verificar o novo recurso](media/terraform-vscode-extension/tf-verify-resource-group-created.png)
+
+O novo grupo de recursos deve estar listado na coluna **NAME**.
 
 >[!NOTE]
->Pode deixar a janela do Portal do Azure abertos por enquanto; usaremos-la no próximo passo.
+>Pode deixar a janela do Portal do Azure aberta por enquanto, pois vamos utilizá-la no passo seguinte.
 
-### <a name="run-terraform-destroy-command"></a>Execute o Terraform *destruir* comando
+### <a name="run-terraform-destroy-command"></a>Execute o comando *destroy* do Terraform
 
-1. Na barra de menus, selecione **View** > **paleta de comandos** > **Azure Terraform: destruir**.
+1. Na barra de menus, selecione **View** (Ver) > **Command Palette** (Paleta de Comandos) > **Azure Terraform: destroy**.
 
-    ![Destruir Terraform](media/terraform-vscode-extension/tf-terraform-destroy.png)
+    ![Comando destroy do Terraform](media/terraform-vscode-extension/tf-terraform-destroy.png)
 
-2. Tipo *Sim*.
+1. Introduza *yes*.
 
-    ![Terraform destruir Sim](media/terraform-vscode-extension/tf-terraform-destroy-yes.png)
+    ![Comando destroy - yes do Terraform](media/terraform-vscode-extension/tf-terraform-destroy-yes.png)
 
-### <a name="verify-your-resource-group-was-destroyed"></a>Certifique-se de que o grupo de recursos foi destruído
+### <a name="verify-your-resource-group-was-destroyed"></a>Verificar se o grupo de recursos foi destruído
 
-Para confirmar que o Terraform destruída com êxito o novo grupo de recursos:
+Para confirmar se o Terraform destruiu com êxito o seu novo grupo de recursos:
 
-1. Clique em **Atualize** no portal do Azure *grupos de recursos* página.
-2. O grupo de recursos já não será listado.
+1. Selecione **Atualizar** na página de **Grupos de recursos** do portal do Azure.
 
-    ![Verifique se o grupo de recursos foi destruído](media/terraform-vscode-extension/tf-refresh-resource-groups-button.png)
+1. O seu grupo de recursos deixará de estar listado.
 
-## <a name="exercise-2-terraform-compute-module"></a>Exercício 2: Terraform *computação* módulo
+    ![Verificar se o grupo de recursos foi destruído](media/terraform-vscode-extension/tf-refresh-resource-groups-button.png)
 
-Neste exercício, vai aprender a carregar o Terraform *computação* módulo ao ambiente do VS Code.
+## <a name="exercise-2-terraform-compute-module"></a>Exercício 2: módulo *compute* do Terraform
 
-### <a name="clone-the-terraform-azurerm-compute-module"></a>Clonar o módulo do terraform-azurerm-compute
+Neste exercício, vai aprender a carregar o módulo *compute* do Terraform no ambiente do Visual Studio Code.
 
-1. Uso [esta ligação](https://github.com/Azure/terraform-azurerm-compute) para acessar o módulo de computação do Terraform do Azure Rm no GitHub.
-2. Clique em **clonar ou transferir**.
+### <a name="clone-the-terraform-azurerm-compute-module"></a>Clonar o módulo terraform-azurerm-compute
+
+1. Utilize [esta ligação](https://github.com/Azure/terraform-azurerm-compute) para aceder ao módulo Azure Rm Compute no GitHub.
+
+1. Selecione **Clone or download** (Clonar ou transferir).
 
     ![Clonar ou transferir](media/terraform-vscode-extension/tf-clone-with-https.png)
 
     >[!NOTE]
-    >Neste exemplo, a nossa pasta foi chamada *terraform-azurerm-compute*.
+    >Neste exemplo, a nossa pasta tem o nome *terraform-azurerm-compute*.
 
-### <a name="open-the-folder-in-vs-code"></a>Abra a pasta no VS Code
+### <a name="open-the-folder-in-visual-studio-code"></a>Abrir a pasta no Visual Studio Code
 
-1. Inicie o Visual Studio Code.
-2. Partir do **barra de menus**, selecione **ficheiro > Abrir pasta** e navegue até e selecione a pasta que criou no passo anterior.
+1. Abra o Visual Studio Code.
 
-    ![pasta do terraform-azurerm-compute](media/terraform-vscode-extension/tf-terraform-azurerm-compute-folder.png)
+1. Na barra de menus, selecione **File > Open Folder** (Ficheiro > Abrir Pasta), navegue para e selecione a pasta criada no passo anterior.
+
+    ![Pasta terraform-azurerm-compute](media/terraform-vscode-extension/tf-terraform-azurerm-compute-folder.png)
 
 ### <a name="initialize-terraform"></a>Inicializar o Terraform
 
-Antes de começar a usar os comandos de Terraform a partir do VS Code, transfira os plug-ins para dois fornecedores do Azure: aleatório e azurerm.
+Antes de poder começar a utilizar comandos do Terraform no Visual Studio Code, transfira os plug-ins para dois fornecedores do Azure: random e azurerm.
 
-1. No painel de Terminal do IDE de código do VS, escreva: `terraform init`
+1. No painel do Terminal do IDE do Visual Studio Code, introduza `terraform init`.
 
-    ![comando de init terraform](media/terraform-vscode-extension/tf-terraform-init-command.png)
+    ![Comando terraform init](media/terraform-vscode-extension/tf-terraform-init-command.png)
 
-2. Tipo de `az login` e siga na tela instruções.
+1. Introduza `az login`, prima **Enter** e siga as instruções no ecrã.
 
 ### <a name="module-test-lint"></a>Teste de módulo: *lint*
 
-1. Do **barra de menus**, selecione **vista > paleta de comandos > Azure Terraform: Executar teste**.
-2. Na lista de opções do tipo de teste, selecione **lint**.
+1. Na barra de menus, selecione **View > Command Palette > Azure Terraform: Execute Test** (Ver > Paleta de Comandos... > Azure Terraform: Executar Teste).
 
-    ![Selecione o tipo de teste](media/terraform-vscode-extension/tf-select-type-of-test-lint.png)
+1. Na lista de opções de tipos de teste, selecione **lint**.
 
-3. Quando lhe for perguntado *que pretende abrir CloudShell?* clique em **OK** e siga na tela instruções.
+    ![Selecionar tipo de teste](media/terraform-vscode-extension/tf-select-type-of-test-lint.png)
 
-    ![Pretende abrir CloudShell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
+1. Quando a confirmação aparecer, selecione **OK** e siga as instruções no ecrã.
 
->[!NOTE]
->Quando quer executar o **lint** ou **ponto a ponto** teste, o Azure utiliza um serviço de contentor para Aprovisionar uma máquina de teste para executar o teste real. Por esse motivo, os resultados do teste, normalmente, podem demorar vários minutos a serem retornados.
-
-Após alguns instantes, verá uma lista no painel de Terminal semelhante a este exemplo:
-
-![Resultados do teste lint](media/terraform-vscode-extension/tf-lint-test-results.png)
-
-### <a name="module-test-end-to-end"></a>Teste de módulo: *ponto-a-ponto*
-
-1. Do **barra de menus**, selecione **vista > paleta de comandos > Azure Terraform: Executar teste**.
-2. Na lista de opções do tipo de teste, selecione **ponto a ponto**.
-
-    ![Selecione o tipo de teste](media/terraform-vscode-extension/tf-select-type-of-test-end-to-end.png)
-
-3. Caso lhe seja perguntado *que pretende abrir CloudShell?* clique em **OK** e siga na tela instruções.
-
-    ![Pretende abrir CloudShell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
+    ![Quer abrir o CloudShell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
 
 >[!NOTE]
->Quando quer executar o **lint** ou **ponto a ponto** teste, o Azure utiliza um serviço de contentor para Aprovisionar uma máquina de teste para executar o teste real. Por esse motivo, os resultados do teste, normalmente, podem demorar vários minutos a serem retornados.
+>Quando executar o teste **lint** ou **end to end**, o Azure utiliza um serviço de contentores para aprovisionar uma máquina de teste de forma a executar o teste. Por este motivo, os seus resultados de teste podem geralmente demorar vários minutos para serem devolvidos.
 
-Após alguns instantes, verá uma lista no painel de Terminal semelhante a este exemplo:
+Após uns momentos, verá uma listagem no painel do Terminal semelhante a este exemplo:
 
-![Resultados do teste de ponto a ponto](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![Resultados de teste lint](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="module-test-end-to-end"></a>Teste de módulo: *end-to-end*
 
-Viu alguns dos aprimoramentos que terraform pode simplificar o aprovisionamento de serviços do Azure a partir de dentro do Visual Studio Code. Agora, pode querer rever alguns destes recursos:
-- O [registo de módulo do Terraform](https://registry.terraform.io/) apresenta uma lista de todos os módulos do Terraform disponíveis para o Azure e outros fornecedores suportados.
+1. Na barra de menus, selecione **View > Command Palette > Azure Terraform: Execute Test** (Ver > Paleta de Comandos... > Azure Terraform: Executar Teste).
 
-Para cada um destes módulos, são fornecidas as seguintes informações:
+1. Na lista de opções de tipos de teste, selecione **end to end**.
 
-- Uma descrição das capacidades gerais do módulo e suas características
-- Um exemplo de utilização
-- Testar as configurações, que mostram-lhe como criar, executar, e a testar cada módulo no seu computador de desenvolvimento local
-- Um Dockerfile para que possa criar e executar localmente um ambiente de desenvolvimento do módulo.
+    ![Selecionar tipo de teste](media/terraform-vscode-extension/tf-select-type-of-test-end-to-end.png)
+
+1. Quando a confirmação aparecer, selecione **OK** e siga as instruções no ecrã.
+
+    ![Quer abrir o CloudShell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
+
+>[!NOTE]
+>Quando executar o teste **lint** ou **end to end**, o Azure utiliza um serviço de contentores para aprovisionar uma máquina de teste de forma a executar o teste. Por este motivo, os seus resultados de teste podem geralmente demorar vários minutos para serem devolvidos.
+
+Após uns momentos, verá uma listagem no painel do Terminal semelhante a este exemplo:
+
+![Resultados de teste end-to-end](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+
+## <a name="next-steps"></a>Passos seguintes
+> [!div class="nextstepaction"]
+> [Lista dos módulos do Terraform disponíveis para Azure (e outros fornecedores suportados)](https://registry.terraform.io/)

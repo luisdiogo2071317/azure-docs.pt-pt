@@ -11,21 +11,22 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f7f41e9d77e0687c6c8b25a4163348a7310aa40c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628159"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697328"
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB (Criar uma aplicação Web Node.js com o Azure Cosmos DB)
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - Pré-visualização v2.0](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js – v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 Este tutorial do Node.js mostra-lhe como utilizar o Azure Cosmos DB e a API SQL para armazenar e aceder a dados a partir de uma aplicação Node.js Express alojada em sites do Azure. Crie uma aplicação de gestão de tarefas simples baseada na Web, uma aplicação ToDo que lhe permite criar, obter e concluir tarefas. As tarefas são armazenadas como documentos JSON no Azure Cosmos DB. Este tutorial orienta-o durante a criação e a implementação da aplicação e explica o que acontece em cada fragmento.
@@ -98,12 +99,12 @@ O ficheiro **package.json** é um dos ficheiros criados na raiz do projeto. Este
    npm install documentdb --save
    ```
 
-## <a name="_Toc395783180"></a>Passo 4: utilizar o serviço do Azure Cosmos DB numa aplicação de nó
+## <a name="_Toc395783180"></a>Passo 4: utilizar o serviço Azure Cosmos DB numa aplicação Node
 Esta ação toma conta de toda a definição e configuração iniciais. Passemos agora ao que interessa, isto é, escrever alguns códigos utilizando o Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Criar o modelo
 1. O diretório do projeto, criar um novo diretório nomeado **modelos** no mesmo diretório do ficheiro package.json.
-2. No diretório **modelos**, crie um novo ficheiro designado **task-model.js**. Este ficheiro irá conter o modelo para as tarefas criadas pelo nossa aplicação.
+2. No diretório **modelos**, crie um novo ficheiro designado **task-model.js**. Este ficheiro irá conter o modelo para as tarefas criadas pela nossa aplicação.
 3. No referido diretório **modelos**, crie um novo ficheiro designado **cosmosdb-manager.js**. Este ficheiro irá conter alguns códigos úteis e reutilizáveis que iremos utilizar para a nossa aplicação. 
 4. Copie o seguinte código para **cosmosdb-manager.js**
     ```nodejs
@@ -488,7 +489,7 @@ Esta ação expande o modelo e fornece o conteúdo para o marcador de posição 
    
 Nesse modelo, criámos dois formulários HTML.
 
-O primeiro formulário contém uma tabela para os nossos dados e um botão que nos permite atualizar os itens, publicando no método **/completetask** do nosso controlador.
+O primeiro formulário contém uma tabela para os nossos dados e um botão que nos permite atualizar os itens mediante a publicação no método **/completetask** do nosso controlador.
     
 O segundo formulário contém dois campos de entrada e um botão que nos permite criar um novo item, publicando no método **/addtask** do nosso controlador.
 
@@ -500,7 +501,7 @@ Tal deverá ser o suficiente para que a nossa aplicação funcione.
     ![Captura de ecrã da aplicação MyTodo List numa janela do browser](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
-    > Se receber um erro sobre o avanço no ficheiro layout.jade ou no ficheiro index.jade, certifique-se de que as primeiras duas linhas em ambos os ficheiros é justificada à esquerda, sem espaços. Se existirem espaços antes das primeiras duas linhas, remova-os, guarde ambos os ficheiros e, em seguida, atualize a janela do browser. 
+    > Se receber um erro sobre o avanço no ficheiro layout.jade ou no ficheiro index.jade, certifique-se de que as primeiras duas linhas em ambos os ficheiros são justificadas à esquerda, sem espaços. Se existirem espaços antes das primeiras duas linhas, remova-os, guarde ambos os ficheiros e, em seguida, atualize a janela do browser. 
 
 2. Utilize o Item, Nome do Item e campos de Categoria para introduzir uma nova tarefa e, em seguida, clique em **Adicionar Item**. Esta ação cria um documento no Azure Cosmos DB com essas propriedades. 
 3. A página deverá ser atualizada para mostrar o item criado recentemente na ToDo List.
@@ -526,7 +527,7 @@ Tal deverá ser o suficiente para que a nossa aplicação funcione.
 
 ## <a name="_Toc395637775"></a>Passos seguintes
 
-* Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Consulte o artigo [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testar o Desempenho e o Dimensionamento com o Azure Cosmos DB)
+* Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Veja [Testar o Desempenho e o Dimensionamento com o Azure Cosmos DB](performance-testing.md)
 * Saiba como [monitorizar uma conta do Azure Cosmos DB](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).
 * Explore a [Documentação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).

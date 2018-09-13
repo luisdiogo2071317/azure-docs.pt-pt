@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 7277aeb97409815e2e218da8f233cd836bccc72b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022421"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713750"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Início rápido: criar uma máquina virtual do Windows server com o portal do Azure Stack
 
@@ -36,7 +36,7 @@ Inicie sessão no portal do Azure Stack. O endereço do portal do Azure Stack de
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. Clique em **novos** > **computação** > **do Windows Server 2016 Datacenter – Pay-as que use** > **criar**. Se não vir **Windows Server 2016 Datacenter – Pay-as que use** entrada, entre em contato com o operador do Azure Stack. Peça que eles adicioná-la no Marketplace, conforme explicado no [adicionar a imagem de VM do Windows Server 2016 para o mercado do Azure Stack](../azure-stack-add-default-image.md) artigo.
+1. Clique em **+ criar um recurso** > **computação** > **Windows Server 2016 Datacenter – Pay-as que use**  >   **Criar**. Se não vir **Windows Server 2016 Datacenter – Pay-as que use** entrada, entre em contato com o operador do Azure Stack. Peça que eles adicioná-la no Marketplace, conforme explicado no [adicionar a imagem de VM do Windows Server 2016 para o mercado do Azure Stack](../azure-stack-add-default-image.md) artigo.
 
     ![Passos para criar uma máquina virtual do Windows no portal](media/azure-stack-quick-windows-portal/image01.png)
 2. Sob **Noções básicas**, escreva um **nome**, **nome de utilizador**, e **palavra-passe**. Escolher uma **subscrição**. Criar uma **grupo de recursos**, ou selecione um existente um, selecione uma **localização**e, em seguida, clique em **OK**.

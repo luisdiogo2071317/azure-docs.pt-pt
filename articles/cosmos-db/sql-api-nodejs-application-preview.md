@@ -11,21 +11,22 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: sngun
-ms.openlocfilehash: 43c5b8beef523684a405f1396ad0a9d862c123e8
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8e788207e99a87e9635fbf668ad99c21ca101ecf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918690"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697120"
 ---
 # <a name="_Toc395783175"></a>Compilar uma aplicação Web Node.js com o Azure Cosmos DB e o SDK Node.js (Pré-visualização)
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - Pré-visualização v2.0](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js – v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 Este tutorial do Node.js mostra-lhe como utilizar a conta API SQL do Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação Node.js Express alojada em Websites do Azure. Neste tutorial, vai compilar uma aplicação baseada na Web simples (aplicação Todo), que lhe permite criar, obter e concluir tarefas. As tarefas são armazenadas como documentos JSON no Azure Cosmos DB. A imagem seguinte mostra uma captura de ecrã da aplicação Todo:
@@ -99,7 +100,7 @@ O ficheiro **package.json** é um dos ficheiros criados na raiz do projeto. Este
    npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>Passo 4: Utilizar o serviço Azure Cosmos DB numa aplicação Node
+## <a name="_Toc395783180"></a>Passo 4: utilizar o serviço Azure Cosmos DB numa aplicação Node
 Agora que já concluiu a configuração inicial, vai escrever o código de que a aplicação Todo precisa para comunicar com o Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Criar o modelo
@@ -438,7 +439,7 @@ Tal deverá ser o suficiente para que a nossa aplicação funcione.
     ![Captura de ecrã da aplicação MyTodo List numa janela do browser](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
-    > Se receber um erro sobre o avanço no ficheiro layout.jade ou no ficheiro index.jade, certifique-se de que as primeiras duas linhas em ambos os ficheiros é justificada à esquerda, sem espaços. Se existirem espaços antes das primeiras duas linhas, remova-os, guarde ambos os ficheiros e, em seguida, atualize a janela do browser. 
+    > Se receber um erro sobre o avanço no ficheiro layout.jade ou no ficheiro index.jade, certifique-se de que as primeiras duas linhas em ambos os ficheiros são justificadas à esquerda, sem espaços. Se existirem espaços antes das primeiras duas linhas, remova-os, guarde ambos os ficheiros e, em seguida, atualize a janela do browser. 
 
 2. Utilize o Item, Nome do Item e campos de Categoria para introduzir uma nova tarefa e, em seguida, clique em **Adicionar Item**. Esta ação cria um documento no Azure Cosmos DB com essas propriedades. 
 3. A página deverá ser atualizada para mostrar o item criado recentemente na ToDo List.
@@ -464,7 +465,7 @@ Tal deverá ser o suficiente para que a nossa aplicação funcione.
 
 ## <a name="_Toc395637775"></a>Passos seguintes
 
-* Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Consulte o artigo [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testar o Desempenho e o Dimensionamento com o Azure Cosmos DB)
+* Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Veja [Testar o Desempenho e o Dimensionamento com o Azure Cosmos DB](performance-testing.md)
 * Saiba como [monitorizar uma conta do Azure Cosmos DB](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).
 * Explore a [Documentação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).

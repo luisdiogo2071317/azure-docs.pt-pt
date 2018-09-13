@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022948"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382003"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Criar uma Instância Gerida do SQL do Azure
 
@@ -60,7 +60,7 @@ Os passos seguintes mostram como criar a sua Instância Gerida depois de a pré-
 2. Localize **Instância Gerida** e, em seguida, selecione **MI (pré-visualização)**.
 3. Clique em **Criar**.
 
-   ![Criar instância gerida](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Criar instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Selecione a sua subscrição e certifique-se de que os termos de pré-visualização são apresentados como **Aceites**.
 
@@ -77,26 +77,21 @@ Os passos seguintes mostram como criar a sua Instância Gerida depois de a pré-
    |**Localização**|A localização que selecionou anteriormente|Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure).|
    |**Rede virtual**|A rede virtual que criou anteriormente| Escolha o item **MyNewVNet/ManagedInstances**, caso não tenha alterado os nomes no passo anterior. Caso contrário, escolha o nome da VNet e a sub-rede da instância gerida que introduziu na secção anterior. **Não utilize a sub-rede predefinida, porque a mesma não está configurada para alojar Instâncias Geridas**. |
 
-   ![formulário de criação de instância gerida](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![formulário de criação de instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Clique em **Escalão de preço** para saber o tamanho dos recursos de computação e armazenamento, bem como para rever as opções de escalão de preço. Por predefinição, a sua instância obtém 32 GB de espaço de armazenamento livre de encargos, **o que poderá não ser suficiente para as suas aplicações**.
 7. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
-   ![escalão de preço de instâncias geridas](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![escalão de preço de instâncias geridas](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. Quando terminar, clique em **Aplicar** para guardar a sua seleção.  
 9. Clique em **Criar** para implementar a Instância Gerida.
 10. Clique no ícone **Notificações** para ver o estado da implementação.
- 
-   ![progresso da implementação](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Clique em **Implementação em curso** para abrir a janela Instância Gerida, para monitorizar ainda mais o progresso da implementação.
- 
-   ![progresso da implementação 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Enquanto ocorre a implementação, avance para o procedimento seguinte.
 
 > [!IMPORTANT]
-> Para a primeira instância numa sub-rede, o tempo de implementação é normalmente muito superior do que nas instâncias subsequentes - por vezes, demora mais de 24 horas a concluir. Não cancele a operação de implementação por estar a demorar mais do que o esperado. Este período de tempo para implementar a sua primeira instância é uma situação temporária. É de esperar uma redução significativa do tempo de implementação pouco tempo após o início da pré-visualização pública. Criar a segunda Instância Gerida na sub-rede demora alguns minutos.
+> Para a primeira instância numa sub-rede, o tempo de implementação é normalmente muito superior do que nas instâncias subsequentes. Não cancele a operação de implementação por estar a demorar mais do que o esperado. Criar a segunda Instância Gerida na sub-rede demora alguns minutos.
 
 ## <a name="prepare-client-machine"></a>Preparar a máquina cliente
 

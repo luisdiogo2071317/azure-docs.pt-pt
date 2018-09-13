@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: efemmano
-ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7b26afa99e9ab14db83aee5c0487c1c405243962
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139478"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719771"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Criar uma oferta no Azure Stack
 
 [Oferece](azure-stack-key-features.md) são grupos de um ou mais planos que os fornecedores apresentam aos utilizadores para comprar ou subscrever. Este documento mostra como criar uma oferta que inclua o [plano que criou](azure-stack-create-plan.md). Esta oferta fornece aos subscritores a capacidade de definir a segurança de máquinas virtuais.
 
-1. Inicie sessão no portal de administrador do Azure Stack (https://adminportal.local.azurestack.external) e selecione **New** > **inquilino ofertas + planos** > **oferecem**.
+1. Inicie sessão no portal de administrador do Azure Stack (https://adminportal.local.azurestack.external) e selecione **+ criar um recurso** > **inquilino ofertas + planos** > **oferecem**.
 
    ![Criar uma oferta](media/azure-stack-create-offer/image01.png)
   

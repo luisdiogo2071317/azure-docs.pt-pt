@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: ea8bb1db53deaa546f4174ddc04d9a270aa96d9a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187788"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698116"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilize a ferramenta de migração de dados para migrar os dados para o Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Que API vai ser utilizada com o Azure Cosmos DB?
 * **[API de SQL](documentdb-introduction.md)** - pode utilizar qualquer uma das opções de origem fornecidas na ferramenta de Migração de Dados para importar dados.
 * **[API de Tabela](table-introduction.md)** - pode utilizar a ferramenta de Migração de Dados ou AzCopy para importar dados. Veja [Importar dados para utilização com a API de Tabela do Azure Cosmos DB](table-import.md) para obter mais informações.
 * **[API do MongoDB](mongodb-introduction.md)** - a ferramenta de Migração de Dados não suporta atualmente a API do MongoDB do Azure Cosmos DB como origem nem como destino. Se pretender migrar os dados dentro ou fora de coleções de APIs do MongoDB do Azure Cosmos DB, veja [Azure Cosmos DB: como migrar dados para a API do MongoDB](mongodb-migrate.md) para obter instruções. Pode também utilizar a ferramenta de Migração de Dados para exportar dados do MongoDB para coleções de APIs de SQL do Azure Cosmos DB, para utilização com a API de SQL. 
-* **[Graph API](graph-introduction.md)** - a ferramenta de Migração de Dados não é uma ferramenta de importação suportada para contas do Graph API neste momento. 
+* **[API do Gremlin](graph-introduction.md)** – a ferramenta de Migração de Dados não é uma ferramenta de importação suportada por contas da API do Gremlin neste momento. 
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -56,7 +56,7 @@ A ferramenta de Migração de Dados é uma solução open source que importa dad
 * HBase
 * Coleções do Azure Cosmos DB
 
-Embora a ferramenta de importação inclua uma interface gráfica (dtui.exe), também pode ser controlada a partir da linha de comandos (dt.exe). De facto, está disponível uma opção para apresentar o comando associado depois de configurar uma importação através da IU. Os dados de origem tabulares (por ex., ficheiros do SQL Server ou CSV) podem ser transformados de modo a que as relações hierárquicas (subdocumentos) possam ser criados durante a importação. Continue a ler para saber mais sobre as opções de origem, os comandos de exemplo para importar a partir de cada origem, as opções de destino e como visualizar os resultados da importação.
+Embora a ferramenta de importação inclua uma interface gráfica (dtui.exe), também pode ser controlada a partir da linha de comandos (dt.exe). De facto, está disponível uma opção para apresentar o comando associado depois de configurar uma importação através da IU. Os dados de origem tabulares (por ex., ficheiros do SQL Server ou CSV) podem ser transformados de modo a que as relações hierárquicas (subdocumentos) possam ser criadas durante a importação. Continue a ler para saber mais sobre as opções de origem, os comandos de exemplo para importar a partir de cada origem, as opções de destino e como visualizar os resultados da importação.
 
 ## <a id="Install"></a>Instalação
 O código de origem da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente ou [transferir um binário previamente compilado](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip) e, em seguida, executar:

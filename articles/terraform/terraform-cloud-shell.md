@@ -1,35 +1,37 @@
 ---
-title: Utilizar Terraform com a Shell de nuvem do Azure
-description: Utilize Terraform com a Shell de nuvem do Azure para simplificar a autenticação e a configuração de modelo.
-keywords: terraform, devops, dimensionamento de máquina virtual, definida, rede, armazenamento, módulos
-ms.service: virtual-machines-linux
-author: dcaro
-ms.author: dcaro
+title: Utilizar o Terraform com o Azure Cloud Shell
+description: Utilize o Terraform com o Azure Cloud Shell para simplificar a autenticação e a configuração de modelos.
+services: terraform
+ms.service: terraform
+keywords: terraform, programadores, conjunto de dimensionamento, máquina virtual, rede, armazenamento, módulos
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 107a6dd82465ce1455a3c2922c8f9cba6b73dd64
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121530"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667967"
 ---
-# <a name="terraform-cloud-shell-development"></a>Desenvolvimento de Terraform nuvem Shell 
+# <a name="terraform-cloud-shell-development"></a>Desenvolvimento do Terraform com o Cloud Shell 
 
-Terraform great funciona de uma linha de comandos de Bash, tais como macOS Terminal ou Bash no Windows ou Linux. Com o seu Terraform a experiência de configurações de Bash do [Shell de nuvem do Azure](/azure/cloud-shell/overview) tem algumas vantagens exclusivas para acelerar o ciclo de desenvolvimento.
+O Terraform funciona muito bem a partir de uma linha de comandos do Bash, como o Terminal no macOS ou Bash no Windows ou Linux. Executar as configurações do Terraform na experiência Bash do [Azure Cloud Shell](/azure/cloud-shell/overview) tem algumas vantagens exclusivas para acelerar o ciclo de desenvolvimento.
 
-Este artigo conceitos abrange Shell nuvem funcionalidades que o ajudam a escrever scripts de Terraform que implementar no Azure.
+Este artigo de conceitos abrange as funcionalidades do Cloud Shell que o ajudam a escrever scripts do Terraform que são implementados no Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="automatic-credential-configuration"></a>Configuração da credencial automática
+## <a name="automatic-credential-configuration"></a>Configuração automática de credenciais
 
-Terraform está instalado e imediatamente disponível na Shell de nuvem. Scripts de Terraform autenticar com o Azure quando tem sessão iniciada numa Shell na nuvem para gerir a infraestrutura sem qualquer configuração adicional. Autenticação automática ignora a necessidade de criar manualmente um serviço do Active Directory principal e configurar as variáveis de fornecedor Terraform do Azure.
+O Terraform está instalado e imediatamente disponível no Cloud Shell. Os scripts do Terraform são autenticados com o Azure quando existe sessão iniciada no Cloud Shell para gerir a infraestrutura sem qualquer configuração adicional. A autenticação automática ignora a necessidade de criar manualmente um principal de serviço do Active Directory e configurar as variáveis de fornecedor do Terraform do Azure.
 
 
-## <a name="using-modules-and-providers"></a>Utilização de módulos e fornecedores
+## <a name="using-modules-and-providers"></a>Utilizar Módulos e Fornecedores
 
-Módulos do Azure Terraform necessitem de credenciais para aceder e efetuar alterações aos recursos na sua subscrição do Azure. Ao trabalhar na Shell do Cloud, adicione o seguinte código para os scripts para utilizar módulos do Azure Terraform na Shell do Cloud:
+Os módulos do Terraform do Azure necessitam de credenciais para aceder e efetuar alterações aos recursos na sua subscrição do Azure. Ao trabalhar no Cloud Shell, adicione o seguinte código aos seus scripts para utilizar os módulos do Terraform do Azure no Cloud Shell:
 
 ```tf
 # Configure the Microsoft Azure Provider
@@ -37,16 +39,16 @@ provider "azurerm" {
 }
 ```
 
-A Shell de nuvem transmite os valores necessários o `azurerm` fornecedor através de variáveis de ambiente quando utilizar qualquer um do `terraform` comandos da CLI.
+O Cloud Shell passa os valores necessários para o fornecedor do `azurerm` através de variáveis de ambiente ao utilizar qualquer um dos comandos da CLI do `terraform`.
 
-## <a name="other-cloud-shell-developer-tools"></a>Outras ferramentas de programador da Shell de nuvem
+## <a name="other-cloud-shell-developer-tools"></a>Outras ferramentas de programação do Cloud Shell
 
-Ficheiros e Estados de shell são mantidas no armazenamento do Azure entre sessões de Shell de nuvem. Utilize [Explorador de armazenamento do Azure](/azure/vs-azure-tools-storage-manage-with-storage-explorer) para copiar e carregar ficheiros para a Shell de nuvem a partir do seu computador local.
+Os ficheiros e estados de shell são mantidos no Armazenamento do Azure entre sessões do Cloud Shell. Utilize o [Explorador de Armazenamento do Azure](/azure/vs-azure-tools-storage-manage-with-storage-explorer) para copiar e carregar ficheiros para o Cloud Shell a partir do computador local.
 
-O 2.0 CLI do Azure está disponível na Shell de nuvem e é uma ótima ferramenta para testar configurações e a verificar o seu trabalho após um `terraform apply` ou `terraform destroy` for concluída.
+A CLI 2.0 do Azure está disponível no Cloud Shell e é uma ótima ferramenta para testar configurações e verificar o seu trabalho depois de concluído um `terraform apply` ou `terraform destroy`.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Criar um cluster VM pequeno, com o módulo de registo](terraform-create-vm-cluster-module.md)
-[criar um cluster VM pequeno utilizando HCL personalizado](terraform-create-vm-cluster-with-infrastructure.md)
+[Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md) (Criar um pequeno cluster de VM com o Registo do Módulo)
+[Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md) (Criar um pequeno cluster de VM com HCL personalizado)

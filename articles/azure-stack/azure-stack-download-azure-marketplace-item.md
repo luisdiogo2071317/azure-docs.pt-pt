@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: MT
+ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024805"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714672"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir itens do marketplace do Azure para o Azure Stack
 
@@ -66,7 +66,7 @@ A implementação do Azure Stack tem de ter conectividade à internet e estar [r
 
     Depois de concluída a transferência, pode implementar o novo item do marketplace como um operador do Azure Stack ou o usuário.
 
-5. Para implementar o item de transferido, selecione **+ novo**e, em seguida, pesquise entre as categorias para o novo item do marketplace. Em seguida, selecione o item para iniciar o processo de implantação. O processo varia para itens do marketplace diferentes. 
+5. Para implementar o item de transferido, selecione **+ criar um recurso**e, em seguida, pesquise entre as categorias para o novo item do marketplace. Em seguida, selecione o item para iniciar o processo de implantação. O processo varia para itens do marketplace diferentes. 
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Desligado ou um cenário parcialmente conectado
 

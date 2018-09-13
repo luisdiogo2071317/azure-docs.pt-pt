@@ -1,50 +1,50 @@
 ---
-title: Criar um cluster VM com Terraform e HCL
-description: Utilizar Terraform e idioma de configuração de HashiCorp (HCL) para criar um cluster de máquina virtual do Linux com um balanceador de carga no Azure
-keywords: terraform devops, máquina virtual, rede, módulos
+title: Criar um cluster de VMs com o Terraform e o HCL
+description: Utilizar o HashiCorp Configuration Language (HCL) e o Terraform para criar um cluster de máquinas virtuais do Linux com um balanceador de carga no Azure
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, máquina virtual, rede, módulos
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 11/13/2017
+ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518805"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667605"
 ---
-# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Criar um cluster VM com Terraform e HCL
+# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Criar um cluster de VMs com o Terraform e o HCL
 
-Este tutorial demonstra a criação de um cluster de computação pequenos utilizando o [HashiCorp configuração idioma](https://www.terraform.io/docs/configuration/syntax.html) (HCL). A configuração cria um balanceador de carga, duas VMs com Linux num [conjunto de disponibilidade](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)e todos os recursos de rede necessários.
+Este tutorial demostra como criar um pequeno cluster de cálculo com o [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). A configuração cria um balanceador de carga, duas VMs do Linux num [conjunto de disponibilidade](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e todos os recursos de rede necessários.
 
 Neste tutorial:
 
 > [!div class="checklist"]
 > * Configurar a autenticação do Azure
-> * Criar um ficheiro de configuração Terraform
-> * Inicializar Terraform
-> * Criar um plano de execução Terraform
-> * Aplicar o plano de execução Terraform
+> * Criar um ficheiro de configuração do Terraform
+> * Inicializar o Terraform
+> * Criar um plano de execução do Terraform
+> * Aplicar o plano de execução do Terraform
 
 ## <a name="1-set-up-azure-authentication"></a>1. Configurar a autenticação do Azure
 
 > [!NOTE]
-> Se lhe [utilizar variáveis de ambiente de Terraform](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), ou executar este tutorial no [Shell de nuvem do Azure](terraform-cloud-shell.md), ignore esta secção.
+> Se [utilizar variáveis de ambiente do Terraform](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) ou executar este tutorial no [Azure Cloud Shell](terraform-cloud-shell.md), ignore esta secção.
 
-Nesta secção, gerar um principal de serviço do Azure e dois Terraform os ficheiros de configuração que contém as credenciais do principal de segurança.
+Nesta secção, vai gerar um principal de serviço do Azure e dois ficheiros de configuração do Terraform com as credenciais do principal de segurança.
 
-1. [Configurar um principal de serviço do Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) para ativar Terraform para Aprovisionar recursos no Azure. Ao criar o principal, tome nota dos valores para o ID de subscrição, o inquilino, o appId e a palavra-passe.
+1. [Configure um principal de serviço do Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) para permitir que o Terraform aprovisione recursos no Azure. Ao criar o principal, tenha em atenção os valores do ID da subscrição, do inquilino, do appId e da palavra-passe.
 
 2. Abra uma linha de comandos.
 
-3. Crie um diretório no qual pretende armazenar os ficheiros de Terraform vazio.
+3. Crie um diretório vazio para armazenar os seus ficheiros do Terraform.
 
-4. Crie um novo ficheiro que contém as declarações de variáveis. Pode atribuir o nome deste ficheiro tudo o que quiser com um `.tf` extensão.
+4. Crie um novo ficheiro para guardar as suas declarações de variáveis. Pode dar o nome que quiser a este ficheiro, com uma extensão `.tf`.
 
-5. Copie o seguinte código para o ficheiro de declaração de variável:
+5. Copie o seguinte código para a variável do seu ficheiro de declaração:
 
   ```tf
   variable subscription_id {}
@@ -60,9 +60,9 @@ Nesta secção, gerar um principal de serviço do Azure e dois Terraform os fich
   }
   ```
 
-6. Crie um novo ficheiro que contém os valores de variáveis do seu Terraform. É comum para o nome do ficheiro de variável Terraform `terraform.tfvars` como Terraform carrega automaticamente qualquer ficheiro com o nome `terraform.tfvars` (ou segue um padrão de `*.auto.tfvars`) se estiver presente no diretório atual. 
+6. Crie um novo ficheiro com os valores das suas variáveis do Terraform. É normal atribuir o nome `terraform.tfvars` ao seu ficheiro de variáveis do Terraform, uma vez que o Terraform carrega automaticamente qualquer ficheiro com o nome `terraform.tfvars` (ou segue um padrão `*.auto.tfvars`), se este estiver presente no diretório atual. 
 
-7. Copie o seguinte código para o ficheiro de variáveis. Certifique-se de que substitui os marcadores de posição da seguinte forma: para `subscription_id`, utilize o ID de subscrição do Azure especificado durante a execução `az account set`. Para `tenant_id`, utilize o `tenant` valor devolvido do `az ad sp create-for-rbac`. Para `client_id`, utilize o `appId` valor devolvido do `az ad sp create-for-rbac`. Para `client_secret`, utilize o `password` valor devolvido do `az ad sp create-for-rbac`.
+7. Copie o seguinte código para o seu ficheiro de variáveis. Certifique-se de que substitui os marcadores de posição da seguinte forma: para `subscription_id`, utilize o ID da subscrição do Azure que especificou quando executou `az account set`. Para `tenant_id`, utilize o valor `tenant` devolvido de `az ad sp create-for-rbac`. Para `client_id`, utilize o valor `appId` devolvido de `az ad sp create-for-rbac`. Para `client_secret`, utilize o valor `password` devolvido de `az ad sp create-for-rbac`.
 
   ```tf
   subscription_id = "<azure-subscription-id>"
@@ -71,13 +71,13 @@ Nesta secção, gerar um principal de serviço do Azure e dois Terraform os fich
   client_secret = "<password-returned-from-creating-a-service-principal>"
   ```
 
-## <a name="2-create-a-terraform-configuration-file"></a>2. Criar um ficheiro de configuração Terraform
+## <a name="2-create-a-terraform-configuration-file"></a>2. Criar um ficheiro de configuração do Terraform
 
-Nesta secção, crie um ficheiro que contém as definições de recursos para a sua infraestrutura.
+Nesta secção, o utilizador cria um ficheiro com as definições dos recursos para a sua infraestrutura.
 
-1. Criar um novo ficheiro designado `main.tf`. 
+1. Crie um novo ficheiro com o nome `main.tf`. 
 
-2. Copiar os seguintes definições de recursos de exemplo criado recentemente na `main.tf` ficheiro: 
+2. Copie as seguintes definições de recursos de exemplo para o seu novo ficheiro `main.tf` criado: 
 
   ```tf
   resource "azurerm_resource_group" "test" {
@@ -218,64 +218,64 @@ Nesta secção, crie um ficheiro que contém as definições de recursos para a 
   }
   ```
 
-## <a name="3-initialize-terraform"></a>3. Inicializar Terraform 
+## <a name="3-initialize-terraform"></a>3. Inicializar o Terraform 
 
-O [terraform init comando](https://www.terraform.io/docs/commands/init.html) é utilizada para inicializar um diretório que contém os ficheiros de configuração de Terraform - os ficheiros criados com secções anteriores. Deve executar sempre o `terraform init` comando depois de escrever uma nova configuração de Terraform. 
+O [comando init do terraform](https://www.terraform.io/docs/commands/init.html) é utilizado para inicializar um diretório com os ficheiros de configuração do Terraform que criou nas secções anteriores. É uma prática recomendada executar sempre o comando `terraform init` após escrever uma nova configuração do Terraform. 
 
 > [!TIP]
-> O `terraform init` comando é idempotent, o que significa que este pode ser chamado repetidamente ao produzir o mesmo resultado. Por conseguinte, se estiver a trabalhar num ambiente de colaboração e pensa que os ficheiros de configuração poderão ter sido alterados, é sempre boa ideia para chamar o `terraform init` comando antes de executar ou aplicar um esquema.
+> O comando `terraform init` é idempotent, o que significa que pode ser chamado repetidamente e produzir o mesmo resultado. Desta forma, se estiver a trabalhar num ambiente de colaboração e achar que os ficheiros de configuração poderão ter sido alterados, é sempre uma boa ideia chamar o comando `terraform init` antes de executar ou aplicar um plano.
 
-Para inicializar Terraform, execute o seguinte comando:
+Para inicializar o Terraform execute o seguinte comando:
 
   ```cmd
   terraform init
   ```
 
-  ![A inicializar Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
+  ![Inicializar o Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
 
-## <a name="4-create-a-terraform-execution-plan"></a>4. Criar um plano de execução Terraform
+## <a name="4-create-a-terraform-execution-plan"></a>4. Criar um plano de execução do Terraform
 
-O [comandos de plano terraform](https://www.terraform.io/docs/commands/plan.html) é utilizado para criar um plano de execução. Para gerar um plano de execução, Terraform agrega todos os `.tf` ficheiros no diretório atual. 
+O [comando terraform plan](https://www.terraform.io/docs/commands/plan.html) é utilizado para criar um plano de execução. Para gerar um plano de execução, o Terraform agrega todos os ficheiros `.tf` no diretório atual. 
 
-Se estiver a trabalhar num ambiente de colaboração, onde a configuração pode ser alterado entre a hora de criação do plano de execução e a hora de aplicar o plano de execução, deve utilizar o [do comando de plano terraform-parâmetroout](https://www.terraform.io/docs/commands/plan.html#out-path)para guardar o plano de execução para um ficheiro. Caso contrário, se estiver a trabalhar num ambiente única pessoa, pode omitir o `-out` parâmetro.
+Se estiver a trabalhar num ambiente de colaboração onde a configuração poderá ser alterada entre a altura em que cria o plano de execução e a altura da aplicação do plano de execução, deve utilizar o [parâmetro -out do comando terraform plan](https://www.terraform.io/docs/commands/plan.html#out-path) para guardar o plano de execução num ficheiro. De outra forma, se estiver a trabalhar num ambiente com uma só pessoa, pode omitir o parâmetro `-out`.
 
-Se o nome do ficheiro Terraform variáveis não é `terraform.tfvars` e não siga a `*.auto.tfvars` padrão, tem de especificar o nome de ficheiro utilizando o [parâmetro de ficheiro - var do comando de plano terraform](https://www.terraform.io/docs/commands/plan.html#var-file-foo) ao executar o `terraform plan`comando.
+Se o nome dos seus ficheiros de variáveis do Terraform não for `terraform.tfvars` e não seguir o padrão `*.auto.tfvars`, tem de especificar o nome do ficheiro com o [parâmetro -var-file do comando terraform plan](https://www.terraform.io/docs/commands/plan.html#var-file-foo) ao executar o comando `terraform plan`.
 
-Ao processar o `terraform plan` comando, Terraform efetua uma atualização e determina as ações são necessárias para atingir o estado pretendido especificado nos seus ficheiros de configuração.
+Ao processar o comando `terraform plan`, o Terraform realiza uma atualização e determina quais as ações necessárias para alcançar o estado especificado nos seus ficheiros de configuração.
 
-Se não pretender guardar o seu plano de execução, execute o seguinte comando:
+Se não precisar de guardar o seu plano de execução, execute o seguinte comando:
 
   ```cmd
   terraform plan
   ```
 
-Se precisar de guardar o seu plano de execução, execute o seguinte comando (substituir a &lt;caminho > marcador de posição com o caminho de saída pretendidas):
+Se precisar de guardar o seu plano de execução, execute o seguinte comando (substitua o marcador de posição &lt;path> pelo caminho de saída pretendido):
 
   ```cmd
   terraform plan -out=<path>
   ```
 
-![Criar um plano de execução Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
+![Criar um plano de execução do Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
-## <a name="5-apply-the-terraform-execution-plan"></a>5. Aplicar o plano de execução Terraform
+## <a name="5-apply-the-terraform-execution-plan"></a>5. Aplicar o plano de execução do Terraform
 
-O passo final deste tutorial consiste em utilizar o [terraform aplicar comandos](https://www.terraform.io/docs/commands/apply.html) para aplicar o conjunto de ações geradas pelo `terraform plan` comando.
+O último passo deste tutorial é utilizar o [comando terraform apply](https://www.terraform.io/docs/commands/apply.html) para aplicar o conjunto de ações geradas pelo comando `terraform plan`.
 
-Se pretender aplicar o plano de execução mais recente, execute o seguinte comando:
+Se quiser aplicar o plano de execução mais recente, execute o seguinte comando:
 
   ```cmd
   terraform apply
   ```
 
-Se pretender aplicar um esquema de execução guardado anteriormente, execute o seguinte comando (substituir a &lt;caminho > marcador de posição com o caminho que contém o plano de execução guardada):
+Se quiser aplicar um plano de execução guardado anteriormente, execute o seguinte comando (substitua o marcador de posição &lt;path> pelo caminho com o plano de execução guardado):
 
   ```cmd
   terraform apply <path>
   ```
 
-![Aplicar um esquema de execução Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Aplicar um plano de execução do Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Procurar a lista de [módulos Terraform do Azure](https://registry.terraform.io/modules/Azure)
-- Criar um [do conjunto de dimensionamento de máquina virtual com Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- Navegar na lista de [módulos do Terraform no Azure](https://registry.terraform.io/modules/Azure)
+- Criar um [conjunto de dimensionamento de máquinas virtuais com o Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
