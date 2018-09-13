@@ -3,20 +3,20 @@ title: Regras de firewall de base de dados SQL e o armazém de dados do Azure | 
 description: Saiba como configurar uma base de dados SQL e o firewall do SQL Data Warehouse com regras de firewall ao nível do servidor para gerir o acesso e configurar regras de firewall ao nível da base de dados de base de dados SQL.
 keywords: firewall de base de dados do servidor
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: carlrab
-ms.openlocfilehash: 51b7a42e5b08c0fb40b3c9407d6da345db494214
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.author: vanto
+ms.openlocfilehash: 118911687326bfa938c7276337377e3d3cb66bf2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057250"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715402"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regras de firewall de base de dados SQL e SQL Data Warehouse do Azure 
 
@@ -43,7 +43,7 @@ As tentativas de ligação a partir da Internet e do Azure têm, primeiro, de pa
    ![Diagrama com descrição da configuração da firewall.][1]
 
 * **Regras de firewall ao nível do servidor:** estas regras permitem que os clientes acedam a todo o seu servidor do SQL Azure, ou seja, todas as bases de dados dentro do mesmo servidor lógico. Estas regras são armazenadas na base de dados **mestra**. A configuração das regras de firewall ao nível do servidor pode ser feita no portal ou através de instruções de Transact-SQL. Para criar regras de firewall ao nível do servidor com o portal do Azure ou com o PowerShell, tem de ser o proprietário da subscrição ou um contribuinte da subscrição. Para criar uma regra de firewall ao nível do servidor através de Transact-SQL, deve ligar à instância da Base de dados SQL como o início de sessão principal ao nível do servidor ou como administrador do Azure Active Directory (o que significa que uma regra de firewall ao nível do servidor tem primeiro de ser criada por um utilizador com permissões ao nível do Azure).
-* **Regras de firewall de nível de base de dados:** estas regras permitem que os clientes acedam a determinadas bases de dados (seguras) no mesmo servidor lógico. Pode criar estas regras para cada base de dados (incluindo o **mestre** base de dados) e são armazenados nas bases de dados individuais. Regras de firewall ao nível da base de dados para bases de dados mestra e o utilizador só podem ser criadas e geridas através de instruções de Transact-SQL e apenas depois de ter configurado a primeira firewall ao nível do servidor. Se especificar um intervalo de endereços IP na regra de firewall ao nível da base de dados que esteja fora do intervalo especificado na regra de firewall ao nível do servidor, só os clientes que tiverem endereços IP no intervalo ao nível da base de dados podem aceder à base de dados. Pode ter um máximo de 128 regras de firewall ao nível da base de dados para uma base de dados. Para obter mais informações sobre como configurar regras de firewall ao nível da base de dados, consulte o exemplo mais à frente neste artigo e ver [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
+* **Regras de firewall de nível de base de dados:** estas regras permitem que os clientes acedam a determinadas bases de dados (seguras) no mesmo servidor lógico. Pode criar estas regras para cada base de dados (incluindo o **mestre** base de dados) e são armazenados nas bases de dados individuais. Regras de firewall ao nível da base de dados para bases de dados mestra e o utilizador só podem ser criadas e geridas através de instruções de Transact-SQL e apenas depois de ter configurado a primeira firewall ao nível do servidor. Se especificar um intervalo de endereços IP na regra de firewall ao nível da base de dados que esteja fora do intervalo especificado na regra de firewall ao nível do servidor, só os clientes que tiverem endereços IP no intervalo ao nível da base de dados podem aceder à base de dados. Pode ter um máximo de 128 regras de firewall ao nível da base de dados para uma base de dados. Para obter mais informações sobre como configurar regras de firewall ao nível da base de dados, consulte o exemplo mais à frente neste artigo e ver [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Recomendação:** a Microsoft recomenda a utilização de regras de firewall ao nível da base de dados sempre que possível, para melhorar a segurança e tornar a sua base de dados mais portátil. Utilize as regras de firewall ao nível do servidor para os administradores e se tiver muitas bases de dados com os mesmos requisitos de acesso e não quer perder tempo a configurar individualmente cada uma.
 

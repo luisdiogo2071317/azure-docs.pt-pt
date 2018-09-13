@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c6e57d5094f455983b8b474b6930f628d654e457
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371211"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44754474"
 ---
 No primeiro cenário, vai adicionar um novo tipo de telemetria para a Contoso existentes **Chiller** tipo de dispositivo.
 
@@ -73,6 +73,7 @@ Para seguir este guia de procedimentos, terá de:
 
 * Visual Studio Code. Pode [transferir o Visual Studio Code para Mac, Linux e Windows](https://code.visualstudio.com/download).
 * .NET core. Pode baixar [.NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
+* [C# para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman. Pode baixar [Postman para Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Uma [hub IoT implementado na sua subscrição do Azure](../articles/iot-hub/iot-hub-create-through-portal.md). Terá de cadeia de ligação do hub IoT para concluir os passos neste guia. Pode obter a cadeia de ligação do portal do Azure.
 * Uma base de dados do Cosmos DB que utiliza a API de SQL e que está configurada para [consistência forte](../articles/cosmos-db/manage-account.md). Terá de cadeia de ligação da base de dados do Cosmos DB para concluir os passos neste guia. Pode obter a cadeia de ligação do portal do Azure.
@@ -89,13 +90,11 @@ As instruções neste artigo partem do princípio de que está a utilizar o Wind
 
 ### <a name="download-the-microservices"></a>Transferir os microsserviços
 
-Transfira e deszipe o [microsserviços de placa de armazenamento](https://github.com/Azure/pcs-storage-adapter-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local.
-
-Transfira e deszipe o [microsserviços de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local.
+Transfira e deszipe o [microsserviços de monitorização remota](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Execute os microsserviços de placa de armazenamento
 
-Abra o **pcs-storage-adaptador-dotnet-mestre** pasta no Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
+Abra o **remote-monitoring-services-dotnet-master\storage-adapter** pasta no Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
 
 Abra o **.vscode/launch.json** do ficheiro e atribuir a cadeia de ligação do Cosmos DB para o **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** variável de ambiente.
 
@@ -420,7 +419,7 @@ Nesta secção, vai testar os tipos de dispositivo que criou nas secções anter
 
 ### <a name="run-the-device-simulation-microservice"></a>Execute os microsserviços de simulação do dispositivo
 
-Abra o **dispositivo-simulação-dotnet-mestre** pasta transferiu a partir do GitHub numa nova instância do Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
+Abra o **remote-monitoring-services-dotnet-master\device-simulation** pasta transferiu a partir do GitHub numa nova instância do Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
 
 Abra o **.vscode/launch.json** do ficheiro e atribuir a cadeia de ligação do IoT Hub para o **PCS_IOTHUB_CONNSTRING** variável de ambiente.
 

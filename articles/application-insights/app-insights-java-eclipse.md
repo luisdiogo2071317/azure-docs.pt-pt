@@ -1,6 +1,6 @@
 ---
 title: Introdução ao Azure Application Insights com o Java no Eclipse | Documentos da Microsoft
-description: Utilizar o plug-in do Eclipse para adicionar o desempenho e a monitorização de utilização para o seu site em Java com o Application Insights
+description: Utilizar o plug-in do Eclipse para adicionar o desempenho e monitoramento de uso do seu Web site de Java com o Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,42 +10,42 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ebcfe02eb8d969af26f5121bda85e4610302e838
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795565"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647594"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introdução ao Application Insights com o Java no Eclipse
-O Application Insights SDK envia a telemetria da sua aplicação web de Java para que possa analisar utilização e desempenho. O Eclipse Plug-in para o Application Insights instala automaticamente o SDK no projeto para que a tirar partido da telemetria de caixa, além de uma API que pode utilizar para escrever telemetria personalizada.   
+O SDK do Application Insights envia a telemetria da aplicação web Java, para que pode analisar a utilização e desempenho. O Eclipse Plug-in do Application Insights instala automaticamente o SDK no seu projeto para que beneficia a telemetria de caixa, além de uma API que pode utilizar para escrever telemetria personalizada.   
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente o funciona Plug-in para projetos do Maven e projetos Web dinâmico no Eclipse.
-([Adicionar o Application Insights para outros tipos de projeto Java][java].)
+Atualmente a funciona de plug-in para projetos do Maven e projetos da Web dinâmico no Eclipse.
+([Adicionar o Application Insights para outros tipos de projeto de Java][java].)
 
 Precisa de:
 
 * JRE 1.7 ou 1.8
 * Uma subscrição do [Microsoft Azure](https://azure.microsoft.com/).
 * [IDE Eclipse para programadores de Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
-* Windows 7 ou posterior, ou Windows Server 2008 ou posterior
+* Windows 7 ou posterior ou Windows Server 2008 ou posterior
 
-Se preferir o framework de mola tente o [configurar uma aplicação de inicializador de arranque a utilizar o Application Insights guia](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+Se preferir o framework Spring, tente [configurar uma aplicação de inicializador do Spring Boot para utilizar o guia Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights).
 
-## <a name="install-the-sdk-on-eclipse-one-time"></a>Instalar o SDK no Eclipse (uma vez)
-Só tem de executar este uma vez por máquina. Este passo instala um conjunto de ferramentas que, em seguida, pode adicionar o SDK para cada Dynamic Web Project.
+## <a name="install-the-sdk-on-eclipse-one-time"></a>Instalar o SDK em Eclipse (uma vez)
+Só precisa de executar uma vez por máquina. Este passo instala um Kit de ferramentas que, em seguida, pode adicionar o SDK para cada projeto Web dinâmico.
 
-1. No Eclipse, clique em Ajuda, instalar o novo Software.
+1. No Eclipse, clique em Ajuda, instalar Software novo.
 
-    ![Ajudar, instale o novo Software](./media/app-insights-java-eclipse/0-plugin.png)
-2. O SDK está a ser http://dl.microsoft.com/eclipse, sob o Toolkit do Azure.
-3. Desmarque **contacte todos os sites de atualização...**
+    ![Ajuda, instalar novo Software](./media/app-insights-java-eclipse/0-plugin.png)
+2. O SDK é no http://dl.microsoft.com/eclipse, sob o Kit de ferramentas do Azure.
+3. Desmarque a opção **contacte todos os sites de atualização...**
 
-    ![Para o Application Insights SDK, desmarque contacte todos os sites de atualização](./media/app-insights-java-eclipse/1-plugin.png)
+    ![Para o SDK do Application Insights, desmarque contacte todos os sites de atualização](./media/app-insights-java-eclipse/1-plugin.png)
 
 Siga os passos restantes para cada projeto de Java.
 
@@ -69,7 +69,7 @@ Siga os passos restantes para cada projeto de Java.
 
 A chave é enviada juntamente com todos os itens de telemetria e diz ao Application Insights para apresentá-la no seu recurso.
 
-## <a name="run-the-application-and-see-metrics"></a>Executar a aplicação e ver as métricas
+## <a name="run-the-application-and-see-metrics"></a>Executar o aplicativo e ver métricas
 Execute a sua aplicação.
 
 Regresse ao seu recurso do Application Insights no Microsoft Azure.
@@ -86,19 +86,19 @@ Clique em qualquer gráfico para ver métricas mais detalhadas.
 
 E, ao visualizar as propriedades de um pedido, pode ver os eventos de telemetria associados, como os pedidos e exceções.
 
-![Todos os rastreios para este pedido](./media/app-insights-java-eclipse/7-instance.png)
+![Todos os rastreios deste pedido](./media/app-insights-java-eclipse/7-instance.png)
 
 ## <a name="client-side-telemetry"></a>Telemetria do lado do cliente
-No painel início rápido, clique em obter código para monitorizar as minhas páginas web:
+No painel de início rápido, clique em código de Get para monitorizar as minhas páginas web:
 
 ![No painel de descrição geral da aplicação, escolha Início Rápido, Obter código para monitorizar as minhas páginas Web. Copie o script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
 
-Inserir o fragmento de código no cabeçalho dos ficheiros HTML.
+Inserir o trecho de código na cabeça dos seus ficheiros HTML.
 
-#### <a name="view-client-side-data"></a>Visualizar os dados do lado do cliente
-Abrir páginas web atualizado e utilizá-los. Aguarde um minuto ou dois, em seguida, regressar ao Application Insights e abra o painel de utilização. (A partir do painel de descrição geral, desloque para baixo e clique em utilização.)
+#### <a name="view-client-side-data"></a>Ver dados do lado do cliente
+Abra as páginas da web atualizado e utilizá-los. Aguarde um minuto ou dois, em seguida, retornar para o Application Insights e abra o painel de utilização. (No painel Descrição geral, desloque para baixo e clique em utilização).
 
-As métricas, utilizador, sessões e visualizações de página serão apresentada no painel de utilização:
+Métricas de sessões, utilizadores e visualizações de página serão apresentada no painel de utilização:
 
 ![Sessões, utilizadores e vistas de página](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -133,9 +133,9 @@ Para recolher dados de outras exceções, tem duas opções:
 [Instale o Agente Java](app-insights-java-agent.md) para registar métodos internos especificados e as chamadas efetuadas através de JDBC, com dados de temporização.
 
 ## <a name="performance-counters"></a>Contadores de desempenho
-No painel da descrição geral, desloque para baixo e clique em de **servidores** mosaico. Verá um intervalo de contadores de desempenho.
+No seu painel de descrição geral, desloque para baixo e clique nas **servidores** mosaico. Verá um intervalo de contadores de desempenho.
 
-![Desloque para baixo para clique em que servidores de mosaico](./media/app-insights-java-eclipse/11-perf-counters.png)
+![Desloque para baixo até o clique em que servidores do mosaico](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Personalizar a recolha do contador de desempenho
 Para desativar a recolha do conjunto padrão de contadores de desempenho, adicione o seguinte código ao nó de raiz do ficheiro ApplicationInsights.xml:
@@ -207,27 +207,27 @@ Irá obter gráficos de tempos de resposta e notificações por e-mail, se o seu
 [Saiba mais sobre testes Web de disponibilidade.][availability]
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-Se estiver a utilizar Logback ou Log4J (v1.2 ou v 2.0) para o rastreio, pode fazer com que os registos de rastreio automaticamente enviados para o Application Insights, onde pode explorar e procurar nos mesmos.
+Se estiver a utilizar Logback ou Log4J (versão 1.2 ou 2.0) para o rastreio, pode ter os registos de rastreio enviados automaticamente para o Application Insights, onde pode explorar e pesquisar nos mesmos.
 
 [Saiba mais sobre os registos de diagnóstico][javalogs]
 
 ## <a name="custom-telemetry"></a>Telemetria personalizada
-Insira alguns linhas de código na aplicação web Java para saber que os utilizadores estão a fazer com o mesmo ou para ajudar a diagnosticar problemas.
+Insira umas poucas linhas de código no seu aplicativo da web de Java para saber o que os usuários estão fazendo com o mesmo ou para ajudar a diagnosticar problemas.
 
-Pode inserir código tanto na página web JavaScript do lado do servidor de Java.
+Pode inserir o código de página da web JavaScript e o Java do lado do servidor.
 
 [Saiba mais sobre a telemetria personalizada][track]
 
 ## <a name="next-steps"></a>Passos Seguintes
 #### <a name="detect-and-diagnose-issues"></a>Detetar e diagnosticar problemas
-* [Adicionar telemetria de cliente web] [ usage] para obter telemetria de desempenho do cliente web.
+* [Adicionar telemetria de cliente da web] [ usage] para obter telemetria de desempenho do cliente web.
 * [Configure testes Web][availability] para certificar-se de que a aplicação permanece em direto e reativa.
 * [Pesquise eventos e registos][diagnostic] para ajudar a diagnosticar problemas.
 * [Capturar rastreios de Log4J ou Logback][javalogs]
 
 #### <a name="track-usage"></a>Controlar a utilização
-* [Adicionar telemetria de cliente web] [ usage] para monitorizar vistas de página e métricas de utilizador básico.
-* [Controlar métricas e eventos personalizados](app-insights-web-track-usage.md) para saber mais sobre como a aplicação for utilizada, tanto o cliente e o servidor.
+* [Adicionar telemetria de cliente da web] [ usage] para monitorizar vistas de página e métricas de utilizador básico.
+* [Controle eventos personalizados e métricas](app-insights-web-track-usage.md) para saber mais sobre como a aplicação é utilizada, tanto no cliente e o servidor.
 
 <!--Link references-->
 

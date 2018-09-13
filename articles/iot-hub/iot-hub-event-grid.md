@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144383"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719856"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir a eventos do IoT Hub com o Event Grid para realizar ações
 
@@ -34,12 +34,11 @@ IoT Hub publica os seguintes tipos de evento:
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registado para um hub IoT. |
-| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. | 
-| Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está ligado a um hub IoT. | 
-| Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é ligado à Internet de um hub IoT. | 
-Tenha em atenção que o dispositivo ligado e eventos de desligado do dispositivo será ativada brevemente para regiões leste do Canadá e E.U.A. Leste.
+| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. |
+| Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está ligado a um hub IoT. |
+| Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é ligado à Internet de um hub IoT. |
 
-Utilize o portal do Azure ou a CLI do Azure para configurar os eventos de publicar a partir de cada hub IoT. Por exemplo, experimente o tutorial [enviar notificações de e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
+Utilize o portal do Azure ou a CLI do Azure para configurar os eventos de publicar a partir de cada hub IoT. Por exemplo, experimente o tutorial [enviar notificações de e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Esquema de eventos
 
@@ -146,7 +145,7 @@ Aplicações que processam os eventos do IoT Hub devem seguir estas práticas su
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Experimente o tutorial de eventos do IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Saiba como encomendar dispositivo ligado e desligado a eventos](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Saiba como encomendar eventos de dispositivos ligados e desligados](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * [Saiba mais sobre o Event Grid][lnk-eg-overview]
 * [Comparar as diferenças entre mensagens e encaminhamento eventos do IoT Hub][lnk-eg-compare]
 

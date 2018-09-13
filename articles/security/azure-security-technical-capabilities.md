@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972201"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721335"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -43,7 +43,7 @@ Com o Microsoft Azure, pode:
 
 ## <a name="scope"></a>Âmbito
 
-O ponto focal deste White Paper diz respeito a recursos de segurança e a funcionalidade que suporta componentes de principais do Microsoft Azure, ou seja [armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [bases de dados do Microsoft Azure SQL](https://docs.microsoft.com/azure/sql-database/), [ Modelo de máquina virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/)e as ferramentas e a infraestrutura que gerir tudo. Esse foco de documento no Microsoft Azure capacidades técnicas disponíveis para, como os clientes a cumprir as respetivas funções na proteção da segurança e privacidade dos seus dados.
+O ponto focal deste White Paper diz respeito a recursos de segurança e a funcionalidade que suporta componentes de principais do Microsoft Azure, ou seja [armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [base de dados do Microsoft Azure SQL](https://docs.microsoft.com/azure/sql-database/), [ Modelo de máquina virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/)e as ferramentas e a infraestrutura que gerir tudo. Esse foco de documento no Microsoft Azure capacidades técnicas disponíveis para, como os clientes a cumprir as respetivas funções na proteção da segurança e privacidade dos seus dados.
 
 A importância de compreender esse modelo de responsabilidade partilhada é essencial para os clientes que estão a ser movidos para a cloud. Os fornecedores de cloud oferecem vantagens consideráveis para os esforços de segurança e conformidade, mas essas vantagens não absolve o cliente de proteção de seus usuários, aplicativos e ofertas de serviço.
 
@@ -63,7 +63,7 @@ Azure ajuda a proteger a empresa e informações pessoais, permitindo-lhe gerir 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft identidades e acessos gestão soluções ajudar a TI a proteger o acesso aos recursos e aplicações em todo o datacenter Corporativo e para a cloud, permitindo níveis adicionais de validação, como a autenticação multifator e acesso condicional políticas. Monitorização de atividade suspeita por meio de segurança avançadas, relatórios, auditoria e alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fornece início de sessão único a milhares de cloud aplicações (SaaS) e acesso a aplicações web que são executadas no local.
+Microsoft identidades e acessos gestão soluções ajudar a TI a proteger o acesso aos recursos e aplicações em todo o datacenter Corporativo e para a cloud, permitindo níveis adicionais de validação, como a autenticação multifator e acesso condicional políticas. A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fornece início de sessão único a milhares de cloud aplicações (SaaS) e acesso a aplicações web que são executadas no local.
 
 Benefícios de segurança do Azure Active Directory (Azure AD) incluem a capacidade de:
 

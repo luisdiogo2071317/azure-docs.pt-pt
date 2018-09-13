@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d43032f854aa37f150945c25515c03ec97277b41
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a68e7cfe2966592861f3fb58c99327c5849a6004
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091310"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721607"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
 
@@ -74,8 +74,7 @@ Eis a vinculação de dados a *Function* ficheiro:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 O [configuração](#input---configuration) seção explica essas propriedades.
@@ -120,8 +119,7 @@ Eis a vinculação de dados a *Function* ficheiro:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 O [configuração](#input---configuration) seção explica essas propriedades.
@@ -219,8 +217,7 @@ Eis a vinculação de dados a *Function* ficheiro:
     "apiKey": "My_MobileApp_Key",
     "direction": "out"
     }
-],
-"disabled": false
+]
 }
 ```
 

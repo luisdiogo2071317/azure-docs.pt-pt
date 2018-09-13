@@ -1,6 +1,6 @@
 ---
-title: Elemento de IU InfoBox do Azure | Microsoft Docs
-description: Descreve o elemento de IU Microsoft.Common.TextBlock para o portal do Azure.
+title: Elemento de interface do Usuário de caixa de informações do Azure | Documentos da Microsoft
+description: Descreve o elemento de interface do Usuário de Microsoft.Common.TextBlock para o portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,17 +11,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9507280bf5df1e63c81f0b2488b9676784c69812
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: abd1329f2ebac90bf846dfd5fc5b307ddb5e52bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260879"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35955760"
 ---
-# <a name="microsoftcommoninfobox-ui-element"></a>Elemento de IU Microsoft.Common.InfoBox
-Um controlo que adiciona uma caixa de informações.
+# <a name="microsoftcommoninfobox-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.InfoBox
+Um controle que adiciona uma caixa de informações. A caixa contém texto importante ou avisos que ajudam os utilizadores a compreender os valores que precisam. Também pode ligar a um URI para obter mais informações.
+
+## <a name="ui-sample"></a>Exemplo de interface do Usuário
+![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -39,7 +43,7 @@ Um controlo que adiciona uma caixa de informações.
 
 ## <a name="remarks"></a>Observações
 
-* Para `icon`, utilize **nenhum**, **informações**, **aviso**, ou **erro**.
+* Para `icon`, utilize **None**, **informações**, **aviso**, ou **erro**.
 * O `uri` propriedade é opcional.
 
 ## <a name="sample-output"></a>Resultado da amostra
@@ -49,5 +53,5 @@ Um controlo que adiciona uma caixa de informações.
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

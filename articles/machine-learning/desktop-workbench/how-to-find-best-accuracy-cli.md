@@ -1,30 +1,30 @@
 ---
-title: Localizar é executado com o melhor exatidão e duração mais baixa no Azure Machine Learning Workbench | Microsoft Docs
-description: Caso de utilização de um ponto-a-ponto para localizar melhor exatidão através da CLI através do Azure Machine Learning Workbench
+title: Localizar execuções com o maior precisão e a duração mais baixa no Azure Machine Learning Workbench | Documentos da Microsoft
+description: Um caso de utilização de ponto-a-ponto para localizar o maior precisão através da CLI com o Azure Machine Learning Workbench
 services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 077af8b5d3367dd2188cbd6e5d76aaf52512a1e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d2fe951a97b18c95e647b45d799843a982100367
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830804"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35954358"
 ---
-# <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Localizar é executado com o melhor exatidão e duração mais baixa
-Tendo em conta vários é executado, um caso de utilização é encontrar é executado com o melhor exatidão. Uma abordagem é utilizar a interface de linha de comandos (CLI) com um [JMESPath](http://jmespath.org/) consulta. Para obter mais informações sobre como utilizar JMESPath na CLI do Azure, consulte [JMESPath utilizar consultas com o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). No exemplo seguinte, é quatro executado é criados com valores de precisão de 0, 0.98, 1 e 1. Executa é filtradas se estão no intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` onde `Threshold = .03`.
+# <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Find é executado com o maior precisão e a duração mais baixa
+Tendo em conta várias execuções, é um caso de uso encontrar execuções com a maior precisão. Uma abordagem é usar a interface de linha de comandos (CLI), com um [JMESPath](http://jmespath.org/) consulta. Para obter mais informações sobre como utilizar o JMESPath na CLI do Azure, consulte [consultas JMESPath utilizar com a CLI do Azure](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). No exemplo seguinte, quatro execuções são criadas com valores de precisão de 0, 0.98, 1 e 1. Execuções são filtradas se eles estão no intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` onde `Threshold = .03`.
 
 ## <a name="sample-data"></a>Dados de exemplo
-Se não tiver executa existente com uma `Accuracy` valor, os seguintes passos geram executa para consultas.
+Se não tiver execuções existentes com um `Accuracy` valor, os seguintes passos geram execuções para consultar.
 
-Em primeiro lugar, crie um ficheiro de Python no Azure Machine Learning Workbench, nome `log_accuracy.py`e cole o seguinte código:
+Em primeiro lugar, crie um ficheiro de Python no Azure Machine Learning Workbench, nomeie- `log_accuracy.py`e cole o seguinte código:
 ```python
 from azureml.logging import get_azureml_logger
 
@@ -47,22 +47,22 @@ for value in accuracy_values:
     os.system('az ml experiment submit -c local ./log_accuracy.py {}'.format(value))
 ```
 
-Por último, abra a CLI do AZURE através do Workbench e execute o comando `python run.py` para submeter quatro experimentações. Quando o script estiver concluído, deverá ver quatro executa mais no `Run History` separador.
+Por último, abra a CLI por meio da bancada de trabalho e execute o comando `python run.py` para submeter quatro experimentações. Quando o script estiver concluído, deverá ver quatro mais execuções no `Run History` separador.
 
-## <a name="query-the-run-history"></a>Consultar o histórico de execução
+## <a name="query-the-run-history"></a>Consultar o histórico de execuções
 O primeiro comando localiza o valor de precisão máxima.
 ```powershell
 az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
 ```
 
-Utilizar este valor de precisão máxima de `1` e um valor de limiar de `0.03`, os filtros de comando segundo for executado utilizando `Accuracy` e, em seguida, ordena é executado por `duration` ascendente.
+Com este valor de precisão máx. de `1` e um valor de limiar de `0.03`, os segundo filtros de comando é executado usando `Accuracy` e, em seguida, ordena é executado por `duration` ascendente.
 ```powershell
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
 > [!NOTE]
-> Se pretender que uma verificação de limite superior strict, o formato de consulta é ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> Se pretender que uma verificação rigorosa do limite superior, o formato de consulta é ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
 
-Se utilizar o PowerShell, o seguinte código utiliza variáveis locais para armazenar o limiar e a precisão máxima:
+Se utilizar o PowerShell, o código a seguir usa variáveis locais para armazenar o limiar e a precisão máxima:
 ```powershell
 $threshold = 0.03
 $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
@@ -71,4 +71,4 @@ az ml history list --query $find_runs_query
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre o registo, consulte [como utilizar o histórico de execução e métricas de modelo no Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    
+Para obter mais informações sobre o registo, consulte [como utilizar o histórico de execuções e métricas de modelo no Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    

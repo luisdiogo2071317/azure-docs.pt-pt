@@ -1,36 +1,36 @@
 ---
-title: Portal de inscrição self-service para colaboração B2B do Azure Active Directory do | Microsoft Docs
+title: Portal de inscrição self-service para colaboração do Azure Active Directory B2B | Documentos da Microsoft
 description: A colaboração do B2B Azure Active Directory suporta as relações entre empresas, permitindo a parceiros de negócios acederem, seletivamente, às suas aplicações empresariais
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 5ee55034e84fe09484a2f7613cc2224be70fdebb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 94001b005a883c172cab279029b47ac1ad0c0de5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260163"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647296"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal self-service para inscrição de colaboração B2B do Azure AD
 
-Os clientes podem fazer muito com as funcionalidades incorporadas que são expostas através de [portal do Azure](https://portal.azure.com) e o [painel de acesso de aplicação](https://myapps.microsoft.com) para os utilizadores finais. No entanto, poderá ter de personalizar o fluxo de trabalho de integração para os utilizadores de B2B para se ajustarem às necessidades da sua organização. Pode fazê-lo com [o convite API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Os clientes podem fazer muito com os recursos incorporados que são expostos por meio da [portal do Azure](https://portal.azure.com) e o [painel de acesso de aplicação](https://myapps.microsoft.com) para os utilizadores finais. No entanto, poderá ter de personalizar o fluxo de trabalho de integração para utilizadores B2B para se ajustar às necessidades da sua organização. Pode fazer isso com [o convite API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
-Como uma organização convidando, poderá não saber antecedência quem são os colaboradores externos individuais que necessitam de aceder aos seus recursos. Precisa de uma forma para os utilizadores de empresas, para se inscrever-se com um conjunto de políticas que controla, como a organização convidando. Este cenário é possível através de APIs. Não existe um [projeto de exemplo no GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) que mesmo.
+Como uma organização que o convidou, talvez não saiba antes do tempo que os funcionários externos individuais são que necessitam de aceder aos seus recursos. Precisa de uma forma para os utilizadores de empresas associadas, para se inscrever-se com um conjunto de políticas que controla a, como a organização que o convidou. Este cenário é possível através das APIs. Há uma [projeto de exemplo no GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) que faz exatamente isso.
 
-Este projeto de GitHub mostra como as organizações podem utilizar as APIs para fornecer uma capacidade de inscrição baseadas em políticas, self-service para os parceiros fidedignos, com regras que determinam as aplicações que podem aceder. Os utilizadores do parceiro aceder aos recursos quando precisam. Pode tal forma segura, sem exigindo que a organização convidando para carregar manualmente. Pode facilmente implementar o projeto para uma subscrição do Azure à sua escolha.
+Este projeto GitHub mostra como as organizações podem utilizar as APIs para fornecer uma capacidade de inscrição baseada em políticas de autoatendimento para seus parceiros de confiança, com regras que determinam as aplicações podem aceder. Utilizadores parceiros podem obter acesso aos recursos quando são necessários. Eles podem fazer isso de forma segura, sem que necessitem da organização que o convidou para carregar manualmente. Pode facilmente implementar o projeto para uma subscrição do Azure à sua escolha.
 
-## <a name="as-is-code"></a>Como-é código
+## <a name="as-is-code"></a>Como-é o código
 
-Este código é disponibilizado como um exemplo para demonstrar a utilização do convite do Azure Active Directory B2B API. Deve ser personalizada pela sua equipa de desenvolvimento ou de um parceiro e deve ser revisto antes de implementar um cenário de produção.
+Esse código é disponibilizado como um exemplo para demonstrar a utilização do Azure Active Directory B2B convite API. Ele deve ser personalizado por sua equipe de desenvolvimento ou um parceiro e deve ser revisto antes de implementá-la num cenário de produção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-* [Licenciamento e colaboração do Azure AD B2B](licensing-guidance.md)
-* [Colaboração do Azure Active Directory B2B perguntas mais frequentes (FAQ)](faq.md)
+* [Licenciamento de colaboração B2B do AD do Azure](licensing-guidance.md)
+* [A colaboração do Azure Active Directory B2B perguntas mais frequentes (FAQ)](faq.md)

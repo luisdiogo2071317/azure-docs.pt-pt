@@ -8,17 +8,18 @@ ms.author: mlearned
 ms.topic: include
 ms.date: 05/21/2018
 ms.custom: include file
-ms.openlocfilehash: 7efefe18414952e9d7c4a265db105ab687043425
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c76bc6bb10930e738900d680ad8877305238a60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670154"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44723217"
 ---
-1. A partir do menu do Visual Studio, selecione **ficheiro > novo > projeto**.
-2. Sob o **modelos** secção o **novo projeto** caixa de diálogo, selecione **Visual c# > Web**.
-3. Selecione **aplicação Web de ASP.NET Core**.
-4. Dê um nome a sua nova aplicação (ou efetuar a predefinição) e selecione **OK**.
+1. No menu do Visual Studio, selecione **ficheiro > novo > projeto**.
+2. Sob o **modelos** secção a **novo projeto** caixa de diálogo, selecione **Visual c# > Web**.
+3. Selecione **aplicação Web ASP.NET Core**.
+4. Dê um nome ao seu novo aplicativo (ou use o padrão) e selecione **OK**.
 5. Selecione **aplicação Web**.
-6. Verifique o **ativar o suporte de Docker** caixa de verificação e clique em **OK**.
+6. Verifique os **ativar o suporte do Docker** caixa de verificação.
+7. Selecione o tipo de contentor que pretende (Windows ou Linux) e clique em **OK**.
 

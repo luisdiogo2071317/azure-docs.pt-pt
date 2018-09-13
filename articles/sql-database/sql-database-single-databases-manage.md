@@ -10,16 +10,16 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 20039c32ed7bb740ba5d1185d195d7590cff39e2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: bb0efe83cb18f25317911361de79378298e591b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051260"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717626"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores lógicos e bases de dados individuais na base de dados do Azure SQL 
 
-Pode criar e gerir bases de dados individuais com o portal do Azure, PowerShell, CLI do Azure, REST API e Transact-SQL e os servidores lógicos de bases de dados do Azure SQL.
+Pode criar e gerir servidores de lógicos de base de dados SQL do Azure e bases de dados individuais com o portal do Azure, PowerShell, CLI do Azure, REST API e Transact-SQL.
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Portal do Azure: Gerir servidores lógicos e bases de dados
 

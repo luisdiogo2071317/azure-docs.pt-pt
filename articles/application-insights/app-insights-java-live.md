@@ -1,5 +1,5 @@
 ---
-title: Application Insights para as web apps Java que já estão em direto
+title: Application Insights para aplicações de web de Java que já estão em direto
 description: Iniciar a monitorização de uma aplicação web que já está em execução no seu servidor
 services: application-insights
 documentationcenter: java
@@ -10,47 +10,47 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e0c2eca1e776f8dac34810dcbc306f5f2c7b9c8d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794552"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648892"
 ---
-# <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para as web apps Java que já estão em direto
+# <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para aplicações de web de Java que já estão em direto
 
-Se tiver uma aplicação web que já está em execução no seu servidor J2EE, pode começar a monitorizar com [Application Insights](app-insights-overview.md) sem a necessidade de fazer alterações ao código ou recompilar o projeto. Com esta opção, obter informações sobre pedidos HTTP enviados para o servidor, exceções não processadas e os contadores de desempenho.
+Se tiver uma aplicação web que já está em execução no seu servidor J2EE, pode iniciar a monitorização com [Application Insights](app-insights-overview.md) sem a necessidade de fazer alterações de código nem recompilar o projeto. Com esta opção, obtém informações sobre os pedidos HTTP enviados para o seu servidor, exceções sem tratamento e contadores de desempenho.
 
 Precisará de uma subscrição do [Microsoft Azure](https://azure.com).
 
 > [!NOTE]
-> O procedimento nesta página adiciona o SDK à sua aplicação web no tempo de execução. Este instrumentação de runtime é útil se não pretender atualizar ou reconstrua o código de origem. Mas se possível, recomendamos que [adicionar o SDK ao código fonte](app-insights-java-get-started.md) em vez disso. Que dá-lhe mais opções como escrever código para controlar a atividade do utilizador.
+> O procedimento nesta página adiciona o SDK à sua aplicação web em tempo de execução. Essa instrumentação do tempo de execução é útil se não quiser atualizar ou recriar seu código-fonte. Mas se puder, recomendamos que [adicione o SDK ao código-fonte](app-insights-java-get-started.md) em vez disso. Isso dá mais opções, como escrever código para controlar a atividade do utilizador.
 > 
 > 
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Obter uma chave de instrumentação do Application Insights
-1. Iniciar sessão para o [portal do Microsoft Azure](https://portal.azure.com)
-2. Criar um novo recurso do Application Insights e defina o tipo de aplicação para aplicações web de Java.
+1. Entrar para a [portal do Microsoft Azure](https://portal.azure.com)
+2. Criar um novo recurso do Application Insights e defina o tipo de aplicação para a aplicação web Java.
    
     ![Preencher um nome, escolher aplicação Web em Java e clicar em criar](./media/app-insights-java-live/02-create.png)
 
     O recurso é criado dentro de alguns segundos.
 
-4. Abra o novo recurso e obter a chave de instrumentação. Terá de colar esta chave no seu projeto de código em breve.
+4. Abra o recurso novo e obtenha a chave de instrumentação. Terá de colar esta chave no seu projeto de código em breve.
    
     ![Na descrição geral do novo recurso, clique em Propriedades e copie a Chave de Instrumentação](./media/app-insights-java-live/03-key.png)
 
 ## <a name="2-download-the-sdk"></a>2. Transferir o SDK
 1. Transfira o [Application Insights SDK para Java](https://aka.ms/aijavasdk). 
-2. No seu servidor, extraia os conteúdos do SDK para o diretório a partir da qual são carregados os binários de projeto. Se estiver a utilizar Tomcat, este diretório normalmente seriam em `webapps/<your_app_name>/WEB-INF/lib`
+2. No seu servidor, extraia os conteúdos SDK para o diretório a partir do qual seus binários de projeto são carregados. Se estiver a utilizar o Tomcat, este diretório normalmente seria em `webapps/<your_app_name>/WEB-INF/lib`
 
-Tenha em atenção que terá de repetir este em cada instância de servidor e para cada aplicação.
+Tenha em atenção que terá de repetir isso em cada instância de servidor e para cada aplicação.
 
-## <a name="3-add-an-application-insights-xml-file"></a>3. Adicionar um ficheiro xml do Application Insights
-Crie ApplicationInsights.xml na pasta na qual adicionou o SDK. Inserida-o seguinte XML.
+## <a name="3-add-an-application-insights-xml-file"></a>3. Adicionar um arquivo xml do Application Insights
+Crie o applicationinsights. xml na pasta onde adicionou o SDK. Coloque no seguinte XML.
 
 Substitua a chave de instrumentação que recebeu do portal do Azure.
 
@@ -92,7 +92,7 @@ Substitua a chave de instrumentação que recebeu do portal do Azure.
 * A correlação de eventos é uma adição ao componente de pedido HTTP. Atribui um identificador a cada pedido recebido pelo servidor e adiciona este identificador como uma propriedade a todos os itens de telemetria como a propriedade "Operation.Id". Permite-lhe correlacionar a telemetria associada a cada pedido, definindo um filtro em [pesquisa de diagnóstico](app-insights-diagnostic-search.md).
 
 ## <a name="4-add-an-http-filter"></a>4. Adicionar um filtro HTTP
-Localize e abra o ficheiro web.xml no seu projeto e intercale o seguinte fragmento de código sob o nó da aplicação web, onde os filtros da aplicação são configurados.
+Localize e abra o ficheiro Web. no seu projeto e intercale o seguinte fragmento de código sob o nó da aplicação web, onde os filtros da aplicação estão configurados.
 
 Para obter resultados mais exatos, o filtro deve ser mapeado antes de todos os outros filtros.
 
@@ -110,14 +110,14 @@ Para obter resultados mais exatos, o filtro deve ser mapeado antes de todos os o
     </filter-mapping>
 ```
 
-## <a name="5-check-firewall-exceptions"></a>5. Verifique as exceções de firewall
-Poderá ter de [definir exceções para enviar dados de saída](app-insights-ip-addresses.md).
+## <a name="5-check-firewall-exceptions"></a>5. Exceções de firewall de verificação
+Talvez seja preciso [definir exceções para enviar dados de saída](app-insights-ip-addresses.md).
 
 ## <a name="6-restart-your-web-app"></a>6. Reinicie a aplicação web
 ## <a name="7-view-your-telemetry-in-application-insights"></a>7. Ver a telemetria no Application Insights
 Regresse ao seu recurso do Application Insights no [Portal do Microsoft Azure](https://portal.azure.com).
 
-Telemetria sobre pedidos de HTTP é apresentada no painel de descrição geral. (Se não aparecerem, aguarde alguns segundos e, em seguida, clique em Atualizar.)
+Telemetria sobre pedidos HTTP é apresentada no painel de descrição geral. (Se não aparecerem, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
 ![dados de exemplo](./media/app-insights-java-live/5-results.png)
 
@@ -132,8 +132,8 @@ E, ao visualizar as propriedades de um pedido, pode ver os eventos de telemetria
 [Saiba mais sobre métricas.](app-insights-metrics-explorer.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Adicione a telemetria às suas páginas web](app-insights-javascript.md) para monitorizar vistas de página e métricas de utilizador.
-* [Configurar testes web](app-insights-monitor-web-app-availability.md) para se certificar de que a aplicação permanece em direto e reativa.
-* [Capturar rastreios de registo](app-insights-java-trace-logs.md)
+* [Adicione a telemetria às suas páginas da web](app-insights-javascript.md) para monitorizar vistas de página e métricas de utilizador.
+* [Configure testes web](app-insights-monitor-web-app-availability.md) para certificar-se de que a aplicação permanece em direto e reativa.
+* [Capturar rastreios de registos](app-insights-java-trace-logs.md)
 * [Pesquise eventos e registos](app-insights-diagnostic-search.md) para ajudar a diagnosticar problemas.
-* [Configurar uma aplicação de inicializador de arranque da mola](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+* [Configurar uma aplicação do inicializador de Spring Boot](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

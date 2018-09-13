@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 43955cd516e9779200b66608270797a66565f53b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 105c1d97a812841e82a0c364ec7dda097c0dd399
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378470"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717374"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -38,7 +38,7 @@ Este artigo resume as configurações suportadas e componentes ao replicar e rec
 --- | --- | ---
 **Mover o Cofre entre grupos de recursos** | Não suportado<br/><br/> Não é possível mover um cofre dos serviços de recuperação entre grupos de recursos.
 **Mover os recursos de armazenamento/computação/rede entre grupos de recursos** | Não suportado.<br/><br/> Se mover uma VM ou componentes associados, como o armazenamento/rede depois que está a replicar, terá de desativar a replicação e reativar a replicação para a VM.
-**Replicar VMs do Azure a partir de uma subscrição para outro para recuperação após desastre** | Suportado no mesmo inquilino do Azure Active Directory para VMs de "Modelo de implementação do Resource manager". Não é suportada para VMs de "Modelo de implementação clássico".
+**Replicar VMs do Azure a partir de uma subscrição para outro para recuperação após desastre** | Suportado no mesmo inquilino do Azure Active Directory. Não é suportada para VMs clássicas.
 **Migrar VMs entre regiões dentro os clusters geográficos suportados (dentro e entre subscrições)** | Suportado no mesmo inquilino do Azure Active Directory para VMs de "Modelo de implementação do Resource manager". Não é suportada para VMs de "Modelo de implementação clássico".
 **Migrar VMs na mesma região** | Não suportado.
 
@@ -207,7 +207,7 @@ Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenti
 VPN site a Site no local (com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego de recuperação de Site não é encaminhado para o local. Consulte [documento de orientação para funcionamento em rede.](site-recovery-azure-to-azure-networking-guidance.md)  
 Ligação VNET a VNET | Suportadas | Consulte [documento de orientação para funcionamento em rede.](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos Finais de Serviço de Rede Virtual | Suportadas | Firewalls de armazenamento do Azure para redes virtuais não são suportadas. Não é suportada a permissão de acesso a redes virtuais do Azure específicas em contas de armazenamento de cache utilizadas para armazenar dados replicados.
-Redes Aceleradas | Não suportado | Uma VM com Accelerated Networking ativada pode ser replicada, mas a ativação pós-falha de VM não estarão disponíveis redes aceleradas ativada. Funcionamento em rede acelerado também será desativado para VM de origem na reativação pós-falha.
+Redes Aceleradas | Suportadas | Funcionamento em rede acelerado tem de estar ativado na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

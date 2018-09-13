@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 5fcdf02fe75905fb3e492671ba44adb65dfd0da7
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: a4bf21f972da1aa92d6f127e8cbabb89a9c31489
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061042"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719958"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Base de dados do SQL do Azure compra de modelos e recursos 
 
@@ -61,7 +61,7 @@ Para uma base de dados SQL do Azure num nível de desempenho específico dentro 
 
 ![caixa delimitadora](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTUs são mais úteis para compreender o nível relativo de recursos entre bases de dados do Azure SQL em diferentes níveis de desempenho e escalões de serviço. Por exemplo, duplicar as DTUs aumentando o nível de desempenho de uma base de dados equivale a duplicar o conjunto de recursos disponíveis para essa base de dados. Por exemplo, uma base de dados Premium P11 com 1750 DTUs fornece 350 x mais potência de computação de DTUs do que uma base de dados básica com cinco DTUs.  
+DTUs são mais úteis para compreender o nível relativo de recursos entre bases de dados SQL do Azure em diferentes níveis de desempenho e escalões de serviço. Por exemplo, duplicar as DTUs aumentando o nível de desempenho de uma base de dados equivale a duplicar o conjunto de recursos disponíveis para essa base de dados. Por exemplo, uma base de dados Premium P11 com 1750 DTUs fornece 350 x mais potência de computação de DTUs do que uma base de dados básica com cinco DTUs.  
 
 Para obter informações mais aprofundadas sobre o consumo de recursos (DTUS) da sua carga de trabalho, utilize [do Azure SQL Database Query Performance Insight](sql-database-query-performance.md) para:
 

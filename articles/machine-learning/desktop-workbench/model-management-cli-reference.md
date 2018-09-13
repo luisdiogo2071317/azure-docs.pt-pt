@@ -1,27 +1,27 @@
 ---
-title: Referência da interface de linha de comandos de gestão de modelo do Machine Learning do Azure | Microsoft Docs
-description: Referência da interface de linha de comandos de gestão de modelo do Machine Learning do Azure.
+title: Referência de interface de linha de comandos de gestão de modelos do Machine Learning do Azure | Documentos da Microsoft
+description: Referência de interface de linha de comandos de gestão de modelos do Machine Learning do Azure.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 540f22e38201ec488d8e2c1d7494bc83d7b83a7e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9e69f2e71cce6d689669838785ce992fbbcfa940
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831926"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650657"
 ---
-# <a name="model-management-command-line-interface-reference"></a>Referência de interface de linha de comandos de gestão de modelo
+# <a name="model-management-command-line-interface-reference"></a>Referência de modelo de interface de linha de comandos de gestão
 
-## <a name="base-cli-concepts"></a>Conceitos do CLI base:
+## <a name="base-cli-concepts"></a>Conceitos CLI bases:
 
     account : Manage model management accounts. 
     env     : Manage compute environments.
@@ -31,7 +31,7 @@ ms.locfileid: "34831926"
     service : Manage operationalized services.
 
 ## <a name="account-commands"></a>Comandos de conta
-É necessária uma conta de gestão de modelo a utilizar os serviços, que lhe permitem implementar e gerir modelos. Utilize `az ml account modelmanagement -h` para ver a lista seguinte:
+É necessária uma conta de gestão de modelo para utilizar os serviços, que permitem-lhe implementar e gerir modelos. Utilize `az ml account modelmanagement -h` para ver a lista seguinte:
 
     create: Create a Model Management Account.
     delete: Delete a specified Model Management Account.
@@ -40,9 +40,9 @@ ms.locfileid: "34831926"
     show  : Show a Model Management Account.
     update: Update an existing Model Management Account.
 
-**Criar conta de gestão de modelo**
+**Criar conta de gestão de modelos**
 
-Crie uma conta de gestão de modelo para Faturação utilizando o seguinte comando:
+Crie uma conta de gestão de modelos de faturação, com o seguinte comando:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -70,15 +70,15 @@ Argumentos locais:
     show           : Show an MLC resource; if resource_group or cluster_name are not provided, shows
                      the active MLC env.
 
-**Configurar o ambiente de implementação**
+**Configurar o ambiente de implantação**
 
-O comando de configuração requer que tenha acesso de Contribuidor na subscrição. Se não o tiver, precisa, pelo menos, de acesso Contribuidor ao grupo de recursos no qual está a implementar. Neste último caso, tem de especificar o nome do grupo de recursos como parte do comando de configuração através do sinalizador `-g`. 
+O comando de configuração requer que tenha acesso de contribuinte à subscrição. Se não o tiver, precisa, pelo menos, de acesso Contribuidor ao grupo de recursos no qual está a implementar. Neste último caso, tem de especificar o nome do grupo de recursos como parte do comando de configuração através do sinalizador `-g`. 
 
-Existem duas opções para a implementação: *local* e *cluster*. Definir o `--cluster` (ou `-c`) sinalizador permite a implementação de cluster, o que aprovisiona um cluster de ACS. A sintaxe de configuração básica é o seguinte:
+Existem duas opções para a implementação: *local* e *cluster*. Definindo a `--cluster` (ou `-c`) sinalizador permite que a implementação de cluster, o que aprovisiona um cluster do ACS. A sintaxe de configuração básica é o seguinte:
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Este comando inicia a sua do Azure machine learning ambiente com uma conta de armazenamento, o registo ACR e o serviço de informações de aplicação criado na sua subscrição. Por predefinição, o ambiente é inicializado para locais apenas implementações (nenhum ACS) se não for especificado nenhum sinalizador. Se precisar de dimensionar o serviço, especifique o `--cluster` (ou `-c`) sinalizador para criar um cluster de ACS.
+Este comando inicializa de ambiente com uma conta de armazenamento, registo do ACR e o serviço de informações de aplicação criado na sua subscrição de aprendizagem do Azure. Por predefinição, o ambiente é inicializado para locais implementações apenas (não ACS), se não for especificado nenhum sinalizador. Se precisar de aumentar o serviço, especifique a `--cluster` (ou `-c`) sinalizador para criar um cluster de ACS.
 
 Detalhes do comando:
 
@@ -135,7 +135,7 @@ Argumentos global
                            examples.
     --verbose            : Increase logging verbosity. Use --debug for full debug logs.
 
-## <a name="manifest-commands"></a>Comandos de manifesto
+## <a name="manifest-commands"></a>Comandos de manifestos
 
     create: Create an Operationalization Manifest. This command has two different
             sets of required arguments, depending on if you want to use previously registered
@@ -143,9 +143,9 @@ Argumentos global
     list
     show
 
-**Criar o manifesto**
+**Criar manifesto**
 
-O comando seguinte cria um ficheiro de manifesto para o modelo. 
+O comando seguinte cria um arquivo de manifesto para o modelo. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -167,7 +167,7 @@ Argumentos de modelo registado
     --model-id -i                : [Required] Id of previously registered model to add to manifest.
                                    Multiple models can be specified with additional -i arguments.
 
-Argumentos de anular o registo de modelo
+Argumentos de anular o registo do modelo
 
     --model-file -m              : [Required] Model file to register. If used, must be combined with
                                    model name.
@@ -193,11 +193,11 @@ Argumentos global
 
 **Criar imagem**
 
-Pode criar uma imagem com a opção de ter criado o manifesto antes. 
+Pode criar uma imagem com a opção de ter criado seu manifesto antes. 
 
 `az ml image create -n [image name] --manifest-id [the manifest ID]`
 
-Ou pode criar o manifesto e da imagem com um único comando. 
+Ou pode criar o manifesto e de imagem com um único comando. 
 
 `az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
@@ -208,11 +208,11 @@ Detalhes do comando:
     --image-type              : The image type to create. Defaults to "Docker".
     -v                        : Verbosity flag.
 
-Argumentos de manifesto registados
+Argumentos de manifestos registados
 
     --manifest-id             : [Required] Id of previously registered manifest to use in image creation.
 
-Anular o registo de argumentos manifesto
+Anular o registo de argumentos manifestos
 
     --conda-file -c           : Path to Conda Environment file.
     --dependency -d           : Files and directories required by the service. Multiple dependencies can
@@ -225,7 +225,7 @@ Anular o registo de argumentos manifesto
 
 
 ## <a name="service-commands"></a>Comandos de serviço
-São suportados os seguintes comandos para o serviço. Para ver os parâmetros para cada comando, utilize a opção -h. Por exemplo, utilizar `az ml service create realtime -h` para ver detalhes do comando de criar.
+Os comandos seguintes são suportados para o serviço. Para ver os parâmetros de cada comando, utilize a opção -h. Por exemplo, utilizar `az ml service create realtime -h` para ver detalhes do comando de criar.
 
     create
     delete
@@ -243,7 +243,7 @@ Para criar um serviço com uma imagem criada anteriormente, utilize o seguinte c
 
 `az ml service create realtime --image-id [image to deploy] -n [service name]`
 
-Para criar um serviço, o manifesto e imagem com um comando único, utilizam o seguinte comando:
+Para criar um serviço, o manifesto e imagem com um único comando, utilizam o seguinte comando:
 
 `az ml service create realtime --model-file [path to model file(s)] -f [path to model scoring file, e.g. score.py] -n [service name] -r [run time included in the image, e.g. spark-py]`
 
@@ -264,11 +264,11 @@ Detalhes de comandos:
     -v                                : Verbosity flag.
     -z                                : Number of replicas for a Kubernetes service.  Default: 1.
 
-Argumentos de imagem registado
+Argumentos de imagem registados
 
     --image-id                        : [Required] Image to deploy to the service.
 
-Argumentos de imagem anular o registo
+Argumentos de anular o registo de imagem
 
     --conda-file -c                   : Path to Conda Environment file.
     --image-type                      : The image type to create. Defaults to "Docker".
@@ -289,13 +289,13 @@ Argumentos global
     --verbose                         : Increase logging verbosity. Use --debug for full debug logs.
 
 
-Tenha em atenção no `-d` sinalizador para anexar dependências: se a transmitir o nome de um diretório que não se encontre incluídas (zip, tar, etc.), esse directório automaticamente obtém tar'ed e é transferido along, em seguida, automaticamente unbundled na outra extremidade. 
+Tenha em atenção no `-d` sinalizador para anexar dependências: se passar o nome de um diretório que não ainda esteja incluído (zip, tar, etc.), esse diretório obtém tar'ed automaticamente e é transmitido juntamente, em seguida, automaticamente unbundled na outra extremidade. 
 
-Se passar num diretório que já está agrupado, o diretório é tratado como um ficheiro e transmitido como está. É unbundled automaticamente; é esperado para processar que no seu código.
+Se passar num diretório que já é fornecido, o diretório é tratado como um ficheiro e passado como está. É unbundled automaticamente; é esperado que tratar disso em seu código.
 
 **Obter os detalhes do serviço**
 
-Obter os detalhes do serviço, incluindo o URL, utilização (incluindo dados de exemplo, se tiver sido criado um esquema).
+Obter os detalhes de serviço, incluindo o URL, utilização (incluindo dados de exemplo, se tiver sido criado um esquema).
 
 `az ml service show realtime --name [service name]`
 
@@ -335,9 +335,9 @@ Comando
 
     az ml service run realtime
 
-Argumentos – id -i: [necessário] o id de serviço para pontuar contra.
+Argumenty-- id -i: [necessário] o id de serviço para pontuar contra.
 -d: os dados a utilizar para chamar o serviço web.
--v: sinalizador verbosidade.
+-v: o sinalizador de Detalhamento.
 
 Argumentos global
 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024171"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717711"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Com o portal de administrador no Azure Stack
 
@@ -70,7 +70,7 @@ Os portais de administrador e usuário são apoiados por instâncias separadas d
 
 ### <a name="customize-the-dashboard"></a>Personalizar o dashboard
 
-O dashboard contém um conjunto de mosaicos predefinidos. Pode selecionar **editar dashboard** para modificar o dashboard predefinido ou selecione **novo dashboard** para adicionar um dashboard personalizado. Pode adicionar facilmente mosaicos num dashboard. Por exemplo, pode selecionar **New**, clique com botão direito **ofertas + planos**e, em seguida, selecione **afixar ao dashboard**.
+O dashboard contém um conjunto de mosaicos predefinidos. Pode selecionar **editar dashboard** para modificar o dashboard predefinido ou selecione **novo dashboard** para adicionar um dashboard personalizado. Pode adicionar facilmente mosaicos num dashboard. Por exemplo, pode selecionar **+ criar um recurso**, clique com botão direito **ofertas + planos**e, em seguida, selecione **afixar ao dashboard**.
 
 ### <a name="quick-access-to-online-documentation"></a>Acesso rápido a documentação online
 

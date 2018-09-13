@@ -1,5 +1,5 @@
 ---
-title: Inscrever-se no Azure com a conta do Office 365 | Microsoft Docs
+title: Inscrever-se para o Azure com a conta do Office 365 | Documentos da Microsoft
 description: Saiba como criar uma subscrição do Azure, utilizando uma conta do Office 365
 services: ''
 documentationcenter: ''
@@ -13,47 +13,47 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
-ms.openlocfilehash: dfb39b809f9a1082682d269d8bd4c180c8a264ce
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: HT
+ms.openlocfilehash: dd7b9609495cacd324ef5509f57db0384775e0a7
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204569"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35954218"
 ---
-# <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscreva-se uma subscrição do Azure com a sua conta Office 365
-Se tiver uma subscrição do Office 365, pode utilizar a sua conta Office 365 para criar uma subscrição do Azure. Iniciar sessão para o [portal do Azure](https://portal.azure.com/) utilizando o seu nome de utilizador do Office 365 e a palavra-passe. Se pretender configurar máquinas virtuais ou utilizar outros serviços do Azure, deve inscrever-se para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [utilizar o controlo de acesso baseado em funções para gerir o acesso à sua subscrição do Azure e recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+# <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscreva-se uma subscrição do Azure com a sua conta do Office 365
+Se tiver uma subscrição do Office 365, pode utilizar a sua conta do Office 365 para criar uma subscrição do Azure. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com o seu nome de utilizador do Office 365 e a palavra-passe. Se pretender configurar máquinas virtuais ou utilizar outros serviços do Azure, deve inscrever-se para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [utilizar o controlo de acesso baseado em funções para gerir o acesso à sua subscrição do Azure e recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-Se já tiver uma conta do Office 365 e uma subscrição do Azure, consulte o artigo [associar um inquilino do Office 365 para uma subscrição do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
+Se já tiver uma conta do Office 365 e uma subscrição do Azure, veja [associar um inquilino do Office 365 para uma subscrição do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-## <a name="get-an-azure-subscription-using-your-office-365-account"></a>Obter uma subscrição do Azure utilizando a sua conta Office 365
+## <a name="get-an-azure-subscription-using-your-office-365-account"></a>Obter uma subscrição do Azure com a sua conta do Office 365
 
-Poupar tempo e evitar a proliferação de conta ao inscrever-se no Azure utilizando o seu nome de utilizador do Office 365 e a palavra-passe. 
+Poupe tempo e evitar a proliferação de conta ao inscrever-se para o Azure com o seu nome de utilizador do Office 365 e a palavra-passe. 
 
-1. Inscrever-se no [Azure.com](https://account.azure.com/signup?offer=MS-AZR-0044p&appId=docs). 
-2. Inicie sessão com o nome de utilizador do Office 365 e a palavra-passe. A conta utilizada não tem permissões de administrador. Se tiver mais do que uma conta do Office 365, certifique-se de que utiliza as credenciais da conta do Office 365 que pretende associar a sua subscrição do Azure. 
+1. Inscreva-se em [Azure.com](https://account.azure.com/signup?offer=MS-AZR-0044p&appId=docs). 
+2. Inicie sessão com o seu nome de utilizador do Office 365 e a palavra-passe. A conta que utiliza não precisa de ter permissões de administrador. Se tiver mais de uma conta do Office 365, certifique-se de que utilizar as credenciais da conta do Office 365 que pretende associar a sua subscrição do Azure. 
 
    ![Captura de ecrã que mostra a página de início de sessão.](./media/billing-use-existing-office-365-account-azure-subscription/billing-sign-in-with-office-365-account.png)
 
-3. Introduza as informações necessárias e concluir o processo de inscrição. Algumas informações podem não ser necessárias se já tiver uma conta do Office 365.
+3. Introduza as informações necessárias e conclua o processo de inscrição. Algumas informações não podem ser necessárias se já tiver uma conta do Office 365.
 
     ![Captura de ecrã que mostra o formulário de inscrição.](./media/billing-use-existing-office-365-account-azure-subscription/billing-azure-sign-up-fill-information.png)
 
-- Se precisar de adicionar outras pessoas na sua organização para a subscrição do Azure, consulte [introdução à gestão de acesso no portal do Azure](../role-based-access-control/overview.md). 
+- Se precisar de adicionar outras pessoas na sua organização para a subscrição do Azure, veja [introdução à gestão de acesso no portal do Azure](../role-based-access-control/overview.md). 
 
-## <a id="more-about-subs">Mais informações sobre as subscrições do Azure e o Office 365</a>
-Office 365 e o Azure utilizam o serviço do Azure AD para gerir utilizadores e as subscrições. O diretório do Azure é como um contentor no qual pode agrupar os utilizadores e as subscrições. Para utilizar as mesmas contas de utilizador para as suas subscrições do Azure e o Office 365, tem de certificar-se de que as subscrições do Azure são criadas no mesmo diretório que as subscrições do Office 365. Tenha em consideração os seguintes pontos:
+## <a id="more-about-subs">Mais sobre as subscrições do Azure e o Office 365</a>
+Office 365 e o Azure, utilize o serviço do Azure AD para gerir utilizadores e subscrições. Diretório do Azure é como um contentor no qual pode agrupar utilizadores e subscrições. Para utilizar as mesmas contas de utilizador para as suas subscrições do Azure e o Office 365, terá de certificar-se de que as subscrições do Azure são criadas no mesmo diretório que as subscrições do Office 365. Tenha em atenção os seguintes pontos:
 
-* É criada uma subscrição de um diretório
-* Os utilizadores pertencem a diretórios
-* Uma subscrição seja colocado no sítio o diretório do utilizador que cria a subscrição. Por isso, a subscrição do Office 365 está associada para a mesma conta que a sua subscrição do Azure.
-* As subscrições do Azure são pertencentes a utilizadores individuais no diretório
-* Subscrições do Office 365 são proprietário do diretório si próprio. Os utilizadores com as permissões corretas no diretório podem gerir estas subscrições.
+* Uma subscrição é criada num diretório
+* Os utilizadores que pertencem aos diretórios
+* Uma subscrição que chegam no diretório do utilizador que cria a subscrição. Então, sua subscrição do Office 365 está associada a mesma conta que a sua subscrição do Azure.
+* As subscrições do Azure pertencentes a utilizadores individuais no diretório
+* Subscrições do Office 365 são propriedade o próprio diretório. Os utilizadores com as permissões corretas no diretório podem gerir estas subscrições.
 
 ![Captura de ecrã que mostra a relação do diretório, os utilizadores e subscrições.](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
 
-Para obter mais informações, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Para obter mais informações, consulte [subscrições do Azure como estão associadas com o Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente. 
+Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente. 

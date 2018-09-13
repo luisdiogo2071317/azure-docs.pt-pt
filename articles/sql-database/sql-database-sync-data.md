@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ab5d042517716ee2b155d99803f4058772622036
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058823"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721454"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -47,9 +47,9 @@ Um grupo de sincronização tem as seguintes propriedades:
 
 ## <a name="when-to-use-data-sync"></a>Quando utilizar a sincronização de dados
 
-Sincronização de dados é útil em casos onde os dados têm de ser mantidos atualizados em várias bases de dados do Azure SQL ou bases de dados do SQL Server. Aqui estão os casos de utilização principal para sincronização de dados:
+Sincronização de dados é útil em casos onde os dados têm de ser mantidos atualizados em várias bases de dados SQL do Azure ou bases de dados do SQL Server. Aqui estão os casos de utilização principal para sincronização de dados:
 
--   **Sincronização de dados híbrida:** com sincronização de dados, pode manter os dados sincronizados entre as suas bases de dados no local e bases de dados do Azure SQL para ativar aplicações híbridas. Esta capacidade pode ser atraente para os clientes que estão pensando em mudar para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
+-   **Sincronização de dados híbrida:** com sincronização de dados, pode manter os dados sincronizados entre as suas bases de dados no local e bases de dados SQL do Azure para ativar aplicações híbridas. Esta capacidade pode ser atraente para os clientes que estão pensando em mudar para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
 
 -   **Aplicações distribuídas:** em muitos casos, é vantajoso separar cargas de trabalho diferentes em diferentes bases de dados. Por exemplo, se tiver uma base de dados de produção de grandes dimensões, mas também tem de executar uma carga de trabalho de relatórios ou análises sobre estes dados, é útil ter uma segunda base de dados para esta carga de trabalho adicional. Essa abordagem minimiza o impacto de desempenho na sua carga de trabalho de produção. Pode usar a sincronização de dados para manter esses dois bancos de dados sincronizados.
 

@@ -1,38 +1,38 @@
 ---
-title: Utilizar extensibilidade do Python com o Azure Machine Learning dados preparativos | Microsoft Docs
-description: Este documento fornece uma descrição geral e alguns exemplos de detalhado de como utilizar o código do Python para expandir a funcionalidade de preparação de dados
+title: Utilizar a extensibilidade do Python com preparações de dados do Azure Machine Learning | Documentos da Microsoft
+description: Este documento fornece uma descrição geral e alguns exemplos detalhados de como utilizar o código de Python para estender a funcionalidade de preparação de dados
 services: machine-learning
 author: euangMS
 ms.author: euang
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
-ms.openlocfilehash: e91d3e4bfb1cba6f45b0106b3fabe5bef7e0e079
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a713f5fcde31e0e25de080a65b71209011ef551d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831429"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649600"
 ---
-# <a name="data-preparations-python-extensions"></a>Extensões de Python preparativos de dados
-Como uma forma de preencher os intervalos de funcionalidade entre funções incorporadas, o Azure Machine Learning dados preparativos inclui extensibilidade em vários níveis. Neste documento, vamos descrevem a extensibilidade através do script do Python. 
+# <a name="data-preparations-python-extensions"></a>Extensões de Python de preparações de dados
+Como uma forma de preencher as lacunas de funcionalidade entre as funcionalidades incorporadas, preparações de dados do Azure Machine Learning inclui extensibilidade em vários níveis. Neste documento, descrevemos a extensibilidade por meio de script de Python. 
 
 ## <a name="custom-code-steps"></a>Passos de código personalizado 
-Dados preparativos tem os seguintes passos personalizados onde os utilizadores podem escrever código:
+Preparações de dados tem os seguintes passos personalizados em que os usuários possam gravar código:
 
-* Adicionar a coluna
+* Adicionar coluna
 * Filtro Avançado
-* Transformar o fluxo de dados
-* Partição de transformação
+* Transformar fluxos de dados
+* Transformar a partição
 
 ## <a name="code-block-types"></a>Tipos de bloco de código 
-Para cada um destes passos, suportamos dois tipos de bloco de código. Em primeiro lugar, suportamos uma expressão de Python bare, que é executado como está. Segundo, suportamos um módulo de Python onde chamamos a uma função específica com uma assinatura conhecida no código que fornece.
+Para cada uma dessas etapas, damos suporte a dois tipos de bloco de código. Em primeiro lugar, suportamos uma expressão de Python bare, que é executado como está. Em segundo lugar, damos suporte a um módulo de Python onde chamamos uma função específica com uma assinatura conhecida no código que fornece.
 
-Por exemplo, pode adicionar uma nova coluna que calcula o registo de outra coluna seguintes duas formas:
+Por exemplo, pode adicionar uma nova coluna que calcula o log de outra coluna das seguintes duas formas:
 
 Expressão 
 
@@ -48,12 +48,12 @@ def newvalue(row):
 ```
 
 
-A transformação de adicionar a coluna no modo de módulo espera encontrar uma função de chamada `newvalue` que aceita uma variável de linha e devolve o valor da coluna. Este módulo pode incluir qualquer quantidade de código do Python com outras funções, importa, etc.
+A transformação de Adicionar coluna no modo de módulo espera encontrar uma função chamada `newvalue` que aceita uma variável de linha e devolve o valor da coluna. Este módulo pode incluir qualquer quantidade de código de Python com outras funções, imports, etc.
 
-Os detalhes de cada ponto de extensão são abordados nas secções seguintes. 
+Os detalhes de cada ponto de extensão são abordados nas seções a seguir. 
 
-## <a name="imports"></a>Importa 
-Se utilizar o tipo de bloco de expressão, pode ainda adicionar **importar** instruções para o seu código. Todos eles têm de estar agrupados nas linhas principais do seu código.
+## <a name="imports"></a>Importações 
+Se utilizar o tipo de bloco de expressão, pode ainda adicionar **importar** instruções para o seu código. Todos eles têm de estar agrupados nas linhas superior do seu código.
 
 Corrigir 
 
@@ -73,10 +73,10 @@ import numpy
 ```
  
  
-Se utilizar o tipo de bloco de módulo, pode seguir todas as regras de Python normais para utilizar o **importar** instrução. 
+Se utilizar o tipo de bloco do módulo, pode seguir todas as regras de Python normais para utilizar o **importar** instrução. 
 
-## <a name="default-imports"></a>Importa predefinido
-As seguintes importações são sempre incluídos e utilizável no seu código. Não precisa de reimportá-los. 
+## <a name="default-imports"></a>Importações padrão
+As seguintes importações são sempre incluído e é utilizável no seu código. Não precisa de reimportá-los. 
 
 ```python
 import math  
@@ -89,13 +89,13 @@ import scipy as sp
 ```
   
 
-## <a name="install-new-packages"></a>Instalar pacotes de novo
-Para utilizar um pacote que não está instalado por predefinição, primeiro tem de instalá-lo em ambientes que utiliza dados preparações. Esta instalação necessita de ser efetuada no seu computador local e em quaisquer elementos de computação que pretende executar.
+## <a name="install-new-packages"></a>Instalar novos pacotes
+Para utilizar um pacote que não está instalado por predefinição, tem primeiro de instalá-lo para os ambientes que utiliza preparações de dados. Esta instalação precisa ser feito no seu computador local e quaisquer destinos de computação que pretende executar.
 
-Para instalar os pacotes de um destino de computação, tem de modificar o ficheiro de conda_dependencies.yml localizado na pasta aml_config na raiz do projeto.
+Para instalar os pacotes num destino de computação, terá de modificar o ficheiro de conda_dependencies.yml localizado na pasta aml_config na raiz do seu projeto.
 
 ### <a name="windows"></a>Windows 
-Para localizar a localização no Windows, localize a instalação de específico da aplicação de Python e o diretório de scripts. A localização predefinida é:  
+Para encontrar a localização no Windows, localize a instalação de aplicações específicas de Python e o seu diretório de scripts. A localização predefinida é:  
 
 `C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
@@ -108,7 +108,7 @@ ou
 `pip install <libraryname> `
 
 ### <a name="mac"></a>Mac 
-Para localizar a localização no Mac, localize a instalação de específico da aplicação de Python e o diretório de scripts. A localização predefinida é: 
+Para encontrar a localização num Mac, encontre a instalação de aplicações específicas de Python e o seu diretório de scripts. A localização predefinida é: 
 
 `/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
@@ -120,8 +120,8 @@ ou
 
 `./pip install <libraryname>`
 
-## <a name="use-custom-modules"></a>Utilize módulos personalizados
-Na transformação fluxo de dados (scripts), escreva o seguinte código Python
+## <a name="use-custom-modules"></a>Utilizar módulos personalizados
+Em transformar fluxo de dados (Script), escrever o seguinte código de Python
 
 ```python
 import sys
@@ -131,7 +131,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-Na coluna Adicionar (Script), defina o tipo de bloco de código = módulo e escreva o seguinte código de Python
+Adicionar coluna (Script), defina o tipo de bloco de código = módulo e escreva o seguinte código de Python
 
 ```python 
 import sys
@@ -142,11 +142,11 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Para contextos de execução diferente (local, Docker, Spark), aponte caminho absoluto para o local certo. Poderá querer utilizar "os.getcwd() + relativePath" a localizá-la.
+Para contextos de execução diferente (local, Docker, Spark), do ponto de caminho absoluto para o lugar certo. Pode querer utilizar "os.getcwd() + relativePath" para localizá-la.
 
 
 ## <a name="column-data"></a>Dados da coluna 
-Dados da coluna podem ser acedidos a partir de uma linha utilizando a notação de pontos ou notação de chave-valor. Nomes de colunas que contêm espaços ou carateres especiais não podem ser acedidos utilizando a notação de pontos. O `row` variável sempre deve ser definida em ambos os modos de extensões do Python (módulo e expressão). 
+Dados de coluna podem ser acedidos a partir de uma linha utilizando a notação de ponto ou a notação de chave-valor. Nomes de colunas que contêm espaços ou carateres especiais não podem ser acedidos utilizando a notação de ponto. O `row` variável deve ser sempre definida em ambos os modos de extensões de Python (módulo e expressão). 
 
 Exemplos 
 
@@ -155,12 +155,12 @@ Exemplos
     row["ColumnA"] + row["ColumnB"]
 ```
 
-## <a name="add-column"></a>Adicionar a coluna 
+## <a name="add-column"></a>Adicionar coluna 
 ### <a name="purpose"></a>Objetivo
-O ponto de extensão Add Column permite-lhe escrever Python para calcular uma nova coluna. O código de escrita tem acesso para a linha completo. Tem de devolver um novo valor de coluna para cada linha. 
+O ponto de extensão de Adicionar coluna permite que escreva Python para calcular uma nova coluna. O código de escrita tem acesso para a linha total. Ele precisa retornar um novo valor de coluna para cada linha. 
 
 ### <a name="how-to-use"></a>Como utilizar
-Pode adicionar este ponto de extensão utilizando o bloco de Add Column (Script). Está disponível de nível superior **transformações** menu, bem como no **coluna** menu de contexto. 
+Pode adicionar este ponto de extensão ao utilizar o bloco de Adicionar coluna (Script). Está disponível no nível superior **transformações** menu, bem como no **coluna** menu de contexto. 
 
 ### <a name="syntax"></a>Sintaxe
 Expressão
@@ -179,10 +179,10 @@ def newvalue(row):
 
 ## <a name="advanced-filter"></a>Filtro Avançado
 ### <a name="purpose"></a>Objetivo 
-O ponto de extensão de filtro avançada permite-lhe escrever um filtro personalizado. Tem acesso a toda a linha e o código tem de devolver VERDADEIRO (inclua a linha) ou FALSO (excluir a linha). 
+O ponto de extensão de filtro avançado permite que escreva um filtro personalizado. Tem acesso para a linha inteira, e seu código deve retornar True (incluir a linha) ou FALSO (excluir a linha). 
 
 ### <a name="how-to-use"></a>Como utilizar
-Pode adicionar este ponto de extensão utilizando o bloco de filtro avançadas (Script). Está disponível de nível superior **transformações** menu. 
+Pode adicionar este ponto de extensão ao utilizar o bloco de filtro avançado (Script). Está disponível no nível superior **transformações** menu. 
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -200,17 +200,17 @@ def includerow(row):
 ```
  
 
-## <a name="transform-dataflow"></a>Transformar o fluxo de dados
+## <a name="transform-dataflow"></a>Transformar fluxos de dados
 ### <a name="purpose"></a>Objetivo 
-O ponto de extensão do fluxo de dados de transformação permite-lhe transformar completamente o fluxo de dados. Tem acesso a um dataframe Pandas que contém todas as colunas e linhas que está a processar. O código tem de devolver um dataframe Pandas com os novos dados. 
+O ponto de extensão de transformar fluxo de dados permite-lhe completamente transformar o fluxo de dados. Tem acesso a um Pandas dataframe que contém todas as colunas e linhas que está a processar. O código tem de devolver um dataframe Pandas com os novos dados. 
 
 >[!NOTE]
->Nas Python, todos os dados a ser carregada na memória está a ser um dataframe Pandas se esta extensão é utilizada. 
+>Em Python, todos os dados para ser carregado na memória é num Pandas dataframe se esta extensão é utilizada. 
 >
->No Spark, todos os dados são recolhidos para um nó de trabalho único. Se os dados são muito grandes, uma função de trabalho pode ficar com memória esgotada. Utilize cuidadosamente.
+>No Spark, todos os dados são recolhidos num nó único do worker. Se os dados são muito grandes, uma função de trabalho poderá ficar sem memória. Utilize-o com cuidado.
 
 ### <a name="how-to-use"></a>Como utilizar 
-Pode adicionar este ponto de extensão utilizando o bloco de fluxo de transformação dados (Script). Está disponível de nível superior **transformações** menu. 
+Pode adicionar este ponto de extensão ao utilizar o bloco de transformar fluxo de dados (Script). Está disponível no nível superior **transformações** menu. 
 ### <a name="syntax"></a>Sintaxe 
 
 Expressão
@@ -231,16 +231,16 @@ def transform(df):
 ```
   
 
-## <a name="transform-partition"></a>Partição de transformação  
+## <a name="transform-partition"></a>Transformar a partição  
 ### <a name="purpose"></a>Objetivo 
-O ponto de extensão de transformação partição permite-lhe transformar uma partição do fluxo de dados. Tem acesso a um dataframe Pandas que contém todas as colunas e linhas para esse partição. O código tem de devolver um dataframe Pandas com os novos dados. 
+O ponto de extensão de partição de transformar permite-lhe transformar uma partição de fluxo de dados. Tem acesso a um Pandas dataframe que contém todas as colunas e linhas para essa partição. O código tem de devolver um dataframe Pandas com os novos dados. 
 
 >[!NOTE]
->No Python, poderá acaba por ficar com uma partição única ou várias partições, dependendo do tamanho dos dados. Spark, que está a trabalhar com um dataframe que contém os dados para uma partição num nó de trabalho especificado. Em ambos os casos, não é possível assumem que tem acesso para o conjunto completo de dados. 
+>Em Python, poderá ficar com uma partição única ou várias partições, dependendo do tamanho dos seus dados. No Spark, está trabalhando com um pacote de dados que contém os dados para uma partição num nó de trabalho especificado. Em ambos os casos, não pode assumir que tem acesso a todo o conjunto de dados. 
 
 
 ### <a name="how-to-use"></a>Como utilizar
-Pode adicionar este ponto de extensão utilizando o bloco de partição de transformação (Script). Está disponível de nível superior **transformações** menu. 
+Pode adicionar este ponto de extensão ao utilizar o bloco de transformar partição (Script). Está disponível no nível superior **transformações** menu. 
 
 ### <a name="syntax"></a>Sintaxe 
 
@@ -266,9 +266,9 @@ def transform(df, index):
 
 ## <a name="datapreperror"></a>DataPrepError  
 ### <a name="error-values"></a>Valores de erro  
-Dados preparativos, existe o conceito de valores de erro. 
+No preparações de dados, existe o conceito de valores de erro. 
 
-É possível encontrar os valores de erro no código Python personalizado. São instâncias de uma classe de Python chamado `DataPrepError`. Esta classe encapsula num wrapper uma exceção de Python e tem duas propriedades. As propriedades contêm informações sobre o erro que ocorreram quando o valor original foi processado, bem como o valor original. 
+É possível que ocorram os valores de erro no código de Python personalizado. Eles são instâncias de uma classe de Python chamado `DataPrepError`. Essa classe encapsula uma exceção de Python e tem algumas propriedades. As propriedades contêm informações sobre o erro ocorrido quando o valor original foi processado, bem como o valor original. 
 
 
 ### <a name="datapreperror-class-definition"></a>Definição de classe DataPrepError
@@ -277,7 +277,7 @@ class DataPrepError(Exception):
     def __bool__(self): 
         return False 
 ``` 
-A criação de um DataPrepError no framework dados preparativos Python, geralmente, este aspeto: 
+A criação de um DataPrepError na estrutura Python de preparações de dados geralmente fica assim: 
 ```python 
 DataPrepError({ 
    'message':'Cannot convert to numeric value', 
@@ -287,7 +287,7 @@ DataPrepError({
 }) 
 ``` 
 #### <a name="how-to-use"></a>Como utilizar 
-É possível quando o Python executa um ponto de extensão para gerar DataPrepErrors como valores de retorno utilizando o método de criação de anterior. É muito mais provável que DataPrepErrors forem encontrados quando os dados são processados um ponto de extensão. Neste momento, o código de Python personalizado tem de processar um DataPrepError como um tipo de dados válido.
+É possível quando o Python é executado num ponto de extensão para gerar DataPrepErrors como valores de retorno ao utilizar o método de criação anterior. É muito mais provável que DataPrepErrors são encontrados quando dados são processados num ponto de extensão. Neste momento, o código de Python personalizado tem de lidar com um DataPrepError como um tipo de dados válido.
 
 #### <a name="syntax"></a>Sintaxe 
 Expressão 

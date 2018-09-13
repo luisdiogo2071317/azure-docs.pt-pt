@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051398"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722015"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rodar segredos no Azure Stack
 
@@ -110,6 +110,8 @@ Para girar um segredo interno externas:
     Uma cadeia segura da palavra-passe utilizada para todos os ficheiros de certificado pfx, criados.
 4. Aguarde enquanto o girar seus segredos.  
 Quando a rotação do segredo é concluída com êxito, a consola apresentará **estado da ação geral: êxito**. 
+    > [!note]  
+    > Se falhar a rotação secreta, siga as instruções na mensagem de erro e execute novamente a início-secretrotation com o **-volte a executar** parâmetro. Contacte o suporte se tiver repetidas falhas de rotação secreta. 
 5. Após a conclusão com êxito de rotação secreta, remova os certificados da partilha criada no passo anterior e armazená-las em seu local de cópia de segurança seguro. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>Passo a passo de rotação secreta
@@ -136,6 +138,10 @@ Para girar apenas do Azure Stack internos segredos:
 
 1. Criar uma sessão do PowerShell com o [ponto final com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. Na sessão do ponto final com privilégios, execute **Start-SecretRotation** sem argumentos.
+3. Aguarde enquanto o girar seus segredos.  
+Quando a rotação do segredo é concluída com êxito, a consola apresentará **estado da ação geral: êxito**. 
+    > [!note]  
+    > Se falhar a rotação secreta, siga as instruções na mensagem de erro e execute novamente a início-secretrotation com o **-volte a executar** parâmetro. Contacte o suporte se tiver repetidas falhas de rotação secreta. 
 
 ## <a name="start-secretrotation-reference"></a>Referência de SecretRotation de início
 

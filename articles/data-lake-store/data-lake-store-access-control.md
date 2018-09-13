@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 114413d65bb8b1d70bad21badb9508c5f942845c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 72bc0408ed1eba2d959d246a55677ee9964ef106
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391118"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718819"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -69,10 +69,10 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 
 | Formato numérico | Formato curto |      O que representa     |
 |--------------|------------|------------------------|
-| 7            | RWX        | Leitura + Escrita + Execução |
-| 5            | R-X        | Leitura + Execução         |
-| 4            | R--        | Leitura                   |
-| 0            | ---        | Sem permissões         |
+| 7            | `RWX`        | Leitura + Escrita + Execução |
+| 5            | `R-X`        | Leitura + Execução         |
+| 4            | `R--`        | Leitura                   |
+| 0            | `---`        | Sem permissões         |
 
 
 ### <a name="permissions-do-not-inherit"></a>As permissões não são herdadas
@@ -85,13 +85,13 @@ Seguem-se alguns cenários comuns para ajudar a compreender que permissões são
 
 |    Operação             |    /    | Seattle / | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Ler Data.txt            |   --X   |   --X    |  --X      | R--          |
-| Acrescentar a Data.txt       |   --X   |   --X    |  --X      | RW-          |
-| Eliminar Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| Criar Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| Lista /                   |   R-X   |   ---    |  ---      | ---          |
-| Lista /Seattle/           |   --X   |   R-X    |  ---      | ---          |
-| Lista /Seattle/Portland /  |   --X   |   --X    |  R-X      | ---          |
+| Ler Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Acrescentar a Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Eliminar Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Criar Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Lista /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lista /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lista /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -99,25 +99,6 @@ Seguem-se alguns cenários comuns para ajudar a compreender que permissões são
 >
 >
 
-### <a name="permissions-needed-to-enumerate-a-folder"></a>Permissões necessárias para enumerar uma pasta
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
-
-* Para a pasta enumerar, o autor da chamada precisa de permissões de **Leitura + Execução**.
-* Para todas as pastas predecessoras, o autor da chamada precisa de permissões de **Execução**.
-
-
-Partir do **Data Explorer** painel da conta do Data Lake Storage Gen1, clique em **acesso** para ver as ACLs para o ficheiro ou pasta a ser visualizado no Data Explorer. Clique em **acesso** para ver as ACLs para o **catálogo** pasta sob o **mydatastorage** conta.
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Neste painel, a secção superior mostra as permissões dos proprietários. (Na captura de ecrã, o utilizador proprietário é Bob.) A seguir, são apresentadas as ACLs de Acesso atribuídas. 
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Clique em **Vista Avançada** para ver a vista mais avançada, onde são apresentadas as ACLs Predefinidas, a máscara e uma descrição do superutilizador.  Este painel também proporciona uma forma de definir recursivamente ACLs de Acesso e Predefinidas para ficheiros e pastas subordinados com base nas permissões da pasta atual.
-
-![ACLs de geração 1 do Data Lake Storage](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>O superutilizador
 
@@ -127,13 +108,8 @@ Um Superutilizador tem mais direitos entre todos os utilizadores na conta de ger
 * Pode alterar as permissões em qualquer ficheiro ou pasta.
 * Pode alterar o utilizador proprietário ou grupo proprietário de qualquer ficheiro ou pasta.
 
-No Azure, uma conta de geração 1 de armazenamento do Data Lake tem várias funções do Azure, incluindo:
+Todos os utilizadores que fazem parte do **proprietários** função para uma conta de geração 1 de armazenamento do Data Lake são automaticamente um Superutilizador.
 
-* Proprietários
-* Contribuintes
-* Leitores
-
-Todos os utilizadores a **proprietários** função para uma conta de geração 1 de armazenamento do Data Lake é automaticamente um Superutilizador para essa conta. Para saber mais, veja [Controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md).
 Se quiser criar uma função de controlo de acesso baseado em funções (RBAC) com permissões de superutilizador, esta tem de ter as permissões seguintes:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -153,11 +129,16 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 
 ## <a name="the-owning-group"></a>O grupo proprietário
 
+**em segundo plano**
+
 Nas ACLs POSIX, cada utilizador está associado um "grupo principal". Por exemplo, o utilizador "alice" poderá pertencer ao grupo "finanças". A Alice poderá, também, pertencer a vários grupos, mas um dos grupos será sempre o grupo principal dela. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
 
-Assiging o grupo proprietário para um novo ficheiro ou pasta:
+**Assiging o grupo proprietário para um novo ficheiro ou pasta**
+
 * **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido como o utilizador que criou a conta.
 * **Caso 2** (todos os outros casos): quando é criado um item novo, o grupo proprietário é copiado da pasta principal.
+
+**Alterar o grupo proprietário**
 
 O grupo proprietário pode ser alterado por:
 * Qualquer superutilizador.
@@ -179,30 +160,32 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USERS )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
   # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  member_count = 0
+  perms = 0
+  for g in get_groups(path) :
+    if (user_is_member_of_group(user, g)) :
+      member_count += 1
+      perms | =  get_perms_for_group(path,g)
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -218,7 +201,7 @@ Conforme ilustrado no algoritmo de verificação de acesso, a máscara limita o 
 >
 >
 
-#### <a name="the-sticky-bit"></a>O sticky bit
+### <a name="the-sticky-bit"></a>O sticky bit
 
 O sticky bit é uma funcionalidade mais avançada de um sistema de ficheiros POSIX. No contexto de geração 1 de armazenamento do Data Lake, é improvável que o sticky bit seja necessário. Em resumo, se o sticky bit estiver habilitado numa pasta, um item subordinado só pode ser eliminado ou renomeado pelo utilizador de proprietário do item subordinado.
 
@@ -239,9 +222,9 @@ A umask para o Azure Data Lake Storage Gen1 uma constante de valor ou seja defin
 
 | componente de umask     | Formato numérico | Formato curto | Significado |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   ---      | Para o utilizador proprietário, copie a ACL predefinida da principal para a ACL de acesso do menor | 
-| umask.owning_group  |    0         |   ---      | Para o grupo proprietário, copie a ACL predefinida da principal para a ACL de acesso do menor | 
-| umask.other         |    7         |   RWX      | Para outros, remover todas as permissões na ACL de acesso do menor |
+| umask.owning_user   |    0         |   `---`      | Para o utilizador proprietário, copie a ACL predefinida da principal para a ACL de acesso do menor | 
+| umask.owning_group  |    0         |   `---`      | Para o grupo proprietário, copie a ACL predefinida da principal para a ACL de acesso do menor | 
+| umask.other         |    7         |   `RWX`      | Para outros, remover todas as permissões na ACL de acesso do menor |
 
 O valor de umask utilizado pelo Gen1 de armazenamento do Azure Data Lake com eficiência significa que o valor para outros nunca é transmitido por predefinição em novos filhos - independentemente do que indica a ACL predefinida. 
 

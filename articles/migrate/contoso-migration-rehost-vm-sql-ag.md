@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9a9bcc25a0ab6c50ebce394a43edd7bfcd764bed
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7c96f362793ca2697eb2c92c07ff38d2fe6caad2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304718"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716881"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração de Contoso: realojar a uma aplicação no local em VMs do Azure e o grupo de Disponibilidade AlwaysOn do SQL Server
 
@@ -107,7 +107,7 @@ Contoso avalia o design proposto ao juntar-se de uma lista de prós e contras.
 **Consideração** | **Detalhes**
 --- | ---
 **Profissionais de TI** | WEBVM será movido para o Azure sem alterações, fazer a migração simples.<br/><br/> O escalão do SQL Server será executado no SQL Server 2017 e Windows Server 2016. Esta ação extingue seu atual sistema de operativo do Windows Server 2008 R2 e executar o SQL Server 2017 suporta os objetivos e requisitos técnicos da Contoso. IT fornece 100% de compatibilidade ao se afastar do SQL Server 2008 R2.<br/><br/> Contoso pode aproveitar seus investimentos em Software Assurance, com o benefício híbrido do Azure.<br/><br/> Uma implementação do SQL Server no Azure de elevada disponibilidade fornece tolerância a falhas para que a camada de dados de aplicação já não é um ponto único de ativação pós-falha.
-**Contras** | WEBVM está a executar o Windows Server 2008 R2. O sistema operativo é suportado pelo Azure para funções específicas (Julho de 2018). [Saiba mais](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> A camada web da aplicação irá permanecer um ponto único de ativação pós-falha.</br><br/> Contoso tem de continuar a suportar a camada web como uma VM do Azure, em vez de mudar para um serviço gerido, como o serviço de aplicações do Azure.<br/><br/> Com a solução escolhida, Contoso será necessário continuar a gestão de duas VMs do SQL Server, em vez de mudar para uma plataforma gerida, tais como a instância gerida do SQL do Azure. Além disso, com o Software Assurance, Contoso poderia trocar suas licenças existentes para as tarifas com desconto na instância gerida do SQL do Azure.
+**Contras** | WEBVM está a executar o Windows Server 2008 R2. O sistema operativo é suportado pelo Azure para funções específicas (Julho de 2018). [Saiba mais](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> A camada web da aplicação irá permanecer um ponto único de ativação pós-falha.</br><br/> Contoso tem de continuar a suportar a camada web como uma VM do Azure, em vez de mudar para um serviço gerido, como o serviço de aplicações do Azure.<br/><br/> Com a solução escolhida, Contoso será necessário continuar a gestão de duas VMs do SQL Server, em vez de mudar para uma plataforma gerida, tais como a instância gerida da base de dados SQL do Azure. Além disso, com o Software Assurance, Contoso poderia trocar suas licenças existentes para as tarifas com desconto na instância gerida da base de dados SQL do Azure.
 
 
 ### <a name="azure-services"></a>Serviços do Azure

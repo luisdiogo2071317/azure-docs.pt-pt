@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24f237a04d19d03ab7357db6fb9c7ab60036f3d2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4eadbe38eede505a3339d4b6090d0a34c12a5fc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390998"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721964"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação de ASDK tarefas de configuração
 
@@ -162,6 +162,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ![Console de gerenciamento de diretiva de grupo](media/asdk-post-deploy/gpmc.png)
 
+## <a name="enable-multi-tenancy"></a>Ativar multi-inquilinos
+Para Implantações com o Azure AD, terá [ativar multi-inquilinos](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) para a sua instalação ASDK.
+
+> [!NOTE]
+> Quando as contas de utilizador ou administrador de domínios que não seja utilizada para registar o Azure Stack são utilizadas para iniciar sessão portal do Azure Stack, o nome de domínio utilizado para registar o Azure Stack deve ser anexado ao portal do url. Por exemplo, se o Azure Stack foi registado com fabrikam.onmicrosoft.com e a conta de utilizador iniciar sessão está admin@contoso.com, o url a utilizar para iniciar sessão no portal de utilizador seria: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Registe o ASDK com o Azure](asdk-register.md)

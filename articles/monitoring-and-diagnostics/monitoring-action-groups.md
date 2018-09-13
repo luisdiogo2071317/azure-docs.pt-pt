@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 441469e24de5324fb5bed40c75f9a6b26f85bcc5
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325061"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717680"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -33,9 +33,9 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 1. Na [portal](https://portal.azure.com), selecione **Monitor**. O **Monitor** painel consolida todas as suas monitorização definições e dados numa vista.
 
     ![O serviço de "Monitor"](./media/monitoring-action-groups/home-monitor.png)
-1. Na **configurações** secção, selecione **grupos de ação**.
+1. Selecione **alertas** , em seguida, selecione **gerir grupos de ação**.
 
-    ![O separador "Grupos de ação"](./media/monitoring-action-groups/action-groups-blade.png)
+    ![Gerir o botão de grupos de ação](./media/monitoring-action-groups/manage-action-groups.png)
 1. Selecione **grupo de ação de adicionar**e preencha os campos.
 
     ![O comando "Adicionar grupo de ação"](./media/monitoring-action-groups/add-action-group.png)
@@ -97,6 +97,17 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 <dt>Webhook</dt>
 <dd>Pode ter até 10 ações de Webhook num grupo de ação
 <dd>Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será repetida um máximo de 2 horas quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final HTTP não responde. Da primeira repetição acontece após 10 segundos. A segunda e última repetição acontece após 100 segundos.</dd>
+<dd>Intervalos de endereços IP de origem
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+Para receber atualizações sobre as alterações a estes endereços IP, recomendamos que configure uma [alerta de estado de funcionamento do serviço](./monitoring-service-notifications.md) que monitoriza para notificações informativas sobre o serviço de grupos de ação.
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Gerir os seus grupos de ação ##

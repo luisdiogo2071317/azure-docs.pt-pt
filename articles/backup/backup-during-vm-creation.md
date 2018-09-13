@@ -1,6 +1,6 @@
 ---
-title: Ativar a cópia de segurança de VM do Azure durante a criação
-description: Consulte os passos para ativar a cópia de segurança da máquina virtual do Azure durante o processo de criação.
+title: Ativar cópia de segurança de VM do Azure durante a criação
+description: Veja os passos para ativar a cópia de segurança da máquina virtual do Azure durante o processo de criação.
 services: backup, virtual-machines
 author: markgalioto
 manager: carmonm
@@ -9,77 +9,77 @@ ms.service: backup, virtual-machines
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 928481f07875286a21f68dae6556f04eb2b6ae5c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9fd4707a201163002cc15cc9cf97e544e76cf7c6
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606125"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35756282"
 ---
-# <a name="enable-backup-during-azure-virtual-machine-creation"></a>Ativar a cópia de segurança durante a criação da máquina virtual do Azure 
+# <a name="enable-backup-during-azure-virtual-machine-creation"></a>Ativar cópia de segurança durante a criação da máquina virtual do Azure 
 
-O serviço de cópia de segurança do Azure fornece uma interface para criar e configurar cópias de segurança para a nuvem. Proteger os seus dados, efetuando cópias de segurança, denominadas pontos de recuperação, em intervalos regulares. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo fornece detalhes sobre como ativar a cópia de segurança durante a criação de uma máquina virtual (VM) no portal do Azure.  
+O serviço de cópia de segurança do Azure fornece uma interface para criar e configurar cópias de segurança para a cloud. Proteger os seus dados criar cópias de segurança, chamadas de pontos de recuperação, em intervalos regulares. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo fornece detalhes sobre como ativar a cópia de segurança durante a criação de uma máquina virtual (VM) no portal do Azure.  
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure 
 
-Se não estiver já em sessão iniciada na sua conta, inicie sessão no [portal do Azure](http://portal.azure.com).
+Se não estiver já em entrar para a sua conta, inicie sessão para o [portal do Azure](http://portal.azure.com).
  
-## <a name="create-virtual-machine-with-backup-configured"></a>Criar máquina virtual com a cópia de segurança configurada 
+## <a name="create-virtual-machine-with-backup-configured"></a>Criar máquina virtual com cópia de segurança configurada 
 
-1. No canto superior esquerdo do portal do Azure, clique em **novo**. 
+1. No canto superior esquerdo do portal do Azure, clique em **New**. 
 
 2. Selecione **computação**e, em seguida, selecione uma imagem da máquina virtual.   
 
-3. Introduza as informações da máquina virtual. O nome de utilizador e palavra-passe fornecida é utilizada para iniciar sessão para a máquina virtual. Quando terminar, clique em **OK**. 
+3. Introduza as informações da máquina virtual. O nome de utilizador e palavra-passe fornecida é utilizado para iniciar sessão para a máquina virtual. Quando terminar, clique em **OK**. 
 
 4. Selecione um tamanho para a VM.  
 
-5. Em **definições > cópia de segurança**, clique em **ativado** para trazer as definições de configuração de cópia de segurança. Pode aceitar valores predefinidos e clique em **OK** na página de definições para avançar para a página de resumo para criar a VM. Se pretender alterar os valores, siga os passos seguintes.  
+5. Sob **definições > cópia de segurança**, clique em **ativado** para abrir as definições de configuração de cópia de segurança. Pode aceitar valores predefinidos e clique em **OK** na página de definições para avançar para a página de resumo para criar a VM. Se pretender alterar os valores, siga os passos seguintes.  
 
-6. Crie ou selecione um cofre dos serviços de recuperação, que contém as cópias de segurança da máquina virtual. Se estiver a criar um cofre dos serviços de recuperação, pode escolher um grupo de recursos para o cofre.  
+6. Crie ou selecione um cofre dos serviços de recuperação, que contém as cópias de segurança da máquina virtual. Se estiver a criar um cofre dos serviços de recuperação, pode escolher um grupo de recursos do cofre.  
 
-    ![Página de criação de configuração de cópia de segurança no vm](./media/backup-during-vm-creation/create-vm-backup-config.png) 
+    ![Configuração de cópia de segurança numa vm criar página](./media/backup-during-vm-creation/create-vm-backup-config.png) 
 
     > [!NOTE] 
-    > O grupo de recursos para o Cofre dos serviços de recuperação pode ser diferente do grupo de recursos para a máquina virtual.  
+    > O grupo de recursos para o Cofre dos serviços de recuperação pode ser diferente do que o grupo de recursos para a máquina virtual.  
     > 
     > 
 
-7. Por predefinição, uma política de cópia de segurança está selecionada para que possa proteger rapidamente a VM. Uma política de cópia de segurança especifica a frequência de criar instantâneos de cópia de segurança e quanto tempo pretende manter essas cópias de segurança. Pode aceitar a política predefinida, ou pode criar ou selecionar uma política de cópia de segurança diferentes. Para editar a política de cópia de segurança, selecione **política de cópia de segurança** e alterar os valores da política.  
+7. Por predefinição, uma política de cópia de segurança está selecionada para que possa proteger rapidamente a VM. Uma política de cópia de segurança especifica a frequência de tirar instantâneos de cópia de segurança e durante quanto tempo para manter essas cópias de segurança. Pode aceitar a política predefinida, ou pode criar ou selecionar uma política de cópia de segurança diferente. Para editar a política de cópia de segurança, selecione **política de cópia de segurança** e altere os valores da política.  
 
-8. Quando estiver satisfeito com os valores de configuração de cópia de segurança, na página de definição, clique em **OK**.  
+8. Quando estiver satisfeito com os valores de configuração de cópia de segurança, na página Definições, clique em **OK**.  
 
-9. Na página Resumo, uma vez a validação foi efectuada com êxito, clique em **criar** para criar uma máquina virtual que utiliza as definições de cópia de segurança configuradas. 
+9. Na página Resumo, uma vez que a validação passou, clique em **criar** para criar uma máquina virtual que utiliza as definições de cópia de segurança configuradas. 
 
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>Iniciar uma cópia de segurança depois de criar a VM 
 
-Embora a política de cópia de segurança tiver sido criada, é recomendável criar uma cópia de segurança inicial. Para ver os detalhes de cópia de segurança para a virtual máquina uma vez as VM criação modelo depois de concluída, do **operações** definir no menu da esquerda, clique em **cópia de segurança**. Pode utilizar este para acionar uma cópia de segurança a pedido, restaurar uma VM completa ou de todos os discos, restaurar ficheiros a partir de cópia de segurança VM ou altere a política de cópia de segurança associada à máquina virtual.  
+Embora a política de cópia de segurança tiver sido criada, é boa prática para criar uma cópia de segurança inicial. Para ver os detalhes de cópia de segurança para a virtual máquina uma vez a conclusão de modelo de criação de VM, do **Operations** definir no menu do lado esquerdo, clique em **cópia de segurança**. Pode utilizar este para acionar uma cópia de segurança a pedido, restaurar uma VM completa ou de todos os discos, restaurar ficheiros a partir de cópia de segurança VM ou alterar a política de cópia de segurança associada à máquina virtual.  
 
 ## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Utilizar um modelo do Resource Manager para implementar uma VM protegida
 
-Os passos anteriores explicam como utilizar o portal do Azure para criar uma máquina virtual e protegê-lo para um cofre dos serviços de recuperação. Se pretender rapidamente implementar uma ou mais máquinas virtuais e protegê-los para um cofre dos serviços de recuperação, consulte o modelo, [implementar uma VM do Windows e ativar a cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+Os passos anteriores explicam como utilizar o portal do Azure para criar uma máquina virtual e protegê-lo para um cofre dos serviços de recuperação. Se quiser rapidamente implementar uma ou mais máquinas virtuais e protegê-los para um cofre dos serviços de recuperação, consulte o modelo [implementar uma VM do Windows e ativar cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 
-### <a name="which-vm-images-enable-backup-at-the-time-of-vm-creation"></a>As imagens VM ativar a cópia de segurança no momento da criação da VM? 
+### <a name="which-vm-images-enable-backup-at-the-time-of-vm-creation"></a>Quais imagens VM ativar cópia de segurança no momento da criação da VM? 
 
-São suportadas na seguinte lista de imagens de núcleos publicadas pela Microsoft para ativar a cópia de segurança durante a criação da VM. Para outras VMs, pode ativar a cópia de segurança depois da VM ser criada. Saiba mais [ativar cópia de segurança depois de criada a VM](quick-backup-vm-portal.md) 
+A seguinte lista de imagens de núcleo publicadas pela Microsoft são suportadas para ativar a cópia de segurança durante a criação da VM. Para outras VMs, pode ativar a cópia de segurança assim que a VM é criada. Saiba mais [ativar cópia de segurança após a VM é criada](quick-backup-vm-portal.md) 
 
-- **Windows** -Centro de dados do Windows Server 2016, o principal do Centro de dados do Windows Server 2016, o Centro de dados do Windows Server 2012, Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
-- **Ubuntu** -Ubuntu Server 1710, Ubuntu Server 1704, servidor UUbuntu 1604(LTS), Ubuntu Server 1404(LTS) 
-- **VM de Redhat** -RHEL 6.7, 6.8 6.9, 7.2, 7.3, 7.4 
+- **Windows** -Centro de dados do Windows Server 2016, o núcleo do Centro de dados do Windows Server 2016, Windows Server 2012 DataCenter, Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
+- **Ubuntu** -1710 do Ubuntu Server, Ubuntu Server 1704, servidor UUbuntu 1604(LTS), 1404(LTS) Ubuntu Server 
+- **Red Hat** -RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
 - **SUSE** -SP4 do SUSE Linux Enterprise Server 11, 12 SP2, 12 SP3 
 - **Debian** -Debian 8, Debian 9 
 - **CentOS** -CentOS 6.9, CentOS 7.3 
-- **Oracle Linux** -Oracle Linux 6.7, 6.8, 6.9, 7.2, 7.3 
+- **Oracle Linux** -Oracle Linux 6.7, 6.9, 6.8, 7.3 e 7.2 
  
-### <a name="is-backup-cost-included-in-the-vm-cost"></a>Está incluído no custo VM de custo de cópia de segurança? 
+### <a name="is-backup-cost-included-in-the-vm-cost"></a>É o custo de cópia de segurança incluído no custo VM? 
 
-Não, os custos de cópia de segurança são separados ou distinct, de custos de máquinas virtuais. Para obter mais informações sobre os preços de cópia de segurança, consulte o [preços da cópia de segurança site](https://azure.microsoft.com/pricing/details/backup/).
+Não, os custos de cópia de segurança estão separadas ou diferentes, dos custos de máquinas virtuais. Para obter mais informações sobre os preços da cópia de segurança, consulte a [preços de cópia de segurança site](https://azure.microsoft.com/pricing/details/backup/).
  
-### <a name="which-permissions-are-required-to-enable-backup-on-a-vm"></a>Quais são necessárias permissões para ativar a cópia de segurança numa VM? 
+### <a name="which-permissions-are-required-to-enable-backup-on-a-vm"></a>Que permissões são necessárias para ativar a cópia de segurança numa VM? 
 
-Se for um contribuinte de máquina virtual, pode ativar a cópia de segurança da VM. Se estiver a utilizar uma função personalizada, terá as seguintes permissões para ativar a cópia de segurança da VM com êxito. 
+Se for um contribuinte de máquina virtual, pode ativar a cópia de segurança na VM. Se estiver a utilizar uma função personalizada, terá as seguintes permissões para ativar com êxito a cópia de segurança na VM. 
 
 - Microsoft.RecoveryServices/Vaults/write 
 - Microsoft.RecoveryServices/Vaults/read 
@@ -91,11 +91,11 @@ Se for um contribuinte de máquina virtual, pode ativar a cópia de segurança d
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read 
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write 
  
-Se o Cofre de serviços de recuperação e máquina virtual tiverem grupos de recursos diferente, lembre-se de que tem permissões de escrita no grupo de recurso do Cofre de serviços de recuperação.  
+Se o seu Cofre dos serviços de recuperação e a máquina virtual tiverem grupos de recursos diferente, certifique-se de que tem permissões de escrita no grupo de recursos de Cofre de serviços de recuperação.  
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
-Agora que protegeram a VM, consulte os artigos seguintes para saber mais sobre as tarefas de gestão de VM e como restaurar VMs. 
+Agora que proteger a VM, consulte os seguintes artigos para saber mais sobre tarefas de gestão da VM e como restaurar VMs. 
 
 - [Gerir e monitorizar as máquinas virtuais](backup-azure-manage-vms.md) 
 - [Monitorizar máquinas virtuais](backup-azure-arm-restore-vms.md) 

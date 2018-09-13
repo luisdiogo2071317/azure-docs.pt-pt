@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c12a8d342e2fec41cb2318ac7abfe1d3fce31cef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391696"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713974"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA em regiões do Azure
 
@@ -46,7 +46,7 @@ Se estiver a utilizar o cenário de compartilhamento de destino de DR com um sis
 - Existem duas [modos de operação](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) com delta_datashipping e logreplay, que estão disponível para um cenário desse tipo
 - Ambos os modos de operação têm requisitos diferentes de memória sem pré-carregamento de dados
 - Delta_datashipping exijam significativamente menos memória sem a opção de pré-carregamento que logreplay poderia exigir. Consulte o capítulo 4.3 do documento SAP [como para efetuar a replicação do sistema para o SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
-- O requisito de memória do modo de operação logreplay sem pré-carregamento não é determinístico e depende das estruturas de columnstore carregadas
+- O requisito de memória do modo de operação logreplay sem pré-carregamento não é determinístico e depende das estruturas de columnstore carregá-lo. Em casos extremos poderá necessitar de 50% da memória da instância primária. A memória para o modo de operação logreplay é independente em se optou por ter os dados pré-carregada ou não.
 
 
 ![Diagrama de duas VMs através de duas regiões](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)

@@ -1,19 +1,18 @@
 ---
 title: Alterar e Reimplementar um microsserviço | Documentos da Microsoft
 description: Este tutorial mostra como alterar e Reimplementar um microsserviço na monitorização remota
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 561c5b0f49c36cf15e85e3a334c7a8aa326f70a9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338082"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715062"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplementar um microsserviço
 
@@ -47,14 +46,15 @@ Nesta parte, chama o padrão IoT hub manager microsserviços API. A API devolve 
 2. Localize onde transferiu o Postman e abri-lo.
 3. No Postman, introduza o seguinte no GET: http://localhost:8080/iothubmanager/v1/status.
 4. Ver o retorno e deverá ver, "Status": "OK: ativo e bem".
-![Mensagem de ativo e bem Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+
+    ![Mensagem de ativo e bem Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## <a name="change-the-status-and-build-the-image"></a>Alterar o estado e criar a imagem
 
 Agora, altere a mensagem de estado de microsserviços o Gestor do Hub Iot "Novas edições feitas aqui!" e, em seguida, recriar a imagem do docker com este novo Estado. Caso se depare com problemas aqui, consulte a nossa [resolução de problemas](#Troubleshoot) secção.
 
 1. Certifique-se de que o seu terminal está aberto e altere o diretório em que tem um clone a solução de monitorização remota. 
-2. Altere o diretório para "... azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/WebService/v1/Controllers".
+2. Altere o diretório para "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers".
 3. Abra StatusController.cs em qualquer editor de texto ou IDE que quiser. 
 4. Localize o código a seguir:
 
@@ -68,7 +68,7 @@ Agora, altere a mensagem de estado de microsserviços o Gestor do Hub Iot "Novas
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
-5. Voltar para o seu terminal, mas agora, altere ao diretório seguinte: "... azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker".
+5. Voltar para o seu terminal, mas agora, altere ao diretório seguinte: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. Para criar a imagem do docker nova, escreva
 
     ```cmd/sh
@@ -113,7 +113,7 @@ Antes de poder enviar a nova imagem do docker para um hub do docker, Docker espe
 ## <a name="update-your-remote-monitoring-solution"></a>Atualizar a sua solução de monitorização remota
 Agora tem de atualizar o docker-Compose local para extrair a imagem do docker nova do seu hub do docker. Caso se depare com problemas aqui, consulte a nossa [resolução de problemas](#Troubleshoot) secção.
 
-1. Volte para o terminal e mude para o diretório seguinte: "... Azure-IOT-PCs-Remote-Monitoring-DotNet/scripts/local".
+1. Volte para o terminal e mude para o diretório seguinte: "azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
 2. Abra o docker-Compose em qualquer editor de texto ou IDE que quiser.
 3. Localize o código a seguir:
 
@@ -130,7 +130,7 @@ Agora tem de atualizar o docker-Compose local para extrair a imagem do docker no
 ## <a name="view-the-new-response-status"></a>Ver o novo estado de resposta
 Concluir voltar a implementar uma instância local da solução de monitorização remota e visualizar a nova resposta de estado no Postman.
 
-1. Volte para o seu terminal e mude para o seguinte diretório: "... Azure-IOT-PCs-Remote-Monitoring-DotNet/scripts/local".
+1. Volte para o seu terminal e mude para o seguinte diretório: "azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
 2. Comece a sua instância local da solução de monitorização remota escrevendo o seguinte comando num terminal:
 
     ```cmd/sh

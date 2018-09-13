@@ -1,31 +1,31 @@
 ---
-title: Personalizar a imagem de contentor utilizada para implementação de modelos do Azure ML | Microsoft Docs
-description: Este artigo descreve como personalizar uma imagem de contentor para os modelos do Azure Machine Learning
+title: Personalizar a imagem de contentor utilizada para implementar modelos de ML do Azure | Documentos da Microsoft
+description: Este artigo descreve como personalizar uma imagem de contentor para modelos do Azure Machine Learning
 services: machine-learning
 author: tedway
 ms.author: tedway
 manager: mwinkle
 ms.reviewer: mldocs, raymondl
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 715b4c1f02622b015e4118ac38edd9fe6a051ed7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7879cf1891e071da1a0ad3ddfc30f90fc7be8ca5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834714"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649990"
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>Personalizar a imagem de contentor utilizada para modelos do Azure ML
 
-Este artigo descreve como personalizar uma imagem de contentor para os modelos do Azure Machine Learning.  Azure ML Workbench utiliza contentores para implementar modelos de machine learning. Os modelos são implementados em conjunto com as respetivas dependências e do Azure ML cria uma imagem a partir do modelo, as dependências e os ficheiros associados.
+Este artigo descreve como personalizar uma imagem de contentor para modelos do Azure Machine Learning.  O Azure ML Workbench utiliza contentores para implementar modelos de aprendizagem automática. Os modelos são implementados, juntamente com as respetivas dependências, e o Azure ML baseia-se uma imagem a partir do modelo, as dependências e os ficheiros associados.
 
 ## <a name="how-to-customize-the-docker-image"></a>Como personalizar a imagem do Docker
-Personalize a imagem de Docker do Azure ML implementa a utilizar:
+Personalize a imagem do Docker Azure ML implementa a utilizar:
 
-1. A `dependencies.yml` ficheiro: para gerir as dependências que podem ser instaladas a partir de [PyPi]( https://pypi.python.org/pypi), pode utilizar o `conda_dependencies.yml` de ficheiros do projeto Workbench ou criar os seus próprios. Esta é a abordagem de Recomendamos para instalação de dependências de Python que podem ser instaladas pip.
+1. Uma `dependencies.yml` ficheiro: para gerir as dependências que podem ser instaladas a partir de [PyPi]( https://pypi.python.org/pypi), pode utilizar o `conda_dependencies.yml` de ficheiros do projeto Bancada de trabalho ou crie os seus próprios. Esta é a abordagem recomendada para a instalação de dependências de Python são instaláveis no pip.
 
    Comando da CLI de exemplo:
    ```azurecli
@@ -45,7 +45,7 @@ Personalize a imagem de Docker do Azure ML implementa a utilizar:
         - matplotlib
    ```
         
-2. Um Docker passos ficheiro: utilizar esta opção, personalizar a imagem de implementado através da instalação de dependências que não podem ser instaladas na PyPi. 
+2. Ficheiro de passos de um Docker: utilizar esta opção, personaliza a imagem implementada pela instalação de dependências que não podem ser instaladas a partir PyPi. 
 
    O ficheiro deve incluir passos de instalação do Docker como um DockerFile. Os comandos seguintes são permitidos no ficheiro: 
 
@@ -56,7 +56,7 @@ Personalize a imagem de Docker do Azure ML implementa a utilizar:
    az ml image create -n <my Image Name> --manifest-id <my Manifest ID> --docker-file <myDockerStepsFileName> 
    ```
 
-   Imagem, o manifesto e o serviço comandos aceitam o sinalizador de ficheiro de docker.
+   Imagem, o manifesto e o serviço comandos aceitam o sinalizador de ficheiro do docker.
 
    Ficheiro de passos de Docker de exemplo:
    ```docker
@@ -67,7 +67,7 @@ Personalize a imagem de Docker do Azure ML implementa a utilizar:
    ```
 
 > [!NOTE]
-> A imagem de base para contentores do Azure ML é Ubuntu e não pode ser alterada. Se especificar uma imagem base diferentes, serão ignorada.
+> A imagem de base para contentores do Azure ML é o Ubuntu e não pode ser alterada. Se especificar uma imagem de base diferente, ela será ignorada.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que tiver personalizado a imagem de contentor, pode implementá-la para um cluster para utilização em grande escala.  Para obter mais informações sobre como configurar um cluster para implementação do serviço web, consulte [configuração de gestão de modelo](deployment-setup-configuration.md). 
+Agora que personalizou sua imagem de contentor, pode implementá-la a um cluster para utilização em grande escala.  Para obter detalhes sobre como configurar um cluster para a implementação de serviço da web, consulte [configuração de gestão de modelo](deployment-setup-configuration.md). 

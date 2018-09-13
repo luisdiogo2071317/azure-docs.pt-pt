@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4dc88abda0f19896b8f1ed6465fe0fc39ac81b72
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381609"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714481"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre os perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -37,7 +37,6 @@ Um perfil técnico permite que esses tipos de cenários:
 - [Fornecedor de restful](restful-technical-profile.md) -chamada para serviços de REST API, como validar a entrada do usuário, enriquecer os dados de utilizador, ou integrar com aplicações de linha de negócio.
 - [SAML2](saml-technical-profile.md) -federação com qualquer fornecedor de identidade do protocolo SAML.
 - [Autodeclarativas](self-asserted-technical-profile.md) -interagir com o utilizador. Por exemplo, recolher as credenciais do utilizador para iniciar sessão, renderizar a página de inscrição ou de reposição de palavra-passe.
-- [Emissor do token](jwt-issuer-technical-profile.md) -emitir um token de acesso.
 - **WsFed** -federação com qualquer fornecedor de identidade de protocolo do WsFed. 
 - **Gerenciamento de sessões** -lidar com diferentes tipos de sessões. 
 - **Fornecedor de contexto do percurso de utilizador**

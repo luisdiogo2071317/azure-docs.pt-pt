@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c500a1ecc817e4d95e39ca0ac985e1d90ffc8a78
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125857"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721268"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): regiões emparelhadas do Azure
 
@@ -73,7 +73,7 @@ Como referido na figura 2.
 
 ![Armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** -armazenamento Georredundante (GRS) está configurado por predefinição, quando é criada uma conta de armazenamento do Azure. Com a GRS, os dados automaticamente são replicados três vezes numa região principal e três vezes na região associada. Para obter mais informações, consulte [opções de redundância de armazenamento do Azure](storage/common/storage-redundancy.md).
 
-![SQL do Azure](./media/best-practices-availability-paired-regions/3Green.png) **bases de dados do Azure SQL** – com o Azure SQL Georreplicação padrão, pode configurar a replicação assíncrona de transações para uma região emparelhada. Com georreplicação premium, pode configurar a replicação para qualquer região do mundo; No entanto, é recomendável que implementar estes recursos numa região emparelhada na maioria dos cenários de recuperação após desastre. Para obter mais informações, consulte [Georreplicação no Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+![SQL do Azure](./media/best-practices-availability-paired-regions/3Green.png) **base de dados do Azure SQL** – com o Azure SQL da base de dados-Georreplicação, pode configurar a replicação assíncrona de transações em qualquer região do mundo; no entanto, é recomendável implementar estes recursos num região emparelhada na maioria dos cenários de recuperação após desastre. Para obter mais informações, consulte [Georreplicação no Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
 ![Gestor de recursos](./media/best-practices-availability-paired-regions/4Green.png) **do Azure Resource Manager** -Resource Manager inerentemente fornece isolamento lógico de componentes do serviço de gestão em várias regiões. Isso significa que as falhas de lógicas numa região são menor probabilidade de afetar o outro.
 

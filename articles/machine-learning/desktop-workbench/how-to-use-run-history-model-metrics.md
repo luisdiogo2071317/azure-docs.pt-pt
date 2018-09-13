@@ -1,39 +1,39 @@
 ---
-title: Como utilizar executar histórico e métricas de modelo no Azure Machine Learning Workbench | Microsoft Docs
-description: Guia de funcionalidades de histórico de execuções e métricas de modelo do Azure Machine Learning Workbench de utilização
+title: Como utilizar o Run histórico e métricas de modelo no Azure do Machine Learning Workbench | Documentos da Microsoft
+description: Guia para a utilizar os recursos de histórico de execuções e métricas de modelo do Azure Machine Learning Workbench
 services: machine-learning
 author: rastala
 ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: df29117235e890a9b20619744df6320f298a73b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831874"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647278"
 ---
-# <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Como histórico de execução de utilização e métricas de modelo no Azure Machine Learning Workbench
+# <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Como o histórico de execuções de utilização e métricas de modelo no Azure Machine Learning Workbench
 
-Azure Workbench de aprendizagem máquina suporta experimentação de ciência de dados através do respetivo **histórico de execuções** e **métricas de modelo** funcionalidades.
-**Histórico de execução** fornece um meio para controlar as saídas da sua máquina experimentações de aprendizagem e, em seguida, permite a filtragem e de comparação dos respetivos resultados.
-**Métricas de modelo** pode ter sessão iniciada a partir de qualquer ponto dos scripts, qualquer os valores são mais importantes nas suas experimentações de ciência de dados de controlo.
-Este artigo descreve como tornar a utilização eficaz destas funcionalidades para aumentar a velocidade e a qualidade da sua experimentação de ciência de dados.
+O Azure Machine Learning Workbench oferece suporte a experimentação de ciência de dados por meio de seus **histórico de execuções** e **métricas de modelo** funcionalidades.
+**Histórico de execuções** fornece um meio para controlar as saídas das suas experimentações de machine learning e, em seguida, permite a filtragem e comparação dos seus resultados.
+**Métricas de modelo** pode ter sessão iniciada a partir de qualquer ponto dos seus scripts, de valores que são mais importantes em suas experiências de ciência de dados de controlo.
+Este artigo descreve como fazer uso eficiente desses recursos para aumentar a taxa de e a qualidade da sua experimentação de ciência de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para seguir este guia de procedimentos, tem de:
+Para seguir este guia de procedimentos, terá de:
 * [Criar e instalar o Azure Machine Learning](../service/quickstart-installation.md)
 - [Criar um projeto](../service/quickstart-installation.md)
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Descrição geral da API de registo do Azure ML
-O [API de registo do Azure ML](reference-logging-api.md) está disponível através de **azureml.logging** módulo no Python (que é instalado com o Workbench do Azure ML.) Depois de importar este módulo, pode utilizar o **get_azureml_logger** método ao instanciar um **registador** objeto.
-Em seguida, pode utilizar o registo **registo** método para armazenar pares chave/valor produzido pelos scripts Python.
+O [API de registo do Azure ML](reference-logging-api.md) está disponível através do **azureml.logging** módulo em Python (que é instalado com o Azure ML Workbench.) Depois de importar este módulo, pode utilizar o **get_azureml_logger** método para instanciar um **logger** objeto.
+Em seguida, pode usar o logger **log** método para armazenar pares chave/valor produzidos pelos seus scripts de Python.
 Atualmente, as métricas de modelo do registo de escalar e tipos de lista são suportados como mostrado.
 
 ```Python
@@ -48,29 +48,29 @@ logger.log("simple value", 7)
 # log list
 logger.log("all values", [5, 6, 7])
 ```
-É fácil de utilizar o registo nos seus projetos do Workbench do Azure ML e este artigo mostra-lhe como fazê-lo.
+É fácil de usar o agente de log nos seus projetos de Azure ML Workbench e este artigo mostra-lhe como fazer isso.
 
 ## <a name="create-a-project-in-azure-ml-workbench"></a>Criar um projeto no Azure ML Workbench
-Se ainda não tiver um projeto, pode criar um o [criar e instalar o guia de introdução](../service/quickstart-installation.md) do **Dashboard do projeto**, pode abrir o **iris_sklearn.py** script ( conforme mostrado).
+Se ainda não tiver um projeto, pode criar um a [criar e instalar o início rápido](../service/quickstart-installation.md) da **Dashboard do projeto**, pode abrir o **iris_sklearn. PY** (do script conforme mostrado).
 
-![aceder a um script a partir do separador de ficheiros](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
+![aceder a um script do separador de ficheiros](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 
-Pode utilizar este script como um guia de implementação esperada de métrica de modelo de registo no Azure ML.
+Pode utilizar este script como um guia de implementação esperada de métrica de modelo, iniciar sessão no Azure ML.
 
 ## <a name="parameterize-and-log-model-metrics-from-script"></a>Parametrizar e métricas de modelo de registo de Script
-No **iris_sklearn.py** script, o padrão esperado para importação e a construção registador no Python pode ser reduzido para as seguintes linhas de código.
+Na **iris_sklearn. PY** do script, o padrão esperado para importação e a construção, o agente de log em Python que pode ser reduzido para as seguintes linhas de código.
 
 ```Python
 from azureml.logging import get_azureml_logger
 run_logger = get_azureml_logger()
 ```
 
-Depois de criado, pode invocar o **registo** método com qualquer nome/valor par.
+Depois de criado, é possível invocar o **log** método com qualquer nome/valor par.
 
-Quando desenvolvimento estiver concluído, muitas vezes, é útil para parametrizar scripts, para que os valores podem ser transmitidos através da linha de comandos.
-O exemplo abaixo mostra como aceite parâmetros da linha de comandos (quando presente) utilizando bibliotecas padrão do Python.
-Este script assume um parâmetro único para a velocidade de Regularization (*reg*) utilizado para caber um modelo de classificação um esforço para aumentar *precisão* sem overfitting.
-Estas variáveis, em seguida, registadas como *Regularization taxa* e *precisão* para que o modelo com os melhores resultados pode ser facilmente identificado.
+Quando o desenvolvimento é concluído, muitas vezes é útil para parametrizar os scripts, de modo a que os valores podem ser transmitidos através da linha de comandos.
+O exemplo abaixo mostra como aceitam parâmetros da linha de comandos (quando presente) usando bibliotecas de Python padrão.
+Este script usa um único parâmetro para a taxa de regularização (*reg*) usado de acordo com um modelo de classificação num esforço para aumentar *precisão* sem overfitting.
+Estas variáveis, em seguida, são registadas como *taxa de regularização* e *precisão* para que o modelo com melhores resultados pode ser facilmente identificado.
 
 ```Python
 # change regularization rate and you will likely get a different accuracy.
@@ -96,82 +96,82 @@ print ("Accuracy is {}".format(accuracy))
 run_logger.log("Accuracy", accuracy)
 ```
 
-Seguir estes passos no seu scripts ativá-los efetuar uma utilização ideal de **histórico de execuções**.
+Seguir estes passos nos scripts de ativá-las tornar a utilização ideal **histórico de execuções**.
 
-## <a name="launch-runs-from-project-dashboard"></a>Iniciar execução a partir do Dashboard do projeto
-Regressar ao **Dashboard do projeto**, pode iniciar uma **executar controlado** selecionando o **iris_sklearn.py** script e introduzindo o **taxa regularization**  parâmetro o **argumentos** caixa editar.
+## <a name="launch-runs-from-project-dashboard"></a>Lançamento é executado a partir do Dashboard do projeto
+Retornar para o **Dashboard do projeto**, pode iniciar um **controlada da execução** ao selecionar o **iris_sklearn. PY** script e introduzir a **taxa de regularização**  parâmetro na **argumentos** caixa de edição.
 
-![introduzir parâmetros e executa a iniciar](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-05.png)
+![introdução de parâmetros e iniciando execuções](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-05.png)
 
-Uma vez que iniciar executa controlada não bloqueia o Workbench do Azure ML, vários podem ser executados em paralelo.
-O estado de cada execução controlado está visível no **painel de tarefas** conforme mostrado.
+Uma vez que iniciar execuções controladas não bloqueia o Azure ML Workbench, vários podem ser iniciados em paralelo.
+O estado de cada execução controlada está visível no **painel de tarefas** conforme mostrado.
 
 ![controlo é executado no painel de tarefas](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-06.png)
 
-Isto permite que uma melhor utilização dos recursos, sem necessidade de cada tarefa para ser executada em série.
+Isto permite que uma melhor utilização dos recursos, sem a necessidade de cada tarefa para ser executada em série.
 
-## <a name="view-results-in-run-history"></a>Ver os resultados no histórico de execução
-Progresso e os resultados da execução controlado estão disponíveis para uma análise do Azure ML Workbench **histórico de execuções**.
-**Histórico de execução** fornece três vistas distintas:
+## <a name="view-results-in-run-history"></a>Ver resultados no histórico de execuções
+Progresso e os resultados das execuções controladas estão disponíveis para análise no Azure ML Workbench **histórico de execuções**.
+**Histórico de execuções** fornece três exibições distintas:
 - Dashboard
 - Detalhes
 - Comparação
 
-O **Dashboard** vista apresenta dados em todas as execuções de um determinado script, composto em formulários de gráficos tanto em tabela.
-O **detalhes** vista apresenta todos os dados gerados a partir de uma execução específica de um script específico, incluindo métricas com sessão iniciada e ficheiros de saída (tais como composto rastreia.) O **comparação** vista permite que os resultados da executa duas ou três para ser visualizado lado lado a lado, incluindo também registados métricas e os ficheiros de saída.
+O **Dashboard** vista apresenta dados em todas as execuções de um determinado script, compostas em formulários de gráficos tanto em tabela.
+O **detalhes** vista apresenta todos os dados gerados a partir de uma execução específica de um script específico, incluindo métricas com sessão iniciada e os ficheiros de saída (tais como processado desenha.) O **comparação** vista permite que os resultados de duas ou três execuções para ser visualizada lado a lado, também a incluir as métricas registadas e ficheiros de saída.
 
-Em oito controlados execuções do **iris_sklearn.py**, valores para o **taxa regularization** parâmetro e **precisão** resultado foram registados para ilustrar como utilizar a Run Vistas de histórico.
+Em oito controlados execuções do **iris_sklearn. PY**, os valores para o **taxa de regularização** parâmetro e **precisão** resultado foram registados para ilustrar como usar a execução Vistas de histórico.
 
-### <a name="run-history-dashboard"></a>Dashboard de histórico de execução
+### <a name="run-history-dashboard"></a>Dashboard do histórico de execuções
 Os resultados de todas as execuções de oito são visíveis no **Dashboard do histórico de execução**.
-Como **iris_sklearn.py** registos *Regularization taxa* e *precisão*, a **Dashboard do histórico de execução** apresenta gráficos para estes valores por predefinição.
+Como **iris_sklearn. PY** registos *taxa de regularização* e *precisão*, o **Dashboard do histórico de execução** apresenta gráficos para esses valores por padrão.
 
-![Dashboard de histórico de execução](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-07.png)
+![dashboard do histórico de execuções](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-07.png)
 
-O **Dashboard do histórico de execução** pode ser personalizado para que os valores com sessão iniciada também aparecem na grelha.  Ao clicar no **personalizar** ícone apresenta o **personalização da lista de vista** diálogo conforme mostrado.
+O **Dashboard do histórico de execução** podem ser personalizados para que os valores com sessão iniciada também aparecem na grade.  Ao clicar o **personalizar** ícone é apresentado o **personalização de vista de lista** diálogo conforme mostrado.
 
-![Personalizar a grelha de dashboard do histórico de execução](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-08.png)
+![personalizando a grade de dashboard do histórico de execuções](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-08.png)
 
-Quaisquer valores que tem sessão iniciadas durante executa controlada estão disponíveis para apresentar e selecionar **Regularization taxa** e **precisão** adiciona-os à grelha.
+Quaisquer valores que tem sessão iniciadas durante execuções controladas estão disponíveis para exibição e selecionar **taxa de regularização** e **precisão** adiciona-os à grade.
 
 ![valores com sessão iniciada na grelha personalizada](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-09.png)
 
-É fácil localizar executa interessantes ao passar por cima de pontos de gráficos.  Neste caso, execute 7 geraram um bom precisão conjugado com uma duração baixa.
+É fácil encontrar execuções interessantes ao pairar o rato sobre os pontos nos gráficos.  Neste caso, executar 7 gerou uma precisão de boa juntamente com uma duração de baixa.
 
-![localizar um interessantes executar](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-10.png)
+![encontrar um interessante executar](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-10.png)
 
-Ao clicar num ponto associado 7 executar em qualquer gráfico ou a ligação para executar 7 na grelha apresenta o **detalhes de histórico de execução**.
+Clicar num ponto associado 7 execute em qualquer gráfico ou na ligação para executar 7 em telas de grade a **detalhes do histórico de execução**.
 
-### <a name="run-history-details"></a>Detalhes de histórico da execução
-Desta vista, são apresentados os resultados completos do 7 executar juntamente com quaisquer artefactos produzidos por executar 7.
+### <a name="run-history-details"></a>Detalhes do histórico de execução
+A partir desta vista, os resultados completos do 7 executar, juntamente com quaisquer artefactos produzidos por executar 7 são apresentados.
 
-![detalhes de histórico da execução](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-11.png)
+![Detalhes do histórico de execução](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-11.png)
 
-O **detalhes de histórico de execução** vista também fornece a capacidade de **transferir** quaisquer ficheiros escritos para o **. / produz** pasta (estes ficheiros são apoiados por do Workbench do Azure ML armazenamento na nuvem para o histórico de execução, que é o assunto do outro artigo.)
+O **detalhes da execução da histórico** vista também fornece a capacidade de **transferir** todos os ficheiros escritos para o **. / produz** pasta (esses arquivos são apoiados pelo Azure ML Workbench armazenamento na cloud para o histórico de execuções, que é o assunto do outro artigo.)
 
-Por fim, **detalhes de histórico de execução** fornece o estado de um meio para restaurar o seu projeto no momento da execução.
-Ao clicar no **restaurar** botão apresenta um diálogo de confirmação, conforme mostrado.
+Por fim, **detalhes do histórico de execução** fornece um meio para restaurar o seu projeto de seu estado no momento desta execução.
+Ao clicar o **restaurar** botão exibe uma caixa de diálogo de confirmação, conforme mostrado.
 
 ![Confirmar restauro executar](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-13.png)
 
-Se a confirmação, os ficheiros poderão ser substituídos ou removido, para utilizam esta funcionalidade cuidadosamente a.
+Se confirmar, os ficheiros poderão ser substituídos ou então removido, a utilizar esta funcionalidade com cuidado.
 
-### <a name="run-history-comparison"></a>Comparação de histórico de execução
-A seleção de dois ou três é executado no **Dashboard do histórico de execução** e clicando em **comparar** proporciona o **comparação do histórico de execução** vista.
-Em alternativa, clicando em **comparar** e selecionando uma execução dentro do **detalhes de histórico de execução** vista proporciona também o **comparação do histórico de execução** vista.
-Em ambos os casos, o **comparação do histórico de execução** vista fornece um meio para ver os resultados com sessão iniciada e artefactos de duas ou três é executado lado a lado.
+### <a name="run-history-comparison"></a>Executar a comparação de histórico
+Selecionar dois ou três execuções **Dashboard histórico da execução** e clicando em **comparar** traz até o **comparação do histórico de execução** vista.
+Em alternativa, clicando em **Compare** e selecionando uma execução dentro a **detalhes do histórico de execução** vista também traz até o **comparação do histórico de execução** vista.
+Em ambos os casos, o **comparação de histórico de execução** vista fornece um meio para ver os resultados com sessão iniciada e artefatos das duas ou três execuções lado a lado.
 
-![comparação de histórico de execução](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-12.png)
+![executar a comparação de histórico](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-12.png)
 
-Esta vista é especialmente útil para comparação das rastreia mas, em geral, as propriedades de execução podem ser comparado com aqui.
+Esta vista é especialmente útil para a comparação de gráficos, mas em geral, todas as propriedades das execuções possam ser comparadas aqui.
 
 ### <a name="command-line-interface"></a>Interface de Linha de Comandos
-Workbench de aprendizagem máquina do Azure também fornece acesso ao histórico de execuções através do respetivo **Interface de linha de comandos**.
-Para o acesso a **Interface de linha de comandos**, clique em de **abra a linha de comandos** menu conforme mostrado.
+O Azure Machine Learning Workbench fornece também acesso ao histórico de execuções por meio de seus **Interface de linha de comandos**.
+Para aceder a **Interface de linha de comandos**, clique no **linha de comandos aberta** menu, conforme mostrado.
 
 ![Abra a linha de comandos](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-14.png)
 
-Os comandos disponíveis para o histórico de execução são acedidos através de `az ml history`, com a ajuda online, disponível através da adição de `-h` sinalizador.
+Os comandos disponíveis para o histórico de execuções são acedidos através de `az ml history`, com a ajuda online disponíveis, adicionando o `-h` sinalizador.
 ```
 $ az ml history -h
 
@@ -186,7 +186,7 @@ Commands:
     list    : List runs.
     promote : Promote Artifacts.
 ```
-Estes comandos fornecer as mesmas funcionalidades e devolver os mesmos dados mostrados o **vistas do histórico de execução**.
+Estes comandos fornecem as mesmas funcionalidades e devolver os mesmos dados mostrados a **vistas de histórico de execução**.
 Por exemplo, os resultados da última execução podem ser apresentados como um objeto JSON.
 ```
 $ az ml history last
@@ -215,7 +215,7 @@ $ az ml history last
   "user_id": "e9fafe06-b0e4-4154-8374-aae34f9977b2"
 }
 ```
-Além disso, pode ser apresentada a lista de todas as execuções em formato tabular.
+Além disso, pode ser apresentada a lista de todas as execuções num formato tabular.
 ```
 $ az ml history list -o table
   Accuracy    Regularization Rate  Duration        Run_id                  Script_name      Start_time_utc                    Status
@@ -230,10 +230,10 @@ $ az ml history list -o table
   0.641509              10         0:00:06.059082  IrisDemo_1504832109906  iris_sklearn.py  2017-09-08T00:55:14.739806+00:00  Completed
 
 ```
-O **Interface de linha de comandos** é um caminho alternativo para aceder a potência do Workbench do Azure Machine Learning.
+O **Interface de linha de comandos** é um caminho alternativo para acessar o poder do Azure Machine Learning Workbench.
 
 ## <a name="next-steps"></a>Próximos Passos
-Estas funcionalidades estão disponíveis para ajudá-lo com o processo de experimentação de ciência de dados.
-Esperamos que encontrá-los para ser útil e significativamente seria Agradecemos os seus comentários.
-Trata-se apenas a nossa implementação inicial e, temos um elevado grau de melhoramentos planeada.
-Vamos ver reencaminhar à entrega-los continuamente para o Workbench do Azure Machine Learning. 
+Esses recursos estão disponíveis para ajudá-lo com o processo de experimentação de ciência de dados.
+Esperamos que encontrá-los para serem úteis e gostaria muito de receber seus comentários.
+Esta é apenas a nossa implementação inicial, e temos uma grande quantidade de aprimoramentos planejados.
+Estamos ansiosos por continuamente fornecê-los para o Azure Machine Learning Workbench. 

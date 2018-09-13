@@ -1,5 +1,5 @@
 ---
-title: Atualizar um cluster do Service Fabric do Azure para utilizar o nome comum do certificado | Microsoft Docs
+title: Atualizar um cluster do Azure Service Fabric para utilizar o nome comum do certificado | Documentos da Microsoft
 description: Saiba como mudar de um cluster do Service Fabric da utilização de thumbprints de certificado a utilizar o nome comum do certificado.
 services: service-fabric
 documentationcenter: .net
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 39dc5800edd743cdc950c7a96f7633fb4c0a7c45
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 043b823fe9e2bc272e6f66f7edee396ea52b92e5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210346"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720349"
 ---
-# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Altere o cluster de thumbprint do certificado para o nome comum
-Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou o assunto.  Mudança de um cluster da utilização de thumbprints de certificado para utilizar nomes comuns do certificado implementado facilita a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster do Service Fabric em execução para utilizar o nome comum do certificado em vez do thumbprint do certificado.
+# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de thumbprint do certificado para o nome comum
+Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Mudar de um cluster implementado da utilização de thumbprints de certificado a utilizar nomes comuns do certificado faz a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster do Service Fabric em execução para utilizar o nome comum do certificado em vez do thumbprint do certificado.
  
 ## <a name="get-a-certificate"></a>Obter um certificado
-Em primeiro lugar, obter um certificado de um [autoridade (AC) de certificado](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser o nome de anfitrião do cluster.  Por exemplo, "myclustername.southcentralus.cloudapp.azure.com".  
+Primeiro, obtenha um certificado de um [autoridade de certificação (AC)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser o nome de anfitrião do cluster.  Por exemplo, "myclustername.southcentralus.cloudapp.azure.com".  
 
-Para fins de teste, pode obter um certificado assinado pela AC de uma autoridade de certificação livre ou abrir.
+Para fins de teste, foi possível obter um certificado assinado de AC de uma autoridade de certificação gratuito ou aberto.
 
 > [!NOTE]
-> Certificados autoassinados, incluindo as que são gerados quando implementar um cluster do Service Fabric no portal do Azure, não são suportados.
+> Certificados autoassinados, inclusive aquelas geradas ao implementar um cluster do Service Fabric no portal do Azure, não são suportados.
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Carregue o certificado e instalá-lo no conjunto de dimensionamento
-No Azure, um cluster do Service Fabric é implementado num conjunto de dimensionamento de máquina virtual.  Carregue o certificado para um cofre de chaves e, em seguida, instalá-lo no conjunto de dimensionamento de máquina virtual que o cluster está em execução.
+No Azure, um cluster do Service Fabric é implementado num conjunto de dimensionamento de máquina virtual.  Carregue o certificado para um cofre de chaves e, em seguida, instale-o no conjunto de dimensionamento de máquina virtual em execução no cluster.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -56,12 +56,14 @@ $VmssName                  = "prnninnxj"
 New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
+    -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+    -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -82,18 +84,20 @@ $certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $Certificate
 $vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
+    -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
+Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
+    -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
 
-## <a name="download-and-update-the-template-from-the-portal"></a>Transferir e atualizar o modelo do portal
-O certificado foi instalado no conjunto de dimensionamento subjacente, mas também tem de atualizar o cluster do Service Fabric para utilizar esse certificado e o nome comum.  Agora, transfira o modelo para a implementação de cluster.  Inicie sessão no [portal do Azure](https://portal.azure.com) e navegue para o grupo de recursos que aloja o cluster.  No **definições**, selecione **implementações**.  Selecione a implementação mais recente e clique em **ver modelo**.
+## <a name="download-and-update-the-template-from-the-portal"></a>Transferir e atualizar o modelo a partir do portal
+O certificado foi instalado no conjunto de dimensionamento subjacente, mas também tem de atualizar o cluster do Service Fabric para utilizar esse certificado e o respetivo nome comum.  Agora, transfira o modelo para a sua implementação de cluster.  Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue para o grupo de recursos que aloja o cluster.  Na **configurações**, selecione **implementações**.  Selecione a implementação mais recente e clique em **modelo de exibição**.
 
-![Modelos de vista][image1]
+![Modelos de exibição][image1]
 
-Transferir os ficheiros JSON do modelo e os parâmetros para o seu computador local.
+Transferir os ficheiros JSON do modelo e parâmetros para o computador local.
 
 Em primeiro lugar, abra o ficheiro de parâmetros num editor de texto e adicione o seguinte valor de parâmetro:
 ```json
@@ -102,53 +106,55 @@ Em primeiro lugar, abra o ficheiro de parâmetros num editor de texto e adicione
 },
 ```
 
-Em seguida, abra o ficheiro de modelo num editor de texto e introduza três atualizações para suportar o nome comum do certificado.
+Em seguida, abra o ficheiro de modelo no editor de texto e fazer três atualizações para suportar o nome comum do certificado.
 
-1. No **parâmetros** secção, adicione um *certificateCommonName* parâmetro:
+1. Na **parâmetros** secção, adicione um *certificateCommonName* parâmetro:
     ```json
     "certificateCommonName": {
-      "type": "string",
-      "metadata": {
-        "description": "Certificate Commonname"
-      }
+        "type": "string",
+        "metadata": {
+            "description": "Certificate Commonname"
+        }
     },
     ```
 
-    Considere também a remover o *certificateThumbprint*, já não poderá ser necessário.
+    Também considere remover a *certificateThumbprint*, já não poderá ser necessário.
 
-2. No **Microsoft.Compute/virtualMachineScaleSets** recurso, atualize a extensão de máquina virtual para utilizar o nome comum nas definições de certificado em vez do thumbprint.  No **virtualMachineProfile**->**extenstionProfile**->**extensões**->**propriedades** -> **definições**->**certificado**, adicionar `"commonNames": ["[parameters('certificateCommonName')]"],` e remover `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. Na **Compute/virtualmachinescalesets** recurso, atualize a extensão de máquina virtual para utilizar o nome comum nas definições de certificado em vez do thumbprint.  Na **virtualMachineProfile**->**extenstionProfile**->**extensões**->**propriedades** -> **configurações**->**certificado**, adicionar `"commonNames": ["[parameters('certificateCommonName')]"],` e remover `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
-    "virtualMachineProfile": {
-              "extensionProfile": {
-                "extensions": [
-                  {
+        "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
                     "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
                     "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": true,
-                      "protectedSettings": {
-                        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
-                        "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
-                      },
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[variables('vmNodeType0Name')]",
-                        "dataPath": "D:\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "enableParallelJobs": true,
-                        "nicPrefixOverride": "[variables('subnet0Prefix')]",
-                        "certificate": {
-                          "commonNames": ["[parameters('certificateCommonName')]"],                          
-                          "x509StoreName": "[parameters('certificateStoreValue')]"
-                        }
-                      },
-                      "typeHandlerVersion": "1.0"
+                        "type": "ServiceFabricNode",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                            "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                            "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                        },
+                        "publisher": "Microsoft.Azure.ServiceFabric",
+                        "settings": {
+                            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                            "nodeTypeRef": "[variables('vmNodeType0Name')]",
+                            "dataPath": "D:\\SvcFab",
+                            "durabilityLevel": "Bronze",
+                            "enableParallelJobs": true,
+                            "nicPrefixOverride": "[variables('subnet0Prefix')]",
+                            "certificate": {
+                                "commonNames": [
+                                    "[parameters('certificateCommonName')]"
+                                ],
+                                "x509StoreName": "[parameters('certificateStoreValue')]"
+                            }
+                        },
+                        "typeHandlerVersion": "1.0"
                     }
-                  },
+                },
     ```
 
-3.  No **Microsoft.ServiceFabric/clusters** recurso, a API de atualização de versão para "2018-02-01".  Também adicionar um **certificateCommonNames** definição com um **commonNames** propriedade e remover o **certificado** definição (com a propriedade thumbprint) como no seguinte exemplo:
+3.  Na **Microsoft.ServiceFabric/clusters** recurso, a API de atualização de versão "2018-02-01".  Também adicionar uma **certificateCommonNames** definição com um **commonNames** propriedade e remove o **certificado** definição (com a propriedade thumbprint) como a seguir exemplo:
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -156,27 +162,27 @@ Em seguida, abra o ficheiro de modelo num editor de texto e introduza três atua
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
         "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+            "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
         ],
         "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
-            }
+            "addonFeatures": [
+                "DnsService",
+                "RepairManager"
             ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
+            "certificateCommonNames": {
+                "commonNames": [
+                    {
+                        "certificateCommonName": "[parameters('certificateCommonName')]",
+                        "certificateIssuerThumbprint": ""
+                    }
+                ],
+                "x509StoreName": "[parameters('certificateStoreValue')]"
+            },
         ...
     ```
 
 ## <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Volte a implementar o modelo atualizado depois de efetuar as alterações.
+Reimplemente o modelo atualizado depois de efetuar as alterações.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -184,12 +190,13 @@ $clusterloc="southcentralus"
 
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
+    -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [cluster segurança](service-fabric-cluster-security.md).
-* Saiba como [rollover um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
+* Saiba mais sobre [segurança de cluster](service-fabric-cluster-security.md).
+* Saiba como [rollover de um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Atualizar e gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

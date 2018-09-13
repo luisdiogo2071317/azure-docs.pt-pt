@@ -1,24 +1,23 @@
 ---
-title: "SDK Java: operações do sistema de ficheiros no Azure Data Lake Store | Microsoft Docs"
-description: "Utilize o SDK Java do Azure Data Lake Store para executar operações do sistema de ficheiros no Data Lake Store, como criar pastas, etc."
+title: 'SDK Java: operações do sistema de ficheiros no Azure Data Lake Store | Microsoft Docs'
+description: Utilize o SDK Java do Azure Data Lake Store para executar operações do sistema de ficheiros no Data Lake Store, como criar pastas, etc.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 8f2dd4d001ae7322a351844146925c23b90f0916
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649870"
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Operações do sistema de ficheiros no Data Lake Store com o SDK Java
 > [!div class="op_single_selector"]
@@ -209,7 +208,7 @@ O fragmento seguinte elimina os ficheiros e pastas especificados numa conta do D
 1. Para executar a partir de um IDE, localize e prima o botão **Executar**. Para executar a partir do Maven, utilize [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
 2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). O pom.xml no [código de origem de exemplo no github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Explorar JavaDoc para o SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 

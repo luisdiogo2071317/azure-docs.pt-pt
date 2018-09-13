@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054594"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713940"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gerir o Cofre de chaves no Azure Stack com o portal
 
@@ -33,7 +33,7 @@ Tem de subscrever uma oferta que inclui o serviço Azure Key Vault.
 
 1. Inicie sessão para o [portal de utilizador](https://portal.local.azurestack.external).
 
-2. A partir do dashboard, selecione **New** > **segurança + identidade** > **Key Vault**.
+2. A partir do dashboard, selecione **+ criar um recurso** > **segurança + identidade** > **Key Vault**.
 
     ![Ecrã do Key Vault](media/azure-stack-kv-manage-portal/image1.png)
 
@@ -41,7 +41,7 @@ Tem de subscrever uma oferta que inclui o serviço Azure Key Vault.
 
 4. Escolher uma **subscrição** na lista de subscrições disponíveis. Todas as subscrições que oferecem o serviço de Key Vault são apresentadas na lista pendente.
 
-5. Selecione um existente **grupo de recursos** ou criar um novo.
+5. Selecione um **Grupo de Recursos** existente ou crie um novo.
 
 6. Selecione o **escalão de preço**.
     >[!NOTE]

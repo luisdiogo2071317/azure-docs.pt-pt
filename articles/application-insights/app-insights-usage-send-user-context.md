@@ -1,6 +1,6 @@
 ---
-title: Enviar IDs para ativar a utilização de contexto de utilizador experiências no Azure Application Insights | Microsoft Docs
-description: Controle a forma como os utilizadores passam através do seu serviço atribuindo uma cadeia de ID exclusiva, persistente no Application Insights para cada um deles.
+title: Enviar o contexto de usuário IDs para ativar a utilização de experiências no Application Insights do Azure | Documentos da Microsoft
+description: Controle como os utilizadores passam por meio do seu serviço atribuindo uma cadeia de ID exclusiva, persistente no Application Insights para cada um deles.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,48 +9,50 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: mbullwin;abgreg
-ms.openlocfilehash: 196eeb7b5a817ff932f99c7db86ead5625b5f206
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: abgreg
+ms.author: mbullwin
+ms.openlocfilehash: 14322162d3f78f0cb90ecaf077d1d85f7cbba581
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649643"
 ---
-#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar o contexto de utilizador IDs proporcionar experiências de utilização no Azure Application Insights
+#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar o contexto de utilizador IDs para permitir experiências de utilização no Azure Application Insights
 
-## <a name="tracking-users"></a>Os utilizadores de controlo
+## <a name="tracking-users"></a>Usuários de rastreamento
 
-Application Insights permite-lhe monitorizar e controlar os seus utilizadores através de um conjunto de ferramentas de utilização do produto: 
+O Application Insights permite-lhe monitorizar e controlar os seus utilizadores através de um conjunto de ferramentas de utilização de produto: 
 * [Utilizadores, Sessões, Eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 * [Funis](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 * [Retenção](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
 * Coortes
 * [Livros](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-Para poder controlar que um utilizador faz ao longo do tempo, o Application Insights tem um ID para cada utilizador ou a sessão. Inclua os seguintes IDs em cada vista de página ou eventos personalizada.
-- Os utilizadores, Funnels, retenção e Cohorts: incluem o ID de utilizador.
+Para poder controlar o que faz um utilizador ao longo do tempo, o Application Insights tem um ID para cada utilizador ou a sessão. Inclua os seguintes IDs de em cada vista de evento ou página personalizada.
+- Os utilizadores, funis, retenção e coortes: incluem o ID de utilizador.
 - Sessões: Incluem o ID de sessão.
 
-Se a aplicação está integrada com o [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), utilizador ID é registado automaticamente.
+Se a sua aplicação está integrada com o [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), utilizador ID é controlado automaticamente.
 
 ## <a name="choosing-user-ids"></a>Escolher os IDs de utilizador
 
-Os IDs de utilizador devem são mantidas entre sessões de utilizador para controlar a forma como os utilizadores comportar-se ao longo do tempo. Existem várias abordagens para a persistência do ID.
+IDs de utilizador devem manter em sessões de utilizador para controlar o comportam de utilizadores ao longo do tempo. Existem várias abordagens para persistir o ID.
 - Uma definição de um utilizador que já tem no seu serviço.
-- Se o serviço tem acesso a um browser, este pode passar o browser um cookie com um ID na mesma. O ID será mantido para, desde que o cookie permanece no browser do utilizador.
-- Se necessário, pode utilizar um novo ID de cada sessão, mas os resultados sobre os utilizadores serão limitados. Por exemplo, não será capaz de ver como alterações de comportamento do utilizador ao longo do tempo.
+- Se o serviço tem acesso a um browser, que pode transmitir o navegador um cookie com um ID na mesma. O ID serão mantidas para, desde que o cookie permanece no navegador do usuário.
+- Se necessário, pode utilizar um novo ID de cada sessão, mas os resultados sobre os utilizadores serão limitados. Por exemplo, não será capaz de ver como o comportamento de um utilizador altera ao longo do tempo.
 
-O ID deve ser um Guid ou outra cadeia suficientemente complexa para identificar exclusivamente cada utilizador. Por exemplo, poderia ser um número de tempo aleatório.
+O ID deve ser um Guid ou outra cadeia suficientemente complexa para identificar exclusivamente a cada utilizador. Por exemplo, pode ser um número aleatório muito tempo.
 
-Se o ID do contém informações de identificação pessoal sobre o utilizador, não é um valor adequado para enviar para o Application Insights como um ID de utilizador. Pode enviar esse um ID como um [autenticado ID de utilizador](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), mas não cumpre o requisito de ID de utilizador para cenários de utilização.
+Se o ID contém informações de identificação pessoal sobre o utilizador, não é um valor adequado para enviar para o Application Insights como um ID de utilizador. Pode enviar esse um ID como um [autenticado o ID de utilizador](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), mas não cumpre o requisito de ID de utilizador para cenários de utilização.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicações do ASP.NET: definir o contexto de utilizador num ITelemetryInitializer
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicações do ASP.NET: definir o contexto de usuário num ITelemetryInitializer
 
-Crie um inicializador de telemetria, conforme descrito detalhadamente [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)e defina o Context.User.Id e o Context.Session.Id.
+Criar um inicializador de telemetria, conforme descrito em detalhe [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)e defina o Context.User.Id e o Context.Session.Id.
 
-Neste exemplo define o ID de utilizador para um identificador que expira após a sessão. Se possível, utilize um ID de utilizador que persiste entre sessões.
+Este exemplo define o ID de utilizador como um identificador que expira após a sessão. Se possível, utilize um ID de utilizador que persiste entre sessões.
 
 ```csharp
 
@@ -88,10 +90,10 @@ Neste exemplo define o ID de utilizador para um identificador que expira após a
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Para ativar as experiências de utilização, começar a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Se já enviar eventos personalizados ou vistas de página, explore as ferramentas de utilização para saber como os utilizadores utilizam o serviço.
+- Para permitir experiências de utilização, começar a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se já tiver enviar eventos personalizados ou vistas de página, explore as ferramentas de utilização para saber como os utilizadores utilizam o seu serviço.
     * [Descrição geral da utilização](app-insights-usage-overview.md)
-    * [Os utilizadores, sessões e os eventos](app-insights-usage-segmentation.md)
+    * [Os utilizadores, sessões e eventos](app-insights-usage-segmentation.md)
     * [Funis](usage-funnels.md)
     * [Retenção](app-insights-usage-retention.md)
     * [Livros](app-insights-usage-workbooks.md)

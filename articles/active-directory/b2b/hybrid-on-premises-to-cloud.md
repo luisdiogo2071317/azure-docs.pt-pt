@@ -1,48 +1,48 @@
 ---
-title: Conceda as contas de parceiro localmente geridos aceder a recursos na nuvem como utilizadores do Azure AD B2B | Microsoft Docs
-description: Dê localmente geridos parceiros externos acesso a ambos os locais e de recursos de nuvem com as mesmas credenciais colaboração B2B do Azure AD.
+title: Conceder acesso de contas do parceiro gerido localmente a recursos na cloud, como utilizadores B2B do Azure AD | Documentos da Microsoft
+description: Dar localmente geridos parceiros externos, acesso a ambos os locais e recursos da nuvem com as mesmas credenciais com a colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/24/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 71d5ce8728d876740d6ef00b55ecdc9232a06f80
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 84d967dfc8ce09500aec2dfc7a10b4b42cadf4b1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267528"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647827"
 ---
-# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder acesso a contas de parceiro gerido localmente a recursos de nuvem através de colaboração B2B do Azure AD
+# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder acesso de contas de parceiros gerido localmente a recursos na cloud através da colaboração B2B do Azure AD
 
-Antes do Azure Active Directory (Azure AD), as organizações com sistemas de identidade no local de ter contas de parceiro tradicionalmente gerido no respetivo diretório no local. Na organização, quando começar a mover as aplicações para o Azure AD, pretende assegurar-se de que os parceiros podem aceder os recursos de que precisam. Não deve é relevante se os recursos estão no local ou na nuvem. Além disso, pretende que os utilizadores do parceiro para poder utilizar as mesmas credenciais de início de sessão para recursos do Azure AD e no local. 
+Antes do Azure Active Directory (Azure AD), as organizações com sistemas de identidade no local têm contas de parceiros tradicionalmente geridos em seu diretório no local. Numa organização, quando começar a mover aplicações para o Azure AD, que pretende tornar-se que aos seus parceiros podem aceder os recursos de que precisam. Não importa se os recursos estão no local ou na cloud. Além disso, pretende que os utilizadores de parceiro, de conseguir utilizar as mesmas credenciais de início de sessão para recursos do Azure AD e no local. 
 
-Se criar contas para os parceiros externos no seu diretório no local (por exemplo, criar uma conta com um nome de início de sessão de "wmoran" para um utilizador externo com o nome Wendy Moran no seu domínio partners.contoso.com), pode sincronizar agora a estas contas para o nuvem. Especificamente, pode utilizar o Azure AD Connect para sincronizar as contas de parceiro para a nuvem, como utilizadores do Azure AD B2B (ou seja, os utilizadores com UserType = convidado). Isto permite que os utilizadores do parceiro aceder a recursos da nuvem com as mesmas credenciais como as contas locais, sem conceder mais acesso que precisam. 
+Se criar contas para os parceiros externos no seu diretório no local (por exemplo, criar uma conta com um nome de início de sessão de "wmoran" para um utilizador externo com o nome Wendy Moran no seu domínio partners.contoso.com), pode agora sincronizar essas contas para o na cloud. Especificamente, pode utilizar o Azure AD Connect para sincronizar as contas de parceiros para a cloud, como utilizadores B2B do Azure AD (ou seja, os utilizadores com UserType = convidado). Isto permite que os utilizadores parceiros acedam aos recursos da nuvem com as mesmas credenciais como suas contas locais, sem fornecer acesso mais do que o necessário. 
 
 ## <a name="identify-unique-attributes-for-usertype"></a>Identificar os atributos exclusivos para UserType
 
-Antes de ativar a sincronização do atributo UserType, primeiro tem de decidir como derivar o atributo UserType do Active Directory no local. Por outras palavras, os parâmetros no seu ambiente no local são exclusivos para os colaboradores externos? Determine um parâmetro que distingue estes colaboradores externos de membros da sua própria organização.
+Antes de ativar a sincronização do atributo UserType, primeiro deve decidir como derivar o atributo UserType do Active Directory no local. Em outras palavras, quais os parâmetros no seu ambiente no local são exclusivos para seus funcionários externos? Determine um parâmetro que distingue estes funcionários externos de membros da sua organização.
 
-Duas abordagens comuns para este são:
+Duas abordagens comuns para isso são:
 
-- Designe um atributo de Active Directory não utilizados no local (por exemplo, extensionAttribute1) para utilizar como o atributo de origem. 
-- Em alternativa, deriva o valor para o atributo UserType outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como convidado se os respetivos atributos de UserPrincipalName do Active Directory no local termina com o domínio *@partners.contoso.com*.
+- Designe um atributo de Active Directory não utilizado no local (por exemplo, extensionAttribute1) para utilizar como o atributo de origem. 
+- Em alternativa, derive o valor para o atributo UserType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como convidado se o atributo de UserPrincipalName do Active Directory no local, terminar com o domínio *@partners.contoso.com*.
  
 Para requisitos de atributo detalhadas, consulte [ativar a sincronização de UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
-## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Configurar o Azure AD Connect, a sincronização de utilizadores para a nuvem
+## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Configurar o Azure AD Connect para sincronizar os utilizadores para a cloud
 
-Depois de identificar o atributo exclusivo, pode configurar o Azure AD Connect para sincronizar estes utilizadores para a nuvem, como utilizadores do Azure AD B2B (ou seja, os utilizadores com UserType = convidado). Um autorização ponto de vista desses utilizadores são indistinguishable dos utilizadores B2B criados durante o processo de convite de colaboração B2B do Azure AD.
+Depois de identificar o atributo exclusivo, pode configurar o Azure AD Connect para sincronizar esses usuários para a cloud, como utilizadores B2B do Azure AD (ou seja, os utilizadores com UserType = convidado). A partir de um autorização ponto de vista, estes utilizadores são não podem ser diferenciados dos utilizadores B2B criados através do processo de convite de colaboração B2B do Azure AD.
 
 Para obter instruções de implementação, consulte [ativar a sincronização de UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Azure colaboração B2B do Active Directory para organizações híbrida](hybrid-organizations.md)
-- [Os utilizadores do Azure AD B2B conceder acedem às suas aplicações no local](hybrid-cloud-to-on-premises.md)
-- Para obter uma descrição geral do Azure AD Connect, consulte [integrar os diretórios no local ao Azure Active Directory](../connect/active-directory-aadconnect.md).
+- [Colaboração do Azure Active Directory B2B para organizações híbridas](hybrid-organizations.md)
+- [Os utilizadores de concessão B2B no Azure AD acedem às suas aplicações no local](hybrid-cloud-to-on-premises.md)
+- Para uma descrição geral do Azure AD Connect, consulte [integrar seus diretórios no local com o Azure Active Directory](../connect/active-directory-aadconnect.md).
 

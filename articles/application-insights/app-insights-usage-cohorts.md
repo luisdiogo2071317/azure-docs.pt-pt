@@ -1,6 +1,6 @@
 ---
-title: Cohorts de utilização do Azure Application Insights | Microsoft Docs
-description: Analisar conjuntos diferentes ou utilizadores, sessões, eventos ou operações que têm algo em comum
+title: Coortes de utilização do Application Insights do Azure | Documentos da Microsoft
+description: Analisar conjuntos diferentes ou os utilizadores, sessões, eventos ou operações que têm algo em comum
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,132 +9,134 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: mbullwin ; daviste
-ms.openlocfilehash: f8d566f552c86f749b914ffed70512209ad76ab7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 2157af8d6c3b8eea372c060a70c78559d8ffe6ad
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647229"
 ---
-# <a name="application-insights-cohorts"></a>Cohorts do Application Insights
+# <a name="application-insights-cohorts"></a>Coortes do Application Insights
 
-Um coorte é um conjunto de utilizadores, sessões, eventos ou operações que têm algo em comum. No Azure Application Insights, cohorts são definidos por uma consulta de análise. Nos casos em que tem de analisar um específico definido de utilizadores ou eventos repetidamente, cohorts pode dão-lhe uma maior flexibilidade para express exatamente o conjunto que estiver interessado em.
+Uma coorte é um conjunto de utilizadores, sessões, eventos ou operações que têm algo em comum. No Azure Application Insights, coortes são definidos por uma consulta do analytics. Em casos onde é necessário analisar específicas de uma conjunto de utilizadores ou eventos repetidamente, coortes podem lhe dar mais flexibilidade para expressar exatamente o conjunto que tiver interesse em.
 
-![Painel cohorts](.\media\app-insights-usage-cohorts\001.png)
+![Painel coortes](.\media\app-insights-usage-cohorts\001.png)
 
-## <a name="cohorts-versus-basic-filters"></a>Cohorts versus filtros básicos
+## <a name="cohorts-versus-basic-filters"></a>Coortes versus filtros básicos
 
-São utilizados cohorts formas semelhante para os filtros. Mas as definições dos cohorts são criadas de consultas de análise personalizada, pelo que são muito mais adaptable e complexas. Ao contrário de filtros, pode guardar cohorts para que outros membros da sua equipa podem reutilize-as.
+Coortes são utilizados de forma semelhante aos filtros. Mas as definições dos coortes são criadas a partir de consultas de análise personalizada, para que sejam muito mais adaptáveis e complexos. Ao contrário de filtros, pode salvar coortes para que outros membros da sua equipa podem reutilizá-los.
 
-Pode definir um coorte de utilizadores que têm todas tentou uma nova funcionalidade na sua aplicação. Pode guardar esta coorte num recurso do Application Insights. É fácil analisar este grupo de utilizadores específicos guardado no futuro.
+Pode definir uma coorte de utilizadores que ter tentado todas uma nova funcionalidade na sua aplicação. É possível guardar esta coorte no recurso do Application Insights. É fácil analisar este grupo guardado de utilizadores específicos no futuro.
 
 > [!NOTE]
-> Depois de são criados, cohorts estão disponíveis nas ferramentas de utilizadores, sessões, eventos e fluxos de utilizador.
+> Depois de ocorrer, coortes estão disponíveis a partir as ferramentas de utilizadores, sessões, eventos e fluxos de utilizador.
 
-## <a name="example-engaged-users"></a>Exemplo: Utilizadores ativos
+## <a name="example-engaged-users"></a>Exemplo: Comprometidos com os utilizadores
 
-A equipa de define um utilizador acentuado como qualquer pessoa que utiliza a sua aplicação cinco ou mais vezes num determinado mês. Nesta secção, é possível definir um coorte destes utilizadores ativos.
+Sua equipe define um utilizador envolvido como qualquer pessoa que utilize a sua aplicação cinco ou mais vezes num determinado mês. Nesta secção, vai definir uma coorte destes utilizadores envolvidos.
 
-1. Abra a ferramenta de Cohorts.
+1. Abra a ferramenta coortes.
 
-2. Selecione o **modelo galeria** separador. Consulte uma coleção de modelos para vários cohorts.
+2. Selecione o **Galeria de modelos** separador. Verá uma coleção de modelos para vários coortes.
 
-3. Selecione **acentuados utilizadores – por dias utilizaram**.
+3. Selecione **envolvidos utilizadores – por dias utilizaram**.
 
-    Existem três parâmetros para este coorte:
-    * **Atividades**, onde escolher os eventos e vistas de página contam como "utilização".
-    * **Período de**, a definição de um mês.
-    * **UsedAtleastCustom**, o número de vezes que os utilizadores têm de utilizar algo num período de tempo para contabilizar como parte.
+    Há três parâmetros para esta coorte:
+    * **Atividades**, em que escolha que eventos e vistas de página contam como "utilização".
+    * **Período**, a definição de um mês.
+    * **UsedAtleastCustom**, o número de vezes que os utilizadores têm de utilizar algo dentro de um período para contar como envolvidos.
 
-4. Alteração **UsedAtleastCustom** para **5 + dias**e deixe **período** a predefinição de 28 dias.
+4. Alteração **UsedAtleastCustom** ao **5 + dias**e deixe **período** no valor predefinido de 28 dias.
 
-    ![Utilizadores ativos](.\media\app-insights-usage-cohorts\003.png)
+    ![Usuários envolvidos](.\media\app-insights-usage-cohorts\003.png)
 
-    Agora este coorte representa todos os IDs de utilizador enviados com qualquer vista de página ou eventos personalizada 5 separar dias no passado 28.
+    Agora esta coorte representa todos os IDs de utilizador enviados com qualquer vista de evento ou página personalizada em 5 dias no passado de separar 28.
 
 5. Selecione **Guardar**.
 
    > [!TIP]
-   >  Dê um nome, a coorte como "Engaged utilizadores (5 + dias)." Guarde-o para "Os meus relatórios" ou "Partilhado relatórios," consoante pretenda outras pessoas que têm acesso a este recurso do Application Insights para ver este coorte.
+   >  Dê um nome, sua coorte como "Engaged utilizadores (5 + dias)." Guarde-o para "Os meus relatórios" ou "Partilhado relatórios,", dependendo se pretende que outras pessoas que têm acesso a este recurso do Application Insights para ver esta coorte.
 
-6. Selecione **voltar a galeria**.
+6. Selecione **voltar à galeria**.
 
-### <a name="what-can-you-do-by-using-this-cohort"></a>O que pode fazer utilizando este coorte?
+### <a name="what-can-you-do-by-using-this-cohort"></a>O que pode fazer ao utilizar esta coorte?
 
-Abra a ferramenta de utilizadores. No **mostrar** pendente caixa, escolha o coorte que criou em **os utilizadores que pertencem ao**.
+Abra a ferramenta utilizadores. Na **mostrar** pendente caixa, selecione a coorte criou sob **usuários que pertencem ao**.
 
-Agora, a ferramenta de utilizadores é filtrada para este coorte de utilizadores:
+Agora, a ferramenta utilizadores é filtrada para esta coorte de utilizadores:
 
-![Painel de utilizadores filtrada para um determinado coorte](.\media\app-insights-usage-cohorts\004.png)
+![Painel de utilizadores filtrado para uma determinada coorte](.\media\app-insights-usage-cohorts\004.png)
 
-Alguns pontos importantes a reparar:
-* Não é possível criar este conjunto através de filtros normais. A lógica de data mais avançada.
-* Pode continuar a filtrar esta coorte ao utilizar os filtros normais na ferramenta de utilizadores. Por isso, embora o coorte está definido no windows de 28 dias, pode ajustar o intervalo de tempo na ferramenta de utilizadores ser 30, 60 ou 90 dias.
+Algumas coisas importantes a serem observadas:
+* Não é possível criar este conjunto por meio de filtros normais. A lógica de data é mais avançada.
+* Pode filtrar ainda mais esta coorte ao utilizar os filtros normais na ferramenta de utilizadores. Portanto, embora a coorte é definida no windows de 28 dias, pode ajustar o intervalo de tempo na ferramenta de utilizadores para ser 30, 60 ou 90 dias.
 
-Estes filtros suportam perguntas mais sofisticadas impossíveis express através do construtor de consultas. Um exemplo é _pessoas que foram parte nos últimos 28 dias. Como essas pessoas mesmas comportar-se nos últimos 60 dias?_
+Estes filtros suportam perguntas mais sofisticadas que são impossíveis de express por meio do construtor de consultas. Um exemplo é _pessoas que estavam envolvidas nos últimos 28 dias. Como essas mesmas pessoas terão um comportamento durante os últimos 60 dias?_
 
 ## <a name="example-events-cohort"></a>Exemplo: Coorte de eventos
 
-Também pode efetuar cohorts de eventos. Nesta secção, é possível definir um coorte dos eventos e vistas de página. Em seguida, verá como utilizá-los a partir de outras ferramentas. Este coorte poderá definir um conjunto de eventos que considera que a sua equipa _utilização ativa_ ou um conjunto relacionados com uma determinada funcionalidade nova.
+Também é possível tornar coortes de eventos. Nesta secção, vai definir uma coorte de eventos e vistas de página. Em seguida, verá como usá-los a partir de outras ferramentas. Esta coorte poderá definir um conjunto de eventos que sua equipe considera _utilização de Active Directory_ ou um conjunto relacionado com um determinado recurso novo.
 
-1. Abra a ferramenta de Cohorts.
+1. Abra a ferramenta coortes.
 
-2. Selecione o **modelo galeria** separador. Verá uma coleção de modelos para vários cohorts.
+2. Selecione o **Galeria de modelos** separador. Verá uma coleção de modelos para vários coortes.
 
-3. Selecione **selecionador de eventos**.
+3. Selecione **Seletor de eventos**.
 
     ![Captura de ecrã do Seletor de eventos](.\media\app-insights-usage-cohorts\006.png)
 
-4. No **atividades** pendente caixa, selecione os eventos que pretende ter a coorte.
+4. Na **atividades** pendente caixa, selecione os eventos que pretende ser na coorte.
 
-5. Guarde o coorte e atribua um nome.
+5. Guardar a coorte e atribua um nome.
 
-## <a name="example-active-users-where-you-modify-a-query"></a>Exemplo: Os utilizadores ativos onde modificar uma consulta
+## <a name="example-active-users-where-you-modify-a-query"></a>Exemplo: Os utilizadores ativos em que modificar uma consulta
 
-Os dois cohorts anteriores foram definidos utilizando caixas de lista pendente. Mas também pode definir cohorts através de consultas de análises para total flexibilidade. Para ver como, criar um coorte de utilizadores do Reino Unido.
+Os duas coortes anteriores foram definidos usando caixas de lista pendente. Mas também pode definir coortes utilizando consultas de análise para total flexibilidade. Para ver como, criar uma coorte de utilizadores do Reino Unido.
 
-![Imagem animada walking através da utilização da ferramenta de Cohorts](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Imagem animada percorrendo a utilização da ferramenta coortes](.\media\app-insights-usage-cohorts\cohorts0001.gif)
 
-1. Abrir a ferramenta de Cohorts, selecione o **modelo galeria** separador e selecione **coorte de utilizadores em branco**.
+1. Abra a ferramenta coortes, selecione o **Galeria de modelos** separador e selecione **coorte de utilizadores em branco**.
 
     ![Coorte de utilizadores em branco](.\media\app-insights-usage-cohorts\001.png)
 
     Existem três secções:
-    * Uma Markdown texto secção, onde o utilizador descreve coorte mais detalhadamente para outros utilizadores na sua equipa.
+    * Uma Markdown texto seção, onde descreve a coorte mais detalhadamente para outras pessoas na sua equipa.
 
-    * Uma secção de parâmetros, onde efetuar os seus parâmetros, como **atividades** e outras caixas de lista pendente dos dois exemplos anteriores.
+    * Uma secção de parâmetros, em que fazem os seus parâmetros, como **atividades** e outras caixas de lista pendente dos dois exemplos anteriores.
 
-    * Uma secção de consulta, onde é possível definir o coorte utilizando uma consulta de análise.
+    * Uma secção de consulta, onde define a coorte utilizando uma consulta do analytics.
 
-    Na secção de consulta, [escrever uma consulta de análise](https://docs.loganalytics.io/index). A consulta seleciona determinado conjunto de linhas que descrevem o coorte que pretenda definir. A ferramenta de Cohorts, em seguida, implicitamente adiciona um "| cláusula resumir por user_Id"para a consulta. Estes dados estão pré-visualizado abaixo a consulta numa tabela, pelo que, pode certificar-se a que sua consulta está a devolver resultados.
+    Na secção de consulta, [escrever uma consulta do analytics](https://docs.loganalytics.io/index). A consulta seleciona o determinado conjunto de linhas que descrevem a coorte que pretende definir. A ferramenta coortes, em seguida, adiciona implicitamente um "| cláusula resumir por user_Id"para a consulta. Estes dados são visualizados abaixo a consulta numa tabela, para que pode verificar se a que sua consulta está a devolver resultados.
 
     > [!NOTE]
-    > Se não vir a consulta, tente redimensionar a secção para torná-lo taller e revelar a consulta. O GIF animado no início desta secção ilustra o comportamento de redimensionamento.
+    > Se não vir a consulta, tente redimensionar a secção para torná-lo aumentasse e revelar a consulta. Os GIF animados no início desta secção ilustra o comportamento de redimensionamento.
 
-2. Copie e cole o seguinte texto do editor de consultas:
+2. Copie e cole o seguinte texto no editor de consultas:
 
     ```KQL
     union customEvents, pageViews
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selecione **executar consulta**. Se não vir IDs de utilizador são apresentadas na tabela, altere para um país onde a aplicação tem utilizadores.
+3. Selecione **executar consulta**. Se não vir os IDs de utilizador são apresentadas na tabela, altere para um país em que seu aplicativo tem utilizadores.
 
-4. Guarde e nome de coorte.
+4. Guardar e nomeie a coorte.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-_Posso definiu um coorte de utilizadores de um determinado país. Quando posso comparar este coorte na ferramenta de utilizadores para tal, definindo um filtro desse país, posso ver resultados diferentes. Porquê?_
+_Eu defini uma coorte de utilizadores de um determinado país. Quando posso comparar esta coorte na ferramenta de utilizadores para apenas definindo um filtro no país, vejo resultados diferentes. Porquê?_
 
-Cohorts e os filtros são diferentes. Suponha que tem um coorte de utilizadores do Reino Unido (definido como o exemplo anterior) e comparar os resultados para definir o filtro "país ou região = Reino Unido."
+Coortes e os filtros são diferentes. Suponha que tem uma coorte de utilizadores do Reino Unido (definidos como no exemplo anterior) e comparar os resultados para definir o filtro "país ou região = Reino Unido."
 
-* A versão de coorte mostra todos os eventos de utilizadores que enviou um ou mais eventos a partir do Reino Unido no intervalo de tempo atual. Se dividir por país ou região, provavelmente, consulte vários países e regiões.
-* A versão de filtros mostra apenas os eventos a partir do Reino Unido. Mas se dividir por país ou região, verá apenas o Reino Unido.
+* A versão de coorte mostra todos os eventos dos utilizadores que enviaram um ou mais eventos do Reino Unido no intervalo de tempo atual. Se dividir por país ou região, provavelmente ver diversos países e regiões.
+* A versão de filtros mostra apenas os eventos do Reino Unido. Mas se dividir por país ou região, verá apenas o Reino Unido.
 
 ## <a name="learn-more"></a>Saiba mais
-- [Idioma de consulta de análise](https://go.microsoft.com/fwlink/?linkid=856587)
+- [Linguagem de consulta do Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 - [Os utilizadores, sessões, eventos](app-insights-usage-segmentation.md)
 - [Fluxos de utilizador](app-insights-usage-flows.md)
 - [Descrição geral da utilização](app-insights-usage-overview.md)

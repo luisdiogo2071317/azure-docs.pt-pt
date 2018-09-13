@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1ab7518ff5a9524dbfe1b258a51b7ad0ef5c9765
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331017"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716779"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>A partilha externa do Office 365 e a colaboração do Azure Active Directory B2B
 
@@ -38,9 +38,14 @@ Para gerir a partilha externa no OneDrive/SharePoint Online com a colaboração 
 
 ![O OneDrive/SharePoint Online externas de definição de partilha](media/o365-external-user/odsp-sharing-setting.png)
 
+Depois de ativar a partilha externa, a capacidade de pesquisar para utilizadores convidados existentes no selecionador de pessoas de SharePoint Online (SPO) está DESATIVADO por predefinição de acordo com o comportamento herdado.
+
+Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível da coleção inquilino e o site. Pode definir a funcionalidade com os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros procurar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SPO já aprovisionados.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [A adição de um utilizador de colaboração do B2B a uma função](add-guest-to-role.md)
 * [Delegar convites de colaboração B2B](delegate-invitations.md)
 * [Grupos dinâmicos e de colaboração B2B](use-dynamic-groups.md)
+* [Resolução de problemas de colaboração do Azure Active Directory B2B](troubleshoot.md)

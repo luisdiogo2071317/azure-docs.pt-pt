@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: rebeccaz
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: feb187101ec02d6e765d6b025f518dc416f55b8b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: cc52b9ee290ca362c51f7a30cc09056e66df3c55
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043846"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719822"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de encriptação de dados transparente (TDE) com o PowerShell
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -40,8 +40,8 @@ Se uma chave nunca é suspeito for comprometida, de modo a que um serviço ou o 
 Lembre-se de que uma vez o protetor de TDE é eliminado no Cofre de chaves **todas as ligações às bases de dados encriptados sob o servidor são bloqueadas, e esses bancos de dados ficam offline e são removidos dentro de 24 horas**. Cópias de segurança antigas encriptadas com a chave comprometida já não estão acessíveis.
 
 Este guia de procedimentos é feito por duas abordagens consoante o resultado pretendido após a resposta a incidentes:
-- Para manter as bases de dados do SQL do Azure / dados os depósitos **acessível**
-- Para tornar as bases de dados do SQL do Azure / dados os depósitos **inacessível**
+- Para manter as bases de dados SQL do Azure / dados os depósitos **acessível**
+- Para tornar as bases de dados SQL do Azure / dados os depósitos **inacessível**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Para manter os recursos encriptados acessível
 1. Criar uma [nova chave no Cofre de chaves](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Certifique-se de que esta chave nova é criada num cofre de chaves separado do protetor de TDE potencialmente comprometido, uma vez que o controlo de acesso é aprovisionado num nível de cofre. 

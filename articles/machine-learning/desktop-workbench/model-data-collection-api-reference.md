@@ -1,33 +1,33 @@
 ---
-title: Referência da API de recolha de dados do Machine Learning modelo do Azure | Microsoft Docs
-description: Referência de API de recolha de dados do Machine Learning modelo do Azure.
+title: Referência da API de recolha de dados do Machine Learning modelo do Azure | Documentos da Microsoft
+description: Referência da API de recolha de dados do Machine Learning modelo do Azure.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832011"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646827"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referência da API de recolha de dados do Machine Learning modelo do Azure
 
-Recolha de dados do modelo permite-lhe arquivar entradas de modelo e predições de uma serviço web de aprendizagem. Consulte o [guia de procedimentos de coleção de dados de modelo](how-to-use-model-data-collection.md) para compreender como instalar `azureml.datacollector` no seu computador Windows e Linux.
+Recolha de dados de modelo permite-lhe arquivar as entradas de modelo e as previsões de um serviço web machine learning. Consulte a [guia de procedimentos de recolha de dados de modelo](how-to-use-model-data-collection.md) para saber como pode instalar `azureml.datacollector` no seu computador Windows e Linux.
 
-Este guia de referência de API, utilizamos uma abordagem de passo a passo sobre como recolher entradas de modelo e predições de uma serviço web de aprendizagem.
+Neste guia de referência de API, usamos uma abordagem passo a passo sobre como recolher entradas de modelo e as previsões de um serviço web machine learning.
 
-## <a name="enable-model-data-collection-in-azure-ml-workbench-environment"></a>Ativar a recolha de dados modelo no ambiente do Workbench do Azure ML
+## <a name="enable-model-data-collection-in-azure-ml-workbench-environment"></a>Ativar a recolha de dados de modelo no ambiente do Azure ML Workbench
 
- Procure conda\_dependencies.yml de ficheiros no seu projeto na pasta aml_config e ter a sua conda\_dependencies.yml ficheiros incluem o módulo de azureml.datacollector na secção pip, conforme mostrado abaixo. Tenha em atenção que se trata de apenas uma subsecção de um conda completa\_dependencies.yml ficheiro:
+ Procure conda\_dependencies.yml de ficheiros no seu projeto na pasta aml_config e tem seu conda\_dependencies.yml ficheiro incluir o módulo de azureml.datacollector na secção pip, conforme mostrado abaixo. Tenha em atenção que se trata de uma subseção de um total conda\_dependencies.yml ficheiro:
 
     dependencies:
       - python=3.5.2
@@ -35,42 +35,42 @@ Este guia de referência de API, utilizamos uma abordagem de passo a passo sobre
         - azureml.datacollector==0.1.0a13
 
 >[!NOTE] 
->Atualmente, pode utilizar o módulo de recoletor de dados no Azure ML Workbench em execução no modo de docker. Modo de local não pode funcionar para todos os ambientes.
+>Atualmente, pode utilizar o módulo de recoletor de dados no Azure ML Workbench ao executar no modo de docker. Modo de local poderá não funcionar para todos os ambientes.
 
 
 
 
-## <a name="enable-model-data-collection-in-the-scoring-file"></a>Ativar a recolha de dados modelo no ficheiro de pontuação
+## <a name="enable-model-data-collection-in-the-scoring-file"></a>Ativar a recolha de dados de modelo no ficheiro de classificação
 
-No ficheiro de classificação que está a ser utilizado para operationalization, importe o módulo de recoletor de dados e a classe ModelDataCollector:
+O ficheiro de classificação que está a ser utilizado para operacionalização, importe o módulo de recoletor de dados e a classe de ModelDataCollector:
 
     from azureml.datacollector import ModelDataCollector
 
 
-## <a name="model-data-collector-instantiation"></a>Instanciação de recoletor de dados do modelo
-Instanciar uma nova instância de um ModelDataCollector:
+## <a name="model-data-collector-instantiation"></a>Instanciação de recoletor de dados de modelo
+Criar uma nova instância de um ModelDataCollector:
 
     dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
-Consulte os detalhes da classe e o parâmetro:
+Ver detalhes de classe e o parâmetro:
 
 ### <a name="class"></a>Classe
 | Nome | Descrição |
 |--------------------|--------------------|
-| ModelDataCollector | Uma classe azureml.datacollector espaço de nomes. Uma instância desta classe será utilizada para recolher dados do modelo. Um único ficheiro de classificação pode conter vários ModelDataCollectors. Cada instância deve ser utilizada para recolher dados numa localização discreta no ficheiro de classificação, para que o esquema dos dados recolhidos permanece consistente (ou seja, entradas e predição)|
+| ModelDataCollector | Uma classe no espaço de nomes de azureml.datacollector. Uma instância dessa classe será utilizada para recolher dados de modelo. Um único ficheiro de classificação pode conter vários ModelDataCollectors. Cada instância deve ser utilizada para a recolha de dados num único local discreto no ficheiro de classificação, para que o esquema de dados recolhidos permanece consistente (ou seja, entradas e predição)|
 
 
 ### <a name="parameters"></a>Parâmetros
 
 | Nome | Tipo | Descrição |
 |-------------|------------|-------------------------|
-| model_name | cadeia | o nome do modelo de dados de que estão a ser recolhidos para |
-| Identificador | cadeia | a localização no código que identifica a estes dados, ou seja 'RawInput' ou 'Predição' |
-| feature_names | lista de cadeias de | uma lista de nomes de funcionalidades que tornam-se o cabeçalho de csv quando fornecido |
-| model_management_account_id | cadeia | o identificador para a conta de gestão de modelo onde este modelo é armazenado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| webservice_name | cadeia | o nome do webservice ao qual este modelo está atualmente implementado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| model_id | cadeia | O identificador exclusivo para este modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| model_version | cadeia | o número de versão deste modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| nome_modelo | cadeia | o nome do modelo de quais dados são recolhidos para |
+| Identificador | cadeia | a localização no código que identifica estes dados, ou seja 'RawInput' ou "Predição" |
+| feature_names | lista de cadeias de caracteres | uma lista de nomes de recursos que tornam-se o cabeçalho de csv quando fornecido |
+| model_management_account_id | cadeia | o identificador para a conta de gestão de modelo em que este modelo é armazenado. Isso é preenchido automaticamente quando modelos são operacionalizados por meio de AML |
+| webservice_name | cadeia | o nome do webservice em que esse modelo é atualmente implementado. Isso é preenchido automaticamente quando modelos são operacionalizados por meio de AML |
+| model_id | cadeia | O identificador exclusivo para este modelo no contexto de uma conta de gestão de modelos. Isso é preenchido automaticamente quando modelos são operacionalizados por meio de AML |
+| model_version | cadeia | o número de versão desse modelo no contexto de uma conta de gestão de modelos. Isso é preenchido automaticamente quando modelos são operacionalizados por meio de AML |
 
 
 
@@ -78,22 +78,22 @@ Consulte os detalhes da classe e o parâmetro:
 
 ## <a name="collecting-the-model-data"></a>Recolher os dados do modelo
 
-É possível recolher os dados do modelo a utilizar uma instância do ModelDataCollector criado acima.
+É possível recolher os dados do modelo a utilizar uma instância do ModelDataCollector criada acima.
 
     dc.collect(input_data, user_correlation_id="")
 
-Consulte os detalhes de método e o parâmetro:
+Ver detalhes de método e o parâmetro:
 
 ### <a name="method"></a>Método
 | Nome | Descrição |
 |--------------------|--------------------|
-| recolher | Utilizado para recolher os dados para uma entrada de modelo ou predição|
+| recolher | Utilizada para recolher os dados para uma entrada de modelo ou de predição|
 
 
 ### <a name="parameters"></a>Parâmetros
 
 | Nome | Tipo | Descrição |
 |-------------|------------|-------------------------|
-| input_data | vários tipos | os dados a serem recolhidos (atualmente aceita a lista de tipos, numpy.array, pandas. DataFrame, pyspark.sql.DataFrame). Para tipos de dataframe, se existe um cabeçalho com nomes de funcionalidade, estas informações estão incluídas de destino de dados (sem necessidade de transmita explicitamente os nomes das funcionalidades no construtor ModelDataCollector) |
-| user_correlation_id | cadeia | um id de correlação opcional, que pode ser fornecido pelo utilizador para correlacionar este predição |
+| input_data | vários tipos | os dados a serem recolhidos (atualmente aceita a lista de tipos, numpy.array, pandas. Pacote de dados, pyspark.sql.DataFrame). Para tipos de pacote de dados, se não existe um cabeçalho com nomes de funcionalidade, estas informações estão incluídas no destino de dados (sem a necessidade de passar explicitamente os nomes das funcionalidades no construtor ModelDataCollector) |
+| user_correlation_id | cadeia | um id de correlação opcional, que pode ser fornecido pelo utilizador para correlacionar esta predição |
 

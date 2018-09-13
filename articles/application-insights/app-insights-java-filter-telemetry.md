@@ -1,41 +1,42 @@
 ---
-title: "Filtrar a telemetria do Azure Application Insights na aplicação web Java | Microsoft Docs"
-description: "Reduza o tráfego de telemetria ao filtrar os eventos que não precisa de monitorizar."
+title: Filtrar telemetria do Application Insights do Azure na sua aplicação web Java | Documentos da Microsoft
+description: Reduza o tráfego de telemetria ao filtrar os eventos que não precisa de monitorizar.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f9e061c010667bc18ac54e6546cc25339e9c0e3e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8ea431b3ab1836626fc6c7551f3bee24e4a3db86
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646803"
 ---
-# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar a telemetria na aplicação web Java
+# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria na sua aplicação web Java
 
-Filtros de fornecem uma forma para selecionar a telemetria que o [aplicação web Java envia para o Application Insights](app-insights-java-get-started.md). Existem alguns filtros out of box, que pode utilizar e, também pode escrever o seus próprio filtros personalizados.
+Filtros fornecem uma forma para selecionar a telemetria que sua [aplicação web Java envia para o Application Insights](app-insights-java-get-started.md). Existem alguns filtros de out-of-the-box que pode utilizar, e também pode escrever seus próprios filtros personalizados.
 
-Os filtros de out of box incluem:
+Os filtros de out-of-the-box incluem:
 
 * Nível de gravidade de rastreio
-* URLs específicos, as palavras-chave ou códigos de resposta
-* Respostas rápidas - ou seja, os pedidos para o qual a aplicação respondeu ao rapidamente
-* Nomes de evento específico
+* URLs específicos, palavras-chave ou códigos de resposta
+* Respostas rápidas - ou seja, pedidos para o qual a aplicação respondeu a rapidamente
+* Nomes de eventos específico
 
 > [!NOTE]
-> Filtros de desfasamento as métricas da sua aplicação. Por exemplo, poderá decidir que, para diagnosticar lentas, defina um filtro para eliminar os tempos de resposta rápidos. Mas deve ter em atenção que os tempos de resposta médio comunicados pelo Application Insights, em seguida, será mais lentos do que a velocidade true e a contagem de pedidos irá ser menor que a contagem real.
-> Se esta for uma preocupação, utilize [amostragem](app-insights-sampling.md) em vez disso.
+> Filtros distorcer as métricas da sua aplicação. Por exemplo, poderá decidir que, para diagnosticar repostas lentas, defina um filtro para descartar os tempos de resposta rápidos. Mas deve estar ciente de que os tempos de resposta médio comunicados pelo Application Insights, em seguida, será mais lentos que a velocidade verdadeira e a contagem de pedidos irá ser menor do que a contagem real.
+> Se isso for uma preocupação, utilize [amostragem](app-insights-sampling.md) em vez disso.
 
-## <a name="setting-filters"></a>Definir filtros
+## <a name="setting-filters"></a>Filtros de definição
 
-No ApplicationInsights.xml, adicione um `TelemetryProcessors` secção com este exemplo:
+No applicationinsights. XML, adicione um `TelemetryProcessors` secção semelhante a este exemplo:
 
 
 ```XML
@@ -88,11 +89,11 @@ No ApplicationInsights.xml, adicione um `TelemetryProcessors` secção com este 
 
 
 
-[Inspecione o conjunto completo de processadores incorporadas](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Inspecionar o conjunto completo de processadores incorporados](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
 
 ## <a name="built-in-filters"></a>Filtros incorporados
 
-### <a name="metric-telemetry-filter"></a>Filtro de telemetria métrico
+### <a name="metric-telemetry-filter"></a>Filtro da métrica telemetria
 
 ```XML
 
@@ -101,10 +102,10 @@ No ApplicationInsights.xml, adicione um `TelemetryProcessors` secção com este 
            </Processor>
 ```
 
-* `NotNeeded`-Lista separados por vírgulas de nomes de métricas personalizadas.
+* `NotNeeded` – Lista separados por vírgulas de nomes de métricas personalizados.
 
 
-### <a name="page-view-telemetry-filter"></a>Filtro de telemetria de visualizações de página
+### <a name="page-view-telemetry-filter"></a>Filtro de telemetria de vista de página
 
 ```XML
 
@@ -115,9 +116,9 @@ No ApplicationInsights.xml, adicione um `TelemetryProcessors` secção com este 
            </Processor>
 ```
 
-* `DurationThresholdInMS`-Duração refere-se para o tempo que demora a carregar a página. Se isto estiver definido, as páginas que carregar mais rapidamente do que este período de tempo não são reportadas.
-* `NotNeededNames`-Lista separados por vírgulas de nomes de página.
-* `NotNeededUrls`-Os fragmentos de lista separados por vírgulas de URL. Por exemplo, `"home"` filtra todas as páginas que tenham "página principal" no URL.
+* `DurationThresholdInMS` -Duração refere-se para o tempo necessário para carregar a página. Se isto estiver definido, as páginas que carregado mais rapidamente do que desta vez não são reportadas.
+* `NotNeededNames` – Lista separados por vírgulas de nomes de página.
+* `NotNeededUrls` -Fragmentos de lista separados por vírgulas de URL. Por exemplo, `"home"` filtra todas as páginas que têm de "home" no URL.
 
 
 ### <a name="request-telemetry-filter"></a>Filtro de telemetria de pedido
@@ -136,9 +137,9 @@ No ApplicationInsights.xml, adicione um `TelemetryProcessors` secção com este 
 
 ### <a name="synthetic-source-filter"></a>Filtro de origem sintético
 
-Filtra a toda a telemetria que têm valores na propriedade SyntheticSource. Estes incluem pedidos de bots, spiders e testes de disponibilidade.
+Filtra as toda a telemetria que têm valores na propriedade SyntheticSource. Estes incluem pedidos de bots, spiders e testes de disponibilidade.
 
-Filtre a telemetria para todos os pedidos sintéticos:
+Filtre telemetria para todos os pedidos sintéticos:
 
 
 ```XML
@@ -146,7 +147,7 @@ Filtre a telemetria para todos os pedidos sintéticos:
            <Processor type="SyntheticSourceFilter" />
 ```
 
-Filtre a telemetria origens sintéticas específicas:
+Filtre telemetria de fontes sintéticas específicas:
 
 
 ```XML
@@ -156,11 +157,11 @@ Filtre a telemetria origens sintéticas específicas:
            </Processor>
 ```
 
-* `NotNeeded`-Lista de nomes de origem sintético separados por vírgulas.
+* `NotNeeded` – Lista separados por vírgulas de nomes de origem sintético.
 
 ### <a name="telemetry-event-filter"></a>Filtro de eventos de telemetria
 
-Filtra eventos personalizados (registado utilizando [trackevent ()](app-insights-api-custom-events-metrics.md#trackevent)).
+Filtra os eventos personalizados (conectado usando [trackevent ()](app-insights-api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -171,12 +172,12 @@ Filtra eventos personalizados (registado utilizando [trackevent ()](app-insights
 ```
 
 
-* `NotNeededNames`-Lista de nomes do evento separados por vírgulas.
+* `NotNeededNames` – Lista separados por vírgulas de nomes de eventos.
 
 
 ### <a name="trace-telemetry-filter"></a>Filtro de telemetria de rastreio
 
-Filtros de rastreios de registo (registado utilizando [tracktrace ()](app-insights-api-custom-events-metrics.md#tracktrace) ou um [recoletor de arquitetura de registo](app-insights-java-trace-logs.md)).
+Rastreios de registo de filtros (conectado usando [tracktrace ()](app-insights-api-custom-events-metrics.md#tracktrace) ou uma [recoletor de estrutura de Registro em log](app-insights-java-trace-logs.md)).
 
 ```XML
 
@@ -185,20 +186,20 @@ Filtros de rastreios de registo (registado utilizando [tracktrace ()](app-insigh
            </Processor>
 ```
 
-* `FromSeverityLevel`os valores válidos são:
+* `FromSeverityLevel` Valores válidos são:
  *  DESATIVAR - filtrar todos os rastreios
- *  RASTREIO - nenhuma filtragem. igual a nível de rastreio
- *  INFORMAÇÃO - filtro o nível de rastreio
- *  AVISO - filtro de rastreio e de informações
- *  ERRO - o filtro de saída de rastreio de aviso, informações,
- *  CRÍTICO - filtro enviados todos os léxicos crítico
+ *  RASTREIO - nenhuma filtragem. é igual ao nível de rastreio
+ *  INFO - filtrar o nível de rastreio
+ *  AVISO - filtro de rastreio e informações
+ *  Erro - filtrar o rastreio de aviso, informações,
+ *  CRÍTICO - filtrar todas, CRÍTICOS
 
 
 ## <a name="custom-filters"></a>Filtros personalizados
 
 ### <a name="1-code-your-filter"></a>1. O filtro de código
 
-No seu código, crie uma classe que implementa `TelemetryProcessor`:
+Em seu código, criar uma classe que implementa `TelemetryProcessor`:
 
 ```Java
 
@@ -237,7 +238,7 @@ No seu código, crie uma classe que implementa `TelemetryProcessor`:
 
 ### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Invocar o filtro no ficheiro de configuração
 
-No ApplicationInsights.xml:
+No applicationinsights. XML:
 
 ```XML
 
@@ -256,10 +257,10 @@ No ApplicationInsights.xml:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-*A minha filtro não está a funcionar.*
+*Meu filtro não está a funcionar.*
 
-* Certifique-se de que forneceu valores de parâmetro válido. Por exemplo, durações devem ser números inteiros. Valores inválidos fará com que o filtro a ser ignorados. Se o seu filtro personalizado emite uma exceção de um construtor ou método definido, será ignorado.
+* Verifique que forneceu valores de parâmetro válido. Por exemplo, durações devem ser números inteiros. Valores inválidos fará com que o filtro que deverão ser ignorados. Se o seu filtro personalizado lança uma exceção de um construtor ou método set, ela será ignorada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Amostragem](app-insights-sampling.md) -considere amostragem como alternativa que não desfasamento as métricas.
+* [Amostragem](app-insights-sampling.md) -considere amostragem como uma alternativa que não distorcer as suas métricas.

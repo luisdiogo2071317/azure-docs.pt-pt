@@ -1,6 +1,6 @@
 ---
-title: Serviços de PaaS e ferramentas para a pilha do Azure | Microsoft Docs
-description: Saiba como começar a utilizar com os serviços de PaaS na pilha do Azure.
+title: Ferramentas e serviços PaaS para o Azure Stack | Documentos da Microsoft
+description: Saiba como começar a utilizar com os serviços de PaaS no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,26 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 6/15/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 878bbbfe8fafce8c5d7c18bd0ac6f848e4513e03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b4294f7b6c1c14a4091a46b65a3830bcf094296f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29385352"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35970140"
 ---
-# <a name="paas-services-for-azure-stack"></a>Serviços de PaaS de pilha do Azure
+# <a name="paas-services-for-azure-stack"></a>Serviços de PaaS para o Azure Stack
 
-Pode implementar [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) serviços (PaaS) para a pilha do Azure da Microsoft e de outros fornecedores 3rd. Se pretender ser notificado de novos serviços, siga #AzureStack no Twitter.
+Pode implantar [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) serviços (PaaS) para o Azure Stack da Microsoft e outros fornecedores de terceiros 3. Se quiser ser notificado de novos serviços, siga #AzureStack no Twitter.
 
 [Adicionar um fornecedor de recursos do Serviço de Aplicações ao Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
 
-[Adicionar um fornecedor de recursos do SQL Server a pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+[Adicionar um fornecedor de recursos do SQL Server para o Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
 
-[Adicionar um fornecedor de recursos do servidor de MySQL a pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
-
-
-
-
+[Adicionar um fornecedor de recursos do servidor MySQL ao Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)

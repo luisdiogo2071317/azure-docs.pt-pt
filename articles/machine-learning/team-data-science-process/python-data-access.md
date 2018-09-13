@@ -1,6 +1,6 @@
 ---
-title: Aceder a conjuntos de dados com a biblioteca de clientes do Machine Learning Python | Microsoft Docs
-description: Instalar e utilizar a biblioteca de clientes do Python para aceder e gerir dados do Azure Machine Learning em segurança a partir de um ambiente Python local.
+title: Aceder a conjuntos de dados com a biblioteca de cliente Python do Machine Learning | Documentos da Microsoft
+description: Instalar e utilizar a biblioteca de cliente Python para aceder e gerir dados do Azure Machine Learning com segurança a partir de um ambiente local do Python.
 services: machine-learning
 documentationcenter: python
 author: deguhath
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 496ffdcb5cc2e7b208a53dc8c1d8ba4c0818945f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838355"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719975"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
-A pré-visualização da biblioteca de clientes do Microsoft Azure Machine Learning Python pode permitir um acesso seguro para os conjuntos de dados do Azure Machine Learning a partir de um ambiente Python local e permite a criação e gestão de conjuntos de dados numa área de trabalho.
+A pré-visualização da biblioteca de clientes do Microsoft Azure Machine Learning Python pode permitir o acesso seguro aos conjuntos de dados do Azure Machine Learning de um ambiente de Python local e permite a criação e gestão de conjuntos de dados numa área de trabalho.
 
 Este tópico fornece instruções sobre como:
 
-* instalar a biblioteca de clientes de Machine Learning Python 
-* aceder e carregar conjuntos de dados, incluindo instruções sobre como obter autorização para aceder à Azure Machine Learning conjuntos de dados do seu ambiente local do Python
-* conjuntos de dados intermédios do acesso a partir das experimentações
-* utilizar a biblioteca de cliente do Python para enumerar os conjuntos de dados, acedem a metadados, ler o conteúdo de um conjunto de dados, criar novos conjuntos de dados e atualizar conjuntos de dados existentes
+* instalar a biblioteca de cliente Python do Machine Learning 
+* aceder e carregar conjuntos de dados, incluindo instruções sobre como obter autorização para aceder a conjuntos de dados do Azure Machine Learning do seu ambiente local do Python
+* conjuntos de dados intermediários do acesso de experimentações
+* Utilize a biblioteca de cliente de Python para enumerar conjuntos de dados, aceder aos metadados, ler o conteúdo de um conjunto de dados, criar novos conjuntos de dados e atualizar conjuntos de dados existentes
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-A biblioteca de clientes do Python foi testada em seguintes ambientes:
+A biblioteca de cliente Python foi testada em seguintes ambientes:
 
 * Windows, Mac e Linux
 * Python 2.7, 3.3 e 3.4
 
-Tem uma dependência nos seguintes pacotes:
+Ele tem uma dependência nos seguintes pacotes:
 
 * pedidos
 * python-dateutil
 * pandas
 
-Recomendamos que utilize uma distribuição do Python, tais como [Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), que são fornecidos com o Python, IPython e instalar três pacotes listados acima. Embora não seja estritamente necessária IPython, é um ambiente excelente para manipular e visualizar dados de forma interativa.
+Recomendamos que utilize uma distribuição do Python, tal como [Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), que vêm com o Python, IPython e instalado de três pacotes listados acima. Embora o IPython não é estritamente necessário, é um ótimo ambiente para manipular e visualizar dados de forma interativa.
 
-### <a name="installation"></a>Como instalar a biblioteca de cliente do Azure Machine Learning Python
-A biblioteca de cliente do Azure Machine Learning Python também tem de estar instalada para executar as tarefas descritas neste tópico. Está disponível no [índice de pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-lo no seu ambiente do Python, execute o seguinte comando do seu ambiente Python local:
+### <a name="installation"></a>Como instalar a biblioteca de cliente Python do Azure Machine Learning
+A biblioteca de cliente Python do Azure Machine Learning também tem de estar instalada para concluir as tarefas descritas neste tópico. Está disponível a partir da [índice de pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-lo no seu ambiente de Python, execute o seguinte comando do seu ambiente de Python local:
 
     pip install azureml
 
-Em alternativa, pode transferir e instalar das origens de em [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Em alternativa, pode transferir e instalar a partir das fontes de no [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
@@ -62,146 +62,146 @@ Se tiver o git instalado no seu computador, pode utilizar o pip para instalar di
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Utilizar fragmentos de código Studio para aceder a conjuntos de dados
-A biblioteca de clientes do Python dá-lhe acesso programático para os conjuntos de dados existentes a partir das experimentações que foram executadas.
+## <a name="datasetAccess"></a>Utilizar fragmentos de código do Studio para aceder a conjuntos de dados
+A biblioteca de cliente Python oferece acesso programático a seus conjuntos de dados existentes de experimentações que tenham sido executadas.
 
-Da interface de web Studio, pode gerar fragmentos de código que incluem todas as informações necessárias para transferir e anular a serialização de conjuntos de dados como Pandas DataFrame objetos no seu computador de localização.
+A partir da interface de web do Studio, pode gerar trechos de código que incluem todas as informações necessárias para transferir e anular a serialização de conjuntos de dados como objetos de pacote de dados de pandas no seu computador local.
 
 ### <a name="security"></a>Segurança para acesso a dados
-Os fragmentos de código fornecidos pelo Studio para utilizar com a biblioteca de clientes do Python incluem o seu id da área de trabalho e a autorização token. Estes disponibilizar acesso total à sua área de trabalho e tem de estar protegidas, como uma palavra-passe.
+Os fragmentos de código fornecidos pelo Studio para utilização com a biblioteca de cliente Python inclui o id de área de trabalho e a autorização token. Estes disponibilizar acesso total à sua área de trabalho e têm de ser protegidos, como uma palavra-passe.
 
-Por motivos de segurança, a funcionalidade de fragmento de código só está disponível para utilizadores que tenham a respetiva função definida como **proprietário** para a área de trabalho. A função é apresentada no Azure Machine Learning Studio no **utilizadores** página em **definições**.
+Por motivos de segurança, a funcionalidade de trechos de código só está disponível para os utilizadores que têm a sua função definida como **proprietário** para a área de trabalho. Sua função é apresentada no Azure Machine Learning Studio no **USUÁRIOS** página sob **definições**.
 
 ![Segurança][security]
 
-Se a sua função não está definida como **proprietário**, pode um pedido para reinvited como um proprietário ou peça ao proprietário da área de trabalho para lhe fornecer o fragmento de código.
+Se a sua função não está definida como **proprietário**, pode de qualquer pedido para ser novamente convidado como um proprietário ou peça ao proprietário da área de trabalho para fornecer a o trecho de código.
 
-Para obter o token de autorização, pode efetuar um dos seguintes:
+Para obter o token de autorização, pode fazer o seguinte:
 
-* Pedir um token de um proprietário. Os proprietários podem aceder os tokens de autorização da página de definições da sua área de trabalho no Studio. Selecione **definições** do painel esquerdo e clique em **TOKENS de autorização** para ver os tokens primários e secundários.  Embora o principal ou os tokens de autorização secundário podem ser utilizados no fragmento de código, recomenda-se que os proprietários de partilham só os tokens de autorização secundário.
+* Pedir um token de um proprietário. Os proprietários podem acessar os tokens de autorização da página de definições do seu espaço de trabalho no Studio. Selecione **configurações** no painel esquerdo e clique **TOKENS de autorização** para ver os tokens primários e secundários.  Embora principal ou tokens de autorização secundário podem ser usados no trecho de código, recomenda-se que os proprietários de partilham apenas tokens de autorização secundário.
 
 ![Tokens de autorização](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Peça a ser promovido a função de proprietário.  Para tal, um proprietário atual de área de trabalho tem de primeiro remover-a efectuar a área de trabalho, em seguida, volte convidá-lo ao mesmo como um proprietário.
+* Peça para ser promovido a função de proprietário.  Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover a área de trabalho, em seguida, voltar convidá-lo a ele como proprietário.
 
-Assim que os programadores obter o id da área de trabalho e a autorização tokens, estes são capazes de aceder à área de trabalho utilizando o fragmento de código, independentemente da respetiva função.
+Assim que os desenvolvedores de obteve o id de área de trabalho e a autorização token, eles são capazes de acessar a área de trabalho usando o trecho de código, independentemente da respetiva função.
 
-Tokens de autorização são geridos no **TOKENS de autorização** página em **definições**. Pode gerar novamente, mas este procedimento revoga acesso para o token anterior.
+Tokens de autorização são geridos na **TOKENS de autorização** página sob **definições**. Pode voltar a gerá-los, mas este procedimento revoga o acesso ao token anterior.
 
-### <a name="accessingDatasets"></a>Conjuntos de dados de acesso de uma aplicação local do Python
+### <a name="accessingDatasets"></a>Conjuntos de dados de acesso de um aplicativo local do Python
 1. No Machine Learning Studio, clique em **conjuntos de dados** na barra de navegação à esquerda.
-2. Selecione o conjunto de dados que pretende aceder. Pode selecionar qualquer um dos conjuntos de dados do **conjuntos de dados os meus** lista ou do **amostras** lista.
-3. Na barra de ferramentas inferior, clique em **gerar código de acesso de dados**. Se os dados estão num formato incompatível com a biblioteca de clientes do Python, este botão está desativado.
+2. Selecione o conjunto de dados que pretende aceder. Pode selecionar qualquer um dos conjuntos de dados do **conjuntos de dados de meu** lista ou a partir da **exemplos** lista.
+3. A partir da barra de ferramentas na parte inferior, clique em **gerar código de acesso a dados**. Se os dados estão num formato incompatível com a biblioteca de cliente de Python, este botão está desativado.
    
     ![Conjuntos de dados][datasets]
-4. Selecione o fragmento de código a partir da janela do que aparece e copie-a para a sua área de transferência.
+4. Selecione o fragmento de código a partir da janela que aparece e copie-o para a área de transferência.
    
     ![Código de acesso][dataset-access-code]
-5. Cole o código no bloco de notas da sua aplicação local do Python.
+5. Cole o código no bloco de notas da sua aplicação Python local.
    
     ![Bloco de notas][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Conjuntos de dados intermédios do acesso de experimentações de Machine Learning
-Após a execução uma experimentação no Machine Learning Studio, é possível aceder os conjuntos de dados intermédios de nós de módulos de saída. Conjuntos de dados intermédios são dados que foi criados e utilizados para passos intermédios quando uma ferramenta de modelo já foi executada.
+## <a name="accessingIntermediateDatasets"></a>Conjuntos de dados intermediários do acesso de experimentações de Machine Learning
+Após a execução uma experimentação no Machine Learning Studio, é possível acessar os conjuntos de dados intermediários de nós de saída de módulos. Conjuntos de dados intermediários são dados que foi criados e utilizados para obter os passos intermédios quando uma ferramenta de modelo tiver sido executada.
 
-Conjuntos de dados intermédios podem ser acedidos, desde que o formato dos dados é compatível com a biblioteca de clientes do Python.
+Conjuntos de dados intermediários podem ser acedidos, desde que o formato de dados é compatível com a biblioteca de cliente Python.
 
 São suportados os seguintes formatos (constantes para estes estão no `azureml.DataTypeIds` classe):
 
-* Texto simples
+* Texto sem formatação
 * GenericCSV
 * GenericTSV
 * GenericCSVNoHeader
 * GenericTSVNoHeader
 
-Pode determinar o formato por cima de um nó de saída do módulo. Será apresentado juntamente com o nome de nó numa descrição.
+Pode determinar o formato passando o mouse sobre um nó de saída do módulo. É apresentado junto com o nome de nó, numa descrição.
 
-Alguns dos módulos, tais como o [divisão] [ split] módulo, para um formato com o nome de saída `Dataset`, que não é suportado pela biblioteca de clientes de Python.
+Alguns dos módulos, como o [Split] [ split] módulo, para um formato com o nome de saída `Dataset`, que não é suportado pela biblioteca de cliente Python.
 
 ![Formato de conjunto de dados][dataset-format]
 
-Tem de utilizar um módulo de conversão, tais como [converter para CSV][convert-to-csv], para obter um resultado para um formato suportado.
+Tem de utilizar um módulo de conversão, tal como [converter para CSV][convert-to-csv], para obter um resultado para um formato suportado.
 
 ![Formato de GenericCSV][csv-format]
 
-Os passos seguintes mostram um exemplo que cria uma experimentação, executa-o e acede ao conjunto de dados intermédio.
+Os passos seguintes mostram um exemplo que cria uma experimentação, executa-o e acessa o conjunto de dados intermediário.
 
 1. Crie uma nova experimentação.
-2. Inserir uma **conjunto de dados para adultos receitas Census da classificação do binário** módulo.
-3. Inserir uma [divisão] [ split] módulo e ligue-se a entrada para a saída do módulo de conjunto de dados.
-4. Inserir uma [converter para CSV] [ convert-to-csv] módulo e ligue-se a entrada para um do [divisão] [ split] produz do módulo.
-5. Guarde a experimentação, executá-la e aguarde que termine a execução.
+2. Inserir um **conjunto de dados de classificação de binário para adultos recenseamento receitas** módulo.
+3. Inserir um [Split] [ split] módulo e ligue-se a entrada para a saída do módulo de conjunto de dados.
+4. Inserir um [converter para CSV] [ convert-to-csv] módulo e ligue-se a entrada para um do [Split] [ split] saídas do módulo.
+5. Guardar a experimentação, executá-la e esperar que ele termine a execução.
 6. Clique no nó de saída no [converter para CSV] [ convert-to-csv] módulo.
-7. Quando for apresentado o menu de contexto, selecione **gerar código de acesso de dados**.
+7. Quando for apresentado o menu de contexto, selecione **gerar código de acesso a dados**.
    
     ![Menu de Contexto][experiment]
-8. Selecione o fragmento de código e copie-o à sua área de transferência da janela apresentada.
+8. Selecione o fragmento de código e copiá-lo para a área de transferência a partir da janela que aparece.
    
     ![Código de acesso][intermediate-dataset-access-code]
 9. Cole o código no seu bloco de notas.
    
     ![Bloco de notas][ipython-intermediate-dataset]
-10. Pode visualizar os dados utilizando matplotlib. Esta ação apresenta um histograma da coluna de idade:
+10. É possível visualizar os dados usando matplotlib. Isto é apresentado num histograma da coluna de idade:
     
     ![Histograma][ipython-histogram]
 
-## <a name="clientApis"></a>Utilizar a biblioteca de cliente de Machine Learning Python para aceder, ler, criar e gerir conjuntos de dados
+## <a name="clientApis"></a>Utilize a biblioteca de cliente Python do Machine Learning para aceder, ler, criar e gerir conjuntos de dados
 ### <a name="workspace"></a>Área de trabalho
-A área de trabalho é o ponto de entrada para a biblioteca de cliente do Python. Forneça o `Workspace` token de classe com o id da área de trabalho e a autorização para criar uma instância:
+A área de trabalho é o ponto de entrada para a biblioteca de cliente Python. Fornecer o `Workspace` classe com o id de área de trabalho e a autorização para criar uma instância do token:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
 
 
-### <a name="enumerate-datasets"></a>Enumerar os conjuntos de dados
-Enumerar todos os conjuntos de dados numa determinada área de trabalho:
+### <a name="enumerate-datasets"></a>Enumerar conjuntos de dados
+Para enumerar todos os conjuntos de dados numa determinada área de trabalho:
 
     for ds in ws.datasets:
         print(ds.name)
 
-Enumerar apenas criados pelo utilizador conjuntos de dados:
+Para enumerar apenas os criados pelo utilizador conjuntos de dados:
 
     for ds in ws.user_datasets:
         print(ds.name)
 
-Enumerar apenas os conjuntos de dados de exemplo:
+Para enumerar apenas os conjuntos de dados de exemplo:
 
     for ds in ws.example_datasets:
         print(ds.name)
 
-Pode aceder a um conjunto de dados por nome (que tem maiúsculas e minúsculas):
+Pode aceder a um conjunto de dados por nome (o que diferencia maiúsculas de minúsculas):
 
     ds = ws.datasets['my dataset name']
 
-Ou pode aceder ao mesmo pelo índice:
+Ou pode acessá-lo pelo índice:
 
     ds = ws.datasets[0]
 
 
 ### <a name="metadata"></a>Metadados
-Conjuntos de dados tem metadados, para além do conteúdo. (Intermédios conjuntos de dados são uma exceção a esta regra e não tem quaisquer metadados.)
+Conjuntos de dados tem metadados, além de conteúdo. (Conjuntos de dados intermediários são uma exceção a esta regra e não tem quaisquer metadados).
 
-Alguns valores de metadados estão atribuídos pelo utilizador no momento de criação:
+Alguns valores de metadados são atribuídos pelo usuário no momento de criação:
 
     print(ds.name)
     print(ds.description)
     print(ds.family_id)
     print(ds.data_type_id)
 
-Outros recursos são valores atribuídos pelo Azure ML:
+Outras são valores atribuídos pelo Azure ML:
 
     print(ds.id)
     print(ds.created_date)
     print(ds.size)
 
-Consulte o `SourceDataset` classe para obter mais informações sobre os metadados disponível.
+Consulte o `SourceDataset` classe para obter mais informações sobre os metadados disponíveis.
 
 ### <a name="read-contents"></a>Ler o conteúdo
-Os fragmentos de código fornecidos pelo Machine Learning Studio automaticamente transferiram e anular a serialização de um objeto de Pandas DataFrame o conjunto de dados. Isto é feito com o `to_dataframe` método:
+Os fragmentos de código fornecidos pelo Machine Learning Studio automaticamente transferir e anular a serialização de conjunto de dados para um objeto do pandas DataFrame. Isso é feito com o `to_dataframe` método:
 
     frame = ds.to_dataframe()
 
-Se preferir transferir os dados não processados e efetuar a anulação da serialização por si, que é uma opção. De momento, esta é a única opção para formatos, tais como 'ARFF', não é possível anular a serialização da biblioteca de clientes do Python.
+Se preferir transferir os dados não processados e efetuar a desserialização por conta própria, que é uma opção. No momento, esta é a única opção para formatos como "ARFF', não é possível anular a serialização da biblioteca de cliente Python.
 
 Para ler o conteúdo como texto:
 
@@ -211,16 +211,16 @@ Para ler o conteúdo como binário:
 
     binary_data = ds.read_as_binary()
 
-Pode também simplesmente abrir uma transmissão em fluxo para o conteúdo:
+Pode também simplesmente abrir um fluxo para o conteúdo:
 
     with ds.open() as file:
         binary_data_chunk = file.read(1000)
 
 
 ### <a name="create-a-new-dataset"></a>Criar um novo conjunto de dados
-A biblioteca de clientes do Python permite-lhe carregar conjuntos de dados do seu programa de Python. Estes conjuntos de dados, em seguida, estão disponíveis para utilização na sua área de trabalho.
+A biblioteca de cliente Python permite-lhe carregar conjuntos de dados de seu programa de Python. Estes conjuntos de dados, em seguida, estão disponíveis para utilização na sua área de trabalho.
 
-Se tiver um DataFrame Pandas os dados, utilize o seguinte código:
+Se tiver os seus dados num pandas DataFrame, utilize o seguinte código:
 
     from azureml import DataTypeIds
 
@@ -231,7 +231,7 @@ Se tiver um DataFrame Pandas os dados, utilize o seguinte código:
         description='my description'
     )
 
-Se os dados já está a ser serializados, pode utilizar:
+Se os dados já são serializados, pode usar:
 
     from azureml import DataTypeIds
 
@@ -242,18 +242,18 @@ Se os dados já está a ser serializados, pode utilizar:
         description='my description'
     )
 
-A biblioteca de clientes do Python é capaz de serializar um DataFrame Pandas para os seguintes formatos (constantes para estes estão no `azureml.DataTypeIds` classe):
+A biblioteca de cliente Python é capaz de serializar uma pandas DataFrame para os seguintes formatos (constantes para estes estão no `azureml.DataTypeIds` classe):
 
-* Texto simples
+* Texto sem formatação
 * GenericCSV
 * GenericTSV
 * GenericCSVNoHeader
 * GenericTSVNoHeader
 
 ### <a name="update-an-existing-dataset"></a>Atualizar um conjunto de dados existente
-Se tentar carregar um novo conjunto de dados com um nome que corresponde a um conjunto de dados existente, deve obter um erro de conflito.
+Se tentar carregar um novo conjunto de dados com um nome que corresponde a um conjunto de dados existente, obterá um erro de conflito.
 
-Para atualizar um conjunto de dados existente, terá primeiro de obter uma referência ao conjunto de dados existente:
+Para atualizar um conjunto de dados existente, tem primeiro de obter uma referência ao conjunto de dados existente:
 
     dataset = ws.datasets['existing dataset']
 
@@ -261,7 +261,7 @@ Para atualizar um conjunto de dados existente, terá primeiro de obter uma refer
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Em seguida, utilize `update_from_dataframe` para serializar e substitua os conteúdos do conjunto de dados no Azure:
+Em seguida, utilizar `update_from_dataframe` para serializar e substitua o conteúdo do conjunto de dados no Azure:
 
     dataset = ws.datasets['existing dataset']
 
@@ -271,7 +271,7 @@ Em seguida, utilize `update_from_dataframe` para serializar e substitua os conte
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Se pretender serializar os dados num formato diferente, especifique um valor para o opcional `data_type_id` parâmetro.
+Se desejar serializar os dados num formato diferente, especifique um valor para o opcional `data_type_id` parâmetro.
 
     from azureml import DataTypeIds
 
@@ -286,7 +286,7 @@ Se pretender serializar os dados num formato diferente, especifique um valor par
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Opcionalmente, pode definir uma nova descrição, especificando um valor para o `description` parâmetro.
+Opcionalmente, pode definir uma nova descrição ao especificar um valor para o `description` parâmetro.
 
     dataset = ws.datasets['existing dataset']
 
@@ -299,7 +299,7 @@ Opcionalmente, pode definir uma nova descrição, especificando um valor para o 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-Opcionalmente, pode definir um novo nome, especificando um valor para o `name` parâmetro. De agora no, irá obter o conjunto de dados utilizando o novo nome. O seguinte código atualiza os dados, o nome e a descrição.
+Opcionalmente, pode definir um novo nome, especificando um valor para o `name` parâmetro. De agora em diante, irá obter o conjunto de dados com o novo nome. O código a seguir atualiza os dados, nome e descrição.
 
     dataset = ws.datasets['existing dataset']
 
@@ -316,9 +316,9 @@ Opcionalmente, pode definir um novo nome, especificando um valor para o `name` p
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-O `data_type_id`, `name` e `description` parâmetros são opcionais e predefinida para o respetivo valor anterior. O `dataframe` parâmetro é sempre necessário.
+O `data_type_id`, `name` e `description` parâmetros são opcionais e predefinido para o valor anterior. O `dataframe` sempre é necessário o parâmetro.
 
-Se os dados já está a ser serializados, utilize `update_from_raw_data` em vez de `update_from_dataframe`. Se passa no `raw_data` em vez de `dataframe`, funciona de forma semelhante.
+Se os dados já são serializados, utilize `update_from_raw_data` em vez de `update_from_dataframe`. Se passar apenas `raw_data` em vez de `dataframe`, funciona de forma semelhante.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

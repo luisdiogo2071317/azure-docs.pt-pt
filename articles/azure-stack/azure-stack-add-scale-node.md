@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055853"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718105"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Adicionar nós de unidade de escala adicionais no Azure Stack
 
@@ -64,7 +64,7 @@ Pode utilizar o portal de administração ou o PowerShell para adicionar novos n
 ### <a name="use-the-admin-portal"></a>Utilizar o portal de administração
 
 1. Inicie sessão no portal de administração do Azure Stack como um operador do Azure Stack.
-2. Navegue para **novos** > **capacidade** > **dimensionar o nó de unidade**.
+2. Navegue para **+ criar um recurso** > **capacidade** > **nó de unidade de escala**.
    ![Nó de unidade de escala](media/azure-stack-add-scale-node/select-node1.png)
 3. Sobre o **adicionar nó** painel, selecione a *região*e, em seguida, selecione o *unidade de escala* que pretende adicionar o nó para. Especifique também a *endereço de IP de BMC* para o nó de unidade de escala que está a adicionar. Só pode adicionar um nó por vez.
    ![Adicionar detalhes do nó](media/azure-stack-add-scale-node/select-node2.png)

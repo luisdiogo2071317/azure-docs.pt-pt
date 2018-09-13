@@ -7,14 +7,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 2ae080518a9ad78552a8ec173e7f4d70085c7a6b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d111f4eeea6a7cd630e550b0f57ad1617eb2bcd0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022645"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719346"
 ---
 # <a name="moderate-with-custom-term-lists-in-net"></a>Moderar com listas de termos personalizado no .NET
 
@@ -49,8 +49,6 @@ No Dashboard de moderador de conteúdo, pode encontrar a chave de subscrição *
 
 1. Nomeie o projeto **TermLists**. Selecione este projeto como o projeto de arranque único para a solução.
 
-1. Adicionar uma referência para o **ModeratorHelper** projeto assembly que criou no [guia de introdução do Content Moderator cliente auxiliar](content-moderator-helper-quickstart-dotnet.md).
-
 ### <a name="install-required-packages"></a>Instalar pacotes necessários
 
 Instale os seguintes pacotes de NuGet para o projeto de TermLists:
@@ -58,17 +56,70 @@ Instale os seguintes pacotes de NuGet para o projeto de TermLists:
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Microsoft.Rest.ClientRuntime.Azure
-- Newtonsoft
+- Newtonsoft.Json
 
 ### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
 
 Modifique o programa usando instruções.
 
-    using System;
-    using System.Threading;
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
+
+Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição.
+
+> [!IMPORTANT]
+> Atualização do **AzureRegion** e **CMSubscriptionKey** campos com os valores da sua chave de subscrição e o identificador de região.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.BaseUrl = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="add-private-properties"></a>Adicionar propriedades privadas
 

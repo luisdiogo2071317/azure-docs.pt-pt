@@ -1,48 +1,48 @@
 ---
-title: A configuração de gestão de modelo do Azure Machine Learning e configuração | Microsoft Docs
-description: Este documento descreve os conceitos e os passos envolvidos na configuração e como configurar a gestão de modelo do Azure Machine Learning.
+title: Configuração de gestão de modelo do Azure Machine Learning e configuração | Documentos da Microsoft
+description: Este documento descreve os passos e conceitos envolvidos na definir e configurar a gestão de modelos no Azure Machine Learning.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 6802d1dfc360a48d8085ff07a8d4488ee1751e33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 883e3d2c5945a38c8fbca5c9f0f5e8a1e4093be1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832106"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649865"
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
 ## <a name="overview"></a>Descrição geral
-Este documento obtém-lo a começar a utilizar a gestão de modelo do Azure ML para implementar e gerir os seus modelos de machine learning como serviços web. 
+Este documento apresenta-lhe começar a utilizar a gestão de modelos do Azure ML para implementar e gerir modelos como serviços da web de aprendizagem. 
 
-Utilizando a gestão de modelo do Azure ML, pode implementar e gerir eficientemente os modelos de Machine Learning que são criados utilizando um número de estruturas, incluindo SparkML, Keras, TensorFlow, o Toolkit de cognitivos ou Python. 
+Utilizar a gestão de modelos do Azure ML, pode com eficiência implementar e gerir modelos de Machine Learning, que são criados usando várias estruturas, incluindo SparkML, Keras, TensorFlow, o Microsoft Cognitive Toolkit ou Python. 
 
-No final deste documento, deve ser capaz de ter o seu ambiente de gestão de modelo configurado e pronto para implementar os modelos de machine learning.
+No final deste documento, será capaz de ter o seu ambiente de gestão de modelo configurado e pronto para implementar modelos de aprendizagem.
 
-## <a name="what-you-need-to-get-started"></a>O que precisa de começar
-Para tirar o máximo partido deste guia, deve ter acesso de proprietário para uma subscrição do Azure que pode implementar os seus modelos para.
-A CLI é previamente instalada o Workbench do Azure Machine Learning e no [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+## <a name="what-you-need-to-get-started"></a>O que precisa para começar a utilizar
+Para obter o máximo proveito deste guia, deve ter acesso de proprietário a uma subscrição do Azure que pode implementar os seus modelos para.
+A CLI vem pré-instalada no Azure Machine Learning Workbench e, no [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
-## <a name="using-the-cli"></a>Utilizar a CLI
-Para utilizar as interfaces de linha de comandos (CLIs) do Workbench, clique em **ficheiro** -] **Interface de linha de comandos aberta**. 
+## <a name="using-the-cli"></a>Com a CLI
+Para utilizar as interfaces de linha de comandos (CLI) do Workbench, clique em **arquivo** -] **Interface de linha de comandos aberta**. 
 
-Em dados de ciência de Máquina Virtual, ligue e abra a linha de comandos. Tipo `az ml -h` para ver as opções. Para obter mais detalhes sobre os comandos, utilize o - sinalizador de ajuda.
+Num dados de Máquina Virtual de ciência, ligue e abra o prompt de comando. Tipo de `az ml -h` para ver as opções. Para obter mais detalhes sobre os comandos, utilize o-- sinalizador de ajuda.
 
-Em todos os outros sistemas, terá de instalar os CLIs.
+Em todos os outros sistemas, terá de instalar a CLI.
 
 ### <a name="installing-or-updating-on-windows"></a>Instalar (ou atualizar) no Windows
 
 Instalar o Python de https://www.python.org/. Certifique-se de que selecionou para instalar o pip.
 
-Abra uma linha de comandos utilizando executar como administrador e execute os seguintes comandos:
+Abra um prompt de comando usando executar como administrador e execute os seguintes comandos:
 
 ```cmd
 pip install azure-cli
@@ -50,7 +50,7 @@ pip install azure-cli-ml
 ```
  
 >[!NOTE]
->Se tiver uma versão anterior, desinstale-pela primeira vez utilizando o seguinte comando:
+>Se tiver uma versão anterior, desinstale-primeiro com o seguinte comando:
 >
 
 ```cmd
@@ -58,7 +58,7 @@ pip uninstall azure-cli-ml
 ```
 
 ### <a name="installing-or-updating-on-linux"></a>Instalar (ou atualizar) no Linux
-Execute o seguinte comando na linha de comandos e siga as instruções:
+Execute o seguinte comando na linha de comando e siga as instruções:
 
 ```bash
 sudo -i
@@ -66,49 +66,49 @@ pip install azure-cli
 pip install azure-cli-ml
 ```
 
-Depois de concluída a intallation, execute o seguinte comando:
+Após a instalação estiver concluída, execute o seguinte comando:
 
 ```bash
 sudo /opt/microsoft/azureml/initial_setup.sh
 ```
 
 >[!NOTE]
->Terminar sessão e voltar a iniciar sessão para a sua sessão SSH para que as alterações entrem em vigor.
->Pode utilizar os comandos anteriores para atualizar uma versão anterior do CLIs no DSVM.
+>Terminar sessão e voltar a iniciar sessão a sessão SSH para que as alterações entrem em vigor.
+>Pode utilizar os comandos anteriores para atualizar uma versão anterior do CLIs na DSVM.
 >
 
-## <a name="deploying-your-model"></a>Implementar o modelo
-Utilize os CLIs para implementar modelos como serviços web. Os serviços web podem ser implementados localmente ou para um cluster.
+## <a name="deploying-your-model"></a>Implementar o seu modelo
+Utilize a CLI para implementar modelos como serviços da web. Os serviços da web podem ser implementados localmente ou num cluster.
 
-Começar com uma implementação local, validar que o modelo e o código de trabalho, em seguida, implementar um cluster para utilização de escala de produção.
+Começar com uma implementação local, validar que o modelo e o código funcionam, em seguida, implementar num cluster para efeitos de escala de produção.
 
-Para começar, terá de configurar o ambiente de implementação. O programa de configuração do ambiente é uma tarefa de tempo. Assim que a configuração estiver concluída, pode reutilizar o ambiente para implementações subsequentes. Consulte a secção seguinte para obter mais detalhes.
+Para começar, terá de configurar o ambiente de implantação. Configuração do ambiente é uma tarefa de tempo. Depois da configuração estiver concluída, é possível reutilizar o ambiente para implementações subsequentes. Consulte a secção seguinte para obter mais detalhes.
 
-Quando concluir a configuração de ambiente:
-- Lhe for pedido para iniciar sessão no Azure. Para iniciar sessão, utilize um web browser para abrir a página https://aka.ms/devicelogin e introduza o código fornecido para se autenticar.
-- Durante o processo de autenticação, é-lhe pedida uma conta autenticar com. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e de permissões suficientes para criar recursos na conta. - quando o início de sessão estiver concluída, são apresentadas informações da sua subscrição e lhe for perguntado se pretende continuar com o conta selecionada.
+Quando concluir a configuração do ambiente:
+- Lhe for pedido para iniciar sessão no Azure. Para iniciar sessão, utilize um browser para abrir a página https://aka.ms/devicelogin e introduza o código fornecido para autenticar.
+- Durante o processo de autenticação, lhe for pedido para uma conta autenticar com o. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e permissões suficientes para criar recursos na conta. - quando o início de sessão estiver concluído, as informações da sua subscrição são apresentadas e lhe for perguntado se desejar continuar com o conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
-Para iniciar o processo de configuração, tem de registar o fornecedor de ambiente, introduzindo o seguinte comando:
+Para iniciar o processo de configuração, terá de registar o fornecedor de ambiente, introduzindo o seguinte comando:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
 ```
 
 #### <a name="local-deployment"></a>Implementação de local
-Para implementar e testar o seu serviço web no computador local, configure um ambiente local utilizando o seguinte comando:
+Para implementar e testar o seu serviço web no computador local, configure um ambiente local com o seguinte comando:
 
 ```azurecli
 az ml env setup -l [location of Azure Region, e.g. eastus2] -n [your environment name] [-g [existing resource group]]
 ```
 >[!NOTE] 
->Implementação de serviços local web exige a instalar Docker no computador local. 
+>Implementação do serviço local web requer o para instalar o Docker no computador local. 
 >
 
 O comando de configuração do ambiente local cria os seguintes recursos na sua subscrição:
 - Um grupo de recursos (se não for indicado)
-- uma conta de armazenamento
-- Um registo de contentor do Azure (ACR)
+- Uma conta de armazenamento
+- Um Azure Container Registry (ACR)
 - Application Insights
 
 Após a conclusão da configuração com êxito, defina o ambiente para ser utilizado com o seguinte comando:
@@ -118,9 +118,9 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 #### <a name="cluster-deployment"></a>Implementação de cluster
-Utilize a implementação de Cluster para cenários de produção de grande escala. Configura um cluster de ACS com Kubernetes como o orchestrator. O cluster de ACS pode ser ampliado para lidar com maior débito para as chamadas de serviço web.
+Utilize a implementação de Cluster para cenários de produção de grande escala. Ele configura um cluster de ACS com o Kubernetes como o orchestrator. O cluster de ACS pode ser dimensionado para processar um débito maior de suas chamadas de serviço da web.
 
-Para implementar o serviço web para um ambiente de produção, configure primeiro o ambiente utilizando o seguinte comando:
+Para implementar o seu serviço web num ambiente de produção, primeiro configure o ambiente com o seguinte comando:
 
 ```azurecli
 az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
@@ -128,12 +128,12 @@ az ml env setup -c --name [your environment name] --location [Azure region e.g. 
 
 O comando de configuração do ambiente de cluster cria os seguintes recursos na sua subscrição:
 - Um grupo de recursos (se não for indicado)
-- uma conta de armazenamento
-- Um registo de contentor do Azure (ACR)
-- Uma implementação de Kubernetes num cluster do serviço de contentor do Azure (ACS)
+- Uma conta de armazenamento
+- Um Azure Container Registry (ACR)
+- Uma implementação de Kubernetes num cluster do Azure Container Service (ACS)
 - Application Insights
 
-O grupo de recursos, a conta de armazenamento e o ACR são criados rapidamente. A implementação de ACS pode demorar até 20 minutos. 
+O grupo de recursos, a conta de armazenamento e o ACR são criadas rapidamente. A implementação do ACS pode demorar até 20 minutos. 
 
 Após a conclusão da configuração, tem de definir o ambiente para ser utilizado para esta implementação. Utilize o seguinte comando:
 
@@ -142,14 +142,14 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 >[!NOTE] 
-> Depois de criar o ambiente, para implementações subsequentes, apenas terá de utilizar o comando set acima para reutilizá-lo.
+> Depois do ambiente for criado, para implementações subsequentes, só tem de utilizar o comando set acima para reutilizá-la.
 >
 
 >[!NOTE] 
->Para criar um ponto final de HTTPS, especifique um certificado SSL ao criar um cluster utilizando o – nome do certificado e – cert pem as opções do programa de configuração do az ml env. Esta ação configura o cluster para servir pedidos em https, protegida com o certificado fornecido. Após a conclusão da configuração, crie um registo de CNAME DNS que aponta para o FQDN do cluster.
+>Para criar um ponto final HTTPS, especifique um certificado SSL ao criar um cluster utilizando as-- opções de nome de certificado e --pem do certificado no programa de configuração do az ml env. Esta ação configura o cluster para atender a solicitações de https, protegida com o certificado fornecido. Após a configuração estiver concluída, crie um registo CNAME DNS que aponta para o FQDN do cluster.
 
 ### <a name="create-an-account"></a>Criar uma Conta
-Uma conta é necessária para a implementação de modelos. Precisa de fazer uma vez por conta e pode reutilizar a mesma conta de múltiplas implementações.
+Uma conta é necessária para implementação de modelos. Terá de fazer isto vez por conta e pode reutilizar a mesma conta em várias implementações.
 
 Para criar uma nova conta, utilize o seguinte comando:
 
@@ -170,4 +170,4 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 ```
 
 ### <a name="next-steps"></a>Próximos Passos
-Experimente um dos muitos exemplos na galeria.
+Experimente um dos muito exemplos na galeria.

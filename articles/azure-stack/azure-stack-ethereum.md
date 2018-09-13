@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
+ms.date: 09/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298119"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721990"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelos de soluções de blockchain Ethereum de pilha do Azure
 
@@ -50,7 +50,7 @@ O modelo pode implementar Ethereum consortium para líder e a associação de me
 O modelo de líder consortium configura os requisitos de espaço do primeiro membro na rede. 
 
 1. Transferir o [modelo líder do GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. No portal de administração do Azure Stack, selecione **New > implementação do modelo** para implementar a partir de um modelo personalizado.
+2. No portal de administração do Azure Stack, selecione **+ criar um recurso > implementação do modelo** para implementar a partir de um modelo personalizado.
 3. Selecione **Editar modelo** para editar o novo modelo personalizado.
 4. No painel de edição no lado direito, copie e cole o modelo de líder JSON que transferiu anteriormente.
     
@@ -105,7 +105,7 @@ Para verificar a implementação de líder, procure o site de administração do
 ### <a name="joining-consortium-member-deployment"></a>Implementação de membro de consórcio junção
 
 1. Transferir o [modelo de membro consortium partir do GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. No portal de administração do Azure Stack, selecione **New > implementação do modelo** para implementar a partir de um modelo personalizado.
+2. No portal de administração do Azure Stack, selecione **+ criar um recurso > implementação do modelo** para implementar a partir de um modelo personalizado.
 3. Selecione **Editar modelo** para editar o novo modelo personalizado.
 4. No painel de edição no lado direito, copie e cole o modelo de líder JSON que transferiu anteriormente.
 5. Selecione **Guardar**.
@@ -157,7 +157,7 @@ Como mostrado na imagem, o estado de nós do membro é **não está em execuçã
 Este modelo cria uma ligação de coordenador para um membro remoto. 
 
 1. Transferir o [ligar o modelo de membro e líder do GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. No portal de administração do Azure Stack, selecione **New > implementação do modelo** para implementar a partir de um modelo personalizado.
+2. No portal de administração do Azure Stack, selecione **+ criar um recurso > implementação do modelo** para implementar a partir de um modelo personalizado.
 3. Selecione **Editar modelo** para editar o novo modelo personalizado.
 4. No painel de edição no lado direito, copie e cole o modelo de líder JSON que transferiu anteriormente.
     

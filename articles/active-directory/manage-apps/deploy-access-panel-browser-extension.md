@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948a0d6a3d6fb6b6f3f7c13be6340c8ac364ee57
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4540b68dedc3086c3ea0fb12ebbe3cfe2344698b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357141"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718802"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implementar a extensão do painel de acesso para o Internet Explorer usando a diretiva de grupo
 Este tutorial mostra como utilizar a política de grupo para instalar remotamente a extensão do painel de acesso para o Internet Explorer nos computadores dos seus utilizadores. É necessária para os usuários do Internet Explorer que tem de iniciar sessão em aplicações que estão configuradas ao utilizar esta extensão [baseado em palavra-passe de início de sessão único](what-is-single-sign-on.md#password-based-single-sign-on).
@@ -162,7 +162,6 @@ Siga os passos abaixo para verificar se a implementação de extensão foi concl
     ![Certifique-se de que a extensão do painel de acesso é instalado e ativado.](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](../active-directory-apps-index.md)
 * [Acesso a aplicações e início de sessão único com o Azure Active Directory](what-is-single-sign-on.md)
 * [A extensão do painel de acesso de resolução de problemas do Internet Explorer](manage-access-panel-browser-extension.md)
 

@@ -1,31 +1,31 @@
 ---
-title: A ligar ao Azure Cosmos DB como uma origem de dados no Azure Machine Learning Workbench | Microsoft Docs
-description: Este documento fornece um exemplo sobre como ligar à base de dados do Azure Cosmos através do Azure Machine Learning Workbench
+title: Ligar ao Azure Cosmos DB como uma origem de dados da bancada de trabalho do Azure Machine Learning | Documentos da Microsoft
+description: Este documento fornece um exemplo sobre como ligar ao Azure Cosmos DB através do Azure Machine Learning Workbench
 services: machine-learning
 author: cforbe
 ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 20e23f41310b90c62eacb7279ea3da0eec376683
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2d9562582a94b7c7aac5b972a7ef57b84eb9aa9e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830695"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650633"
 ---
-# <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Ligar à base de dados do Azure Cosmos como uma origem de dados
-Este artigo contém um python exemplo permite-lhe ligar à base de dados do Cosmos no Azure Machine Learning Workbench.
+# <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Ligar ao Azure Cosmos DB como uma origem de dados
+Este artigo contém um python exemplo permite-lhe ligar ao Cosmos DB no Azure Machine Learning Workbench.
 
-## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Carregar dados de base de dados do Azure Cosmos para preparação de dados
+## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Carregar dados do Azure Cosmos DB para preparação de dados
 
-Criar um novo fluxo de dados baseados em script e, em seguida, utilize o seguinte script para carregar os dados da base de dados do Azure Cosmos. 
+Criar um novo fluxo de dados baseada em script e, em seguida, utilize o seguinte script para carregar os dados do Azure Cosmos DB. 
 
 ```python
 import pydocumentdb
@@ -54,5 +54,5 @@ docs = client.ReadDocuments(coll['_self'])
 df = pd.DataFrame(list(docs))
 ```
 
-## <a name="other-data-source-connections"></a>Outras ligações à origem de dados
-Para outros exemplos, leia o artigo [ligações de dados de origem adicionais de exemplo](data-prep-appendix8-sample-source-connections-python.md)
+## <a name="other-data-source-connections"></a>Outras ligações de origem de dados
+Para outros exemplos, leia [conexões de dados de origem adicionais de exemplo](data-prep-appendix8-sample-source-connections-python.md)

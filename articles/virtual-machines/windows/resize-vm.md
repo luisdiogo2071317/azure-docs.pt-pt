@@ -1,6 +1,6 @@
 ---
-title: Utilizar o PowerShell para redimensionar uma VM do Windows no Azure | Microsoft Docs
-description: Redimensione a máquina virtual do Windows criada no modelo de implementação Resource Manager, com o Azure Powershell.
+title: Utilizar o PowerShell para redimensionar uma VM do Windows no Azure | Documentos da Microsoft
+description: Redimensione uma máquina de virtual do Windows criada no modelo de implementação do Resource Manager, com o Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 8854f694ce067aaa80a159430a9f48440bcdd95a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6bd41115f586bf2969dacb772f097d84654f0306
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701875"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649948"
 ---
-# <a name="resize-a-windows-vm"></a>Redimensionar uma VM do Windows
+# <a name="resize-a-windows-vm"></a>Redimensionar um VM do Windows
 
-Este artigo mostra como mover uma VM para outro [tamanho da VM](sizes.md) com o Azure Powershell.
+Este artigo mostra-lhe como mover uma VM para outra [tamanho da VM](sizes.md) com o Azure Powershell.
 
-Depois de criar uma máquina virtual (VM), pode dimensionar a VM ou reduzir verticalmente ao alterar o tamanho da VM. Em alguns casos, tem de Desalocação pela primeira vez a VM. Isto pode acontecer se o novo tamanho não está disponível no cluster de hardware que está atualmente a alojar a VM.
+Depois de criar uma máquina virtual (VM), pode dimensionar a VM ou reduzir verticalmente ao alterar o tamanho da VM. Em alguns casos, deve desalocar a VM pela primeira vez. Isto pode acontecer se o novo tamanho não está disponível no cluster de hardware que está atualmente a alojar a VM.
 
-Se a VM utiliza armazenamento Premium, certifique-se de que escolhe um **s** versão do tamanho para obter suporte de armazenamento Premium. Por exemplo, escolha Standard_E4**s**_v3 em vez de Standard_E4_v3.
+Se a VM utiliza o armazenamento Premium, certifique-se de que escolher uma **s** versão do tamanho para obter suporte de armazenamento Premium. Por exemplo, escolher Standard_E4**s**_v3 em vez de Standard_E4_v3.
 
-## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Redimensionar uma VM do Windows não num conjunto de disponibilidade
+## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Redimensionar uma VM do Windows não está no conjunto de disponibilidade
 
-Defina algumas variáveis. Substitua os valores pelas suas informações.
+Defina algumas variáveis. Substitua os valores com as suas próprias informações.
 
 ```powershell
 $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-Lista os tamanhos VM que estão disponíveis no cluster de hardware em que a VM está alojada. 
+Liste os tamanhos VM que estão disponíveis no cluster de hardware em que a VM está alojada. 
    
 ```powershell
 Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
@@ -53,7 +53,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Se o tamanho que pretende não estiver listado, execute os seguintes comandos ao anular atribuição de VM, redimensioná-la e reiniciar a VM. Replease **<newVMsize>** com o tamanho pretendido.
+Se o tamanho pretendido não estiver listado, execute os seguintes comandos para desalocar a VM, redimensione-o e reinicie a VM. Substitua **<newVMsize>** com o tamanho pretendido.
    
 ```powershell
 Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
@@ -64,26 +64,26 @@ Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
 > [!WARNING]
-> Desalocação da VM versões quaisquer endereços IP dinâmicos atribuídos à VM. Os SO e discos de dados não são afetados. 
+> A desalocar a VM versões quaisquer endereços IP dinâmicos atribuídos à VM. Os discos de SO e dados não são afetados. 
 > 
 > 
 
 ## <a name="resize-a-windows-vm-in-an-availability-set"></a>Redimensionar uma VM do Windows num conjunto de disponibilidade
 
-Se o novo tamanho de uma VM num conjunto de disponibilidade não está disponível no cluster de hardware atualmente a alojar a VM, em seguida, todas as VMs no conjunto de disponibilidade terá de ser desalocada para redimensionar a VM. Também poderá ter de atualizar o tamanho das outras VMs no conjunto depois de uma VM foi redimensionada de disponibilidade. Redimensionar uma VM num conjunto de disponibilidade, execute os seguintes passos.
+Se o novo tamanho de uma VM num conjunto de disponibilidade não está disponível no cluster de hardware atualmente a alojar a VM, em seguida, todas as VMs no conjunto de disponibilidade terá de ser desalocada para redimensionar a VM. Também poderá ter de atualizar o tamanho de outras VMs no conjunto depois de uma VM foi redimensionada de disponibilidade. Redimensionar uma VM num conjunto de disponibilidade, execute os seguintes passos.
 
 ```powershell
 $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-Lista os tamanhos VM que estão disponíveis no cluster de hardware em que a VM está alojada. 
+Liste os tamanhos VM que estão disponíveis no cluster de hardware em que a VM está alojada. 
    
 ```powershell
 Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
-Se o tamanho pretendido estiver listado, execute os seguintes comandos para redimensionar a VM. Se não estiver listado, consulte a secção seguinte.
+Se o tamanho pretendido estiver listado, execute os seguintes comandos para redimensionar a VM. Se não estiver na lista, vá para a secção seguinte.
    
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName 
@@ -91,7 +91,7 @@ $vm.HardwareProfile.VmSize = "<newVmSize>"
 Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
 ```
     
-Se o tamanho que pretende não estiver listado, continue com os seguintes passos para anular a atribuição de todas as VMs no conjunto de disponibilidade, redimensionar VMs e reiniciá-las.
+Se o tamanho pretendido não estiver listado, continue com os seguintes passos para desalocar todas as VMs no conjunto de disponibilidade, redimensionar VMs e reiniciá-las.
 
 Pare todas as VMs no conjunto de disponibilidade.
    
@@ -123,5 +123,5 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para escalabilidade adicional, execute várias instâncias VM e aumentar horizontalmente. Para obter mais informações, consulte [Dimensionar automaticamente máquinas Windows de um conjunto de dimensionamento de Máquina Virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
+Para escalabilidade adicional, execute várias instâncias VM e aumentar horizontalmente. Para obter mais informações, consulte [Dimensionar automaticamente máquinas do Windows num conjunto de dimensionamento de Máquina Virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921543"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720774"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de Hyper-V no local para a recuperação após desastre para o Azure
 
@@ -60,13 +60,15 @@ Prepare o VMM para o mapeamento da rede da seguinte forma:
 ## <a name="verify-internet-access"></a>Verifique se o acesso à internet
 
 1. Para efeitos do tutorial, a configuração mais simples é para os anfitriões Hyper-V e o servidor do VMM ter acesso direto à internet sem utilizar um proxy. 
-2. Certifique-se de que anfitriões de Hyper-V e o servidor do VMM, se forem relevantes, podem aceder a estes URLs: 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Certifique-se de que anfitriões de Hyper-V e o servidor do VMM, se forem relevantes, podem aceder aos URLs necessários abaixo.   
 3. Se estiver a controlar o acesso por endereço IP, certifique-se de que:
     - Regras de firewall baseadas no endereço IP podem ligar à [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)e a porta HTTPS (443).
     - Permitir que os intervalos de endereços IP para a região do Azure da sua subscrição.
+    
+### <a name="required-urls"></a>URLs necessários
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha

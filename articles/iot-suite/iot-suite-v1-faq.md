@@ -1,5 +1,5 @@
 ---
-title: FAQ do Azure IoT Suite | Microsoft Docs
+title: FAQ do Suite IoT do Azure | Documentos da Microsoft
 description: Perguntas mais frequentes sobre o IoT Suite
 services: ''
 suite: iot-suite
@@ -15,52 +15,52 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 77b9fab68b66fe8998733a8f890acb9dd6b97899
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7e7c4affee64a945900c02b6375ba4df5d085183
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702381"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35757809"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas mais frequentes sobre o IoT Suite
 
-Além disso, consulte o específicos de fábrica ligado [FAQ](../iot-accelerators/iot-accelerators-faq-cf.md).
+Além disso, veja as específicas de fábrica ligada [FAQ](../iot-accelerators/iot-accelerators-faq-cf.md).
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Onde posso encontrar o código de origem para as soluções pré-configuradas?
+### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Onde posso encontrar o código-fonte para as soluções pré-configuradas?
 
-O código de origem é armazenado no repositórios do GitHub seguintes:
+O código-fonte é armazenado nos repositórios do GitHub seguintes:
 * [Solução pré-configurada de monitorização remota][lnk-remote-monitoring-github]
 * [Solução pré-configurada de manutenção preditiva][lnk-predictive-maintenance-github]
-* [Solução de fábrica ligado pré-configurada](https://github.com/Azure/azure-iot-connected-factory)
+* [Solução pré-configurada de fábrica ligada](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Como atualizar para a versão mais recente da solução pré-configurada de monitorização remota que utiliza as funcionalidades de gestão de dispositivos do IoT Hub?
+### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Como posso atualizar para a versão mais recente da solução pré-configurada de monitorização remota que utiliza as funcionalidades de gestão de dispositivos do IoT Hub?
 
 * Se implementar uma solução pré-configurada do https://www.azureiotsuite.com/ site, implementa sempre uma nova instância da versão mais recente da solução.
-* Se implementar uma solução pré-configurada através da linha de comandos, pode atualizar uma implementação existente com o código de novo. Consulte [implementação na nuvem] [ lnk-cloud-deployment] no GitHub [repositório][lnk-remote-monitoring-github].
+* Se implementar uma solução pré-configurada com a linha de comandos, pode atualizar uma implementação existente com o novo código. Ver [implementação na nuvem] [ lnk-cloud-deployment] no GitHub [repositório][lnk-remote-monitoring-github].
 
-### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Como adicionar suporte para um novo método de dispositivo para a solução pré-configurada de monitorização remota?
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Como posso adicionar suporte para um novo método de dispositivo para a solução pré-configurada de monitorização remota?
 
 Consulte a secção [adicionar suporte para um novo método para o simulador] [ lnk-add-method] no [personalizar uma solução pré-configurada] [ lnk-customize] artigo.
 
-### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>O dispositivo simulado está a ignorar a minha alterações de propriedade pretendido, por que motivo?
-A solução pré-configurada monitorização remota, o dispositivo simulado código utiliza apenas a **Desired.Config.TemperatureMeanValue** e **Desired.Config.TelemetryInterval** pretendido propriedades Atualize as propriedades que relatados. Todos os outros pedidos de alteração de propriedade pretendido são ignorados.
+### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>O dispositivo está a ignorar minhas alterações de propriedade pretendida, por que?
+A solução pré-configurada monitorização remota, o dispositivo simulado código utiliza apenas a **Desired.Config.TemperatureMeanValue** e **Desired.Config.TelemetryInterval** propriedades para pretendidas Atualize as propriedades comunicadas. Todos os outros pedidos de alteração de propriedades pretendidas são ignorados.
 
-### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>Dispositivo não for apresentada a lista de dispositivos no dashboard de solução, por que motivo?
+### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>O meu dispositivo não aparece na lista de dispositivos no dashboard da solução, por que?
 
-A lista de dispositivos no dashboard de solução utiliza uma consulta para devolver a lista de dispositivos. Atualmente, não pode devolver mais do que os dispositivos de 10 mil uma consulta. Tente efetuar os critérios de pesquisa na sua consulta mais restrita.
+A lista de dispositivos no dashboard da solução utiliza uma consulta para devolver a lista de dispositivos. Atualmente, uma consulta não pode retornar mais de 10 mil dispositivos. Tente fazer com que os critérios de pesquisa para a sua consulta mais restrita.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Qual a diferença entre a eliminação de um grupo de recursos no Portal do Azure e clicar Eliminar numa solução pré-configurada em azureiotsuite.com?
 
-* Se eliminar a solução pré-configurada em [azureiotsuite.com][lnk-azureiotsuite], estará a eliminar todos os recursos que aprovisionou aquando da criação da solução pré-configurada. Se adicionou recursos adicionais ao grupo de recursos, estes recursos também serão eliminados. 
-* Se eliminar o grupo de recursos no [portal do Azure][lnk-azure-portal], apenas estará a eliminar os recursos nesse grupo de recursos. Também terá de eliminar a aplicação do Azure Active Directory associada à solução pré-configurada no [portal do Azure][lnk-azure-portal].
+* Se eliminar a solução pré-configurada [azureiotsuite.com][lnk-azureiotsuite], eliminar todos os recursos que foram aprovisionados quando criou a solução pré-configurada. Se adicionou recursos adicionais para o grupo de recursos, esses recursos também são eliminados. 
+* Se eliminar o grupo de recursos no [portal do Azure][lnk-azure-portal], só é eliminar os recursos nesse grupo de recursos. Também precisa de eliminar a aplicação do Azure Active Directory associada com a solução para o [portal do Azure][lnk-azure-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT é possível aprovisionar numa subscrição?
 
-Por predefinição pode aprovisionar [10 hubs IoT por subscrição][link-azuresublimits]. Pode criar um [pedido de suporte do Azure] [ link-azuresupportticket] para aumentar este limite. Como resultado, uma vez que cada solução pré-configurada aprovisiona um IoT Hub novo, apenas pode aprovisionar até 10 soluções pré-configuradas numa determinada subscrição. 
+Por predefinição, pode aprovisionar [10 hubs IoT por subscrição][link-azuresublimits]. Pode criar uma [pedido de suporte do Azure] [ link-azuresupportticket] para aumentar este limite. Como resultado, uma vez que cada solução pré-configurada aprovisiona um novo IoT Hub, apenas pode aprovisionar até 10 soluções pré-configuradas numa determinada subscrição. 
 
-### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias de base de dados do Azure Cosmos possível aprovisionar numa subscrição?
+### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Azure Cosmos DB pode aprovisionar numa subscrição?
 
-Cinquenta. Pode criar um [pedido de suporte do Azure] [ link-azuresupportticket] para aumentar este limite, mas por predefinição, apenas pode aprovisionar 50 instâncias do Cosmos DB por subscrição. 
+Cinquenta. Pode criar uma [pedido de suporte do Azure] [ link-azuresupportticket] para aumentar este limite, mas por predefinição, apenas pode aprovisionar 50 instâncias do Cosmos DB por subscrição. 
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Quantas APIs para o Free Bing Maps é possível aprovisionar numa subscrição?
 
@@ -68,18 +68,18 @@ Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para
 
 ### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>Tenho uma implementação de solução de monitorização remota com um mapa estático, como adicionar um mapa interativo ao Bing?
 
-1. Obter a API do Bing Maps para Enterprise QueryKey a partir de [portal do Azure][lnk-azure-portal]: 
+1. Obter a API do Bing Maps para Enterprise QueryKey a partir [portal do Azure][lnk-azure-portal]: 
    
-   1. Navegue para o grupo de recursos onde a sua API para Bing Maps para Enterprise está no [portal do Azure][lnk-azure-portal].
+   1. Navegue para o grupo de recursos em que a sua API dos mapas Bing para empresas é no [portal do Azure][lnk-azure-portal].
    2. Clique em **todas as definições**, em seguida, **gestão de chaves**. 
    3. Pode ver duas chaves: **MasterKey** e **QueryKey**. Copie o valor para **QueryKey**.
       
       > [!NOTE]
-      > Não tem uma API para o Bing Maps para conta Enterprise? Crie uma no [portal do Azure] [ lnk-azure-portal] pelas clicando em + nova, procura API para Bing Maps para Enterprise e siga as instruções para criar.
+      > Não tem uma API para o Bing Maps para conta Enterprise? Criar um da [portal do Azure] [ lnk-azure-portal] às clicando em + novo, procurar a API do Bing Maps para Enterprise e siga as instruções para criar.
       > 
       > 
-2. Obtenha o código mais recente do [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
-3. Executar uma local ou seguir as orientações de implementação da linha de comandos na pasta /docs/ do repositório de implementação na nuvem. 
+2. Obter o código mais recente a partir da [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
+3. Executar local ou na cloud a implementação, seguindo as orientações de implementação da linha de comandos na pasta /docs/ do repositório. 
 4. Depois de ter executado a implementação local ou na nuvem, procure na sua pasta raiz o ficheiro *.user.config criado aquando da implementação. Abra este ficheiro num editor de texto. 
 5. Altere a seguinte linha para incluir o valor que copiou do seu **QueryKey**: 
    
@@ -88,28 +88,28 @@ Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Posso criar uma solução pré-configurada se tiver o Microsoft Azure para DreamSpark?
 
 > [!NOTE]
-> Microsoft Azure para DreamSpark é agora conhecido como Microsoft Imagine para os estudantes que estejam.
+> Microsoft Azure para DreamSpark é agora conhecido como Microsoft Imagine para estudantes.
 
-Atualmente, não é possível criar uma solução pré-configurada com uma [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) conta. No entanto, pode criar um [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que lhe permite criar uma solução pré-configurada.
+Atualmente, não é possível criar uma solução pré-configurada com uma [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) conta. No entanto, pode criar uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que lhe permitem criar uma solução pré-configurada.
 
-### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Posso criar uma solução pré-configurada se tiver subscrição do fornecedor de solução em nuvem (CSP)?
+### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>É possível criar uma solução pré-configurada se eu tiver a subscrição do fornecedor de soluções Cloud (CSP)?
 
-Atualmente, não é possível criar uma solução pré-configurada com uma subscrição do fornecedor de solução em nuvem (CSP). No entanto, pode criar um [conta de avaliação gratuita do Azure] [ lnk-30daytrial] em apenas alguns minutos que lhe permite criar uma solução pré-configurada.
+Atualmente, não é possível criar uma solução pré-configurada com uma subscrição do fornecedor de soluções Cloud (CSP). No entanto, pode criar uma [conta de avaliação gratuita do Azure] [ lnk-30daytrial] em apenas alguns minutos que lhe permitem criar uma solução pré-configurada.
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Como posso eliminar um inquilino do Azure AD?
 
-Consulte a mensagem de blogue de Eric Golpe [instruções de eliminação de um inquilino do Azure AD][lnk-delete-aad-tennant].
+Consulte a postagem de blog de Eric Golpe [instruções de eliminação de um inquilino do Azure AD][lnk-delete-aad-tennant].
 
 ### <a name="next-steps"></a>Passos Seguintes
 
 Também pode explorar algumas das outras funcionalidades e capacidades das soluções pré-configuradas do IoT Suite:
 
-* [Descrição geral de solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
-* [Descrição geral da solução de fábrica ligado pré-configurada](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
+* [Descrição de geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
+* [Descrição geral da solução de fábrica ligada pré-configurada](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [Segurança de IoT desde o início][lnk-security-groundup]
 
 [lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
-[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

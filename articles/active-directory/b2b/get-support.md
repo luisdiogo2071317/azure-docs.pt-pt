@@ -1,40 +1,40 @@
 ---
-title: Obter o suporte para colaboração B2B do Azure Active Directory do | Microsoft Docs
-description: O que é a experiência de suporte para colaboração B2B do Azure Active Directory do?
+title: Obter suporte para colaboração do Azure Active Directory B2B | Documentos da Microsoft
+description: O que é a experiência de suporte para a colaboração do Azure Active Directory B2B?
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0ae85989f144b790407e4c1dce587f70839417cf
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: f0d4ae4544bbb79e532a043bea7585fcc93705a9
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260135"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647811"
 ---
-# <a name="getting-support-for-b2b-collaboration"></a>Obter o suporte para colaboração B2B
+# <a name="getting-support-for-b2b-collaboration"></a>Obter suporte para colaboração B2B
 
-Já leu a documentação, tiver terminado as direitos coisas, mas ainda não é possível obter algo a funcionar? Abra um pedido de suporte (necessita de um plano de suporte):
+Já leu a documentação, fez o certo, mas ainda não é possível obter algo funcionar? Abra um pedido de suporte (requer um plano de suporte):
 
-1. No [portal do Azure](https://portal.azure.com), navegue para o painel de ajuda e suporte e selecione o novo pedido de suporte:
-  - Emitir o tipo: técnica
-  - Subscrição: Escolha afetados subscrição
+1. Na [do portal do Azure](https://portal.azure.com), navegue para o painel de ajuda e suporte e selecione o novo pedido de suporte:
+  - Tipo de problema: técnicos
+  - Subscrição: Escolha afetados da subscrição
     - Serviço: Do Active Directory
-    - Plano de suporte: Escolher o plano de suporte relevantes
+    - Plano de suporte: Escolha o plano de suporte relevantes
 
-  ![novo pedido de suporte](media/get-support/new-support-request.png)
+  ![Novo pedido de suporte](media/get-support/new-support-request.png)
 
 2. Descreva o problema:
-  - Escolha a gravidade adequada que reflete o precisa.
-  - Escolha o tipo de problema como utilizador e gestão de grupo
-  - Escolha categoria como adicionar utilizadores (B2B)
-  - Inclua quaisquer mensagens de erro, tais como CorrelationID, os utilizadores afetados e assim sucessivamente.
+  - Escolha a gravidade apropriada que reflete o precisa.
+  - Escolha o tipo de problema como utilizador e gestão de grupos
+  - Escolha a categoria como adicionar utilizadores (B2B)
+  - Inclua todas as mensagens de erro, como o CorrelationID, os utilizadores afetados e assim por diante.
 
-  ![suporta a descrição do problema de permissão](media/get-support/problem-description.png)
+  ![Descrição do problema de pedido de suporte](media/get-support/problem-description.png)
 
-3. Para um representante de suporte para contactá-lo para resolução de problemas, adicione as informações de contacto.
+3. Para um representante de suporte em contacto consigo para ainda mais a resolução de problemas, adicione as informações de contacto.

@@ -1,6 +1,6 @@
 ---
-title: Consulta em bases de dados de nuvem com o esquema diferentes | Microsoft Docs
-description: como configurar a base de dados entre consultas através de partições verticais
+title: Consultas entre bases de dados na cloud com esquema diferente | Documentos da Microsoft
+description: como configurar a consultas entre bases de dados através de partições verticais
 services: sql-database
 manager: craigg
 author: MladjoA
@@ -9,26 +9,26 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29f477a5f6c8583f6224cb216356606129fedb81
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645760"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647265"
 ---
-# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar em bases de dados de nuvem com diferentes esquemas (pré-visualização)
-![Consultar em tabelas de bases de dados diferentes][1]
+# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bases de dados de cloud com esquemas diferentes (pré-visualização)
+![Consultar entre tabelas em diferentes bases de dados][1]
 
-Verticalmente particionada bases de dados utilizam conjuntos diferentes de tabelas de bases de dados diferentes. Isto significa que o esquema é diferente em bases de dados diferentes. Por exemplo, todas as tabelas de inventário são numa base de dados enquanto todas as tabelas relacionadas com a gestão de contas numa segunda base de dados. 
+Bases de dados particionados verticalmente utilizam conjuntos de tabelas diferentes em diferentes bases de dados. Isso significa que o esquema é diferente em diferentes bases de dados. Por exemplo, todas as tabelas para o inventário estão num banco de dados enquanto todas as tabelas relacionadas com a gestão de contas estão numa segunda base de dados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* O utilizador precisa de ter permissão ALTER qualquer origem de dados externa. Esta permissão está incluído com a permissão ALTER DATABASE.
-* São necessárias permissões de ALTER qualquer origem de dados externa para fazer referência à origem de dados subjacente.
+* O utilizador tem de ter permissão de alterar qualquer origem de dados externa. Esta permissão está incluída com a permissão ALTER DATABASE.
+* São necessárias permissões de alterar qualquer origem de dados externa para fazer referência à origem de dados subjacente.
 
 ## <a name="overview"></a>Descrição geral
 
 > [!NOTE]
-> Ao contrário com criação de partições horizontais, estas instruções DDL depende da definição de uma camada de dados com um mapa de partições horizontais através da biblioteca de clientes de base de dados elástica.
+> Ao contrário com a criação de partições horizontais, estas instruções DDL não dependem de definir uma camada de dados com um mapa de partições horizontais através da biblioteca de cliente da base de dados elástica.
 >
 
 1. [CRIAR CHAVE MESTRA](https://msdn.microsoft.com/library/ms174382.aspx)
@@ -36,8 +36,8 @@ Verticalmente particionada bases de dados utilizam conjuntos diferentes de tabel
 3. [CRIAR ORIGEM DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## <a name="create-database-scoped-master-key-and-credentials"></a>Criar chave mestra de base de dados no âmbito e as credenciais
-A credencial é utilizada pela consulta elástica para estabelecer a ligação para as bases de dados remotas.  
+## <a name="create-database-scoped-master-key-and-credentials"></a>Criar chave mestra do banco de dados no âmbito e as credenciais
+A credencial é utilizada pela consulta elástica para ligar aos seus bancos de dados remotos.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -45,7 +45,7 @@ A credencial é utilizada pela consulta elástica para estabelecer a ligação p
     [;]
 
 > [!NOTE]
-> Certifique-se de que o `<username>` não inclui quaisquer **"@servername"** sufixo. 
+> Certifique-se de que o `<username>` não inclui quaisquer **"\@servername"** sufixo. 
 >
 
 ## <a name="create-external-data-sources"></a>Criar origens de dados externas
@@ -60,11 +60,11 @@ Sintaxe:
                 ) [;] 
 
 > [!IMPORTANT]
-> O parâmetro de tipo tem de ser definido **RDBMS**. 
+> O parâmetro de tipo deve ser definido como **RDBMS**. 
 >
 
 ### <a name="example"></a>Exemplo
-O exemplo seguinte ilustra a utilização de instrução CREATE para origens de dados externas. 
+O exemplo a seguir ilustra o uso da instrução CREATE para origens de dados externas. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
     WITH 
@@ -112,28 +112,28 @@ O exemplo seguinte mostra como obter a lista de tabelas externas da base de dado
     select * from sys.external_tables; 
 
 ### <a name="remarks"></a>Observações
-Consulta elástica expande a sintaxe de tabela externa existente para definir as tabelas externas que utilizam as origens de dados externas do tipo RDBMS. Uma definição de tabela externa para a criação de partições vertical abrange os seguintes aspetos: 
+Consulta elástica estende a sintaxe de tabela externa existente para definir tabelas externas que utilizam a origens de dados externas do tipo RDBMS. Uma definição de tabela externa para a criação de partições verticais abrange os seguintes aspetos: 
 
-* **Esquema**: da tabela externa DDL define um esquema que podem utilizar as suas consultas. O esquema fornecido na sua definição de tabela externa tem de corresponder ao esquema das tabelas na base de dados remota, armazenar os dados reais. 
-* **Referência de base de dados remota**: da tabela externa DDL refere-se a uma origem de dados externas. A origem de dados externo Especifica o nome do servidor lógico e o nome de base de dados da base de dados remoto armazenar os dados da tabela real. 
+* **Esquema**: O DDL da tabela externa define um esquema que podem utilizar as suas consultas. O esquema fornecido na sua definição de tabela externa tem de corresponder ao esquema das tabelas na base de dados remoto onde estão armazenados os dados reais. 
+* **Referência da base de dados remota**: A tabela externa DDL refere-se a uma origem de dados externa. A origem de dados externo Especifica o nome do servidor lógico e o nome de base de dados da base de dados remoto onde estão armazenados os dados da tabela real. 
 
-A sintaxe para criar as tabelas externas com uma origem de dados externa, conforme descrito na secção anterior, é o seguinte: 
+A sintaxe para criar tabelas externas usando uma origem de dados externos, conforme descrito na secção anterior, é o seguinte: 
 
-A cláusula DATA_SOURCE define a origem de dados externa (ou seja, a base de dados remota em caso de criação de partições vertical) que é utilizada para a tabela externa.  
+A cláusula DATA_SOURCE define a origem de dados externa (ou seja, a base de dados remota em caso de criação de partições verticais) que é utilizada para a tabela externa.  
 
-As cláusulas SCHEMA_NAME e OBJECT_NAME fornecem a capacidade de mapear a definição de tabela externa a uma tabela de um esquema diferente na base de dados remoto ou a uma tabela com um nome diferente, respetivamente. Isto é útil se pretender definir uma tabela externa para uma vista de catálogo ou DMV na sua base de dados remota - ou quaisquer outra situação em que o nome de tabela remota já estiver atribuído localmente.  
+As cláusulas SCHEMA_NAME e OBJECT_NAME fornecem a capacidade de mapear a definição de tabela externa para uma tabela num esquema diferente na base de dados remoto ou a uma tabela com um nome diferente, respectivamente. Isto é útil se pretender definir uma tabela externa para uma exibição de catálogo ou DMV na sua base de dados remoto - ou qualquer outra situação em que o nome da tabela remota já estiver atribuído localmente.  
 
-A seguinte instrução DDL ignora uma definição de tabela externa existente a partir do catálogo local. Não afeta a base de dados remota. 
+A seguinte instrução DDL ignora uma definição de tabela externa existente do catálogo local. Ela não afeta a base de dados remota. 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Permissões de tabela externa CREATE/DROP**: são necessárias permissões de ALTER qualquer origem de dados externa para a tabela externa DDL que também é necessário para fazer referência à origem de dados subjacente.  
+**Permissões para a tabela externa de CREATE/DROP**: são necessárias permissões de alterar qualquer origem de dados externa para a tabela externa DDL que também é necessária para fazer referência à origem de dados subjacente.  
 
 ## <a name="security-considerations"></a>Considerações de segurança
-Os utilizadores com acesso à tabela externa automaticamente obterem acesso às tabelas remotas subjacentes sob a credencial fornecida na definição de origem de dados externas. Cuidadosamente deve gerir o acesso à tabela externa para evitar indesejada elevação de privilégios através a credencial da origem de dados externas. Permissões de SQL regulares podem ser utilizadas para conceder ou REVOGAR o acesso a uma tabela externa como se fosse uma tabela normal.  
+Os utilizadores com acesso à tabela externa automaticamente obtém acesso às tabelas subjacentes remotos sob a credencial fornecida na definição de origem de dados externa. Deve gerenciar cuidadosamente o acesso à tabela externa para evitar indesejada de elevação de privilégios através da credencial da origem de dados externo. Permissões de SQL regulares podem ser utilizadas para conceder ou REVOGAR o acesso a uma tabela externa como se fosse uma tabela normal.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>Exemplo: consultar verticalmente particionada bases de dados
-A seguinte consulta executa uma associação de três vias entre duas tabelas locais para as ordens e linhas de ordem e a tabela remota para clientes. Este é um exemplo do caso de utilização de dados de referência para a consulta elástico: 
+A seguinte consulta executa uma junção de três vias entre as duas tabelas locais de pedidos e de linhas da ordem e a tabela remota para os clientes. Este é um exemplo do caso de utilização de dados de referência para a consulta elástica: 
 
     SELECT      
      c_id as customer,
@@ -151,14 +151,14 @@ A seguinte consulta executa uma associação de três vias entre duas tabelas lo
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento para execução remota de T-SQL armazenado: sp\_execute_remote
-Consulta elástica também apresenta um procedimento armazenado que fornece acesso direto à base de dados remota. O procedimento armazenado é chamado [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser utilizada ao executar procedimentos armazenados remotos ou um código de T-SQL na base de dados remota. Demora os seguintes parâmetros: 
+Consulta elástica também introduz um procedimento armazenado que fornece acesso direto à base de dados remota. O procedimento armazenado é chamado [sp\_execute \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser utilizado para executar procedimentos armazenados remotos ou o código T-SQL na base de dados remota. Ele usa os seguintes parâmetros: 
 
-* Nome da origem de dados (nvarchar): O nome da origem de dados externas do tipo RDBMS. 
-* Consulta (nvarchar): consulta o T-SQL para ser executado na base de dados remota. 
-* Declaração de parâmetro (nvarchar) - opcional: de cadeia com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
-* Lista de valores de parâmetro - opcional: lista de valores separados por vírgulas de valores de parâmetros (por exemplo, sp_executesql).
+* O nome da origem de dados (nvarchar): O nome da origem de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): consulta de T-SQL a ser executado na base de dados remota. 
+* Declaração de parâmetro (nvarchar) - opcional: cadeia com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
+* Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
 
-O sp\_executar\_remoto utiliza a origem de dados externa fornecida nos parâmetros de invocação para executar a instrução de T-SQL fornecida na base de dados remota. Utiliza a credencial da origem de dados externo para ligar à base de dados remota.  
+O sp\_executar\_remoto da origem de dados externo fornecida nos parâmetros de invocação para executar a instrução T-SQL específica na base de dados remota. Utiliza a credencial da origem de dados externos para ligar à base de dados remota.  
 
 Exemplo: 
 
@@ -169,19 +169,19 @@ Exemplo:
 
 
 ## <a name="connectivity-for-tools"></a>Conectividade de ferramentas
-Pode utilizar regulares cadeias de ligação do SQL Server para ligar as ferramentas de integração do BI e os dados para as bases de dados no servidor de base de dados SQL que tenha consulta elástica ativada e tabelas externas definidas. Certifique-se de que o SQL Server é suportada como uma origem de dados para a ferramenta. Em seguida, consulte a base de dados elásticas consulta e as respetivas tabelas externas, tal como qualquer outro SQL Server da base de dados que seria se ligam a com a ferramenta. 
+Pode utilizar cadeias de ligação normais do SQL Server para ligar as ferramentas de integração BI e os dados para bases de dados no servidor de BD SQL com a consulta elástica ativada e as tabelas externas definidas. Certifique-se de que o SQL Server é suportado como uma origem de dados para a sua ferramenta. Em seguida, consulte a base de dados de consulta elástica e suas tabelas externas, assim como qualquer outro SQL Server da base de dados que iria a estabelecer ligação com a sua ferramenta. 
 
 ## <a name="best-practices"></a>Melhores práticas
-* Certifique-se de que a base de dados do ponto final de consulta elástico foi indicado acesso à base de dados remoto ao permitir o acesso para serviços do Azure na sua configuração de firewall da BD do SQL. Certifique-se também de que a credencial fornecida na definição de origem de dados externas pode iniciar com êxito na base de dados remoto e tem as permissões para aceder à tabela remota.  
-* Consulta elástica funciona melhor para consultas onde a maioria da computação pode ser feita nas bases de dados remotas. Normalmente, obter o melhor desempenho de consulta com os predicados de filtro seletiva que pode ser avaliado nas bases de dados remotas ou associações que podem ser efetuadas completamente na base de dados remota. Outros padrões de consulta poderão ter de carregar grandes quantidades de dados a partir da base de dados remota e podem efetuar mal. 
+* Certifique-se de que a base de dados do ponto final de consulta elástica, deu acesso à base de dados remoto ao permitir o acesso dos serviços do Azure na sua configuração de firewall da BD SQL. Certifique-se também de que a credencial fornecida na definição de origem de dados externa pode iniciar com êxito na base de dados remoto e tem as permissões para aceder à tabela remota.  
+* Consulta elástica funciona melhor para consultas em que a maioria da computação pode ser feita nas bases de dados remotas. Normalmente, pode obter o melhor desempenho de consulta com predicados de filtro seletiva que pode ser avaliado nos bancos de dados remotos ou associações que podem ser realizadas completamente no banco de dados remoto. Outros padrões de consulta poderão ter de carregar grandes quantidades de dados do banco de dados remoto e podem ter um mau desempenho. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter uma descrição geral da consulta elástica, consulte [descrição geral de consulta elástico](sql-database-elastic-query-overview.md).
-* Para um tutorial de criação de partições vertical, consulte [introdução à consulta de base de dados em vários locais (criação de partições vertical)](sql-database-elastic-query-getting-started-vertical.md).
-* Para um tutorial horizontal criação de partições (fragmentação), consulte [como começar a consultar elástico (fragmentação) de partições horizontais](sql-database-elastic-query-getting-started.md).
-* Para consultas de sintaxe e exemplos de dados particionadas horizontalmente, consulte [consultar horizontalmente particionada dados)](sql-database-elastic-query-horizontal-partitioning.md)
-* Consulte [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução de Transact-SQL num único remoto SQL Database do Azure ou um conjunto de bases de dados que servem como shards num esquema de partições horizontal.
+* Para obter uma descrição geral de consulta elástica, veja [descrição geral de consulta elástica](sql-database-elastic-query-overview.md).
+* Para obter um tutorial de criação de partições vertical, consulte [guia de introdução consultas entre bases de dados (criação de partições verticais)](sql-database-elastic-query-getting-started-vertical.md).
+* Para obter um tutorial de criação de partições horizontais (fragmentação), consulte [guia de introdução consulta elástica para a criação de partições horizontais (fragmentação)](sql-database-elastic-query-getting-started.md).
+* Para consultas de exemplo de sintaxe e para dados particionados horizontalmente, consulte [horizontalmente a consulta particionados dados)](sql-database-elastic-query-horizontal-partitioning.md)
+* Ver [sp\_execute \_remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução de Transact-SQL num único remoto SQL Database do Azure ou um conjunto de bases de dados que serve como fragmentos num esquema de partições horizontal.
 
 
 <!--Image references-->

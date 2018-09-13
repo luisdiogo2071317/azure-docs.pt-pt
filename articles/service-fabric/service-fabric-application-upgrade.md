@@ -1,6 +1,6 @@
 ---
-title: Atualização da aplicação de Service Fabric | Microsoft Docs
-description: Este artigo fornece uma introdução ao atualizar uma aplicação de Service Fabric, incluindo escolher entre modos de atualização e executar verificações do Estado de funcionamento.
+title: Atualização da aplicação de Service Fabric | Documentos da Microsoft
+description: Este artigo fornece uma introdução ao atualizar uma aplicação do Service Fabric, incluindo escolher entre modos de atualização e executar verificações do Estado de funcionamento.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,74 +14,74 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: fca05a1b21e1cefd4146f754d7dedda0d7ff2ac0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 79408c9936000aa18dba9347b8a10fa7dcd8e8ee
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207983"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35759563"
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicação do Service Fabric
-Uma aplicação de Service Fabric do Azure é uma coleção de serviços. Durante uma atualização, o Service Fabric compara o novo [manifesto da aplicação](service-fabric-application-and-service-manifests.md) com a versão anterior e determina qual serviços nas atualizações de requerem a aplicação. Service Fabric compara a versão números no serviço de manifestos com os números de versão na versão anterior. Se não tiver sido alterado um serviço, esse serviço não está atualizado.
+Uma aplicação do Azure Service Fabric é uma coleção de serviços. Durante uma atualização, compara o novo Service Fabric [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) com a versão anterior e determina qual dos serviços nas atualizações do aplicativo requer. Service Fabric compara a versão manifestos de números no serviço com os números de versão na versão anterior. Se um serviço não foi alterada, esse serviço não está atualizado.
 
-## <a name="rolling-upgrades-overview"></a>A descrição geral de atualizações
-Numa atualização aplicação graduais, a atualização é executada em fases. Em cada fase, a atualização é aplicada a um subconjunto de nós no cluster, chamado um domínio de atualização. Como resultado, a aplicação permanece disponível durante a atualização. Durante a atualização, o cluster pode conter uma combinação das versões antigas e novas.
+## <a name="rolling-upgrades-overview"></a>Sem interrupção de descrição geral de atualizações
+Numa atualização sem interrupção do aplicativo, a atualização é executada em fases. Cada fase, a atualização é aplicada a um subconjunto de nós do cluster, chamado de um domínio de atualização. Como resultado, a aplicação permanece disponível durante a atualização. Durante a atualização, o cluster pode conter uma combinação das versões antigas e novas.
 
-Por esse motivo, as duas versões tem de ser com versões anteriores e reencaminhar compatível. Se não forem compatíveis, o administrador da aplicação é responsável por uma atualização de fase de vários para manter a disponibilidade de teste. Numa atualização vários fase, o primeiro passo é atualizar para uma versão intermédia da aplicação que é compatível com a versão anterior. O segundo passo é para atualizar a versão final que interrompe a compatibilidade com a versão de pré-atualização, mas é compatível com a versão intermédia.
+Por esse motivo, as duas versões tem de ser progressivos e regressivos compatível. Se não forem compatíveis, o administrador do aplicativo é responsável por uma atualização de várias fases para manter a disponibilidade de teste. Numa atualização várias fases, o primeiro passo está a atualizar para uma versão intermediária do aplicativo que é compatível com a versão anterior. O segundo passo é atualizar a versão final quebras de compatibilidade com a versão de pré-atualização, mas é compatível com a versão intermediária.
 
-Domínios de atualização são especificados no manifesto do cluster quando configurar o cluster. Domínios de atualização não recebem atualizações por uma ordem específica. Um domínio de atualização é uma unidade lógica de implementação de uma aplicação. Domínios de atualização permitir que os serviços permaneça na disponibilidade elevada durante uma atualização.
+Domínios de atualização são especificados no manifesto do cluster quando configurar o cluster. Domínios de atualização não recebem as atualizações numa determinada ordem. Um domínio de atualização é uma unidade lógica de implementação para uma aplicação. Domínios de atualização permitem que os serviços para permanecer no momento da disponibilidade elevada durante uma atualização.
 
-Atualizações a anular não são possíveis se a atualização é aplicada a todos os nós do cluster, o que é o caso quando a aplicação tem apenas um domínio de atualização. Esta abordagem não é recomendada, uma vez que o serviço de fica inativo e não está disponível no momento da atualização. Além disso, o Azure não fornece quaisquer garantias quando configurar um cluster com o domínio de atualização apenas um.
+As atualizações sem interrupção não são possíveis, se a atualização é aplicada a todos os nós do cluster, o que é o caso quando o aplicativo tem apenas um domínio de atualização. Essa abordagem não é recomendável, uma vez que o serviço fica inativo e não está disponível no momento da atualização. Além disso, o Azure não fornece quaisquer garantias, quando configurar um cluster com apenas um domínio de atualização.
 
-Após a conclusão da atualização, todos os serviços e replicas(instances) seriam permaneça a mesma versão-ou seja, se a atualização tiver êxito, serão atualizados para a nova versão; Se a atualização falhar e é revertido, estes seriam ser revertidos para a versão antiga.
+Depois de concluída a atualização, todos os serviços e replicas(instances) seriam manter-se na mesma versão-ou seja, se a atualização tiver êxito, estes serão atualizados para a nova versão; Se a atualização falhar e é revertido, eles seriam ser revertidos para a versão antiga.
 
 ## <a name="health-checks-during-upgrades"></a>Verificações de estado de funcionamento durante as atualizações
-Para uma atualização, as políticas de estado de funcionamento têm de ser definido (ou podem ser utilizados valores predefinidos). Uma atualização é denominado com êxito quando todos os domínios de atualização são atualizados dentro os tempos limite especificados e quando todos os domínios de atualização são considerados bom estado de funcionamento padrão.  Um domínio de atualização em bom estado significa que o domínio de atualização transmitido todas as verificações de estado de funcionamento especificadas na política de estado de funcionamento. Por exemplo, uma política de estado de funcionamento pode obrigar que todos os serviços dentro de uma instância de aplicação tem de ser *bom*, como o estado de funcionamento é definido ao Service Fabric.
+Para uma atualização, as políticas de estado de funcionamento tem de ser definido (ou podem ser utilizados valores predefinidos). Uma atualização é chamada com êxito quando todos os domínios de atualização são atualizados dentro de esgotamentos de tempo limite especificados, e quando todos os domínios de atualização são considerados em bom estado de funcionamento.  Um domínio de atualização em bom estado significa que o domínio de atualização transmitido todas as verificações de estado de funcionamento especificadas na política de estado de funcionamento. Por exemplo, pode impor uma política de estado de funcionamento que todos os serviços dentro de uma instância de aplicação tem de ser *bom estado de funcionamento*, como o estado de funcionamento é definido ao Service Fabric.
 
-Políticas de estado de funcionamento e verificações durante a atualização do Service Fabric desconhecem serviço e de aplicações. Ou seja, são efetuados sem testes específicos do serviço.  Por exemplo, o serviço poderá ter um requisito de débito, mas os recursos de infraestrutura de serviço não tem as informações para verificar o débito. Consulte o [artigos de estado de funcionamento](service-fabric-health-introduction.md) para as verificações que são executadas. As verificações que ocorrem durante um testes de atualização incluir para se o pacote de aplicação foi corretamente copiado, se a instância foi iniciada e assim sucessivamente.
+Políticas de estado de funcionamento e verificações durante a atualização ao Service Fabric são agnósticos relativamente à aplicação e serviço. Ou seja, não existem testes específicos do serviço terminar.  Por exemplo, o seu serviço pode ter um requisito de débito, mas o Service Fabric não tem as informações para verificar a taxa de transferência. Consulte a [artigos de estado de funcionamento](service-fabric-health-introduction.md) para as verificações que são executadas. As verificações que ocorrem durante uma testes de inclusão de atualização para se o pacote de aplicação foi copiado corretamente, se a instância foi iniciada e assim por diante.
 
-O estado de funcionamento de aplicações é uma agregação das entidades de subordinados da aplicação. Resumindo, o Service Fabric avalia o estado de funcionamento da aplicação através do Estado de funcionamento que é reportado na aplicação. Também avalia o estado de funcionamento de todos os serviços para a aplicação desta forma. Mais recursos de infraestrutura de serviço avalia o estado de funcionamento dos serviços de aplicação por agregar o estado de funcionamento dos respetivos subordinados, tais como a réplica de serviço. Depois da política de estado de funcionamento de aplicações é cumprida, pode continuar a atualização. Se a política de estado de funcionamento é violada, a atualização da aplicação falha.
+O estado de funcionamento do aplicativo é uma agregação das entidades filho do aplicativo. Em resumo, o Service Fabric avalia o estado de funcionamento do aplicativo por meio do Estado de funcionamento é comunicado no aplicativo. Ele também avalia o estado de funcionamento de todos os serviços para a aplicação desta forma. Ainda mais o Service Fabric avalia o estado de funcionamento dos serviços de aplicativo ao agregar o estado de funcionamento dos seus filhos, como a réplica de serviço. Depois da política de estado de funcionamento de aplicações está satisfeita, pode continuar a atualização. Se a política de estado de funcionamento é violada, a atualização da aplicação falha.
 
 ## <a name="upgrade-modes"></a>Modos de atualização
-O modo que recomendamos para atualização da aplicação é o monitorizados, que é o modo comummente utilizado. Modo monitorizado efetua a atualização no domínio de uma atualização e se verifica o estado de funcionamento de todos os passagem (por política especificada), passa para o domínio de atualização seguinte automaticamente.  Se falharem de verificações de estado de funcionamento e/ou tempos limite é atingidos, a atualização é colocada revertida para o domínio de atualização ou alterar o modo para manual não monitorizado. Pode configurar a atualização para escolher uma desses dois modos de atualizações falhou. 
+O modo que recomendamos para atualização da aplicação é o modo monitorizado, o que é o modo mais usado. Modo monitorizado executa a atualização num domínio de atualização e se verifica o estado de funcionamento de todos os pass (por política especificada), passa para o domínio de atualização seguinte automaticamente.  Se falharem de verificações de estado de funcionamento e/ou tempos limite é atingidos, a atualização é seja revertida para o domínio de atualização ou o modo de alterar para manual não monitorizado. Pode configurar a atualização para escolher uma desses dois modos para atualizações com falha. 
 
-Modo manual não monitorizado tem de intervenção manual após cada atualização num domínio de atualização, para iniciar a atualização no domínio de atualização seguinte. São efetuadas verificações de estado de funcionamento não Service Fabric. O administrador executa as verificações de estado ou de estado de funcionamento antes de iniciar a atualização no domínio de atualização seguinte.
+Modo manual não monitorizado tem de intervenção manual após cada atualização num domínio de atualização, para iniciar a atualização no domínio de atualização seguinte. Sem verificações de estado de funcionamento do Service Fabric são executadas. O administrador efetua as verificações de estado ou de estado de funcionamento antes de iniciar a atualização no domínio de atualização seguinte.
 
 ## <a name="upgrade-default-services"></a>Serviços de atualização predefinido
-Alguns parâmetros predefinidos de serviço definidos no [manifesto da aplicação](service-fabric-application-and-service-manifests.md) também possa ser atualizado como parte de uma atualização da aplicação. Apenas os parâmetros de serviço que suportam a ser alteradas através do [atualização ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) pode ser alterado como parte de uma atualização. O comportamento da alteração serviços predefinida durante a atualização da aplicação é o seguinte:
+Alguns parâmetros de serviço padrão definidos no [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) também podem ser atualizados como parte de uma atualização da aplicação. Apenas os parâmetros de serviço que suportam a ser alterada através de [ServiceFabricService atualização](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) pode ser alterado como parte de uma atualização. O comportamento da alteração serviços padrão durante a atualização da aplicação é o seguinte:
 
-1. Serviços de predefinido no manifesto da aplicação nova, que já não existe no cluster são criados.
-2. Serviços de predefinido que existe nos manifestos de aplicação anteriores e nova são atualizados. Os parâmetros do serviço predefinido no manifesto da aplicação nova substituem os parâmetros do serviço existente. A atualização da aplicação será automaticamente reversão se atualizar um serviço predefinido falhar.
-3. Serviços de predefinido que não existem no manifesto da aplicação nova são eliminados caso existam no cluster. **Tenha em atenção que eliminar um serviço predefinido resultará na eliminação tudo o que o serviço do Estado e não pode ser anulada.**
+1. Serviços de predefinição no manifesto de aplicação nova que ainda não existir no cluster são criados.
+2. Serviços de predefinição que existem nos manifestos de aplicativo anteriores e novos são atualizados. Os parâmetros do serviço predefinido no manifesto do novo aplicativo substituem os parâmetros do serviço atual. A atualização da aplicação será automaticamente reversão se atualizar um serviço predefinido falhar.
+3. Serviços de predefinição que não existem no manifesto de aplicação nova são eliminados se existirem no cluster. **Tenha em atenção que eliminar um serviço predefinido resulta em eliminar tudo o que o serviço do Estado e não pode ser anulada.**
 
-Quando uma atualização da aplicação é revertida, os parâmetros de serviço predefinidos são revertidos para os respetivos valores antigos antes de iniciar a atualização, mas eliminados serviços não podem ser recriados com o respetivo estado antigo.
+Quando uma atualização da aplicação é revertida, parâmetros de serviço padrão são revertidos para os valores antigos antes de iniciar a atualização, mas serviços eliminados não podem ser recriados com o respetivo estado antigo.
 
 > [!TIP]
-> O [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) definição de configuração do cluster tem de ser *verdadeiro* para ativar as regras de 2) e 3) acima (atualização de serviço predefinido e eliminação). Esta funcionalidade é suportada a partir do Service Fabric versão 5.5.
+> Quanto [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) definição de configuração de cluster tem de ser *verdadeiro* para ativar as regras de 2) e 3) acima (e exclusão de atualização do serviço predefinido). Esta funcionalidade é suportada a partir do Service Fabric versão 5.5.
 
-## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Atualizar várias aplicações com pontos finais HTTPS
-Tem de ser cuidado para não utilizar o **mesma porta** para várias instâncias da mesma aplicação ao utilizar HTTP**S**. O motivo é que Service Fabric não será possível atualizar o certificado para uma das instâncias da aplicação. Por exemplo, se quiser atualizar os respetivos certificados 1 para o certificado 2 aplicação 1 ou aplicação 2 ambas. Quando a atualização acontece, Service Fabric poderá ter limpar o registo de certificados 1 com o http.sys, apesar da outra aplicação ainda está a utilizá-la. Para evitar esta situação, o Service Fabric Deteta que não existe já está registada na porta com o certificado (devido a http.sys) outra instância da aplicação e falhará a operação.
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Atualização dos vários aplicativos com pontos finais de HTTPS
+Precisa ter cuidado para não utilizar o **mesma porta** das diferentes instâncias da mesma aplicação ao utilizar HTTP**S**. O motivo é que o Service Fabric não será capaz de atualizar o certificado para uma das instâncias da aplicação. Por exemplo, se o aplicativo 1 ou aplicação 2 ambos os quiser atualizar o respetivo certificado 1 para cert 2. Quando a atualização ocorre, Service Fabric pode ter limpar o registo de cert 1 com HTTP. sys, apesar do outro aplicativo ainda o esteja usando. Para evitar esta situação, o Service Fabric detecta que há já é outra instância do aplicativo registrada na porta com o certificado (devido ao HTTP. sys) e não a operação.
 
-Por conseguinte, Service Fabric não suporta a atualizar dois os diferentes serviços utilizando **a mesma porta** em instâncias de aplicação diferente. Por outras palavras, não é possível utilizar o mesmo certificado no serviços diferentes na mesma porta. Se precisar de ter um certificado partilhado na mesma porta, tem de garantir que os serviços são colocados em computadores diferentes com restrições de posicionamento. Ou, considere utilizar portas dinâmicas do Service Fabric para cada serviço em cada instância da aplicação, se possível. 
+Por conseguinte, o Service Fabric não suporta a atualizar dois serviços diferentes usando **a mesma porta** em diferentes instâncias da aplicação. Em outras palavras, não é possível utilizar o mesmo certificado no serviços diferentes na mesma porta. Se precisar de ter um certificado partilhado na mesma porta, precisa garantir que os serviços são colocados em máquinas diferentes com restrições de posicionamento. Ou considere a utilização de portas dinâmicas do Service Fabric se possível para cada serviço em cada instância da aplicação. 
 
-Se vir uma atualização falhar com https, um erro de aviso a indicar "O servidor de HTTP API do Windows não suporta vários certificados para as aplicações que partilham uma porta."
+Se vir uma falha de atualização com https, um erro, aviso a indicar "O Windows a HTTP Server API não suporta vários certificados para aplicações que partilhem uma porta."
 
 ## <a name="application-upgrade-flowchart"></a>Fluxograma de atualização de aplicação
-O fluxograma a seguir esta parágrafo pode ajudá-lo a compreender o processo de atualização de uma aplicação de Service Fabric. Em particular, descreve o fluxo de como os tempos limite, incluindo *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, e *UpgradeHealthCheckInterval*, ajudar controlo quando a atualização no domínio de uma atualização é considerada um êxito ou a uma falha.
+O fluxograma a seguir a este parágrafo pode ajudá-lo a compreender o processo de atualização de uma aplicação do Service Fabric. Em particular, o fluxo descreve como os tempos limite, incluindo *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, e *UpgradeHealthCheckInterval*, ajuda controlo de quando a atualização num domínio de atualização é considerada um êxito ou a uma falha.
 
-![O processo de atualização para uma aplicação de recursos de infraestrutura de serviço][image]
+![O processo de atualização para uma aplicação do Service Fabric][image]
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Atualizar a aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta-o através de uma atualização da aplicação com o Visual Studio.
+[Atualizar a sua aplicação com o Visual Studio](service-fabric-application-upgrade-tutorial.md) explica-lhe uma atualização da aplicação com o Visual Studio.
 
-[Atualizar a sua aplicação através do Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta-o através de uma atualização da aplicação através do PowerShell.
+[Atualizar a sua aplicação utilizar o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) explica-lhe uma atualização da aplicação com o PowerShell.
 
-Controlar a forma como a aplicação atualiza utilizando [atualizar parâmetros](service-fabric-application-upgrade-parameters.md).
+Controlar a forma como a aplicação seja atualizada com o [atualizar parâmetros](service-fabric-application-upgrade-parameters.md).
 
-Faça as atualizações de aplicações compatíveis aprender a utilizar [dados serialização](service-fabric-application-upgrade-data-serialization.md).
+Tornar as atualizações de aplicações compatíveis, aprendendo a usar [serialização de dados](service-fabric-application-upgrade-data-serialization.md).
 
-Saiba como utilizar a funcionalidade avançada ao atualizar a sua aplicação ao referir-se para [tópicos avançados](service-fabric-application-upgrade-advanced.md).
+Saiba como utilizar funcionalidades avançadas ao atualizar a sua aplicação por consultar [tópicos avançados](service-fabric-application-upgrade-advanced.md).
 
-Resolva problemas comuns nas atualizações de aplicações ao referir-se os passos descritos para [resolução de problemas de atualizações de aplicação](service-fabric-application-upgrade-troubleshooting.md).
+Corrigir problemas comuns em atualizações da aplicação ao referir-se os passos no [resolução de problemas de atualizações de aplicações](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png

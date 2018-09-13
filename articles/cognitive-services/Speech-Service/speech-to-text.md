@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: efdded28fa4554bf58399d997bf663781a08755e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325341"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714706"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a conversão de voz em texto API
 
@@ -36,7 +36,7 @@ O **conversão de voz em texto** API oferece as seguintes funcionalidades:
 
 ## <a name="api-capabilities"></a>Capacidades de API
 
-Alguns recursos do **conversão de voz em texto** API não estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API.
+Muitas das funcionalidades dos **conversão de voz em texto** API - sobretudo em torno da personalização - estão disponíveis através de REST. A tabela seguinte resume as capacidades de cada método de acessar a API. Para uma lista completa de capacidades e a API de detalhes, consulte [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
 
 | Caso de utilização | REST | SDKs |
 |-----|-----|-----|----|
@@ -44,6 +44,16 @@ Alguns recursos do **conversão de voz em texto** API não estão disponíveis a
 | Transcrição de uma expressão maior (> 15 s) | Não | Sim |
 | Transcrição de áudio de transmissão em fluxo com resultados provisórias opcionais | Não | Sim |
 | Compreender os objetivos de orador por meio do LUIS | Não\* | Sim |
+| Criar testes de precisão | Sim | Não |
+| Carregar conjuntos de dados para adaptação de modelos | Sim | Não |
+| Criar e gerir modelos de voz | Sim | Não |
+| Criar e gerir implementações de modelos | Sim | Não |
+| Gerir Subscrições | Sim | Não |
+| Criar e gerir implementações de modelos | Sim | Não |
+| Criar e gerir implementações de modelos | Sim | Não |
+
+> [!NOTE]
+> A API REST implementa limitação que limita os pedidos de API para 25 por 5 segundos. Mensagem hearders informará os limites
 
 \* *LUIS intenções e entidades podem ser obtidas através de uma subscrição separada do LUIS. Com esta subscrição, o SDK pode chamar o LUIS para e fornecer resultados de entidade e propósito, bem como as transcrições de voz. Com a API REST, pode chamar o LUIS para derivar intenções e entidades com a sua subscrição do LUIS.*
 

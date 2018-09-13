@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8885eba0d69c869ad5d298094b835f0351d8d94d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d05be48da296b0d088e38b4c7474103b02e6d5cd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342986"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721080"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-analytics-for-uk-nhs"></a>Azure Security and Compliance Blueprint: análise de dados para NHS do Reino Unido
 
@@ -29,7 +29,7 @@ Esta solução oferece uma plataforma de análise sobre a qual os clientes podem
 
 O Azure oferece uma variedade de serviços de relatórios e análise do cliente; No entanto, esta solução incorpora o Azure Analysis Services em conjunto com a base de dados do Azure SQL para navegar rapidamente por dados e fornecer resultados mais rapidamente por meio de forma mais inteligente modelagem dos dados dos clientes. Serviços de análise do Azure é um formulário do machine learning que se destina a aumentar a velocidade de consulta ao detetar relações novas entre conjuntos de dados. Depois dos dados foi treinados por meio de várias funções de estatísticas, até 7 de consulta adicionais conjuntos (8 total, incluindo o servidor de cliente) podem ser sincronizados com os mesmos modelos em tabela para distribuir a carga de trabalho de consulta e reduzir os tempos de resposta.
 
-Para análise avançada e relatórios, bases de dados do Azure SQL pode ser configurado com índices columnstore. Serviços de análise do Azure e bases de dados do Azure SQL podem ser aumentados vertical ou horizontalmente ou desativar completamente em resposta a utilização do cliente. Todo o tráfego SQL é encriptado com SSL através da inclusão de certificados autoassinados. Como melhor prática, o Azure recomenda a utilização de uma autoridade de certificação fidedigna para uma maior segurança.
+Para análise avançada e relatórios, bases de dados SQL do Azure podem ser configurados com índices columnstore. Bases de dados de serviços de análise do Azure e SQL do Azure podem ser aumentados vertical ou horizontalmente ou desativar completamente em resposta a utilização do cliente. Todo o tráfego SQL é encriptado com SSL através da inclusão de certificados autoassinados. Como melhor prática, o Azure recomenda a utilização de uma autoridade de certificação fidedigna para uma maior segurança.
 
 Assim que os dados são carregados para a base de dados do SQL do Azure e preparados pelo Azure Analysis Services, é digerida, o utilizador operacional e o administrador de dados do SQL com o Power BI. O Power BI apresenta dados de forma intuitiva e reúne informações em vários conjuntos de dados para organizar melhor maior. O alto grau de capacidade de adaptação e uma integração fácil com a base de dados SQL do Azure garante que os clientes podem configurá-lo para processar uma grande variedade de cenários, conforme exigido pelas suas necessidades de negócios.
 

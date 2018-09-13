@@ -1,5 +1,5 @@
 ---
-title: Implementar os recursos do Azure a vários grupos de recursos e subscrição | Microsoft Docs
+title: Implemente recursos do Azure a vários grupos de recursos e subscrição | Documentos da Microsoft
 description: Mostra como mais de um grupo de recursos e subscrição do Azure de destino durante a implementação.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: fec075a744b5f47a4be7f1b960cceedfea7b9a2c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735675"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648315"
 ---
-# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementar recursos do Azure em mais do que uma subscrição ou grupo de recursos
+# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implemente recursos do Azure para mais de uma subscrição ou grupo de recursos
 
-Normalmente, implementa todos os recursos no seu modelo para um único [grupo de recursos](resource-group-overview.md). No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em grupos de recursos diferente ou subscrições. Por exemplo, poderá implementar a máquina virtual de cópia de segurança do Azure Site Recovery para um grupo de recursos separada e uma localização. O Resource Manager permite-lhe utilizar modelos aninhados para o destino subscrições e grupos de recursos que a subscrição e o grupo de recursos utilizados para o modelo de principal.
+Normalmente, implementa todos os recursos no seu modelo para uma única [grupo de recursos](resource-group-overview.md). No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em diferentes grupos de recursos ou subscrições. Por exemplo, pode querer implementar a máquina de virtual de cópia de segurança do Azure Site Recovery para um grupo de recursos separado e a localização. O Resource Manager permite-lhe utilizar modelos aninhados para diferentes subscrições de destino e grupos de recursos que a subscrição e grupo de recursos utilizado para o modelo de elemento principal.
 
 > [!NOTE]
-> Pode implementar em grupos de recursos apenas cinco numa única implementação. Normalmente, esta limitação significa que pode implementar um grupo de recursos especificado para o modelo de principal e até quatro grupos de recursos em implementações aninhadas ou ligados. No entanto, se o modelo de principal contém apenas os modelos de aninhada ou ligados e implementar não próprio quaisquer recursos, em seguida, pode incluir até cinco grupos de recursos em implementações aninhadas ou ligadas.
+> Pode implementar em apenas cinco grupos de recursos numa única implementação. Normalmente, esta limitação significa que pode implementar um grupo de recursos especificado para o modelo de principal e até quatro grupos de recursos em implementações aninhadas ou ligados. No entanto, se seu modelo principal contém apenas os modelos de ligado ou aninhados e faz não próprio implementar todos os recursos, em seguida, pode incluir até cinco grupos de recursos em implementações aninhadas ou ligadas.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Especifique um grupo de recursos e subscrição
 
-Para um outro recurso de destino, utilize um modelo aninhado ou ligado. O `Microsoft.Resources/deployments` tipo de recurso fornece parâmetros para `subscriptionId` e `resourceGroup`. Estas propriedades permitem-lhe especificar um grupo de recursos e subscrição diferente para a implementação aninhada. Todos os grupos de recursos tem de existir antes de executar a implementação. Se não especificar o grupo de recursos ou um ID de subscrição, a subscrição e grupo de recursos do modelo principal é utilizada.
+Para filtrar um recurso diferente, utilize um modelo aninhado ou ligado. O `Microsoft.Resources/deployments` tipo de recurso fornece parâmetros para `subscriptionId` e `resourceGroup`. Estas propriedades permitem-lhe especificar um grupo de recursos e subscrição diferente para a implementação aninhada. Todos os grupos de recursos tem de existir antes de executar a implementação. Se não especificar o grupo de recursos ou ID de subscrição, a subscrição e grupo de recursos do modelo principal é utilizado.
 
-A conta que utiliza para implementar o modelo tem de ter permissões para implementar o ID de subscrição especificada. Se a subscrição especificada de um inquilino do Azure Active Directory diferentes, deve [adicionar os utilizadores convidados a partir de outro diretório](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+A conta que utiliza para implementar o modelo tem de ter permissões para implementar para o ID da subscrição especificada. Se a subscrição especificada existe noutro inquilino do Azure Active Directory, tem [adicionar utilizadores convidados a partir de outro diretório](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
 Para especificar um grupo de recursos diferente e uma subscrição, utilize:
 
@@ -48,9 +48,9 @@ Para especificar um grupo de recursos diferente e uma subscrição, utilize:
 ]
 ```
 
-Se os grupos de recursos estão na mesma subscrição, pode remover o **subscriptionId** valor.
+Se os seus grupos de recursos estão na mesma subscrição, pode remover o **subscriptionId** valor.
 
-O exemplo seguinte implementa duas contas de armazenamento - um grupo de recursos especificado durante a implementação, e especificar um grupo de recursos no `secondResourceGroup` parâmetro:
+O exemplo seguinte implementa duas contas de armazenamento - um no grupo de recursos especificado durante a implementação, e um num grupo de recursos especificado no `secondResourceGroup` parâmetro:
 
 ```json
 {
@@ -125,15 +125,13 @@ O exemplo seguinte implementa duas contas de armazenamento - um grupo de recurso
 }
 ```
 
-Se definir `resourceGroup` ao nome de um grupo de recursos que não existe, a implementação falhará.
-
-Para implementar o modelo de exemplo, utilize o Azure PowerShell 4.0.0 ou posterior, ou do Azure CLI 2.0.0 ou posterior.
+Se definir `resourceGroup` para o nome do grupo de recursos que não existe, a implementação falhar.
 
 ## <a name="use-the-resourcegroup-and-subscription-functions"></a>Utilize as funções resourceGroup() e subscription()
 
-Para cruzada implementações do grupo de recursos, o [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) e [subscription()](resource-group-template-functions-resource.md#subscription) funções resolver de forma diferente com base em como especificar o modelo aninhado. 
+Para várias implementações do grupo de recursos, o [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) e [subscription()](resource-group-template-functions-resource.md#subscription) funções resolver diferentemente com base nas como especificar o modelo aninhado. 
 
-Se incorporar um modelo dentro de outro modelo, as funções de modelo de aninhada de resolver para o grupo de recursos de principal e a subscrição. Um modelo incorporado utiliza o seguinte formato:
+Se incorporar um modelo dentro de outro modelo, as funções no modelo aninhado resolver para o grupo de recursos de principal e a subscrição. Um modelo incorporado utiliza o seguinte formato:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -149,7 +147,7 @@ Se incorporar um modelo dentro de outro modelo, as funções de modelo de aninha
 }
 ```
 
-Se ligar a um modelo separado, as funções no modelo ligado resolver para o grupo de recursos aninhados e a subscrição. Um modelo ligado utiliza o seguinte formato:
+Se associar a um modelo separado, as funções no modelo ligado resolver-se para a subscrição e grupo de recursos aninhados. Um modelo ligado utiliza o seguinte formato:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -167,12 +165,12 @@ Se ligar a um modelo separado, as funções no modelo ligado resolver para o gru
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os modelos seguintes demonstram várias implementações do grupo de recursos. Scripts para implementar os modelos são apresentadas depois da tabela.
+Os seguintes modelos de demonstram várias implementações de grupo de recursos. Scripts para implementar os modelos são apresentados depois da tabela.
 
 |Modelo  |Descrição  |
 |---------|---------|
 |[Entre o modelo de subscrição](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Implementa uma conta de armazenamento para um grupo de recursos e uma conta de armazenamento para um segundo grupo de recursos. Inclua um valor para o ID de subscrição quando o segundo grupo de recursos está numa subscrição diferente. |
-|[Entre o modelo de propriedades do grupo de recursos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Demonstra como o `resourceGroup()` funcionar seja resolvido. Não implementa todos os recursos. |
+|[Entre o modelo de propriedades do grupo de recursos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Demonstra como o `resourceGroup()` resolve o objetivo de função. Não implementa todos os recursos. |
 
 ### <a name="powershell"></a>PowerShell
 
@@ -217,7 +215,7 @@ New-AzureRmResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-Para o PowerShell, para testar como as **objeto do grupo de recursos** é resolvido para o modelo de principal, inline modelo e modelo ligado, de utilização:
+Para o PowerShell, para testar como o **objeto de grupo de recursos** é resolvido para o modelo principal, o modelo inline e o modelo ligado, de utilização:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -229,7 +227,7 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
-No exemplo anterior, ambos **parentRG** e **inlineRG** resolver para **parentGroup**. **linkedRG** é resolvido para **linkedGroup**. O resultado do exemplo anterior é:
+No exemplo anterior, ambos **parentRG** e **inlineRG** resolver para **parentGroup**. **linkedRG** é resolvido para o **linkedGroup**. O resultado do exemplo anterior é:
 
 ```powershell
  Name             Type                       Value
@@ -299,7 +297,7 @@ az group deployment create \
   --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
 ```
 
-Para a CLI do Azure, para testar como as **objeto do grupo de recursos** é resolvido para o modelo de principal, inline modelo e modelo ligado, de utilização:
+Para a CLI do Azure, para testar como o **objeto de grupo de recursos** é resolvido para o modelo principal, o modelo inline e o modelo ligado, de utilização:
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -312,7 +310,7 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
-No exemplo anterior, ambos **parentRG** e **inlineRG** resolver para **parentGroup**. **linkedRG** é resolvido para **linkedGroup**. O resultado do exemplo anterior é:
+No exemplo anterior, ambos **parentRG** e **inlineRG** resolver para **parentGroup**. **linkedRG** é resolvido para o **linkedGroup**. O resultado do exemplo anterior é:
 
 ```azurecli
 ...
@@ -356,6 +354,6 @@ No exemplo anterior, ambos **parentRG** e **inlineRG** resolver para **parentGro
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para compreender como definir parâmetros no modelo, consulte [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
-* Para sugestões sobre como resolver erros comuns de implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Para obter informações sobre a implementação de um modelo que necessita de um token SAS, consulte [implementar a modelo privado com o SAS token](resource-manager-powershell-sas-token.md).
+* Para compreender como definir parâmetros no seu modelo, veja [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
+* Para obter dicas sobre como resolver erros comuns de implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Para obter informações sobre como implementar um modelo que necessita de um token SAS, consulte [implementar modelo privado com o SAS token](resource-manager-powershell-sas-token.md).

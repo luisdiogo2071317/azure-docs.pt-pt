@@ -1,5 +1,5 @@
 ---
-title: Referência da API de registo de ML do Azure | Microsoft Docs
+title: Referência da API de registo de ML Azure | Documentos da Microsoft
 description: Referência da API de registo.
 services: machine-learning
 author: akshaya-a
@@ -7,22 +7,22 @@ ms.author: akannava
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: b9ea51139fded3d55f0a73024163b7fa943c0ebb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 101c47f4916ca3fab56800eaf012c55150769302
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834697"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650111"
 ---
 # <a name="logging-api-reference"></a>Referência da API de registo
 
-Biblioteca de registo do Azure ML permite ao programa de emissão métricas e os ficheiros que são controlados pelo serviço de histórico para análise posterior. Atualmente, alguns tipos básicos de métricas e ficheiros são suportados e irá aumentar o conjunto de tipos suportados em versões futuras do pacote do Python.
+Biblioteca de registo do Azure ML permite que o programa emitir métricas e ficheiros que são controlados pelo serviço do histórico para análise posterior. Atualmente, alguns tipos básicos de métricas e ficheiros são suportados e o conjunto de tipos com suporte, irá aumentar em versões futuras do pacote do Python.
 
-## <a name="uploading-metrics"></a>Métricas de carregamento
+## <a name="uploading-metrics"></a>A carregar métricas
 
 ```python
 # import logging API package
@@ -41,7 +41,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-Por predefinição, todas as métricas são submetidas no modo assíncrono, para que a submissão não impedir a execução do programa. Isto pode causar problemas de ordenação quando várias métricas são enviadas em casos de limite. Um exemplo desta situação seria duas métricas com sessão iniciadas ao mesmo tempo, mas, por algum motivo, que o utilizador prefere ordenação exato ser preservados. Outro cenário é quando a métrica tem de ser controlada antes de executar alguns códigos que é conhecido poderão falhar rápida. Em ambos os casos, a solução é _aguarde_ até que a métrica é totalmente iniciada antes de continuar:
+Por predefinição, todas as métricas são submetidas forma assíncrona, para que o envio não impedir a execução do programa. Isso pode causar problemas de ordenação, quando várias métricas são enviadas em casos extremos. Um exemplo disso seria duas métricas com sessão iniciadas ao mesmo tempo, mas por algum motivo, que o utilizador prefere a ordem exata ser preservados. Outro caso é quando a métrica tem de ser controlada antes de executar um código que é conhecido por falhem rapidamente. Em ambos os casos, a solução é _aguarde_ até que a métrica é completamente registrada antes de continuar:
 
 ```python
 # blocking call
@@ -49,9 +49,9 @@ logger.log("my metric 1", 1).wait()
 logger.log("my metric 2", 2).wait()
 ```
 
-## <a name="consuming-metrics"></a>Consumo de métricas
+## <a name="consuming-metrics"></a>Métricas de consumo
 
-As métricas são armazenadas pelo serviço de histórico e associadas para a execução que produziu-los. O separador de histórico de execuções e o comando da CLI abaixo permitem-lhe obtê-las (e artefactos abaixo) após a execução foi concluída.
+As métricas são armazenadas pelo serviço do histórico e associadas para a execução que produziu-los. O separador de histórico de execuções e o comando da CLI abaixo permitem-lhe obtê-las (e artefactos abaixo), depois de uma execução estar concluída.
 
 ```azurecli
 # show the last run
@@ -64,9 +64,9 @@ $ az ml history list
 $ az ml history info -r <runid>
 ```
 
-## <a name="artifacts-files"></a>Artefactos (ficheiros)
+## <a name="artifacts-files"></a>Artefatos (ficheiros)
 
-Para além de métricas, AzureML permite ao utilizador controlar os ficheiros bem. Por predefinição, todos os ficheiros escritos no `outputs` pasta relativos ao diretório de trabalho do programa (a pasta do projeto no contexto de computação) são carregados para o serviço de histórico e controlados por Analysis Services posteriores. A advertência é que o tamanho de ficheiro individual tem de ser inferior a 512 MB.
+Além de métricas, AzureML permite ao utilizador controlar os ficheiros também. Por predefinição, todos os ficheiros escritos no `outputs` pasta relativo ao diretório de trabalho do programa (a pasta de projeto no contexto de computação) são carregados para o serviço de histórico e controlado para análise posterior. A limitação é que o tamanho de arquivo individual tem de ser menor do que 512 MB.
 
 
 ```Python
@@ -76,7 +76,7 @@ logger.upload("artifact/path", "This should be the contents of artifact/path in 
 
 ## <a name="consuming-artifacts"></a>Consumo de artefactos
 
-Para imprimir o conteúdo de um artefacto que tenha sido controlados, utilizador pode utilizar o separador de histórico de execução para a execução indicada para **transferir** ou **promover** o artefacto ou utilize o abaixo comandos da CLI para conseguir o mesmo efeito.
+Para imprimir o conteúdo de um artefato que tem sido controlados, utilizador pode utilizar o separador de histórico de execuções para a execução de determinado para **baixe** ou **promover** o artefacto, ou utilize o abaixo comandos da CLI para conseguir o mesmo efeito.
 
 ```azurecli
 # show all artifacts generated by a run
@@ -86,5 +86,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-- Percorrer o [classificar iris tutoria, parte 2](tutorial-classifying-iris-part-2.md) para ver a API de registo em ação.
-- Reveja [como histórico de execuções de utilização e métricas de modelo no Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) compreender mais profundo como APIs de registo pode ser utilizado no histórico de execução.
+- Percorrer a [classificar tutoria de íris, parte 2](tutorial-classifying-iris-part-2.md) para ver a API de log em ação.
+- Revisão [como histórico de execuções de utilização e métricas de modelo no Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) para compreender melhor como APIs de Registro pode ser usada no histórico de execuções.

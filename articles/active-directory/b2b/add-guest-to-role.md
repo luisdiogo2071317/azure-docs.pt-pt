@@ -1,27 +1,27 @@
 ---
-title: Adicionar um utilizador de colaboração do Azure Active Directory B2B a uma função | Microsoft Docs
-description: Adicionar um utilizador convidado para uma função no Azure Active Directory
+title: Adicionar um utilizador de colaboração do Azure Active Directory B2B a uma função | Documentos da Microsoft
+description: Adicionar um utilizador convidado a uma função no Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 91abc2ef4d893c57816ca3b6552f19f07c2f588a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 47615309d71ac6bf4352e30284f23fbbfdd6d4be
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260172"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646725"
 ---
-# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões aos utilizadores de organizações de parceiros no seu inquilino do Azure Active Directory
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a utilizadores de organizações de parceiros no seu inquilino do Azure Active Directory
 
-Utilizadores de colaboração B2B do Active Directory (Azure AD) do Azure são adicionados como os utilizadores convidados para o diretório e, por predefinição, são restringe permissões de convidado no diretório. As empresas podem ter alguns utilizadores convidados para preencher funções de privilégio mais elevado na sua organização. Para suportar definindo funções de privilégio mais elevado, os utilizadores convidados podem ser adicionados a quaisquer funções pretendidos ao nível, com base nas necessidades da sua organização.
+Os utilizadores de colaboração do Azure Active Directory (Azure AD) B2B são adicionados como os utilizadores convidados para o diretório e as permissões de convidado no diretório são restritos por padrão. Sua empresa poderá ter alguns utilizadores convidados para preencher funções de privilégio mais alto na sua organização. Para suportar a definição de funções de privilégio mais elevado, os utilizadores convidados podem ser adicionados a quaisquer funções a que se desejar, com base nas necessidades da sua organização.
 
-## <a name="default-role"></a>função predefinida
+## <a name="default-role"></a>Função predefinida
 
 ![função predefinida](./media/add-guest-to-role/default-role.png)
 

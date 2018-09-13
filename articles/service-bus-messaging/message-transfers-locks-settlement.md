@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702066"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715079"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagens, bloqueios e acordo
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 É importante ter em atenção que todos os modelos de programação assíncrona usar algum tipo de fila de trabalho baseados em memória e oculto que mantém operações pendentes. Quando [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (c#) ou **enviar** retorno (Java), a tarefa de envio é colocado na fila trabalho, mas o gesto de protocolo começa apenas uma vez que é a vez da tarefa para ser executado. Para o código que tende a picos de mensagens e onde a confiabilidade é uma preocupação de push, deve ter cuidado que não demasiadas mensagens são colocadas "em trânsito", ao mesmo tempo, uma vez que todas as mensagens enviadas ocupam memória até que eles factually foi colocados em trânsito.
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Aplicativos devem **nunca** iniciar uma operação de envio assíncrono de uma forma de "disparar e esquecer" sem recuperar o resultado da operação. Se o fizer, pode carregar a fila de tarefas internas e invisível até esgotamento da memória e impedir que a aplicação detetar erros de envio:

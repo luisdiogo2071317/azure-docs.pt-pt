@@ -1,6 +1,6 @@
 ---
-title: Referência do esquema de webhook de registo de contentor do Azure
-description: Webhook pedido JSON payload referência para o registo de contentor do Azure.
+title: Referência de esquema de webhook de registo de contentor do Azure
+description: Webhook pedido JSON payload referência para o Azure Container Registry.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -8,45 +8,45 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 87fe978416c29b50abeef0e0a6624d7440dd87ef
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166012"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646761"
 ---
-# <a name="azure-container-registry-webhook-reference"></a>Referência de webhook de registo de contentor do Azure
+# <a name="azure-container-registry-webhook-reference"></a>Referência do webhook de registo de contentor do Azure
 
-Pode [configurar webhooks](container-registry-webhook.md) para o registo de contentor gerar eventos quando determinadas ações são efetuadas nele. Por exemplo, pode ativar webhooks são acionados na imagem de contentor `push` e `delete` operações. Quando é acionado um webhook, o registo de contentor do Azure emite um pedido HTTP ou HTTPS que contém informações sobre o evento para um ponto final que especificar. O ponto final, em seguida, pode processar o webhook e agir em conformidade.
+Pode [configurar webhooks](container-registry-webhook.md) para o seu registo de contentor que geram eventos quando determinadas ações são efetuadas em relação a ele. Por exemplo, pode ativar webhooks que são acionados na imagem de contentor `push` e `delete` operações. Quando for acionado um webhook, o Azure Container Registry emite um pedido HTTP ou HTTPS que contém informações sobre o evento para um ponto final que especificar. O ponto final, em seguida, pode processar o webhook e aja em conformidade.
 
-As secções seguintes detalhe o esquema de pedidos de webhook gerado por eventos suportados. As secções de eventos contêm o esquema de payload para o tipo de evento, um payload de pedido de exemplo e um ou mais comandos de exemplo que seriam acionar o webhook.
+As secções seguintes detalham o esquema de pedidos de webhook gerado por eventos suportados. As secções de eventos contêm o esquema do payload para o tipo de evento, um payload de pedido de exemplo e um ou mais comandos de exemplo que irá acionar o webhook.
 
-Para obter informações sobre como configurar webhooks para o registo de contentor do Azure, consulte [webhooks de registo de contentor Azure utilizando](container-registry-webhook.md).
+Para obter informações sobre como configurar webhooks para o seu registo de contentor do Azure, consulte [webhooks de utilizar o Azure Container Registry](container-registry-webhook.md).
 
 ## <a name="webhook-requests"></a>Pedidos de Webhook
 
 ### <a name="http-request"></a>Pedido HTTP
 
-Um webhook accionado faz com que um HTTP `POST` pedido para o ponto final do URL especificado quando configurou o webhook.
+Um webhook acionado faz com que um HTTP `POST` pedido para o ponto de final do URL que especificou quando configurou o webhook.
 
-### <a name="http-headers"></a>Cabeçalhos de HTTP
+### <a name="http-headers"></a>Cabeçalhos HTTP
 
-Pedidos de Webhook incluir um `Content-Type` de `application/json` se não especificou um `Content-Type` cabeçalho personalizado para o webhook.
+Pedidos de Webhook incluir uma `Content-Type` dos `application/json` se não tiver especificado um `Content-Type` cabeçalho personalizado para o webhook.
 
-Não existem outros cabeçalhos são adicionados para o pedido para além desses cabeçalhos personalizados, que pode ter especificado para o webhook.
+Não existem outros cabeçalhos são adicionados à solicitação além desses cabeçalhos personalizados que pode ter especificado para o webhook.
 
 ## <a name="push-event"></a>Evento de push
 
-Acionado quando é feita uma imagem de contentor para um repositório de Webhook.
+Acionado quando uma imagem de contentor é emitidos via push para um repositório de Webhook.
 
 ### <a name="push-event-payload"></a>Payload de evento de push
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|O ID do evento webhook.|
+|`id`|Cadeia|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
 |`action`|Cadeia|A ação que acionou o evento de webhook.|
-|[destino](#target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
+|[Destino](#target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
 |[Pedido](#request)|Tipo complexo|O pedido que gerou o evento de webhook.|
 
 ### <a name="target"></a>destino
@@ -54,22 +54,22 @@ Acionado quando é feita uma imagem de contentor para um repositório de Webhook
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
-|`size`|Int32|O número de bytes do conteúdo. Mesmo que o comprimento do campo.|
-|`digest`|Cadeia|O resumo do conteúdo, tal como definido pela especificação de API do registo V2 HTTP.|
-|`length`|Int32|O número de bytes do conteúdo. Igual ao campo tamanho.|
+|`size`|Int32|O número de bytes do conteúdo. Mesmo que o campo de comprimento.|
+|`digest`|Cadeia|O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2.|
+|`length`|Int32|O número de bytes do conteúdo. Mesmo que o campo de tamanho.|
 |`repository`|Cadeia|O nome do repositório.|
 |`tag`|Cadeia|O nome da tag de imagem.|
 
-### <a name="request"></a>Pedido
+### <a name="request"></a>pedido
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`id`|Cadeia|O ID do pedido que iniciou o evento.|
-|`host`|Cadeia|O nome de anfitrião externamente acessível da instância do registo, tal como especificado pelo cabeçalho de anfitrião HTTP em pedidos recebidos.|
+|`id`|Cadeia|O ID do pedido que deu início ao evento.|
+|`host`|Cadeia|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
 |`method`|Cadeia|O método de pedido que gerou o evento.|
-|`useragent`|Cadeia|O cabeçalho de agente de utilizador do pedido.|
+|`useragent`|Cadeia|O cabeçalho do agente de utilizador do pedido.|
 
-### <a name="payload-example-push-event"></a>Exemplo de payload: evento de push
+### <a name="payload-example-push-event"></a>Exemplo de payload: eventos de push
 
 ```JSON
 {
@@ -99,38 +99,38 @@ Exemplo [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="delete-event"></a>Eliminar o evento
+## <a name="delete-event"></a>Eliminar evento
 
-Webhook acionado quando um repositório ou manifesto é eliminado. Não é acionado quando é eliminada uma etiqueta.
+Acionado quando é eliminado um repositório ou o manifesto de Webhook. Não é acionado quando uma etiqueta é eliminada.
 
-### <a name="delete-event-payload"></a>Eliminar payload do evento
+### <a name="delete-event-payload"></a>Eliminar o payload do evento
 
 |Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|O ID do evento webhook.|
+|`id`|Cadeia|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
 |`action`|Cadeia|A ação que acionou o evento de webhook.|
-|[destino](#delete_target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
+|[Destino](#delete_target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
 |[Pedido](#delete_request)|Tipo complexo|O pedido que gerou o evento de webhook.|
 
-### <a name="delete_target"></a> destino
+### <a name="delete_target"></a> Destino
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
-|`digest`|Cadeia|O resumo do conteúdo, tal como definido pela especificação de API do registo V2 HTTP.|
+|`digest`|Cadeia|O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2.|
 |`repository`|Cadeia|O nome do repositório.|
 
 ### <a name="delete_request"></a> Pedido
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
-|`id`|Cadeia|O ID do pedido que iniciou o evento.|
-|`host`|Cadeia|O nome de anfitrião externamente acessível da instância do registo, tal como especificado pelo cabeçalho de anfitrião HTTP em pedidos recebidos.|
+|`id`|Cadeia|O ID do pedido que deu início ao evento.|
+|`host`|Cadeia|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
 |`method`|Cadeia|O método de pedido que gerou o evento.|
-|`useragent`|Cadeia|O cabeçalho de agente de utilizador do pedido.|
+|`useragent`|Cadeia|O cabeçalho do agente de utilizador do pedido.|
 
-### <a name="payload-example-delete-event"></a>Exemplo de payload: eliminar o evento
+### <a name="payload-example-delete-event"></a>Exemplo de payload: Eliminar evento
 
 ```JSON
 {
@@ -151,7 +151,7 @@ Webhook acionado quando um repositório ou manifesto é eliminado. Não é acion
   }
 ```
 
-Exemplo [Azure CLI 2.0](/cli/azure/acr) comandos que acionador um **eliminar** webhook de evento:
+Exemplo [CLI do Azure](/cli/azure/acr) comandos nesse disparador um **eliminar** webhook de evento:
 
 ```azurecli
 # Delete repository
@@ -163,4 +163,4 @@ az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --m
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Utilizar o registo de contentor do Azure webhooks](container-registry-webhook.md)
+[Utilizar webhooks de registo de contentor do Azure](container-registry-webhook.md)

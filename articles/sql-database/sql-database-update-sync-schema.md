@@ -10,16 +10,16 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6859784dcb3b3905459e83cfcb7812d7f23ac630
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434963"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721862"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizar a replicação das alterações de esquema na sincronização de dados SQL do Azure
 
-Sincronização de dados SQL permite que os utilizadores a sincronizar dados entre bases de dados do Azure SQL e no local do SQL Server numa direção ou em ambas as direções. Uma das atuais limitações de sincronização de dados SQL é a falta de suporte para a replicação de alterações de esquema. Sempre que alterar o esquema da tabela, terá de aplicar as alterações manualmente em todos os pontos finais, incluindo o hub e todos os membros e, em seguida, atualizar o esquema de sincronização.
+Sincronização de dados SQL permite que os utilizadores a sincronizar dados entre bases de dados SQL do Azure e no local do SQL Server numa direção ou em ambas as direções. Uma das atuais limitações de sincronização de dados SQL é a falta de suporte para a replicação de alterações de esquema. Sempre que alterar o esquema da tabela, terá de aplicar as alterações manualmente em todos os pontos finais, incluindo o hub e todos os membros e, em seguida, atualizar o esquema de sincronização.
 
 Este artigo apresenta uma solução de replicar automaticamente as alterações de esquema para todos os pontos finais de sincronização de dados SQL.
 1. Esta solução utiliza um acionador DDL para controlar as alterações de esquema.

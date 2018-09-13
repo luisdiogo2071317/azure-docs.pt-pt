@@ -3,23 +3,22 @@ title: Compreender os controlos de segurança do Azure Stack | Documentos da Mic
 description: Enquanto administrador de serviços Saiba mais sobre os controlos de segurança aplicados ao Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
-ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 09/12/2018
+ms.author: patricka
+ms.openlocfilehash: 048a2e8204b3b8776b5a7e0e425dbc5fdf3d504c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008833"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719023"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura do Azure Stack
 
@@ -87,3 +86,5 @@ ACLs de rede são impostas em três camadas:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba como rodar os segredos no Azure Stack](azure-stack-rotate-secrets.md)
+- [PCI-DSS e os documentos de CCM da CSA para o Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [Documentos do DoD e do NIST para o Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

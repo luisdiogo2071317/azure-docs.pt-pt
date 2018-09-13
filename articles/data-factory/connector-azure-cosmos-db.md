@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600341"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720026"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB com o Azure Data Factory
 
@@ -34,10 +34,14 @@ Pode copiar dados do Azure Cosmos DB para qualquer arquivo de dados de sink supo
 
 Especificamente, este conector do Azure Cosmos DB suporta:
 
-- O cosmos DB [API do SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Copiar dados de/para o Cosmos DB [API do SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Escrever no Cosmos DB como INSERT ou UPSERT.
 - Importar/exportar documentos JSON como-é ou copiar os dados de/para o conjunto de dados em tabela por exemplo, base de dados SQL, arquivos CSV, etc. Para copiar documentos como-é de/para ficheiros JSON ou de outra coleção do Cosmos DB, veja [documentos JSON de importação/exportação](#importexport-json-documents).
 
 Fábrica de dados se integra [biblioteca de executor do Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para proporcionar o melhor desempenho escrever para o Cosmos DB.
+
+>[!TIP]
+>Assista [este vídeo](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) que percorre a copiar dados do armazenamento de Blobs do Azure para o Cosmos DB e descreve considerações para a ingestão de dados para o Cosmos DB em geral de ajuste de desempenho.
 
 ## <a name="getting-started"></a>Introdução
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 8a458af27bd517be7c3ce0b5ad30c6d575d494c0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 5d739787d5b268ddfcf5bb9e6494c3cba6b3cdc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522446"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718785"
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorizar e melhorar o desempenho
 Base de dados SQL do Azure identifica potenciais problemas na sua base de dados e recomenda ações que podem melhorar o desempenho da carga de trabalho, fornecendo as ações de otimização inteligentes e recomendações.
@@ -56,7 +56,7 @@ Também pode encontrar o histórico completo de ajuste de ações que foram apli
 Saiba como localizar um aplicar recomendações de desempenho na [localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md) artigo.
 
 ## <a name="automatic-tuning"></a>Ajuste automático
-Bases de dados SQL do Azure automaticamente pode otimizar o desempenho da base de dados através da aplicação [recomendações de desempenho](sql-database-advisor.md). Para saber mais, leia [artigo de otimização automática](sql-database-automatic-tuning.md). Para ativá-la, leia [como ativar a otimização automática](sql-database-automatic-tuning-enable.md).
+Bases de dados SQL do Azure automaticamente podem otimizar o desempenho da base de dados através da aplicação [recomendações de desempenho](sql-database-advisor.md). Para saber mais, leia [artigo de otimização automática](sql-database-automatic-tuning.md). Para ativá-la, leia [como ativar a otimização automática](sql-database-automatic-tuning-enable.md).
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
 [Query Performance Insight](sql-database-query-performance.md) permite-lhe gastar menos tempo de resolução de problemas de desempenho de base de dados ao fornecer:

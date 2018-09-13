@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630291"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717306"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Define a descrição geral do dimensionamento automático com o dimensionamento de máquina virtual do Azure
 Um conjunto de dimensionamento de máquina virtual do Azure automaticamente pode aumentar ou diminuir o número de instâncias VM que execute a sua aplicação. Este comportamento automatizado e elástico reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Criar regras que definem o desempenho aceitável para uma experiência de cliente positivo. Quando esses limites definidos são cumpridos, regras de dimensionamento automático tomar medidas para ajustar a capacidade do seu conjunto de dimensionamento. Também pode agendar eventos automaticamente aumentar ou diminuir a capacidade do seu conjunto de dimensionamento em fixo de vezes. Este artigo fornece uma descrição geral do desempenho de que as métricas estão disponíveis e pode efetuar o dimensionamento automático de ações.
@@ -106,7 +106,7 @@ Quando um acionadores de regra de dimensionamento automático, pode dimensionar 
 | Aumentar contagem em   | Um número fixo de instâncias de VM para criar. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
 | Aumentar percentagem em | Um aumento do número de instâncias de VM baseado em percentagem. Vale a escala maior define onde um aumento fixo pode não visivelmente melhorar o desempenho. |
 | Aumentar contagem para   | Crie várias instâncias VM são necessários para atingir um valor máximo pretendido.                                                            |
-| Diminuir contagem até   | Um número fixo de instâncias de VM para remover. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
+| Diminuir contagem em   | Um número fixo de instâncias de VM para remover. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
 | Diminuir percentagem em | Uma diminuição com base na percentagem de instâncias de VM. Vale a escala maior define onde um aumento fixo pode não visivelmente reduzir o consumo de recursos e os custos. |
 | Diminuir contagem até   | Remova a muitas instâncias VM são necessárias para chegar a uma quantidade mínima pretendida.                                                            |
 

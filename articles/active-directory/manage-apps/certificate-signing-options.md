@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: c7f2892586dd78f3e4b102deb8c51b9979ed07e2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e7488abb3e82f90f63fa338b84a6516202e504ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348179"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714535"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Advanced opções no token SAML para aplicações de galeria no Azure Active Directory de assinatura de certificado
 Atualmente o Azure Active Directory (Azure AD) suporta milhares de aplicações previamente integradas na Galeria de aplicações do Azure Active Directory. Este número inclui mais de 500 aplicações que suportam o início de sessão único com o protocolo SAML 2.0. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD com o SAML, o Azure AD envia um token para a aplicação (através de um HTTP POST). Em seguida, o aplicativo valida e utiliza o token para fazer logon do usuário em vez de solicitar um nome de utilizador e palavra-passe. Estes tokens SAML são assinadas com o certificado exclusivo que é gerado no Azure AD e pelos algoritmos padrão específicos.
@@ -60,7 +60,6 @@ O Azure AD suporta dois algoritmos de assinatura para assinar resposta SAML:
     ![Algoritmo de assinatura de certificado de SHA-1](./media/certificate-signing-options/saml-signing-algo-sha1.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Índice de artigo para a gestão de aplicações no Azure Active Directory](../active-directory-apps-index.md)
 * [Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
 * [Resolver problemas com base em SAML início de sessão único](../develop/howto-v1-debug-saml-sso-issues.md)
 

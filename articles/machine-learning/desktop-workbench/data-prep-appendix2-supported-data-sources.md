@@ -1,5 +1,5 @@
 ---
-title: Origens de dados disponíveis com a preparação de dados do Azure Machine Learning suportadas | Microsoft Docs
+title: Origens de dados disponíveis com a preparação de dados do Azure Machine Learning suportadas | Documentos da Microsoft
 description: Este documento fornece uma lista completa das origens de dados suportadas disponíveis para a preparação de dados do Azure Machine Learning.
 services: machine-learning
 author: euangMS
@@ -7,33 +7,33 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 1a6ef0b928bd9a2d21db68a0d5476357b1d32dd1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 88ed4fa43e5724cfe1d6f1555db947d77045cd2e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831552"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650452"
 ---
-# <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Origens de dados suportados de preparação de dados do Azure Machine Learning 
-Este artigo descreve as origens de dados atualmente suportados para a preparação de dados do Azure Machine Learning.
+# <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Origens de dados suportadas para preparação de dados do Azure Machine Learning 
+Este artigo descreve as origens de dados suportado atualmente para preparação de dados do Azure Machine Learning.
 
-As origens de dados suportada para esta versão são os seguintes.
+Seguem-se a origens de dados suportadas nesta versão.
 
-## <a name="types"></a>Tipos de 
+## <a name="types"></a>Tipos 
 
 ### <a name="sql-server"></a>SQL Server
 Ler a partir do servidor SQL no local ou a base de dados SQL do Azure.
 
 #### <a name="options"></a>Opções
 - Endereço do Servidor
-- Confiança servidor (par quando o certificado no servidor não é válido. Utilize com cuidado)
-- Tipo de autenticação (Windows, o servidor)
+- Confiar no servidor (mesmo quando o certificado no servidor não é válido. Utilize com cuidado)
+- Tipo de autenticação (Windows, servidor)
 - Nome de Utilizador
 - Palavra-passe
 - Para ligar à base de dados
@@ -41,43 +41,43 @@ Ler a partir do servidor SQL no local ou a base de dados SQL do Azure.
 
 #### <a name="notes"></a>Notas
 - Colunas de variante do SQL não são suportadas
-- Coluna de hora é convertida em datetime, acrescentando tempo da base de dados até à data 1970/1/1
-- Quando executado no cluster do Spark, todos os dados relacionados com as colunas (data, datetime, datetime2, datetimeoffset) irão avaliar valores incorretos para datas anteriores 1583
-- Os valores nas colunas decimais poderão perder precisão devido a conversão para decimal
+- Coluna de hora é convertida para datetime, acrescentando a hora da base de dados até à data 1970/1/1
+- Quando executada no cluster do Spark, todos os dados relacionados com colunas (data, datetime, datetime2, datetimeoffset) irão avaliar os valores incorretos para datas antes 1583
+- Valores nas colunas decimais podem perder a precisão devido a conversão em decimal
 
 ### <a name="directory-vs-file"></a>Diretório vs. o ficheiro
-Escolha um único ficheiro e lê-lo na preparação de dados. O tipo de ficheiro é analisado para determinar os parâmetros predefinidos para a ligação de ficheiro apresentadas no ecrã seguinte.
+Escolha um único arquivo e lê-lo na preparação de dados. O tipo de ficheiro é analisado para determinar os parâmetros de padrão para a ligação do arquivo mostrado no ecrã seguinte.
 
-Escolha um diretório ou um conjunto de ficheiros dentro de um diretório (o Seletor de ficheiros é MultiSelect é). Com uma abordagem, os ficheiros são lida como um fluxo de dados único e são acrescentados entre si, com cabeçalhos repartidos saída, se necessário.
+Escolha um diretório ou um conjunto de arquivos dentro de um diretório (o Seletor de ficheiros é seleção múltipla). Com qualquer uma das abordagens, os ficheiros são lidos na como um fluxo de dados individual e são acrescentados entre si, com cabeçalhos removidos se for necessário.
 
 Os tipos de ficheiro suportados são:
-- Delimitados (. csv, .tsv,. txt, etc.)
+- Delimitado por (. csv,. tsv, txt, etc.)
 - Largura fixa
-- Texto simples
+- Texto sem formatação
 - Ficheiro JSON
 
 ### <a name="csv-file"></a>Ficheiro CSV
-Ler um ficheiro de valores separados por vírgulas de armazenamento.
+Ler um arquivo de separados por vírgulas de armazenamento.
 
 #### <a name="options"></a>Opções
 - Separador
 - Comentário
 - Cabeçalhos
 - Símbolo decimal
-- Codificação de ficheiro
+- Codificação do ficheiro
 - Linhas a ignorar
 
 ### <a name="tsv-file"></a>Ficheiro TSV
-Ler um ficheiro separador separados-valor de armazenamento.
+Ler um ficheiro de valores separador separados do armazenamento.
 
 #### <a name="options"></a>Opções
 - Comentário
 - Cabeçalhos
-- Codificação de ficheiro
+- Codificação do ficheiro
 - Linhas a ignorar
 
 ### <a name="excel-xlsxlsx"></a>Excel (.xls/.xlsx)
-Ler uma folha de um ficheiro Excel a uma hora, especificando o nome da folha ou número.
+Leia uma folha de um ficheiro Excel ao mesmo tempo, especificando o nome da folha de cálculo ou número.
 
 #### <a name="options"></a>Opções
 - Nome da folha ou um número
@@ -85,25 +85,25 @@ Ler uma folha de um ficheiro Excel a uma hora, especificando o nome da folha ou 
 - Linhas a ignorar
 
 ### <a name="json-file"></a>Ficheiro JSON
-Ler um ficheiro JSON a partir do armazenamento. O ficheiro é "simplificado" na leitura.
+Leia um ficheiro JSON no armazenamento. O ficheiro é "aplanado" na leitura.
 
 #### <a name="options"></a>Opções
 - Nenhuma
 
 ### <a name="parquet"></a>Parquet
-Ler um conjunto de dados Parquet, ou um único ficheiro ou pasta.
+Leia um conjunto de dados no Parquet, optar por um único ficheiro ou pasta.
 
-Parquet como um formato pode demorar várias formas no armazenamento. Para conjuntos de dados menores, um ficheiro único .parquet, por vezes, é utilizado. Vários Python bibliotecas suporte ler ou escrever ficheiros .parquet único. Neste momento, a preparação de dados do Azure Machine Learning baseia-se na biblioteca PyArrow Python para ler Parquet durante a utilização de interativa local. Suporta ficheiros .parquet único (, desde foram escritos como tal e não como parte de um conjunto de dados maior), bem como Parquet conjuntos de dados.
+Parquet como um formato pode ter várias formas no armazenamento. Para conjuntos de dados mais pequenos, um ficheiro único .parquet, às vezes, é utilizado. Várias bibliotecas de Python suportam ler ou escrever para ficheiros de .parquet único. Por enquanto, preparação de dados do Azure Machine Learning baseia-se a biblioteca de PyArrow Python para ler o Parquet durante o uso interativo local. Ele oferece suporte a arquivos .parquet único (desde que foram escritas como tal e não como parte de um conjunto de dados maior), bem como o Parquet conjuntos de dados.
 
-Um conjunto de dados Parquet é uma coleção de mais de um ficheiro de .parquet, cada um dos quais representa uma partição mais pequena de um conjunto de dados maior. Conjuntos de dados são normalmente contidos numa pasta e são o formato de saída de parquet predefinido para plataformas, tais como o Spark e o Hive.
+Um conjunto de dados Parquet é uma coleção de mais de um ficheiro de .parquet, cada um representando uma partição menor de um conjunto de dados maior. Conjuntos de dados geralmente estão contidos numa pasta e são o formato de saída padrão parquet para plataformas, como o Spark e do Hive.
 
 >[!NOTE]
->Quando estiver a ler dados Parquet que está a ser uma pasta com vários ficheiros .parquet, é esta a selecionar o diretório para ler e o **conjunto de dados de Parquet** opção. Isto torna PyArrow ler a pasta toda em vez dos ficheiros individuais. Isto garante que suporte para ler mais complicadas formas de armazenar Parquet no disco, tais como a criação de partições de pasta.
+>Quando estiver lendo dados Parquet numa pasta com vários arquivos de .parquet, é mais seguro selecionar o diretório para leitura e o **conjunto de dados de Parquet** opção. Isso torna PyArrow ler a pasta inteira em vez dos ficheiros individuais. Isso garante o suporte para ler mais complicadas formas de armazenar o Parquet em disco, como a criação de partições de pasta.
 
-Execução de escalamento horizontal depende Parquet do Spark capacidades de leitura e suporta ficheiros único, bem como pastas, semelhantes à utilização interativa local.
+A execução de escalamento horizontal baseia-se no Parquet do Spark capacidades de leitura e suporta ficheiros únicos, bem como as pastas, semelhantes ao uso interativo local.
 
 #### <a name="options"></a>Opções
-- Parquet conjunto de dados. Esta opção determina se a preparação de dados do Azure Machine Learning expande um determinado diretório e tenta ler individualmente cada ficheiro (modo não seleccionado), ou se se trata o diretório como o conjunto de dados inteiro (o modo selecionado). Com o modo selecionado, PyArrow escolher a melhor forma de interpretar os ficheiros.
+- Conjunto de dados de parquet. Esta opção determina se a preparação de dados do Azure Machine Learning expande-se um determinado diretório e tenta ler cada arquivo individualmente (o modo não selecionado), ou se ele trata o diretório como o conjunto de dados inteiro (o modo selecionado). Com o modo selecionado, PyArrow escolhe a melhor forma de interpretar os ficheiros.
 
 
 ## <a name="locations"></a>Localizações
@@ -111,7 +111,7 @@ Execução de escalamento horizontal depende Parquet do Spark capacidades de lei
 Um disco rígido local ou uma localização de armazenamento de rede mapeadas.
 
 ### <a name="sql-server"></a>SQL Server
-Servidor de SQL no local, ou a base de dados SQL do Azure.
+Servidor SQL no local, ou a base de dados SQL do Azure.
 
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 Blob storage do Azure, que requer uma subscrição do Azure.

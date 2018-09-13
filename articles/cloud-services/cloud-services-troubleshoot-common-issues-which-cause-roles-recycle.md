@@ -1,6 +1,6 @@
 ---
-title: As causas comuns das funções do serviço em nuvem Reciclagem | Microsoft Docs
-description: Uma função de serviço de nuvem subitamente recicla pode fazer com que o período de indisponibilidade significativo. Seguem-se alguns problemas comuns que causam funções sejam recicladas, que podem ajudar a reduzir o período de indisponibilidade.
+title: Causas comuns da Reciclagem de funções do serviço em nuvem | Documentos da Microsoft
+description: Uma função de serviço na nuvem que, de repente, recicla pode provocar períodos de indisponibilidade significativos. Seguem-se alguns problemas comuns que fazem com que funções ser reciclado, que podem ajudar a reduzir o tempo de inatividade.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -13,60 +13,60 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7f513a7d3fe44cbbf06855059c87c10ddceef7c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 20b98fa9656c9c66a81ff98a70fcdbfb29d4dad6
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23984291"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35948110"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que fazem com que as funções reciclem
-Este artigo descreve algumas das causas comuns dos problemas de implementação e fornece sugestões de resolução de problemas para o ajudar a resolver estes problemas. É uma indicação de que existe de um problema com uma aplicação quando a instância de função não consegue iniciar ou -ciclos entre os Estados de inicialização, ocupados e parar.
+Este artigo discute algumas das causas comuns dos problemas de implementação e fornece sugestões de resolução de problemas para ajudar a resolver esses problemas. Uma indicação de que existe um problema com um aplicativo é quando a instância de função não consegue iniciar ou ciclos de entre os Estados de inicializar, ocupados e interromper.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>Dependências de tempo de execução em falta
-Se uma função na sua aplicação baseia-se em qualquer biblioteca gerida do assemblagem que não faz parte do .NET Framework ou do Azure, tem de incluir explicitamente essa assemblagem no pacote de aplicação. Tenha em atenção que outras estruturas da Microsoft não estão disponíveis no Azure, por predefinição. Se a sua função depende de uma estrutura, tem de adicionar as assemblagens ao pacote de aplicações.
+Se uma função na sua aplicação baseia-se em qualquer biblioteca gerida do assembly que não faz parte do .NET Framework ou do Azure, tem de incluir explicitamente esse assembly no pacote de aplicação. Tenha em atenção que outras estruturas da Microsoft não estão disponíveis no Azure por predefinição. Se a sua função se baseia numa estrutura desse tipo, tem de adicionar esses assemblies ao pacote de aplicações.
 
 Antes de criar e empacotar a sua aplicação, verifique o seguinte:
 
-* Se utilizar o Visual studio, certifique-se a **Cópia Local** propriedade está definida como **verdadeiro** para cada assemblagem referenciada no seu projeto que não faz parte do SDK do Azure ou do .NET Framework.
-* Certifique-se de que o ficheiro Web. config não referência a assemblagens não utilizadas no elemento de compilação.
-* O **ação criar** de cada. cshtml ficheiro está definido como **conteúdo**. Isto garante que os ficheiros serão apresentados corretamente no pacote e permite que outros ficheiros referenciados a aparecer no pacote.
+* Se utilizar o Visual studio, certifique-se de que o **Copy Local** estiver definida como **verdadeiro** para cada assembly referenciado no seu projeto que não faz parte do SDK do Azure ou o .NET Framework.
+* Certifique-se de que o ficheiro Web. config não referencia qualquer Assembly não utilizados no elemento de compilação.
+* O **Build Action** de cada. cshtml arquivo está definido como **conteúdo**. Isto garante que os ficheiros será apresentado corretamente no pacote e permite que outros arquivos referenciados a aparecer no pacote.
 
-## <a name="assembly-targets-wrong-platform"></a>Plataforma errada de destinos de assemblagem
-Azure é um ambiente de 64 bits. Por conseguinte, as assemblagens .NET compiladas para um destino de 32 bits não funcionará no Azure.
+## <a name="assembly-targets-wrong-platform"></a>Plataforma de errado de destinos de assemblagem
+O Azure é um ambiente de 64 bits. Por conseguinte, os assemblies do .NET compiladas para um destino de 32 bits não funcionarão no Azure.
 
-## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Função emite exceções não processadas ao inicializar ou a parar
-Quaisquer exceções que estão emitidas pelos métodos do [RoleEntryPoint] classe, que inclui o [OnStart], [OnStop], e [executar] os métodos, são exceções não processadas. Se ocorrer uma exceção não processada um destes métodos, a função reciclará. Se a função é Reciclagem repetidamente, poderá gerar uma exceção não processada sempre que tentar iniciar.
+## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Função emite exceções não processadas ao inicializar ou parar
+Quaisquer exceções que são geradas pelos métodos dos [RoleEntryPoint] classe, que inclui a [OnStart], [OnStop], e [executar] os métodos, são exceções sem tratamento. Se ocorrer uma exceção não processada em um dos seguintes métodos, haverá reciclagem de função. Se a função está a reciclar repetidamente, pode gerar uma exceção não processada sempre que tenta iniciar.
 
-## <a name="role-returns-from-run-method"></a>Devolve a função partir método Run
-O [executar] método destina-se para executar indefinidamente. Se o seu código substitui o [executar] método, este deve no modo de suspensão indefinidamente. Se o [executar] método devolve a função recicla.
+## <a name="role-returns-from-run-method"></a>A função é devolvida do método Run
+O [executar] método destina-se para executar indefinidamente. Se o seu código substitui o [executar] método, ele deve suspensão indefinidamente. Se o [executar] método retorna, a função reciclar.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Definição de DiagnosticsConnectionString incorreta
-Se a aplicação utiliza diagnósticos do Azure, o ficheiro de configuração do serviço tem de especificar o `DiagnosticsConnectionString` definição de configuração. Esta definição deve especificar uma ligação HTTPS para a sua conta do storage no Azure.
+Se o aplicativo usa diagnóstico do Azure, o ficheiro de configuração de serviço tem de especificar o `DiagnosticsConnectionString` definição de configuração. Esta definição deve especificar uma ligação HTTPS para a sua conta de armazenamento no Azure.
 
-Para se certificar de que o `DiagnosticsConnectionString` definição está correta antes de implementar o seu pacote de aplicação no Azure, verifique o seguinte:  
+Para garantir que seu `DiagnosticsConnectionString` definição está correta antes de implementar o pacote de aplicação para o Azure, verifique o seguinte:  
 
-* O `DiagnosticsConnectionString` definição pontos a uma conta de armazenamento válida no Azure.  
-  Por predefinição, esta definição aponta para a conta de armazenamento emulados pelo explicitamente tem de alterar esta definição antes de implementar o pacote de aplicação. Se não altere esta definição, é emitida uma exceção quando a instância de função se tentar iniciar o monitor de diagnóstico. Isto pode fazer com que a instância de função reciclar indefinidamente.
-* A cadeia de ligação especificada a seguir [formato](../storage/common/storage-configure-connection-string.md). (O protocolo tem de ser especificado como HTTPS.) Substitua *MyAccountName* com o nome da sua conta do storage e *MyAccountKey* com a sua chave de acesso:    
+* O `DiagnosticsConnectionString` na definição de pontos de uma conta de armazenamento válida no Azure.  
+  Por predefinição, esta definição aponta para a conta de armazenamento emulado, para que explicitamente tem de alterar esta definição antes de implementar o pacote de aplicação. Se não altere esta definição, é emitida uma exceção quando a instância de função tenta iniciar o monitor de diagnóstico. Isso pode fazer com que a instância de função reciclar indefinidamente.
+* A cadeia de ligação é especificada a seguir [formato](../storage/common/storage-configure-connection-string.md). (O protocolo tem de ser especificado como HTTPS.) Substitua *MyAccountName* com o nome da sua conta de armazenamento, e *MyAccountKey* com a sua chave de acesso:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Se estiver a desenvolver a aplicação, utilizando ferramentas do Azure para o Microsoft Visual Studio, pode utilizar as páginas de propriedades para definir este valor.
+  Se estiver a desenvolver seu aplicativo, utilizando ferramentas do Azure para Microsoft Visual Studio, pode utilizar as páginas de propriedades para definir este valor.
 
-## <a name="exported-certificate-does-not-include-private-key"></a>Certificado exportado não incluir a chave privada
-Para executar uma função da web em SSL, tem de se certificar de que o certificado de gestão exportado inclui a chave privada. Se utilizar o *Gestor de certificados do Windows* para exportar o certificado, lembre-se de que selecione **Sim** para o **exportar a chave privada** opção. O certificado tem de ser exportado no formato PFX, que é o formato apenas atualmente suportado.
+## <a name="exported-certificate-does-not-include-private-key"></a>Certificado exportado não inclui a chave privada
+Para executar uma função da web em SSL, tem de se certificar de que o seu certificado de gestão exportado inclui a chave privada. Se utilizar o *Gestor de certificados do Windows* para exportar o certificado, certifique-se de que selecionar **Sim** para o **exportar a chave privada** opção. O certificado tem de ser exportado no formato PFX, que é o único formato suportado atualmente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Ver mais [artigos de resolução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços em nuvem.
 
-Ver mais função Reciclagem cenários em [série de blogues de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Ver a função mais cenários em de reciclagem [série de blogue de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[executar]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[Executar]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

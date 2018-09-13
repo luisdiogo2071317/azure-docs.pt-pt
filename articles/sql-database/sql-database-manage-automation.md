@@ -1,5 +1,5 @@
 ---
-title: Gerir as bases de dados de SQL do Azure com a automatização do Azure | Documentos da Microsoft
+title: Gerir bases de dados SQL do Azure com a automatização do Azure | Documentos da Microsoft
 description: Saiba mais sobre como o serviço de automatização do Azure pode ser utilizado para gerir bases de dados SQL do Azure em escala.
 services: sql-database, automation
 author: CarlRabeler
@@ -9,14 +9,14 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: c68a493f439b5bc54cb04162de88ef31058d25f3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 43476cfcae2035c3b8e94b4a5e264a0c8ff424e0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058456"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715453"
 ---
-# <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerir as bases de dados de SQL do Azure com a automatização do Azure
+# <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerir bases de dados SQL do Azure com a automatização do Azure
 Este guia apresenta-lhe para o serviço de automatização do Azure e como ele pode ser usado para simplificar a gestão das bases de dados SQL do Azure.
 
 ## <a name="what-is-azure-automation"></a>O que é a Automatização do Azure?
@@ -31,7 +31,7 @@ Base de dados SQL do Azure podem ser gerido na automatização do Azure com o [c
 
 A automatização do Azure também tem a capacidade de comunicar com os servidores SQL diretamente, através da emissão de comandos SQL com o PowerShell.
 
-O [Galeria de runbooks da automatização do Azure](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks de equipe e da Comunidade de produto para começar a automatizar a gestão de bases de dados do Azure SQL, outros serviços do Azure e o 3º sistemas de terceiros. Galeria runbooks incluem:
+O [Galeria de runbooks da automatização do Azure](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks de equipe e da Comunidade de produto para começar a automatizar a gestão de bases de dados SQL do Azure, outros serviços do Azure e o 3º sistemas de terceiros. Galeria runbooks incluem:
 
 * [Executar consultas SQL numa base de dados do SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 * [Aumentar verticalmente (para cima ou para baixo) uma base de dados do SQL do Azure com base numa agenda](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)

@@ -1,6 +1,6 @@
 ---
-title: Monitorização de desempenho para aplicações web de Java no Azure Application Insights | Microsoft Docs
-description: Expandida monitorização de desempenho e utilização do seu site em Java com o Application Insights.
+title: Monitorização de desempenho para aplicações web de Java no Azure Application Insights | Documentos da Microsoft
+description: Estendidas de desempenho e monitorização da utilização do seu site de Java com o Application Insights.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,36 +10,37 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3a771da2a1ef0333d49e1d83530b3d3032a550d2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 366e79e7a58f45f5a5eeb318d3dd08427fbec0b0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647151"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções atualizadas e tempos de execução do método nas web apps do Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções recebidas e tempos de execução do método em aplicações web Java
 
 
-Se tiver [instrumentados a sua aplicação web de Java com o Application Insights][java], pode utilizar o agente Java para obter informações mais aprofundadas, sem quaisquer alterações de código:
+Se tiver [instrumentado a sua aplicação web de Java com o Application Insights][java], pode utilizar o agente Java para obter informações mais aprofundadas, sem quaisquer alterações de código:
 
-* **Dependências:** dados sobre chamadas que torna a sua aplicação para outros componentes, incluindo:
-  * **Chamadas REST** efetuadas através de HttpClient, OkHttp e RestTemplate (mola) são capturadas.
-  * **Redis** chamadas efetuadas através do cliente Jedis são capturadas.
-  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -comandos MySQL, SQL Server e Oracle DB são capturados automaticamente. Para MySQL, se a chamada demora mais que 10s, o agente reporta o plano de consulta.
-* **Detetada exceções:** informações sobre as exceções que são processados pelo seu código.
+* **Dependências:** dados sobre chamadas de que a aplicação faz para outros componentes, incluindo:
+  * **Chamadas REST** feita por meio do HttpClient, OkHttp e RestTemplate (Spring) são capturadas.
+  * **Redis** chamadas efetuadas através do cliente de Jedis são capturadas.
+  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -comandos do MySQL, SQL Server e Oracle DB são automaticamente capturados. Para o MySQL, se a chamada demora mais tempo do que 10s, o agente reporta o plano de consulta.
+* **Pego exceções:** informações sobre as exceções que são processados pelo seu código.
 * **Tempo de execução do método:** informações sobre o tempo que demora a executar métodos específicos.
 
-Para utilizar o agente Java, instalá-lo no seu servidor. As suas aplicações web têm de ser equipadas com o [Application Insights SDK de Java][java]. 
+Para utilizar o agente Java, instalá-lo no seu servidor. As aplicações web tem de ser equipadas com o [SDK de Java do Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
-1. No computador a executar o servidor de Java [transferir o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se para transferir o mesmo verson de agente Java como pacotes de núcleos e web do Application Insights SDK de Java.
-2. Edite o script de arranque do servidor de aplicação e adicione as JVM seguinte:
+1. No computador a executar o seu servidor de Java [transferir o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se para baixar o verson mesmo do agente de Java como pacotes de núcleo e web de Java SDK do Application Insights.
+2. Edite o script de inicialização do servidor de aplicação e adicione o JVM seguinte:
    
     `javaagent:`*caminho completo para o ficheiro JAR do agente*
    
-    Por exemplo, no Tomcat num computador Linux:
+    Por exemplo, no Tomcat numa máquina Linux:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 3. Reinicie o servidor de aplicação.
@@ -47,7 +48,7 @@ Para utilizar o agente Java, instalá-lo no seu servidor. As suas aplicações w
 ## <a name="configure-the-agent"></a>Configurar o agente
 Crie um ficheiro denominado `AI-Agent.xml` e colocá-lo na mesma pasta que o ficheiro JAR do agente.
 
-Defina o conteúdo do ficheiro xml. Edite o exemplo a seguir para incluir ou omita as funcionalidades que pretende.
+Defina o conteúdo do arquivo xml. Edite o exemplo seguinte para incluir ou omitir os recursos que pretende.
 
 ```XML
 
@@ -86,16 +87,16 @@ Defina o conteúdo do ficheiro xml. Edite o exemplo a seguir para incluir ou omi
 
 ```
 
-Tem de permitir exceção de relatórios e a temporização de método para métodos individuais.
+Tem de ativar a exceção de relatórios e o tempo de método para métodos individuais.
 
-Por predefinição, `reportExecutionTime` é verdadeiro e `reportCaughtExceptions` é falso.
+Por predefinição, `reportExecutionTime` é verdadeiro e `reportCaughtExceptions` é false.
 
 ## <a name="view-the-data"></a>Ver os dados
-No recurso do Application Insights, aparece agregados remotos dependência e método os tempos de execução [em mosaico desempenho][metrics].
+O recurso do Application Insights, agregados remotos dependência e o método tempos de execução aparece [sob o mosaico de desempenho][metrics].
 
-Para procurar instâncias individuais da dependência, exceções e método relatórios, abra [pesquisa][diagnostic].
+Para procurar instâncias individuais de dependência, a exceção e o método de relatórios, abra [pesquisa][diagnostic].
 
-[Diagnosticar problemas de dependência - Saiba mais](app-insights-asp-net-dependencies.md#diagnosis).
+[Diagnóstico de dependência de problemas - Saiba mais](app-insights-asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Tem dúvidas? Problemas?
 * Não existem dados? [Exceções de firewall de conjunto](app-insights-ip-addresses.md)

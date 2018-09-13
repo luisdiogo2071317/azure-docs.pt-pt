@@ -1,5 +1,5 @@
 ---
-title: Correlação de telemetria do Azure Application Insights | Microsoft Docs
+title: Correlação de telemetria de informações de aplicação do Azure | Documentos da Microsoft
 description: Correlação de telemetria do Application Insights
 services: application-insights
 documentationcenter: .net
@@ -9,41 +9,43 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 057e47c19f6405bec9e1fa80dd7097476876baa9
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648718"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
-No mundo de serviços micro, cada operação lógica requer o trabalho feito na vários componentes do serviço. Cada um destes componentes pode ser monitorizada separadamente pela [Application Insights](app-insights-overview.md). O componente de aplicação web comunica com o componente de fornecedor de autenticação para validar as credenciais de utilizador e com o componente da API para obter dados para visualização. O componente de API na respetiva ative pode consultar dados a partir de outros serviços utilizam componentes de fornecedor de cache e notificar o componente de faturação sobre esta chamada. Correlação de telemetria distribuídas do Application Insights suporta. Permite-lhe detetar que componente é responsável por falhas ou degradação do desempenho.
+No mundo dos microsserviços, cada operação lógica requer trabalho realizado em vários componentes do serviço. Cada um desses componentes pode ser monitorizada separadamente pelo [Application Insights](app-insights-overview.md). O componente da aplicação web se comunica com o componente de provedor de autenticação para validar as credenciais de utilizador e com o componente de API para obter dados para visualização. O componente de API no próprio giro pode consultar dados de outros serviços e usar componentes de fornecedor de cache e notificar o componente de faturação sobre esta chamada. Application Insights suporta telemetria distribuída correlação. Permite-lhe detetar que componente é responsável por falhas ou degradação do desempenho.
 
-Este artigo explica o modelo de dados utilizado pelo Application Insights para correlacionar a telemetria enviada pelo vários componentes. Aborda as técnicas de propagação de contexto e os protocolos. Também abrange a implementação dos conceitos de correlação em diferentes idiomas e plataformas.
+Este artigo explica o modelo de dados usado pelo Application Insights para correlacionar a telemetria enviada por vários componentes. Ele cobre as técnicas de propagação de contexto e protocolos. Também aborda de que a implementação dos conceitos de correlação em plataformas e idiomas diferentes.
 
 ## <a name="telemetry-correlation-data-model"></a>Modelo de dados de correlação de telemetria
 
-Application Insights define um [modelo de dados](application-insights-data-model.md) para correlação de telemetria distribuída. Para associar o funcionamento lógico telemetria, todos os itens de telemetria tem um campo de contexto chamado `operation_Id`. Este identificador é partilhado por todos os itens de telemetria no rastreio distribuído. Por isso, mesmo com perda de telemetria de uma camada única ainda pode associar telemetria comunicada por outros componentes.
+O Application Insights define um [modelo de dados](application-insights-data-model.md) de correlação de telemetria distribuída. Para associar o funcionamento lógico telemetria, todos os itens de telemetria tem um campo de contexto chamado `operation_Id`. Este identificador é partilhado por todos os itens de telemetria no rastreio distribuído. Portanto, mesmo com a perda de telemetria a partir de uma única camada ainda pode associar telemetria comunicada pelos outros componentes.
 
-Operação lógica distribuída é composta por, normalmente, um conjunto de operações mais pequena - pedidos processados por um dos componentes. Essas operações são definidas pelo [pedido telemetria](application-insights-data-model-request-telemetry.md). A telemetria de cada pedido tem o seu próprio `id` que o identifica exclusivamente global. E toda a telemetria - rastreios, exceções, etc. associada a este pedido deve definir o `operation_parentId` para o valor do pedido `id`.
+Operação lógica distribuída normalmente consiste num conjunto de operações menores - pedidos processados por um dos componentes. Essas operações são definidas pelas [telemetria de pedido](application-insights-data-model-request-telemetry.md). Telemetria de cada pedido tem seu próprio `id` que o identifica exclusivamente globalmente. E toda a telemetria - rastreios, exceções, etc. associados a este pedido deve ser definido a `operation_parentId` para o valor da solicitação `id`.
 
-Cada operação de envio como uma chamada de http para outro componente representado pelo [telemetria de dependência](application-insights-data-model-dependency-telemetry.md). Telemetria de dependência também define os seus próprios `id` que seja globalmente exclusivo. Telemetria de pedido, iniciada por esta chamada de dependência, utiliza-o como `operation_parentId`.
+Cada operação de saída, como a chamada http para outro componente representado pelo [telemetria de dependência](application-insights-data-model-dependency-telemetry.md). Telemetria de dependência também define sua própria `id` que seja globalmente exclusivo. Telemetria de pedido, iniciada por chamada de dependência, utiliza-o como `operation_parentId`.
 
-Pode criar a vista de utilização da operação lógica distribuída `operation_Id`, `operation_parentId`, e `request.id` com `dependency.id`. Os campos também definem a ordem de causality das chamadas de telemetria.
+Pode criar a vista do uso de operação lógica distribuída `operation_Id`, `operation_parentId`, e `request.id` com `dependency.id`. Esses campos também definem a ordem de causalidade das chamadas de telemetria.
 
-Num ambiente de serviços micro, rastreios de componentes podem ir para o armazenamento diferente. Todos os componentes podem ter a sua própria chave de instrumentação no Application Insights. Para obter telemetria para o funcionamento lógico, tem de consultar os dados do armazenamento de cada. Quando o número de armazenamento for grande, terá de ter uma sugestão sobre onde parecer seguinte.
+Num ambiente de microsserviços, os rastreios a partir de componentes podem ir para os diferentes armazenamentos. Todos os componentes podem ter sua própria chave de instrumentação no Application Insights. Para obter telemetria para o funcionamento lógico, terá de consultar dados do armazenamento de cada. Quando o número de armazenamentos é enorme, tem de ter uma dica sobre onde procurar agora.
 
-Modelo de dados define dois campos para resolver este problema do Application Insights: `request.source` e `dependency.target`. O primeiro campo identifica o componente que iniciou o pedido de dependência e o segundo identifica o componente devolvida a resposta da chamada de dependência.
+O Application Insights, modelo de dados define dois campos para resolver este problema: `request.source` e `dependency.target`. O primeiro campo identifica o componente a solicitação de dependência e o segundo identifica que componente devolveu a resposta da chamada de dependência.
 
 
 ## <a name="example"></a>Exemplo
 
-Vejamos um exemplo de um gráfico de cotações de aplicação os preços que mostra o preço de mercado atual de um gráfico de cotações utilizando a API externa chamada a API de AÇÕES. A aplicação de preços de gráfico de cotações tem uma página `Stock page` aberta utilizando o cliente web browser `GET /Home/Stock`. A aplicação de consulta da API de gráfico de cotações através da utilização de uma chamada HTTP `GET /api/stock/value`.
+Vejamos um exemplo de preços de STOCK uma aplicação que mostra o preço do mercado atual de uma ação com a API externa, chamada de API de AÇÕES. O aplicativo de preços de STOCK tem uma página `Stock page` aberto utilizando o cliente web browser `GET /Home/Stock`. A aplicação de consulta da API de STOCK através de uma chamada HTTP `GET /api/stock/value`.
 
-Pode analisar telemetria resultante execução de uma consulta:
+Pode analisar a telemetria resultante, execução de uma consulta:
 
 ```
 (requests | union dependencies | union pageViews) 
@@ -51,70 +53,70 @@ Pode analisar telemetria resultante execução de uma consulta:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-Na nota de vista de resultado que todos os itens de telemetria partilham raiz `operation_Id`. Quando chamada ajax efetuada a partir da página - novo id exclusivo `qJSXU` está atribuída a telemetria de dependência e id do pageView é utilizado como `operation_ParentId`. Por sua vez no pedido do servidor utiliza o id do ajax como `operation_ParentId`, etc.
+Na nota de exibição de resultado que todos os itens de telemetria partilham raiz `operation_Id`. Quando chamar o ajax feitas a partir da página – novo id exclusivo `qJSXU` é atribuído para a telemetria de dependência e o id da visualização de página é usada como `operation_ParentId`. Por sua vez o pedido de servidor utiliza a id do ajax como `operation_ParentId`, etc.
 
 | ItemType   | nome                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
-| pageView   | As cotações página                |              | STYz               | STYz         |
-| dependência | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| Pedido    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| visualização de página   | Página de ações                |              | STYz               | STYz         |
+| dependência | GET /Home/estoque           | qJSXU        | STYz               | STYz         |
+| pedido    | GET Home/estoque            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependência | OBTER /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
-Agora quando a chamada `GET /api/stock/value` efetuadas a um serviço externo que pretende conheçam a identidade do servidor. Para que possa definir `dependency.target` campo adequadamente. Quando o serviço externo não suporta a monitorização - `target` está definido como o nome de anfitrião do serviço como `stock-prices-api.com`. No entanto se esse serviço identifica-se por um predefinidos a devolver o cabeçalho HTTP - `target` contém a identidade de serviço que permite que o Application Insights criar o rastreio distribuído consultando a telemetria de que o serviço. 
+Agora quando a chamada `GET /api/stock/value` feita para um serviço externo que pretende saber a identidade desse servidor. Para que possa definir `dependency.target` campo adequadamente. Quando o serviço externo não suporta a monitorização - `target` está definido como o nome de anfitrião do serviço, como `stock-prices-api.com`. No entanto se esse serviço identifica-se ao devolver um predefinidos cabeçalho HTTP - `target` contém a identidade de serviço que permite-Application Insights criar o rastreio distribuído através da consulta de telemetria a partir desse serviço. 
 
 ## <a name="correlation-headers"></a>Cabeçalhos de correlação
 
-Estamos a trabalhar proposta de RFC para o [correlação protocolo HTTP](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Este proposta define dois cabeçalhos:
+Estamos a trabalhar na proposta de RFC para o [correlação protocolo HTTP](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Essa proposta seja define dois cabeçalhos de:
 
-- `Request-Id` transportar o id exclusivo global da chamada
-- `Correlation-Context` -transportar a coleção de pares de valor de nome das propriedades do rastreio distribuída
+- `Request-Id` executar o id exclusivo global da chamada
+- `Correlation-Context` -executar a coleção de pares de valor de nome das propriedades de rastreio distribuído
 
-A norma também define duas esquemas de `Request-Id` geração - simples e hierárquica. Com o esquema simples, há um conhecidos `Id` chave definida para o `Correlation-Context` coleção.
+O padrão também define dois esquemas de `Request-Id` geração - simples e hierárquica. Com o esquema simples, há um conhecido `Id` chave definida para o `Correlation-Context` coleção.
 
-Application Insights define o [extensão](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) para a protocolo HTTP de correlação. Utiliza `Request-Context` nome pares de valor para propagar a coleção de propriedades utilizadas pelo chamador imediato ou destinatário. Application Insights SDK utiliza este cabeçalho definir `dependency.target` e `request.source` campos.
+O Application Insights define a [extensão](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) para a correlação de protocolo HTTP. Ele usa `Request-Context` nomear pares de valor para propagar a coleção de propriedades utilizadas pelo chamador imediato ou receptor. SDK do Application Insights utiliza este cabeçalho para definir `dependency.target` e `request.source` campos.
 
-## <a name="open-tracing-and-application-insights"></a>Rastreio aberto e o Application Insights
+## <a name="open-tracing-and-application-insights"></a>Rastreamento de aberto e Application Insights
 
 [Abra o rastreio](http://opentracing.io/) e o Application Insights procura de modelos de dados 
 
-- `request`, `pageView` mapeia para **Span** com `span.kind = server`
-- `dependency` mapeia para **Span** com `span.kind = client`
+- `request`, `pageView` mapeado para **Span** com `span.kind = server`
+- `dependency` é mapeado para **Span** com `span.kind = client`
 - `id` de um `request` e `dependency` mapeia para **Span.Id**
 - `operation_Id` mapeia para **TraceId**
-- `operation_ParentId` mapeia para **referência** do tipo `ChildOf`
+- `operation_ParentId` é mapeado para **referência** do tipo `ChildOf`
 
-Consulte [modelo de dados](application-insights-data-model.md) para o modelo de tipos e os dados do Application Insights.
+Ver [modelo de dados](application-insights-data-model.md) para o modelo de tipos e dados do Application Insights.
 
-Consulte [especificação](https://github.com/opentracing/specification/blob/master/specification.md) e [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) para definições de rastreio abra conceitos.
+Ver [especificação](https://github.com/opentracing/specification/blob/master/specification.md) e [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) para obter definições de rastreio aberto conceitos.
 
 
 ## <a name="telemetry-correlation-in-net"></a>Correlação de telemetria no .NET
 
-Ao longo do tempo .NET definido várias formas para correlacionar os registos de telemetria e de diagnóstico. Não há `System.Diagnostics.CorrelationManager` que permite controlar [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` e Windows ETW definir o método [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` utiliza [âmbitos de registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). Transmissão WCF e Http cópias de segurança "atual" propagação de contexto.
+Ao longo do tempo .NET definido várias formas de correlacionar os registos de telemetria e diagnóstico. Há `System.Diagnostics.CorrelationManager` que permite controlar [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` e o Windows ETW definir o método [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` utiliza [âmbitos de registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF e Http conectar "current" propagação de contexto.
 
-No entanto os métodos não ative o suporte de rastreio distribuída automática. `DiagnosticsSource` é uma forma para suportar automática cruzada correlação da máquina. Bibliotecas .NET suportam a origem de diagnóstico e permitem automáticas cruzada máquina propagação do contexto de correlação através de transporte, como http.
+No entanto esses métodos não tiver ativado o suporte de rastreio distribuído automática. `DiagnosticsSource` é uma forma para suportar automática cruzada correlação de máquina. Bibliotecas .NET suportam a origem de diagnóstico e permitem automáticas cruzada propagação de máquina de contexto de correlação por meio de transporte, como http.
 
-O [guia para atividades](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) na origem de diagnóstico explica as noções básicas de actividades de controlo. 
+O [guia para atividades](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) na origem de diagnóstico explica as noções básicas de atividades de controlo. 
 
-Núcleo de ASP.NET 2.0 suporta a extração dos cabeçalhos de Http e iniciar a nova atividade. 
+ASP.NET Core 2.0 oferece suporte a extração de cabeçalhos de Http e iniciar a nova atividade. 
 
-`System.Net.HttpClient` versão inicial `4.1.0` suporta a inserção automática da correlação cabeçalhos de Http e a chamada de http como uma atividade de controlo.
+`System.Net.HttpClient` versão inicial `4.1.0` suporta injeção automática da correlação cabeçalhos Http e a chamada http como uma atividade de controlo.
 
-Há um novo módulo de Http [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) para clássica ASP.NET. Este módulo implementa utilizando DiagnosticsSource de correlação de telemetria. Começa com base nos cabeçalhos de pedido de entrada de atividade. Também está correlacionada com a telemetria de diferentes fases do processamento do pedido. Mesmo para os casos quando cada fase do processamento do IIS é executado num threads gerir diferentes.
+Existe um novo módulo de Http [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) para a clássica do ASP.NET. Este módulo implementa a correlação de telemetria com DiagnosticsSource. Ele começa a atividade com base nos cabeçalhos de pedido de entrada. Ele também correlaciona telemetria a partir de diferentes fases do processamento do pedido. Mesmo para os casos quando cada estágio do processamento do IIS é executado num threads de gerir diferentes.
 
-Versão inicial do Application Insights SDK `2.4.0-beta1` utiliza DiagnosticsSource e a atividade para recolher telemetria e associá-lo com a atividade atual. 
+Versão inicial do Application Insights SDK `2.4.0-beta1` utiliza DiagnosticsSource e a atividade para recolher telemetria e associá-la com a atividade atual. 
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java-sdk"></a>Correlação de telemetria do SDK de Java
-O [Application Insights SDK de Java](app-insights-java-get-started.md) suporta correlação automática de início de telemetria com a versão `2.0.0`. Este ocupa automaticamente `operation_id` para toda a telemetria (rastreios, exceções, eventos personalizados, etc.) emitida no âmbito de um pedido. Se também trata da propagar os cabeçalhos de correlação (descritos acima) para chamadas de serviços através de HTTP se o [agente Java SDK](app-insights-java-agent.md) está configurado. Nota: apenas as chamadas efetuadas através do Apache HTTP cliente são suportadas para a funcionalidade de correlação. Se estiver a utilizar o modelo de Rest de mola ou Feign, podem ser ambos utilizados com Apache HTTP cliente sob definições avançadas.
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Correlação de telemetria no SDK do Java
+O [SDK de Java do Application Insights](app-insights-java-get-started.md) oferece suporte a correlação automática de início de telemetria com a versão `2.0.0`. Povoa automaticamente `operation_id` para toda a telemetria (rastreios, exceções, eventos personalizados, etc.) emitida dentro do escopo de um pedido. Ele também se encarrega de propagar os cabeçalhos de correlação (descritos acima) para chamadas de serviço para serviço via HTTP se o [agente Java SDK](app-insights-java-agent.md) está configurado. Nota: apenas as chamadas efetuadas através do cliente HTTP Apache são suportadas para a funcionalidade de correlação. Se estiver a utilizar o modelo de Rest de Spring ou Feign, ambos podem ser utilizadas com o cliente de HTTP do Apache, nos bastidores.
 
-Atualmente, a propagação do contexto automática através de tecnologias de mensagens (por exemplo, Kafka, RabbitMQ, o Service Bus do Azure) não é suportada. É possível, no entanto manualmente codificar tais cenários utilizando o `trackDependency` e `trackRequest` do API, na qual a telemetria de dependência representa uma mensagem a ser colocados em fila por um produtor e o pedido representa uma mensagem a ser processada por um consumidor. Neste caso, ambos `operation_id` e `operation_parentId` deve ser propagados nas propriedades da mensagem.
+Atualmente, a propagação automática de contexto em tecnologias de mensagens (por exemplo, Kafka, RabbitMQ, do Azure Service Bus) não é suportada. É possível, no entanto codificar manualmente esses cenários, utilizando o `trackDependency` e `trackRequest` APIS, no qual uma telemetria de dependência representa uma mensagem a ser colocados em fila por um produtor e o pedido representa uma mensagem a ser processada por um consumidor. Neste caso, ambos `operation_id` e `operation_parentId` deve ser propagadas nas propriedades da mensagem.
 
 <a name="java-role-name"></a>
 ### <a name="role-name"></a>Nome da Função
-Por vezes, pode querer personalizar a forma como os nomes de componentes são apresentados no [o mapeamento de aplicações](app-insights-app-map.md). Para tal, é possível definir manualmente as `cloud_roleName` efetuando um dos seguintes:
+Às vezes, pode querer personalizar a forma como os nomes de componentes são apresentados no [mapa da aplicação](app-insights-app-map.md). Para fazer isso, pode definir manualmente o `cloud_roleName` efetuando um dos seguintes procedimentos:
 
-Através de um inicializador de telemetria (todos os itens de telemetria são marcados)
+Por meio de um inicializador de telemetria (todos os itens de telemetria são marcados)
 ```Java
 public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
 
@@ -124,14 +126,14 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Através de [classe de contexto de dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (apenas este item de telemetria é marcado)
+Através da [classe de contexto de dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (apenas este item de telemetria é marcado)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Grave a telemetria personalizada](app-insights-api-custom-events-metrics.md)
-- Carregar todos os componentes do seu serviço micro no Application Insights. Veja [plataformas suportadas](app-insights-platforms.md).
-- Consulte [modelo de dados](application-insights-data-model.md) para o modelo de tipos e os dados do Application Insights.
-- Saiba como [expandir e filtrar telemetria](app-insights-api-filtering-sampling.md).
+- [Escrever telemetria personalizada](app-insights-api-custom-events-metrics.md)
+- Carregar todos os componentes do seu serviço micro no Application Insights. Confira [plataformas suportadas](app-insights-platforms.md).
+- Ver [modelo de dados](application-insights-data-model.md) para o modelo de tipos e dados do Application Insights.
+- Saiba como [estender e filtrar telemetria](app-insights-api-filtering-sampling.md).

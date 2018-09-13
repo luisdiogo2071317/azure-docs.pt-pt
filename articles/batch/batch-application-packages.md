@@ -1,6 +1,6 @@
 ---
-title: Instalar pacotes de aplicações em nós de computação - Azure Batch | Microsoft Docs
-description: Utilize a funcionalidade de pacotes de aplicações do Azure Batch para gerir facilmente várias aplicações e versões para a instalação do batch nós de computação.
+title: Instalar pacotes de aplicações em nós de computação - Azure Batch | Documentos da Microsoft
+description: Utilize a funcionalidade de pacotes de aplicação do Azure Batch para gerir facilmente várias aplicações e versões para instalação em Batch nós de computação.
 services: batch
 documentationcenter: .net
 author: dlepow
@@ -12,191 +12,191 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 06/15/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f982e859892965379b7ffb08e15dd1cf51b9801f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515684"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35947656"
 ---
-# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós com pacotes de aplicações de Batch de computação
+# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós de computação com pacotes de aplicações do Batch
 
-A funcionalidade de pacotes de aplicações do Azure Batch fornece o facilitar a gestão de aplicações de tarefas e a respetiva implementação em nós de computação do conjunto. Com os pacotes de aplicação, pode carregar e gerir várias versões das aplicações que executam as suas tarefas, incluindo os respetivos ficheiros de suporte. Pode, em seguida, implementar automaticamente uma ou mais destas aplicações em nós de computação do conjunto.
+A funcionalidade de pacotes de aplicação do Azure Batch fornece a facilitar a gestão de aplicações de tarefas e a respetiva implementação em nós de computação do conjunto. Com pacotes de aplicações, pode carregar e gerir facilmente várias versões das aplicações que suas tarefas vão executar, incluindo os respetivos ficheiros de suporte. Pode, em seguida, implementar automaticamente uma ou mais destas aplicações em nós de computação do conjunto.
 
-Neste artigo, irá aprender a carregar e gerir pacotes de aplicação no portal do Azure. Em seguida, aprenderá a instalá-las em nós de computação de um conjunto com o [.NET do Batch] [ api_net] biblioteca.
+Neste artigo, saiba como carregar e gerir pacotes de aplicações no portal do Azure. Em seguida, saiba como instalá-los em nós de computação de um conjunto com o [.NET do Batch] [ api_net] biblioteca.
 
 > [!NOTE]
 > 
 > Os pacotes de aplicações são suportados em todos os conjuntos do Batch criados após 5 de Julho de 2017. Só são suportados em conjuntos do Batch criados entre 10 de Março de 2016 e 5 de Julho de 2017 se o conjunto tiver sido criado com uma configuração de Serviço Cloud. Os conjuntos do Batch criados antes de 10 de Março de 2016 não suportam pacotes de aplicações.
 >
-> As APIs para criar e gerir pacotes de aplicações são parte a [gestão de lotes .NET] [ api_net_mgmt] biblioteca. As APIs para instalar pacotes de aplicações num nó de computação são parte a [.NET do Batch] [ api_net] biblioteca. Comparáveis funcionalidades estão a ser as APIs do Batch disponíveis para outros idiomas. 
+> As APIs para criar e gerir pacotes de aplicações são parte do [Batch Management .NET] [ api_net_mgmt] biblioteca. As APIs para a instalação de pacotes de aplicações num nó de computação são parte do [.NET do Batch] [ api_net] biblioteca. Funcionalidades comparáveis estão em APIs do Batch disponíveis para outros idiomas. 
 >
-> A funcionalidade de pacotes de aplicação descrita aqui substitui a funcionalidade de aplicações de Batch disponível em versões anteriores do serviço.
+> A funcionalidade de pacotes de aplicação descrita aqui substitui a funcionalidade de aplicações do Batch disponível em versões anteriores do serviço.
 > 
 > 
 
 ## <a name="application-package-requirements"></a>Requisitos do pacote de aplicação
-Para utilizar pacotes de aplicações, terá de [associar uma conta de armazenamento do Azure](#link-a-storage-account) à sua conta do Batch.
+Para utilizar pacotes de aplicações, terá [associar uma conta de armazenamento do Azure](#link-a-storage-account) à conta do Batch.
 
 ## <a name="about-applications-and-application-packages"></a>Sobre as aplicações e pacotes de aplicações
-Dentro do Azure Batch, um *aplicação* refere-se a um conjunto com a versão dos binários do que pode ser transferido automaticamente em nós de computação do conjunto. Um *pacote de aplicação* refere-se a um *conjunto específico* desses binários e representa uma determinada *versão* da aplicação.
+Dentro do Azure Batch, um *aplicativo* refere-se a um conjunto de binários com a versão que pode ser baixado automaticamente em nós de computação do conjunto. Uma *pacote de aplicação* refere-se a um *conjunto específico* desses binários e representa um determinado *versão* do aplicativo.
 
-![Diagrama de alto nível das aplicações e pacotes de aplicações][1]
+![Diagrama de alto nível de aplicativos e pacotes de aplicações][1]
 
 ### <a name="applications"></a>Aplicações
-Uma aplicação no Batch contém um ou mais aplicações, pacotes e especifica as opções de configuração para a aplicação. Por exemplo, uma aplicação pode especificar a versão do pacote de aplicação predefinido para instalar em nós de computação e se os pacotes podem ser atualizados ou eliminados.
+Uma aplicação no Batch contém uma ou mais aplicações, pacotes e especifica as opções de configuração para a aplicação. Por exemplo, um aplicativo pode especificar a versão do pacote de aplicativo padrão para instalar em nós de computação e se os seus pacotes podem ser atualizados ou excluídos.
 
 ### <a name="application-packages"></a>Pacotes de aplicações
-Um pacote de aplicação é um ficheiro. zip que contém os binários da aplicação e ficheiros de suporte que são necessários para as suas tarefas executar a aplicação. Cada pacote de aplicações representa uma versão específica da aplicação.
+Um pacote de aplicação é um ficheiro. zip que contém os binários de aplicativo e ficheiros de suporte que são necessários para as suas tarefas executar a aplicação. Cada pacote de aplicação representa uma versão específica do aplicativo.
 
-Pode especificar os pacotes de aplicações nos níveis de agrupamento e tarefas. Pode especificar um ou mais destes pacotes e (opcionalmente) uma versão quando cria um conjunto ou tarefas.
+Pode especificar pacotes de aplicações nos níveis de agrupamento e tarefas. Pode especificar um ou mais desses pacotes e (opcionalmente) uma versão quando cria um conjunto ou tarefas.
 
-* **Agrupamento de pacotes de aplicações** são implementadas nos *cada* nó no conjunto. As aplicações são implementadas quando um nó se associa um conjunto e quando é reiniciado ou recriada.
+* **Agrupamento de pacotes de aplicações** são implementadas *cada* nó no conjunto. Os aplicativos são implantados quando um nó se associa um conjunto e quando ele é reiniciado ou recriado.
   
-    Pacotes de aplicações do conjunto são adequados quando todos os nós num conjunto executar tarefas de uma tarefa. Pode especificar um ou mais pacotes de aplicações quando cria um conjunto, e pode adicionar ou atualizar os pacotes de um conjunto existente. Se atualizar pacotes de aplicações de um conjunto existente, tem de reiniciar respetivos nós para instalar o novo pacote.
-* **Pacotes de aplicações de tarefas** são implementadas apenas a um nó de computação agendado para ser executada uma tarefa, antes de executar a linha de comandos da tarefa. Se o pacote de aplicações especificado e a versão já se encontra no nó, não é implementada novamente e é utilizado o pacote existente.
+    Pacotes de aplicações do conjunto são adequados quando todos os nós num conjunto executam tarefas de um trabalho. Quando cria um conjunto, e pode adicionar ou atualizar os pacotes de um conjunto existente, pode especificar um ou mais pacotes de aplicações. Se atualizar pacotes de aplicações de um conjunto existente, tem de reiniciar os nós para instalar o novo pacote.
+* **Pacotes de aplicações de tarefas** são implementadas apenas para um nó de computação agendado para ser executada uma tarefa, antes de executar linha de comandos da tarefa. Se o pacote de aplicação especificado e a versão já está no nó, não está a ser reimplementada e o pacote existente é usado.
   
-    Pacotes de aplicação de tarefas são úteis em ambientes de agrupamento partilhado, onde as diferentes tarefas são executadas num agrupamento de uma e o conjunto não é eliminado quando uma tarefa estiver concluída. Se o trabalho tiver menos tarefas do que nós no conjunto, os pacotes de aplicações de tarefas podem minimizar a transferência de dados, uma vez que a aplicação é implementada apenas nos nós que executam tarefas.
+    Pacotes de aplicações de tarefas são úteis em ambientes de conjunto partilhado, em que as diferentes tarefas são executadas num conjunto, e o conjunto não é eliminado quando uma tarefa estiver concluída. Se o trabalho tiver menos tarefas do que nós no conjunto, os pacotes de aplicações de tarefas podem minimizar a transferência de dados, uma vez que a aplicação é implementada apenas nos nós que executam tarefas.
   
-    Outros cenários que podem beneficiar dos pacotes de aplicação de tarefa são tarefas que executam uma aplicação de grandes dimensões, mas apenas algumas tarefas. Por exemplo, uma fase de pré-processamento ou uma tarefa de intercalação, onde a aplicação de intercalação ou pré-processamento de é pesadas, pode tirar partido da utilização de pacotes de aplicação de tarefas.
+    Outros cenários que podem beneficiar de pacotes de aplicações de tarefas são tarefas que executem um aplicativo grande, mas para apenas algumas tarefas. Por exemplo, uma fase de pré-processamento ou uma tarefa de intercalação, onde o aplicativo de intercalação ou pré-processamento for pesadas, pode beneficiar da utilização de pacotes de aplicações de tarefas.
 
 > [!IMPORTANT]
-> Existem restrições no número de aplicações e pacotes de aplicações dentro de uma conta do Batch e o tamanho do pacote de aplicação máximo. Consulte [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter detalhes sobre estes limites.
+> Existem restrições no número de aplicativos e pacotes de aplicativos dentro de uma conta do Batch e o tamanho do pacote de aplicação máximo. Ver [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter detalhes sobre estes limites.
 > 
 > 
 
-### <a name="benefits-of-application-packages"></a>Vantagens dos pacotes de aplicações
-Pacotes de aplicações podem simplificar o código na sua solução do Batch e reduzir os custos gerais necessários para gerir as aplicações que executam as suas tarefas.
+### <a name="benefits-of-application-packages"></a>Benefícios de pacotes de aplicações
+Pacotes de aplicações podem simplificar o código na sua solução do Batch e reduzir a sobrecarga necessária para gerir as aplicações que as tarefas executam.
 
-Com os pacotes de aplicação, tarefa de início do conjunto não tem de especificar uma longa lista de ficheiros de recurso individual para instalar em nós. Não tem de gerir várias versões dos ficheiros de aplicação no armazenamento do Azure ou nos seus nós manualmente. E, não precisa de preocupar com a gerar [SAS URLs](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para fornecer acesso a ficheiros na sua conta do Storage. O batch funciona em segundo plano com o Storage do Azure para armazenar pacotes de aplicações e implementá-las em nós de computação.
+Com pacotes de aplicações, a tarefa de início de seu conjunto não tem que especificar uma longa lista de ficheiros de recurso individual para instalar em nós. Não precisa de gerir manualmente várias versões de arquivos do aplicativo no armazenamento do Azure ou nos seus nós. E, não precisa se preocupar sobre como gerar [SAS URLs](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para fornecer acesso aos ficheiros na sua conta de armazenamento. O batch funciona em segundo plano com o armazenamento do Azure para armazenar pacotes de aplicações e implementá-las em nós de computação.
 
 > [!NOTE] 
-> O tamanho total de uma tarefa de início tem de ser inferior ou igual a 32 768 carateres, incluindo ficheiros de recursos e variáveis de ambiente. Se a tarefa de início excede este limite, em seguida, utilizar pacotes de aplicações é outra opção. Pode também criar um arquivo zipped que contém os ficheiros de recursos, carregue-o como um blob de armazenamento do Azure e, em seguida, deszipe-lo a partir da linha de comandos da tarefa de início. 
+> O tamanho total de uma tarefa de início tem de ser inferior ou igual a 32 768 carateres, incluindo ficheiros de recursos e variáveis de ambiente. Se a tarefa de início excede este limite, em seguida, utilizar pacotes de aplicações é outra opção. Pode também criar um arquivo morto compactado que contém os ficheiros de recursos, carregue-o como um blob no armazenamento do Azure e, em seguida, deszipe-a partir da linha de comando da sua tarefa de início. 
 >
 >
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerir aplicações
-Pode utilizar o [portal do Azure] [ portal] ou as APIs de gestão do Batch para gerir os pacotes de aplicações na sua conta do Batch. Nas secções seguintes alguns, vamos primeiro mostram como ligar uma conta de armazenamento, em seguida, abordar adicionar aplicações e pacotes e gerir com o portal.
+Pode utilizar o [portal do Azure] [ portal] ou as APIs de gestão do Batch para gerir os pacotes de aplicações na sua conta do Batch. As secções seguintes, vamos primeiro Mostrar como ligar uma conta de armazenamento, em seguida, discutir a adição de aplicações e pacotes e gerenciá-los com o portal.
 
 ### <a name="link-a-storage-account"></a>Ligar uma conta de armazenamento
-Para utilizar pacotes de aplicações, deve ligar um [conta de armazenamento do Azure](batch-api-basics.md#azure-storage-account) à sua conta do Batch. Se ainda não tiver configurado uma conta de armazenamento, o portal do Azure apresenta um aviso a primeira vez que clicar em **aplicações** na sua conta do Batch.
+Para utilizar pacotes de aplicações, tem de associar primeiro uma [conta de armazenamento do Azure](batch-api-basics.md#azure-storage-account) à conta do Batch. Se ainda não tiver configurado uma conta de armazenamento, o portal do Azure apresenta um aviso na primeira vez que clicar **aplicativos** na sua conta do Batch.
 
 
 
-![Aviso de 'Não existe nenhuma conta de armazenamento configurada' no portal do Azure][9]
+![Aviso de "Nenhuma conta de armazenamento configurada" no portal do Azure][9]
 
-O serviço Batch utiliza a conta de armazenamento associada para armazenar os pacotes de aplicações. Depois de tiver ligado as duas contas, o Batch pode implementar automaticamente os pacotes armazenados na conta de armazenamento ligada para os nós de computação. Para associar uma conta de armazenamento à sua conta do Batch, clique em **conta de armazenamento** no **aviso** janela e, em seguida, clique em **conta de armazenamento** novamente.
+O serviço Batch utiliza a conta de armazenamento associada para armazenar pacotes de aplicativos. Depois de ligar as duas contas, o Batch pode implementar automaticamente os pacotes armazenados na conta de armazenamento ligada para os nós de computação. Para ligar uma conta de armazenamento à sua conta do Batch, clique em **conta de armazenamento** sobre o **aviso** janela e clique em **conta de armazenamento** novamente.
 
-![Escolha o painel de conta de armazenamento no portal do Azure][10]
+![Selecione o painel de conta de armazenamento no portal do Azure][10]
 
-Recomendamos que crie uma conta de armazenamento *especificamente* para utilização com a sua conta do Batch e selecione-a aqui. Depois de criar uma conta de armazenamento, pode, em seguida, ligue-o a sua conta do Batch, utilizando o **conta de armazenamento** janela.
+Recomendamos que crie uma conta de armazenamento *especificamente* para utilização com a sua conta do Batch e selecione-o aqui. Depois de criar uma conta de armazenamento, pode, em seguida, ligá-la à conta do Batch ao utilizar o **conta de armazenamento** janela.
 
 > [!NOTE] 
 > Atualmente não é possível utilizar pacotes de aplicações com uma conta de armazenamento do Azure que está configurada com [regras de firewall](../storage/common/storage-network-security.md).
 > 
 
-O serviço Batch utiliza o armazenamento do Azure para armazenar os pacotes de aplicações como blobs de blocos. É [cobrado como normal] [ storage_pricing] para os dados de BLOBs de blocos. Lembre-se de que considere o tamanho e número de pacotes de aplicações e, periodicamente remover pacotes preteridos para minimizar os custos.
+O serviço Batch utiliza o armazenamento do Azure para armazenar pacotes de aplicativos como blobs de blocos. Estiver [cobrado como habitualmente] [ storage_pricing] para o blob de blocos de dados e o tamanho de cada pacote não podem exceder os [tamanho do blob de bloco máximo](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Certifique-se de que considerar o tamanho e número de pacotes de aplicativos e periodicamente remover pacotes preteridos para minimizar os custos.
 > 
 > 
 
-### <a name="view-current-applications"></a>Aplicações atuais de vista
-Para ver as aplicações na sua conta do Batch, clique o **aplicações** item de menu no menu à esquerda, ao visualizar o **conta do Batch**.
+### <a name="view-current-applications"></a>Ver aplicações atuais
+Para ver as aplicações na sua conta do Batch, clique nas **aplicativos** item de menu no menu à esquerda enquanto a visualização de seu **conta do Batch**.
 
-![Mosaico de aplicações][2]
+![Mosaico de aplicativos][2]
 
-A seleção desta opção de menu é aberto o **aplicações** janela:
+Selecionar esta opção de menu abre o **aplicativos** janela:
 
-![Lista de aplicações][3]
+![Listar aplicações][3]
 
-Esta janela apresenta o ID de cada aplicação na sua conta e as seguintes propriedades:
+Esta janela exibe o ID de cada aplicação na sua conta e as seguintes propriedades:
 
 * **Pacotes**: O número de versões associadas esta aplicação.
-* **Versão predefinida**: A versão da aplicação instalada se não indicam uma versão quando especificar a aplicação para um conjunto. Esta definição é opcional.
-* **Permitir atualizações**: O valor que especifica se o pacote de atualizações, eliminações e adições são permitidos. Se isto estiver definido como **não**, pacote de atualizações e eliminações estão desativadas para a aplicação. Podem ser adicionadas apenas versões de pacote de aplicação nova. A predefinição é **Sim**.
+* **Versão predefinida**: A versão do aplicativo instalada se não indicam uma versão quando especificar a aplicação para um conjunto. Esta definição é opcional.
+* **Permitir atualizações**: O valor que especifica se o pacote de atualizações, eliminações e adições são permitidos. Se isto estiver definido como **não**, as atualizações de pacotes e eliminações, estão desativadas para a aplicação. Podem ser adicionadas apenas versões de pacote de aplicação nova. A predefinição é **Sim**.
 
 ### <a name="view-application-details"></a>Ver detalhes da aplicação
-Para ver os detalhes de uma aplicação, selecione a aplicação no **aplicações** janela.
+Para ver os detalhes para uma aplicação, selecione a aplicação no **aplicativos** janela.
 
 ![Detalhes da aplicação][4]
 
 Nos detalhes da aplicação, pode configurar as seguintes definições para a sua aplicação.
 
-* **Permitir atualizações**: Especifique se os respetivos pacotes de aplicações podem ser atualizados ou eliminados. Consulte "Atualizar ou eliminar um pacote de aplicações" mais à frente neste artigo.
+* **Permitir atualizações**: Especifique se os seus pacotes de aplicações podem ser atualizados ou excluídos. Consulte "Atualizar ou eliminar um pacote de aplicação", mais adiante neste artigo.
 * **Versão predefinida**: Especifique um pacote de aplicações predefinido a implementar em nós de computação.
-* **Nome a apresentar**: Especifique um nome amigável que a sua solução do Batch pode utilizar quando apresenta informações sobre a aplicação, por exemplo, na IU de um serviço que fornecer aos seus clientes através do Batch.
+* **Nome a apresentar**: Especifique um nome amigável que sua solução do Batch pode utilizar quando esta apresenta informações sobre a aplicação, por exemplo, a interface do Usuário de um serviço que fornece aos seus clientes através do Batch.
 
 ### <a name="add-a-new-application"></a>Adicionar uma nova aplicação
-Para criar uma nova aplicação, adicione um pacote de aplicação e especifique um ID exclusivo, novas aplicações. O primeiro pacote de aplicações que adicionar com o novo ID de aplicação também cria a nova aplicação.
+Para criar uma nova aplicação, adicione um pacote de aplicação e especifique um ID de aplicação novo e exclusivo. O primeiro pacote de aplicação que adicionar com o novo ID de aplicação também cria a nova aplicação.
 
 Clique em **Aplicações** > **Adicionar**.
 
-![Nova aplicação painel no portal do Azure][5]
+![Novo painel de aplicações no portal do Azure][5]
 
-O **nova aplicação** janela fornece os campos seguintes para especificar as definições da sua nova aplicação e o pacote de aplicação.
+O **nova aplicação** janela fornece os seguintes campos para especificar as definições da sua nova aplicação e o pacote de aplicação.
 
 **Id da aplicação**
 
-Este campo especifica o ID da sua aplicação nova, que está sujeita as regras de validação padrão do ID de lote do Azure. As regras para fornecer um ID de aplicação são os seguintes:
+Este campo especifica o ID da sua nova aplicação, o que está sujeita a regras de validação de ID de lote do Azure standard. As regras para fornecer um ID de aplicação são os seguintes:
 
-* Em nós do Windows, o ID pode conter qualquer combinação de carateres alfanuméricos, hífenes e carateres de sublinhado. Em nós do Linux, são permitidas apenas carateres alfanuméricos e carateres de sublinhado.
+* Em nós do Windows, o ID pode conter qualquer combinação de carateres alfanuméricos, hífenes e carateres de sublinhado. Em nós do Linux, são permitidos apenas carateres alfanuméricos e carateres de sublinhado.
 * Não pode conter mais de 64 carateres.
-* Tem de ser exclusivos dentro da conta do Batch.
-* É sensível e preservação de maiúsculas e minúsculas.
+* Tem de ser exclusivo dentro da conta do Batch.
+* É a preservação de caso e maiúsculas de minúsculas.
 
 **Versão**
 
-Este campo especifica a versão do pacote de aplicação que estiver a carregar. Cadeias de versão estão sujeitos às seguintes regras de validação:
+Este campo especifica a versão do pacote de aplicação que está a carregar. Cadeias de caracteres de versão estão sujeitas às seguintes regras de validação:
 
-* Em nós do Windows, a cadeia de versão pode conter qualquer combinação de carateres alfanuméricos, hífenes, carateres de sublinhado e pontos finais. Em nós do Linux, a cadeia de versão pode conter apenas carateres alfanuméricos e carateres de sublinhado.
+* Em nós do Windows, a cadeia de versão pode conter qualquer combinação de carateres alfanuméricos, hífenes, carateres de sublinhado e períodos. Em nós do Linux, a cadeia de versão pode conter apenas carateres alfanuméricos e carateres de sublinhado.
 * Não pode conter mais de 64 carateres.
-* Tem de ser exclusivos dentro da aplicação.
-* São preservação de maiúsculas e minúsculas e sensível.
+* Tem de ser exclusivo dentro do aplicativo.
+* São a preservação de caso e maiúsculas de minúsculas.
 
 **Pacote de aplicação**
 
-Este campo especifica o ficheiro. zip que contém os binários da aplicação e os ficheiros de suporte que são necessárias para executar a aplicação. Clique em de **selecione um ficheiro** caixa ou no ícone de pasta para procurar e selecione um ficheiro. zip que contém os ficheiros da aplicação.
+Este campo especifica o ficheiro. zip que contém os binários de aplicativo e os ficheiros de suporte que são necessárias para executar a aplicação. Clique nas **selecionar um ficheiro** caixa ou o ícone de pasta, procurar e selecione um ficheiro. zip que contém ficheiros de seu aplicativo.
 
-Depois de selecionar um ficheiro, clique em **OK** para iniciar o carregamento para o armazenamento do Azure. Quando a operação de carregamento estiver concluída, o portal apresenta uma notificação. Consoante o tamanho do ficheiro que estiver a carregar e a velocidade da sua ligação de rede, esta operação pode demorar algum tempo.
+Depois de selecionar um ficheiro, clique em **OK** para iniciar o carregamento para o armazenamento do Azure. Quando a operação de carregamento estiver concluída, o portal apresenta uma notificação. Consoante o tamanho do ficheiro que está a carregar e a velocidade da sua ligação de rede, esta operação pode demorar algum tempo.
 
 > [!WARNING]
-> Não feche o **nova aplicação** janela antes da operação de carregamento está concluída. Se o fizer, interrompe o processo de carregamento.
+> Não feche o **nova aplicação** janela antes da conclusão da operação de carregamento. Se o fizer, interromperá o processo de carregamento.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Adicionar um novo pacote de aplicação
-Para adicionar uma versão de pacote de aplicação de uma aplicação existente, selecione uma aplicação no **aplicações** windows e clique em **pacotes** > **adicionar**.
+Para adicionar uma versão de pacote de aplicação para um aplicativo existente, selecione uma aplicação no **aplicativos** windows e clique em **pacotes** > **adicionar**.
 
-![Adicionar o painel do pacote de aplicação no portal do Azure][8]
+![Adicionar o painel de pacote de aplicações no portal do Azure][8]
 
-Como pode ver, os campos corresponderem do **nova aplicação** janela, mas o **id da aplicação** caixa está desativada. Como fez para a nova aplicação, especifique o **versão** para o novo pacote, navegue até à sua **pacote de aplicação** . zip do ficheiro, em seguida, clique em **OK** para carregar o pacote.
+Como pode ver, os campos corresponderem do **nova aplicação** janela, mas o **id de aplicação** caixa está desativada. Como fez para a nova aplicação, especifique a **versão** para o novo pacote, navegue até sua **pacote de aplicação** . zip de ficheiros, em seguida, clique em **OK** para carregar o pacote.
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou eliminar um pacote de aplicação
-Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes para a aplicação, clique em **pacotes**, clique em de **reticências** na linha do pacote de aplicação que pretende modificar e, selecione a ação que pretende efetuar.
+Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes para a aplicação, clique em **pacotes**, clique nas **reticências** na linha do pacote de aplicação que pretende modificar e, selecione a ação que pretende executar.
 
 ![Atualizar ou eliminar o pacote no portal do Azure][7]
 
 **Atualização**
 
-Ao clicar em **atualização**, a **pacote de atualização** windows é apresentada. Esta janela é semelhante para o **novo pacote de aplicações** janela, no entanto, apenas o campo de seleção do pacote estiver ativado, permitindo-lhe especificar um novo ficheiro ZIP para carregar.
+Quando clica em **atualização**, o **pacote de atualização** for apresentada a janela. Essa janela é semelhante para o **novo pacote de aplicações** janela, no entanto, apenas o campo de seleção de pacote estiver ativado, permitindo que especifique um novo ficheiro ZIP para carregar.
 
 ![Painel de pacote de atualização no portal do Azure][11]
 
 **Eliminar**
 
-Ao clicar em **eliminar**, é-lhe pedido para confirmar a eliminação da versão de pacote e Batch elimina o pacote do armazenamento do Azure. Se eliminar a versão predefinida de uma aplicação, o **versão predefinida** definição é removida da aplicação.
+Quando clica em **eliminar**, é-lhe perguntado para confirmar a eliminação da versão do pacote e Batch elimina o pacote do armazenamento do Azure. Se eliminar a versão predefinida de uma aplicação, o **versão predefinida** configuração seja removida da aplicação.
 
-![Eliminar a aplicação ][12]
+![Eliminar aplicação ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalar aplicações em nós de computação
-Agora que aprendeu como gerir pacotes de aplicações com o portal do Azure, pode discutimos como implementá-las em nós de computação e executá-los com tarefas do Batch.
+Agora que aprendeu como gerir pacotes de aplicações com o portal do Azure, podemos analisar como implementá-las em nós de computação e execute-os com tarefas do Batch.
 
-### <a name="install-pool-application-packages"></a>Instalar pacotes de aplicações do agrupamento
-Para instalar um pacote de aplicação em todos os nós de computação num conjunto, especifique o pacote de aplicação de um ou mais *referências* para o conjunto. Os pacotes de aplicações que especificar para um conjunto estão instalados em cada nó de computação quando esse nó se associa ao conjunto e quando o nó é reiniciado ou recriado.
+### <a name="install-pool-application-packages"></a>Instalar pacotes de aplicações de conjunto
+Para instalar um pacote de aplicação em todos os nós de computação num conjunto, especifique o pacote de aplicações de um ou mais *referências* para o conjunto. Os pacotes de aplicação que especificou para um conjunto são instalados em cada nó de computação quando esse nó se associa ao conjunto e quando o nó é reiniciado ou recriado.
 
-No .NET do Batch, especificar um ou mais [CloudPool][net_cloudpool].[ ApplicationPackageReferences] [ net_cloudpool_pkgref] quando criar um novo conjunto, ou para um conjunto existente. O [ApplicationPackageReference] [ net_pkgref] classe especifica um ID da aplicação e a versão a instalar um conjunto de nós de computação.
+No .NET do Batch, especificar um ou mais [CloudPool][net_cloudpool].[ ApplicationPackageReferences] [ net_cloudpool_pkgref] quando criar um novo conjunto, ou para um conjunto existente. O [ApplicationPackageReference] [ net_pkgref] classe especifica um ID de aplicação e a versão a instalar num conjunto de nós de computação.
 
 ```csharp
 // Create the unbound CloudPool
@@ -204,8 +204,8 @@ CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -221,12 +221,12 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se uma implementação de pacote de aplicação falhar por algum motivo, o serviço Batch marca o nó [inutilizável][net_nodestate], e não existem tarefas são agendadas para execução nesse nó. Neste caso, deve **reiniciar** o nó para reinicie o processo de implementação do pacote. Reiniciar o nó também lhe permite agendamento de tarefas novamente no nó.
+> Se uma implementação de pacote de aplicação falhar por algum motivo, o serviço Batch marca o nó [inutilizável][net_nodestate], e não existem tarefas são agendadas para execução nesse nó. Neste caso, deve **reiniciar** o nó para reinicie o processo de implantação do pacote. Reiniciar o nó também permite agendamento de tarefas novamente no nó.
 > 
 > 
 
-### <a name="install-task-application-packages"></a>Instalar pacotes de aplicação de tarefa
-Semelhante a um conjunto, especificar o pacote de aplicação *referências* para uma tarefa. Quando uma tarefa é agendada para ser executada num nó, o pacote é transferiu e extraiu imediatamente antes de linha de comandos da tarefa é executada. Se um pacote especificado e a versão já estiver instalado no nó, o pacote não é transferido e o pacote existente é utilizado.
+### <a name="install-task-application-packages"></a>Instalar pacotes de aplicações de tarefas
+Semelhante a um conjunto, especifica o pacote de aplicação *referências* para uma tarefa. Quando uma tarefa estiver agendada para ser executada num nó, o pacote é transferido e extraiu imediatamente antes de linha de comandos da tarefa é executada. Se um pacote especificado e a versão já está instalado no nó, o pacote não é transferido e o pacote existente é usado.
 
 Para instalar um pacote de aplicação de tarefa, configurar a tarefa [CloudTask][net_cloudtask].[ ApplicationPackageReferences] [ net_cloudtask_pkgref] propriedade:
 
@@ -247,7 +247,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Executar as aplicações instaladas
-Os pacotes que tiver especificado para um conjunto ou tarefas são transferidos e extraiu para um diretório denominado o `AZ_BATCH_ROOT_DIR` do nó. Batch também cria uma variável de ambiente que contém o caminho para o diretório com nome. As linhas de comandos de tarefas utilizar esta variável de ambiente quando a aplicação no nó de referência. 
+Os pacotes que tiver especificado para um conjunto ou tarefas são transferidos e extraídos para um diretório com nome dentro do `AZ_BATCH_ROOT_DIR` do nó. O batch também cria uma variável de ambiente que contém o caminho para o diretório com nome. Linhas de comando de tarefas Utilize esta variável de ambiente ao referenciar a aplicação no nó. 
 
 Em nós do Windows, a variável é o seguinte formato:
 
@@ -256,34 +256,34 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Em nós do Linux, o formato é ligeiramente diferente. Pontos (.), hífenes (-) e inicia número (#) é simplificada para a variável de ambiente de carateres de sublinhado. Além disso, tenha em atenção que as maiúsculas e minúsculas do ID de aplicação é preservada. Por exemplo:
+Em nós do Linux, o formato é ligeiramente diferente. Pontos (.), hífenes (-) e sinais de cardinal (#) são simplificados para a variável de ambiente de carateres de sublinhado. Além disso, tenha em atenção que o caso do ID da aplicação é preservado. Por exemplo:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID` e `version` são valores que correspondem à versão de aplicações e pacotes que especificou para a implementação. Por exemplo, se tiver especificado que 2.7 a versão da aplicação *blender* deve ser instalado em nós do Windows, as linhas de comandos de tarefas utilizará esta variável de ambiente para aceder aos respetivos ficheiros:
+`APPLICATIONID` e `version` são valores que correspondem para a versão de pacotes e aplicações que especificou para a implementação. Por exemplo, se tiver especificado que a versão 2.7 do aplicativo *blender* devem ser instalados em nós do Windows, o suas linhas de comandos de tarefas utilizaria esta variável de ambiente para acessar seus arquivos:
 
 ```
 Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Em nós do Linux, especifique a variável de ambiente neste formato. Aplanar períodos (.), hífenes (-) e o número sinais (#) carateres de sublinhado e preservar o caso do ID da aplicação:
+Em nós do Linux, especifique a variável de ambiente neste formato. Nivelamento de pontos (.), hífenes (-) e o número de sinais (#) para carateres de sublinhado e preservar o caso do ID da aplicação:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
-Ao carregar um pacote de aplicação, pode especificar uma versão predefinida para implementar os nós de computação. Se especificar uma versão predefinida para uma aplicação, pode omitir o sufixo de versão quando referir a aplicação. Pode especificar a versão de aplicação predefinida no portal do Azure, o **aplicações** janela, conforme mostrado no [carregar e gerir aplicações](#upload-and-manage-applications).
+Ao carregar um pacote de aplicação, pode especificar uma versão predefinida para implementar os nós de computação. Se especificar uma versão predefinida para uma aplicação, pode omitir o sufixo de versão quando referencia o aplicativo. Pode especificar a versão da aplicação predefinida no portal do Azure, o **aplicativos** janela, conforme mostrado na [carregar e gerir aplicações](#upload-and-manage-applications).
 
-Por exemplo, se definir "2.7" como a versão predefinida para a aplicação *blender*e as suas tarefas referenciam a variável de ambiente seguintes, em seguida, os nós do Windows irão executar a versão 2.7:
+Por exemplo, se definir "2,7" como a versão predefinida para a aplicação *blender*, suas tarefas fazem referência a seguinte variável de ambiente, e os nós do Windows serão executado versão 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-O fragmento de código seguinte mostra uma linha de comandos de tarefas de exemplo que inicia a versão predefinida do *blender* aplicação:
+O fragmento de código seguinte mostra uma linha de comandos de tarefas de exemplo que inicia a versão predefinida dos *blender* aplicação:
 
 ```csharp
 string taskId = "blendertask01";
@@ -293,18 +293,18 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Consulte [definições de ambiente para tarefas](batch-api-basics.md#environment-settings-for-tasks) no [descrição geral da funcionalidade do Batch](batch-api-basics.md) para obter mais informações sobre definições de ambiente de nó de computação.
+> Ver [definições de ambiente para tarefas](batch-api-basics.md#environment-settings-for-tasks) no [descrição geral da funcionalidade do Batch](batch-api-basics.md) para obter mais informações sobre definições de ambiente de nó de computação.
 > 
 > 
 
 ## <a name="update-a-pools-application-packages"></a>Atualizar os pacotes de aplicações de um conjunto
 Se já tiver sido configurado um conjunto existente com um pacote de aplicação, pode especificar um novo pacote para o conjunto. Se especificar uma nova referência de pacote para um conjunto, situações seguintes:
 
-* O serviço Batch instala o pacote recentemente especificado em todos os novos nós que associam ao conjunto e em qualquer nó existente que é reiniciado ou recriada.
-* Computação nós que já estão no conjunto quando atualizar o pacote referenciará não instalam automaticamente o novo pacote de aplicação. Estes computação nós tem de ser reiniciados ou recriados para receber o novo pacote.
-* Quando um novo pacote é implementado, as variáveis de ambiente criado refletem as referências de pacote de aplicação nova.
+* O serviço Batch instala o pacote especificado recentemente em todos os novos nós se associam ao conjunto e em qualquer nó existente que é reiniciado ou recriado.
+* Computação de nós que já estão no conjunto quando atualizar o pacote referenciará não instalam automaticamente o novo pacote de aplicação. Estes de computação de nós tem de ser reiniciados ou recriar a imagem para receber o novo pacote.
+* Quando um novo pacote é implementado, as variáveis de ambiente criado refletem as novas referências de pacote de aplicação.
 
-Neste exemplo, o conjunto existente tem a versão 2.7 do *blender* aplicações configurada como um dos respetivos [CloudPool][net_cloudpool].[ ApplicationPackageReferences][net_cloudpool_pkgref]. Para atualizar os nós do conjunto com a versão 2.76b, especifique um novo [ApplicationPackageReference] [ net_pkgref] com a nova versão e a consolidação da alteração.
+Neste exemplo, o conjunto existente tem a versão 2.7 do *blender* aplicação configurada como um dos respetivos [CloudPool][net_cloudpool].[ ApplicationPackageReferences][net_cloudpool_pkgref]. Para atualizar os nós do conjunto com a versão 2.76b, especifique um novo [ApplicationPackageReference] [ net_pkgref] com a nova versão e confirmar a alteração.
 
 ```csharp
 string newVersion = "2.76b";
@@ -318,10 +318,10 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Agora que a nova versão tiver sido configurada, o serviço Batch instala a versão 2.76b a qualquer *novo* nó se associa ao conjunto. Para instalar 2.76b em nós que são *já* no agrupamento, reiniciar ou recriá-los. Tenha em atenção que nós reinicializada manter os ficheiros de implementações de pacote anterior.
+Agora que a nova versão tiver sido configurada, o serviço Batch instala a versão 2.76b a qualquer *novo* nó se associa ao conjunto. Para instalar 2.76b em nós que estão *já* no agrupamento, reiniciar ou recriar imagem-los. Tenha em atenção de que nós reinicializada mantém os ficheiros a partir de implementações de pacote anterior.
 
-## <a name="list-the-applications-in-a-batch-account"></a>Listar as aplicações numa conta do Batch
-Pode listar as aplicações e os respetivos pacotes numa conta do Batch, utilizando o [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] método.
+## <a name="list-the-applications-in-a-batch-account"></a>Lista os aplicativos numa conta do Batch
+Pode listar as aplicações e os pacotes numa conta do Batch ao utilizar o [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] método.
 
 ```csharp
 // List the applications and their application packages in the Batch account.
@@ -337,12 +337,12 @@ foreach (ApplicationSummary app in applications)
 }
 ```
 
-## <a name="wrap-up"></a>Moldar cópias de segurança
-Com os pacotes de aplicação, pode ajudar os seus clientes, selecione as aplicações para as respetivas tarefas e especifique a versão exata a utilizar durante o processamento de tarefas com o serviço Batch-ativado. Também pode fornecer a capacidade para os seus clientes carregar e controlar as suas próprias aplicações no seu serviço.
+## <a name="wrap-up"></a>Conclusão
+Com pacotes de aplicações, pode ajudar os seus clientes, selecione as aplicações aos seus trabalhos e especificar a versão exata a utilizar durante o processamento de tarefas com o seu serviço habilitados no Batch. Também pode fornecer a capacidade dos clientes podem carregar e controlar as suas aplicações no seu serviço.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* O [API REST do Batch] [ api_rest] também fornece suporte para trabalhar com pacotes de aplicações. Por exemplo, consulte o [applicationPackageReferences] [ rest_add_pool_with_packages] elemento [adicionar um conjunto para uma conta] [ rest_add_pool] para obter informações sobre como especificar pacotes para instalar utilizando a API REST. Consulte [aplicações] [ rest_applications] para obter detalhes sobre como obter informações sobre a aplicação utilizando a API de REST do Batch.
-* Saiba como programaticamente [gerir contas do Azure Batch e quotas com gestão de lotes .NET](batch-management-dotnet.md). O [gestão de lotes .NET] [ api_net_mgmt] biblioteca, pode ativar funcionalidades de criação e eliminação de conta para a aplicação do Batch ou serviço.
+* O [API REST do Batch] [ api_rest] também fornece suporte para trabalhar com pacotes de aplicações. Por exemplo, consulte a [applicationPackageReferences] [ rest_add_pool_with_packages] elemento [adicionar um conjunto a uma conta] [ rest_add_pool] para obter informações sobre como especificar pacotes a serem instalados com a API de REST. Ver [aplicativos] [ rest_applications] para obter detalhes sobre como obter informações sobre a aplicação ao utilizar a API de REST do Batch.
+* Saiba como programaticamente [gerir contas do Azure Batch e quotas with Batch Management .NET](batch-management-dotnet.md). O [gestão de lotes .NET] [ api_net_mgmt] biblioteca pode ativar funcionalidades de criação e eliminação de conta para o serviço ou aplicação do Batch.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet
@@ -363,14 +363,14 @@ Com os pacotes de aplicação, pode ajudar os seus clientes, selecione as aplica
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [rest_add_pool_with_packages]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_apkgreference
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nível de pacotes de aplicações"
+[1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nível de pacotes de aplicação"
 [2]: ./media/batch-application-packages/app_pkg_02.png "Mosaico de aplicações no portal do Azure"
 [3]: ./media/batch-application-packages/app_pkg_03.png "Painel de aplicações no portal do Azure"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Painel de detalhes da aplicação no portal do Azure"
-[5]: ./media/batch-application-packages/app_pkg_05.png "Nova aplicação painel no portal do Azure"
+[5]: ./media/batch-application-packages/app_pkg_05.png "Novo painel de aplicações no portal do Azure"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Atualizar ou eliminar pacotes pendente no portal do Azure"
-[8]: ./media/batch-application-packages/app_pkg_08.png "Novo painel do pacote de aplicação no portal do Azure"
-[9]: ./media/batch-application-packages/app_pkg_09.png "Não existem alertas de conta de armazenamento ligada"
-[10]: ./media/batch-application-packages/app_pkg_10.png "Escolha o painel de conta de armazenamento no portal do Azure"
+[8]: ./media/batch-application-packages/app_pkg_08.png "Novo painel de pacote de aplicação no portal do Azure"
+[9]: ./media/batch-application-packages/app_pkg_09.png "Nenhum alerta de conta de armazenamento ligada"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Selecione o painel de conta de armazenamento no portal do Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Painel de pacote de atualização no portal do Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Eliminar a caixa de diálogo de confirmação de pacote no portal do Azure"

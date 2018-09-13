@@ -1,6 +1,6 @@
 ---
-title: Análise de dados de sentimento com profunda Learning com o Azure Machine Learning | Microsoft Docs
-description: Como efetuar uma análise de dados de sentimento com profunda learning do Azure ML Workbench.
+title: Análise de sentimentos com aprendizagem profunda com o Azure Machine Learning | Documentos da Microsoft
+description: Como realizar uma análise de sentimentos com aprendizagem profunda com o Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
 author: miprasad
@@ -9,65 +9,65 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: c780063074ec1cffbb2a667cb26ab1c86f820167
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833585"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650285"
 ---
-# <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análise de dados de sentimento com profunda Learning com o Azure Machine Learning
+# <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análise de sentimentos com aprendizagem profunda com o Azure Machine Learning
 
-Análise de dados de sentimento é uma tarefa bem conhecida no realm de processamento de linguagem natural. Num determinado conjunto de textos, o objetivo consiste em determinar o sentimento do que texto. O objetivo desta solução consiste em utilizar Learning avançada para prever sentimento de filmes revisões.
+Análise de sentimentos é uma tarefa bem conhecida no território de processamento de linguagem natural. Devido um conjunto de textos, o objetivo é determinar o sentimento desse texto. O objetivo dessa solução é usar a aprendizagem profunda para prever o sentimento de análises de filmes.
 
 A solução está localizada em https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
-## <a name="link-to-the-gallery-github-repository"></a>Ligação para o repositório do GitHub da Galeria
+## <a name="link-to-the-gallery-github-repository"></a>Ligação para o repositório do GitHub de galeria
 
 Siga esta ligação para o repositório do GitHub público:
 
 [https://github.com/Azure/MachineLearningSamples-SentimentAnalysis](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis)
 
-## <a name="use-case-overview"></a>Descrição geral de cenário de utilização
+## <a name="use-case-overview"></a>Descrição geral de caso de utilização
 
-Explosão de dados e a proliferação de dispositivos móveis foi criada com muitas oportunidades para os clientes expressar as respetivas feelings e attitudes sobre todos e quaisquer dados em qualquer altura. Este opinião ou "sentimento", muitas vezes, é gerado através de redes sociais canais sob a forma de revisões, chats, partilha, likes, tweets, etc. O sentimento pode ser valiosas para as empresas que querem melhorar os produtos e serviços, tomar decisões mais informadas e melhor promove as marcas.
+A proliferação de dispositivos móveis e a explosão de dados criou muitas oportunidades para os clientes expressar suas sentimentos e atitudes sobre tudo o que em qualquer altura. Este opinião ou "sentimento", muitas vezes, é gerado por meio de canais de redes sociais na forma de revisões, conversa, partilhas, gosta, tweets, etc. O sentimento pode ser inestimável para as empresas que buscam melhorar os produtos e serviços, tomar decisões mais informadas e promover melhor marcas.
 
-Para obter o valor da análise de dados de sentimento, as empresas tem de ter a capacidade de mine vasta arquivos de dados não estruturados de redes sociais para conhecimentos acionáveis. Neste exemplo, vamos desenvolver modelos learning avançada para efetuar análise de dados de sentimento do revisões de filmes com AMLWorkbench
+Para obter o valor da análise de sentimentos, as empresas tem de ter a capacidade de extrair grandes arquivos de dados não estruturados de redes sociais para obter informações acionáveis. Neste exemplo, vamos desenvolver modelos de aprendizagem profunda para a execução de análise de sentimentos de análises de filmes com AMLWorkbench
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um [conta do Azure](https://azure.microsoft.com/free/) (gratuitas estão disponíveis).
+* Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes o [guia de instalação de início rápido](../service/quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguintes a [guia de início rápido de instalação](../service/quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
 
-* Para operationalization, é melhor se tiver o motor de Docker instalado e em execução localmente. Caso contrário, pode utilizar a opção de cluster. No entanto, a executar um serviço de contentor do Azure (ACS) pode ser dispendiosa.
+* Para operacionalização, é melhor se tiver o motor do Docker instalado e em execução localmente. Caso contrário, pode utilizar a opção de cluster. No entanto, a execução de um Azure Container Service (ACS) pode ser caro.
 
-* Esta solução assume que está a executar Workbench do Azure Machine Learning no Windows 10 com o motor de Docker instalada localmente. Num macOS as instruções em grande parte é o mesmo.
+* Esta solução assume que está a executar Azure Machine Learning Workbench no Windows 10 com o motor de Docker instalado localmente. Num macOS, a instrução é basicamente o mesmo.
 
 ## <a name="data-description"></a>Descrição de dados
 
-O conjunto de dados utilizado para este exemplo é um pequeno conjunto de dados mão-crafted e está localizado no [pasta dados](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data).
+O conjunto de dados utilizado para este exemplo é um pequeno conjunto de dados criados manualmente e está localizado no [pasta dados](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data).
 
-A primeira coluna contenha filmes revisões e a segunda coluna contém os dados de sentimento (0 - negativo e 1 - positivos). O conjunto de dados é utilizado apenas para fins de demonstração, mas normalmente para obter pontuações de sentimento robusta, precisa de um grande conjunto de dados. Por exemplo, o [IMDB filmes revê o problema de classificação de dados de sentimento](https://keras.io/datasets/#datasets ) de Keras é composta por um conjunto de dados de 25.000 filmes revisões de IMDB, etiquetados pelo sentimento (positivo ou negativo). A intenção este laboratório é para lhe mostrar como efetuar uma análise de dados de sentimento com learning profunda AMLWorkbench.
+A primeira coluna contém análises de filmes e a segunda coluna contém o sentimento (0 - negativos e 1 - positivo). O conjunto de dados é utilizado apenas para fins de demonstração, mas, normalmente, para obter as classificações de sentimentos robusto, é necessário um conjunto de dados grandes. Por exemplo, o [IMDB filme analisa o problema de classificação de sentimento](https://keras.io/datasets/#datasets ) do Keras consiste num conjunto de dados das revisões de 25.000 filmes de IMDB, etiquetados pelo sentimento (positivo ou negativo). A intenção deste laboratório é mostrar a como realizar uma análise de sentimentos com aprendizagem profunda com AMLWorkbench.
 
 ## <a name="scenario-structure"></a>Estrutura do cenário
 
-A estrutura de pastas é disposta da seguinte forma:
+A estrutura de pastas é organizada da seguinte forma:
 
-1. Todos os o código relacionado para análise de dados de sentimento com AMLWorkbench é na pasta raiz
+1. Todo o código relacionadas com a análise de sentimentos com AMLWorkbench está na pasta raiz
 2. dados: contém o conjunto de dados utilizado na solução
-3. documentos: contém todos os laboratórios prática
+3. Docs: contém todos os laboratórios práticos
 
-A ordem dos Hands-on laboratórios para realizar a solução é o seguinte:
+A ordem dos laboratórios práticos para executar a solução é o seguinte:
 
-| Ordem| Nome de Ficheiro | Ficheiros relacionados |
+| Encomenda| Nome de Ficheiro | Ficheiros relacionados |
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
@@ -75,4 +75,4 @@ A ordem dos Hands-on laboratórios para realizar a solução é o seguinte:
 
 ## <a name="conclusion"></a>Conclusão
 
-No conclusion, esta solução apresenta-lhe utilizar Learning avançada para executar uma análise de dados de sentimento com o Workbench do Azure Machine Learning. Podemos também operacionalizar modelos HDF5 a utilizar.
+Concluindo, essa solução apresenta a utilizar a aprendizagem profunda para efetuar a análise de sentimentos com o Azure Machine Learning Workbench. Também podemos operacionalizar através de modelos de HDF5.

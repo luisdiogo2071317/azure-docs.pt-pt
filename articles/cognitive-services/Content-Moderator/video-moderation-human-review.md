@@ -1,6 +1,6 @@
 ---
-title: Moderator conteúdo do Azure - moderação de interrupção de vídeo | Microsoft Docs
-description: Utilize assistida por máquina moderação de interrupção gráfica e ferramentas de revisão humanos para moderada de conteúdos inadequados
+title: Azure Content Moderator - moderação de vídeo | Documentos da Microsoft
+description: Utilize a moderação de vídeos assistida e ferramentas de revisão humana para moderar conteúdo inadequado
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,30 +9,30 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d9c01d4c2590535a4106e8e4ee79a12bdc60d956
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35351530"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714501"
 ---
 # <a name="video-moderation"></a>Moderação de vídeos
 
-Moderator de conteúdo a utilização máquina assistida [moderação de interrupção gráfica](video-moderation-api.md) e [revisão humana ferramenta](Review-Tool-User-Guide/human-in-the-loop.md) moderados vídeos e transcrições de adulto (explícita) e racy conteúdo (suggestive) para obter os melhores resultados para o negócio.
+Utilize Content Moderator assistida [moderação de vídeos](video-moderation-api.md) e [ferramenta de revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) para vídeos moderados e transcrições para adulto (explícita) e o conteúdo para adultos de (suggestive) para obter os melhores resultados para sua empresa.
 
-## <a name="video-trained-classifier"></a>Classificador de preparação de vídeo
+## <a name="video-trained-classifier-preview"></a>Classificador treinados de vídeo (pré-visualização)
 
-Classificação de vídeo assistida por máquina está é conseguida com modelos de imagem de preparação ou modelos de formação de vídeos. Ao contrário da imagem de preparação as vídeos classificadores, classificador de vídeo para adultos e racy da Microsoft está preparado com vídeos. Este método resulta numa melhor qualidade de correspondência.
+Classificação de vídeo assistida optar por é obtida com modelos treinados de imagens ou modelos de formação de vídeo. Ao contrário de classificadores de preparação de imagem de vídeo, classificador de vídeo para adultos da Microsoft é preparado com vídeos. Este método resulta em melhor qualidade de correspondência.
 
-## <a name="shot-detection"></a>Captura de deteção
+## <a name="shot-detection"></a>Deteção de captura
 
-Ao exportar os detalhes de classificação, intelligence vídeo adicional ajuda com mais flexibilidade na análise vídeos. Em vez de exportar apenas os frames Jumbo, serviço de moderação de interrupção gráfica da Microsoft fornece informações de nível de captura demasiado. Tem agora a opção para analisar os seus vídeos o nível de captura e o nível de moldura.
+Na saída dos detalhes de classificação, ajuda a inteligência adicional de vídeo com mais flexibilidade na análise de vídeos. Em vez de saída apenas os quadros, o serviço de moderação de vídeo da Microsoft fornece informações de nível de captura demasiado. Tem agora a opção de analisar os seus vídeos em nível de captura e o nível de quadro.
  
-## <a name="key-frame-detection"></a>Deteção de fotograma chave
+## <a name="key-frame-detection"></a>Deteção de quadro-chave
 
-Em vez de exportar frames em intervalos regulares, o serviço de moderação de interrupção gráfica identifica e produz apenas potencialmente concluídas frames (boas). A funcionalidade permite a geração de moldura eficiente para uma análise para adultos e racy ao nível da moldura.
+Em vez de saída de quadros em intervalos regulares, o serviço de moderação de vídeos identifica e produz apenas potencialmente completos quadros (boas). A funcionalidade permite a geração de quadro eficiente para análise de nível de quadro para adultos.
 
-O extrair seguinte mostra uma resposta parcial com capturas de potenciais, frames chaves e pontuações para adultos e racy:
+O extrato seguinte mostra uma resposta parcial com capturas de potenciais, quadros-chave e as pontuações de adultos:
 
     "fragments": [
     {
@@ -74,36 +74,36 @@ O extrair seguinte mostra uma resposta parcial com capturas de potenciais, frame
       ]
 
 
-## <a name="visualization-for-human-reviews"></a>Visualização revisões humanos
+## <a name="visualization-for-human-reviews"></a>Visualização de revisões realizadas por pessoas
 
-Para obter mais informações nuanced casos, as empresas precisam de uma solução de revisão humanos para compor o vídeo, o frames Jumbo e etiquetas máquina atribuída. Os moderators humanos rever vídeos e frames obter uma vista completa de informações do, altere as etiquetas e submeter as decisões.
+Para obter mais variada casos, as empresas precisam de uma solução de revisão humana para compor o vídeo, seus quadros e etiquetas de máquina atribuída. Os revisão de vídeos e quadros de moderadores humanos obtém uma visão completa das informações, alterar etiquetas e submeter as suas decisões.
 
-![Vista de predefinida de ferramenta de revisão de vídeo](images/video-review-default-view.png)
+![modo de exibição de padrão de ferramenta de revisão de vídeo](images/video-review-default-view.png)
 
-## <a name="player-view-for-video-level-review"></a>Vista de leitor para revisão de nível de vídeo
+## <a name="player-view-for-video-level-review"></a>Vista de Player para revisão de ao nível do vídeo
 
-Decisões de binárias de nível de vídeo são disponibilizadas uma vista de leitor de vídeo mostra frames para adultos e racy potenciais. Os revisores humanos navegue o vídeo com várias opções de velocidade para examinar em segundo plano. Confirmarem os respetivos decisões por ativando ou desativando as etiquetas.
+Decisões binárias de nível de vídeo são possíveis com uma vista de leitor de vídeo que mostra o potenciais quadros para adultos. Os revisores humanos navegue até o vídeo com várias opções de velocidade para examinar o plano. Eles confirmarem suas decisões, Ativando as etiquetas.
 
-![Vista de leitor de ferramenta de revisão de vídeo](images/video-review-player-view.PNG)
+![exibição de leitor de ferramentas de revisão de vídeo](images/video-review-player-view.PNG)
 
-## <a name="frames-view-for-detailed-reviews"></a>Vista de frames para revisões de detalhado
+## <a name="frames-view-for-detailed-reviews"></a>Vista de quadros para análises detalhadas
 
-É disponibilizada uma revisão de vídeo detalhada para análise de moldura por moldura com uma vista baseada no intervalo. Os revisores humanos reverem e selecione um ou mais frames e etiquetas para confirmar as decisões de alternar. Um passo opcional seguinte é redaction do frames ofensivas ou conteúdo.
+Uma análise detalhada de vídeo para análise de quadro por quadro se tornou possível com uma vista baseada no quadro. Os revisores humanos reverem e selecionar um ou mais quadros e alternar etiquetas para confirmar as suas decisões. Uma próxima etapa opcional é redação de quadros ofensivos ou do conteúdo.
 
-![Ver fotogramas da ferramenta de revisão de vídeo](images/video-review-frames-view-apply-tags.PNG)
+![exibição de quadros de ferramentas de revisão de vídeo](images/video-review-frames-view-apply-tags.PNG)
 
-## <a name="transcript-moderation"></a>Moderação de interrupção transcript
+## <a name="transcript-moderation"></a>Moderação de transcrição
 
-Vídeos têm normalmente voz ao longo do que necessita de moderação interrupção, bem como para reconhecimento de voz ofensiva. Utilizar o serviço do indexador de suporte de dados do Azure para converter o reconhecimento de voz para texto e utilizar a API de revisão de conteúdo Moderator para submeter transcript para moderação de interrupção de texto dentro da ferramenta de revisão.
+Vídeos têm normalmente voz através de que precisa de moderação também para voz ofensiva. Utilize o serviço de indexador de multimédia do Azure para converter voz em texto e utilizar a API de revisão do Content Moderator para submeter a transcrição de moderação de texto dentro da ferramenta de revisão.
 
-![Vista de transcript de ferramenta de revisão de vídeo](images/video-review-transcript-view.png)
+![exibição de transcrição de ferramentas de revisão de vídeo](images/video-review-transcript-view.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Começar a utilizar o [início rápido de moderação de interrupção gráfica](video-moderation-api.md). 
+Comece com o [guia de introdução de moderação de vídeos](video-moderation-api.md). 
 
-Saiba como gerar [vídeo revê](video-reviews-quickstart-dotnet.md) para sua revisores humanos da sua saída moderated.
+Saiba como gerar [revisões de vídeo](video-reviews-quickstart-dotnet.md) para os revisores humanos da sua saída moderada.
 
-Adicionar [transcript vídeo revê](video-transcript-reviews-quickstart-dotnet.md) para as vídeos revisões.
+Adicione [revisões de transcrição de vídeo](video-transcript-reviews-quickstart-dotnet.md) para suas revisões de vídeo.
 
-Veja o tutorial detalhado sobre como desenvolver uma [concluir solução moderação de interrupção gráfica](video-transcript-moderation-review-tutorial-dotnet.md). 
+Veja o tutorial detalhado sobre como desenvolver um [concluir a solução de moderação de vídeos](video-transcript-moderation-review-tutorial-dotnet.md). 

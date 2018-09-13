@@ -1,5 +1,5 @@
 ---
-title: Problemas e o guia de resolução de problemas conhecidos | Microsoft Docs
+title: Problemas e guia de resolução de problemas conhecidos | Documentos da Microsoft
 description: Lista dos problemas conhecidos e um guia para ajudar a resolver problemas
 services: machine-learning
 author: svankam
@@ -7,31 +7,31 @@ ms.author: svankam
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 05db4e47e5b2931a101a323a0210c080b87c1c42
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: dc57509475634b6a8038179dbb205533c3ea9d99
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832946"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35947677"
 ---
-# <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e guia de resolução de problemas 
-Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte da utilização da aplicação do Azure Machine Learning Workbench. 
+# <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e solução de problemas 
+Este artigo ajuda-o, encontre e corrija erros ou falhas encontrados como parte da utilização da aplicação do Azure Machine Learning Workbench. 
 
-## <a name="find-the-workbench-build-number"></a>Determinar o número de compilação do Workbench
-Ao comunicar com a equipa de suporte, é importante incluir o número de compilação da aplicação Workbench. No Windows, pode descobrir o número de compilação, clicando no **ajudar** menu e escolha **sobre o Azure ML Workbench**. No macOS, pode clicar no **do Azure ML Workbench** menu e escolha **sobre o Azure ML Workbench**.
+## <a name="find-the-workbench-build-number"></a>Determinar o número de compilação da bancada de trabalho
+Ao se comunicar com a equipa de suporte, é importante incluir o número de compilação da aplicação Workbench. No Windows, pode descobrir o número de compilação ao clicar no **ajudar** menu e escolha **sobre o Azure ML Workbench**. No macOS, pode clicar no **do Azure ML Workbench** menu e escolha **sobre o Azure ML Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Fórum MSDN do Machine Learning
-Temos um fórum MSDN que pode publicar perguntas. A equipa de produto monitoriza ativamente o Fórum. Fórum do URL é [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
+Temos um fórum de MSDN que pode postar perguntas. A equipe do produto o fórum é monitorizado ativamente. O Fórum do URL é [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Recolher informações de diagnóstico
-Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. Aqui é onde os ficheiros de registo em direto:
+Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. É aqui onde residem os ficheiros de registo:
 
 ### <a name="installer-log"></a>Registo de instalador
-Caso se depare com problema durante a instalação, os ficheiros de registo do instalador são aqui:
+Caso se depare com problema durante a instalação, os ficheiros de registo do instalador estão aqui:
 
 ```
 # Windows:
@@ -40,10 +40,10 @@ Caso se depare com problema durante a instalação, os ficheiros de registo do i
 # macOS:
 /tmp/amlinstaller/logs/*
 ```
-Pode zip se os conteúdos de diretórios e envia-as à-nos para obter um diagnóstico.
+Pode zip backup do conteúdo desses diretórios e envie-para obter um diagnóstico.
 
-### <a name="workbench-desktop-app-log"></a>Registo de aplicação de ambiente de trabalho do Workbench
-Se tiver problemas em iniciar sessão, ou se o ambiente de trabalho do Workbench falhar, pode encontrar os ficheiros de registo aqui:
+### <a name="workbench-desktop-app-log"></a>Log de aplicativo de desktop da bancada de trabalho
+Se tiver problemas ao iniciar sessão ou no caso de falha de ambiente de trabalho a Bancada de trabalho, pode encontrar aqui os ficheiros de registo:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -51,64 +51,64 @@ Se tiver problemas em iniciar sessão, ou se o ambiente de trabalho do Workbench
 # macOS
 ~/Library/Application Support/AmlWorkbench
 ``` 
-Pode zip se os conteúdos de diretórios e envia-as à-nos para obter um diagnóstico.
+Pode zip backup do conteúdo desses diretórios e envie-para obter um diagnóstico.
 
 ### <a name="experiment-execution-log"></a>Registo de execução da experimentação
-Se um determinado script falhar durante a submissão da aplicação de ambiente de trabalho, tente reenviá-lo através da utilização da CLI `az ml experiment submit` comando. Isto deverá dar-lhe mensagem de erro completa no formato JSON e mais importante ainda, pois contém um **ID da operação** valor. Envie-no ficheiro JSON, incluindo o **ID da operação** e podemos ajudar a diagnosticar. 
+Se um determinado script falhar durante a submissão a partir da aplicação de ambiente de trabalho, tente voltar a submetê-lo através da CLI com `az ml experiment submit` comando. Isso deve lhe dar a mensagem de erro completas no formato JSON e, mais importante é que ele contém um **ID da operação** valor. Envie-no ficheiro JSON, incluindo o **ID da operação** e podemos ajudar a diagnosticar. 
 
-Se um determinado script for bem sucedida na submissão mas ocorrer uma falha de execução, deve imprimir o **executar ID** para identificar que executar específico. O pacote dos ficheiros de registo relevantes utilizando o seguinte comando:
+Se um script em particular tem êxito no envio, mas falha na execução, ele deve imprimir o **ID de execução** para identificar dessa execução específica. Capaz de empacotar os ficheiros de registo relevantes usando o seguinte comando:
 
 ```azurecli
 # Create a ZIP file that contains all the diagnostics information
 $ az ml experiment diagnostics -r <run_id> -t <target_name>
 ```
 
-O `az ml experiment diagnostics` comandos gera um `diagnostics.zip` ficheiro na pasta de raiz do projeto. O pacote ZIP contém a pasta do projeto todo no Estado momento que foi executada, juntamente com informações de registo. Não se esqueça de remover quaisquer informações confidenciais que não pretende incluir antes de enviar-no ficheiro de diagnóstico.
+O `az ml experiment diagnostics` comando gera um `diagnostics.zip` ficheiro na pasta de raiz do projeto. O pacote ZIP contém a pasta de projeto inteiro no Estado no momento que foi executada, além de informações de registo. Não se esqueça de remover quaisquer informações confidenciais que não pretende incluir antes de nos enviar o ficheiro de diagnóstico.
 
-## <a name="send-us-a-frown-or-a-smile"></a>Envie-num negativos (ou um smile)
+## <a name="send-us-a-frown-or-a-smile"></a>Envie-nos comentários negativos (ou um sorriso)
 
-Quando estiver a trabalhar no Azure ML Workbench, também pode enviar-num negativos (ou um smile) ao clicar no ícone de rostos em smiley no canto inferior esquerdo da shell de aplicação. Opcionalmente, pode optar por incluir o seu endereço de correio eletrónico (modo, pode regressar ao), e/ou uma captura de ecrã do estado atual. 
+Quando estiver a trabalhar no Azure ML Workbench, também pode enviar-nos comentários negativos (ou um sorriso) ao clicar no ícone de face de smiley no canto inferior esquerdo do shell do aplicativo. Opcionalmente, pode optar por incluir o seu endereço de e-mail (então, podemos recuperar para), e/ou uma captura de ecrã do estado atual. 
 
-## <a name="known-service-limits"></a>Limites de serviço conhecido
-- O tamanho de pasta do projeto máximo permitido: 25 MB.
+## <a name="known-service-limits"></a>Limites de serviço conhecidas
+- Tamanho da pasta de projeto máximo permitido: 25 MB.
     >[!NOTE]
-    >Este limite não se aplica a `.git`, `docs` e `outputs` pastas. Estes nomes de pastas diferenciam maiúsculas de minúsculas. Se estiver a trabalhar com ficheiros grandes, consulte [a persistência de alterações e grau com ficheiros grandes](../desktop-workbench/how-to-read-write-files.md).
+    >Este limite não se aplica a `.git`, `docs` e `outputs` pastas. Estes nomes de pastas diferenciam maiúsculas de minúsculas. Se estiver a trabalhar com arquivos grandes, consulte [persistir alterações e lidar com arquivos grandes](../desktop-workbench/how-to-read-write-files.md).
 
-- Máx. permitido tempo de execução da experimentação: sete dias
+- Máximo permitido de tempo de execução de experimentação: sete dias
 
-- Tamanho máx. de ficheiros registados no `outputs` pasta após a execução: 512 MB
-  - Isto significa que o se o script produz um ficheiro com mais de 512 MB na pasta saídas, não está a recolher não existe. Se estiver a trabalhar com ficheiros grandes, consulte [a persistência de alterações e grau com ficheiros grandes](../desktop-workbench/how-to-read-write-files.md).
+- Tamanho máx. de ficheiros registados no `outputs` pasta após uma execução: 512 MB
+  - Isso significa que se o seu script produz um ficheiro mais de 512 MB na pasta saídas, ele não é coletado lá. Se estiver a trabalhar com arquivos grandes, consulte [persistir alterações e lidar com arquivos grandes](../desktop-workbench/how-to-read-write-files.md).
 
-- Não são suportadas chaves SSH ao ligar a um computador remoto ou um cluster do Spark através de SSH. Modo de nome de utilizador/palavra-passe apenas é suportado atualmente.
+- Não são suportadas chaves SSH ao ligar a uma máquina remota ou o cluster do Spark através de SSH. Modo de nome de utilizador/palavra-passe só é suportado atualmente.
 
-- Ao utilizar o cluster do HDInsight como destino de computação, tem de utilizar Azure blob como armazenamento primário. Não é suportada a utilização de armazenamento do Azure Data Lake.
+- Ao utilizar o cluster de HDInsight como destino de computação, tem de utilizar Azure blob como armazenamento primário. Não é suportada a utilizar o armazenamento do Azure Data Lake.
 
-- Texto transformações de clusters não são suportadas em Mac.
+- Transformações de clusters de texto não são suportadas no Mac.
 
-- Biblioteca de RevoScalePy só é suportada no Windows e Linux (em contentores de Docker). Não é suportada no macOS.
+- Biblioteca de RevoScalePy só é suportada no Windows e Linux (em contentores do Docker). Não é suportada em macOS.
 
-- Blocos de notas do Jupyter têm um limite de tamanho máximo de 5 MB quando abri-los a partir da aplicação do Workbench. Pode abrir grande blocos de notas do CLI utilizando o comando 'Iniciar o bloco de notas do ml az' e limpa célula produz para reduzir o tamanho de ficheiro.
+- Blocos de notas do Jupyter têm um limite de tamanho máximo de 5 MB quando abri-los a partir da aplicação Workbench. É possível abrir grandes blocos de notas de CLI com o comando de "Iniciar bloco de notas do az ml", célula limpa e dá como para reduzir o tamanho do ficheiro.
 
-## <a name="cant-update-workbench"></a>Não é possível atualizar o Workbench
-Quando estiver disponível uma nova atualização, o Workbench aplicação Home page apresenta uma mensagem a informar sobre a atualização de novo. Deverá ver um destaque de atualização, volte a aparecer no canto inferior esquerdo da aplicação no ícone de sino. Clique no destaque e siga o Assistente do instalador para instalar a atualização. 
+## <a name="cant-update-workbench"></a>Não é possível atualizar a Bancada de trabalho
+Quando uma nova atualização está disponível, a página inicial da aplicação Workbench exibe uma mensagem a informar sobre a atualização de novo. Deverá ver um destaque de atualização que aparece no canto inferior esquerdo da aplicação no ícone de sino. Clique em destaque e siga o Assistente do instalador para instalar a atualização. 
 
 ![Atualizar imagem](./media/known-issues-and-troubleshooting-guide/update.png)
 
-Se não vir a notificação, tente reiniciar a aplicação. Se ainda não vir a notificação de atualização após o reinício, poderão existir algumas causas.
+Se não vir a notificação, tente reiniciar a aplicação. Se ainda não vir a notificação de atualização após o reinício, poderá haver alguns motivos para isso.
 
-### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Iniciar o Workbench de um atalho afixado na barra de tarefas
-Pode já instalou a atualização. Mas o atalho afixado ainda está a apontar para o bits antigo no disco. Pode verificar isto procurando o `%localappdata%/AmlWorkbench` pasta e verifique se tem a versão mais recente instalada existe e examine o atalho afixado para ver onde está a apontar para a propriedade. Se verificar, basta remover o atalho antigo, inicie o Workbench a partir do menu Iniciar e, opcionalmente, criar um novo atalho afixado na barra de tarefas.
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Estiver a iniciar Bancada de trabalho de um atalho afixado na barra de tarefas
+Pode de já ter instalada a atualização. Mas o atalho afixado ainda está a apontar para o bits antigo no disco. Pode verificar isto ao navegar para o `%localappdata%/AmlWorkbench` ver se tiver a versão mais recente está instalado ali e examinar a propriedade do atalho afixado para ver onde está a apontar para e de pasta. Se verificar, basta remover o atalho antigo, inicie o Workbench a partir do menu Iniciar e, opcionalmente, criar um novo atalho afixado na barra de tarefas.
 
-### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Instalou o Workbench através da ligação "instalar o Workbench do Azure ML" num DSVM do Windows
-Infelizmente, não há nenhuma garantia fácil neste. Terá de efetuar os seguintes passos para remover o bits instalado e transferir o instalador mais recente para o Workbench termos instalar: 
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Instalou a Bancada de trabalho através da ligação "instalar o Azure ML Workbench" numa DSVM do Windows
+Infelizmente, não há nenhuma correção fácil neste. Tem de efetuar os seguintes passos para remover os bits instalados e transferir o instalador mais recente para instalar de novo a Bancada de trabalho: 
    - remover a pasta `C:\Users\<Username>\AppData\Local\amlworkbench`
-   - Remova o script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remover o script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - remover o atalho de ambiente de trabalho que inicia o script acima
    - Transferir o instalador https://aka.ms/azureml-wb-msi e volte a instalar.
 
-## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Bloqueada no ecrã de "Verificação conta experimentação" após iniciar sessão
-Após iniciar sessão, a aplicação do Workbench pode obter bloqueada num ecrã em branco com uma mensagem "A verificar conta experimentação" com uma roda girar a mostrar. Para resolver este problema, siga os passos seguintes:
-1. Encerrar a aplicação
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Preso no ecrã de "Verificação de conta de experimentação" depois de iniciar sessão
+Após iniciar sessão, a aplicação Workbench poderá ficar preso numa tela em branco com uma mensagem que mostra "Conta de experimentação bancária" com a roda de rotação. Para resolver este problema, siga os passos seguintes:
+1. Encerramento da aplicação
 2. Elimine o ficheiro seguinte:
   ```
   # on Windows
@@ -120,38 +120,38 @@ Após iniciar sessão, a aplicação do Workbench pode obter bloqueada num ecrã
 3. Reinicie a aplicação.
 
 ## <a name="cant-delete-experimentation-account"></a>Não é possível eliminar a conta de experimentação
-Pode utilizar a CLI para eliminar uma conta de experimentação, mas tem de eliminar as áreas de trabalho subordinados e os projetos de subordinados dentro desses áreas de trabalho subordinados primeiro. Caso contrário, verá o erro "não é possível eliminar recursos antes de recursos aninhados serem eliminados."
+Pode utilizar a CLI ao eliminar uma conta de experimentação, mas tem de eliminar as áreas de trabalho subordinado e os projetos de filho dentro dessas áreas de trabalho subordinados primeiro. Caso contrário, verá o erro "não é possível eliminar recursos antes de recursos aninhados serem eliminados."
 
 ```azure-cli
 # delete a project
-$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <workspace name> -n <project name>
 
 # delete a workspace 
-$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <workspace name>
 
 # delete an experimentation account
 $ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
 ```
 
-Também pode eliminar os projetos e áreas de trabalho de dentro da aplicação do Workbench.
+Também pode eliminar a projetos e áreas de trabalho do dentro da aplicação Workbench.
 
-## <a name="cant-open-file-if-project-is-in-onedrive"></a>Não é possível abrir o ficheiro de projeto esteja no OneDrive
-Se tiver de atualização de criadores de reversão do Windows 10 e o projeto ser criado numa pasta local mapeada para o OneDrive, pode considerar que não é possível abrir qualquer ficheiro no Workbench. Este é resultam de erros que foi introduzido pela atualização criadores enquadram-se que faz com que o código node.js falhar numa pasta OneDrive. Os erros será corrigido em breve pelo Windows update, mas até lá, não crie projetos numa pasta OneDrive.
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Não é possível abrir o ficheiro se projeto estiver no OneDrive
+Se tiver o Windows 10 Fall Creators Update e o projeto ser criado numa pasta local mapeada para o OneDrive, pode achar que não é possível abrir qualquer ficheiro na bancada de trabalho. Isso é devido a um bug introduzido por Fall Creators Update que faz com que o código node. js efetuar a ativação numa pasta do OneDrive. O bug será corrigido em breve pela atualização do Windows, mas até lá, não crie projetos numa pasta do OneDrive.
 
-## <a name="file-name-too-long-on-windows"></a>Nome do ficheiro demasiado tempo no Windows
-Se utilizar o Workbench no Windows, poderá executar num limite de comprimento do nome a predefinição máximo de 260 carateres de ficheiro, a qual foi superfície como um erro "o sistema não é possível localizar o caminho especificado". Pode modificar uma definição de chave de registo para permitir muito mais nome de caminho de ficheiro. Reveja [neste artigo](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para obter mais detalhes sobre como definir o _MAX_PATH_ chave de registo.
+## <a name="file-name-too-long-on-windows"></a>Nome de arquivo muito tempo no Windows
+Se usar a Bancada de trabalho no Windows, pode acabar encontrando o limite de comprimento do nome do padrão ficheiro máximo de 260 carateres, a que pode surgir como um erro "o sistema não é possível localizar o caminho especificado". É possível modificar uma definição de chave de registo para permitir que muito mais tempo do nome de caminho de ficheiro. Revisão [este artigo](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para obter mais detalhes sobre como definir o _MAX_PATH_ chave de registo.
 
-## <a name="interrupt-cli-execution-output"></a>Resultado da execução CLI de interrupção
-Se pode iniciar uma experimentação executar utilizando `az ml experiment submit` ou `az ml notebook start` e de que pretende interromper a saída: 
-- No Windows, utilize combinação de teclas Ctrl-Break de teclado
+## <a name="interrupt-cli-execution-output"></a>Resultado da execução da CLI de interrupção
+Se iniciar uma experimentação executar com o `az ml experiment submit` ou `az ml notebook start` e gostaria de interromper a saída: 
+- No Windows utilize Ctrl-Break combinação de teclas no teclado
 - No macOS, utilize Ctrl-C.
 
-Tenha em atenção que isto interrupções apenas o fluxo de saída na janela do CLI. Se não, na verdade, parar uma tarefa que está a ser executada. Se pretender cancelar uma tarefa em curso, utilize `az ml experiment cancel -r <run_id> -t <target name>` comando.
+Tenha em atenção que apenas isso interrompe o fluxo de saída na janela da CLI. Não, na verdade, impede que uma tarefa que está a ser executada. Se quiser cancelar uma tarefa em curso, utilize `az ml experiment cancel -r <run_id> -t <target name>` comando.
 
-Em computadores com Windows com teclados não dispõe de quebra de chave, alternativas possíveis incluem Fn-B, Ctrl-Fn-B ou Fn + Esc. Consulte a documentação do fornecedor de hardware para uma combinação de chave específica.
+Em computadores Windows com teclados que não têm a chave de garantia de reparação possíveis alternativas incluem Fn-B, Ctrl-Fn-B ou Fn + Esc. Para uma combinação de teclas específica, consulte a documentação do fornecedor de hardware.
 
-## <a name="docker-error-read-connection-refused"></a>Erro de docker "ler: ligação foi recusada"
-Quando executar em relação a um contentor de Docker local, por vezes poderá ver o seguinte erro: 
+## <a name="docker-error-read-connection-refused"></a>Erro de docker "ler: ligação recusada"
+Quando em execução em relação a um contentor do Docker local, por vezes, poderá ver o erro seguinte: 
 ```
 Get https://registry-1.docker.io/v2/: 
 dial tcp: 
@@ -159,23 +159,23 @@ lookup registry-1.docker.io on [::1]:53: read udp [::1]:49385->[::1]:53:
 read: connection refused
 ```
 
-Pode corrigi-lo alterando o servidor de DNS de Docker de `automatic` para um valor fixo de `8.8.8.8`.
+Pode corrigi-lo ao alterar o servidor DNS Docker a partir `automatic` para um valor fixo de `8.8.8.8`.
 
-## <a name="remove-vm-execution-error-no-tty-present"></a>Remova o erro de execução de VM "presente nenhum tty"
-Quando executar em relação a um contentor de Docker num computador remoto, Linux, poderá encontrar a seguinte mensagem de erro:
+## <a name="remove-vm-execution-error-no-tty-present"></a>Remover o erro de execução da VM "presente nenhum tty"
+Quando em execução em relação a um contentor do Docker num computador Linux remoto, pode encontrar a seguinte mensagem de erro:
 ```
 sudo: no tty present and no askpass program specified.
 ``` 
-Isto pode acontecer se utilizar o portal do Azure para alterar a palavra-passe de raiz de uma VM do Ubuntu Linux. 
+Isto pode acontecer se utilizar o portal do Azure para alterar a palavra-passe de raiz de uma VM do Linux Ubuntu. 
 
-Workbench de aprendizagem máquina do Azure necessita de acesso de sudoers sem palavra-passe para ser executada em anfitriões remotos. A forma mais simples para o fazer consiste em utilizar _visudo_ para editar o ficheiro seguinte (pode criar o ficheiro se não existir):
+O Azure Machine Learning Workbench requer acesso de sudoers sem palavra-passe para executar em hosts remotos. A forma mais simples de fazer isso é usar _visudo_ para editar o ficheiro seguinte (pode criar o ficheiro se não existir):
 
 ```
 $ sudo visudo -f /etc/sudoers
 ```
 
 >[!IMPORTANT]
->É importante editar o ficheiro com _visudo_ e não outro comando. _visudo_ verifica automaticamente, a sintaxe de todos os ficheiros de configuração de sudo e falhas para produzir um ficheiro de sudoers correta, podem impedi-lo fora de sudo.
+>É importante editar o ficheiro com _visudo_ e não outro comando. _visudo_ sintaxe procura automaticamente a todos os ficheiros de configuração de sudo e falha para produzir um arquivo de sudoers sintaticamente correta pode bloquear a sua utilização sudo.
 
 Insira a seguinte linha no final do ficheiro:
 
@@ -183,26 +183,26 @@ Insira a seguinte linha no final do ficheiro:
 username ALL=(ALL) NOPASSWD:ALL
 ```
 
-Onde _username_ é o nome do Azure Machine Learning Workbench irá utilizar para iniciar sessão no seu anfitrião remoto.
+Em que _nome de utilizador_ é o nome do Azure Machine Learning Workbench irá utilizar para iniciar sessão no seu anfitrião remoto.
 
-A linha tem de ser colocada após #includedir "/ etc/sudoers.d", caso contrário, poderá ser substituída por outra regra.
+A linha tem de ser colocada depois #includedir "/ etc/sudoers.d", caso contrário, deve ser substituída por outra regra.
 
-Se tiver uma configuração de sudo mais complicada, pode querer consulte a documentação de sudo para Ubuntu disponível aqui: https://help.ubuntu.com/community/Sudoers
+Se tiver uma configuração de sudo mais complicada, convém consultar a documentação de sudo para Ubuntu disponível aqui: https://help.ubuntu.com/community/Sudoers
 
-O erro acima também pode acontecer se não estiver a utilizar uma VM para baseado no Ubuntu Linux no Azure como um destino de execução. Suportamos apenas Ubuntu-VM com base em Linux para execução remota. 
+O erro acima também pode acontecer se não estiver a utilizar uma VM do Linux baseada em Ubuntu no Azure como um destino de execução. Suportamos apenas baseada em Ubuntu VM do Linux para execução remota. 
 
-## <a name="vm-disk-is-full"></a>VM disco está cheio
-Por predefinição quando cria uma nova VM com Linux no Azure, que obtém um disco de 30 GB para o sistema operativo. Motor de docker por predefinição utiliza o mesmo disco para a solicitação para baixo de imagens e execução contentores. Isto pode preencher o disco do SO e vir um erro de "VM disco está completo" quando ocorre.
+## <a name="vm-disk-is-full"></a>VM de disco está cheio
+Por predefinição quando cria uma nova VM do Linux no Azure, obtém um disco de 30 GB para o sistema operativo. Motor do docker por padrão usa o mesmo disco para puxando imagens e contentores em execução. Isso pode preencher o disco do SO e vir um erro de "VM disco é completo" quando isso acontece.
 
-Uma correção rápida consiste em remover todas as imagens de Docker que deixar de utilizar. O seguinte comando do Docker efetua mesmo. (Obviamente tem SSH para a VM para executar o comando de Docker da shell de deteção.)
+É uma correção rápida remover todas as imagens do Docker que deixará de utilizar. O seguinte comando do Docker faz exatamente isso. (Claro que precisa SSH na VM para executar o comando Docker a partir de uma shell de bash.)
 
 ```
 $ docker system prune -a
 ```
 
-Também pode adicionar um disco de dados e configurar o motor de Docker para utilizar o disco de dados para armazenar imagens. Eis [como adicionar um disco de dados](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Pode, em seguida, [alteração onde Docker armazena imagens](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+Também pode adicionar um disco de dados e configurar o motor do Docker para utilizar o disco de dados para armazenar imagens. Eis [como adicionar um disco de dados](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Pode então [alteração em que o Docker armazena imagens](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Ou, pode expandir o disco do SO e não tem de touch de configuração do motor de Docker. Eis [como pode expandir o disco de SO](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
+Em alternativa, pode expandir o disco do SO e, não precisa tocar em configuração do motor de Docker. Eis [como pode expandir o disco do SO](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 # Deallocate VM (stopping will not work)
@@ -218,39 +218,39 @@ $ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
 $ az vm start --resource-group myResourceGroup  --name myVM
 ```
 
-## <a name="sharing-c-drive-on-windows"></a>Partilha de unidade C no Windows
-Se estiver a executar num contentor Docker local no Windows, a definição `sharedVolumes` para `true` no `docker.compute` de ficheiros em `aml_config` pode melhorar o desempenho de execução. No entanto, isto requer a partilha de unidade C a _Docker para Windows ferramenta_. Se não é possível partilhar unidade C, experimente as sugestões seguintes:
+## <a name="sharing-c-drive-on-windows"></a>Partilha de unidade C em Windows
+Se está a executar num contentor do Docker local no Windows, a definição `sharedVolumes` para `true` no `docker.compute` do ficheiro em `aml_config` pode melhorar o desempenho de execução. No entanto, isto requer a unidade C e na partilha a _ferramenta de Docker para Windows_. Se não é possível partilhar a unidade C, experimente as sugestões seguintes:
 
-* Verificar a partilha na unidade C utilizando o Explorador de ficheiros
-* Abra as definições da placa de rede e desinstalar/reinstalar "Partilha de ficheiros e impressoras em redes Microsoft" para vEthernet
-* Abra as definições de docker e partilhar a unidade C a partir de definições de docker
-* As alterações para a palavra-passe do Windows afetam a partilha. Abra o Explorador de ficheiros, partilhar novamente a unidade C e introduza a palavra-passe nova.
-* Também poderá encontrar problema de firewall ao tentar partilhar a sua unidade C com o Docker. Isto [Stack Overflow post](http://stackoverflow.com/questions/42203488/settings-to-windows-firewall-to-allow-docker-for-windows-to-share-drive/43904051) podem ser úteis.
-* Quando partilha unidade C utilizando as credenciais do domínio, a partilha poderá parar de funcionar em redes onde o controlador de domínio não está acessível (por exemplo, rede doméstica, pública Wi-Fi etc.). Para obter mais informações, consulte [este post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
+* Verifique o compartilhamento na unidade C com o Explorador de ficheiros
+* Abra as definições do adaptador de rede e desinstalar/reinstalar "Compartilhamento de arquivos e impressoras em redes Microsoft" para vEthernet
+* Abrir as definições do docker e partilhar a unidade C de configurações de docker
+* As alterações para a palavra-passe do Windows afetam o compartilhamento. Abra o Explorador de ficheiros, voltar a partilhar a unidade C e introduza a palavra-passe nova.
+* Também pode encontrar o problema de firewall quando tentar compartilhar sua unidade C com o Docker. Isso [Stack Overflow post](http://stackoverflow.com/questions/42203488/settings-to-windows-firewall-to-allow-docker-for-windows-to-share-drive/43904051) pode ser útil.
+* Quando partilha a unidade C, com as credenciais de domínio, o compartilhamento poderá parar de funcionar em redes onde o controlador de domínio não está acessível (por exemplo, rede doméstica, pública Wi-Fi etc.). Para obter mais informações, consulte [esta publicação](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
-Também pode evitar o problema de partilha, a um custo, através da definição de desempenho pequeno `sharedVolumne` para `false` no `docker.compute` ficheiro.
+Também pode evitar o problema de partilha, num custo, através da definição de desempenho pequeno `sharedVolumne` para `false` no `docker.compute` ficheiro.
 
-## <a name="wipe-clean-workbench-installation"></a>Instalação limpa do Workbench de eliminação
-Geralmente, não precisa de efetuar este procedimento. Mas, no caso de tem de apagar limpa uma instalação, Eis os passos:
+## <a name="wipe-clean-workbench-installation"></a>Instalação limpa da bancada de trabalho de eliminação
+Em geral, não precisa de fazer isso. Mas caso terá que apagar limpa uma instalação, aqui estão os passos:
 
 - No Windows:
-  - Primeiro certifique-se de que utiliza _adicionar ou remover programas_ miniaplicação no _painel de controlo_ para remover o _Azure Machine Learning Workbench_ entrada de aplicação.  
+  - Primeiro, certifique-se de que utiliza _adicionar ou remover programas_ miniaplicativo no _painel de controlo_ para remover o _Azure Machine Learning Workbench_ entrada de aplicativo.  
   - Em seguida, pode transferir e executar um dos seguintes scripts:
     - [Script de linha de comandos do Windows](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
-    - [Script do Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Poderá ter de executar `Set-ExecutionPolicy Unrestricted` numa janela do PowerShell elevada de privilégio antes de poder executar o script.)
-- No macOS:
-  - Acabou de transferir e executar o [macOS bash script de shell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+    - [Script do Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Poderá ter de executar `Set-ExecutionPolicy Unrestricted` numa janela do PowerShell privilégios elevados antes de poder executar o script.)
+- Em macOS:
+  - Acabou de transferir e executar o [script de shell de bash de macOS](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
 
-## <a name="azure-ml-using-a-different-python-location-than-the-azure-ml-installed-python-environment"></a>Azure ML com o ambiente do Azure ML python instalado numa localização diferente do python
-Devido a uma alteração recente no Azure Machine Learning Workbench, os utilizadores poderão reparar que executa local não pode apontar para o ambiente do python instalado pelo Workbench do Azure ML já. Isto pode acontecer se o utilizador tiver outro ambiente do python instalado nos respetivos computadores e o caminho "Python" está definido para apontar para nesse ambiente. Para poder utilizar o Azure ML Workbench instalado no ambiente do Python, siga estes passos:
-- Aceda ao ficheiro de local.compute na sua pasta aml_config na raiz do projeto.
-- Altere a variável "pythonLocation" para apontar para o caminho físico do workbench do Azure ML instalado ambiente python. Pode obter este caminho de duas formas:
+## <a name="azure-ml-using-a-different-python-location-than-the-azure-ml-installed-python-environment"></a>O Azure ML a utilização de uma localização de python diferentes que o ambiente de python instalada do Azure ML
+Devido a uma alteração recente no Azure Machine Learning Workbench, os utilizadores poderão reparar que execuções locais não podem apontar para o ambiente de python instalado pelo Azure ML Workbench mais. Isto pode acontecer se o utilizador tiver outro ambiente de python instalado em seus computadores e o caminho de "Python" está definido para apontar para esse ambiente. Para poder utilizar o Azure ML Workbench instalado no ambiente do Python, siga estes passos:
+- Aceda ao ficheiro de local.compute em sua pasta de aml_config na raiz do projeto.
+- Alterar a variável "pythonLocation" para apontar para o caminho físico do Azure ML workbench instalado o ambiente do python. Pode obter este caminho de duas formas:
     - Localização de python do Azure ML pode ser encontrada em %localappdata%\AmlWorkbench\python\python.exe
-    - Pode abrir cmd a partir do Azure ML Workbench, escreva o python na linha de comandos, importar sys.exe, execute sys.executable e obter o caminho a partir daí. 
+    - Pode abrir cmd da bancada de trabalho do Azure ML, escreva o python no prompt de comando, importar sys.exe, executar sys.executable e obter o caminho a partir daí. 
 
 
 
-## <a name="some-useful-docker-commands"></a>Alguns comandos de Docker útil
+## <a name="some-useful-docker-commands"></a>Alguns comandos úteis do Docker
 
 Eis alguns comandos de Docker úteis:
 

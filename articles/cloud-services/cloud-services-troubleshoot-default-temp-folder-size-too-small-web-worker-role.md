@@ -1,6 +1,6 @@
 ---
-title: Tamanho da pasta predefinida TEMP é demasiado pequeno para uma função | Microsoft Docs
-description: Uma função de serviço de nuvem tem uma quantidade limitada de espaço para a pasta TEMP. Este artigo fornece algumas sugestões sobre como evitar em execução sem espaço.
+title: Tamanho da pasta TEMP predefinida é demasiado pequeno para uma função | Documentos da Microsoft
+description: Uma função de serviço na nuvem tem uma quantidade limitada de espaço para a pasta TEMP. Este artigo fornece algumas sugestões sobre como evitar a execução sem espaço.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 177438c4d6b416584f1797ec1ce744fc484ef688
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5d60c5f2d759f3329997762270e9a0335ebbe1e9
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154533"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35948019"
 ---
-# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Tamanho da pasta predefinida TEMP é demasiado pequeno numa função de web/trabalho do serviço de nuvem
-O diretório temporário predefinido de uma função de trabalho ou da web de serviço do cloud tem um tamanho máximo de 100 MB, que podem tornar-se completa, a determinada altura. Este artigo descreve como evitar a ficar sem espaço para o diretório temporário.
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Tamanho da pasta TEMP predefinida é demasiado pequeno numa função de web/de trabalho de serviço na nuvem
+O diretório temporário do padrão de uma função de trabalho ou web de serviço do cloud tem um tamanho máximo de 100 MB, as quais podem se tornar total em algum momento. Este artigo descreve como evitar ficar sem espaço para o diretório temporário de.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-do-i-run-out-of-space"></a>Por que motivo ficar sem espaço em?
-As variáveis de ambiente Windows padrão TEMP e TMP estão disponíveis para o código que está a ser executado na sua aplicação. TEMP e TMP apontam para um único diretório que tem um tamanho máximo de 100 MB. Todos os dados são armazenados neste diretório não são continuados entre o ciclo de vida do serviço em nuvem; Se as instâncias de função no serviço em nuvem sejam recicladas, o diretório é limpa.
+## <a name="why-do-i-run-out-of-space"></a>Por que ficar sem espaço?
+As padrão Windows as variáveis de ambiente TEMP e TMP estão disponíveis para código que está a ser executado em seu aplicativo. Do ponto de TEMP e TMP para um diretório único que tem um tamanho máximo de 100 MB. Todos os dados que são armazenados neste diretório não são mantidos durante o ciclo de vida do serviço em nuvem; Se as instâncias de função num serviço cloud sejam recicladas, o diretório é limpa.
 
 ## <a name="suggestion-to-fix-the-problem"></a>Sugestão para corrigir o problema
-Implemente uma das alternativas seguintes:
+Implemente uma das seguintes alternativas:
 
-* Configurar um recurso de armazenamento local e estão acessíveis diretamente em vez de utilizar TEMP ou TMP. Para aceder a um recurso de armazenamento local a partir do código está em execução na sua aplicação, chame o [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) método.
-* Configurar um recurso de armazenamento local e os diretórios TEMP e TMP para apontar para o caminho do recurso local de armazenamento do ponto. Esta modificação deve ser efetuada dentro de [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) método.
+* Configurar um recurso de armazenamento local e acessá-la diretamente em vez de utilizar TEMP ou TMP. Para aceder a um recurso de armazenamento local a partir do código que está a executar no seu aplicativo, chame o [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) método.
+* Configurar um recurso de armazenamento local e aponte os diretórios TEMP e TMP para apontar para o caminho do recurso de armazenamento local. Essa modificação deve ser efetuada dentro de [Roleentrypoint](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) método.
 
-Exemplo de código seguinte mostra como modificar os diretórios de destino para TEMP e TMP de dentro do método OnStart:
+O exemplo de código seguinte mostra como modificar os diretórios de destino para TEMP e TMP de dentro do método de OnStart:
 
 ```csharp
 using System;
@@ -71,8 +71,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Ler um blogue que descreve [como aumentar o tamanho do Azure Web função ASP.NET pasta temporária](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Ler um blog que descreve [como aumentar o tamanho do Azure Web função pasta temporária do ASP.NET](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
 Ver mais [artigos de resolução de problemas](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) para serviços em nuvem.
 
-Para saber como resolver problemas de função de serviço de nuvem, utilizando os dados de diagnóstico do Azure PaaS computador, ver [série de blogues de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para saber como resolver problemas de função do serviço cloud, utilizando dados de diagnóstico do computador de PaaS do Azure, veja [série de blogue de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

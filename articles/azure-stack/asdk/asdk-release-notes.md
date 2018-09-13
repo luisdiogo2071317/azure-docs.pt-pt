@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391951"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722211"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Azure Stack Development Kit  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -43,8 +43,12 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 
 - <!-- 2489570 | IS ASDK--> **Suporte para configurações de política de IPSec/IKE personalizadas** para [gateways de VPN no Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
+- <!-- | IS ASDK--> **Item do marketplace Kubernetes**. Agora, pode implementar clusters Kubernetes com o [item do mercado de Kubernetes](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Os utilizadores podem selecionar o item de Kubernetes e preencher alguns parâmetros para implementar um cluster de Kubernetes no Azure Stack. O objetivo dos modelos é simplificar para os utilizadores para implementações de Kubernetes de programador/teste de configuração em poucos passos.
 
-### <a name="fixed-issues"></a>Problemas de fixos
+- <!-- | IS ASDK--> **Modelos de Blockchain**. Agora, pode executar [implementações de consórcio Ethereum](/azure/azure-stack/azure-stack-ethereum) no Azure Stack. Encontrará três novos modelos no [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o utilizador implementar e configurar uma rede Ethereum de consórcio com vários membros com o mínimo de conhecimento do Azure e Ethereum. O objetivo dos modelos é simplificar para os utilizadores para implementações de Blockchain de programador/teste de configuração em poucos passos.
+
+
+### <a name="fixed-issues"></a>Problemas corrigidos
 - <!-- IS ASDK--> Foi corrigido o problema para a criação de um conjunto de disponibilidade no portal do que resultou no conjunto de um domínio de falha e o domínio de atualização de 1.
 
 - <!-- IS ASDK --> Definições para dimensionar conjuntos de dimensionamento de máquinas virtuais estão agora disponíveis no portal.  
@@ -68,6 +72,8 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 ### <a name="known-issues"></a>Problemas conhecidos
 
 #### <a name="portal"></a>Portal  
+- <!-- 2967387 – IS, ASDK --> A conta que utiliza para iniciar sessão no portal de utilizador ou administrador do Azure Stack indicará **utilizador não identificado**. Isto ocorre quando a conta não tem qualquer um *primeira* ou *última* nome especificado. Para contornar este problema, edite a conta de utilizador para fornecer o primeiro ou último nome. Deve, em seguida, termine sessão e, em seguida, inicie sessão novamente para o portal. 
+
 -  <!--  2873083 - IS ASDK --> Quando utiliza o portal para criar um dimensionamento de máquina virtual definido (VMSS), o *tamanho da instância* pendente não carregados corretamente ao utilizar o Internet Explorer. Para contornar este problema, use outro navegador ao utilizar o portal para criar um VMSS.  
 
 - <!-- TBD  ASDK --> O fuso horário predefinido para todas as implementações do Azure Stack agora são definidas para Hora Universal Coordenada (UTC). Pode selecionar um fuso horário ao instalar o Azure Stack, no entanto, ele é automaticamente revertida para UTC como predefinição durante a instalação.
@@ -209,7 +215,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
  
 - <!-- 2536808 IS ASDK --> **Melhorada a hora de criação de VM** para as VMs que são criadas com imagens, transfira a partir do Azure marketplace.
 
-### <a name="fixed-issues"></a>Problemas de fixos
+### <a name="fixed-issues"></a>Problemas corrigidos
 
 - <!-- TBD | ASDK, IS --> Vários aprimoramentos foram feitos para o processo de atualização para que seja mais confiável. Além disso, foram efetuadas correções para a infraestrutura subjacente, o que melhora a drenagem do nó, minimizando, assim, potenciais períodos de inatividade para cargas de trabalho durante a atualização.
 
@@ -377,7 +383,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
   Enquanto esta funcionalidade está em pré-visualização, não deve confiar em ambientes de produção.   
 
 
-### <a name="fixed-issues"></a>Problemas de fixos
+### <a name="fixed-issues"></a>Problemas corrigidos
 - Podemos corrigir o problema que bloqueados [abrir um novo pedido de suporte na lista pendente](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) no portal de administração. Esta opção agora funciona como esperado.
 
 - <!--  TBD ASDK --> A máquina virtual que aloja o ponto final de privilégio (PEP) foi aumentada para 4GB. ASDK, esta máquina virtual tem o nome AzS-ERCS01.

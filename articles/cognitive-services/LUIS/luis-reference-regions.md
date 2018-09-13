@@ -1,6 +1,6 @@
 ---
-title: Regiões do Language Understanding (LUIS) e pontos de extremidade - Azure - LUIS de serviços cognitivos | Documentos da Microsoft
-titleSuffix: Azure
+title: Publicação regiões e pontos de extremidade - LUIS
+titleSuffix: Azure Cognitive Services
 description: A região em que publique a sua aplicação LUIS corresponde à região ou localização que especificar no portal do Azure ao criar uma chave de ponto final do Azure LUIS. Quando publica uma aplicação, o LUIS gera automaticamente um URL de ponto final para a região associada à chave. Para publicar uma aplicação do LUIS mais do que uma região, tem pelo menos uma chave por região.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/11/2018
 ms.author: diberry
-ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 48e1e19d2d425fe123e5a0c369ecebf623b74eb2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815508"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721317"
 ---
 # <a name="regions-and-keys"></a>Regiões e as chaves
 
@@ -30,6 +30,11 @@ Existem três Web sites do LUIS, com base na região. Tem de criar e publicar na
 |[au.Luis.ai][au.luis.ai]|Austrália|
 |[eu.Luis.ai][eu.luis.ai]|Europa|
 
+## <a name="regions-and-azure-resources"></a>Regiões e recursos do Azure
+A aplicação for publicada para todas as regiões associadas com os recursos de LUIS, adicionados no portal do LUIS. Por exemplo, para uma aplicação criada no [www.luis.ai][www.luis.ai], se criar um recurso de LUIS na **westus** e adicioná-lo para a aplicação como um recurso, a aplicação for publicada nessa região. 
+
+## <a name="public-apps"></a>Aplicações públicas
+Uma aplicação pública está publicada em todas as regiões, para que um utilizador com uma chave de recurso com base na região do LUIS pode aceder à aplicação em qualquer região é associada à sua chave de recurso.
 
 ## <a name="publishing-regions"></a>Regiões de publicação
 

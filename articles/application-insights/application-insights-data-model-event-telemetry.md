@@ -1,6 +1,6 @@
 ---
-title: Modelo de dados de telemetria de Insights de aplicação do Azure - eventos de telemetria | Microsoft Docs
-description: Modelo de dados do Application Insights para telemetria de eventos
+title: Modelo de dados de telemetria de informações de aplicação do Azure - telemetria de eventos | Documentos da Microsoft
+description: Modelo de dados do Application Insights para a telemetria de evento
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,24 +9,26 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 4f6b5c35b65b4aff2dbe8dafbb2eb07d75c2382a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 777c52276ca767ee1fb4d05666850350c02c1e00
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647206"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetria de evento: modelo de dados do Application Insights
 
-Pode criar itens de telemetria de eventos (no [Application Insights](app-insights-overview.md)) para representar um evento que ocorreram na sua aplicação. Normalmente, é uma interação do utilizador, tais como o botão clique ou ordenar a finalização da compra. Também pode ser um evento de ciclo de vida de aplicação, como inicialização ou a configuração de atualização. 
+Pode criar itens de telemetria de evento (no [Application Insights](app-insights-overview.md)) para representar um evento que ocorreu em seu aplicativo. Normalmente, é uma interação do usuário, como o clique de botão ou solicitar o Check-out. Também pode ser um evento de ciclo de vida do aplicativo, como atualização de configuração ou de inicialização. 
 
-Ponto de vista semântico, eventos podem ou não podem ser correlacionados com pedidos. No entanto, se utilizados corretamente, a telemetria de eventos é mais importante do que os pedidos ou rastreios. Eventos representam a telemetria de negócio e deve ser um assunto para separar, menos agressiva [amostragem](app-insights-api-filtering-sampling.md).
+Semanticamente, eventos podem ou não podem ser correlacionados com pedidos. No entanto, se usados corretamente, é mais importante do que os pedidos ou rastreios de telemetria dos eventos. Eventos representam a telemetria de negócios e deve ser um assunto para separar, menos agressivos [amostragem](app-insights-api-filtering-sampling.md).
 
 ## <a name="name"></a>Nome
 
-Nome do evento. Para permitir que o agrupamento correto e métricas úteis, restringir a aplicação para que gera um pequeno número de nomes do evento separado. Por exemplo, não utilize um nome separado para cada instância gerado um evento.
+Nome do evento. Para permitir que o agrupamento correto e de métricas úteis, restringir o seu aplicativo para que ele gera um pequeno número de nomes de eventos separado. Por exemplo, não utilize um nome separado para cada instância gerado de um evento.
 
 Comprimento máximo: 512 carateres
 
@@ -34,12 +36,12 @@ Comprimento máximo: 512 carateres
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-## <a name="custom-measurements"></a>Medidas personalizadas
+## <a name="custom-measurements"></a>Medições personalizadas
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte [modelo de dados](application-insights-data-model.md) para o modelo de tipos e os dados do Application Insights.
+- Ver [modelo de dados](application-insights-data-model.md) para o modelo de tipos e dados do Application Insights.
 - [Escrever telemetria de evento personalizado](app-insights-api-custom-events-metrics.md#trackevent)
-- Veja [plataformas](app-insights-platforms.md) suportado pelo Application Insights.
+- Confira [plataformas](app-insights-platforms.md) suportada pelo Application Insights.

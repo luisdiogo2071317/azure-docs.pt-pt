@@ -1,25 +1,25 @@
 ---
-title: Compreender os tokens de utilizador em colaboração B2B do Azure AD | Microsoft Docs
-description: Referência de token de utilizador para colaboração B2B do Azure Active Directory do
+title: Compreender os tokens de utilizador em colaboração B2B do Azure AD | Documentos da Microsoft
+description: Referência de token de utilizador para a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: efbadf877a38f1ab553e1c376e3084d00f606a31
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: ff28943ba4f7b0eda5733783a14d1cc2f025f01b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260226"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647248"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Compreender os tokens de utilizador em colaboração B2B do Azure AD
 
-Se pretender saber aspeto o token para um utilizador de colaboração B2B, seguem-se os detalhes de token de portador e conteúdo token para um convidado do Azure Active Directory (Azure AD) e um convidado de conta Microsoft no inquilino do recurso (para tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo do Token Web JSON (JWT), utilize [ https://jwt.io/ ](https://jwt.io/) ou [ https://jwt.ms/ ](https://jwt.ms/).
+Se deseja saber o que o token é semelhante a um utilizador de colaboração do B2B, Eis os detalhes do token de portador e o conteúdo de token para um convidado do Azure Active Directory (Azure AD) e um convidado de conta Microsoft no inquilino de recursos (para o tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo JSON Web Token (JWT), utilize [ https://jwt.io/ ](https://jwt.io/) ou [ https://jwt.ms/ ](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Token de convidado do Azure AD
 ```
@@ -35,5 +35,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Propriedades de utilizador de colaboração B2B](user-properties.md)
-* [Afirmações de utilizador de colaboração B2B mapeamento](claims-mapping.md)
+* [Mapeamento de afirmações de utilizador de colaboração de B2B](claims-mapping.md)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 999ac78427ae1202db584efeb7de538bcc1248c7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189263"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714807"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
@@ -27,7 +27,7 @@ Otimização automática da base de dados do SQL do Azure pode ser um dos recurs
 
 ## <a name="what-can-automatic-tuning-do-for-you"></a>O que pode otimização automática fazer por?
 
-- Ajuste de desempenho automatizado de bases de dados do Azure SQL
+- Ajuste de desempenho automatizado de bases de dados SQL do Azure
 - Verificação automatizada de ganhos de desempenho
 - Reversão automática e correção automática
 - Histórico da otimização
@@ -38,7 +38,7 @@ Otimização automática da base de dados do SQL do Azure pode ser um dos recurs
 
 ## <a name="safe-reliable-and-proven"></a>Seguro, fiável e comprovado
 
-Operações de otimização aplicadas a bases de dados do Azure SQL são totalmente seguras para o desempenho das cargas de trabalho mais intensa. O sistema foi desenvolvido com cuidado para não interferem com as cargas de trabalho do utilizador. Recomendações de otimização automáticas são aplicadas apenas às horas de uma baixa utilização. O sistema também temporariamente pode desativar a operações de otimização automática para proteger o desempenho da carga de trabalho. Nesse caso, a mensagem "Desativada pelo sistema" será apresentada no portal do Azure. A otimização automática regards cargas de trabalho com a prioridade mais alta do recurso.
+Bases de dados são aplicadas ao SQL do Azure de operações de otimização totalmente seguros para o desempenho das cargas de trabalho mais intensa. O sistema foi desenvolvido com cuidado para não interferem com as cargas de trabalho do utilizador. Recomendações de otimização automáticas são aplicadas apenas às horas de uma baixa utilização. O sistema também temporariamente pode desativar a operações de otimização automática para proteger o desempenho da carga de trabalho. Nesse caso, a mensagem "Desativada pelo sistema" será apresentada no portal do Azure. A otimização automática regards cargas de trabalho com a prioridade mais alta do recurso.
 
 Mecanismos de otimização automática são maduros e tem sido ideal em várias bases de milhões dados em execução no Azure. Operações automatizadas de otimização aplicadas são verificadas automaticamente para garantir que existe uma melhoria positiva para o desempenho da carga de trabalho. Recomendações de desempenho regredido são dinamicamente detetadas e imediatamente revertidas. Através do histórico de ajuste registado, existe um rastreio claro de ajuste os aprimoramentos feitos para cada base de dados do SQL do Azure. 
 
@@ -81,5 +81,5 @@ Configurar opções num servidor de otimização automática e a herdar as defin
 - Analisar manualmente e aplicar recomendações de otimização automática, consulte [localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).
 - Para saber como utilizar o T-SQL para aplique e veja as recomendações de otimização automática, consulte [gerir a otimização automática através de T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 - Para saber mais sobre a criação de notificações por e-mail para recomendações de otimização automática, consulte [notificações para a otimização automática por E-Mail](sql-database-automatic-tuning-email-notifications.md).
-- Para saber mais sobre como inteligência incorporada utilizada na otimização automática, consulte [Inteligência Artificial ajusta bases de dados do Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Para saber mais sobre como inteligência incorporada utilizada na otimização automática, consulte [Inteligência Artificial ajusta bases de dados SQL do Azure](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Para saber mais sobre o funcionamento de otimização automático como na base de dados do Azure SQL e SQL server 2017, veja [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

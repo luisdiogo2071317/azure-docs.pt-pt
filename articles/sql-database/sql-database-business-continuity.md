@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444153"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721995"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -101,7 +101,7 @@ Esta funcionalidade é utilizada para proteger contra interrupções de negócio
 * Tem uma taxa elevada de alteração de dados e perder uma hora não é aceitável.
 * O custo adicional da georreplicação ativa é inferior aos potenciais encargos financeiros e perda empresarial associada.
 
-Quando tomar medidas, o período de tempo que demora a recuperar e a perda de dados incorrida depende de como optar por utilizar estas funcionalidades de continuidade de negócio na sua aplicação. Na verdade, pode optar por utilizar uma combinação de cópias de segurança da base de dados e a georreplicação ativa consoante os requisitos da aplicação. Para um debate das considerações de estrutura de aplicações para bases de dados autónomas e para conjuntos elásticos com estas funcionalidades de continuidade empresarial, veja [Estruturar uma aplicação para recuperação após desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação após desastre do Conjunto Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Quando tomar medidas, o período de tempo que demora a recuperar e a perda de dados incorrida depende de como optar por utilizar estas funcionalidades de continuidade de negócio na sua aplicação. Na verdade, pode optar por utilizar uma combinação de cópias de segurança da base de dados e a georreplicação ativa consoante os requisitos da aplicação. Para ver um debate das considerações de design do aplicativo para bases de dados autónomas e para conjuntos elásticos com estas funcionalidades de continuidade de negócio, veja [estruturar uma aplicação para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [elástico estratégias de recuperação após desastre do conjunto](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 As secções seguintes fornecem uma visão geral dos passos para recuperar através de cópias de segurança da base de dados ou a georreplicação ativa. Para passos detalhados, incluindo o planejamento de requisitos, passos após recuperação e informações sobre como simular uma falha para executar um teste de recuperação após desastre, veja [recuperar uma base de dados SQL a partir de um período de indisponibilidade](sql-database-disaster-recovery.md).
 
@@ -142,4 +142,4 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 Por vezes, um aplicativo deve ser colocado offline devido a manutenção planeada, como uma atualização da aplicação. [Gerir atualizações de aplicações](sql-database-manage-application-rolling-upgrade.md) descreve como utilizar a georreplicação ativa para permitir a implementação de atualizações da sua aplicação na cloud para minimizar o período de indisponibilidade durante as atualizações e fornecer um caminho de recuperação caso algo corra mal. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para um debate das considerações de estrutura de aplicações para bases de dados autónomas e conjuntos elásticos, veja [Estruturar uma aplicação para recuperação após desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação após desastre do Conjunto Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Para ver um debate das considerações de design do aplicativo para bases de dados autónomas e para conjuntos elásticos, veja [estruturar uma aplicação para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

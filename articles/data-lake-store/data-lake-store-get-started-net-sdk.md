@@ -1,24 +1,23 @@
 ---
-title: "SDK .NET: operações de gestão de contas no Azure Data Lake Store | Microsoft Docs"
-description: "Utilizar o SDK .NET do Azure Data Lake Store para efetuar operações de gestão de contas no Data Lake Store"
+title: 'SDK .NET: operações de gestão de contas no Azure Data Lake Store | Microsoft Docs'
+description: Utilizar o SDK .NET do Azure Data Lake Store para efetuar operações de gestão de contas no Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cb44fb1cbc279f12f970237f1498a570a63544bd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: ee3c528345232090227c413aebaebe7cc265bc76
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648227"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operações de gestão de contas no Azure Data Lake Store com o SDK .NET
 > [!div class="op_single_selector"]
@@ -146,5 +145,5 @@ O fragmento seguinte elimina a conta do Data Lake Store criada anteriormente.
 * [Operações do sistema de ficheiros no Data Lake Store com o SDK .NET](data-lake-store-data-operations-net-sdk.md)
 * [Referência do SDK .NET do Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)

@@ -1,6 +1,6 @@
 ---
 title: Análise de retenção de utilizador para aplicações web com o Azure Application Insights | Documentos da Microsoft
-description: Quantos utilizadores regressar à sua aplicação?
+description: Devolve o número de utilizadores à sua aplicação?
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,51 +9,52 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: bafe9579cc783dbc5c851e626e3b9bea0c559520
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6e042034d52551d58e290b54ca3547dedbc89c47
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647754"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análise de retenção de utilizador para aplicações web com o Application Insights
 
-A funcionalidade de retenção no [Azure Application Insights](app-insights-overview.md) ajuda a analisar quantos utilizadores regressar à sua aplicação e frequência efetuar tarefas específicas ou atingir objetivos. Por exemplo, se executar um site de jogo, pode comparar o número de utilizadores que voltar para o site após a perda de um jogo com o número de retorno após prevalecente. Estes conhecimentos podem ajudar a melhorar a experiência de utilizador e a estratégia de negócio.
+A funcionalidade de retenção no [do Azure Application Insights](app-insights-overview.md) ajuda a analisar o número de utilizadores voltam à sua aplicação e a frequência com que realizar tarefas específicas ou atingir as metas. Por exemplo, se executar um site de jogo, pode comparar os números de utilizadores que retornam ao site após a perda de um jogo com o número que retornam após vencedoras. Esse conhecimento pode ajudar a melhorar sua experiência de utilizador e a sua estratégia de negócios.
 
 ## <a name="get-started"></a>Introdução
 
-Se não vir ainda dados na ferramenta de retenção no portal do Application Insights, [aprender a começar a utilizar as ferramentas de utilização](app-insights-usage-overview.md).
+Se ainda não vir dados no portal do Application Insights, a ferramenta de retenção [Saiba como começar com as ferramentas de utilização](app-insights-usage-overview.md).
 
 ## <a name="the-retention-tool"></a>A ferramenta de retenção
 
 ![Ferramenta de retenção](./media/app-insights-usage-retention/retention.png)
 
-1. Barra de ferramentas permite aos utilizadores criar novos relatórios de retenção, abrir relatórios existentes de retenção, guardar o relatório de retenção atual ou guardar como, reverter as alterações feitas a relatórios guardados, atualizar dados no relatório, partilhar o relatório por e-mail ou de ligação direta e a documentação de acesso página. 
-2. Por predefinição, o retenção mostra todos os utilizadores que tiver tudo, em seguida, volta veio e foram há mais alguma coisa durante um período. Pode selecionar diferentes combinação de eventos para restringir o enfoque em atividades de utilizador específico.
-3. Adicione um ou mais filtros nas propriedades. Por exemplo, pode concentrar nos utilizadores de um determinado país ou região. Clique em **atualização** depois de definir os filtros. 
-4. O gráfico de retenção global mostra um resumo de retenção de utilizador entre o período de tempo selecionado. 
-5. Grelha mostra o número de utilizadores retidos, de acordo com o construtor de consultas no #2. Cada linha representa um coorte de utilizadores que executou qualquer evento dentro do tempo período mostrado. Cada célula na linha mostra quantos dos que coorte devolvido pelo menos uma vez num período posterior. Alguns utilizadores podem devolver mais do que um ponto. 
-6. Os cartões de insights mostram eventos de início de cinco superiores e superiores eventos devolvidos cinco conceder aos utilizadores uma melhor compreensão sobre os relatórios de retenção. 
+1. Barra de ferramentas permite aos utilizadores criar novos relatórios de retenção, abra os relatórios existentes de retenção, guardar o relatório de retenção atual ou guardar como, reverter as alterações feitas para relatórios guardados, atualizar dados no relatório, partilhar o relatório por e-mail ou a ligação direta e acessar a documentação página. 
+2. Por predefinição, a retenção mostra todos os utilizadores que fizeram nada, em seguida, voltaram e fizeram mais nada durante um período. Pode selecionar uma combinação diferente de eventos para restringir o foco nas atividades de utilizador específico.
+3. Adicione um ou mais filtros de propriedades. Por exemplo, que se possa concentrar nos utilizadores de um determinado país ou região. Clique em **atualização** depois de definir os filtros. 
+4. O gráfico de retenções totais mostra um resumo de retenção de utilizador entre o período de tempo selecionado. 
+5. A grade mostra o número de utilizadores retidos, de acordo com o construtor de consultas no #2. Cada linha representa uma coorte de utilizadores que executou a qualquer evento no tempo período mostrado. Cada célula na linha mostra o número desse coorte devolvido pelo menos uma vez num período posterior. Alguns usuários podem devolver mais do que um período. 
+6. Os cartões de informações mostram os principais eventos de início de cinco e principais eventos devolvidos cinco para dar aos usuários uma melhor compreensão do seu relatório de retenção. 
 
-![Passagem do rato de retenção](./media/app-insights-usage-retention/hover.png)
+![Coloque o cursor de rato de retenção](./media/app-insights-usage-retention/hover.png)
 
-Os utilizadores podem paira o rato sobre células na ferramenta de retenção para as sugestões de botão e a ferramenta de análise explicar o que significa a célula de acesso. O botão de análise direciona os utilizadores para a ferramenta de análise com uma consulta pré-preenchidos para gerar os utilizadores da célula. 
+Os utilizadores podem Paire o rato sobre células sobre a ferramenta de retenção para acessar as dicas de botão e a ferramenta de análise que explica o que significa que a célula. Botão Analytics direciona os utilizadores para a ferramenta de análise com uma consulta preenchida previamente para gerar utilizadores da célula. 
 
-## <a name="use-business-events-to-track-retention"></a>Utilizar eventos de negócio para controlar a retenção
+## <a name="use-business-events-to-track-retention"></a>Usar eventos de negócios para controlar a retenção
 
-Para obter a análise de retenção mais úteis, medir os eventos que representam as atividades de negócio significativas. 
+Para obter a análise de retenção mais úteis, medir os eventos que representam as atividades de negócios significativas. 
 
-Por exemplo, vários utilizadores podem abrir uma página na sua aplicação sem jogar no jogo que é apresentado. Apenas as vistas de página de controlo, por conseguinte, iria fornecer uma estimativa de como muitas pessoas devolvem para reproduzir no jogo após desfrutar dos-la anteriormente incorreta. Para obter uma fotografia limpar devolver jogadores, a aplicação deve enviar um evento personalizado quando um utilizador, na verdade, desempenha.  
+Por exemplo, número de utilizadores que pode abrir uma página na sua aplicação sem jogar o jogo que é apresentado. Apenas as vistas de página de controlo, portanto, seria fornecer uma estimativa imprecisa de quantas pessoas retornam para jogar o jogo após anteriormente a desfrutar. Para obter uma visão clara de retornar leitores, seu aplicativo deve enviar um evento personalizado quando um usuário realmente toca.  
 
-É recomendável code eventos personalizados que representam ações empresarial fundamentais e utilizá-los para a análise de retenção. Para capturar o resultado de jogo, terá de escrever uma linha de código para enviar um evento personalizado para o Application Insights. Se escrever-a no código da página web ou no Node.JS, este aspeto:
+É boa prática eventos personalizados que representam as ações de negócios essenciais de código e utilizá-los para sua análise de retenção. Para capturar o resultado de jogo, terá de escrever uma linha de código para enviar um evento personalizado para o Application Insights. Se escrever o código de página da web ou em node. js, fica assim:
 
 ```JavaScript
     appinsights.trackEvent("won game");
 ```
 
-Ou no código de servidor ASP.NET:
+Ou, no código de servidor do ASP.NET:
 
 ```csharp
    telemetry.TrackEvent("won game");
@@ -63,12 +64,12 @@ Ou no código de servidor ASP.NET:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Para ativar as experiências de utilização, começar a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Se já enviar eventos personalizados ou vistas de página, explore as ferramentas de utilização para saber como os utilizadores utilizam o serviço.
+- Para permitir experiências de utilização, começar a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se já tiver enviar eventos personalizados ou vistas de página, explore as ferramentas de utilização para saber como os utilizadores utilizam o seu serviço.
     - [Utilizadores, Sessões, Eventos](app-insights-usage-segmentation.md)
     - [Funis](usage-funnels.md)
     - [Fluxos do Utilizador](app-insights-usage-flows.md)
     - [Livros](app-insights-usage-workbooks.md)
-    - [Adicionar o contexto de utilizador](app-insights-usage-send-user-context.md)
+    - [Adicionar contexto de utilizador](app-insights-usage-send-user-context.md)
 
 

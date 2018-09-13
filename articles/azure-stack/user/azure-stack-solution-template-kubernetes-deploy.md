@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c0c625852ff131aaa26e424ded75fbe51f94f23d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159304"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718581"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Implementar um cluster de Kubernetes no Azure Stack
 
@@ -106,7 +106,7 @@ Conceder ao principal de serviço acesso à sua subscrição para que o principa
 
 1. Abra o [portal do Azure Stack](https://portal.local.azurestack.external).
 
-1. Selecione **+ nova** > **computação** > **Cluster do Kubernetes**. Clique em **Criar**.
+1. Selecione **+ criar um recurso** > **computação** > **Cluster do Kubernetes**. Clique em **Criar**.
 
     ![Implementar Modelo de Solução](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

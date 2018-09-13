@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e9616b39491aac01427ee34fb23db556c5c9b9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357164"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719363"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativos de baseadas em atributos com filtros de âmbito
 O objetivo deste artigo é explicar como utilizar filtros de âmbito para definir regras baseadas em atributos que determinam quais usuários são aprovisionados para um aplicativo.
@@ -111,7 +111,6 @@ Filtros de âmbito são configurados como parte dos mapeamentos de atributos par
 
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Índice de artigo para a gestão de aplicações no Azure Active Directory](../active-directory-apps-index.md)
 * [Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS de utilizador](user-provisioning.md)
 * [Personalizar mapeamentos de atributos para o aprovisionamento do utilizador](customize-application-attributes.md)
 * [Escrever expressões para mapeamentos de atributos](functions-for-customizing-application-data.md)

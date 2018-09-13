@@ -1,5 +1,5 @@
 ---
-title: Fluxo de dados de transformação de exemplo transformações possíveis com a preparação de dados do Azure Machine Learning | Microsoft Docs
+title: Fluxo de dados de transformação de exemplo transformações possíveis com a preparação de dados do Azure Machine Learning | Documentos da Microsoft
 description: Este documento fornece um conjunto de exemplos de transformações de fluxo de dados de transformação possível com a preparação de dados do Azure Machine Learning
 services: machine-learning
 author: euangMS
@@ -7,36 +7,36 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 655e9d41911fbb008470cf58b2538407933787bd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ca780b51973a960caec3b9b7a80c8ba5621b5a0b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832079"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649840"
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Exemplo de transformações de fluxo de dados personalizados (Python) 
-O nome da transformação no menu é **transformar fluxo de dados (scripts)**. Antes de ler este anexo, leia [descrição geral de extensibilidade do Python](data-prep-python-extensibility-overview.md).
+É o nome da transformação no menu **transformar fluxo de dados (Script)**. Antes de ler este apêndice, leia [visão geral da extensibilidade de Python](data-prep-python-extensibility-overview.md).
 
-## <a name="transform-frame"></a>Transformar moldura
-### <a name="create-a-new-column-dynamically"></a>Criar uma nova coluna dinâmica 
-Cria uma coluna dinamicamente (**city2**) e reconcilia várias versões diferentes do frente a uma partir da coluna cidade existente.
+## <a name="transform-frame"></a>Transformar quadro
+### <a name="create-a-new-column-dynamically"></a>Criar uma nova coluna dinamicamente 
+Cria uma coluna dinamicamente (**cidade2**) e concilie várias versões diferentes do San Francisco para um da coluna city existente.
 ```python
     df.loc[(df['city'] == 'San Francisco') | (df['city'] == 'SF') | (df['city'] == 'S.F.') | (df['city'] == 'SAN FRANCISCO'), 'city2'] = 'San Francisco'
 ```
 
-### <a name="add-new-aggregates"></a>Adicionar novo agregados
-Cria um novo pacote com os primeiro e últimos agregados calculados para a coluna de modelo de pontuação. Estes são agrupados pelo **risk_category** coluna.
+### <a name="add-new-aggregates"></a>Adicionar novas agregações
+Cria um novo quadro com os primeiros e últimos agregados computados para a coluna de pontuação. Estes são agrupados pela **risk_category** coluna.
 ```python
     df = df.groupby(['risk_category'])['Score'].agg(['first','last'])
 ```
 ### <a name="winsorize-a-column"></a>Winsorize uma coluna 
-Reformulates os dados para cumprir uma fórmula para reduzir os valores atípicos numa coluna.
+Reformulates os dados de acordo com uma fórmula para reduzir os valores atípicos numa coluna.
 ```python
     import scipy.stats as stats
     df['Last Order'] = stats.mstats.winsorize(df['Last Order'].values, limits=0.4)
@@ -45,9 +45,9 @@ Reformulates os dados para cumprir uma fórmula para reduzir os valores atípico
 ## <a name="transform-data-flow"></a>Transformar o fluxo de dados
 ### <a name="fill-down"></a>Preencher para baixo 
 
-Preenchimento baixo requer dois transformações. Pressupõe que os dados que se assemelha a tabela seguinte:
+Preencher para baixo requer duas transformações. Parte do princípio de dados que se parece com a tabela seguinte:
 
-|Estado         |Cidade       |
+|Estado         |Localidade       |
 |--------------|-----------|
 |Washington    |Redmond    |
 |              |Bellevue   |
@@ -60,7 +60,7 @@ Preenchimento baixo requer dois transformações. Pressupõe que os dados que se
 |              |San Antonio|
 |              |Houston    |
 
-1. Crie uma transformação "Adicionar a coluna (Script)" utilizando o seguinte código:
+1. Crie uma transformação de "Adicionar coluna (Script)" usando o seguinte código:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
@@ -70,9 +70,9 @@ Preenchimento baixo requer dois transformações. Pressupõe que os dados que se
     df = df.fillna( method='pad')
 ```
 
-Os dados aspeto agora a tabela seguinte:
+Os dados agora é parecida com a tabela seguinte:
 
-|Estado         |newState         |Cidade       |
+|Estado         |newState         |Localidade       |
 |--------------|--------------|-----------|
 |Washington    |Washington    |Redmond    |
 |              |Washington    |Bellevue   |
@@ -86,7 +86,7 @@ Os dados aspeto agora a tabela seguinte:
 |              |Texas         |Houston    |
 
 
-### <a name="min-max-normalization"></a>Normalização de min-máx.
+### <a name="min-max-normalization"></a>Normalização mínima-máxima
 ```python
     df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
 ```

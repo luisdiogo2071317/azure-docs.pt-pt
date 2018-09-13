@@ -3,19 +3,19 @@ title: 'Início rápido: Vá para a API (V4) do QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 5daf4d5e971e840db020e35d1997615723f8e06d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 320eb7b643d785899482a00bfc0bda1d89e61b3b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349046"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714875"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Início rápido para API com o Go do Microsoft QnA Maker 
 <a name="HOLTop"></a>
@@ -39,19 +39,19 @@ Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [ir 1.10.1](https://golang.org/dl/) executar esse código.
+Necessita de [Go 1.10.1](https://golang.org/dl/) para executar este código.
 
-Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **Microsoft-API QnA Maker**. Precisará de uma chave de subscrição paga do seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API do Criador de FAQ da Microsoft**. Necessita de uma chave de subscrição paga a partir do [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Create"></a>
 
-## <a name="create-knowledge-base"></a>Criar base de dados de conhecimento
+## <a name="create-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-O código seguinte cria um novo conhecimento base, utilizando o [criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) método.
+O código seguinte cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -190,7 +190,7 @@ func main() {
 
 **Criar a resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -225,11 +225,11 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 ## <a name="update-knowledge-base"></a>Atualizar base de dados de conhecimento
 
-O código a seguir atualiza um conhecimento existente base, utilizando o [atualização](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) método.
+O código seguinte atualiza uma base de dados de conhecimento existente através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -373,7 +373,7 @@ func main() {
 
 **Atualizar a resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -401,7 +401,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obter estado do pedido
 
-Pode chamar o [operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) método para verificar o estado de um pedido para criar ou atualizar uma base de dados de conhecimento. Para ver como este método é utilizado, consulte o código de exemplo para o [Create](#Create) ou [atualização](#Update) método.
+Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o estado de um pedido para criar ou atualizar uma base de dados de conhecimento. Para ver como este método é utilizado, consulte o código de exemplo para o método [Criar](#Create) ou [Atualizar](#Update).
 
 [Voltar ao início](#HOLTop)
 
@@ -409,11 +409,11 @@ Pode chamar o [operação](https://westus.dev.cognitive.microsoft.com/docs/servi
 
 ## <a name="publish-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-O código a seguir publica um conhecimento existente base, utilizando o [publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) método.
+O código seguinte publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -485,7 +485,7 @@ func main() {
 
 **Publicar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -501,9 +501,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O seguinte código substitui o conteúdo do conhecimento especificado base, utilizando o [substitua](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -593,7 +593,7 @@ func main() {
 
 **Substitua a resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -609,9 +609,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código seguinte transfere o conteúdo do conhecimento especificado base, utilizando o [transferir a base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -677,7 +677,7 @@ func main() {
 
 **Transferir a resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -718,8 +718,8 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código a seguir obtém respostas a uma pergunta usando a base de dados de conhecimento especificada, utilizando o **gerar respostas** método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-1. Adicione o código fornecido abaixo.
+1. Crie um novo projeto do Go no seu IDE favorito.
+1. Adicione o código indicado abaixo.
 1. Substitua o `host` valor com o nome do Web site para a sua subscrição do QnA Maker. Para obter mais informações, consulte [criar um serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
 1. Substitua o `endpoint_key` valor com uma chave de ponto final válido para a sua subscrição. Tenha em atenção de que isso não é o mesmo que a chave de subscrição. Pode obter as chaves de ponto final com o [obter chaves de ponto final](#GetKeys) método.
 1. Substitua o `kb` valor com o ID da base de dados de conhecimento que pretende consultar para obter respostas. Tenha em atenção de que esta base de dados de conhecimento tem já foram publicada com o [publicar](#Publish) método.
@@ -791,7 +791,7 @@ func main() {
 
 **Obter resposta de respostas**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -819,9 +819,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código seguinte obtém informações sobre o conhecimento especificado base, utilizando o [obter os detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -883,7 +883,7 @@ func main() {
 
 **Obter resposta de detalhes da base de dados de conhecimento**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -911,9 +911,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código seguinte obtém informações sobre todas as bases de dados de conhecimento de um utilizador especificado, utilizando o [obter bases de dados de conhecimento para o utilizador](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -972,7 +972,7 @@ func main() {
 
 **Obter bases de dados de conhecimento de resposta do utilizador**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1016,9 +1016,9 @@ Press any key to continue.
 
 O código seguinte elimina os dados de conhecimento especificado base, utilizando o [eliminar base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -1086,7 +1086,7 @@ func main() {
 
 **Eliminar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1102,9 +1102,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código seguinte obtém as chaves de ponto final atual, utilizando o [obter chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -1163,7 +1163,7 @@ func main() {
 
 **Obter resposta de chaves de ponto final**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1180,9 +1180,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código a seguir Regenera as chaves de ponto final atual, utilizando o [atualizar as chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -1249,7 +1249,7 @@ func main() {
 
 **Atualizar a resposta de chaves de ponto final**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1266,9 +1266,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código seguinte obtém as alterações de palavra atual, utilizando o [transferir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -1327,7 +1327,7 @@ func main() {
 
 **Obter resposta de alterações do word**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1350,9 +1350,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 
 O código a seguir substitui as alterações de palavra atual, utilizando o [substituir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) método.
 
-1. Crie um novo projeto de Go no seu IDE preferido.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Go no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```go
@@ -1431,7 +1431,7 @@ func main() {
 
 **Substitua a resposta de alterações do word**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seguir: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -1444,7 +1444,7 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo a seg
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST do criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência da API REST para o Criador de FAQ (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Consulte também 
 

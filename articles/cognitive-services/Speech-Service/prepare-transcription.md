@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de transcrição para formação de voz
-description: Saiba como preparar o texto para personalizar acústico e modelos de linguagem e tipos de voz para o serviço de voz.
+title: Diretrizes de transcrição para o treinamento do serviço de voz
+description: Saiba como preparar o texto para personalizar acústicos e modelos de linguagem e tipos de voz para o serviço de voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,42 +9,42 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41987546"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721825"
 ---
-# <a name="transcription-guidelines-for-using-speech-service"></a>Diretrizes de transcrição para utilizar o serviço de voz
+# <a name="transcription-guidelines-for-using-the-speech-service"></a>Diretrizes de transcrição para utilizar o serviço de voz
 
-Para personalizar **conversão de voz em texto** ou **texto em voz**, tem de fornecer o texto, juntamente com a conversão de voz. Cada linha no texto corresponde a uma única expressão. O texto deve corresponder a voz como exatamente quanto possível. O texto é chamado um *transcrição*, e deverá criá-la num formato específico.
+Para personalizar **conversão de voz em texto** ou **texto em voz**, tem de fornecer o texto, juntamente com a conversão de voz. Cada linha no texto corresponde a uma única expressão. O texto deve corresponder a voz mais próximo possível. O texto é chamado um *transcrição*, e deverá criá-la num formato específico.
 
 O serviço de voz normaliza a entrada para manter o texto consistente. 
 
 Este artigo descreve os dois tipos de normalizations. As diretrizes são ligeiramente diferentes para vários idiomas.
 
-## <a name="us-english-en-us"></a>Inglês dos Estados Unidos (en-US)
+## <a name="us-english-en-us"></a>Inglês dos E.U.A. (en-us)
 
 Dados de texto devem ser escritos uma expressão por linha, em texto simples, usando apenas o conjunto de carateres ASCII.
 
-Evite o uso de expandida (Latim 1) ou carateres de pontuação do Unicode. Esses caracteres podem ser incluídos inadvertidamente quando preparar os dados num programa de processamento de texto ou a captura de dados a partir de páginas da web. Substitua estes carateres com as substituições apropriadas das ASCII. Por exemplo:
+Evite o uso de expandida (Latim 1) ou carateres de pontuação do Unicode. Esses caracteres podem ser incluídos inadvertidamente quando preparar os dados num programa de processamento de texto ou extrair dados de páginas Web. Substitua os caracteres as substituições apropriadas das ASCII. Por exemplo:
 
 | Carateres para evitar | Substituição |
 |----- | ----- |
-| "Hello world" (abrir e fechar as aspas duplas) | "Hello world" (as aspas duplas) |
+| "Hello world" (abrir e fechar o entre aspas duplas) | "Hello world" (fazer duplo entre aspas duplas) |
 | Dia de John (à direita plica) | Dia de John (apóstrofe) |
 | isso foi bom — não, ele era ótimo! (em dash) | isso foi bom, não, era ótimo! (hífenes) |
 
 ### <a name="text-normalization-rules-for-english"></a>Regras de normalização do texto para inglês
 
-O serviço de voz realiza as seguintes regras de normalização.
+O serviço de voz realiza as seguintes regras de normalização:
 
-*   Inferior-casing todo o texto
-*   Remover todos os pontuação, exceto apóstrofos internas do word
-*   Expansão de números ao formulário falado, incluindo quantidades de dólar
+* Utilizar letras minúsculas para todo o texto
+* Remover todos os pontuação, exceto apóstrofos internas do word
+* Números de expansão para o formulário falado, incluindo quantidades de dólar
 
-Aqui estão alguns exemplos
+Eis alguns exemplos:
 
 | Texto original | Depois de normalização |
 |----- | ----- |
@@ -57,13 +57,13 @@ Aqui estão alguns exemplos
 | Instalador de plataforma está prestes a 3.14 | Instalador de plataforma é aproximadamente três quatro de um de ponto |
 | Custa us $3.14 | custa três quatorze |
 
-Aplicam-se a normalização seguinte para suas transcrições de texto.
+Aplicam-se a normalização seguinte para suas transcrições de texto:
 
-*   Abreviações devem ser escritas em palavras
-*   Cadeias de caracteres numéricas não padrão (por exemplo, alguns data ou formulários de contabilidade) devem ser escritas em palavras
-*   Palavras com carateres não alfabéticos ou caracteres mistos de alfanuméricos devem ser transcrito tão pronunciados
-*   Deixe abreviaturas pronunciadas como palavras inalteradas. Por exemplo, planos, laser, RAM, NATO.
-*   Escreva abreviaturas pronunciadas como letras separadas, com letras separadas por espaços. Por exemplo, IBM, CPU, FBI, TBD, NaN. 
+* Abreviações devem ser escritas em palavras.
+* Cadeias de caracteres numéricas não padrão (por exemplo, alguns data ou formulários de contabilidade) devem ser escritas em palavras.
+* Palavras com carateres não alfabéticos ou caracteres mistos de alfanuméricos devem ser transcrito tão pronunciados.
+* Deixe as abreviaturas que são pronunciadas como palavras inalteradas (por exemplo, "planos", "laser," "RAM" ou "NATO").
+* Escrever as letras abreviaturas que são pronunciadas como separadas, com letras separadas por espaços (por exemplo, "IBM," "CPU", "FBI", "TBD" ou "NaN"). 
 
 Eis alguns exemplos:
 
@@ -80,27 +80,27 @@ Eis alguns exemplos:
 | reproduzir OU812 através de Van Halen | reproduzir O U 2 de 1 de 8 através de Van Halen |
 | UTF-8 com BOM | 8 de F T U com BOM |
 
-## <a name="chinese-zh-cn"></a>Chinês (zh-CN)
+## <a name="chinese-zh-cn"></a>Chinês (zh-cn)
 
-Dados de texto carregados para o serviço de voz personalizada devem usar a codificação UTF-8 com o marcador de ordem de byte. O ficheiro deve ser escrito de uma expressão por linha.
+Dados de texto que são carregados para o serviço de voz personalizada devem usar a codificação UTF-8 com um marcador de ordem de byte. O ficheiro deve ser escrito de uma expressão por linha.
 
-Evite a utilização de carateres de pontuação de meia largura. Esses caracteres podem ser incluídos inadvertidamente quando preparar os dados num programa de processamento de texto ou a captura de dados a partir de páginas da web. Substituí-los com as substituições apropriadas das largura total. Por exemplo:
+Evite a utilização de carateres de pontuação de meia largura. Esses caracteres podem ser incluídos inadvertidamente quando preparar os dados num programa de processamento de texto ou extrair dados de páginas Web. Substituí-los com as substituições apropriadas das largura total. Por exemplo:
 
 | Carateres para evitar | Substituição |
 |----- | ----- |
-| "你好" (open e close aspas duplas) | "你好" (aspas duplas) |
+| "你好" (abrir e fechar o entre aspas duplas) | "你好" (entre aspas duplas) |
 | 需要什么帮助? (ponto de interrogação) | 需要什么帮助? |
 
 ### <a name="text-normalization-rules-for-chinese"></a>Regras de normalização do texto para chinês
 
-O serviço de voz realiza as seguintes regras de normalização.
+O serviço de voz realiza as seguintes regras de normalização:
 
-*   Remover todos os pontuação
-*   Expandir números ao formulário falado
-*   Conversão de letras de largura total para as letras de meia largura
-*   Canto superior-casing all inglês palavras
+* Remover todos os pontuação
+* Expandir números ao formulário falado
+* Conversão de letras de largura total para as letras de meia largura
+* Utilizar letras maiúsculas para todas as palavras em inglês
 
-Eis alguns exemplos.
+Eis alguns exemplos:
 
 | Texto original | Depois de normalização |
 |----- | ----- |
@@ -112,12 +112,12 @@ Eis alguns exemplos.
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-Aplicam-se a normalização seguinte para o seu texto antes de importá-lo.
+Antes de importar o seu texto, aplicam-se a normalização seguinte à mesma:
 
-*   Abreviações devem ser escritas em palavras (como no formulário falado)
-*   Escreva cadeias de caracteres numérica no formato falado.
+* Abreviações devem ser escritas em palavras (como no formulário falado).
+* Escreva cadeias de caracteres numérica no formato falado.
 
-Eis alguns exemplos.
+Eis alguns exemplos:
 
 | Texto original | Depois de normalização |
 |----- | ----- |
@@ -126,22 +126,22 @@ Eis alguns exemplos.
 
 ## <a name="other-languages"></a>Outros idiomas
 
-Texto de dados carregados para o **conversão de voz em texto** serviço deve usar a codificação UTF-8 com o marcador de ordem de byte. O ficheiro deve ser escrito de uma expressão por linha.
+Texto de dados carregados para o **conversão de voz em texto** serviço deve usar a codificação UTF-8 com um marcador de ordem de byte. O ficheiro deve ser escrito de uma expressão por linha.
 
 > [!NOTE]
-> Estes exemplos utilizam alemão. No entanto, essas diretrizes se aplicam a todos os idiomas que não sejam inglês Americano ou chinês.
+> Os exemplos seguintes utilizam o alemão. No entanto, as diretrizes se aplicam a todos os idiomas que não sejam inglês Americano ou chinês.
 
 ### <a name="text-normalization-rules-for-german"></a>Regras de normalização do texto para o alemão
 
-O serviço de voz realiza as seguintes regras de normalização.
+O serviço de voz realiza as seguintes regras de normalização:
 
-*   Inferior-casing todo o texto
-*   Remover todos os pontuação, incluindo vários tipos de aspas ("teste", "teste", "teste" ou «testar» é ok)
-*   Linhas com qualquer caráter especial de ¢ o conjunto de descarte ¤ ¥ ¦ § © ª ¬® ° ± ² nossa × ÿ Ø¬¬
-*   Expansão de números a forma de palavra, incluindo as quantidades de dólar ou euro
-*   Os tremas são aceites apenas para um, o u; outras pessoas serão substituídas por "th" ou eliminadas
+* Utilizar letras minúsculas para todo o texto
+* Remover todos os pontuação, incluindo vários tipos de aspas ("teste", "teste", "teste" e «testar» está OK)
+* Linhas com qualquer caráter especial de ¢ o conjunto de descarte ¤ ¥ ¦ § © ª ¬® ° ± ² nossa × ÿ Ø¬¬
+* Expansão de números a forma de palavra, incluindo dólar ou quantidades de Euro
+* Os tremas do aceitar apenas para um, o e; outras pessoas serão substituídas por "th" ou eliminadas
 
-Aqui estão alguns exemplos
+Eis alguns exemplos:
 
 | Texto original | Depois de normalização |
 |----- | ----- |
@@ -149,25 +149,25 @@ Aqui estão alguns exemplos
 | ¡Eine Frage! | eine frage |
 | wir, haben | wir haben |
 
-Aplicam-se a normalização seguinte para o seu texto antes de importá-lo.
+Antes de importar o seu texto, aplicam-se a normalização seguinte à mesma:
 
-*   Deve ser o ponto decimal ","e não"."
-*   Separador de tempo entre horas e minutos deve ser ":"e não".": 12:00 Uhr
-*   Abreviações como 'ca'. não são substituídos. Recomendamos que utilize o formulário completo.
-*   Os operadores de matemáticos quatro principais são removidos: +, -, \*, /. Recomendamos que substituí-los com o formato de literal: Além disso, a menos que, geteilt.
-*   Mesmo se aplica aos operadores de comparação (=, <>,) – gleich, kleiner als, grösser als
-*   Frações de uso, como 3/4, na forma de palavra (por exemplo, "viertel drei" em vez de ¾)
-*   Substituir o símbolo ' € com o formulário do word "Euro"
+* Pontos decimais devem ser ","e não".".
+* Separadores de tempo entre as horas e minutos devem ser ":"e não"." (por exemplo, 12:00 Uhr).
+* Abreviações como "ca". não são substituídos. Recomendamos que utilize o formulário completo.
+* Os operadores de matemáticos principais quatro (+, -, \*, e /) são removidos. Recomendamos que substituí-los com o formato de literal: "Além disso," "menos," "mal" e "geteilt."
+* A mesma regra se aplica a operadores de comparação (=, <, e >). Recomendamos que substituí-los com "gleich", "kleiner als," e "grösser als."
+* Utilize frações, tais como 3/4, na forma de palavra (por exemplo, "drei viertel" em vez de ¾).
+* Substituir o símbolo ' € com o formulário do word "Euro."
 
-Eis alguns exemplos.
+Eis alguns exemplos:
 
 | Texto original | Depois de normalização do utilizador | Depois de normalização de sistema
 |--------  | ----- | -------- |
-| Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
+| Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3 a 4 | 2 e 3 menos 4 | zwei plus drei menos vier|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Preparar a sua subscrição de avaliação do serviço de voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7948b54bd6402cf238c5709d270087746ed4fa95
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380374"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715419"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Runtime de integração autoalojado
 O Runtime de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do Runtime de integração](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Este é um fluxo de dados de alto nível para o resumo das etapas de cópia com 
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>Considerações sobre como utilizar o runtime de integração autoalojado
 
-- Um runtime de integração autoalojado único pode ser utilizado para várias origens de dados no local. No entanto, uma **único integration runtime autoalojado está ligado à fábrica de dados do Azure apenas um** e não pode ser partilhado com outro data factory.
+- Um runtime de integração autoalojado único pode ser utilizado para várias origens de dados no local. R **único integration runtime autoalojado pode** ser partilhado com outro fábrica de dados no mesmo inquilino do Azure Active Directory. Para obter mais detalhes, consulte [partilha um runtime de integração autoalojado](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
 - Pode ter **apenas uma instância do integration runtime autoalojado** instalado numa única máquina. Suponha, tem duas fábricas de dados que precisam de aceder a origens de dados no local, terá de instalar o integration runtime autoalojado em dois computadores no local. Em outras palavras, um runtime de integração autoalojado está ligado a uma fábrica de dados específico
 - O **integration runtime autoalojado não precisa de estar no mesmo computador, como a origem de dados**. No entanto, o mais perto da origem de dados ter integration runtime autoalojado reduz o tempo para o runtime de integração autoalojado ligar à origem de dados. Recomendamos que instale o runtime de integração autoalojado num computador que é diferente dessa origem de dados de locais de anfitriões. Quando a origem de dados e do runtime de integração autoalojado em computadores diferentes, o runtime de integração autoalojado não compitam por recursos com a origem de dados.
 - Pode ter **vários runtimes de integração autoalojado em computadores diferentes, ligar à mesma origem de dados no local**. Por exemplo, talvez tenha dois runtime de integração autoalojado que serve a duas fábricas de dados, mas a mesma origem de dados no local é registrada em ambas as fábricas de dados.

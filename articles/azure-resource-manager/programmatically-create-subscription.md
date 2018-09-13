@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 90823eded03f298dd912735fb0170fd8002328f3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358364"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715895"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente as subscrições do Azure Enterprise (pré-visualização)
 
@@ -176,7 +176,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | `EnrollmentAccountObjectId`      | Sim       | Cadeia | O ID de objeto do que a subscrição é criada em e cobrada para a conta de inscrição. Este valor é um GUID que obtém da `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Não       | Cadeia | O ID de objeto de qualquer utilizador que pretende adicionar como um proprietário do RBAC na subscrição quando é criado.  |
 | `OwnerSignInName`    | Não       | Cadeia | O endereço de e-mail de qualquer utilizador que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `OwnerObjectId`.|
-| `OwnerApplicationId` | Não       | Cadeia | O ID de aplicação de qualquer principal de serviço que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `OwnerObjectId`.| 
+| `OwnerApplicationId` | Não       | Cadeia | O ID de aplicação de qualquer principal de serviço que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `OwnerObjectId`. Ao utilizar este parâmetro, o principal de serviço tem de ter [acesso de leitura para o diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Para ver uma lista completa de todos os parâmetros, consulte [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
 
@@ -197,7 +197,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Sim       | Cadeia | O ID de objeto do que a subscrição é criada em e cobrada para a conta de inscrição. Este valor é um GUID que obtém da `az billing enrollment-account list`. |
 | `owner-object-id`      | Não       | Cadeia | O ID de objeto de qualquer utilizador que pretende adicionar como um proprietário do RBAC na subscrição quando é criado.  |
 | `owner-upn`    | Não       | Cadeia | O endereço de e-mail de qualquer utilizador que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `owner-object-id`.|
-| `owner-spn` | Não       | Cadeia | O ID de aplicação de qualquer principal de serviço que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `owner-object-id`.| 
+| `owner-spn` | Não       | Cadeia | O ID de aplicação de qualquer principal de serviço que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `owner-object-id`. Ao utilizar este parâmetro, o principal de serviço tem de ter [acesso de leitura para o diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Para ver uma lista completa de todos os parâmetros, consulte [criar conta de az](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 

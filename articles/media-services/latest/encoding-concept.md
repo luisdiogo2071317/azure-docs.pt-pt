@@ -1,6 +1,6 @@
 ---
-title: Codificação na nuvem com Media Services do Azure | Microsoft Docs
-description: Este tópico descreve o processo de codificação quando utilizar os Media Services do Azure
+title: Codificação na cloud com serviços de multimédia do Azure | Documentos da Microsoft
+description: Este tópico descreve o processo de codificação ao utilizar os serviços de multimédia do Azure
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,65 +11,65 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: juliako
-ms.openlocfilehash: e1c7536c59b110ae3dd753ff5f4b01195f8dadca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655627"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35955733"
 ---
-# <a name="encoding-with-azure-media-services"></a>Encoding com Media Services do Azure
+# <a name="encoding-with-azure-media-services"></a>Encoding com os serviços de multimédia do Azure
 
-Media Services do Azure permite-lhe codificar seus ficheiros de suporte de dados digitais de alta qualidade para formatos que podem ser reproduzidos numa ampla variedade de dispositivos e browsers. Por exemplo, pode querer fluxo que formatos de conteúdo do HLS ou MPEG DASH da Apple. Os Media Services também permite-lhe analisar o conteúdo de vídeo ou áudio. Este tópico dão-lhe orientações sobre como codificar o conteúdo com os Media Services v3.
+Serviços de multimédia do Azure permite-lhe a codificar os seus ficheiros multimédia digital de alta qualidade em formatos que podem ser jogados numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Serviços de multimédia também lhe permite analisar seu conteúdo de vídeo ou áudio. Este tópico dão-lhe orientações sobre como codificar o conteúdo com serviços de multimédia v3.
 
-Para codificar com os Media Services v3, terá de criar uma tarefa e uma transformação. Uma transformação define as receitas para as suas definições de codificação e saídas e a tarefa é uma instância das receitas. Para obter mais informações, consulte [transforma e tarefas](transform-concept.md)
+Para codificar com serviços de multimédia v3, terá de criar uma transformação e uma tarefa. Uma transformação define a receita para as suas definições e saídas de codificação e a tarefa é uma instância da receita. Para obter mais informações, consulte [transforma e tarefas](transform-concept.md)
 
-Quando encoding com Media Services do Azure, pode utilizar predefinições para o codificador de saber como os ficheiros de suporte de dados de entrada devem ser processados. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que quiser no conteúdo codificado. 
+Ao codificar com os serviços de multimédia do Azure, vai utilizar configurações predefinidas para informar ao codificador, como os ficheiros de suporte de dados de entrada devem ser processados. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que pretende no conteúdo codificado. 
 
-Pode começar rapidamente com um das predefinições de incorporada recomendadas com base nas melhores práticas industriais ou pode optar por criar um personalizado predefinido para os seus requisitos específicos de cenário ou dispositivo de destino. 
+Pode começar a utilizar rapidamente com um dos pré-visualizando incorporada recomendado com base nas práticas recomendadas do setor ou pode optar por criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino. 
 
-Localizar os detalhes sobre o codificador no [OpenAPI especificação](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
+Encontre informações sobre o codificador na [especificação de OpenAPI](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
 
-## <a name="built-in-presets"></a>Predefinições incorporadas
+## <a name="built-in-presets"></a>Configurações predefinidas incorporadas
 
-Os Media Services suportam atualmente as predefinições de codificação incorporadas seguintes:  
+Atualmente, os serviços de multimédia suporta as seguintes predefinições de codificação incorporadas:  
 
 |**Nome da configuração predefinida**|**Cenário**|**Detalhes**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Análise de áudio|A predefinição aplica-se um conjunto predefinido de operações de análise baseada em AI, incluindo transcription de reconhecimento de voz. Atualmente, a predefinição suporta o processamento do conteúdo com um único registo de áudio.<br/>Pode especificar o idioma para o payload de áudio o utilizando o formato de BCP 47 de 'tag-região de idioma' de entrada (por exemplo, "en-US"). A lista de idiomas suportados são 'en-US', 'en-GB', 'es-ES', "es MX", fr-FR, it-IT, ja-JP, pt-BR, zh-CN.|
-|**VideoAnalyzerPreset**|Análise de áudio e vídeo|Extrai insights (metadados avançado) de áudio e vídeo e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair insights áudio ao processar um ficheiro de vídeo. Para obter mais informações, consulte [as vídeo de analisar](analyze-videos-tutorial-with-api.md).|
-|**BuiltInStandardEncoderPreset**|Transmissão em Fluxo|Utilizado para definir um incorporado para codificar o vídeo de entrada com o codificador padrão da configuração predefinido. <br/>Atualmente são suportadas as seguintes predefinições:<br/>**EncoderNamedPreset.AdaptiveStreaming** (recomendado). Para obter mais informações, consulte [ladder uma velocidade de transmissão a geração automática](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** -produz um único ficheiro MP4 que contém apenas stereo áudio codificado em 192 kbps.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** -produz um conjunto de 8 ficheiros MP4 alinhada GOP, vão de 6000 kbps 400 kbps e stereo áudio AAC. Resolução inicia à 1080p e passa-se para baixo para 360 p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** -produz um conjunto de 6 ficheiros MP4 alinhada GOP, vão de 3400 kbps 400 kbps e stereo áudio AAC. Resolução inicia à 720p e passa-se para baixo para 360 p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** -produz um conjunto de 5 ficheiros MP4 alinhada GOP, vão de 1600 kbps 400 kbps e stereo áudio AAC. Resolução inicia à 480p e passa-se para baixo para 360 p.<br/><br/>Para obter mais informações, consulte [Uploading, codificação e ficheiros de transmissão em fluxo](stream-files-tutorial-with-api.md).|
-|**StandardEncoderPreset**|Transmissão em Fluxo|Descreve as definições a serem utilizados quando a codificação o vídeo de entrada com o codificador padrão. <br/>Utilize esta configuração predefinida quando Personalizar predefinições de transformação. Para obter mais informações, consulte [como personalizar predefinições de transformação](customize-encoder-presets-how-to.md).|
+|**AudioAnalyzerPreset**|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio único.<br/>Também pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região" (por exemplo, "en-US"). A lista de idiomas suportados são "en-US", "en-GB", "es-ES", "es-MX", "fr-FR", it-IT, ja-JP, "pt-BR", "zh-CN".|
+|**VideoAnalyzerPreset**|Análise de áudio e vídeo|Extrai informações (metadados avançados) de áudio e vídeo e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações de áudio ao processar um ficheiro de vídeo. Para obter mais informações, consulte [analisar vídeo](analyze-videos-tutorial-with-api.md).|
+|**BuiltInStandardEncoderPreset**|Transmissão em Fluxo|Usado para definir um incorporado na configuração predefinido para a codificação de vídeo de entrada com o codificador Standard. <br/>Atualmente são suportadas as seguintes predefinições:<br/>**EncoderNamedPreset.AdaptiveStreaming** (recomendado). Para obter mais informações, consulte [criação automática de uma escala de bits](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** -produz um ficheiro MP4 único que contém apenas estéreo áudio codificado em 192 kbps.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** -produz um conjunto de ficheiros MP4 de alinhado GOP de 8, desde 6000 kbps até 400 kbps e áudio AAC estéreo. Resolução começa em 1080p e vai até 360p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** -produz um conjunto de 6 ficheiros MP4 GOP alinhados, desde 3400 kbps até 400 kbps e áudio AAC estéreo. Resolução é iniciada à 720p e vai até 360p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** -produz um conjunto de ficheiros MP4 de alinhado GOP de 5, desde 1600 kbps até 400 kbps e áudio AAC estéreo. Resolução é iniciada à 480p e vai até 360p.<br/><br/>Para obter mais informações, consulte [carregar, codificar e ficheiros de transmissão em fluxo](stream-files-tutorial-with-api.md).|
+|**StandardEncoderPreset**|Transmissão em Fluxo|Descreve as definições para serem utilizadas quando a codificação de vídeo de entrada com o codificador Standard. <br/>Utilize esta configuração predefinida ao personalizar as configurações predefinidas de transformação. Para obter mais informações, consulte [como personalizar as configurações predefinidas de transformação](customize-encoder-presets-how-to.md).|
 
-## <a name="custom-presets"></a>Predefinições personalizadas
+## <a name="custom-presets"></a>Configurações predefinidas personalizadas
 
-Os Media Services suportam totalmente a personalizar todos os valores nas predefinições para satisfazer as suas necessidades específicas de codificação e requisitos. Utilizar o **StandardEncoderPreset** predefinido ao personalizar predefinições de transformação. Um detalhadas para uma explicação e exemplo, consulte [como personalizar predefinições de codificador](customize-encoder-presets-how-to.md).
+Serviços de multimédia suporta totalmente a personalizar todos os valores nas predefinições para atender às suas necessidades específicas de codificação e requisitos. Utilizar o **StandardEncoderPreset** predefinidos ao personalizar as configurações predefinidas de transformação. Uma detalhada para explicações e de exemplo, veja [como personalizar as configurações predefinidas de codificador](customize-encoder-presets-how-to.md).
 
-## <a name="scaling-encoding-in-v3"></a>Codificação na v3 de dimensionamento
+## <a name="scaling-encoding-in-v3"></a>Dimensionar codificação da v3
 
-Atualmente, os clientes têm de utilizar o portal do Azure ou APIs do AMS v2 para definir RUs (conforme descrito em [dimensionamento de processamento de suporte de dados](../previous/media-services-scale-media-processing-overview.md). 
+Atualmente, os clientes têm a utilizar o portal do Azure ou APIs do AMS v2 para definir o RUs (conforme descrito em [Dimensionar processamento de multimédia](../previous/media-services-scale-media-processing-overview.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="tutorials"></a>Tutoriais
 
-Os tutorals seguintes mostram como codificar o conteúdo com os Media Services:
+Os tutorals seguintes mostram como codificar o conteúdo com os serviços de multimédia:
 
-* [Carregar, codificar e transmitir em fluxo utilizando os Media Services do Azure](stream-files-tutorial-with-api.md)
-* [Analisar vídeos com Media Services do Azure](analyze-videos-tutorial-with-api.md)
+* [Carregar, codificar e transmitir em fluxo através dos serviços de multimédia do Azure](stream-files-tutorial-with-api.md)
+* [Analisar vídeos com os serviços de multimédia do Azure](analyze-videos-tutorial-with-api.md)
 
 ### <a name="code-samples"></a>Exemplos de código
 
-Os seguintes exemplos de código contenham código que mostra como codificar com os Media Services:
+Os seguintes exemplos de código contêm código que mostra como codificar com serviços de multimédia:
 
 * [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [CLI 2.0](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
+* [CLI do Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
 
 ### <a name="sdks"></a>SDKs
 
-Pode utilizar qualquer um dos SDKs de v3 dos Media Services seguintes suportados para codificar o conteúdo.
+Pode utilizar qualquer um dos SDKs de seguintes v3 de serviços de multimédia suportados para codificar o conteúdo.
 
-* [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

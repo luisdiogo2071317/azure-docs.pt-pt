@@ -1,6 +1,6 @@
 ---
-title: Registo de inteligente diagnósticos de desempenho do Insights - SQL Database do Azure | Microsoft Docs
-description: Inteligentes Insights fornece um registo de diagnóstico de problemas de desempenho de SQL Database do Azure
+title: Registo de inteligente diagnóstico de desempenho do Insights - base de dados SQL do Azure | Documentos da Microsoft
+description: Informações inteligentes fornece um registo de diagnóstico dos problemas de desempenho da base de dados do Azure SQL
 services: sql-database
 author: danimir
 manager: craigg
@@ -10,22 +10,22 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 3d1a9045ed89bd3e5714762add7cb9568c46e44f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36b7c3775bb4e9addc5b3c9780805ddfe56249bf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648246"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718003"
 ---
-# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho inteligente Insights SQL Database do Azure
+# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho do Intelligent Insights SQL Database do Azure
 
-Esta página fornece informações sobre como utilizar o registo de diagnóstico de desempenho de SQL Database do Azure gerado pelo [Insights inteligente](sql-database-intelligent-insights.md), o formato e os dados que contém para o desenvolvimento personalizado tem. Pode enviar este registo de diagnóstico para [Log Analytics do Azure](../log-analytics/log-analytics-azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Storage do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para DevOps personalizado alertas e relatórios capacidades.
+Esta página fornece informações sobre como utilizar o log de diagnóstico de desempenho de base de dados do Azure SQL gerado pelo [informações inteligentes](sql-database-intelligent-insights.md), seu formato e os dados nele contidos para necessidades de seu desenvolvimento personalizado. Pode enviar este registo de diagnósticos para [do Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para DevOps personalizado de alertas e relatórios capacidades.
 
 ## <a name="log-header"></a>Cabeçalho de registo
 
-O registo de diagnóstico utiliza o formato de padrão de JSON para a saída findings Insights inteligente. A propriedade categoria exato para aceder a um registo de Insights inteligente é o valor fixo "SQLInsights".
+O registo de diagnóstico utiliza o formato padrão de JSON para as descobertas de informações inteligentes de saída. A propriedade de categoria exato para aceder a um registo de informações inteligentes é o valor fixo "SQLInsights".
 
-O cabeçalho do registo é comum e é composto o carimbo de hora (TimeGenerated) que mostra que foi criada uma entrada. Também inclui um ID de recurso (ResourceId) refere-se a base de dados do SQL Server específica relacionada com a entrada. A categoria (categoria), o nível (nível) e o nome da operação (Oeprationname) sejam corrigidos propriedades cujos valores não alteram. Indicam que a entrada de registo se a fins informativa e que são provenientes de Insights inteligente (SQLInsights).
+O cabeçalho do registo é comum e consiste o carimbo de hora (TimeGenerated) que mostra que foi criada uma entrada. Ele também inclui um ID de recurso (ResourceId) que se refere à base de dados do SQL específica relacionada com a entrada. A categoria (categoria), o nível (nível) e o nome da operação (Oeprationname) são fixos propriedades cujos valores não mudam. Eles indicam que a entrada de registo se a fins informativa e que são provenientes de informações inteligentes (SQLInsights).
 
 ```json
 "TimeGenerated" : "2017-9-25 11:00:00", // time stamp of the log entry
@@ -35,15 +35,15 @@ O cabeçalho do registo é comum e é composto o carimbo de hora (TimeGenerated)
 "OperationName" : "Insight", // fixed property
 ```
 
-## <a name="issue-id-and-database-affected"></a>ID do problema e a base de dados afetadas
+## <a name="issue-id-and-database-affected"></a>ID do problema e a base de dados afetados
 
-A propriedade de identificação do problema (issueId_d) fornece uma forma de controlar exclusivamente problemas de desempenho até que o se estiver resolvidos. Insights inteligentes situa cada ciclo de vida do problema como "Ativo", "Verificar" ou "Completo". Através de cada um destes fases de estado, Insights inteligente pode registar vários registos de eventos no registo. Para cada um destas entradas, o número de ID do problema permanece exclusivo. Insights inteligentes controla o problema através do respetivo ciclo de vida e gera um insight no registo de diagnóstico a cada 15 minutos.
+A propriedade de identificação do problema (issueId_d) fornece uma forma de forma exclusiva rastrear problemas de desempenho até que eles estiverem resolvidos. Informações inteligentes observa cada ciclo de vida do problema como "Ativo", "Verificando" ou "Concluído". Por meio de cada uma dessas fases de estado, informações inteligentes pode gravar vários registos de eventos no registo. Para cada uma dessas entradas, o número de ID do problema permanece exclusivo. Informações inteligentes controla o problema por meio de seu ciclo de vida e gera uma informação no registo de diagnóstico a cada 15 minutos.
 
-Depois de é detetado um problema de desempenho e para dura-lo, desde que o problema é reportado como "Ativo" sob a propriedade de estado (status_s). Depois de um problema detetado é atenuado, tem de verificar e reportados como "Verificar" como a propriedade de estado (status_s). Se o problema já não estiver presente, a propriedade de estado (status_s) relatórios este problema, como "Concluir".
+Quando é detetado um problema de desempenho e para, desde que ele tem uma duração, o problema é reportado como "Ativo" sob a propriedade de estado (status_s). Assim que foi detetado um problema for minimizado, tem de verificar e reportado como "Verificando" sob a propriedade de estado (status_s). Se o problema já não estiver presente, a propriedade de estado (status_s) relatórios este problema, como "Complete".
 
-Juntamente com o ID do problema, o registo de diagnóstico relatórios de início (intervalStartTime_t) e carimbos de hora de fim (intervalEndTme_t) do evento específico relacionada com um problema reportado no registo de diagnóstico.
+Juntamente com o ID de problema, o registo de diagnóstico relatórios de início (intervalStartTime_t) e de carimbos de hora de fim (intervalEndTme_t) do evento específico relacionado com um problema que é relatado no log de diagnóstico.
 
-A propriedade de conjunto elástico (elasticPoolName_s) indica que pertence a base de dados com um problema de conjunto elástico. Se a base de dados não faz parte de um conjunto elástico, esta propriedade não tem um valor. A base de dados em que foi detetado um problema das é divulgado na propriedade de nome (databaseName_s) da base de dados.
+A propriedade de conjunto elástico (elasticPoolName_s) indica qual conjunto elástico pertence a base de dados com um problema. Se a base de dados não faz parte de um conjunto elástico, esta propriedade tem nenhum valor. A base de dados em que foi detetado um problema é divulgado na propriedade de nome (databaseName_s) da base de dados.
 
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
@@ -56,9 +56,9 @@ A propriedade de conjunto elástico (elasticPoolName_s) indica que pertence a ba
 
 ## <a name="detected-issues"></a>Problemas detetados
 
-A secção seguinte do registo de desempenho Insights inteligente contém problemas de desempenho que foram detetados através de incorporado artificial intelligence. As deteções são das divulgados nas propriedades no registo de diagnóstico de JSON. Estas deteções consistem a categoria de um problema, o impacto do problema, as consultas afetadas e as métricas. As propriedades de deteções de Trojans podem conter vários problemas de desempenho que foram detetados.
+A secção seguinte do registo de desempenho de informações inteligentes contém problemas de desempenho que foram detetados através de inteligência artificial incorporada. Deteções forem reveladas nas propriedades no registo de diagnósticos do JSON. Estas deteções são compostos por categoria de um problema, o impacto do problema, as consultas afetadas e as métricas. As propriedades de detecções podem conter vários problemas de desempenho que foram detetados.
 
-Forem reportados problemas de desempenho detetado com a estrutura de propriedade de deteções seguinte:
+Problemas de desempenho detetados são comunicados com a seguinte estrutura de propriedade de deteções:
 
 ```json
 "detections_s" : [{
@@ -68,41 +68,41 @@ Forem reportados problemas de desempenho detetado com a estrutura de propriedade
 }] 
 ```
 
-Padrões de desempenho detetável e os detalhes que são debitados no registo de diagnóstico são fornecidos na tabela seguinte.
+Padrões de desempenho detetável e os detalhes que são produzidos no log de diagnóstico são fornecidos na tabela seguinte.
 
 ### <a name="detection-category"></a>Categoria de deteção
 
-A propriedade categoria (categoria) descreve a categoria de padrões de desempenho detectable. Consulte a tabela seguinte para todas as categorias possíveis de padrões de desempenho detectable. Para obter mais informações, consulte [resolver problemas de desempenho de base de dados do Insights inteligente](sql-database-intelligent-insights-troubleshoot-performance.md).
+A propriedade category (categoria) descreve a categoria de padrões de desempenho detetável. Veja a seguinte tabela para todas as categorias de possíveis de padrões de desempenho detetável. Para obter mais informações, consulte [resolver problemas de desempenho de base de dados com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md).
 
-Consoante o problema de desempenho detetado, os detalhes debitados no diagnóstico do ficheiro de registo diferem em conformidade.
+Dependendo do problema de desempenho detetado, os detalhes de saída no diagnóstico do ficheiro de registo diferem em conformidade.
 
-| Padrões de desempenho detetável | Detalhes debitados |
+| Padrões de desempenho detetável | Detalhes de saída |
 | :------------------- | ------------------- |
-| Por se terem atingido os limites de recursos | <li>Recursos afetados</li><li>Hashes de consulta</li><li>Percentagem de consumo de recursos</li> |
-| Aumento de carga de trabalho | <li>Número de consultas cuja execução aumentado</li><li>Hashes de consulta de consultas com maior contribuição para o aumento de carga de trabalho</li> |
-| Pressão de memória | <li>Clerk de memória</li> |
-| Bloqueio | <li>Afetados hashes de consulta</li><li>Bloquear os hashes de consulta</li> |
-| Aumento MAXDOP | <li>Hashes de consulta</li><li>Tempos de espera CXP</li><li>Tempos de espera</li> |
-| Pagelatch contenção | <li>Os hashes de consultas, fazendo com que a contenção de consulta</li> |
+| Alcance limites de recursos | <li>Recursos afetados</li><li>Hashes de consulta</li><li>Percentagem de consumo de recursos</li> |
+| Aumento de carga de trabalho | <li>Número de consultas cuja execução aumentou</li><li>Consulta de hashes de consultas com o maior contributo para o aumento de carga de trabalho</li> |
+| Pressão de memória | <li>Funcionário da área de memória</li> |
+| Bloqueio | <li>Afetados hashes de consulta</li><li>Bloqueio de hashes de consulta</li> |
+| MAXDOP maior | <li>Hashes de consulta</li><li>Tempos de espera CXP</li><li>Tempos de espera</li> |
+| Pagelatch contenção | <li>Consultar os hashes de consultas, fazendo com que a contenção</li> |
 | Índice em falta | <li>Hashes de consulta</li> |
-| Nova Consulta | <li>Consulta de hash das consultas novo</li> |
-| Estatística de espera invulgar | <li>Tipos de atividade invulgar espera</li><li>Hashes de consulta</li><li>Tempos de espera de consulta</li> |
-| TempDB contenção | <li>Os hashes de consultas, fazendo com que a contenção de consulta</li><li>Atribuição de consulta para a base de dados pagelatch contenção espera tempo geral [%]</li> |
-| Falta DTU do conjunto elástico | <li>Conjunto elástico</li><li>Base de dados de consumo de DTU superior</li><li>Percentagem de DTU utilizada pelo consumidor superior do conjunto</li> |
-| Plano de regressão | <li>Hashes de consulta</li><li>Bom plano IDs</li><li>Os IDs de plano incorreto</li> |
-| Alteração de valor de configuração de âmbito de base de dados | <li>Alterações de configuração de âmbito de base de dados em comparação comparadas os valores predefinidos</li> |
-| Cliente lenta | <li>Hashes de consulta</li><li>Tempos de espera</li> |
+| Nova Consulta | <li>Hash de consulta de novas consultas</li> |
+| Estatística de espera invulgar | <li>Tipos de espera invulgar</li><li>Hashes de consulta</li><li>Tempos de espera de consulta</li> |
+| Contenção do TempDB | <li>Consultar os hashes de consultas, fazendo com que a contenção</li><li>Atribuição de consulta para a base de dados pagelatch contenção tempo de espera geral [%]</li> |
+| Conjunto elástico insuficiência de DTU | <li>Conjunto elástico</li><li>Base de dados de consumo de DTU superior</li><li>Percentagem de DTU usado pelo consumidor superior do conjunto</li> |
+| Regressão do plano | <li>Hashes de consulta</li><li>Bom plano IDs</li><li>IDs de plano incorreto</li> |
+| Alteração do valor de configuração do âmbito de base de dados | <li>Alterações de configuração do âmbito de base de dados em comparação comparadas os valores predefinidos</li> |
+| Cliente lentas | <li>Hashes de consulta</li><li>Tempos de espera</li> |
 | Mudança para versão anterior do escalão de preço | <li>Notificação de texto</li> |
 
 ### <a name="impact"></a>Impacto
 
-O impacto (impacto) propriedade descreve quanto um comportamento detetado contribuído para o problema que está a ter uma base de dados. Intervalo de impactos de 1 a 3, com 3 como contribuição mais elevada, 2 como moderada e 1, pois a contribuição mais baixa. O valor de impacto pode ser utilizado como entrada para a automatização de alerta personalizada, consoante as suas necessidades específicas. As consultas de propriedade afetados (QueryHashes) fornecem uma lista da consulta hashes que foram afetados por uma deteção específica.
+O impacto (impacto) propriedade descreve quanto um comportamento detetado contribuíram para o problema que está a ter uma base de dados. Intervalo de impactos de 1 a 3, com 3 como a contribuição de mais alta, 2 como moderada e 1 como a contribuição mais baixa. O valor de impacto pode ser utilizado como entrada para a automatização de alerta personalizada, consoante as suas necessidades específicas. As consultas de propriedade afetados (QueryHashes) fornecem uma lista da consulta hashes que foram afetados por uma deteção específica.
 
-### <a name="impacted-queries"></a>Consultas afectadas
+### <a name="impacted-queries"></a>Consultas afetadas
 
-A secção seguinte do registo inteligente Insights fornece informações sobre consultas específicas que foram afetados por problemas de desempenho detetado. Estas informações das são divulgadas como uma matriz de objetos incorporados na propriedade impact_s. A propriedade impacto é constituído por entidades e as métricas. Entidades de mensagens em fila referir-se a uma consulta específica (tipo: consulta). O hash de consulta exclusivo das é divulgado sob a propriedade value (valor). Além disso, as consultas das divulgados é seguido por uma métrica e um valor que indica um problema de desempenho detetado.
+A secção seguinte do registo de informações inteligentes fornece informações sobre consultas específicas que foram afetados por problemas de desempenho detetados. Estas informações são divulgadas como uma matriz de objetos incorporados na propriedade impact_s. A propriedade impacto é composta por entidades e as métricas. Entidades fazer referência a uma consulta específica (tipo: consulta). O hash de consulta exclusivas é divulgado sob a propriedade value (valor). Além disso, cada uma das consultas divulgadas é seguida por uma métrica e um valor que indica um problema de desempenho detetados.
 
-No exemplo de registo seguinte, a consulta com o hash 0x9102EXZ4 foi detetada a ter uma duração de aumento de execução (métrica: DurationIncreaseSeconds). O valor de segundos 110 indica que esta consulta específica demorou 110 segundos já está a executar. Porque podem ser detetadas várias consultas, esta secção de registo específico pode incluir várias entradas de consulta.
+No exemplo seguinte do registo, a consulta com o hash 0x9102EXZ4 foi detetada a ter uma maior duração de execução (métrica: DurationIncreaseSeconds). O valor de 110 segundos indica que esta consulta específica demorou 110 segundos já está a executar. Uma vez que várias consultas podem ser excluídas, esta secção de registo específico pode incluir várias entradas de consulta.
 
 ```json
 "impact" : [{
@@ -116,18 +116,18 @@ No exemplo de registo seguinte, a consulta com o hash 0x9102EXZ4 foi detetada a 
 
 ### <a name="metrics"></a>Métricas
 
-A unidade de medida para cada métrica comunicada é fornecida ao abrigo a propriedade de métrica (Métrica) com os valores possíveis de segundos, o número e percentagem. O valor de uma métrica de medida é reportado na propriedade value (valor).
+A unidade de medida para cada métrica reportada é fornecida sob a propriedade de métrica (Métrica) com os valores possíveis dos segundos, o número e percentagem. O valor de uma medida métrica é reportado na propriedade value (valor).
 
-A propriedade DurationIncreaseSeconds fornece a unidade de medida em segundos. A unidade de CriticalErrorCount da medida é um número que representa uma contagem de erros.
+A propriedade DurationIncreaseSeconds fornece a unidade de medida em segundos. A unidade de CriticalErrorCount de medida é um número que representa uma contagem de erros.
 
 ```json
 "metric" : "DurationIncreaseSeconds", // issue metric type – possible values: DurationIncreaseSeconds, CriticalErrorCount, WaitingSeconds
 "value" : 102 // value of the measured metric (in this case seconds)
 ```
 
-## <a name="root-cause-analysis-and-improvement-recommendations"></a>Recomendações de análise e melhoramento da causa raiz
+## <a name="root-cause-analysis-and-improvement-recommendations"></a>Recomendações de análise e melhoria da causa raiz
 
-A última parte do registo de desempenho Insights inteligente diz respeito à análise da causa raiz automatizada do problema de degradação de desempenho identificados. As informações aparecem no compatível com humanos verbiage na propriedade do Analysis Services (rootCauseAnalysis_s) de causa raiz. Recomendações de melhoria estão incluídas no registo de sempre que possível.
+A última parte do registo de desempenho de informações inteligentes diz respeito a análise de causa raiz automatizadas do problema de degradação de desempenho identificados. As informações são apresentadas no verbosidade amigável a humanos na propriedade de (rootCauseAnalysis_s) de análise de causa raiz. Recomendações de melhorias estão incluídas no registo de sempre que possível.
 
 ```json
 // example of reported root cause analysis of the detected performance issue, in a human-readable format
@@ -135,12 +135,12 @@ A última parte do registo de desempenho Insights inteligente diz respeito à an
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Pode utilizar o registo de desempenho Insights inteligente com [Log Analytics do Azure]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para DevOps personalizado alertas e as capacidades de relatórios.
+Pode utilizar o registo de desempenho de informações inteligentes com [do Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para DevOps personalizado de alertas e dos recursos de relatórios.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [Insights inteligente](sql-database-intelligent-insights.md) conceitos.
-- Saiba como [resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Saiba como [monitorizar SQL Database do Azure utilizando o Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Saiba mais sobre [informações inteligentes](sql-database-intelligent-insights.md) conceitos.
+- Saiba como [resolver problemas de desempenho de base de dados do Azure SQL com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Saiba como [monitorizar a base de dados do Azure SQL com a análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Saiba como [recolher e consumir dados de registo dos seus recursos do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 

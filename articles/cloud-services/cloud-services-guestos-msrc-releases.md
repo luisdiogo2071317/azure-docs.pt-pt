@@ -3,7 +3,7 @@ title: Lista de atualizações aplicadas ao SO convidado do Azure | Documentos d
 description: A lista de atualizações aplicadas a versões de SO convidado
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: RichardScheel
 manager: timlt
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -12,17 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
-ms.author: raiye
-ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.date: 9/12/2018
+ms.author: RichardScheel
+ms.openlocfilehash: 4ef49fe978db5c9b04bf9c8271e192fa60433d4b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522310"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722304"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+## <a name="august-guest-os"></a>SO de convidado de Agosto
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Segurança do Windows 10 | 5.22 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4343899] | Segurança do Windows apenas | 2.77 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4343896] | Segurança do Windows apenas | 3.64 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4343888] | Segurança do Windows apenas | 4.57 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, segurança 4.5 | 2.77 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, segurança 4.x | 3.64 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, segurança 4.x | 4.57 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4346742], [4346739] | Versão OOB 4.x do .NET 3.5 | 3.64 | 30 de julho de 2018 |
+| Rel 18-08 | [4346745], [4346408] | Versão OOB 4.x do .NET 3.5 | 4.57 | 30 de julho de 2018 |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | 14 de Agosto de 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | 14 de Agosto de 2018 |
+| N/A | [4338818] |Rollup de Julho sem segurança |2.77 | 10 de Julho de 2018 |
+| N/A | [4019990] |Atualização de compilador D3D para .NET |2.77 | 10 de Julho de 2018 |
+| N/A | [4338830] |Rollup de Julho sem segurança |3.64 | 10 de Julho de 2018 |
+| N/A | [4338421] |Rollup de Julho sem segurança .NET 3.5 |3.64 | 10 de Julho de 2018 |
+| N/A | [4338416] |X rollup Julho sem segurança .NET 4 |3.64 | 10 de Julho de 2018 |
+| N/A | [4338815] |Rollup de Julho sem segurança |4.57 | 10 de Julho de 2018 |
+| N/A | [4338424] |Rollup de Julho sem segurança .NET 3.5 |3.64 | 10 de Julho de 2018 |
+| N/A | [4338415] |X rollup Julho sem segurança .NET 4 |3.64 | 10 de Julho de 2018 |
 
 
 ## <a name="july-guest-os"></a>SO de convidado de Julho
@@ -41,19 +64,19 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 07 de 18 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, segurança de x 4.5 |4,56|10 de Julho de 2018 |
 | Rel 07 de 18 | [4338832] |Flash |3.63, 4.76, 5.21 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |10 de Julho de 2018 |
-| N/A | [4284826] |Agregação de não-segurança de Junho |2.76 |12 de Junho de 2018 |
-| N/A | [4284855] |Agregação de não-segurança de Junho |3.63 |12 de Junho de 2018 |
-| N/A | [4284815] |Agregação de não-segurança de Junho |4,56 |12 de Junho de 2018 |
+| N/A | [4284826] |Agregação de não-segurança de Junho |2.76 |12 de junho de 2018 |
+| N/A | [4284855] |Agregação de não-segurança de Junho |3.63 |12 de junho de 2018 |
+| N/A | [4284815] |Agregação de não-segurança de Junho |4,56 |12 de junho de 2018 |
 
 ## <a name="june-guest-os"></a>SO de convidado de Junho
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 06 de 18 | [4284880] |Segurança do Windows 10 |5.20 |12 de Junho de 2018 |
-| Rel 06 de 18 | [4284867] |Segurança do Windows apenas |2.75 |12 de Junho de 2018 |
-| Rel 06 de 18 | [4284846] |Segurança do Windows apenas |3,62 |12 de Junho de 2018 |
-| Rel 06 de 18 | [4284878] |Segurança do Windows apenas |4.55 |12 de Junho de 2018 |
-| Rel 06 de 18 | [4230450] |Internet Explorer |2.75, 3,62, 4,75 |12 de Junho de 2018 |
-| Rel 06 de 18 | [4287903] |Flash |3,62, 4,75, 5.20 |12 de Junho de 2018 |
+| Rel 06 de 18 | [4284880] |Segurança do Windows 10 |5.20 |12 de junho de 2018 |
+| Rel 06 de 18 | [4284867] |Segurança do Windows apenas |2.75 |12 de junho de 2018 |
+| Rel 06 de 18 | [4284846] |Segurança do Windows apenas |3,62 |12 de junho de 2018 |
+| Rel 06 de 18 | [4284878] |Segurança do Windows apenas |4.55 |12 de junho de 2018 |
+| Rel 06 de 18 | [4230450] |Internet Explorer |2.75, 3,62, 4,75 |12 de junho de 2018 |
+| Rel 06 de 18 | [4287903] |Flash |3,62, 4,75, 5.20 |12 de junho de 2018 |
 | N/A | [4103718] |Pode rollup que não são de segurança |2.75 |8 de Maio de 2018 |
 | N/A | [4103730] |Pode rollup que não são de segurança |3,62 |8 de Maio de 2018 |
 | N/A | [4103725] |Pode rollup que não são de segurança |4.55 |8 de Maio de 2018 |
@@ -696,6 +719,31 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[2896881] |Hora de início de sessão há muito tempo quando utiliza o comando AddPrinterConnection VBScript para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 
 
+[4343887]: http://support.microsoft.com/kb/4343887
+[4343899]: http://support.microsoft.com/kb/4343899
+[4343896]: http://support.microsoft.com/kb/4343896
+[4343888]: http://support.microsoft.com/kb/4343888
+[4344177]: http://support.microsoft.com/kb/4344177
+[4344173]: http://support.microsoft.com/kb/4344173
+[4344175]: http://support.microsoft.com/kb/4344175
+[4344172]: http://support.microsoft.com/kb/4344172
+[4344178]: http://support.microsoft.com/kb/4344178
+[4344171]: http://support.microsoft.com/kb/4344171
+[4346742]: http://support.microsoft.com/kb/4346742
+[4346739]: http://support.microsoft.com/kb/4346739
+[4346745]: http://support.microsoft.com/kb/4346745
+[4346408]: http://support.microsoft.com/kb/4346408
+[4343902]: http://support.microsoft.com/kb/4343902
+[4343205]: http://support.microsoft.com/kb/4343205
+[4338818]: http://support.microsoft.com/kb/4338818
+[4019990]: http://support.microsoft.com/kb/4019990
+[4338830]: http://support.microsoft.com/kb/4338830
+[4338421]: http://support.microsoft.com/kb/4338421
+[4338416]: http://support.microsoft.com/kb/4338416
+[4338815]: http://support.microsoft.com/kb/4338815
+[4338424]: http://support.microsoft.com/kb/4338424
+[4338415]: http://support.microsoft.com/kb/4338415
+
 
 [4338814]: http://support.microsoft.com/kb/4338814
 [4338823]: http://support.microsoft.com/kb/4338823
@@ -1303,7 +1351,6 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3057839]:http://support.microsoft.com/kb/3057839
 [3062577]:http://support.microsoft.com/kb/3062577
 [3063858]:http://support.microsoft.com/kb/3063858
-
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

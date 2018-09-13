@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701539"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719601"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric Reliable Services
 
@@ -54,12 +54,12 @@ Normalmente, aplicativos de hospedagem interna ASP.NET Core de criar um WebHost 
 
 No entanto, o ponto de entrada do aplicativo não é o local indicado para criar um WebHost num serviço fiável, porque o ponto de entrada de aplicativo só é utilizado para registar um tipo de serviço com o tempo de execução do Service Fabric, para que ele pode criar instâncias desse tipo de serviço. O WebHost deve ser criada num serviço fiável o próprio. Dentro do processo de host de serviço, instâncias de serviço e/ou de réplicas podem passar por vários ciclos de vida. 
 
-Uma instância de Reliable Service é representada por sua classe de serviço derivar `StatelessService` ou `StatefulService`. A pilha de comunicações para um serviço está contida num `ICommunicationListener` implementação na sua classe de serviço. O `Microsoft.ServiceFabric.Services.AspNetCore.*` pacotes de NuGet contenham implementações de `ICommunicationListener` que iniciar e gerir o WebHost do ASP.NET Core para Kestrel ou HttpSys num serviço fiável.
+Uma instância de Reliable Service é representada por sua classe de serviço derivar `StatelessService` ou `StatefulService`. A pilha de comunicações para um serviço está contida num `ICommunicationListener` implementação na sua classe de serviço. O `Microsoft.ServiceFabric.AspNetCore.*` pacotes de NuGet contenham implementações de `ICommunicationListener` que iniciar e gerir o WebHost do ASP.NET Core para Kestrel ou HttpSys num serviço fiável.
 
 ![ASP.NET Core num serviço fiável de alojamento][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners do ASP.NET Core
-O `ICommunicationListener` implementações para Kestrel e HttpSys no `Microsoft.ServiceFabric.Services.AspNetCore.*` pacotes NuGet têm padrões de utilização semelhante, mas executar ligeiramente diferentes ações específicas para cada servidor web. 
+O `ICommunicationListener` implementações para Kestrel e HttpSys no `Microsoft.ServiceFabric.AspNetCore.*` pacotes NuGet têm padrões de utilização semelhante, mas executar ligeiramente diferentes ações específicas para cada servidor web. 
 
 Ambos os serviços de escuta de comunicação de fornecer um construtor que aceita os seguintes argumentos:
  - **`ServiceContext serviceContext`**: O `ServiceContext` objeto que contém informações sobre o serviço em execução.
@@ -67,7 +67,7 @@ Ambos os serviços de escuta de comunicação de fornecer um construtor que acei
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: um lambda que implementar em que cria e retorna um `IWebHost`. Isto permite-lhe configurar `IWebHost` a forma como faria normalmente num aplicativo do ASP.NET Core. O lambda fornece um URL que é gerado para consoante a integração do Service Fabric opções utilizar e o `Endpoint` configuração fornecer. Que URL, em seguida, pode ser modificada ou utilizada como-é iniciar o servidor web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware de integração do Service Fabric
-O `Microsoft.ServiceFabric.Services.AspNetCore` inclui o pacote NuGet do `UseServiceFabricIntegration` método de extensão no `IWebHostBuilder` que adiciona suporte para o Service Fabric middleware. Este middleware configura o Kestrel ou HttpSys `ICommunicationListener` para registar um URL de serviço único com o serviço de nomenclatura do Service Fabric e, em seguida, valida os pedidos de cliente para garantir que os clientes estão a ligar para o serviço correto. Isso é necessário num ambiente de host partilhados, tais como o Service Fabric, em que várias aplicações web podem ser executados no mesmo físico ou máquina virtual, mas não utilize nomes de host único, para impedir que os clientes por engano, conexão com o serviço de errado. Este cenário é descrito mais detalhadamente na secção seguinte.
+O `Microsoft.ServiceFabric.AspNetCore` inclui o pacote NuGet do `UseServiceFabricIntegration` método de extensão no `IWebHostBuilder` que adiciona suporte para o Service Fabric middleware. Este middleware configura o Kestrel ou HttpSys `ICommunicationListener` para registar um URL de serviço único com o serviço de nomenclatura do Service Fabric e, em seguida, valida os pedidos de cliente para garantir que os clientes estão a ligar para o serviço correto. Isso é necessário num ambiente de host partilhados, tais como o Service Fabric, em que várias aplicações web podem ser executados no mesmo físico ou máquina virtual, mas não utilize nomes de host único, para impedir que os clientes por engano, conexão com o serviço de errado. Este cenário é descrito mais detalhadamente na secção seguinte.
 
 ### <a name="a-case-of-mistaken-identity"></a>Um caso de identidade errada
 Réplicas de serviço, independentemente do protocolo, ouça numa combinação de IP: porta exclusiva. Depois de uma réplica de serviço foi iniciado um ponto de extremidade IP: porta a escutar, relatórios esse endereço de ponto final para o serviço Service Fabric Naming onde possam ser detetado por clientes ou outros serviços. Se os serviços utilizam portas da aplicação atribuído de forma dinâmica, uma réplica de serviço por coincidência pode utilizar o mesmo ponto de final de IP: porta de outro serviço que foi anteriormente no mesmo físico ou máquina virtual. Isto pode fazer com que um cliente mistakely para ligar ao serviço errado. Isto pode acontecer se a seguinte sequência de eventos ocorre:
@@ -310,7 +310,7 @@ Quando exposto à Internet, um serviço sem estado deve utilizar um ponto final 
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | Kestrel é o servidor web preferencial, dado que é suportada em Windows e Linux. |
+| Servidor Web | kestrel | Kestrel é o servidor web preferencial, dado que é suportada em Windows e Linux. |
 | Configuração da porta | estático | Uma porta estática bem conhecida deve ser configurada no `Endpoints` configuração do servicemanifest. XML, por exemplo 80 para HTTP ou 443 para HTTPS. |
 | ServiceFabricIntegrationOptions | Nenhuma | O `ServiceFabricIntegrationOptions.None` opção deve ser utilizada quando configurar o middleware de integração do Service Fabric, para que o serviço não tenta validar pedidos recebidos para um identificador exclusivo. Utilizadores externos do seu aplicativo não saberá que as informações de identificação exclusivas usadas pelo middleware. |
 | Contagem de Instâncias | -1 | Em casos de utilização típicos, a definição da contagem de instância deve ser definida como "-1" para que uma instância está disponível em todos os nós que recebem o tráfego de um balanceador de carga. |
@@ -335,7 +335,7 @@ Serviços sem estado que são chamados apenas de dentro do cluster devem utiliza
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | Embora HttpSys podem ser utilizadas para serviços sem estado internos, o Kestrel é o servidor recomendado para permitir que várias instâncias do serviço compartilhar um host.  |
+| Servidor Web | kestrel | Embora HttpSys podem ser utilizadas para serviços sem estado internos, o Kestrel é o servidor recomendado para permitir que várias instâncias do serviço compartilhar um host.  |
 | Configuração da porta | dinamicamente atribuído | Várias réplicas de um serviço com monitorização de estado podem partilhar um processo de anfitrião ou o sistema operativo anfitrião e, portanto, terá de portas exclusivas. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição de porta dinâmica, esta definição impede que o problema de identidade errada descrito anteriormente. |
 | InstanceCount | qualquer | A contagem de instâncias definição pode ser definida como qualquer valor necessária para operar o serviço. |
@@ -345,7 +345,7 @@ Serviços com estado que são chamados apenas de dentro do cluster devem utiliza
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | O `HttpSysCommunicationListener` não foi concebido para utilização pelos serviços com estado, na qual as réplicas compartilham um processo de host. |
+| Servidor Web | kestrel | O `HttpSysCommunicationListener` não foi concebido para utilização pelos serviços com estado, na qual as réplicas compartilham um processo de host. |
 | Configuração da porta | dinamicamente atribuído | Várias réplicas de um serviço com monitorização de estado podem partilhar um processo de anfitrião ou o sistema operativo anfitrião e, portanto, terá de portas exclusivas. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição de porta dinâmica, esta definição impede que o problema de identidade errada descrito anteriormente. |
 

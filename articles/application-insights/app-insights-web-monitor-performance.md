@@ -1,6 +1,6 @@
 ---
 title: Monitorizar o estado de funcionamento da sua aplicação e a utilização com o Application Insights
-description: Introdução ao Application Insights. Analise a utilização, disponibilidade e desempenho dos seus no local ou aplicações do Microsoft Azure.
+description: Introdução ao Application Insights. Analise a utilização, disponibilidade e desempenho das suas aplicações de Microsoft Azure ou no local.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,26 +10,28 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2018
-ms.author: sdash
-ms.openlocfilehash: 02421492528e44ed6a913443a7793235170d4881
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: 7e6aad6f6a0664d7834e6ea889dba14c1cbcdf0a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647738"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorizar o desempenho nas aplicações Web
 
 
-Certifique-se de que a aplicação está a executar corretamente e descobrir rapidamente sobre eventuais falhas. [Application Insights] [ start] conte quaisquer problemas de desempenho e exceções e ajudar a localizar e diagnosticar as causas raiz.
+Certifique-se de que seu aplicativo é ter um bom desempenho e obter informações rapidamente sobre quaisquer falhas. [O Application Insights] [ start] falar sobre quaisquer problemas de desempenho e exceções e ajudar a encontrar e diagnosticar as causas de raiz.
 
-Application Insights podem monitorizar aplicações web de Java e ASP.NET e serviços, serviços do WCF. Podem ser alojado no local, em máquinas virtuais, ou como Web sites do Microsoft Azure. 
+O Application Insights pode monitorizar aplicações web de Java e ASP.NET e serviços, serviços WCF. Eles podem ser alojado no local, em máquinas virtuais, ou como Web sites do Microsoft Azure. 
 
-No lado do cliente, o Application Insights pode demorar a telemetria de páginas web e uma ampla variedade de dispositivos, incluindo iOS, Android e aplicações da loja Windows.
+No lado do cliente, o Application Insights pode demorar telemetria a partir de páginas da web e uma grande variedade de dispositivos, incluindo iOS, Android e Windows Store apps.
 
 ## <a name="setup"></a>Configurar a monitorização de desempenho
-Se ainda não adicionou ainda Application Insights ao seu projeto (ou seja, se não tem Applicationinsights), escolha uma das seguintes formas para começar a utilizar:
+Se ainda não adicionou ainda Application Insights ao seu projeto (ou seja, se ele não tem o applicationinsights. config), escolha uma das seguintes formas para começar a utilizar:
 
 * [Aplicações web do ASP.NET](app-insights-asp-net.md)
   * [Adicionar a monitorização de exceções](app-insights-asp-net-exceptions.md)
@@ -38,112 +40,112 @@ Se ainda não adicionou ainda Application Insights ao seu projeto (ou seja, se n
   * [Adicionar a monitorização de dependência](app-insights-java-agent.md)
 
 ## <a name="view"></a>Explorar métricas de desempenho
-No [portal do Azure](https://portal.azure.com), navegue para o recurso do Application Insights que configurou para a sua aplicação. O painel de descrição geral apresenta dados de desempenho básico:
+Na [do portal do Azure](https://portal.azure.com), navegue para o recurso do Application Insights que configurou para a sua aplicação. O painel de descrição geral mostra os dados de desempenho básico:
 
 Clique em qualquer gráfico para ver mais detalhes e para ver os resultados para um período mais longo. Por exemplo, clique no mosaico de pedidos e, em seguida, selecione um intervalo de tempo:
 
 ![Clicar para obter mais dados e selecione um intervalo de tempo](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
-Clique num gráfico para escolher as métricas apresenta, ou adicione um novo gráfico e selecionar a métricas:
+Clique num gráfico para escolher as métricas apresenta, ou adicione um novo gráfico e selecione as suas métricas:
 
-![Clique num gráfico para escolher as métricas](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
+![Clique num gráfico para escolher métricas](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
 > [!NOTE]
-> **Desmarque todas as métricas** para ver a seleção completa que está disponível. As métricas enquadram-se grupos; Quando qualquer membro de um grupo é selecionado, são apresentados apenas os outros membros desse grupo.
+> **Desmarque todas as métricas** para ver a seleção de completa está disponível. As métricas enquadram-se grupos; Quando qualquer membro de um grupo for selecionado, são apresentados apenas os outros membros desse grupo.
 
-## <a name="metrics"></a>O que faz-média de todos os? Os mosaicos de desempenho e relatórios
-Existem várias métricas de desempenho, que pode obter. Vamos começar com as que são apresentados por predefinição no painel de aplicação.
+## <a name="metrics"></a>O que isso significa que todos os? Mosaicos de desempenho e relatórios
+Existem várias métricas de desempenho, que pode obter. Vamos começar com aqueles que são apresentados por predefinição no painel da aplicação.
 
 ### <a name="requests"></a>Pedidos
-O número de pedidos HTTP recebidos no período de tempo especificado. Compare-as com os resultados em outros relatórios para ver como a aplicação se comporta como a carga varia.
+O número de pedidos HTTP recebido num período de tempo especificado. Compare isso com os resultados de outros relatórios para ver como a sua aplicação se comporta como a carga varia.
 
-Pedidos de HTTP incluem todos os pedidos GET ou POST de páginas, dados e imagens.
+Pedidos HTTP incluir todos os pedidos GET ou POST para páginas, dados e imagens.
 
-Clique no mosaico para obter contagens para os URLs específicos.
+Clique no mosaico para obter contagens de URLs específicos.
 
-### <a name="average-response-time"></a>Tempo de resposta médio
-Mede o tempo entre a um pedido web introduzir a sua aplicação e a resposta a ser devolvido.
+### <a name="average-response-time"></a>Tempo médio de resposta
+Mede o tempo entre uma solicitação da web introduzindo seu aplicativo e a resposta que está a ser devolvida.
 
-Os pontos de mostram uma mudança médio. Se existirem muitos pedidos, poderão existir alguns desvio da média sem um horário de pico óbvios ou dip no gráfico.
+Os pontos de mostram uma mudança médio. Se existirem muitos pedidos, deve haver algum que evitar a média sem um pico óbvia ou dip no gráfico.
 
-Procure picos de atividade invulgares. Em geral, esperar que um tempo de resposta a aumentar com um aumento súbito do pedidos. Se o aumento súbito desproporcionado, pode atingir um limite de recursos, tais como CPU ou a capacidade de um serviço que utiliza a sua aplicação.
+Procure picos invulgares. Em geral, esperar que o tempo de resposta a aumentar com um aumento nos pedidos. Se o aumento desproporcional, a aplicação poderá atingir um limite de recursos, tais como CPU ou a capacidade de um serviço que utiliza.
 
-Clique no mosaico para obter vezes para URLs específicos.
+Clique no mosaico para obter os tempos de URLs específicos.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>Pedidos mais lentos
 ![](./media/app-insights-web-monitor-performance/appinsights-44slowest.png)
 
-Mostra quais os pedidos poderão ter de otimização de desempenho.
+Mostra quais os pedidos poderão ter de ajuste de desempenho.
 
 ### <a name="failed-requests"></a>Pedidos falhados
 ![](./media/app-insights-web-monitor-performance/appinsights-46failed.png)
 
 Uma contagem de pedidos que emitiu exceções não identificadas.
 
-Clique no mosaico para ver os detalhes de falhas específicas e selecione um pedido individual para ver os detalhes. 
+Clique no mosaico para ver os detalhes de falhas específicas e selecione um pedido individual para ver os seus detalhes. 
 
-Apenas uma amostra representativa de falhas é mantida para inspecção individuais.
+Apenas uma amostra representativa de falhas é retida durante inspeção individual.
 
 ### <a name="other-metrics"></a>Outras métricas
-Para ver o que definir outras métricas pode apresentar, clique num gráfico e, em seguida, desmarque todas as métricas para ver o completo disponível. Clique (i) para ver a definição de cada métrica.
+Para ver o que outras métricas pode apresentar, clique num gráfico e, em seguida, desmarque todas as métricas para ver todo o conjunto. Clique (i) para ver a definição de cada uma.
 
-![Anular seleção de todas as métricas para ver o conjunto completo](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
+![Desmarcar todas as métricas para ver o conjunto inteiro](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
-Selecionar qualquer métrica desativa a outras pessoas que não pode aparecer no mesmo gráfico.
+Selecionar qualquer métrica desativa os outros que não pode aparecer no mesmo gráfico.
 
 ## <a name="set-alerts"></a>Definir alertas
-Para ser notificado por correio eletrónico dos valores invulgares de qualquer métrica, adicione um alerta. Pode escolher a enviar o e-mail para os administradores de conta ou para endereços de e-mail específico.
+Para ser notificado por correio eletrónico dos valores invulgares de qualquer métrica, adicione um alerta. Pode escolher para enviar o e-mail para os administradores de conta, ou para endereços de e-mail específico.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-413setMetricAlert.png)
 
-Defina o recurso antes das outras propriedades. Não escolha os recursos de teste Web, se pretender definir alertas nas métricas de desempenho ou utilização.
+Defina o recurso antes das outras propriedades. Não escolha os recursos de teste Web, se pretender definir alertas em métricas de desempenho ou na utilização.
 
-Tenha o cuidado de tenha em atenção as unidades nas quais está a pedido para introduzir o valor de limiar.
+Cuidado-se de que tenha em atenção as unidades em que lhe for pedido para introduzir o valor de limiar.
 
-*Não consigo ver o botão Adicionar alerta.* -Este é um grupo de conta para o qual tem acesso só de leitura? Contacte o administrador da conta.
+*Não vejo no botão Adicionar alerta.* -Este é um grupo de conta para o qual tem acesso só de leitura? Contacte o administrador de conta.
 
-## <a name="diagnosis"></a>Diagnosticar problemas
-Eis algumas sugestões para localizar e diagnosticar problemas de desempenho:
+## <a name="diagnosis"></a>Diagnóstico de problemas
+Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
-* Configurar [testes web] [ availability] para ser alertado se o web site ficar inativo ou responder lentamente ou incorretamente. 
-* Compare a contagem de pedidos com outras métricas para ver se falhas ou resposta lenta relacionadas com a carregar.
-* [Inserir, procure as instruções de rastreio] [ diagnostic] no código para ajudar a identificar problemas.
-* Monitorizar a aplicação Web na operação com [métricas em fluxo em direto][livestream].
-* Capturar o estado da aplicação .net com [instantâneo depurador][snapshot].
+* Configurar [testes web] [ availability] para ser alertado se o seu web site ficar inativo ou responde incorreta ou lentamente. 
+* Compare a contagem de pedidos com outras métricas para ver se falhas ou lento de resposta está relacionado ao carregar.
+* [Inserir e procurar declarações de rastreio] [ diagnostic] em seu código para o ajudar a identificar problemas.
+* Monitorizar a sua aplicação Web na operação com [Stream de métricas em direto][livestream].
+* Capturar o estado da sua aplicação .net com [Snapshot Debugger][snapshot].
 
-## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Localize e corrija os congestionamentos de desempenho com a experiência de investigação de desempenho
+## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Encontre e corrija estrangulamentos de desempenho com experiência de investigação de desempenho
 
-Pode utilizar a experiência de investigação de desempenho para rever as operações de desempenho lentas na sua aplicação Web. Pode selecionar uma operação lenta específica e utilizar rapidamente [gerador de perfis](app-insights-profiler.md) raiz fazer com que as operações lentas para baixo até o código. Utilizar a distribuição da duração novo apresentada para a operação selecionada, pode rapidamente rapidamente apenas como incorreta é a experiência para os seus clientes. Pode ver o número das suas interações do utilizador foram afetado para cada operação lenta. No exemplo seguinte, foi decidido demorar um olhar mais a experiência de operação de clientes/detalhes obter. A distribuição da duração, é possível ver que existem três picos. Pico de pedidos mais à esquerda é cerca de 400 ms e representa excelente experiência reativa. Pico de pedidos média é em torno 1.2 s e representa uma experiência mediocre. Por fim, o 3.6 s temos outro pico pequeno pedidos que representa a experiência de percentil 99th, que é provavelmente, causar os nossos clientes deixe dissatisfied. Essa experiência é dez vezes mais lenta do que o excelente experiência para a mesma operação. 
+Pode utilizar a experiência de investigação de desempenho para rever o desempenho de operações lentas na sua aplicação Web. Pode selecionar uma operação lenta específica e utilizar rapidamente [Profiler](app-insights-profiler.md) raiz com que as operações lentas em código. Utilizando a distribuição de duração novo apresentada para a operação selecionada, que pode rapidamente avaliar rapidamente a experiência ruim como é para os seus clientes. Pode ver a quantidade de suas interações do utilizador foram afetados para cada operação lenta. No exemplo a seguir, decidimos de dar uma olhada mais de perto a experiência para a operação GET Customers/Details. Da distribuição de duração, podemos ver que existem três picos. Pico mais à esquerda é cerca de 400 ms e representa a excelente experiência responsiva. Pico intermediária é em torno de 1,2 s e representa uma experiência mediocre. Por fim, o 3.6 s temos outro pequeno pico, que representa a experiência de percentil 99, que pode fazer com que os nossos clientes deixar insatisfeito. Essa experiência é dez vezes mais lenta do que o excelente experiência para a mesma operação. 
 
-![Picos de duração três clientes/detalhes GET](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
+![Picos de duração de três do GET Customers/Details](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
-Para obter um melhor sentido das experiências de utilizador para esta operação, mas pode selecionar um intervalo de tempo maior. Iremos pode, em seguida, também reduzir no tempo numa janela de tempo específico em que a operação foi lenta. No exemplo seguinte, iremos mudar da predefinição 24 horas, intervalo de tempo para 7 dias intervalo de tempo e, em seguida, ampliado para o intervalo de tempo 9:47 para 12:47 entre Tue a 12 e qua a 13. A distribuição da duração e o número de rastreios de gerador de perfis de exemplo e foram atualizadas no lado direito.
+Para obter uma melhor noção do que as experiências de utilizador para esta operação, podemos selecionar um intervalo de tempo maior. Podemos, em seguida, também restringir no tempo numa janela de tempo específico em que a operação foi lenta. No exemplo a seguir, vamos mudar da predefinição 24 horas do intervalo de tempo de intervalo de tempo para nos 7 dias e, em seguida, ampliado para a janela de tempo de 9:47 para 12:47 entre terça-feira a 12 e quarta-feira a 13. A distribuição de duração e o número de rastreios de exemplo e criador de perfil foram atualizados no lado direito.
 
-![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Intervalo de GET Customers/Details três picos de duração dentro de sete dias com uma janela de tempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
-Para restringir nas experiências lentas, iremos junto aplicar zoom no durações que se inserem entre 95th e o percentil 99th. Estes representam a % de 4 de interações do utilizador que foram lentas.
+Para restringir as experiências lentas, podemos junto ampliar as durações que se enquadrem entre 95 e o percentil de 99. Representam a % de 4 interações de utilizador que foram lenta.
 
-![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Intervalo de GET Customers/Details três picos de duração dentro de sete dias com uma janela de tempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
-Podemos agora a vista de olhos amostras representativos, clicando no botão exemplos ou os rastreios de gerador de perfis representativa, clicando no botão de rastreios de gerador de perfis. Neste exemplo, existem quatro rastreios que tenham sido recolhidos para obter os clientes/detalhes na duração de janela e o intervalo de tempo de interesse.
+Podemos agora examinar qualquer um dos exemplos representativos, ao clicar no botão de exemplos, ou os rastreios do profiler representativo, ao clicar no botão de rastreios do Profiler. Neste exemplo, existem quatro rastreios que tenham sido recolhidos para GET Customers/Details na duração de janela e o intervalo de tempo de interesse.
 
-Por vezes, o problema não será possível no seu código, mas em vez numa dependência chama o seu código. Pode mudar para o separador de dependências na vista de triagem de desempenho para investigar essas dependências lentas. Por predefinição a vista de desempenho é médias tendências, mas que realmente pretende observar o percentil 95th (ou 99th, caso esteja a monitorizar um serviço madura). No exemplo seguinte Concentramo-na dependência lenta de BLOB do Azure, onde chamamos PUT fabrikamaccount. O bom ocorrer no cluster cerca de 40 ms, enquanto as chamadas lentas para a dependência mesma três vezes inferior, clustering cerca de 120 ms. Não tem muitas destas chamadas para adicionar a cópia de segurança para fazer com que a respetiva operação abrandar intensas em termos. Pode explorar representativos exemplos e rastreios de gerador de perfis, tal como pode fazer com o separador de operações.
+Às vezes, o problema não se será em seu código, mas em vez disso, numa dependência chama seu código. Pode mudar para o separador de dependências na vista de triagem de desempenho para investigar essas dependências lentas. Por predefinição, a vista de desempenho é médias mais populares, mas o que realmente deseja examinar é o percentil 95 (ou 99th, no caso de que está a monitorizar um serviço maduro). No exemplo a seguir Concentramo-na dependência lenta de BLOBS do Azure, onde chamamos PUT fabrikamaccount. Vale a ocorrer no cluster cerca de 40 ms, as chamadas lentas para a mesma dependência são três vezes mais lentas, cerca de 120 ms de clustering. Não use muitas destas chamadas traduzir-se para fazer com que a operação respectiva visivelmente abrandamento. Pode explorar os exemplos representativos e rastreios do profiler, como pode fazer com a guia de operações.
 
-![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
+![Intervalo de GET Customers/Details três picos de duração dentro de sete dias com uma janela de tempo](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
 
-A experiência de investigação de desempenho mostra relevantes insights ao longo do lado do conjunto de exemplo que escolheu para se focarem em. É a melhor forma de ver todas as informações disponíveis para mudar para um intervalo de tempo de 30 dias e, em seguida, selecione geral para ver informações em todas as operações para o último mês.
+A experiência de investigação de desempenho mostra as informações relevantes no lado do conjunto de exemplo que decidimos nos concentrar na. É a melhor forma de ver todas as informações disponíveis mudar para um intervalo de tempo de 30 dias e, em seguida, selecione geral para ver informações em todas as operações para o último mês.
 
-![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
+![Intervalo de GET Customers/Details três picos de duração dentro de sete dias com uma janela de tempo](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next"></a>Passos seguintes
-[Testes Web] [ availability] -tenham pedidos web enviados para a aplicação em intervalos regulares de todo o mundo.
+[Testes Web] [ availability] -tem pedidos web enviados ao seu aplicativo em intervalos regulares de todo o mundo.
 
-[Capturar e procurar rastreios de diagnóstico] [ diagnostic] - inserir chamadas de rastreio e pouco úteis percorrer os resultados para identificar problemas.
+[Capturar e pesquisar rastreios de diagnóstico] [ diagnostic] - inserção de chamadas de rastreio e filtrar os resultados para identificar problemas.
 
-[Controlo de utilização] [ usage] -saber como as pessoas utilizam a sua aplicação.
+[Controlo de utilização] [ usage] -Descubra como as pessoas utilizam a sua aplicação.
 
 [Resolução de problemas] [ qna] - e as perguntas e respostas
 

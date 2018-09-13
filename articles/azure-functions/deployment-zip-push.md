@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347125"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717223"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementação de zip para as funções do Azure
 
@@ -89,9 +89,6 @@ Quando estiver a utilizar o CLI do Azure no seu computador local, `<zip_file_pat
 ## <a name="run-functions-from-the-deployment-package"></a>Executar funções do pacote de implementação
 
 Também pode optar por executar as suas funções diretamente a partir do ficheiro do pacote de implementação. Este método ignora o passo de implementação de cópia de ficheiros do pacote para o `wwwroot` diretório da sua aplicação de função. Em vez disso, o ficheiro de pacote está montado, o runtime das funções e o conteúdo do `wwwroot` directory passam a ser só de leitura.  
-
-> [!NOTE]
-> A capacidade de executar a aplicação de funções do pacote de implementação está em pré-visualização.
 
 Implementação de ZIP integra-se com esta funcionalidade, o que pode ativar ao definir a definição de aplicação de função `WEBSITE_RUN_FROM_PACKAGE` para um valor de `1`. Para obter mais informações, consulte [executar as suas funções a partir de um ficheiro de pacote de implementação](run-functions-from-deployment-package.md).
 

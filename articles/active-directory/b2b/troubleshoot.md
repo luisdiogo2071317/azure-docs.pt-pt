@@ -1,82 +1,82 @@
 ---
-title: Resolução de problemas de colaboração B2B do Azure Active Directory do | Microsoft Docs
-description: Responsabilidade para problemas comuns com a colaboração B2B do Azure Active Directory do
+title: Resolução de problemas de colaboração do Azure Active Directory B2B | Documentos da Microsoft
+description: Soluções para problemas comuns com a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 4347b846b0ff91f606615abc2c94253c0ae70587
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: ca339319a370fd56cf8493418ae311b39f8fa59e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267516"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648378"
 ---
-# <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração B2B do Azure Active Directory do
+# <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração do Azure Active Directory B2B
 
-Seguem-se algumas responsabilidade para problemas comuns com a colaboração B2B do Azure Active Directory (Azure AD).
+Aqui estão algumas soluções para problemas comuns com a colaboração B2B do Azure Active Directory (Azure AD).
 
 
-## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Posso adicionar um utilizador externo, mas não vê-los no meu livro de endereços Global ou no selecionador de pessoas
+## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Eu adicionei um utilizador externo, mas não vê-los no meu livro de endereços globais ou no selecionador de pessoas
 
-Em casos onde os utilizadores externos não são preenchidos na lista, o objeto poderá demorar alguns minutos a replicar.
+Em casos em que os utilizadores externos não são preenchidos na lista, o objeto poderá demorar alguns minutos a replicar.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um utilizador de convidado B2B não está visível no seleccionador do SharePoint Online/OneDrive pessoas 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um utilizador de convidados B2B não está visível no selecionador de pessoas do SharePoint Online/OneDrive 
  
-A capacidade de pesquisar utilizadores convidados existentes no selecionador de pessoas SharePoint Online (SPO) está DESATIVADA por predefinição para corresponder ao comportamento de legado.
+A capacidade de pesquisar para utilizadores convidados existentes no selecionador de pessoas de SharePoint Online (SPO) está DESATIVADO por predefinição de acordo com o comportamento herdado.
 
-Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível da coleção inquilino e o site. Pode definir a funcionalidade através dos cmdlets Set-SPOTenant e Set-SPOSite, que permite que os membros procurar todos os utilizadores convidados existentes no diretório. As alterações no âmbito de inquilino não afetam os sites SPO já aprovisionadas.
+Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível da coleção inquilino e o site. Pode definir a funcionalidade com os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros procurar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SPO já aprovisionados.
 
-## <a name="invitations-have-been-disabled-for-directory"></a>Foram desativadas convites para o diretório
+## <a name="invitations-have-been-disabled-for-directory"></a>Convites foram desativados para o diretório
 
-Se for notificado de que não têm permissões para convidar utilizadores, certifique-se de que a sua conta de utilizador está autorizada para convidar utilizadores externos em definições de utilizador:
+Se for notificado de que não tem permissões para convidar utilizadores, certifique-se de que a sua conta de utilizador está autorizada a convidar utilizadores externos em definições do utilizador:
 
 ![](media/troubleshoot/external-user-settings.png)
 
-Se modificar estas definições recentemente ou atribuída a função de convidado Inviter para um utilizador, poderá haver um atraso de 15-60 minutos antes das alterações surtam efeito.
+Se tiver modificado recentemente estas definições ou atribuída a função de utilizador que convida convidados para um utilizador, poderá haver um atraso de 60 de 15 minutos antes das alterações entrem em vigor.
 
-## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>O utilizador que posso convidado está a receber um erro durante a resgate
+## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>O utilizador que eu convidado está a receber um erro durante o resgate
 
 Erros comuns incluem:
 
-### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>Administrador do invitee não permitiu a EmailVerified utilizadores de que está a ser criada no seu inquilino
+### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>Administrador do convidado não permitiu EmailVerified utilizadores de que está a ser criados no seu inquilino
 
-Quando inviting utilizadores cuja organização está a utilizar o Azure Active Directory, mas em que a conta de utilizador específico não existe (por exemplo, o utilizador não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política no local a impedir que os utilizadores a ser criada. O utilizador tem de verificar com o seu administrador para determinar se os utilizadores externos são permitidos. Administração do utilizador externo poderá ter de permitir aos utilizadores verificar E-Mail no respetivo domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) em permitir aos utilizadores verificar de E-Mail).
+Ao convidar utilizadores cuja organização está a utilizar o Azure Active Directory, mas em que não existe conta de utilizador específico (por exemplo, o utilizador não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política de impedir que os usuários a ser criada. O utilizador tem de verificar com o seu administrador para determinar se são permitidos a utilizadores externos. Administrador do utilizador externo poderá ter de permitir que os utilizadores de verificado por E-Mail no respetivo domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) permitir que os utilizadores verificado de E-Mail).
 
 ![](media/troubleshoot/allow-email-verified-users.png)
 
-### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Utilizador externo não existe já num domínio federado
+### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Utilizador externo não pode já existir num domínio federado
 
 Se estiver a utilizar a autenticação de Federação e o utilizador ainda não existir no Azure Active Directory, o utilizador não pode ser convidado.
 
 Para resolver este problema, o administrador do utilizador externo tem de sincronizar a conta de utilizador para o Azure Active Directory.
 
-## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como dos does\#', que não é normalmente um caráter válido, a sincronização com o Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como dos faz\#', que não é normalmente um caráter válido, a sincronização com o Azure AD?
 
-"\#" é um caráter reservado UPNs para colaboração B2B do Azure AD ou utilizadores externos, porque a conta de convidados user@contoso.com fica user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Por conseguinte, \# UPNs feitos no local não são permitidos para iniciar sessão no portal do Azure. 
+"\#" é um caractere reservado no UPNs para colaboração B2B do Azure AD ou utilizadores externos, porque a conta de convidado user@contoso.com torna-se user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Por conseguinte, \# UPNs proveniente no local não são permitidos para iniciar sessão no portal do Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar utilizadores externos a um grupo sincronizado
 
-Os utilizadores externos podem ser adicionados apenas aos grupos de "Segurança" ou "atribuído" e não para grupos de controlado no local.
+Utilizadores externos podem ser adicionados apenas para grupos de "Segurança" ou "atribuído" e não aos grupos que são controlado no local.
 
-## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Os meus utilizadores externos não recebeu uma mensagem de e-mail para resgatar
+## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Meu usuário externo não recebeu uma mensagem de e-mail para resgatar
 
-O invitee deve verificar junto do respetivo filtro ISP ou spam para se certificar de que é permitido o seguinte endereço: Invites@microsoft.com
+Mesmo o convidado deve verificar junto do respetivo filtro ISP ou spam para se certificar de que o seguinte endereço é permitido: Invites@microsoft.com
 
-## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Posso tenha em atenção que a mensagem personalizada não obter incluída com mensagens convite por vezes
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Eu tenha em atenção que a mensagem personalizada não é incluída com mensagens de convite às vezes
 
-Para estar em conformidade com as leis de privacidade, os APIs não incluírem mensagens personalizadas o convite de e-mail quando:
+Para cumprir as leis de privacidade, as nossas APIs não incluem mensagens personalizadas no convite de e-mail quando:
 
-- O inviter não tem um endereço de e-mail no inquilino convidando
-- Quando um principal de serviço aplicacional envia o convite
+- O autor do convite não tem um endereço de e-mail no inquilino do convite
+- Quando um principal de serviço de aplicações envia o convite
 
-Se este cenário é importante para si, pode suprimir os nosso e-mail de convite de API e enviá-lo através do mecanismo de e-mail da sua preferência. Consulte a legais counsel sua organização para se certificar de qualquer e-mail enviar que desta forma também estas estejam em conformidade com as leis de privacidade.
+Se este cenário é importante para si, pode suprimir a nossa e-mail de convite de API e enviá-lo através do mecanismo de e-mail da sua preferência. Consulte a orientador jurídico também sua organização certificar-se de que todos os e-mails que envia que também cumprem as leis de privacidade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Obter o suporte para colaboração B2B](get-support.md)
+- [Obtenha suporte para a colaboração B2B](get-support.md)

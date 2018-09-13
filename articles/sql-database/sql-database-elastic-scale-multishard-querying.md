@@ -1,6 +1,6 @@
 ---
-title: Consultar a bases de dados SQL do Azure | Microsoft Docs
-description: Execute consultas em shards utilizando a biblioteca de cliente da base de dados elásticas.
+title: Consultar bases de dados SQL do Azure em partição horizontal | Documentos da Microsoft
+description: Execute consultas em partições horizontais com a biblioteca de cliente de base de dados elástica.
 services: sql-database
 manager: craigg
 author: stevestein
@@ -9,26 +9,26 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 17fb937dc24cbf2fa1630a26ea6876fa56a384f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 759ef7bfca118434c36044ff490ff3d2735b11c9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646852"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719175"
 ---
-# <a name="multi-shard-querying"></a>Consulta de várias partições horizontais
+# <a name="multi-shard-querying"></a>Consultas de vários fragmentos
 ## <a name="overview"></a>Descrição geral
-Com o [ferramentas de base de dados elástica](sql-database-elastic-scale-introduction.md), pode criar soluções de base de dados em partição horizontal. **Consulta de partições horizontais Multi** é utilizada para tarefas, tais como recolha/relatórios de dados que requerem a execução de uma consulta que é alongada entre várias partições horizontais. (Contraste esta opção para [encaminhamento de dados dependentes](sql-database-elastic-scale-data-dependent-routing.md), que efetua todo trabalho um ID de partição horizontal único.) 
+Com o [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md), pode criar soluções de base de dados em partição horizontal. **Consultas de vários fragmentos** é utilizado para tarefas como coleção/relatórios de dados que requerem a execução de uma consulta que aproveita ao máximo através de vários shards. (Compare isso [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho numa única partição horizontal.) 
 
-1. Obter um **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) ou **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) utilizando o **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), o **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), ou o **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) método. Consulte **[construir um ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** e  **[obter um RangeShardMap ou ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
-2. Criar um **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)) objeto.
-3. Criar um **MultiShardStatement ou MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)). 
-4. Definir o **propriedade CommandText** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)) para um comando T-SQL.
-5. Execute o comando ao chamar o **ExecuteQueryAsync ou ExecuteReader** ([Java](), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)) método.
-6. Ver os resultados utilizando o **MultiShardResultSet ou MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) classe. 
+1. Obter um **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) ou **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) com o **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), a **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), ou a **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) método. Ver **[construir um ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** e  **[receber um RangeShardMap ou ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
+2. Criar uma **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)) objeto.
+3. Criar uma **MultiShardStatement ou MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)). 
+4. Definir o **vlastnost CommandText** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)) para um comando T-SQL.
+5. Execute o comando ao chamar o **ExecuteQueryAsync ou ExecuteReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement.executeQueryAsync), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)) método.
+6. Ver os resultados usando a **MultiShardResultSet ou MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) classe. 
 
 ## <a name="example"></a>Exemplo
-O código seguinte ilustra a utilização de várias partições horizontais consulta utilizando um determinado **ShardMap** denominado *myShardMap*. 
+O código a seguir ilustra a utilização de vários fragmentos como consultar usando um determinado **ShardMap** com o nome *myShardMap*. 
 
 ```csharp
 using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString)) 
@@ -53,14 +53,14 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 } 
 ```
 
-Uma diferença chave é a construção de ligações de várias partições horizontais. Onde **SqlConnection** funciona numa base de dados único, o **MultiShardConnection** demora um ***coleção de partições horizontais*** como entrada. Povoar a colecção de partições horizontais de um mapa de partições horizontais. A consulta, em seguida, é executada na coleção de partições horizontais utilizando **UNION ALL** semântica para Monte um único resultado geral. Opcionalmente, o nome de partições horizontais em que a linha tem origem pode ser adicionado à utilização de saída a **ExecutionOptions** propriedade no comando. 
+Uma diferença-chave é a construção de ligações de vários fragmentos. Em que **SqlConnection** opera num único banco de dados, o **MultiShardConnection** demora um ***coleção de partições horizontais*** como entrada. Popular a coleção de partições horizontais de um mapa de partições horizontais. A consulta, em seguida, é executada na coleção de partições horizontais usando **UNION ALL** semântica para montar um único resultado geral. Opcionalmente, o nome de partição horizontal em que a linha são originados por pode ser adicionado para a saída com o **ExecutionOptions** propriedade no comando. 
 
-Tenha em atenção a chamada para **myShardMap.GetShards()**. Este método obtém todas as partições horizontais do mapa de partições horizontais e fornece uma forma fácil de executar uma consulta em todas as bases de dados relevantes. A coleção de partições horizontais para uma consulta de partições horizontais multi pode ser avançada mais efetuando uma consulta LINQ sobre a recolha devolvido da chamada para **myShardMap.GetShards()**. Em combinação com a política de resultados parcial, a capacidade atual na consulta de partições horizontais multi tem foi concebida para funcionar bem para dezenas até centenas de partições horizontais.
+Observe a chamada para **myShardMap.GetShards()**. Esse método obtém todas as partições horizontais de mapa de partições horizontais e fornece uma forma fácil de executar uma consulta em todas as bases de dados relevantes. A coleção de partições horizontais para uma consulta de vários fragmentos pode ser refinada ainda mais ao executar uma consulta LINQ sobre a recolha retornado da chamada para **myShardMap.GetShards()**. Em combinação com a política de resultados parciais, a capacidade atual de consultas de vários fragmentos foi projetada para funcionar bem para dezenas até centenas de partições horizontais.
 
-Uma limitação com várias partições horizontais consulta está atualmente a falta de validação para shards e shardlets são consultadas. Enquanto o encaminhamento de dados dependentes verifica que um ID de partição horizontal especificado faz parte do mapa de partições horizontais no momento da consulta, consultas de partições horizontais multi não executar esta verificação. Isto pode levar a consultas de várias partições horizontais em execução em bases de dados que foram removidas do mapa de partições horizontais.
+Uma limitação com consultas de vários fragmentos atualmente é a falta de validação para as partições horizontais e shardlets que são consultados. Embora o encaminhamento dependente de dados verifica se o determinada partição horizontal é parte do mapa de partições horizontais no momento da consulta, consultas de vários fragmentos não executar esta verificação. Isso pode levar a consultas de vários fragmentos em execução nas bases de dados que foram removidos do mapa de partições horizontais.
 
-## <a name="multi-shard-queries-and-split-merge-operations"></a>Operações de divisão de intercalação e consultas de várias partições horizontais
-Consultas de partições horizontais multi não verificar se shardlets na base de dados consultado participam em operações de divisão de intercalação em curso. (Consulte [dimensionamento utilizando a ferramenta de intercalação de divisão de base de dados elástica](sql-database-elastic-scale-overview-split-and-merge.md).) Isto pode levar a inconsistências em que as linhas da mesma shardlet mostram para várias bases de dados da mesma consulta de várias partições horizontais. Tenha em conta estas limitações e considere draining operações de divisão de intercalação em curso e as alterações para o mapa de partições horizontais ao efetuar consultas de várias partições horizontais.
+## <a name="multi-shard-queries-and-split-merge-operations"></a>Consultas de vários fragmentos e operações de dividir / unir
+Consultas de vários fragmentos não verificar se shardlets na base de dados consultado está participando de operações de divisão / intercalação em curso. (Consulte [dimensionar com a ferramenta de dividir / unir da base de dados elástica](sql-database-elastic-scale-overview-split-and-merge.md).) Isso pode levar a inconsistências em que as linhas a partir do mesmo shardlet mostram para várias bases de dados da mesma consulta de vários fragmentos. Lembre-se de que essas limitações e considere drenagem operações de divisão / intercalação em curso e as alterações para o mapa de partições horizontais ao efetuar consultas de vários fragmentos.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

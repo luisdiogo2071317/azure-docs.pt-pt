@@ -1,0 +1,83 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: changov
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 09/10/2018
+ms.author: vashan, rajraj, changov
+ms.custom: include file
+ms.openlocfilehash: 5a9e0c86273895ccb26fab2a24239ce7aefd7eac
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44724125"
+---
+Pedidos de computação do Azure podem ser otimizados numa subscrição e numa base por região para ajudar com o desempenho geral do serviço. Podemos assegurar que todas as chamadas para o Azure de computação Resource Provider (CRP) que gere os recursos no espaço de nomes Microsoft. Compute não excederem a velocidade máxima de pedido de API permitida. Este documento descreve a API de limitação, detalhes sobre como resolver problemas de limitação, e as melhores práticas para evitar a ser limitada.  
+
+## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitação de fornecedores de recursos do Azure Resource Manager vs  
+
+Como a porta de entrada para o Azure, o Azure Resource Manager faz a validação de autenticação e a primeira e a limitação de entrada de todos os pedidos de API. Limites de velocidade de chamada do Azure Resource Manager e cabeçalhos de resposta de diagnóstico relacionadas HTTP são descritos [aqui](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+ 
+Quando um cliente de API do Azure obtém um erro de limitação, o estado HTTP é 429 demasiados pedidos. Para compreender se a limitação de pedidos é feito com o Azure Resource Manager ou um fornecedor de recursos subjacentes como o CRP, Inspecione o `x-ms-ratelimit-remaining-subscription-reads` solicitações GET e `x-ms-ratelimit-remaining-subscription-writes` cabeçalhos de resposta para pedidos de non-GET. Se a contagem de chamadas restantes que está a aproximar-se o 0, foi atingido o limite de chamada geral da subscrição definido pelo Azure Resource Manager. Atividades de todos os clientes de subscrição são contabilizadas em conjunto. Caso contrário, a limitação é proveniente do fornecedor de recursos de destino (a que é abordado o `/providers/<RP>` segmento de URL do pedido). 
+
+## <a name="call-rate-informational-response-headers"></a>Chamar os cabeçalhos de resposta informativa de taxa 
+
+| Cabeçalho                            | Formato do valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
+|-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| x-ms-ratelimit-restantes-recursos |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas de API restante para a política de limitação que abrangem o grupo de bucket ou operação de recursos incluindo o destino deste pedido                                                                   |
+| x-ms--de encargos de pedidos               | ```<count>   ```                             | 1                                     | O número de chamada de conta "cobrado" para este pedido HTTP na direção de limite da política aplicável. Isso normalmente é 1. Pedidos de lote, como para dimensionar um conjunto de dimensionamento de máquina virtual, podem cobrar contagens vários. |
+
+
+Tenha em atenção que um pedido de API pode estar sujeitos a múltiplas políticas de limitação. Haverá um separado `x-ms-ratelimit-remaining-resource` cabeçalho para cada política. 
+
+Aqui está uma resposta de exemplo para eliminar uma VM num pedido de conjunto de dimensionamento de máquina virtual.
+
+```
+x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
+x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet30Min;587 
+x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests5Min;3704 
+x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
+```
+
+##<a name="throttling-error-details"></a>Detalhes do erro de limitação
+
+O estado HTTP 429 é normalmente utilizado para rejeitar um pedido por um limite de taxa de chamada é alcançado. Uma resposta típica limitação de erro do fornecedor de recursos de computação terá um aspeto semelhante ao seguinte (apenas cabeçalhos relevantes são mostrados):
+
+```
+HTTP/1.1 429 Too Many Requests
+x-ms-ratelimit-remaining-resource: Microsoft.Compute/HighCostGet3Min;46
+x-ms-ratelimit-remaining-resource: Microsoft.Compute/HighCostGet30Min;0
+Retry-After: 1200
+Content-Type: application/json; charset=utf-8
+{
+  "code": "OperationNotAllowed",
+  "message": "The server rejected the request because too many requests have been received for this subscription.",
+  "details": [
+    {
+      "code": "TooManyRequests",
+      "target": "HighCostGet30Min",
+      "message": "{\"operationGroup\":\"HighCostGet30Min\",\"startTime\":\"2018-06-29T19:54:21.0914017+00:00\",\"endTime\":\"2018-06-29T20:14:21.0914017+00:00\",\"allowedRequestCount\":800,\"measuredRequestCount\":1238}"
+    }
+  ]
+}
+
+```
+
+A política com o restante de chamada de contagem de 0 é o que é devolvido o erro de limitação. Nesse caso, que é `HighCostGet30Min`. O formato geral do corpo da resposta é o formato de erro de API do Azure Resource Manager geral (compatível com o OData). O código de erro principal, `OperationNotAllowed`, é um fornecedor de recursos de computação utiliza para comunicar a limitação de erros (entre outros tipos de erros do cliente). 
+
+Conforme ilustrado acima, todos os erros de limitação incluem o `Retry-After` cabeçalho, que fornece o número mínimo de segundos, o cliente deve aguardar antes de repetir o pedido. 
+
+## <a name="best-practices"></a>Melhores práticas 
+
+- Repete incondicionalmente erros de API do serviço do Azure. É uma ocorrência comum para o código de cliente obter num loop de repetição rápida quando encontrar um erro que não é capaz de repetição. As repetições, eventualmente, irão esgotar o limite permitido de chamada para o grupo da operação de destino e afetar outros clientes da subscrição. 
+- Em casos de automatização de API de grande volume, considere a implementação proativa de cliente personalizada limitação quando a contagem de chamada disponíveis para um grupo de operação do destino cai abaixo alguns limiar inferior. 
+- Se a monitorização de operações assíncronas, respeitem as sugestões de cabeçalho Retry-After. 
+- Se o código de cliente precisa obter informações sobre uma determinada máquina Virtual, uma consulta nessa VM diretamente em vez de listagem de todas as VMs no que contém o grupo de recursos ou a subscrição completa e, em seguida, escolher a VM necessária no lado do cliente. 
+- Se o código de cliente tem de VMs, discos e instantâneos de uma localização do Azure específica, utilize o formulário com base na localização da consulta em vez de consulta de subscrição de todas as VMs e, em seguida, filtrar por localização no lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` e `/subscriptions/<subId>/providers/Microsoft.Compute/virtualMachines` consulta para computação Fornecedor regionais pontos finais do recurso. • Quando criar ou atualizar recursos da API em particular, VMs e máquina virtual de conjuntos de dimensionamento, é muito mais eficiente para controlar a operação assíncrona retornado até à conclusão que a consulta no URL de recurso em si (com base no `provisioningState`).
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Para obter mais informações sobre orientações de repetição para outros serviços do Azure, consulte [repita a orientação para serviços específicos](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)

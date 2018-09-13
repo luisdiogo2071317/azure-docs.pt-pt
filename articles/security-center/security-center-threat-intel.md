@@ -1,6 +1,6 @@
 ---
-title: Informações sobre ameaças no Centro de Segurança do Azure | Microsoft Docs
-description: Saiba como utilizar a capacidade de informações sobre ameaças no Centro de Segurança do Azure para identificar potenciais ameaças nas suas VMs e computadores.
+title: Inteligência e mapa de alerta de segurança no Centro de segurança do Azure de ameaças | Documentos da Microsoft
+description: Saiba como utilizar o secuity mapa e threat intelligence capacidade de alerta no Centro de segurança do Azure para identificar potenciais ameaças nas suas VMs e computadores.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: a3988575074708a46138b5e550bfc0014ca3bd15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293937"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714433"
 ---
-# <a name="security-alerts-map-azure-security-center"></a>Alertas de segurança mapeiam o Centro de segurança do Azure
+# <a name="security-alerts-map-and-threat-intelligence"></a>Inteligência de ameaças e mapa de alertas de segurança
 Este artigo ajuda-o a utilizar o mapa de alertas de segurança do Centro de segurança do Azure e a segurança mapa das informações sobre ameaças baseada em eventos para resolver problemas relacionados à segurança.
 
 ## <a name="how-the-security-alerts-map-works"></a>Como os alertas de segurança o mapeamento funciona
@@ -49,7 +49,8 @@ Para visualizar as ameaças atuais no seu ambiente, abra o mapa de alertas de se
 O mapa de alertas de segurança baseia-se em alertas. Estes alertas são baseados em atividades de rede à qual comunicação foi associada um endereço IP que foi resolvido com êxito, se é ou não o endereço IP é um endereço IP duvidoso conhecido (por exemplo, um cryptominer conhecido) ou um endereço IP que não é reconhecido anteriormente como perigoso. O map fornece alertas em quaisquer subscrições que selecionou anteriormente no Azure. 
 
 Os alertas no mapa são exibidos de acordo com a localização geográfica onde eles são detetados como sendo proveniente e são codificadas por gravidade. 
- 
+    ![Informações sobre ameaças](./media/security-center-threat-intel/security-center-alert-map.png)
+
 ## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visualizar o dashboard de informações sobre ameaças com base em eventos
 Para ver o mapa de inteligência de ameaças com base em eventos de segurança bruto, pode seguir este procedimento. Este mapa mostra apenas os eventos que envolvem um endereço IP que é considerado o risco, por exemplo um endereço IP de um botnet conhecido.
 

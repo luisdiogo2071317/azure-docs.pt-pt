@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 4c5bb0ab3431fa951871e64d7bdd8a3a313f480f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842028"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721505"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -104,8 +104,8 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 |[Conjuntos elásticos - Get](/rest/api/sql/elasticpools/get)|Obtém um conjunto elástico.|
 |[Conjuntos elásticos - lista por servidor](/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
 |[Conjuntos elásticos - atualização](/rest/api/sql/elasticpools/update)|Atualiza um conjunto elástico existente.|
-|[Atividades do conjunto elástico](/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
-|[Atividades de base de dados do conjunto elástico](/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
+|[Atividades de conjunto elástico](/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
+|[Conjunto elástico da base de dados de atividades](/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
 |[Bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
 |[Bases de dados - Get](/rest/api/sql/databases/get)|Obtém uma base de dados.|
 |[Bases de dados - lista por conjunto elástico](/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|

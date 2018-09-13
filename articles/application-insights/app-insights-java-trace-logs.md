@@ -1,5 +1,5 @@
 ---
-title: Explorar Java registos de rastreio no Azure Application Insights | Microsoft Docs
+title: Explore Java registos de rastreio no Application Insights do Azure | Documentos da Microsoft
 description: Rastreios de pesquisa Log4J ou Logback no Application Insights
 services: application-insights
 documentationcenter: java
@@ -10,27 +10,28 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: fae3269e21d0f760ae77a70333047306c07c2961
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 57c57f481138c6592056900fd5b002949006a37e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647098"
 ---
-# <a name="explore-java-trace-logs-in-application-insights"></a>Explorar Java registos de rastreio no Application Insights
-Se estiver a utilizar Logback ou Log4J (v1.2 ou v 2.0) para o rastreio, pode fazer com que os registos de rastreio automaticamente enviados para o Application Insights, onde pode explorar e procurar nos mesmos.
+# <a name="explore-java-trace-logs-in-application-insights"></a>Explore Java registos de rastreio no Application Insights
+Se estiver a utilizar Logback ou Log4J (versão 1.2 ou 2.0) para o rastreio, pode ter os registos de rastreio enviados automaticamente para o Application Insights, onde pode explorar e pesquisar nos mesmos.
 
 ## <a name="install-the-java-sdk"></a>Instalar o Java SDK
 
-Siga as instruções para instalar [Application Insights SDK para Java][java], se ainda não o tiver feito que.
+Siga as instruções para instalar [Application Insights SDK para Java][java], se ainda não fez que.
 
-## <a name="add-logging-libraries-to-your-project"></a>Adicionar bibliotecas de registo ao seu projeto
+## <a name="add-logging-libraries-to-your-project"></a>Adicionar bibliotecas de Registro em log ao seu projeto
 *Escolha a forma adequada para o seu projeto.*
 
 #### <a name="if-youre-using-maven"></a>Se estiver a utilizar Maven...
-Se o seu projeto já está configurado para utilizar Maven para a compilação, intercale um os fragmentos de código seguintes no ficheiro pom.xml.
+Se o seu projeto já está configurado para utilizar Maven para a compilação, intercale um dos seguintes fragmentos de código o ficheiro pom. XML.
 
 Em seguida, Atualize as dependências do projeto, para obter os binários transferidos.
 
@@ -74,7 +75,7 @@ Em seguida, Atualize as dependências do projeto, para obter os binários transf
 ```
 
 #### <a name="if-youre-using-gradle"></a>Se estiver a utilizar Gradle...
-Se o seu projeto já está configurado para utilizar Gradle para a compilação, uma das seguintes linhas ao adicionar o `dependencies` grupo no seu ficheiro gradle:
+Se o seu projeto já está configurado para utilizar Gradle para a compilação, uma das seguintes linhas ao adicionar o `dependencies` grupo no seu ficheiro de gradle:
 
 Em seguida, Atualize as dependências do projeto, para obter os binários transferidos.
 
@@ -98,13 +99,13 @@ Em seguida, Atualize as dependências do projeto, para obter os binários transf
 ```
 
 #### <a name="otherwise-"></a>Caso contrário...
-Siga as diretrizes para instalar Application Insights SDK de Java manualmente, transfira o jar (após ariving página Central Maven clique na ligação 'jar' na secção de transferência) para appender adequado e adicionar o jar appender transferido para o projeto.
+Siga as orientações para instalar o SDK de Java do Application Insights manualmente, transferir jar (depois de ariving na página da Central Maven clique no link de "jar" na seção download) para appender apropriado e adicionar jar appender transferido para o projeto.
 
 | Logger | Transferência | Biblioteca |
 | --- | --- | --- |
 | Logback |[Logback appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
-| Log4j v1.2 |[Log4J v1.2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+| Log4j v1.2 |[Log4J versão 1.2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Adicionar o appender à sua arquitetura de registo
@@ -151,14 +152,14 @@ Para iniciar a obtenção de rastreios, intercale o fragmento de código para o 
     </root>
 ```
 
-Os appenders Application Insights podem ser referenciadas por qualquer registo configurado e não necessariamente pelo registo de raiz (conforme ilustrado nos exemplos de código acima).
+Os appenders do Application Insights podem ser referenciadas por qualquer logger configurado e não necessariamente pelo agente a raiz (conforme mostrado nos exemplos de código acima).
 
-## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explorar os rastreios no portal do Application Insights
-Agora que configurou o seu projeto para enviar os rastreios ao Application Insights, pode ver e procurar estes rastreios no portal do Application Insights, o [pesquisa] [ diagnostic] painel.
+## <a name="explore-your-traces-in-the-application-insights-portal"></a>Prozkoumat trasování no portal do Application Insights
+Agora que configurou o seu projeto para enviar os rastreios para o Application Insights, pode ver e procurar estes rastreios no portal do Application Insights, o [pesquisa] [ diagnostic] painel.
 
-Exceções submeteu através de registadores será apresentado no portal como telemetria de exceção.
+Submetida de exceções por meio de agentes será apresentada no portal como telemetria de exceção.
 
-![No portal do Application Insights, abra pesquisa](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![No portal do Application Insights, abrir a pesquisa](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Pesquisa de diagnóstico][diagnostic]

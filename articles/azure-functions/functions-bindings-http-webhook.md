@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eef84e8c5fb67faef99beec934f29e55365ce811
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095118"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715963"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções HTTP e webhook do Azure
 
-Este artigo explica como trabalhar com associações HTTP nas funções do Azure. Acionadores HTTP suporta funções do Azure e enlaces de saída.
+Este artigo explica como trabalhar com acionadores HTTP e enlaces de saída nas funções do Azure. Acionadores HTTP suporta funções do Azure e enlaces de saída.
 
 Um acionador HTTP pode ser personalizado para responder às [webhooks](https://en.wikipedia.org/wiki/Webhook). Um acionador de webhook aceita apenas um payload JSON e valida o JSON. Existem versões especiais do acionador de webhook que seja mais fácil lidar com webhooks de alguns fornecedores, como o GitHub e Slack.
 
@@ -276,7 +276,7 @@ module.exports = function(context, req) {
 
 ### <a name="trigger---java-example"></a>Acionador - exemplo de Java
 
-O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função Java](functions-reference-java.md) que utiliza o enlace. A função devolve uma resposta de código de 200 de estado HTTP com o corpo de arequest que prefixos o corpo do pedido acionadora com um "Olá","greeting.
+O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função Java](functions-reference-java.md) que utiliza o enlace. A função devolve uma resposta de código de 200 de estado HTTP com um corpo de pedido que prefixos o corpo do pedido acionadora com um "Olá","greeting.
 
 
 Aqui está o *Function* ficheiro:
@@ -504,7 +504,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-Para funções c# e F #, pode declarar o tipo de Acionador de entrada de ser um `HttpRequestMessage` ou um tipo personalizado. Se escolher `HttpRequestMessage`, obtém acesso total para o objeto de solicitação. Para um tipo personalizado, as funções tenta analisar o corpo do pedido JSON para definir as propriedades do objeto. 
+Para funções c# e F #, pode declarar o tipo de Acionador de entrada de ser um `HttpRequestMessage` ou um tipo personalizado. Se escolher `HttpRequestMessage`, obtém acesso total para o objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo do pedido JSON para definir as propriedades do objeto.
 
 Para funções de JavaScript, o runtime das funções fornece o corpo do pedido em vez do objeto de solicitação. Para obter mais informações, consulte a [exemplo de Acionador de JavaScript](#trigger---javascript-example).
 
@@ -603,45 +603,68 @@ Por predefinição, todas as rotas de função têm o prefixo *api*. Também pod
 
 ### <a name="authorization-keys"></a>Chaves de autorização
 
-Acionadores HTTP permitem-lhe utilizar as chaves para maior segurança. Um acionador HTTP padrão pode utilizá-los como uma chave de API, que requerem a chave de estar presente no pedido. Webhooks pode utilizar as chaves para autorizar os pedidos de diversas formas, consoante o que o fornecedor suporta.
+As funções permite-lhe utilizar as chaves para que seja mais difícil acessar os pontos finais de função HTTP durante o desenvolvimento.  Um acionador HTTP padrão pode exigir que uma chave de API de estar presente no pedido. Webhooks pode utilizar as chaves para autorizar os pedidos de diversas formas, consoante o que o fornecedor suporta.
 
-> [!NOTE]
-> Ao executar as funções localmente, a autorização está desabilitada quer o `authLevel` definido no `function.json`. Assim que publicar no funções do Azure, o `authLevel` entra em vigor imediatamente.
-
-As chaves são encriptadas em inatividade e são armazenadas como parte da sua aplicação de função no Azure. Para ver as suas chaves, criar novos, ou distribuir as chaves para novos valores, navegue para uma das suas funções no portal e selecione "Gerir". 
+> [!IMPORTANT]
+> Embora as chaves podem ajudar a ofuscar os pontos finais HTTP durante o desenvolvimento, estas não recomendações pretendem como uma forma de proteger um acionador HTTP na produção. Para obter mais informações, consulte [proteger um ponto de final HTTP na produção](#secure-an-http-endpoint-in-production).
 
 Existem dois tipos de chaves:
 
-- **Das chaves de anfitrião**: estas chaves são partilhadas por todas as funções dentro da aplicação de função. Quando utilizado como uma chave de API, elas permitem o acesso a qualquer função dentro da aplicação de função.
-- **Chaves de função**: estas chaves são aplicadas apenas a funções específicas, sob a qual são definidas. Quando utilizado como uma chave de API, estes apenas permitem o acesso a essa função.
+* **Das chaves de anfitrião**: estas chaves são partilhadas por todas as funções dentro da aplicação de função. Quando utilizado como uma chave de API, elas permitem o acesso a qualquer função dentro da aplicação de função.
+* **Chaves de função**: estas chaves são aplicadas apenas a funções específicas, sob a qual são definidas. Quando utilizado como uma chave de API, estes apenas permitem o acesso a essa função.
 
 Cada chave é chamado para referência e há uma chave de padrão (denominada "predefinido") ao nível da função e o anfitrião. Teclas de função têm precedência sobre as chaves de anfitrião. Quando duas chaves forem definidas com o mesmo nome, a tecla de função é sempre usada.
 
-O **chave mestra** é uma chave de anfitrião predefinido com o nome "_master" que está definido para cada aplicação de função. Esta chave não pode ser revogada. Ele fornece acesso administrativo para o tempo de execução APIs. Usando `"authLevel": "admin"` na ligação exigida pela JSON esta chave a serem apresentados na solicitação; qualquer outra chave resulta numa falha de autorização.
+Cada aplicação de função também tem um especial **chave mestra**. Esta chave é uma chave de anfitrião com o nome `_master`, que fornece acesso administrativo para o tempo de execução APIs. Esta chave não pode ser revogada. Quando define uma autorização ao nível de `admin`, pedidos têm de utilizar a chave mestra; qualquer outra chave resulta numa falha de autorização.
 
-> [!IMPORTANT]  
-> Devido a permissões elevadas concedidas pela chave mestra, não deve partilhar esta chave com terceiros ou distribuí-la em aplicativos de cliente nativo. Tenha cuidado ao escolher o nível de autorização de administrador.
+> [!CAUTION]  
+> Devido a permissões elevadas na sua aplicação de função concedidas pela chave mestra, não deve partilhar esta chave com terceiros ou distribuí-la em aplicativos de cliente nativo. Tenha cuidado ao escolher o nível de autorização de administrador.
+
+### <a name="obtaining-keys"></a>Obter chaves
+
+As chaves são encriptadas em inatividade e são armazenadas como parte da sua aplicação de função no Azure. Para ver as suas chaves, criar novos, ou distribuir as chaves para novos valores, navegue para uma das suas funções acionada por HTTP no [portal do Azure](https://portal.azure.com) e selecione **gerir**.
+
+![Gerir chaves de função no portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+Para obter programaticamente teclas de função, não há nenhuma API suportada.
 
 ### <a name="api-key-authorization"></a>Autorização da chave de API
 
-Por padrão, um acionador HTTP exige uma chave de API na solicitação HTTP. Portanto, o seu pedido HTTP normalmente é semelhante ao seguinte:
+A maioria dos modelos de Acionador HTTP requerem uma chave de API no pedido. Portanto, o seu pedido HTTP normalmente é parecido com o seguinte URL:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-A chave pode ser incluída numa variável de cadeia de caracteres de consulta nomeada `code`, como anteriormente, ou pode ser incluído num `x-functions-key` cabeçalho de HTTP. O valor da chave pode ser qualquer tecla de função definido para a função, ou qualquer chave de anfitrião.
+A chave pode ser incluída numa variável de cadeia de caracteres de consulta com o nome `code`, como anteriormente. Também pode ser incluído num `x-functions-key` cabeçalho de HTTP. O valor da chave pode ser qualquer tecla de função definido para a função, ou qualquer chave de anfitrião.
 
 Pode permitir pedidos anónimos, que não necessitam de chaves. Também pode exigir que a chave mestra de ser utilizada. Alterar o nível de autorização predefinido utilizando o `authLevel` propriedade no vínculo da JSON. Para obter mais informações, consulte [acionador - configuração](#trigger---configuration).
 
+> [!NOTE]
+> Ao executar as funções localmente, a autorização está desativada, independentemente da definição de nível de autenticação especificado. Após a publicação para o Azure, o `authLevel` é imposta a definição no seu acionador.
+
 ### <a name="keys-and-webhooks"></a>As chaves e webhooks
 
-Autorização de Webhook é processada pelo componente de destinatário do webhook, parte do acionador HTTP, e o mecanismo varia consoante o tipo de webhook. Faz de cada mecanismo de, no entanto contam com uma chave. Por predefinição, é utilizada a tecla de função com o nome "predefinição". Para utilizar uma chave diferente, configure o fornecedor de webhook para enviar o nome da chave com o pedido de uma das seguintes formas:
+Autorização de Webhook é processada pelo componente de destinatário do webhook, parte do acionador HTTP, e o mecanismo varia consoante o tipo de webhook. Cada mecanismo de contar com uma chave. Por predefinição, é utilizada a tecla de função com o nome "predefinição". Para utilizar uma chave diferente, configure o fornecedor de webhook para enviar o nome da chave com o pedido de uma das seguintes formas:
 
-- **Cadeia de consulta**: O fornecedor transmite o nome da chave no `clientid` consulta, como o parâmetro de cadeia de caracteres, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-- **Cabeçalho do pedido**: O fornecedor transmite o nome da chave no `x-functions-clientid` cabeçalho.
+* **Cadeia de consulta**: O fornecedor transmite o nome da chave no `clientid` consulta, como o parâmetro de cadeia de caracteres, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Cabeçalho do pedido**: O fornecedor transmite o nome da chave no `x-functions-clientid` cabeçalho.
+
+Para obter um exemplo de um webhook, protegido por uma chave, consulte [criar uma função acionada por um webhook do GitHub](functions-create-github-webhook-triggered-function.md).
+
+### <a name="secure-an-http-endpoint-in-production"></a>Proteger um ponto de final HTTP na produção
+
+Para proteger completamente seus pontos de extremidade de função na produção, deve considerar a implementação de uma das seguintes opções de segurança ao nível da aplicação de função:
+
+* Ative a autorização/autenticação de serviço de aplicações para a sua aplicação de função. A plataforma de serviço de aplicações permite utilizar o Azure Active Directory (AAD), autenticação do principal de serviço e fornecedores de identidade de terceiros fidedigna para autenticar os utilizadores. Com esta funcionalidade ativada, somente os usuários autenticados podem aceder a sua aplicação de funções. Para obter mais informações, consulte [configurar a aplicação de serviço de aplicações para utilizar o início de sessão do Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+* Utilize a gestão de API do Azure (APIM) para autenticar pedidos. APIM fornece uma variedade de opções de segurança de API para pedidos recebidos. Para obter mais informações, consulte [políticas de autenticação de gestão de API](../api-management/api-management-authentication-policies.md). Com APIM no local, pode configurar a aplicação de funções para aceitar pedidos apenas a partir do endereço de instalador de plataforma da sua instância APIM. Para obter mais informações, consulte [restrições de endereço IP](ip-addresses.md#ip-address-restrictions).
+
+* Implemente a sua aplicação de função para um ambiente de serviço do Azure aplicações (ASE). ASE fornece um ambiente de alojamento dedicado para executar as suas funções. ASE permite-lhe configurar um único gateway de front-end que pode utilizar para autenticar a todos os pedidos recebidos. Para obter mais informações, consulte [configurar uma Firewall de aplicações Web (WAF) para o ambiente de serviço de aplicações](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+
+Quando utilizar um dos seguintes métodos de segurança ao nível da aplicação de função, deve definir a autenticação de função acionada por HTTP para `anonymous`.
 
 ## <a name="trigger---limits"></a>Acionador - limites
 
-O comprimento do pedido HTTP está limitado a 100MB (104,857,600 bytes) e o comprimento de URL está limitado a 4KB (4,096 bytes). Estes limites são especificados pela `httpRuntime` elemento do tempo de execução [arquivo Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+O comprimento do pedido HTTP está limitado a 100 MB (104,857,600 bytes) e o comprimento de URL está limitado a 4 KB (4,096 bytes). Estes limites são especificados pela `httpRuntime` elemento do tempo de execução [arquivo Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 Se uma função que usa o acionador HTTP não concluída no prazo de cerca de 2,5 minutos, o tempo limite do gateway irá e devolver um erro de HTTP 502. A função vai continuar em execução, mas será possível devolver uma resposta HTTP. Para as funções de execução longa, recomendamos que siga os padrões do async e devolver uma localização onde pode efetuar o ping do Estado do pedido. Para obter informações sobre o tempo que pode executar uma função, veja [plano de consumo de dimensionamento e alojamento -](functions-scale.md#consumption-plan). 
 
@@ -657,7 +680,7 @@ Utilize a enlace de responder para o remetente de pedido HTTP de saída HTTP. Es
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro. Para a classe c# há bibliotecas são sem propriedades de atributo que correspondam a estas *Function* propriedades. 
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro. Para c# bibliotecas de classe, não há atributo propriedades que correspondem para cada uma delas *Function* propriedades. 
 
 |Propriedade  |Descrição  |
 |---------|---------|

@@ -11,16 +11,16 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: cópias de segurança; cópia de segurança de VM
-ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398894"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717918"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer cópias de segurança de máquinas virtuais do Azure para cofre dos serviços de recuperação
 
-Este artigo explica como para configurar a proteção para uma máquina virtual a partir do menu de operações de máquinas virtuais ou serviços de recuperação do cofre. Os cofres dos Serviços de Recuperação protegem:
+Este artigo explica como configurar a proteção para uma máquina virtual a partir do menu de operações de máquinas virtuais ou o Cofre dos serviços de recuperação. Os cofres dos Serviços de Recuperação protegem:
 
 * VMs implementadas pelo Azure Resource Manager
 * VMs clássicas

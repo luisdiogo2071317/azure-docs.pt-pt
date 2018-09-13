@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 748489785241c0eab6022e3585164974f330d6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049678"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717153"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para a instância gerida de base de dados SQL do Azure
 
@@ -38,31 +38,31 @@ Planeie como implementar uma instância gerida na rede virtual com as suas respo
 
 ## <a name="requirements"></a>Requisitos
 
-Para a criação de instância gerida terá de dedicar uma sub-rede dentro da VNet que está em conformidade com os seguintes requisitos:
-- **Dedicado sub-rede**: A sub-rede não pode conter qualquer outro serviço cloud associado a si, e não tem de ser sub-rede do Gateway. Não será possível criar a instância gerida na sub-rede que contém os recursos que não seja a instância gerida ou adicionar outros recursos dentro da sub-rede mais tarde.
-- **Nenhum NSG**: A sub-rede não tem de ter um grupo de segurança de rede associados a ele. 
-- **Tem a tabela de rotas específicas**: A sub-rede tem de ter uma tabela de rota de utilizador (UDR) com Internet de salto seguinte 0.0.0.0/0 como o único caminho atribuído ao mesmo. Para obter mais informações, consulte [criar a tabela de rotas necessárias e associá-la](#create-the-required-route-table-and-associate-it)
-3. **DNS personalizado opcional**: se o DNS personalizado é especificado na VNet, endereço IP de resoluções de recursiva do Azure (por exemplo, 168.63.129.16) tem de ser adicionado à lista. Para obter mais informações, consulte [configurar o DNS de personalizado](sql-database-managed-instance-custom-dns.md).
-4. **Não existem pontos finais de serviço**: A sub-rede não tem de ter um ponto de extremidade de serviço associado a si. Certifique-se de que a opção de pontos finais de serviço é desativada durante a criação de VNet.
-5. **Endereços IP suficientes**: A sub-rede tem de ter o mínimo de 16 endereços IP (recomendado mínimo é de 32 endereços IP). Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias geridas](#determine-the-size-of-subnet-for-managed-instances)
+Para criar uma instância gerida, crie uma sub-rede dedicada (sub-rede da instância gerida) dentro da rede virtual que está em conformidade com os seguintes requisitos:
+- **Dedicado sub-rede**: sub-rede a instância gerida não pode conter qualquer outro serviço de cloud associado à mesma, e não tem de ser uma sub-rede de Gateway. Não será possível criar uma instância gerida numa sub-rede que contém os recursos que não seja a instância gerida e, posteriormente, pode não adicionar outros recursos na sub-rede.
+- **Grupo de segurança de rede compatível (NSG)**: um NSG associado a uma sub-rede de instância gerida tem de conter regras mostradas nas tabelas seguintes (regras de segurança de entrada obrigatória e regras de segurança de saída obrigatórios) à frente de quaisquer outras regras. Pode utilizar um NSG para controlar totalmente o acesso para o ponto final de dados de instância gerida ao filtrar o tráfego na porta 1433. 
+- **Tabela de compatíveis rota definida pelo utilizador (UDR)**: sub-rede a instância gerida tem de ter uma tabela de rotas de utilizador com **Internet de salto seguinte 0.0.0.0/0** como o UDR obrigatório atribuído ao mesmo. Além disso, pode adicionar um UDR que encaminha o tráfego que tem intervalos de IP privados no local como um destino através do gateway de rede virtual ou a aplicação de rede virtual (NVA). 
+- **DNS personalizado opcional**: Se não for especificado um DNS personalizado no thevirtual netword, endereço IP de resolução de recursiva do Azure (por exemplo, 168.63.129.16) tem de ser adicionado à lista. Para obter mais informações, consulte [configurar o DNS de personalizado](sql-database-managed-instance-custom-dns.md). O servidor DNS personalizado tem de ser capaz de resolver nomes de anfitriões para os seguintes domínios e os respetivos subdomínios: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, e *microsoftonline-p.com*. 
+- **Não existem pontos finais de serviço**: sub-rede a instância gerida não pode ter um ponto de extremidade de serviço associado a si. Certifique-se de que a opção de pontos finais de serviço é desativada quando criar a rede virtual.
+- **Endereços IP suficientes**: sub-rede a instância gerida tem de ter o mínimo de 16 endereços IP (recomendado mínimo é de 32 endereços IP). Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias geridas](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
-> Não poderá implementar a nova instância gerida, se a sub-rede de destino não é compatível com todos os requisitos anteriores. O Vnet de destino e a sub-rede devem ser mantidos em conformidade com esses requisitos de instância gerida (antes e depois da implantação), como qualquer violação pode fazer com que a instância para entrar em estado com falhas e fique indisponível. Recuperar a partir de que estado requer a criação de nova instância numa VNet com as políticas de rede em conformidade, recriar os dados de nível de instância e restaurar as bases de dados. Isto apresenta o período de indisponibilidade significativo para as suas aplicações.
+> Não será capaz de implantar uma nova instância gerida, se a sub-rede de destino não é compatível com todos esses requisitos. Quando é criada uma instância gerida, uma *política de intenção de rede* é aplicado na sub-rede para impedir alterações não conformes para configuração de rede. Após a última instância é removida a partir da sub-rede, o *política de intenção de rede* é removido também
 
-Com a introdução de _política de intenção de rede_, pode adicionar um grupo de segurança de rede (NSG) numa sub-rede de instância gerida depois da instância gerida é criada.
-
-Agora, pode utilizar um NSG para restringir os intervalos IP a partir do qual aplicativos e os utilizadores podem consultar e gerir os dados ao filtrar o tráfego de rede que vai para a porta 1433. 
-
-> [!IMPORTANT]
-> Quando estiver a configurar as regras do NSG que serão restrain acesso à porta 1433, terá também de inserir a prioridade mais alta que as regras de entrada apresentadas na tabela abaixo. Política de intenção de rede; caso contrário, bloqueia a alteração como não conforme.
+### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatório 
 
 | NOME       |PORTA                        |PROTOCOLO|SOURCE           |DESTINO|AÇÃO|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gestão  |9000, 9003, 1438, 1440, 1452|Qualquer     |Qualquer              |Qualquer        |Permitir |
+|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |Qualquer        |Permitir |
 |health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |Permitir |
 
-Também foi melhorada a experiência de encaminhamento para que, além de 0.0.0.0/0 tipo de próximo salto rota de Internet, agora pode adicionar o UDR para encaminhar o tráfego para os intervalos de IP privados no local através do gateway de rede virtual ou a aplicação de rede virtual (NVA).
+### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórios 
+
+| NOME       |PORTA          |PROTOCOLO|SOURCE           |DESTINO|AÇÃO|
+|------------|--------------|--------|-----------------|-----------|------|
+|gestão  |80, 443, 12000|TCP     |Qualquer              |Qualquer        |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI  |Permitir |
 
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Determinar o tamanho da sub-rede para instâncias geridas
 
