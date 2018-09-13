@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e66f9a0f22103c01e947c028a5c8355cb4d0e15
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dc362dba62e8fd41b33e10368483577d8166f300
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095577"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722338"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -2418,30 +2418,30 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.KeyVault/checkNameAvailability/read | Verifica se um nome de cofre de chaves é válido e se não está em utilização |
-> | Ação | Microsoft.KeyVault/deletedVaults/read | Visualizar as propriedades dos cofres de chaves eliminados de forma recuperável |
+> | Ação | Microsoft.KeyVault/checkNameAvailability/read | Verifica se um nome de Cofre de chaves é válido e não está em utilização |
+> | Ação | Microsoft.KeyVault/deletedVaults/read | Ver as propriedades de forma recuperável cofres de chaves eliminados |
 > | Ação | Microsoft.KeyVault/hsmPools/delete | Eliminar um conjunto de HSM |
-> | Ação | Microsoft.KeyVault/hsmPools/joinVault/action | Associar um cofre de chaves a um conjunto de HSM |
-> | Ação | Microsoft.KeyVault/hsmPools/read | Visualizar as propriedades de um conjunto HSM |
-> | Ação | Microsoft.KeyVault/hsmPools/write | Criar um novo conjunto de HSM de atualização das propriedades de um conjunto de HSM existente |
-> | Ação | Microsoft.KeyVault/locations/deletedVaults/purge/action | Remover um cofre de chaves eliminado de forma recuperável |
-> | Ação | Microsoft.KeyVault/locations/deletedVaults/read | Visualizar as propriedades de um cofre de chaves eliminado de forma recuperável |
-> | Ação | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Notifica o Microsoft.KeyVault de que uma rede virtual ou sub-rede está a ser eliminada |
+> | Ação | Microsoft.KeyVault/hsmPools/joinVault/action | Junte-se a um cofre de chaves para um conjunto de HSM |
+> | Ação | Microsoft.KeyVault/hsmPools/read | Ver as propriedades de um conjunto de HSM |
+> | Ação | Microsoft.KeyVault/hsmPools/write | Criar um novo conjunto HSM de atualização as propriedades de um conjunto HSM existente |
+> | Ação | Microsoft.KeyVault/locations/deletedVaults/purge/action | Remover um cofre de chaves eliminado forma recuperável |
+> | Ação | Microsoft.KeyVault/locations/deletedVaults/read | Ver as propriedades de um cofre de chaves eliminado forma recuperável |
+> | Ação | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Notifica o Microsoft. keyvault de que uma rede virtual ou sub-rede está a ser eliminada |
 > | Ação | Microsoft.KeyVault/locations/operationResults/read | Verificar o resultado de uma operação de execução longa |
-> | Ação | Microsoft.KeyVault/operations/read | Lista as operações disponíveis no fornecedor de recursos Microsoft.KeyVault |
+> | Ação | Microsoft.KeyVault/operations/read | Lista as operações disponíveis no fornecedor de recursos Microsoft. keyvault |
 > | Ação | Microsoft.KeyVault/register/action | Regista uma subscrição |
-> | Ação | Microsoft.KeyVault/unregister/action | Cancela o registo de uma subscrição |
-> | Ação | Microsoft.KeyVault/vaults/accessPolicies/write | Atualize uma política de acesso existente através da intercalação ou substituição, ou adicione uma nova política de acesso ao cofre. |
+> | Ação | Microsoft.KeyVault/unregister/action | Anula o registo de uma subscrição |
+> | Ação | Microsoft.KeyVault/vaults/accessPolicies/write | Atualizar uma política de acesso existente através da intercalação ou substituição ou adicionar uma nova política de acesso para um cofre. |
 > | Ação | Microsoft.KeyVault/vaults/delete | Eliminar um cofre de chaves |
-> | Ação | Microsoft.KeyVault/vaults/deploy/action | Permite o acesso a segredos num cofre de chaves ao implementar os recursos do Azure |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Obtém a definição de diagnóstico do recurso |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Cria ou atualiza a definição do diagnóstico para o recurso |
+> | Ação | Microsoft.KeyVault/vaults/deploy/action | Permite o acesso a segredos num cofre de chaves durante a implantação de recursos do Azure |
+> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Obtém a definição de diagnóstico para o recurso |
+> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Cria ou atualiza a definição de diagnóstico para o recurso |
 > | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para um cofre de chaves |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis de um cofre de chaves |
+> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para um cofre de chaves |
 > | Ação | Microsoft.KeyVault/vaults/read | Ver as propriedades de um cofre de chaves |
 > | Ação | Microsoft.KeyVault/vaults/secrets/read | Ver as propriedades de um segredo, mas não o seu valor |
-> | Ação | Microsoft.KeyVault/vaults/secrets/write | Crie um novo segredo ou atualize o valor de um segredo existente |
-> | Ação | Microsoft.KeyVault/vaults/write | Criar um novo cofre de chaves ou atualizar as propriedades de um cofre de chaves existente |
+> | Ação | Microsoft.KeyVault/vaults/secrets/write | Criar um novo segredo ou Atualize o valor de um segredo existente |
+> | Ação | Microsoft.KeyVault/vaults/write | Criar um novo cofre de chaves ou atualizar as propriedades do Cofre de chaves existente |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -2456,7 +2456,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Kusto/Clusters/Databases/write | Escreve um recurso de base de dados. |
 > | Ação | Microsoft.Kusto/Clusters/delete | Elimina um recurso de cluster. |
 > | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/read | Obtém as definições de diagnóstico para o recurso |
-> | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
+> | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
 > | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/metricDefinitions/read | Obtém as definições de métrica do recurso |
 > | Ação | Microsoft.Kusto/Clusters/read | Lê um recurso de cluster. |
 > | Ação | Microsoft.Kusto/Clusters/write | Escreve um recurso de cluster. |
@@ -4455,7 +4455,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Sql/managedInstances/delete | Elimina uma instância gerida existente. |
 > | Ação | Microsoft.Sql/managedInstances/encryptionProtector/read | Devolve uma lista de protetores de encriptação do servidor ou obtém as propriedades para o servidor especificado protetor de encriptação. |
 > | Ação | Microsoft.Sql/managedInstances/encryptionProtector/write | Atualize as propriedades para o Protetor de encriptação de servidor especificado. |
-> | Ação | Microsoft.Sql/managedInstances/keys/delete | Elimina uma chave de instância gerida do SQL do Azure existente. |
+> | Ação | Microsoft.Sql/managedInstances/keys/delete | Elimina uma chave de instância gerida da base de dados SQL do Azure existente. |
 > | Ação | Microsoft.Sql/managedInstances/keys/read | Devolve a lista de instância gerida de chaves ou obtém as propriedades da chave de instância gerida especificada. |
 > | Ação | Microsoft.Sql/managedInstances/keys/write | Cria uma chave com os parâmetros especificados ou atualiza as propriedades ou etiquetas para a chave de instância gerida especificada. |
 > | Ação | Microsoft.Sql/managedInstances/metricDefinitions/read | Obter definições das métricas de instância gerida |
