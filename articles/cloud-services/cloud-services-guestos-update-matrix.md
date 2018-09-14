@@ -3,7 +3,7 @@ title: Saiba mais sobre as mais recentes versões do SO de convidado do Azure | 
 description: As últimas notícias de lançamento e a compatibilidade SDK para o SO convidado do Azure Cloud Services.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: RichardScheel
 manager: timlt
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
-ms.author: raiye
-ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.date: 9/12/2018
+ms.author: RichardScheel
+ms.openlocfilehash: 8d49742e90e09a8836309db165b07074645df00a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524863"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576175"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -36,13 +36,16 @@ Fornece a que com informações atualizadas sobre o SO convidado do Azure mais r
 >
 
 > [!IMPORTANT]
-> A partir da implementação de Novembro, apenas as versões mais recentes de 2 do sistema operacional convidado será suportada e está disponível no portal do Azure.
+> Apenas as versões mais recentes de 2 do sistema operacional convidado será suportada e está disponível no portal do Azure.
 >
 >
 
 Não sabe sobre como atualizar o SO convidado? Verifique [isso] [ cloud updates] horizontalmente.
 
 ## <a name="news-updates"></a>Notícias sobre atualizações
+
+###### <a name="september-12-2018"></a>**12 de Setembro de 2018**
+Lançou o SO de convidado de Agosto.
 
 ###### <a name="august-3-2018"></a>**3 de Agosto de 2018**
 Lançou o SO de convidado de Julho.
@@ -86,23 +89,22 @@ SO de convidado de Outubro já lançada.
 .NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> As datas com um * estão sujeitas a alterações.
->
 > A palavra-passe de RDP para 5 da família de SO tem de ser um mínimo de 10 caracteres.
 >
 
-| Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
-| --- | --- | --- | --- |
-| WA-CONVIDADO-SO-5.21_201807-02 |3 de Agosto de 2018 |Post 5.23 |TBD |
-| WA-CONVIDADO-SO-5.20_201806-01 |3 de julho de 2018 |Post 5.22 |TBD |
-|~~WA-CONVIDADO-SO-5.19_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |TBD |
-|~~WA-CONVIDADO-SO-5.18_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-CONVIDADO-SO-5.17_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018|TBD |
-|~~WA-CONVIDADO-SO-5.16_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
-|~~WA-GUEST-OS-5.15_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
-|~~WA-GUEST-OS-5.14_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
-|~~WA-GUEST-OS-5.13_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018|TBD |
-|~~WA-GUEST-OS-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
+| Cadeia de configuração | Data da versão | Desativar data |
+| --- | --- | --- |
+| WA-CONVIDADO-SO-5.22_201808-01 |12 de Setembro de 2018 |Post 5.24 |
+| WA-CONVIDADO-SO-5.21_201807-02 |3 de Agosto de 2018 |Post 5.23 |
+|~~WA-CONVIDADO-SO-5.20_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
+|~~WA-CONVIDADO-SO-5.19_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
+|~~WA-CONVIDADO-SO-5.18_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
+|~~WA-CONVIDADO-SO-5.17_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018|
+|~~WA-CONVIDADO-SO-5.16_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |
+|~~WA-GUEST-OS-5.15_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |
+|~~WA-GUEST-OS-5.13_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018|
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
 
 
 ## <a name="family-4-releases"></a>Versões de família 4
@@ -110,23 +112,19 @@ SO de convidado de Outubro já lançada.
 
 .NET framework instalado: 4.0 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> As datas com um * estão sujeitos à mudança
->
->
-
-| Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
-| --- | --- | --- | --- |
-| WA-CONVIDADO-SO-4.56_201807-02 |3 de Agosto de 2018 |Post 4.58 |TBD |
-| WA-CONVIDADO-SO-4.55_201806-01 |3 de julho de 2018 |Post 4.57 |TBD |
-|~~WA-CONVIDADO-SO-4.54_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |TBD |
-|~~WA-CONVIDADO-SO-4.53_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-CONVIDADO-SO-4.52_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
-|~~WA-CONVIDADO-SO-4.51_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
-|~~WA-GUEST-OS-4.50_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
-|~~WA-GUEST-OS-4.49_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
-|~~WA-GUEST-OS-4.48_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
+| Cadeia de configuração | Data da versão | Desativar data |
+| --- | --- | --- |
+| WA-CONVIDADO-SO-4.57_201808-01 |12 de Setembro de 2018 |Post 4.59 |
+| WA-CONVIDADO-SO-4.56_201807-02 |3 de Agosto de 2018 |Post 4.58 |
+|~~WA-CONVIDADO-SO-4.55_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
+|~~WA-CONVIDADO-SO-4.54_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
+|~~WA-CONVIDADO-SO-4.53_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
+|~~WA-CONVIDADO-SO-4.52_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |
+|~~WA-CONVIDADO-SO-4.51_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |
+|~~WA-GUEST-OS-4.50_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |
+|~~WA-GUEST-OS-4.48_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018 |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
 
 
 ## <a name="family-3-releases"></a>Versões da família 3
@@ -134,23 +132,19 @@ SO de convidado de Outubro já lançada.
 
 .NET framework instalado: 4.0 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> As datas com um * estão sujeitos à mudança
->
->
-
-| Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
-| --- | --- | --- | --- |
-| WA-CONVIDADO-SO-3.63_201807-02 |3 de Agosto de 2018 |Post 3.65 |TBD |
-| WA-CONVIDADO-SO-3.62_201806-01 |3 de julho de 2018 |Post 3.64 |TBD |
-|~~WA-CONVIDADO-SO-3.61_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |TBD |
-|~~WA-CONVIDADO-SO-3.60_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-CONVIDADO-SO-3.59_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
-|~~WA-CONVIDADO-SO-3.58_201802-01~~ |19 de Março de 2018 |4 de Maio de 2018 |TBD |
-|~~WA-GUEST-OS-3.57_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
-|~~WA-GUEST-OS-3.56_201712-01~~ |4 de Janeiro de 2018 |19 de Março de 2018 |TBD |
-|~~WA-GUEST-OS-3.55_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
+| Cadeia de configuração | Data da versão | Desativar data |
+| --- | --- | --- |
+| WA-CONVIDADO-SO-3.64_201808-01 |12 de Setembro de 2018 |Post 3.66 |
+| WA-CONVIDADO-SO-3.63_201807-02 |3 de Agosto de 2018 |Post 3.65 |
+|~~WA-CONVIDADO-SO-3.62_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
+|~~WA-CONVIDADO-SO-3.61_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
+|~~WA-CONVIDADO-SO-3.60_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
+|~~WA-CONVIDADO-SO-3.59_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |
+|~~WA-CONVIDADO-SO-3.58_201802-01~~ |19 de Março de 2018 |4 de Maio de 2018 |
+|~~WA-GUEST-OS-3.57_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 de Janeiro de 2018 |19 de Março de 2018 |
+|~~WA-GUEST-OS-3.55_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
 
 
 ## <a name="family-2-releases"></a>Versões de família 2
@@ -158,25 +152,21 @@ SO de convidado de Outubro já lançada.
 
 .NET framework instalado: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> As datas com um * estão sujeitos à mudança
->
->
-
-| Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
-| --- | --- | --- | --- |
-| WA-CONVIDADO-SO-2.76_201807-02 |3 de Agosto de 2018 |Post 2.78 |TBD |
-| WA-CONVIDADO-SO-2.75_201806-01 |3 de julho de 2018 |Post 2.77 |TBD |
-|~~WA-CONVIDADO-SO-2.74_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018|TBD |
-|~~WA-CONVIDADO-SO-2.73_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-CONVIDADO-SO-2.72_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
-|~~WA-CONVIDADO-SO-2.71_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
-|~~WA-GUEST-OS-2.70_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
-|~~WA-GUEST-OS-2.69_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
-|~~WA-GUEST-OS-2.68_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-GUEST-OS-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
+| Cadeia de configuração | Data da versão | Desativar data |
+| --- | --- | --- |
+| WA-CONVIDADO-SO-2.77_201808-01 |12 de Setembro de 2018 |Post 2.79 |
+| WA-CONVIDADO-SO-2.76_201807-02 |3 de Agosto de 2018 |Post 2.78 |
+|~~WA-CONVIDADO-SO-2.75_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
+|~~WA-CONVIDADO-SO-2.74_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018|
+|~~WA-CONVIDADO-SO-2.73_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |
+|~~WA-CONVIDADO-SO-2.72_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |
+|~~WA-CONVIDADO-SO-2.71_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |
+|~~WA-GUEST-OS-2.70_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |
+|~~WA-GUEST-OS-2.68_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |
+|~~WA-GUEST-OS-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |
+|~~WA-GUEST-OS-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |
 
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
@@ -221,7 +211,7 @@ No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é a versão.
 A cadeia de configuração para o SO convidado tem essas mesmas informações incorporadas, juntamente com uma data que mostra quais patches do MSRC foram consideradas para aquela versão. Neste exemplo, os patches do MSRC produzido para o Windows Server 2008 R2 até e incluindo Agosto de 2012 foram considerados para inclusão. Apenas os patches aplicar especificamente para essa versão do Windows Server são incluídos. Por exemplo, se um patch do MSRC se aplicar ao Microsoft Office, ele não será incluído porque esse produto não faz parte da imagem base do Windows Server.
 
 ## <a name="guest-os-system-update-process"></a>Processo de atualização do sistema de SO convidado
-Esta página inclui informações sobre futuras versões do SO convidado. Os clientes indicado que elas querem saber quando uma versão ocorre porque as respetivas funções de serviço em nuvem serão reiniciado se forem definidos para a atualização "Automática". Versões de SO convidado normalmente ocorrem, pelo menos, cinco (5) dias depois do MSRC atualizar a versão que ocorre na segunda Terça-feira de cada mês. Novas versões incluem os patches MSRC relevantes para cada família de SO convidado.
+Esta página inclui informações sobre futuras versões do SO convidado. Os clientes indicado que elas querem saber quando uma versão ocorre porque as respetivas funções de serviço em nuvem serão reiniciado se forem definidos para a atualização "Automática". Versões de SO convidado normalmente ocorrem 2 a 3 semanas depois do MSRC atualizar a versão que ocorre na segunda Terça-feira de cada mês. Novas versões incluem os patches MSRC relevantes para cada família de SO convidado.
 
 Microsoft Azure está constantemente a lançar atualizações. O SO convidado é apenas um desse atualização no pipeline. Uma versão pode ser afetada por diversos fatores numerosos para relacionar aqui. Além disso, o Azure é executado numa literalmente centenas de milhares de máquinas. Isso significa que é impossível dar uma data e hora exatas quando as suas funções serão reiniciado. Estamos a trabalhar num plano para limitar ou reinícios de tempo.
 
