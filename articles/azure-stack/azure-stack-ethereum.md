@@ -1,27 +1,34 @@
 ---
 title: Modelo de solução de blockchain Ethereum de pilha do Azure
-description: Utilizar modelos de solução personalizada para implementar e configurar uma rede de blockchain consortium Ethereum no Azure Stack
+description: Tutorial sobre como utilizar um modelo de solução personalizada para implementar e configurar uma rede de blockchain consortium Ethereum no Azure Stack
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721990"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580774"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelos de soluções de blockchain Ethereum de pilha do Azure
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Tutorial: Utilizar o modelo de solução do Azure Stack Ethereum blockchain
 
 O modelo de solução Ethereum foi concebido para que seja mais fácil e rápido implementar e configurar uma rede do consórcio com vários membros Ethereum blockchain com o mínimo de conhecimento do Azure e Ethereum.
 
 Com um punhado de entradas do utilizador e uma implementação de clique único através do portal de inquilino do Azure Stack, cada membro pode aprovisionar a seus requisitos de espaço da rede. Requisitos de espaço de rede de cada membro é composta por um conjunto de nós de transação com balanceamento de carga com que uma aplicação ou o utilizador pode interagir para submeter transações, um conjunto de nós de extração para registrar transações e uma aplicação Virtual de rede (NVA). Um passo de ligação subsequentes liga-se as NVAs para criar uma rede de totalmente configurado com vários membros blockchain.
+
+Para configurar isso, irá:
+
+> [!div class="checklist"]
+> * Escolha uma arquitetura de implantação
+> * Implementar um autónomo, o líder de consórcio ou a rede de membro de consórcio
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -198,5 +205,13 @@ Após a implementação estiver concluída, demora alguns minutos para líder e 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre Ethereum e o Azure, veja [aplicativos e de tecnologia Blockchain | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Para obter mais informações sobre os cenários de blockchain no Azure, consulte [modelo de solução de prova de trabalho consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
+Neste tutorial, ficou a saber como:
+
+> [!div class="checklist"]
+> * Escolha uma arquitetura de implantação
+> * Implementar um autónomo, o líder de consórcio ou a rede de membro de consórcio
+
+Para saber mais sobre Ethereum e o Azure, veja:
+
+> [!div class="nextstepaction"]
+> [Tecnologia Blockchain e aplicações](https://azure.microsoft.com/solutions/blockchain/)

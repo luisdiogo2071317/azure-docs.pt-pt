@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 09/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714672"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544216"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir itens do marketplace do Azure para o Azure Stack
 
@@ -148,9 +148,9 @@ Existem duas partes para este cenário:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>O download de importar e publicar no Marketplace do Azure Stack
 1. Os ficheiros de imagens de máquinas virtuais ou modelos de soluções que tenha [transferido anteriormente](#use-the-marketplace-syndication-tool-to-download-marketplace-items) devem ser disponibilizados localmente para o seu ambiente do Azure Stack.  
 
-2. Utilize o portal de administração para carregar o pacote de item do marketplace (o arquivo .azpkg) para o armazenamento de Blobs do Azure Stack. Carregamento do pacote torna-o disponível para o Azure Stack para poder publicar o item mais tarde a pilha do Azure Marketplace.
+2. Utilize o portal de administração para carregar o pacote de item do marketplace (o arquivo .azpkg) e a imagem de disco rígido virtual (o ficheiro. vhd) para o armazenamento de Blobs do Azure Stack. Carregamento do pacote e ficheiros de disco torna-os disponíveis para o Azure Stack para poder publicar o item mais tarde para a pilha do Azure Marketplace.
 
-   Carregamento requer que tenha uma conta de armazenamento com um contentor publicamente acessível (consulte os pré-requisitos para este cenário)   
+   Carregamento requer que tenha uma conta de armazenamento com um contentor publicamente acessível (consulte os pré-requisitos para este cenário).  
    1. No portal de administração do Azure Stack, aceda a **todos os serviços** e, em seguida, sob o **dados + armazenamento** categoria, selecione **contas de armazenamento**.  
    
    2. Selecione uma conta de armazenamento da sua subscrição e, em seguida, em **serviço BLOB**, selecione **contentores**.  
@@ -159,7 +159,7 @@ Existem duas partes para este cenário:
    3. Selecione o contentor que pretende utilizar e, em seguida, selecione **carregue** para abrir o **carregar blob** painel.  
       ![Contentor](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. No painel de blob de carregamento, navegue para os ficheiros que pretende carregar para o armazenamento e, em seguida, selecione **carregar**.  
+   4. No painel de blob de carregamento, navegue para os ficheiros de pacote e um disco para carregar para o armazenamento e, em seguida, selecione **carregar**.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. Ficheiros que carrega são apresentados no painel de contentor. Selecione um ficheiro e, em seguida, copie o URL a partir da **propriedades do Blob** painel. Irá utilizar este URL no passo seguinte quando importar o item do marketplace para o Azure Stack.  Na imagem seguinte, o contentor está *test-armazenamento de BLOBs* e o ficheiro é *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  O ficheiro de URL é *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
@@ -169,7 +169,7 @@ Existem duas partes para este cenário:
 
    Pode obter o *publicador*, *oferecer*, e *sku* valores da imagem a partir do arquivo de texto que transfere com o arquivo AZPKG. O arquivo de texto é armazenado na localização de destino. O *versão* valor é a versão observada ao transferir o item a partir do Azure no procedimento anterior. 
  
-   No script de exemplo seguinte, são utilizados valores para o Windows Server 2016 Datacenter - máquina de virtual de Server Core. Substitua *URI_path* com o caminho para a localização de armazenamento de BLOBs para o item.
+   No script de exemplo seguinte, são utilizados valores para o Windows Server 2016 Datacenter - máquina de virtual de Server Core. O valor para *- Osuri* é um caminho de exemplo para a localização de armazenamento de BLOBs para o item.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ Existem duas partes para este cenário:
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **Sobre os modelos de solução:** alguns modelos podem incluir um pequeno de 3 MB. Ficheiro VHD com o nome **fixed3.vhd**. Não tem de importar esse ficheiro para o Azure Stack. Fixed3.vhd.  Este ficheiro é fornecido com alguns modelos de solução para satisfazer os requisitos de publicação para o Azure Marketplace.
 
@@ -198,7 +198,7 @@ Existem duas partes para este cenário:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Depois de publicar um item da galeria,-lo acedendo a **todos os serviços**. Em seguida, sob o **gerais** categoria, selecione **Marketplace**.  Se seu download é um modelo de solução, certifique-se de que adicione qualquer imagem VHD dependente para esse modelo de solução.  
+5. Depois de publicar um item da galeria, agora está disponível para utilização. Para confirmar o item da galeria é publicado, aceda a **todos os serviços**e, em seguida, sob o **gerais** categoria, selecione **Marketplace**.  Se seu download é um modelo de solução, certifique-se de que adicione qualquer imagem VHD dependente para esse modelo de solução.  
   ![Marketplace do Vista](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

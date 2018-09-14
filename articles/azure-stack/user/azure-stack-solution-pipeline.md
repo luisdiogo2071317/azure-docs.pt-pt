@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ad40f3efc123d313b2fd759889b0aa2621b3d7aa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300840"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542506"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: implementar aplicações no Azure e o Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e o Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
@@ -81,7 +81,7 @@ Este tutorial parte do princípio de que tenha algum conhecimento básico do Azu
  * Crie [plano/ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no Azure Stack.
  * Criar uma [subscrição do inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) no Azure Stack.
  * Crie uma aplicação Web na subscrição do inquilino. Tome nota do novo URL de aplicação Web para utilizar mais tarde.
- * Implemente a Máquina Virtual do Azure DevOps serviços na subscrição do inquilino.
+ * Implemente uma máquina de Virtual do Windows Server 2012 na subscrição do inquilino. Irá utilizar este servidor como servidor de compilação e para executar os serviços de DevOps do Azure.
 * Forneça uma imagem do Windows Server 2016 com o .NET 3.5 para uma máquina virtual (VM). Esta VM será criado no seu Azure Stack como um agente de compilação privada.
 
 ### <a name="developer-tool-requirements"></a>Requisitos da ferramenta de desenvolvedor
